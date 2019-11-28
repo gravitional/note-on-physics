@@ -1180,7 +1180,7 @@ $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 	$
 	%%\label{eq.6.1.2}
 	\begin{ytableau}
-		1 & 2 & \cdots & n \\
+		1 & 2 & \cdots & n
 	\end{ytableau}%%&\quad&
 	%%%%%+++++++++++++++++++++++
 	$
@@ -1192,11 +1192,47 @@ $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 		t \mathcal{Y}^{[n]}=t \sum\limits_i p_i = \sum\limits_i p_i=\mathcal{Y}^{[n]}
 	\end{equation}
 	
-	故杨图1对应1群的一维恒等表示
+	故杨图$[n]$对应$S_n$群的一维恒等表示
 \end{example}
 
 
+\begin{example}[$S_n$群的杨图$[1^n]$确定的不可约表示]
+	
+	该杨图只有一个正则杨表
+	%%%%%+++++++++++++++++++++++---------------------
+	$
+	%%\label{eq.6.1.2}
+	\begin{ytableau}
+	1 \\ 2 \\ \cdots \\ n
+	\end{ytableau}%%&\quad&
+	%%%%%+++++++++++++++++++++++
+	$
+	
+	该杨表的杨算符为\quad $\mathcal{Y}^{[n]}=\sum\limits_i \delta(q_i) q_i,\quad q_i \in S_n$
+	
+	由重排定理，对任意$t \in S_n $，有
+	\begin{equation}
+	t \mathcal{Y}^{[n]}=t \sum\limits_i \delta(q_i) q_i = \sum\limits_i \delta(q_i) t\,q_i
+	=t \sum\limits_i \delta(t\,q_i) t\,q_i
+	=\delta(t) \mathcal{Y}^{[n]}
+	\end{equation}
 
+	故杨图$[1^n]$对应$S_n$群的一维全反对称表示
+\end{example}
+
+\clearpage
+
+\begin{note}
+	%%some comment
+	\begin{enumerate}
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		一列的杨图对应一维全反对称表示
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		对于任意对换，出一个负号
+	\end{enumerate}
+\end{note}
 
 
 
