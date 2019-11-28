@@ -172,7 +172,8 @@
 %%字体设置
 %\RequirePackage{lmodern,fix-cm,type1cm}
 \RequirePackage{fontenc}
-\RequirePackage[no-math,cm-default]{fontspec}
+%\RequirePackage[no-math,cm-default]{fontspec}
+\RequirePackage[no-math]{fontspec}
 \defaultfontfeatures{Mapping=tex-text} 
 \RequirePackage{xunicode}
 \RequirePackage{xltxtra} 

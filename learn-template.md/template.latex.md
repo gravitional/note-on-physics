@@ -158,7 +158,7 @@ x,\quad x>0
 ```
 
 
-## 矩阵排列
+## 矩阵模板
 
 ```latex
 \begin{equation}\begin{aligned}
@@ -190,7 +190,7 @@ x,\quad x>0
 ```
 
 
-## 颜色声明
+## 常用颜色声明
 
 ```latex
 {\color{seco}text}
@@ -214,3 +214,45 @@ x,\quad x>0
 ```latex
 $(\lambda)=(\lambda_1,\lambda_2,\cdots \lambda_m)$
 ```
+
+
+## 杨图 diagrams 模板
+
+```latex
+\begin{equation}\begin{aligned}
+	%%\label{eq.6.1.2}
+	%%%%%+++++++++++++++++++++++---------------------
+	\ydiagram{4}&\quad&\ydiagram{3,1}&\quad&\ydiagram{2,2}\\
+	[4]&\quad&[3,1]&\quad&[2,2]
+	%%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+```
+
+
+## 杨表 tableaux  模板
+
+```latex
+\ytableausetup{mathmode, boxsize=2em}
+\begin{equation}\begin{aligned}
+%%\label{eq.6.1.2}
+%%%%%+++++++++++++++++++++++---------------------
+\begin{ytableau}
+a & d & f \\
+b & e & g \\
+c
+\end{ytableau}%%&\quad&
+%%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+```
+
+
+## 标题中使用数学模式
+
+```latex
+\section{The classes \texorpdfstring{$\mathcal{L}(\gamma)$}{Lg}}
+```
+
+```latex
+ \texorpdfstring{math objec}{Lg}
+```
+
