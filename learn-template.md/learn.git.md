@@ -138,6 +138,34 @@ test line9.
 
 > 当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 `git reset HEAD file`，就回到了场景1，第二步按场景1操作
 
+
+###  大恢复EXAMPLES
+
+>The following sequence switches to the master branch, reverts the Makefile to two revisions back, deletes hello.c by mistake, and gets it back from the index.
+
+```bash
+$ git switch master
+$ git restore --source master~2 Makefile  (1)
+$ rm -f hello.c
+$ git restore hello.c                     (2)
+```
+1. take a file out of another commit
+2. restore hello.c from the index
+
+> If you want to restore all C source files to match the version in the index, you can say
+
+```bahs
+$ git restore '*.c'
+```
+
+>Note the quotes around *.c. The file hello.c will also be restored, even though it is no longer in the working tree, because the file globbing is used to match entries in the index (not in the working tree by the shell).
+
+> To restore all files in the current directory
+
+```bahs
+$ git restore .
+```
+
 ### 删除一个文件
 
 `git rm`
