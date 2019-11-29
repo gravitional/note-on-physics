@@ -66,6 +66,17 @@ and
 
 `git commit -m [comment message]`
 
+### 修改最后一次注释
+
+>如果你只想修改最后一次注释（就是最新的一次提交），
+>[那好办](https://www.jianshu.com/p/098d85a58bf1)：
+
+`git commit --amend`
+
+>出现有注释的界面（你的注释应该显示在第一行）， 输入i进入修改模式，修改好注释后，按Esc键 退出编辑模式，输入:wq保存并退出。ok，修改完成。
+
+ 
+
 ## 时光机穿梭
 
 ### git status
