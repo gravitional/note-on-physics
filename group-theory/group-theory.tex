@@ -1,29 +1,7 @@
-\documentclass[cyan]{elegantnote}
+\documentclass[cn,11pt,device=pad,mode=simple]{elegantbook}
 
 
-\author{Thomas Young}
-\email{albertains@163.com}
-\zhtitle{群论}
-\entitle{Group Theory}
-\version{1.00}
-\myquote{Live long and prosperous.}
-\logo{logo.pdf}
-\cover{cover.pdf}
-
-%green color
-   \definecolor{main1}{RGB}{210,168,75}
-   \definecolor{seco1}{RGB}{9,80,3}
-   \definecolor{thid1}{RGB}{0,175,152}
-%cyan color
-   \definecolor{main2}{RGB}{239,126,30}
-   \definecolor{seco2}{RGB}{0,175,152}
-   \definecolor{thid2}{RGB}{236,74,53}
-%cyan color
-   \definecolor{main3}{RGB}{127,191,51}
-   \definecolor{seco3}{RGB}{0,145,215}
-   \definecolor{thid3}{RGB}{180,27,131}
-
-%%%%%%%%% start packages usual
+%%++++++++++++++++++++++++ start packages usual
 
 %%-------used already in elegantnote.cls-------------
 %\RequirePackage{graphicx}
@@ -48,8 +26,9 @@
 %\RequirePackage{pifont,manfnt}
 %\RequirePackage{fancyhdr}
 %\RequirePackage{lastpage}
-%%-------used already in elegantnote.cls-------------
+%%++++++++++++++++++++++++ used already in elegantnote.cls-------------
 
+%%++++++++++++++++++++++++ start usual package
 
 \usepackage{makecell}
 \usepackage{latexsym}
@@ -66,12 +45,11 @@
 %frakscaled=1,
 %scr=rsfs]{mathalpha}
 
+%%++++++++++++++++++++++++ end usual package
 
-%%%%%%%%% end packages usual
+%%++++++++++++++++++++++++ start packages high-energy-physics
 
-%%%%%%%%% start packages high-energy-physics
-
-%% Maths typesetting packages
+%%++++++++++++++++++++++++ Maths typesetting packages
 
 %\RequirePackage{amsmath} % ``Proper'' math commands and environments
 \usepackage{braket} % Dirac bra-ket notation
@@ -91,7 +69,16 @@
 %% SIunits package and HEP extensions
 \usepackage{hepunits} % imports SIunits with sensible options and HEP-specific units
 
-%%%%%%%%% end packages high-energy-physics 
+%%++++++++++++++++++++++++ end packages high-energy-physics 
+
+%%++++++++++++++++++++++++ start subfiles pkg
+
+\usepackage{subfiles}
+
+%%++++++++++++++++++++++++ end subfiles pkg
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%% start noun definitions
 \def\Lagrangian{拉格朗日量} %for example
@@ -99,19 +86,40 @@
 %%%%%%%%%%%%%%%%%%%%%% end noun definitions
 
 
-%%%%%%%%%%%%%%%%%%%%%% start equation number style
-\renewcommand{\thechapter}{\arabic{chapter}}
-\renewcommand{\theequation}{\thechapter.\arabic{equation}}
-%%%%%%%%%%%%%%%%%%%%%% end equation number style
+
+\title{Group Theory}
+\subtitle{Permutation and SU(N)}
+
+\author{Thomas Young}
+\institute{IHEP\&UCAS}
+\date{\today}
+\version{1.00}
+
+
+\extrainfo{Stay sleepy, stay tired}
+
+\logo{logo.png}
+\cover{cover.jpg}
 
 
 \begin{document}
+	
 \maketitle
+	
 \tableofcontents
+% \thispagestyle{empty}
+	
+\mainmatter
+
+\hypersetup{pageanchor=true}
 
 
-\input{chapter6/chapter6}
-\input{chapter8/chapter8}
+\subfile{chapter6/chapter6}
+
+\subfile{chapter8/chapter8}
+
+
+
 
 
 

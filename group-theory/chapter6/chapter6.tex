@@ -1,41 +1,39 @@
-%!TEX root = ..\group-theroy.tex
-%!TEX encoding = UTF-8 Unicode
+\documentclass[../group-theory.tex]{subfiles}
 
-%%%%set the counter of chapter
-%%% https://www.jianshu.com/p/9d53cc6a64b8
 \setcounter{chapter}{5}
 
 \chapter{置换群}
 
 置换群在物理和数学上的重要意义 ：
 \begin{enumerate}
-\item  置换群描写全同粒子体系的置换对称性
-\item  所有有限群都同构于置换群的子群
-\item  杨算符能明确描写张量指标间的复杂对称性
+	\item  置换群描写全同粒子体系的置换对称性
+	\item  所有有限群都同构于置换群的子群
+	\item  杨算符能明确描写张量指标间的复杂对称性
 \end{enumerate}
 
 
 \section{置换群的一般性质}
 
-\begin{newdef}[置换]
- $n$ 个客体排列次序的变换称为 {\color{seco}置换}；\\
- $n$ 个客体共有 $n!$ 个不同的置换
-\end{newdef}
+\begin{definition}{置换}{}
+	$n$ 个客体排列次序的变换称为 {\color{main} 置换}；\\
+	$n$ 个客体共有 $n!$ 个不同的置换
+\end{definition}
 
 
-\begin{newdef}[矩阵描写]
- 设原来排在第$j$位置的客体，经过置换$R$后排到了第$r_j$ 位置，用$2×n$矩阵来描写这一置换$R$
- \begin{equation}\begin{aligned}
- \label{eq.6.1.1}
-R=
-\begin{pmatrix}
-1&2&3&j&n\\
-r_1&r_2&r_3&r_j&r_n
-\end{pmatrix}
-\end{aligned}\end{equation}
-\end{newdef}
+\begin{definition}{矩阵描写}{}
+	设原来排在第$j$位置的客体，经过置换$R$后排到了第$r_j$ 位置，用$2×n$矩阵来描写这一置换$R$
+	\begin{equation}\begin{aligned}
+	\label{eq.6.1.1}
+	R=
+	\begin{pmatrix}
+	1&2&3&j&n\\
+	r_1&r_2&r_3&r_j&r_n
+	\end{pmatrix}
+	\end{aligned}\end{equation}
+\end{definition}
 
-\begin{example}[波函数]
+\begin{example} 置换作用于波函数
+	
 	\begin{equation}\begin{aligned}
 	\label{eq.6.1.2}
 	\psi={}&
@@ -65,20 +63,21 @@ r_1&r_2&r_3&r_j&r_n
 
 
 \begin{note}
-对一给定的置换，各列的排列次序无关紧要，
-重要的是每一列上下两个数字间的对应关系
+	对一给定的置换，各列的排列次序无关紧要，
+	重要的是每一列上下两个数字间的对应关系
 \end{note}
 
 
-\begin{newdef}[置换的乘积]
-两个{\color{seco}置换的乘积}定义为相继做两次置换\\
-考虑$S$和$R$的乘积$SR$：
-重新排列$R$或$S$的各列,使$R$的第二行和$S$的
-第一行排列一样，
-由$R$的第一行和$S$的第二行组成的$2×n$矩阵即为$SR$
-\end{newdef}
+\begin{definition}{置换的乘积}{}
+	两个{\color{main}置换的乘积}定义为相继做两次置换\\
+	考虑$S$和$R$的乘积$SR$：
+	重新排列$R$或$S$的各列,使$R$的第二行和$S$的
+	第一行排列一样，
+	由$R$的第一行和$S$的第二行组成的$2×n$矩阵即为$SR$
+\end{definition}
 
-\begin{example}[置换相乘]
+\begin{example} 置换相乘
+
 	\begin{equation}\begin{aligned}
 	\label{eq.6.1.3}
 	S={}&
@@ -91,7 +90,7 @@ r_1&r_2&r_3&r_j&r_n
 	1&2&3&4&5\\
 	3&1&2&4&5
 	\end{pmatrix}\\
-%%++++++++++++++++++++++++++++++++++	
+	%%++++++++++++++++++++++++++++++++++	
 	R={}&
 	\begin{pmatrix}
 	1&2&3&4&5\\
@@ -102,7 +101,7 @@ r_1&r_2&r_3&r_j&r_n
 	5&4&1&2&3\\
 	1&2&3&4&5
 	\end{pmatrix}\\
-%%++++++++++++++++++++++++++++++++++	
+	%%++++++++++++++++++++++++++++++++++	
 	SR={}&
 	\begin{pmatrix}
 	3&4&5&2&1\\
@@ -122,42 +121,43 @@ r_1&r_2&r_3&r_j&r_n
 \end{example}
 
 \begin{note}
-\begin{enumerate}
-\item 
-\label{6.1.permutation}
-$SR$可以理解为把$R$置换的第二行数字作$S$置换，
-	或者把$S$置换的第一行数字作$R^{-1}$置换
-	
-\item 置换用矩阵来描写，但置换的乘积不服从矩阵乘积规则
-\end{enumerate}
+	\begin{enumerate}
+		\item 
+		\label{6.1.permutation}
+		$SR$可以理解为把$R$置换的第二行数字作$S$置换，
+		或者把$S$置换的第一行数字作$R^{-1}$置换
+		
+		\item 置换用矩阵来描写，但置换的乘积不服从矩阵乘积规则
+	\end{enumerate}
 \end{note}
 
-\begin{newprop}[置换群]
-$n$个客体的$n!$个置换满足群的四个条件，构成群，
-称为{\color{seco}$n$个客体的置换群}，
-记作{\color{seco}$S_n$}
-\end{newprop}
+\begin{proposition}{置换群}{}
+	$n$个客体的$n!$个置换满足群的四个条件，构成群，
+	称为{\color{main}$n$个客体的置换群}，
+	记作{\color{main}$S_n$}
+\end{proposition}
 
 \begin{note}
-\begin{enumerate}
-	
-	\item 把置换的上下两行交换得到的置换是逆置换
+	\begin{enumerate}
 		
-	\item $n$个客体中$m$个客体的所有变换构成置换群$S_m$，
-	显然$S_m$是$S_n$的子群。
-	
-	\item 置换群的子群链:$S_n\supset S_{n-1}\supset S_{n-2}\supset \cdots \supset S_1=E$
-\end{enumerate}
+		\item 把置换的上下两行交换得到的置换是逆置换
+		
+		\item $n$个客体中$m$个客体的所有变换构成置换群$S_m$，
+		显然$S_m$是$S_n$的子群。
+		
+		\item 置换群的子群链:$S_n\supset S_{n-1}\supset S_{n-2}\supset \cdots \supset S_1=E$
+	\end{enumerate}
 \end{note}
 
-\begin{newdef}[轮换]
-{\color{seco}轮换} 是一类特殊的置换：
-$n-l$个客体保持不变，余下的$l$个客体顺序变换，
-形成一个循环；
-$l$称为{\color{seco}轮换长度}
-\end{newdef}
+\begin{definition}{轮换}{}
+	{\color{main}轮换} 是一类特殊的置换：
+	$n-l$个客体保持不变，余下的$l$个客体顺序变换，
+	形成一个循环；
+	$l$称为{\color{main}轮换长度}
+\end{definition}
 
-\begin{example}[轮换]
+\begin{example} 轮换
+	
 	\begin{equation}\begin{aligned}
 	\begin{pmatrix}
 	a_1&a_2&a_l
@@ -171,173 +171,174 @@ $l$称为{\color{seco}轮换长度}
 \end{example}
 
 \begin{note}
-\begin{enumerate}
-\item 用行矩阵描写轮换时，数字的排列次序不能改变，但可以顺序变换。
-\begin{equation}\begin{aligned}
-\begin{pmatrix}
-a&b&c&\cdots&p&q
-\end{pmatrix}=
-%%%%+++++++++++++++++++
-\begin{pmatrix}
-b&c&\cdots&p&q&a
-\end{pmatrix}=
-%%%%+++++++++++++++++++
-\begin{pmatrix}
-c&\cdots&p&q&a&b
-\end{pmatrix}
-\end{aligned}\end{equation}
-%%%%-------------------------
-\item 长度为$1$的轮换时恒等变换，长度为$2$的轮换称为{\color{seco}对换}，对换满足
-\begin{equation}\begin{aligned}
-\begin{pmatrix}
-a&b
-\end{pmatrix}={}&
-%%%%+++++++++++++++++++
-\begin{pmatrix}
-b&a
-\end{pmatrix}\\
-%%%%+++++++++++++++++++
-\begin{pmatrix}
-a&b
-\end{pmatrix}
-%%%%+++++++++++++++++++
-\begin{pmatrix}
-a&b
-\end{pmatrix}={}&
-E
-\end{aligned}\end{equation}
-%%%%-------------------------
-\item 
-长度为$l$的轮换，它的$l$次自乘等于恒元，即它的阶数为$l$
-\begin{equation}
-\begin{aligned}
-	R={}&
-\begin{pmatrix}
-a_1&a_2&\cdots&a_l
-\end{pmatrix}\\
-%%%%+++++++++++++++++++
-R^l={}&
-E
-\end{aligned}
-\end{equation}
-%%%%-------------------------
-\item 
-两个没有公共客体的轮换，乘积次序可以交换
-\begin{equation}
-\begin{aligned}
-%%%%%+++++++++++++++++
-&\begin{pmatrix}
-a_1&a_2&\cdots&a_l
-\end{pmatrix}
-%%%%%+++++++++++++++++
-\begin{pmatrix}
-b_1&b_2&\cdots&b_m
-\end{pmatrix}={}\\
-%%%%++++++++++++++++++
-%%%%%+++++++++++++++++
-&\begin{pmatrix}
-b_1&b_2&\cdots&b_m
-\end{pmatrix}
-%%%%++++++++++++++++++
-\begin{pmatrix}
-a_1&a_2&\cdots&a_l
-\end{pmatrix}
-%%%%%+++++++++++++++++
-\end{aligned}
-\end{equation}
-%%%%-------------------------
-\item 
-轮换的逆
-\begin{equation}
-\begin{aligned}
-%%%%%+++++++++++++++++
-&\begin{pmatrix}
-a_1&a_2&\cdots&a_{l-1}&a_l
-\end{pmatrix}^{-1}={}\\
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++
-&\begin{pmatrix}
-a_l&a_{l-1}&\cdots&a_{3}&a_2&a_1
-\end{pmatrix}
-%%%%%+++++++++++++++++
-\end{aligned}
-\end{equation}
-\end{enumerate}
+	\begin{enumerate}
+		\item 用行矩阵描写轮换时，数字的排列次序不能改变，但可以顺序变换。
+		\begin{equation}\begin{aligned}
+		\begin{pmatrix}
+		a&b&c&\cdots&p&q
+		\end{pmatrix}=
+		%%%%+++++++++++++++++++
+		\begin{pmatrix}
+		b&c&\cdots&p&q&a
+		\end{pmatrix}=
+		%%%%+++++++++++++++++++
+		\begin{pmatrix}
+		c&\cdots&p&q&a&b
+		\end{pmatrix}
+		\end{aligned}\end{equation}
+		%%%%-------------------------
+		\item 长度为$1$的轮换时恒等变换，长度为$2$的轮换称为{\color{main}对换}，对换满足
+		\begin{equation}\begin{aligned}
+		\begin{pmatrix}
+		a&b
+		\end{pmatrix}={}&
+		%%%%+++++++++++++++++++
+		\begin{pmatrix}
+		b&a
+		\end{pmatrix}\\
+		%%%%+++++++++++++++++++
+		\begin{pmatrix}
+		a&b
+		\end{pmatrix}
+		%%%%+++++++++++++++++++
+		\begin{pmatrix}
+		a&b
+		\end{pmatrix}={}&
+		E
+		\end{aligned}\end{equation}
+		%%%%-------------------------
+		\item 
+		长度为$l$的轮换，它的$l$次自乘等于恒元，即它的阶数为$l$
+		\begin{equation}
+		\begin{aligned}
+		R={}&
+		\begin{pmatrix}
+		a_1&a_2&\cdots&a_l
+		\end{pmatrix}\\
+		%%%%+++++++++++++++++++
+		R^l={}&
+		E
+		\end{aligned}
+		\end{equation}
+		%%%%-------------------------
+		\item 
+		两个没有公共客体的轮换，乘积次序可以交换
+		\begin{equation}
+		\begin{aligned}
+		%%%%%+++++++++++++++++
+		&\begin{pmatrix}
+		a_1&a_2&\cdots&a_l
+		\end{pmatrix}
+		%%%%%+++++++++++++++++
+		\begin{pmatrix}
+		b_1&b_2&\cdots&b_m
+		\end{pmatrix}={}\\
+		%%%%++++++++++++++++++
+		%%%%%+++++++++++++++++
+		&\begin{pmatrix}
+		b_1&b_2&\cdots&b_m
+		\end{pmatrix}
+		%%%%++++++++++++++++++
+		\begin{pmatrix}
+		a_1&a_2&\cdots&a_l
+		\end{pmatrix}
+		%%%%%+++++++++++++++++
+		\end{aligned}
+		\end{equation}
+		%%%%-------------------------
+		\item 
+		轮换的逆
+		\begin{equation}
+		\begin{aligned}
+		%%%%%+++++++++++++++++
+		&\begin{pmatrix}
+		a_1&a_2&\cdots&a_{l-1}&a_l
+		\end{pmatrix}^{-1}={}\\
+		%%%%%+++++++++++++++++
+		%%%%%+++++++++++++++++
+		&\begin{pmatrix}
+		a_l&a_{l-1}&\cdots&a_{3}&a_2&a_1
+		\end{pmatrix}
+		%%%%%+++++++++++++++++
+		\end{aligned}
+		\end{equation}
+	\end{enumerate}
 \end{note}
 
 
-\begin{newprop}[置换分解]
-{
-	\color{seco}任何一个置换，
-	都可以唯一地分解为没有公共客体的轮换乘积
-}
-\end{newprop}
+\begin{proposition}{置换分解}{}
+	{
+		\color{main}任何一个置换，
+		都可以唯一地分解为没有公共客体的轮换乘积
+	}
+\end{proposition}
 
 
-\begin{example}[置换分解]
+\begin{example} 置换分解
+	
 	%%some comment
-\begin{equation}\begin{aligned}
-%%\label{eq.6.1.2}
-%%%%%+++++++++++++++++++++++---------------------
-\begin{pmatrix}
-1&2&3&4&5\\
-3&4&5&2&1
-\end{pmatrix}={}&
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++
-\begin{pmatrix}
-1&3&5
-\end{pmatrix}
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++
-\begin{pmatrix}
-2&4
-\end{pmatrix}=
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++
-\begin{pmatrix}
-2&4
-\end{pmatrix}
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++
-\begin{pmatrix}
-1&3&5
-\end{pmatrix}\\
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++++++++---------------------
-\begin{pmatrix}
-1&2&3&4&5\\
-3&1&2&4&5
-\end{pmatrix}={}&
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++
-\begin{pmatrix}
-1&3&2
-\end{pmatrix}
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++
-\begin{pmatrix}
-4
-\end{pmatrix}
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++
-\begin{pmatrix}
-5
-\end{pmatrix}=
-%%%%%+++++++++++++++++
-%%%%%+++++++++++++++++
-\begin{pmatrix}
-1&3&2
-\end{pmatrix}
-%%%%%+++++++++++++++++
-\end{aligned}\end{equation}
+	\begin{equation}\begin{aligned}
+	%%\label{eq.6.1.2}
+	%%%%%+++++++++++++++++++++++---------------------
+	\begin{pmatrix}
+	1&2&3&4&5\\
+	3&4&5&2&1
+	\end{pmatrix}={}&
+	%%%%%+++++++++++++++++
+	%%%%%+++++++++++++++++
+	\begin{pmatrix}
+	1&3&5
+	\end{pmatrix}
+	%%%%%+++++++++++++++++
+	%%%%%+++++++++++++++++
+	\begin{pmatrix}
+	2&4
+	\end{pmatrix}=
+	%%%%%+++++++++++++++++
+	%%%%%+++++++++++++++++
+	\begin{pmatrix}
+	2&4
+	\end{pmatrix}
+	%%%%%+++++++++++++++++
+	%%%%%+++++++++++++++++
+	\begin{pmatrix}
+	1&3&5
+	\end{pmatrix}\\
+	%%%%%+++++++++++++++++
+	%%%%%+++++++++++++++++++++++---------------------
+	\begin{pmatrix}
+	1&2&3&4&5\\
+	3&1&2&4&5
+	\end{pmatrix}={}&
+	%%%%%+++++++++++++++++
+	%%%%%+++++++++++++++++
+	\begin{pmatrix}
+	1&3&2
+	\end{pmatrix}
+	%%%%%+++++++++++++++++
+	%%%%%+++++++++++++++++
+	\begin{pmatrix}
+	4
+	\end{pmatrix}
+	%%%%%+++++++++++++++++
+	%%%%%+++++++++++++++++
+	\begin{pmatrix}
+	5
+	\end{pmatrix}=
+	%%%%%+++++++++++++++++
+	%%%%%+++++++++++++++++
+	\begin{pmatrix}
+	1&3&2
+	\end{pmatrix}
+	%%%%%+++++++++++++++++
+	\end{aligned}\end{equation}
 \end{example}
 
 \begin{note}
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
-		\item aaa
-		把一置换分解为没有公共客体的轮换乘积时，各轮换长度的集合，称为该轮换的{\color{seco}轮换结构}
+		\item 
+		把一置换分解为没有公共客体的轮换乘积时，各轮换长度的集合，称为该轮换的{\color{main}轮换结构}
 		\begin{equation}\begin{aligned}
 		%%\label{eq.6.1.2}
 		%%%%%+++++++++++++++++++++++---------------------
@@ -380,7 +381,7 @@ a_l&a_{l-1}&\cdots&a_{3}&a_2&a_1
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
 		把一个正整数$n$分解为若干个正整数$l_i$之和，
-		这样的正整数的集合称为$n$的一组{\color{seco}配分数}
+		这样的正整数的集合称为$n$的一组{\color{main}配分数}
 		\begin{equation}\begin{aligned}
 		%%\label{eq.6.1.2}
 		%%%%%+++++++++++++++++++++++---------------------
@@ -402,39 +403,40 @@ a_l&a_{l-1}&\cdots&a_{3}&a_2&a_1
 	\end{enumerate}
 \end{note}
 
-\begin{newprop}[胶水公式]
+\begin{proposition}{胶水公式}{}
 	\begin{equation}\begin{aligned}
 	%%\label{eq.6.1.2}
 	%%%%%+++++++++++++++++++++++---------------------
 	\begin{pmatrix}
-	a&b&\cdots&c&{\color{seco}d}
+	a&b&\cdots&c&{\color{main}d}
 	\end{pmatrix}
 	%%%%%+++++++++++++++++++++++
 	%%%%%+++++++++++++++++++++++---------------------
 	\begin{pmatrix}
-	{\color{seco}d}&e&\cdots&f
+	{\color{main}d}&e&\cdots&f
 	\end{pmatrix}
 	%%%%%+++++++++++++++++++++++
 	%%%%%+++++++++++++++++++++++---------------------
 	=\begin{pmatrix}
-	a&b&\cdots&c&{\color{seco}d}&e&\cdots&f
+	a&b&\cdots&c&{\color{main}d}&e&\cdots&f
 	\end{pmatrix}
 	%%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
-\end{newprop}
+	\end{aligned}\end{equation}
+\end{proposition}
 
 \begin{note}
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
-		即，有一个公共客体的轮换乘积：在每个轮换内部，吧公共客体顺序移到最右或最左，然后按上式把两个轮换接起来。
+		处理有一个公共客体的轮换乘积：在每个轮换内部，把公共客体顺序移到最右或最左，然后按上式把两个轮换接起来。
 		
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 同理也可以把一个轮换分成两个轮换
 	\end{enumerate}
 \end{note}
 
-\begin{example}[轮换的合并与截断]
+\begin{example} 轮换的合并与截断
+	
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
@@ -468,154 +470,154 @@ a_l&a_{l-1}&\cdots&a_{3}&a_2&a_1
 		%%%%%+++++++++++++++++++++++
 		\end{aligned}\end{equation}
 		
-	%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	%%some comment
-	\begin{equation}\begin{aligned}
-	%%\label{eq.6.1.2}
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	1&2&3&4&5
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	={}&\begin{pmatrix}
-	1&2
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	2&3&4&5
-	\end{pmatrix}\\
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	={}&\begin{pmatrix}
-	1&2&3
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	3&4&5
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	=\begin{pmatrix}
-	1&2&3&4
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	4&5
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	\end{aligned}\end{equation}	
-	
-	
 		%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	%%多重复轮换截断
-	\begin{equation}\begin{aligned}
-	%%\label{eq.6.1.2}
-	%%%%%+++++++++++++++++++++++---------------------
-	&\phantom{{}={}}\begin{pmatrix}
-	5&1&2&4
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	4&3&2&6
-	\end{pmatrix}\\
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	&{}={}\begin{pmatrix}
-	5&1&2
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	2&4
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	4&3&2
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	2&6
-	\end{pmatrix}\\
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	&{}={}\begin{pmatrix}
-	5&1&2
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	2&4
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	2&4
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	4&3
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	2&6
-	\end{pmatrix}\\
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	&{}={}\begin{pmatrix}
-	5&1&2
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	2&6
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	4&3
-	\end{pmatrix}\\
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	&{}={}\begin{pmatrix}
-	5&1&2&6
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{pmatrix}
-	4&3
-	\end{pmatrix}
-	%%%%%+++++++++++++++++++++++
-	\end{aligned}\end{equation}	
-	
-{\color{seco}把轮换拆成相邻两个轮换只含一个重复公共客体的形式后再相乘}	
+		\item 
+		%%some comment
+		\begin{equation}\begin{aligned}
+		%%\label{eq.6.1.2}
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		1&2&3&4&5
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		={}&\begin{pmatrix}
+		1&2
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		2&3&4&5
+		\end{pmatrix}\\
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		={}&\begin{pmatrix}
+		1&2&3
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		3&4&5
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		=\begin{pmatrix}
+		1&2&3&4
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		4&5
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		\end{aligned}\end{equation}	
+		
+		
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		%%多重复轮换截断
+		\begin{equation}\begin{aligned}
+		%%\label{eq.6.1.2}
+		%%%%%+++++++++++++++++++++++---------------------
+		&\phantom{{}={}}\begin{pmatrix}
+		5&1&2&4
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		4&3&2&6
+		\end{pmatrix}\\
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		&{}={}\begin{pmatrix}
+		5&1&2
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		2&4
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		4&3&2
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		2&6
+		\end{pmatrix}\\
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		&{}={}\begin{pmatrix}
+		5&1&2
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		2&4
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		2&4
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		4&3
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		2&6
+		\end{pmatrix}\\
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		&{}={}\begin{pmatrix}
+		5&1&2
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		2&6
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		4&3
+		\end{pmatrix}\\
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		&{}={}\begin{pmatrix}
+		5&1&2&6
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{pmatrix}
+		4&3
+		\end{pmatrix}
+		%%%%%+++++++++++++++++++++++
+		\end{aligned}\end{equation}	
+		
+		{\color{main}把轮换拆成相邻两个轮换只含一个重复公共客体的形式后再相乘}	
 	\end{enumerate}	
 \end{example}
 
-\begin{newprop}[置换群的类]
+\begin{proposition}{置换群的类}{}
 	\begin{enumerate}
-	\item $R$的共轭元素：$SRS^{-1}$
+		\item $R$的共轭元素：$SRS^{-1}$
 		
-	\item 把$R$置换的上下两行数字同时作$S$置换即得$R$置换的共轭元素$SRS^{-1}$
+		\item 把$R$置换的上下两行数字同时作$S$置换即得$R$置换的共轭元素$SRS^{-1}$
 		
-	\item 互相共轭的两个置换有相同的轮换结构
+		\item 互相共轭的两个置换有相同的轮换结构
 	\end{enumerate}
-\end{newprop}
+\end{proposition}
 
 
-\begin{newproof}
-reference:(\ref{6.1.permutation}) ,
-当$R$是轮换时,
+\begin{note} 参考 note-\ref{6.1.permutation}
+	
+	当$R$是轮换时,
 	\begin{equation}\begin{aligned}
 	%%\label{eq.6.1.2}
 	S
@@ -624,26 +626,26 @@ reference:(\ref{6.1.permutation}) ,
 	=\begin{pmatrix}S_a&S_b&S_c&\cdots &S_d\end{pmatrix}
 	\end{aligned}\end{equation}
 	\begin{enumerate}
-			
-	\item	共轭轮换不改变轮换的长度，只改变轮换设计的客体编号
-	
-	\item 互相共轭的两置换具有相同的轮换结构
-	
-	\item 亦可证明，有相同轮换结构的两置换必定互相共轭
-	
+		
+		\item	共轭轮换不改变轮换的长度，只改变轮换设计的客体编号
+		
+		\item 互相共轭的两置换具有相同的轮换结构
+		
+		\item 亦可证明，有相同轮换结构的两置换必定互相共轭
+		
 	\end{enumerate}
-\end{newproof}
+\end{note}
 
 \begin{note}
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
-		\item {\color{seco}置换群的类由置换的轮换结构来描写}
+		\item {\color{main}置换群的类由置换的轮换结构来描写}
 		%%%%%+++++++++++++++++++++++---------------------
-		\item {\color{seco}置换群的类数等于整数$n$分解为不同配分数的数目}
+		\item {\color{main}置换群的类数等于整数$n$分解为不同配分数的数目}
 	\end{enumerate}
 \end{note}
 
-\begin{newthem}[类的元素数目]
+\begin{theorem}{类的元素数目}{}
 	如果群$S_n$的类包含$\nu_1$个$1$循环，$\nu_2$个$2$循环，$\cdots$，$\nu_n$个$n$循环，即它的轮换结构为
 	\begin{equation}\begin{aligned}
 	%%\label{eq.6.1.2}
@@ -655,103 +657,98 @@ reference:(\ref{6.1.permutation}) ,
 	%%\label{eq.6.1.2}
 	C_l=\frac{n!}
 	{
-	1^{\nu_1}2^{\nu_2}\cdots n^{\nu_n}
-	\nu_1! \nu_2! \cdots \nu_n!
+		1^{\nu_1}2^{\nu_2}\cdots n^{\nu_n}
+		\nu_1! \nu_2! \cdots \nu_n!
 	}
 	\end{aligned}\end{equation}
-\end{newthem}
+\end{theorem}
 
-\begin{newproof}
-	略
-%	%comment
-%	\begin{equation}\begin{aligned}
-%	%%\label{eq.6.1.2}
-%	
-%	\end{aligned}\end{equation}
-\end{newproof}
+%\begin{note}
+%	证明略
+%	%	%comment
+%	%	\begin{equation}\begin{aligned}
+%	%	%%\label{eq.6.1.2}
+%	%	
+%	%	\end{aligned}\end{equation}
+%\end{note}
 
-\begin{newlemma}[置换群元的奇偶性]
+\begin{lemma}{置换群元的奇偶性}{}
 	%%some comment
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
 		任何置换都可分解为若干个对换的乘积，分解方式不唯一，但它包含对换个数的奇偶性是确定的\\
-		长度为{\color{seco}奇数}的轮换可分解为{\color{seco}偶数}个对换的乘积--{\color{seco}偶置换}\\
-		长度为{\color{seco}偶数}的轮换可分解为{\color{seco}奇数}个对换的乘积--{\color{seco}奇置换}
+		长度为{\color{main}奇数}的轮换可分解为{\color{main}偶数}个对换的乘积--{\color{main}偶置换}\\
+		长度为{\color{main}偶数}的轮换可分解为{\color{main}奇数}个对换的乘积--{\color{main}奇置换}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
-		两个{\color{seco}偶置换}或两个{\color{seco}奇置换}的乘积是{\color{seco}偶置换}\\
-		一个{\color{seco}偶置换}和一个{\color{seco}奇置换}的乘积是{\color{seco}奇置换}\\
+		两个{\color{main}偶置换}或两个{\color{main}奇置换}的乘积是{\color{main}偶置换}\\
+		一个{\color{main}偶置换}和一个{\color{main}奇置换}的乘积是{\color{main}奇置换}\\
 		恒元是偶置换
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
 		$n>1$时候，除了恒等表示，$S_n$至少还有一个一维非恒等表示，称为反对称表示，\\
-		置换$R$在在该表示中的值称为它的{\color{seco}置换宇称}，记作$\delta(R)$
+		置换$R$在在该表示中的值称为它的{\color{main}置换宇称}，记作$\delta(R)$
 		\begin{equation}\begin{aligned}
 		%%\label{eq.6.1.2}
-			\delta(R)=
-			%%%%%+++++++++++++++++++++++
-			\begin{cases}
-			{1},\quad &\text{$R$是偶置换 } \\
-			%%%%%+++++++++++++++++++++++
-			{-1},\quad &\text{$R$是奇置换}
-			\end{cases}
+		\delta(R)=
+		%%%%%+++++++++++++++++++++++
+		\begin{cases}
+		{1},\quad &\text{$R$是偶置换 } \\
+		%%%%%+++++++++++++++++++++++
+		{-1},\quad &\text{$R$是奇置换}
+		\end{cases}
 		\end{aligned}\end{equation}
 	\end{enumerate}
-\end{newlemma}
+\end{lemma}
 
 
-\begin{newdef}[交变子群]
+\begin{definition}{交变子群}{}
 	\begin{enumerate}
-	\item 
-	置换群中所有偶置换的集合构成指数为$2$的不变子群，
-	称为{\color{seco} 交变子群 }
-	\item
-	奇置换的集合是它的陪集
-	商群是$c_2$群
+		\item 
+		置换群中所有偶置换的集合构成指数为$2$的不变子群，
+		称为{\color{main} 交变子群 }
+		\item
+		奇置换的集合是它的陪集
+		商群是$c_2$群
 	\end{enumerate}
-\end{newdef}
+\end{definition}
 
 
-\begin{newlemma}[置换群的生成元]
+\begin{lemma}{置换群的生成元}{}
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
 		相邻客体的对换：$P_a=(a~~a+1)$
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
-		任何置换都可以写成{\color{seco}无公共客体}轮换的乘积，任何轮换都可分解为若干对换的乘积。
+		任何置换都可以写成{\color{main}无公共客体}轮换的乘积，任何轮换都可分解为若干对换的乘积。
 		%%%%%+++++++++++++++++++++++---------------------
 		\item
-		任何对换都可以表示为{\color{seco}相邻客体}对换的乘积
+		任何对换都可以表示为{\color{main}相邻客体}对换的乘积
 		%%%%%+++++++++++++++++++++++---------------------
 		\item
-		任何置换都可以表示为{\color{seco}相邻客体对换}的乘积
+		任何置换都可以表示为{\color{main}相邻客体对换}的乘积
 		%%%%%+++++++++++++++++++++++---------------------
 		\item
 		引入长度为$n$的轮换$W=(1~~2~~\cdots~~n)$\\
 		则：$P_a=W P_{a-1} W^{-1}=W^2 P_{a-2} W^{-2}=\cdots=W^{a-1} P_{1} W^{-(a-1)}$\\
-		即：{\color{seco}任何相邻客体的对换可由$W$和$P_{1}$生成}
+		即：{\color{main}任何相邻客体的对换可由$W$和$P_{1}$生成}
 	\end{enumerate}
-\end{newlemma}
+\end{lemma}
 
-\begin{newthem}[置换群的生成元]
+\begin{theorem}{置换群的生成元}{}
 	置换群的生成元是$W$和$P_{1}$，置换群的秩为$2$
-\end{newthem}
+\end{theorem}
 
 \clearpage
 
-\begin{newthem}[Cayley定理]
+\begin{theorem}{Cayley定理}{}
 	任何一个$n$阶有限群都与置换群$S_n$的一个子群同构
-\end{newthem}
-
-\begin{newthem}[Cayley定理]
-	任何一个$n$阶有限群都与置换群$S_n$的一个子群同构
-\end{newthem}
+\end{theorem}
 
 
-
-\begin{newcorol}[$n$阶有限群的数目]
+\begin{corollary}{$n$阶有限群的数目}{}
 	%%some comment
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
@@ -765,13 +762,13 @@ reference:(\ref{6.1.permutation}) ,
 		\item 
 		不同构的$n$阶有限群的数目是有限的
 	\end{enumerate}
-\end{newcorol}
+\end{corollary}
 
-\clearpage
+%\clearpage
 
 \section{杨图、杨表和杨算符}
 
-\begin{newlemma}[aa]
+\begin{lemma}{置换}{置换群$S_n$的类}
 	%%some comment
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
@@ -784,18 +781,18 @@ reference:(\ref{6.1.permutation}) ,
 		不等价不可约表示也可以用配分数来描写，\\
 		记作$[\lambda]=[\lambda_1,\lambda_2,\cdots \lambda_m]$，其中
 		\begin{equation}
-			\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_m \geq 0,~~\sum\limits_{j=1}^m\lambda_j=n
+		\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_m \geq 0,~~\sum\limits_{j=1}^m\lambda_j=n
 		\end{equation}
 		不过，由相同配分数描写的类和不等价不可约表示并无任何关系。
 	\end{enumerate}
-\end{newlemma}
+\end{lemma}
 
-\begin{newdef}[杨图]
+\begin{definition}{杨图}{}
 	对配分数$[\lambda]=[\lambda_1,\lambda_2,\cdots \lambda_3,]$，
-	画$m$行放个图，{\color{seco}左边对齐}，\\
+	画$m$行放个图，{\color{main}左边对齐}，\\
 	第一行含$\lambda_1$个，第二行含$\lambda_2$格，以此类推，\\
-	这样的方格图称为配分数$[\lambda]$对应的{\color{seco}杨图}，简称杨图$[\lambda]$
-\end{newdef}
+	这样的方格图称为配分数$[\lambda]$对应的{\color{main}杨图}，简称杨图$[\lambda]$
+\end{definition}
 
 
 \begin{note}
@@ -805,22 +802,23 @@ reference:(\ref{6.1.permutation}) ,
 		\item 
 		杨图中，上面行的格子数不少于下面行的格子数，\\
 		左边列的格子数不少于右边列的格子数
-		为强调这一规则，称它为{\color{seco}正则杨图}。
+		为强调这一规则，称它为{\color{main}正则杨图}。
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
-		{\color{seco}每个杨图都唯一地对应于置换群$S_n$的一个不可约表示，
+		{\color{main}每个杨图都唯一地对应于置换群$S_n$的一个不可约表示，
 			不同杨图对应的不可约表示不等价。
 		}
-	
+		
 		\item 
-		{\color{seco}杨图的大小}：
+		{\color{main}杨图的大小}：
 		从第一行开始逐行比较，格子多的杨图大
 	\end{enumerate}
 \end{note}
 
 
 
-\begin{example}[$S_4$ 群的杨图从大到小排列为]
+\begin{example} $S_4$ 群的杨图从大到小排列为
+	
 	%%some comment
 	\begin{equation}\begin{aligned}
 	%%\label{eq.6.1.2}
@@ -838,7 +836,7 @@ reference:(\ref{6.1.permutation}) ,
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
 		把杨图$[\lambda]$的行和列互换得到的杨图$[\tilde{\lambda}]$
-		称为杨图$[\lambda]$的{\color{seco}对偶杨图}，对应的不可约表示称为对偶表示\\
+		称为杨图$[\lambda]$的{\color{main}对偶杨图}，对应的不可约表示称为对偶表示\\
 		例：$S_3$群的杨图$[3]$和$[1^3]$互为对偶杨图\\
 		\phantom{例：}$S_4$群的杨图$[4]$和$[1^4]$以及$[3,1]$和$[2,1^2]$分别为对偶杨图
 		%%%%%+++++++++++++++++++++++---------------------
@@ -850,68 +848,68 @@ reference:(\ref{6.1.permutation}) ,
 \end{note}
 
 
-\begin{newdef}[杨表与正则杨表]
-%%some comment
-\begin{enumerate}
-	%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	对于给定的杨表$[\lambda]$，把$1$到$n$的$n$个自然数分别填入杨图的$n$个格子中，
-	就得到一个{\color{seco}杨表}
-	%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	$n$格的杨图有$n!$个不同的杨表
-	%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	如果在杨表的每一行中，左面的填数小于右边的填数，在每一列中，
-	上面的填数小于下面的填数，则此杨表称为{\color{seco}正则杨表}
-	%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	{\color{seco}正则杨表的大小}：同一杨图对应的正则杨表，
-	从第一行开始逐行从左到右比较它们的填数，第一次出现填数不同时，填数大的杨表大
-	
-	%%%%%+++++++++++++++++++++++---------------------
-	例如，杨图1对应的全部正则杨表从小到大排列为
-	\ytableausetup{mathmode, boxsize=1.2em}
-	\begin{equation}\begin{aligned}
-	%%\label{eq.6.1.2}
-	%%%%%+++++++++++++++++++++++---------------------
-	\begin{ytableau}
-	1 & 2 & 3 \\
-	4 & 5  \\
-	\end{ytableau}&\quad&
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++
-	\begin{ytableau}
-	1 & 2 & 4 \\
-	3 & 5   \\
-	\end{ytableau}&\quad&
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++
-	\begin{ytableau}
-	1 & 2 & 5 \\
-	3 & 4   \\
-	\end{ytableau}&\quad&
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++
-	\begin{ytableau}
-	1 & 3 & 4 \\
-	2 & 5   \\
-	\end{ytableau}&\quad&
-	%%%%%+++++++++++++++++++++++
-	%%%%%+++++++++++++++++++++++
-	\begin{ytableau}
-	1 & 3 & 5 \\
-	2 & 4   \\
-	\end{ytableau}
-	%%%%%+++++++++++++++++++++++
-	\end{aligned}\end{equation}
-\end{enumerate}
-\end{newdef}
+\begin{definition}{杨表与正则杨表}{}
+	%%some comment
+	\begin{enumerate}
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		对于给定的杨表$[\lambda]$，把$1$到$n$的$n$个自然数分别填入杨图的$n$个格子中，
+		就得到一个{\color{main}杨表}
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		$n$格的杨图有$n!$个不同的杨表
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		如果在杨表的每一行中，左面的填数小于右边的填数，在每一列中，
+		上面的填数小于下面的填数，则此杨表称为{\color{main}正则杨表}
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		{\color{main}正则杨表的大小}：同一杨图对应的正则杨表，
+		从第一行开始逐行从左到右比较它们的填数，第一次出现填数不同时，填数大的杨表大
+		
+		%%%%%+++++++++++++++++++++++---------------------
+		例如，杨图1对应的全部正则杨表从小到大排列为
+		\ytableausetup{mathmode, boxsize=1.2em}
+		\begin{equation}\begin{aligned}
+		%%\label{eq.6.1.2}
+		%%%%%+++++++++++++++++++++++---------------------
+		\begin{ytableau}
+		1 & 2 & 3 \\
+		4 & 5  \\
+		\end{ytableau}&\quad&
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++
+		\begin{ytableau}
+		1 & 2 & 4 \\
+		3 & 5   \\
+		\end{ytableau}&\quad&
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++
+		\begin{ytableau}
+		1 & 2 & 5 \\
+		3 & 4   \\
+		\end{ytableau}&\quad&
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++
+		\begin{ytableau}
+		1 & 3 & 4 \\
+		2 & 5   \\
+		\end{ytableau}&\quad&
+		%%%%%+++++++++++++++++++++++
+		%%%%%+++++++++++++++++++++++
+		\begin{ytableau}
+		1 & 3 & 5 \\
+		2 & 4   \\
+		\end{ytableau}
+		%%%%%+++++++++++++++++++++++
+		\end{aligned}\end{equation}
+	\end{enumerate}
+\end{definition}
 
 
-\begin{newthem}[维数定理]
-{\color{seco}置换群$S_n$的不可约表示$[\lambda]$的维数，等于杨图$[\lambda]$对应的正则杨表的个数}
-\end{newthem}
+\begin{theorem}{维数定理}{}
+	{\color{main}置换群$S_n$的不可约表示$[\lambda]$的维数，等于杨图$[\lambda]$对应的正则杨表的个数}
+\end{theorem}
 
 \begin{note}
 	%%some comment
@@ -928,18 +926,19 @@ reference:(\ref{6.1.permutation}) ,
 		\begin{equation}\begin{aligned}
 		%%\label{eq.6.1.2}
 		%%%%%+++++++++++++++++++++++---------------------
-		{\color{seco}d_{[\lambda]}(S_n)=\frac{n!}{\prod\limits_{ij}h_{ij}}}
+		{\color{main}d_{[\lambda]}(S_n)=\frac{n!}{\prod\limits_{ij}h_{ij}}}
 		%%%%%+++++++++++++++++++++++
 		\end{aligned}\end{equation}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
-		{\color{seco}钩形数杨表}：将杨图$[\lambda]$中每格的钩形数$h_{ij}$填入该杨图，
+		{\color{main}钩形数杨表}：将杨图$[\lambda]$中每格的钩形数$h_{ij}$填入该杨图，
 		得到的杨表称为该杨表的钩形数杨表
 	\end{enumerate}
 \end{note}
 
 
-\begin{example}[$S_3$群各个不可约表示的维数]
+\begin{example}  $S_3$群各个不可约表示的维数
+	
 	%%some comment
 	\begin{equation}\begin{aligned}
 	%%\label{eq.6.1.2}
@@ -1002,108 +1001,109 @@ reference:(\ref{6.1.permutation}) ,
 $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 考虑杨图$[\lambda]$对应的某一正则杨表
 
-\begin{newlemma}[横纵置换]
-\begin{enumerate}
-
-	%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	保持杨表中同一行数字只在这一行中变动的置换称为{\color{seco}横向置换}，记作$p$，
-	所有横向置换的集合记作$R(\lambda)=\{p|p\in S_n \}$.
-	%%%%%+++++++++++++++++++++++*********************
+\begin{lemma}{横纵置换}{}
 	\begin{enumerate}
-	%%%%%+++++++++++++++++++++++*********************
-	\item 
-	第$i$行$\lambda_i$个数字间的$\lambda_i !$个横向置换构成的集合构成$S_n$群的子群$P_i$
-	%%%%%+++++++++++++++++++++++*********************
-	\item 
-	$m$行的正则杨表共有$m$个这样的子群，
-	它们的直乘\footnote{恒元为唯一公共元素，分属不同子群的元素可对易}
-	构成$S_n$群$\lambda_1! \lambda_2! \cdots \lambda_m!$阶的子群，
-	记为$R(\lambda)=P_1\otimes P_2\otimes \cdots \otimes P_m$
+		
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		保持杨表中同一行数字只在这一行中变动的置换称为{\color{main}横向置换}，记作$p$，
+		所有横向置换的集合记作$R(\lambda)=\{p|p\in S_n \}$.
+		%%%%%+++++++++++++++++++++++*********************
+		\begin{enumerate}
+			%%%%%+++++++++++++++++++++++*********************
+			\item 
+			第$i$行$\lambda_i$个数字间的$\lambda_i !$个横向置换构成的集合构成$S_n$群的子群$P_i$
+			%%%%%+++++++++++++++++++++++*********************
+			\item 
+			$m$行的正则杨表共有$m$个这样的子群，
+			它们的直乘\footnote{恒元为唯一公共元素，分属不同子群的元素可对易}
+			构成$S_n$群$\lambda_1! \lambda_2! \cdots \lambda_m!$阶的子群，
+			记为$R(\lambda)=P_1\otimes P_2\otimes \cdots \otimes P_m$
+		\end{enumerate}
+		%%%%%+++++++++++++++++++++++---------------------
+		\item
+		保持杨表中同一列数字只在这一列中变动的置换称为1纵向置换，记作1，所有纵向置换的集合记作1.
+		%%%%%+++++++++++++++++++++++*********************
+		\begin{enumerate}
+			%%%%%+++++++++++++++++++++++*********************
+			\item 
+			第$j$列$\tau_j$个数字间的$\tau_j!$个纵向置换构成的集合构成$S_n$群的子群$Q_j$
+			%%%%%+++++++++++++++++++++++*********************
+			\item 
+			$\lambda_1$列的正则杨表共有$\lambda_1$个这样的子群，
+			它们的直乘构成$S_n$群$\tau_1! \tau_2! \cdots \tau_m!$阶的子群，
+			记为$C(\lambda)=Q_1\otimes Q_2\otimes \cdots \otimes Q_{\lambda_1}$
+		\end{enumerate}	
 	\end{enumerate}
-	%%%%%+++++++++++++++++++++++---------------------
-	\item
-	保持杨表中同一列数字只在这一列中变动的置换称为1纵向置换，记作1，所有纵向置换的集合记作1.
-	%%%%%+++++++++++++++++++++++*********************
-	\begin{enumerate}
-	%%%%%+++++++++++++++++++++++*********************
-	\item 
-	第$j$列$\tau_j$个数字间的$\tau_j!$个纵向置换构成的集合构成$S_n$群的子群$Q_j$
-	%%%%%+++++++++++++++++++++++*********************
-	\item 
-	$\lambda_1$列的正则杨表共有$\lambda_1$个这样的子群，
-	它们的直乘构成$S_n$群$\tau_1! \tau_2! \cdots \tau_m!$阶的子群，
-	记为$C(\lambda)=Q_1\otimes Q_2\otimes \cdots \otimes Q_{\lambda_1}$
-	\end{enumerate}	
-\end{enumerate}
-\end{newlemma}
+\end{lemma}
 
 
-\begin{newlemma}[横算符和纵算符]
+\begin{lemma}{横算符和纵算符}{}
 	%%some comment
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
-		所有横向置换之和称为给定杨表的{\color{seco}横算符}
+		所有横向置换之和称为给定杨表的{\color{main}横算符}
 		{
-		\color{seco}
-		\begin{equation}
+			\color{main}
+			\begin{equation}
 			\mathcal{P}=\sum\limits_{p\in R(\lambda)}=\prod\limits_i P_i
-		\end{equation}
+			\end{equation}
 		}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
 		所有纵向置换乘以置换宇称后相加，称为给定杨表的纵算符
 		{
-			\color{seco}
+			\color{main}
 			\begin{equation}
 			\mathcal{Q}=\sum\limits_{q\in C(\lambda)} \delta(q) q
 			\end{equation}
 		}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item
-	横算符和纵算符之乘积称为给定杨表的{\color{seco}杨算符}，
-	正则杨表对应的杨算符称为{\color{seco}正则杨算符}。
-	{
-		\color{seco}
-		\begin{equation}
-		\mathcal{Y}
-		=\mathcal{P}\mathcal{Q}
-		=\sum\limits_{p\in R(\lambda)} \sum\limits_{q\in C(\lambda)}
-		\delta(q)\,p\,q
-		\end{equation}
-	}
-	%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	横向置换、纵向置换、横算符、纵算符、杨算符均为群代数中的矢量
-	%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	横向置换的集合$R(\lambda)$与纵向置换的集合$C(\lambda)$只有一个公共元素恒元，
-	故杨算符$\mathcal{Y}$展开式中每一项$p\,q$都是$S_n$群的不同元素，
-	因此{\color{seco}$\mathcal{Y}\neq 0$}
-	%%%%%+++++++++++++++++++++++---------------------
-	\item 
-	只有在给定杨图和杨表时，才能写出杨算符$\mathcal{Y}$，
-	故通常把杨算符$\mathcal{Y}$对应的杨图和杨表，称为杨图$\mathcal{Y}$和杨表$\mathcal{Y}$；
-	若单独说$\mathcal{Y}$，则指杨算符本身
+		横算符和纵算符之乘积称为给定杨表的{\color{main}杨算符}，
+		正则杨表对应的杨算符称为{\color{main}正则杨算符}。
+		{
+			\color{main}
+			\begin{equation}
+			\mathcal{Y}
+			=\mathcal{P}\mathcal{Q}
+			=\sum\limits_{p\in R(\lambda)} \sum\limits_{q\in C(\lambda)}
+			\delta(q)\,p\,q
+			\end{equation}
+		}
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		横向置换、纵向置换、横算符、纵算符、杨算符均为群代数中的矢量
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		横向置换的集合$R(\lambda)$与纵向置换的集合$C(\lambda)$只有一个公共元素恒元，
+		故杨算符$\mathcal{Y}$展开式中每一项$p\,q$都是$S_n$群的不同元素，
+		因此{\color{main}$\mathcal{Y}\neq 0$}
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		只有在给定杨图和杨表时，才能写出杨算符$\mathcal{Y}$，
+		故通常把杨算符$\mathcal{Y}$对应的杨图和杨表，称为杨图$\mathcal{Y}$和杨表$\mathcal{Y}$；
+		若单独说$\mathcal{Y}$，则指杨算符本身
 	\end{enumerate}
-\end{newlemma}
+\end{lemma}
 
 \begin{note}
 	%%some comment
 	\begin{enumerate}
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
-		给定杨表{\color{seco}横算符的写法}：
+		给定杨表{\color{main}横算符的写法}：
 		先把每一行的横向置换加起来，再把不同行的横向置换之和乘起来
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
-		给定杨表{\color{seco}纵算符的写法}：先把每一列的所有纵向置换乘上各自的置换宇称后加起来，
+		给定杨表{\color{main}纵算符的写法}：先把每一列的所有纵向置换乘上各自的置换宇称后加起来，
 		再把不同列的纵向置换之代数和乘起来
 	\end{enumerate}
 \end{note}
 
-\begin{example}[$S_3$群各不可约表示杨图对应的正则杨表的杨算符]
+\begin{example} $S_3$群各不可约表示杨图对应的正则杨表的杨算符
+	
 	\ytableausetup{mathmode, boxsize=1em}
 	\begin{equation}\begin{aligned}
 	%%\label{eq.6.1.2}
@@ -1146,12 +1146,12 @@ $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 
 \section{置换群的不可约标准表示}
 
-\begin{newthem}[置换群的原始幂等元]
-	{\color{seco}杨算符$\mathcal{Y}$是置换群群代数$\mathcal{L}(S_n)$本质的原始幂等元}，\\
+\begin{theorem}{置换群的原始幂等元}{}
+	{\color{main}杨算符$\mathcal{Y}$是置换群群代数$\mathcal{L}(S_n)$本质的原始幂等元}，\\
 	最小左理想$\mathcal{L}(S_n) \mathcal{Y}$给出$S_n$群的一个不可约表示；\\
-	{\color{seco}由同一杨图的不同正则杨表给出的表示是等价的，不同杨图给出的表示是不等价的}。
+	{\color{main}由同一杨图的不同正则杨表给出的表示是等价的，不同杨图给出的表示是不等价的}。
 	
-\end{newthem}
+\end{theorem}
 
 \begin{note}
 	%%some comment
@@ -1173,14 +1173,14 @@ $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 \end{note}
 
 
-\begin{example}[$S_n$群的杨图$[n]$确定的不可约表示]
+\begin{example} $S_n$群的杨图$[n]$确定的不可约表示
 	
 	该杨图只有一个正则杨表
 	%%%%%+++++++++++++++++++++++---------------------
 	$
 	%%\label{eq.6.1.2}
 	\begin{ytableau}
-		1 & 2 & \cdots & n
+	1 & 2 & \cdots & n
 	\end{ytableau}%%&\quad&
 	%%%%%+++++++++++++++++++++++
 	$
@@ -1189,14 +1189,14 @@ $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 	
 	由重排定理，对任意$t \in S_n $，有
 	\begin{equation}
-		t \mathcal{Y}^{[n]}=t \sum\limits_i p_i = \sum\limits_i p_i=\mathcal{Y}^{[n]}
+	t \mathcal{Y}^{[n]}=t \sum\limits_i p_i = \sum\limits_i p_i=\mathcal{Y}^{[n]}
 	\end{equation}
 	
 	故杨图$[n]$对应$S_n$群的一维恒等表示
 \end{example}
 
 
-\begin{example}[$S_n$群的杨图$[1^n]$确定的不可约表示]
+\begin{example} $S_n$ 群的杨图 $[1^n]$ 确定的不可约表示
 	
 	该杨图只有一个正则杨表
 	%%%%%+++++++++++++++++++++++---------------------
@@ -1216,11 +1216,11 @@ $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 	=t \sum\limits_i \delta(t\,q_i) t\,q_i
 	=\delta(t) \mathcal{Y}^{[n]}
 	\end{equation}
-
+	
 	故杨图$[1^n]$对应$S_n$群的一维全反对称表示
 \end{example}
 
-\clearpage
+%\clearpage
 
 \begin{note}
 	%%some comment
@@ -1230,16 +1230,9 @@ $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 		一列的杨图对应一维全反对称表示
 		%%%%%+++++++++++++++++++++++---------------------
 		\item 
-		对于任意对换，出一个负号
+		由于任意对换作用在上面，给出一个负号
 	\end{enumerate}
 \end{note}
-
-
-
-
-
-
-
 
 
 
@@ -1254,17 +1247,5 @@ $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 
 
 \section{置换群不可约表示的内积和外积}
-
-
-
-
-
-
-
-
-
-
-
-
 
 

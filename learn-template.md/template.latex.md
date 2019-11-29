@@ -1,3 +1,5 @@
+# general
+
 ## 简单的规则
 
 1. 空格：Latex 中空格不起作用。
@@ -13,6 +15,123 @@
 >\clearpage：The \clearpage command ends the current page and causes all figures and tables that have so far appeared in the input to be printed.
 
 
+
+# 定理类环境 of elegant-note 
+
+## definition 定义
+
+```latex
+\begin{definition}{name}{}%%\ref{def:label}
+%%some comment
+\begin{equation}\begin{aligned}
+%%\label{eq.6.1.2}
+
+\end{aligned}\end{equation}
+\end{definition}
+```
+
+## theorem 定理
+
+```latex
+\begin{theorem}{name}{}%%\ref{thm:label}
+%%comment
+\begin{equation}\begin{aligned}
+%%\label{eq.6.1.2}
+ 
+\end{aligned}\end{equation}
+\end{theorem}
+```
+
+## lemma 引理
+
+```latex
+\begin{lemma}{name}{}%%\ref{lem:label}
+%%some comment
+\begin{enumerate}
+%%%%%+++++++++++++++++++++++---------------------
+\item aaa
+%%%%%+++++++++++++++++++++++---------------------
+\item bbb
+\end{enumerate}
+\end{lemma}
+```
+
+## corollary  推论
+
+```latex
+\begin{corollary}{name}{}%%\ref{cor:label}
+%%some comment
+\begin{enumerate}
+%%%%%+++++++++++++++++++++++---------------------
+\item aaa
+%%%%%+++++++++++++++++++++++---------------------
+\item bbb
+\end{enumerate}
+\end{corollary}
+```
+
+## proposition 命题
+
+```latex
+\begin{proposition}{name}{}%%\ref{pro:label}
+%%some comment
+\begin{equation}\begin{aligned}
+%%\label{eq.6.1.2}
+
+\end{aligned}\end{equation}
+\end{proposition}
+```
+
+# 其他环境 of elegant-note 
+
+>这几个都是同一类环境，区别在于
+>1. 示例环境（example）、练习（exercise）与例题（problem）章节自动编号；
+>2. 注意（note），练习（exercise）环境有提醒引导符；
+>3. 结论（conclusion）等环境都是普通段落环境，引导词加粗。
+
+## example 例子
+
+```latex
+\begin{example} %%some comment
+
+\begin{equation}\begin{aligned}
+%%\label{eq.6.1.2}
+%%%%%+++++++++++++++++++++++---------------------
+
+%%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+\end{example}
+```
+
+
+## note 附注
+
+```latex
+\begin{note} %%some comment
+
+\begin{enumerate}
+%%%%%+++++++++++++++++++++++---------------------
+\item aaa
+%%%%%+++++++++++++++++++++++---------------------
+\item bbb
+\end{enumerate}
+\end{note}
+```
+
+## conclusion 结论
+
+```latex
+\begin{conclusion}
+\begin{enumerate}
+%%%%%+++++++++++++++++++++++---------------------
+\item aaa
+%%%%%+++++++++++++++++++++++---------------------
+\item bbb
+\end{enumerate}
+\end{conclusion}
+```
+
+# 数学 math
 
 ## 无序号公式
 
@@ -51,112 +170,6 @@ x,\quad x>0
 \end{cases}
 \end{equation}
 ```
-
-## newdef 定义
-
-```latex
-\begin{newdef}[aa]
-%%some comment
-\begin{equation}\begin{aligned}
-%%\label{eq.6.1.2}
-
-\end{aligned}\end{equation}
-\end{newdef}
-```
-
-## newprop 命题
-
-```latex
-\begin{newprop}[aa]
-%%some comment
-\begin{equation}\begin{aligned}
-%%\label{eq.6.1.2}
-
-\end{aligned}\end{equation}
-\end{newprop}
-```
-
-## example 例子
-
-```latex
-\begin{example}[aa]
-%%some comment
-\begin{equation}\begin{aligned}
-%%\label{eq.6.1.2}
-%%%%%+++++++++++++++++++++++---------------------
-
-%%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
-\end{example}
-```
-
-## newthem 定理
-
-```latex
-\begin{newthem}[aa]
-%%comment
-\begin{equation}\begin{aligned}
-%%\label{eq.6.1.2}
- 
-\end{aligned}\end{equation}
-\end{newthem}
-```
-
-## newlemma 引理
-
-```latex
-\begin{newlemma}[aa]
-%%some comment
-\begin{enumerate}
-%%%%%+++++++++++++++++++++++---------------------
-\item aaa
-%%%%%+++++++++++++++++++++++---------------------
-\item bbb
-\end{enumerate}
-\end{newlemma}
-```
-
-## newcorol  推论
-
-```latex
-\begin{newcorol}[aa]
-%%some comment
-\begin{enumerate}
-%%%%%+++++++++++++++++++++++---------------------
-\item aaa
-%%%%%+++++++++++++++++++++++---------------------
-\item bbb
-\end{enumerate}
-\end{newcorol}
-```
-
-
-## note 附注
-
-```latex
-\begin{note}
-%%some comment
-\begin{enumerate}
-%%%%%+++++++++++++++++++++++---------------------
-\item aaa
-%%%%%+++++++++++++++++++++++---------------------
-\item bbb
-\end{enumerate}
-\end{note}
-```
-
-## newproof 证明
-
-```latex
-\begin{newproof}
-%%comment
-\begin{equation}\begin{aligned}
-%%\label{eq.6.1.2}
-
-\end{aligned}\end{equation}
-\end{newproof}
-```
-
 
 ## 矩阵模板
 
