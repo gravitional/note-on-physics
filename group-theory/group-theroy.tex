@@ -1,0 +1,118 @@
+\documentclass[cyan]{elegantnote}
+
+
+\author{Thomas Young}
+\email{albertains@163.com}
+\zhtitle{群论}
+\entitle{Group Theory}
+\version{1.00}
+\myquote{Live long and prosperous.}
+\logo{logo.pdf}
+\cover{cover.pdf}
+
+%green color
+   \definecolor{main1}{RGB}{210,168,75}
+   \definecolor{seco1}{RGB}{9,80,3}
+   \definecolor{thid1}{RGB}{0,175,152}
+%cyan color
+   \definecolor{main2}{RGB}{239,126,30}
+   \definecolor{seco2}{RGB}{0,175,152}
+   \definecolor{thid2}{RGB}{236,74,53}
+%cyan color
+   \definecolor{main3}{RGB}{127,191,51}
+   \definecolor{seco3}{RGB}{0,145,215}
+   \definecolor{thid3}{RGB}{180,27,131}
+
+%%%%%%%%% start packages usual
+
+%%-------used already in elegantnote.cls-------------
+%\RequirePackage{graphicx}
+%\RequirePackage{enumerate}
+%\RequirePackage{amsmath,mathrsfs,amsfonts}
+%\RequirePackage{booktabs}
+
+%\RequirePackage{color,xcolor}
+%\RequirePackage{times}
+%\RequirePackage{mtpro2}
+%\RequirePackage{hyperref}
+%\RequirePackage{geometry}
+%\RequirePackage{wallpaper}
+%\RequirePackage[center,pagestyles]{titlesec}
+%\RequirePackage{fontenc}
+%\RequirePackage[no-math,cm-default]{fontspec}
+%\RequirePackage{xunicode}
+%\RequirePackage{xltxtra} 
+%\RequirePackage{xeCJK}
+%\RequirePackage{environ}
+%\RequirePackage{tikz}
+%\RequirePackage{pifont,manfnt}
+%\RequirePackage{fancyhdr}
+%\RequirePackage{lastpage}
+%%-------used already in elegantnote.cls-------------
+
+
+\usepackage{makecell}
+\usepackage{latexsym}
+\usepackage{makeidx}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{multirow}
+%\usepackage[vcentermath]{youngtab}
+\usepackage{ytableau}
+%\usepackage[
+%cal=mma,
+%calscaled=1,
+%bb=ams,frak=mma,
+%frakscaled=1,
+%scr=rsfs]{mathalpha}
+
+
+%%%%%%%%% end packages usual
+
+%%%%%%%%% start packages high-energy-physics
+
+%% Maths typesetting packages
+
+%\RequirePackage{amsmath} % ``Proper'' math commands and environments
+\usepackage{braket} % Dirac bra-ket notation
+\usepackage{cancel} % useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+%\RequirePackage{maybemath} % contextual math typesetting
+%\RequirePackage{hepmath} % Common HEP mathematical constructs and use-anywhere Greek letters
+
+
+%% Particle names (should be specified *after* hyperref)
+%\RequirePackage{hepparticles} % particle name typesetting (uses maybemath)
+%\RequirePackage{heppennames} % Particle Entity Notation macros for particle symbols
+%\RequirePackage{hepnicenames} % A ``friendly'' macro set for selected PEN symbols 
+% which includes hepparticles and heppennames
+
+
+%% SIunits package and HEP extensions
+\usepackage{hepunits} % imports SIunits with sensible options and HEP-specific units
+
+%%%%%%%%% end packages high-energy-physics 
+
+%%%%%%%%%%%%%%%%%%%%%% start noun definitions
+\def\Lagrangian{拉格朗日量} %for example
+
+%%%%%%%%%%%%%%%%%%%%%% end noun definitions
+
+
+%%%%%%%%%%%%%%%%%%%%%% start equation number style
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+%%%%%%%%%%%%%%%%%%%%%% end equation number style
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+
+\input{chapter6/chapter6}
+\input{chapter8/chapter8}
+
+
+
+\end{document}

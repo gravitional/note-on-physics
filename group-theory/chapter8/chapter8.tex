@@ -1,0 +1,176 @@
+%!TEX root = ..\group-theroy.tex
+%!TEX encoding = UTF-8 Unicode
+
+%%%%set the counter of chapter
+%%% https://www.jianshu.com/p/9d53cc6a64b8
+\setcounter{chapter}{7}
+
+\chapter{
+\texorpdfstring{$SU(N)$}{Lg}群
+}
+
+$SU(N)$ 群是紧致的单纯李群，它的李代数是$A_{N-1}$。方块权图方法可以计算单纯李群不可约表示状态基的权和生成元在这组状态基里的表示矩阵，但对状态基的波函数形式没有提供具体信息。本章研究$SU(N)$群张量空间的约化，用杨算符的方法确定它的不可约张量子空间，计算这些张量子空间中的独立和完备的张量基，并与方块权图方法结合起来，把这些不可约张量基正交归一化，具体给出不可约表示状态基的波函数。此外，本章还讨论 $SU(N)​$群不可约表示的性质及其应用。
+
+\section{
+	\texorpdfstring{$SU(N)$}{Lg}
+	群的不可约表示
+}
+
+$SU(N)$ 群元素是 $N \times N$ 矩阵，它的变换空间是$N$维复空间，这空间的矢量有$N$个复分量，在$u \in SU(N)$变换中按下式变换
+
+\begin{newprop}[linear vector transformation]
+\begin{equation}\begin{aligned}
+\label{eq.8.1.1}
+\mathbf{V_a}  \stackrel{u}{\to} 
+\mathbf{V^\prime_a} \equiv (O_u \mathbf{V})_a=
+\sum\limits_{b=1}^N u_{ab} \mathbf{V_b}
+\end{aligned}\end{equation}
+\end{newprop}
+
+
+$SU(N)$ 群的$n$阶张量 $\mathbf{T}_{a1,\ldots,an}$ 有 $n$ 个指标，$N^n$个分量，在$SU(N)$ 变换$u$中，每个指标都像矢量指标一样变换
+
+\begin{newprop}[linear tensor transformation]
+\begin{equation}\begin{aligned}
+\label{eq.8.1.2}
+\mathbf{T}_{a1,\ldots,an} \stackrel{u}{\to} 
+(O_u \mathbf{T})_{a1,\ldots,an}=\sum\limits_{b1\ldots bn}
+u_{a1,b1}\ldots u_{an,bn}\mathbf{T}_{b1,\ldots,bn}
+\end{aligned}\end{equation}
+\end{newprop}
+
+也就是说，$SU(N)$ 群的$n$阶张量空间对应的表示是$n$个自身表示的直乘表示。
+直乘表示一般是可约表示。
+例如对于$SU(2)$群，
+
+\begin{example}[SU(2)]
+\begin{equation}\begin{aligned}
+\label{eq.8.1.3}
+D^{1/2}\times D^{1/2}\times D^{1/2}\simeq D^{3/2} \oplus 2 ~ D^{1/2} \\
+D^{1/2}\times D^{1/2}\times D^{1/2}\times D^{1/2}\simeq D^{2} \oplus 3~D^{1} \oplus 2~D^{0}
+\end{aligned}\end{equation}
+\end{example}
+
+\subsection{ \texorpdfstring{$SU(N)$}{Lg} 群张量空间的分解}
+
+$n$阶张量的集合构成$N^n$维张量空间，它是一个线性空间。
+
+张量指标之间的对称性质反应张量在指标间的置换变换$R$作用下的变换性质。
+首先来明确一下置换对张量的作用规则。不同的文献规定不同。
+
+\begin{newprop}[permutation on tensor]
+let's mark,
+\begin{equation}\begin{aligned}
+		\label{eq.8.1.4}
+	R\,\mathbf{T}\equiv \mathbf{T}_R
+\end{aligned}\end{equation}
+set
+\begin{equation}\begin{aligned}
+\label{eq.8.1.5}
+R=
+\begin{pmatrix}
+1&2&\ldots&n\\
+r1&r2&\ldots&rn\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+\bar{r1}&\bar{r2}&\ldots&\bar{rn}\\
+1&2&\ldots&n
+\end{pmatrix}
+\end{aligned}\end{equation}
+then,
+\begin{equation}\begin{aligned}
+(R\mathbf{T})_{a1\cdots an}\equiv (\mathbf{T}_R)_{a1\cdots an}=
+\mathbf{T}_{a_{r1}\cdots a_{rn}}
+\neq
+\mathbf{T}_{a_{\bar{r1}}\cdots a_{\bar{rn}}}
+\end{aligned}\end{equation}
+\end{newprop}
+
+\begin{note}
+注意，$R$对$T$作用后，并不是把第$j$个指标移到第$a_j$位置，
+而是把第$r_j$个指标$a_{rj}$移到第$j$位置。
+
+
+$n$阶张量指标之间的任意置换$R$的集合构成$n$个客体置换群$S_n$.
+$n$阶张量经过置换$R$的作用，仍是一个$n$阶数张量，因而$n$阶张量空间
+对置换群$S_n$也是保持不变的。
+\end{note}
+
+\begin{example}[二阶张量分解]
+一个二阶张量分解为对称张量和反对称张量之和的方法：
+\begin{equation}\begin{aligned}
+\label{eq.8.1.6}
+\mathbf{T}_{ab}={}&\frac{1}{2}\{\mathbf{T}_{ab}+\mathbf{T}_{ba}\}+
+\frac{1}{2}\{\mathbf{T}_{ab}-\mathbf{T}_{ba}\}\\
+or,\\
+\mathbf{T}_{ab}={}&\frac{1}{2}\{E+(1~2)\}\mathbf{T}_{ab}+
+\frac{1}{2}\{E-(1~2)\}\mathbf{T}_{ab}\\
+{}={}&\frac{1}{2}\{\mathcal{Y}^{[2]}+\mathcal{Y}^{[1,1]}\}\mathbf{T}_{ab}
+=E\,\mathbf{T}_{ab}
+\end{aligned}\end{equation}
+\end{example}
+
+用置换算符理解分解过程，即是恒元分解为杨算符的组合。
+这样的方法可以推广到任意阶张量。
+把$n$阶张量分解为用杨算符投影得到的有确定对称性的张量之和。
+
+\begin{newprop}[张量分解]
+\begin{equation}\begin{aligned}
+\label{eq.8.1.7}
+\mathbf{T}_{a1\cdots an}={}&
+E \mathbf{T}_{a1\cdots an}=
+\frac{1}{n!}\sum\limits_{[\lambda]} d_{[\lambda]}
+\sum\limits_{\mu} 
+\mathcal{Y}_\mu^{\lambda}\,
+y_\mu^{\lambda}
+\mathbf{T}_{a1\cdots an}\\
+%%%%%%%%%%%%%%%%%%%
+\mathrm{or~speak~with~tensor~space} \\
+\mathcal{T}={}&
+E~\mathcal{T}=
+\frac{1}{n!}
+\bigoplus\limits_{[\lambda]} d_{[\lambda]}
+\bigoplus\limits_{\mu} 
+\mathcal{Y}_\mu^{[\lambda]}~
+y_\mu^{[\lambda]}~\mathcal{T}=
+\bigoplus\limits_{[\lambda]}
+\bigoplus\limits_{\mu}
+\mathcal{T}_\mu^{[\lambda]}
+\end{aligned}\end{equation}
+\end{newprop}
+
+\begin{example}[3阶张量分解]
+\begin{equation}\begin{aligned}
+\label{eq.8.1.8}
+\mathbf{T}_{abc}=	
+\frac{1}{6} \mathcal{Y}^{[3]}	\mathbf{T}_{abc}+
+\frac{1}{3} \mathcal{Y}^{[2,1]}_1	\mathbf{T}_{abc}+
+\frac{1}{3} \mathcal{Y}^{[2,1]}_2	\mathbf{T}_{abc}+	
+\frac{1}{6} \mathcal{Y}^{[1,1,1]}	\mathbf{T}_{abc}
+\end{aligned}\end{equation}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
