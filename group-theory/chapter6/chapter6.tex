@@ -1234,18 +1234,561 @@ $[\tilde{\lambda}]=[\tau_1,\tau_2,\cdots,\tau_{\lambda1}]$；
 	\end{enumerate}
 \end{note}
 
+\begin{example} $S_3 群的不可约标准表示$
+	杨图1有两个正则杨表，给出两个等价的二维不可约表示。
+	以其中一个为例：
+	\begin{equation}\begin{aligned}
+	%%\label{eq.6.1.2}
+	%%%%%+++++++++++++++++++++++---------------------
+	%%\label{eq.6.1.2}
+	%%%%%+++++++++++++++++++++++---------------------
+	\begin{ytableau}
+	1 & 2  \\
+	3 
+	\end{ytableau} &\quad&
+	\mathcal{Y}^{[2,1]}=(E+(1~~2))(E-(1~~3))=E+(1~~2)-(1~~3)-(1~~3~~2)
+	%%%%%+++++++++++++++++++++++
+	\end{aligned}\end{equation}
+\end{example}
 
+$\mathcal{L}(S_3)\mathcal{Y}^{[2,1]}$确实是二维的。
 
+令
+\begin{equation}
+	\begin{cases}
+	\psi^1=\mathcal{Y}^{[2,1]} \\
+	%%%%%+++++++++++++++++++++++
+	\psi^2=(1~~3)\mathcal{Y}^{[2,1]} \\
+	\end{cases}
+\end{equation}
 
-
-
-
+由此得1群生成元在二维不可约标准表示中的表示矩阵
+\begin{equation}\begin{aligned}
+%%\label{eq.6.1.2}
+%%%%%+++++++++++++++++++++++---------------------
+D^{[2,1]}(1~~2)=
+\begin{pmatrix}
+1&-1\\
+0&-1
+\end{pmatrix} & \quad &
+%%%%%+++++++++++++++++++++++---------------------
+D^{[2,1]}(1~~2~~3)=
+\begin{pmatrix}
+0&-1\\
+1&-1
+\end{pmatrix} 
+%%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
 
 
 
 \section{置换群的不可约正交表示}
 
+\subsection{不可约表示按子群链的分解}
 
-\section{置换群不可约表示的内积和外积}
+\begin{proposition}{分支律}{}%%\ref{pro:label}
+
+	$S_n$群的不可约表示$[\lambda]$对它的子群$S_{n-1}$来时，
+	一般是可约的，从杨图$[\lambda]$中按所有可能的方式去掉一个方格后，
+	所剩下的如果仍是正则杨图$[\lambda^\prime]$，
+	则$[\lambda^\prime]$就是$[\lambda]$作为$S_{n-1}$群的表示进行约化时可能出现的不可约表示，
+	且每个$[\lambda^\prime]$只出现一次。
+	
+\end{proposition}
+	 
+\begin{example}
+	
+	例如，$S_5$群的不可约表示$[2^2,1]$中包含$S_4$群的不可约表示$[2^2]$和$[2,1^2]$各一次。
+	\begin{equation}\begin{aligned}
+	&\phantom{\text{维数}}&\quad
+	&\ydiagram{2,2,1}&\quad
+	&\to&\quad
+	&\ydiagram{2,2}&\quad
+	&\bigoplus&\quad
+	&\ydiagram{2,1,1} \\
+	%%%%%%%%%%%%%%%%%%
+	&\text{维数}&\quad
+	&5&\quad
+	&=&\quad
+	&2&\quad
+	&+&\quad
+	&3
+	\end{aligned}\end{equation}
+\end{example}
+
+\begin{definition}{name}{}%%\ref{def:label}
+	荷载子群链$S_n \supset S_{n-1} \supset S_{n-2} \supset \cdots
+	\supset S_{2}$
+	中所有子群的 不可约表示的基 互相正交，
+	由它们得到的表示称为置换群的{\color{main}实正交表示}
+\end{definition}
+
+\begin{note}
+	用正则样表标记正交基：从$S_n$的正则杨表中去掉填$n$的格子，
+	仍是正则杨表，标识$S_{n-1}$不可约表示的基；
+	依次分解下去，杨表逐步缩小的过程反映出
+	置换群表示逐步按子群表示分解的过程，
+	也确定了基函数按子群链的分类
+\end{note}
+
+\begin{example}
+\begin{equation}\begin{aligned}
+	%%%%%%%%------------------------
+	{\color{main}
+		\begin{ytableau}
+		1&2\\
+		3&4\\
+		5
+	\end{ytableau}
+}&\quad&
+	%%%%%%%%------------------------
+	\to&\quad&
+		{\color{second}
+		\begin{ytableau}
+		1&2\\
+		3&4
+		\end{ytableau}
+	}&\quad&
+	%%%%%%%%------------------------
+	\to&\quad&
+		{\color{third}
+		\begin{ytableau}
+	1&2\\
+	3
+	\end{ytableau}}&\quad&		
+	%%%%%%%%------------------------
+	\to&\quad&
+	\begin{ytableau}
+	1&2
+	\end{ytableau}&\quad&		
+	%%%%%%%%------------------------
+	\to&\quad&
+	\begin{ytableau}
+	1
+	\end{ytableau}		
+\end{aligned}\end{equation}
+\end{example}
+
+\subsection{不可约正交表示的具体形式}
+
+\begin{note} %%some comment
+	
+	\begin{enumerate}
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		任意置换都可以分解为无公共客体的轮换的乘积，
+		任一轮换都可以分解为对换的乘积，
+		任一对换都可以分解为相邻客体的对换的乘积
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		只要知道了相邻客体的对换$(k-1~~k)$的表示矩阵，
+		就可以由乘法求得$S_n$群的任意元素的表示矩阵
+		\item 
+		用$\mathcal{Y}^{[\lambda]}_r$表示不可约表示
+		$[\lambda]$的第$r$个正则杨表，
+		$\ket{\mathcal{Y}^{[\lambda]}}$表示
+		荷载正交表示$[\lambda]$的基
+		\item 
+		${\color{main}k-1\text{到}k\text{的轴距}}$
+		正则杨表$\mathcal{Y}^{[\lambda]}_r$中，
+		从填$k-1$的格子到填$k$的格子，
+		向左或向下数一个方格为$+1$，
+		向右或向上数一个方格为$-1$，
+		这样数出的代数和$\mu$称为数字$k-1$到$k$的轴距
+		\item 
+		若$k-1$和$k$不在正则杨表$\mathcal{Y}^{[\lambda]}_r$的同一行或同一列，
+		则$(k-1~~k)$把正则杨表$\mathcal{Y}^{[\lambda]}_r$变为正则杨表$\mathcal{Y}^{[\lambda]}_s$
+		\begin{equation}
+			\mathcal{Y}^{[\lambda]}_s
+			=(k-1~~k)\,\mathcal{Y}^{[\lambda]}_r
+		\end{equation}
+		\item
+		对换$(k-1~~k)$在正交表示中的表示矩阵
+		\begin{enumerate}
+
+		\item 
+		相邻客体的的同一行对称，在同一列反对称
+		
+		\item 
+		当$k-1$和$k$在杨表$\mathcal{Y}^{[\lambda]}_r$的同一行或同一列
+		\begin{equation}
+			(k-1~~k)\ket{\mathcal{Y}^{[\lambda]}_r}
+			=-\mu \ket{\mathcal{Y}^{[\lambda]}_r}
+		\end{equation}
+		\item 
+		当$k-1$和$k$不在杨表$\mathcal{Y}^{[\lambda]}_r$的同一行或同一列
+		\begin{equation}
+		(k-1~~k)\ket{\mathcal{Y}^{[\lambda]}_r}
+		=-\frac{1}{\mu}\ket{\mathcal{Y}^{[\lambda]}_r}+
+		\frac{\sqrt{\mu^2-1}}{|\mu|}\ket{\mathcal{Y}^{[\lambda]}_s}
+		\end{equation}
+	\end{enumerate}
+		
+	\end{enumerate}
+\end{note}
+
+
+\begin{example}
+	$S_3$群的实正交表示
+	\begin{enumerate}
+		\item
+		\begin{equation}	\begin{aligned}
+		\ytableausetup{mathmode, boxsize=1.5em}
+		(1~~2)\ket{
+			\begin{ytableau}
+			1&2&3
+			\end{ytableau}
+		}=
+		\ket{
+			\begin{ytableau}
+			1&2&3
+			\end{ytableau}
+		}
+		\end{aligned}\end{equation}
+		%%%%%%%%%%%%%%%%%%
+		\item
+		\begin{equation}	\begin{aligned}
+		\ytableausetup{mathmode, boxsize=1.5em}
+		(1~~2)\ket{
+			\begin{ytableau}
+			1\\2\\3
+			\end{ytableau}
+		}=-	\ket{
+			\begin{ytableau}
+			1\\2\\3
+			\end{ytableau}
+		}
+		\end{aligned}\end{equation}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\item
+		\begin{equation}	\begin{aligned}
+		\ytableausetup{mathmode, boxsize=1.5em}
+		(1~~2)\ket{
+			\begin{ytableau}
+			1&2\\
+			3
+			\end{ytableau}
+		}=
+		\ket{
+			\begin{ytableau}
+			1&2\\
+			3
+			\end{ytableau}
+		}
+		\end{aligned}\end{equation}
+%%%%%%%%%%%%%%%%%%
+\item
+\begin{equation}	\begin{aligned}
+\ytableausetup{mathmode, boxsize=1.5em}
+(1~~2)\ket{
+	\begin{ytableau}
+	1&3\\
+	2
+	\end{ytableau}
+}=-\ket{
+	\begin{ytableau}
+	1&3\\
+	2
+	\end{ytableau}
+}
+\end{aligned}\end{equation}	
+
+%%%%%%%%%%%%%%%%%%
+\item
+\begin{equation}	\begin{aligned}
+\ytableausetup{mathmode, boxsize=1.5em}
+(2~~3)\ket{
+	\begin{ytableau}
+	1&2&3
+	\end{ytableau}
+}=-\ket{
+	\begin{ytableau}
+	1&2&3
+	\end{ytableau}
+}
+\end{aligned}\end{equation}	
+
+%%%%%%%%%%%%%%%%%%
+\item
+\begin{equation}	\begin{aligned}
+\ytableausetup{mathmode, boxsize=1.5em}
+(2~~3)\ket{
+	\begin{ytableau}
+	1&2\\
+	3
+	\end{ytableau}
+}=-\frac{1}{2}\ket{
+	\begin{ytableau}
+	1&2\\
+	3
+	\end{ytableau}
+}
++\frac{\sqrt{3}}{2}\ket{
+	\begin{ytableau}
+	1&3\\
+	2
+	\end{ytableau}
+}
+\end{aligned}\end{equation}	
+
+%%%%%%%%%%%%%%%%%%
+\item
+\begin{equation}	\begin{aligned}
+\ytableausetup{mathmode, boxsize=1.5em}
+(2~~3)\ket{
+	\begin{ytableau}
+	1&3\\
+	2
+	\end{ytableau}
+}=\frac{1}{2}\ket{
+	\begin{ytableau}
+	1&3\\
+	2
+	\end{ytableau}
+}
++\frac{\sqrt{3}}{2}\ket{
+	\begin{ytableau}
+	1&2\\
+	3
+	\end{ytableau}
+}
+\end{aligned}\end{equation}	
+
+%%%%%%%%%%%%%%%%%%
+\item
+\begin{equation}	\begin{aligned}
+\ytableausetup{mathmode, boxsize=1.5em}
+(2~~3)\ket{
+	\begin{ytableau}
+	1\\2\\3
+	\end{ytableau}
+}=-\ket{
+	\begin{ytableau}
+	1\\2\\3
+	\end{ytableau}
+}
+\end{aligned}\end{equation}	
+
+\item
+\begin{equation}\begin{aligned}
+D^{[3]}(2,3)=
+-D^{[1^3]}(2,3)=1\\
+D^{[2,1]}(2,3)=
+-D^{[1^3]}(2,3)=\frac{1}{2}
+\begin{pmatrix}
+-1&\sqrt{3}\\
+\sqrt{3}&1
+\end{pmatrix}
+\end{aligned}\end{equation}
+
+\item 
+其它元素的表示矩阵可由乘法给出：
+
+\begin{equation}\begin{aligned}
+%%
+D(1~~3)=D(1~~2)D(2~~3)D(1~~2)\\
+%%
+D(1~~2~~3)=D(1~~2)D(2~~3)\\
+%%
+D(1~~3~~2)=D(1~~2)D(1~~3)
+%%
+\end{aligned}\end{equation}
+
+\item
+于是有：
+\begin{equation}\begin{aligned}
+%%%%%%%%%%%%%
+D^{[3]}(1~~3)
+=D^{[1^3]}(1~~3)
+=1
+&\quad&
+D^{[2,1]}(1~~3)
+=\frac{1}{2}
+\begin{pmatrix}
+-1&-\sqrt{3}\\
+-\sqrt{3}&1
+\end{pmatrix}\\
+%%%%%%%%%%%%%
+D^{[3]}(1~~2~~3)
+=D^{[1^3]}(1~~2~~3)
+=1
+&\quad&
+D^{[2,1]}(1~~2~~3)
+=\frac{1}{2}
+\begin{pmatrix}
+-1&\sqrt{3}\\
+-\sqrt{3}&-1
+\end{pmatrix}\\
+%%%%%%%%%%%%%
+D^{[3]}(1~~3~~2)
+=D^{[1^3]}(1~~3~~2)
+=1
+&\quad&
+D^{[2,1]}(1~~3~~2)
+=\frac{1}{2}
+\begin{pmatrix}
+-1&-\sqrt{3}\\
+\sqrt{3}&-1
+\end{pmatrix}
+%%%%%%%
+\end{aligned}\end{equation}
+
+\end{enumerate}
+\end{example}
+
+\subsection{不可约表示的基函数}
+
+\begin{enumerate}
+	
+	\item 
+	有了不可约正交表示的表示矩阵，可得投影算符
+	\begin{equation}
+	\mathcal{P}^{[\lambda]}_{rs}
+	=\frac{d_{[\lambda]}}{n!}\sum\limits_{R\in S_n} D^{[\lambda]}_{rs}(R)R
+	\end{equation}
+	它作用在有置换变换的函数上，可得具有指定对称性$[\lambda]$的波函数
+	
+	\item
+	设$n$粒子系统的波函数为$\phi(1,2,\cdots,n)$，
+	其中$1,2,\cdots,n$为粒子的坐标，
+	则具有对称性$[\lambda]$的$d_{[\lambda]}$个波函数为($s$固定)
+	\begin{equation}
+		\psi^{[\lambda]}_{rs}
+		=\mathcal{P}^{[\lambda]}_{rs} \, \phi(1,2,\cdots,n)
+		=\frac{d_{[\lambda]}}{n!}\sum\limits_{R\in S_n} D^{[\lambda]}_{rs}(R)\,R
+		\,\phi(1,2,\cdots,n)
+	\end{equation}
+\end{enumerate}
+
+
+\begin{example} 由组态$\phi=uds$构造$S_3$群$[3]$表示的基
+	
+\begin{equation}
+	\mathcal{P}^{[3]}_{11} =
+	\frac{1}{6}[E +(132)+(123)+(12)+(23)+(13)] 
+\end{equation}
+	
+\begin{equation}
+\psi^{[3]} =\mathcal{P}^{[3]}_{11}=
+\frac{1}{6}[uds+dsu+sud+dus+usd+sdu] 
+\end{equation}
+
+\begin{note}
+	flavor wave function of $\Sigma^\ast$
+\end{note}
+	
+\begin{equation}
+%%\label{eq.6.1.2}
+%%%%%+++++++++++++++++++++++
+\begin{cases}
+\mathcal{P}^{[2,1]}_{11} ={}&
+\frac{1}{6}[2E -(132)-(123)+2(12)-(23)-(13)]  \\
+%%%%%+++++++++++++++++++++++
+\mathcal{P}^{[2,1]}_{21} ={}&
+\frac{\sqrt{3}}{6}[(132)-(123)+(23)-(13)]  \\
+%%%%%+++++++++++++++++++++++
+\mathcal{P}^{[2,1]}_{12} ={}&
+\frac{\sqrt{3}}{6}[-(132)+(123)+(23)-(13)]  \\
+%%%%%+++++++++++++++++++++++
+\mathcal{P}^{[2,1]}_{22} ={}&
+\frac{1}{6}[2E-(132)-(123)-2(12)+(23)+(13)]  
+\end{cases}
+\end{equation}
+
+\begin{note}
+	$\Sigma^0$ flavor wave function
+\end{note}
+
+\begin{equation}
+%%\label{eq.6.1.2}
+%%%%%+++++++++++++++++++++++ wave function
+\begin{cases}
+\mathcal{\psi}^{[2,1]}_{11} =\mathcal{P}^{[2,1]}_{11}\phi={}
+\frac{1}{6}[2uds-dsu-sud+2dus-usd-sdu]  \\
+%%%%%+++++++++++++++++++++++
+\mathcal{\psi}^{[2,1]}_{21} =\mathcal{P}^{[2,1]}_{21}\phi={}
+\frac{\sqrt{3}}{6}[dsu-sud+usd-sdu]  
+\end{cases}
+\end{equation}
+
+
+\begin{note}
+	$\Lambda$ flavor wave function
+\end{note}
+
+\begin{equation}
+%%\label{eq.6.1.2}
+%%%%%+++++++++++++++++++++++ wave function
+\begin{cases}
+%%%%%+++++++++++++++++++++++
+\mathcal{\psi}^{[2,1]}_{12} =\mathcal{P}^{[2,1]}_{21}\phi={}
+\frac{\sqrt{3}}{6}[-dsu+sud+usd-sdu]  \\
+%%%%%+++++++++++++++++++++++
+\mathcal{\psi}^{[2,1]}_{22} =\mathcal{P}^{[2,1]}_{22}\phi={}
+\frac{1}{6}[2uds-dsu-sud-2dus+usd+sdu]  
+\end{cases}
+\end{equation}
+
+
+
+
+\end{example}
+
+
+\section{ 置换群不可约表示的内积和外积 }
+
+\begin{conclusion} %%comment
+	\begin{enumerate}
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		置换群不可约表示的直乘称为{\color{main}内积}；
+		直乘分解的1级数可以按特征标方法计算
+		%%%%%+++++++++++++++++++++++---------------------
+		\item 
+		考虑到置换群的不可约表示是实表示，特征标是实数，有
+		\begin{equation}
+		\chi^{[\lambda]}(R) \chi^{[\mu]}(R)
+		=\sum\limits_\nu a_{\lambda\mu\nu} \chi^{[\nu]}(R)
+		\end{equation}
+		
+		\begin{equation}
+		a_{\lambda\mu\nu}=\frac{1}{n!} \sum\limits_{R \in S_n}
+		\chi^{[\nu]}(R) \chi^{[\lambda]}(R) \chi^{[\mu]}(R) \chi^{[\nu]}(R)
+		\end{equation}
+	
+		容易看出$a_{\lambda\mu\nu}$对三个指标完全对称
+
+		\item
+		一行的杨图对应{\color{main}恒等表示}；
+		一列的杨图对应{\color{main}反对称表示}，
+		每个元素在该表示的表示矩阵即为该元素的置换宇称
+		\item
+		可以证明，互相对偶的杨图对应的表示维数相等，
+		每个类在这两个表示中的特征标只相差类中元素的置换宇称
+		%%%%%%%%%%%%%%%%%%%%%%%
+		\item
+		任一杨图对应的表示与反对称表示的直乘等价于改杨图的对偶杨图对应的表示
+		\begin{equation}
+			[\lambda]\otimes[1^n] \simeq  [\tilde{\lambda}]
+		\end{equation}		
+		%%%%%%%%%%%%%%%%%%%%%%
+		\item
+		考虑到$a_{\lambda\mu\nu}$对三个指标对称，可得
+		\begin{equation}\begin{aligned}   
+		[n] \otimes[\lambda] = [\lambda], \quad 
+		[\lambda]\otimes[\tilde{\mu}] \simeq 
+		[\tilde{\lambda}] \otimes [\mu] \quad \\
+		[\lambda] \otimes [\mu] \simeq 
+		[\tilde{\lambda}] \otimes [\tilde{\mu}] \simeq
+		[\mu] \otimes [\lambda]
+		\end{aligned}\end{equation}	
+		\item 
+		在的分解中，1出现恒等表示的充要条件是1，出现反对称表示的充要条件是1，
+		且在此条件下，
+		恒等表示或反对称表示只出现一次
+	
+\end{enumerate}
+\end{conclusion}
+
 
 

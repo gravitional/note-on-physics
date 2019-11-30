@@ -121,7 +121,7 @@
 ## conclusion 结论
 
 ```latex
-\begin{conclusion}
+\begin{conclusion} %%comment
 \begin{enumerate}
 %%%%%+++++++++++++++++++++++---------------------
 \item aaa
@@ -242,10 +242,10 @@ $(\lambda)=(\lambda_1,\lambda_2,\cdots \lambda_m)$
 ```
 
 
-## 杨表 tableaux  模板
+## 杨表 tableaux  模板 
 
 ```latex
-\ytableausetup{mathmode, boxsize=2em}
+\ytableausetup{mathmode, boxsize=1.5em}
 \begin{equation}\begin{aligned}
 %%\label{eq.6.1.2}
 %%%%%+++++++++++++++++++++++---------------------
