@@ -150,7 +150,7 @@ test line9.
 > 当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 `git reset HEAD file`，就回到了场景1，第二步按场景1操作
 
 
-###  大恢复EXAMPLES
+###  恢复EXAMPLES
 
 >The following sequence switches to the master branch, reverts the Makefile to two revisions back, deletes hello.c by mistake, and gets it back from the index.
 
