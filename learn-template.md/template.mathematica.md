@@ -1,3 +1,40 @@
+## ColorData
+
+>`ColorData["scheme"][par]` 或 `ColorData["scheme",par]` 给出指定颜色方案中对应于参数值 `par` 的 `RGBColor` 对象.
+
+>`ColorData["scheme"]` 给出一个 ColorDataFunction 对象. 
+
+>默认情况下，颜色梯度有一个范围从0到1的单一参数. 
+
+>`ColorData["collection"]` 给出名称集合中的颜色方案列表. 
+
+### 获得集合的列表：
+
+```mathematica
+ColorData[]
+{"Gradients", "Indexed", "Named", "Physical"}
+```
+
+### 求出属于每个集合的方案：
+
+```mathematica
+ColorData["Named"]
+{"Atoms", "Crayola", "GeologicAges", "HTML", "Legacy", "WebSafe"}
+```
+
+### 梯度是一个连续颜色函数，它适用于 ColorFunction：
+
+```mathematica
+DensityPlot[y + Sin[x^2 + 3 y], {x, -3, 3}, {y, -3, 3}, 
+ColorFunction -> ColorData["SunsetColors"]]
+```
+
+### 索引的方案包含具体值相关的颜色列表：
+
+```mathematica
+ColorData[3, "ColorList"]
+```
+
 ## MapThread level 的区别
 
 ```mathematica
@@ -6,7 +43,7 @@ Out[2]= {f[{a, b}, {u, v}], f[{c, d}, {s, t}]}
 ```
 
 ```mathematica
->In[3]:= MapThread[f, {{{a, b}, {c, d}}, {{u, v}, {s, t}}}, 2]
+In[3]:= MapThread[f, {{{a, b}, {c, d}}, {{u, v}, {s, t}}}, 2]
 Out[3]= {{f[a, u], f[b, v]}, {f[c, s], f[d, t]}}
 ```
 
