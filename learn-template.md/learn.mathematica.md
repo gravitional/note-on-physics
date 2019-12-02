@@ -1,5 +1,39 @@
 ***
 
+## Grid 玄学用法
+
+设置指定项的背景：
+
+```mathematica
+Grid[Table[x, {4}, {7}], 
+ Background -> {None, None, {{1, 1} -> Pink, {3, 4} -> Red}}]
+```
+
+设置网格区域的背景：
+
+```mathematica
+Grid[Table[x, {4}, {7}], 
+ Background -> {None, None, {{1, 1} -> Pink, {3, 4} -> Red}}]
+```
+
+***
+
+***
+
+## MapThread level 的区别
+
+```mathematica
+In[2]:= MapThread[f, {{{a, b}, {c, d}}, {{u, v}, {s, t}}}]
+Out[2]= {f[{a, b}, {u, v}], f[{c, d}, {s, t}]}
+```
+
+```mathematica
+>In[3]:= MapThread[f, {{{a, b}, {c, d}}, {{u, v}, {s, t}}}, 2]
+Out[3]= {{f[a, u], f[b, v]}, {f[c, s], f[d, t]}}
+```
+
+***
+
 ## 目录和目录操作
 
 guide/DirectoriesAndDirectoryOperations
