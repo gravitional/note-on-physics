@@ -4,14 +4,14 @@
 and
 [git-scm.com/book/](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-Git-%E5%88%AB%E5%90%8D)
 
-## alias （别名）
-
-### 配置文件
+## 配置文件
 
 >配置文件放哪了？每个仓库的Git配置文件都放在.git/config文件中：
 >而当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中：
 >别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。
 >配置别名也可以直接修改这个文件，如果改错了，可以删掉文件重新通过命令配置。
+
+## alias （别名）
 
 ### git status git st
 
@@ -38,17 +38,14 @@ and
 
 `git config --global alias.logpretty "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"`
 
-## 创建版本库
-
-### 初始化一个git仓库
+## 初始化一个git仓库
 
 `git init`
 
 初始化一个git仓库
 
-## 添加修改
 
-###  添加文件 
+##  添加文件 
 
 `git add`
 
@@ -62,11 +59,11 @@ and
 
 >[原文链接](https://blog.csdn.net/caseywei/article/details/90945295)
 
-### 提交更改
+## 提交更改
 
 `git commit -m [comment message]`
 
-### 修改最后一次注释
+## 修改最后一次注释
 
 >如果你只想修改最后一次注释（就是最新的一次提交），
 >[那好办](https://www.jianshu.com/p/098d85a58bf1)：
@@ -75,15 +72,11 @@ and
 
 >出现有注释的界面（你的注释应该显示在第一行）， 输入i进入修改模式，修改好注释后，按Esc键 退出编辑模式，输入:wq保存并退出。ok，修改完成。
 
- 
-
-## 时光机穿梭
-
-### git status
+## git status
 
 要随时掌握工作区的状态
 
-### git diff
+## git diff
 
 >如果`git status`告诉你有文件被修改过，用`git diff`可以查看修改内容。
 >查看和上一版本的具体变动内容 显示内容如下： 
@@ -107,7 +100,7 @@ test line8.
 test line9.
 ```
 
-### git diff 详解
+## git diff 详解
 
 >`diff --git a/test.txt b/test.txt `
 >——对比两个文件，其中a改动前，b是改动后，以git的diff格式显示； 
@@ -127,30 +120,36 @@ test line9.
 合起来就是变动前后都是从第4行开始，变动前文件往后数8行对应变动后文件往后数9行。  
 变动内容 ——+表示增加了这一行，-表示删除了这一行，没符号表示此行没有变动。
 
-### 查看提交历史
+## 查看提交历史
 
 `git log`
 
 >穿梭前，用`git log`可以查看提交历史，以便确定要回退到哪个版本
 
-### 重返未来
+## 重返未来
 
 `git reflog`
 
 >要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
 
-### 丢弃工作区的修改
+## 丢弃工作区的修改
 
 `git restore file`
 
-###  大恢复
+##  大恢复 restore
 
 `git reset HEAD file`
 
 > 当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 `git reset HEAD file`，就回到了场景1，第二步按场景1操作
 
 
-###  恢复EXAMPLES
+##  恢复EXAMPLES
+
+> To restore all files in the current directory
+
+```bash
+$ git restore .
+```
 
 >The following sequence switches to the master branch, reverts the Makefile to two revisions back, deletes hello.c by mistake, and gets it back from the index.
 
@@ -171,22 +170,14 @@ $ git restore '*.c'
 
 >Note the quotes around *.c. The file hello.c will also be restored, even though it is no longer in the working tree, because the file globbing is used to match entries in the index (not in the working tree by the shell).
 
-> To restore all files in the current directory
-
-```bahs
-$ git restore .
-```
-
-### 删除一个文件
+## 删除一个文件
 
 `git rm`
 
 >命令`git rm`用于删除一个文件。
 如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
 
-## 远程仓库
-
-### 添加远程
+## 添加远程
 
 `git remote add`
 
@@ -194,13 +185,14 @@ $ git restore .
 >`git remote add origin git@server-name:path/repo-name.git`
 >`origin` 是远程仓库的名字
 
-### 查看某个远程仓库
+
+## 查看某个远程仓库
 
 `git remote show [remote-name]` 命令。
 `remote-name` 如 `origin`
 
 
-### 从远程获取信息
+## 从远程获取信息
 
 `git fetch [remote-name]`
 
@@ -211,17 +203,18 @@ $ git restore .
 >现在 Paul 的 master 分支可以在本地通过 `pb/master` 访问到——你可以将它合并到自己的某个分支中，
 
 
-### 克隆远程
+## 克隆远程
 
 `git clone`
 
 > 要克隆一个仓库，首先必须知道仓库的地址，然后使用`git clone`命令克隆。
 
-### 推到远程
+## 推到远程 push
 
 >当你想分享你的项目时，必须将其推送到上游。 这个命令很简单：
+for example,
 
-`git push [remote-name] [branch-name]。`
+`git push [remote-name] [branch-name]`
 `git push -u origin master`
 
 `-u` == `--set-upstream`
@@ -232,25 +225,54 @@ $ git restore .
 
 >只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。 当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。 你必须先将他们的工作拉取下来并将其合并进你的工作后才能推送
 
-### 强制推送
+syntex:
 
-git push -f origin master
-`-f`
-`--force`
+`git push [-u | --set-upstream] [<repository> [<refspec>… ]]`
 
->Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it. Also, when --force-with-lease option is used, the command refuses to update a remote ref whose current value does not match what is expected.
+>For every branch that is up to date or successfully pushed, 
+add upstream (tracking) reference, 
+used by argument-less `git-pull`[1] and other commands. 
+For more information, see `branch.<name>.merge` in git-config[1].
 
-> This flag disables these checks, and can cause the remote repository to lose commits; use it with care.
 
-### default behavior
+### push 详细语法
 
->the **current branch** is pushed to the corresponding **upstream branch**, but as a safety measure, the push is aborted if the upstream branch does not have **the same name** as the local one.
+```bash
+git push 
+[--all | --mirror | --tags] [--follow-tags] [--atomic] 
+[-n | --dry-run] [--receive-pack=<git-receive-pack>]
+[--repo=<repository>] [-f | --force] [-d | --delete] [--prune]
+[-v | --verbose]
+[-u | --set-upstream] [-o <string> | --push-option=<string>]
+[--[no-]signed|--signed=(true|false|if-asked)]
+[--force-with-lease[=<refname>[:<expect>]]]
+[--no-verify] [<repository> [<refspec>… ]]
+```
 
->Specify what destination ref to update with what source object. The format of a `<refspec>` parameter is an optional plus +, followed by the source object `<src>`, followed by a colon :, followed by the destination ref `<dst>`.
+>the **current branch** is pushed to the corresponding **upstream branch**, but as a safety measure, 
+>the push is aborted if the upstream branch does not have **the same name** as the local one.
+
+>Specify what destination ref to update with what source object. 
+>The format of a `<refspec>` parameter is an optional plus `+`,
+> followed by the source object `<src>`, followed by a colon `:`,
+>  followed by the destination ref `<dst>`.
+
+i.e. `git push origin <src>:<dst>`
 
 >The `<src>` is often the name of the branch you would want to push, but it can be any arbitrary "SHA-1 expression", such as `master~4` or `HEAD`
+The `<dst>` tells which ref on the remote side is updated with this push.
+Arbitrary expressions **cannot** be used here, an actual ref must be named.
 
->If git push `[<repository>]` without any`<refspec>` argument is set to update some ref at the destination with `<src>` with remote
+>If `git push [<repository>]` 
+>without any `<refspec>` argument 
+is set to update some ref at the destination 
+with `<src>`
+with `remote.<repository>.push` configuration variable,
+`:<dst>` part can be omitted
+—such a push will update a ref that `<src>` normally updates 
+without any `<refspec>` on the command line.
+
+>Otherwise, missing `:<dst>` means to update the same ref as the `<src>`.
 
 `git push origin :`
 
@@ -260,6 +282,7 @@ git push -f origin master
 `git push origin master:refs/heads/experimental`
 
 >Create **the branch experimental in the origin** repository by copying the **current master branch**. This form is only needed to create a new branch or tag in the remote repository when the local name and the remote name are different; otherwise, the ref name on its own will work.
+
 
 ### push flag
 
@@ -283,8 +306,18 @@ for a ref that was rejected or failed to push; and
 >`=`
 for a ref that was up to date and did not need pushing.
 
+### 强制推送
 
-### 拉取远程仓库
+git push -f origin master
+`-f`
+`--force`
+
+>Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it. Also, when --force-with-lease option is used, the command refuses to update a remote ref whose current value does not match what is expected.
+
+> This flag disables these checks, and can cause the remote repository to lose commits; use it with care.
+
+
+## 拉取远程仓库
 
 `git pull [<options>] [<repository> [<refspec>…]]`
 
@@ -303,7 +336,7 @@ for a ref that was up to date and did not need pushing.
 
 >Fetch all remotes.
 
-### 远程仓库的移除与重命名
+## 远程仓库的移除与重命名
 
 `git remote rename`
 
@@ -325,7 +358,7 @@ $ git remote
 origin
 ```
 
-### 清理无效远程追踪
+## 清理无效远程追踪
 
 > 如果在远程版本库上删除了某一分支，该命令并不会删除本地的远程追踪分支，
 > 这时候，有另一个命令
@@ -347,32 +380,69 @@ origin
 
 > 下的分支，如果有本地分支作为下游存在的话，还需要手动清理
 
-### 远程分支
+## 远程分支
 
 > 远程跟踪分支是远程分支状态的引用。 它们是你不能移动的本地引用，当你做任何网络通信操作时，它们会自动移动。 远程跟踪分支像是你上次连接到远程仓库时，那些分支所处状态的书签。
 
-### 跟踪分支
+## 设置跟踪
 
-`git branch -u origin/serverfix`
+`--set-upstream` **过时命令**
 
->`-u <upstream>`
->`--set-upstream-to=<upstream>`
+As this option had confusing syntax, it is no longer supported. Please use `--track` or `--set-upstream-to` instead.
 
->Set up `<branchname>`'s tracking information so `<upstream>` is considered `<branchname>`'s upstream branch. If no `<branchname>` is specified, then it defaults to the current branch.
+###  branch -u 
 
+`git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]`
 
-`git checkout -b [branch] [remotename]/[branch]`
-`git checkout -b serverfix origin/serverfix`
+`-u <upstream>`
+`--set-upstream-to=<upstream>`
 
-> 这是一个十分常用的操作所以 Git 提供了 --track 快捷方式
+Set up `<branchname>`'s tracking information so `<upstream>` is considered `<branchname>`'s upstream branch. If no `<branchname>`  is specified, then it defaults to the current branch.
+
+> 你可以在任意时间使用 -u 或 --set-upstream-to 选项运行 git branch 来显式地设置
+
+**下文有例子**
+
+### 移除上游
+
+syntax:  `branch --unset-upstream [<branchname>]`
+
+>Remove the upstream information for `<branchname>`. 
+If no branch is specified it defaults to the current branch.
+
+### checkout -- track
+
+>When you clone a repository, it generally automatically creates a master branch that tracks origin/master. However, you can set up other tracking branches if you wish — ones that track branches on other remotes, or don’t track the master branch. The simple case is the example you just saw, running git checkout -b `<branch> <remote>/<branch>`. This is a common enough operation that Git provides the `--track` shorthand:
 
 ```bash
 $ git checkout --track origin/serverfix
+
 Branch serverfix set up to track remote branch serverfix from origin.
 Switched to a new branch 'serverfix'
 ```
 
-> 你可以在任意时间使用 -u 或 --set-upstream-to 选项运行 git branch 来显式地设置
+>In fact, this is so common that there’s even a shortcut for that shortcut. If the branch name you’re trying to checkout (a) doesn’t exist and (b) exactly matches a name on only one remote, Git will create a tracking branch for you:
+
+
+```bash
+$ git checkout serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+Switched to a new branch 'serverfix'
+```
+
+>To set up a local branch with a different name than the remote branch, you can easily use the first version with a different local branch name:
+
+```bash
+$ git checkout -b sf origin/serverfix
+Branch sf set up to track remote branch serverfix from origin.
+Switched to a new branch 'sf'
+```
+
+>Now, your local branch sf will automatically pull from origin/serverfix
+
+###  branch -u example
+
+>If you already have a local branch and want to set it to a remote branch you just pulled down, or want to change the upstream branch you’re tracking, you can use the`-u` or `--set-upstream-to` option to git branch to explicitly set it at any time.
 
 ```bash
 $ git branch -u origin/serverfix
@@ -383,7 +453,7 @@ Branch serverfix set up to track remote branch serverfix from origin.
 
 >如果想要查看设置的所有跟踪分支，可以使用 git branch 的 -vv 选项
 
-### 删除远程分支
+## 删除远程分支
 
 >可以运行带有 --delete 选项的 git push 命令
 
@@ -401,7 +471,7 @@ To https://github.com/schacon/simplegit
 >
 >这与过去大多数版本控制系统形成了鲜明的对比，它们在创建分支时，将所有的项目文件都复制一遍，并保存到一个特定的目录。 完成这样繁琐的过程通常需要好几秒钟，有时甚至需要好几分钟。所需时间的长短，完全取决于项目的规模。而在 Git 中，任何规模的项目都能在瞬间创建新分支。 同时，由于每次提交都会记录父对象，所以寻找恰当的合并基础（译注：即共同祖先）也是同样的简单和高效。 这些高效的特性使得 Git 鼓励开发人员频繁地创建和使用分支。
 
-### 各种本地分支命令
+## 各种本地分支命令
 
 > Git鼓励大量使用分支：
 
@@ -417,7 +487,7 @@ To https://github.com/schacon/simplegit
 
 > 删除分支：`git branch -d name`
 
-### 查看分支
+## 查看分支详情
 
 `git branch`
 `-v`
@@ -430,27 +500,47 @@ it is in list mode, show sha1 and commit subject line for each head, along with 
 If given twice, print the path of the linked worktree (if any) and the name of the upstream branch, as well (see also git remote show `remote`). 
 Note that the current worktree’s HEAD will not have its path printed (it will always be your current directory).
 
-### 创建并切换到分支
+## 创建并切换到分支
 
 `git checkout -b`
 `git checkout -b "branchname " "startpoint"`
 
->The new branch **head**  will point to **this commit**. It may be given as a **branch name**, a **commit-id**, or **a tag**. If this option is omitted, the **current HEAD** will be used instead.
+>The new branch **head**  will point to **this commit**. It may be given as a **branch name**, a **commit-id**, or **a tag**. 
+If this option is omitted, the **current HEAD** will be used instead.
 
-### 解决冲突
+`git branch [--track | --no-track] [-f] <branchname> [<start-point>]`
+`-t`
+`--track`
+
+>When creating a new branch, set up branch.`<name>.remote` and `branch.<name>.merge` configuration entries to mark the start-point branch as "upstream" from the new branch. This configuration will tell git to show the relationship between the two branches in git status and git branch -v. Furthermore, it directs git pull without arguments to pull from the upstream when the new branch is checked out.
+
+>This behavior is the default when the start point is a remote-tracking branch. Set the branch.autoSetupMerge configuration variable to false if you want git switch, git checkout and git branch to always behave as if --no-track were given. Set it to always if you want this behavior when the start-point is either a local or remote-tracking branch.
+
+
+## 重命名git分支名称
+
+
+1. git branch -m 要改的本地分支名 修改后的分支名(修改本地分支)
+
+1. git push origin :远程修改前的分支名（删除远程分支）
+
+1. git push origin 修改后的分支名:远程分支名（push 到远程分支）
+
+1. git branch -u  origin/修改后的分支名（绑定远程分支）
+
+
+## 解决冲突
 > 解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。
 > 用 `git log --graph` 命令可以看到分支合并图。
 
-### 分支管理策略
+## 分支管理策略
 
 > Git分支十分强大，在团队开发中应该充分应用。
 > 合并 **临时分支 **到 **feature分支** 后(并删除 **临时分支** )，
 > 如果加上了 `--no-ff` 参数就可以用普通模式合并，合并后的 **log** 有分支，能看出来曾经做过合并，
 > 而默认的 `fast forward` 合并就看不出来曾经做过合并。
 
-### 快进（fast-forward)
-
-### git tag
+## git tag
 
 `git tag`
 
@@ -508,7 +598,6 @@ To git@github.com:schacon/simplegit.git
 >现在，当其他人从仓库中克隆或拉取，他们也能得到你的那些标签。
 
 
-
 ### 删除标签
 
 `git tag -d <tagname>`
@@ -536,6 +625,49 @@ Note: checking out '2.0.0'.
 >
 >`$ git checkout -b version2 v2.0.0`
 >`Switched to a new branch 'version2'`
+
+## 储藏 stash
+
+`stash`
+`stash list`
+`git stash apply`
+`stash drop`
+`stash pop`
+
+>当工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？
+幸好，Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+
+```bash
+$ git stash
+Saved working directory and index state WIP on dev: f52c633 add merge
+```
+>现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。
+
+>太棒了，原计划两个小时的bug修复只花了5分钟！现在，是时候接着回到dev分支干活了！
+
+```bash
+$ git checkout dev
+Switched to branch 'dev'
+
+$ git status
+On branch dev
+nothing to commit, working tree clean
+```
+>工作区是干净的，刚才的工作现场存到哪去了？
+
+用`git stash list`命令看看：
+
+```bash
+$ git stash list
+stash@{0}: WIP on dev: f52c633 add merge
+```
+
+>工作现场还在，Git把`stash`内容存在某个地方了，但是需要恢复一下，有两个办法：
+
+>一是用`git stash apply`恢复，但是恢复后，`stash`内容并不删除，你需要用`git stash drop`来删除；
+
+>另一种方式是用`git stash pop`，恢复的同时把stash内容也删了
+
 
 ## 自定义 git
 
