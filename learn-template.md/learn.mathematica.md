@@ -666,3 +666,7 @@ Reap[expr]
 ## 产生 C 和 Fortran 表达式
 
 tutorial/GeneratingCAndFortranExpressions
+
+***
+
+一些我比较经常用的 mathematica 的功能

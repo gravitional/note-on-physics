@@ -44,7 +44,7 @@ refer: [runoob brief introduction][]
 
 ## 正则表达式 - 语法
 
-refer:[runoob syntax][]  [runoob metachar][] 
+refer:[runoob syntax][]  and  [runoob metachar][] 
 
 [runoob syntax]: https://www.runoob.com/regexp/regexp-syntax.html
 [runoob metachar]: https://www.runoob.com/regexp/regexp-metachar.html
@@ -126,17 +126,24 @@ refer:[runoob syntax][]  [runoob metachar][]
 限定符用来指定正则表达式的一个给定组件必须要出现多少次才能满足匹配。
 有 `*` 或 `+`或 `?` 或 `{n}` 或 `{n,}` 或 `{n,m}` 共6种
 
+`* = {0,}`
+
+`? = {0,1}`
+
+`+ = {1,}`
+
 
 |  字符    |  描述    |
 | ---- | ---- |
 |  \*    | 匹配前面的子表达式零次或多次     |
 |  \+  |   匹配前面的子表达式一次或多次  |
-| ? | n 是一个非负整数。匹配确定的 n 次 |
-| {n} | 匹配一个回车符。 |
+| ? | 匹配前面的子表达式零次或一次 |
+| {n} | n 是一个非负整数。匹配确定的 n 次 |
 | {n,} | n 是一个非负整数。至少匹配n 次 |
-| {n,m} | m 和 n 均为非负整数，其中n <= m。最少匹配 n 次且最多匹配 m 次 |
+| {n,m} | m 和 n 均为非负整数，其中 n <= m ,最少匹配 n 次且最多匹配 m 次 |
 
-详情参见 [runoob metachar][]
+
+详情参见 [runoob syntax][]
 
 ## 贪婪 and 非贪婪
 
