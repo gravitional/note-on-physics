@@ -51,18 +51,27 @@ Out[3]= {{f[a, u], f[b, v]}, {f[c, s], f[d, t]}}
 
 ```mathematica
 Grid[(*start grid *)
- Prepend[(*start prepend names horizontal*)
-  MapThread[Prepend,(*start prepend names vertical *)
-   {(*add names column*)
-    datalist,(*add the data to display*)
-    name`vertical (*end prepend names vertical *)
+ Prepend[(*for prepend names horizontal*)
+  MapThread[Prepend,(*for prepend names vertical *)
+   {
+   (*start the data to display*)
+    datalist,
+    (*end the data to display*)
+    (*start prepend names vertical*)
+    name`vertical 
+    (*end prepend names vertical *)
     }
    ],
-  {"", name`horizontal}(*end prepend names horizontal*)
+   (*start prepend names horizontal*)
+  {"", name`horizontal}
+  (*end prepend names horizontal*)
   ]
  , Frame -> {All, All}
  , Spacings -> {2, 2}
- , Background -> {None, {{None, None}}}
+ , Background -> {
+ None, (* color x direction: x1, x2, x3...*)
+ {{None, None}}(* color y direction: y1, y2, y3...*)
+ }
  ](*end grid *)
 ```
 

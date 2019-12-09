@@ -1,3 +1,12 @@
+## Needs and Get
+
+>属性和关系  (1)
+```mathematica
+Once[Get[package]] 类似于 Needs[package]：
+Once[Get["EquationTrekker`"]]
+```
+
+
 ## 图形结构
 
 tutorial/TheStructureOfGraphics
