@@ -12,3 +12,13 @@ Preview mode is indicated by italics in the Tab heading:
 ## split
 
 Pro Tip: If you press and hold the Alt key while hovering over the toolbar action to split an editor, it will offer to split to the other orientation. This is a fast way to split either to the right or to the bottom.
+
+# Playground
+
+In the bottom right of the Welcome page, there is a link to the Interactive playground where you can interactively try out VS Code's features. ` Help > Interactive Playground `.
+
+## multi-cursor editing
+
+## intelli-sense
+
+## line-actions
