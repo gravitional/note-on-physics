@@ -70,13 +70,13 @@
 
 名称/值对包括字段名称（在双引号中），后面写一个冒号，然后是值：
 
-```json
+```javascript
 "name" : "菜鸟教程"
 ```
 
 这很容易理解，等价于这条 `JavaScript` 语句：
 
-```json
+```javascript
 name = "菜鸟教程"
 ```
 
@@ -102,13 +102,13 @@ name = "菜鸟教程"
 
 JSON对象可以包含多个名称/值对
 
-```json
+```javascript
 { "name":"菜鸟教程" , "url":"www.runoob.com" }
 ```
 
 这一点也容易理解，与这条 `JavaScript` 语句等价：
 
-```json
+```javascript
 name = "菜鸟教程"
 url = "www.runoob.com"
 ```
@@ -119,7 +119,7 @@ JSON 数组在中括号中书写：
 
 数组可包含多个对象：
 
-```json
+```javascript
 {
 "sites": [
 { "name":"菜鸟教程" , "url":"www.runoob.com" }, 
@@ -135,7 +135,7 @@ JSON 数组在中括号中书写：
 
 `JSjsonON` 布尔值可以是 `true` 或者 `false`：
 
-```json
+```javascript
 { "flag":true }
 ```
 
@@ -143,7 +143,7 @@ JSON 数组在中括号中书写：
 
 `JSON` 可以设置 `null` 值：
 
-```json
+```javascript
 { "runoob":null }
 ```
 
@@ -155,7 +155,8 @@ JSON 数组在中括号中书写：
 通过 `JavaScript`，您可以创建一个对象数组，并像这样进行赋值：
 实例
 
-```json
+```javascript
+
 var sites = [
     { "name":"runoob" , "url":"www.runoob.com" },
     { "name":"google" , "url":"www.google.com" },
@@ -163,11 +164,27 @@ var sites = [
 ];
 ```
 
-可以像这样访问 JavaScript 对象数组中的第一项（索引从 0 开始）：
+可以像这样访问 `JavaScript` 对象数组中的第一项（索引从 `0` 开始）：
+
+```javascript
 sites[0].name;
+```
 
 返回的内容是：
+
+```javascript
 runoob
+```
 
 可以像这样修改数据：
+
+```javascript
 sites[0].name="菜鸟教程";
+```
+
+## JSON 文件
+
++ JSON 文件的文件类型是 "`.json`"
++ JSON 文本的 `MIME` 类型是 "`application/json`"
+
+
