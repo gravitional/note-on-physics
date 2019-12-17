@@ -1856,8 +1856,65 @@ Input domain: mossfly.com
 Please give a valid domain name.
 ```
 
+#### 逐行读取文本文件
 
+	
+```powershell
+for($file=[IO.File]::OpenText("c:autoexec.bat") ; !($file.EndOfStream);$line=$file.ReadLine() )
+{
+    $line;
+}
+$file.Close()
+REM Dummy file for NTVDM
+```
 
+### Powershell Switch 循环
+
+`Switch`本是多路分支的关键字，但是在`Powershell`中由于`Switch`支持集合，  
+所以也可以使用它进行循环处理。下面举两个例子。
+
+第一个将`Foreach`循环转换成`Switch`循环：
+
+```powershell
+#使用Foreach循环
+$nums=10..7
+foreach($n in $nums)
+{
+    "n=$n"
+}
+n=10
+n=9
+n=8
+n=7
+ 
+#使用Switch循环
+$nums = 10..7
+Switch ($nums)
+{
+Default { "n= $_" }
+}
+ 
+n= 10
+n= 9
+n= 8
+n= 7
+```
+
+有时对集合的处理，在循环中还须条件判断，使用`Switch`循环可以一步到位，例如：
+	
+```powershell
+$nums = 10..7
+Switch ($nums)
+{
+    {($_ % 2) -eq 0} {"$_ 偶数"}
+    {($_ % 2) -ne 0} {"$_ 奇数"}
+}
+
+10 偶数
+9 奇数
+8 偶数
+7 奇数
+```
 
 
 ## section Powershell函数
