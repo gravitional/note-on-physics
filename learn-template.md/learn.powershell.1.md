@@ -1,4 +1,4 @@
-# learn.powershell.md
+# learn.powershell.1.md
 
 For myself and for you
 
@@ -9,17 +9,18 @@ For myself and for you
 
 ## introduction
 
-与大多数 Shell（它们接受和返回文本）不同，Windows PowerShell 是在 .NET Framework 公共语言运行时 (CLR) 和.NET Framework 的基础上生成的，它将接受和返回 .NET Framework 对像。 环境中的这一基本更改为 Windows 的管理和配置带来了全新的工具和方法。
+与大多数 `Shell`（它们接受和返回文本）不同，`Windows PowerShell` 是在 `.NET Framework` 公共语言运行时 (`CLR`) 和`.NET Framework` 的基础上生成的，它将接受和返回 `.NET Framework` 对像。 
+环境中的这一基本更改为 `Windows` 的管理和配置带来了全新的工具和方法。
 
-Windows PowerShell 引入了 cmdlet（读作“command-let”）的概念，它是内置于 Shell 的简单的单一函数命令行工具。 可以分别使用每个 cmdlet，但只有组合使用这些简单的工具来执行复杂的任务时，你才会意识到它们的强大功能。 Windows PowerShell 包括一百多个基本核心 cmdlet，你可以编写自己的 cmdlet 并与其他用户共享。
+`Windows PowerShell` 引入了 `cmdlet`（读作“command-let”）的概念，它是内置于 Shell 的简单的单一函数命令行工具。 可以分别使用每个 `cmdlet`，但只有组合使用这些简单的工具来执行复杂的任务时，你才会意识到它们的强大功能。 `Windows PowerShell` 包括一百多个基本核心 `cmdlet`，你可以编写自己的 `cmdlet` 并与其他用户共享。
 
-与许多 Shell 类似，Windows PowerShell 允许你访问计算机上的文件系统。 此外，Windows PowerShell 提供程序使你能够像访问文件系统一样方便地访问其他数据存储（例如注册表和数字签名证书存储）。
+与许多 Shell 类似，`Windows PowerShell` 允许你访问计算机上的文件系统。 此外，`Windows PowerShell` 提供程序使你能够像访问文件系统一样方便地访问其他数据存储（例如注册表和数字签名证书存储）。
 
 [micro-doc][micro-doc]
 
 [micro-doc]: https://docs.microsoft.com/zh-cn/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-6
 
-PowerShell 是一个脚本引擎 dll，嵌入到多个主机中。 启动的最常见主机是交互式命令行 PowerShell.exe 和交互式脚本环境 PowerShell_ISE.exe。
+`PowerShell` 是一个脚本引擎 `dll`，嵌入到多个主机中。 启动的最常见主机是交互式命令行 `PowerShell.exe` 和交互式脚本环境 `PowerShell_ISE.exe`。
 
 ## 认识Powershell
 
@@ -70,7 +71,7 @@ PS C:\PStest>
 
 ### Powershell 执行外部命令
 
-Powershell 能够像CMD一样很好的执行外部命令。
+`Powershell` 能够像`CMD`一样很好的执行外部命令。
 
 #### 通过`netstat`查看网络端口状态
 
@@ -291,12 +292,7 @@ At line:1 char:10
 文件：没有找到脚本，会继续寻找文件，如果没有可用的文件，控制台会抛出异常。
 
 ```powershell
-The term ‘now’ is not recognized as the name of a cmdlet, function, script file, or operable program. Chec
-g of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:4
-+ now <<<<
-+ CategoryInfo : ObjectNotFound: (now:String) [], CommandNotFoundException
-+ FullyQualifiedErrorId : CommandNotFoundException
+The term ‘now’ is not recognized as the name of a cmdlet, function, script file, or operable program...
 ```
 
 ## Powershell变量
@@ -747,21 +743,13 @@ New-Variable : A variable with name 'a' already exists.
 
 到目前为止，看到的变量作用域的改变都是全局的，能不能针对某个具体变量的作用域做一些个性化的设置。
 
-`$global`
-
-全局变量，在所有的作用域中有效，如果你在脚本或者函数中设置了全局变量，即使脚本和函数都运行结束，这个变量也任然有效。
-
-`$script`
-
-脚本变量，只会在脚本内部有效，包括脚本中的函数，一旦脚本运行结束，这个变量就会被回收。
-
-`$private`
-
-私有变量，只会在当前作用域有效，不能贯穿到其他作用域。
-
-`$local`
-
-默认变量，可以省略修饰符，在当前作用域有效，其它作用域只对它有只读权限。
++ `$global` 全局变量，在所有的作用域中有效，如果你在脚本或者函数中设置了全局变量，即使脚本和函数都运行结束，这个变量也任然有效。
+  
++ `$script` 脚本变量，只会在脚本内部有效，包括脚本中的函数，一旦脚本运行结束，这个变量就会被回收。
+  
++ `$private` 私有变量，只会在当前作用域有效，不能贯穿到其他作用域。
+  
++ `$local` 默认变量，可以省略修饰符，在当前作用域有效，其它作用域只对它有只读权限。
 
 打开`Powershell`控制台后，`Powershell`会自动生成一个新的**全局作用域**。
 如果增加了函数和脚本，或者特殊的定义，才会生成其它作用域。
@@ -827,7 +815,9 @@ PS> $private:var -eq $null
 True
 ```
 
-#### 但是`$local`修饰的变量则可以通过`$global`在函数内部更改
+#### local变量
+
+但是`$local`修饰的变量则可以通过`$global`在函数内部更改
 
 ```powershell
 PS> Function f(){ "var=$var";$global:var=" Try to change variable in function"}
@@ -990,7 +980,8 @@ Cannot convert value "can not convert" to type "System.Int32". Error: "Input str
 在`Powershell`中创建一个变量，会在后台生成一个`PSVariable`对象，
 这个对象不仅包含变量的值，也包含变量的其它信息，例如”**只写保护**”这样的描述。
 如果在`Powershell`中输出一个变量，只会输出这个变量的值。
-不能够显示它的其它信息，如果想查看一个变量的其它保留信息，就需要变量的基类`PSVariable`对象，
+不能够显示它的其它信息，如果想查看一个变量的其它保留信息，就需要变量的基类`PSVariable`对象.
+
 这个可以通过`Get-Variable`命令得到，下面的例子演示如何查看一个变量的全部信息。
 
 ```powershell
@@ -1002,6 +993,7 @@ PS> Get-Variable a
 
 `Powershell`处理一个变量的`PSVariable`对象，主要是为了能够更新变量的选项设置。
 既可以使用命令`Set-Variable`，也可以在获取`PSvariable`对象后直接更改。
+
 比如更改一个变量的描述：
 
 ```powershell
@@ -1178,13 +1170,12 @@ PS> $email="www@mossfly"
 The variable cannot be validated because the value www@mossfly is not a valid value for the email variable.
 ```
 
-## Powershell数组和哈希表
-
 ## Powershell管道
 
 ### Powershell使用管道
 
-管道并不是什么新事物，以前的`Cmd`控制台也有重定向的命令，例如`Dir | More`可以将结果分屏显示。
+管道并不是什么新事物，以前的`Cmd`控制台也有重定向的命令，
+例如`Dir | More`可以将结果分屏显示。
 传统的`Cmd`管道是基于文本的，但是`Powershell`是基于对象。
 
 ```powershell
@@ -2318,850 +2309,3 @@ C$                         C:                        Default share
 ```
 
 这样ETS的扩充只对`Win32_Processor`有效了。不会影响到其他父类型对象。
-
-## Powershell使用对象
-
-### Powershell对象=属性+方法
-
-在现实世界中，你可能已经了解对象就是那些能够摸到的东西。`Powershell`中的对象和现实生活很相似。
-
-例如要在现实生活中描述一把小刀。我们可能会分两方面描述它
-
-属性：一把小刀拥有一些特殊的属性，比如它的颜色、制造商、大小、刀片数。这个对象是红色的，重55克，有3个刀片，ABC公司生产的。因此属性描述了一个对象是什么。
-
-方法：可以使用这个对象做什么，比如切东西、当螺丝钉用、开啤酒盖。
-一个对象能干什么就属于这个对象的方法。
-
-#### 创建对象
-
-通过`New-Object`可以创建一个对象，甚至可以创建一个虚拟的小刀，但是第一步需要创建一个空对象。
-空对象什么都没有，如果调用它，不会返回任何东西。
-
-```powershell
-PS C:Powershell> $pocketknife=New-Object object
-PS C:Powershell> $pocketknife
-System.Object
-```
-
-#### 增加属性
-
-接下来描述这个对象是什么
-
-```powershell
-PS C:Powershell> Add-Member -InputObject $pocketknife -Name Color -Value "Red"-MemberType NoteProperty
-PS C:Powershell> $pocketknife
-
-Color
------
-Red
-
-PS C:Powershell> Add-Member -InputObject $pocketknife -Name Weight -Value "55" -MemberType NoteProperty
-PS C:Powershell> $pocketknife | Add-Member NoteProperty Blades 3
-PS C:Powershell> $pocketknife | Add-Member NoteProperty Manufacturer ABC
-PS C:Powershell> $pocketknife
-
-Color Weight Blades Manufacturer
------ ------ ------ ------------
-Red   55          3 ABC
-```
-
-#### 增加方法
-
-给一个对象增加了属性后，这个对象就有形状了，但是它仍然不能做任何事，要想它做事，必须给它增加方法。
-同样使用`Add-Member`，不过`-memberType` 选项使用`ScriptMethod`。
-
-```powershell
-# 增加一个新方法:
-Add-Member -memberType ScriptMethod -In $pocketknife ` -name cut -Value { "I'm whittling now" }
-# 指定参数类型增加一个新方法:
-Add-Member -in $pocketknife ScriptMethod screw { "Phew...it's in!" }
-#直接通过管道增加一个新方法:
-$pocketknife | Add-Member ScriptMethod corkscrew { "Pop! Cheers!" }
-```
-
-方法添加成功后就可以调用了
-
-```powershell
-PS C:Powershell> $pocketknife.cut()
-I'm whittling now
-PS C:Powershell> $pocketknife.screw()
-Phew...it's in!
-PS C:Powershell> $pocketknife.corkscrew()
-Pop! Cheers!
-```
-
-在调用方法时如果没有使用圆括号，方法不会执行，但是可以返回方法的基本信息。
-
-```powershell
-PS C:Powershell> $pocketknife.corkscrew
-
-Script                      :  "Pop! Cheers!"
-OverloadDefinitions : {System.Object corkscrew();}
-MemberType           : ScriptMethod
-TypeNameOfValue  : System.Object
-Value                      : System.Object corkscrew();
-Name                     : corkscrew
-IsInstance               : True
-```
-
-到目前为止一个虚拟的小刀对象就创建完成了，一个对象包含数据（属性）和动作（方法）。
-
-### Powershell属性：描述对象是什么
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Powershell条件判断
-
-### Powershell 中的比较运算符
-
-+ -eq ：等于
-+ -ne ：不等于
-+ -gt ：大于
-+ -ge ：大于等于
-+ -lt ：小于
-+ -le ：小于等于
-+ -contains ：包含
-+ -notcontains :不包含
-
-### 进行比较
-
-可以将比较表达式直接输入进`Powershell`控制台，然后回车，会自动比较并把比较结果返回。
-
-```powershell
-PS C:Powershell> (3,4,5 ) -contains 2
-False
-PS C:Powershell> (3,4,5 ) -contains 5
-True
-PS C:Powershell> (3,4,5 ) -notcontains 6
-True
-PS C:Powershell> 2 -eq 10
-False
-PS C:Powershell> "A" -eq "a"
-True
-PS C:Powershell> "A" -ieq "a"
-True
-PS C:Powershell> "A" -ceq "a"
-False
-PS C:Powershell> 1gb -lt 1gb+1
-True
-PS C:Powershell> 1gb -lt 1gb-1
-False
-```
-
-### 求反
-
-求反运算符为`-not` 但是像高级语言一样”`！`“ 也支持求反。
-
-```powershell
-PS C:Powershell> $a= 2 -eq 3
-PS C:Powershell> $a
-False
-PS C:Powershell> -not $a
-True
-PS C:Powershell> !($a)
-True
-```
-
-### 布尔运算
-
-+ `-and` ：和
-+ `-or`  ：或
-+ `-xor` ：异或
-+ `-not` ：逆
-
-```powershell
-PS C:Powershell> $true -and $true
-True
-PS C:Powershell> $true -and $false
-False
-PS C:Powershell> $true -or $true
-True
-PS C:Powershell> $true -or $false
-True
-PS C:Powershell> $true -xor $false
-True
-PS C:Powershell> $true -xor $true
-False
-PS C:Powershell>  -not  $true
-False
-```
-
-### 比较数组和集合
-
-#### 过滤数组中的元素
-
-```powershell
-PS C:Powershell> 1,2,3,4,3,2,1 -eq 3
-3
-3
-PS C:Powershell> 1,2,3,4,3,2,1 -ne 3
-1
-2
-4
-2
-1
-```
-
-### 验证一个数组是否存在特定元素
-
-```powershell
-PS C:Powershell> $help=(man ls)
-PS C:Powershell> 1,9,4,5 -contains 9
-True
-PS C:Powershell> 1,9,4,5 -contains 10
-False
-PS C:Powershell> 1,9,4,5 -notcontains 10
-True
-```
-
-`-contains` 大小写不敏感，`-ccontains`大小写敏感。
-
-```powershell
-PS> "a","b","c" -ccontains "a"
-True
-PS> "a","b","c" -contains "a"
-True
-PS> "a","b","c" -ccontains "A"
-False
-```
-
-### Powershell Where-Object 条件过滤
-
-本篇会对条件判断进行实际应用。
-在管道中可以通过条件判断过滤管道结果，Where-Object会对集合逐个过滤，将符合条件的结果保留。
-
-#### 过滤管道结果
-
-使用`Get-Process`返回所有的当前进程 ，但是你可能并不对所有的进程感兴趣，
-然后通过每个`Process`对象的属性进行过滤。首先得知道每个对象支持那些属性
-
-```powershell
-PS C:Powershell> Get-Process | select -First 1 | fl *
-```
-
-***
-根据进程名过滤所有`记事本`进程。
-
-```powershell
-PS C:Powershell> Get-Process | Where-Object {$_.Name -eq "notepad"}
-
-Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id ProcessName
--------  ------    -----      ----- -----   ------     -- -----------
-    158       7     8800      37264   114    18.41   6204 notepad
-```
-
-***
-根据进程名过滤所有`IE`进程。
-
-```powershell
-PS C:Powershell> Get-Process | Where-Object {$_.Name -eq "iexplore"}
-
-Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id ProcessName
--------  ------    -----      ----- -----   ------     -- -----------
-    710      23    12832      18160   175    10.51   4204 iexplore
-    971      39    81000     107580   399    22.20   6764 iexplore
-    336      13    28516      20096   187     0.34   6792 iexplore
-    929      35    51020      46568   314    10.42   7192 iexplore
-    835      26    49200      32360   308     7.82   7952 iexplore
-```
-
-***
-根据`company`过滤所有产品发布者以”`Microsoft`”打头的进程：
-
-```powershell
-PS C:Powershell> Get-Process | Where-Object {$_.company -like '*Microsoft*' }| select Name,Description,Company
-msseces                    Microsoft Security Clie... Microsoft Corporation
-notepad                    记事本                     Microsoft Corporation
-ONENOTEM                   Microsoft OneNote Quick... Microsoft Corporation
-OUTLOOK                    Microsoft Outlook          Microsoft Corporation
-powershell                 Windows PowerShell         Microsoft Corporation
-prevhost                   Preview Handler Surroga... Microsoft Corporation
-RDCMan                     RDCMan                     Microsoft Corporation
-SearchProtocolHost         Microsoft Windows Searc... Microsoft Corporation
-taskhost                   Windows 任务的主机进程     Microsoft Corporation
-```
-
-#### 使用别名
-
-因为`Where-Object`的使用概率比较高，所以有一个很形象的别名`？`可以使用：
-
-```powershell
-PS C:Powershell> Get-Service | ? {$_.Name -like "B*"}
-
-Status   Name               DisplayName
-------   ----               -----------
-Running  BDESVC             BitLocker Drive Encryption Service
-Running  BFE                Base Filtering Engine
-Running  BITS               Background Intelligent Transfer Ser...
-Stopped  Browser            Computer Browser
-Stopped  bthserv            Bluetooth Support Service
-```
-
-#### example
-
-`Where-Object`
-
-Selects objects from a collection based on their property values.
-
-These commands get a list of all services that are currently stopped.
-The `$_` automatic variable represents each object that is passed to the `Where-Object` cmdlet.
-The first command uses the **script block** format, the second command uses the **comparison statement** format.
-
-The commands are equivalent and can be used interchangeably.
-
-```powershell
-Get-Service | Where-Object {$_.Status -eq "Stopped"}
-Get-Service | where Status -eq "Stopped"
-```
-
-***
-`-Like`
-
-Indicates that this cmdlet gets objects if the property value matches a value that **includes wildcard characters**.
-
-For example: `Get-Process | where ProcessName -Like "*host"`
-***
-
-### Powershell IF-ELSEIF-ELSE 条件
-
-`Where-Object` 进行条件判断很方便，如果在判断后执行很多代码可以使用`IF-ELSEIF-ELSE`语句。语句模板：
-
-```powershell
-If（条件满足）{
-如果条件满足就执行代码
-}
-Else
-{
-如果条件不满足
-}
-```
-
-条件判断必须放在圆括号中，执行的代码必须紧跟在后面的花括号中。
-
-```powershell
-PS C:Powershell> $n=8
-PS C:Powershell> if($n -gt 15) {"$n  大于 15 " }
-PS C:Powershell> if($n -gt 5) {"$n  大于 5 " }
-8  大于 5
-PS C:Powershell> if($n -lt 0 ){"-1" } elseif($n -eq 0){"0"} else {"1"}
-1
-```
-
-### Powershell Switch 条件
-
-如果语句中有多路分支，使用`IF-ELSEIF-ELSE`不友好，可以使用`Switch`，看起来比较清爽一点。
-下面的例子将`If-ElseIF-Else`转换成`Switch`语句
-
-```powershell
-#使用 IF-ElseIF-Else
-If( $value -eq 1 )
-{
-    "Beijing"
-}
-Elseif( $value -eq 2)
-{
-    "Shanghai"
-}
-Elseif( $value -eq 3 )
-{
-    "Tianjin"
-}
-Else
-{
-    "Chongqing"
-}
-
-#使用 Switch
-switch($value)
-{
-    1 {"Beijing"}
-    2 {"Shanghai"}
-    3 {"Tianjin"}
-    4 {"Chongqing"}
-}
-```
-
-#### 测试取值范围
-
-使用 `Switch`时缺省的比较运算符为 `-eq` 等于，你也可以自己定制比较条件，
-将条件放在花括号中, 必须保证条件表达式的返回值为布尔类型”`$True`”或”`$False`”
-
-```powershell
-$value=18
-# 使用 Switch 测试取值范围
-switch($value)
-{
-    {$_ -lt 10} {"小于10"}
-    10  {"等于10"}
-    {$_  -gt 10} {"大于10"}
-}
-#输出
-#大于10
-```
-
-#### 没有匹配条件
-
-在`IF-Else`语句中如果没有合适的条件匹配，可以在`Else`中进行处理，
-同样在`Switch`语句中如果`case`中没有条件匹配，可以使用关键字`Default`进行处理。
-同样是上面的例子，稍加修改：
-
-```powershell
-$value=-7
-# 使用 Switch 测试取值范围
-switch($value)
-{
-    {($_ -lt 10) -and ( $_ -gt 0) }  {"小于10"}
-    10  {"等于10"}
-    {$_  -gt 10} {"大于10"}
-    Default {"没有匹配条件"}
-}
-#Output:
-#没有匹配条件
-```
-
-#### 多个条件匹配
-
-如果`case`中有多个条件匹配，那么每个匹配的条件都会进行处理，例如：
-
-```powershell
-$value=2
-# 使用 Switch 测试取值范围
-switch($value)
-{
-    {$_ -lt 5 }  { "小于5" }
-    {$_ -gt 0 }   { "大于0" }
-    {$_ -lt 100}{ "小于100"}
-    Default {"没有匹配条件"}
-}
-
-#小于5
-#大于0
-#小于100
-```
-
-如果碰到匹配条件时只处理一次，可以使用`Break`关键字
-
-```powershell
-$value=99
-# 使用 Switch 测试取值范围
-switch($value)
-{
-    {$_ -lt 5 }   { "小于5"; break}
-    {$_ -gt 0 }   { "大于0"; break}
-    {$_ -lt 100}  { "小于100"; break}
-    Default {"没有匹配条件"}
-}
-
-#大于0
-```
-
-#### 比较字符串
-
-之前的条件比较的都是数字，接下来比较字符串，默认的条件判断为`-eq`，
-我们知道在`Powershell`中字符串的使用`-eq`比较大小写不敏感，所以才有下面的例子：
-
-```powershell
-$domain="www.mossfly.com"
-switch($domain)
-{
-    "Www.moSSfly.com" {"Ok 1"}
-    "www.MOSSFLY.com" {"Ok 2" }
-    "WWW.mossfly.COM" {"Ok 3"}
-}
-Ok 1
-Ok 2
-Ok 3
-```
-
-大小写敏感
-
-怎样在比较字符串时能够恢复为大小写敏感模式?
-`Switch`有一个`-case`选项，一旦指定了这个选项，比较运算符就会从`-eq` 切换到`-ceq`，即大小写敏感比较字符串:
-
-```powershell
-$domain="www.mossfly.com"
-#大小写敏感
-switch -case ($domain)
-{
-    "Www.moSSfly.com" {"Ok 1"}
-    "www.MOSSFLY.com" {"Ok 2" }
-    "www.mossfly.com" {"Ok 3"}
-}
-#Ok 3
-```
-
-#### switch使用通配符
-
-字符串非常特殊，需要使用通配符，幸运的是`Powershell`也支持，果然`Power`啊。
-但是在Switch语句后要指定 `-wildcard` 选项
-
-```powershell
-$domain="www.mossfly.com"
-#使用通配符
-switch -wildcard($domain)
-{
-    "*"     {"匹配'*'"}
-    "*.com" {"匹配*.com" }
-    "*.*.*" {"匹配*.*.*"}
-}
-匹配'*'
-匹配*.com
-匹配*.*.*
-```
-
-在字符串匹配中，比通配符功能更强大是正则表达式，`Powershell`的`Switch`语句也支持，真是太棒了。
-当然需要给`Switch`关键字指定选项`-regex`
-
-```powershell
-$mail="www@mossfly.com"
-#使用通配符
-switch -regex ($mail)
-{
-    "^www"     {"www打头"}
-    "com$"     {"com结尾" }
-    "d{1,3}.d{1,3}.d{1,3}.d{1,3}" {"IP地址"}
-}
-
-#www打头
-#com结尾
-```
-
-#### 同时处理多个值
-
-`Switch`支持对集合所有元素进行匹配,下面的例子使用`Powershell Switch`语句演示打印水仙花数：
-
-```powershell
-$value=100..999
-switch($value)
-{
-{[Math]::Pow($_%10,3)+[Math]::Pow( [Math]::Truncate($_%100/10) ,3)+[Math]::Pow( [Math]::Truncate($_/100) , 3) -eq $_} {$_}
-}
-
-#153
-#370
-#371
-#407
-```
-
-## Powershell循环
-
-### Powershell ForEach-Object 循环
-
-`Powershell`管道就像流水线，对于数据的处理是一个环节接着一个环节，
-如果你想在某一环节对流进来的数据逐个细致化的处理，可是使用`ForEach-Object`，
-`$_`代表当前的数据。
-
-#### 对管道对象逐个处理
-
-如果使用`Get-WmiObject`获取系统中的服务，为了排版可能会也会使用`Format-Table`对结果进行表格排版。
-
-```powershell
-PS C:Powershell> Get-WmiObject Win32_Service | Format-Table status,DisplayName -AutoSize
-
-status DisplayName
------- -----------
-OK     Adobe Acrobat Update Service
-OK     Application Experience
-...
-```
-
-但是如果想对每个服务进行更定制化的处理可以使用`ForEach-Object`
-
-```powershell
-PS C:Powershell> Get-WmiObject Win32_Service | ForEach-Object {"Name:"+ $_.Disp
-layName, ", Is ProcessId more than 100:" + ($_.ProcessId -gt 100)}
-Name:Adobe Acrobat Update Service , Is ProcessId more than 100:True
-Name:Application Experience , Is ProcessId more than 100:False
-Name:Application Layer Gateway Service , Is ProcessId more than 100:False
-```
-
-#### 结合条件处理
-
-`ForEach-Object`的处理可以包含任意`Powershell`脚本，当然也包括条件语句
-
-```powershell
-Get-WmiObject Win32_Service | ForEach-Object {
-    if ($_.ProcessId -gt 3000)
-    { "{0}({1})" -f $_.DisplayName,$_.ProcessID}
-}
-
-Windows Presentation Foundation Font Cache 3.0.0.0(5408)
-Microsoft Network Inspection(5260)
-BranchCache(4112)
-Windows Modules Installer(7656)
-```
-
-#### 调用方法
-
-在`ForEach-Object`中，`$_`代表当前对象，当然也允许通过`$_`,调用该对象支持的方法。
-下面的例子杀死所有IE浏览器进程：
-
-```powershell
-PS C:Powershell> Get-Process iexplore
-
-Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id ProcessName
--------  ------    -----      ----- -----   ------     -- -----------
-    883      29    14728      22432   181    34.26   4300 iexplore
-    771      28    55552     129152   425     8.56   5732 iexplore
-...
-
-PS C:Powershell> Get-Process iexplore | ForEach-Object {$_.kill()}
-PS C:Powershell> Get-Process iexplore
-```
-
-### Powershell Foreach 循环
-
-`Foreach-object` 为`cmdlet`命令，使用在管道中，对管道结果逐个处理，
-`foreach`为遍历集合的关键字。
-
-下面举两个例子：
-
-```powershell
-$array=7..10
-foreach ($n in $array)
-{
-    $n*$n
-}
-
-#49
-#64
-#81
-#100
-
-foreach($file in dir c:\windows)
-{
-    if($file.Length -gt 1mb)
-    {
-        $File.Name
-    }
-}
-
-#explorer.exe
-#WindowsUpdate.log
-```
-
-这里只为了演示foreach，其实上面的第二个例子可以用`Foreach-Object`更简洁。
-
-```powershell
-PS C:\Powershell> dir C:\Windows | where {$_.length -gt 1mb} |foreach-object {$_.Name}
-explorer.exe
-WindowsUpdate.log
-```
-
-### Powershell Do While 循环
-
-`Do`和`While`可能产生死循环，为了防止死循环的发生，你必须确切的指定循环终止的条件。
-指定了循环终止的条件后，一旦条件不满足就会退出循环。
-
-#### 继续与终止循环的条件
-
-`do-while()`会先执行再去判断，能保证循环至少执行一次。
-
-```powershell
-PS C:Powershell> do { $n=Read-Host } while( $n -ne 0)
-10
-100
-99
-2012
-世界末日
-为什么不退出
-因为条件不满足
-怎样才能满足
-请输入一个0，试一试
-0
-PS C:Powershell>
-```
-
-#### 单独使用While
-
-```powershell
-$n=5
-while($n -gt 0)
-{
-    $n
-    $n=$n-1
-}
-5
-4
-3
-2
-1
-```
-
-#### 终止当前循环
-
-使用`continue`关键字，可以终止当前循环，跳过`continue`后其它语句，重新下一次循环。
-
-```powershell
-$n=1
-while($n -lt 6)
-{
-    if($n -eq 4)
-    {
-        $n=$n+1
-        continue
-
-    }
-    else
-    {
-        $n
-    }
-    $n=$n+1
-}
-1
-2
-3
-5
-```
-
-#### 跳出循环语句
-
-跳出循环语句使用`break`关键字
-
-```powershell
-$n=1
-while($n -lt 6)
-{
-    if($n -eq 4)
-    {
-        break
-    }
-    $n
-    $n++
-}
-```
-
-### Powershell For 循环
-
-如果你知道循环的确切次数可以使用`For`循环，`For`循环属于计数型循环，
-一旦达到最大次数，循环就会自动终止。下面的例子通过循环求`1-100`的数列和。
-
-```powershell
-$sum=0
-for($i=1;$i -le 100;$i++)
-{
-    $sum+=$i
-}
-$sum
-```
-
-#### For循环是特殊类型的While循环
-
-在`For`循环开始的圆括号中，由分号隔开的语句为循环的控制条件，
-分别为：初始化，循环执行满足的条件，增量。
-
-For循环的控制语句第一个和第三个可以为空：
-
-```powershell
-$sum=0
-$i=1
-for(;$i -le 100;)
-{
-    $sum+=$i
-    $i++
-}
-$sum
-```
-
-#### For循环的特殊应用
-
-上面的`For`循环示例停留在数字层面上，其实`While`循环能办到的事，`For`循环也可以，
-只是可能有时不方便而已。例如判断域名的例子：
-
-```powershell
-for($domain="";!($domain -like "www.*.*");$domain=Read-Host "Input domain")
-{
-    Write-Host -ForegroundColor "Green" "Please give a valid domain name."
-}
-Please give a valid domain name.
-Input domain: www
-Please give a valid domain name.
-Input domain: mossfly.com
-Please give a valid domain name.
-```
-
-#### 逐行读取文本文件
-
-```powershell
-for($file=[IO.File]::OpenText("c:autoexec.bat") ; !($file.EndOfStream);$line=$file.ReadLine() )
-{
-    $line;
-}
-$file.Close()
-REM Dummy file for NTVDM
-```
-
-### Powershell Switch 循环
-
-`Switch`本是多路分支的关键字，但是在`Powershell`中由于`Switch`支持集合，
-所以也可以使用它进行循环处理。下面举两个例子。
-
-第一个将`Foreach`循环转换成`Switch`循环：
-
-```powershell
-#使用Foreach循环
-$nums=10..7
-foreach($n in $nums)
-{
-    "n=$n"
-}
-n=10
-n=9
-n=8
-n=7
-
-#使用Switch循环
-$nums = 10..7
-Switch ($nums)
-{
-Default { "n= $_" }
-}
-
-n= 10
-n= 9
-n= 8
-n= 7
-```
-
-有时对集合的处理，在循环中还须条件判断，使用`Switch`循环可以一步到位，例如：
-
-```powershell
-$nums = 10..7
-Switch ($nums)
-{
-    {($_ % 2) -eq 0} {"$_ 偶数"}
-    {($_ % 2) -ne 0} {"$_ 奇数"}
-}
-
-10 偶数
-9 奇数
-8 偶数
-7 奇数
-```
-
-## Powershell函数
-
-## Powershell脚本
-
-## Powershell错误处理
-
-## Powershell命令发现和脚本块
-
-## Powershell文本和正则表达式
-
-## PowerShell处理XML
-
-## PowerShell文件系统
-
-## PowerShell注册表
