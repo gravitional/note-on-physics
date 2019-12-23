@@ -346,7 +346,7 @@ This flag disables these checks, and can cause the remote repository to lose com
 `git pull [<options>] [<repository> [<refspec>…]]`
 
 `<repository>` should be the name of a remote repository as passed to `git-fetch`.
-`<refspec>` can name an arbitrary remote ref (for example, the name of a tag) or even a collection of refs with corresponding remote-tracking branches (e.g., refs/heads/*:refs/remotes/origin/*),
+`<refspec>` can name an arbitrary remote ref (for example, the name of a tag) or even a collection of refs with corresponding remote-tracking branches (e.g., `refs/heads/*:refs/remotes/origin/*`),
 **but usually it is the name of a branch in the remote repository.**
 
 More precisely,`git pull` runs git fetch with the given parameters and calls git merge to merge the retrieved branch heads into **the current branch**.
@@ -564,7 +564,7 @@ This behavior is the default when the start point is a remote-tracking branch. S
 ## 分支管理策略
 
 `Git`分支十分强大，在团队开发中应该充分应用。
-合并 **临时分支 **到 **feature分支** 后(并删除 **临时分支** )，
+合并 **临时分支**到 **feature分支** 后(并删除 **临时分支** )，
 如果加上了 `--no-ff` 参数就可以用普通模式合并，合并后的 **log** 有分支，能看出来曾经做过合并，
 而默认的 `fast forward` 合并就看不出来曾经做过合并。
 
@@ -596,7 +596,7 @@ git show v1.4
 git tag v1.4-lw
 ```
 
-轻量标签本质上是提交`校验和`, 将其存储到一个文件中——没有保存任何其他信息。
+轻量标签本质上是提交`校验和`, 将其存储到一个文件中——没有保存任何其他信息。  
 创建轻量标签，不需要使用 `-a、-s` 或 `-m` 选项，只需要提供标签名字
 
 ### 后期打标签
@@ -759,7 +759,9 @@ git rebase --onto master server client
 
 即
 
-`git rebase --onto master[被施加重放的分支] server[父节点/修改起始点 参考分支] client[提取重放内容的分支]`
+```bash
+git rebase --onto master[被施加重放的分支] server[父节点/修改起始点 参考分支] client[提取重放内容的分支]
+```
 
 ## 自定义 git
 
