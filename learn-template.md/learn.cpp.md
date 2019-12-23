@@ -9,7 +9,7 @@
 程序 `g++` 是将 `gcc` 默认语言设为 `C++` 的一个特殊的版本，链接时它自动使用 `C++` 标准库而不用 `C` 标准库。通过遵循源码的命名规范并指定对应库的名字，用 `gcc` 来编译链接 `C++` 程序是可行的，如下例所示：
 
 ```bash
-$ gcc main.cpp -lstdc++ -o main
+gcc main.cpp -lstdc++ -o main
 ```
 
 下面是一个保存在文件 `helloworld.cpp` 中一个简单的 `C++` 程序的代码：
@@ -27,11 +27,10 @@ int main()
 最简单的编译方式：
 
 ```bash
-$ g++ helloworld.cpp
+g++ helloworld.cpp
 ```
 
 由于命令行中未指定可执行程序的文件名，编译器采用默认的 `a.out`。程序可以这样来运行：
-
 
 ```bash
 $ ./a.out
@@ -41,7 +40,7 @@ Hello, world!
 通常我们使用 `-o` 选项指定可执行程序的文件名，以下实例生成一个 `helloworld` 的可执行文件：
 
 ```bash
-$ g++ helloworld.cpp -o helloworld
+g++ helloworld.cpp -o helloworld
 ```
 
 执行 `helloworld`:
@@ -54,7 +53,7 @@ Hello, world!
 如果是多个 `C++` 代码文件，如 `runoob1.cpp、runoob2.cpp`，编译命令如下：
 
 ```bash
-$ g++ runoob1.cpp runoob2.cpp -o runoob
+g++ runoob1.cpp runoob2.cpp -o runoob
 ```
 
 生成一个 `runoob` 可执行文件。
@@ -65,7 +64,7 @@ $ g++ runoob1.cpp runoob2.cpp -o runoob
 g++ -g -Wall -std=c++11 main.cpp
 ```
 
-g++ 常用命令选项 
+g++ 常用命令选项
 
 | 选项 | 解释 |
 |----|----|
@@ -89,3 +88,4 @@ g++ 常用命令选项
 |  `-UMACRO` | `取消对 MACRO 宏的定义。` |
 |  `-w` | `不生成任何警告信息` |
 |  `-Wall` | `生成所有警告信息` |
+
