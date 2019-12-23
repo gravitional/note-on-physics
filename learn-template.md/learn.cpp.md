@@ -50,21 +50,21 @@ $ ./helloworld
 Hello, world!
 ```
 
-如果是多个 `C++` 代码文件，如 `runoob1.cpp、runoob2.cpp`，编译命令如下：
+如果是多个`C++`代码文件，如 `runoob1.cpp、runoob2.cpp`，编译命令如下：
 
 ```bash
 g++ runoob1.cpp runoob2.cpp -o runoob
 ```
 
-生成一个 `runoob` 可执行文件。
+生成一个`runoob`可执行文件。
 
-`g++` 有些系统默认是使用 `C++98`，我们可以指定使用 `C++11` 来编译 `main.cpp` 文件：
+`g++`有些系统默认是使用`C++98`，我们可以指定使用`C++11`来编译`main.cpp`文件：
 
 ```bash
 g++ -g -Wall -std=c++11 main.cpp
 ```
 
-g++ 常用命令选项
+`g++`常用命令选项
 
 | 选项 | 解释 |
 |----|----|
