@@ -89,3 +89,365 @@ g++ -g -Wall -std=c++11 main.cpp
 |  `-w` | `不生成任何警告信息` |
 |  `-Wall` | `生成所有警告信息` |
 
+## C++ 基本语法
+
+`C++`程序可以定义为对象的集合，这些对象通过调用彼此的方法进行交互。
+现在让我们简要地看一下+ 么是类、对象，方法、即时变量。
+
++ **对象** - 对象具有状态和行为。例如：一只狗的状态 - 颜色、名称、品种，行为 - 摇动、叫唤、吃。对象是类的实例。
++ **类** - 类可以定义为描述对象行为/状态的模板/蓝图。
++ **方法** - 从基本上说，一个方法表示一种行为。一个类可以包含多个方法。可以在方法中写入逻辑、操作数据以及执行所有的动作。
++ **即时变量** - 每个对象都有其独特的即时变量。对象的状态是由这些即时变量的值创建的。
+
+### C++ 程序结构
+
+让我们看一段简单的代码，可以输出单词 `Hello World`。
+
+实例
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// main() 是程序开始执行的地方
+
+int main()
+{
+   cout << "Hello World"; // 输出 Hello World
+   return 0;
+}
+```
+
+接下来我们讲解一下上面这段程序：
+
++ C++ 语言定义了一些头文件，这些头文件包含了程序中必需的或有用的信息。上面这段程序中，包含了头文件`<iostream>`。
++ 下一行 `using namespace std`; 告诉编译器使用`std`命名空间。命名空间是 `C++` 中一个相对新的概念。
++ 下一行 `// main()` 是程序开始执行的地方 是一个单行注释。单行注释以 `//` 开头，在行末结束。
++ 下一行 `int main()` 是主函数，程序从这里开始执行。
++ 下一行 `cout << "Hello World"`; 会在屏幕上显示消息 "`Hello World`"。
++ 下一行 `return 0`; 终止 `main( )`函数，并向调用进程返回值 `0`。
+
+### 编译 & 执行 C++ 程序
+
+接下来让我们看看如何把源代码保存在一个文件中，以及如何编译并运行它。下面是简单的步骤：
+
++ 打开一个文本编辑器，添加上述代码。
++ 保存文件为 `hello.cpp`。
++ 打开命令提示符，进入到保存文件所在的目录。
++ 键入 '`g++ hello.cpp`'，输入回车，编译代码。如果代码中没有错误，命令提示符会跳到下一行，并生成 `a.out` 可执行文件。
++ 现在，键入 '`a.out`' 来运行程序。
++ 您可以看到屏幕上显示 '`Hello World`'。
+
+```bash
+$ g++ hello.cpp
+"nothing"
+$ ./a.out
+Hello World
+```
+
+请确保您的路径中已包含 `g++` 编译器，并确保在包含源文件 `hello.cpp` 的目录中运行它。
+
+您也可以使用 `makefile` 来编译 `C/C++` 程序。
+
+### C++ 中的分号 & 语句块
+
+在 `C++` 中，分号是语句结束符。也就是说，每个语句必须以分号结束。它表明一个逻辑实体的结束。
+
+例如，下面是三个不同的语句：
+
+```cpp
+x = y;
+y = y+1;
+add(x, y);
+```
+
+语句块是一组使用大括号括起来的按逻辑连接的语句。例如：
+
+```cpp
+{
+   cout << "Hello World"; // 输出 Hello World
+   return 0;
+}
+```
+
+`C++` 不以行末作为结束符的标识，因此，您可以在一行上放置多个语句。例如：
+
+```cpp
+x = y;
+y = y+1;
+add(x, y);
+```
+
+等同于
+
+```cpp
+x = y; y = y+1; add(x, y);
+```
+
+### C++ 标识符
+
+`C++` 标识符是用来标识变量、函数、类、模块，或任何其他用户自定义项目的名称。
+一个标识符以字母 `A-Z` 或 `a-z` 或下划线 `_` 开始，后跟零个或多个字母、下划线和数字（`0-9`）。
+
+`C++` 标识符内不允许出现标点字符，比如 `@`、`&` 和 `%`。`C++`是区分大小写的编程语言。
+因此，在 `C++` 中，`Manpower` 和 `manpower` 是两个不同的标识符。
+
+下面列出几个有效的标识符：
+
+```cpp
+mohd       zara    abc   move_name  a_123
+myname50   _temp   j     a23b9      retVal
+```
+
+### C++ 关键字
+
+下表列出了 `C++` 中的保留字。这些保留字不能作为常量名、变量名或其他标识符名称。
+
+| | | | |
+| ----- | ----- | ----- | ----- |
+| asm | else | new | this |
+| auto | enum | operator | throw |
+| bool | explicit | private | true |
+| break | export | protected | try |
+| case | extern | public | typedef |
+| catch | false | register | typeid |
+| char | float | reinterpret_cast | typename |
+| class | for | return | union |
+| const | friend | short | unsigned |
+| const_cast | goto | signed | using |
+| continue | if | sizeof | virtual |
+| default | inline | static | void |
+| delete | int | static_cast | volatile |
+| do | long | struct | wchar_t |
+| double | mutable | switch | while |
+| dynamic_cast | namespace | templat |  |
+
+完整关键字介绍可查阅：[C++ 的关键字（保留字）完整介绍][]
+
+[C++ 的关键字（保留字）完整介绍]: https://www.runoob.com/w3cnote/cpp-keyword-intro.html
+
+### 三字符组
+
+**三字符组**就是用于表示**另一个字符**的**三个字符序列**，又称为**三字符序列**。三字符序列总是以两个问号开头。
+三字符序列不太常见，但 `C++` 标准允许把某些字符指定为三字符序列。以前为了表示键盘上没有的字符，这是必不可少的一种方法。
+
+三字符序列**可以出现在任何地方**，包括`字符串`、`字符序列`、`注释`和`预处理指令`。
+下面列出了最常用的三字符序列：
+
+| 三字符组 | 替换 |
+| ----- | ----- |
+| `??=` | `#` |
+| `??/` | `\` |
+| `??'` | `^` |
+| `??(` | `[` |
+| `??)` | `]` |
+| `??!` | `|` |
+| `??<` | `{` |
+| `??>` | `}` |
+| `??-` | `~` |
+
+如果希望在源程序中有两个连续的问号，且不希望被预处理器替换，这种情况出现在字符常量、字符串字面值或者是程序注释中，
+可选办法是用字符串的自动连接：`"...?""?..."`或者转义序列：`"...?\?..."`。
+
+从`Microsoft Visual C++ 2010`版开始，**该编译器默认不再自动替换三字符组**。
+如果需要使用三字符组替换（如为了兼容古老的软件代码），需要设置编译器命令行选项`/Zc:trigraphs`
+
+`g++`**仍默认支持三字符组**，但会给出编译警告。
+
+### C++ 中的空格
+
+只包含空格的行，被称为空白行，可能带有注释, `C++`编译器会完全忽略它。
+
+在 `C++` 中，空格用于描述`空白符`、`制表符`、`换行符`和`注释`。
+空格分隔语句的各个部分，让编译器能识别语句中的某个元素（比如 `int`）在哪里结束，下一个元素在哪里开始。因此，在下面的语句中：
+
+```cpp
+int age;
+```
+
+在这里，`int` 和 `age` 之间必须至少有一个`空格字符`（通常是一个`空白符`），这样编译器才能够区分它们。另一方面，在下面的语句中：
+
+```cpp
+fruit = apples + oranges;   // 获取水果的总数
+```
+
+`fruit` 和 `=`，或者 `=` 和 `apples` 之间的空格字符不是必需的，但是为了增强可读性，您可以根据需要适当增加一些空格。
+
+## C++ 注释
+
+程序的注释是解释性语句，您可以在 `C++` 代码中包含注释，这将提高源代码的可读性。
+所有的编程语言都允许某种形式的注释。
+
+`C++ `支持单行注释和多行注释。注释中的所有字符会被 `C++` 编译器忽略。
+
+`C++` 注释以 `/*` 开始，以 `*/` 终止。例如：
+
+```cpp
+/* 这是注释 */
+
+/* C++ 注释也可以
+ * 跨行
+ */
+```
+
+注释也能以 `//` 开始，直到行末为止。例如：
+
+实例
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   cout << "Hello World"; // 输出 Hello World
+
+   return 0;
+}
+```
+
+当上面的代码被编译时，编译器会忽略 `//` 输出 `Hello World`，最后会产生以下结果：
+
+```cpp
+Hello World
+```
+
+在 `/*` 和 `*/` 注释内部，`//` 字符没有特殊的含义。在 `//` 注释内，`/*` 和 `*/` 字符也没有特殊的含义。因此，您可以在一种注释内嵌套另一种注释。例如：
+
+```cpp
+/* 用于输出 Hello World 的注释
+
+cout << "Hello World"; // 输出 Hello World
+
+*/
+```
+
+## C++ 数据类型
+
+使用编程语言进行编程时，需要用到各种变量来存储各种信息。变量保留的是它所存储的值的内存位置。这意味着，当您创建一个变量时，就会在内存中保留一些空间。
+
+您可能需要存储各种数据类型（比如`字符型`、`宽字符型`、`整型`、`浮点型`、`双浮点型`、`布尔型`等）的信息，操作系统会根据变量的数据类型，来分配内存和决定在保留内存中存储什么。
+
+### 基本的内置类型
+
+`C++` 为程序员提供了种类丰富的内置数据类型和用户自定义的数据类型。下表列出了七种基本的 `C++` 数据类型：
+
+| 类型 | `关键字` |
+| ----- | ----- |
+| 布尔型 | `bool` |
+| 字符型 | `char` |
+| 整型 | `int` |
+| 浮点型 | `float` |
+| 双浮点型 | `double` |
+| 无类型 | `void` |
+| 宽字符型 | `wchar_t` |
+
+其实 `wchar_t` 是这样来的：
+
+```cpp
+typedef short int wchar_t;
+```
+
+所以 `wchar_t` 实际上的空间是和 `short int` 一样。
+
+一些基本类型可以使用一个或多个类型修饰符进行修饰：
+
++ `signed`
++ `unsigned`
++ `short`
++ `long`
+
+下表显示了各种变量类型在内存中存储值时需要占用的内存，以及该类型的变量所能存储的最大值和最小值。
+
+注意：不同系统会有所差异。
+
+| 类型 | 位 | 范围 |
+| ----- | ----- | ----- |
+| `char` | 1个字节 | `-128到127 或者 0到255` |
+| `unsigned char` | 1 个字节 | `0到255` |
+| `signed char` | 1个字节 | `-128到127` |
+| `int` | 4个字节 | `-2147483648到2147483647` |
+| `unsigned  int` | 4个字节 | `0到4294967295` |
+| `signed int` | 4个字节 | `-2147483648到2147483647` |
+| `short int` | 2个字节 | `-32768到32767` |
+| `unsigned short int` | 2个字节 | `0到65,535` |
+| `signed short int` | 2个字节 | `-32768到32767` |
+| `long int` | 8个字节 | `-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807` |
+| `signed long int` | 8个字节 | `-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807` |
+| `unsigned long int` | 8个字节 | `0到18,446,744,073,709,551,615` |
+| `float`   | 4个字节 | `精度型占4个字节（32位）内存空间，+/- 3.4e +/- 38 (~7 个数字)`  |
+| `double`  | 8个字节 | `双精度型占8个字节（64位）内存空间，+/- 1.7e +/- 308 (~15 个数字)` |
+| `long double` | 16个字节 | `长双精度型16个字节（128位）内存空间，可提供18-19位有效数字。` |
+| `wchar_t`  | 2或4个字节 | `1个宽字符` |
+
+从上表可得知，变量的大小会根据编译器和所使用的电脑而有所不同。
+下面实例会输出您电脑上各种数据类型的大小。
+
+```cpp
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "type: \t\t" << "************size**************"<< endl;
+    cout << "bool: \t\t" << "所占字节数：" << sizeof(bool);
+    cout << "\t最大值：" << (numeric_limits<bool>::max)();
+    cout << "\t\t最小值：" << (numeric_limits<bool>::min)() << endl;
+    cout << "char: \t\t" << "所占字节数：" << sizeof(char);
+    cout << "\t最大值：" << (numeric_limits<char>::max)();
+    cout << "\t\t最小值：" << (numeric_limits<char>::min)() << endl;
+    cout << "signed char: \t" << "所占字节数：" << sizeof(signed char);
+    cout << "\t最大值：" << (numeric_limits<signed char>::max)();
+    cout << "\t\t最小值：" << (numeric_limits<signed char>::min)() << endl;
+    cout << "unsigned char: \t" << "所占字节数：" << sizeof(unsigned char);
+    cout << "\t最大值：" << (numeric_limits<unsigned char>::max)();
+    cout << "\t\t最小值：" << (numeric_limits<unsigned char>::min)() << endl;
+    cout << "wchar_t: \t" << "所占字节数：" << sizeof(wchar_t);
+    cout << "\t最大值：" << (numeric_limits<wchar_t>::max)();
+    cout << "\t\t最小值：" << (numeric_limits<wchar_t>::min)() << endl;
+    cout << "short: \t\t" << "所占字节数：" << sizeof(short);
+    cout << "\t最大值：" << (numeric_limits<short>::max)();
+    cout << "\t\t最小值：" << (numeric_limits<short>::min)() << endl;
+    cout << "int: \t\t" << "所占字节数：" << sizeof(int);
+    cout << "\t最大值：" << (numeric_limits<int>::max)();
+    cout << "\t最小值：" << (numeric_limits<int>::min)() << endl;
+    cout << "unsigned: \t" << "所占字节数：" << sizeof(unsigned);
+    cout << "\t最大值：" << (numeric_limits<unsigned>::max)();
+    cout << "\t最小值：" << (numeric_limits<unsigned>::min)() << endl;
+    cout << "long: \t\t" << "所占字节数：" << sizeof(long);
+    cout << "\t最大值：" << (numeric_limits<long>::max)();
+    cout << "\t最小值：" << (numeric_limits<long>::min)() << endl;
+    cout << "unsigned long: \t" << "所占字节数：" << sizeof(unsigned long);
+    cout << "\t最大值：" << (numeric_limits<unsigned long>::max)();
+    cout << "\t最小值：" << (numeric_limits<unsigned long>::min)() << endl;
+    cout << "double: \t" << "所占字节数：" << sizeof(double);
+    cout << "\t最大值：" << (numeric_limits<double>::max)();
+    cout << "\t最小值：" << (numeric_limits<double>::min)() << endl;
+    cout << "long double: \t" << "所占字节数：" << sizeof(long double);
+    cout << "\t最大值：" << (numeric_limits<long double>::max)();
+    cout << "\t最小值：" << (numeric_limits<long double>::min)() << endl;
+    cout << "float: \t\t" << "所占字节数：" << sizeof(float);
+    cout << "\t最大值：" << (numeric_limits<float>::max)();
+    cout << "\t最小值：" << (numeric_limits<float>::min)() << endl;
+    cout << "size_t: \t" << "所占字节数：" << sizeof(size_t);
+    cout << "\t最大值：" << (numeric_limits<size_t>::max)();
+    cout << "\t最小值：" << (numeric_limits<size_t>::min)() << endl;
+    cout << "string: \t" << "所占字节数：" << sizeof(string) << endl;
+    // << "\t最大值：" << (numeric_limits<string>::max)() << "\t最小值：" << (numeric_limits<string>::min)() << endl;
+    cout << "type: \t\t" << "************size**************"<< endl;
+    return 0;
+}
+```
+
+本实例使用了`endl`，这将在每一行后插入一个换行符，`<<` 运算符用于向屏幕传多个值。
+我们也使用 `sizeof()` 函数来获取各种数据类型的大小。
+
+当上面的代码被编译和执行时，它会产生以下的结果，结果会根据所使用的计算机而有所不同：
+
+```cpp
+type:         ************size**************
+bool:         所占字节数：1    最大值：1        最小值：0
+char:         所占字节数：1    最大值：        最小值：?
+...
+```
