@@ -5,6 +5,43 @@ reference: [廖雪峰git教程][] and [git-scm-book][]
 [廖雪峰git教程]: https://www.liaoxuefeng.com/wiki/896043488029600
 [git-scm-book]: https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-Git-%E5%88%AB%E5%90%8D
 
+## SSH配置
+
+第1步：创建`SSH Key`。
+在用户主目录下，看看有没有`.ssh`目录，如果有，再看看这个目录下有没有`id_rsa`和`id_rsa.pub`这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开`Shell`（ `Windows`下打开`Git Bash`），创建`SSH Key`：
+
+```bash
+$ ssh-keygen -t rsa -C "youremail@example.com"
+"nothing"
+```
+
+你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个`Key`也不是用于军事目的，所以也无需设置密码。
+如果一切顺利的话，可以在用户主目录里找到`.ssh`目录，里面有`id_rsa`和`id_rsa.pub`两个文件，这两个就是`SSH Key`的秘钥对，`id_rsa`是私钥，不能泄露出去，`id_rsa.pub`是公钥，可以放心地告诉任何人。
+
+第2步：登陆`GitHub`，打开“`Account settings`”，“`SSH Keys`”页面：
+
+然后，点“`Add SSH Key`”，填上任意`Title`，在`Key`文本框里粘贴`id_rsa.pub`文件的内容：
+
+### SSH警告
+
+当你第一次使用`Git`的`clone`或者`push`命令连接`GitHub`时，会得到一个警告：
+
+```bash
+The authenticity of host 'github.com (xx.xx.xx.xx)' can't be established.
+RSA key fingerprint is xx.xx.xx.xx.xx.
+Are you sure you want to continue connecting (yes/no)?
+```
+
+这是因为`Git`使用`SSH`连接，而`SSH`连接在第一次验证`GitHub`服务器的`Key`时，需要你确认`GitHub`的`Key`的指纹信息是否真的来自`GitHub`的服务器，输入`yes`回车即可。
+`Git`会输出一个警告，告诉你已经把`GitHub`的`Key`添加到本机的一个信任列表里了：
+
+```bash
+Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
+```
+
+这个警告只会出现一次，后面的操作就不会有任何警告了。
+如果你实在担心有人冒充`GitHub`服务器，输入`yes`前可以对照`GitHub`的`RSA Key`的指纹信息是否与`SSH`连接给出的一致。
+
 ## 配置文件
 
 配置文件放哪了？每个仓库的`Git`配置文件都放在`.git/config`文件中：
