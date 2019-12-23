@@ -371,7 +371,7 @@ CurrentUICulture    Property   System.Globalization.CultureInfo CurrentUICulture
 方法定义了一个对象可以做什么事情。
 当你把一个对象输出在控制台时，它的属性可能会被转换成可视的文本。
 但是它的方法却不可见。
-列出一个对象的所有方法可是使用`Get-Member`命令，给“`MemeberType`”参数 传入“`Method`”:
+列出一个对象的所有方法可以使用`Get-Member`命令，给“`MemeberType`”参数 传入“`Method`”:
 
 ```powershell
 PS C:Powershell> $Host | Get-Member -MemberType Method
@@ -534,7 +534,7 @@ System.Void WriteLine(), System.Void WriteLine(System.ConsoleColor foregroundCol
 , string value), System.Void WriteLine(string value)
 ```
 
-但是`Definition`的输出阅读不方便，可是稍加润色。
+但是`Definition`的输出阅读不方便，可以稍加润色。
 
 ```powershell
 PS C:Powershell> $method.Definition.Replace("),",")`n")
@@ -1080,7 +1080,7 @@ Name=Mosser;Age=22
 
 #### 查看可用的COM对象
 
-每一个`COM`对象都有存储在注册表中的唯一标识符，想遍历访问可用的`COM`对象，可是直接访问注册表。
+每一个`COM`对象都有存储在注册表中的唯一标识符，想遍历访问可用的`COM`对象，可以直接访问注册表。
 
 ```powershell
 Dir REGISTRY::HKEY_CLASSES_ROOT\CLSID  -include PROGID -recurse | foreach {$_.GetValue("")}
@@ -1379,10 +1379,12 @@ For example: `Get-Process | where ProcessName -Like "*host"`
 If（条件满足）{
 如果条件满足就执行代码
 }
-Else
+elseif
 {
-如果条件不满足
+如果条件满足
 }
+else
+{还不满足}
 ```
 
 条件判断必须放在圆括号中，执行的代码必须紧跟在后面的花括号中。
@@ -1597,7 +1599,7 @@ switch($value)
 ### Powershell ForEach-Object 循环
 
 `Powershell`管道就像流水线，对于数据的处理是一个环节接着一个环节，
-如果你想在某一环节对流进来的数据逐个细致化的处理，可是使用`ForEach-Object`，
+如果你想在某一环节对流进来的数据逐个细致化的处理，可以使用`ForEach-Object`，
 `$_`代表当前的数据。
 
 #### 对管道对象逐个处理
@@ -1661,6 +1663,7 @@ PS C:Powershell> Get-Process iexplore
 ### Powershell Foreach 循环
 
 `Foreach-object` 为`cmdlet`命令，使用在管道中，对管道结果逐个处理，
+
 `foreach`为遍历集合的关键字。
 
 下面举两个例子：
