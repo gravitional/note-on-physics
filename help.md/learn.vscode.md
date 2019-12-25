@@ -476,7 +476,7 @@ You can learn how to do this in the [Extension API documentation][], specificall
 
 ### Files and folders --文件和文件夹
 
-#### Integrated Terminal --集成的终端
+#### Integrated Terminal --自带的终端
 
 Keyboard Shortcut: ``Ctrl+` ``
 
@@ -708,7 +708,7 @@ Besides searching and replacing expressions, you can also search and reuse parts
 Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`Alt+R`) and then write a regular expression and use parenthesis to define groups.
 You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
 
-#### .eslintrc.json --啥??
+#### .eslintrc.json --啥??-
 
 Install the [ESLint extension][]. Configure your linter however you'd like. Consult the [ESLint specification][] for details on its linting rules and options.
 
@@ -758,7 +758,7 @@ Here is configuration to use ES6.
 
 [ESLint specification]: https://eslint.org/docs/user-guide/configuring
 
-#### package.json --啥??
+#### package.json --啥??-
 
 See IntelliSense for your `package.json` file.
 
@@ -768,7 +768,7 @@ See IntelliSense for your `package.json` file.
 
 [Support for Emmet syntax]: https://code.visualstudio.com/docs/editor/emmet
 
-### Snippets --代码片段生成
+### Snippets --代码片段生成-
 
 #### Create custom snippets 自定义片段
 
