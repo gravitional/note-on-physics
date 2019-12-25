@@ -839,7 +839,7 @@ Stage a portion of a file by selecting that file (using the arrows) and then cho
 
 `More Actions > Undo last commit`
 
-#### See Git output --Git 输出
+#### See Git output --查看 Git 输出
 
 VS Code makes it easy to see what Git commands are actually running.
 This is helpful when learning Git or debugging a difficult source control issue.
