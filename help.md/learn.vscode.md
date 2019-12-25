@@ -1,5 +1,6 @@
-
 # learn.vscode.md
+
+ `C` for `Ctrl`, `A` for `Alt`, `S` for `Shift`, if there are no special declarations.
 
 ## Preview mode 预览模式
 
@@ -244,7 +245,7 @@ You can install more themes from the VS Code extension `Marketplace`.
 
 Additionally, you can install and change your File Icon themes.
 
-Keymaps 键盘映射
+#### Keymaps 键盘映射
 
 Are you used to keyboard shortcuts from another editor?
 You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Go to `Preferences` > `Keymap Extensions` to see the current list on the Marketplace. Some of the more popular ones:
@@ -382,7 +383,7 @@ Tip: You can also create language specific settings with the `Configure Language
 
 Enabled by default for many file types. Create your own schema and validation in `settings.json`
 
-schemas : 模式，纲要
+**note:** schemas : 模式，纲要
 
 ```json
 "json.schemas": [
