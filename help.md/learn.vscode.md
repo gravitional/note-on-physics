@@ -2,39 +2,39 @@
 
  `C` for `Ctrl`, `A` for `Alt`, `S` for `Shift`, if there are no special declarations.
 
-## Preview mode 预览模式
+## Preview mode --预览模式
 
 When you `single-click` or select a file in the Explorer, it is shown in a `preview mode` and reuses an existing `Tab`. This is useful if you are quickly browsing files and don't want every visited file to have its own Tab. When you start editing the file or use `double-click` to open the file from the Explorer, a new Tab is dedicated to that file.
 **Preview mode is indicated by italics in the Tab heading**
 
-## split 分屏
+## split --分屏
 
 Pro Tip:
 If you `press` and hold the `Alt` key while hovering over the **toolbar action** to split an editor, it will offer to split to the **other orientation**. This is a fast way to split either to the right or to the bottom.
 
-## Visual Studio Code Tips and Tricks 小贴士与技巧
+## Visual Studio Code Tips and Tricks --小贴士与技巧
 
 official document: [Visual Tricks][]
 
 [Visual Tricks]: https://code.visualstudio.com/docs/getstarted/tips-and-tricks
 
-### Playground 练习场地
+### Playground --练习场地
 
 In the bottom right of the Welcome page, there is a link to the **Interactive playground** where you can interactively try out VS Code's features.
 `Help > Interactive Playground`.
 
-#### multi-cursor editing 多光标编辑
+#### multi-cursor editing --多光标编辑
 
 1. `C+A+S+ up down left right`, or `S+A+mouse drag`
 2. `C+A+Up`, `C+A+down`
 3. `A+click`
 4. `C+A+L` select all occurrence
 
-#### intelli-sense 智能补全
+#### intelli-sense --智能补全
 
 `C+space`
 
-#### line-actions 行操作
+#### line-actions --行操作
 
 Since it's very common to work with the entire text in a line we provide a set of useful shortcuts to help with this.
 
@@ -43,14 +43,14 @@ Since it's very common to work with the entire text in a line we provide a set o
 1. Move an entire line or selection of lines up or down with `A+up` `A+down` respectively.
 1. Delete the entire line with `C+S+k`
 
-#### Rename Refactoring 批量重命名
+#### Rename Refactoring --批量重命名
 
 It's easy to rename a symbol such as a function name or variable name.  
 press `F2`  
 this will occur across all files in a project.  
 You can also see refactoring in the right-click context menu.
 
-#### Formatting 自动缩进
+#### Formatting --自动缩进
 
 Keeping your code looking great is hard without a good formatter.
 
@@ -60,7 +60,7 @@ or for the current selection with `C+K C+F` .
 
 Both of these options are also available through the right-click context menu.
 
-#### Code Folding 代码折叠
+#### Code Folding --代码折叠
 
 In a large file it can often be useful to collapse sections of code to increase readability.
 
@@ -70,7 +70,7 @@ Folding can also be done with the +/- icons in the left gutter.
 
 To fold all sections use `C+K C+0`  or to unfold all use `C+K C+J`.
 
-#### Errors and Warnings 错误提示
+#### Errors and Warnings --错误提示
 
 Errors and warnings are highlighted with squiggles as you edit your code .
 
@@ -78,7 +78,7 @@ In the sample below you can see a number of syntax errors.
 
 By pressing `F8` you can navigate across them in sequence and see the detailed error message.
 
-#### Snippets 代码片段生成
+#### Snippets --代码片段生成
 
 You can greatly accelerate your editing through the use of snippets.
 
@@ -86,7 +86,7 @@ Simply start typing `try` and select `trycatch` from the suggestion list and pre
 
 Your cursor will be placed on the text `error` for easy editing. If more than one parameter exists then press `tab` to jump to it.
 
-#### Emmet 代码片段生成咒语
+#### Emmet --代码片段生成咒语
 
 `Emmet` takes the snippets idea to a whole new level:
 
@@ -96,7 +96,7 @@ Try it by selecting `Emmet: Expand Abbreviation` from the `Edit` menu with the c
 
 `ul>li.item$*5`
 
-#### JavaScript Type Checking 类型检查
+#### JavaScript Type Checking --JavaScript类型检查
 
 Sometimes type checking your JavaScript code can help you spot mistakes you might have not caught otherwise.  
 You can run the TypeScript type checker against your existing JavaScript code by simply adding a `// @ts-check` comment to the top of your file.
@@ -131,18 +131,18 @@ Browse thousands of extensions in our integrated gallery by pressing `C+S+X`.
 
 [documentation]: https://code.visualstudio.com/docs/editor/extension-gallery
 
-### Command Palette 命令板
+### Command Palette --命令板
 
 Access all available commands based on your current context.
 
 Keyboard Shortcut: `Ctrl+Shift+P`
 
-### Default keyboard shortcuts 默认快捷键
+### Default keyboard shortcuts --默认快捷键
 
 All of the commands are in the Command Palette with the associated key binding (if it exists).
 If you forget a keyboard shortcut, use the Command Palette to help you out.
 
-### Keyboard reference sheets 快捷键清单
+### Keyboard reference sheets --快捷键清单
 
 Download the keyboard shortcut reference sheet for your platform ([macOS Keyboard][], [Windows Keyboard][], [Linux Keyboard][]).
 
@@ -152,22 +152,22 @@ Download the keyboard shortcut reference sheet for your platform ([macOS Keyboar
 
 [Linux Keyboard]: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
 
-### Quick Open 快速打开
+### Quick Open --快速打开
 
 Quickly open files.
 Keyboard Shortcut: `Ctrl+P`
 
 Tip: Type `?` to view help suggestions.
 
-#### Navigate between recently opened files 最近文件导航
+#### Navigate between recently opened files --最近文件导航
 
 Repeat the `Quick Open` keyboard shortcut to cycle quickly between recently opened files.
 
-#### Open multiple files from Quick Open 快开多文件
+#### Open multiple files from Quick Open --快开多文件
 
 You can open multiple files from `Quick Open` by pressing the `Right arrow` key. This will open the currently selected file in the background and you can continue selecting files from `Quick Open`.
 
-#### Command line 命令行
+#### Command line --命令行
 
 VS Code has a powerful command line interface (CLI) which allows you to customize how the editor is launched to support various scenarios.
 
@@ -205,14 +205,14 @@ code --help
 code --disable-extensions .
 ```
 
-### .vscode folder vscode配置文件夹
+### .vscode folder --vscode 配置文件夹
 
 Workspace specific files are in a `.vscode` folder at the root.
 For example, `tasks.json` for the Task Runner and `launch.json` for the debugger.
 
 ### Status Bar 状态栏
 
-#### Errors and warnings 寻找错误
+#### Errors and warnings --浏览错误
 
 Keyboard Shortcut: `Ctrl+Shift+M`
 
@@ -221,13 +221,13 @@ Cycle through errors with `F8` or `Shift+F8`
 
 You can filter problems either by type `('errors', 'warnings')` or text matching.
 
-#### Change language mode 改变语言模式
+#### Change language mode --改变语言模式
 
 Keyboard Shortcut: `Ctrl+K M`
 
 If you want to persist the new language mode for that file type, you can use the `Configure File Association for` command to associate the current file extension with an installed language.
 
-### Customization 个性化vscode
+### Customization --个性化 vscode
 
 There are many things you can do to customize VS Code.
 
@@ -238,14 +238,14 @@ There are many things you can do to customize VS Code.
 + Create snippets
 + Install extensions
 
-#### Change your theme 换主题
+#### Change your theme --换主题
 
 Keyboard Shortcut: `Ctrl+K Ctrl+T`
 You can install more themes from the VS Code extension `Marketplace`.
 
 Additionally, you can install and change your File Icon themes.
 
-#### Keymaps 键盘映射
+#### Keymaps --键盘映射
 
 Are you used to keyboard shortcuts from another editor?
 You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Go to `Preferences` > `Keymap Extensions` to see the current list on the Marketplace. Some of the more popular ones:
@@ -256,7 +256,7 @@ You can install a Keymap extension that brings the keyboard shortcuts from your 
 + Atom Keymap
 + Eclipse Keymap
 
-#### Customize your keyboard shortcuts 自定义快捷键
+#### Customize your keyboard shortcuts --自定义快捷键
 
 Keyboard Shortcut: `Ctrl+K Ctrl+S`
 You can search for shortcuts and add your own keybindings to the `keybindings.json` file.
@@ -265,20 +265,20 @@ See more in [Key Bindings for Visual Studio Code][].
 
 [Key Bindings for Visual Studio Code]: https://code.visualstudio.com/docs/getstarted/keybindings
 
-#### Tune your settings 调教设置
+#### Tune your settings --调教设置
 
 By default VS Code shows the Settings editor, you can find settings listed below in a search bar, but you can still edit the underlying `settings.json` file by using the `Open Settings (JSON)` command or by changing your default settings editor with the `workbench.settings.editor` setting.
 
 Open User Settings `settings.json`
 Keyboard Shortcut: `Ctrl+,`
 
-Format on paste 粘贴时自动格式化
+Format on paste --粘贴时自动格式化
 
 ```json
 "editor.formatOnPaste": true
 ```
 
-Change the font size of various UI elements 改变UI字体样式
+Change the font size of various UI elements --改变UI字体样式
 
 ```json
 // Main editor
@@ -291,7 +291,7 @@ Change the font size of various UI elements 改变UI字体样式
 }
 ```
 
-Change the zoom level 调整界面放大倍数
+Change the zoom level --调整界面放大倍数
 
 ```json
 "window.zoomLevel": 5
@@ -317,31 +317,31 @@ Auto Save 自动保存
 
 You can also toggle Auto Save from the top-level menu with the `File > Auto Save`.
 
-Format on save 保存时自动格式化
+Format on save --保存时自动格式化
 
 ```json
 "editor.formatOnSave": true
 ```
 
-Change the size of Tab characters 调整`tab`大小
+Change the size of Tab characters --调整`tab`大小
 
 ```json
 "editor.tabSize": 4
 ```
 
-Spaces or Tabs `空格`或者`制表符`
+Spaces or Tabs --用`空格`还是`制表符`
 
 ```json
 "editor.insertSpaces": true
 ```
 
-Render whitespace 显示空白字符
+Render whitespace --显示空白字符
 
 ```json
 "editor.renderWhitespace": "all"
 ```
 
-Ignore files / folders 忽略文件/文件夹
+Ignore files / folders --忽略文件/文件夹
 
 Removes these files / folders from your editor window. 从编辑窗口中忽略
 
@@ -365,7 +365,7 @@ And many, [many other customizations][].
 
 [many other customizations]: https://code.visualstudio.com/docs/getstarted/settings
 
-#### Language specific settings 设置特定语言
+#### Language specific settings --为特定语言设置
 
 For the settings, which you only want for specific languages, you can scope the settings by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers][] reference.
 
@@ -379,7 +379,7 @@ Tip: You can also create language specific settings with the `Configure Language
 
 [Language Identifiers]: https://code.visualstudio.com/docs/languages/identifiers
 
-#### Add JSON validation 添加JSON验证
+#### Add JSON validation --添加JSON验证
 
 Enabled by default for many file types. Create your own schema and validation in `settings.json`
 
@@ -438,7 +438,7 @@ See more in the [JSON documentation][] .
 
 Keyboard Shortcut: `Ctrl+Shift+X`
 
-#### Find extensions 寻找拓展
+#### Find extensions --寻找拓展
 
 + In the [VS Code Marketplace][] .
 + Search inside VS Code in the Extensions view.
@@ -447,15 +447,15 @@ Keyboard Shortcut: `Ctrl+Shift+X`
 
 [VS Code Marketplace]: https://marketplace.visualstudio.com/vscode
 
-#### Install extensions 安装拓展
+#### Install extensions --安装拓展
 
 In the `Extensions` view, you can search via the search bar or click the `More Actions` (...) button to filter and sort by install count.
 
-#### Extension recommendations 拓展推荐
+#### Extension recommendations --拓展推荐
 
 In the `Extensions` view, click `Show Recommended Extensions` in the `More Actions` (...) button menu.
 
-#### Creating my own extension 自建拓展
+#### Creating my own extension --自建拓展
 
 Are you interested in creating your own extension?
 You can learn how to do this in the [Extension API documentation][], specifically check out the [documentation on contribution points][].
@@ -474,9 +474,9 @@ You can learn how to do this in the [Extension API documentation][], specificall
 
 [documentation on contribution points]: https://code.visualstudio.com/api/references/contribution-points
 
-### Files and folders 文件和文件夹
+### Files and folders --文件和文件夹
 
-#### Integrated Terminal 集成的终端
+#### Integrated Terminal --集成的终端
 
 Keyboard Shortcut: ``Ctrl+` ``
 
@@ -489,7 +489,7 @@ Further reading:
 
 [Mastering VS Code's Terminal article]: https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html
 
-#### Auto Save 自动保存
+#### Auto Save --自动保存
 
 Open User Settings `settings.json` with `Ctrl+,`
 
@@ -499,11 +499,11 @@ Open User Settings `settings.json` with `Ctrl+,`
 
 You can also toggle Auto Save from the top-level menu with the `File > Auto Save`.
 
-#### Toggle Sidebar 切换侧栏
+#### Toggle Sidebar --切换侧栏
 
 Keyboard Shortcut: `Ctrl+B`
 
-#### Zen mode 禅模式
+#### Zen mode --禅模式/佛系模式
 
 Keyboard Shortcut: `Ctrl+K Z`
 
@@ -511,31 +511,31 @@ Enter distraction free Zen mode.
 
 Press `Esc` twice to exit Zen Mode.
 
-#### Side by side editing 并列编辑
+#### Side by side editing --并列编辑
 
 Keyboard Shortcut: `Ctrl+\`
 
 You can also drag and drop editors to create new editor groups and move editors between groups.
 
-#### Switch between editors 编辑器间切换
+#### Switch between editors --编辑器间切换
 
 Keyboard Shortcut: `Ctrl+1`, `Ctrl+2`, `Ctrl+3`
 
-### Move to Explorer window 去往浏览器窗口
+### Move to Explorer window --去往浏览器窗口
 
 Keyboard Shortcut: `Ctrl+Shift+E`
 
-#### Create or open a file 创建或者打开文件
+#### Create or open a file --创建或者打开文件
 
 Keyboard Shortcut: `Ctrl+click (Cmd+click on macOS)`
 
 You can quickly open a file or image or create a new file by moving the cursor to the file link and using `Ctrl+click`.
 
-#### Close the currently opened folder 关闭打开的文件夹
+#### Close the currently opened folder --关闭打开的文件夹
 
 Keyboard Shortcut: `Ctrl+F4`
 
-#### Navigation history 编辑历史导航
+#### Navigation history --编辑历史导航
 
 Navigate entire history: `Ctrl+Tab`
 
@@ -543,7 +543,7 @@ Navigate back: `Alt+Left`
 
 Navigate forward: `Alt+Right`
 
-#### File associations 文件拓展名关联
+#### File associations --文件拓展名关联
 
 Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
 
@@ -553,7 +553,7 @@ Create language associations for files that aren't detected correctly. For examp
 }
 ```
 
-#### Preventing dirty writes 阻止瞎几把写入
+#### Preventing dirty writes --阻止瞎几把保存
 
 VS Code will show you an error message when you try to save a file that cannot be saved because it has changed on disk. VS Code blocks saving the file to prevent overwriting changes that have been made outside of the editor.
 
@@ -563,7 +563,7 @@ Use the actions in the editor toolbar to resolve the save conflict. You can eith
 
 **Note:** The file will remain dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
 
-### Editing hacks 编辑的魔法
+### Editing hacks --编辑的魔法
 
 Here is a selection of common features for editing code.
 If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension][] for your old editor.
@@ -572,7 +572,7 @@ Tip: You can see recommended keymap extensions in the `Extensions` view with `Ct
 
 [keymap extension]: https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads
 
-#### Multi cursor selection 多光标编辑
+#### Multi cursor selection --多光标编辑
 
 To add cursors at arbitrary positions, select a position with your mouse and use `Alt+Click` (`Option+click` on macOS).
 
@@ -600,11 +600,11 @@ You can also use [keyboard shortcuts] to trigger column selection.
 
 [keyboard shortcuts]: https://code.visualstudio.com/docs/editor/codebasics#_column-box-selection
 
-#### Fast scrolling 快速滚动
+#### Fast scrolling --快速滚动
 
 Pressing the `Alt` key enables fast scrolling in the editor and Explorers. By default, fast scrolling uses a 5X speed multiplier but you can control the multiplier with the **Editor: Fast Scroll Sensitivity** (`editor.fastScrollSensitivity`) setting.
 
-#### Copy line up / down 向上/向下复制行
+#### Copy line up / down --向上/向下复制行
 
 Keyboard Shortcut: `Shift+Alt+Up` or `Shift+Alt+Down`
 
@@ -612,11 +612,11 @@ The commands `Copy Line Up/Down` are unbound on Linux because the VS Code defaul
 
 [Issue #509]: https://github.com/Microsoft/vscode/issues/509
 
-#### Move line up and down 向上/向下移动行
+#### Move line up and down --向上/向下移动行
 
 Keyboard Shortcut: `Alt+Up or Alt+Down`
 
-#### Shrink / expand selection 缩小/扩大 选择
+#### Shrink / expand selection --缩小/扩大 选择
 
 Keyboard Shortcut: `Shift+Alt+Left` or `Shift+Alt+Right`
 
@@ -624,43 +624,43 @@ You can learn more in the [Basic Editing documentation][].
 
 [Basic Editing documentation]: https://code.visualstudio.com/docs/editor/codebasics#_shrinkexpand-selection
 
-#### Go to Symbol in File 查找符号
+#### Go to Symbol in File --查找符号
 
 Keyboard Shortcut: `Ctrl+Shift+O`
 
 You can group the symbols by kind by adding a colon, `@:`.
 
-#### Navigate to a specific line 跳到指定行
+#### Navigate to a specific line --跳到指定行
 
 Keyboard Shortcut: `Ctrl+G`
 
-#### Undo cursor position 撤销光标操作
+#### Undo cursor position --撤销光标操作
 
 Keyboard Shortcut: `Ctrl+U`
 
-#### Trim trailing whitespace 修剪多余空白
+#### Trim trailing whitespace --修剪多余空白
 
 Keyboard Shortcut: `Ctrl+K Ctrl+X`
 
-#### Code formatting 代码格式化
+#### Code formatting --代码格式化
 
 Currently selected source code: `Ctrl+K Ctrl+F`
 
 Whole document format: `Shift+Alt+F`
 
-#### Code folding 代码折叠
+#### Code folding --代码折叠
 
 Keyboard Shortcut: `Ctrl+Shift+[` and `Ctrl+Shift+]`
 
-#### Select current line 选中当前行
+#### Select current line --选中当前行
 
 Keyboard Shortcut: `Ctrl+L`
 
-#### Navigate to beginning and end of file 跳转到文件首尾
+#### Navigate to beginning and end of file --跳转到文件首尾
 
 Keyboard Shortcut: `Ctrl+Home` and `Ctrl+End`
 
-#### Open Markdown preview 打开markdown预览
+#### Open Markdown preview --打开markdown预览
 
 In a Markdown file, use
 Keyboard Shortcut: `Ctrl+Shift+V`
@@ -672,17 +672,17 @@ Keyboard Shortcut: `Ctrl+K V`
 
 The preview and editor will synchronize with your scrolling in either view.
 
-### IntelliSense 智能补全
+### IntelliSense --智能补全
 
 `Ctrl+Space` to trigger the Suggestions widget.
 
 You can view available methods, parameter hints, short documentation, etc.
 
-#### Peek 偷窥下定义
+#### Peek --偷窥下定义
 
 Select a symbol then type `Alt+F12`. Alternatively, you can use the context menu.
 
-#### Go to Definition 转到符号定义位置
+#### Go to Definition --转到符号定义位置
 
 Select a symbol then type `F12`. Alternatively, you can use the `context menu` or `Ctrl+click` (`Cmd+click` on macOS).
 
@@ -690,25 +690,25 @@ You can go back to your previous location with the `Go > Back` command or `Alt+L
 
 You can also see the type definition if you press `Ctrl` (`Cmd` on macOS) when you are hovering over the type.
 
-#### Go to References 转到符号参考
+#### Go to References --转到符号参考
 
 Select a symbol then type `Shift+F12`. Alternatively, you can use the context menu.
 
-#### Find All References view 打开所有参考视图
+#### Find All References view --打开所有参考视图
 
 Select a symbol then type `Shift+Alt+F12` to open the References view showing all your file's symbols in a dedicated view.
 
-#### Rename Symbol 重命名符号
+#### Rename Symbol --重命名符号
 
 Select a symbol then type `F2`. Alternatively, you can use the context menu.
 
-#### Search and modify 检索并修改
+#### Search and modify --检索并修改
 
 Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups.
 Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`Alt+R`) and then write a regular expression and use parenthesis to define groups.
 You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
 
-#### .eslintrc.json
+#### .eslintrc.json --啥??
 
 Install the [ESLint extension][]. Configure your linter however you'd like. Consult the [ESLint specification][] for details on its linting rules and options.
 
@@ -758,11 +758,11 @@ Here is configuration to use ES6.
 
 [ESLint specification]: https://eslint.org/docs/user-guide/configuring
 
-#### package.json
+#### package.json --啥??
 
 See IntelliSense for your `package.json` file.
 
-#### Emmet syntax 代码魔法
+#### Emmet syntax --代码魔法
 
 [Support for Emmet syntax][].
 
@@ -793,14 +793,14 @@ See more details in [Creating your own Snippets][].
 
 [Creating your own Snippets]: https://code.visualstudio.com/docs/editor/userdefinedsnippets
 
-### Git integration 集成的Git
+### Git integration --自带的Git
 
 Keyboard Shortcut: `Ctrl+Shift+G`
 
 Git integration comes with VS Code "out-of-the-box". You can install other SCM providers from the extension Marketplace.
 This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
 
-#### Diffs 对比差别
+#### Diffs --对比差别
 
 From the `Source Control` view(`Ctrl+Shift+G`), select the file to diff.
 
@@ -814,20 +814,20 @@ Toggle inline view by clicking the `More Actions` (...) button in the top right 
 
 If you prefer the inline view, you can set `"diffEditor.renderSideBySide": false`.
 
-#### Review pane 回顾改动
+#### Review pane --检查修改
 
 Navigate through diffs with `F7` and `Shift+F7`. This will present them in a unified patch format.
 Lines can be navigated with arrow keys and pressing `Enter` will jump back in the diff editor and the selected line.
 
-#### Edit pending changes 编辑待定改动
+#### Edit pending changes --编辑待定改动
 
 You can make edits directly in the pending changes of the diff view.
 
-#### Branches 分支
+#### Branches --分支
 
 Easily switch between Git branches via the Status Bar.
 
-#### Staging 提交修改
+#### Staging --提交修改
 
 **Stage all**
 Hover over the number of files and click the plus button.
@@ -835,7 +835,7 @@ Hover over the number of files and click the plus button.
 **Stage selected**
 Stage a portion of a file by selecting that file (using the arrows) and then choosing `Stage Selected Ranges` from the `Command Palette`.
 
-#### Undo last commit 撤销最末提交
+#### Undo last commit --撤销最新提交
 
 `More Actions > Undo last commit`
 
@@ -853,7 +853,7 @@ View diff decorations in editor. See [gutter documentation][] for more details.
 [gutter documentation]: https://code.visualstudio.com/docs/editor/
 versioncontrol#_gutter-indicators
 
-#### Resolve merge conflicts 解决合并冲突
+#### Resolve merge conflicts --解决合并冲突
 
 During a merge, go to the `Source Control` view (`Ctrl+Shift+G`) and make changes in the diff view.
 
@@ -863,29 +863,29 @@ During a merge, go to the `Source Control` view (`Ctrl+Shift+G`) and make change
 git config --global merge.tool code
 ```
 
-### Debugging 调试
+### Debugging --调试
 
-#### Configure debugger 配置调试器
+#### Configure debugger --配置调试器
 
 Open the **Command Palette** (`Ctrl+Shift+P`) and select `Debug: Open launch.json`, which will prompt you to select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the [debugging documentation][] for more details.
 
 [debugging documentation]: https://code.visualstudio.com/docs/editor/debugging
 
-#### Breakpoints and stepping through 断点和步进
+#### Breakpoints and stepping through --断点和步进
 
 Place breakpoints next to the line number. Navigate forward with the Debug widget.
 
-#### Data inspection 数据筛查
+#### Data inspection --数据筛查
 
 Inspect variables in the `Debug` panels and in the console.
 
-#### Inline values 行内变量值预览
+#### Inline values --行内变量值预览
 
 You can set `"debug.inlineValues": true` to see variable values inline in the debugger. This feature can be expensive and may slow down stepping, so it is disabled by default.
 
-### task runner 任务执行器
+### task runner --任务执行器
 
-#### Auto detect tasks 自动侦测任务
+#### Auto detect tasks --自动侦测任务
 
 Select `Terminal` from the top-level menu, run the command `Configure Tasks`, then select the type of task you'd like to run. This will generate a `tasks.json` file with content like the following. See the [Tasks documentation][] for more details.
 
@@ -911,7 +911,7 @@ There are occasionally issues with auto generation. Check out the documentation 
 
 [Tasks documentation]: https://code.visualstudio.com/docs/editor/tasks
 
-#### Run tasks from the Terminal menu 从终端菜单运行任务
+#### Run tasks from the Terminal menu --从终端菜单运行任务
 
 Select `Terminal` from the top-level menu, run the command `Run Task`, and select the task you want to run. Terminate the running task by running the command `Terminate Task`
 
@@ -929,7 +929,7 @@ For example, to bind `Ctrl+H` to the `Run tests` task, add the following:
 }
 ```
 
-#### Run npm scripts as tasks from the explorer 从浏览器运行npm脚本作为任务
+#### Run npm scripts as tasks from the explorer --从浏览器运行npm脚本作为任务
 
 With the setting `npm.enableScriptExplorer`, you can enable an explorer that shows the scripts defined in your workspace.
 
@@ -948,7 +948,7 @@ VS Code has a [Portable mode][] which lets you keep settings and data in the sam
 
 [Portable mode]: https://code.visualstudio.com/docs/editor/portable
 
-### Insiders builds --VS Code内部版本
+### Insiders builds --VS Code 内部版本
 
 The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading it here][].
 
