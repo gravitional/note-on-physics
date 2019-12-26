@@ -1,0 +1,92 @@
+\documentclass[UTF8]{article}
+
+\author{H.~Partl}
+\title{Minimalism}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{makeidx}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{graphicx,graphics,color}
+\usepackage{multirow}
+
+
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\begin{document}
+	
+the first diagram:
+
+\feynmandiagram [horizontal=a to b] {
+i1 -- [fermion] a -- [fermion] i2,
+a -- [photon] b,
+f1 -- [fermion] b -- [fermion] f2,
+};
+
+
+the second diagram:
+
+\feynmandiagram [large, vertical=e to f] {
+a -- [fermion] b -- [photon, momentum=\(k\)] c -- [fermion] d,
+b -- [fermion, momentum'=\(p_{1}\)] e -- [fermion, momentum'=\(p_{2}\)] c,
+e -- [gluon] f,
+h -- [fermion] f -- [fermion] i;
+};
+
+the 3 diagram:
+
+\feynmandiagram [horizontal=a to b] {
+i1 [particle=\(e^{-}\)] -- [fermion] a -- [fermion] i2 [particle=\(e^{+}\)],
+a -- [photon, edge label=\(\gamma\), momentum'=\(k\)] b,
+f1 [particle=\(\mu^{+}\)] -- [fermion] b -- [fermion] f2 [particle=\(\mu^{-}\)],
+};
+
+the 4 diagram:
+
+\feynmandiagram [horizontal=a to b] {
+i1 [particle=\(e^{-}\)] -- [fermion, very thick] a -- [fermion, opacity=0.2] i2 [particle=\(e^{+}\)],
+a -- [red, photon, edge label=\(\gamma\), momentum'={[arrow style=red]\(k\)}] b,
+f1 [particle=\(\mu^{+}\)] -- [fermion, opacity=0.2] b -- [fermion, very thick] f2 [particle=\(\mu^{-}\)],
+};
+
+the 5 diagram:
+
+\feynmandiagram [horizontal=a to b] {
+i1 [particle=\(\tilde W\)] -- [plain, boson] a -- [anti fermion] i2 [particle=\(q\)],
+a -- [charged scalar, edge label=\(\tilde q\)] b,
+f1 [particle=\(\tilde g\)] -- [plain, gluon] b -- [fermion] [particle=\(q\)],
+};
+
+the 6 diagram:
+
+% No invisible edge to keep the two photons together
+\feynmandiagram [small, horizontal=a to t1] {
+a [particle=\(\pi^{0}\)] -- [scalar] t1 -- t2 -- t3 -- t1,
+t2 -- [photon] p1 [particle=\(\gamma\)],
+t3 -- [photon] p2 [particle=\(\gamma\)],
+};
+
+the 7 diagram:
+
+% Invisible edge ensures photons are parallel
+\feynmandiagram [small, horizontal=a to t1] {
+a [particle=\(\pi^{0}\)] -- [scalar] t1 -- t2 -- t3 -- t1,
+t2 -- [photon] p1 [particle=\(\gamma\)],
+t3 -- [photon] p2 [particle=\(\gamma\)],
+p1 -- [opacity=0.2] p2,
+};
+
+the 8 diagram:
+
+% Using the default spring layout
+\feynmandiagram [horizontal=a to b] {
+a [particle=\(\mu^{-}\)] -- [fermion] b -- [fermion] f1 [particle=\(\nu_{\mu}\)],
+b -- [boson, edge label=\(W^{-}\)] c,
+f2 [particle=\(\overline \nu_{e}\)] -- [fermion] c -- [fermion] f3 [particle=\(e^{-}\)],
+};
+
+\end{document}
