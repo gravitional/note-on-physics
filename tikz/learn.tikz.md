@@ -169,13 +169,131 @@ f2 -- [anti fermion] c [particle=\(\overline \nu_{e}\)]--
 
 **note:** error with this
 
+#### Manual Placement
+
+In more complicated diagrams, it is quite likely that none of the algorithms work, no matter how many invisible edges are added. In such cases, the vertices have to be placed manually. TikZ-Feynman allows for vertices to be manually placed by using the `\vertex` command.
+
+The `\vertex` command is available only within the `feynman` environment (which itself is only available inside a `tikzpicture` ). The `feynman` environment loads all the relevant styles from `TikZ-Feynman` and declares additional `TikZ-Feynman`-specific commands such as `\vertex` and `\diagram`.
+This is inspired from `PGFPlots` and its use of the `axis` environment.
+
+The `\vertex` command is very much analogous to the `\node` command from `TikZ`, with the notable exception that the vertex contents are optional; that is, you need not have `{<text>}` at the end.
+In the case where `{}` is specified, the vertex automatically is given the particle style, and otherwise it is a usual (zero-sized) vertex.
+
+To specify where the vertices go, it is possible to give explicit coordinates though it is probably easiest to use the `positioning` library from `TikZ` which allows vertices to be placed relative to existing vertices. By using relative placements, it is possible to easily tweak one part of the graph and everything will adjust accordingly —the alternative being to manually adjust the coordinates of every affected vertex.
+
+Finally, once all the vertices have been specified, the `\diagram*` command is used to specify all the edges. This works in much the same way as `\diagram` (and also`\feynmandiagram` ), except that it uses an very basic algorithm to place
+new nodes and allows existing(named) nodes to beincluded.
+In order to refer to an existing node,the node must be given in parentheses.
+
+This whole process of specifying the nodes and then drawing the edges between them is shown below for the muon decay:
+
+```tikz
+% mannuly decide the drawing process
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a) {\(\mu^{-}\)};
+\vertex [right=of a] (b);
+\vertex [above right=of b] (f1) {\(\nu_{\mu}\)};
+\vertex [below right=of b] (c);
+\vertex [above right=of c] (f2) {\(\overline \nu_{e}\)};
+\vertex [below right=of c] (f3) {\(e^{-}\)};
+\diagram* {
+(a) -- [fermion] (b) -- [fermion] (f1),
+(b) -- [boson, edge label'=\(W^{-}\)] (c),
+(c) -- [anti fermion] (f2),
+(c) -- [fermion] (f3),
+};
+\end{feynman}
+\end{tikzpicture}
+```
+
+ $$ \vertex[positioning relative] \to \diagram*[edges] $$
+
+```tikz
+/tikz/edge label= htexti (no default)
+/tikz/edge label'= htexti (no default)
+```
+
+Placesa label halfwayalong the edge with the giventext. The primed key switches which side of the edge thelabel is placed.
+
 ## Documentation
 
 ### Commands & Environments
 
-`\tikzfeynmanset{ <options> }`
+```tikz
+\tikzfeynmanset{ <options> }
+```
 
 This command will process `<options>` using `\pgfkeys` with the default path set to `/tikzfeynman`.
 Typically, `<options>` will be a comma-separated list of the form `<key>` = `<value>`,though the full power of the mechanism behind `\pgfkeys` can be used (see the TikZ manual for a complete description).
 Typically, this is used in the preamble of the document to add or change certain keys for the whole document.
 
+```tikz
+\feynmandiagram[ <TikZ options> ][ <diagram options> ]{ <diagram instructions> }
+```
+
+This commands creates a `{tikzpicture}` and `{feynman}` environment,and placesa `\diagram` inside with the provided `<diagram instruction>`.
+Please refer to the documentation for `\diagram` for the `<diagram instruction>` syntax.
+
+The optional arguments specified in `<tikz options>` are passed on to the `{tikzpicture}`, and the `<diagram options>` are passed on to `\diagram`. If only one optional argument is given, then the optional arguments are given to both. A single optional argument will usually suffice as most keys are recognized by both commands;
+however, in the event that a key is not recognized, both options are provided.
+
+**note:** suffice: 足够
+
+```tikz
+\begin{feynman}[<options>]
+<environment contents>
+\end{feynman}
+```
+
+The `{feynman}` environment is where all the drawing of Feynman diagrams takes place. It makes all the `TikZ-Feynman` styles available and defines commands such as `\vertex` and `\diagram` which are otherwise unavailable outside of this environment. The `{feynman}` environment is only accessible within the `{tikzpicture}` environment.
+Options which are passed in `<options>` apply for the whole environment in the same way that the `{scope}` environment work in TikZ.
+
+```tikz
+\vertex[<options>] (<name>) at (<coordinate>) {<contents>} ;
+```
+
+Defines a new vertex with the provided `<name>`. If `<contents>` is not provided the resulting vertex will have zero size. On the other hand, if `<contents>` is provided, the `particle=<contents>` style is applied.
+Additional styles can be applied to the vertex through `<options>`.
+The final semicolon (`;`) is vital for this command since without it, the LATEX engine will not know when the `\vertex` command ends. Additionally, this command cannot be chained like one can do with the in built `TikZ` commands.
+This command is only available with the `{feynman}` environment.
+
+**note:** chain : 一连串
+
+\diagram[ hoptionsi ]{ hdiagram instructionsi }
+Begins a newdiagram using the spring layout. Keys passed through `<options>` can include general `TikZ` keys, graph-specific keys and any applicable `TikZ-Feynman` keys too. Other algorithms (such as `tree layout` ) can be passed through `<options>` and that will override the `spring layout` .
+The syntax for the `<diagram instructions>` isthoroughly described in the `TikZ` manual,but in the context of this package, it will usually suffice to know the following:
+
++ Vertices within the graph are specified with no delimiters (i.e. no parenthesis, no brackets) and only require spaces around either side.
+In order to refer to a vertex defined outside of the `\diagram` command, its name must be given in parenthesis: (`<name>`).
+Note that in order to refer to external vertices, one must use `\diagram*` as most algorithms (including the default `spring layout` ) are incompatible with vertices defined outside of the algorithm.
+When a vertex name is used multiple times, the underlying algorithm will consider them to be the same vertex and introduces additional edges.
+Options can be given to the vertex in brackets after the name: `<name>[<options>]` . For vertices defined outside of the `\diagram` command, these options should be specified when the vertex is first declared.
++ The edges between each pair of vertices is specified with `--` , and these can be chained together: `a -- b -- c`. In order to pass a style to the edge, it is specified in brackets after the dashed: `--[<options>]`. Forexample, to make on edge `red`, one woulduse `--[red]`.
++ A comma(`,`)—or equivalently a semicolon(`;`)—specifies the end of a sequence of edges and vertices and allows for another sequence to be started. So `a -- b`, `c -- d` will create two disconnected edges.
++ Subgroups (aking to `scopes` in `TikZ`) are specified with braces: `{[<options>]<diagram instructions>}`.
+This can be quite useful when a lot of edges or nodes share a common style. Forexample,one could use `{[edges={fermion}] a -- b -- c, x -- y -- z}` and every edge will have the fermion style applied automatically.
+Another useful feature of subgroups is that an edge to a group will create an edge to each vertex inthat subgroup as shown below. The example also shows how they can be nested which in some cases (such as with a `layered layout` ) can be extremely useful.
+
+```tikz
+\feynmandiagram [nodes=circle, horizontal=a1 to b3] {
+a1 -- {b1, b2, b3 -- {c1, c2 -- d1}}
+};
+```
+
+```tikz
+\diagram* [<options>]{<diagram instructionsi>}
+```
+
+Same as `\diagram`, but instead of using the `spring layout` algorithm to place the vertices, this uses the most basic algorithm. This basic algorithm in most cases will not produce a satisfactory diagram, but is intended to be used with vertices are declared and positioned outside of the `\diagram*` command.
+Essentially, `\diagram*` should be used only to connect existing vertices.
+
+### Keys & Styles
+
+ThevariousstylesandoptionsthatallowtheFeynmandiagramstobecustomizedaredefinedinwhatTikZcalls
+keys. The documentation includes all keys which are defined within TikZ-Feynman which all begin with the prefix
+/tikzfeynman . In addition,a fewof thekeysfrom TikZitself which areparticularly useful to TikZ-Feynmanare
+documented and these are prefixed with /tikz or /graph drawing . Please refer to the TikZ manual for a more in
+thorough documentation of the TikZ keys.
+TikZ-Feynmanprovidesmany every h key i whichalloweveryinstanceof h key i tobemodified. Forexample,to
+make every diagram red except for small diagrams which should be blue, then one would add to the preamble

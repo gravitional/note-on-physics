@@ -18,7 +18,7 @@
 \usepackage[compat=1.1.0]{tikz-feynman}
 
 \begin{document}
-	
+
 the first diagram:
 
 \feynmandiagram [horizontal=a to b] {
@@ -99,7 +99,7 @@ c -- [anti fermion] f2 [particle=\(\overline \nu_{e}\)],
 c -- [fermion] f3 [particle=\(e^{-}\)],
 };
 
-the diagram 10:
+%the diagram 10:
 
 % Using the layered layout f2--c--f3
 % \feynmandiagram [layered layout, horizontal=a to b] {
@@ -108,6 +108,33 @@ the diagram 10:
 % f2 -- [anti fermion] c [particle=\(\overline \nu_{e}\)] -- 
 % [fermion] f3 [particle=\(e^{-}\)],
 % };
+
+the diagram 11:
+
+% mannuly decide the drawing process
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex (a) {\(\mu^{-}\)};
+        \vertex [right=of a] (b);
+        \vertex [above right=of b] (f1) {\(\nu_{\mu}\)};
+        \vertex [below right=of b] (c);
+        \vertex [above right=of c] (f2) {\(\overline \nu_{e}\)};
+        \vertex [below right=of c] (f3) {\(e^{-}\)};
+        \diagram* {
+        (a) -- [fermion] (b) -- [fermion] (f1),
+        (b) -- [boson, edge label'=\(W^{-}\)] (c),
+        (c) -- [anti fermion] (f2),
+        (c) -- [fermion] (f3),
+        };
+    \end{feynman}
+\end{tikzpicture}
+
+the diagram 12:
+\feynmandiagram [nodes=circle, horizontal=a1 to b3] {
+a1 -- {b1, b2, b3 -- {c1, c2 -- d1}}
+};
+
+
 
 
 \end{document}
