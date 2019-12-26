@@ -38,4 +38,12 @@
 
 ## 其他
 
+我把 `latex` 编译时的输出重定向到 `log.txt` 里面了，当然你也可以修改成在 `powershell` 里面输出，只需把
+
+```powershell
+Invoke-Expression $($compilename + " " + "-halt-on-error " + "-output-directory=temp -shell-escape -interaction=nonstopmode " + $texmain.basename) > ./log.txt;
+```
+
+中的`> ./log.txt`删除掉就可以了。
+
 功能比较简陋，大佬可以帮忙修改下，哈哈

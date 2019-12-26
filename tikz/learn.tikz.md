@@ -130,7 +130,7 @@ p1 -- [opacity=0.2] p2,
 
 Thegraph drawing library from TikZ has several different algorithms to position the vertices. By default, `\diagram` and `\feynmandiagram` use the `spring layout` algorithm to place the vertices.
 The `spring layout` attempts to spread everything out as much as possible which,in most cases, gives a nice diagram; however,there are certain cases where this does not work.
-A good example where the spring layout doesn’twork are decays where we have the decaying particle on the left and all the daughter particles on the right.
+A good example where the spring layout doesn’t work are decays where we have the decaying particle on the left and all the daughter particles on the right.
 
 ```tikz
 % Using the default spring layout
@@ -141,5 +141,30 @@ f2 [particle=\(\overline \nu_{e}\)] -- [fermion] c -- [fermion] f3 [particle=\(e
 };
 ```
 
+```tikz
+% Using the layered layout
+\feynmandiagram [layered layout, horizontal=a to b] {
+a [particle=\(\mu^{-}\)] -- [fermion] b -- [fermion] f1 [particle=\(\nu_{\mu}\)],
+b -- [boson, edge label'=\(W^{-}\)] c,
+c -- [anti fermion] f2 [particle=\(\overline \nu_{e}\)],
+c -- [fermion] f3 [particle=\(e^{-}\)],
+};
+```
 
+You may notice that in addition to adding the `layered layout` style to `\feynmandiagram`, we also changed the order in which we specify the vertices.
+This is because the `layered layout` algorithm does pay attention to the order in which vertices are declared(unlike the default spring layout ); as a result, `c--f2`, `c--f3` has a different meaning to `f2--c--f3` .
+In the former case, `f2` and `f3` are both on the layer below `c` as desired; whilst the latter case places `f2` on the layer above `c` (that, the same layer as where the $W^−$ originates).
 
+**note:** 层状的；分层的
+
+```tikz
+% Using the layered layout f2--c--f3
+\feynmandiagram [layered layout, horizontal=a to b] {
+a [particle=\(\mu^{-}\)] -- [fermion] b -- [fermion] f1 [particle=\(\nu_{\mu}\)],
+b -- [boson, edge label'=\(W^{-}\)] c,
+f2 -- [anti fermion] c [particle=\(\overline \nu_{e}\)]-- 
+[fermion] f3 [particle=\(e^{-}\)],
+};
+```
+
+**note:** error with this
