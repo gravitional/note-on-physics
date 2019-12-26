@@ -18,9 +18,13 @@ $texfiles=Get-ChildItem -filter *.tex;
 foreach ( $texmain in $texfiles)
 {
     Invoke-Expression $($compilename + " " + "-halt-on-error " + "-output-directory=temp -shell-escape -interaction=nonstopmode " + $texmain.basename) > ./log.txt;
+
     bibtex ./temp/($texmain.basename);
+
     Invoke-Expression $($compilename + " " + "-halt-on-error " + "-output-directory=temp -shell-escape -interaction=nonstopmode " + $texmain.basename) > ./log.txt;
+
     Invoke-Expression $($compilename + " " + "-halt-on-error " + "-output-directory=temp -shell-escape -interaction=nonstopmode " + $texmain.basename) > ./log.txt;
+    
     Copy-Item $(".\temp\" + $texmain.basename + ".pdf") -Destination $(".\" + $texmain.basename + ".pdf")
 }
 
