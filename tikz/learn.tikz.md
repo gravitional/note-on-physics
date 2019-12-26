@@ -35,7 +35,7 @@ As you will see later on, optional arguments can also be given to the vertices i
 + Line 4 This line is analogous to line `2` and introduces two new vertices, `f1` and `f2`. It re-uses the previously labelled `b` vertex.
 + Line 5 Finish the declaration of the Feynman diagram. The final semi-colon (`;`) is important.
 
-The name given to each vertex in the graph does not matter.
+The name given to eac`<vertex>`n the graph does not matter.
 So in this example, `i1`, `i2` denote the initial particles;
 `f1`, `f2` denotes the final particles;
 and `a`, `b` are the end points of the propagator.
@@ -162,9 +162,20 @@ In the former case, `f2` and `f3` are both on the layer below `c` as desired; wh
 \feynmandiagram [layered layout, horizontal=a to b] {
 a [particle=\(\mu^{-}\)] -- [fermion] b -- [fermion] f1 [particle=\(\nu_{\mu}\)],
 b -- [boson, edge label'=\(W^{-}\)] c,
-f2 -- [anti fermion] c [particle=\(\overline \nu_{e}\)]-- 
+f2 -- [anti fermion] c [particle=\(\overline \nu_{e}\)]--
 [fermion] f3 [particle=\(e^{-}\)],
 };
 ```
 
 **note:** error with this
+
+## Documentation
+
+### Commands & Environments
+
+`\tikzfeynmanset{ <options> }`
+
+This command will process `<options>` using `\pgfkeys` with the default path set to `/tikzfeynman`.
+Typically, `<options>` will be a comma-separated list of the form `<key>` = `<value>`,though the full power of the mechanism behind `\pgfkeys` can be used (see the TikZ manual for a complete description).
+Typically, this is used in the preamble of the document to add or change certain keys for the whole document.
+

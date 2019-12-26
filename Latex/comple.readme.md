@@ -29,10 +29,18 @@
 在前面打开的`powershell`窗口下，输入比如：
 
 ```powershell
+.\compile.ps1
+```
+
+默认是用 `xelatex` 编译的，
+
+你也可以用
+
+```powershell
 .\compile.ps1 pdflatex
 ```
 
-你可以把 `pdflatex` 替换成 `xelatex`, `lualatex` ...
+手动指定编译工具
 
 脚本会自动把文件夹下所有的 `.tex` 文件编译，支持参考文献。
 
@@ -41,9 +49,15 @@
 我把 `latex` 编译时的输出重定向到 `log.txt` 里面了，当然你也可以修改成在 `powershell` 里面输出，只需把
 
 ```powershell
-Invoke-Expression $($compilename + " " + "-halt-on-error " + "-output-directory=temp -shell-escape -interaction=nonstopmode " + $texmain.basename) > ./log.txt;
+Invoke-Expression $compile_command  >./log.txt;
 ```
 
-中的`> ./log.txt`删除掉就可以了。
+中的`> ./log.txt`删除掉，或者注释掉
+
+```powershell
+Invoke-Expression $compile_command  >./log.txt;
+```
+
+就可以了。
 
 功能比较简陋，大佬可以帮忙修改下，哈哈
