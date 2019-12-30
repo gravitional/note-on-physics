@@ -1,6 +1,31 @@
 # learn.latex.md
 
-Email bug reports to <xetex@tug.org>.
+## 浮动体
+
+[liam.page][]
+
+插图和表格通常需要占据大块空间，所以在文字处理软件中我们经常需要调整他们的位置。`figure` 和 `table` 环境可以自动完成这样的任务；这种自动调整位置的环境称作浮动体(`float`)。我们以 `figure` 为例。
+
+```latex
+\begin{figure}[htbp]
+\centering
+\includegraphics{a.jpg}
+\caption{有图有真相}
+\label{fig:myphoto}
+\end{figure}
+```
+
+`htbp` 选项用来指定插图的理想位置，这几个字母分别代表 `here`, `top`, `bottom`, `float page`，也就是就这里、页顶、页尾、浮动页（专门放浮动体的单独页面或分栏）。`\centering` 用来使插图居中；`\caption` 命令设置插图标题，`LaTeX` 会自动给浮动体的标题加上编号。注意 `\label` 应该放在标题命令之后。
+
+如果你想了解 `LaTeX` 的浮动体策略算法细节，你可以参考我博客中关于[浮动体的系列文章][]
+
+如果你困惑于「为什么图表会乱跑」或者「怎样让图表不乱跑」，请看[我的回答][]。
+
+[liam.page]: https://liam.page/2014/09/08/latex-introduction/
+
+[浮动体的系列文章]: https://liam.page/series/#LaTeX-%E4%B8%AD%E7%9A%84%E6%B5%AE%E5%8A%A8%E4%BD%93
+
+[我的回答]: https://www.zhihu.com/question/25082703/answer/30038248
 
 ## pdftex/xetex --help
 
@@ -49,6 +74,8 @@ If no arguments or options are specified, prompt for input.
 pdflatex -halt-on-error file.tex 1 > /dev/null
 [[ $? -eq 1 ]] && echo "msg in case of erros" && exit
 ```
+
+Email bug reports to <xetex@tug.org>.
 
 ## latex with powershell
 
