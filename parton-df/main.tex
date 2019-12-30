@@ -1,0 +1,111 @@
+\documentclass[cn,11pt,device=pad,mode=simple]{elegantbook}
+
+
+%%fffffffffffffffffffffffffff start packages usual
+
+%%-------used already in elegantnote.cls-------------
+%\RequirePackage{graphicx}
+%\RequirePackage{enumerate}
+%\RequirePackage{amsmath,mathrsfs,amsfonts}
+%\RequirePackage{booktabs}
+
+%\RequirePackage{color,xcolor}
+%\RequirePackage{times}
+%\RequirePackage{mtpro2}
+%\RequirePackage{hyperref}
+%\RequirePackage{geometry}
+%\RequirePackage{wallpaper}
+%\RequirePackage[center,pagestyles]{titlesec}
+%\RequirePackage{fontenc}
+%\RequirePackage[no-math,cm-default]{fontspec}
+%\RequirePackage{xunicode}
+%\RequirePackage{xltxtra} 
+%\RequirePackage{xeCJK}
+%\RequirePackage{environ}
+%\RequirePackage{tikz}
+%\RequirePackage{pifont,manfnt}
+%\RequirePackage{fancyhdr}
+%\RequirePackage{lastpage}
+%%++++++++++++++++++++++++ used already in elegantnote.cls-------------
+
+\usepackage{makecell}
+\usepackage{latexsym}
+\usepackage{makeidx}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{multirow}
+
+%%fffffffffffffffffffffffffff end packages usual
+
+%%fffffffffffffffffffffffffff start packages high energy physics
+
+%%sssssssssssssssssssssssssss Maths typesetting packages
+%\RequirePackage{amsmath} % ``Proper'' math commands and environments
+\usepackage{braket} % Dirac bra-ket notation
+\usepackage{cancel} % useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+%\RequirePackage{maybemath} % contextual math typesetting
+%\RequirePackage{hepmath} % Common HEP mathematical constructs and use-anywhere Greek letters
+%% Particle names (should be specified *after* hyperref)
+%\RequirePackage{hepparticles} % particle name typesetting (uses maybemath)
+%\RequirePackage{heppennames} % Particle Entity Notation macros for particle symbols
+%\RequirePackage{hepnicenames} % A ``friendly'' macro set for selected PEN symbols 
+% which includes hepparticles and heppennames
+
+%% SIunits package and HEP extensions
+\usepackage{hepunits} % imports SIunits with sensible options and HEP-specific units
+
+%%fffffffffffffffffffffffffff end packages high energy physics
+
+
+%%fffffffffffffffffffffffffff start packages occasional
+
+%%sssssssssssssssssssssssssss start package young tableau
+\usepackage{ytableau}
+%%sssssssssssssssssssssssssss start package subfiles
+\usepackage{subfiles}
+
+%%fffffffffffffffffffffffffff end packages occasional
+
+
+%%fffffffffffffffffffffffffff start nouns definitions
+\def\Lagrangian{拉格朗日量} %for example
+
+%%fffffffffffffffffffffffffff end noun definitions
+
+
+
+\title{Parton Distribution note}
+\subtitle{Permutation and SU(N)}
+
+\author{Thomas Young}
+\institute{IHEP}
+\date{\today}
+\version{1.00}
+
+
+\extrainfo{Stay sleepy, stay tired}
+
+\logo{logo.png}
+\cover{cover.jpg}
+
+
+\begin{document}
+	
+\maketitle
+	
+\tableofcontents
+% \thispagestyle{empty}
+	
+\mainmatter
+
+\hypersetup{pageanchor=true}
+
+\subfile{./chapter-1.tex}
+
+
+
+
+
+
+\end{document}
