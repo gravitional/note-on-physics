@@ -1571,7 +1571,7 @@ Mode                LastWriteTime     Length Name
 
 ```powershell
 PS C:Powershell> Get-service | Select-Object -First 1 | Format-List *
-
+out:
 Name                : AdobeARMservice
 RequiredServices    : {}
 CanPauseAndContinue : False
