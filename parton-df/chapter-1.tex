@@ -1,145 +1,27 @@
 \documentclass[./main.tex]{subfiles}
-
 \setcounter{chapter}{0}
-
-\chapter{Light Cone relevant}
-
-\begin{definition}{光锥动量}{}%%\ref{def:label}
-    在光锥坐标中，动量的各分量定义为：
-    \begin{equation}\begin{aligned}
-            %%\label{eq.6.1.2}
-            k^{\pm}=k_0 \pm k_3, \quad k_\perp^2 = k_1^2+k_2^2    \\
-            k^2=k_0^2 - k_1^2 - k_2^2-k_3^2 = k^+ k^- -k_\perp^2, \\
-            p^+p^-=M^2,\quad p_\perp^2=0.
-        \end{aligned}\end{equation}
-\end{definition}
-%per.pen.dicu.lar 垂直的；成直角的
-
-$k_\perp$ :垂直方向的动量，在垂直面上可以分解成两个方向的投影，把这个矢量记作 $\vec{k_\perp}$,\\
-其模方为$k_\perp^2$
-
-上式最后一行中我们假设核子在$z$方向快速运动，因此$p_\perp^2 = 0$
-
-\begin{definition}{光锥动量}{}%%\ref{def:label}
-    符号约定:介子和重子传播子因子$D_\phi(k)$和$D_B(k)$定义为：
-    \begin{equation}\begin{aligned}
-            %%\label{eq.6.1.2}
-            D_\phi(k)=k^2 - {m_\phi}^2+i \epsilon
-            =k^+ k^- - k_\perp^2 - {m_\phi}^2 +i \epsilon
-            =k^+ k^- - \Omega_\phi + i \epsilon,                \\
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            D_B(p-k)=(p-k)^2 - {m_B}^2 + i \epsilon
-            =(p-k)^+ (p-k)^- - k_\perp^2 - {m_B}^2 + i \epsilon \\ \notag
-            =(p-k)^+ (p-k)^- - \Omega_B + i \epsilon            \\
-        \end{aligned}\end{equation}
-\end{definition}
-
-
-\begin{definition}{光锥动量}{}%%\ref{def:label}
-    光锥积分：如(3.33)式所示，被积函数化简后变为$\frac{1}{D_\phi^n D_B^m}$($n$和$m$为自然数) 类型的积分。此类积分可通过计算它们的留数求解：
-    \begin{equation}\begin{aligned}
-            %%\label{eq.6.1.2}
-            \int d k^- \frac{1}{D_\phi D_B} & {}= - \frac{2 \pi i  p^+ \bar{y}}{D_{\phi B}}                          \\
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            \int d k^- \frac{1}{D_\phi^2 D_B}
-                                            & {}= \frac{\partial}{\partial m_\phi^2} \int d k^- \frac{1}{D_\phi D_B}
-            = \frac{-2 \pi i}{D_{\phi B}^2 p^+ \bar{y}}                                                              \\
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            \int d k^- \frac{1}{D_\phi D_B^2}
-                                            & {} = \frac{\partial}{\partial M_B^2} \int d k^- \frac{1}{D_\phi D_B}
-            = \frac{-2 \pi i y}{D_{\phi B}^2 p^+ \bar{y}^2}                                                          \\
-        \end{aligned}\end{equation}
-\end{definition}
-
-作为一个例子，演示第一个积分的计算过程，根据留数定理：
-
-\begin{equation}\begin{aligned}
-        %%\label{eq.6.1.2}
-        %%%%%+++++++++++++++++++++++---------------------
-         & {} \int d k^- \frac{1}{D_\phi D_B}
-        = -2 \pi i \mathrm{Res}\left[\frac{1}{D_\phi D_B}\right]_{\mathrm{lower~half~plane}} \\ \notag
-         & {}= -2 \pi i \lim\limits_{k^- \to \frac{\Omega_\phi}{k^+}}
-        \frac{k^- - \frac{\Omega_\phi}{k^+}}
-        {\left(k^+ k^- -\Omega_\phi+ i \epsilon\right)
-            \left[\left(p^+ - k^+\right)\left(p^- - k^-\right) - \Omega_B +i\epsilon  \right]
-        }                                                                                    \\ \notag
-         & {}= -2 \pi i \lim\limits_{k^- \to \frac{\Omega_\phi}{k^+}}
-        \frac{k^- - \frac{\Omega_\phi}{k^+}}
-        {
-            \left(p^+ - k^+\right) k^ +
-            \left(
-            k^- -\frac{\Omega_\phi}{k^+} + \frac{i \epsilon }{k^+}
-            \right)
-            \left[
-                \left(p^- - k^-\right) - \frac{\Omega_B}{p^+ - k^+}  + \frac{i\epsilon}{p^+ - k^+}
-                \right]
-        }                                                                                    \\ \notag
-         & {}=\frac{-2 \pi i}
-        {
-            \left(p^+ - k^+ \right) k^ +
-            \left[
-                \left(
-                p^- - \frac{\Omega_\phi}{k^+}
-                \right) - \frac{\Omega_B}{p^+ - k^+}
-                \right]
-        }                                                                                    \\ \notag
-         & {}=\frac{ 2 \pi i}
-        {
-            p^+
-            \left[
-                k_\perp^2+(1-y)m_\phi^2+y(1-y)M^2+y M_B^2
-                \right]
-        }                                                                                    \\ \notag
-         & {}= \frac{-2\pi i}{ p^+ D_{\phi B} \bar{y} }                                      \\ \notag
-        %%%%%+++++++++++++++++++++++
-    \end{aligned}\end{equation}
-
-$\delta$函数项的积分：$\frac{1}{D_\phi^n}$和$\frac{K^+ k^-}{D_\phi^n}$($n$为自然数)类型的积分由下式给出:
-
-\begin{equation}\begin{aligned}
-        %%\label{eq.6.1.2}
-        %%%%%+++++++++++++++++++++++---------------------
-        \int d k^-\frac{1}{D_\phi}          & {}=
-        2\pi i \log \left(\frac{\Omega_\phi}{\mu^2}\right)
-        \frac{\delta\left(y\right)}{p^+},                    \\ \notag
-        %%%%%%sssssssssssssssssssssssssssssssssssssssssss
-        \int d k^- \frac{1}{D_\phi^2}       & {}=
-        \frac{\partial}{\partial \Omega_\phi} \int d k^- \frac{1}{D_\phi}
-        =\frac{2\pi i}{p^+ \Omega_\phi} \delta\left(y\right) \\ \notag
-        %%%%%%sssssssssssssssssssssssssssssssssssssssssss
-        \int d k^- \frac{k^+ k^-}{D_\phi}   & {}=
-        2 \pi i \, \delta \left(y\right) \frac{\Omega_\phi}{p^+}
-        \left[
-            \log \left( \frac{\Omega_\phi}{\mu^2} \right)-1
-            \right]
-        \\ \notag
-        %%%%%%sssssssssssssssssssssssssssssssssssssssssss
-        \int d k^- \frac{k^+ k^-}{D_\phi^2} & {}=
-        \frac{\partial}{\partial \Omega_\phi}
-        \int d k^- \frac{k^+ k^-}{D_\phi}=
-        2 \pi i \, \log \left( \frac{\Omega_\phi}{\mu^2} \right)
-        \frac{\delta\left(y\right)}{p^+}                     \\ \notag
-        %%%%%+++++++++++++++++++++++
-    \end{aligned}\end{equation}
 
 
 \chapter{留数定理}
 
+对于多项式单宗量复变函数积分，总结起来:
+
 \begin{equation}\begin{aligned}
         %%\label{eq.6.1.2}
         %%%%%+++++++++++++++++++++++---------------------
-        \frac{1}{2 \pi i } \oint  \frac{dz}{z-\alpha}=
+        &{} \frac{1}{2 \pi i } \oint  \frac{dz}{z-\alpha}=
         \begin{cases}
-            0, \mathrm{\alpha isn't included in l} \\
+            0,~\alpha \mbox{ isn't included in l} \\
             %%%%%+++++++++++++++++++++++
-            1,\mathrm{\alpha is included in l}
-        \end{cases}
+            1,~\alpha \mbox{is included in l}
+        \end{cases} \\ \notag
+        &{} \frac{1}{2 \pi i } \oint (z-\alpha)^n dz = 0 (n\neq -1)
         %%%%%+++++++++++++++++++++++
     \end{aligned}\end{equation}
 
 因为原函数一个是多值函数$\ln (z-\alpha)$ ，一个是单值函数$(z-\alpha)^{n+1}/(n+1)$
 
-柯西定理(2.2.1)指出，如被积函数$f(z)$在回路$l$所围比区域上是解析的，则回路积分$\oint f(z) dz$等于$0$. \\
+柯西定理(2.2.1)指出，如被积函数$f(z)$在回路$l$所围闭区域上是解析的，则回路积分$\oint f(z) dz$等于$0$. \\
 现考虑回路$l$包围$f(z)$的奇点的情形。
 
 先设$l$只包围着$f(z)$的一个孤立奇点$z_0$，在以$z_0$为圆心而半径为零的圆环域上将$f(z)$展为洛朗级数
@@ -147,7 +29,7 @@ $\delta$函数项的积分：$\frac{1}{D_\phi^n}$和$\frac{K^+ k^-}{D_\phi^n}$($
 \begin{equation}\begin{aligned}
         %%\label{eq.6.1.2}
         %%%%%+++++++++++++++++++++++---------------------
-        f(z)=\sum\limits_{k=-\inf}^{\inf} a_k (z-z-0)^k
+        f(z)=\sum\limits_{k=-\infty}^{\infty} a_k (z-z-0)^k
         %%%%%+++++++++++++++++++++++
     \end{aligned}\end{equation}
 
@@ -172,78 +54,244 @@ $\delta$函数项的积分：$\frac{1}{D_\phi^n}$和$\frac{K^+ k^-}{D_\phi^n}$($
 如果$l$包围着$f(z)$的$n$个孤立奇点$b_1,b_2,\cdots,b_n$的情形. 做回路$l_1,l_2,\cdots,l_n$分别包围$b_1,b_2,\cdots,b_n$. 并使每个回路只包围一个奇点, 按照柯西定理,
 
 \begin{equation}\begin{aligned}
-    %%\label{eq.6.1.2}
-    %%%%%+++++++++++++++++++++++---------------------
-    \oint_l f(z) dz =
-    \oint_{l1} f(z) dz 
-    +\oint_{l2} f(z) dz
-    + \cdots +\oint_{ln} f(z) dz
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+        %%\label{eq.6.1.2}
+        %%%%%+++++++++++++++++++++++---------------------
+        \oint_l f(z) dz =
+        \oint_{l1} f(z) dz
+        +\oint_{l2} f(z) dz
+        + \cdots +\oint_{ln} f(z) dz
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
 
 于是得到,
 
 \begin{equation}\begin{aligned}
-    \label{eq.4.1.4}
-    %%%%%+++++++++++++++++++++++---------------------
-    \oint_l f(z) dz =
-    2 \pi i 
-    [
-\res f(b_1) + \res f(b_2) + \cdots + \res f(b_n)
-    ] 
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+        \label{eq.4.1.4}
+        %%%%%+++++++++++++++++++++++---------------------
+        \oint_l f(z) dz =
+        2 \pi i
+            [
+                \res f(b_1) + \res f(b_2) + \cdots + \res f(b_n)
+            ]
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
 
 \begin{theorem}{留数定理}{}%%\ref{thm:label}
     设函数$f(z)$在回路$l$所围区域$B$上除有限个孤立奇点$b_1,b_2,\cdots,b_n$外解析,在闭区域$\bar{B}$上除$b_1,b_2,\cdots,b_n$外连续,则
     \begin{equation}\begin{aligned}
-    %%\label{eq.6.1.2}
-    \oint f(z)dz=2 \pi i \sum\limits_{j=1}^n \res f(b_j)
-    \end{aligned}\end{equation}
-    \end{theorem}
+            %%\label{eq.6.1.2}
+            \oint f(z)dz=2 \pi i \sum\limits_{j=1}^n \res f(b_j)
+        \end{aligned}\end{equation}
+\end{theorem}
 
-    留数定理将回路积分归结为被积函数在回路所围区域上各奇点的留数之和.
+留数定理将回路积分归结为被积函数在回路所围区域上各奇点的留数之和.
 
-    函数$f(z)$在全平面上所有各点的留数之和为零.这里说的所有各点包括无限远点和有限远的奇点.
+函数$f(z)$在全平面上所有各点的留数之和为零.这里说的所有各点包括无限远点和有限远的奇点.
 
-\subchapter{留数定理}  
-    
-一般地, 在以奇点为圆心的圆环域上将函数展开为洛朗级数, 取它的负一次幂项的系数就行了. 
+\section{留数定理-prepare}
+
+一般地, 在以奇点为圆心的圆环域上将函数展开为洛朗级数, 取它的负一次幂项的系数就行了.
 对于极点, 可以不用做洛朗展开而直接求出留数.
 
 设$z_0$是$f(z)$的单极点. 洛朗展开应是
 
 \begin{equation}\begin{aligned}
-    \label{eq.4.1.4}
-    %%%%%+++++++++++++++++++++++---------------------
-    f(z)=\frac{a_{-1}}{z-z_0}+a_0+a_1 (z-z_0)+a_2(z-z_0)^2+\cdots
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+        \label{eq.4.1.4}
+        %%%%%+++++++++++++++++++++++---------------------
+        f(z)=\frac{a_{-1}}{z-z_0}+a_0+a_1 (z-z_0)+a_2(z-z_0)^2+\cdots
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
 
 这样,
 
 \begin{equation}\begin{aligned}
-    \label{eq.4.1.8}
-    %%%%%+++++++++++++++++++++++---------------------
-    \lim_{z \to z_0}[(z-z_0)f(z)] = \res f(z_0)
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+        \label{eq.4.1.8}
+        %%%%%+++++++++++++++++++++++---------------------
+        \lim_{z \to z_0}[(z-z_0)f(z)] = \res f(z_0)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
 
 \ref{eq.4.1.8}既可用来计算函数$f(z)$在单极点$z_0$的留数, 也可用来判断$z_0$是否为函数$f(z)$
 的单极点.
 
-若$f(z)$可以表示为$P(z)/Q(z)$的特殊形式, 
-其中$P(z)$和$Q(z)$都在$z_0$点解析, 
-$z_0$是$Q(z)$的一阶零点. 
+若$f(z)$可以表示为$P(z)/Q(z)$的特殊形式,
+其中$P(z)$和$Q(z)$都在$z_0$点解析,
+$z_0$是$Q(z)$的一阶零点.
 $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
 
 \begin{equation}\begin{aligned}
-    \label{eq.4.1.9}
-    %%%%%+++++++++++++++++++++++---------------------
-    \res f(z_0) = \lim_{z \to z_0} \frac{P(z)}{Q(z)} =  \frac{P(z_0)}{Q'(z_0)}
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+        \label{eq.4.1.9}
+        %%%%%+++++++++++++++++++++++---------------------
+        \res f(z_0) = \lim_{z \to z_0} \frac{P(z)}{Q(z)} =  \frac{P(z_0)}{Q'(z_0)}
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
 
 上式最后一步应用了洛必达法则.
 
-同理, 若1是1的1阶极点. 洛朗展开应是
+同理, 若$z_0$是$f(z)$的$m$阶极点. 洛朗展开应是
+
+\begin{equation}\begin{aligned}
+        \label{eq.4.1.10}
+        %%%%%+++++++++++++++++++++++---------------------
+        f(z)= \frac{a_{-m}}{(z-z_0)^m}
+        +\frac{a_{-(m-1)}}{(z-z_0)^{m-1}}
+        +\cdots
+        +\frac{a_{-1}}{z-z_0}
+        +a_0
+        +a_1(z-z_0)
+        +a_2(z-z_0)^2
+        +\cdots
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+故有, 判断极点:
+
+\begin{equation}\begin{aligned}
+        \label{eq.4.1.12}
+        %%%%%+++++++++++++++++++++++---------------------
+        \lim_{z\to z_0}[(z - z_0)^m f(z)]= \text{非零有限值}
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+求留数:
+
+\begin{equation}\begin{aligned}
+        \label{eq.4.1.12}
+        %%%%%+++++++++++++++++++++++---------------------
+        \res f(z_0) = \lim_{z\to z_0} \frac{1}{(m-1)!}
+        {
+            \frac{d^{m-1}}{d z^{m-1}}
+            [
+                (z-z_0)^m f(z)
+            ]
+        }
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+用以上公式, 可以判断函数$f(z)$的{极点阶数},并求出$f(z)$在\textbf{极点的留数}
+
+\section{应用留数定理计算实变函数定积分}
+
+首先将实变函数定积分跟复变函数回路积分联系起来. 其要点如下:\\
+定积分$\int_a^b f(x)dx$的积分区间$[a,b]$可以看作是复数平面上实轴上的一段$l_1$,于是,
+或者利用自变数的变换把$l_1$变换为某个新的复数平面上的回路,这样就可以应用留数定理了；\\
+或者另外补上一段曲线$l_2$，使$l_1$和$l_2$合成回路$l$，$l$包围着区域$B$。将$f(x)$解析延拓到闭区域$B$（这个延拓往往只是把$f(x)$改为$f(z)$而已），并把它沿着$l$积分，
+
+\begin{equation}\begin{aligned}
+        \label{eq.4.1.12}
+        %%%%%+++++++++++++++++++++++---------------------
+        \oint f(z) dz = \int_{l_1} f(x)dx + \int_{l_2} f(z) dz
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+上式左边可以应用留数定理，右边第一个积分就是所求的定积分。如果右边第二个积分较易算出（往往证明为零）或可用第一个积分表出，问题就算解决了。
+
+下面介绍几种类型的实变定积分。
+
+\begin{enumerate}
+    \item[类型一]
+          $\int_0^{2\pi} R(\cos x, \sin x)d x$. 被积函数是三角函数的有理式；积分区间是$[0,2\pi]$. \\
+          作自变数代换
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.1}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  z=e^{ix}
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+          当实变数$x$从$0$变到$2\pi$时，复变数$z=e^{ix}$从$z=1$出发沿单位圆$|z|=1$逆时针走一圈又回到$z=1$，实变定积分化为复变回路积分，就可以应用留数定理了。
+          至于实变定积分里的$\cos x$和$\sin x$，则按\ref{eq.4.2.1}而做如下变换
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.2}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \cos x=\frac{1}{2}(z+z^{-1}),\quad \sin x=\frac{1}{2 i}(z-z^{-1}),\quad
+                  dx=\frac{1}{iz}dz
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+          于是，原积分化为
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.3}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  I= \oint_{|z|=1} R (\frac{z+z^{-1}}{2},\frac{z-z^{-1}}{2i}) \frac{dz}{iz}
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+
+    \item[类型二]
+          $\int_{-\infty}^{\infty}f(x)dx$. 积分区间是$(-\infty,+\infty)$；\\
+          复变函数$f(z)$在实轴上没有奇点，在上半平面除有限个奇点外是解析的；
+          当$z$在上半平面及实轴上$\to \infty$时，$zf(z)$一致地$\to 0$。
+
+          如果$f(x)$是有理分式$\phi(x)/\psi(x)$，上述条件意味着$\psi(x)$没有实的零点，
+          $\psi(x)$的次数至少高于$\phi(x)$两次
+
+          这一积分通常理解为下列极限：
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.4}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  I=\lim_{R_1\to\infty,R2\to\infty}
+                  \int_{-R_1}^{R^2} f(x)dx
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+          若极限存在的话，这一极限便称为反常积分$\int_{-\infty}^{\infty}f(x)dx$的值。
+          而当$ R_1=R_2\to \infty $时极限存在的话，该极限便称为积分$\int_{-\infty}^{\infty}f(x)dx$的\textbf{主值}，记作
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.5}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \mathcal{P}\int_{-\infty}^{\infty} f(x)dx=
+                  \lim_{R\to\infty}\int_{-R}^{R}f(x)dx
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+          本类型积分要计算的是积分主值。考虑半圆形回路$l$
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.5}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \oint f(z)dz=\int_{-R}^{R} f(x)dx + \int_{C_R}f(z)dz
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+          根据留数定理，上式即
+
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.5}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  2\pi i{f(z)\text{在}l
+                          \text{所围半圆内各奇点的留数之和}}=
+                  \int_{-R}^{R} f(x)dx+
+                  \int_{C_R}f(z)dz
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+
+          令$R \to \infty$。上式左边趋于$2\pi i{f(z)\text{在}l
+                      \text{所围半圆内各奇点的留数之和}}$，
+          右边第一个积分趋于所求的定积分$\int_{-\infty}^{\infty}f(x)dx$，
+          第二个定积分可证明是趋于零的：
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.5}
+                  %%%%%+++++++++++++++++++++++---------------------
+                   &{}\abs{\int_{C_R}f(z)dz}=
+                  \abs{\int_{C_R} z f(z) \frac{dz}{z} }
+                  \leq
+                  \int_{C_R} \abs{z f(z)} \frac{\abs{dz}}{\abs{z}}
+                   &{}\leq
+                  \max \abs{z f(z)} \frac{\pi R}{R}
+                  =\pi \cdot \max
+                  \abs{z f(z)} \to 0
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+          式中$\max \abs{z f(z)}$是$\abs{z f(z)}$在$C_R$上的最大值。于是得到结果
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.6}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_{-\infty}^{\infty} f(x)dx =
+                  2\pi i{
+                          f(z)\text{在}
+                          \text{上半平面所有奇点的留数之和}
+                      }
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+
+    \item[类型三]
+    \item[类型四]
+
+\end{enumerate}
+
+
+
