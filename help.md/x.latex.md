@@ -160,7 +160,6 @@ f(n) = \begin{cases} n/2 &\mbox{if } n \equiv 0 \\
 (3n +1)/2 & \mbox{if } n \equiv 1 \end{cases} \pmod{2}.
 ```
 
-
 ### 矩阵模板
 
 ```latex
@@ -347,6 +346,7 @@ Particular attention should be paid to units such as "`m/s`"; it's best not to d
 | `\oint` |  环路积分 |
 | `\ldots` | lying dots |
 | `\cdots` | centerd dots |
+| `infty` | infinity |
 
 ### 绝对值
 
@@ -360,7 +360,7 @@ For such that, as in the definition of a set, use `\mid` because it is a relatio
 For absolute value you can use the `mathtools` package and in your preamble put `\DeclarePairedDelimiter\abs{\lvert}{\rvert}`.
 This gives you three command variants for single-line vertical bars that are correctly horizontally spaced: if in the document body you write the starred version $\abs*{\frac{22}{7}}$ then the height of the vertical bars will match the height of the argument, whereas with \abs{\frac{22}{7}} the bars do not grow with the height of the argument but instead are the default height, and \abs[size command]{\frac{22}{7}} also gives bars that do not grow but are set to the size given in the size command, e.g., \Bigg.
 
-## Counters
+## 计数 Counters
 
 Everything `LaTeX` numbers for you has a `counter` associated with it.
 The name of the `counter` is often the same as the name of the `environment` or `command` associated with the number, except that the `counter`’s name has no backslash `\`. Thus, associated with the `\chapter` command is the `chapter` counter that keeps track of the `chapter` number.

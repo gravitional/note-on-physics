@@ -111,7 +111,7 @@
         %%%%%+++++++++++++++++++++++
     \end{aligned}\end{equation}
 
-\ref{eq.4.1.8}既可用来计算函数$f(z)$在单极点$z_0$的留数, 也可用来判断$z_0$是否为函数$f(z)$
+\eqref{eq.4.1.8}既可用来计算函数$f(z)$在单极点$z_0$的留数, 也可用来判断$z_0$是否为函数$f(z)$
 的单极点.
 
 若$f(z)$可以表示为$P(z)/Q(z)$的特殊形式,
@@ -199,7 +199,7 @@ $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
                   %%%%%+++++++++++++++++++++++
               \end{aligned}\end{equation}
           当实变数$x$从$0$变到$2\pi$时，复变数$z=e^{ix}$从$z=1$出发沿单位圆$|z|=1$逆时针走一圈又回到$z=1$，实变定积分化为复变回路积分，就可以应用留数定理了。
-          至于实变定积分里的$\cos x$和$\sin x$，则按\ref{eq.4.2.1}而做如下变换
+          至于实变定积分里的$\cos x$和$\sin x$，则按\eqref{eq.4.2.1}而做如下变换
           \begin{equation}\begin{aligned}
                   \label{eq.4.2.2}
                   %%%%%+++++++++++++++++++++++---------------------
@@ -288,8 +288,117 @@ $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
                   %%%%%+++++++++++++++++++++++
               \end{aligned}\end{equation}
 
-    \item[类型三]
-    \item[类型四]
+    \item[类型三] 
+     $\int_0^\infty F(x) \cos mx dx$, $\int_0^\infty G(x) \sin mx dx$. 
+     积分区间是$[0,+\infty]$；偶函数$F(z)$和奇函数$G(z)$在实轴上没有奇点，在上半平面除有限个奇点外是解析的；\\
+     当$z$在上半平面或实轴上$\to \infty$时，$F(z)$及$G(z)$一致地$\to 0$
+
+     首先，将所求积分的形式变换一下，
+
+     \begin{equation}\begin{aligned}
+        % \label{eq.4.2.5}
+        %%%%%+++++++++++++++++++++++---------------------
+        \int_0^\infty F(x) \cos mx dx &{}=
+        \int_0^\infty F(x) \frac{1}{2} (e^{imx}+e^{-imx})dx \\ \notag
+        &{}=
+        \frac{1}{2} \int_0^\infty F(x) e^{imx} dx
+        +\frac{1}{2} \int_0^\infty F(x) e^{-imx} dx
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+在右边第二个积分中做代换$x=-y$，并考虑到$F(x)$是偶函数，得
+\begin{equation}\begin{aligned}
+    % \label{eq.4.2.5}
+    %%%%%+++++++++++++++++++++++---------------------
+    \int_0^\infty F(x) \cos mx dx =
+    \frac{1}{2} \int_0^\infty F(x) e^{imx} dx
+    -\frac{1}{2}\int_0^{- \infty} F(y) e^{imy} dy
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+将右边第二项积分的积分变数再改成$x$，则
+\begin{equation}\begin{aligned}
+    \label{eq.4.2.7}
+    %%%%%+++++++++++++++++++++++---------------------
+    \int_0^\infty F(x) \cos mx dx =
+    \frac{1}{2} \int_0^\infty F(x) e^{imx} dx
+    +\frac{1}{2}\int_{- \infty}^{0} F(x) e^{imx} dx
+    =\frac{1}{2} \int_{- \infty}^{\infty} e^{imx} dx
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+同理，
+\begin{equation}\begin{aligned}
+    \label{eq.4.2.8}
+    %%%%%+++++++++++++++++++++++---------------------
+    \int_0^\infty G(x) \sin mx dx =
+    \frac{1}{2i} \int_{- \infty}^\infty G(x) e^{imx} dx
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+\eqref{eq.4.2.7}and \eqref{eq.4.2.8}右边积分的计算，需要用到约当引理。
+
+\subsection{约当引理}
+
+如$m$为证书，$C_R$是以原点为圆心而位于上半平面的半圆周，又设当$z$在上半平面及实轴上$\to \infty$时$F(z)$一致地$\to 0$，则
+\begin{equation}\begin{aligned}
+    % \label{eq.4.2.8}
+    %%%%%+++++++++++++++++++++++---------------------
+    \lim_{R\to infty} \int_{C_R} F(z) e^{imz} dz =0
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+证明：
+\begin{equation}\begin{aligned}
+    % \label{eq.4.2.8}
+    %%%%%+++++++++++++++++++++++---------------------
+    \abs{ \int_{C_R} F(z) e^{imz} dz } =
+    \abs{ \int_{C_R} F(z) e^{imx-my} dz }\\ \notag
+    &{}=\abs{
+         \int_{0}^{\pi} F(R e^{i\phi})
+    e^{-mR \sin \phi} e^{im R \cos \phi} 
+    R e^{i \phi} i d \phi
+    }\\
+    &{}\leq \max \abs{F(z)}\cdot 
+    \int_{0}^{\pi} e^{-m R \sin \phi} R d \phi
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+当$z$在上半平面或实轴上$\to \infty$时，$F(z)$一致地$\to 0$，所以$\max \abs{F(z)} \to 0$，
+从而只需证明
+\begin{equation}\begin{aligned}
+    % \label{eq.4.2.8}
+    %%%%%+++++++++++++++++++++++---------------------
+    \lim_{R \to \infty} \int_0^{\pi} e^{-m R \sin \phi} R d \phi \\ \notag
+    i.e. 2 \lim_{R\to \infty} \int_0^{\pi} e^{-m R \sin \phi} R d\phi
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+是有界的。
+
+在$0\leq \phi \leq \frac{\pi}{2}$ 范围内，$0\leq 2 \phi / \pi \leq \sin \phi$，
+\begin{equation}\begin{aligned}
+    % \label{eq.4.2.8}
+    %%%%%+++++++++++++++++++++++---------------------
+    \int_0^{\pi/2} e^{-m R \sin \phi} R d\phi 
+    \leq \int_0^{\pi/2} e^{-2m R \phi / \pi} R d\phi
+    = \frac{\pi}{2m}(1-e^{-mR})
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+于$R\to \infty$，上式趋于有限值，这就证明了约当引理。
+
+如果$m$是负数，则约当引理应为
+\begin{equation}\begin{aligned}
+    % \label{eq.4.2.8}
+    %%%%%+++++++++++++++++++++++---------------------
+    \lim_{R \to \infty} \int_{C^\prime_{R}} F(z)e^{imz}dz=0
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+$C^\prime_{R}$是$C_R$对于实轴的映像。
+
+\item[类型四]
 
 \end{enumerate}
 
