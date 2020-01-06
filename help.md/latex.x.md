@@ -194,8 +194,10 @@ f(n) = \begin{cases} n/2 &\mbox{if } n \equiv 0 \\
 ### 常用颜色声明
 
 ```latex
-{\color{seco}text}
+{\color{main}text}
 ```
+
+main, second, third
 
 ### 颜色包的使用
 

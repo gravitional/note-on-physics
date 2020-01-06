@@ -24,13 +24,21 @@ $k_\perp$ :垂直方向的动量，在垂直面上可以分解成两个方向的
     符号约定:介子和重子传播子因子$D_\phi(k)$和$D_B(k)$定义为：
     \begin{equation}\begin{aligned}
             %%\label{eq.6.1.2}
-            D_\phi(k)=k^2 - {m_\phi}^2+i \epsilon
+            D_\phi(k)   & {}=
+            k^2 - {m_\phi}^2+i \epsilon
             =k^+ k^- - k_\perp^2 - {m_\phi}^2 +i \epsilon
-            =k^+ k^- - \Omega_\phi + i \epsilon,                \\
+            ={\color{main}k^+ k^- - \Omega_\phi + i \epsilon},                     \\
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            D_B(p-k)=(p-k)^2 - {m_B}^2 + i \epsilon
-            =(p-k)^+ (p-k)^- - k_\perp^2 - {m_B}^2 + i \epsilon \\ \notag
-            =(p-k)^+ (p-k)^- - \Omega_B + i \epsilon            \\
+            D_B(p-k)    & {}=
+            (p-k)^2 - {m_B}^2 + i \epsilon
+            =(p-k)^+ (p-k)^- - k_\perp^2 - {m_B}^2 + i \epsilon                    \\
+                        & {}={\color{main}(p-k)^+ (p-k)^- - \Omega_B + i \epsilon} \\
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            \Omega_\phi & {}=
+            k_\perp^2 + {m_\phi}^2 \geq 0                                          \\
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            \Omega_B    & {}=
+            k_\perp^2 + {m_B}^2 \geq 0                                             \\
         \end{aligned}\end{equation}
 \end{definition}
 
@@ -39,7 +47,8 @@ $k_\perp$ :垂直方向的动量，在垂直面上可以分解成两个方向的
     光锥积分：如(3.33)式所示，被积函数化简后变为$\frac{1}{D_\phi^n D_B^m}$($n$和$m$为自然数) 类型的积分。此类积分可通过计算它们的留数求解：
     \begin{equation}\begin{aligned}
             %%\label{eq.6.1.2}
-            \int d k^- \frac{1}{D_\phi D_B} & {}= - \frac{2 \pi i  p^+ \bar{y}}{D_{\phi B}}                          \\
+            \int d k^- \frac{1}{D_\phi D_B} & {}= \frac{- 2 \pi i }
+            { D_{\phi B} p^+ \bar{y} }                                                                               \\
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \int d k^- \frac{1}{D_\phi^2 D_B}
                                             & {}= \frac{\partial}{\partial m_\phi^2} \int d k^- \frac{1}{D_\phi D_B}
@@ -47,22 +56,35 @@ $k_\perp$ :垂直方向的动量，在垂直面上可以分解成两个方向的
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \int d k^- \frac{1}{D_\phi D_B^2}
                                             & {} = \frac{\partial}{\partial M_B^2} \int d k^- \frac{1}{D_\phi D_B}
-            = \frac{-2 \pi i y}{D_{\phi B}^2 p^+ \bar{y}^2}                                                          \\
+            = \frac{-2 \pi i~y}{D_{\phi B}^2~p^+~\bar{y}^2}                                                          \\
+            D_{\phi B} & {}=
+        -\left(
+        \frac{
+                k_\perp^2 + y M_B^2+(1-y)m_\phi^2-y(1-y)M^2
+            }
+            {1-y}
+        \right)                                                                              \\
+        \bar{y}&{}=1-y \\
         \end{aligned}\end{equation}
 \end{definition}
 
-作为一个例子，演示第一个积分的计算过程，根据留数定理：
+作为一个例子，演示第一个积分的计算过程，
+单极点位于$k^- \to \frac{\Omega_\phi - i \epsilon}{k^+}$ and 
+$k^- \to p^- -\left(\frac{\Omega_B - i \epsilon}{p^+ - k^+}\right)$
+第一个极点位于下半平面，第二个极点位于上半平面。
+第一个极点的表达式更简单一些。
+根据留数定理：
 
 \begin{equation}\begin{aligned}
         %%\label{eq.6.1.2}
         %%%%%+++++++++++++++++++++++---------------------
          & {} \int d k^- \frac{1}{D_\phi D_B}
-        = -2 \pi i \mathrm{Res}\left[\frac{1}{D_\phi D_B}\right]_{\mathrm{lower~half~plane}} \\ \notag
+        = -2 \pi i~\res \left[\frac{1}{D_\phi D_B}\right]_{\mathrm{lower~half~plane}} \\
          & {}= -2 \pi i \lim\limits_{k^- \to \frac{\Omega_\phi}{k^+}}
         \frac{k^- - \frac{\Omega_\phi}{k^+}}
         {\left(k^+ k^- -\Omega_\phi+ i \epsilon\right)
             \left[\left(p^+ - k^+\right)\left(p^- - k^-\right) - \Omega_B +i\epsilon  \right]
-        }                                                                                    \\ \notag
+        }                                                                                    \\
          & {}= -2 \pi i \lim\limits_{k^- \to \frac{\Omega_\phi}{k^+}}
         \frac{k^- - \frac{\Omega_\phi}{k^+}}
         {
@@ -73,7 +95,7 @@ $k_\perp$ :垂直方向的动量，在垂直面上可以分解成两个方向的
             \left[
                 \left(p^- - k^-\right) - \frac{\Omega_B}{p^+ - k^+}  + \frac{i\epsilon}{p^+ - k^+}
                 \right]
-        }                                                                                    \\ \notag
+        }                                                                                    \\
          & {}=\frac{-2 \pi i}
         {
             \left(p^+ - k^+ \right) k^ +
@@ -82,15 +104,31 @@ $k_\perp$ :垂直方向的动量，在垂直面上可以分解成两个方向的
                 p^- - \frac{\Omega_\phi}{k^+}
                 \right) - \frac{\Omega_B}{p^+ - k^+}
                 \right]
-        }                                                                                    \\ \notag
+        }                                                                                    \\
          & {}=\frac{ 2 \pi i}
         {
             p^+
             \left[
-                k_\perp^2+(1-y)m_\phi^2+y(1-y)M^2+y M_B^2
+                k_\perp^2+(1-y)m_\phi^2+
+                y^2 M_B^2
                 \right]
-        }                                                                                    \\ \notag
-         & {}= \frac{-2\pi i}{ p^+ D_{\phi B} \bar{y} }                                      \\ \notag
+        }                                                                                    \\
+         & {}= \frac{-2\pi i }{ D_{\phi B} p^+ \bar{y} }                                     \\
+        D_{\phi B}
+         & {}=
+        -\left(
+        \frac{
+                k_\perp^2 + y M_B^2+(1-y)m_\phi^2-y(1-y)M^2
+            }
+            {1-y}
+        \right)                                                                              \\
+        & \text{if set } M=M_B, \text{ then }
+        D_{\phi B} =
+        -\left(
+        \frac{
+            k_\perp^2+(1-y)m_\phi^2+ y^2 M_B^2
+            }{1-y}
+        \right) \\
         %%%%%+++++++++++++++++++++++
     \end{aligned}\end{equation}
 
@@ -101,23 +139,32 @@ $\delta$函数项的积分：$\frac{1}{D_\phi^n}$和$\frac{K^+ k^-}{D_\phi^n}$($
         %%%%%+++++++++++++++++++++++---------------------
         \int d k^-\frac{1}{D_\phi}          & {}=
         2\pi i \log \left(\frac{\Omega_\phi}{\mu^2}\right)
-        \frac{\delta\left(y\right)}{p^+},                    \\ \notag
+        \frac{\delta\left(y\right)}{p^+},                    \\
         %%%%%%sssssssssssssssssssssssssssssssssssssssssss
         \int d k^- \frac{1}{D_\phi^2}       & {}=
         \frac{\partial}{\partial \Omega_\phi} \int d k^- \frac{1}{D_\phi}
-        =\frac{2\pi i}{p^+ \Omega_\phi} \delta\left(y\right) \\ \notag
+        =\frac{2\pi i}{p^+ \Omega_\phi} \delta\left(y\right) \\
         %%%%%%sssssssssssssssssssssssssssssssssssssssssss
         \int d k^- \frac{k^+ k^-}{D_\phi}   & {}=
         2 \pi i \, \delta \left(y\right) \frac{\Omega_\phi}{p^+}
         \left[
             \log \left( \frac{\Omega_\phi}{\mu^2} \right)-1
-            \right]
-        \\ \notag
+            \right]                                          \\
         %%%%%%sssssssssssssssssssssssssssssssssssssssssss
         \int d k^- \frac{k^+ k^-}{D_\phi^2} & {}=
         \frac{\partial}{\partial \Omega_\phi}
         \int d k^- \frac{k^+ k^-}{D_\phi}=
         2 \pi i \, \log \left( \frac{\Omega_\phi}{\mu^2} \right)
-        \frac{\delta\left(y\right)}{p^+}                     \\ \notag
+        \frac{\delta\left(y\right)}{p^+}                     \\
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+以第一个为例，
+
+    \begin{equation}\begin{aligned}
+        %%\label{eq.6.1.2}
+        %%%%%+++++++++++++++++++++++---------------------
+        &{} \int d k^- \frac{1}{D_\phi} 
+       =\frac{1}{\left(k^+ k^- -\Omega_\phi+ i \epsilon\right)}  \\
         %%%%%+++++++++++++++++++++++
     \end{aligned}\end{equation}

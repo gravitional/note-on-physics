@@ -9,13 +9,13 @@
 \begin{equation}\begin{aligned}
         %%\label{eq.6.1.2}
         %%%%%+++++++++++++++++++++++---------------------
-        &{} \frac{1}{2 \pi i } \oint  \frac{dz}{z-\alpha}=
+         & {} \frac{1}{2 \pi i } \oint  \frac{dz}{z-\alpha}=
         \begin{cases}
             0,~\alpha \mbox{ isn't included in l} \\
             %%%%%+++++++++++++++++++++++
             1,~\alpha \mbox{is included in l}
-        \end{cases} \\ \notag
-        &{} \frac{1}{2 \pi i } \oint (z-\alpha)^n dz = 0 (n\neq -1)
+        \end{cases}                                     \\
+         & {} \frac{1}{2 \pi i } \oint (z-\alpha)^n dz = 0 (n\neq -1)
         %%%%%+++++++++++++++++++++++
     \end{aligned}\end{equation}
 
@@ -266,11 +266,11 @@ $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
           \begin{equation}\begin{aligned}
                   % \label{eq.4.2.5}
                   %%%%%+++++++++++++++++++++++---------------------
-                   &{}\abs{\int_{C_R}f(z)dz}=
+                   & {}\abs{\int_{C_R}f(z)dz}=
                   \abs{\int_{C_R} z f(z) \frac{dz}{z} }
                   \leq
                   \int_{C_R} \abs{z f(z)} \frac{\abs{dz}}{\abs{z}}
-                   &{}\leq
+                   & {}\leq
                   \max \abs{z f(z)} \frac{\pi R}{R}
                   =\pi \cdot \max
                   \abs{z f(z)} \to 0
@@ -288,119 +288,243 @@ $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
                   %%%%%+++++++++++++++++++++++
               \end{aligned}\end{equation}
 
-    \item[类型三] 
-     $\int_0^\infty F(x) \cos mx dx$, $\int_0^\infty G(x) \sin mx dx$. 
-     积分区间是$[0,+\infty]$；偶函数$F(z)$和奇函数$G(z)$在实轴上没有奇点，在上半平面除有限个奇点外是解析的；\\
-     当$z$在上半平面或实轴上$\to \infty$时，$F(z)$及$G(z)$一致地$\to 0$
+    \item[类型三]
+          $\int_0^\infty F(x) \cos mx dx$, $\int_0^\infty G(x) \sin mx dx$.
+          积分区间是$[0,+\infty]$；偶函数$F(z)$和奇函数$G(z)$在实轴上没有奇点，在上半平面除有限个奇点外是解析的；\\
+          当$z$在上半平面或实轴上$\to \infty$时，$F(z)$及$G(z)$一致地$\to 0$
 
-     首先，将所求积分的形式变换一下，
+          首先，将所求积分的形式变换一下，
 
-     \begin{equation}\begin{aligned}
-        % \label{eq.4.2.5}
-        %%%%%+++++++++++++++++++++++---------------------
-        \int_0^\infty F(x) \cos mx dx &{}=
-        \int_0^\infty F(x) \frac{1}{2} (e^{imx}+e^{-imx})dx \\ \notag
-        &{}=
-        \frac{1}{2} \int_0^\infty F(x) e^{imx} dx
-        +\frac{1}{2} \int_0^\infty F(x) e^{-imx} dx
-        %%%%%+++++++++++++++++++++++
-    \end{aligned}\end{equation}
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.5}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_0^\infty F(x) \cos mx dx & {}=
+                  \int_0^\infty F(x) \frac{1}{2} (e^{imx}+e^{-imx})dx \\
+                                                & {}=
+                  \frac{1}{2} \int_0^\infty F(x) e^{imx} dx
+                  +\frac{1}{2} \int_0^\infty F(x) e^{-imx} dx
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-在右边第二个积分中做代换$x=-y$，并考虑到$F(x)$是偶函数，得
-\begin{equation}\begin{aligned}
-    % \label{eq.4.2.5}
-    %%%%%+++++++++++++++++++++++---------------------
-    \int_0^\infty F(x) \cos mx dx =
-    \frac{1}{2} \int_0^\infty F(x) e^{imx} dx
-    -\frac{1}{2}\int_0^{- \infty} F(y) e^{imy} dy
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+          在右边第二个积分中做代换$x=-y$，并考虑到$F(x)$是偶函数，得
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.5}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_0^\infty F(x) \cos mx dx =
+                  \frac{1}{2} \int_0^\infty F(x) e^{imx} dx
+                  -\frac{1}{2}\int_0^{- \infty} F(y) e^{imy} dy
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-将右边第二项积分的积分变数再改成$x$，则
-\begin{equation}\begin{aligned}
-    \label{eq.4.2.7}
-    %%%%%+++++++++++++++++++++++---------------------
-    \int_0^\infty F(x) \cos mx dx =
-    \frac{1}{2} \int_0^\infty F(x) e^{imx} dx
-    +\frac{1}{2}\int_{- \infty}^{0} F(x) e^{imx} dx
-    =\frac{1}{2} \int_{- \infty}^{\infty} e^{imx} dx
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+          将右边第二项积分的积分变数再改成$x$，则
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.7}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_0^\infty F(x) \cos mx dx =
+                  \frac{1}{2} \int_0^\infty F(x) e^{imx} dx
+                  +\frac{1}{2}\int_{- \infty}^{0} F(x) e^{imx} dx
+                  =\frac{1}{2} \int_{- \infty}^{\infty} e^{imx} dx
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-同理，
-\begin{equation}\begin{aligned}
-    \label{eq.4.2.8}
-    %%%%%+++++++++++++++++++++++---------------------
-    \int_0^\infty G(x) \sin mx dx =
-    \frac{1}{2i} \int_{- \infty}^\infty G(x) e^{imx} dx
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+          同理，
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.8}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_0^\infty G(x) \sin mx dx =
+                  \frac{1}{2i} \int_{- \infty}^\infty G(x) e^{imx} dx
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-\eqref{eq.4.2.7}and \eqref{eq.4.2.8}右边积分的计算，需要用到约当引理。
+          \eqref{eq.4.2.7}and \eqref{eq.4.2.8}右边积分的计算，需要用到约当引理。
 
-\subsection{约当引理}
+          \subsection{约当引理}
 
-如$m$为证书，$C_R$是以原点为圆心而位于上半平面的半圆周，又设当$z$在上半平面及实轴上$\to \infty$时$F(z)$一致地$\to 0$，则
-\begin{equation}\begin{aligned}
-    % \label{eq.4.2.8}
-    %%%%%+++++++++++++++++++++++---------------------
-    \lim_{R\to infty} \int_{C_R} F(z) e^{imz} dz =0
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+          如$m$为证书，$C_R$是以原点为圆心而位于上半平面的半圆周，又设当$z$在上半平面及实轴上$\to \infty$时$F(z)$一致地$\to 0$，则
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.8}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \lim_{R\to infty} \int_{C_R} F(z) e^{imz} dz =0
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-证明：
-\begin{equation}\begin{aligned}
-    % \label{eq.4.2.8}
-    %%%%%+++++++++++++++++++++++---------------------
-    \abs{ \int_{C_R} F(z) e^{imz} dz } =
-    \abs{ \int_{C_R} F(z) e^{imx-my} dz }\\ \notag
-    &{}=\abs{
-         \int_{0}^{\pi} F(R e^{i\phi})
-    e^{-mR \sin \phi} e^{im R \cos \phi} 
-    R e^{i \phi} i d \phi
-    }\\
-    &{}\leq \max \abs{F(z)}\cdot 
-    \int_{0}^{\pi} e^{-m R \sin \phi} R d \phi
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+          证明：
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.8}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \abs{ \int_{C_R} F(z) e^{imz} dz } =
+                  \abs{ \int_{C_R} F(z) e^{imx-my} dz } \\
+                   & {}=\abs{
+                      \int_{0}^{\pi} F(R e^{i\phi})
+                      e^{-mR \sin \phi} e^{im R \cos \phi}
+                      R e^{i \phi} i d \phi
+                  }                                     \\
+                   & {}\leq \max \abs{F(z)}\cdot
+                  \int_{0}^{\pi} e^{-m R \sin \phi} R d \phi
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-当$z$在上半平面或实轴上$\to \infty$时，$F(z)$一致地$\to 0$，所以$\max \abs{F(z)} \to 0$，
-从而只需证明
-\begin{equation}\begin{aligned}
-    % \label{eq.4.2.8}
-    %%%%%+++++++++++++++++++++++---------------------
-    \lim_{R \to \infty} \int_0^{\pi} e^{-m R \sin \phi} R d \phi \\ \notag
-    i.e. 2 \lim_{R\to \infty} \int_0^{\pi} e^{-m R \sin \phi} R d\phi
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+          当$z$在上半平面或实轴上$\to \infty$时，$F(z)$一致地$\to 0$，所以$\max \abs{F(z)} \to 0$，
+          从而只需证明
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.8}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \lim_{R \to \infty} \int_0^{\pi} e^{-m R \sin \phi} R d \phi \\
+                  i.e.:~ 2 \lim_{R\to \infty} \int_0^{\pi} e^{-m R \sin \phi} R d\phi
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-是有界的。
+          是有界的。
 
-在$0\leq \phi \leq \frac{\pi}{2}$ 范围内，$0\leq 2 \phi / \pi \leq \sin \phi$，
-\begin{equation}\begin{aligned}
-    % \label{eq.4.2.8}
-    %%%%%+++++++++++++++++++++++---------------------
-    \int_0^{\pi/2} e^{-m R \sin \phi} R d\phi 
-    \leq \int_0^{\pi/2} e^{-2m R \phi / \pi} R d\phi
-    = \frac{\pi}{2m}(1-e^{-mR})
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+          在$0\leq \phi \leq \frac{\pi}{2}$ 范围内，$0\leq 2 \phi / \pi \leq \sin \phi$，
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.8}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_0^{\pi/2} e^{-m R \sin \phi} R d\phi
+                  \leq \int_0^{\pi/2} e^{-2m R \phi / \pi} R d\phi
+                  = \frac{\pi}{2m}(1-e^{-mR})
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-于$R\to \infty$，上式趋于有限值，这就证明了约当引理。
+          于$R\to \infty$，上式趋于有限值，这就证明了约当引理。
 
-如果$m$是负数，则约当引理应为
-\begin{equation}\begin{aligned}
-    % \label{eq.4.2.8}
-    %%%%%+++++++++++++++++++++++---------------------
-    \lim_{R \to \infty} \int_{C^\prime_{R}} F(z)e^{imz}dz=0
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+          如果$m$是负数，则约当引理应为
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.8}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \lim_{R \to \infty} \int_{C^\prime_{R}} F(z)e^{imz}dz=0
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-$C^\prime_{R}$是$C_R$对于实轴的映像。
+          $C^\prime_{R}$是$C_R$对于实轴的映像。
 
-\item[类型四]
+          对于类型二，计算\eqref{eq.4.2.7}and \eqref{eq.4.2.8}右边积分的主值，利用留数定理及约当引理得到，
+
+          \begin{equation}\begin{aligned}
+                  % \label{eq.4.2.8}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_0^\infty F(x) \cos mxdx =
+                  \pi i\text{ all} \res \text{of } F(z)e^{imz} \text{ in the above half plane} \\
+                  \int_0^\infty G(x) \sin mxdx =
+                  \pi\text{ all} \res \text{of } G(z)e^{imz} \text{ in the above half plane}
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+
+    \item[类型四]
+
+          \textbf{实轴上有单极点的情形} \\
+
+          考虑积分$\int_{-\infty}^{\infty} f(x)dx $，被积函数$f(x)$在实轴上有单极点$z=\alpha$，除此之外，$f(x)$满足类型二或类型三（$f(z)$应被理解为$f(z) e^{imz} $或 $G(z) e^{imz} $ ）的条件。
+          由于存在这个奇点，我们以$z=\alpha$为圆心，以充分小的正数$\epsilon$为半径作半圆弧绕过奇点$\alpha$构成积分回路。于是，
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.11}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \oint_{l} f(z)dz & {}=
+                  \int_{-R}^{\alpha-\epsilon} f(x)x+
+                  \int_{a+\epsilon}^{R} f(x)dx
+                                   & {} \int_{C_R} f(z)dz + \int_{C_\epsilon} f(z) dz
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+
+          取极限$R\to \infty,~\epsilon \to 0 $，
+          \eqref{eq.4.2.11}左边积分值等于$2\pi i \sum_\text{above half}$.
+          右边第一、第二项之和即为所求积分。按类型二或类型三的条件，第三项为零。
+          对于第四项，计算如下：将$f(z)$在$z=\alpha$的邻域展开为洛朗级数，
+          由于$z=\alpha$是$f(z)$的单极点，于是，
+          \begin{equation}\begin{aligned}
+                %   \label{eq.4.2.11}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  f(z)=\frac{a_{-1}}{z-\alpha}+ P(z-\alpha)
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+
+          其中$P(z-\alpha)$为级数的解析部分，它在$C_\epsilon$上连续且有界，因此，
+          \begin{equation}\begin{aligned}
+                %   \label{eq.4.2.11}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \abs{\int_{C_\epsilon} P(z-\alpha) dz }
+                  \leq \max \abs{P(z-\alpha)} \abs{\int_{C_\epsilon} } \abs{dz}
+                  = \pi \epsilon \cdot \max \abs{P(z-\alpha)},
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+
+          所以，
+          \begin{equation}\begin{aligned}
+                %   \label{eq.4.2.11}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \lim_{\epsilon \to 0} \int_{C_\epsilon} P(z-\alpha) dz=0
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+
+          而
+          \begin{equation}\begin{aligned}
+                %   \label{eq.4.2.11}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_{C_\epsilon} \frac{a_{-1}}{z-\alpha}dz
+                   & {}=
+                  \int_{C_\epsilon}\frac{a_{-1}}{z-\alpha}d(z-\alpha) \\
+                   & {}=\int_{\pi}^0 \frac{a_{-1}}{\epsilon e^{i\phi}} 
+                   \epsilon e^{i\phi} i d\phi
+                  =- \pi i a_{-1} = - \pi i \res f(\alpha)
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
+
+          于是，由\eqref{eq.4.2.11}取极限$R\to \infty, \epsilon \to 0$，得
+          \begin{equation}\begin{aligned}
+            \label{eq.4.2.12}
+            %%%%%+++++++++++++++++++++++---------------------
+            \int_{-\infty}^{\infty} f(x) dx =
+            2 \pi i \sum_\text{the above half} \res f(z) 
+            + \pi i \res f(\alpha)
+            %%%%%+++++++++++++++++++++++
+        \end{aligned}\end{equation}
+
+        若实轴上存在有限个单极点，则类似地可以得到
+
+        \begin{equation}\begin{aligned}
+            \label{eq.4.2.13}
+            %%%%%+++++++++++++++++++++++---------------------
+            \int_{-\infty}^{\infty} f(x) dx =
+            2 \pi i \sum_\text{the above half}\res f(z) 
+            +\pi i \sum_\text{in the real axis} \res f(z)
+            %%%%%+++++++++++++++++++++++
+        \end{aligned}\end{equation}
+
+        从以上计算看到，实轴上有奇点时，仍归结为留数的计算，但需注意以下两点：
+        \begin{enumerate}
+            \item $C_\epsilon$ 不是闭合曲线，
+            $f(z)$ 洛朗展开的解析部分的积分值只是由于$\epsilon\to 0$才趋近于零
+            \item 实轴上的奇点只能是单极点，不能是二阶或者二阶以上的极点，
+            更不能是本性奇点，否则当$\epsilon \to 0$时，
+            积分$\int_{C_\epsilon}$之值将趋于$\infty$（极点情形）或不存在（本性奇点情形）。
+        \end{enumerate}
 
 \end{enumerate}
 
+\section{色散关系}
 
+对于在上半平面处处解析的函数$f(z)$，如果当$z\to \infty$时，
+$f(z)$一致地$\to 0~(0\leq Arg~z \leq \pi )$，$\alpha$为一实数，则按照\eqref{eq.4.2.12}，
 
+\begin{equation}\begin{aligned}
+    \label{eq.4.2.15}
+    %%%%%+++++++++++++++++++++++---------------------
+    \mathcal{P} \int_{-\infty}^{\infty} \frac{f(x)}{x-\alpha} dx =
+    \pi i \cdot \res \text{ of } \frac{f(z)}{z-\alpha}
+    = \pi i~f(\alpha)
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+分别写出实部和虚部
+\begin{equation}\begin{aligned}
+    \label{eq.4.2.16}
+    %%%%%+++++++++++++++++++++++---------------------
+    \re{f(\alpha)} &{}= \frac{1}{\pi} \mathcal{P}
+    \int_{-\infty}^{\infty} \frac{\im f(x)}{x-\alpha} dx \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \im{f(\alpha)} &{}= -\frac{1}{\pi} \mathcal{P}
+    \int_{-\infty}^{\infty} \frac{\re f(x)}{x-\alpha} dx 
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+这一对关系在数学上称之为希尔伯特变换，在物理上称为色散关系。
