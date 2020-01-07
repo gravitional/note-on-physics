@@ -1,6 +1,58 @@
 # mathematica.md
 
-`xxx/xxx` 是mathematica帮助文档的地址链接
+## plot 采样奇技淫巧
+
+默认特性
+
++ 在函数值变化较快的位置，使用更多的采样点：
++ 自动选择绘图范围：
++ 排除非实数的函数范围：
++ 函数中存在断点时断开曲线：
+
+其他特性还有
+
++ 使用 `Exclusions->None` 绘制连续的曲线：
++ 用 `PlotPoints` 和 `MaxRecursion` 控制自适应采样：
++ 用 `PlotRange` 来突出显示感兴趣的区域：
++ 可以用区域来指定自变量的取值范围： `D = ImplicitRegion[x <= -1 \[Or] x >= 1, {x}];`
++ 用 `MeshRegion` 来指定自变量的取值范围：
+`D =MeshRegion[{{-2}, {-1}, {-1/2}, {1/2}, {1}, {2}}, Line[{{1, 2}, {3, 4}, {5, 6}}]];`
++ 用 `ScalingFunctions` 来缩放坐标轴：
+
+example
+
+```mathematica
+Plot[Tan[x^3 - x + 1] + 1/(x + 3 Exp[x]), {x, -2, 2},
+Exclusions -> {Cos[x^3 - x + 1] == 0, x + 3 Exp[x] == 0}]
+```
+
+## $Assumptions 假设
+
+`$Assumptions` 的初始设置为 `True`.
+
++ 设置全局假定：`$Assumptions = a > 0`
++ 局部添加假定：`Assuming[b < 0, Refine[Sqrt[a^2 b^2]]]`
++ 局部改变假定：`Block[{$Assumptions = a < 0 && b < 0}, Refine[Sqrt[a^2 b^2]]]`
++ 取消全局假定：`$Assumptions = True`
+
+## options
+
+`Options[f]`
+
+`OptionsPattern`(选项模式)
+`OptionValue`(选项值)
+
+定义具有可选变量的函数
+`tutorial/SettingUpFunctionsWithOptionalArguments`
+
+`f[x_,k_:kdef]:=value`
+第二个位置为可选变量，默认值为 `kdef` 的函数
+
+## Assumptions(假设)
+
+典型的缺省设置为`Assumptions:>$Assumptions`.
+
+假设可以是方程、不等式或定义域指定，或者是这些内容的列表或逻辑组合.
 
 ## 积分
 
@@ -559,4 +611,8 @@ Reap[expr]
 
 tutorial/GeneratingCAndFortranExpressions
 
+*****
+
 一些我比较经常用的 mathematica 的功能
+
+`xxx/xxx` 是mathematica帮助文档的地址链接
