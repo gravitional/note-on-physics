@@ -41,3 +41,6 @@ example:
 git restore --source master~2 Makefile
 ```
 
+```git
+git restore --source=9ea00d1 parton.note.1.nb
+```
