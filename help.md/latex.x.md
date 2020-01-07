@@ -501,5 +501,3 @@ Especially for lists with short items, it may be desirable to elide space betwee
     \setlength{\parskip}{0pt}}%
   {\end{itemize}}
 ```
-
-
