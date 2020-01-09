@@ -8,7 +8,7 @@
 
 [bash alias的使用][]
 
-[]: https://www.jianshu.com/p/63e91c67e39a
+[bash alias的使用]: https://www.jianshu.com/p/63e91c67e39a
 
 `alias`（别名），顾名思义，其作用大概为命令的别名，那么就可以它的好处就显而易见了。
 可以用来缩短一些又长又难记的命令了。
@@ -82,7 +82,7 @@
 解压2：`bunzip2 FileName.bz2`
 压缩： `bzip2 -z FileName`
 
-`.tar``.bz2`
+`.tar.bz2`
 解压：`tar jxvf FileName.tar.bz2`
 压缩：`tar jcvf FileName.tar.bz2 DirName`
 *****
@@ -102,7 +102,7 @@
 
 解压：`uncompress FileName.Z`
 压缩：`compress FileName`
-`.tar``.Z`
+`.tar.Z`
 
 解压：`tar Zxvf FileName.tar.Z`
 压缩：`tar Zcvf FileName.tar.Z DirName`
@@ -138,7 +138,7 @@
 
 ### `sEx`
 
-`.tar` `.tgz` `.tar.gz` `.tar.Z` `.tar.bz` `.tar``.bz2` `.zip` `.cpio` `.rpm` `.deb` `.slp` `.arj` `.rar` `.ace` `.lha` `.lzh` `.lzx` `.lzs` `.arc` `.sda` `.sfx` `.lnx` `.zoo` `.cab` `.kar` `.cpt` `.pit` `.sit` `.sea`
+`.tar` `.tgz` `.tar.gz` `.tar.Z` `.tar.bz` `.tar.bz2` `.zip` `.cpio` `.rpm` `.deb` `.slp` `.arj` `.rar` `.ace` `.lha` `.lzh` `.lzx` `.lzs` `.arc` `.sda` `.sfx` `.lnx` `.zoo` `.cab` `.kar` `.cpt` `.pit` `.sit` `.sea`
 
 解压：`sEx x FileName.*`
 压缩：`sEx a FileName.* FileName`
