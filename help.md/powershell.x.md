@@ -1,51 +1,217 @@
 # conclusion.powershell.md
 
-## pwsh特殊运算符
+## 命令行历史
 
-1. `.\` : 执行一个脚本或命令
-1. `&` : 将字符串直接解释成命令并执行
-1. `[]` : 类型转换
-1. `.` : 调用`.NET`对象的成员，或`global`执行脚本
-1. `::` : 调用`.NET`**类**中的**静态成员**
-1. `..` : 创建一个范围闭区间
-1. `-f` : 格式化数据
-1. `$` : 将字符串内部的变量转换为实际的值
-1. `@()` : 将一系列值转换为一个数组
-1. `,` : 数组分隔，或创建单元素数组
-1. `#` : 添加注释，单行
+我们通常会在`Console`界面中运行多次命令或者命令行，
+在`PowerShell`中我们可以使用管理历史记录的命令来管理那些之前使用过的命令行，目前在`PowerShell`中有如下四个管理历史相关的命令。
 
-### `.\`
+| Cmdlet (Alias) ||       Description |
+| -------------------|  ---------------------- |
+| `Get-History` (h)   |   Gets the command history. |
+| `Invoke-History` (r) |  Runs a command in the command history. |
+| `Add-History`      |   Adds a command to the command history. |
+| `Clear-History` (clh) | Deletes commands from the command history. |
 
-运算符用于执行一个脚本或命令。
-如果执行的是`Powershell`脚本，那么脚本会在自己的作用域中执行，
-也就是说在当前环境下无法访问被执行的脚本中的变量。
+如上面的`Description`介绍所描述的那样, 我们如下使用了`Get-History`命令得到如下从我们打开`PowerShell Console`界面开始记录的第一条命令。
 
-### `&`
+ ```powershell
+ C:\Users\Administrator> Get-History
+ ```
 
-如果你之前将`Powershell`命令存储在了一个字符串中，或者一个变量中。
-此时，`&`将字符串直接解释成命令并执行
+当然，`PowerShell`并不会无止境的记录历史命令，你可以通过使用如下保留自变量来查看系统默认可以记录多少历史命令：
 
-事实上，`&`可以直接执行一个`CommandInfo`对象，绕过自身的内部`get-command`, 如
-`&(Get-Command tasklist)`
+```powershell
+PS C:\Users\Administrator> $MaximumHistoryCount
+```
 
-将命令行作为整体执行
+你也可以直接给这个变量赋一个阿拉伯数字设置你想设置的上限值，比如我设置为`5`：
+
+```powershell
+PS C:\Users\Administrator> $MaximumHistoryCount = 5
+PS C:\Users\Administrator> $MaximumHistoryCount
+```
+
+当你在用`Get-History`命令查看记录了多少命令的时候你会发现，它只自动截取了最近的`5`行命令
+
+我们可以使用`Invoke-History`或者别名`r` 来调用历史命令：
+
+```powershell
+PS C:\Users\Administrator> `Invoke-History -id 51`
+```
+
+好了，大致是这样，非常简单的几个命令，对了你还可以用`Add-History`添加命令或用`Clear-History`来清除之前的命令行。
+
+[itanders-command-history][]
+
+[itanders-command-history]: https://blog.csdn.net/itanders/article/details/51344419
+
+## 输出到控制台
+
+Module : Microsoft.PowerShell.Utility
+
+Write-Output
+Sends the specified objects to the next command in the pipeline.
+If the command is the last command in the pipeline, the objects are displayed in the console.
+
+Syntax：
+
+```powershell
+Write-Output
+     [-InputObject] <PSObject[]>
+     [-NoEnumerate]
+     [<CommonParameters>]
+```
+
+example: Pass output to another cmdlet
+
+```powershell
+Write-Output "test output" | Get-Member
+```
+
+## Powershell IF-ELSEIF-ELSE 条件
+
+`Where-Object` 进行条件判断很方便，如果在判断后执行很多代码可以使用`IF-ELSEIF-ELSE`语句。语句模板：
+
+```powershell
+If（条件满足）{
+如果条件满足就执行代码
+}
+elseif
+{
+如果条件满足
+}
+else
+{还不满足}
+```
+
+条件判断必须放在圆括号中，执行的代码必须紧跟在后面的花括号中。
+
+```powershell
+PS C:Powershell> $n=8
+PS C:Powershell> if($n -gt 15) {"$n  大于 15 " }
+PS C:Powershell> if($n -gt 5) {"$n  大于 5 " }
+8  大于 5
+PS C:Powershell> if($n -lt 0 ){"-1" } elseif($n -eq 0){"0"} else {"1"}
+1
+```
+
+## 验证变量是否存在
+
+验证一个变量是否存在，仍然可以像验证文件系统那样，
+使用`cmdlet Test-Path`。为什么？因为变量存在变量驱动器中。
+
+```powershell
+PS C:\test> Test-Path variable:value1
+```
+
+### example --验证文件
+
+ Check whether there are any files besides a specified type
+
+```powershell
+Test-Path -Path "C:\CAD\Commercial Buildings\*" -Exclude *.dwg
+```
+
+This command checks whether there are any files in the Commercial Buildings directory other than `.dwg` files.
+
+`-Filter`
+
+```powershell
+Test-Path (Get-location) -Filter *.bib
+```
+
+## Powershell 给脚本传递参数
+
+怎样将参数传递给脚本，这是本篇讨论的内容。
+
+### $args返回所有的参数
+
+传递给一个函数或者一个脚本的参数都保存在`$args`变量中。
+
+默认情况下，传递给一个`Powershell`脚本的参数类型为数组，例如：
+
+```powershell
+PS E:> .MyScript.ps1 My Website      Is        www.mossfly.com
+Hello,My Website Is www.mossfly.com
+```
+
+上面的文本中包含多个连续的空格，可是当脚本把参数输出时却不存在连续的空格了。那是因为脚本会把文本根据白空格截断并转换成数组。
+如果不想文本被当成数组那就把它放在引号中。
+
+```powershell
+PS E:> ./MyScript.ps1 "My Website      Is        www.mossfly.com"
+Hello,My Website      Is        www.mossfly.com
+```
+
+### 在$args中逐个访问参数
+
+因为`$args`是一个数组，自然可以通过索引访问数组的每一个元素。
+可以将`MyScript.sp1`的内容改为：
+
+```powershell
+For($i=0;$i -lt $args.Count; $i++)
+{
+    Write-Host "parameter $i : $($args[$i])"
+}
+```
+
+然后在控制台测试：
+
+```powershell
+PS E:> .\MyScript.ps1 www moss fly com
+parameter 0 : www
+...
+```
+
+### 在脚本中使用参数名
+
+通过`Powershell`传递参数固然方便，但是如果用户不知道参数的传递顺序，也是很郁闷的.
+所以最好的方式给参数指定名称，输入以下的脚本：
+
+```powershell
+param($Directory,$FileName)
+
+"Directory= $Directory"
+"FileName=$FileName"
+```
+
+其中`param`给参数指定名称。
+
+执行脚本：
+
+```powershell
+PS E:> .\MyScript.ps1 -Directory $env:windir -FileName config.xml
+Directory= C:windows
+FileName=config.xml
+PS E:> .\MyScript.ps1 -FileName config.xml -Directory $env:windir
+Directory= C:windows
+FileName=config.xml
+```
+
+## 字符串转命令
+
+### 将命令行作为整体执行
 
 在`Powershell`中,调用操作符不但可以执行一条单独的命令，还可以执行”命令行”.
 最方便的方式就是讲你的命令行放在一个语句块中，作为整体。
-在之前的文章中说过，调用操作符只能执行一条命令，但是借助语句块的这把利器，可以让调用操作符执行，多条`Powershell`命令，例如：
+在之前的文章中说过，调用操作符只能执行一条命令，但是借助语句块(`{}`)的这把利器，可以让调用操作符执行，多条`Powershell`命令，例如：
 
 ```powershell
 PS E:> & {$files=ls;Write-Host "文件数：" $files.Count }
 文件数： 29
 ```
 
-执行表达式
+#### 执行表达式
 
 另外还有一条`Powershell`命令集，`Invoke-Expression`，这条命令的逻辑就是将一条字符串传递给调用操作符。例如：
 
 ```powershell
 PS E:> Invoke-Expression 'Get-Process | Where-Object { $_.Name -like "e*"}'
 ```
+
+#### example --打开所有pdf
+
+&'C:\Program Files\SumatraPDF\SumatraPDF.exe'  (Get-ChildItem | where Name -Like "*.pdf")
 
 ### `[]`
 
@@ -59,8 +225,7 @@ $pi -is [Float]
 ### `.`
 
 运算符用于调用`.NET`对象的成员，它也可以用于执行脚本。
-当它用于执行脚本的时候，脚本会在当前作用域中执行。
-所以脚本结束之后，我们可以访问脚本中的元素。
+当它用于执行脚本的时候，脚本会在当前作用域中执行, 所以脚本结束之后，我们可以访问脚本中的元素。
 
 ### `::`
 
@@ -121,8 +286,20 @@ My name is yitian, I am 24 years old.
 
 ## 筛选管道中的对象
 
-如果你只对管道结果的特定对象感兴趣，可以使用`Where-Object`对每个结果进行严格筛选，
-一旦满足你的标准才会保留，不满足标准的就会自动丢弃。
+通过管道可以过滤某些对象和对象的属性，这个功能很实用，因为很多时候我们并不是对所有的结果感兴趣，可能只会对某些结果感兴趣。
+
+如果要过滤对象可以使用`Where-Object`；
+如果要过滤对象的属性，可以使用`Select-Object`；
+如果要自定义个性化的过滤效果可以使用`ForEach-Object`。
+最后如果想过滤重复的结果，可以使用`Get-Uinque`。
+
+但是可能只关心那些正在运行的服务，这时你就可以通过每个服务的属性`Status`进行过滤。
+但是前提条件是你得事先知道待处理的对象拥有哪些属性。
+你可以通过`Format-List *`，也可以通过`Get-memeber`。
+
+```powershell
+PS C:Powershell> Get-service | Select-Object -First 1 | Format-List *
+```
 
 ```powershell
 PS C:Powershell> get-service | Where-Object {$_.Status -eq "Running"}
@@ -158,6 +335,10 @@ For example:
 
 ```powershell
 Get-Process | where ProcessName -Like "*host"
+```
+
+```powershell
+Get-Process | where ProcessName -Like "*.pdf"
 ```
 
 ## 查看已存在的对象
@@ -484,3 +665,44 @@ Else
 如果条件不满足
 }
 ```
+
+## pwsh特殊运算符
+
+任何编程语言或者脚本语言中的小括号`()`，主要作用都是用来改变默认操作符的运算顺序的，
+`PowerShell`也不例外。
+比如：
+
+```powershell
+PS> 1-3/3
+0
+PS> (1-3)/3
+-0.666666666666667
+```
+
+1. `.\` : 执行一个脚本或命令
+2. `&` : 将字符串直接解释成命令并执行
+3. `[]` : 类型转换
+4. `.` : 调用`.NET`对象的成员，或`global`执行脚本
+5. `::` : 调用`.NET`**类**中的**静态成员**
+6. `..` : 创建一个范围闭区间
+7. `-f` : 格式化数据
+8. `$` : 将字符串内部的变量转换为实际的值
+9. `@()` : 将一系列值转换为一个数组
+10. `,` : 数组分隔，或创建单元素数组
+11. `#` : 添加注释，单行
+
+### `.\`
+
+运算符用于执行一个脚本或命令。
+如果执行的是`Powershell`脚本，那么脚本会在自己的作用域中执行，
+也就是说在当前环境下无法访问被执行的脚本中的变量。
+
+### `&`
+
+默认键入一个字符串，`powershell`会将它原样输出，如果该字符串是一个`命令`或者`外部程序`，在字符串前加‘`&`’可以执行命令，或者启动程序。
+
+如果你之前将`Powershell`命令存储在了一个字符串中，或者一个变量中。
+此时，`&`将字符串直接解释成命令并执行
+
+事实上，`&`可以直接执行一个`CommandInfo`对象，绕过自身的内部`get-command`, 如
+`&(Get-Command tasklist)`

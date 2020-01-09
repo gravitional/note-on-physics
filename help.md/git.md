@@ -699,14 +699,16 @@ Note: checking out '2.0.0'.
 
 ## 储藏 stash
 
-`stash`
-`stash list`
-`git stash apply`
-`stash drop`
-`stash pop`
++ `stash` ：储存工作现场
++ `stash list`: 查看工作现场列表
++ `git stash apply`: 恢复，但是恢复后，`stash`内容并不删除
++ `stash drop`: 删除
++ `stash pop`: 恢复的同时把`stash`内容也删了
+
+When no `<stash>` is given, stash@{0} is assumed, otherwise `<stash>` must be a reference of the form `stash@{<revision>}`.
 
 当工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？
-幸好，`Git`还提供了一个`stash`功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+幸好，`Git`还提供了一个`stash`功能，可以把g当前工作现场“储藏”起来，等以后恢复现场后继续工作：
 
 ```bash
 $ git stash
@@ -806,3 +808,24 @@ git rebase --onto master[被施加重放的分支] server[父节点/修改起始
 
 忽略某些文件时，需要编写`.gitignore`；
 `.gitignore`文件本身要放到版本库里，并且可以对`.gitignore`做版本管理！
+
+## “index”
+
+[whats-the-deal-with-the-git-index][]
+
+[whats-the-deal-with-the-git-index]: https://gitguys.com/topics/whats-the-deal-with-the-git-index/
+
+The git “index” is where you place files you want committed to the git repository.
+
+Before you “commit” (checkin) files to the git repository, you need to first place the files in the git “index”.
+
+The git index goes by many names. But they all refer to the same thing. Some of the names you may have heard:
+
++ Index
++ Cache
++ Directory cache
++ Current directory cache
++ Staging area
++ Staged files
+
+The Index Isn’t The Working Directory.

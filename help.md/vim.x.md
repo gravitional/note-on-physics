@@ -1,0 +1,172 @@
+# learn.vim.x.md
+
+## 补全
+
+`Vim` 能自动补全插入的单词。你键入一个单词的开头部分，按 `CTRL-P`，`Vim` 就会为你猜
+测余下的部分。
+往下搜索，用 `CTRL-N`
+
+### 补全特定文本
+
+如果你知道你要找什么，那么你可以用这些命令来补全某种类型的文本:
+
+- `CTRL-X CTRL-F`           文件名
+- `CTRL-X CTRL-L`           整行
+- `CTRL-X CTRL-D`           宏定义 (包括包含文件里的)
+- `CTRL-X CTRL-I`           当前文件以及所包含的文件
+- `CTRL-X CTRL-K`           字典文件内的单词
+- `CTRL-X CTRL-T`           同义词词典文件内的单词
+- `CTRL-X CTRL-]`           标签
+- `CTRL-X CTRL-V`           `Vim` 命令行
+
+## 替换
+
+- `r<X>` 将当前字符替换为 `X`，`replace`
+- `gu<X>` 将指定的文本转换为小写，`这个实在不知道是啥的缩写,go to u ？？`
+- `gU<X>` 将指定的文本转换为大写
+- `:%s/<search>/<replace>/` 查找 `search` 内容并替换为 `replace` 内容，
+
+## 恢复到最后一次保存
+
+```vim
+:e!
+```
+
+## plugin manger
+
+[junegunn/vim-plug/wiki/tutorial][]
+
+What is a Vim plugin and why would I need a plugin manger?
+
+A Vim plugin is a set of Vimscript files that are laid out in a certain directory structure.
+Before, Users would manually download the file and extract it in a single directory called `~/.vim`, and Vim would load the files under the directory during startup.
+
+### Setting up
+
+vim-plug is distributed as a single Vimscript file. All you have to do is to download the file in a directory so that Vim can load it.
+
+### Installing plugins
+
+With `vim-plug`, you declare the list of plugins you want to use in your Vim configuration file. It's `~/.vimrc` for ordinary Vim, and `~/.config/nvim/init.vim` for Neovim. The list should start with `call plug#begin(PLUGIN_DIRECTORY)` and end with `call plug#end()`.
+
+After adding the above to the top of your Vim configuration file,
+reload it (`:source ~/.vimrc`) or restart Vim.
+Now run `:PlugInstall` to install the plugins.
+
+### Updating plugins
+
+Run `:PlugUpdate` to update the plugins. After the update is finished, you can review the changes by pressing `D` in the window. Or you can do it later by running `:PlugDiff`.
+
+### Reviewing the changes
+
+Updated plugins may have new bugs and no longer work correctly. With `:PlugDiff` command you can review the changes from the last `:PlugUpdate` and roll each plugin back to the previous state before the update by pressing `X` on each paragraph.
+
+#### Removing plugins
+
+Delete or comment out Plug commands for the plugins you want to remove.
+Reload vimrc (`:source ~/.vimrc`) or restart Vim
+Run `:PlugClean`. It will detect and remove undeclared plugins.
+
+[junegunn/vim-plug/wiki/tutorial]: https://github.com/junegunn/vim-plug/wiki/tutorial
+
+## 分屏
+
+### 分屏方式
+
+- `:split` 缩写 `:sp` or `Ctrl-w s` 上下分屏
+- `:vsplit` 缩写 `:vs` or `Ctrl-w v` 左右分屏
+- `:diffsplit` 缩写 `:diffs` diff 模式打开一个分屏，后面可以加上 {filename}
+
+#### 窗口跳转
+
+- `Ctrl-w w` 激活下一个窗口
+- `Ctrl-w j` 激活下方窗口
+- `Ctrl-w k` 激活上方窗口
+- `Ctrl-w h` 激活左侧窗口
+- `Ctrl-w l` 激活右侧窗口
+- `Ctrl-w c` 关闭当前窗口
+
+#### 移动分屏
+
+- `Ctrl-w L` 移动到最右侧
+- `Ctrl-w H` 移动到最左侧
+- `Ctrl-w K` 移动到顶部
+- `Ctrl-w J` 移动到底部
+
+注意：区分大小写。另外，可以将底部的屏幕移动到右侧，实现上下分屏到左右分屏的转换。
+
+## 标签页
+
+### 创建标签页
+
+- `:tabnew` or `:tabedit` 缩写 `:tabe` 打开新标签页
+- `Ctrl-w` or `gf` 在新标签页中打开当前光标所在位置的文件名
+
+注意：
+
+`:tabnew` 和 `:tabedit` 后面都可以跟一个 `<空格><文件名>` 用以在新标签页中
+打开指定文件，还可以在 `:` 后面加一个数字，指出新标签页在列表中的位置（从 `0` 开始）。
+
+### 切换标签页
+
+- `gt` or `:tabnext` 缩写 `:tabn` 下一个标签页（最后一个会循环到第一个）
+- `gT` or `:tabprevious` 缩写 `:tabp` 上一个标签页（第一个会循环到最后一个）
+- `:tabrewind` 缩写 `:tabr` or `:tabfirst` 缩写 `:tabfir` 到第一个
+- `:tablast` 缩写 `:tabl` 到最后一个标签页
+
+#### 关闭标签页
+
+- `:tabclose` 缩写 `:tabc` 关闭当前标签页
+- `:-tabc` 关闭上一个标签页
+- `:+tabc` 关闭下一个标签页
+- `:tabonly` 缩写 `:tabo` 关闭其他标签页
+
+## `vim`跳转到上/下一个修改的位置
+
+当你编辑一个很大的文件时，经常在某处进行修改，然后跳到另外一处。
+如果你想跳回之前修改的地方，使用命令：`Ctrl+o`来回到之前修改的地方
+类似的：`Ctrl+i`会回退上面的跳动。
+
+## Vim 中的宏
+
+按 `qa` 开启宏录制，前方高能，连续按 `I<单引号><Esc>A<单引号><逗号><Esc>jq7@a`
+
+- `q` 是开启录制宏，`a` 是给这次宏的录制过程一个存储位置，可以是 `0-9` 或 `a-z`；
+- 然后 `I<单引号><Esc>A<单引号><逗号><Esc>j` 是你这次录制的整个宏的操作过程，意思就是行首
+插入单引号，行尾插入单引号和逗号，跳到下一行；
+- 接下来的 `q` 是结束本次宏的录制；
+- `@` 是唤起宏，`a` 是要唤起的宏的名字（存储位置），前面的 `7` 你应该明白吧，就是执行 `7` 次。
+
+**Tips:** `@@` 再次唤起最后一次执行的宏。
+
+## 文档内查找
+
+- `*` 向后查找光标当前所在单词
+- `#` 向前查找光标当前所在单词
+- `/<search>` 向后查找指定字符串
+- `?<search>` 向前查找指定字符串
+- `n` 继续查找下一个 `next`
+- `N` 继续查找上一个
+
+## 使用剪贴板
+
+假如你已经从其它程序中拷贝了一些文字到剪贴板，你还是可以用普通的 `y` (`yank`) 和 `p` (`put`) 命令，但在前面必须加上 `"*` (一个双引号加一个星号)。例如，要拷贝一行到剪贴板中:
+
+```vim
+"*yy
+```
+
+要粘贴回来:
+
+```vim
+"*p
+```
+
+这仅在支持剪贴板的 `Vim` 版本中才能工作。
+
+更多的寄存器名称：
+
+| 类型 | 标识  | 读写者 | 是否为只读 | 包含的字符来源 |
+| ------- | ------- | ------- | ------ | ------ |
+|   `Numbered`    |  `0`至`9`    |  `vim`     | 否 |  ``寄存器 0: 最近一次复制。寄存器 1: 最近一次删除。寄存器 2: 倒数第二次删除，以此类推。对于寄存器 1 至 9，他们其实是只读的最多包含 9 个元素的队列。这里的队列即为数据类型 queue``
+|   `Named`   |  `a`至`z`, `A`至`Z`    |  用户   |  否    |   `如果你通过复制操作存储文本至寄存器 a，那么 a 中的文本就会被完全覆盖。如果你存储至 A，那么会将文本添加给寄存器 a，不会覆盖之前已有的文本`   |
