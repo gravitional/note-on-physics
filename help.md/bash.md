@@ -621,7 +621,7 @@ cp /Windowsdrive/Windows/Fonts/* /usr/share/fonts/WindowsFonts
 chmod 755 /usr/share/fonts/WindowsFonts/*
 ```
 
-最后，使用命令行重新生成` fontconfig` 缓存：
+最后，使用命令行重新生成`fontconfig` 缓存：
 
 ```bash
 fc-cache
@@ -646,7 +646,6 @@ fc-cache
 "editor.fontLigatures": true,
 ```
 
-
 `makrdown` 的话，还有个`"markdown.preview.fontFamily"`设置。
 
 [refer1][]
@@ -654,5 +653,7 @@ fc-cache
 [refer3][]
 
 [refer1]: https://zhuanlan.zhihu.com/p/40434062
+
 [refer2]: https://segmentfault.com/a/1190000004168301
+
 [refer3]: https://www.v2ex.com/t/453862
