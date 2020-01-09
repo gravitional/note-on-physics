@@ -1,0 +1,258 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8466,        250]
+NotebookOptionsPosition[      7093,        219]
+NotebookOutlinePosition[      7509,        237]
+CellTagsIndexPosition[      7466,        234]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["math-physics.nb", "Title",
+ CellChangeTimes->{{3.78702680615341*^9, 3.787026807436014*^9}, 
+   3.787541122669244*^9},ExpressionUUID->"d8f16dbf-1b29-4512-8f5b-\
+d3859acc6c28"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NotebookFileName", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.787026787046822*^9, 
+  3.787026796529498*^9}},ExpressionUUID->"2e324fc0-4cf9-488f-9c2a-\
+625d3ba4b3de"],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\Thomas\\\\Desktop\\\\note\\\\parton-df\\\\\
+math-physics.nb\"\>"], "Output",
+ CellChangeTimes->{3.787026797348339*^9, 
+  3.7875411182736654`*^9},ExpressionUUID->"027a1c55-1b23-4ef9-85f2-\
+ed48217ff8db"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["derivative under integral", "Subchapter",
+ CellChangeTimes->{{3.7875411936002073`*^9, 
+  3.787541215215274*^9}},ExpressionUUID->"2b94e835-0bd1-449f-980d-\
+c163a878e46a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   FractionBox["\[DifferentialD]", 
+    RowBox[{"\[DifferentialD]", "t"}]], 
+   RowBox[{
+    SubsuperscriptBox["\[Integral]", 
+     RowBox[{"\[Alpha]", "[", "t", "]"}], 
+     RowBox[{"\[Beta]", "[", "t", "]"}]], 
+    RowBox[{
+     RowBox[{"g", "[", 
+      RowBox[{"t", ";", "\[Tau]"}], "]"}], 
+     RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}]}], 
+  "\[Rule]"}]], "DisplayFormula",
+ CellChangeTimes->{{3.7875412238716364`*^9, 3.7875413646239977`*^9}, {
+  3.7875414009827213`*^9, 3.787541475390714*^9}, {3.7875415715135436`*^9, 
+  3.787541577070263*^9}},ExpressionUUID->"5a64cc41-7b2b-49b5-9be3-\
+bedc3dfb4da5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubsuperscriptBox["\[Integral]", 
+    RowBox[{"\[Alpha]", "[", "t", "]"}], 
+    RowBox[{"\[Beta]", "[", "t", "]"}]], 
+   RowBox[{
+    RowBox[{
+     FractionBox["\[PartialD]", 
+      RowBox[{"\[PartialD]", "t"}]], 
+     RowBox[{"g", "[", 
+      RowBox[{"t", ";", "\[Tau]"}], "]"}]}], 
+    RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}], "+", 
+  RowBox[{
+   RowBox[{"g", "[", 
+    RowBox[{"t", ";", 
+     RowBox[{"\[Beta]", "[", "t", "]"}]}], "]"}], "*", 
+   FractionBox[
+    RowBox[{"\[DifferentialD]", 
+     RowBox[{"\[Beta]", "[", "t", "]"}]}], 
+    RowBox[{"\[DifferentialD]", "t"}]]}], "-", 
+  RowBox[{
+   RowBox[{"g", "[", 
+    RowBox[{"t", ";", 
+     RowBox[{"\[Alpha]", "[", "t", "]"}]}], "]"}], "*", 
+   FractionBox[
+    RowBox[{"\[DifferentialD]", 
+     RowBox[{"\[Alpha]", "[", "t", "]"}]}], 
+    RowBox[{"\[DifferentialD]", "t"}]]}]}]], "DisplayFormula",
+ CellChangeTimes->{{3.7875412238716364`*^9, 3.7875413646239977`*^9}, {
+  3.7875414009827213`*^9, 3.787541475390714*^9}, {3.7875415715135436`*^9, 
+  3.787541577070263*^9}},ExpressionUUID->"e7aa9190-e165-4840-8dda-\
+e2b08e7b2521"],
+
+Cell[BoxData["000000000000000000000000000000000000000"], "DisplayFormula",
+ CellChangeTimes->{{3.7875415906468067`*^9, 
+  3.787541616246129*^9}},ExpressionUUID->"fbaad76f-667f-4b30-a198-\
+81edaaf5786d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Limit", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SubsuperscriptBox["\[Integral]", 
+         RowBox[{"\[Alpha]", "[", 
+          RowBox[{"t", "+", "\[Epsilon]"}], "]"}], 
+         RowBox[{"\[Beta]", "[", 
+          RowBox[{"t", "+", "\[Epsilon]"}], "]"}]], 
+        RowBox[{
+         RowBox[{"g", "[", 
+          RowBox[{
+           RowBox[{"t", "+", "\[Epsilon]"}], ";", "\[Tau]"}], "]"}], 
+         RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}], "-", 
+       RowBox[{
+        SubsuperscriptBox["\[Integral]", 
+         RowBox[{"\[Alpha]", "[", "t", "]"}], 
+         RowBox[{"\[Beta]", "[", "t", "]"}]], 
+        RowBox[{
+         RowBox[{"g", "[", 
+          RowBox[{"t", ";", "\[Tau]"}], "]"}], 
+         RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}]}], ")"}], "/", 
+     "\[Epsilon]"}], ",", 
+    RowBox[{"\[Epsilon]", "\[Rule]", "0"}]}], "]"}], 
+  "\[Rule]"}]], "DisplayFormula",
+ CellChangeTimes->{{3.787541618324644*^9, 3.787541623081685*^9}, {
+  3.7875419180478783`*^9, 3.7875419730795755`*^9}, {3.7875420979604445`*^9, 
+  3.7875420991954575`*^9}},ExpressionUUID->"cdb392a6-b10d-42f0-85e5-\
+7a513f561ea4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", 
+       RowBox[{"\[Alpha]", "[", 
+        RowBox[{"t", "+", "\[Epsilon]"}], "]"}], 
+       RowBox[{"\[Beta]", "[", 
+        RowBox[{"t", "+", "\[Epsilon]"}], "]"}]], 
+      RowBox[{
+       RowBox[{"g", "[", 
+        RowBox[{"t", ";", "\[Tau]"}], "]"}], 
+       RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}], "+", 
+     RowBox[{"\[Epsilon]", 
+      RowBox[{
+       SubsuperscriptBox["\[Integral]", 
+        RowBox[{"\[Alpha]", "[", 
+         RowBox[{"t", "+", "\[Epsilon]"}], "]"}], 
+        RowBox[{"\[Beta]", "[", 
+         RowBox[{"t", "+", "\[Epsilon]"}], "]"}]], 
+       RowBox[{
+        RowBox[{
+         FractionBox["\[PartialD]", 
+          RowBox[{"\[PartialD]", "t"}]], 
+         RowBox[{"g", "[", 
+          RowBox[{"t", ";", "\[Tau]"}], "]"}]}], 
+        RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}]}], "-", 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", 
+       RowBox[{"\[Alpha]", "[", "t", "]"}], 
+       RowBox[{"\[Beta]", "[", "t", "]"}]], 
+      RowBox[{
+       RowBox[{"g", "[", 
+        RowBox[{"t", ";", "\[Tau]"}], "]"}], 
+       RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}]}], ")"}], "/", 
+   "\[Epsilon]"}], "\[Rule]"}]], "DisplayFormula",
+ CellChangeTimes->{{3.7875420869991484`*^9, 3.787542142557063*^9}, {
+  3.7875421878308992`*^9, 
+  3.787542189028681*^9}},ExpressionUUID->"a6db4fe6-3d72-4655-8f93-\
+863dd7d643db"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubsuperscriptBox["\[Integral]", 
+    RowBox[{"\[Alpha]", "[", "t", "]"}], 
+    RowBox[{"\[Beta]", "[", "t", "]"}]], 
+   RowBox[{
+    RowBox[{
+     FractionBox["\[PartialD]", 
+      RowBox[{"\[PartialD]", "t"}]], 
+     RowBox[{"g", "[", 
+      RowBox[{"t", ";", "\[Tau]"}], "]"}]}], 
+    RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}], "+", 
+  RowBox[{
+   RowBox[{"g", "[", 
+    RowBox[{"t", ";", 
+     RowBox[{"\[Beta]", "[", "t", "]"}]}], "]"}], "*", 
+   FractionBox[
+    RowBox[{"\[DifferentialD]", 
+     RowBox[{"\[Beta]", "[", "t", "]"}]}], 
+    RowBox[{"\[DifferentialD]", "t"}]]}], "-", 
+  RowBox[{
+   RowBox[{"g", "[", 
+    RowBox[{"t", ";", 
+     RowBox[{"\[Alpha]", "[", "t", "]"}]}], "]"}], "*", 
+   FractionBox[
+    RowBox[{"\[DifferentialD]", 
+     RowBox[{"\[Alpha]", "[", "t", "]"}]}], 
+    RowBox[{"\[DifferentialD]", "t"}]]}]}]], "DisplayFormula",
+ CellChangeTimes->{
+  3.7875422147141743`*^9},ExpressionUUID->"a5313e51-d418-4957-b99a-\
+6eac44bdeffb"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1920, 970},
+WindowMargins->{{-11, Automatic}, {Automatic, -11}},
+Magnification:>2.5 Inherited,
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (2017\:5e7410\:67082\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 180, 3, 242, "Title",ExpressionUUID->"d8f16dbf-1b29-4512-8f5b-d3859acc6c28"],
+Cell[CellGroupData[{
+Cell[785, 29, 190, 4, 109, "Input",ExpressionUUID->"2e324fc0-4cf9-488f-9c2a-625d3ba4b3de"],
+Cell[978, 35, 235, 4, 112, "Output",ExpressionUUID->"027a1c55-1b23-4ef9-85f2-ed48217ff8db"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1250, 44, 175, 3, 158, "Subchapter",ExpressionUUID->"2b94e835-0bd1-449f-980d-c163a878e46a"],
+Cell[1428, 49, 643, 17, 111, "DisplayFormula",ExpressionUUID->"5a64cc41-7b2b-49b5-9be3-bedc3dfb4da5"],
+Cell[2074, 68, 1127, 32, 111, "DisplayFormula",ExpressionUUID->"e7aa9190-e165-4840-8dda-e2b08e7b2521"],
+Cell[3204, 102, 202, 3, 61, "DisplayFormula",ExpressionUUID->"fbaad76f-667f-4b30-a198-81edaaf5786d"],
+Cell[3409, 107, 1189, 32, 111, "DisplayFormula",ExpressionUUID->"cdb392a6-b10d-42f0-85e5-7a513f561ea4"],
+Cell[4601, 141, 1459, 41, 111, "DisplayFormula",ExpressionUUID->"a6db4fe6-3d72-4655-8f93-863dd7d643db"],
+Cell[6063, 184, 1002, 31, 111, "DisplayFormula",ExpressionUUID->"a5313e51-d418-4957-b99a-6eac44bdeffb"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
