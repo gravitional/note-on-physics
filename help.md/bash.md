@@ -4,6 +4,57 @@
 
 [runoob-linux-tutorial]: https://www.runoob.com/linux/linux-tutorial.html
 
+## 查看帮助
+
+1. `命令 -- help`
+1. `man 命令`
+
+后者更加详细
+
+首先帮助中尖括号`<>`和方括号`[]`以及省略号`...`的含义，
+
+在方括号内的表达式`[` 和 `]`之间的字符是可选的（要去掉括号）。
+在尖括号内的表达式`<`和`>`之间的字符, 是必须替换的表达式(要去掉括号)。
+
+省略号表示该选项可以单个或多个
+
+以`7z`的参数为例：
+
+```bash
+7z <command> [<switches>...] <archive_name> [<file_names>...]  [<@listfiles...>]
+```
+
+```bash
+7z <命令> [[选项]...] <档案名称(压缩包名称)> [<被压缩的文件名>...] [<@文件列表(如txt文件中的文件列表)...>]
+```
+
+实例分析
+
+```bash
+7z a -tzip -p111 archive.zip txt.txt  txt.txt文件压缩为archive.zip，压缩方式为zip 密码为111
+7z x -tzip -p111 archive.zip            解压 密码为111
+```
+
+`a`为命令，命令至少要有一个
+
+`-t /-p`为选项（`switch`），可选`0`个或多个，`zip`和`111`分别为`-t`和`-p`的参数，中间不需要空格
+选项（如`-r`）放前放后都行
+
+`7z`的命令不区分大小写，有些命令如`cp`要区分
+
+示例
+
+```bash
+7z x archive.zip
+#从压缩档案 archive.zip 中释放所有文件到当前文件夹。
+7z x archive.zip -oc:\soft *.cpp
+#从压缩档案 archive.zip 中释放 *.cpp 文件到 c:\soft 文件夹。
+```
+
+[linux命令行括号帮助含义][]
+
+[linux命令行括号帮助含义]: https://blog.csdn.net/yandaonan/article/details/56489513
+
 ## alias
 
 [bash alias的使用][]
@@ -26,7 +77,7 @@
 + 删：`unalias` 命令
 + 查：`alias` 命令
 
-以下介绍了10个很实用的 `Bash alias`：
+以下介绍了10个很实用的 `bash alias`：
 
 + **ssh 别名** - `alias server_name='ssh -v -l USERNAME IP ADDRESS'`，更改 `server_name`、`USERNAME` 及 `IP` 地址以适应你的需要。对于经常要使用 `ssh` 登录远程 `shell` 的同学来说，这是一个值得收藏的别名。
 + **ls 别名** - `alias ll='ls -l'`，另一个 `alias la='ls -a'`。意思很明显，在此就不多作解释了。

@@ -147,7 +147,7 @@ Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
 
 要随时掌握工作区的状态
 
-## git diff
+## 比较差别 git diff
 
 如果`git status`告诉你有文件被修改过，用`git diff`可以查看修改内容。
 查看和上一版本的具体变动内容 显示内容如下：
@@ -171,7 +171,7 @@ test line8.
 test line9.
 ```
 
-## git diff 详解
+### git diff 详解
 
 `diff --git a/test.txt b/test.txt`
 ——对比两个文件，其中`a`改动前，`b`是改动后，以`git`的`diff`格式显示；
@@ -193,6 +193,97 @@ test line4.  test line5.  test line6.
 其中`-+`表示变动前后，逗号前是起始行位置，逗号后为从起始行往后几行。
 合起来就是变动前后都是从第`4`行开始，变动前文件往后数`8`行对应变动后文件往后数`9`行。
 变动内容 `+`表示增加了这一行，`-`表示删除了这一行，没符号表示此行没有变动。
+
+### git diff scm-book
+
+`git-diff` - Show changes between commits, commit and working tree, etc
+
+SYNOPSIS
+
+```git
+git diff [<options>] [<commit>] [--] [<path>…​]
+git diff [<options>] --cached [<commit>] [--] [<path>…​]
+git diff [<options>] <commit> <commit> [--] [<path>…​]
+git diff [<options>] <blob> <blob>
+git diff [<options>] --no-index [--] <path> <path>
+```
+
+DESCRIPTION
+
+Show:
+
++ changes between the `working tree` and the `index` or a `tree`,
++ changes between the `index` and `a tree`,
++ changes between two trees,
++ changes between two `blob` objects,
++ changes between two `files` on disk.
+
+```git
+git diff [<options>] [--] [<path>…​]
+```
+
+This form is to view the changes you made relative to the index (staging area for the next commit).
+In other words, the differences are what you could tell `Git` to further add to the index but you still haven’t. You can stage these changes by using `git-add`.
+
+```git
+git diff [<options>] --no-index [--] <path> <path>
+```
+
+This form is to compare the given two paths on the filesystem.
+You can omit the `--no-index` option when running the command in a working tree controlled by Git and at least one of the paths points outside the working tree,
+or when running the command outside a working tree controlled by Git.
+
+```bash
+git diff [<options>] --cached [<commit>] [--] [<path>…​]
+```
+
+This form is to view the changes you staged for the next `commit` relative to the named `<commit>`.
+Typically you would want comparison with the latest commit, so if you do not give `<commit>`, it defaults to `HEAD`.
+If `HEAD` does not exist (e.g. unborn branches) and `<commit>` is not given, it shows all staged changes. `--staged` is a synonym( 同义词:) of `--cached`.
+
+```git
+git diff [<options>] <commit> [--] [<path>…​]
+```
+
+This form is to view the changes you have in your working tree relative to the named `<commit>`.
+You can use `HEAD` to compare it with the latest commit, or a `branch name` to compare with the tip(尖端；尖儿；端) of a different branch.
+
+```git
+git diff [<options>] <commit> <commit> [--] [<path>…​]
+```
+
+This is to view the changes between two arbitrary `<commit>`.
+
+```git
+git diff [<options>] <commit>..<commit> [--] [<path>…​]
+```
+
+This is synonymous to the previous form. If `<commit>` on one side is omitted, it will have the same effect as using `HEAD` instead.
+
+```git
+git diff [<options>] <commit>...<commit> [--] [<path>…​]
+```
+
+This form is to view
+
++ the changes on the branch
++ containing and up to the second `<commit>`,
++ starting at a common ancestor of both `<commit>`.
+
+"`git diff A...B`" is equivalent to "`git diff $(git merge-base A B) B`".
+You can omit any one of `<commit>`, which has the same effect as using `HEAD` instead.
+
+Just in case you are doing something exotic(来自异国(尤指热带国家)的；奇异的；异国情调的；异国风味的), it should be noted that all of the `<commit>` in the above description, except in the last two forms that use ".." notations, can be any `<tree>`.
+
+For a more complete list of ways to spell `<commit>`, see "SPECIFYING REVISIONS( (一项、一轮等)修订,修改)" section in gitrevisions.
+
+However, "`diff`" is about comparing two `endpoints`, not `ranges`, and the range notations ("`<commit>..<commit>`" and "`<commit>...<commit>`") do not mean a range as defined in the "SPECIFYING RANGES" section in gitrevisions.
+
+```bash
+git diff [<options>] <blob> <blob>
+```
+
+This form is to view the differences between the raw contents of two blob objects.
 
 ## 查看提交历史
 
@@ -597,6 +688,82 @@ This behavior is the default when the start point is a remote-tracking branch. S
 
 解决冲突就是把`Git`合并失败的文件手动编辑为我们希望的内容，再提交。
 用 `git log --graph` 命令可以看到分支合并图。
+
+冲突的位置git会提醒并作标记，需要手动修改，然后提交。
+注意，git 只会标出冲突的位置，并不能帮你解决冲突，也不能判断你是否正确解决了冲突，
+所以下一次的提交，就会被视为冲突已经解决的提交--无论你的修改是否正确。
+当然由于可以恢复，这也算不了什么问题。
+
+### FAST-FORWARD MERGE
+
+Often the current branch head is an ancestor of the named commit.
+This is the most common case especially when invoked from git pull: you are tracking an upstream repository, you have committed no local changes, and now you want to update to a newer upstream revision.
+
+In this case, a new commit is not needed to store the combined history; instead, the HEAD (along with the index) is updated to point at the named commit, without creating an extra merge commit.
+
+This behavior can be suppressed with the `--no-ff` option.
+
+### TRUE MERGE
+
+Except in a `fast-forward merge` (see above), the branches to be merged must be tied together by a merge commit that has both of them as its parents.
+
+A merged version reconciling(使和谐一致；调和；使配合) the changes from all branches to be merged is committed, and your `HEAD`, `index`, and `working tree` are updated to it.
+It is possible to have modifications in the working tree as long as they do not overlap; the update will preserve them.
+
+When it is not obvious how to reconcile the changes, the following happens:
+
++ The `HEAD` pointer stays the same.
++ The `MERGE_HEAD` ref is set to point to the other branch head.
++ Paths that merged cleanly are updated both in the index file and in your working tree.
++ For conflicting paths, the index file records up to three versions: stage 1 stores the version from the common ancestor, stage 2 from `HEAD`, and stage 3 from `MERGE_HEAD` (you can inspect the stages with `git ls-files -u`).
+The working tree files contain the result of the "merge" program; i.e. 3-way merge results with familiar conflict markers `<<< === >>>`.
++ No other changes are made. In particular, the local modifications you had before you started merge will stay the same and the index entries for them stay as they were, i.e. matching `HEAD`.
+
+If you tried a merge which resulted in complex conflicts and want to start over, you can recover with git `merge --abort`.
+
+### HOW CONFLICTS ARE PRESENTED
+
+During a merge, the working tree files are updated to reflect the result of the merge.
+Among the changes made to the common ancestor’s version, non-overlapping ones (that is, you changed an area of the file while the other side left that area intact(完好无损；完整), or vice versa) are incorporated in the final result verbatim.
+When both sides made changes to the same area, however, Git cannot randomly pick one side over the other, and asks you to resolve it by leaving what both sides did to that area.
+
+By default, Git uses the same style as the one used by the "merge" program from the `RCS` suite to present such a conflicted hunk, like this:
+
+```git
+Here are lines that are either unchanged from the common
+ancestor, or cleanly resolved because only one side changed.
+<<<<<<< yours:sample.txt
+Conflict resolution is hard;
+let's go shopping.
+=======
+Git makes conflict resolution easy.
+>>>>>>> theirs:sample.txt
+And here is another line that is cleanly resolved or unmodified.
+```
+
+The area where a pair of conflicting changes happened is marked with markers `<<<<<<<`, `=======`, and `>>>>>>>`.
+The part before the `=======` is typically your side, and the part afterwards is typically their side.
+
+The default format does not show what the original said in the conflicting area. You cannot tell how many lines are deleted and replaced with Barbie’s remark on your side. The only thing you can tell is that your side wants to say it is hard and you’d prefer to go shopping, while the other side wants to claim it is easy.
+
+An alternative style can be used by setting the "merge.conflictStyle" configuration variable to "diff3".
+
+### HOW TO RESOLVE CONFLICTS
+
+After seeing a conflict, you can do two things:
+
++ Decide not to merge. The only clean-ups you need are to reset the index file to the HEAD commit to reverse 2. and to clean up working tree changes made by `2.` and `3.`;
+`git merge --abort` can be used for this.
++ Resolve the conflicts. Git will mark the conflicts in the working tree.
+Edit the files into shape and git add them to the index.
+Use `git commit` or `git merge --continue` to seal the deal. The latter command checks whether there is a (interrupted) merge in progress before calling `git commit`.
+
+You can work through the conflict with a number of tools:
+
++ Use a mergetool. `git mergetool` to launch a graphical mergetool which will work you through the merge.
++ Look at the diffs. `git diff` will show a three-way diff, highlighting changes from both the `HEAD` and `MERGE_HEAD` versions.
++ Look at the diffs from each branch. `git log --merge -p <path>` will show diffs first for the `HEAD` version and then the `MERGE_HEAD` version.
++ Look at the originals. `git show :1:filename` shows the common ancestor, `git show :2:filename` shows the `HEAD` version, and `git show :3:filename` shows the `MERGE_HEAD` version.
 
 ## 分支管理策略
 
