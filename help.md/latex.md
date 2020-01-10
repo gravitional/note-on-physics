@@ -1,4 +1,4 @@
-# learn.latex.md
+# latex.md
 
 ## 浮动体
 
@@ -159,3 +159,55 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 ```
 
 >where in the second argument you put the best approximation possible; after all the bookmarks are only a guide for consulting the document.
+
+## 在文中使用链接
+
+使用宏包 `hyperref` 来制作
+
+```latex
+\usepackage[dvipdfm, %
+pdfstartview=FitH, %
+bookmarks=true,
+CJKbookmarks=true, %
+bookmarksnumbered=true, %
+bookmarksopen=true, %
+colorlinks=true, %注释掉此项则交叉引用为彩色边框 %
+%(将colorlinks和pdfborder同时注释掉) %
+pdfborder=001, %注释掉此项则交叉引用为彩色边框 %
+citecolor=magenta, % magenta , cyan %
+linkcolor=blue,
+%linktocpage
+%nativepdf=true %
+linktocpage=true, %
+]{hyperref}
+```
+
+### email链接
+
+```latex
+\href{mailto:michaelbibby@gmail.com}{给我电邮}}
+```
+
+### URL链接
+
+链接有颜色,显示为“OpenBSD官方网站”，链接到`http://www.openbsd.org`
+
+```latex
+\href{http://www.openbsd.org}{OpenBSD官方网站}
+```
+
+只显示`URL`
+
+```latex
+\url{http://www.openbsd.org}
+```
+
+显示URL，但是不做链接和跳转：
+
+```latex
+\nolinkurl{http://www.openbsd.org}
+```
+
+[LaTeX技巧159：如何在文中使用链接][]
+
+[LaTeX技巧159：如何在文中使用链接]: https://www.latexstudio.net/archives/7741.html

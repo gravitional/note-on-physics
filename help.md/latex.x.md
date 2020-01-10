@@ -362,7 +362,7 @@ For such that, as in the definition of a set, use `\mid` because it is a relatio
 For absolute value you can use the `mathtools` package and in your preamble put `\DeclarePairedDelimiter\abs{\lvert}{\rvert}`.
 This gives you three command variants for single-line vertical bars that are correctly horizontally spaced: if in the document body you write the starred version $\abs*{\frac{22}{7}}$ then the height of the vertical bars will match the height of the argument, whereas with \abs{\frac{22}{7}} the bars do not grow with the height of the argument but instead are the default height, and \abs[size command]{\frac{22}{7}} also gives bars that do not grow but are set to the size given in the size command, e.g., \Bigg.
 
-## 计数 Counters
+## 计数器 Counters
 
 Everything `LaTeX` numbers for you has a `counter` associated with it.
 The name of the `counter` is often the same as the name of the `environment` or `command` associated with the number, except that the `counter`’s name has no backslash `\`. Thus, associated with the `\chapter` command is the `chapter` counter that keeps track of the `chapter` number.
@@ -501,3 +501,37 @@ Especially for lists with short items, it may be desirable to elide space betwee
     \setlength{\parskip}{0pt}}%
   {\end{itemize}}
 ```
+
+## 在文中使用链接
+
+使用宏包 `hyperref` 来制作
+
+### email链接
+
+```latex
+\href{mailto:michaelbibby@gmail.com}{给我电邮}}
+```
+
+### URL链接
+
+链接有颜色,显示为“OpenBSD官方网站”，链接到`http://www.openbsd.org`
+
+```latex
+\href{http://www.openbsd.org}{OpenBSD官方网站}
+```
+
+只显示`URL`
+
+```latex
+\url{http://www.openbsd.org}
+```
+
+显示URL，但是不做链接和跳转：
+
+```latex
+\nolinkurl{http://www.openbsd.org}
+```
+
+[LaTeX技巧159：如何在文中使用链接][]
+
+[LaTeX技巧159：如何在文中使用链接]: https://www.latexstudio.net/archives/7741.html
