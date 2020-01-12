@@ -147,7 +147,7 @@ Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
 
 要随时掌握工作区的状态
 
-## git diff
+## 比较差别 git diff
 
 如果`git status`告诉你有文件被修改过，用`git diff`可以查看修改内容。
 查看和上一版本的具体变动内容 显示内容如下：
@@ -171,7 +171,7 @@ test line8.
 test line9.
 ```
 
-## git diff 详解
+### git diff 输出说明
 
 `diff --git a/test.txt b/test.txt`
 ——对比两个文件，其中`a`改动前，`b`是改动后，以`git`的`diff`格式显示；
@@ -193,6 +193,110 @@ test line4.  test line5.  test line6.
 其中`-+`表示变动前后，逗号前是起始行位置，逗号后为从起始行往后几行。
 合起来就是变动前后都是从第`4`行开始，变动前文件往后数`8`行对应变动后文件往后数`9`行。
 变动内容 `+`表示增加了这一行，`-`表示删除了这一行，没符号表示此行没有变动。
+
+### git diff 用法
+
+`git-diff` - Show changes between commits, commit and working tree, etc
+
+SYNOPSIS
+
+```git
+git diff [<options>] [<commit>] [--] [<path>…​]
+git diff [<options>] --cached [<commit>] [--] [<path>…​]
+git diff [<options>] <commit> <commit> [--] [<path>…​]
+git diff [<options>] <blob> <blob>
+git diff [<options>] --no-index [--] <path> <path>
+```
+
+DESCRIPTION
+
+Show:
+
++ changes between the `working tree` and the `index` or a `tree`,
++ changes between the `index` and `a tree`,
++ changes between two trees,
++ changes between two `blob` objects,
++ changes between two `files` on disk.
+
+use as:
+
+| SYNOPSIS | explanation |
+| ---- | ---- |
+| `git diff [<options>] [--] [<path>…​]` | `working tree` and the `index` |
+| `git diff [<options>] --no-index [--] <path> <path>` | two paths on the filesystem |
+| `git diff [<options>] --cached [<commit>] [--] [<path>…​]` | changes you staged relative to the named `<commit>` |
+| `git diff [<options>] <commit> [--] [<path>…​]` | changes in your working tree relative to the named `<commit>` |
+| `git diff [<options>] <commit> <commit> [--] [<path>…​]` | changes between two arbitrary `<commit>` |
+| `git diff [<options>] <commit>..<commit> [--] [<path>…​]` | This is synonymous to the previous form |
+
+### the details
+
+```git
+git diff [<options>] [--] [<path>…​]
+```
+
+This form is to view the changes you made relative to the `index` (staging area for the next commit).
+In other words, the differences are what you could tell `Git` to further add to the index but you still haven’t. You can stage these changes by using `git-add`.
+
+```git
+git diff [<options>] --no-index [--] <path> <path>
+```
+
+This form is to compare the given two paths on the filesystem.
+You can omit the `--no-index` option when running the command in a working tree controlled by Git and at least one of the paths points outside the working tree,
+or when running the command outside a working tree controlled by Git.
+
+```bash
+git diff [<options>] --cached [<commit>] [--] [<path>…​]
+```
+
+This form is to view the changes you staged for the next `commit` relative to the named `<commit>`.
+Typically you would want comparison with the latest commit, so if you do not give `<commit>`, it defaults to `HEAD`.
+If `HEAD` does not exist (e.g. unborn branches) and `<commit>` is not given, it shows all staged changes. `--staged` is a synonym( 同义词:) of `--cached`.
+
+```git
+git diff [<options>] <commit> [--] [<path>…​]
+```
+
+This form is to view the changes you have in your working tree relative to the named `<commit>`.
+You can use `HEAD` to compare it with the latest commit, or a `branch name` to compare with the tip(尖端；尖儿；端) of a different branch.
+
+```git
+git diff [<options>] <commit> <commit> [--] [<path>…​]
+```
+
+This is to view the changes between two arbitrary `<commit>`.
+
+```git
+git diff [<options>] <commit>..<commit> [--] [<path>…​]
+```
+
+This is synonymous to the previous form. If `<commit>` on one side is omitted, it will have the same effect as using `HEAD` instead.
+
+```git
+git diff [<options>] <commit>...<commit> [--] [<path>…​]
+```
+
+This form is to view
+
++ the changes on the branch
++ containing and up to the second `<commit>`,
++ starting at a common ancestor of both `<commit>`.
+
+"`git diff A...B`" is equivalent to "`git diff $(git merge-base A B) B`".
+You can omit any one of `<commit>`, which has the same effect as using `HEAD` instead.
+
+Just in case you are doing something exotic(来自异国(尤指热带国家)的；奇异的；异国情调的；异国风味的), it should be noted that all of the `<commit>` in the above description, except in the last two forms that use ".." notations, can be any `<tree>`.
+
+For a more complete list of ways to spell `<commit>`, see "SPECIFYING REVISIONS( (一项、一轮等)修订,修改)" section in gitrevisions.
+
+However, "`diff`" is about comparing two `endpoints`, not `ranges`, and the range notations ("`<commit>..<commit>`" and "`<commit>...<commit>`") do not mean a range as defined in the "SPECIFYING RANGES" section in gitrevisions.
+
+```bash
+git diff [<options>] <blob> <blob>
+```
+
+This form is to view the differences between the raw contents of two blob objects.
 
 ## 查看提交历史
 
@@ -598,6 +702,82 @@ This behavior is the default when the start point is a remote-tracking branch. S
 解决冲突就是把`Git`合并失败的文件手动编辑为我们希望的内容，再提交。
 用 `git log --graph` 命令可以看到分支合并图。
 
+冲突的位置`git`会提醒并作标记，需要手动修改，然后提交。
+注意，`git` 只会标出冲突的位置，并不能帮你解决冲突，也不能判断你是否正确解决了冲突，
+所以下一次的提交，就会被视为冲突已经解决的提交--无论你的修改是否正确。
+当然由于可以恢复，这也算不了什么问题。
+
+### FAST-FORWARD MERGE
+
+Often the current branch head is an ancestor of the named commit.
+This is the most common case especially when invoked from git pull: you are tracking an upstream repository, you have committed no local changes, and now you want to update to a newer upstream revision.
+
+In this case, a new commit is not needed to store the combined history; instead, the HEAD (along with the index) is updated to point at the named commit, without creating an extra merge commit.
+
+This behavior can be suppressed with the `--no-ff` option.
+
+### TRUE MERGE
+
+Except in a `fast-forward merge` (see above), the branches to be merged must be tied together by a merge commit that has both of them as its parents.
+
+A merged version reconciling(使和谐一致；调和；使配合) the changes from all branches to be merged is committed, and your `HEAD`, `index`, and `working tree` are updated to it.
+It is possible to have modifications in the working tree as long as they do not overlap; the update will preserve them.
+
+When it is not obvious how to reconcile the changes, the following happens:
+
++ The `HEAD` pointer stays the same.
++ The `MERGE_HEAD` ref is set to point to the other branch head.
++ Paths that merged cleanly are updated both in the index file and in your working tree.
++ For conflicting paths, the index file records up to three versions: stage 1 stores the version from the common ancestor, stage 2 from `HEAD`, and stage 3 from `MERGE_HEAD` (you can inspect the stages with `git ls-files -u`).
+The working tree files contain the result of the "merge" program; i.e. 3-way merge results with familiar conflict markers `<<< === >>>`.
++ No other changes are made. In particular, the local modifications you had before you started merge will stay the same and the index entries for them stay as they were, i.e. matching `HEAD`.
+
+If you tried a merge which resulted in complex conflicts and want to start over, you can recover with git `merge --abort`.
+
+### HOW CONFLICTS ARE PRESENTED
+
+During a merge, the working tree files are updated to reflect the result of the merge.
+Among the changes made to the common ancestor’s version, non-overlapping ones (that is, you changed an area of the file while the other side left that area intact(完好无损；完整), or vice versa) are incorporated in the final result verbatim.
+When both sides made changes to the same area, however, Git cannot randomly pick one side over the other, and asks you to resolve it by leaving what both sides did to that area.
+
+By default, Git uses the same style as the one used by the "merge" program from the `RCS` suite to present such a conflicted hunk, like this:
+
+```git
+Here are lines that are either unchanged from the common
+ancestor, or cleanly resolved because only one side changed.
+<<<<<<< yours:sample.txt
+Conflict resolution is hard;
+let's go shopping.
+=======
+Git makes conflict resolution easy.
+>>>>>>> theirs:sample.txt
+And here is another line that is cleanly resolved or unmodified.
+```
+
+The area where a pair of conflicting changes happened is marked with markers `<<<<<<<`, `=======`, and `>>>>>>>`.
+The part before the `=======` is typically your side, and the part afterwards is typically their side.
+
+The default format does not show what the original said in the conflicting area. You cannot tell how many lines are deleted and replaced with Barbie’s remark on your side. The only thing you can tell is that your side wants to say it is hard and you’d prefer to go shopping, while the other side wants to claim it is easy.
+
+An alternative style can be used by setting the "merge.conflictStyle" configuration variable to "diff3".
+
+### HOW TO RESOLVE CONFLICTS
+
+After seeing a conflict, you can do two things:
+
++ Decide not to merge. The only clean-ups you need are to reset the index file to the HEAD commit to reverse 2. and to clean up working tree changes made by `2.` and `3.`;
+`git merge --abort` can be used for this.
++ Resolve the conflicts. Git will mark the conflicts in the working tree.
+Edit the files into shape and git add them to the index.
+Use `git commit` or `git merge --continue` to seal the deal. The latter command checks whether there is a (interrupted) merge in progress before calling `git commit`.
+
+You can work through the conflict with a number of tools:
+
++ Use a mergetool. `git mergetool` to launch a graphical mergetool which will work you through the merge.
++ Look at the diffs. `git diff` will show a three-way diff, highlighting changes from both the `HEAD` and `MERGE_HEAD` versions.
++ Look at the diffs from each branch. `git log --merge -p <path>` will show diffs first for the `HEAD` version and then the `MERGE_HEAD` version.
++ Look at the originals. `git show :1:filename` shows the common ancestor, `git show :2:filename` shows the `HEAD` version, and `git show :3:filename` shows the `MERGE_HEAD` version.
+
 ## 分支管理策略
 
 `Git`分支十分强大，在团队开发中应该充分应用。
@@ -699,14 +879,16 @@ Note: checking out '2.0.0'.
 
 ## 储藏 stash
 
-`stash`
-`stash list`
-`git stash apply`
-`stash drop`
-`stash pop`
++ `stash` ：储存工作现场
++ `stash list`: 查看工作现场列表
++ `git stash apply`: 恢复，但是恢复后，`stash`内容并不删除
++ `stash drop`: 删除
++ `stash pop`: 恢复的同时把`stash`内容也删了
+
+When no `<stash>` is given, stash@{0} is assumed, otherwise `<stash>` must be a reference of the form `stash@{<revision>}`.
 
 当工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？
-幸好，`Git`还提供了一个`stash`功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+幸好，`Git`还提供了一个`stash`功能，可以把g当前工作现场“储藏”起来，等以后恢复现场后继续工作：
 
 ```bash
 $ git stash
@@ -806,3 +988,237 @@ git rebase --onto master[被施加重放的分支] server[父节点/修改起始
 
 忽略某些文件时，需要编写`.gitignore`；
 `.gitignore`文件本身要放到版本库里，并且可以对`.gitignore`做版本管理！
+
+## “index”
+
+[whats-the-deal-with-the-git-index][]
+
+[whats-the-deal-with-the-git-index]: https://gitguys.com/topics/whats-the-deal-with-the-git-index/
+
+The git “index” is where you place files you want committed to the git repository.
+
+Before you “commit” (checkin) files to the git repository, you need to first place the files in the git “index”.
+
+The git index goes by many names. But they all refer to the same thing. Some of the names you may have heard:
+
++ Index
++ Cache
++ Directory cache
++ Current directory cache
++ Staging area
++ Staged files
+
+The Index Isn’t The Working Directory.
+
+## Git Objects
+
+Git is a content-addressable filesystem. Great. What does that mean?
+It means that at the core of Git is a simple `key-value` data store.
+What this means is that you can insert any kind of content into a Git repository, for which Git will hand you back a unique key you can use later to retrieve that content.
+
+As a demonstration, let’s look at the plumbing command((建筑物的)管路系统,自来水管道)
+`git hash-object`, which takes some data, stores it in your `.git/objects` directory (the object database), and gives you back the unique key that now refers to that data object.
+
+First, you initialize a new Git repository and verify that there is (predictably) nothing in the objects directory:
+
+```git
+$ git init test
+Initialized empty Git repository in /tmp/test/.git/
+$ cd test
+null
+$ find .git/objects
+.git/objects
+.git/objects/info
+.git/objects/pack
+$ find .git/objects -type f
+null
+```
+
+Git has initialized the objects directory and created pack and info subdirectories in it, but there are no regular files. Now, let’s use `git hash-object` to create a new data object and manually store it in your new Git database:
+
+```git
+$ echo 'test content' | git hash-object -w --stdin
+d670460b4b4aece5915caf5c68d12f560a9fe3e4
+```
+
+In its simplest form, `git hash-object` would take the content you handed to it and merely return the unique key that would be used to store it in your Git database. The `-w` option then tells the command to not simply return the key, but to write that object to the database. Finally, the --stdin option tells `git hash-object` to get the content to be processed from stdin; otherwise, the command would expect a filename argument at the end of the command containing the content to be used.
+
+The output from the above command is a `40-character checksum hash`. This is the SHA-1 hash — a checksum of the content you’re storing plus a header, which you’ll learn about in a bit. Now you can see how Git has stored your data:
+
+```git
+$ find .git/objects -type f
+.git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4
+```
+
+If you again examine your objects directory, you can see that it now contains a file for that new content. This is how Git stores the content initially — as a single file per piece of content, named with the SHA-1 checksum of the content and its header. The subdirectory is named with the first 2 characters of the SHA-1, and the filename is the remaining 38 characters.
+
+Once you have content in your object database, you can examine that content with the `git cat-file` command. This command is sort of a Swiss army knife for inspecting Git objects. Passing `-p` to `cat-file` instructs the command to first figure out the type of content, then display it appropriately:
+
+```git
+$ git cat-file -p d670460b4b4aece5915caf5c68d12f560a9fe3e4
+test content
+```
+
+### Tree Objects
+
+The next type of Git object we’ll examine is the `tree`, which solves the problem of storing the filename and also allows you to store a group of files together.
+
+Git stores content in a manner similar to a `UNIX` filesystem, but a bit simplified.
+All the content is stored as `tree` and `blob` objects, with trees corresponding to UNIX directory entries and blobs corresponding more or less to `inodes` or `file contents`.
+
+A single tree object contains one or more entries, each of which is the SHA-1 hash of a blob or `subtree` with its associated mode, type, and filename. For example, the most recent tree in a project may look something like this:
+
+```git
+$ git cat-file -p master^{tree}
+100644 blob a906cb2a4a904a152e80877d4088654daad0c859      README
+100644 blob 8f94139338f9404f26296befa88755fc2598c289      Rakefile
+040000 tree 99f1a6d12cb4b6f19c8655fca46c3ecf317074e0      lib
+```
+
+The `master^{tree}` syntax specifies the tree object that is pointed to by the last commit on your master branch. Notice that the `lib` subdirectory isn’t a `blob` but a pointer to another `tree`:
+
+```git
+$ git cat-file -p 99f1a6d12cb4b6f19c8655fca46c3ecf317074e0
+100644 blob 47c6340d6459e05787f644c2447d2595f5d3a54b      simplegit.rb
+```
+
+Note
+
+Depending on what shell you use, you may encounter errors when using the `master^{tree}` syntax.
+
+In CMD on Windows, the `^` character is used for escaping, so you have to double it to avoid this: `git cat-file -p master^^{tree}`.
+When using PowerShell, parameters using `{}` characters have to be quoted to avoid the parameter being parsed incorrectly: `git cat-file -p 'master^{tree}'`.
+
+If you’re using ZSH, the `^` character is used for globbing, so you have to enclose the whole expression in quotes: `git cat-file -p "master^{tree}"`.
+
+You can fairly easily create your own tree.
+
+Git normally creates a tree by taking the state of your `staging` area or `index` and writing a series of tree objects from it.
+So, to create a tree object, you first have to set up an index by staging some files.
+To create an index with a single entry — the first version of your test.txt file — you can use the plumbing command git update-index.
+You use this command to artificially add the earlier version of the `test.txt` file to a new staging area.
+
+You must pass it the `--add` option because the file doesn’t yet exist in your staging area (you don’t even have a staging area set up yet) and `--cacheinfo` because the file you’re adding isn’t in your directory but is in your database.
+Then, you specify the `mode`, `SHA-1`, and `filename`:
+
+```git
+$ git update-index --add --cacheinfo 100644 \
+  83baae61804e65cc73a7201a7252750c76066a30 test.txt
+```
+
+In this case, you’re specifying a mode of `100644`, which means it’s a normal file. Other options are `100755`, which means it’s an executable file; and `120000`, which specifies a symbolic link.
+The mode is taken from normal UNIX modes but is much less flexible — these three modes are the only ones that are valid for files (blobs) in Git (although other modes are used for directories and submodules).
+
+Now, you can use `git write-tree` to write the staging area out to a tree object.
+No `-w` option is needed — calling this command automatically creates a tree object from the state of the index if that tree doesn’t yet exist:
+
+```git
+$ git write-tree
+d8329fc1cc938780ffdd9f94e0d364e0ea74f579
+$ git cat-file -p d8329fc1cc938780ffdd9f94e0d364e0ea74f579
+100644 blob 83baae61804e65cc73a7201a7252750c76066a30      test.txt
+```
+
+You can also verify that this is a tree object using the same `git cat-file` command you saw earlier:
+
+```git
+$ git cat-file -t d8329fc1cc938780ffdd9f94e0d364e0ea74f579
+tree
+```
+
+You’ll now create a new tree with the second version of test.txt and a new file as well:
+
+```git
+$ git read-tree --prefix=bak d8329fc1cc938780ffdd9f94e0d364e0ea74f579
+null
+$ git write-tree
+3c4e9cd789d88d8d89c1073707c3585e41b0e614
+$ git cat-file -p 3c4e9cd789d88d8d89c1073707c3585e41b0e614
+040000 tree d8329fc1cc938780ffdd9f94e0d364e0ea74f579      bak
+100644 blob fa49b077972391ad58037050f2a75f74e3671e92      new.txt
+100644 blob 1f7a7a472abf3dd9643fd615f6da379c4acb3e3a      test.txt
+```
+
+### Commit Objects
+
+To create a commit object, you call `commit-tree` and specify a single tree `SHA-1` and which commit objects, if any, directly preceded it. Start with the first tree you wrote:
+
+```git
+$ echo 'first commit' | git commit-tree d8329f
+fdf4fc3344e67ab068f836878b6c4951e3b15f3d
+```
+
+You will get a different hash value because of different creation time and author data. Replace commit and tag hashes with your own checksums further in this chapter. Now you can look at your new commit object with `git cat-file`:
+
+```git
+$ git cat-file -p fdf4fc3
+tree d8329fc1cc938780ffdd9f94e0d364e0ea74f579
+author Scott Chacon <schacon@gmail.com> 1243040974 -0700
+committer Scott Chacon <schacon@gmail.com> 1243040974 -0700
+
+first commit
+```
+
+The format for a commit object is simple:
+it specifies the top-level tree for the snapshot of the project at that point;
+the parent commits if any (the commit object described above does not have any parents);the author/committer information (which uses your user.name and user.email configuration settings and a timestamp);
+a blank line, and then the commit message.
+
+Next, you’ll write the other two commit objects, each referencing the commit that came directly before it:
+
+$ echo 'second commit' | git commit-tree 0155eb -p fdf4fc3
+cac0cab538b970a37ea1e769cbbde608743bc96d
+$ echo 'third commit'  | git commit-tree 3c4e9c -p cac0cab
+1a410efbd13591db07496601ebc7a059dd55cfe9
+
+Each of the three commit objects points to one of the three snapshot trees you created. Oddly enough, you have a real Git history now that you can view with the git log command, if you run it on the last commit SHA-1:
+
+```git
+$ git log --stat 1a410e
+commit 1a410efbd13591db07496601ebc7a059dd55cfe9
+Author: Scott Chacon <schacon@gmail.com>
+Date:   Fri May 22 18:15:24 2009 -0700
+
+    third commit
+
+ bak/test.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit cac0cab538b970a37ea1e769cbbde608743bc96d
+Author: Scott Chacon <schacon@gmail.com>
+Date:   Fri May 22 18:14:29 2009 -0700
+
+    second commit
+
+ new.txt  | 1 +
+ test.txt | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit fdf4fc3344e67ab068f836878b6c4951e3b15f3d
+Author: Scott Chacon <schacon@gmail.com>
+Date:   Fri May 22 18:09:34 2009 -0700
+
+    first commit
+
+ test.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+Amazing.
+You’ve just done the low-level operations to build up a Git history without using any of the front end commands.
+This is essentially what Git does when you run the `git add` and `git commit` commands — it stores blobs for the files that have changed, updates the index, writes out trees, and writes commit objects that reference the top-level trees and the commits that came immediately before them.
+These three main Git objects — the blob, the tree, and the commit — are initially stored as separate files in your `.git/objects` directory. Here are all the objects in the example directory now, commented with what they store:
+
+```git
+$ find .git/objects -type f
+.git/objects/01/55eb4229851634a0f03eb265b69f5a2d56f341 # tree 2
+.git/objects/1a/410efbd13591db07496601ebc7a059dd55cfe9 # commit 3
+.git/objects/1f/7a7a472abf3dd9643fd615f6da379c4acb3e3a # test.txt v2
+.git/objects/3c/4e9cd789d88d8d89c1073707c3585e41b0e614 # tree 3
+.git/objects/83/baae61804e65cc73a7201a7252750c76066a30 # test.txt v1
+.git/objects/ca/c0cab538b970a37ea1e769cbbde608743bc96d # commit 2
+.git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4 # 'test content'
+.git/objects/d8/329fc1cc938780ffdd9f94e0d364e0ea74f579 # tree 1
+.git/objects/fa/49b077972391ad58037050f2a75f74e3671e92 # new.txt
+.git/objects/fd/f4fc3344e67ab068f836878b6c4951e3b15f3d # commit 1
+```

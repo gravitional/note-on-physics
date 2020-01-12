@@ -1,5 +1,50 @@
 # conclusion.powershell.md
 
+## 命令行历史
+
+我们通常会在`Console`界面中运行多次命令或者命令行，
+在`PowerShell`中我们可以使用管理历史记录的命令来管理那些之前使用过的命令行，目前在`PowerShell`中有如下四个管理历史相关的命令。
+
+| Cmdlet (Alias) ||       Description |
+| -------------------|  ---------------------- |
+| `Get-History` (h)   |   Gets the command history. |
+| `Invoke-History` (r) |  Runs a command in the command history. |
+| `Add-History`      |   Adds a command to the command history. |
+| `Clear-History` (clh) | Deletes commands from the command history. |
+
+如上面的`Description`介绍所描述的那样, 我们如下使用了`Get-History`命令得到如下从我们打开`PowerShell Console`界面开始记录的第一条命令。
+
+ ```powershell
+ C:\Users\Administrator> Get-History
+ ```
+
+当然，`PowerShell`并不会无止境的记录历史命令，你可以通过使用如下保留自变量来查看系统默认可以记录多少历史命令：
+
+```powershell
+PS C:\Users\Administrator> $MaximumHistoryCount
+```
+
+你也可以直接给这个变量赋一个阿拉伯数字设置你想设置的上限值，比如我设置为`5`：
+
+```powershell
+PS C:\Users\Administrator> $MaximumHistoryCount = 5
+PS C:\Users\Administrator> $MaximumHistoryCount
+```
+
+当你在用`Get-History`命令查看记录了多少命令的时候你会发现，它只自动截取了最近的`5`行命令
+
+我们可以使用`Invoke-History`或者别名`r` 来调用历史命令：
+
+```powershell
+PS C:\Users\Administrator> `Invoke-History -id 51`
+```
+
+好了，大致是这样，非常简单的几个命令，对了你还可以用`Add-History`添加命令或用`Clear-History`来清除之前的命令行。
+
+[itanders-command-history][]
+
+[itanders-command-history]: https://blog.csdn.net/itanders/article/details/51344419
+
 ## 输出到控制台
 
 Module : Microsoft.PowerShell.Utility
@@ -241,8 +286,20 @@ My name is yitian, I am 24 years old.
 
 ## 筛选管道中的对象
 
-如果你只对管道结果的特定对象感兴趣，可以使用`Where-Object`对每个结果进行严格筛选，
-一旦满足你的标准才会保留，不满足标准的就会自动丢弃。
+通过管道可以过滤某些对象和对象的属性，这个功能很实用，因为很多时候我们并不是对所有的结果感兴趣，可能只会对某些结果感兴趣。
+
+如果要过滤对象可以使用`Where-Object`；
+如果要过滤对象的属性，可以使用`Select-Object`；
+如果要自定义个性化的过滤效果可以使用`ForEach-Object`。
+最后如果想过滤重复的结果，可以使用`Get-Uinque`。
+
+但是可能只关心那些正在运行的服务，这时你就可以通过每个服务的属性`Status`进行过滤。
+但是前提条件是你得事先知道待处理的对象拥有哪些属性。
+你可以通过`Format-List *`，也可以通过`Get-memeber`。
+
+```powershell
+PS C:Powershell> Get-service | Select-Object -First 1 | Format-List *
+```
 
 ```powershell
 PS C:Powershell> get-service | Where-Object {$_.Status -eq "Running"}

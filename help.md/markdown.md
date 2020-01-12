@@ -4,7 +4,15 @@ reference: [Simplelified Markdown Syntax][]
 
 [Simplelified Markdown Syntax]: https://www.appinn.com/markdown/#backslash
 
-##  链接 常用
+## 删除线
+
+```markdown
+~~这是删除线~~~~
+```
+
+~~这是删除线~~~~
+
+## 链接 常用
 
 ```markdown
 I get 10 times more traffic from [Google][] than from
@@ -20,7 +28,7 @@ And then define the link:
 
 [Google]: http://google.com/
 
-##  链接 详细
+## 链接 详细
 
 [original context] []
 

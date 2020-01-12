@@ -1,0 +1,120 @@
+\documentclass[UTF8]{article}
+
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+% define the title
+\author{H.~Partl}
+\title{Minimalism}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{makeidx}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{graphicx,graphics,color}
+\usepackage{multirow}
+
+
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeindex
+
+%\newcommand{\txsit}[1]
+%{This is the \emph{#1} Short
+%	Introduction to \LaTeXe}
+
+
+% preamble
+\newtheorem{law}{Law}
+\newtheorem{jury}[law]{Jury}
+
+
+
+\newtheorem{mur}{Murphy}[subsection]
+
+\begin{document}
+as we all skdfjlas
+dsgdf
+
+\begin{equation}
+	a+b \quad
+	c+d
+\end{equation}
+
+
+
+\begin{equation}
+	asdfsafsaf +baasdsaf/sdfsafsdf*sdafsda
+	c+d
+\end{equation}
+
+\begin{equation}
+	\begin{aligned}
+		                    & asdfsdafsafsaffsdafsaf+baasdsaf/sdfsafsdf*sdafsda \\
+		asdfs546345643afsaf & +safsdafs                                         \\
+		asdfs64365436afsaf  & +bsdfsfsda                                        \\
+	\end{aligned}
+\end{equation}
+
+
+
+``vjjgjg''
+
+\section{afsd}
+
+\begin{enumerate}
+	\item Moe
+	\item[sometimes] Shemp
+	\item Larry
+\end{enumerate}
+
+\textit{et al.}
+
+
+
+
+
+\[
+	\begin{pmatrix} a&b\\c&d \end{pmatrix} \quad
+	\begin{bmatrix} a&b\\c&d \end{bmatrix} \quad
+	\begin{Bmatrix} a&b\\c&d \end{Bmatrix} \quad
+	\begin{vmatrix} a&b\\c&d \end{vmatrix} \quad
+	\begin{Vmatrix} a&b\\c&d \end{Vmatrix}
+\]
+
+
+\[
+	\feynmandiagram [horizontal=a to b] {
+	i1 -- [fermion] a -- [fermion] i2 ,
+	a -- [photon] b,
+	f1 -- [fermion] b -- [fermion] f2,
+	};
+\]
+
+
+
+\feynmandiagram[horizontal=f2 to f3] {f1 -- [fermion] f2 -- [fermion] f3 -- [fermion] f4,f2 -- [photon] p1,f3 -- [photon] p2,};
+
+
+
+
+
+
+\feynmandiagram[horizontal=a to b] {i1 [particle=\(e^{-}\)] -- [fermion] a -- [fermion] i2 [particle=\(e^{+}\)],a -- [photon,edge label=\(\gamma\),momentum'=\(k\)] b,f1 [particle=\(\mu^{+}\)] -- [fermion] b -- [fermion] f2 [particle=\(\mu^{-}\)],};
+
+
+
+
+
+
+
+
+
+
+\end{document}
