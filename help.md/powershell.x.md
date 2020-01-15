@@ -1,5 +1,19 @@
 # conclusion.powershell.md
 
+## 别名 获取动词/名词
+
+当然，如果想查找特定动词/名词的命令也是可以的。比方说，如果我想查找所有以`Get`开头的命令，可以使用下面的命令。
+
+```powershell
+PS C:\Users\asddf> Get-Command -Verb Get
+```
+
+相应的，如果我想获取所有名词是`Help`的命令，可以使用下面的命令。
+
+```powershell
+PS C:\Users\asddf> Get-Command -Noun Help
+```
+
 ## 命令行历史
 
 我们通常会在`Console`界面中运行多次命令或者命令行，
@@ -212,6 +226,10 @@ PS E:> Invoke-Expression 'Get-Process | Where-Object { $_.Name -like "e*"}'
 #### example --打开所有pdf
 
 &'C:\Program Files\SumatraPDF\SumatraPDF.exe'  (Get-ChildItem | where Name -Like "*.pdf")
+
+### `&`
+
+`&`运算符将它后面的命令设置为后台运行，当运行的命令需要阻塞当前终端的时候很有用。
 
 ### `[]`
 
@@ -691,13 +709,13 @@ PS> (1-3)/3
 10. `,` : 数组分隔，或创建单元素数组
 11. `#` : 添加注释，单行
 
-### `.\`
+note：
 
-运算符用于执行一个脚本或命令。
+`.\`运算符用于执行一个脚本或命令。
 如果执行的是`Powershell`脚本，那么脚本会在自己的作用域中执行，
 也就是说在当前环境下无法访问被执行的脚本中的变量。
 
-### `&`
+`&`
 
 默认键入一个字符串，`powershell`会将它原样输出，如果该字符串是一个`命令`或者`外部程序`，在字符串前加‘`&`’可以执行命令，或者启动程序。
 
