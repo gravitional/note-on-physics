@@ -1,0 +1,385 @@
+\documentclass[./main.tex]{subfiles}
+\setcounter{chapter}{4}
+
+\chapter{第二章-非定域手征微扰理}
+
+我们需要构造出一个即满足规范不变性又能使得圈图收敛的非定域手征拉氏量。
+为了更好的理解从定域手征拉氏量过度到非定域拉氏量的过程，
+我们首先回顾定域手征对称性以及手征拉氏量。
+
+\section{手征对称性与手征拉氏量}
+
+胶子场是非对易的规范场，因此QCD具有渐进自由的特性，
+即QCD耦合常数随能量的增大而减少，因此在高能区域内可以做微扰展开。
+但在低能区域微扰QCD无法使用，比如QCD无法描写静止核子的特点，因为核
+物理的研究能标远小于QCD能标。随着能量减小QCD原有的自由（胶子和夸
+克）被冻结并且新的自由度（强子）出现，但是新出现的强子态的属性跟原有
+的对称性破缺有关。
+
+另一方面已知的强子谱展示一些有趣的特征，
+比如除了赝标量介子之外，其他基态强子的质量基本都在1$\gev$左右。
+这暗示着赝标量介子产生机制与对称性的关系。
+我们从无质量的QCD拉氏量入手讨论手征对称性与手征拉氏量。
+三代夸克根据它们的质量可分为轻夸克和重夸克，因为它们的质量满足以下关系
+\begin{equation}\begin{aligned}
+        \label{eq.2.1}
+        %%%%%+++++++++++++++++++++++---------------------
+        m_u,m_d,m_s \ll 1 \gev \ll m_c,m_b,m_t
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+当能量低于$1\gev$时，重夸克(c,b,t)可视为静止，轻夸克(u,d,s)因而成为QCD拉氏量的有效自由度，
+因此我们用三个轻夸克拉氏量代替所有夸克拉氏量，
+另外轻夸克质量远远小于$1\gev$，
+因此把夸克质量近似为零(这叫做手征极限)，在手征极限下QCD拉氏量可写为
+\begin{equation}\begin{aligned}
+        \label{eq.2.2}
+        %%%%%+++++++++++++++++++++++---------------------
+        \mathcal{L}^{QCD}(x)
+        =\sum\limits_{f=u,d,s}\bar{q}_{f}(x) i \slashed{D} q_{f}(x)
+        -\frac{1}{4} G_{\mu\nu,a}(x) G^{\mu\nu,a}(x)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+其中夸克场算符$q_f(x)$携带三种颜色$q_f(x)=[q_{f,r}(x),q_{f,b}(x),q_{f,g}(x)]^T$，
+$G^{\mu\nu,a}(x)$是胶子场强张量。
+
+用手征矩阵$\gamma^5$来定义左右手投影算符:
+\begin{equation}\begin{aligned}
+        %%\label{eq.2.1}
+        %%%%%+++++++++++++++++++++++---------------------
+        P_R=\frac{1}{2}(1+\gamma^5),\quad P_L=\frac{1}{2}(1-\gamma^5)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+狄拉克场$q_f(x)$可分解为两个手征分量:
+\begin{equation}\begin{aligned}
+        %%\label{eq.2.1}
+        %%%%%+++++++++++++++++++++++---------------------
+        q_{f,L}(x)=P_L q_f (x),\quad q_{f,R}(x)=P_R q_f (x)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+$P_L$, $P_R$之所以叫做左右手投影算符，是因为在极端的相对论性情况下，旋度和
+手征性等价的。
+利用上式，拉氏量\eqref{eq.2.2}式可写成左右手征分量场的形式
+\begin{equation}\begin{aligned}
+        %%\label{eq.2.1}
+        %%%%%+++++++++++++++++++++++---------------------
+        \mathcal{L}^{QCD}(x)
+        =\sum\limits_{f=u,d,s}\bar{q}_{f,L}(x) i \slashed{D} q_{f,L}(x)
+        +\sum\limits_{f=u,d,s}\bar{q}_{f,R}(x) i \slashed{D} q_{f,R}(x)
+        -\frac{1}{4} G_{\mu\nu,a}(x) G^{\mu\nu,a}(x)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+从上式可以看出左右手征态互不混合，
+因此拉氏量$\mathcal{L}^{QCD}(x)$在以下独立的定域规范变换下不变的
+\begin{equation}\begin{aligned}
+        %%\label{eq.2.1}
+        %%%%%+++++++++++++++++++++++---------------------
+        q_L(x)\to U_L q_L(x), \quad
+        q_R(x)\to U_R q_R(x)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+in which, $U_L$, $U_R$为$3 \times 3$幺正矩阵，具体表示如下:
+\begin{equation}\begin{aligned}
+        %%\label{eq.2.1}
+        %%%%%+++++++++++++++++++++++---------------------
+        U_L & {}=\exp (-i \sum\limits_{a=1}^8 \frac{\lambda^a}{2} \theta_a^L)
+        \exp (- i \theta^L),                                                  \\ \notag
+        U_R & {}=\exp (-i \sum\limits_{a=1}^8 \frac{\lambda^a}{2} \theta_a^R)
+        \exp (- i \theta^R)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+in which, $\theta^L$，$\theta^R$，$\theta^L_a$和$\theta_a^R$是$18$个实参数。
+这说明无质量的$\mathcal{L}^{QCD(x)}$具有经典$U_L(3) \times U_R(3)$整体对称性，
+根据Noether定理，这样的对称性，对应于$18$个守恒流，
+\begin{equation}\begin{aligned}
+        \label{eq.2.8}
+        %%%%%+++++++++++++++++++++++---------------------
+        L^{\mu,a} & {}=\bar{q}_L(x) \gamma^\mu \frac{\lambda^a}{2} q_L(x),
+        \quad
+        R^{\mu,a}=\bar{q}_R(x) \gamma^\mu \frac{\lambda^a}{2} q_R(x)       \\ \notag
+        %%%%%%%%%%%%%%%
+        L^{\mu}   & {}=\bar{q}_L(x) \gamma^\mu q_L(x),
+        \quad
+        R^{\mu}=\bar{q}_R(x) \gamma^\mu q_R(x)                             \\
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+实际讨论中我们经常以矢量流和轴失流的形式进行讨论，因此可以定义如下矢量和轴矢量流
+\begin{equation}\begin{aligned}
+        \label{eq.2.9}
+        %%%%%+++++++++++++++++++++++---------------------
+        V^{\mu,a} & {}\equiv L^{\mu,a}+R^{\mu,a}
+        =\bar{q}(x)\gamma^\mu \frac{\lambda^a}{2} q(x)          \\
+        %%%%%%%%%%
+        A^{\mu,a} & {}\equiv L^{\mu,a}-R^{\mu,a}
+        =\bar{q}(x)\gamma^\mu \gamma^5 \frac{\lambda^a}{2} q(x) \\ \notag
+        %%%%%%%%%%
+        V^{\mu}   & {}\equiv L^{\mu}+R^{\mu}
+        =\bar{q}(x)\gamma^\mu q(x)                              \\ \notag
+        %%%%%%%%%%
+        A^{\mu}   & {}\equiv L^{\mu}-R^{\mu}
+        =\bar{q}(x)\gamma^\mu \gamma^5 q(x)                     \\ \notag
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+对于单态矢量流$V_\mu$来说，量子化后单态矢量流仍然是守恒的，
+这对应于重子数守恒，至于单态轴失量流$A_\mu$，
+即使在手征极限下，量子化后出现反常并破坏轴失量流守恒。
+对于八重态矢量流和单态矢量流，对应的守恒电荷为
+\begin{equation}\begin{aligned}
+        \label{eq.2.8}
+        %%%%%+++++++++++++++++++++++---------------------
+        Q_V^a & {}=\int d \vec{x}^3
+        q^\dagger(x) \frac{\lambda^a}{2} q(x),~a=1\ldots 8          \\
+        %%%%%%%%%%
+        Q_A^a & {}=\int d \vec{x}^3
+        q^\dagger(x) \frac{\lambda^a}{2} \gamma^5 q(x),~a=1\ldots 8 \\ \notag
+        %%%%%%%%%%
+        Q_V   & {}=\int d \vec{x}^3
+        q^\dagger(x) q(x)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+根据以上讨论，量子化后，在手征极限下QCD拉氏量的对称群是
+$SU(3)_L \times SU(3)_R \times U(1)_V$。
+如果拉氏量的对称性不是体系基态的对称性，叫做对称性自发破缺，
+并产生无质量的Goldstone玻色子。
+
+在手征极限下，当手征对称群$SU(3)_R \times SU(3)_L$降低到$SU(3)_V$时，
+对称性自发破缺。实验数据表示，$J^P = 0^−$ 的赝标量介子八重态：
+$\pi^{\pm},~\pi^0,~,K^{\pm},K^0,\bar{k}^{\pm},~\eta$的质量都比较轻，
+而且内部宇称都相同。我们猜测实际的QCD整体对称性发生了自发破缺，而且自法
+破缺方式为$SU(3)_L \times SU(3)_R \to SU(3)_V$。
+这表明$SU(3)_A$对称性破缺了，但保留了$SU(3)_V$ 对称性，因此有：
+\begin{equation}\begin{aligned}
+        \label{eq.2.11}
+        %%%%%+++++++++++++++++++++++---------------------
+        Q_V^a \ket{0}=0,\quad Q_A^a \ket{0}\neq 0
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+根据Goldstone定理，自发破缺后产生八个与破缺生成元$Q_a^A$相对应Goldstone玻色子，
+而且这些玻色子的量子数与被破缺的轴矢量对称性的量子数一样,
+比如由手征对称性破缺产生的Goldstone玻色子也具有负宇称。
+
+到目前为止我们只讨论了在手征极限下的情况，实际上QCD拉氏量包含夸克质量项，
+\begin{equation}\begin{aligned}
+        \label{eq.2.11}
+        %%%%%+++++++++++++++++++++++---------------------
+        L_M=-(\bar{q_R} M q_L + \bar{q_L} M q_R)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+式中$M$为夸克质量矩阵，
+\begin{equation}\begin{aligned}
+        \label{eq.2.11}
+        %%%%%+++++++++++++++++++++++---------------------
+        M=\begin{pmatrix}
+            m_u & 0   & 0   \\
+            0   & m_d & 0   \\
+            0   & 0   & m_s \\
+        \end{pmatrix}
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+显然质量项明显破缺$SU(3)_R \times SU(3)_L$ 对称性，
+实际上轻夸克的质量项可视为八个Goldstone玻色子的质量来源。
+
+另一方面，守恒流的变化与夸克质量有关，由于轻夸克的流质量非常小，可以把它视为微扰项。
+如上所述，无质量轻夸克的手征对称性自发破缺，并产生无质量的Goldstone粒子。
+但是如何用拉氏量来描述对称性自发破缺过程？
+
+另一方面，赝标量介子在手征变换下是变的，
+但是$SU(3)$赝标量介子(用$\phi$表示)和$SU(3)$标量介子(用$\sigma$表示)
+的线性组合$U=\sigma + i \phi$在手征变换下不变，
+\begin{equation}\begin{aligned}
+        \label{eq.2.11}
+        %%%%%+++++++++++++++++++++++---------------------
+        U^\prime = U_L U U_R^+
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+容易验证标量介子基态$U_0 = 1$在矢量变换$U_L = U_R$下不变，
+但在$U_L = U_R^+$轴矢量变换下改变。
+
+至于物质场和赝标量介子的相互作用，试探性地用线性$\sigma$模型来描述它们之间的相互作用
+\begin{equation}\begin{aligned}
+        \label{eq.2.11}
+        %%%%%+++++++++++++++++++++++---------------------
+        \mathcal{L} \propto
+        \tr (\bar{\psi}_L U \psi_R)
+        +\tr (\bar{\psi}_R U^\dagger \psi_L)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+但是线性$\sigma$模型无法描述真实世界，
+因为线性$\sigma$模型中物质场和赝标量介子相互作用不包含赝标量场的动量项，
+除此之外，实验上无法找到$\sigma$对应的标量介子。
+在这种情况下，赝标量介子动量趋于零的时候核子--$\pi$介子散射振幅为零。
+
+重新定义物质场$B ≡ U^{\frac{1}{2}} \psi$，
+把依赖于模型的相互作用和独立于模型的相互作用(自相互作用和运动学项)分解出来，
+这样赝标量介子获得动量并且仍然满足手征对称性。
+这时候，在手征变换下物质场(八重态和十重态重子)变换为
+\begin{equation}\begin{aligned}
+        \label{eq.2.11}
+        %%%%%+++++++++++++++++++++++---------------------
+        B^\prime = h B h^\dagger,\quad
+        {T_{abc}^\mu}^{\prime}=h_{ad} h_{be} h_{cf} T_{def}^{\mu}
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+in which,变换算符$h$满足$U_L u h^\dagger$ =$h u U_R^\dagger \quad u^2=U$。
+值得注意的是，式中$h$不是手征变换群的元素,
+而是手征变换群的子群$SU_V (3)$的元素而且跟赝标量介子无关。
+
+总结以上讨论可以得到满足手征对称性$SU(3)_L \times SU(3)_R$ 的领头阶拉氏量。
+\begin{equation}\begin{aligned}
+        \label{eq.2.17}
+        %%%%%+++++++++++++++++++++++---------------------
+        \mathcal{L}
+         & {}=\tr \left[\bar{B}(i\slashed{D}-M_B) \right]
+        +D \tr \left[\bar{B} \gamma^\mu \gamma_5 \{u_\mu,B\} \right]
+        +F \tr \left[\bar{B} \gamma^\mu \gamma_5 [u_\mu,B] \right] \\ \notag
+         & {}+ \bar{T}^{ijk}_{\mu}
+        (i \gamma^{\mu\nu\alpha} D_\alpha- M_T \gamma^{\mu\nu} ) T^{ijk}_\nu
+        +\mathcal{C} \left[
+            \epsilon^{ijk} \bar{T}_\mu^{ilm}
+            \Theta^{\mu\nu} (u_\nu)^{lj} B^{mk}+h.c.
+            \right]                                                \\ \notag
+         & {}- \mathcal{H} \bar{T}^{ijk}_\mu
+        \gamma^{\mu\nu\alpha} \gamma_5 (u_\alpha)^{kl} T^{ijl}_\nu
+        + \frac{f^2}{4} \tr \left[ D_\mu U (D^\mu U)^\dagger \right]
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+    in which, $M-B$和$M_T$分别代表八重态和十重态重子质量，
+    $D$$F$是八重态重子轴矢量电荷，$\mathcal{C}$，$\mathcal{H}$
+    分别代表八重态--十重态轴矢量跃迁和十重态轴矢量电荷，
+    `h.c.''代表厄米共轭。
+    介子衰变常数$f$，我们取$f = 93 \mev $。
+    张量$\epsilon^{ijk}$是味道空间中的反对称张量。
+    十重态自由拉氏量包括矩阵$\gamma^{\mu\nu}$和$\gamma^{\mu\nu\alpha}$，
+    其定义为$\gamma^{\mu\nu}=\frac{1}{2}\left[\gamma^\mu,\gamma^\nu\right]$
+    $\gamma^{\mu\nu\alpha}=\frac{1}{2}\left[\gamma^{\mu\nu},\gamma^\alpha\right]$。
+
+    八重态-十重态相互作用顶角$\Theta^{\mu\nu}$定义为
+    \begin{equation}\begin{aligned}
+        \label{eq.2.18}
+        %%%%%+++++++++++++++++++++++---------------------
+        \Theta^{\mu\nu}=g^{\mu\nu}-Z \gamma^\mu \gamma^\nu
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+    其中$Z$代表十重态离壳参数，至于它的值目前还没有统一的观点，
+    一般其取值范围为$Z \in (0,1)$，另一方面十重态重子传播子也依赖于离壳参数$Z$，
+    当$Z=1$的时候十重态重子回到最简单的形式
+
+    <手征拉氏量部分，此处待补充>
+
+    十重态包括$\Delta,\Sigma^\ast,\Xi^\ast,\Omega^-$，
+    全对称张量$T_\mu^{ijk}$的不同分量代表不同的十重态重子。
+
+    式中算符U跟赝标量介子矩阵$\phi$有关，即
+    \begin{equation}\begin{aligned}
+        \label{eq.2.21}
+        %%%%%+++++++++++++++++++++++---------------------
+        U=U^2, \quad u=\exp(i \frac{\phi}{\sqrt{2}f})
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+    赝标量介子以矢量和轴矢量的形式与八重态重子，十重态重子耦合，即
+    \begin{equation}\begin{aligned}
+        \label{eq.2.23}
+        %%%%%+++++++++++++++++++++++---------------------
+        \Gamma_\mu &{}
+        =\frac{1}{2} (u \partial_\mu u^\dagger + u^\dagger \partial_\mu u)
+        -\frac{i}{2} (u \lambda^a u^\dagger + u^\dagger \lambda^a u) v_\mu^a, \\
+        u_\mu &{}
+        =\frac{i}{2} (u \partial_\mu u^\dagger - u^\dagger \partial_\mu u)
+        +\frac{1}{2} (u \lambda^a u^\dagger - u^\dagger \lambda^a u) v_\mu^a, \\ \notag
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+    in which, $v_\mu^a$ 代表矢量外场，$\lambda^a(a=a,\ldots,8)$代表Gell-Mann矩阵。
+    八重态协变导数定义为
+    \begin{equation}\begin{aligned}
+        \label{eq.2.25}
+        %%%%%+++++++++++++++++++++++---------------------
+        D_\mu B &{}= \partial_\mu B + [\Gamma_\mu,B] -i \langle\lambda^0\rangle v_\mu^0 B \\
+        D_\mu T^{ijk}_\nu &{}= \partial_\mu T^{ijk}_\nu + 
+        (\Gamma_\mu, T_\nu)^{ijk} -i \langle\lambda^0\rangle v_\mu^0 T^{ijk}_\nu \\ \notag
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+    in which, $v_\mu^0$代表矢量单态外场，$\lambda^0$代表单位矩阵，
+    符号$\langle\cdots\rangle$代表对味道空间求迹。
+
+    十重态协变导数的定义为
+    \begin{equation}\begin{aligned}
+        \label{eq.2.27}
+        %%%%%+++++++++++++++++++++++---------------------
+        (\Gamma_\mu,T_\nu)^{ijk}
+        =(\Gamma_\mu)^i_l T^{ljk}_\nu
+        +(\Gamma_\mu)^j_l T^{ilk}_\nu
+        +(\Gamma_\mu)^k_l T^{ijl}_\nu
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+    介子协变导数定义为
+    \begin{equation}\begin{aligned}
+        \label{eq.2.28}
+        %%%%%+++++++++++++++++++++++---------------------
+        D_\mu U = \partial_\mu U + (i U \lambda^a-i \lambda^a U) v_\mu^a
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+展开\eqref{eq.2.17}式中的定域拉氏量后，我们得到重子——介子相互作用
+
+
+<待补充>
+
+其中忽略了和$\mathcal{H}$有关的项，因为与此计算无关。
+根据\eqref{eq.2.17}式我们可以计算出强子层次上的夸克流$v_\mu^a$，
+<待补充>
+
+除此之外SU(3)味道单态流$v_\mu^0$定义为
+\begin{equation}\begin{aligned}
+    \label{eq.2.31}
+    %%%%%+++++++++++++++++++++++---------------------
+    J^\mu_0
+    = \langle \lambda^0\rangle \tr [\bar{B} \gamma^\mu B]
+    +\langle\lambda^0\rangle \bar{T}_\nu \gamma^{\nu\alpha\mu} T_\alpha
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+其中$\lambda^0$代表$3\times 3$单位矩阵，$\langle ~ \rangle$代表对味道空间求迹。
+
+$8$分量，$3$分量和单态流的线性组合给出三个轻夸克矢量流
+\begin{equation}\begin{aligned}
+    \label{eq.2.32}
+    %%%%%+++++++++++++++++++++++---------------------
+    J^\mu_u &{}= \frac{1}{3} J^\mu_0 + \frac{1}{2} J^\mu_3 + 
+    \frac{1}{2\sqrt{3}} J^\mu_8 \\
+    J^\mu_d &{}= \frac{1}{3} J^\mu_0 - \frac{1}{2} J^\mu_3 + 
+    \frac{1}{2\sqrt{3}} J^\mu_8 \\ \notag
+    J^\mu_s &{}= \frac{1}{3} J^\mu_0 - \frac{1}{\sqrt{3}} J^\mu_8 \\ \notag
+    %%%%%+++++++++++++++++++++++
+\end{aligned}\end{equation}
+
+由\eqref{eq.2.31}，\eqref{eq.2.31}和\eqref{eq.2.32}式，
+得出强子层次上的夸克流$J^\mu_u$，$J^\mu_d$和$J^\mu_s$，
+
+<待补充>
+
+以上表达式中，忽略了与此计算无关的，含$\Xi^{0,-}$和$\Xi^{\ast 0,-}$的夸克流。
+
+以上我们讨论了手征对称性和手征拉氏量以及强子层次上的夸克守恒流。
+为了消除圈图贡献的紫外发散，下一节我们讨论非定域正规化方案及其在手征微扰理论中的应用。
+

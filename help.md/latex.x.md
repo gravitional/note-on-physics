@@ -343,12 +343,44 @@ Particular attention should be paid to units such as "`m/s`"; it's best not to d
 
 ## 数学符号
 
-| `latex` 写法 | 描述 |
-| ----- | ----- |
-| `\oint` |  环路积分 |
-| `\ldots` | lying dots |
-| `\cdots` | centerd dots |
-| `infty` | infinity |
+| `latex` | appearance | 描述 |
+| ----- | ----- |----- |
+| `\oint` | $\oint$ |环路积分 |
+| `\approx` | $\approx$ | Almost equal to (relation) |
+| `\ldots` | $\ldots$ |lying dots |
+| `\cdots` | $\cdots$ | centerd dots |
+| `\infty` | $\infty$ | infinity |
+| `\gg` | $\gg$ |greater greater 远远大于 |
+| `\ll` | $\ll$ | less less 远远小于 |
+| `\propto` | $\propto$ |正比于 |
+| `\in` | $\in$ |属于|
+| `\notin` | $\notin$ | 不属于|
+| `\ast` | $\ast$ | Asterisk operator, convolution, six-pointed (binary)|
+| `\cong` | $\cong$ | Congruent (relation).  |
+| `\dagger` | $\dagger$ | Dagger relation (binary).   |
+| `\equiv` | $\equiv$ | Equivalence (relation).    |
+| `\subset` | $\subset$ | Subset (occasionally, is implied by) (relation) |
+| `\varphi` | $\varphi$ | Variant on the lowercase Greek letter   |
+| `\zeta` | $\varphi$ | Lowercase Greek letter  |
+| `\xi` | $\varphi$ | Lowercase Greek letter  |
+| `\mathsection` | $mathsection$ | Section sign in math mode  |
+| `\langle` | $\langle$ | Section sign in math mode  |
+
+### Trace etc
+
+```latex
+\usepackage{amsmath}
+\DeclareMathOperator{\Tr}{Tr}
+```
+
+### 连字符
+
+连字符（`Hyphens`）、连接号（`En-dashes`）、破折号（`Em-dashes`）及减号（`Minus signs`）
+
++ 连字符 `-` 通常用来连接复合词，比如 `daughter-in-law`。
++ 连接号 `--` 通常用来表示范围，比如 `see pages 5--7`。如果真的希望连续输入两个连字符，使用 `{-}{-}`。
++ 破折号 `---` 是一个正规的标点符号，用来表示转折或者承上启下。要注意的是，破折号与其前后的单词之间不应该存在空格，例如 `A specter is haunting Europe---the specter of Communism.`
++ 排版中的减号应该比连字符要长，因此用来表示减号或者负号时，请严格使用数学模式 $-5$ 而不要使用文字模式 `-5`
 
 ### 绝对值
 
@@ -449,7 +481,6 @@ Synopsis:
 \begin{itemize}
   \item[optional label of first item] text of first item
   \item[optional label of second item] text of second item
-  ...
 \end{itemize}
 ```
 

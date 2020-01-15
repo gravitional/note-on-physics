@@ -1,0 +1,164 @@
+\documentclass[./main.tex]{subfiles}
+\setcounter{chapter}{5}
+
+\chapter{非定域手征微扰理论}
+
+定域手征拉氏量的重整化不同于标准模型的重整化，因为幂数求和规则(power counting)受到破坏，
+因此采用红外减除或heavy--baryon重整化方案。
+但是光锥坐标系中无法采用这些方案。
+
+
+非定域模型的基本思想，是把原来在一个点上的相互作用的场算符放在不同的时空点上，
+并考虑它们原有的对称性。
+
+因为我们的研究对象是强子的电磁结构，强子满足严格U(1)对称性，
+所以把1式中的包含强相互作用和电磁相互作用的拉氏量写成如下形式，
+\begin{equation}\begin{aligned}
+        \label{eq.2.34}
+        %%%%%+++++++++++++++++++++++---------------------
+        \mathcal{L}^{(local)}(x)
+         & {}=\bar{B}(i \gamma^\mu D_{\mu,x} - M_B) B(x)
+        +\frac{C_{B\phi}}{f}
+        \left[
+            \bar{p}(x) \gamma^{\mu} \gamma^5 B(x) D_{\mu,x} \phi(x) + h.c.
+            \right]                                                            \\ \notag
+         & {}+\bar{T}_\mu (x) (
+        i \gamma^{\mu\nu\alpha} D_{\alpha,x} - M_T \gamma^{\mu\nu}
+        )T_\nu(x)                                                              \\ \notag
+         & {}+\frac{C_{T\phi}}{f} \left[
+            \bar{p}(x) \Theta^{\mu\nu} T_\nu(x) D_{\mu,x} \phi(x) + h.c.
+            \right]                                                            \\ \notag
+         & {}+ \frac{i C_{\phi \phi^\dagger}}{2f^2} \bar{p}(x) \gamma^\mu p(x)
+        \left[
+            \phi(x) (D_{\mu,x \phi})^\dagger(x) - D_{\mu,x} \phi(x) \phi^\dagger(x)
+            \right]                                                            \\ \notag
+         & {}+ D_{\mu,x} \phi(x) (D_{\mu,x} \phi)^\dagger + \ldots
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
+
+其中协变导数定义为，
+\begin{equation}\begin{aligned}
+        \label{eq.2.35}
+        %%%%%+++++++++++++++++++++++---------------------
+        D_{\mu,x} B(x)
+         & {} = \left[
+            \partial_\mu - i e^q_B A_\mu(x)
+            \right] B(x),     \\ \notag
+        D_{\mu,x} T^\nu(x)
+         & {} = \left[
+            \partial_\mu - i e^q_T A_\mu(x)
+            \right] T^\nu(x), \\ \notag
+        D_{\mu,x} \phi(x)
+         & {} = \left[
+            \partial_\mu - i e^q_\phi A_\mu(x)
+            \right] \phi(x),  \\
+    \end{aligned}\end{equation}
+
+in which, $e^q_B$，$e^q_T$和$e^q_\phi$分别表示八重态重子$B$，
+十重态重子$T$和赝标量介子$\phi$的夸克电荷，
+比如对质子来说$e^u_p=2 e^d_p=2$，$e^s_p=0$，
+$\Sigma^+$超子的夸克电荷$e^u_{\Sigma^+}=2 e^s_{\Sigma^+}=2$，
+$e^d_{\Sigma^+}=0$，
+\eqref{eq.2.34}中$C_{B\phi}$，$C_{\phi \phi^{\dagger}}$和
+$C_{T\phi}$分别代表八重态重子——介子，十重态重子——介子
+和双介子——核子相互作用耦合常数列于表中。
+从\eqref{eq.2.34}式中我们很容易算出前一节所给出的轻夸克电磁流以及相应的相互作用
+
+<待补充>
+
+\href{table generator}{http://www.tablesgenerator.com/}
+
+由于赝标量介子质量小于八重态和十重态重子质量，我们首先考虑赝标量介子的非定域性。
+定域相互作用中赝标量介子--重子相互作用与同一个时空点$x$上。
+在非定域情况下，我们将赝标量介子移到$x+a$点上。
+考虑对称性后非定域拉氏量可以写成，
+\begin{equation}\begin{aligned}
+        \label{eq.2.36}
+        %%%%%+++++++++++++++++++++++---------------------
+        \mathcal{L}^{nonlocal}(x)
+        &{}=\bar{B}(x) (i \gamma^\mu D_{\mu,x}-M_B)B(x)
+        +\bar{T}_\mu(x)(
+        i \gamma^{\mu\nu\alpha} D_{\alpha,x}-M_T \gamma^{\mu\nu}
+        )T_\nu(x) \\ \notag
+        &{}+\bar{p}(x)\left[
+        \frac{C_{B}\phi}{f} \gamma^\mu \gamma^5 B(x)
+        +\frac{C_{T\phi}}{f}\Theta^{\mu\nu} T_\nu(x)
+        \right] \\ \notag
+        &{}\times \int d^4 a\int d^4 b \mathcal{g}_\phi^q(x+b,x+a)F(a)F(b) \\ \notag
+        &{}\left[
+        \phi(x+a) D_{\mu,x+b\,\phi}^\dagger(x+b)
+        -D_{\mu,x+a}\,\phi(x+a)\phi^\dagger(x+b)    
+        \right]\\ 
+        &{}+ D_{\mu,x}\phi(x) (D_{\mu,x}\phi)^\dagger(x)+\cdots
+        %%%%%+++++++++++++++++++++++---------------------
+    \end{aligned}\end{equation}
+
+in which, $\mathcal{g}^q_\phi$叫做规范链接函数。
+为了保持非定域拉氏量的规范不变性，规范链接函数可以写成，
+\begin{equation}\begin{aligned}
+    \label{eq.2.37}
+    %%%%%+++++++++++++++++++++++---------------------
+   \mathcal{g}^q_\phi=\exp \left[
+   -i e^q_\phi \int_x^y d z^\mu A_\mu(z)
+   \right]
+    %%%%%+++++++++++++++++++++++---------------------
+\end{aligned}\end{equation}
+
+结合规范链接的性质，可验证\eqref{eq.2.36}式满足规范不变性。
+
+除此之外，$F(a)$是时空坐标中的正规化因子，
+其具体形式比较随意，但是要满足一些限制条件。
+在定域极限下，1（动量空间中的定域极限是截断参数1），
+非定域拉氏量回到定域拉氏量。
+我们很容易证明定域和非定域拉氏量1和1在以下规范变换下不变
+\begin{equation}\begin{aligned}
+    %%\label{eq.2.36}
+    %%%%%+++++++++++++++++++++++---------------------
+   B(x) &\to B^\prime(x) = B(x) \exp\left[i e^q_B \theta(x) \right] \\ \notag
+   T_\mu(x) &\to T_\mu^\prime(x) = 
+   T_\mu(x) \exp\left[i e^q_T \theta(x) \right] \\ \notag
+   \phi(x) &\to \phi^\prime(x) = 
+   \phi(x) \exp\left[i e^q_\phi \theta(x) \right] \\ \notag
+    %%%%%+++++++++++++++++++++++---------------------
+\end{aligned}\end{equation}
+
+规范不变性要求规范矢量场满足
+\begin{equation}\begin{aligned}
+    %%\label{eq.2.36}
+    %%%%%+++++++++++++++++++++++---------------------
+   A^\mu(x)\to A^{\prime \mu}(x) = A^\mu(x) +\partial^\mu \theta(x)
+    %%%%%+++++++++++++++++++++++---------------------
+\end{aligned}\end{equation}
+
+in which, $\theta$是任意标量函数。
+对规范链接函数做泰勒展开后得到，
+\begin{equation}\begin{aligned}
+    %%\label{eq.2.36}
+    %%%%%+++++++++++++++++++++++---------------------
+   \mathcal{g}^q_\phi(x+b,x+a) 
+   &{}= \exp \left[
+   -i e^q_\phi(a-b)^\mu \int_0^1 dt A_\mu (x+at+b(1-t))    
+   \right]
+   &{}=1+ \delta \mathcal{g}^q_\phi + \ord (e^q_\phi)
+    %%%%%+++++++++++++++++++++++---------------------
+\end{aligned}\end{equation}
+
+in which, $\ord (e^q_\phi)$是高阶相互作用。
+\begin{equation}\begin{aligned}
+    %%\label{eq.2.36}
+    %%%%%+++++++++++++++++++++++---------------------
+   \delta \mathcal{g}^q_\phi = -i e^q_\phi (a-b)^\mu \int_0^1 dt\, 
+   A_\mu(x+at+b(1-t)) 
+    %%%%%+++++++++++++++++++++++---------------------
+\end{aligned}\end{equation}
+
+以上公式中做了替换$z^\mu\tox^\mu + a^\mu t + b^\mu(1-t)$
+
+$z^\mu\to x^\mu + t (a^\mu-b^\mu) + b^\mu $。
+最后将非定域拉氏量1写成以下部分之和：
+纯强相互作用拉氏量1，电磁相互作用1和规范链接项1.
+
+《待补充》
+
+
+

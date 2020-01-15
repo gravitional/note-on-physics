@@ -1,7 +1,6 @@
 \documentclass[./main.tex]{subfiles}
 \setcounter{chapter}{0}
 
-
 \chapter{留数定理}
 
 对于多项式单宗量复变函数积分，总结起来:
@@ -432,7 +431,7 @@ $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
           对于第四项，计算如下：将$f(z)$在$z=\alpha$的邻域展开为洛朗级数，
           由于$z=\alpha$是$f(z)$的单极点，于是，
           \begin{equation}\begin{aligned}
-                %   \label{eq.4.2.11}
+                  %   \label{eq.4.2.11}
                   %%%%%+++++++++++++++++++++++---------------------
                   f(z)=\frac{a_{-1}}{z-\alpha}+ P(z-\alpha)
                   %%%%%+++++++++++++++++++++++
@@ -440,7 +439,7 @@ $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
 
           其中$P(z-\alpha)$为级数的解析部分，它在$C_\epsilon$上连续且有界，因此，
           \begin{equation}\begin{aligned}
-                %   \label{eq.4.2.11}
+                  %   \label{eq.4.2.11}
                   %%%%%+++++++++++++++++++++++---------------------
                   \abs{\int_{C_\epsilon} P(z-\alpha) dz }
                   \leq \max \abs{P(z-\alpha)} \abs{\int_{C_\epsilon} } \abs{dz}
@@ -450,7 +449,7 @@ $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
 
           所以，
           \begin{equation}\begin{aligned}
-                %   \label{eq.4.2.11}
+                  %   \label{eq.4.2.11}
                   %%%%%+++++++++++++++++++++++---------------------
                   \lim_{\epsilon \to 0} \int_{C_\epsilon} P(z-\alpha) dz=0
                   %%%%%+++++++++++++++++++++++
@@ -458,46 +457,46 @@ $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
 
           而
           \begin{equation}\begin{aligned}
-                %   \label{eq.4.2.11}
+                  %   \label{eq.4.2.11}
                   %%%%%+++++++++++++++++++++++---------------------
                   \int_{C_\epsilon} \frac{a_{-1}}{z-\alpha}dz
                    & {}=
-                  \int_{C_\epsilon}\frac{a_{-1}}{z-\alpha}d(z-\alpha) \\
-                   & {}=\int_{\pi}^0 \frac{a_{-1}}{\epsilon e^{i\phi}} 
-                   \epsilon e^{i\phi} i d\phi
+                  \int_{C_\epsilon}\frac{a_{-1}}{z-\alpha}d(z-\alpha)  \\
+                   & {}=\int_{\pi}^0 \frac{a_{-1}}{\epsilon e^{i\phi}}
+                  \epsilon e^{i\phi} i d\phi
                   =- \pi i a_{-1} = - \pi i \res f(\alpha)
                   %%%%%+++++++++++++++++++++++
               \end{aligned}\end{equation}
 
           于是，由\eqref{eq.4.2.11}取极限$R\to \infty, \epsilon \to 0$，得
           \begin{equation}\begin{aligned}
-            \label{eq.4.2.12}
-            %%%%%+++++++++++++++++++++++---------------------
-            \int_{-\infty}^{\infty} f(x) dx =
-            2 \pi i \sum_\text{the above half} \res f(z) 
-            + \pi i \res f(\alpha)
-            %%%%%+++++++++++++++++++++++
-        \end{aligned}\end{equation}
+                  \label{eq.4.2.12}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_{-\infty}^{\infty} f(x) dx =
+                  2 \pi i \sum_\text{the above half} \res f(z)
+                  + \pi i \res f(\alpha)
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-        若实轴上存在有限个单极点，则类似地可以得到
+          若实轴上存在有限个单极点，则类似地可以得到
 
-        \begin{equation}\begin{aligned}
-            \label{eq.4.2.13}
-            %%%%%+++++++++++++++++++++++---------------------
-            \int_{-\infty}^{\infty} f(x) dx =
-            2 \pi i \sum_\text{the above half}\res f(z) 
-            +\pi i \sum_\text{in the real axis} \res f(z)
-            %%%%%+++++++++++++++++++++++
-        \end{aligned}\end{equation}
+          \begin{equation}\begin{aligned}
+                  \label{eq.4.2.13}
+                  %%%%%+++++++++++++++++++++++---------------------
+                  \int_{-\infty}^{\infty} f(x) dx =
+                  2 \pi i \sum_\text{the above half}\res f(z)
+                  +\pi i \sum_\text{in the real axis} \res f(z)
+                  %%%%%+++++++++++++++++++++++
+              \end{aligned}\end{equation}
 
-        从以上计算看到，实轴上有奇点时，仍归结为留数的计算，但需注意以下两点：
-        \begin{enumerate}
-            \item $C_\epsilon$ 不是闭合曲线，
-            $f(z)$ 洛朗展开的解析部分的积分值只是由于$\epsilon\to 0$才趋近于零
-            \item 实轴上的奇点只能是单极点，不能是二阶或者二阶以上的极点，
-            更不能是本性奇点，否则当$\epsilon \to 0$时，
-            积分$\int_{C_\epsilon}$之值将趋于$\infty$（极点情形）或不存在（本性奇点情形）。
-        \end{enumerate}
+          从以上计算看到，实轴上有奇点时，仍归结为留数的计算，但需注意以下两点：
+          \begin{enumerate}
+              \item $C_\epsilon$ 不是闭合曲线，
+                    $f(z)$ 洛朗展开的解析部分的积分值只是由于$\epsilon\to 0$才趋近于零
+              \item 实轴上的奇点只能是单极点，不能是二阶或者二阶以上的极点，
+                    更不能是本性奇点，否则当$\epsilon \to 0$时，
+                    积分$\int_{C_\epsilon}$之值将趋于$\infty$（极点情形）或不存在（本性奇点情形）。
+          \end{enumerate}
 
 \end{enumerate}
 
@@ -507,24 +506,24 @@ $P(z_0)\neq 0$, 从而$z_0$是$f(z)$的一阶极点, 则
 $f(z)$一致地$\to 0~(0\leq Arg~z \leq \pi )$，$\alpha$为一实数，则按照\eqref{eq.4.2.12}，
 
 \begin{equation}\begin{aligned}
-    \label{eq.4.2.15}
-    %%%%%+++++++++++++++++++++++---------------------
-    \mathcal{P} \int_{-\infty}^{\infty} \frac{f(x)}{x-\alpha} dx =
-    \pi i \cdot \res \text{ of } \frac{f(z)}{z-\alpha}
-    = \pi i~f(\alpha)
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+        \label{eq.4.2.15}
+        %%%%%+++++++++++++++++++++++---------------------
+        \mathcal{P} \int_{-\infty}^{\infty} \frac{f(x)}{x-\alpha} dx =
+        \pi i \cdot \res \text{ of } \frac{f(z)}{z-\alpha}
+        = \pi i~f(\alpha)
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
 
 分别写出实部和虚部
 \begin{equation}\begin{aligned}
-    \label{eq.4.2.16}
-    %%%%%+++++++++++++++++++++++---------------------
-    \re{f(\alpha)} &{}= \frac{1}{\pi} \mathcal{P}
-    \int_{-\infty}^{\infty} \frac{\im f(x)}{x-\alpha} dx \\
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \im{f(\alpha)} &{}= -\frac{1}{\pi} \mathcal{P}
-    \int_{-\infty}^{\infty} \frac{\re f(x)}{x-\alpha} dx 
-    %%%%%+++++++++++++++++++++++
-\end{aligned}\end{equation}
+        \label{eq.4.2.16}
+        %%%%%+++++++++++++++++++++++---------------------
+        \re{f(\alpha)} & {}= \frac{1}{\pi} \mathcal{P}
+        \int_{-\infty}^{\infty} \frac{\im f(x)}{x-\alpha} dx \\
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \im{f(\alpha)} & {}= -\frac{1}{\pi} \mathcal{P}
+        \int_{-\infty}^{\infty} \frac{\re f(x)}{x-\alpha} dx
+        %%%%%+++++++++++++++++++++++
+    \end{aligned}\end{equation}
 
 这一对关系在数学上称之为希尔伯特变换，在物理上称为色散关系。
