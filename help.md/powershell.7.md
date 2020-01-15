@@ -482,7 +482,7 @@ Get-ChildItem *.md
 ```
 
 有时候可能需要使用正则表达式来查找文件，
-不过好像`Get-ChildItem`没有正则表达式查询的命令行，
+好像`Get-ChildItem`没有正则表达式查询的命令行，
 不过我们可以使用`Where-Object`命令来自定义查询。
 如果了解`C#`语言的`LINQ`的话，应该可以猜到，这个命令对应于`LINQ`的`where`语句。
 
