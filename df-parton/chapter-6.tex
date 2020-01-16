@@ -7,12 +7,12 @@
 因此采用红外减除或heavy--baryon重整化方案。
 但是光锥坐标系中无法采用这些方案。
 
-
 非定域模型的基本思想，是把原来在一个点上的相互作用的场算符放在不同的时空点上，
 并考虑它们原有的对称性。
 
 因为我们的研究对象是强子的电磁结构，强子满足严格U(1)对称性，
 所以把1式中的包含强相互作用和电磁相互作用的拉氏量写成如下形式，
+
 \begin{equation}\begin{aligned}
         \label{eq.2.34}
         %%%%%+++++++++++++++++++++++---------------------
@@ -21,46 +21,51 @@
         +\frac{C_{B\phi}}{f}
         \left[
             \bar{p}(x) \gamma^{\mu} \gamma^5 B(x) D_{\mu,x} \phi(x) + h.c.
-            \right]                                                            \\ \notag
-         & {}+\bar{T}_\mu (x) (
+            \right]
+            \\ & {}+
+            \bar{T}_\mu (x) (
         i \gamma^{\mu\nu\alpha} D_{\alpha,x} - M_T \gamma^{\mu\nu}
-        )T_\nu(x)                                                              \\ \notag
-         & {}+\frac{C_{T\phi}}{f} \left[
+        )T_\nu(x)
+        \\ & {}+
+        \frac{C_{T\phi}}{f} \left[
             \bar{p}(x) \Theta^{\mu\nu} T_\nu(x) D_{\mu,x} \phi(x) + h.c.
-            \right]                                                            \\ \notag
-         & {}+ \frac{i C_{\phi \phi^\dagger}}{2f^2} \bar{p}(x) \gamma^\mu p(x)
+            \right]
+            \\ & {}+ 
+            \frac{i C_{\phi \phi^\dagger}}{2f^2} \bar{p}(x) \gamma^\mu p(x)
         \left[
             \phi(x) (D_{\mu,x \phi})^\dagger(x) - D_{\mu,x} \phi(x) \phi^\dagger(x)
-            \right]                                                            \\ \notag
-         & {}+ D_{\mu,x} \phi(x) (D_{\mu,x} \phi)^\dagger + \ldots
+            \right]
+            \\ & {}+
+            D_{\mu,x} \phi(x) (D_{\mu,x} \phi)^\dagger + \ldots
         %%%%%+++++++++++++++++++++++
     \end{aligned}\end{equation}
 
 其中协变导数定义为，
+
 \begin{equation}\begin{aligned}
         \label{eq.2.35}
         %%%%%+++++++++++++++++++++++---------------------
         D_{\mu,x} B(x)
-         & {} = \left[
+         &{} = \left[
             \partial_\mu - i e^q_B A_\mu(x)
-            \right] B(x),     \\ \notag
+            \right] B(x), \\
         D_{\mu,x} T^\nu(x)
-         & {} = \left[
+         &{} = \left[
             \partial_\mu - i e^q_T A_\mu(x)
-            \right] T^\nu(x), \\ \notag
+            \right] T^\nu(x), \\
         D_{\mu,x} \phi(x)
-         & {} = \left[
-            \partial_\mu - i e^q_\phi A_\mu(x)
-            \right] \phi(x),  \\
+         &{} = \left[
+            \partial_\mu - i \eofphi A_\mu(x)
+            \right] \phi(x),
     \end{aligned}\end{equation}
 
-in which, $e^q_B$，$e^q_T$和$e^q_\phi$分别表示八重态重子$B$，
+in which, $e^q_B$，$e^q_T$和$\eofphi$分别表示八重态重子$B$，
 十重态重子$T$和赝标量介子$\phi$的夸克电荷，
 比如对质子来说$e^u_p=2 e^d_p=2$，$e^s_p=0$，
 $\Sigma^+$超子的夸克电荷$e^u_{\Sigma^+}=2 e^s_{\Sigma^+}=2$，
 $e^d_{\Sigma^+}=0$，
 \eqref{eq.2.34}中$C_{B\phi}$，$C_{\phi \phi^{\dagger}}$和
-$C_{T\phi}$分别代表八重态重子——介子，十重态重子——介子
+$C_{T \phi}$分别代表八重态重子——介子，十重态重子——介子
 和双介子——核子相互作用耦合常数列于表中。
 从\eqref{eq.2.34}式中我们很容易算出前一节所给出的轻夸克电磁流以及相应的相互作用
 
@@ -72,6 +77,7 @@ $C_{T\phi}$分别代表八重态重子——介子，十重态重子——介子
 定域相互作用中赝标量介子--重子相互作用与同一个时空点$x$上。
 在非定域情况下，我们将赝标量介子移到$x+a$点上。
 考虑对称性后非定域拉氏量可以写成，
+
 \begin{equation}\begin{aligned}
         \label{eq.2.36}
         %%%%%+++++++++++++++++++++++---------------------
@@ -79,27 +85,28 @@ $C_{T\phi}$分别代表八重态重子——介子，十重态重子——介子
          & {}=\bar{B}(x) (i \gamma^\mu D_{\mu,x}-M_B)B(x)
         +\bar{T}_\mu(x)(
         i \gamma^{\mu\nu\alpha} D_{\alpha,x}-M_T \gamma^{\mu\nu}
-        )T_\nu(x)                                                            \\ \notag
+        )T_\nu(x)                    \\
          & {}+\bar{p}(x)\left[
             \frac{C_{B}\phi}{f} \gamma^\mu \gamma^5 B(x)
             +\frac{C_{T\phi}}{f}\Theta^{\mu\nu} T_\nu(x)
-            \right]                                                          \\ \notag
-         & {}\times \int d^4 a\int d^4 b \mathcal{g}_\phi^q(x+b,x+a)F(a)F(b) \\ \notag
-         & {}\left[
+            \right]                  \\
+         & {}\times \int d^4 a\int d^4 b \mathcal{G}_\phi^q(x+b,x+a)F(a)F(b) 
+         \\ & {}\left[
         \phi(x+a) D_{\mu,x+b\,\phi}^\dagger(x+b)
         -D_{\mu,x+a}\,\phi(x+a)\phi^\dagger(x+b)
-        \right]                                                              \\
+        \right]       \\
          & {}+ D_{\mu,x}\phi(x) (D_{\mu,x}\phi)^\dagger(x)+\cdots
         %%%%%+++++++++++++++++++++++---------------------
     \end{aligned}\end{equation}
 
-in which, ${\mathcal{g}}^q_\phi $ 叫做规范链接函数。
+in which, $\mathcal{G}^q_\phi $ 叫做规范链接函数。
 为了保持非定域拉氏量的规范不变性，规范链接函数可以写成，
+
 \begin{equation}\begin{aligned}
         \label{eq.2.37}
         %%%%%+++++++++++++++++++++++---------------------
-        \mathcal{g}^q_\phi=\exp \left[
-            -i e^q_\phi \int_x^y d z^\mu A_\mu(z)
+        \mathcal{G}^q_\phi=\exp \left[
+            -i \eofphi \int_x^y d z^\mu A_\mu(z)
             \right]
         %%%%%+++++++++++++++++++++++---------------------
     \end{aligned}\end{equation}
@@ -111,18 +118,22 @@ in which, ${\mathcal{g}}^q_\phi $ 叫做规范链接函数。
 在定域极限下，1（动量空间中的定域极限是截断参数1），
 非定域拉氏量回到定域拉氏量。
 我们很容易证明定域和非定域拉氏量1和1在以下规范变换下不变
+
 \begin{equation}\begin{aligned}
         %%\label{eq.2.36}
         %%%%%+++++++++++++++++++++++---------------------
-        B(x)     & \to B^\prime(x) = B(x) \exp\left[i e^q_B \theta(x) \right] \\ \notag
-        T_\mu(x) & \to T_\mu^\prime(x) =
-        T_\mu(x) \exp\left[i e^q_T \theta(x) \right]                          \\ \notag
-        \phi(x)  & \to \phi^\prime(x) =
-        \phi(x) \exp\left[i e^q_\phi \theta(x) \right]                        
+        B(x)     & \to B^\prime(x) = B(x) \exp\left[i e^q_B \theta(x) \right] 
+        \\ T_\mu(x) & \to 
+        T_\mu^\prime(x) =
+        T_\mu(x) \exp\left[i e^q_T \theta(x) \right]  
+        \\ \phi(x)  & \to 
+        \phi^\prime(x) =
+        \phi(x) \exp\left[i \eofphi \theta(x) \right]
         %%%%%+++++++++++++++++++++++---------------------
     \end{aligned}\end{equation}
 
 规范不变性要求规范矢量场满足
+
 \begin{equation}\begin{aligned}
         %%\label{eq.2.36}
         %%%%%+++++++++++++++++++++++---------------------
@@ -132,22 +143,25 @@ in which, ${\mathcal{g}}^q_\phi $ 叫做规范链接函数。
 
 in which, $\theta$是任意标量函数。
 对规范链接函数做泰勒展开后得到，
+
 \begin{equation}\begin{aligned}
         %%\label{eq.2.36}
         %%%%%+++++++++++++++++++++++---------------------
-        \mathcal{g}^q_\phi(x+b,x+a)
+        \mathcal{G}^q_\phi(x+b,x+a)
          & {}= \exp \left[
-            -i e^q_\phi(a-b)^\mu \int_0^1 dt A_\mu (x+at+b(1-t))
-            \right] 
-        \\ \notag & {}=1+ \delta \mathcal{g}^q_\phi + \ord (e^q_\phi)
+            -i \eofphi(a-b)^\mu \int_0^1 dt A_\mu (x+at+b(1-t))
+            \right]
+        \\  & {}=
+        1+ \delta \mathcal{G}^q_\phi + \ord (\eofphi)
         %%%%%+++++++++++++++++++++++---------------------
     \end{aligned}\end{equation}
 
-in which, $\ord (e^q_\phi)$是高阶相互作用。
+in which, $\ord (\eofphi)$是高阶相互作用。
+
 \begin{equation}\begin{aligned}
         %%\label{eq.2.36}
         %%%%%+++++++++++++++++++++++---------------------
-        \delta \mathcal{g}^q_\phi = -i e^q_\phi (a-b)^\mu \int_0^1 dt\,
+        \delta \mathcal{G}^q_\phi = -i \eofphi (a-b)^\mu \int_0^1 dt\,
         A_\mu(x+at+b(1-t))
         %%%%%+++++++++++++++++++++++---------------------
     \end{aligned}\end{equation}
@@ -162,26 +176,112 @@ $z^\mu\to x^\mu + t (a^\mu-b^\mu) + b^\mu $。
 
 《待补充》
 
-最后$\delta \mathcal{g}_\phi^q$项产生额外的电磁相互作用，其表达式为
+最后$\delta \mathcal{G}_\phi^q$项产生额外的电磁相互作用，其表达式为
+
 \begin{equation}\begin{aligned}
         %%\label{eq.2.36}
         %%%%%+++++++++++++++++++++++---------------------
-        \mathcal{L}^{nonlocal}_{link} 
-        &{}= -i e^q_\phi \bar{p}(x) \left[
+        \mathcal{L}^{nonlocal}_{link}
+         & {}= -i \eofphi \bar{p}(x) \left[
             \frac{C_{B\phi}}{f} \gamma^\rho \gamma^5 B(x)
             \frac{C_{T\phi}}{f} \Theta^\rho\nu T_\nu(x)
-        \right]
-        \times \int_0^1 dt \int d^4a F(a) a^\mu \partial_\rho \phi(x+a)
-        A_\mu(x+at)+h.c. 
-        \\ \notag &{}+ \frac{e^q_\phi C_{\phi\phi^\dagger}}{2f^2}
-        \bar{p}(x) \gamma^\rho p(x) \int_0^1 dt \int d^4a 
-        \int d^4b F(a) F(b) (a-b)^\mu  
-        \\ \notag &{}\times \left[
-        \phi(x+a) \partial_\rho \phi^\dagger(x+b)
-        -\partial_\rho \phi(x+a) \phi^\dagger(x+b)    
-        \right] 
-        \\ \notag &{}\times A_\mu(x+at+b(1-t))
+            \right] \times
+        \\  &{} \phantom{\times} 
+        \int_0^1 dt \int d^4a F(a) a^\mu \partial_\rho \phi(x+a)
+        A_\mu(x+at)+h.c.
+        \\  &{}+ 
+        \frac{\eofphi \coupleofphi}{2f^2}
+        \bar{p}(x) \gamma^\rho p(x) \int_0^1 dt \int d^4a
+        \int d^4b F(a) F(b) (a-b)^\mu \times
+        \\  &{} \phantom{\times} 
+        \left[
+            \phi(x+a) \partial_\rho \phi^\dagger(x+b)
+            -\partial_\rho \phi(x+a) \phi^\dagger(x+b)
+            \right]
+        \times A_\mu(x+at+b(1-t))
         %%%%%+++++++++++++++++++++++---------------------
     \end{aligned}\end{equation}
 
+显然这种类型的相互作用正比于粒子之间的相对距离$a$和$b$，
+如果介子场是定域场，额外电磁相互作用项消失。
+从非定域拉氏量可以得到非定域夸克流$J^{\mu,q}_\mathrm{em}$
 
+\begin{equation}\begin{aligned}
+        %%\label{eq.2.36}
+        %%%%%+++++++++++++++++++++++---------------------
+        J^{\mu}_\mathrm{q,em}
+         & {}\equiv\frac{
+        \delta \int d^4y\, \mathcal{L}^{(nonlocal)}_{\mathrm{em}} (y)
+        }{\delta A_\mu (x)}
+        \\  &{} =
+        e^q_B \bar{B}(x) \gamma^\mu B(x) +
+        e^q_T \bar{T}_\alpha(x) \gamma^{\alpha\nu\mu} T_\nu(x)
+        +i \eofphi \left[
+            \partial^\mu \phi(x)\phi^\dagger(x)-
+            \phi(x)\partial^\mu \phi^\dagger(x)
+            \right]
+        \\  &{} -
+        i \eofphi \int d^4a F(a) \bar{p}(x-a)
+        \left[
+            \frac{C_{B\phi}}
+            {f} \gamma^\mu \gamma^5 B(x-a) +
+            \frac{C_{T\phi}}
+            {f} \Theta^{\mu\nu} T_\nu(x-a)
+            \right]\phi (x) +h.c.
+        \\  & - \frac{\eofphi \coupleofphi}
+        {2f^2} \int d^4a F(a) \int d^4b F(b) \times
+        \\  &{} \phantom{\times}
+        \left[
+            \bar{p}(x-a) \gamma^\mu p(x-a) \phi(x)\phi^\dagger(x+b-a)
+            +\bar{p}(x-b) \gamma^\mu p(x-b) \phi(x+a-b) \phi^\dagger(x)
+            \right]
+        %%%%%+++++++++++++++++++++++---------------------
+    \end{aligned}\end{equation}
+
+采用同样的方法可以得到规范链接流
+
+\begin{equation}\begin{aligned}
+        %%\label{eq.2.36}
+        %%%%%+++++++++++++++++++++++---------------------
+        \frac{
+            \delta A_\mu (y)
+        }{\delta A_\mu (x)} & {}= \delta(y-x) =\delta(x-y) \\  
+        \frac{
+            \delta \int d^4y\, A_\mu (y) f(y)
+        }{\delta A_\mu (x)} & {}= \int d^4y\, \delta(y-x) f(y) =f(x)
+        %%%%%+++++++++++++++++++++++---------------------
+    \end{aligned}\end{equation}
+
+apply this rule, we get,
+
+\begin{equation}\begin{aligned}
+        %%\label{eq.2.36}
+        %%%%%+++++++++++++++++++++++---------------------
+        J^{\mu}_\mathrm{q,link}
+         & {}\equiv \frac{
+        \delta \int d^4y\, \mathcal{L}^{(nonlocal)}_{\mathrm{link}} (y)
+        }{\delta A_\mu (x)}
+        %%%%%%%%%%%%%%%
+        \\  &{} =
+        -i\eofphi \int_0^1 dt \int d^4a \, F(a) a^\mu \bar{p}(x-at) \times
+        \\  &{}
+        \left[
+            \frac{C_{B_\phi}}{f}
+            \gamma^\rho \gamma^5 B(x-at) +
+            \frac{C_{T\phi}}{f}
+            \Theta^{\rho\nu} T_\nu (x-at)
+            \right]
+        \partial_\rho \phi(x+a(1-t))+h.c.
+        \\  &{} + \frac{\eofphi\,\coupleofphi}{2f^2}
+        \int_0^1 dt \int d^4a F(a) \int d^4b (a-b)^\mu
+        \\  &{}
+        \bar{p}(x-at-b(1-t))
+        \gamma^\rho p(x-at-b(1-t))\times
+        \\  &{} \phantom{\times}
+        \left[
+            \phi(x+(a-b)(1-t)) \partial_\rho \phi^\dagger (x-(a-b)t)
+            -\partial_\rho \phi(x+(a-b)(1-t))
+            \phi^\dagger(x-(a-b)t)
+            \right]
+        %%%%%+++++++++++++++++++++++---------------------
+    \end{aligned}\end{equation}

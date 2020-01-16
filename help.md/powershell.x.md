@@ -20,6 +20,9 @@ Get-Command -Noun Help
 Get-Command -CommandType Alias | where {$_.DisplayName -like -join("*", "Get-Command", "*") }
 ```
 
++ select -> Select-Object
++ gcm -> Get-Command
+
 ## 命令行历史
 
 我们通常会在`Console`界面中运行多次命令或者命令行，
@@ -911,3 +914,39 @@ True
 
 首先是`>`和`>>`运算符，用于将标准输出流重定向到文件，前者会覆盖已有文件，
 后者则是追加到已有文件末尾。
+
+## 循环
+
+### for循环
+
+`for`循环可以看做是`while`循环的另一种形式，常用于固定次数的循环。
+
+```powershell
+for ($i = 0; $i -ne 3; $i++) {
+    Write-Output $i
+}
+```
+
+`foreach-object`循环
+
+alias `foreach -> ForEach-Object`
+
+`foreach-object`循环用于遍历一个集合中的所有元素。
+
+```powershell
+$array = @(1, 2, 3, 4)
+foreach ($i in $array) {
+    Write-Output $i
+}
+```
+
+值得一提的是，`foreach-object`语句用在管道上时，还有以下一种用法。
+
+```powershell
+<command> | foreach {<beginning command_block>}{<middle command_block>}{<ending command_block>}
+```
+
+使用这种方法时，`for-each`后面可以跟三个语句块，第一个语句块是开始语句块，
+在循环前执行一次，常用来初始化一些数据；
+第三个是结束语句块，在循环结束之后执行一次，常用于统计一些循环数据；
+第二个就是正常的循环语句块，会循环多次。

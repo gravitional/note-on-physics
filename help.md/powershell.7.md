@@ -296,9 +296,11 @@ for ($i = 0; $i -ne 3; $i++) {
 }
 ```
 
-`for-each`循环
+`foreach-object`循环
 
-`for-each`循环用于遍历一个集合中的所有元素。
+alias `foreach -> ForEach-Object`
+
+`foreach-object`循环用于遍历一个集合中的所有元素。
 
 ```powershell
 $array = @(1, 2, 3, 4)
@@ -307,7 +309,7 @@ foreach ($i in $array) {
 }
 ```
 
-值得一提的是，`for-each`语句用在管道上时，还有以下一种用法。
+值得一提的是，`foreach-object`语句用在管道上时，还有以下一种用法。
 
 ```powershell
 <command> | foreach {<beginning command_block>}{<middle command_block>}{<ending command_block>}
