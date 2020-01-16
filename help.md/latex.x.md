@@ -1,5 +1,15 @@
 # latex.x.md
 
+## texdoc
+
+The man page points these command line options as being equivalent to using the command forms such as `\scrollmode`, for which the official doc is the `TeXBook`, or
+
+```powershell
+texdoc texbytopic
+```
+
+for a free alternative (see chapter 32).
+
 ## latex 编译调试
 
 ### 报错示例-1
@@ -7,7 +17,7 @@
 ```latex
 ./chapter-6.tex:58: Undefined control sequence.
 l.58             \partial_\mu - i \eofphi
-                                          A_\mu(x)
+                                           A_\mu(x)
 Output written on temp/main.xdv (21 pages, 329924 bytes).
 SyncTeX written on temp/main.synctex.gz.
 
@@ -17,20 +27,30 @@ Transcript written on temp/main.log.
 ### 简短版latexmk
 
 ```powershell
-$temp=(latexmk -f -xelatex); Write-Output "##########################" ;$temp | Where-Object {$_ -like "*tex:*"}
+$mk_message=(latexmk -f -xelatex); Write-Output ("*" * 90);$mk_message | Where-Object {$_ -like "*tex:*"}
 ```
 
 ### 详细版latexmk
 
 ```powershell
-$temp=(latexmk -f -xelatex);
-#give the error message
-$line_start=($temp | where {$_ -match '[ ./\w]+tex:\d+:[ \w]+'});
-$line_end=($temp | where {$_ -match '^Transcript[ \w]*'});
-$length=$line_start.count
+if ($null -eq $args[0]) {
+    # the default tex compiler, used to compile the '*.tex' files
+    $tex_compiler = "-xelatex";
+}
+else {
+    $tex_compiler = $args[0]
+};
+
+$mk_message = (latexmk -f "$tex_compiler");
+#detect the line number of the error message
+$line_start = ($mk_message | Where-Object { $_ -match '[ ./\w]+tex:\d+:[ \w]+' });
+$line_end = ($mk_message | Where-Object { $_ -match '^Transcript[ \w]*' });
+$length = ($line_start.count - 1)
+## show the erroe message
+Write-Output ("`n" * 2 + "the error message start" + "`n" * 2 );
 for ($i = 0; $i -le $length; $i++) {
-Write-Output "##########################" ;
-$temp[$temp.IndexOf($line_start[$i])..($temp.IndexOf($line_end[$i])-1)]
+    Write-Output ("*" * 90);
+    $mk_message[$mk_message.IndexOf($line_start[$i])..($mk_message.IndexOf($line_end[$i]))] | Select-Object -First 10
 }
 ```
 
@@ -618,7 +638,7 @@ Especially for lists with short items, it may be desirable to elide space betwee
   {\end{itemize}}
 ```
 
-## 在文中使用链接
+## 超链接
 
 使用宏包 `hyperref` 来制作
 

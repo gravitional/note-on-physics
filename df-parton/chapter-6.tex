@@ -71,10 +71,10 @@ $C_{T \phi}$分别代表八重态重子——介子，十重态重子——介�
 
 <待补充>
 
-\href{http://www.tablesgenerator.com/}{table generator}
+\href{http://www.tablesgenerator.com}{table generator}
 
 由于赝标量介子质量小于八重态和十重态重子质量，我们首先考虑赝标量介子的非定域性。
-定域相互作用中赝标量介子--重子相互作用与同一个时空点$x$上。
+定域相互作用中赝标量介子——重子相互作用与同一个时空点$x$上。
 在非定域情况下，我们将赝标量介子移到$x+a$点上。
 考虑对称性后非定域拉氏量可以写成，
 
@@ -115,9 +115,9 @@ in which, $\mathcal{G}^q_\phi $ 叫做规范链接函数。
 
 除此之外，$F(a)$是时空坐标中的正规化因子，
 其具体形式比较随意，但是要满足一些限制条件。
-在定域极限下，1（动量空间中的定域极限是截断参数1），
+在定域极限下，$F(a)=\delta^4(a)$（动量空间中的定域极限是截断参数$\Lambda\to \infty$），
 非定域拉氏量回到定域拉氏量。
-我们很容易证明定域和非定域拉氏量1和1在以下规范变换下不变
+我们很容易证明定域和非定域拉氏量\eqref{eq.2.36}和\eqref{eq.2.34}在以下规范变换下不变
 
 \begin{equation}\begin{aligned}
         %%\label{eq.2.36}
@@ -241,7 +241,7 @@ $z^\mu\to x^\mu + t (a^\mu-b^\mu) + b^\mu $。
 采用同样的方法可以得到规范链接流
 
 \begin{equation}\begin{aligned}
-        %%\label{eq.2.36}
+        %%% \label{eq.2.45}
         %%%%%+++++++++++++++++++++++---------------------
         \frac{
             \delta A_\mu (y)
@@ -255,7 +255,7 @@ $z^\mu\to x^\mu + t (a^\mu-b^\mu) + b^\mu $。
 apply this rule, we get,
 
 \begin{equation}\begin{aligned}
-        %%\label{eq.2.36}
+        \label{eq.2.45}
         %%%%%+++++++++++++++++++++++---------------------
         J^{\mu}_\mathrm{q,link}
          & {}\equiv \frac{
@@ -263,8 +263,9 @@ apply this rule, we get,
         }{\delta A_\mu (x)}
         %%%%%%%%%%%%%%%
         \\  &{} =
-        -i\eofphi \int_0^1 dt \int d^4a \, F(a) a^\mu \bar{p}(x-at) \times
-        \\  &{}
+        -i\eofphi \int_0^1 dt \int d^4a \, F(a) a^\mu \times
+        \\  &{} \phantom{\times} 
+        \bar{p}(x-at) 
         \left[
             \frac{C_{B_\phi}}{f}
             \gamma^\rho \gamma^5 B(x-at) +
@@ -273,9 +274,9 @@ apply this rule, we get,
             \right]
         \partial_\rho \phi(x+a(1-t))+h.c.
         \\  &{} + \frac{\eofphi\,\coupleofphi}{2f^2}
-        \int_0^1 dt \int d^4a F(a) \int d^4b (a-b)^\mu
-        \\  &{}
-        \bar{p}(x-at-b(1-t))
+        \int_0^1 dt \int d^4a F(a) \int d^4b 
+        \\  &{} \phantom{\times} 
+        (a-b)^\mu\bar{p}(x-at-b(1-t))
         \gamma^\rho p(x-at-b(1-t))\times
         \\  &{} \phantom{\times}
         \left[
@@ -285,3 +286,21 @@ apply this rule, we get,
             \right]
         %%%%%+++++++++++++++++++++++---------------------
     \end{aligned}\end{equation}
+
+    从 \eqref{eq.2.45} 式子可以看出规范链接流$\delta J^\mu_q (x)$正比于$a^\mu$，
+    这跟定域守恒流的洛伦兹结构不一样。
+    并在定域极限$a\to 0$下，额外电磁流$\delta J^\mu_q (x)$为零。
+    
+    额外守恒流$\delta J^\mu_q(x)$引入一些额外的费曼图，它们使得规范不变性得以保持
+
+    \section{本章总结}
+
+    这一张我们主要讨论了手征对称性和手征拉氏量，并阐述了非定域手征拉氏量的构造过程。
+    为了消除圈图计算中出现的紫外发散，引进了非定域正规化方案。
+    跟其他正规化不同的是，非定域正规化在拉氏量层次消除紫外发散。
+    为了保持规范不变性，非定域拉氏量中引入规范链接算符，
+    因此产生额外的守恒流。
+    此外，非丁羽手征拉氏量包含正规化因子$F(a)$，它反映了粒子的非定域效应。
+    原来的拉氏量非定域化后圈积分是超重整的。
+    利用这些非定域手征拉氏量，下一章我们研究在两种正规化方案
+    （非定域正规和Pauli-Villars正规化）中的八重态重子和十重态重子分裂函数。

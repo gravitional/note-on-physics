@@ -20,13 +20,13 @@ $out_dir = "temp";
 
 #编译完成后自动打开 pdf；还可以用 $pdf_previewer 配置 pdf 阅读器， 以及 $preview_continuous_mode 连续自动编译
 $preview_mode = 1;
-$pdf_previewer="C:\Program Files\SumatraPDF\SumatraPDF.exe"; 
+#$pdf_previewer="C:\Program Files\SumatraPDF\SumatraPDF.exe"; 
 
-额外需要清理的辅助文件；如配置过 $out_dir 就不再需要了。
+#额外需要清理的辅助文件；如配置过 $out_dir 就不再需要了。
 #$clean_ext = "hd nav snm synctex.gz xdv";
  
 
-一些宏包需要额外的编译命令， 比如 nomencl 宏包需要调用 makeindex 命令将 nlo 文件编译成 nls 文件， 所以要手动配置这个编译过程。
+#一些宏包需要额外的编译命令， 比如 nomencl 宏包需要调用 makeindex 命令将 nlo 文件编译成 nls 文件， 所以要手动配置这个编译过程。
 add_cus_dep('glo', 'gls', 0, 'glo2gls');
 sub glo2gls {
     system("makeindex -s gglo.ist -o \"$_[0].gls\" \"$_[0].glo\"");

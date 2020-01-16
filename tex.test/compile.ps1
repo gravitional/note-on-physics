@@ -3,7 +3,7 @@
 # $compilename="xelatex.exe";
 
 param(
-[string]$compilename=$(throw "Parameter missing: -name Name,` 
+[string]$compilename=$(throw "Parameter missing: -name Name,`
 command should be like : .\complie.ps1 xelatex ")
 )
 
@@ -41,4 +41,4 @@ foreach ( $texmain in $texfiles)
 }
 
 # open all the pdf files in the sumatrapdf.exe, replace it into path of your computers.
-&'C:\Program Files\SumatraPDF\SumatraPDF.exe'  (Get-ChildItem | where Name -Like "*.pdf")
+&'C:\Program Files\SumatraPDF\SumatraPDF.exe'  (Get-ChildItem | Where-Object Name -Like "*.pdf")

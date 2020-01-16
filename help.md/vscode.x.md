@@ -13,3 +13,13 @@ $temp=latexmk -f -xelatex; Write-Output "++++++++++++" ;$temp | Where-Object {$_
 ```powershell
 $temp | Where-Object {$_ -like "*tex:*"}
 ```
+
+## 快速打开文件
+
+Keyboard Shortcut: `Ctrl+P`
+
+### Open multiple files from Quick Open
+
+You can open multiple files from Quick Open by pressing the `Right arrow key`.
+This will open the currently selected file in the background
+and you can continue selecting files from Quick Open.
