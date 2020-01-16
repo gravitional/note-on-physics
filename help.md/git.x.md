@@ -44,3 +44,17 @@ git restore --source master~2 Makefile
 ```git
 git restore --source=9ea00d1 parton.note.1.nb
 ```
+
+## git重命名文件夹
+
+不用先在本地修改文件夹名称
+
+文件夹名称: `game`   文件夹修改后名称: `gamesdk`
+
++ `git mv game gamesdk`
++ `git commit -m 'rename dir game to gamesdk'`
++ `git push origin dev`  推送到`dev`分支
+
+ref: [git重命名文件夹][]
+
+[git重命名文件夹]: https://www.jianshu.com/p/e886fde18ba0
