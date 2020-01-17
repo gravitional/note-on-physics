@@ -432,73 +432,6 @@ These are different from `accents` in `normal text` (see `Accents`).
 + 破折号 `---` 是一个正规的标点符号，用来表示转折或者承上启下。要注意的是，破折号与其前后的单词之间不应该存在空格，例如 `A specter is haunting Europe---the specter of Communism.`
 + 排版中的减号应该比连字符要长，因此用来表示减号或者负号时，请严格使用数学模式 $-5$ 而不要使用文字模式 `-5`
 
-## 数学符号
-
-| `latex` | appearance | 描述 |
-| ----- | ----- |----- |
-| `\oint` | $\oint$ |环路积分 |
-| `\approx` | $\approx$ | Almost equal to (relation) |
-| `\ldots` | $\ldots$ |lying dots |
-| `\cdots` | $\cdots$ | centerd dots |
-| `\infty` | $\infty$ | infinity |
-| `\gg` | $\gg$ |greater greater 远远大于 |
-| `\ll` | $\ll$ | less less 远远小于 |
-| `\propto` | $\propto$ |正比于 |
-| `\in` | $\in$ |属于|
-| `\notin` | $\notin$ | 不属于|
-| `\ast` | $\ast$ | Asterisk operator, convolution, six-pointed (binary)|
-| `\cong` | $\cong$ | Congruent (relation).  |
-| `\dagger` | $\dagger$ | Dagger relation (binary).   |
-| `\equiv` | $\equiv$ | Equivalence (relation).    |
-| `\subset` | $\subset$ | Subset (occasionally, is implied by) (relation) |
-| `\varphi` | $\varphi$ | Variant on the lowercase Greek letter   |
-| `\zeta` | $\varphi$ | Lowercase Greek letter  |
-| `\xi` | $\varphi$ | Lowercase Greek letter  |
-| `\mathsection` | $mathsection$ | Section sign in math mode  |
-| `\langle` | $\langle$ | Section sign in math mode  |
-
-### 自定义数学符号
-
-\mathrm v.s. \text
-
-[is-there-a-preference-of-when-to-use-text-and-mathrm][]
-
-[is-there-a-preference-of-when-to-use-text-and-mathrm]: https://tex.stackexchange.com/questions/19502/is-there-a-preference-of-when-to-use-text-and-mathrm
-
-*Caution: the following discussion assumes that the package amsmath has been loaded.*
-In general `\mathrm` should be used for "symbols" and `\text` for, yes, text . :)
-
-However, it's best to use operators for clusters of Roman letters that represent functions: the commands `\lcm` and `\gcd` are predefined; for "ord" there's not a predefined command, but it suffices to put in the preamble
-
-```latex
-\DeclareMathOperator{\ord}{ord}
-```
-
-In this case `\text{divides}` and `\mathrm{divides}` might give the same result, but they are conceptually different (and can actually be printed in different ways, depending on the math fonts used).
-Spaces in the argument of `\mathrm` are ignored, for example. Moreover, `\text` honors the font of the surrounding environment: it will print in italics in the statement of a theorem.
-
-Particular attention should be paid to units such as "`m/s`"; it's best not to do them "by hand", but employ a package like `siunitx` that takes care of all the subtleties, while being very flexible.
-
-#### 求迹 Trace etc
-
-```latex
-\usepackage{amsmath}
-\DeclareMathOperator{\Tr}{Tr}
-```
-
-### 定义配对的数学符号
-
-绝对值
-`\vert` `|`
-
-Single line vertical bar (ordinary).
-
-Similar: double-line vertical bar `\Vert`.
-For such that, as in the definition of a set, use `\mid` because it is a relation.
-
-For absolute value you can use the `mathtools` package and in your preamble put `\DeclarePairedDelimiter\abs{\lvert}{\rvert}`.
-This gives you three command variants for single-line vertical bars that are correctly horizontally spaced: if in the document body you write the starred version $\abs*{\frac{22}{7}}$ then the height of the vertical bars will match the height of the argument, whereas with \abs{\frac{22}{7}} the bars do not grow with the height of the argument but instead are the default height, and \abs[size command]{\frac{22}{7}} also gives bars that do not grow but are set to the size given in the size command, e.g., \Bigg.
-
 ## 计数器 Counters
 
 Everything `LaTeX` numbers for you has a `counter` associated with it.
@@ -740,3 +673,72 @@ ref-3: [查找任意符号的LaTeX指令][]
 [The Comprehensive LaTeX Symbol List]: http://mirrors.ustc.edu.cn/CTAN/info/symbols/comprehensive/symbols-a4.pdf
 
 [Detexify]: http://detexify.kirelabs.org/classify.html
+
+## 数学符号
+
+| `latex` | appearance | 描述 |
+| ----- | ----- |----- |
+| `\oint` | $\oint$ |环路积分 |
+| `\approx` | $\approx$ | Almost equal to (relation) |
+| `\ldots` | $\ldots$ |lying dots |
+| `\cdots` | $\cdots$ | centerd dots |
+| `\infty` | $\infty$ | infinity |
+| `\gg` | $\gg$ |greater greater 远远大于 |
+| `\ll` | $\ll$ | less less 远远小于 |
+| `\propto` | $\propto$ |正比于 |
+| `\in` | $\in$ |属于|
+| `\notin` | $\notin$ | 不属于|
+| `\ast` | $\ast$ | Asterisk operator, convolution, six-pointed (binary)|
+| `\cong` | $\cong$ | Congruent (relation).  |
+| `\dagger` | $\dagger$ | Dagger relation (binary).   |
+| `\equiv` | $\equiv$ | Equivalence (relation).    |
+| `\subset` | $\subset$ | Subset (occasionally, is implied by) (relation) |
+| `\varphi` | $\varphi$ | Variant on the lowercase Greek letter   |
+| `\zeta` | $\zeta$ | Lowercase Greek letter  |
+| `\Zeta` | $\Zeta$ | Lowercase Greek letter  |
+| `\xi` | $\xi$ | Lowercase Greek letter  |
+| `\upsilon` | $\upsilon$ | Lowercase Greek letter  |
+| `\mathsection` | $mathsection$ | Section sign in math mode  |
+| `\langle` | $\langle$ | Section sign in math mode  |
+
+### 自定义数学符号
+
+\mathrm v.s. \text
+
+[is-there-a-preference-of-when-to-use-text-and-mathrm][]
+
+[is-there-a-preference-of-when-to-use-text-and-mathrm]: https://tex.stackexchange.com/questions/19502/is-there-a-preference-of-when-to-use-text-and-mathrm
+
+*Caution: the following discussion assumes that the package amsmath has been loaded.*
+In general `\mathrm` should be used for "symbols" and `\text` for, yes, text . :)
+
+However, it's best to use operators for clusters of Roman letters that represent functions: the commands `\lcm` and `\gcd` are predefined; for "ord" there's not a predefined command, but it suffices to put in the preamble
+
+```latex
+\DeclareMathOperator{\ord}{ord}
+```
+
+In this case `\text{divides}` and `\mathrm{divides}` might give the same result, but they are conceptually different (and can actually be printed in different ways, depending on the math fonts used).
+Spaces in the argument of `\mathrm` are ignored, for example. Moreover, `\text` honors the font of the surrounding environment: it will print in italics in the statement of a theorem.
+
+Particular attention should be paid to units such as "`m/s`"; it's best not to do them "by hand", but employ a package like `siunitx` that takes care of all the subtleties, while being very flexible.
+
+#### 求迹 Trace etc
+
+```latex
+\usepackage{amsmath}
+\DeclareMathOperator{\Tr}{Tr}
+```
+
+### 定义配对的数学符号
+
+绝对值
+`\vert` `|`
+
+Single line vertical bar (ordinary).
+
+Similar: double-line vertical bar `\Vert`.
+For such that, as in the definition of a set, use `\mid` because it is a relation.
+
+For absolute value you can use the `mathtools` package and in your preamble put `\DeclarePairedDelimiter\abs{\lvert}{\rvert}`.
+This gives you three command variants for single-line vertical bars that are correctly horizontally spaced: if in the document body you write the starred version $\abs*{\frac{22}{7}}$ then the height of the vertical bars will match the height of the argument, whereas with \abs{\frac{22}{7}} the bars do not grow with the height of the argument but instead are the default height, and \abs[size command]{\frac{22}{7}} also gives bars that do not grow but are set to the size given in the size command, e.g., \Bigg.
