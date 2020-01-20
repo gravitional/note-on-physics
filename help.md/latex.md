@@ -34,7 +34,7 @@ Usage: xetex [OPTION]... [TEXNAME[.tex]] [COMMANDS]
    or: xetex [OPTION]... \FIRST-LINE
    or: xetex [OPTION]... &FMT ARGS
 ```
-  
+
 Run XeTeX on `TEXNAME`, usually creating `TEXNAME.pdf`.
 Any remaining `COMMANDS` are processed as `XeTeX input`, after `TEXNAME` is read.
 
@@ -185,7 +185,7 @@ linktocpage=true, %
 ### email链接
 
 ```latex
-\href{mailto:michaelbibby@gmail.com}{给我电邮}}
+\href{mailto:michaelbibby@gmail.com}{给我电邮}
 ```
 
 ### URL链接
@@ -211,3 +211,11 @@ linktocpage=true, %
 [LaTeX技巧159：如何在文中使用链接][]
 
 [LaTeX技巧159：如何在文中使用链接]: https://www.latexstudio.net/archives/7741.html
+
+##  反向搜索设置 SumatraPDF
+```
+"C:\Users\Thomas\AppData\Local\Programs\Microsoft VS Code\Code.exe"  "C:\Users\Thomas\AppData\Local\Programs\Microsoft VS Code\resources\app\out\cli.js" -r -g "%f:%l"
+```
+[使用VSCode编写LaTeX][]
+
+[使用VSCode编写LaTeX]: https://blog.csdn.net/fenzang/article/details/99805315
