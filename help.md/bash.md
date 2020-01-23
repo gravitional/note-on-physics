@@ -109,6 +109,13 @@
 
 ## 压缩/解压
 
+### 7z
+
+```bash
+7z a win.configrc.7z -pxxxxx `@tom.configrc
+7z x win.configrc.7z -pxxxxx
+```
+
 ### tar
 
 解包：`tar xvf FileName.tar`
@@ -708,3 +715,5 @@ fc-cache
 [refer2]: https://segmentfault.com/a/1190000004168301
 
 [refer3]: https://www.v2ex.com/t/453862
+
+
