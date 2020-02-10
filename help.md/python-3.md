@@ -4,116 +4,87 @@ ref: [这是小白的Python新手教程][]
 
 [这是小白的Python新手教程]: https://www.liaoxuefeng.com/wiki/1016959663602400
 
-## 图形界面
+## 面向对象编程
 
-Python支持多种图形界面的第三方库，包括：
+面向对象编程——Object Oriented Programming，简称OOP，是一种程序设计思想。OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。
 
-+ `Tk`
-+ `wxWidgets`
-+ `Qt`
-+ `GTK`
+面向过程的程序设计把计算机程序视为一系列的命令集合，即一组函数的顺序执行。为了简化程序设计，面向过程把函数继续切分为子函数，即把大块函数通过切割成小块函数来降低系统的复杂度。
 
-等等。
+而面向对象的程序设计把计算机程序视为一组对象的集合，而每个对象都可以接收其他对象发过来的消息，并处理这些消息，计算机程序的执行就是一系列消息在各个对象之间传递。
 
-但是Python自带的库是支持`Tk`的`Tkinter`，使用`Tkinter`，无需安装任何包，就可以直接使用。本章简单介绍如何使用Tkinter进行GUI编程。
+在Python中，所有数据类型都可以视为对象，当然也可以自定义对象。自定义的对象数据类型就是面向对象中的类（Class）的概念。
 
-### Tkinter
+我们以一个例子来说明面向过程和面向对象在程序流程上的不同之处。
 
-我们来梳理一下概念：
-
-我们编写的Python代码会调用内置的Tkinter，Tkinter封装了访问Tk的接口；
-Tk是一个图形库，支持多个操作系统，使用`Tcl`语言开发；
-Tk会调用操作系统提供的本地GUI接口，完成最终的GUI。
-
-所以，我们的代码只需要调用Tkinter提供的接口就可以了。
-
-### 第一个GUI程序
-
-使用Tkinter十分简单，我们来编写一个GUI版本的“Hello, world!”。
-
-第一步是导入Tkinter包的所有内容：
+假设我们要处理学生的成绩表，为了表示一个学生的成绩，面向过程的程序可以用一个dict表示：
 
 ```python
-from tkinter import *
+std1 = { 'name': 'Michael', 'score': 98 }
+std2 = { 'name': 'Bob', 'score': 81 }
 ```
 
-第二步是从`Frame`派生一个`Application`类，这是所有`Widget`的父容器：
+而处理学生成绩可以通过函数实现，比如打印学生的成绩：
 
 ```python
-class Application(Frame):
-    def __init__(self, master=None):
-        Frame.__init__(self, master)
-        self.pack()
-        self.createWidgets()
-
-    def createWidgets(self):
-        self.helloLabel = Label(self, text='Hello, world!')
-        self.helloLabel.pack()
-        self.quitButton = Button(self, text='Quit', command=self.quit)
-        self.quitButton.pack()
+def print_score(std):
+    print('%s: %s' % (std['name'], std['score']))
 ```
 
-在GUI中，每个Button、Label、输入框等，都是一个Widget。
-Frame则是可以容纳其他Widget的Widget，所有的Widget组合起来就是一棵树。
-
-`pack()`方法把Widget加入到父容器中，并实现布局。
-`pack()`是最简单的布局，`grid()`可以实现更复杂的布局。
-
-在`createWidgets()`方法中，我们创建一个Label和一个Button，当Button被点击时，触发`self.quit()`使程序退出。
-
-第三步，实例化Application，并启动消息循环：
+如果采用面向对象的程序设计思想，我们首选思考的不是程序的执行流程，而是Student这种数据类型应该被视为一个对象，这个对象拥有name和score这两个属性（Property）。如果要打印一个学生的成绩，首先必须创建出这个学生对应的对象，然后，给对象发一个print_score消息，让对象自己把自己的数据打印出来。
 
 ```python
-app = Application()
-# 设置窗口标题:
-app.master.title('Hello World')
-# 主消息循环:
-app.mainloop()
+class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
 ```
 
-GUI程序的主线程负责监听来自操作系统的消息，并依次处理每一条消息。因此，如果消息处理非常耗时，就需要在新线程中处理。
-
-运行这个GUI程序，可以看到下面的窗口：
+给对象发消息实际上就是调用对象对应的关联函数，我们称之为对象的方法（Method）。面向对象的程序写出来就像这样：
 
 ```python
-tk-hello-world
+bart = Student('Bart Simpson', 59)
+lisa = Student('Lisa Simpson', 87)
+bart.print_score()
+lisa.print_score()
 ```
 
-点击“Quit”按钮或者窗口的“x”结束程序。
+面向对象的设计思想是从自然界中来的，因为在自然界中，类（Class）和实例（Instance）的概念是很自然的。Class是一种抽象概念，比如我们定义的Class——Student，是指学生这个概念，而实例（Instance）则是一个个具体的Student，比如，Bart Simpson和Lisa Simpson是两个具体的Student。
 
-#### 输入文本
+所以，面向对象的设计思想是抽象出Class，根据Class创建Instance。
 
-我们再对这个GUI程序改进一下，加入一个文本框，让用户可以输入文本，然后点按钮后，弹出消息对话框。
+面向对象的抽象程度又比函数要高，因为一个Class既包含数据，又包含操作数据的方法。
 
-```python
-from tkinter import *
-import tkinter.messagebox as messagebox
+小结
 
-class Application(Frame):
-    def __init__(self, master=None):
-        Frame.__init__(self, master)
-        self.pack()
-        self.createWidgets()
+数据封装、继承和多态是面向对象的三大特点，我们后面会详细讲解。
 
-    def createWidgets(self):
-        self.nameInput = Entry(self)
-        self.nameInput.pack()
-        self.alertButton = Button(self, text='Hello', command=self.hello)
-        self.alertButton.pack()
+### 类和实例
 
-    def hello(self):
-        name = self.nameInput.get() or 'world'
-        messagebox.showinfo('Message', 'Hello, %s' % name)
+## IO编程
 
-app = Application()
-# 设置窗口标题:
-app.master.title('Hello World')
-# 主消息循环:
-app.mainloop()
-```
+IO在计算机中指Input/Output，也就是输入和输出。由于程序和运行时数据是在内存中驻留，由CPU这个超快的计算核心来执行，涉及到数据交换的地方，通常是磁盘、网络等，就需要IO接口。
 
-当用户点击按钮时，触发`hello()`，通过`self.nameInput.get()`获得用户输入的文本后，使用`tkMessageBox.showinfo()`可以弹出消息对话框。
+比如你打开浏览器，访问新浪首页，浏览器这个程序就需要通过网络IO获取新浪的网页。浏览器首先会发送数据给新浪服务器，告诉它我想要首页的HTML，这个动作是往外发数据，叫Output，随后新浪服务器把网页发过来，这个动作是从外面接收数据，叫Input。所以，通常，程序完成IO操作会有Input和Output两个数据流。当然也有只用一个的情况，比如，从磁盘读取文件到内存，就只有Input操作，反过来，把数据写到磁盘文件里，就只是一个Output操作。
 
-#### 小结-gui 程序
+IO编程中，Stream（流）是一个很重要的概念，可以把流想象成一个水管，数据就是水管里的水，但是只能单向流动。Input Stream就是数据从外面（磁盘、网络）流进内存，Output Stream就是数据从内存流到外面去。对于浏览网页来说，浏览器和新浪服务器之间至少需要建立两根水管，才可以既能发数据，又能收数据。
 
-Python内置的`Tkinter`可以满足基本的GUI程序的要求，如果是非常复杂的GUI程序，建议用操作系统原生支持的语言和库来编写。
+由于CPU和内存的速度远远高于外设的速度，所以，在IO编程中，就存在速度严重不匹配的问题。举个例子来说，比如要把100M的数据写入磁盘，CPU输出100M的数据只需要0.01秒，可是磁盘要接收这100M数据可能需要10秒，怎么办呢？有两种办法：
+
+第一种是CPU等着，也就是程序暂停执行后续代码，等100M的数据在10秒后写入磁盘，再接着往下执行，这种模式称为同步IO；
+
+另一种方法是CPU不等待，只是告诉磁盘，“您老慢慢写，不着急，我接着干别的事去了”，于是，后续代码可以立刻接着执行，这种模式称为异步IO。
+
+同步和异步的区别就在于是否等待IO执行的结果。好比你去麦当劳点餐，你说“来个汉堡”，服务员告诉你，对不起，汉堡要现做，需要等5分钟，于是你站在收银台前面等了5分钟，拿到汉堡再去逛商场，这是同步IO。
+
+你说“来个汉堡”，服务员告诉你，汉堡需要等5分钟，你可以先去逛商场，等做好了，我们再通知你，这样你可以立刻去干别的事情（逛商场），这是异步IO。
+
+很明显，使用异步IO来编写程序性能会远远高于同步IO，但是异步IO的缺点是编程模型复杂。想想看，你得知道什么时候通知你“汉堡做好了”，而通知你的方法也各不相同。如果是服务员跑过来找到你，这是回调模式，如果服务员发短信通知你，你就得不停地检查手机，这是轮询模式。总之，异步IO的复杂度远远高于同步IO。
+
+操作IO的能力都是由操作系统提供的，每一种编程语言都会把操作系统提供的低级C接口封装起来方便使用，Python也不例外。我们后面会详细讨论Python的IO编程接口。
+
+注意，本章的IO编程都是同步模式，异步IO由于复杂度太高，后续涉及到服务器端程序开发时我们再讨论
+
