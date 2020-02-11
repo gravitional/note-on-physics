@@ -701,21 +701,9 @@ def count():
 ```python
 # -*- coding: utf-8 -*-
 
-def number():
-    a=0
-    while True:
-        a=a+1
-        yield a
-    return 'done'
-
 def createCounter():
-    while True:
-        b=b+1
-        yield b
-
     def counter():
-        i=i+1
-        return i
+        return 1
     return counter
 ```
 
@@ -723,8 +711,9 @@ def createCounter():
 # -*- coding: utf-8 -*-
 
 def createCounter():
+    num=(x for x in range(1,1000,1))
     def counter():
-        return 1
+        return next(num)
     return counter
 
 # 测试:
@@ -736,6 +725,43 @@ if [counterB(), counterB(), counterB(), counterB()] == [1, 2, 3, 4]:
 else:
     print('测试失败!')
 ```
+
+### 命名空间
+
+ref: [Python LEGB规则][]
+
+[Python LEGB规则]: https://www.jianshu.com/p/3b72ba5a209c
+
+```python
+#!/usr/bin/env python
+# encoding: utf-8
+
+x = 1
+
+def foo():
+    x = 2
+    def innerfoo():
+        x = 3                  #此处改动：注释掉
+        print 'locals ', x
+    innerfoo()
+    print 'enclosing function locals ', x
+
+foo()
+print 'global ', x
+```
+
+在上述两个例子中，从内到外，依次形成四个命名空间：
+
++ `def innerfoo():`：Local， 即函数内部命名空间；
++ `def foo():`：Enclosing function locals；外部嵌套函数的名字空间
++ `module(文件本身)`：Global(module)；函数定义所在模块（文件）的名字空间
++ `Python内置模块的名字空间`：Builtin
+
+`x = 3` 属于函数内部命名空间，当被注释掉之后，函数`innerfoo`内部通过`print x` 使用`x`这个名称时，触发了名称查找动作。
+首先在`Local`命名空间查找，没有找到，然后到`Enclosing function locals`命名空间查找，查找成功，然后调用。
+
+>如果函数接收到的是一个可变对象（dict、list），就能修改对象的原始值，
+>如果是不可变对象（num、str、tuple），则不能直接修改对象
 
 ### 匿名函数
 
