@@ -1,4 +1,4 @@
-# python-3.md
+# python-x.md
 
 ref: [这是小白的Python新手教程][]
 
