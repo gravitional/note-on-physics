@@ -996,7 +996,7 @@ while n < 10:
 
 执行上面的代码可以看到，打印的不是`1～10`，而是`1，3，5，7，9`。
 
-可见continue的作用是提前结束本轮循环，并直接开始下一轮循环。
+可见`continue`的作用是提前结束本轮循环，并直接开始下一轮循环。
 
 小结
 
@@ -2150,11 +2150,14 @@ def fact_iter(num, product):
 # -*- coding: utf-8 -*-
 def move(n, a, b, c):
     if n == 1:
-        print(a, '-->', c)
-    return (move(n-1,a,c,b),print(a, '-->', c),move(n-1,b,a,c))
-```
+        return str(a)+'-->'+str(c)
+    else:
+        return (move(n-1,a,c,b),print(a, '-->', c),move(n-1,b,a,c))
 
-```python
+f=move(4,'A','B','C')
+f
+len(f)
+
 # 期待输出:
 # A --> C
 # A --> B
@@ -2163,7 +2166,6 @@ def move(n, a, b, c):
 # B --> A
 # B --> C
 # A --> C
-move(3, 'A', 'B', 'C')
 ```
 
 ## 高级特性
@@ -2336,7 +2338,7 @@ def trim(s):
 
 ### 迭代
 
-如果给定一个list或tuple，我们可以通过`fo`r循环来遍历这个list或tuple，这种遍历我们称为迭代（`Iteration`）。
+如果给定一个list或tuple，我们可以通过`fo`r循环来遍历这个`list`或`tuple`，这种遍历我们称为迭代（`Iteration`）。
 
 在Python中，迭代是通过`for ... in`来完成的，而很多语言比如C语言，迭代list是通过下标完成的，比如Java代码：
 
@@ -2346,9 +2348,9 @@ for (i=0; i<list.length; i++) {
 }
 ```
 
-可以看出，Python的`for`循环抽象程度要高于C的`for`循环，因为Python的`for`循环不仅可以用在list或tuple上，还可以作用在其他可迭代对象上。
+可以看出，Python的`for`循环抽象程度要高于C的`for`循环，因为Python的`for`循环不仅可以用在`list`或`tuple`上，还可以作用在其他可迭代对象上。
 
-list这种数据类型虽然有下标，但很多其他数据类型是没有下标的，但是，只要是可迭代对象，无论有无下标，都可以迭代，比如dict就可以迭代：
+`list`这种数据类型虽然有下标，但很多其他数据类型是没有下标的，但是，只要是可迭代对象，无论有无下标，都可以迭代，比如dict就可以迭代：
 
 ```python
 >>> d = {'a': 1, 'b': 2, 'c': 3}
@@ -2360,14 +2362,15 @@ c
 b
 ```
 
-因为dict的存储不是按照list的方式顺序排列，所以，迭代出的结果顺序很可能不一样。
+因为`dict`的存储不是按照list的方式顺序排列，所以，迭代出的结果顺序很可能不一样。
 
-默认情况下，dict迭代的是`key`。如果要迭代`value`，
+默认情况下，`dict`迭代的是`key`。如果要迭代`value`，
 可以用`for value in d.values()`，
 如果要同时迭代`key`和`value`，可以用`for k, v in d.items()`.
+
 此处必须用 `values()`,`items()` 是类的属性
 
-由于字符串也是可迭代对象，因此，也可以作用于for循环：
+由于字符串也是可迭代对象，因此，也可以作用于`for`循环：
 
 ```python
 >>> for ch in 'ABC':
@@ -2378,7 +2381,7 @@ B
 C
 ```
 
-所以，当我们使用for循环时，只要作用于一个可迭代对象，for循环就可以正常运行，而我们不太关心该对象究竟是list还是其他数据类型。
+所以，当我们使用`for`循环时，只要作用于一个可迭代对象，`for`循环就可以正常运行，而我们不太关心该对象究竟是list还是其他数据类型。
 
 那么，如何判断一个对象是可迭代对象呢？方法是通过`collections`模块的`Iterable`类型判断：
 
@@ -2392,9 +2395,9 @@ True
 False
 ```
 
-最后一个小问题，如果要对list实现类似Java那样的下标循环怎么办？
-Python内置的`enumerate`函数可以把一个list变成`索引-元素对`，
-这样就可以在for循环中同时迭代索引和元素本身：
+最后一个小问题，如果要对`list`实现类似Java那样的下标循环怎么办？
+Python内置的`enumerate`函数可以把一个`list`变成`索引-元素对`，
+这样就可以在`for`循环中同时迭代索引和元素本身：
 
 ```python
 >>> for i, value in enumerate(['A', 'B', 'C']):

@@ -529,7 +529,7 @@ print('ok')
 
 collections是Python内建的一个集合模块，提供了许多有用的集合类。
 
-#### namedtuple
+#### namedtuple-命名元组
 
 我们知道`tuple`可以表示不变集合，例如，一个点的二维坐标就可以表示成：
 
@@ -572,7 +572,7 @@ True
 Circle = namedtuple('Circle', ['x', 'y', 'r'])
 ```
 
-#### deque
+#### deque-双向列表
 
 使用`list`存储数据时，按索引访问元素很快，但是插入和删除元素就很慢了，因为list是线性存储，数据量大的时候，插入和删除效率很低。
 
@@ -590,7 +590,7 @@ deque(['y', 'a', 'b', 'c', 'x'])
 `deque`除了实现list的`append()`和`pop()`外，
 还支持`appendleft()`和`popleft()`，这样就可以非常高效地往头部添加或删除元素。
 
-#### defaultdict
+#### defaultdict-缺失key自定义
 
 使用`dict`时，如果引用的Key不存在，就会抛出KeyError。如果希望key不存在时，返回一个默认值，就可以用defaultdict：
 
@@ -608,7 +608,7 @@ deque(['y', 'a', 'b', 'c', 'x'])
 
 除了在Key不存在时返回默认值，`defaultdict`的其他行为跟dict是完全一样的。
 
-#### OrderedDict
+#### OrderedDict-有序字典
 
 使用dict时，`Key`是无序的。在对dict做迭代时，我们无法确定`Key`的顺序。
 
@@ -659,7 +659,7 @@ class LastUpdatedOrderedDict(OrderedDict):
         OrderedDict.__setitem__(self, key, value)
 ```
 
-#### ChainMap
+#### ChainMap-字典串联
 
 `ChainMap`可以把一组`dict`串起来并组成一个逻辑上的`dict`。`ChainMap`本身也是一个`dict`，但是查找的时候，会按照顺序在内部的dict依次查找。
 
@@ -717,7 +717,7 @@ color=green
 user=bob
 ```
 
-#### Counter
+#### Counter-统计频率
 
 `Counter`是一个简单的计数器，例如，统计字符出现的个数：
 
@@ -736,11 +736,11 @@ Counter({'r': 2, 'o': 2, 'g': 2, 'm': 2, 'l': 2, 'p': 1, 'a': 1, 'i': 1, 'n': 1,
 
 `Counter`实际上也是`dict`的一个子类，上面的结果可以看出每个字符出现的次数。
 
-#### 小结
+#### 小结-collections
 
 `collections`模块提供了一些有用的集合类，可以根据需要选用。
 
-### base64
+### base64-二进制打印
 
 `Base64`是一种用64个字符来表示任意二进制数据的方法。
 
@@ -835,7 +835,7 @@ assert b'abcd' == safe_base64_decode(b'YWJjZA'), safe_base64_decode('YWJjZA')
 print('ok')
 ```
 
-### struct
+### struct-二进制格式化
 
 + `0110110`->bit（比特）
 + 8`个比特（`bit`）作为一个字节（`byte`）
@@ -955,7 +955,7 @@ assert bi['color'] == 16
 print('ok')
 ```
 
-### hashlib
+### hashlib-哈希算法
 
 摘要算法简介
 
@@ -1173,7 +1173,7 @@ assert not login('alice', 'Alice2008')
 print('ok')
 ```
 
-#### hmac
+#### hmac-赋key哈希算法
 
 通过哈希算法，我们可以验证一段数据是否有效，方法就是对比该数据的哈希值，例如，判断用户口令是否正确，我们用保存在数据库中的password_md5对比计算md5(password)的结果，如果一致，用户输入的口令就是正确的。
 
@@ -1242,7 +1242,7 @@ print('ok')
 
 Python内置的`hmac`模块实现了标准的`Hmac`算法，它利用一个`key`对message计算“杂凑”后的`hash`，使用`hmac`算法比标准`hash`算法更安全，因为针对相同的message，不同的key会产生不同的`hash`。
 
-### itertools
+### itertools-迭代器
 
 Python的内建模块`itertools`提供了非常有用的用于操作迭代对象的函数。
 
@@ -1377,6 +1377,611 @@ assert 3.1414 < pi(10000) < 3.1415
 print('ok')
 ```
 
+```python
+import itertools,logging
+logging.basicConfig(level=logging.INFO)
+
+def pi(N):
+    natuals = itertools.count(1)
+    nums = itertools.cycle((4,-4))
+    def pi_series():
+        while True:
+            yield (next(natuals),next(nums))
+    new_pi_series=list(itertools.takewhile(
+    lambda x: abs(x[0])<= N, pi_series()))
+    logging.info('the calc series is = %s' % str(new_pi_series[:2])+'<head-tail>'+str(new_pi_series[-2:]))
+    pi_finite=0
+    for nat, num in new_pi_series:
+        pi_finite=pi_finite+(num/(2*nat-1))
+    logging.info('the calculated pi is %s' % pi_finite)
+    return pi_finite
+
+# 测试:
+print(pi(10))
+print(pi(100))
+print(pi(1000))
+print(pi(10000))
+assert 3.04 < pi(10) < 3.05
+assert 3.13 < pi(100) < 3.14
+assert 3.140 < pi(1000) < 3.141
+assert 3.1414 < pi(10000) < 3.1415
+print('ok')
+```
+
 #### 小结-itertools
 
 `itertools`模块提供的全部是处理迭代功能的函数，它们的返回值不是`list`，而是`Iterator`，只有用`for`循环迭代的时候才真正计算。
+
+### contextlib-上下文管理
+
+在Python中，读写文件这样的资源要特别注意，必须在使用完毕后正确关闭它们。
+正确关闭文件资源的一个方法是使用`try...finally`：
+
+```python
+try:
+    f = open('/path/to/file', 'r')
+    f.read()
+finally:
+    if f:
+        f.close()
+```
+
+写`try...finally`非常繁琐。
+Python的`with`语句允许我们非常方便地使用资源，而不必担心资源没有关闭，所以上面的代码可以简化为：
+
+```python
+with open('/path/to/file', 'r') as f:
+    f.read()
+```
+
+并不是只有`open()`函数返回的`fp`对象才能使用`with`语句。实际上，任何对象，只要正确实现了上下文管理，就可以用于with语句。
+
+实现上下文管理是通过`__enter__`和`__exit__`这两个方法实现的。例如，下面的`class`实现了这两个方法：
+
+```python
+class Query(object):
+
+    def __init__(self, name):
+        self.name = name
+
+    def __enter__(self):
+        print('Begin')
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        if exc_type:
+            print('Error')
+        else:
+            print('End')
+
+    def query(self):
+        print('Query info about %s...' % self.name)
+```
+
+这样我们就可以把自己写的资源对象用于with语句：
+
+```python
+with Query('Bob') as q:
+    q.query()
+```
+
+#### @contextmanager
+
+编写`__enter__`和`__exit__`仍然很繁琐，因此Python的标准库`contextlib`提供了更简单的写法，上面的代码可以改写如下：
+
+```python
+from contextlib import contextmanager
+
+class Query(object):
+
+    def __init__(self, name):
+        self.name = name
+
+    def query(self):
+        print('Query info about %s...' % self.name)
+
+@contextmanager
+def create_query(name):
+    print('Begin')
+    q = Query(name)
+    yield q
+    print('End')
+```
+
+`@contextmanager`这个`decorator`接受一个`generator`，用`yield`语句把`with ... as var`把变量输出出去，然后，`with`语句就可以正常地工作了：
+
+```python
+with create_query('Bob') as q:
+    q.query()
+```
+
+很多时候，我们希望在某段代码执行前后自动执行特定代码，也可以用`@contextmanager`实现。例如：
+
+```python
+@contextmanager
+def tag(name):
+    print("<%s>" % name)
+    yield
+    print("</%s>" % name)
+
+with tag("h1"):
+    print("hello")
+    print("world")
+```
+
+上述代码执行结果为：
+
+```python
+<h1>
+hello
+world
+</h1>
+```
+
+代码的执行顺序是：
+
++ `with`语句首先执行`yield`之前的语句，因此打印出`<h1>`；
++ `yield`调用会执行`with`语句内部的所有语句，因此打印出`hello`和`world`；
++ 最后执行`yield`之后的语句，打印出`</h1>`。
+
+因此，`@contextmanager`让我们通过编写`generator`来简化上下文管理。
+
+#### @closing
+
+如果一个对象没有实现上下文，我们就不能把它用于`with`语句。这个时候，可以用`closing()`来把该对象变为上下文对象。例如，用`with`语句使用`urlopen()`：
+
+```python
+from contextlib import closing
+from urllib.request import urlopen
+
+with closing(urlopen('https://www.python.org')) as page:
+    for line in page:
+        print(line)
+```
+
+`closing`也是一个经过`@contextmanager`装饰的`generator`，这个`generator`编写起来其实非常简单：
+
+```python
+@contextmanager
+def closing(thing):
+    try:
+        yield thing
+    finally:
+        thing.close()
+```
+
+它的作用就是把任意对象变为上下文对象，并支持`with`语句。
+
+`@contextlib`还有一些其他`decorator`，便于我们编写更简洁的代码。
+
+>上下文管理器是：
+>有一个特殊的语句块，在执行这个语句块之前需要先执行一些准备动作；当语句块执行完成后，需要继续执行一些收尾动作。
+
+### urllib-URL操作
+
+`urllib`提供了一系列用于操作URL的功能。
+
+#### Get
+
+`urllib`的`request`模块可以非常方便地抓取`URL`内容，
+也就是发送一个`GET`请求到指定的页面，然后返回`HTTP`的响应：
+例如，对[豆瓣的一个URL][] 进行抓取, 并返回响应：
+
+[豆瓣的一个URL]: https://api.douban.com/v2/book/2129650
+
+```python
+from urllib import request
+
+with request.urlopen('https://api.douban.com/v2/book/2129650') as f:
+    data = f.read()
+    print('Status:', f.status, f.reason)
+    for k, v in f.getheaders():
+        print('%s: %s' % (k, v))
+    print('Data:', data.decode('utf-8'))
+```
+
+可以看到`HTTP`响应的头和`JSON`数据：
+
+```python
+Status: 200 OK
+Server: nginx
+Date: Tue, 26 May 2015 10:02:27 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 2049
+Connection: close
+Expires: Sun, 1 Jan 2006 01:00:00 GMT
+Pragma: no-cache
+Cache-Control: must-revalidate, no-cache, private
+X-DAE-Node: pidl1
+Data: {"rating":{"max":10,"numRaters":16,"average":"7.4","min":0},"subtitle":"","author":["廖雪峰编著"],"pubdate":"2007-6",...}
+```
+
+如果我们要想模拟浏览器发送`GET`请求，就需要使用`Request`对象，通过往`Request`对象添加`HTTP`头，我们就可以把请求伪装成浏览器。
+例如，模拟`iPhone 6`去请求豆瓣首页：
+
+```python
+from urllib import request
+
+req = request.Request('http://www.douban.com/')
+req.add_header('User-Agent', 'Mozilla/6.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/8.0 Mobile/10A5376e Safari/8536.25')
+with request.urlopen(req) as f:
+    print('Status:', f.status, f.reason)
+    for k, v in f.getheaders():
+        print('%s: %s' % (k, v))
+    print('Data:', f.read().decode('utf-8'))
+```
+
+这样豆瓣会返回适合`iPhone`的移动版网页：
+
+```python
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" sizes="57x57" href="http://img4.douban.com/pics/cardkit/launcher/57.png" />
+```
+
+#### Post
+
+如果要以`POST`发送一个请求，只需要把参数`data`以`bytes`形式传入。
+
+我们模拟一个微博登录，先读取登录的邮箱和口令，
+然后按照`weibo.cn`的登录页的格式以`username=xxx&password=xxx`的编码传入：
+
+```python
+from urllib import request, parse
+
+print('Login to weibo.cn...')
+email = input('Email: ')
+passwd = input('Password: ')
+login_data = parse.urlencode([
+    ('username', email),
+    ('password', passwd),
+    ('entry', 'mweibo'),
+    ('client_id', ''),
+    ('savestate', '1'),
+    ('ec', ''),
+    ('pagerefer', 'https://passport.weibo.cn/signin/welcome?entry=mweibo&r=http%3A%2F%2Fm.weibo.cn%2F')
+])
+
+req = request.Request('https://passport.weibo.cn/sso/login')
+req.add_header('Origin', 'https://passport.weibo.cn')
+req.add_header('User-Agent', 'Mozilla/6.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/8.0 Mobile/10A5376e Safari/8536.25')
+req.add_header('Referer', 'https://passport.weibo.cn/signin/login?entry=mweibo&res=wel&wm=3349&r=http%3A%2F%2Fm.weibo.cn%2F')
+
+with request.urlopen(req, data=login_data.encode('utf-8')) as f:
+    print('Status:', f.status, f.reason)
+    for k, v in f.getheaders():
+        print('%s: %s' % (k, v))
+    print('Data:', f.read().decode('utf-8'))
+```
+
+如果登录成功，我们获得的响应如下：
+
+```python
+Status: 200 OK
+Server: nginx/1.2.0
+...
+Set-Cookie: SSOLoginState=1432620126; path=/; domain=weibo.cn
+...
+Data: {"retcode":20000000,"msg":"","data":{...,"uid":"1658384301"}}
+```
+
+如果登录失败，我们获得的响应如下：
+
+```python
+Data: {"retcode":50011015,"msg":"\u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef","data":{"username":"example@python.org","errline":536}}
+```
+
+#### Handler
+
+如果还需要更复杂的控制，比如通过一个Proxy去访问网站，我们需要利用`ProxyHandler`来处理，示例代码如下：
+
+```python
+proxy_handler = urllib.request.ProxyHandler({'http': 'http://www.example.com:3128/'})
+proxy_auth_handler = urllib.request.ProxyBasicAuthHandler()
+proxy_auth_handler.add_password('realm', 'host', 'username', 'password')
+opener = urllib.request.build_opener(proxy_handler, proxy_auth_handler)
+with opener.open('http://www.example.com/login.html') as f:
+    pass
+```
+
+#### 小结-urllib
+
+`urllib`提供的功能就是利用程序去执行各种`HTTP`请求。
+如果要模拟浏览器完成特定功能，需要把请求伪装成浏览器。
+伪装的方法是先监控浏览器发出的请求，再根据浏览器的请求头来伪装，
+`User-Agent`头就是用来标识浏览器的。
+
+#### 练习-urllib
+
+利用`urllib`读取`JSON`，然后将`JSON`解析为`Python`对象：
+
+```python
+# -*- coding: utf-8 -*-
+from urllib import request
+import json
+
+def fetch_data(url):
+    with request.urlopen(str(url)) as f:
+        data = f.read().decode('utf-8')
+        return json.loads(data)
+
+
+# 测试
+URL = 'https://yesno.wtf/api'
+data = fetch_data(URL)
+print(data)
+assert data['answer']== 'yes' and (data['forced']== False)
+print('ok')
+```
+
+`dumps()`方法返回一个`str`，内容就是标准的`JSON`。类似的，`dump()`方法可以直接把`JSON`写入一个file-like Object。
+
+要把`JSON`反序列化为Python对象，用`loads()`或者对应的`load()`方法，前者把`JSON`的字符串反序列化，后者从`file-like Object`中读取字符串并反序列化：
+
+### XML
+
+`XML`虽然比`JSON`复杂，在`Web`中应用也不如以前多了，不过仍有很多地方在用，所以，有必要了解如何操作`XML`。
+
+#### DOM vs SAX
+
+操作`XML`有两种方法：`DOM`和`SAX`。`DOM`会把整个XML读入内存，解析为树，因此占用内存大，解析慢，优点是可以任意遍历树的节点。`SAX`是流模式，边读边解析，占用内存小，解析快，缺点是我们需要自己处理事件。
+
+正常情况下，优先考虑`SAX`，因为`DOM`实在太占内存。
+
+在Python中使用`SAX`解析`XML`非常简洁，通常我们关心的事件是`start_element`，`end_element`和`char_data`，准备好这`3`个函数，然后就可以解析`xml`了。
+
+举个例子，当`SAX`解析器读到一个节点时：
+
+```python
+<a href="/">python</a>
+```
+
+会产生3个事件：
+
++ `start_element`事件，在读取`<a href="/">`时；
++ `char_data`事件，在读取`python`时；
++ `end_element`事件，在读取`</a>`时。
+
+用代码实验一下：
+
+```python
+from xml.parsers.expat import ParserCreate
+
+class DefaultSaxHandler(object):
+    def start_element(self, name, attrs):
+        print('sax:start_element: %s, attrs: %s' % (name, str(attrs)))
+
+    def end_element(self, name):
+        print('sax:end_element: %s' % name)
+
+    def char_data(self, text):
+        print('sax:char_data: %s' % text)
+
+xml = r'''<?xml version="1.0"?>
+<ol>
+    <li><a href="/python">Python</a></li>
+    <li><a href="/ruby">Ruby</a></li>
+</ol>
+'''
+
+handler = DefaultSaxHandler()
+parser = ParserCreate()
+parser.StartElementHandler = handler.start_element
+parser.EndElementHandler = handler.end_element
+parser.CharacterDataHandler = handler.char_data
+parser.Parse(xml)
+```
+
+需要注意的是读取一大段字符串时，`CharacterDataHandler`可能被多次调用，所以需要自己保存起来，在`EndElementHandler`里面再合并。
+
+除了解析`XML`外，如何生成`XML`呢？99%的情况下需要生成的`XML`结构都是非常简单的，因此，最简单也是最有效的生成`XML`的方法是拼接字符串：
+
+```python
+L = []
+L.append(r'<?xml version="1.0"?>')
+L.append(r'<root>')
+L.append(encode('some & data'))
+L.append(r'</root>')
+return ''.join(L)
+```
+
+如果要生成复杂的`XML`呢？建议你不要用`XML`，改成`JSON`。
+
+#### 小结-xml
+
+解析`XML`时，注意找出自己感兴趣的节点，响应事件时，把节点数据保存起来。解析完毕后，就可以处理数据。
+
+#### 练习-xml
+
+请利用`SAX`编写程序解析`Yahoo`的`XML`格式的天气预报，获取天气预报：
+
+`https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20%3D%202151330&format=xml`
+
+参数`woeid`是城市代码，要查询某个城市代码，可以在`weather.yahoo.com`搜索城市，浏览器地址栏的`URL`就包含城市代码。
+
+```python
+# -*- coding:utf-8 -*-
+
+from xml.parsers.expat import ParserCreate
+from urllib import request
+
+def parseXml(xml_str):
+    print(xml_str)
+    return {
+        'city': '?',
+        'forecast': [
+            {
+                'date': '2017-11-17',
+                'high': 43,
+                'low' : 26
+            },
+            {
+                'date': '2017-11-18',
+                'high': 41,
+                'low' : 20
+            },
+            {
+                'date': '2017-11-19',
+                'high': 43,
+                'low' : 19
+            }
+        ]
+    }
+
+# 测试:
+URL = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20%3D%202151330&format=xml'
+
+with request.urlopen(URL, timeout=4) as f:
+    data = f.read()
+
+
+
+result = parseXml(data.decode('utf-8'))
+assert result['city'] == 'Beijing'
+```
+
+#### 总结-2
+
+[看了三遍，刚开始学xml，大概有了点想法。][]
+
+[看了三遍，刚开始学xml，大概有了点想法。]: https://www.liaoxuefeng.com/discuss/969955749132672/1303613376823330
+
+首先，如果看不明白他给的这个例子且不明白什么是`xml`的话，可以先百度一下`xml`的格式和语法规则。
+
+可以看看这个教程：`https://blog.csdn.net/sinat_29830917/article/details/70241786`
+
+我理解的是`ParserCreat()`返回一个`ParserCreat`对象，他有`StartElementHandler`、`EndElementHandler`、`CharacterDataHandler`三个成员函数，
+但需要特别注意的是：这三个函数均为`CallBack`类型的，
+`ParserCreat`对象在创建时只是会提供三个空指针，需要我们自己去绑定相应的具体函数。
+
+>函数调用一般分为两种，一种是主调，即编写代码者，自己调用的函数，还一种为`Callback`函数，编码者写好，但他自己却不主动调用，而是在某些条件下（编写者并不清楚具体时间和流程），由其他函数调用.
+>简单的比如设备驱动，操作系统提供了某组设备的函数指针，比如LCD屏驱动，由一组画点，画线，画块函数组成，当更换LCD时，只需要把操作系统开放的函数指针，指向新的接口即可，操作系统再需要时，会自动调用新的驱动函数
+
+我们通过`ParserCreat`对象中的`Parse()`函数传入一个`xml`，然后就是上文中写到的：
+
+当`SAX`解析器读到一个节点时：
+
+```xml
+<a href="/">python</a>
+```
+
+会产生3个事件：
+
++ start_element事件，在读取`<a href="/">`时；
++ char_data事件，在读取`python`时；
++ end_element事件，在读取`</a>`时。
+
+SAX解析器会帮我们解析好这个`xml`语句，并且准备好我们写的三个函数，即`StartElementHandler`、`EndElementHandler`、`CharacterDataHandler`所需要的全部参数，然后进行调用。
+
+其中，`start_element`事件中的参数`attrs`指的是标签的属性。
+
+把代码改一下或许可以舒服些：
+
+```python
+from xml.parsers.expat import ParserCreate
+
+def start_element( name, attrs):
+    print('sax:start_element: %s, attrs: %s' % (name, str(attrs)))
+
+def end_element( name):
+    print('sax:end_element: %s' % name)
+
+def char_data( text):
+    print('sax:char_data: %s' % text.replace(' ', '.').replace('\n', r'\n'))
+
+xml = r'''<?xml version="1.0" encoding="utf-8"?>
+<!--声明内部dTD-->
+<!DOCTYPE students[
+    <!ELEMENT students (student*) >
+    <!ELEMENT students (name,school) >
+    <!ATTLIST student id CDATA #REQUIRED >
+    <!ELEMENT name (#PCDATA) >
+    <!ELEMENT school (#PCDATA) >
+]>
+<students>
+    <student id = "01">
+        <name>CSL</name>
+        <school>NUPT</school>
+    </student>
+    <student id = "02">
+        <name>CSLB</name>
+        <school>NUPT</school>
+    </student>
+</students>
+'''
+parser = ParserCreate()
+parser.StartElementHandler = start_element
+parser.EndElementHandler = end_element
+parser.CharacterDataHandler = char_data
+parser.Parse(xml)
+```
+
+输出：
+
+```python
+sax:start_element: students, attrs: {}
+sax:char_data: \n
+...
+sax:end_element: students
+[Finished in 0.2s]
+```
+
+### HTMLParser
+
+如果我们要编写一个搜索引擎，第一步是用爬虫把目标网站的页面抓下来，第二步就是解析该`HTML`页面，看看里面的内容到底是新闻、图片还是视频。
+
+假设第一步已经完成了，第二步应该如何解析`HTML`呢？
+
+`HTML`本质上是XML的子集，但是`HTML`的语法没有XML那么严格，所以不能用标准的DOM或SAX来解析`HTML`。
+
+好在Python提供了`HTMLParser`来非常方便地解析`HTML`，只需简单几行代码：
+
+```python
+from html.parser import HTMLParser
+from html.entities import name2codepoint
+
+class MyHTMLParser(HTMLParser):
+
+    def handle_starttag(self, tag, attrs):
+        print('<%s>' % tag)
+
+    def handle_endtag(self, tag):
+        print('</%s>' % tag)
+
+    def handle_startendtag(self, tag, attrs):
+        print('<%s/>' % tag)
+
+    def handle_data(self, data):
+        print(data)
+
+    def handle_comment(self, data):
+        print('<!--', data, '-->')
+
+    def handle_entityref(self, name):
+        print('&%s;' % name)
+
+    def handle_charref(self, name):
+        print('&#%s;' % name)
+
+parser = MyHTMLParser()
+parser.feed('''<html>
+<head></head>
+<body>
+<!-- test html parser -->
+    <p>Some <a href=\"#\">html</a> HTML&nbsp;tutorial...<br>END</p>
+</body></html>''')
+```
+
+`feed()`方法可以多次调用，也就是不一定一次把整个`HTML`字符串都塞进去，可以一部分一部分塞进去。
+
+特殊字符有两种，一种是英文表示的`&nbsp`(&nbsp);，一种是数字表示的`&#1234`(&#1234);，这两种字符都可以通过Parser解析出来。
+
+#### 小结-htmlparser
+
+利用`HTMLParser`，可以把网页中的文本、图像等解析出来。
+
+#### 练习-htmlparser
+
+找一个网页，例如`https://www.python.org/events/python-events/`，
+用浏览器查看源码并复制，然后尝试解析一下HTML，
+输出Python官网发布的会议时间、名称和地点。
