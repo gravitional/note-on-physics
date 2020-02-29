@@ -54,6 +54,12 @@ for ($i = 0; $i -le $length; $i++) {
 }
 ```
 
+在命令行下运行的时候，选择不同的引擎，关键字为
+
+`-pdf` : `-pdflatex`
+`-xelatex`
+`-lualatex`
+
 ### 报错示例-2
 
 ref-2: [LaTeX 如何进行 debug][]
