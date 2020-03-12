@@ -558,7 +558,7 @@ git remote prune origin
 
 远程跟踪分支是远程分支状态的引用。 它们是你不能移动的本地引用，当你做任何网络通信操作时，它们会自动移动。 远程跟踪分支像是你上次连接到远程仓库时，那些分支所处状态的书签。
 
-## 设置跟踪
+### 设置跟踪/上游
 
 `--set-upstream` **过时命令**
 
@@ -577,7 +577,12 @@ Set up `<branchname>`'s tracking information so `<upstream>` is considered `<bra
 
 你可以在任意时间使用`-u`或`--set-upstream-to`选项运行`git branch`来显式地设置
 
-下文有例子
+例
+
+```bash
+$ git branch -u origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+```
 
 ### 移除上游
 
@@ -588,7 +593,9 @@ If no branch is specified it defaults to the current branch.
 
 ### checkout -- track
 
-When you clone a repository, it generally automatically creates a master branch that tracks origin/master. However, you can set up other tracking branches if you wish — ones that track branches on other remotes, or don’t track the master branch. The simple case is the example you just saw, running git checkout -b `<branch> <remote>/<branch>`. This is a common enough operation that Git provides the `--track` shorthand:
+When you clone a repository, it generally automatically creates a master branch that tracks `origin/master`.
+However, you can set up other tracking branches if you wish — ones that track branches on other remotes, or don't track the `master` branch.
+The simple case is the example you just saw, running `git checkout -b` `<branch> <remote>/<branch>`. This is a common enough operation that Git provides the `--track` shorthand:
 
 ```bash
 $ git checkout --track origin/serverfix
@@ -596,7 +603,11 @@ Branch serverfix set up to track remote branch serverfix from origin.
 Switched to a new branch 'serverfix'
 ```
 
-In fact, this is so common that there’s even a shortcut for that shortcut. If the branch name you’re trying to checkout (a) doesn’t exist and (b) exactly matches a name on only one remote, Git will create a tracking branch for you:
+In fact, this is so common that there's even a shortcut for that shortcut.
+If the branch name you're trying to checkout
+(a) doesn't exist and
+(b) exactly matches a name on only one remote,
+Git will create a tracking branch for you:
 
 ```bash
 $ git checkout serverfix
@@ -989,7 +1000,7 @@ git rebase --onto master[被施加重放的分支] server[父节点/修改起始
 忽略某些文件时，需要编写`.gitignore`；
 `.gitignore`文件本身要放到版本库里，并且可以对`.gitignore`做版本管理！
 
-## “index”
+## index
 
 [whats-the-deal-with-the-git-index][]
 
