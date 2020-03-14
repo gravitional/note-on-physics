@@ -1,5 +1,9 @@
 # mathematica.md
 
+## 快捷键
+
+`Ctrl+Shift+B`，选中配对的括号
+
 ## 将定义与不同的符号相关联
 
 在 Wolfram 语言中，`f[args]=rhs` 或 `f[args]:=rhs` 会将对象 `f` 和你的定义相关联. 也就是说，当输入 `?f` 时，就会显示该定义. 一般我们把符号 `f` 作为标头的表达式称为 `f` 的下值 (`downvalue`).
@@ -631,3 +635,57 @@ tutorial/GeneratingCAndFortranExpressions
 一些我比较经常用的 mathematica 的功能
 
 `xxx/xxx` 是mathematica帮助文档的地址链接
+
+## 图形结构
+
+基本思想是 Wolfram 语言用图形基元的集合表示所有图形. 
+图形基元包括代表图像基本元素的 `Point` (点), `Line` (线) 和 `Polygon` (多边形), 以及 `RGBColor` 和 `Thickness` 等指令.
+
+`InputForm` 告诉 Wolfram 语言如何表示图形.
+每个点被表示为一个 `Point` 图形基元的坐标形式. 
+
+在 Wolfram 语言中,  每个完整的图形块都用图形对象表示. 图形对象的种类很多, 分别对应于不同类型的图形. 每类图形对象都有确定的头部以表明它的类型. 
+
++ `Graphics[list]` 生成二维图形
++ `Graphics3D[list]` 生成三维图形
+
+Plot 和 ListPlot 等在 "图形和声音的结构" 中讨论的函数都是按照先建立 Wolfram 语言内部图形对象, 然后显示它们的顺序工作的. 
+
+在 Wolfram 语言中, 用户可以自行建立图形对象产生其它类型的图像. 由于在 Wolfram 语言中的图形对象是符号表达式, 所以能用所有的 Wolfram 语言标准函数对其进行操作. 
+
+### 修改图形的局部和全局方式
+
+给定一个图形基元列表后, Wolfram 语言提供了两种方式去修改最终的图形. 首先, 可以在图形基元列表中插入一些图形指令, 例如 RGBColor, 以修改随后列表中的图形基元. 用这种方式, 用户可以指定如何修改一个给定的图形基元列表. 
+
+通过插入图形指令, 可以指定图形基元的显示方式. 然而, 用户往往经常会希望通过全局修改来改变整个图形的显示. 使用图形选项可以达到这一目的. 
+
+通过增加图形选项 Frame 用户可以修改图形的整体外观：
+
+```mathematica
+Show[%, Frame -> True]
+```
+
+### 确定图形块的完全形式
+
+对 `Axes` 等图形选项, Wolfram 语言的前端会自动画出用户需要的坐标轴等对象. 这些对象由选项值表示, 而非被确定的图形基元列表表示. 然而, 用户会需要要找到代表这些对象的图形基元列表. 函数 `FullGraphics` 给出不使用任何选项的情况下, 生成图形的完整的图形基元列表.
+
+## 模式
+
+表达式 `F[a,b,c...]`
+
+`_ Blank[]`, 有且只有一个的表达式序列
+
+`__ BlankSequence[]`, 一个或多个表达式序列
+
+```mathematica
+s : _ | __ // FullForm
+Pattern[s,Alternatives[Blank[],BlankSequence[]]]
+```
+
+头部也可以是表达式，
+所以`_ Blank[]`可以指带`f[a,b,c...][x,y,z...]`
+
+```mathematica
+MatchQ[f[a,b,c][x,y,z],x_]
+True
+```

@@ -76,13 +76,15 @@ Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
 
 `git config --global alias.logpretty "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"`
 
-## 初始化一个git仓库
+## basics
+
+### 初始化一个git仓库
 
 `git init`
 
 初始化一个`git`仓库
 
-## 添加文件
+### 添加文件
 
 `git add`
 
@@ -97,11 +99,11 @@ Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
 
 [原文链接](https://blog.csdn.net/caseywei/article/details/90945295)
 
-## 提交更改
+### 提交更改
 
 `git commit -m [comment message]`
 
-## 修改注释
+### 修改注释
 
 [作者：筱湮][]
 
@@ -143,11 +145,11 @@ Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
 
 注：很重要的一点是，你最好保证在你强制`push`之前没有人提交代码，如果在你`push`之前有人提交了新的代码到远程仓库，然后你又强制`push`，那么会被你的强制更新覆盖！！！
 
-## git status
+### git status
 
 要随时掌握工作区的状态
 
-## 比较差别 git diff
+### 比较差别 git diff
 
 如果`git status`告诉你有文件被修改过，用`git diff`可以查看修改内容。
 查看和上一版本的具体变动内容 显示内容如下：
@@ -298,29 +300,48 @@ git diff [<options>] <blob> <blob>
 
 This form is to view the differences between the raw contents of two blob objects.
 
-## 查看提交历史
+### log 查看提交历史
 
 `git log`
 
 穿梭时光前，用`git log`可以查看提交历史，以便确定要回退到哪个版本
 
-## 重返未来
+### 查看本地+远程所有分支的全部提交以及关系
+
+[git查看本地+远程所有分支的全部提交以及关系][]
+
+[git查看本地+远程所有分支的全部提交以及关系]: https://blog.csdn.net/wq6ylg08/article/details/89052225
+
+当我们深入学习Git后，我们不仅在本地仓库有超多的分支，
+还在远程仓库有超多的分支，如果我们只使用`git log`和`gitk`命令，我们会发现这两个命令只能显示当前所处分支的全部提交记录，并不能查看本地+远程所有分支的全部提交记录。
+
+解决方案是我们采用git log和gitk命令的升级版
+
++ `git log --graph --all`
++ `gitk --all`
+
+`gitk --all`是真实的画出本地+远程所有分支的全部提交的树状结构，看起来更全面。
+强烈推荐以后查看整个项目的所有分支情况，使用这个命令`gitk --all`
+
+## git 文件管理
 
 `git reflog`
 
 要重返未来，用`git reflog`查看命令历史，以便确定要回到未来的哪个版本。
 
-## 丢弃工作区的修改
+### 丢弃工作区的修改
+
+丢弃 working tree 的修改
 
 `git restore file`
 
-## 大恢复 restore
+### 大恢复 restore
 
 `git reset HEAD file`
 
 当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 `git reset HEAD file`，就回到了`场景1`，第二步按`场景1`操作
 
-## 恢复EXAMPLES
+### 恢复EXAMPLES
 
 To restore all files in the current directory
 
@@ -348,14 +369,203 @@ git restore '*.c'
 
 Note the quotes around `*.c` The file `hello.c` will also be restored, even though it is no longer in the working tree, because the file globbing is used to match entries in the index (not in the working tree by the shell).
 
-## 删除一个文件
+### 删除一个文件
 
 `git rm`
 
 命令`git rm`用于删除一个文件。
 如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
 
-## 添加远程
+## 分支管理
+
+那么，`Git`又是怎么知道当前在哪一个分支上呢？ 也很简单，它有一个名为`HEAD`的特殊指针。请注意它和许多其它版本控制系统（如`Subversion`或`CVS`）里的 `HEAD` 概念完全不同。 在`Git`中，它是一个指针，指向当前所在的本地分支（译注：将 `HEAD` 想象为当前分支的别名）。在本例中，你仍然在`master`分支上。 因为`git branch`命令仅仅创建一个新分支，并不会自动切换到新分支中去。
+
+由于`Git`的分支实质上仅是包含所指对象校验和（长度为`40`的`SHA-1`值字符串）的文件，所以它的创建和销毁都异常高效。创建一个新分支就相当于往一个文件中写入`41`个字节（`40`个字符和`1`个换行符），如此的简单能不快吗？
+
+这与过去大多数版本控制系统形成了鲜明的对比，它们在创建分支时，将所有的项目文件都复制一遍，并保存到一个特定的目录。完成这样繁琐的过程通常需要好几秒钟，有时甚至需要好几分钟。所需时间的长短，完全取决于项目的规模。而在 `Git` 中，任何规模的项目都能在瞬间创建新分支。同时，由于每次提交都会记录父对象，所以寻找恰当的合并基础（译注：即共同祖先）也是同样的简单和高效。 这些高效的特性使得 `Git` 鼓励开发人员频繁地创建和使用分支。
+
+### 各种本地分支命令
+
+`Git`鼓励大量使用分支：
+
+查看分支：`git branch`
+
+`git br -a`
+`git br -vv`
+`git br -avv`
+
+创建分支：`git branch name`
+
+切换分支： `git switch name`
+
+新建+切换 到新分支： `git checkout -b branchname`
+
+合并某分支到当前分支：`git merge name`
+
+删除分支：`git branch -d name`
+
+### 删除远程分支
+
+可以运行带有`--delete`选项的`git push`命令
+
+```bash
+$ git push origin --delete serverfix
+To https://github.com/schacon/simplegit
+- [deleted]         serverfix
+```
+
+```bash
+git push [远程仓库] --delete [branchname]
+```
+
+或者用
+
+```bash
+git push origin :分支名
+```
+
+例如删除远程分支`dev`，命令：`git push origin :dev`，注意`:`前的空格
+
+### 查看分支详情
+
+`git branch`
+`-v`
+`-vv`
+`-avv`
+`--verbose`
+
+If --list is given, or if there are no non-option arguments, existing branches are listed;
+it is in list mode, show sha1 and commit subject line for each head, along with relationship to upstream branch (if any).
+If given twice, print the path of the linked worktree (if any) and the name of the upstream branch, as well (see also git remote show `remote`).
+Note that the current worktree’s `HEAD` will not have its path printed (it will always be your current directory).
+
+### 创建并切换到分支
+
+`git checkout -b`
+`git checkout -b "branchname " "startpoint"`
+
+The new branch **head**  will point to **this commit**. It may be given as a **branch name**, a **commit-id**, or **a tag**.
+If this option is omitted, the **current HEAD** will be used instead.
+
+`git branch [--track | --no-track] [-f] <branchname> [<start-point>]`
+`-t`
+`--track`
+
+当创建一个新分支的时候，设置 `branch.<name>.remote` and `branch.<name>.merge`项目来标记新分支的“上游”。
+这个设置会告诉git如何在 `git status` and `git branch -v`显示两个分支的关系
+此外，切换到新分支时，不带参数的`git pull`将从上游拉取更新
+
+When creating a new branch, set up `branch.<name>.remote` and `branch.<name>.merge` configuration entries to mark the start-point branch as "upstream" from the new branch. This configuration will tell git to show the relationship between the two branches in `git status` and `git branch -v`.
+Furthermore, it directs git pull without arguments to pull from the upstream when the new branch is checked out.
+
+This behavior is the default when the start point is a remote-tracking branch. 
+Set the `branch.autoSetupMerge` configuration variable to `false` if you want `git switch`, `git checkout` and `git branch` to always behave as if `--no-track` were given. 
+Set it to `always` if you want this behavior when the start-point is either a local or remote-tracking branch.
+
+### 重命名git分支名称
+
+1. `git branch -m` 要改的本地分支名 修改后的分支名(修改本地分支)
+1. `git push origin` :远程修改前的分支名（删除远程分支）
+1. `git push origin` 修改后的分支名:远程分支名（`push`到远程分支）
+1. `git branch -u  origin/修改后的分支名`绑定远程分支
+
+### merge-file 合并文件
+
+`git-merge-file` - Run a three-way file merge
+
+### 修改提交历史
+
+reset是用来修改提交历史的，想象这种情况，如果你在2天前提交了一个东西，突然发现这次提交是有问题的。
+
+这个时候你有两个选择，要么使用git revert（推荐），要么使用git reset。
+
+[git的reset和checkout的区别][]
+
+[git的reset和checkout的区别]: https://segmentfault.com/a/1190000006185954
+
+### 合并文件到另一个分支
+
+经常被问到如何从一个分支合并特定的文件到另一个分支。
+其实，只合并你需要的那些commits，不需要的commits就不合并进去了。
+
+### 合并单个commit
+
+合并某个分支上的单个commit
+
+首先，用`git log`或`sourcetree`工具查看一下你想选择哪些`commits`进行合并，例如：
+
+比如`feature` 分支上的`commit 82ecb31` 非常重要，它含有一个`bug`的修改，或其他人想访问的内容。
+无论什么原因，你现在只需要将`82ecb31` 合并到`master`，而不合并`feature`上的其他`commits`，所以我们用`git cherry-pick`命令来做：
+
+```bash
+git checkout master  
+git cherry-pick 82ecb31
+```
+
+这样就好啦。现在`82ecb31`就被合并到`master`分支，并在`master`中添加了`commit`（作为一个新的`commit`）。
+`cherry-pick` 和`merge`比较类似，如果git不能合并代码改动（比如遇到合并冲突），git需要你自己来解决冲突并手动添加commit。
+
+这里git `cherry-pick`每次合并过来会显示文件冲突(其实并没有冲突代码部分，只需手动解决既可)
+
+### 合并一系列commits
+
+合并某个分支上的一系列commits
+
+在一些特性情况下，合并单个commit并不够，你需要合并一系列相连的commits。这种情况下就不要选择`cherry-pick`了，`rebase` 更适合。
+还以上例为例，假设你需要合并`feature`分支的`commit76cada ~62ecb3` 到`master`分支。
+
+首先需要基于`feature`创建一个新的分支，并指明新分支的最后一个`commit`：
+
+```bash
+git checkout featuregit
+git checkout -b newbranch 62ecb3
+```
+
+然后，rebase这个新分支的`commit`到`master`（`--ontomaster`）。
+`76cada^` 指明你想从哪个特定的commit开始。
+
+```bash
+git rebase --ontomaster 76cada^
+```
+
+得到的结果就是`feature`分支的`commit 76cada ~62ecb3` 都被合并到了master分支。
+
+### 合并某个文件
+
+另外如果只想将master分支的某个文件`f.txt`合并到feature分支上。
+
+```bash
+1: git checkout feature
+2: git checkout --patch master f.txt
+```
+
+第一个命令： 切换到feature分支；
+第二个命令：合并master分支上`f`文件到`feature`分支上，
+将`master`分支上 `f` 文件追加补丁到`feature`分支上的`f`文件。
+你可以接受或者拒绝补丁内容。
+
+如果只是简单的将`feature`分支的文件`f.txt` copy到`master`分支上；
+
+```bash
+git checkout master
+git checkout feature f.txt
+```
+
+[Git合并指定文件到另一个分支][]
+
+[Git合并指定文件到另一个分支]: https://www.cnblogs.com/yanglang/p/11436304.html
+
+## 远程分支
+
+远程跟踪分支是远程分支状态的引用。 它们是你不能移动的本地引用，当你做任何网络通信操作时，它们会自动移动。 远程跟踪分支像是你上次连接到远程仓库时，那些分支所处状态的书签。
+
+### 克隆远程
+
+`git clone`
+
+要克隆一个仓库，首先必须知道仓库的地址，然后使用`git clone`命令克隆。
+
+### 添加远程
 
 `git remote add`
 
@@ -363,12 +573,12 @@ Note the quotes around `*.c` The file `hello.c` will also be restored, even thou
 `git remote add origin git@server-name:path/repo-name.git`
 `origin` 是远程仓库的名字
 
-## 查看某个远程仓库
+### 查看某个远程仓库
 
 `git remote show [remote-name]` 命令。
 `remote-name` 如 `origin`
 
-## 从远程获取信息
+### 从远程获取信息
 
 `git fetch [remote-name]`
 
@@ -378,13 +588,112 @@ Note the quotes around `*.c` The file `hello.c` will also be restored, even thou
 
 现在 `Paul` 的 `master` 分支可以在本地通过 `pb/master` 访问到——你可以将它合并到自己的某个分支中，
 
-## 克隆远程
+### 删除远程分支
 
-`git clone`
+可以运行带有`--delete`选项的`git push`命令
 
-要克隆一个仓库，首先必须知道仓库的地址，然后使用`git clone`命令克隆。
+```bash
+$ git push origin --delete serverfix
+To https://github.com/schacon/simplegit
+- [deleted]         serverfix
+```
 
-## 推到远程 push
+```bash
+git push [远程仓库] --delete [branchname]
+```
+
+或者用
+
+```bash
+git push origin :分支名
+```
+
+例如删除远程分支`dev`，命令：`git push origin :dev`，注意`:`前的空格
+
+### 设置跟踪/上游
+
+`--set-upstream` **过时命令**
+
+As this option had confusing syntax, it is no longer supported. Please use `--track` or `--set-upstream-to` instead.
+
+`branch -u`
+
+```bash
+git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]
+```
+
+`-u <upstream>`
+`--set-upstream-to=<upstream>`
+
+`<branchname>` 指的是想要设置上游的本地branchname
+
+Set up `<branchname>`'s tracking information so `<upstream>` is considered `<branchname>`'s upstream branch. 
+If no `<branchname>`  is specified, then it defaults to the current branch.
+
+你可以在任意时间使用`-u`或`--set-upstream-to`选项运行`git branch`来显式地设置
+
+例
+
+```bash
+$ git branch -u origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+```
+
+### 移除upstream/上游
+
+syntax:  `branch --unset-upstream [<branchname>]`
+
+Remove the upstream information for `<branchname>`.
+If no branch is specified it defaults to the current branch.
+
+### checkout -- track
+
+When you clone a repository, it generally automatically creates a master branch that tracks `origin/master`.
+However, you can set up other tracking branches if you wish — ones that track branches on other remotes, or don't track the `master` branch.
+The simple case is the example you just saw, running `git checkout -b` `<branch> <remote>/<branch>`. This is a common enough operation that Git provides the `--track` shorthand:
+
+```bash
+$ git checkout --track origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+Switched to a new branch 'serverfix'
+```
+
+In fact, this is so common that there's even a shortcut for that shortcut.
+If the branch name you're trying to checkout
+(a) doesn't exist and
+(b) exactly matches a name on only one remote,
+Git will create a tracking branch for you:
+
+```bash
+$ git checkout serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+Switched to a new branch 'serverfix'
+```
+
+To set up a local branch with a different name than the remote branch, you can easily use the first version with a different local branch name:
+
+```bash
+$ git checkout -b sf origin/serverfix
+Branch sf set up to track remote branch serverfix from origin.
+Switched to a new branch 'sf'
+```
+
+Now, your local branch sf will automatically pull from origin/serverfix
+
+### branch -u example
+
+If you already have a local branch and want to set it to a remote branch you just pulled down, or want to change the upstream branch you’re tracking, you can use the`-u` or `--set-upstream-to` option to git branch to explicitly set it at any time.
+
+```bash
+$ git branch -u origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+```
+
+`git branch -vv`
+
+如果想要查看设置的所有跟踪分支，可以使用`git branch`的`-vv`选项
+
+### push -u 推到远程
 
 当你想分享你的项目时，必须将其推送到上游。 这个命令很简单：
 for example,
@@ -457,6 +766,22 @@ description of "matching" branches.
 
 Create **the branch experimental in the origin** repository by copying the **current master branch**. This form is only needed to create a new branch or tag in the remote repository when the local name and the remote name are different; otherwise, the ref name on its own will work.
 
+`git push origin master`
+
+Find a ref that matches master in the source repository (most likely, it would find refs/heads/master), 
+and update the same ref (e.g. refs/heads/master) in origin repository with it. If master did not exist remotely, it would be created.
+
+`git push origin HEAD`
+
+A handy way to push the current branch to the same name on the remote.
+
+`git push mothership master:satellite/master dev:satellite/dev`
+
+Use the source ref that matches master (e.g. refs/heads/master) to update the ref that matches satellite/master (most probably refs/remotes/satellite/master) in the mothership repository;
+do the same for dev and satellite/dev.
+
+See the section describing `<refspec>`... above for a discussion of the matching semantics.
+
 ### push flag
 
 A single character indicating the status of the ref:
@@ -482,7 +807,7 @@ Also, when `--force-with-lease` option is used, the command refuses to update a 
 
 This flag disables these checks, and can cause the remote repository to lose commits; use it with care.
 
-## 拉取远程仓库
+### 拉取远程仓库
 
 `git pull [<options>] [<repository> [<refspec>…]]`
 
@@ -499,7 +824,7 @@ as set by `git-branch --track`
 
 `--all` : Fetch all remotes.
 
-## 远程仓库的移除与重命名
+### 远程仓库的移除与重命名
 
 `git remote rename`
 
@@ -524,7 +849,7 @@ $ git remote
 origin
 ```
 
-## 清理无效远程追踪
+### 清理无效远程追踪
 
 如果在远程版本库上删除了某一分支，该命令并不会删除本地的远程追踪分支，
 这时候，有另一个命令
@@ -553,160 +878,6 @@ git remote prune origin
 ```
 
 下的分支，如果有本地分支作为下游存在的话，还需要手动清理
-
-## 远程分支
-
-远程跟踪分支是远程分支状态的引用。 它们是你不能移动的本地引用，当你做任何网络通信操作时，它们会自动移动。 远程跟踪分支像是你上次连接到远程仓库时，那些分支所处状态的书签。
-
-### 设置跟踪/上游
-
-`--set-upstream` **过时命令**
-
-As this option had confusing syntax, it is no longer supported. Please use `--track` or `--set-upstream-to` instead.
-
-### branch -u
-
-```bash
-git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]
-```
-
-`-u <upstream>`
-`--set-upstream-to=<upstream>`
-
-Set up `<branchname>`'s tracking information so `<upstream>` is considered `<branchname>`'s upstream branch. If no `<branchname>`  is specified, then it defaults to the current branch.
-
-你可以在任意时间使用`-u`或`--set-upstream-to`选项运行`git branch`来显式地设置
-
-例
-
-```bash
-$ git branch -u origin/serverfix
-Branch serverfix set up to track remote branch serverfix from origin.
-```
-
-### 移除上游
-
-syntax:  `branch --unset-upstream [<branchname>]`
-
-Remove the upstream information for `<branchname>`.
-If no branch is specified it defaults to the current branch.
-
-### checkout -- track
-
-When you clone a repository, it generally automatically creates a master branch that tracks `origin/master`.
-However, you can set up other tracking branches if you wish — ones that track branches on other remotes, or don't track the `master` branch.
-The simple case is the example you just saw, running `git checkout -b` `<branch> <remote>/<branch>`. This is a common enough operation that Git provides the `--track` shorthand:
-
-```bash
-$ git checkout --track origin/serverfix
-Branch serverfix set up to track remote branch serverfix from origin.
-Switched to a new branch 'serverfix'
-```
-
-In fact, this is so common that there's even a shortcut for that shortcut.
-If the branch name you're trying to checkout
-(a) doesn't exist and
-(b) exactly matches a name on only one remote,
-Git will create a tracking branch for you:
-
-```bash
-$ git checkout serverfix
-Branch serverfix set up to track remote branch serverfix from origin.
-Switched to a new branch 'serverfix'
-```
-
-To set up a local branch with a different name than the remote branch, you can easily use the first version with a different local branch name:
-
-```bash
-$ git checkout -b sf origin/serverfix
-Branch sf set up to track remote branch serverfix from origin.
-Switched to a new branch 'sf'
-```
-
-Now, your local branch sf will automatically pull from origin/serverfix
-
-### branch -u example
-
-If you already have a local branch and want to set it to a remote branch you just pulled down, or want to change the upstream branch you’re tracking, you can use the`-u` or `--set-upstream-to` option to git branch to explicitly set it at any time.
-
-```bash
-$ git branch -u origin/serverfix
-Branch serverfix set up to track remote branch serverfix from origin.
-```
-
-`git branch -vv`
-
-如果想要查看设置的所有跟踪分支，可以使用`git branch`的`-vv`选项
-
-## 删除远程分支
-
-可以运行带有`--delete`选项的`git push`命令
-
-```bash
-$ git push origin --delete serverfix
-To https://github.com/schacon/simplegit
-- [deleted]         serverfix
-```
-
-## 分支管理
-
-那么，`Git`又是怎么知道当前在哪一个分支上呢？ 也很简单，它有一个名为`HEAD`的特殊指针。请注意它和许多其它版本控制系统（如`Subversion`或`CVS`）里的 `HEAD` 概念完全不同。 在`Git`中，它是一个指针，指向当前所在的本地分支（译注：将 `HEAD` 想象为当前分支的别名）。在本例中，你仍然在`master`分支上。 因为`git branch`命令仅仅创建一个新分支，并不会自动切换到新分支中去。
-
-由于`Git`的分支实质上仅是包含所指对象校验和（长度为`40`的`SHA-1`值字符串）的文件，所以它的创建和销毁都异常高效。创建一个新分支就相当于往一个文件中写入`41`个字节（`40`个字符和`1`个换行符），如此的简单能不快吗？
-
-这与过去大多数版本控制系统形成了鲜明的对比，它们在创建分支时，将所有的项目文件都复制一遍，并保存到一个特定的目录。完成这样繁琐的过程通常需要好几秒钟，有时甚至需要好几分钟。所需时间的长短，完全取决于项目的规模。而在 `Git` 中，任何规模的项目都能在瞬间创建新分支。同时，由于每次提交都会记录父对象，所以寻找恰当的合并基础（译注：即共同祖先）也是同样的简单和高效。 这些高效的特性使得 `Git` 鼓励开发人员频繁地创建和使用分支。
-
-## 各种本地分支命令
-
-`Git`鼓励大量使用分支：
-
-查看分支：`git branch`
-
-创建分支：`git branch name`
-
-切换分支： `git switch name`
-
-新建+切换 到新分支： `git checkout -b branchname`
-
-合并某分支到当前分支：`git merge name`
-
-删除分支：`git branch -d name`
-
-## 查看分支详情
-
-`git branch`
-`-v`
-`-vv`
-`-avv`
-`--verbose`
-
-If --list is given, or if there are no non-option arguments, existing branches are listed;
-it is in list mode, show sha1 and commit subject line for each head, along with relationship to upstream branch (if any).
-If given twice, print the path of the linked worktree (if any) and the name of the upstream branch, as well (see also git remote show `remote`).
-Note that the current worktree’s `HEAD` will not have its path printed (it will always be your current directory).
-
-## 创建并切换到分支
-
-`git checkout -b`
-`git checkout -b "branchname " "startpoint"`
-
-The new branch **head**  will point to **this commit**. It may be given as a **branch name**, a **commit-id**, or **a tag**.
-If this option is omitted, the **current HEAD** will be used instead.
-
-`git branch [--track | --no-track] [-f] <branchname> [<start-point>]`
-`-t`
-`--track`
-
-When creating a new branch, set up branch.`<name>.remote` and `branch.<name>.merge` configuration entries to mark the start-point branch as "upstream" from the new branch. This configuration will tell git to show the relationship between the two branches in `git status` and `git branch -v`. Furthermore, it directs git pull without arguments to pull from the upstream when the new branch is checked out.
-
-This behavior is the default when the start point is a remote-tracking branch. Set the `branch.autoSetupMerge` configuration variable to `false` if you want `git switch`, `git checkout` and `git branch` to always behave as if `--no-track` were given. Set it to `always` if you want this behavior when the start-point is either a local or remote-tracking branch.
-
-## 重命名git分支名称
-
-1. `git branch -m` 要改的本地分支名 修改后的分支名(修改本地分支)
-1. `git push origin` :远程修改前的分支名（删除远程分支）
-1. `git push origin` 修改后的分支名:远程分支名（`push`到远程分支）
-1. `git branch -u  origin/修改后的分支名`绑定远程分支
 
 ## 解决冲突
 
@@ -1000,7 +1171,9 @@ git rebase --onto master[被施加重放的分支] server[父节点/修改起始
 忽略某些文件时，需要编写`.gitignore`；
 `.gitignore`文件本身要放到版本库里，并且可以对`.gitignore`做版本管理！
 
-## index
+## git 术语
+
+### index
 
 [whats-the-deal-with-the-git-index][]
 
@@ -1233,3 +1406,44 @@ $ find .git/objects -type f
 .git/objects/fa/49b077972391ad58037050f2a75f74e3671e92 # new.txt
 .git/objects/fd/f4fc3344e67ab068f836878b6c4951e3b15f3d # commit 1
 ```
+
+### Tree-ish
+
+"Tree-ish" is a term that refers to any identifier that ultimately leads to a (sub)directory tree (Git refers to directories as "trees" and "tree objects").
+
+In the original poster's case, foo is a directory that he wants to specify. The correct way to specify a (sub)directory in Git is to use this "tree-ish" syntax:
+
+```bash
+HEAD:README, :README, master:./README
+```
+
+A suffix : followed by a path names the blob or tree at the given path in the tree-ish object named by the part before the colon.
+
+So, in other words, `master:foo` is the correct syntax, not `master/foo`.
+
+### refspec
+
+应该是`Reference Specification`的缩写，字面意思就是具体的引用。
+它其实是一种格式，git通过这种格式的判断来获取不同引用下的数据。
+
+你可以具体参考：http://git-scm.com/book/zh/ch9-5.html
+“
+`Refspec` 的格式是一个可选的 `+` 号，接着是 `<src>:<dst>` 的格式，这里 `<src>` 是远端上的引用格式，`<dst>` 是将要记录在本地的引用格式。
+
+可选的 `+` 号告诉 Git 在即使不能快速演进的情况下，也去强制更新它。
+缺省情况下 `refspec` 会被 `git remote add` 命令所自动生成，
+`Git` 会获取远端上 `refs/heads/` 下面的所有引用，并将它写入到本地的 `refs/remotes/origin/`. 所以，如果远端上有一个 `master` 分支，你在本地可以通过下面这种方式来访问它的历史记录：
+
+```bash
+$ git log origin/master
+$ git log remotes/origin/master
+$ git log refs/remotes/origin/master
+```
+
+它们全是等价的，因为 Git 把它们都扩展成 `refs/remotes/origin/master`.
+如果你想让 Git 每次只拉取远程的 `master` 分支，而不是远程的所有分支，你可以把 `fetch` 这一行修改成这样：
+`fetch = +refs/heads/master:refs/remotes/origin/master`
+
+[git中的refspec是什么意思?][]
+
+[git中的refspec是什么意思?]: http://www.imooc.com/wenda/detail/503063
