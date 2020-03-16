@@ -689,3 +689,20 @@ Pattern[s,Alternatives[Blank[],BlankSequence[]]]
 MatchQ[f[a,b,c][x,y,z],x_]
 True
 ```
+
+## := and =
+
+^:=
+
+UpSetDelayed
+
+Delayed and 不带 Delayed 的最重要区别就是，
+定义时计算，还是调用的时候计算。
+也就是不带 Delayed容易受到全局变量的影响，
+带Delayed更加接近函数式编程
+
+## 调试不完全数组
+
+如果一个数组，用Dimension 测试的结果是不完全数组，
+如何找出是哪里的结构不完全呢。
+可以把数组中的每一项都替换成$1$再显示，这样可以比较方便的看出来。
