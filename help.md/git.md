@@ -889,6 +889,14 @@ git remote prune origin
 所以下一次的提交，就会被视为冲突已经解决的提交--无论你的修改是否正确。
 当然由于可以恢复，这也算不了什么问题。
 
+也可以
+
+```bash
+git reset --hard commit
+```
+
+还原本地工作，然后`git pull`
+
 ### FAST-FORWARD MERGE
 
 Often the current branch head is an ancestor of the named commit.
