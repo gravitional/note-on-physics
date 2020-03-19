@@ -723,4 +723,4 @@ Delayed and 不带 Delayed 的最重要区别就是，
 
 有时不对一个可选变量分配默认值是方便的；这样的变量可以使用 `PatternSequence[]` 来指定.
 
-`p|PatternSequence[]`	不具有默认值的可选模式 `p` 
+`p|PatternSequence[]` 不具有默认值的可选模式 `p`
