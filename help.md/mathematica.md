@@ -701,6 +701,54 @@ Delayed and 不带 Delayed 的最重要区别就是，
 也就是不带 Delayed容易受到全局变量的影响，
 带Delayed更加接近函数式编程
 
+## 上值
+
+`^:=` 定义上值（`upvalue`），它的方式和使用一个标签的相同：
+
+```mathematica
+In[1]:= g /: f[g[x_]] := f1[x]
+
+In[2]:= f[h[x_]] ^:= f2[x]
+
+In[3]:= {UpValues[g], UpValues[h]}
+
+Out[3]= {{HoldPattern[f[g[x_]]] :> f1[x]}, {HoldPattern[f[h[x_]]] :> f2[x]}}
+```
+
+一个标签仅定义一个上值（upvalue），`^:=` 执行所有符号的定义：
+
+```mathematica
+In[1]:= g /: f1[g[x_], h[y_]] := gh[x y]
+
+In[2]:= f2[g[x_], h[y_]] ^:= gh[x y]
+
+In[3]:= {UpValues[g], UpValues[h]}
+
+Out[3]= {{HoldPattern[f1[g[x_], h[y_]]] :> gh[x y], 
+  HoldPattern[f2[g[x_], h[y_]]] :> gh[x y]}, {HoldPattern[f2[g[x_], h[y_]]] :>
+    gh[x y]}}
+```
+
+进行定义时，计算立即赋值的右边：
+
+```mathematica
+In[1]:= rand[int] ^= Random[Integer];
+
+In[2]:= {rand[int], rand[int]}
+
+Out[2]= {0, 0}
+```
+
+每次使用定义时，每次计算延迟定义的右边：
+
+```mathematica
+In[3]:= rand[real] ^:= Random[Real]
+
+In[4]:= {rand[real], rand[real]}
+
+Out[4]= {0.409393, 0.730688}
+```
+
 ## 调试不完全数组
 
 如果一个数组，用Dimension 测试的结果是不完全数组，
@@ -717,6 +765,8 @@ Delayed and 不带 Delayed 的最重要区别就是，
 
 ## 可选变量与默认变量
 
+总之，默认变量用`x_:v`，可选变量用`p|PatternSequence[]`
+
 有时需要定义具有默认值的函数. 即省略某些变量时，其值就用设定的默认值代替. 模式 `x_:v` 就表示省略时值为 `v` 表示的变量.
 
 一些 Wolfram 语言常用函数的变量具有系统设定的默认值，此时不能明确给出 `x_:v` 中的默认值，而是可用 `x_.` 来使用其系统设定的默认值.
@@ -724,3 +774,7 @@ Delayed and 不带 Delayed 的最重要区别就是，
 有时不对一个可选变量分配默认值是方便的；这样的变量可以使用 `PatternSequence[]` 来指定.
 
 `p|PatternSequence[]` 不具有默认值的可选模式 `p`
+
+## 内嵌单元
+
+在文本中插入公式的话，用插入-排版-内嵌单元 选项

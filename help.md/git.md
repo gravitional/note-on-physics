@@ -404,6 +404,16 @@ Note the quotes around `*.c` The file `hello.c` will also be restored, even thou
 
 删除分支：`git branch -d name`
 
+### 创建分支
+
+```bash
+git branch [--track | --no-track] [-f] <branchname> [<start-point>]
+```
+
+The command’s above form creates a new branch head named `<branchname>` which points to the current HEAD, or `<start-point>` if given.
+As a special case, for `<start-point>`, you may use "`A...B`" as a shortcut for the merge base of A and B if there is exactly one merge base.
+You can leave out at most one of A and B, in which case it defaults to `HEAD`.
+
 ### 删除远程分支
 
 可以运行带有`--delete`选项的`git push`命令
@@ -458,8 +468,8 @@ If this option is omitted, the **current HEAD** will be used instead.
 When creating a new branch, set up `branch.<name>.remote` and `branch.<name>.merge` configuration entries to mark the start-point branch as "upstream" from the new branch. This configuration will tell git to show the relationship between the two branches in `git status` and `git branch -v`.
 Furthermore, it directs git pull without arguments to pull from the upstream when the new branch is checked out.
 
-This behavior is the default when the start point is a remote-tracking branch. 
-Set the `branch.autoSetupMerge` configuration variable to `false` if you want `git switch`, `git checkout` and `git branch` to always behave as if `--no-track` were given. 
+This behavior is the default when the start point is a remote-tracking branch.
+Set the `branch.autoSetupMerge` configuration variable to `false` if you want `git switch`, `git checkout` and `git branch` to always behave as if `--no-track` were given.
 Set it to `always` if you want this behavior when the start-point is either a local or remote-tracking branch.
 
 ### 重命名git分支名称
@@ -483,12 +493,12 @@ reset是用来修改提交历史的，想象这种情况，如果你在2天前�
 
 [git的reset和checkout的区别]: https://segmentfault.com/a/1190000006185954
 
-### 合并文件到另一个分支
+### 借用其他分支的文件
 
 经常被问到如何从一个分支合并特定的文件到另一个分支。
 其实，只合并你需要的那些commits，不需要的commits就不合并进去了。
 
-### 合并单个commit
+#### 合并单个commit
 
 合并某个分支上的单个commit
 
@@ -505,14 +515,14 @@ git cherry-pick 82ecb31
 这样就好啦。现在`82ecb31`就被合并到`master`分支，并在`master`中添加了`commit`（作为一个新的`commit`）。
 `cherry-pick` 和`merge`比较类似，如果git不能合并代码改动（比如遇到合并冲突），git需要你自己来解决冲突并手动添加commit。
 
-这里git `cherry-pick`每次合并过来会显示文件冲突(其实并没有冲突代码部分，只需手动解决既可)
+这里`git cherry-pick`每次合并过来会显示文件冲突(其实并没有冲突代码部分，只需手动解决既可)
 
-### 合并一系列commits
+#### 合并一系列commits
 
 合并某个分支上的一系列commits
 
 在一些特性情况下，合并单个commit并不够，你需要合并一系列相连的commits。这种情况下就不要选择`cherry-pick`了，`rebase` 更适合。
-还以上例为例，假设你需要合并`feature`分支的`commit76cada ~62ecb3` 到`master`分支。
+还以上例为例，假设你需要合并`feature`分支的`commit 76cada ~62ecb3` 到`master`分支。
 
 首先需要基于`feature`创建一个新的分支，并指明新分支的最后一个`commit`：
 
@@ -530,7 +540,7 @@ git rebase --ontomaster 76cada^
 
 得到的结果就是`feature`分支的`commit 76cada ~62ecb3` 都被合并到了master分支。
 
-### 合并某个文件
+#### 合并某个文件
 
 另外如果只想将master分支的某个文件`f.txt`合并到feature分支上。
 
@@ -627,7 +637,7 @@ git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]
 
 `<branchname>` 指的是想要设置上游的本地branchname
 
-Set up `<branchname>`'s tracking information so `<upstream>` is considered `<branchname>`'s upstream branch. 
+Set up `<branchname>`'s tracking information so `<upstream>` is considered `<branchname>`'s upstream branch.
 If no `<branchname>`  is specified, then it defaults to the current branch.
 
 你可以在任意时间使用`-u`或`--set-upstream-to`选项运行`git branch`来显式地设置
@@ -768,7 +778,7 @@ Create **the branch experimental in the origin** repository by copying the **cur
 
 `git push origin master`
 
-Find a ref that matches master in the source repository (most likely, it would find refs/heads/master), 
+Find a ref that matches master in the source repository (most likely, it would find refs/heads/master),
 and update the same ref (e.g. refs/heads/master) in origin repository with it. If master did not exist remotely, it would be created.
 
 `git push origin HEAD`
@@ -947,7 +957,8 @@ And here is another line that is cleanly resolved or unmodified.
 The area where a pair of conflicting changes happened is marked with markers `<<<<<<<`, `=======`, and `>>>>>>>`.
 The part before the `=======` is typically your side, and the part afterwards is typically their side.
 
-The default format does not show what the original said in the conflicting area. You cannot tell how many lines are deleted and replaced with Barbie’s remark on your side. The only thing you can tell is that your side wants to say it is hard and you’d prefer to go shopping, while the other side wants to claim it is easy.
+The default format does not show what the original said in the conflicting area. You cannot tell how many lines are deleted and replaced with Barbie’s remark on your side.
+The only thing you can tell is that your side wants to say it is hard and you’d prefer to go shopping, while the other side wants to claim it is easy.
 
 An alternative style can be used by setting the "merge.conflictStyle" configuration variable to "diff3".
 
@@ -1233,7 +1244,9 @@ $ echo 'test content' | git hash-object -w --stdin
 d670460b4b4aece5915caf5c68d12f560a9fe3e4
 ```
 
-In its simplest form, `git hash-object` would take the content you handed to it and merely return the unique key that would be used to store it in your Git database. The `-w` option then tells the command to not simply return the key, but to write that object to the database. Finally, the --stdin option tells `git hash-object` to get the content to be processed from stdin; otherwise, the command would expect a filename argument at the end of the command containing the content to be used.
+In its simplest form, `git hash-object` would take the content you handed to it and merely return the unique key that would be used to store it in your Git database.
+The `-w` option then tells the command to not simply return the key, but to write that object to the database.
+Finally, the --stdin option tells `git hash-object` to get the content to be processed from stdin; otherwise, the command would expect a filename argument at the end of the command containing the content to be used.
 
 The output from the above command is a `40-character checksum hash`. This is the SHA-1 hash — a checksum of the content you’re storing plus a header, which you’ll learn about in a bit. Now you can see how Git has stored your data:
 
@@ -1242,7 +1255,8 @@ $ find .git/objects -type f
 .git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4
 ```
 
-If you again examine your objects directory, you can see that it now contains a file for that new content. This is how Git stores the content initially — as a single file per piece of content, named with the SHA-1 checksum of the content and its header. The subdirectory is named with the first 2 characters of the SHA-1, and the filename is the remaining 38 characters.
+If you again examine your objects directory, you can see that it now contains a file for that new content.
+This is how Git stores the content initially — as a single file per piece of content, named with the SHA-1 checksum of the content and its header. The subdirectory is named with the first 2 characters of the SHA-1, and the filename is the remaining 38 characters.
 
 Once you have content in your object database, you can examine that content with the `git cat-file` command. This command is sort of a Swiss army knife for inspecting Git objects. Passing `-p` to `cat-file` instructs the command to first figure out the type of content, then display it appropriately:
 

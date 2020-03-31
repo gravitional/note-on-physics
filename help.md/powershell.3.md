@@ -1488,21 +1488,21 @@ PS E:> ls cert:\CurrentUser\My | where {$_.subject -eq "cn=TomPowershellCert"}
 
 ```powershell
 ## 查看预期目的为代码签名的证书:
-$certs = @(Dir cert:\CurrentUser\My -codeSigningCert) 
+$certs = @(Dir cert:\CurrentUser\My -codeSigningCert)
 "找到 {0} 个代码签名证书" -f $certs.count
 # 找到 1 个代码签名证书
- 
+
 ## 选择 刚才创建的证书
 $certificate=ls cert:\CurrentUser\My | where {$_.subject -eq "CN=TomPowershellCert"}
- 
+
 ## 证书的代表
 $certificate.subject
 # CN=MosserPowerShellTestCert
- 
+
 ## 证书的签发者
 $certificate.issuer
 # CN=MosserPowerShellTestCert
- 
+
 ## 证书的序列号，指纹
 $certificate |  select SerialNumber,Thumbprint | fl *
 # SerialNumber : C23F35EA85D9A5AB466C07A7C0469A78
@@ -1682,6 +1682,3 @@ Set-ExecutionPolicy AllSigned
 我的第一个签名脚本
 
 ```
-
-
-

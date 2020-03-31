@@ -951,3 +951,17 @@ foreach ($i in $array) {
 在循环前执行一次，常用来初始化一些数据；
 第三个是结束语句块，在循环结束之后执行一次，常用于统计一些循环数据；
 第二个就是正常的循环语句块，会循环多次。
+
+## pwsh 锁屏
+
+```powershell
+Function Lock-WorkStation {
+$signature = @"
+[DllImport("user32.dll", SetLastError = true)]
+public static extern bool LockWorkStation();
+"@
+
+$LockWorkStation = Add-Type -memberDefinition $signature -name "Win32LockWorkStation" -namespace Win32Functions -passthru
+$LockWorkStation::LockWorkStation() | Out-Null
+}
+```
