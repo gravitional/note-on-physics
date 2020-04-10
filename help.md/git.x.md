@@ -58,3 +58,17 @@ git restore --source=9ea00d1 parton.note.1.nb
 ref: [git重命名文件夹][]
 
 [git重命名文件夹]: https://www.jianshu.com/p/e886fde18ba0
+
+## 删除远程分支
+
+可以运行带有`--delete`选项的`git push`命令
+
+```bash
+$ git push origin --delete serverfix
+To https://github.com/schacon/simplegit
+- [deleted]         serverfix
+```
+
+```bash
+git push [远程仓库] --delete [branchname]
+```

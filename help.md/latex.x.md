@@ -697,7 +697,8 @@ ref-3: [查找任意符号的LaTeX指令][]
 | `\notin` | $\notin$ | 不属于|
 | `\ast` | $\ast$ | Asterisk operator, convolution, six-pointed (binary) 六角星|
 | `\cong` | $\cong$ | Congruent (relation).  全等|
-| `\dagger` | $\dagger$ | Dagger relation (binary). 复共轭  |
+| `\dagger` | $\dagger$ | Dagger relation (binary). 厄米共轭  |
+| `\ast` | $\ast$ | asterisk. 复共轭  |
 | `\equiv` | $\equiv$ | Equivalence (relation).  恒等于 |
 | `\subset` | $\subset$ | Subset (occasionally, is implied by) (relation) 子集|
 | `\varphi` | $\varphi$ | Variant on the lowercase Greek letter 变型希腊字母 |

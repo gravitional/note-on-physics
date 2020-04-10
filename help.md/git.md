@@ -306,6 +306,80 @@ This form is to view the differences between the raw contents of two blob object
 
 穿梭时光前，用`git log`可以查看提交历史，以便确定要回退到哪个版本
 
+```bash
+-<number>
+-n <number>
+--max-count=<number>
+```
+
+Limit the number of commits to output.
+
+```bash
+--skip=<number>
+```
+
+Skip number commits before starting to show the commit output.
+
+```bash
+--since=<date>
+--after=<date>
+```
+
+Show commits more recent than a specific date.
+
+--until=<date>
+--before=<date>
+
+```bash
+Show commits older than a specific date.
+```
+
+```bash
+--author=<pattern>
+--committer=<pattern>
+```
+
+Limit the commits output to ones with author/committer header lines that match the specified pattern (regular expression). With more than one --author=<pattern>, commits whose author matches any of the given patterns are chosen (similarly for multiple --committer=<pattern>).
+
+```bash
+--grep-reflog=<pattern>
+```
+
+Limit the commits output to ones with reflog entries that match the specified pattern (regular expression). With more than one --grep-reflog, commits whose reflog message matches any of the given patterns are chosen. It is an error to use this option unless --walk-reflogs is in use.
+
+```bash
+--grep=<pattern>
+```
+
+Limit the commits output to ones with log message that matches the specified pattern (regular expression). With more than one --grep=<pattern>, commits whose message matches any of the given patterns are chosen (but see --all-match).
+
+When --show-notes is in effect, the message from the notes is matched as if it were part of the log message.
+
+```bash
+-<!-- markdownlint-capture -->all-match
+```
+
+Limit the commits output to ones that match all given --grep, instead of ones that match at least one.
+
+```bash
+--invert-grep
+```
+
+Limit the commits output to ones with log message that do not match the pattern specified with --grep=<pattern>.
+
+```bash
+-i
+--regexp-ignore-case
+```
+
+Match the regular expression limiting patterns without regard to letter case.
+
+```bash
+--basic-regexp
+```
+
+ Consider the limiting patterns to be basic regular expressions; this is the default.
+
 ### 查看本地+远程所有分支的全部提交以及关系
 
 [git查看本地+远程所有分支的全部提交以及关系][]
@@ -329,17 +403,56 @@ This form is to view the differences between the raw contents of two blob object
 
 要重返未来，用`git reflog`查看命令历史，以便确定要回到未来的哪个版本。
 
-### 丢弃工作区的修改
+### reset restore and revert
 
-丢弃 working tree 的修改
+从 index 灌入 working tree
 
 `git restore file`
 
-### 大恢复 restore
+从commit 灌入 index
 
 `git reset HEAD file`
 
-当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 `git reset HEAD file`，就回到了`场景1`，第二步按`场景1`操作
+```bash
+git reset --hard xxxx
+```
+
+彻底回退版本，连本地文件都会被回退到上个版本的内容
+
+```bash
+git reset --sort xxxx
+```
+
+只回退commit，如果你想再次提交直接git commit即可
+
+`reset --soft` 会在重置 HEAD 和 branch 时，保留工作目录和暂存区中的内容，并把重置 HEAD 所带来的新的差异放进暂存区。
+
+这就是--soft 和 --hard 的区别：--hard 会清空工作目录和暂存区的改动,*而 --soft则会保留工作目录的内容，并把因为保留工作目录内容所带来的新的文件差异放进暂存区
+
+```bash
+reset 不加参数(--mixed)
+```
+
+保留工作目录，并清空暂存区
+
+reset 如果不加参数，那么默认使用 `--mixed` 参数。它的行为是：保留工作目录，并且清空暂存区。
+也就是说，工作目录的修改、暂存区的内容以及由 `reset` 所导致的新的文件差异，都会被放进工作目录。
+简而言之，就是「把所有差异都混合（mixed）放在工作目录中」。
+
+同理，`reset --hard` 不仅可以撤销提交，还可以用来把 HEAD 和 branch 移动到其他的任何地方。
+
+```bash
+git reset --hard branch2
+```
+
+把HEAD 和 branch移动到branch2指向的提交。
+
+[Git Reset 三种模式][]
+[git reset --hard xxx、git reset --soft 及git revert 的区别][]
+
+[git reset --hard xxx、git reset --soft 及git revert 的区别]: https://www.jianshu.com/p/8be0cc35e672
+
+[]: https://www.jianshu.com/p/c2ec5f06cf1a
 
 ### 恢复EXAMPLES
 
@@ -375,6 +488,21 @@ Note the quotes around `*.c` The file `hello.c` will also be restored, even thou
 
 命令`git rm`用于删除一个文件。
 如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
+
+### checkout
+
+```bash
+git checkout [<tree-ish>] [--] <pathspec>…​
+```
+
+Overwrite paths in the working tree by replacing with the contents in the **index** or in the `<tree-ish>` (most often a `commit`). When a `<tree-ish>` is given, 
+the **paths** that match the `<pathspec>` are updated both in the **index** and in the **working tree**.
+
+The index may contain unmerged entries because of a previous failed merge. By default, if you try to check out such an entry from the index, the checkout operation will fail and nothing will be checked out.
+Using `-f` will ignore these unmerged entries.
+
+The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`. 
+With `-m`, changes made to the working tree file can be discarded to re-create the original conflicted merge result.
 
 ## 分支管理
 
@@ -413,6 +541,11 @@ git branch [--track | --no-track] [-f] <branchname> [<start-point>]
 The command’s above form creates a new branch head named `<branchname>` which points to the current HEAD, or `<start-point>` if given.
 As a special case, for `<start-point>`, you may use "`A...B`" as a shortcut for the merge base of A and B if there is exactly one merge base.
 You can leave out at most one of A and B, in which case it defaults to `HEAD`.
+
+也可以用checkout 的特殊语法
+
+`git checkout -b`
+`git checkout -b "branchname " "startpoint"`
 
 ### 删除远程分支
 

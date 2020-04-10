@@ -965,3 +965,32 @@ $LockWorkStation = Add-Type -memberDefinition $signature -name "Win32LockWorkSta
 $LockWorkStation::LockWorkStation() | Out-Null
 }
 ```
+
+## Hash 哈希值
+
+[巧用Win10自带的PowerShell命令校验文件的Hash值（MD5、SHA1/256等）][]
+
+[巧用Win10自带的PowerShell命令校验文件的Hash值（MD5、SHA1/256等）]:https://www.windows10.pro/windows-powershell-get-filehash-algorithm-md5-sha1-format-list/
+
+在Win10开始按钮上点击右键，选择“Windows PowerShell(管理员)”打开“管理员: Windows PowerShell”窗口。
+
+校验文件Hash值的命令格式如下：
+
+```PowerShell
+Get-FileHash 文件路径 -Algorithm 校验的Hash值类型| Format-List
+```
+
+PS: 如果需要校验的文件路径比较复杂，例如路径中包含空格、括号等特殊符号，则需要在路径前后加上英文双引号。
+
+Windows PowerShell命令可以校验的Hash值类型包括：SHA1、SHA256、SHA384、SHA512、MACTripleDES、MD5、RIPEMD160，暂不支持校验CRC32值。
+如果想要校验它的SHA1值，则运行如下命令：
+
+```PowerShell
+Get-FileHash C:\Windows\notepad.exe -Algorithm SHA1| Format-List
+```
+
+如果想要校验SHA256值，则不需要带-Algorithm参数即可，命令如下：
+
+```PowerShell
+Get-FileHash C:\Windows\notepad.exe | Format-List
+```
