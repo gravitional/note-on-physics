@@ -994,3 +994,13 @@ Get-FileHash C:\Windows\notepad.exe -Algorithm SHA1| Format-List
 ```PowerShell
 Get-FileHash C:\Windows\notepad.exe | Format-List
 ```
+
+## 文件管理
+
+获取相关命令。
+
+Get-Command -noun Item
+
+复制文件
+
+Copy-Item
