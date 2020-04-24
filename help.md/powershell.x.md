@@ -1004,3 +1004,29 @@ Get-Command -noun Item
 复制文件
 
 Copy-Item
+
+### 批量重命名文件
+
+查看原始文件：
+
+```powershell
+PS D:\test> dir *.pdf
+```
+
+重命名：
+
+```powershell
+dir *.pdf | foreach { Rename-Item $_ -NewName ($_.BaseName+”_123.pdf”)  }
+```
+
+带正则的语句
+
+"Mr. Miller, Mrs. Meyer and Mr. Werner"-replace "(Mr.|Mrs.)\s*(Miller|Meyer)", "Our client `$2"
+
+*****
+
+替换例子
+
+```powershell
+dir *.nb | foreach { Rename-Item $_ -NewName ($_.Name -replace "rencon2", "rencon3" )  }
+```

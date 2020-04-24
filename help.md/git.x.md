@@ -59,6 +59,13 @@ ref: [git重命名文件夹][]
 
 [git重命名文件夹]: https://www.jianshu.com/p/e886fde18ba0
 
+## 修改最后一次注释
+
+如果你只想修改最后一次注释（就是最新的一次提交），
+
+`git commit --amend`
+
+
 ## 删除远程分支
 
 可以运行带有`--delete`选项的`git push`命令
@@ -72,3 +79,15 @@ To https://github.com/schacon/simplegit
 ```bash
 git push [远程仓库] --delete [branchname]
 ```
+
+## 创建新分支
+
+先运行 co -b 命令创建新分支
+
+`git checkout -b "branchname" "startpoint"`
+
+然后用 push -u 命令推送到远程
+
+`git push -u origin branchname` 
+
+第一次推送`branchname`分支的所有内容，并把本地的`branchname`分支和远程的`branchname`分支关联起来
