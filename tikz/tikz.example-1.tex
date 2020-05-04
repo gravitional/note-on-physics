@@ -1,0 +1,36 @@
+\documentclass[UTF8]{article}
+
+\author{H.~Partl}
+\title{Minimalism}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{makeidx}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{graphicx,graphics,color}
+\usepackage{multirow}
+
+
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\begin{document}
+	
+	
+\begin{figure}[htbp]
+	\centering
+	%%%%%%%%%%%%%%%%%%%
+	\feynmandiagram [horizontal=a to b] {
+		i1 [particle=\(e^{+}\)] -- [anti fermion] a -- [anti fermion] i2 [particle=\(e^{-}\)],
+		a -- [photon, edge label=\(Z^\ast\)] b,
+		f1 -- [charged scalar,edge label=\(h\)] b -- [photon, edge label=\(Z\)] f2
+	};
+	%%%%%%%%%%%%%%%%%%%
+	\label{fig:feynmandiagram.3}
+\end{figure}
+
+
+\end{document}}

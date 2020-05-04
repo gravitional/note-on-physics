@@ -315,3 +315,72 @@ Use the `printf()` function.
 ``There is a literal backtick (`) here.``
 ```
 
+## markdownlint.config
+
+The default rule configuration disables `MD013/line-length` because many files include lines longer than the conventional `8`0 character limit:
+
+```json
+{
+    "MD013": false
+}
+```
+
+Note: `MD002/first-heading-h1` is disabled by default because it has been deprecated in the markdownlint library.
+
+Rules can be enabled, disabled, and customized by creating a `JSON` file named `.markdownlint.json` (or `.markdownlintrc`) or a `YAML` file named `.markdownlint.yaml` (or `.markdownlint.yml`) in any directory of a project.
+The rules defined by `.markdownlint`{`.json`,`.yaml`,`.yml`,`rc`} apply to Markdown files in the same directory and any sub-directories without their own `.markdownlint`{`.json`,`.yaml`,`.yml`,`rc`}.
+
+Note: .markdownlint{.json,.yaml,.yml,rc} is used only if a project has been opened.
+When no folder is open or a file is not part of the current project, normal user and workspace settings apply (see below).
+If multiple of these files are present in the same directory, `.markdownlint.json` will be used instead of `.markdownlint`,
+yaml will be used instead of `.markdownlint.yml` will be used instead of `.markdownlintrc`.
+
+A custom configuration is often defined by a `.markdownlint.json` file in the root of the project:
+
+```json
+{
+    "default": true,
+    "MD003": { "style": "atx_closed" },
+    "MD007": { "indent": 4 },
+    "no-hard-tabs": false
+}
+```
+
+To extend another configuration file, any configuration file can use the extends property to provide a relative path:
+
+```json
+{
+    "extends": "../.markdownlint.json",
+    "no-hard-tabs": true
+}
+```
+
+Files referenced via extends do not need to be part of the current project (but usually are).
+
+Rules can also be configured using Code's support for user and workspace settings.
+
+The earlier configuration might look like the following in Code's user settings:
+
+```json
+{
+    "editor.someSetting": true,
+    "markdownlint.config": {
+        "default": true,
+        "MD003": { "style": "atx_closed" },
+        "MD007": { "indent": 4 },
+        "no-hard-tabs": false
+    }
+}
+```
+
+File paths referenced by extends from user settings are resolved relative to the user's home directory (ex: `%USERPROFILE%` on Windows or `$HOME` on macOS/Linux).
+
+Configuration locations have the following precedence (in decreasing order):
+
++ `.markdownlint`{.json,.yaml,.yml,rc} file in the same directory
++ `.markdownlint`{.json,.yaml,.yml,rc} file in a parent directory
++ `.markdownlint`{.json,.yaml,.yml,rc} file in the root of the project
++ `Visual Studio` Code user/workspace settings
++ `Default configuration` (see above)
+
+Once a configuration is found, lower-precedence locations are ignored. Changes saved to any location take effect immediately. Files referenced via extends are not monitored for changes. Only the last two locations apply to files outside a project.

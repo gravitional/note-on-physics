@@ -54,6 +54,12 @@ for ($i = 0; $i -le $length; $i++) {
 }
 ```
 
+在命令行下运行的时候，选择不同的引擎，关键字为
+
+`-pdf` : `-pdflatex`
+`-xelatex`
+`-lualatex`
+
 ### 报错示例-2
 
 ref-2: [LaTeX 如何进行 debug][]
@@ -678,28 +684,33 @@ ref-3: [查找任意符号的LaTeX指令][]
 
 | `latex` | appearance | 描述 |
 | ----- | ----- |----- |
-| `\oint` | $\oint$ |环路积分 |
-| `\approx` | $\approx$ | Almost equal to (relation) |
-| `\ldots` | $\ldots$ |lying dots |
-| `\cdots` | $\cdots$ | centerd dots |
-| `\infty` | $\infty$ | infinity |
+| `\oint` | $\oint$ | 环路积分 |
+| `\approx` | $\approx$ | Almost equal to (relation) 双线约等于 |
+| `\sim` | $\sim$ | 相似 单线约为 |
+| `\ldots` | $\ldots$ | lying dots 省略号 |
+| `\cdots` | $\cdots$ | centerd dots 省略号 |
+| `\infty` | $\infty$ | infinity 无穷 |
 | `\gg` | $\gg$ |greater greater 远远大于 |
 | `\ll` | $\ll$ | less less 远远小于 |
-| `\propto` | $\propto$ |正比于 |
-| `\in` | $\in$ |属于|
+| `\propto` | $\propto$ | 正比于 |
+| `\in` | $\in$ | 属于 |
 | `\notin` | $\notin$ | 不属于|
-| `\ast` | $\ast$ | Asterisk operator, convolution, six-pointed (binary)|
-| `\cong` | $\cong$ | Congruent (relation).  |
-| `\dagger` | $\dagger$ | Dagger relation (binary).   |
-| `\equiv` | $\equiv$ | Equivalence (relation).    |
-| `\subset` | $\subset$ | Subset (occasionally, is implied by) (relation) |
-| `\varphi` | $\varphi$ | Variant on the lowercase Greek letter   |
+| `\ast` | $\ast$ | Asterisk operator, convolution, six-pointed (binary) 六角星|
+| `\cong` | $\cong$ | Congruent (relation).  全等|
+| `\dagger` | $\dagger$ | Dagger relation (binary). 厄米共轭  |
+| `\ast` | $\ast$ | asterisk. 复共轭  |
+| `\equiv` | $\equiv$ | Equivalence (relation).  恒等于 |
+| `\subset` | $\subset$ | Subset (occasionally, is implied by) (relation) 子集|
+| `\varphi` | $\varphi$ | Variant on the lowercase Greek letter 变型希腊字母 |
 | `\zeta` | $\zeta$ | Lowercase Greek letter  |
 | `\Zeta` | $\Zeta$ | Lowercase Greek letter  |
 | `\xi` | $\xi$ | Lowercase Greek letter  |
 | `\upsilon` | $\upsilon$ | Lowercase Greek letter  |
-| `\mathsection` | $mathsection$ | Section sign in math mode  |
-| `\langle` | $\langle$ | Section sign in math mode  |
+| `\mathsection` | $\mathsection$ | Section sign in math mode  |
+| `\langle` | $\langle$ | Section sign in math mode 尖括号 |
+| `\left| a \right|` | $\left\| a \right\|$ | absolute value 绝对值 |
+| `\leftrightarrow` | $\leftrightarrow$ | 双向箭头 |
+| `\widehat{}` | $\widehat{M}$ | 宽帽子 |
 
 ### 自定义数学符号
 

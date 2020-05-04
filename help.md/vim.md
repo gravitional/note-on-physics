@@ -294,7 +294,7 @@ Press ENTER or type command to continue
 #### 替换
 
 - `r<X>` 将当前字符替换为 X，`replace`
-- `gu<X>` 将指定的文本转换为小写，`这个实在不知道是啥的缩写,go to u ？？`
+- `gu<X>` 将指定的文本转换为小写，`这个实在不知道是啥的缩写,get u ？？`
 - `gU<X>` 将指定的文本转换为大写
 - `:%s/<search>/<replace>/` 查找 `search` 内容并替换为 `replace` 内容，
 
