@@ -495,13 +495,13 @@ Note the quotes around `*.c` The file `hello.c` will also be restored, even thou
 git checkout [<tree-ish>] [--] <pathspec>…​
 ```
 
-Overwrite paths in the working tree by replacing with the contents in the **index** or in the `<tree-ish>` (most often a `commit`). When a `<tree-ish>` is given, 
+Overwrite paths in the working tree by replacing with the contents in the **index** or in the `<tree-ish>` (most often a `commit`). When a `<tree-ish>` is given,
 the **paths** that match the `<pathspec>` are updated both in the **index** and in the **working tree**.
 
 The index may contain unmerged entries because of a previous failed merge. By default, if you try to check out such an entry from the index, the checkout operation will fail and nothing will be checked out.
 Using `-f` will ignore these unmerged entries.
 
-The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`. 
+The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`.
 With `-m`, changes made to the working tree file can be discarded to re-create the original conflicted merge result.
 
 ## 分支管理
@@ -641,7 +641,7 @@ reset是用来修改提交历史的，想象这种情况，如果你在2天前�
 无论什么原因，你现在只需要将`82ecb31` 合并到`master`，而不合并`feature`上的其他`commits`，所以我们用`git cherry-pick`命令来做：
 
 ```bash
-git checkout master  
+git checkout master
 git cherry-pick 82ecb31
 ```
 
@@ -1147,7 +1147,7 @@ git show v1.4
 git tag v1.4-lw
 ```
 
-轻量标签本质上是提交`校验和`, 将其存储到一个文件中——没有保存任何其他信息。  
+轻量标签本质上是提交`校验和`, 将其存储到一个文件中——没有保存任何其他信息。
 创建轻量标签，不需要使用 `-a、-s` 或 `-m` 选项，只需要提供标签名字
 
 ### 后期打标签
@@ -1318,10 +1318,76 @@ git rebase --onto master[被施加重放的分支] server[父节点/修改起始
 
 ## 自定义 git
 
-### 忽略特殊文件
+### gitignore
 
 忽略某些文件时，需要编写`.gitignore`；
 `.gitignore`文件本身要放到版本库里，并且可以对`.gitignore`做版本管理！
+
+[git设置忽略文件和目录][]
+
+[git设置忽略文件和目录]: https://www.cnblogs.com/wtil/p/11676092.html
+
+1. 创建.gitignore
+2. 修改文件，添加忽略正则
+
+*****
+
++ `.idea` //忽略`.idea`文件夹及文件夹下文件
++ `*.iml` //忽略以`.iml`结尾的文件
+
+#### 例子
+
+```git
+# 忽略*.o和*.a文件
+*.[oa]
+
+# 忽略*.b和*.B文件，my.b除外
+*.[bB]
+!my.b
+
+# 忽略dbg文件和dbg目录
+dbg
+
+# 只忽略dbg目录，不忽略dbg文件
+dbg/
+
+# 只忽略dbg文件，不忽略dbg目录
+dbg
+!dbg/
+
+# 只忽略当前目录下的dbg文件和目录，子目录的dbg不在忽略范围内
+/dbg
+```
+
+以`#`开始的行，被视为注释.
+
++ `?`：代表任意的一个字符
++ `＊`：代表任意数目的字符
++ `{!ab}`：必须不是此类型
++ `{ab,bb,cx}`：代表`ab`,`bb`,`cx`中任一类型即可
++ `[abc]`：代表`a`,`b`,`c`中任一字符即可
++ `[ ^abc]`：代表必须不是`a`,`b`,`c`中任一字符
+
+*****
+添加忽略之后，已经提交到版本库中的文件是无法忽略的。
+只能clone到本地，删除后，再进行忽略。
+
+`.gitignore`只能忽略那些原来没有被track的文件，
+如果某些文件已经被纳入了版本管理中，则修改`.gitignore`是无效的。
+
+正确的做法是在每个clone下来的仓库中手动设置不要检查特定文件的更改情况。
+`git update-index --assume-unchanged PATH` 在PATH处输入要忽略的文件。
+另外 git 还提供了另一种 `exclude` 的方式来做同样的事情，
+不同的是 `.gitignore` 这个文件本身会提交到版本库中去, 用来保存的是公共的需要排除的文件。
+而 `.git/info/exclude` 这里设置的则是你自己本地需要排除的文件, 它不会影响到其他人，也不会提交到版本库中去
+
+Python我一般添加这个三个
+
+```git
+.idea
+*.iml
+__pycache__
+```
 
 ## git 术语
 

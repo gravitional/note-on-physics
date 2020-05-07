@@ -65,7 +65,6 @@ ref: [git重命名文件夹][]
 
 `git commit --amend`
 
-
 ## 删除远程分支
 
 可以运行带有`--delete`选项的`git push`命令
@@ -91,3 +90,30 @@ git push [远程仓库] --delete [branchname]
 `git push -u origin branchname` 
 
 第一次推送`branchname`分支的所有内容，并把本地的`branchname`分支和远程的`branchname`分支关联起来
+
+## diff
+
+`git-diff` - Show changes between commits, commit and working tree, etc
+
+`commit` 可以用`HEAD~2`的格式，
+`HEAD~2`最后的数字`2`指的是显示到倒数第几次，比如`2`指定倒数第二次
+
+#### SYNOPSIS
+
+```git
+git diff [<options>] [<commit>] [--] [<path>…​]
+git diff [<options>] --cached [<commit>] [--] [<path>…​]
+git diff [<options>] <commit> <commit> [--] [<path>…​]
+git diff [<options>] <blob> <blob>
+git diff [<options>] --no-index [--] <path> <path>
+```
+
+### DESCRIPTION
+
+Show:
+
++ changes between the `working tree` and the `index` or a `tree`,
++ changes between the `index` and `a tree`,
++ changes between two trees,
++ changes between two `blob` objects,
++ changes between two `files` on disk.

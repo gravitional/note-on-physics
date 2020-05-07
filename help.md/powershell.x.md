@@ -1030,3 +1030,63 @@ dir *.pdf | foreach { Rename-Item $_ -NewName ($_.BaseName+”_123.pdf”)  }
 ```powershell
 dir *.nb | foreach { Rename-Item $_ -NewName ($_.Name -replace "rencon2", "rencon3" )  }
 ```
+
+## 常用函数
+
+### Start-Sleep
+
+*****
+暂停Windows PowerShell 10秒：
+
+```powershell
+Start-Sleep –s 10
+```
+
+*****
+暂停脚本10秒（10,000毫秒）
+
+```powershell
+Start-Sleep –m 10000
+```
+
+*****
+语法
+
++ `tart-Sleep [-seconds] <int> [<CommonParameters>]`
++ `Start-Sleep -milliseconds <int> [<CommonParameters>]`
+
+*****
+详细描述
+
+`Start-Sleep` cmdlet使shell, 脚本, 或运行空间的活动挂起指定的时间. 
+你可以在脚本使用此命令来等待一个操作的结束, 或者在循环中等待一段指定时间后继续迭代.
+
+*****
+参数
+
+`-seconds <int>`
+
+指定睡眠源需要睡眠的秒数. 你可以忽略此参数名称(`-Seconds`), 你也可以使用此参数缩写"-s". 
+
+```powershell
+-milliseconds <int>
+```
+
+指定睡眠源需要睡眠的毫秒数. 此参数缩写"-m".
+
+*****
+`<公共参数>`
+
+此命令支持公共参数:` -Verbose`, `-Debug`, `-ErrorAction`, `-ErrorVariable`, and `-OutVariable`. 
+
+更多信息, 输入, `get-help about_commonparameters`.
+
+*****
+输入类型
+
+`Int32`
+
+如果需要为该命令提供多个参数, 请使用逗号进行分隔. 例如, `<parameter-name> <value1>, <value2>`.
+
+*****
+你可以使用`Start-Sleep`内建别名`sleep`. 需要更多信息, 查看`About_Alias`.

@@ -108,6 +108,13 @@ No pages of output.
 刘海洋 的《LaTeX 入门》中有名为「从错误中救赎」的章节，
 专门讲解 `LaTeX` 的排错，对 `LaTeX` 的不同报错进行了详细地叙述。
 
+###  清理latex 辅助文件powershell
+
+```powershell
+remove-item -Path '.\*.aux','.\*.lof','.\*.log','.\*.lot','.\*.fls','.\*.out','.\*.toc','.\*.fmt','.\*.fot','.\*.cb','.\*.cb2','.\*.ptc','.\*.xdv','.\*.fdb_latexmk','.\*.synctex.gz'
+```
+
+
 ## 定理类环境 of elegant-note
 
 ### definition 定义
