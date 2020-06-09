@@ -1,5 +1,74 @@
 # conclusion.powershell.md
 
+## examples
+
+*****
+复制并整理文件的脚本
+
+```powershell
+$originpath=Get-Location;
+
+$tepath='C:\Users\Thomas\Desktop\paper.ff\'
+
+if(-not ( Test-Path $tepath )){ mkdir $tepath } else {}
+copy-item .\* -Destination $tepath -Force
+
+cd $tepath
+
+remove-item -Path ('.\temp\','.\*.aux','.\*.lof','.\*.log','.\*.lot','.\*.fls','.\*.out','.\*.toc','.\*.fmt','.\*.fot','.\*.cb','.\*.cb2','.\*.ptc','.\*.xdv','.\*.fdb_latexmk','.\*.synctex.gz','.\*.swp','.\*.ps1','.\*.bib','.\*.bbl','.\*.blg')
+
+7z a ..\paper.7z $tepath
+
+cd $originpath
+
+```
+
+## 执行策略限制
+
+`Powershell`一般初始化情况下都会禁止脚本执行。脚本能否执行取决于`Powershell`的执行策略。
+
+```powershell
+PS E:> .\MyScript.ps1
+无法加载文件 E:MyScript.ps1，因为在此系统中禁止执行脚本...
+```
+
+只有管理员才有权限更改这个策略。非管理员会报错。
+
+查看脚本执行策略，可以通过：
+
+```powershell
+PS E:> Get-ExecutionPolicy
+```
+
+更改脚本执行策略，可以通过
+
+```powershell
+PS E:> Get-ExecutionPolicy
+Restricted
+PS E:> Set-ExecutionPolicy UnRestricted
+```
+
+脚本执行策略类型为：`Microsoft.PowerShell.ExecutionPolicy`
+查看所有支持的执行策略：
+
+```powershell
+PS E:>  [System.Enum]::GetNames([Microsoft.PowerShell.ExecutionPolicy])
+Unrestricted
+RemoteSigned
+AllSigned
+Restricted
+Default
+Bypass
+Undefined
+```
+
++ `Unrestricted` :权限最高，可以不受限制执行任何脚本。
++ `Default` :为`Powershell`默认的策略：`Restricted`，不允许任何脚本执行。
++ `AllSigned` ：所有脚本都必须经过签名才能在运行。
++ `RemoteSigned` ：本地脚本无限制，但是对来自网络的脚本必须经过签名。
+
+关于`Powershell`脚本的签名在后续会谈到。
+
 ## 别名 获取动词/名词
 
 当然，如果想查找特定动词/名词的命令也是可以的。比方说，如果我想查找所有以`Get`开头的命令，可以使用下面的命令。
@@ -829,6 +898,10 @@ $a[0].Directory.Name
 
 ### 比较运算符
 
++ `-gt` `-ge` 
++ `-lt` `-le` `
++ `-eq` `-ne`
+
 有大于（`-gt`），大于等于（`-ge`），小于（`-lt`），
 小于等于（`-le`），等于（`-eq`），不等于（`-ne`）几个。
 
@@ -1090,3 +1163,23 @@ Start-Sleep –m 10000
 
 *****
 你可以使用`Start-Sleep`内建别名`sleep`. 需要更多信息, 查看`About_Alias`.
+
+## 不停查看一个文件夹内的内容
+
+```PowerShell
+$i=0
+while ($i -le 1000)
+{
+    Clear-Host
+    Write-Host "`n`n ++++++++++++ `n`n"
+    dir data*
+    Start-Sleep -Seconds 10 
+    $i++
+}
+```
+
+### 查看所有中文字体
+
+```powershell
+fc-list :lang=zh-cn
+```

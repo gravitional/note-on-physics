@@ -98,7 +98,7 @@ git push [远程仓库] --delete [branchname]
 `commit` 可以用`HEAD~2`的格式，
 `HEAD~2`最后的数字`2`指的是显示到倒数第几次，比如`2`指定倒数第二次
 
-#### SYNOPSIS
+### SYNOPSIS
 
 ```git
 git diff [<options>] [<commit>] [--] [<path>…​]

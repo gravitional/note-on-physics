@@ -108,12 +108,15 @@ No pages of output.
 刘海洋 的《LaTeX 入门》中有名为「从错误中救赎」的章节，
 专门讲解 `LaTeX` 的排错，对 `LaTeX` 的不同报错进行了详细地叙述。
 
-###  清理latex 辅助文件powershell
+### 清理latex 辅助文件powershell
 
 ```powershell
-remove-item -Path '.\*.aux','.\*.lof','.\*.log','.\*.lot','.\*.fls','.\*.out','.\*.toc','.\*.fmt','.\*.fot','.\*.cb','.\*.cb2','.\*.ptc','.\*.xdv','.\*.fdb_latexmk','.\*.synctex.gz'
+remove-item -Path ('.\*.aux','.\*.lof','.\*.log','.\*.lot','.\*.fls','.\*.out','.\*.toc','.\*.fmt','.\*.fot','.\*.cb','.\*.cb2','.\*.ptc','.\*.xdv','.\*.fdb_latexmk','.\*.synctex.gz','.\*.ps1','.\*.bib','.\*.bbl','.\*.blg')
 ```
 
+```powershell
+remove-item -Path ($tepath+'*.aux',$tepath+'*.lof',$tepath+'*.log',$tepath+'*.lot',$tepath+'*.fls',$tepath+'*.out',$tepath+'*.toc',$tepath+'*.fmt',$tepath+'*.fot',$tepath+'*.cb',$tepath+'*.cb2',$tepath+'*.ptc',$tepath+'*.xdv',$tepath+'*.fdb_latexmk',$tepath+'*.synctex.gz',$tepath+'*.ps1')
+```
 
 ## 定理类环境 of elegant-note
 
@@ -765,3 +768,20 @@ This gives you three command variants for single-line vertical bars that are cor
 if in the document body you write the starred version `\abs*{\frac{22}{7}}` then the height of the vertical bars will match the height of the argument,
 whereas with `\abs{\frac{22}{7}}` the bars do not grow with the height of the argument but instead are the default height,
 and `\abs[size command]{\frac{22}{7}}` also gives bars that do not grow but are set to the size given in the size command, e.g., `\Bigg`.
+
+### 微分符号
+
+[在LaTeX中使用微分算子的正确姿势][]
+
+[在LaTeX中使用微分算子的正确姿势 ]: https://www.latexstudio.net/archives/10115.html
+
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+
+```latex
+\begin{displaymath}
+\mathop{\sum \sum}_{i,j=1}^{N} a_i a_j 
+{\sum \sum}_{i,j=1}^{N} a_i a_j
+\end{displaymath}
+```
+
+`\mathop` is considered to be a single variable sized math symbol for purposes of placing limits below (subscripts) and above (superscripts)  in display math style
