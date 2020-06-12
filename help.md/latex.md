@@ -160,6 +160,22 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 >where in the second argument you put the best approximation possible; after all the bookmarks are only a guide for consulting the document.
 
+## 符号
+
+[RaySir][]
+
+[RaySir]: https://www.zhihu.com/people/a739643d07dc71b56c03cec1e1942358
+
+连字符（Hyphens）、连接号（En-dashes）、破折号（Em-dashes）、减号（Minus signs）
+
+连字符为`-`、连接号为`--`、破折号为`---`、减号为`$-$`。
+
+u+2014*2
+
++ `hyphen`，用于连接复合词，比如 pesudo-vector，TeX 里面用`-`
++ `en dash`，大致相当于中文的连接号，可连接人名、时间、地点等，如 Newton–Leibniz formula、10–20，TeX 里面用`--`
++ `em dash`，大致相当于中文的破折号，TeX 里面用`---` (即三个 hyphen)
+
 ## 在文中使用链接
 
 使用宏包 `hyperref` 来制作

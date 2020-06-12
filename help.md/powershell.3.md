@@ -1670,7 +1670,7 @@ Set-ExecutionPolicy AllSigned
 无法加载文件 E:unSigned.ps1。文件 E:unSigned.ps1 未经数字签名...
 
 即使签名可以通过验证，也需要用户的批准，才能执行。
-.\firstSignScript.ps1
+`.\firstSignScript.ps1`
 
 是否要运行来自此不可信发布者的软件?
 文件 E:firstSignScript.ps1 由 CN=MosserPowerShellTestCert
