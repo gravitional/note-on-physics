@@ -1,0 +1,463 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19869,        455]
+NotebookOptionsPosition[     16038,        379]
+NotebookOutlinePosition[     17624,        421]
+CellTagsIndexPosition[     17581,        418]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["A.Zee.note.3.nb", "Title",ExpressionUUID->"397646af-c3f9-417b-aa43-32afc7278858"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["initial 1", "Section"]], "Section",
+ CellChangeTimes->{{3.7970534956251574`*^9, 3.797053512427416*^9}, 
+   3.797053576737279*^9, {3.7997102469257927`*^9, 
+   3.7997102508331122`*^9}},ExpressionUUID->"462ed282-dc47-442b-a9f3-\
+ffaf0d1a9c8d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"If", "[", "\n", "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"if", " ", "$ScriptCommandLine"}], "===", 
+     RowBox[{"{", "}"}]}], ",", " ", 
+    RowBox[{"the", " ", "environment", " ", "is", " ", "frontend"}]}], "*)"}],
+   "\n", "  ", 
+  RowBox[{
+   RowBox[{"SameQ", "[", 
+    RowBox[{"$ScriptCommandLine", ",", " ", 
+     RowBox[{"{", "}"}]}], "]"}], ",", "\n", "  ", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "if", " ", "execute", " ", "in", " ", "the", " ", "frontend", " ", 
+      "mode"}], ",", " ", 
+     RowBox[{"refresh", " ", "the", " ", "title", " ", "name"}]}], "*)"}], 
+   "\n", "  ", 
+   RowBox[{"CompoundExpression", "[", "\n", "   ", 
+    RowBox[{"(*", "\:6587\:4ef6\:7edd\:5bf9\:8def\:5f84", "*)"}], "\n", "   ", 
+    RowBox[{
+     RowBox[{"filename", " ", "=", " ", 
+      RowBox[{"NotebookFileName", "[", "]"}]}], ",", "\n", "   ", 
+     RowBox[{"(*", 
+      RowBox[{
+      "\:5355\:5143\:5bf9\:8c61", ",", "\:7b2c\:4e00\:4e2a\:5355\:5143"}], 
+      "*)"}], "\n", "   ", 
+     RowBox[{"cell`title", " ", "=", " ", 
+      RowBox[{"First", "[", 
+       RowBox[{
+        RowBox[{"Cells", "[", "]"}], ",", 
+        "\"\<please Open the frontend\>\""}], "]"}]}], ",", "\n", "   ", 
+     RowBox[{
+     "(*", "\:5237\:65b0\:7b2c\:4e00\:4e2a\:5355\:5143\:7684\:540d\:5b57", 
+      "*)"}], "\n", "   ", 
+     RowBox[{"NotebookWrite", "[", 
+      RowBox[{"cell`title", ",", " ", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"Last", "[", 
+          RowBox[{"FileNameSplit", "[", "filename", "]"}], "]"}], ",", " ", 
+         "\"\<Title\>\""}], "]"}]}], "]"}], ",", "\n", "   ", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+       "if", " ", "execute", " ", "in", " ", "commandline", " ", "mode"}], 
+       ",", " ", 
+       RowBox[{"print", " ", "a", " ", "ready", " ", "message"}]}], "*)"}], 
+     "\n", "   ", 
+     RowBox[{"git`root`dir", " ", "=", " ", 
+      RowBox[{"First", "[", 
+       RowBox[{
+        RowBox[{"StringCases", "[", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
+          RowBox[{"StartOfString", " ", "~~", " ", "\n", "   ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+              "WordCharacter", " ", "|", " ", "\"\<:\>\"", " ", "|", " ", 
+               "\"\<\\\\\>\""}], ")"}], " ", ".."}], ")"}], " ", "~~", " ", 
+           "\"\<octet.formfactor\>\""}]}], "]"}], ",", "\n", "   ", 
+        "\"\<please adjust the string pattern\>\""}], "]"}]}]}], "\n", "   ", 
+    RowBox[{"(*", 
+     RowBox[{
+     "add", " ", "the", " ", "base", " ", "git", " ", "root", " ", "dir"}], 
+     "*)"}], "\n", "   ", "]"}], ",", "\n", "  ", 
+   RowBox[{"CompoundExpression", "[", "\n", "   ", 
+    RowBox[{"Print", "[", "\"\<Ready to execute this script\>\"", "]"}], "\n",
+     "   ", "]"}]}], "\n", "  ", "]"}]], "Code",
+ CellChangeTimes->{{3.799710235271229*^9, 3.7997102385525084`*^9}, 
+   3.7998870861416845`*^9, {3.799887160896944*^9, 3.799887208369296*^9}, {
+   3.8018293099511576`*^9, 
+   3.801829315469272*^9}},ExpressionUUID->"d9d607f1-e53b-4aa7-9d18-\
+0c308b008707"],
+
+Cell[BoxData["\<\"please adjust the string pattern\"\>"], "Output",
+ CellChangeTimes->{
+  3.799994197309794*^9, {3.800021887102807*^9, 3.800021926272152*^9}, 
+   3.8018288946586742`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"8c67976e-891d-433c-b249-b807cf786593"]
+}, Open  ]],
+
+Cell["********************************** notebook \:5907\:5fd8\:5f55", "Text",
+ CellChangeTimes->{{3.797053488169956*^9, 3.7970534932209787`*^9}, {
+  3.797053565439352*^9, 
+  3.7970535751726494`*^9}},ExpressionUUID->"b4e8c22e-2cbd-4b9c-81d8-\
+0c922be55e74"],
+
+Cell["\<\
+\:8bb0\:5f55 A.Zee \:4e66\:4e0a\:7684\:516c\:5f0f \
+\>", "Text",
+ CellChangeTimes->{{3.777093139165267*^9, 3.7770931677378826`*^9}, {
+  3.7931565904382734`*^9, 3.7931566267977715`*^9}, {3.7960097508178167`*^9, 
+  3.7960097910905795`*^9}, {3.797914681548381*^9, 
+  3.7979147009803247`*^9}},ExpressionUUID->"81860fe0-eb6c-46c4-a8ce-\
+47e84e88c137"],
+
+Cell[CellGroupData[{
+
+Cell["print", "Subsection",
+ CellChangeTimes->{{3.7998870215825114`*^9, 
+  3.799887023566662*^9}},ExpressionUUID->"3e7e1ae1-ce83-4ba0-b896-\
+8f1fe1e4dbfe"],
+
+Cell["\:6253\:5370\:7b14\:8bb0\:672c", "Text",
+ CellChangeTimes->{{3.797208815949729*^9, 
+  3.797208821485849*^9}},ExpressionUUID->"150eadec-9988-440f-bead-\
+3dd1b15e36c7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    RowBox[{"FileBaseName", "[", "filename", "]"}], " ", "<>", " ", 
+    "\"\<.pdf\>\""}], ",", 
+   RowBox[{"EvaluationNotebook", "[", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7972086057808123`*^9, 3.7972086103156323`*^9}, {
+   3.7972086585946302`*^9, 3.7972086605704045`*^9}, 3.7972087304392543`*^9, {
+   3.7972087819645376`*^9, 3.797208799069992*^9}, {3.7972089295134387`*^9, 
+   3.797208955885316*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"7f98c21e-a88b-4064-9358-b4ac17d21be8"],
+
+Cell[BoxData["\<\"C:\\\\note\\\\qft\\\\A.Zee.note.1.pdf\"\>"], "Output",
+ CellChangeTimes->{
+  3.7972088136285276`*^9, 3.7972089749468555`*^9, 3.7972098008144217`*^9, 
+   3.7972100529005656`*^9, 3.7972101110050807`*^9, 3.7972101497618723`*^9, 
+   3.7972478239703093`*^9, 3.797247911878148*^9, 3.799887289669394*^9, 
+   3.799887466569346*^9, 3.799887836535359*^9, {3.7998882792343407`*^9, 
+   3.799888302856057*^9}, 3.7998889828264885`*^9, 3.7998891612121468`*^9, 
+   3.7998894190784936`*^9, 3.7998895280820904`*^9, 3.79989012080066*^9, 
+   3.799890342810347*^9, 3.800021894498495*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"be9ab47b-4ebb-4f50-9692-90372a2a7227"]
+}, Open  ]],
+
+Cell["\:7b14\:8bb0\:672c\:5b57\:4f53\:8bbe\:7f6e", "Text",
+ CellChangeTimes->{{3.797247691395963*^9, 
+  3.7972477042561965`*^9}},ExpressionUUID->"a90a1f16-67fc-4050-8a92-\
+d8f759d738c2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AbsoluteOptions", "[", 
+   RowBox[{
+    RowBox[{"EvaluationNotebook", "[", "]"}], ",", " ", "StyleDefinitions"}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.797245956485303*^9, 3.7972459593491573`*^9}, {
+   3.7972460142271514`*^9, 3.797246035167428*^9}, {3.7972463013809195`*^9, 
+   3.797246326638019*^9}, {3.7972463856743565`*^9, 3.7972463869024477`*^9}, {
+   3.79724642821021*^9, 3.7972464299343376`*^9}, {3.797246574666498*^9, 
+   3.7972465782337646`*^9}, {3.797247708297357*^9, 3.797247710893445*^9}, 
+   3.7972478401900897`*^9, {3.799887586755079*^9, 3.799887608485572*^9}, 
+   3.799890363930976*^9, 3.7998906912802005`*^9, 3.8000108343603716`*^9, 
+   3.800011459255602*^9},
+ CellLabel->"In[8]:=",ExpressionUUID->"99e68b73-727e-48c7-82fc-80972d1bcee2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"style`my", "=", 
+   RowBox[{"Notebook", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Cell", "[", 
+        RowBox[{"StyleData", "[", 
+         RowBox[{"StyleDefinitions", "\[Rule]", 
+          RowBox[{"FrontEnd`FileName", "[", 
+           RowBox[{
+            RowBox[{"{", "\"\<Book\>\"", "}"}], ",", "\"\<Textbook.nb\>\"", 
+            ",", 
+            RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF-8\>\""}]}], 
+           "]"}]}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"StyleData", "[", "\"\<Section\>\"", "]"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", "\"\<Noto Sans CJK SC Bold\>\""}], 
+         ",", 
+         RowBox[{"FontSize", "\[Rule]", "16"}], ",", 
+         RowBox[{"FontWeight", "\[Rule]", "\"\<Bold\>\""}], ",", 
+         RowBox[{"FontSlant", "\[Rule]", "\"\<Plain\>\""}], ",", 
+         RowBox[{"FontVariations", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<StrikeThrough\>\"", "\[Rule]", "False"}], ",", 
+            RowBox[{"\"\<Underline\>\"", "\[Rule]", "False"}]}], "}"}]}]}], 
+        "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"StyleData", "[", "\"\<Subsection\>\"", "]"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", "\"\<Noto Sans CJK SC Black\>\""}], 
+         ",", 
+         RowBox[{"FontSize", "\[Rule]", "13"}], ",", 
+         RowBox[{"FontWeight", "\[Rule]", "\"\<Heavy\>\""}], ",", 
+         RowBox[{"FontSlant", "\[Rule]", "\"\<Plain\>\""}], ",", 
+         RowBox[{"FontVariations", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<StrikeThrough\>\"", "\[Rule]", "False"}], ",", 
+            RowBox[{"\"\<Underline\>\"", "\[Rule]", "False"}]}], "}"}]}]}], 
+        "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"StyleData", "[", "\"\<Subsubsection\>\"", "]"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", "\"\<Noto Sans CJK SC Bold\>\""}], 
+         ",", 
+         RowBox[{"FontSize", "\[Rule]", "11"}], ",", 
+         RowBox[{"FontWeight", "\[Rule]", "\"\<Bold\>\""}], ",", 
+         RowBox[{"FontSlant", "\[Rule]", "\"\<Plain\>\""}], ",", 
+         RowBox[{"FontVariations", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<StrikeThrough\>\"", "\[Rule]", "False"}], ",", 
+            RowBox[{"\"\<Underline\>\"", "\[Rule]", "False"}]}], "}"}]}]}], 
+        "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Cell", "[", 
+        RowBox[{
+         RowBox[{"StyleData", "[", "\"\<Text\>\"", "]"}], ",", 
+         RowBox[{
+         "FontFamily", "\[Rule]", "\"\<Noto Sans CJK SC Regular\>\""}], ",", 
+         RowBox[{"FontSize", "\[Rule]", "12"}], ",", 
+         RowBox[{"FontWeight", "\[Rule]", "\"\<Plain\>\""}], ",", 
+         RowBox[{"FontSlant", "\[Rule]", "\"\<Plain\>\""}], ",", 
+         RowBox[{"FontVariations", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<StrikeThrough\>\"", "\[Rule]", "False"}], ",", 
+            RowBox[{"\"\<Underline\>\"", "\[Rule]", "False"}]}], "}"}]}]}], 
+        "]"}]}], "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Visible", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+     "StyleDefinitions", "\[Rule]", 
+      "\"\<PrivateStylesheetFormatting.nb\>\""}]}], "\[IndentingNewLine]", 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{
+    RowBox[{"EvaluationNotebook", "[", "]"}], ",", 
+    RowBox[{"StyleDefinitions", "\[Rule]", "style`my"}]}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.7972473968517256`*^9, 3.797247428935298*^9}, {
+  3.7972474890367146`*^9, 3.7972474956981125`*^9}, {3.797247547295187*^9, 
+  3.797247567475168*^9}, {3.79724775031707*^9, 3.7972478012596016`*^9}, {
+  3.7998874192432675`*^9, 3.7998874315459642`*^9}, {3.799887522126476*^9, 
+  3.799887534529028*^9}, {3.7998879664958944`*^9, 3.7998879949638977`*^9}, {
+  3.7998880494672303`*^9, 3.7998881359143667`*^9}, {3.7998888823545837`*^9, 
+  3.7998889694470596`*^9}, {3.799889048098686*^9, 3.799889130126832*^9}, {
+  3.799889721107833*^9, 3.799889739528844*^9}, {3.7998905911154003`*^9, 
+  3.7998906804193025`*^9}, {3.800010865918084*^9, 3.800010897535606*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"f27237ab-a658-4557-a06b-3b1d21d60ebf"],
+
+Cell["\:91cd\:6574\:5316\:548c\:89c4\:8303\:4e0d\:53d8\:6027", "Text",
+ CellChangeTimes->{
+  3.8000219515243654`*^9, {3.8018289048216887`*^9, 
+   3.8018289108124437`*^9}},ExpressionUUID->"92dd4c54-ee68-41cf-9028-\
+fd9014a00ee5"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3.1 \:622a\:65ad\:6211\:4eec\:7684\:65e0\:77e5", "Section",
+ CellChangeTimes->{{3.8018289162708707`*^9, 
+  3.801828923568738*^9}},ExpressionUUID->"fbb8dd58-aa8c-4003-8f5d-\
+a55400c453b8"],
+
+Cell[CellGroupData[{
+
+Cell["\:8868\:9762\:628a\:620f", "Subsection",
+ CellChangeTimes->{{3.8018289361725883`*^9, 
+  3.801828937016651*^9}},ExpressionUUID->"1fa532f5-ce7a-4633-92b2-\
+fdfb17cf0699"],
+
+Cell["\:91cf\:5b50\:573a\:8bba\:5148\:9a71\:4eec\:66fe\:5bf9\:4ed6\:4eec\:8ba1\
+\:7b97\:4e2d\:7ecf\:5e38\:51fa\:73b0\:7684\:53d1\:6563\:79ef\:5206\:56f0\:60d1\
+\:4e0d\:5df2\:3002", "Text",
+ CellChangeTimes->{{3.8018289662350693`*^9, 
+  3.801828970923193*^9}},ExpressionUUID->"dfc903f4-45e7-429e-8c75-\
+6222607c3298"],
+
+Cell["\<\
+\:4ece 1930 \:5e74\:4ee3\:5230 1940 \
+\:5e74\:4ee3\:ff0c\:4ed6\:4eec\:8017\:8d39\:4e86\:5927\:91cf\:65f6\:95f4\:8bd5\
+\:56fe\:6536\:62fe\:8fd9\:4e9b\:65e0\:7a77\:3002\:5f53\:65f6\:8bb8\:591a\:9886\
+\:519b\:4eba\:7269\:90fd\:4e3a\:6b64\:7edd\:671b\:ff0c\:8f6c\:800c\:5021\:8bae\
+\:5f7b\:5e95\:653e\:5f03\:91cf\:5b50\:573a\:8bba\:3002\
+\>", "Text",
+ CellChangeTimes->{{3.8018289662350693`*^9, 
+  3.8018289882025824`*^9}},ExpressionUUID->"781988f7-55bf-4628-9e07-\
+8059a4537c78"],
+
+Cell["\:4f46\:662f\:6700\:7ec8\:ff0c\:4e00\:79cd\:6240\:8c13\"\:91cd\:6574\
+\:5316\"\:7684\:624b\:6bb5\:53d1\:5c55\:8d77\:6765\:ff0c\:8ba9\:6211\:4eec\
+\:80fd\:591f\:8bf4\:660e\:5982\:4f55\:53bb\:6389\:65e0\:7a77\:ff0c\:5f97\:5230\
+\:6709\:9650\:7684\:7269\:7406\:7ed3\:679c\:3002", "Text",
+ CellChangeTimes->{{3.8018289662350693`*^9, 
+  3.80182899135585*^9}},ExpressionUUID->"d1a9d64c-8535-4209-8d3b-\
+531258aa192c"],
+
+Cell["\:4e0d\:8fc7\:76f4\:5230 1960 \:5e74\:4ee3\:672b\:751a\:81f3 1970 \
+\:5e74\:4ee3\:7684\:5f88\:591a\:5e74\:95f4\:ff0c\:8bb8\:591a\:7269\:7406\:5b66\
+\:5bb6\:90fd\:628a\:91cd\:6574\:5316\:7406\:8bba\:770b\:6210\:662f\:67d0\:79cd\
+\:53ef\:7591\:7684\:628a\:620f\:3002", "Text",
+ CellChangeTimes->{{3.8018289662350693`*^9, 
+  3.801828996986004*^9}},ExpressionUUID->"42129e54-f0b2-46c1-af0e-\
+7c7ced0cd106"],
+
+Cell["\<\
+\:8bf8\:5982\"\:91cf\:5b50\:573a\:8bba\:4e2d\:65e0\:7a77\:7b49\:4e8e\:96f6\"\
+\:6216\:8005\"\:573a\:8bba\:5b66\:5bb6\:5f80\:529e\:516c\:5ba4\:5730\:6bef\
+\:4e0b\:9762\:626b\:4e86\:4e00\:5806\:65e0\:7a77\"\:4e4b\:7c7b\:7684\:7b11\
+\:8bdd\:4e5f\:56db\:5904\:6d41\:4f20\:3002
+\:6700\:7ec8\:ff0c\:4ece 1970 \:5e74\:4ee3\:8d77\:ff0c\:7531\:4e8e\:80af\
+\[CenterDot]\:5a01\:5c14\:68ee\:4ee5\:53ca\:5176\:4ed6\:8bb8\:591a\:4eba\:7684\
+\:52aa\:529b\:ff0c\:6211\:4eec\:5bf9\:91cf\:5b50\:573a\:8bba\:6709\:4e86\:66f4\
+\:597d\:7684\:7406\:89e3\:65b9\:5f0f\:3002\
+\>", "Text",
+ CellChangeTimes->{{3.8018289662350693`*^9, 
+  3.8018290139561462`*^9}},ExpressionUUID->"f4265a01-86bb-4dc8-ba0c-\
+e19a4c2b25ce"],
+
+Cell["\:573a\:8bba\:5b66\:5bb6\:9010\:6e10\:610f\:8bc6\:5230\:ff0c\:91cf\:5b50\
+\:573a\:8bba\:5176\:5b9e\:6839\:672c\:6ca1\:6709\:4ec0\:4e48\:53d1\:6563\:95ee\
+\:9898\:3002", "Text",
+ CellChangeTimes->{{3.8018289662350693`*^9, 
+  3.8018290199474316`*^9}},ExpressionUUID->"135ae717-a541-4579-ae30-\
+84728364e9f1"],
+
+Cell["\:6211\:4eec\:73b0\:5728\:628a\:91cf\:5b50\:573a\:8bba\:89c6\:4e3a\:4e00\
+\:79cd\:4f4e\:80fd\:4e0b\:6709\:6548\:7684\:7406\:8bba\:3002\:5728\:8fd9\:91cc\
+\:ff0c\:6211\:4f1a\:7b80\:5355\:7684\:89e3\:91ca\:8fd9\:79cd\:7406\:89e3\:ff0c\
+\:5230\:4e86 \:2166.3 \:7ae0\:8fd8\:4f1a\:66f4\:7ed9\:51fa\:66f4\:591a\:7ec6\
+\:8282\:3002", "Text",
+ CellChangeTimes->{{3.8018289662350693`*^9, 
+  3.80182902500319*^9}},ExpressionUUID->"df8dead9-c94b-446c-9f6d-\
+d3f5704b891e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1280, 645},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (2019\:5e745\:670818\
+\:65e5)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> 
+     FrontEnd`FileName[{"Book"}, "Textbook.nb", CharacterEncoding -> 
+       "UTF-8"]]], 
+   Cell[
+    StyleData["Section"], FontFamily -> "Noto Sans CJK SC Bold", FontSize -> 
+    16, FontWeight -> "Bold", FontSlant -> "Plain", 
+    FontVariations -> {"StrikeThrough" -> False, "Underline" -> False}], 
+   Cell[
+    StyleData["Subsection"], FontFamily -> "Noto Sans CJK SC Black", FontSize -> 
+    13, FontWeight -> "Heavy", FontSlant -> "Plain", 
+    FontVariations -> {"StrikeThrough" -> False, "Underline" -> False}], 
+   Cell[
+    StyleData["Subsubsection"], FontFamily -> "Noto Sans CJK SC Bold", 
+    FontSize -> 11, FontWeight -> "Bold", FontSlant -> "Plain", 
+    FontVariations -> {"StrikeThrough" -> False, "Underline" -> False}], 
+   Cell[
+    StyleData["Text"], FontFamily -> "Noto Sans CJK SC Regular", FontSize -> 
+    12, FontWeight -> "Plain", FontSlant -> "Plain", 
+    FontVariations -> {"StrikeThrough" -> False, "Underline" -> False}]}, 
+  Visible -> False, FrontEndVersion -> 
+  "12.0 for Microsoft Windows (64-bit) (2019\:5e745\:670818\:65e5)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 87, 0, 123, "Title",ExpressionUUID->"397646af-c3f9-417b-aa43-32afc7278858"],
+Cell[CellGroupData[{
+Cell[692, 26, 264, 4, 94, "Section",ExpressionUUID->"462ed282-dc47-442b-a9f3-ffaf0d1a9c8d"],
+Cell[CellGroupData[{
+Cell[981, 34, 3165, 77, 650, "Code",ExpressionUUID->"d9d607f1-e53b-4aa7-9d18-0c308b008707"],
+Cell[4149, 113, 264, 4, 45, "Output",ExpressionUUID->"8c67976e-891d-433c-b249-b807cf786593"]
+}, Open  ]],
+Cell[4428, 120, 257, 4, 40, "Text",ExpressionUUID->"b4e8c22e-2cbd-4b9c-81d8-0c922be55e74"],
+Cell[4688, 126, 356, 7, 40, "Text",ExpressionUUID->"81860fe0-eb6c-46c4-a8ce-47e84e88c137"],
+Cell[CellGroupData[{
+Cell[5069, 137, 155, 3, 57, "Subsection",ExpressionUUID->"3e7e1ae1-ce83-4ba0-b896-8f1fe1e4dbfe"],
+Cell[5227, 142, 172, 3, 40, "Text",ExpressionUUID->"150eadec-9988-440f-bead-3dd1b15e36c7"],
+Cell[CellGroupData[{
+Cell[5424, 149, 604, 12, 66, "Input",ExpressionUUID->"7f98c21e-a88b-4064-9358-b4ac17d21be8"],
+Cell[6031, 163, 662, 9, 45, "Output",ExpressionUUID->"be9ab47b-4ebb-4f50-9692-90372a2a7227"]
+}, Open  ]],
+Cell[6708, 175, 186, 3, 40, "Text",ExpressionUUID->"a90a1f16-67fc-4050-8a92-d8f759d738c2"],
+Cell[6897, 180, 799, 14, 66, "Input",ExpressionUUID->"99e68b73-727e-48c7-82fc-80972d1bcee2"],
+Cell[7699, 196, 4497, 92, 836, "Input",ExpressionUUID->"f27237ab-a658-4557-a06b-3b1d21d60ebf"],
+Cell[12199, 290, 228, 4, 40, "Text",ExpressionUUID->"92dd4c54-ee68-41cf-9028-fd9014a00ee5"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12476, 300, 193, 3, 94, "Section",ExpressionUUID->"fbb8dd58-aa8c-4003-8f5d-a55400c453b8"],
+Cell[CellGroupData[{
+Cell[12694, 307, 174, 3, 57, "Subsection",ExpressionUUID->"1fa532f5-ce7a-4633-92b2-fdfb17cf0699"],
+Cell[12871, 312, 316, 5, 40, "Text",ExpressionUUID->"dfc903f4-45e7-429e-8c75-6222607c3298"],
+Cell[13190, 319, 486, 9, 40, "Text",ExpressionUUID->"781988f7-55bf-4628-9e07-8059a4537c78"],
+Cell[13679, 330, 417, 6, 40, "Text",ExpressionUUID->"d1a9d64c-8535-4209-8d3b-531258aa192c"],
+Cell[14099, 338, 408, 6, 40, "Text",ExpressionUUID->"42129e54-f0b2-46c1-af0e-7c7ced0cd106"],
+Cell[14510, 346, 703, 12, 72, "Text",ExpressionUUID->"f4265a01-86bb-4dc8-ba0c-e19a4c2b25ce"],
+Cell[15216, 360, 312, 5, 40, "Text",ExpressionUUID->"135ae717-a541-4579-ae30-84728364e9f1"],
+Cell[15531, 367, 467, 7, 40, "Text",ExpressionUUID->"df8dead9-c94b-446c-9f6d-d3f5704b891e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

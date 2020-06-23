@@ -17,3 +17,6 @@ for ($i = 0; $i -le $length; $i++) {
     Write-Output ("*" * 90);
     $mk_message[$mk_message.IndexOf($line_start[$i])..($mk_message.IndexOf($line_end[$i]))] | Select-Object -First 10
 }
+
+## copy pdf into main directory
+Copy-Item ".\temp\*.pdf"
