@@ -1,0 +1,144 @@
+\documentclass{ctexart} 
+%%++++++++++++++++++++
+\usepackage{graphicx}
+\usepackage{eso-pic}
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{243,102,25}
+\usepackage{enumerate}
+\usepackage{latexsym}
+\usepackage{makeidx}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hep}
+\usepackage{slashed}
+\usepackage{bm}
+\usepackage{graphicx,graphics,color}
+\usepackage{multirow}
+\usepackage{simplewick}
+\usepackage{axodraw2}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{graphicx,graphics,color}
+\usepackage{multirow}
+\usepackage{axodraw2}
+\usepackage{slashed}
+\usepackage{axodraw2}
+%%++++++++++++++++++++
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\def\chntoday{\the\year~年~\the\month~月~\the\day~日}
+%%+++++++++++++++++++++++++++++
+
+
+\begin{document}
+
+\title{Collier help}
+\author{ymy}
+\today
+\maketitle 
+
+COLLIER is a fortran 单圈--标量和张量的数值积分程序库。
+这些积分出现在微扰的相对论性量子场论中。
+它具有以下features：
+
+\begin{itemize}
+\item 多粒子复杂度 scalar and tensor integrals
+\item ultraviolet divergences 的维数正规化
+\item soft infrared divergences 的维数正规化（对于非阿贝尔场，也支持 mass regularization）
+\item 对于共线质量奇点的维数正规化或者质量正规化
+\item 对于不稳定粒子，complex 内线质量完全支持（外动量和virtualities认作是实数）
+\item 数值危险区域（小 Gram 或者其他运动学行列式），使用专用的展开处理。
+\item 所有基本模块都有两种平行的实现方式，可以用作内部交叉检验
+\item 缓存系统--用来加速计算
+\end{itemize}
+
+代码提供了量子场论中任意张量和标量积分的数值结果。
+对于张量积分，不管协变分解中的系数还是张量元本身都将给出。
+Collier 支持 complex 质量，在计算不稳定粒子时会需要。
+采用维数正规化处理紫外和红外奇点。
+对于 soft 和 共线奇点，有可选用的质量正规化方案。
+
+\section{introduction}
+
+multi-leg one-loop amplitudes 振幅求值的巨大进步，来自于两方面：
+
+\begin{enumerate}
+    \item 传统费曼图方法的系统改进
+    \item 基于推广的幺正性关系的新理论技术
+\end{enumerate}
+
+在第二种方法中，单圈振幅被直接表示成标量积分的组合。
+这种向固定标量积分基的直接约化，会引发相空间特定区域的数值问题。
+一般可以通过采用四次精度的数值计算克服。
+
+相反，费曼图方法，包括最近的递归方法依赖于张量积分。
+此方法允许分解方法自适应于相空间的不同区域，在相当大的程度上，
+通过最优选择避免数值不稳定性。
+Collier 库提供了计算标量和张量积分的全面工具。
+在两种互补的方法中都能应用。
+
+将张量积分约化到一小族基本积分的方法，可以追溯到 Brown and Feynman, Melrose, and Passarino and Veltman。
+又经过了数十年的发展，文献[43, 50]  展示的完整方法，是Collier代码的基础。
+作为张量分解基础的标量积分首次由t' Hooft and Veltman 进行了系统研究。
+已经存在数个计算单圈标量和张量积分的库，比如：
+
+\begin{itemize}
+    \item FF，LoopTools，
+    \item QCDLoop，OneLoop，
+    \item GoLem95C，PJFRY，Package-X
+\end{itemize}
+
+这里介绍的Collier库，提供完全的张量积分集合，处理带有复数质量的过程，
+并且没有先验的粒子数限制。
+
+Collier 已在用于多个前沿课题的计算。
+
+文章结构：
+
+\begin{itemize}
+    \item Section 2： Collier相关约定
+    \item Section 3：计算张量积分的方法轮廓
+    \item Section 4：Collier 库的内部结构
+    \item Section 5： 用法
+    \item Section 6：总结
+    \item Appendix A：定义 单圈积分的 运动学输入细节
+\end{itemize}
+
+\section{Convention}
+
+一致性地使用 Refs. [50, 59] 中的约定。约化张量积分的方法在 Refs. [43, 50] 中有描述，
+已经实现4--点函数的结果可以在Ref. [59]中找到。
+标量1-，2-，3-点 函数的结果基于Refs. [45, 52]
+
+$D$维空间中，单圈$N$点张量积分的一般形式为：
+\begin{equation}
+    %% \label{eq:1} 
+    \begin{aligned}      
+T^{N,\mu_{1},\cdots, \mu_{P}}(p_{1},\cdots,p_{N-1},m_{0},\cdots,m_{N-1})
+=\frac{(2\pi\mu)}{^{4-D}i \pi^2}
+\int\dif^D q \frac{q^{\mu_{1}}\cdots\q^{\mu_{P}}}{N_0 N_1 \cdots N_{N-1}}
+    \end{aligned}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
