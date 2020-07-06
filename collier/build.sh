@@ -1,8 +1,9 @@
-#etc/bin/bash
+#!/bin/bash
 
 #latexmk -C
  
-tex_file=ls | grep -P ".+\.tex";
+tex_file=$(ls | grep -o -P ".+(?=\.tex)");
 
-latexmk $tex_file | grep --color -n -P -A 8 "x:\d+:"
+latexmk -silent $tex_file".tex"; 
 
+grep -i -n --color -P -B 0 -A 8 "\[\d+\]" ./temp/$tex_file".log"

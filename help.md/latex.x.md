@@ -785,3 +785,60 @@ and `\abs[size command]{\frac{22}{7}}` also gives bars that do not grow but are 
 ```
 
 `\mathop` is considered to be a single variable sized math symbol for purposes of placing limits below (subscripts) and above (superscripts)  in display math style
+
+### 上下划线和大括号
+
+[LaTeX教学3.2.2 数学结构-上下划线和大括号][]
+
+[LaTeX教学3.2.2 数学结构-上下划线和大括号]: https://www.jianshu.com/p/0217f22ebb3e
+
+有的时候我们会需要在公式的上面或者下面打一条线, 这时候我们需要用到两个命令：
+
+`\overline`和`\underline`
+
+这是两个带一个必要参数的命令 , 分别用来在公式上作上划线和下划线. 比如：
+
+除了横线和箭头, 数学公式还可以使用`\overbrace`和`\underbrace`来带上花括号, 如
+
+同时我们还可以用上下标在花括号上做标注, 如
+
+```latex
+\[ 
+ ( \overbrace{a_{0},a_{1},\dots,a_{n}}^{n+1} )=
+ ( \underbrace{0,0,\dots 0}_{n},1 )
+\]
+```
+
+### 多重下标
+
+[如何排版公式的多行下标][]
+
+[如何排版公式的多行下标]: https://jingyan.baidu.com/article/59703552e0fae18fc1074043.html
+
+第一种方法
+
+我们可以使用命令`\substack`，可以排版多重上标或下标，两行之间用`\\`分隔，居中显示。
+
+例如：
+
+```latex
+\begin{equation}   
+\sum_{\substack{k_0,k_1,\dots>0\\   k_0+k_1+\dots=n}}   F(k_i)
+\end{equation}
+```
+
+第二种方法
+
+我们可以使用`subarray`环境来实现多行上下标，且可以自己选择对齐方式。
+
+```latex
+\begin{gather}
+  \sum_{\substack{0 \le i \le m\\
+  0 < j < n}}P(i, j)\\
+  \sum_{\begin{subarray}{l}
+    i \in \Lambda \\
+    0 \le i \le m \\
+    0 < j < n
+  \end{subarray}} P(i, j)
+\end{gather}
+```

@@ -1,0 +1,220 @@
+%% LyX 2.2.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,UTF8]{ctexbook}
+\usepackage[T1]{fontenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{amsmath}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\noun}[1]{\textsc{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+\DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor} % Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+\usepackage{amsfonts} 
+\usepackage{hep} 
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{latexsym} 
+\usepackage{amssymb} 
+\usepackage{makeidx} 
+\usepackage{amsmath} 
+\usepackage{multirow} 
+\usepackage{slashed} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\trace}{tr} 
+\DeclareMathOperator{\Real}{Re} 
+\DeclareMathOperator{\Imag}{Im} 
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+
+\makeatother
+
+\begin{document}
+
+\title{title}
+
+\author{Thomas Young}
+
+\maketitle
+COLLIER is a fortran 单圈-{}-标量和张量的数值积分程序库。 
+
+这些积分出现在微扰的相对论性量子场论中。 
+
+它具有以下features：
+\begin{enumerate}
+\item 多粒子复杂度 scalar and tensor integrals 
+\item ultraviolet divergences 的维数正规化
+\item soft infrared divergences 的维数正规化（对于非阿贝尔场，也支持 mass regularization）
+\item 对于共线质量奇点的维数正规化或者质量正规化 
+\item 对于不稳定粒子，complex 内线质量完全支持（外动量和virtualities认作是实数）
+\item 数值危险区域（小 Gram 或者其他运动学行列式），使用专用的展开处理。
+\item 所有基本模块都有两种平行的实现方式，可以用作内部交叉检验
+\item 缓存系统-{}-用来加速计算 \textbackslash{}end\{itemize\}
+\end{enumerate}
+代码提供了量子场论中任意张量和标量积分的数值结果。 
+\begin{enumerate}
+\item 对于张量积分，不管协变分解中的系数还是张量元本身都将给出。 
+\item Collier 支持 complex 质量，在计算不稳定粒子时会需要。 
+\item 采用维数正规化处理紫外和红外奇点。 
+\item 对于 soft 和 共线奇点，有可选用的质量正规化方案。
+\end{enumerate}
+
+\chapter{collier doc}
+
+\section{introduction}
+
+multi-leg one-loop amplitudes 振幅求值的巨大进步，来自于两方面：
+\begin{enumerate}
+\item 传统费曼图方法的系统改进 
+\item 基于推广的幺正性关系的新理论技术
+\end{enumerate}
+在第二种方法中，单圈振幅被直接表示成标量积分的组合。 这种向固定标量积分基的直接约化，会引发相空间特定区域的数值问题。 一般可以通过采用四次精度的数值计算克服。
+
+相反，费曼图方法，包括最近的递归方法依赖于张量积分。 此方法允许分解方法自适应于相空间的不同区域，在相当大的程度上， 通过最优选择避免数值不稳定性。
+Collier 库提供了计算标量和张量积分的全面工具。 在两种互补的方法中都能应用。
+
+将张量积分约化到一小族基本积分的方法，可以追溯到 Brown and Feynman, Melrose, and Passarino
+and Veltman。 又经过了数十年的发展，文献{[}43, 50{]} 展示的完整方法，是Collier代码的基础。 作为张量分解基础的标量积分首次由t'
+Hooft and Veltman 进行了系统研究。 已经存在数个计算单圈标量和张量积分的库，比如：
+\begin{itemize}
+\item FF，LoopTools， 
+\item QCDLoop，OneLoop， 
+\item GoLem95C，PJFRY，Package-X
+\end{itemize}
+这里介绍的Collier库，提供完全的张量积分集合，处理带有复数质量的过程， 并且没有先验的粒子数限制。
+
+Collier 已在用于多个前沿课题的计算。
+
+文章结构：
+\begin{itemize}
+\item Section 2： Collier相关约定 
+\item Section 3：计算张量积分的方法轮廓 
+\item Section 4：Collier 库的内部结构
+\item Section 5： 用法
+\item Section 6：总结 
+\item Appendix A：定义 单圈积分的 运动学输入细节
+\end{itemize}
+
+\section{Convention}
+
+一致性地使用 Refs. {[}50, 59{]} 中的约定。约化张量积分的方法在 Refs. {[}43, 50{]} 中有描述，
+已经实现4-{}-点函数的结果可以在Ref. {[}59{]}中找到。 标量1-，2-，3-点 函数的结果基于Refs. {[}45,
+52{]}
+
+$D$维空间中，单圈$N$点张量积分的一般形式为：
+\begin{equation}
+T^{N,\mu_{1},\cdots,\mu_{P}}(p_{1},\cdots,p_{N-1},m_{0},\cdots,m_{N-1})=\frac{(2\pi\mu)^{4-D}}{i\pi^{2}}\int\dif^{D}q\frac{q^{\mu_{1}}\cdots q^{\mu_{P}}}{N_{0}N_{1}\cdots N_{N-1}}\label{eq:1}
+\end{equation}
+
+其中分母因子 $N_{k}=(q+p_{k})^{2}-m_{k}^{2}+i\epsilon$, $k=0,\cdots,N-1,p_{0}=0$,其中$i\varepsilon$是无穷小的虚部。
+
+对于$P=0$，即分子上是$1$，(\ref{eq:1})定义了$N$-点标量积分$T_{0}^{N}$。 
+
+按照Ref.{[}52{]}，我们令$T^{1}=A,T^{2}=B,T^{3}=C,T^{4}=D,T^{5}=E,T^{6}=F,\text{and }T^{7}=G$。
+
+为了能够简洁的写出张量分解。 
+
+我们使用大括号来表示对所有洛伦兹指标进行对称化操作。比如： 
+
+\begin{align}
+\{p\cdots p\}_{i_{1}\cdots i_{P}}^{\mu_{1}\cdots\mu_{P}} & =p_{i_{1}}^{\mu_{1}}\cdots p_{i_{P}}^{\mu_{P}}\{gp\}_{i_{1}}^{\mu\nu\rho}=g^{\mu\nu}p_{i_{1}}^{\rho}+g^{\nu\rho}p_{i_{1}}^{\mu}+g^{\mu\rho}p_{i_{1}}^{\nu}\\
+{gg}^{\mu\nu\rho\sigma} & =g^{\mu\nu}g^{\rho\sigma}+g^{\mu\sigma}g^{\nu\rho}+g^{\mu\rho}g^{\nu\sigma}
+\end{align}
+
+这种分解是可以递归进行的。
+\begin{align}
+\{p\cdots p\}_{i_{1}\cdots i_{P}}^{\mu_{1}\cdots\mu_{P}} & =p_{i_{1}}^{\mu_{1}}\cdots p_{i_{P}}^{\mu_{P}}\\
+\{\underbrace{g\cdots g}p\cdots p\}_{i_{2n+1}\cdots i_{P}}^{\mu_{1}\cdots\mu_{P}} & =\frac{1}{n}\sum\limits _{\substack{k,l=1\\
+k<l
+}
+}^{P}g^{\mu_{k}\mu_{l}}\{\underbrace{g\cdots g}p\cdots p\}_{i_{2n+1}\cdots i_{P}}^{\mu_{1}\cdots\mu_{k-1}\mu_{k+1}\cdots\mu_{l-1}\mu_{l+1}\cdots\mu_{P}}
+\end{align}
+
+这部分的细节暂且略去。
+
+UV-{}- or IR-{}-singular 积分利用维数正规化来表示，其中$D=4-2\epsilon$，as, 
+
+\begin{align}
+T^{N} & =\tilde{T}_{\mathrm{fin}}^{N}+a^{\mathrm{UV}}(\Delta_{\mathrm{UV}}+\ln\frac{\mu_{\mathrm{UV}}^{2}}{Q^{2}})+a_{2}^{\mathrm{IR}}(\Delta_{\mathrm{IR}}^{(2)}\,\\
+ & \,+\Delta_{\mathrm{IR}}^{(1)}\ln\frac{\mu_{\mathrm{IR}}^{2}}{Q^{2}}+\frac{1}{2}\ln^{2}\frac{\mu_{\mathrm{IR}}^{2}}{Q^{2}})+\tilde{a}_{1}^{\mathrm{IR}}(\Delta_{\mathrm{IR}}^{(1)}+\ln\frac{\mu_{\mathrm{IR}}^{2}}{Q^{2}})\\
+ & =T_{\mathrm{fin}}^{N}(\mu_{\mathrm{UV}}^{2},\mu_{\mathrm{IR}}^{2})+a^{\mathrm{UV}}\Delta_{\mathrm{UV}}+a_{2}^{\mathrm{IR}}(\Delta_{\mathrm{IR}}^{(2)}+\Delta_{\mathrm{IR}}^{(1)}\ln\mu_{\mathrm{IR}}^{2})+a_{1}^{\mathrm{IR}}\Delta_{\mathrm{IR}}^{(1)}]\label{eq:7}
+\end{align}
+ 其中
+
+\begin{align*}
+\Delta_{UV}=\frac{c\left(\epsilon_{UV}\right)}{\epsilon_{UV}}, & \,\, & c\left(\epsilon\right)=\Gamma\left(1+\epsilon\right)\left(4\pi\right)^{\epsilon}\\
+\Delta_{IR}^{(2)}=\frac{c\left(\epsilon_{IR}\right)}{\epsilon_{IR}^{2}}, & \,\, & \Delta_{IR}^{(1)}=\frac{c\left(\epsilon_{IR}\right)}{\epsilon_{IR}}
+\end{align*}
+
+我们让所有的UV和IR极点清晰的展示出来，包括对应的质量能标$\mu_{UV}$和$\mu_{IR}$。我们进一步提取出因子$c\left(\epsilon\right)=\Gamma\left(1+\epsilon\right)\left(4\pi\right)^{\epsilon}=1+\mathcal{O\left(\epsilon\right)}$，
+
+并把它吸收到$\Delta_{UV}$,$\Delta_{IR}^{(2)},\Delta_{IR}^{(1)}$的定义里。为了避免在(\ref{eq:7})中第一个方程的对数里出现有量纲的量，我们分离出一个辅助的能标$Q$，它隐式地由进入各个圈图的质量和动量决定。
+
+Collier的输出对应(\ref{eq:7})的最后一行，包括正比于$a^{UV},a_{2}^{IR},a_{1}^{IR}$的项。参量$\mu_{UV}^{2},\mu_{IR}^{2},\Delta_{UV},\Delta_{IR}^{(2)},\text{and},\Delta_{IR}^{(1)}$可以由用户自由选取，但不会影响UV-和IR-极限下有限的量。
+
+注意我们区分IR和UV起源的奇点，默认$a^{UV},a_{2}^{IR},a_{1}^{IR}$被设置为$0$，输出就是$T_{fin}^{N}\text{\ensuremath{\left(\mu_{UV}^{2},\mu_{IR}^{2}\right)}}$。将$\text{\ensuremath{\Delta\text{'s}}}$设置成不同于$0$的数，可以数值的模拟极点$\epsilon$的影响。
+
+默认IR-和UV-奇点在维数正规化中计算。共线奇点也可以通过质量正规化。为了达到这个目的，相应的质量，下文称为$\overline{m_{i}}$，必须在初始化中被声明为$small$，此外，在后续子程序调用的时候，各质量参数必须和在初始化文件中是精确相同的（但不必要很小）。\emph{小质量}在标量和张量函数中被当作无穷小量对待，其有限值只在质量-奇点的对数项中保留。
+
+阿贝尔类型的软奇点，i.e. 当$a_{2}^{IR}=0$，和共线奇点，通过质量$\overline{m_{i}}$被正规化。当参数$\Delta_{IR}^{(1)}$被设置为$0$之后，参数$\mu_{IR}$可以看作是无穷小的光子或胶子质量。
+
+变动参数$\mu_{UV}^{2},\mu_{IR}^{2},\Delta_{UV},\Delta_{IR}^{(2)},\text{and},\Delta_{IR}^{(1)}$的值可以检查奇点的相消情况。此外，给$\Delta_{UV},\Delta_{IR}^{(2)},\text{and},\Delta_{IR}^{(1)}$选择适合的值，可以允许用户在不同的约定中转换，考虑到提取前置因子$c\left(\epsilon\right)$的不同方式。例如,在\cite{ref61}中，相关的$\epsilon$因子是$\pi^{\epsilon}$，其中$r_{\Gamma}=\Gamma^{2}\left(1-\epsilon\right)\Gamma\left(1+\epsilon\right)/\Gamma\left(1-2\epsilon\right)$，而本文(\ref{eq:1})中的约定为$\left(2\pi\right)^{2\epsilon}$。
+
+因此我们必须如下替换我们的$c\left(\epsilon\right)$：
+\[
+\frac{c\left(\epsilon\right)}{r_{\Gamma}\left(4\pi\right)^{\epsilon}}=\frac{\Gamma\left(1+\epsilon\right)}{r_{\Gamma}}=\frac{\Gamma\left(1-2\epsilon\right)}{\Gamma^{2}\left(1-\epsilon\right)}=1+\epsilon^{2}\frac{\pi^{2}}{6}+\mathcal{O}\left(\epsilon^{3}\right)
+\]
+为了得到\cite{ref61}中约定下的奇点积分。这等价于作替换$\Delta_{IR}^{\left(2\right)}\rightarrow\Delta_{IR}^{\left(2\right)}+\pi^{2}/6$，同时保持我们计算中的$\Delta_{UV}\text{and}\Delta_{IR}^{\left(1\right)}$不变。在此变换之后，我们的参数$\Delta_{UV},\Delta_{IR}^{(2)},\text{and},\Delta_{IR}^{(1)}$就分别对应于文献\cite{ref61}中的极点$1/\epsilon,1/\epsilon^{2},\text{and}1/\epsilon$。
+
+\section{实现方法}
+
+\subsection{张量系数的计算}
+
+计算张量积分的方法依赖于它的传播子数目$N$。对于$N=1,2$，我们使用显式的数值稳定表达式\cite{ref37,ref50}。
+
+对于$N=3,4$，所有张量积分被数值约化到基本的标量积分，通过使用文献\cite{ref45,ref52,ref59}给出的解析表达式。默认情况下，约化使用的是标准的
+\noun{Paassarino-Veltman} \cite{ref37}约化。在相空间不稳定殿，其 \noun{Gram} 行列式变得很小，\noun{Paassarino-Veltman}
+约化变得不稳定。这在些点上，我们使用专用的递归展开方法\cite{ref50}。所有这些方法都在collier中得到实现，并且对于展开参数可以到任意阶。为了决定一个特定相空间点的约化方法，以下步骤被采用：
+\begin{enumerate}
+\item 默认是 \noun{Passarino-Veltman} ，它的可靠性通过一个给标量积分预先分配的精度来估计，然后估计约化时的误差传递。如果积分最高rank$\hat{P}$的最终的误差结果$\Delta T^{N}\left(\hat{P}\right)$，小于一个预定义的精度标签$\eta_{\text{req}}$（required
+precision），结果被保留并传递给用户。
+\item 若步骤1没有提供足够的精度，一般意味着张量积分包括外动量的小 \noun{Gram} 行列式。Collier 切换到专用展开。为决定到哪一阶是足够的，一个先验的误差估计式$\Delta T_{\text{prelim}}^{N}\left(P\right)$，对于系数$T_{i1,\cdots iP}^{N}$被构建，对于不同方法的最高rank$\hat{P}$。误差估计基于展开的期望精度评定，和所需标量积分的简化的误差传递。$\Delta T_{\text{prelim}}^{N}\left(P\right)$最小的展开方法被采用。在展开式的实际计算中，评估的是更加现实的精度$\Delta T^{N}\left(P\right)$，通过分析最后一次迭代的修正。如果预定义的精度标签$\eta_{\text{req}}$达到，结果被保存并返回给用户。否则在达到一个预定义的展开深度时，展开停止，或者从一次迭代到下一次，精度没有增加。
+\item 如果步骤2没有提供所需精度。将对其他方法进行重复，这些方法对于足够小的$\Delta T_{\text{prelim}}^{N}\left(P\right)$，将能够保证收敛。如果经过这些重复任一个，达到预定义精度，结果被保留并返回给用户。
+\item 如果\noun{ Paassarino-Veltman 和其他展开方法都不能达到目标精度，具有最小误差估计的}$\Delta T^{N}\left(P\right)$的方法，其结果将被返回给用户。
+\end{enumerate}
+通过这种方法，对于几乎所有相空间的点，都能得到稳定的结果。保证了可靠的 \noun{Monte Carlo 积分。}
+
+对于$N=5,6$，张量积分被约化到具有更低rank和$N$的积分，遵循\cite{ref50,ref43}，i.e. 不涉及到
+\noun{Gram 行列式的逆。对于$N\geq7$，}文献\cite{ref50}Section 7中$6$–点张量积分约化的修改版被应用（见$\left(7.10\right)$之后的文字）。
+
+\subsection{全张量的计算}
+
+\begin{thebibliography}{1}
+\bibitem{ref61}ref 61
+
+\bibitem{ref37}ref37
+
+\bibitem{ref50}ref50
+
+\bibitem{ref45}ref45
+
+\bibitem{ref52}ref52
+
+\bibitem{ref59}ref59
+
+\bibitem{ref43}ref43
+\end{thebibliography}
+
+\end{document}
