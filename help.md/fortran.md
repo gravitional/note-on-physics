@@ -291,6 +291,16 @@ read *
 
 ## 循环
 
+```fortran
+do x = 1,2
+        do y = 1,4,0.5
+            z = x/y
+            print *, x,y,z
+        end do
+    end do
+```
+
+
 ## 文献和精度
 
 ### 读取文件
@@ -913,7 +923,9 @@ program func
 ! demonstrates use of user defined functions
 implicit none
 integer, parameter :: ikind=selected_real_kind(p=15)
+!++需要给出自定义函数的数据类型
 real (kind=ikind):: deg,rads
+!+++++++++++++++
 print *, 'Enter an angle in degrees'
 read *, deg
 write(*,10) 'sin = ',sin(rads(deg))
