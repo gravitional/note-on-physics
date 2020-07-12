@@ -300,6 +300,146 @@ do x = 1,2
     end do
 ```
 
+### 不同类型变量混合
+
+执行下面这个程序
+
+```fortran
+program divide
+implicit none
+integer :: x
+real :: y
+x = 1
+y = x/3
+print *, y
+end program divide
+```
+
+结果是
+
+`0.00000`
+
+把`x = 1`替换成`x = 10`
+
+Your output should now be:
+
+`3.00000`
+
+FORTRAN会把小数部分丢掉。为了告诉fortran我们使用浮点数算法，我们需要改成
+
+```fortran
+y=x/3.0
+```
+
+real number 的存在，告诉fortran使用实型算法计算右边的式子。
+
+例如以下程序：
+
+```fortran
+program check
+!Integer and real arithmetic
+implicit none
+real :: x,y
+integer i
+x=2.0
+i=2
+y=x*((2**i)/3)
+print *,y
+y=x*((2.0**i)/3)
+print *,y
+end program check
+```
+
+### DO 循环
+
+除非我们能重复执行程序，不然也许计算器更好用。
+
+```fortran
+program loop
+implicit none
+integer :: i
+do i=0,20,1
+print *,i
+end do
+end program loop
+```
+
+do 循环的标签形式
+
+```fortran
+outter: DO i=1,3
+  inner: do j=1,3
+    write (*,"('(',i2,',',i2')')") i,j
+    END DO inner
+END DO outter
+```
+
++ `i` 被称为循环计数器，在本例中，开始值为1
++ `do` and `end do`之间所有statement 被执行
++ 每次执行过后，循环变量增加`1`
++ 等到执行完毕，即`i`增加到`20`，继续后面的程序
++ 步长缺省为`1`，也可以为负数，如`do i = 5,-5,-2` 
+
+**Exercise 3.4**
+
+Using a do loop to generate integer values of `x` between `-10` and `10` in steps of `1`, 
+write a program that constructs a table of values of
+
+```fortran
+y=1.0/x
+```
+
+What happened when `x` had the value zero? 
+Use an if, end if to test for the condition that gives the
+incorrect value, 
+and print out an appropriate message. 
+Compare your result with divbyzero.f95.
+
+Division by zero is one of the commonest reasons for a program to fail.
+
+### 嵌套DO循环
+
+DO 循环可以嵌套，例如：
+
+**Exercise 3.5**
+
+```fortran
+program xytab
+    implicit none
+    !constructs a table of z=x/y for values of x from 1 to 2 and
+    !y from 1 to 4 in steps of .5
+    real:: x, y, z
+    print *, '        x                y               z'
+    do x = 1,2
+        do y = 1,4,0.5
+            z = x/y
+            print *, x,y,z
+        end do
+    end do
+end program xytab
+```
+
+观察输出，这里用`print`产生了一个表头
+
+### 使用loop求和
+
+查看以下程序的输出：
+
+```fortran
+program increment
+    implicit none
+    integer :: i
+    real :: x
+    x=1.0
+    do i=1,10
+    x=x+1.0
+    print *, i,x
+    end do
+    end program increment
+```
+
++ 注意我们在循环外设置了`x`的初始值。
++ 需要给`x`设置初始值，否则`x`的值可能为随机数
 
 ## 文献和精度
 

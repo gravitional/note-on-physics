@@ -75,6 +75,20 @@ Change {page} to the page number. It's indexed at 1, so -f 1 would be the first 
 pandoc -f markdown --latex-engine=xelatex -o name
 ```
 
+### 查看文档
+
+文档尾巴
+
+```bash
+tail -n [+]num
+```
+
+文档开头
+
+```bash
+head -n [-]num
+```
+
 ## bash 快捷键
 
 [Bash 快捷键大全 ][]

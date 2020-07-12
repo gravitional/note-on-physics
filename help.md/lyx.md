@@ -34,14 +34,14 @@ and notes from the authors.
 
 ## Writing Documents
 
-### footnote
+### 脚注
 
 脚注可以复制粘贴，可以把普通文字变成脚注--通过点击工具栏上的按钮。
 也可以把脚注变成普通文字，通过 backspace 或者 delete
 
-### Using Math
+### 数学
 
-### Miscellaneous
+### 杂项
 
 LyX is heavily configurable, 从窗口外观到输出结果样式都是多种方式定制的。
 
@@ -85,3 +85,32 @@ Important: Press add
 Press Save 
 
 You need to  maybe `reconfigure`  and restart LyX. 
+
+## 快捷键
+
++ `ctrl+M` 插入数学
++ `ctrl+shift+M` 插入display数学
++ `c+R` 查看pdf
+
+
+### 字体
+
+Family: The “overall look” of the font. The possible options are,
+
++ Roman This is the Roman font family. Normally a serif font. It's also the default family. (key binding `Alt+C R`)
++ Sans Serif This is the Sans Serif font family. (key binding `Alt+C S`)
++ Typewriter This is the Typewriter font family. (key binding `Ctrl+Shift+P`)
+
+***
+Series: This corresponds to the print weight. Options are:
+
++ Medium This is the Medium font series. It's also the default series.
++ Bold This is the Bold font series. (key binding `Ctrl+Alt+B`)
+
+***
+Shape: As the name implies. Options are:
+
++ Upright This is the Upright font shape. It's also the default shape.
++ Italic This is the Italic font shape.
++ Slanted This is the Slanted font shape (although it might not be visible in LyX, this is different from italic).
++ Small Caps This is the Small caps font shape.

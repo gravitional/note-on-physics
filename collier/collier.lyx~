@@ -1433,36 +1433,19 @@ make clean
 也可以删除 collier-v/build 中的所有文件。
 \end_layout
 
-\begin_layout Subsection
-general 用法建议
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-若要在Fortran 程序中使用 Collier，collier-v/modules 的相应模块应该被包含
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-use COLLIER
-\end_layout
-
-\end_inset
-
-在每一个程序的导言区，库COLLIER-v 中的 libcollier.so or libcollier.a 必须提供给连接程序。此操作给予访问COLLIER公共函
-数和子套路的权限。 所有routines 有后缀
-\begin_inset Quotes erd
-\end_inset
-
-_cll
-\begin_inset Quotes erd
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Subsection
 Sample programs
 \end_layout
 
@@ -1474,7 +1457,7 @@ status open
 
 \begin_layout Plain Layout
 
-makedemo
+make demo
 \end_layout
 
 \begin_layout Plain Layout
@@ -1521,6 +1504,642 @@ al参数，可以修改使用。
 \begin_layout Standard
 程序decmocache 展示了cache 的用法。对于1000个相空间点，8个张量积分被计算了数次。这个玩具 monte carlo 在四种子集中相继执行:
  先用 COLI，用或不用缓存，再用DD，用或不用缓存。源代码存储在文件 democache.f90 中。
+\end_layout
+
+\begin_layout Subsection
+概括使用说明
+\end_layout
+
+\begin_layout Standard
+为了在FORTRAN程序中使用 COLLIER， COLLIER-
+\begin_inset Formula $\nu$
+\end_inset
+
+/modules 中的对应模块 必须被载入：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+use COLLIER
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+COLLIER-
+\begin_inset Formula $\nu$
+\end_inset
+
+中的
+\emph on
+library libcollier.so
+\emph default
+ or 
+\emph on
+libcollier.a
+\emph default
+ 必须提供给
+\noun on
+linker
+\noun default
+。这样程序才有权访问COLLIER的公共函数和子程序。所有的子程序都带有后缀
+\begin_inset Quotes erd
+\end_inset
+
+_cll
+\begin_inset Quotes erd
+\end_inset
+
+。为了避免冲突，也为了增加可读性。
+\end_layout
+
+\begin_layout Standard
+在使用COLLIER之前，必须进行初始化,Calling
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+subroutine Init_cll(Nmax,rin,folder_name,noreset)
+\end_layout
+
+\begin_layout Plain Layout
+
+integer Nmax :maximal # of loop propagators
+\end_layout
+
+\begin_layout Plain Layout
+
+integer, optional rin :maximal rank of loop integrals
+\end_layout
+
+\begin_layout Plain Layout
+
+character, optional folder_name : name of folder for output
+\end_layout
+
+\begin_layout Plain Layout
+
+logical, optional noreset : no new output folder and files
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Nmax
+\family default
+ 是强制性的，另外两个参数 
+\family typewriter
+rin
+\family default
+,
+\family typewriter
+folder_name
+\family default
+, and 
+\family typewriter
+noreset
+\family default
+ 是可选的。利用Nmax指定所需计算张量圈积分
+\begin_inset Formula $T^{N,P}$
+\end_inset
+
+的最大传播子数目。(
+\begin_inset Formula $N<N_{max}$
+\end_inset
+
+)，可选参数 rin 制定了 最高阶 
+\begin_inset Formula $P_{max}(p\le P_{max})$
+\end_inset
+
+。如果参数 rin 被忽略，那么默认将rin设置为 Nmax，对于可重整化理论足够。Nmax and rin 决定了COLLIER 内部产生的表格的大小。
+\end_layout
+
+\begin_layout Standard
+folder_name 参数指定特定名称的输出文件夹。缺省值是 'output_cll'。也可以传递给 init_cll 一个空字符串foldername=''
+,这样会阻止创建输出文件夹，除了初始化信息和重要错误会被写入到标准输出通道 stdout_cll=6.
+\end_layout
+
+\begin_layout Standard
+在后续的调用和计算中，如果 noreset 被设置为 .true.， 那么输出文件夹不会被重新创建，但是文件会被覆盖。在第一次call init_cll
+ 的时候，flag noreset 会被忽略。
+\end_layout
+
+\begin_layout Standard
+call init_cll 会将所有内部参数设置为 Table.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Table-2:-lists"
+
+\end_inset
+
+ 中的值。在后续的调用中，如果 noreset设置为.true.，那么自行设定的参数值不会被重置为这里的初始化值。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted2.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Table 2: lists of collier parameters
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Table-2:-lists"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在初始化之后，很多参数可以被设置得不同，满足用户需要。为实现这个功能，COLLIER 提供了subroutine SetX_cll 对每个参数
+ X，subroutines SwitchOnY_cll, SwithchY_cll，对于每个 flag Y。To read out the current
+ value of parameter X， a subroutine getX_cll is available.
+ 这些参数可以被用户修改，subroutine 在 section5.4 进了详细描述。
+\end_layout
+
+\begin_layout Standard
+在初始化之后和可能潜在的重新定义之后，COLLIER 就可以计算张量积分了。
+\end_layout
+
+\begin_layout Standard
+通用subroutine TN_cll 计算洛伦兹协变分解中的张量系数 
+\begin_inset Formula $T_{i1,\cdots,iP}^{N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TNten_cll 返回张量元 
+\begin_inset Formula $T^{N,\mu1\cdots\mu p}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+此外也提供可选的特定 subroutine A_cll, B_cll,...,
+\backslash
+G_cll, and Aten_cll, Bten_cll,..., Gten_cll for the 1-,2-,...,7-point 积分，同样也有
+ A0_cll, B0_cll, ..., D0_cll 对于标量积分。
+\end_layout
+
+\begin_layout Standard
+两点函数的动量导数，通常需要用来计算重整化常数，可以使用通用subroutine DB_cll 计算到任意阶。对于最低阶，可以使用特定 subroutine,
+ DB0_cll, DB1_cll, DB00_cll, and DB11_cll。更多介绍张量积分计算 subroutine 的信息在 section5.3
+ 中给出。
+\end_layout
+
+\begin_layout Standard
+COLLIER 的一个典型应用是在一个 NLO Monte Carlo 生成器中，提供单圈张量积分。在这种情况下，主程序对 MC 事件进行一个循环，对于每个事件
+，主程序调用COLLIER计算一族张量积分来得出矩阵元。在这个上下文中，the subroutine
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+subroutine InitEvent_cll(cacheNr)
+\end_layout
+
+\begin_layout Plain Layout
+
+integer, optional cacheNr: number of cacher
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+应该在每次计算张量积分之前被调用。这个调用将初始化error flag and accuracy flag of COLLIER，这些flag可以在积分计算完成
+后，读取用来得到计算status 的 整体信息。如果使用了 cache system，call of InitEvent_cll 将是必须的，以用来初始化每次
+ MC 事件的 cache。如果使用了 multiple caches，那么各自的 cache number 
+\family typewriter
+cacheNr 
+\family default
+需要传递给
+\family typewriter
+ InitEvent_cll
+\family default
+, 作为一个可选参数。更多关于使用缓存的信息，可以在 section5.5 中找到。
+\end_layout
+
+\begin_layout Standard
+为了帮助用户熟悉COLLIER的使用，两个示例程序demo和democache一并包含在发行版中。在 section 5.7 中可以找到描述。
+\end_layout
+
+\begin_layout Subsection
+张量积分的计算
+\end_layout
+
+\begin_layout Standard
+对于张量积分，COLLIER提供了subroutine，传递洛伦兹协变分解系数
+\begin_inset Formula $T_{i1,\cdots,ip}^{N}$
+\end_inset
+
+，和张量元
+\begin_inset Formula $T^{N,\mu_{1},\cdots,\mu_{P}}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T^{N,\mu_{1},\cdots,\mu_{P}}(p_{1},\cdots,p_{N-1},m_{0},\cdots,m_{N-1})=\frac{(2\pi\mu)^{4-D}}{i\pi^{2}}\int\dif^{D}q\frac{q^{\mu_{1}}\cdots q^{\mu_{P}}}{N_{0}N_{1}\cdots N_{N-1}}\label{eq:1-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+积分中的外部变量共
+\begin_inset Formula $N-1$
+\end_inset
+
+个，分子上的带指标被积动量共有
+\begin_inset Formula $p$
+\end_inset
+
+个。所以出来的洛伦兹结构中，也是有
+\begin_inset Formula $p$
+\end_inset
+
+个指标，
+\end_layout
+
+\begin_layout Standard
+构成这
+\begin_inset Formula $p$
+\end_inset
+
+个指标的材料为，度规张量和
+\begin_inset Formula $N-1$
+\end_inset
+
+个外动量，从中挑选出
+\begin_inset Formula $p$
+\end_inset
+
+个，所以外动量的循环指标是
+\begin_inset Formula $1\sim N-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+其中分母因子 
+\begin_inset Formula $N_{k}=(q+p_{k})^{2}-m_{k}^{2}+i\epsilon$
+\end_inset
+
+, 
+\begin_inset Formula $k=0,\cdots,N-1,p_{0}=0$
+\end_inset
+
+,其中
+\begin_inset Formula $i\varepsilon$
+\end_inset
+
+是无穷小的虚部。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+T^{N,\mu1,\cdots,\mu P} & =\sum_{i_{1},\cdots,i_{p}=1}^{N-1}p_{i_{1}}^{\mu_{1}}\cdots p_{i_{P}}^{\mu_{P}}T_{i_{1}\cdots i_{P}}^{N}+\sum_{i_{3},\cdots,i_{p}=1}^{N-1}\left\{ gp\cdots p\right\} _{i_{3}\cdots i_{P}}^{\mu_{1}\cdots\mu_{P}}T_{00i_{3}\cdots i_{P}}^{N}\\
+ & +\sum_{i_{5},\cdots,i_{p}=1}^{N-1}\left\{ ggp\cdots p\right\} _{i_{5}\cdots i_{P}}^{\mu_{1}\cdots\mu_{P}}T_{0000i_{5}\cdots i_{P}}^{N}+\cdots
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+张量系数
+\begin_inset Formula $T_{i1,\cdots,ip}^{N}$
+\end_inset
+
+表示成一个N–维数组，type double complex， 并按照如下的约定：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+TN\left(n_{0},n_{1},\cdots,n_{N-1}\right)=T_{\underbrace{0\cdots0}_{2n0}\underbrace{1\cdots1}_{n1}\underbrace{2\cdots2}_{n2}\underbrace{N-1\cdots N-1}_{nN-1}}^{N}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+利用这种方法，所有张量系数，
+\begin_inset Formula $T_{i1\cdots iP}^{N}$
+\end_inset
+
+，其中
+\begin_inset Formula $P=0,\cdots\hat{P}$
+\end_inset
+
+, up to a given rank 
+\begin_inset Formula $\hat{P}$
+\end_inset
+
+, 可以储存进同一个数组中
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{\text{double complex }TN}(0:[\hat{P}/2],\underbrace{0:\hat{P},\cdots,0:\hat{P}}_{N-1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+注意到相同的系数
+\begin_inset Formula $T_{i1\cdots ip}^{N}$
+\end_inset
+
+，通过一个指标的置换
+\begin_inset Formula $\left\{ i1,\cdots,iP\right\} $
+\end_inset
+
+相互关联，在 
+\family typewriter
+TN 
+\family default
+中也被表示成同一个 entry。作为例子，张量系数
+\begin_inset Formula $D_{i1..iP}$
+\end_inset
+
+和数组 
+\family typewriter
+D 
+\family default
+的对应关系，展现在 Table.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:table-3"
+
+\end_inset
+
+ 中。这是
+\begin_inset Formula $4$
+\end_inset
+
+点函数到阶数
+\begin_inset Formula $4$
+\end_inset
+
+的情形。
+\end_layout
+
+\begin_layout Standard
+圈积分
+\begin_inset Formula $D$
+\end_inset
+
+有
+\begin_inset Formula $4$
+\end_inset
+
+个传播子，
+\begin_inset Formula $3$
+\end_inset
+
+个外动量，所以允许的最高阶指标数目为
+\begin_inset Formula $4$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Standard
+左边一列的下标中的数字，指的是传播子中外动量的序号，在结果中出现。重复的表示重复出现。
+\end_layout
+
+\begin_layout Standard
+右边一列的四个位置，相当于四个传播子，其中的数字，是每个外动量，在最终结果中出现的次数。
+\end_layout
+
+\begin_layout Standard
+它们是一一对应的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted3.png
+	scale 52
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+table 3 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:table-3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+可选的，N-点积分的张量系数up to rank 
+\begin_inset Formula $\hat{P}$
+\end_inset
+
+，可以通过一维数组得到
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{double complex TN1}\left(\eta_{c}\left(N,\hat{P}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula $\eta_{c}\left(N,\hat{P}\right)$
+\end_inset
+
+是张量系数
+\begin_inset Formula $T_{i1\cdots iP}^{N}$
+\end_inset
+
+的总数目，其中
+\begin_inset Formula $i1\leq i2\leq\cdots\leq iP\text{ and }P\leq\hat{P}$
+\end_inset
+
+。对于
+\begin_inset Formula $N=1,\cdots,7$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{P}=0,\cdots6$
+\end_inset
+
+,
+\begin_inset Formula $\eta_{c}\left(N,\hat{P}\right)$
+\end_inset
+
+的具体数值在 table.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:table-1"
+
+\end_inset
+
+ 中给出。张量系数在数组 
+\family typewriter
+TN1 
+\family default
+中按照 升序排列，从
+\begin_inset Formula $P=0$
+\end_inset
+
+到
+\begin_inset Formula $P=\hat{P}$
+\end_inset
+
+。相同rank的系数
+\begin_inset Formula $T_{i1\cdot iP}^{N}$
+\end_inset
+
+和
+\begin_inset Formula $T_{j1\cdots jP}^{N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted6.png
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+table 1 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:table-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
