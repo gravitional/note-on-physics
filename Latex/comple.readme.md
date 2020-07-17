@@ -1,6 +1,6 @@
 # compile.readme.md
 
-`powershell` 写的用来编译 `.tex` 的脚本，拙作望不吝赐教。
+`powershell` 写的用来编译 `.tex` 的脚本。
 
 ## 打开powershell
 
@@ -60,4 +60,4 @@ Invoke-Expression $compile_command  >./log.txt;
 
 就可以了。
 
-功能比较简陋，大佬可以帮忙修改下，哈哈
+功能比较简陋，大佬可以帮忙修改下

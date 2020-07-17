@@ -2,11 +2,72 @@
 
 ## 常用命令
 
+## 复制移动
+
+复制移动的时候，可以加上 `-i` 参数，防止覆盖
+
+`cp -i  ... ... `
+
 ### 查看所有可用的字体
 
 ```bash
 fc-list :lang=zh
 ```
+
+### 安装字体
+
+[Ubuntu系统字体命令和字体的安装][]
+
+[Ubuntu系统字体命令和字体的安装]: https://www.jianshu.com/p/e7f12b8c8602
+
+字体有`.ttf格`式（truetype font）和`.otf`格式（opentype font）字体
+
+如果系统中没有中文字体，需要先行安装中文字体，在`Ubuntu`和`Cent OS`中的安装步骤如下：
+
++ 从网络上下载字体或者直接从其他计算机（windows）上拷贝
++ 建立`/usr/share/fonts/myfonts` 目录
++ `cd /usr/share/fonts/`
+
+如果fonts/目录不存在，则创建
+
+```bash
+mkdir fonts
+mkdir myfonts
+```
+
+把下载好的字体拷贝到/usr/share/fonts/myfonts目录下：
+
+```bash
+sudo cp ~/myfonts/* /usr/share/fonts/myfonts/  
+# ~/myfonts/ 是保存字体的目录
+```
+
++ 修改字体文件的权限，使root用户以外的用户也可以使用
+
+```bash
+cd /usr/share/fonts/
+sudo chmod -R  755 myfonts/
+```
+
+(5) 建立字体缓存
+
+```bash
+mkfontscale
+# 如果提示 mkfontscale: command not found
+# 在Ubuntu下运行如下命令
+# sudo apt-get install ttf-mscorefonts-installer
+# 在cent os下运行如下命令
+# yum install mkfontscale 
+mkfontdir
+fc-cache -fv 
+# 如果提示 fc-cache: command not found
+# 在Ubuntu下运行如下命令
+# sudo apt-get install fontconfig
+# 在cent os下运行如下命令
+# yum install fontconfig
+```
+
+至此字体就安装成功了，如果需要安装其他字体，只需将字体拷贝到字体目录下，重新运行以上的命令即可。
 
 ### 修复应用
 
@@ -131,6 +192,19 @@ head -n [-]num
 | `CTRL-S`  |`Suspend(XOFF)`，挂起。这个是冻结终端的`stdin`。要恢复可以按`CTRL-Q`。|
 | `CTRL-T` | 交换光标位置与光标的前一个位置的字符内容（在命令行下）|
 | `CTRL-\`  |退出。和`CTRL-C`差不多，也可能dump一个"core"文件到你的工作目录下(这个文件可能对你没用)。|
+
+***
+
+terminal 快捷键
+
+| 快捷键| 快捷键说明 |
+|---|---|
+| `c+s+t`  | new tab|
+| `c+s+n` | new window |
+| `c+s+w`  |close tab|
+| `c+s+q`  | close window |
+| `c+page up` | switch to previous tab|
+| `c+s+page up`|  switch to the left |
 
 ### 广泛的
 
@@ -386,5 +460,105 @@ echo $myUrl
 
 上面的脚本没有任何输出。
 
+## 网络
+
+EXAMPLES
+       ip addr
+           Shows addresses assigned to all network interfaces.
+
+       ip neigh
+           Shows the current neighbour table in kernel.
+
+       ip link set x up
+           Bring up interface x.
+
+       ip link set x down
+           Bring down interface x.
+
+       ip route
+           Show table routes.
 
 
+EXAMPLES
+       ip ro
+           Show all route entries in the kernel.
+
+       ip route add default via 192.168.1.1 dev eth0
+           Adds a default route (for all addresses) via the local gateway 192.168.1.1 that can be reached on device eth0.
+
+       ip route add 10.1.1.0/30 encap mpls 200/300 via 10.1.1.1 dev eth0
+           Adds an ipv4 route with mpls encapsulation attributes attached to it.
+
+       ip -6 route add 2001:db8:1::/64 encap seg6 mode encap segs 2001:db8:42::1,2001:db8:ffff::2 dev eth0
+           Adds an IPv6 route with SRv6 encapsulation and two segments attached.
+
+
+Ubuntu 18.04 Server 安装好后，Netplan 的默认描述文件是：/etc/netplan/50-cloud-init.yaml。
+
+
+
+ubuntu如何查看MAC地址:
+
+ifconfig | awk '/eth/{print $1,$5}'
+
+arp -a | awk '{print $4}
+
+sudo lshw -C network
+
+sudo lshw -c network | grep serial
+
+
+*-network                 
+       description: Ethernet interface
+       product: RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
+       vendor: Realtek Semiconductor Co., Ltd.
+       physical id: 0
+       bus info: pci@0000:01:00.0
+       logical name: enp1s0
+       version: 15
+       serial: c4:65:16:b9:89:3c
+       capacity: 1Gbit/s
+       width: 64 bits
+       clock: 33MHz
+       capabilities: pm msi pciexpress msix bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=r8169 firmware=rtl8168h-2_0.0.2 02/26/15 latency=0 link=no multicast=yes port=MII
+       resources: irq:52 ioport:4000(size=256) memory:e0b04000-e0b04fff memory:e0b00000-e0b03fff
+  *-network
+       description: Wireless interface
+       product: RTL8822BE 802.11a/b/g/n/ac WiFi adapter
+       vendor: Realtek Semiconductor Co., Ltd.
+       physical id: 0
+       bus info: pci@0000:02:00.0
+       logical name: wlp2s0
+       version: 00
+       serial: 10:5b:ad:df:4c:cd
+       width: 64 bits
+       clock: 33MHz
+       capabilities: pm msi pciexpress bus_master cap_list ethernet physical wireless
+       configuration: broadcast=yes driver=rtw_pci driverversion=5.3.0-62-generic firmware=N/A ip=192.168.32.6 latency=0 link=yes multicast=yes wireless=IEEE 802.11
+       resources: irq:75 ioport:3000(size=256) memory:e0a00000-e0a0ffff
+
+ wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff
+    inet 192.168.32.6/24 brd 192.168.32.255 scope global dynamic noprefixroute wlp2s0
+       valid_lft 4185sec preferred_lft 4185sec
+    inet6 fe80::310a:df04:1f02:d5ac/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+
+
+ifis:
+                  all-wlans:
+                    # useful on a system where you know there is
+                    # only ever going to be one device
+                    match: {}
+                    access-points:
+                      "Joe's home":
+                        # mode defaults to "infrastructure" (client)
+                            password: "s3kr1t"
+                  # this creates an AP on wlp1s0 using hostapd
+                  # no match rules, thus the ID is the interface name
+                  wlp1s0:
+                    access-points:
+                      "guest":
+                         mode: ap
+                         # no WPA config implies default of open
