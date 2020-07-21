@@ -2,7 +2,7 @@
 
 ## 常用命令
 
-## 复制移动
+### 复制移动
 
 复制移动的时候，可以加上 `-i` 参数，防止覆盖
 
@@ -463,102 +463,83 @@ echo $myUrl
 ## 网络
 
 EXAMPLES
-       ip addr
-           Shows addresses assigned to all network interfaces.
 
-       ip neigh
-           Shows the current neighbour table in kernel.
-
-       ip link set x up
-           Bring up interface x.
-
-       ip link set x down
-           Bring down interface x.
-
-       ip route
-           Show table routes.
-
++ `ip addr` Shows addresses assigned to all network interfaces.
++ `ip neigh` Shows the current neighbour table in kernel.
++ `ip link set x up` Bring up interface x.
++ `ip link set x down` Bring down interface x.
++ `ip route` Show table routes.
 
 EXAMPLES
-       ip ro
-           Show all route entries in the kernel.
 
-       ip route add default via 192.168.1.1 dev eth0
-           Adds a default route (for all addresses) via the local gateway 192.168.1.1 that can be reached on device eth0.
++ `ip ro` Show all route entries in the kernel.
++ `ip route add default via 192.168.1.1 dev eth0` Adds a default route (for all addresses) via the local gateway 192.168.1.1 that can be reached on device eth0.
++ `ip route add 10.1.1.0/30 encap mpls 200/300 via 10.1.1.1 dev eth0` Adds an ipv4 route with mpls encapsulation attributes attached to it.
++ `ip -6 route add 2001:db8:1::/64 encap seg6 mode encap segs 2001:db8:42::1,2001:db8:ffff::2 dev eth0` Adds an IPv6 route with SRv6 encapsulation and two segments attached.
 
-       ip route add 10.1.1.0/30 encap mpls 200/300 via 10.1.1.1 dev eth0
-           Adds an ipv4 route with mpls encapsulation attributes attached to it.
+***
 
-       ip -6 route add 2001:db8:1::/64 encap seg6 mode encap segs 2001:db8:42::1,2001:db8:ffff::2 dev eth0
-           Adds an IPv6 route with SRv6 encapsulation and two segments attached.
+`Ubuntu 18.04 Server` 安装好后，Netplan 的默认描述文件是：`/etc/netplan/50-cloud-init.yaml`.
 
+### ubuntu查看MAC地址
 
-Ubuntu 18.04 Server 安装好后，Netplan 的默认描述文件是：/etc/netplan/50-cloud-init.yaml。
++ `ifconfig | awk '/eth/{print $1,$5}'`
++ `arp -a | awk '{print $4}`
++ `sudo lshw -C network`
++ `sudo lshw -c network | grep serial`
 
-
-
-ubuntu如何查看MAC地址:
-
-ifconfig | awk '/eth/{print $1,$5}'
-
-arp -a | awk '{print $4}
-
-sudo lshw -C network
-
-sudo lshw -c network | grep serial
-
-
-*-network                 
-       description: Ethernet interface
-       product: RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
-       vendor: Realtek Semiconductor Co., Ltd.
-       physical id: 0
-       bus info: pci@0000:01:00.0
-       logical name: enp1s0
-       version: 15
-       serial: c4:65:16:b9:89:3c
-       capacity: 1Gbit/s
-       width: 64 bits
-       clock: 33MHz
-       capabilities: pm msi pciexpress msix bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
-       configuration: autonegotiation=on broadcast=yes driver=r8169 firmware=rtl8168h-2_0.0.2 02/26/15 latency=0 link=no multicast=yes port=MII
-       resources: irq:52 ioport:4000(size=256) memory:e0b04000-e0b04fff memory:e0b00000-e0b03fff
-  *-network
-       description: Wireless interface
-       product: RTL8822BE 802.11a/b/g/n/ac WiFi adapter
-       vendor: Realtek Semiconductor Co., Ltd.
-       physical id: 0
-       bus info: pci@0000:02:00.0
-       logical name: wlp2s0
-       version: 00
-       serial: 10:5b:ad:df:4c:cd
-       width: 64 bits
-       clock: 33MHz
-       capabilities: pm msi pciexpress bus_master cap_list ethernet physical wireless
-       configuration: broadcast=yes driver=rtw_pci driverversion=5.3.0-62-generic firmware=N/A ip=192.168.32.6 latency=0 link=yes multicast=yes wireless=IEEE 802.11
-       resources: irq:75 ioport:3000(size=256) memory:e0a00000-e0a0ffff
-
- wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+```bash
+wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
     link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff
     inet 192.168.32.6/24 brd 192.168.32.255 scope global dynamic noprefixroute wlp2s0
        valid_lft 4185sec preferred_lft 4185sec
     inet6 fe80::310a:df04:1f02:d5ac/64 scope link noprefixroute 
        valid_lft forever preferred_lft forever
+```
 
+`link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff` This is the mac address
 
-ifis:
-                  all-wlans:
-                    # useful on a system where you know there is
-                    # only ever going to be one device
-                    match: {}
-                    access-points:
-                      "Joe's home":
-                        # mode defaults to "infrastructure" (client)
-                            password: "s3kr1t"
-                  # this creates an AP on wlp1s0 using hostapd
-                  # no match rules, thus the ID is the interface name
-                  wlp1s0:
-                    access-points:
-                      "guest":
-                         mode: ap
-                         # no WPA config implies default of open
+## source
+
+[Ubuntu如何使用source命令执行文件][]
+
+[Ubuntu如何使用source命令执行文件]: http://www.xitongzhijia.net/xtjc/20150714/52870.html
+
+`Ubuntu source` 命令的作用就是将设置在文件中的配置信息马上生效，而不需要经过重启。
+
+Ubuntu如何使用`source`命令执行文件
+
+source命令用法：
+`source filename` 或 `. filename`
+
+在对编译系统核心时常常需要输入一长串的命令，如：
+
+```bash
+make mrproper
+make menuconfig
+make dep
+make clean
+make bzImage
+......
+```
+
+如果把这些命令做成一个文件，让它自动顺序执行，对于需要多次反复编译系统核心的用户来说会很方便，
+而用source命令就可以做到这一点，
+它的作用就是把一个文件的内容当成shell来执行，先在linux的源代码目录下（如`/usr/src/linux-2.4.20`）建立一个文件，如`make_command`，在其中输入一下内容：
+
+```bash
+make mrproper &&
+make menuconfig &&
+make dep &&
+make clean &&
+...
+```
+
+文件建立好之后，每次编译核心的时候，只需要在`/usr/src/linux-2.4.20`下输入：`source make_command`即可
+
+顺便补充一点，`&&`命令表示顺序执行由它连接的命令，但是只有它之前的命令成功执行完成了之后才可以继续执行它后面的命令。
+
+另外执行source命令时如果提示command not found，是因为环境变量没配置好的原因，在终端运行如下命令即可修复：
+
+`export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin`
+
