@@ -8,11 +8,17 @@
 
 `cp -i  ... ... `
 
+`cp -irf  ... ... `
+
+短命令可以堆叠， `-i -r -f`=`-irf`=`--interactive --force --recursive`
+
 ### 查看所有可用的字体
 
 ```bash
 fc-list :lang=zh
 ```
+
+fc-list: list available fonts
 
 ### 安装字体
 
@@ -52,6 +58,10 @@ sudo chmod -R  755 myfonts/
 (5) 建立字体缓存
 
 ```bash
+mkfontscale && mkfontdir && fc-cache -fv
+```
+
+```bash
 mkfontscale
 # 如果提示 mkfontscale: command not found
 # 在Ubuntu下运行如下命令
@@ -60,6 +70,7 @@ mkfontscale
 # yum install mkfontscale 
 mkfontdir
 fc-cache -fv 
+# fc-cache - build font information cache files
 # 如果提示 fc-cache: command not found
 # 在Ubuntu下运行如下命令
 # sudo apt-get install fontconfig
@@ -68,6 +79,20 @@ fc-cache -fv
 ```
 
 至此字体就安装成功了，如果需要安装其他字体，只需将字体拷贝到字体目录下，重新运行以上的命令即可。
+
+### apt 与 apt-get
+
+[Linux中apt与apt-get命令的区别与解释][]
+
+[Linux中apt与apt-get命令的区别与解释]: https://www.sysgeek.cn/apt-vs-apt-get/
+
+如果你已阅读过我们的 apt-get 命令指南，可能已经遇到过许多类似的命令，如apt-cache、apt-config 等。如你所见，这些命令都比较低级又包含众多功能，普通的 Linux 用户也许永远都不会使用到。换种说法来说，就是最常用的 Linux 包管理命令都被分散在了 apt-get、apt-cache 和 apt-config 这三条命令当中。
+
+`apt` 命令的引入就是为了解决命令过于分散的问题，它包括了 apt-get 命令出现以来使用最广泛的功能选项，以及 apt-cache 和 apt-config 命令中很少用到的功能。
+
+在使用 apt 命令时，用户不必再由 apt-get 转到 apt-cache 或 apt-config，而且 apt 更加结构化，并为用户提供了管理软件包所需的必要选项。
+
+> 简单来说就是：`apt = apt-get`、`apt-cache` 和 `apt-config` 中最常用命令选项的集合。
 
 ### 修复应用
 
@@ -490,7 +515,7 @@ EXAMPLES
 
 ```bash
 wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff
+      link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff
     inet 192.168.32.6/24 brd 192.168.32.255 scope global dynamic noprefixroute wlp2s0
        valid_lft 4185sec preferred_lft 4185sec
     inet6 fe80::310a:df04:1f02:d5ac/64 scope link noprefixroute 
@@ -543,3 +568,193 @@ make clean &&
 
 `export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin`
 
+### Ubuntu Dock
+
+[如何移除或禁用 Ubuntu Dock][]
+
+[]: https://zhuanlan.zhihu.com/p/48078003
+
+方法 4：使用 `Dash to Panel` 扩展
+
+Dash to Panel 是 Gnome Shell 的一个高度可配置面板，是 Ubuntu Dock 或 Dash to Dock 的一个很好的替代品（Ubuntu Dock 是从 Dash to Dock 分叉而来的）。
+
+安装和启动 Dash to Panel 扩展会禁用 Ubuntu Dock，因此你无需执行其它任何操作。
+
+你可以从 extensions.gnome.org 来安装 [Dash to Panel][]。
+
+如果你改变主意并希望重新使用 Ubuntu Dock，那么你可以使用 Gnome Tweaks 应用程序禁用 Dash to Panel，或者通过单击以下网址旁边的 X 按钮完全移除 `Dash to Panel`: https://extensions.gnome.org/local/ 。
+
+[Dash to Panel]: https://extensions.gnome.org/extension/1160/dash-to-panel/
+
+## 挂载命令mount
+
+[linux挂载命令mount及U盘、移动硬盘的挂载][]
+[gpt格式的移动硬盘在Linux系统下挂载方法][]
+
+[linux挂载命令mount及U盘、移动硬盘的挂载]: https://www.cnblogs.com/sunshine-cat/p/7922193.html
+
+[gpt格式的移动硬盘在Linux系统下挂载方法]: https://blog.csdn.net/zhang_can/article/details/79714012?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
+
+`mount`的命令格式是（注意`mount`只能在root权限下运行）
+
+`mount dervice dir`
+
+`dervice` 是要挂载的设备，`dir` 是挂载点
+
+***
+
+查看当前磁盘列表的设备
+
+```bash
+sudo fdisk -l
+```
+
+首先查看所有已经 mount 的设备：
+
+```bash
+mount [-l] [-t type]
+```
+
+显示如下信息
+
+```bash
+root@kali:~# fdisk -l
+...
+Device     Boot     Start       End   Sectors   Size Id Type
+/dev/sda1  *         2048 209719295 209717248   100G  7 HPFS/NTFS/exFAT
+/dev/sda2       209719296 976773119 767053824 365.8G  f W95 Ext'd (LBA)
+/dev/sda5       209721344 465575935 255854592   122G  7 HPFS/NTFS/exFAT
+/dev/sda6       465577984 721432575 255854592   122G  7 HPFS/NTFS/exFAT
+/dev/sda7       721434624 976773119 255338496 121.8G  7 HPFS/NTFS/exFAT
+...
+```
+
+`parted /dev/sdb print`  显示 sdb 的分区表
+
+可以知道sdb2(135M to 6001G)为基本数据分区，格式为`NTFS`
+
+mount command 的标准格式：
+
+```bash
+mount -t type device dir
+```
+
+告诉 kernel attach the filesystem found on `device` (which is of type `type`) at the directory `dir`.  The option `-t type` is optional.
+
+挂载到指定目录即可：
+
+```bash
+sudo mount -t ntfs /dev/sdb2 /home/6T
+```
+
+The option `-l` adds labels to this listing.
+
+***
+弹出设备
+
+```bash
+umount /dev/sda5
+```
+
+通过`df`可以查看设备挂载点
+
+## 环境变量
+
+[ubuntu 修改环境变量(PATH)][]
+
+[ubuntu 修改环境变量(PATH)]: https://www.cnblogs.com/crave/p/11818594.html
+
+在Linux中，在执行命令时，系统会按照`PATH`的设置，去每个`PATH`定义的路径下搜索执行文件，先搜索到的文件先执行。
+
+当我们在执行一个指令癿时候，举例来说"ls"好了，系统会依照PATH的设定去每个PATH定义的目录下搜寻文件名为ls 的可执行文件， 如果在PATH定义的目录中含有多个文件名为ls 的可执行文件，那么先搜寻到癿同名指令先被执行！ 
+
+***
+如何改变PATH
+
+1. 直接修改`$PATH`值：
+
+生效方法：立即生效
+有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的`path`配置
+用户局限：仅对当前用户
+
+`echo $PATH //查看当前PATH的配置路径`
+
+`export PATH=$PATH:/xxx/xxx //将需配置路径加入$PATH  等号两边一定不能有空格`
+
+配置完后可以通过第一句命令查看配置结果。
+
+### 通过修改.bashrc文件
+
+有效期限：永久有效
+用户局限：仅对当前用户
+
+`.bashrc`文件在根目录下
+
+```bash
+vi .bashrc  //编辑.bashrc文件
+//在最后一行添上：
+export PATH=$PATH:/xxx/xxx  ///xxx/xxx位需要加入的环境变量地址 等号两边没空格
+```
+
+生效方法：（有以下两种）
+
++ 关闭当前终端窗口，重新打开一个新终端窗口就能生效
++ 输入`source .bashrc`命令，立即生效
+
+### 通过修改profile文件：（profile文件在/etc目录下）
+
+生效方法：系统重启
+有效期限：永久有效
+用户局限：对所有用户
+
+```bash
+vi /etc/profile //编辑profile文件
+//在最后一行添上：
+export PATH=$PATH:/xxx/xxx
+```
+
+### 通过修改environment文件
+
+生效方法：系统重启
+有效期限：永久有效
+用户局限：对所有用户
+
+environment文件在`/etc`目录下
+
+```bash
+vi /etc/profile //编辑profile文件
+在PATH=/......中加入“:/xxx/xxx”
+```
+
+## lyx
+
+如果是后安装的`texlive`, `lyx` 需要运行 `tools-reconfigure` 进行配置
+
+## shell 中 && || () {} 用法
+
+[shell 中 && || () {} 用法][]
+
+[shell 中 && || () {} 用法]: https://www.jianshu.com/p/617c1ee1e46e
+
+`&&` 运算符:
+***
+格式
+`command1  && command2`
+
+`&&`左边的命令（命令`1`）返回真(即返回`0`，成功被执行）后，`&&`右边的命令（命令`2`）才能够被执行；
+换句话说，“如果这个命令执行成功`&&`那么执行这个命令”。
+
+语法格式如下：
+
+```bash
+command1 && command2 && command3 ...
+```
+
+命令之间使用 `&&` 连接，实现逻辑与的功能。
+只有在 `&&` 左边的命令返回真（命令返回值 `$? == 0`），`&&` 右边的命令才会被执行。
+只要有一个命令返回假（命令返回值 $? == 1），后面的命令就不会被执行。
+
+示例1中，`cp`命令首先从`root`的家目录复制文件文件`anaconda-ks.cfg`到 `/data`目录下；
+执行成功后，使用 `rm` 命令删除源文件；如果删除成功则输出提示信息"`SUCCESS`"。
+
+`cp anaconda-ks.cfg /data/ && rm -f anaconda-ks.cfg && echo "SUCCESS"`

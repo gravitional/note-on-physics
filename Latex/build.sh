@@ -2,7 +2,7 @@
 
 tex_file=$(ls | grep -o -P ".+(?=\.tex)");
 
-latexmk -xelatex  -silent -pv -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file};
+latexmk -xelatex -auxdir=temp -outdir=temp -silent -pv -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file};
 
 # -shell-escape
 

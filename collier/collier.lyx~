@@ -2015,10 +2015,6 @@ name "fig:table-3"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -2095,7 +2091,38 @@ TN1
 \begin_inset Formula $T_{j1\cdots jP}^{N}$
 \end_inset
 
+按照他们的第一个相异的指标
+\begin_inset Formula $i_{k},j_{k}$
+\end_inset
 
+进行排列。对于
+\begin_inset Formula $4$
+\end_inset
+
+点函数至rank
+\begin_inset Formula $4$
+\end_inset
+
+，排序表见于
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:table-3"
+
+\end_inset
+
+。由于 FORTRAN 数组只支持到
+\begin_inset Formula $7$
+\end_inset
+
+维，所以，对于
+\begin_inset Formula $N\ge8$
+\end_inset
+
+的
+\begin_inset Formula $N$
+\end_inset
+
+点积分，只能表示成一维数组的格式。
 \end_layout
 
 \begin_layout Standard
@@ -2140,6 +2167,541 @@ name "fig:table-1"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+全张量积分
+\begin_inset Formula $T^{N,\mu_{1},\cdots,\mu_{P}}$
+\end_inset
+
+通过 type double complex 的 
+\begin_inset Formula $4$
+\end_inset
+
+-维数组表示，并按照以下约定
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{TNten}\left(n_{0},n_{1},n_{2},n_{3}\right)=T^{N,\overbrace{0\cdots0}^{n_{0}}\overbrace{1\cdots1}^{n_{1}}\overbrace{2\cdots2}^{n_{2}}\overbrace{3\cdots3}^{n_{3}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+按照这种方法，所有张量元
+\begin_inset Formula $T^{N,\mu_{1},\cdots,\mu_{P}}$
+\end_inset
+
+，其中
+\begin_inset Formula $P=0,\ldots,\hat{P}$
+\end_inset
+
+至一给定rank 
+\begin_inset Formula $\hat{P}$
+\end_inset
+
+，被存储在相同的数组中
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{double complex TNten}\left(0:\hat{P},0:\hat{P},0:\hat{P},0:\hat{P}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+注意，全同的张量元
+\begin_inset Formula $T^{N,\mu_{1},\cdots,\mu_{P}}$
+\end_inset
+
+，通过一个指标的置换
+\begin_inset Formula $\text{被\left\{ \mu_{1},\ldots,\mu_{p}\right\} }$
+\end_inset
+
+彼此联系的，在数组 TNten 中用同一个 entry 表示。张量元
+\begin_inset Formula $T^{N,\mu_{1},\cdots,\mu_{P}}$
+\end_inset
+
+和数组 TNten 间的对应，在table
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:table-4"
+
+\end_inset
+
+中展示，至 rank 
+\begin_inset Formula $\hat{P}=3$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted8.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+table 4
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:table-4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+洛伦兹协变分解
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1-1"
+
+\end_inset
+
+中的系数
+\begin_inset Formula $T_{i1\cdot iP}^{N}$
+\end_inset
+
+，来自于张量积分
+\begin_inset Formula $T^{N,P}$
+\end_inset
+
+，其中
+\begin_inset Formula $N=1,\cdots,7$
+\end_inset
+
+可以通过下列 subroutine 分别计算：A_cll,...,G_cll.
+ subroutine N_cll(N_cll=A_cll,...,G_cll) 的参数结构如下给出：
+\end_layout
+
+\begin_layout Standard
+subroutine N_cll(TN,TNuv ,MomInv,mass2,R,TNerr)
+\end_layout
+
+\begin_layout Standard
+double complex(0:R/2,
+\begin_inset Formula $\underbrace{0:R,\ldots,0:R}_{N-1}$
+\end_inset
+
+) TN : 
+\begin_inset Formula $T_{i_{1},\ldots,i_{P}}^{N,P}$
+\end_inset
+
+with 
+\begin_inset Formula $P\le R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+double complex(0:R/2,
+\begin_inset Formula $\underbrace{0:R,\ldots,0:R}_{N-1}$
+\end_inset
+
+) TNuv : 
+\begin_inset Formula $T_{i_{1},\ldots,i_{P}}^{N,P\,\text{UV}}$
+\end_inset
+
+with 
+\begin_inset Formula $P\le R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+double complex(1:
+\begin_inset Formula $n_{\mathcal{P}}$
+\end_inset
+
+) MomInv : momentum invariants
+\end_layout
+
+\begin_layout Standard
+double complex(0:
+\begin_inset Formula $N-1$
+\end_inset
+
+) mass2 : squared masses
+\end_layout
+
+\begin_layout Standard
+integer R : maximal rank
+\end_layout
+
+\begin_layout Standard
+double precision(0:R) optional TNerr : error estimates
+\end_layout
+
+\begin_layout Standard
+一共有
+\begin_inset Formula $n_{\mathcal{P}}=\left(\begin{array}{c}
+N\\
+2
+\end{array}\right)=\frac{N(N-1)}{2}=\frac{\left(N-1\right)\left(N-2\right)}{2}+\frac{2(N-1)}{2}$
+\end_inset
+
+个动量组成的不变量
+\begin_inset Formula $\mathcal{P}_{N}$
+\end_inset
+
+，用符号 MomInv 表示，按照如下顺序排列：头
+\begin_inset Formula $N$
+\end_inset
+
+个对应
+\begin_inset Formula $N$
+\end_inset
+
+个 incoming 动量
+\begin_inset Formula $k_{i}$
+\end_inset
+
+，后面
+\begin_inset Formula $N$
+\end_inset
+
+个是毗连动量的和的平方
+\begin_inset Formula $\left(k_{i}+k_{i+1}\right)^{2}$
+\end_inset
+
+，如此等等。如果用 off-set（偏移）动量
+\begin_inset Formula $p_{i}=k_{1}+\ldots+k_{i}$
+\end_inset
+
+（在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1-1"
+
+\end_inset
+
+中的传播子中出现）来写的话，将会是
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\mathcal{P}_{2k} & =\left(p_{1}-p_{0}\right)^{2},\left(p_{2}-p_{1}\right)^{2},\ldots,\left(p_{2k-1}-p_{2k-2}\right)^{2},\left(p_{0}-p_{2k-1}\right)^{2}\nonumber \\
+ & \left(p_{2}-p_{0}\right)^{2},\left(p_{3}-p_{1}\right)^{2},\ldots,\left(p_{0}-p_{2k-2}\right)^{2},\left(p_{1}-p_{2k-1}\right)^{2},\nonumber \\
+ & \ldots\nonumber \\
+ & \left(p_{k-1}-p_{0}\right)^{2},\left(p_{k}-p_{1}\right)^{2},\ldots,\left(p_{k-3}-p_{2k-2}\right)^{2},\left(p_{k-2}-p_{2k-1}\right)^{2},\nonumber \\
+ & \left(p_{k}-p_{0}\right)^{2},\left(p_{k+1}-p_{1}\right)^{2},\ldots,\left(p_{2k-2}-p_{k-2}\right)^{2},\left(p_{2k-1}-p_{k-1}\right)^{2},\label{eq:12}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\mathcal{P}_{2k+1} & =\left\{ \left(p_{1}-p_{0}\right)^{2},\left(p_{2}-p_{1}\right)^{2},\ldots,\left(p_{2k}-p_{2k-1}\right)^{2},\left(p_{0}-p_{2k}\right)^{2}\right\} \nonumber \\
+ & \left(p_{2}-p_{0}\right)^{2},\left(p_{3}-p_{1}\right)^{2},\ldots,\left(p_{0}-p_{2k-1}\right)^{2},\left(p_{1}-p_{2k}\right)^{2},\nonumber \\
+ & \ldots\nonumber \\
+ & \left(p_{k}-p_{0}\right)^{2},\left(p_{k+1}-p_{1}\right)^{2},\ldots,\left(p_{k-2}-p_{2k-1}\right)^{2},\left(p_{k-1}-p_{2k}\right)^{2},\label{eq:13}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+注意
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:12"
+
+\end_inset
+
+中的前
+\begin_inset Formula $k-1$
+\end_inset
+
+行每行有
+\begin_inset Formula $N=2$
+\end_inset
+
+个元素，第k行只有
+\begin_inset Formula $k=N/2$
+\end_inset
+
+个元素。而
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:13"
+
+\end_inset
+
+中 k 行中每行都有
+\begin_inset Formula $N=2k+1$
+\end_inset
+
+个元素。
+\end_layout
+
+\begin_layout Standard
+由于存在一个overall的动量守恒，
+\begin_inset Formula $N$
+\end_inset
+
+个incoming 
+\begin_inset Formula $ki$
+\end_inset
+
+,但是独立的偏移量 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+只有
+\begin_inset Formula $N-1$
+\end_inset
+
+个。
+\end_layout
+
+\begin_layout Standard
+可以想象一个圆周，圆周上等距离的画着
+\begin_inset Formula $N$
+\end_inset
+
+个点，相当于两点之间连线，然后开始转动，要求两端的点不能重复。如果连线是一条直径，那么只有一半是不重复的。但是只有当圆周上的点是
+\begin_inset Formula $2k$
+\end_inset
+
+的时候，才可能实现这种情况。
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $N=2,\ldots,7$
+\end_inset
+
+，不变动量
+\begin_inset Formula $\text{\mathcal{P}}_{N}$
+\end_inset
+
+的集合列在 Appendix A 中。它们必须以 type double complex 提供给 subroutine N_cll。或者是长度为
+ 
+\begin_inset Formula $n_{\mathcal{P}}$
+\end_inset
+
+的数组，或者是
+\begin_inset Formula $n_{\mathcal{P}}$
+\end_inset
+
+个single 参数。值得注意的是，尽管变量类型是 double complex, 现版本的 COLLIER 还不支持动量不变量有虚部的情况。从长远看更重要的是
+，保证动量不变量的组合（对应单个外线粒子的质量平方）采用它们的精确数值，以避免任何偏差，比如对这些动量平方进行数值计算时。此外，在 IR-divergent
+ 积分中，程序内部将会比较动量和质量参数来决定采用的解析表达式。显然，在单点积分 A_cll中，参数 MomInv 将会省略。
+\end_layout
+
+\begin_layout Standard
+squared masses 集合
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}_{N}=\left\{ m_{0}^{2},m_{1}^{2},\ldots,m_{N-1}^{2}\right\} \label{eq:14}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+进入到圈传播子中，在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1-1"
+
+\end_inset
+
+给出，由
+\begin_inset Formula $N$
+\end_inset
+
+个 type double complex 的参数表示，记作 mass2。这些参数可以有不为零（负的）虚部，应当传递给 N_ cll，格式为单个数组或者独立的参
+数，取决于 动量不变量 MomInv 采用的格式。
+\end_layout
+
+\begin_layout Standard
+integer 参数 R 表示张量积分的最高 rank 
+\begin_inset Formula $\hat{P}$
+\end_inset
+
+。因此它定义了输出数组 TN and TNuv 的size（type complex）。像之前描述的，它们可以是 N-维数组，
+\begin_inset Formula $(0:[\hat{P}/2],\left(0:P\right),\ldots\left(0:P\right)$
+\end_inset
+
+。也可以是一维数组，长度为
+\begin_inset Formula $n_{c}\left(N,\hat{P}\right)$
+\end_inset
+
+。由 collier 在初始化过程中表格化，可以由以下函数获取
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function GetNc_cll(N,R) result(nc)
+\end_layout
+
+\begin_layout Plain Layout
+
+integer N,R,nc:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+integer N,R,nc:
+\begin_inset Formula $N,\hat{P},n_{c}(N,\hat{P})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+最后，可以给出额外的输出数组TNerr ，添加
+\begin_inset Formula $\left(0:\hat{P}\right)$
+\end_inset
+
+个 type double precision 的 entries 到参数列表。如果存在的话，这个数组的成员传递了张量系数
+\begin_inset Formula $T_{i1\cdot iP}^{N}$
+\end_inset
+
+的决定误差，其中所有的
+\begin_inset Formula $i_{k}\neq0$
+\end_inset
+
+，对于相应的 rank 
+\begin_inset Formula $P$
+\end_inset
+
+。误差估计 
+\begin_inset Formula $\Delta T^{N}\left(P\right)$
+\end_inset
+
+大概由以下方法决定：迭代计算中的误差传递，和展开式中忽略的高阶项（见 section 3.1）。返回的误差值不应该被理解为精确且可靠的，而应该被当成低层不确定性的
+数量级估计。
+\end_layout
+
+\begin_layout Standard
+代替单独的 subroutine A_cll,..., G_cll, 也可以用通用 subroutine 计算任意 N的张量系数
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+subroutine TN_cll(TN,TNuv,MomInv,mass2,Nn,R,TNerr)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+generic TN_cll 的参数根特定的 A_cll,..., G_cll 的不同仅在于 additional integer Nn,
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+integer Nn: # of loop propagators (=N)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+定义了圈图中传播子的数目。在 TN_cll 的情况下，momentum invariants 
+\series bold
+MomInv
+\series default
+, squared masses 
+\series bold
+mass2
+\series default
+，coefficients 
+\series bold
+TN
+\series default
+, 
+\series bold
+TNuv
+\series default
+ 只能按照一位数组的方式处理
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
 \end_layout
 
 \begin_layout Bibliography
