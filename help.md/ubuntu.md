@@ -117,11 +117,60 @@ bash: type: foo: not found
 
 复制移动的时候，可以加上 `-i` 参数，防止覆盖
 
+`cp [OPTION]... SOURCE... DIRECTORY`
+
+`...` 表示可以重复
+
 `cp -i  ... ... `
 
 `cp -irf  ... ... `
 
 短命令可以堆叠， `-i -r -f`=`-irf`=`--interactive --force --recursive`
+
+### 7z解压缩
+
+支持的格式
+
+LZMA2, XZ, ZIP, Zip64, CAB, RAR (if the non-free p7zip-rar package is installed), 
+ARJ,  GZIP, BZIP2, TAR, CPIO, RPM, ISO
+
+usage: `7z <command> [<switches>...] <archive_name> [<file_names>...] [<@listfiles...>]`
+
+解压缩，输入密码，并保持目录结构：
+
+`7z x -p1234 filename`
+
+压缩单个文件
+
+`7z a -t7z archive_name filename`
+
+压缩txt中的文件
+
+`7z a -t7z configrc.win.7z @tom.rc_list.win`
+`7z a -t7z configrc.linux.7z @tom.rc_list.linux`
+
+`<Commands>`
+
++ `a` : Add files to archive
++ `b` : Benchmark
++ `d` : Delete files from archive
++ `e` : Extract files from archive (without using directory names)
++ `h` : Calculate hash values for files
++ `i` : Show information about supported formats
++ `l` : List contents of archive
++ `rn` : Rename files in archive
++ `t` : Test integrity of archive
++ `u` : Update files to archive
++ `x` : eXtract files with full paths
+
+`<Switches>`
+
++ `--` : Stop switches parsing
++ `-o{Directory}` : set Output directory
++ `-p{Password}` : set Password
++ `-r[-|0]` : Recurse subdirectories
++ `-y` : assume Yes on all queries
++ `-t{Type}` Set type of archive
 
 ### 查看所有可用的字体
 
@@ -445,8 +494,6 @@ terminal 快捷键
 | `c+s+q`       | close window    |
 | `c+page up`   | switch to previous tab |
 | `c+s+page up` | switch to the left     |
-
-
 
 ### 广泛的
 
@@ -1164,6 +1211,8 @@ bash 的组数替换方法可参考如下方法：
 + `%` ：余数运算
 + `& | ^ !`：分别为 "`AND`,`OR`,`XOR`,`NOT`" 运算。
 
+`XOR` `exclusive OR`
+
 例：
 
 ```bash
@@ -1416,6 +1465,10 @@ This command will create few folders inside your home directory. See the man pag
 
 + `tlmgr option repository ctan`
 + `tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet`
+
+如果要使用清华的`mirror`:
+
+`tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
 
 Tell "tlmgr" to use a nearby CTAN mirror for future updates; useful if you installed TeX Live from the DVD image and want to have continuing updates.
 The two commands are equivalent; "ctan" is just an alias for the given url.  Caveat: "mirror.ctan.org" resolves to many different hosts, and they are not perfectly synchronized; we recommend updating only daily (at most), and not more often.
