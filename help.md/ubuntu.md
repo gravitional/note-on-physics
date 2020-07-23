@@ -1,5 +1,22 @@
 # ubuntu
 
+`ls *.tex` and `"ls *.tex"`
+
+前一种 bash 认为 `*.tex` 是参数，后一种 bash 认为 `"ls *.tex"` 是一个整体命令的名字。
+
+bash 物理行上单个语句不用分号。两个语句并列时，采用分号
+
+## shell 模式切换
+
+1. 查看系统支持的shell模式及位置
+
+`echo &SHELL`
+`cat /etc/shells`
+
+2. 切换shell为/bin/sh
+
+`# chsh -s /bin/sh`
+
 ## 常用命令
 
 命令可以是下面四种形式之一:
@@ -87,6 +104,14 @@ alias name='string'
 [me@linuxbox ~]$ type foo
 bash: type: foo: not found
 ```
+
+### ls
+
++ `-m` fill width with a comma separated list of entries
++ `-x` list entries by lines instead of by columns
++ `-b, --escape` print C-style escapes for nongraphic characters
++ `-q, --hide-control-chars` print ? instead of nongraphic characters
++ `--format=WORD` across `-x`, commas `-m`, horizontal `-x`, long `-l`, single-column `-1`, verbose `-l`, vertical `-C`
 
 ### 复制移动
 
@@ -202,15 +227,34 @@ dpkg -l pkg
 dpkg -L pkg
 ```
 
+`install, remove, purge (apt-get(8))`
+
+`apt list `(work-in-progress) 半成品
+
+list is somewhat similar to `dpkg-query --list` in that it can display a list of packages satisfying certain criteria. 
+
+It supports glob(7) patterns for matching package names as well as options to list installed (`--installed`), upgradeable (`--upgradeable`) or all available (`--all-versions`) versions.
+
 ### grep 过滤输出
 
--n 行号
---color 染色
--P perl 拓展
--B before 前输出
--A after 后输出
--o only 仅输出匹配字符
--i --ignore-case 忽略大小写
+`-n` 行号
+`-v`,`--invert-match` 匹配不符合
+`--color` 染色
+`-P` perl 拓展
+`-B` before 前输出
+`-A` after 后输出
+`-o` only 仅输出匹配字符
+`-i` `--ignore-case` 忽略大小写
+`-m NUM`, `--max-count=NUM` 输出的最大行
+
+Stop  reading  a  file after `NUM` matching lines.  
+
+If the input is standard input from a regular file, and `NUM` matching lines are output, 
+grep ensures that the standard input is positioned to just after the last matching line before exiting, regardless of the presence of trailing(后面的) context lines.  
+This  enables a  calling process to resume a search.  When grep stops after `NUM` matching lines, it outputs any trailing context lines.  
+
+When the `-c` or `--count` option is also used, grep does not output a count greater than `NUM`.  
+When the `-v` or `--invert-match` option is also used, grep stops after outputting `NUM` non-matching lines.
 
 example:
 
@@ -255,11 +299,15 @@ pandoc -f markdown --latex-engine=xelatex -o name
 tail -n [+]num
 ```
 
+`+num`  从第 num 行开始，
+
 文档开头
 
 ```bash
 head -n [-]num
 ```
+
+`-num` 不输出最后num行
 
 ### 创建链接
 
@@ -346,6 +394,9 @@ ln -s /home/me/playground/fun dir1/fun-sym
 
 [Bash 快捷键大全 ]: https://linux.cn/article-5660-1.html
 
+`Alt+tab`：切换程序
+`` Alt+` ``：切换程序的不同窗口
+
 ### 常用的
 
 | 快捷键   | 快捷键说明|
@@ -382,7 +433,6 @@ ln -s /home/me/playground/fun dir1/fun-sym
 | `CTRL-S` | `Suspend(XOFF)`，挂起。这个是冻结终端的`stdin`。要恢复可以按`CTRL-Q`。        |
 | `CTRL-T` | 交换光标位置与光标的前一个位置的字符内容（在命令行下）|
 | `CTRL-\` | 退出。和`CTRL-C`差不多，也可能dump一个"core"文件到你的工作目录下(这个文件可能对你没用)。    |
-
 ***
 
 terminal 快捷键
@@ -395,6 +445,8 @@ terminal 快捷键
 | `c+s+q`       | close window    |
 | `c+page up`   | switch to previous tab |
 | `c+s+page up` | switch to the left     |
+
+
 
 ### 广泛的
 
@@ -476,6 +528,16 @@ echo "$var" | col
 ## 上面的显示将会不一样
 exit 0
 ```
+
+## glob()
+
+glob： 一滴 一团
+
+The `glob()` function searches for all the pathnames matching pattern according to the rules used by the shell (see glob(7)).  No tilde expansion or parameter substitution is done; if you want these, use wordexp(3).
+
+The `globfree()` function frees the dynamically allocated storage from an earlier call to glob().
+
+`man 7 glob()` see glob(7)
 
 ## shell 变量
 
@@ -760,14 +822,6 @@ Dash to Panel 是 Gnome Shell 的一个高度可配置面板，是 Ubuntu Dock �
 
 [gpt格式的移动硬盘在Linux系统下挂载方法]: https://blog.csdn.net/zhang_can/article/details/79714012?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
 
-`mount`的命令格式是（注意`mount`只能在root权限下运行）
-
-`mount dervice dir`
-
-`dervice` 是要挂载的设备，`dir` 是挂载点
-
-***
-
 查看当前磁盘列表的设备
 
 ```bash
@@ -904,6 +958,43 @@ vi /etc/profile //编辑profile文件
 
 [shell中$(( )) 与 $( ) 还有${ }的区别]: https://www.cnblogs.com/xunbu7/p/6187017.html
 
+### 括号总结
+
+***
+命令成组, 用 `()` 或者 `{  }`
+
+```bash
+> A=1; echo $A; { A=2 }; echo $A
+1
+2
+> A=1; echo $A; (A=2); echo $A
+1
+1
+```
+
+在使用`{  }`时，`{  }`与命令之间必须使用一个`空格`
+
+***
+`$( )`命令替换
+
+`$( )` 与 \`\` (反引号) 都是用来做命令替换
+
+***
+`${ }` 变量替换，各种字符串功能
+
+`${ }` 用来作变量替换，把括号里的变量代入值。
+
+***
+`$(( ))`整数运算
+
+在 bash 中，`$(( ))` 的整数运算符号大致有这些：
+
++ `+ - * /` ：分别为 "加、减、乘、除"。
++ `%` ：余数运算
++ `& | ^ !`：分别为 "`AND`,`OR`,`XOR`,`NOT`" 运算。
+
+### 逻辑运算符
+
 `&&` 运算符:
 ***
 格式
@@ -967,7 +1058,6 @@ ls dir &>/dev/null && echo "fail" || echo "fail"
 利用`/dev/null`处理不需要的输出，这个文件是系统设备,叫做位存储桶,它可以 接受输入,并且对输入不做任何处理。
 
 ***
-
 下面是一个shell脚本中常用的`||`组合示例
 
 ```bash
@@ -989,16 +1079,17 @@ echo $BASH | grep -q 'bash' || { exec bash "$0" "$@" || exit 1; }
 (command1;command2;command3....)        多个命令之间用;分隔
 ```
 
-一条命令需要独占一个物理行，如果需要将多条命令放在同一行，命令之间使用命令分隔符`(;)`分隔。执行的效果等同于多个独立的命令单独执行的效果。
+一条命令需要独占一个物理行，如果需要将多条命令放在同一行，命令之间使用命令分隔符`(;)`分隔。
+执行的效果等同于多个独立的命令单独执行的效果。
 
 `()` 表示在当前 shell 中将多个命令作为一个整体执行。
 
-需要注意的是，使用 `()` 括起来的命令在执行前面都不会切换当前工作目录，也就是说命令组合都是在当前工作目录下被执行的，
-尽管命令中有切换目录的命令。
+需要注意的是，使用 `()` 括起来的命令在执行前面都不会切换当前工作目录，
+也就是说命令组合都是在当前工作目录下被执行的，尽管命令中有切换目录的命令。
 
 命令组合常和命令执行控制结合起来使用。
 
-如果目录dir不存在，则执行命令组合。
+如果目录`dir`不存在，则执行命令组合。
 
 ```bash
 ls dir &>/dev/null || (cd /home/; ls -lh; echo "success")
@@ -1006,7 +1097,7 @@ ls dir &>/dev/null || (cd /home/; ls -lh; echo "success")
 
 ### {} 运算符
 
-如果使用`{}`来代替`()`，那么相应的命令将在子shell而不是当前shell中作为一个整体被执行，
+如果使用`{}`来代替`()`，那么相应的命令将在当前shell中作为一个整体被执行，
 只有在`{}`中所有命令的输出作为一个整体被重定向时，其中的命令才被放到子shell中执行，否则在当前shell执行。
 
 它的一般形式为：
@@ -1015,7 +1106,7 @@ ls dir &>/dev/null || (cd /home/; ls -lh; echo "success")
 { command1;command2;command3… }
 ```
 
-注意：在使用`{}`时，`{}`与命令之间必须使用一个空格
+注意：在使用`{}`时，`{}`与命令之间必须使用一个`空格`
 
 使用`{}`则在子`shell`中执行了打印操作
 
@@ -1024,12 +1115,12 @@ A=1; echo $A; { A=2 }; echo $A
 A=1; echo $A; (A=2); echo $A
 ```
 
-### shell中$(( )) 与 $( ) 还有${ }的区别
+### $(( )) 与 $( ) ${ }
 
 ***
 $( ) 与 ``
 
-在 bash shell 中，`$( )` 与 \`\` (反引号) 都是用来做命令替换用(command substitution)的。
+在 bash shell 中，`$( )` 与 \`\` (反引号) 都是用来做命令替换用(`command substitution`)的。
 
 用 $( ) 的理由：
 
@@ -1042,7 +1133,7 @@ $( ) 与 ``
 而 `$( )` 并不见的每一种 `shell` 都能使用，我只能跟你说，若你用 bash2 的话，肯定没问题…   ^_^
 
 ***
-${ } 用来作变量替换。
+`${ }` 用来作变量替换，把括号里的变量代入值。
 
 以上的理解在于, 你一定要分清楚 `unset` 与 `null` 及 `non-null` 这三种赋值状态.
 一般而言, `:` 与 `null` 有关, 若不带 `:` 的话, null 不受影响, 若带 `:` 则连 null 也受影响.
@@ -1054,7 +1145,7 @@ ${ } 用来作变量替换。
 接下来，再为大家介稍一下 `bash` 的组数(`array`)处理方法。
 
 一般而言，`A="a b c def"` 这样的变量只是将 `$A` 替换为一个单一的字符串，
-但是改为 `A=(a b c def) `，则是将 $A 定义为组数…
+但是改为 `A=(a b c def) `，则是将 `$A` 定义为组数…
 
 bash 的组数替换方法可参考如下方法：
 
@@ -1193,7 +1284,7 @@ fi
 当 `str1` 等于 `str2` 时，返回真。也就是说， `str1` 和 `str2` 包含的文本是一样的。
 其中的单等于号也可以写成双等于号，也就是说，上面的字符串比较等效于 `[[ $str1 == $str2 ]]`。
 
-注意 `=` 前后有一个空格，如果忘记加空格, 就变成了赋值语句，而非比较关系了。
+注意 `=` 前后有一个`空格`，如果忘记加空格, 就变成了赋值语句，而非比较关系了。
 
 字符串的其他比较情况：
 
@@ -1224,78 +1315,348 @@ if [ $var -eq 0 ]; then echo "True"; fi
 if test $var -eq 0; then echo "True"; fi
 ```
 
-## latex shell 脚本
+## xelatex 脚本
+
+[shell 参数换行 & shell 输出换行的方法][]
+
+[shell 参数换行 & shell 输出换行的方法]: https://blog.csdn.net/donaldsy/article/details/99938408
+
+首先测试一下括号的用法：
+
+```bash
+tex_list=1; echo $tex_list; tex_list=$( { ls -x *.tex } ); echo $tex_list;
+tex_list=1; echo $tex_list; tex_list=$( ( ls -x *.tex ) ); echo $tex_list;
+tex_list=$(ls -x *.tex; ls -x *.log); echo $tex_list;
+tex_list=$( (ls -x *.tex; ls -x *.log) ); echo $tex_list;
+```
 
 ```bash
 #!/bin/bash
 
 # 设置格式化相关的部分
-delimiter="+++++++++++++";
-nameis="name is :";
-echo $delimiter;
+delimiter="echo -e \\\n+++++++++++++"
+nameis="name is :"
+eval  $delimiter
 
-# 默认文件名是 main，否则
-tex_usual="main";
-echo "tex_usual $nameis $tex_usual";
-echo $delimiter;
+# 默认文件名是 main，否则使用文件夹中的tex文件名
+tex_usual="main"
+echo "tex_usual $nameis $tex_usual"
+eval  $delimiter
 
-tex_here=$(ls | grep -o -P ".+(?=\.tex)");
-echo "tex_here $nameis $tex_here ";
-echo $delimiter;
+# 当前tex文件列表，去掉后缀
 
-if [[ $tex_here == *$tex_usual* ]]
+tex_list=$(ls -x *.tex)
+echo "tex_list $nameis $tex_list"
+
+tex_here=${tex_list//".tex"/}
+echo "tex_here $nameis $tex_here"
+eval  $delimiter
+
+# 判断当前tex文件列表中是否包含 main.tex
+# 若有 main.tex，使用之，若没有，则使用 列表中的tex
+if [[ $tex_usual=~$tex_here ]]
 then
-    tex_file=$tex_usual;
+    tex_file=$tex_usual
 else
-    tex_file=$tex_here;
+    tex_file=${$tex_here%%" *"}
 fi
 
-echo "tex_file $nameis $tex_file";
+echo "tex_file $nameis $tex_file"
+eval  $delimiter
 
 # 可增加输出文件夹选项 -auxdir=temp -outdir=temp
 # 还有 -shell-escape 选项
-latexmk -xelatex  -silent -pv -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file};
+
+# 把下面这行加入到 ~/.latexmkrc，指定 pdf 查看程序
+# $pdf_previewer = 'evince %O %S';
+
+latexmk -xelatex  -silent -pv  -view=pdf -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file}
 
 ## 输出错误记录
-grep -i -n --color -P -B 0 -A 8 "\[\d+\]" ./temp/$tex_file".log"
+eval  $delimiter
+echo 'error message'
+eval  $delimiter
+## 用 tail 减少输出数量
+## grep -m 100 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" | tail -n 50
+grep -m 10 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" 
 ```
 
 ***
 
+默认情况下，`echo`关闭了对转义字符的解释，添加 `-e `参数可打开`echo`对转义字符的解释功能。`-E`关闭转义字符，是默认值。
+
 ```bash
-#!/bin/bash
+echo -e "hello\n wrold" #换行输出 hello world
+echo -E "hello\n wrold" #输出 hello\n world， 默认情况
+```
 
-# 设置格式化相关的部分
-delimiter="+++++++++++++";
-nameis="name is :";
-echo $delimiter;
+## texlive
 
-# 默认文件名是 main，否则
-tex_usual="main";
-echo "tex_usual $nameis $tex_usual";
-echo $delimiter;
+`tlmgr [option]... action [option]... [operand]...`
 
-tex_here=$(ls | grep -o -P ".+(?=\.tex)");
-echo "tex_here $nameis $tex_here ";
-echo $delimiter;
-echo ${tex_here//\\n/  /}
+安装好 texlive 后
 
+如果使用`tlmgr option` 报错
+`cannot setup TLPDB in /home/USER/texmf at /usr/bin/tlmgr line 5308.`
 
-if [[ $tex_here == *$tex_usual* ]]
-then
-    tex_file=$tex_usual;
-else
-    tex_file=$tex_here;
-fi
+原因如下：
 
-echo "tex_file $nameis $tex_file";
+this error is generated when `tlmgr` was not initialized. In most cases, launching the following command (as a normal user) solves the problem :
 
-# 可增加输出文件夹选项 -auxdir=temp -outdir=temp
-# 还有 -shell-escape 选项
-latexmk -xelatex  -silent -pv -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file};
+`$ tlmgr init-usertree`
 
-## 输出错误记录
-grep -i -n --color -P -B 0 -A 8 "\[\d+\]" ./temp/$tex_file".log"
+This command will create few folders inside your home directory. See the man page for explanation :
+
+>Before using `tlmgr` in user mode, you have to set up the user tree with the `init-usertree` action.
+>This creates `usertree/web2c` and `usertree/tlpkg/tlpobj`, and a minimal `usertree/tlpkg/texlive.tlpdb`.
+> At that point, you can tell `tlmgr` to do the (supported) actions by adding the `--usermode` command line option.
+
+***
+下面这些是`tlmgr`的常用命令：
+
++ `tlmgr option repository ctan`
++ `tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet`
+
+Tell "tlmgr" to use a nearby CTAN mirror for future updates; useful if you installed TeX Live from the DVD image and want to have continuing updates.
+The two commands are equivalent; "ctan" is just an alias for the given url.  Caveat: "mirror.ctan.org" resolves to many different hosts, and they are not perfectly synchronized; we recommend updating only daily (at most), and not more often.
+
++ `tlmgr update --list` Report what would be updated without actually updating anything.
++ `tlmgr update --all` Make your local TeX installation correspond to what is in the package repository (typically useful when updating from CTAN).
++ `tlmgr info" what` Display detailed information about a package what, such as the installation status and description, of searches for what in all packages.
+
+### Actions
+
+***
+`install [option]... pkg...`
+
+Install each `pkg` given on the command line, if it is not already installed.
+(It does not touch existing packages; see the "update" action for how to get the latest version of a package.)
+
+By default this also installs all packages on which the given pkgs are dependent.  Options:
+
+--dry-run
+
+Nothing is actually installed; instead, the actions to be performed are written to the terminal.
+
+--file
+
+Instead of fetching a package from the installation repository, use the package files given on the command line.  These files must be standard TeX Live package files (with contained tlpobj file).
+
+--force
+
+If updates to "tlmgr" itself (or other parts of the basic infrastructure) are present, "tlmgr" will bail out and not perform the installation unless this option is given.  Not recommended.
+
+ --no-depends
+
+Do not install dependencies.  (By default, installing a package ensures that all dependencies of this package are fulfilled.)
+
+--no-depends-at-all
+
+Normally, when you install a package which ships binary files the respective binary package will also be installed.
+That is, for a package "foo", the package "foo.i386-linux" will also be installed on an "i386-linux" system.  This option suppresses this behavior, and also implies "--no-depends".
+Don't use it unless you are sure of what you are doing.
+
+--reinstall
+
+Reinstall a package (including dependencies for collections) even if it already seems to be installed (i.e, is present in the TLPDB).
+This is useful to recover from accidental removal of files in the hierarchy.
+
+***
+`conf [texmf|tlmgr|updmap [--conffile file] [--delete] [key [value]]]`
+`conf auxtrees [--conffile file] [show|add|delete] [value]`
+
+With only "conf", show general configuration information for TeX Live, including active configuration files, path settings, and more.  This is like running "texconfig conf", but works on all supported platforms.
+
+With one of "conf texmf", "conf tlmgr", or "conf updmap", shows all key/value pairs (i.e., all settings) as saved in "ROOT/texmf.cnf", the user-specific "tlmgr" configuration file (see below), or the first found (via "kpsewhich") "updmap.cfg" file, respectively.
+
+The "PATH" value shown by "conf" is as used by "tlmgr".  The directory in which the "tlmgr" executable is found is automatically prepended to the PATH value inherited from the environment.
+
+Here is a practical example of changing configuration values. If the execution of (some or all) system commands via "\write18" was left enabled during installation, you can disable it afterwards:
+
+`tlmgr conf texmf shell_escape 0`
+ 
+The subcommand "auxtrees" allows adding and removing arbitrary additional texmf trees, completely under user control.  "auxtrees show" shows the list of additional trees, "auxtrees add" tree adds a tree to the list, and "auxtrees remove" tree removes a tree from the list (if present).
+
+The trees should not contain an "ls-R" file (or files might not be found if the "ls-R" becomes stale). This works by manipulating the Kpathsea variable "TEXMFAUXTREES", in "ROOT/texmf.cnf". Example:
+
+tlmgr conf auxtrees add /quick/test/tree
+tlmgr conf auxtrees remove /quick/test/tree
+
+In all cases the configuration file can be explicitly specified via the option "--conffile" file, if desired.
+
+Warning: The general facility for changing configuration values is here, but tinkering with settings in this way is strongly discouraged.  Again, no error checking on either keys or values is done, so any sort of breakage is possible.
+
+### texlive安装与卸载
+
+[Linux环境下LaTex的安装与卸载][]
+[Ubuntu Texlive 2019 安装与环境配置][]
+[TexLive 2019 安装指南][]
+
+[Linux环境下LaTex的安装与卸载]: https://blog.csdn.net/l2563898960/article/details/86774599
+
+[Ubuntu Texlive 2019 安装与环境配置]: https://blog.csdn.net/williamyi96/java/article/details/90732304
+
+[TexLive 2019 安装指南]: https://zhuanlan.zhihu.com/p/64530166
+
+***
+准备工作：下载，清除
+
+注意：如果重新安装，请务必完全删除之前的失败安装，默认情况下，这将在这两个目录中：
+
+```bash
+rm -rf /usr/local/texlive/2018 
+rm -rf /.texlive2018
+```
+
+或者参考下面的命令
+
+```bash
+sudo apt-get purge texlive*
+rm -rf /usr/local/texlive 
+rm -rf ~/.texlive*
+rm -rf /usr/local/share/texmf
+rm -rf /var/lib/texmf
+rm -rf /etc/texmf
+sudo apt-get remove tex-common --purge
+```
+
+***
+进行安装
+
+因为下载好的是一个`iso`镜像文件，所以下载好之后，还需要挂载到`/mnt`目录下
+
+```bash
+mount -o ro,loop,noauto /texlive.iso /mnt 
+```
+
++ `ro` :     Mount the filesystem read-only.
++ `loop` : loop 文件
++ `auto` :   Can be mounted with the -a option.
++ `noauto` : Can only be mounted explicitly (i.e., the  -a  option  will  not cause the filesystem to be mounted).
+
+***
+接着运行`install-tl`脚本进行安装。
+
+```bash
+cd /tex_iso_directory
+sudo ./install-tl --profile installation.profile
+[... messages omitted ...]
+Enter command: i
+[... when done, see below for post-install ...]
+```
+
+若要更改安装目录或其他选项，请阅读提示和说明。
+
+安装程序的接口：文本，GUI，批处理
+安装程序支持：文本，图形，和批处理接口。（Linux系统下没有图像安装，在Windows下支持图形安装）
+
+`install-tl -gui text #`使用简单文本模式。也是输入`install-tl`默认选项。
+
+`install-tl --profile=profile #`进行一个批处理安装，需要一个 `profile` （配置文件），为了创建一个`profile`，最简单的方式是使用`tlpkg/texlive.profile`文件，这是安装器在安装成功后生成的文件。
+
+***
+卸载镜像文件
+
+```bash
+sudo umount /mnt
+```
+
+***
+字体配置
+
+```bash
+sudo cp /usr/local/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/20-texlive.conf
+sudo fc-cache -fsv
+```
+
+*** 
+环境变量
+
+安装完之后有提示：
+
+Add /usr/local/texlive/2020/texmf-dist/doc/man to MANPATH.
+Add /usr/local/texlive/2020/texmf-dist/doc/info to INFOPATH.
+Most importantly, add /usr/local/texlive/2020/bin/x86_64-linux
+to your PATH for current and future sessions.
+
+`~/.bashrc` 和 `~/.profile` 中均添加如下语句：
+
+```bash
+export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man
+export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info
+export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux
+```
+
+或者在命令行下面运行：
+配置普通用户的环境变量
+
+因为你一般是在普通用户下使用 `TeX Live`，所以还需要切换到普通用户下，配置一下环境变量。运行以下命令。
+在当前终端中，输入 `Ctrl + D`，退出 root 身份。
+在当前终端下，输入以下命令：
+
+```bash
+echo "export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man" >> ~/.bashrc
+echo "export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info" >> ~/.bashrc
+echo "export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux" >> ~/.bashrc
+source ~/.bashrc # 令 bashrc 生效
+```
+
+如果使用的是`zsh`，要把相应的` ~/.bashrc` 改成 `~/.zshrc`
+
+```bash
+echo "export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man" >> ~/.zshrc
+echo "export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info" >> ~/.zshrc
+echo "export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux" >> ~/.zshrc
+source ~/.zshrc # 令 zshrc 生效
+```
+
+***
+验证安装是否成功
+
+```bash
+tex -v
+```
+
+## loop 设备
+
+loop 设备 (循环设备)
+
+[loop 设备 (循环设备)][]
+
+[loop 设备 (循环设备)]: https://blog.csdn.net/neiloid/article/details/8150629?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param
+
+### loop 设备介绍
+
+在类 UNIX 系统里，loop 设备是一种伪设备(pseudo-device)，或者也可以说是仿真设备。它能使我们像块设备一样访问一个文件。
+
+在使用之前，一个 loop 设备必须要和一个文件进行连接。这种结合方式给用户提供了一个替代块特殊文件的接口。因此，如果这个文件包含有一个完整的文件系统，那么这个文件就可以像一个磁盘设备一样被 mount 起来。
+
+上面说的文件格式，我们经常见到的是 CD 或 DVD 的 ISO 光盘镜像文件或者是软盘(硬盘)的 *.img 镜像文件。通过这种 loop mount (回环mount)的方式，这些镜像文件就可以被 mount 到当前文件系统的一个目录下。
+
+至此，顺便可以再理解一下 loop 之含义：对于第一层文件系统，它直接安装在我们计算机的物理设备之上；而对于这种被 mount 起来的镜像文件(它也包含有文件系统)，它是建立在第一层文件系统之上，这样看来，它就像是在第一层文件系统之上再绕了一圈的文件系统，所以称为 loop。
+
+在 Linux 里，loop 设备的设备名形如：
+
+```bash
+ls /dev/loop*
+/dev/loop0  /dev/loop2  /dev/loop4  /dev/loop6
+/dev/loop1  /dev/loop3  /dev/loop5  /dev/loop7
+... ...
+```
+
+例如，要在一个目录下 mount 一个包含有磁盘镜像的文件，需要分 2 步走：
+
+```bash
+losetup /dev/loop0 disk.img           #使磁盘镜像文件与循环设备连结起来
+mount /dev/loop0 /home/groad/disk_test   #将循环设备 mount 到目录 disk_test 下
+```
+
+经过上面的两个命令后，镜像文件就如同一个文件系统挂载在 `disk_test` 目录下，当然我们也可以往镜像里面添加文件。
+
+其实上面的两个步骤可以写成一个步骤：
+
+```bash
+mount -t minix -o loop ./disk.img ./disk_test
 ```
 
 ## 字符串和数字
@@ -1306,7 +1667,7 @@ commandline chapter 35
 shell 提供了各种执行字符串操作的参数展开功能。
 除了算术展开(在第七章中接触过),还有一个常见的命令行程序叫做 `bc`,能执行更高级别的数学运算。
 
-### conclude
+### 字符串总结
 
 parameter 前面可能出现的保留字，`!`, `#`
 parameter 后面可能接的保留字，`:` `#` `%` `/`
@@ -1324,10 +1685,10 @@ parameter 后面可能接的保留字，`:` `#` `%` `/`
 + `${parameter:offset:length}` ：从 `parameter` 所包含的字符串中提取一部分字符，`length`制定长度
 + 字符串修剪
 + `${parameter#pattern}` ：从 `paramter` 所包含的字符串中清除开头的`pattern`
-+ `${parameter##pattern}` ：`##` 模式清除最长的匹配结果。
++ `${parameter##pattern}` ：## 模式清除最长的匹配结果。
 + `${parameter%pattern}` ：清除 `parameter` 末尾所包含的`pattern`
-+ `${parameter%%pattern}` ：`##` 模式清除最长的匹配结果。
-+ 字符串查找和替换操作
++ `${parameter%%pattern}` ：%% 模式清除最长的匹配结果。
++ 字符串查找和替换操作 `parameter`必须是一个变量 `pattern` 和 `string` 可以不加引号
 + `${parameter/pattern/string}` ：如果找到了匹配通配符 pattern 的文本, 则用 `string` 的内容替换它。
 + `${parameter//pattern/string}` ： `//` 形式下,所有的匹配项都会被替换掉
 + `${parameter/#pattern/string}` ：` /# `要求匹配项出现在字符串的开头,
@@ -1542,7 +1903,7 @@ ${parameter/%pattern/string}
 
 这种形式的展开对 `parameter` 的内容执行查找和替换操作。
 
-如果找到了匹配通配符 pattern 的文本, 则用 `string` 的内容替换它。
+如果找到了匹配通配符 `pattern` 的文本, 则用 `string` 的内容替换它。
 在正常形式下,只有第一个匹配项会被替换掉。在 `//` 形式下,所有的匹配项都会被替换掉。
 ` /# `要求匹配项出现在字符串的开头,而 `/%` 要求匹配项出现在字符串的末尾。
 `/string` 可能会省略掉,这样会导致删除匹配的文本。
@@ -1701,7 +2062,7 @@ sed 's/book/books/g' file
 
 [Shell中去掉文件中的换行符简单方法]: https://blog.csdn.net/Jerry_1126/java/article/details/85009615
 
-### sdf
+### 空白字符
 
 `C`标准库里`<ctype.h>`中声明了一个函数:
 
@@ -1718,7 +2079,7 @@ sed 's/book/books/g' file
 `0X00-0XFF` `16`进制一共`256`个，刚好是一个`bit`的范围。
 
 ***
-回车（'\r'）效果是输出回到本行行首，结果可能会将这一行之前的输出覆盖掉，例如执行： 
+回车（'\r'）效果是输出回到本行行首，结果可能会将这一行之前的输出覆盖掉，例如执行：
 
 ```bash
 puts("hello world!\rxxx");
@@ -1796,8 +2157,70 @@ puts("01\v2345");
 
 有一种简单的方法:
 
+`xargs` - build and execute command lines from standard input
+
  ```bash
- [root@host ~]# cat FileName | xargs echo -n   # 连文件末尾换行符也去掉
+cat FileName | xargs | echo -n   # 连文件末尾换行符也去掉
 # 或者
-[root@host ~]# cat FileName | xargs           # 会保留文件末尾的换行符
+cat FileName | xargs           # 会保留文件末尾的换行符
  ```
+
+## eval
+
+[Shell 中eval的用法][]
+
+[Shell 中eval的用法]: https://blog.csdn.net/luliuliu1234/article/details/80994391
+
+```bash
+eval command-line
+```
+
+其中`command-line`是在终端上键入的一条普通命令行。
+然而当在它前面放上`eval`时，其结果是`shell`在执行命令行之前扫描它两次。如：
+
+```bash
+$ pipe="|"
+$ eval ls $pipe wc -l
+1
+2
+3
+```
+
+shell第1次扫描命令行时，它替换出`pipe`的值`|`，接着`eval`使它再次扫描命令行，这时shell把`|`作为管道符号了。
+
+如果变量中包含任何需要`shell`直接在命令行中看到的字符，就可以使用eval。
+命令行结束符（`;  |  &`），I/o重定向符（`< >`）和引号就属于对shell具有特殊意义的符号，必须直接出现在命令行中。
+
+`eval echo \$$#`取得最后一个参数, 如：
+
+```bash
+$ cat last    #此处last是一个脚本文件，内容是下一行显示
+$  eval echo \$$#
+$ ./last one two three four
+
+four
+```
+
+第一遍扫描后，shell把反斜杠去掉了。当shell再次扫描该行时，它替换了`$4`的值，并执行echo命令
+
+***
+以下示意如何用`eval`命令创建指向变量的“指针”：
+
+```bash
+x=100
+ptrx=x
+eval echo \$$ptrx  #指向 ptrx，用这里的方法可以理解上面的例子
+eval $ptrx=50 #将 50 存到 ptrx 指向的变量中。
+echo $x
+```
+
+```bash
+# ptrx 指向x
+echo $ptrx
+x
+# \$ 转义之后，再跟 x 连成一个字符串
+echo \$$ptrx
+$x
+# eval 执行两次扫描，所以相当于 echo $x
+eval echo \$$ptrx
+```

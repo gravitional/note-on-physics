@@ -2225,7 +2225,7 @@ name "fig:table-1"
 \end_inset
 
 ，通过一个指标的置换
-\begin_inset Formula $\text{被\left\{ \mu_{1},\ldots,\mu_{p}\right\} }$
+\begin_inset Formula $\text{被\left\{  \mu_{1},\ldots,\mu_{p}\right\}  }$
 \end_inset
 
 彼此联系的，在数组 TNten 中用同一个 entry 表示。张量元
@@ -2693,7 +2693,7 @@ TN
 \series bold
 TNuv
 \series default
- 只能按照一位数组的方式处理，长度分别为
+ 只能按照一维数组的方式处理，长度分别为
 \begin_inset Formula $n_{\mathcal{P}},N,\text{and }n_{c}\left(N,\hat{P}\right)$
 \end_inset
 
@@ -2701,7 +2701,226 @@ TNuv
 \end_layout
 
 \begin_layout Standard
+张量元
+\begin_inset Formula $T^{N,\mu_{1},\cdots,\mu_{P}}$
+\end_inset
 
+with 
+\begin_inset Formula $N=1,\cdots,7$
+\end_inset
+
+可以通过各自的 subroutine Aten_cll, ..., Gten_cll 进行计算。这些 subroutine Nten_cll 的参数结构如下
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+subroutine
+\end_layout
+
+\begin_layout Plain Layout
+
+	Nten_cll(TNten, TNtenuv, MomVec, MomInv, mass2, R, Tntenerr)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+除了 MomInv 和 mass2，跟 N_cll 中的用法一致。这里还必须提供 
+\begin_inset Formula $N-1$
+\end_inset
+
+个 四矢量 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+，就是出现在的传播子中的那些。用符号 MomVec 表示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+double complex MomVec(...)
+\end_layout
+
+\end_inset
+
+momentum components
+\end_layout
+
+\begin_layout Standard
+可以用 
+\begin_inset Formula $N-1$
+\end_inset
+
+个数组表示，每个数组
+\begin_inset Formula $\left(0:3\right)$
+\end_inset
+
+，也可以用 单个数组，维数为
+\begin_inset Formula $\left(0:3,N-1\right)$
+\end_inset
+
+。注意 MomVec, MomInv, mass2 的参数形式应该一样，或者是单个数组，或者是一堆参数。和 MomInv 一样，type double
+ complex （尽管在现版本的collier 中不支持虚部)。对于单点积分 A_cll，MomVec参数应该省略。
+\end_layout
+
+\begin_layout Standard
+整数 
+\begin_inset Formula $R$
+\end_inset
+
+ 代表 张量积分的最高阶 
+\begin_inset Formula $\hat{P}$
+\end_inset
+
+，决定了输出数组 TNten and TNtenuv 的大小(type complex)。如同之前描述的，它们可以是
+\begin_inset Formula $4$
+\end_inset
+
+-维数组
+\begin_inset Formula $\left(0:\hat{P},0:\hat{P},0:\hat{P},0:\hat{P}\right)$
+\end_inset
+
+，或者一维数组，长度为
+\begin_inset Formula $n_{t}\left(P\right)$
+\end_inset
+
+。
+\begin_inset Formula $n_{t}\left(P\right)$
+\end_inset
+
+在 collier 初始化的时候决定，可以用以下函数获得
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function GetNt_cll(R) result(nt)
+\end_layout
+
+\end_inset
+
+ integer R,nt :
+\begin_inset Formula $\hat{P},n_{t}(\hat{P})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+同样可以获得误差估计，通过在参数列表中提供可选的 output array TNtenerr 。它的 entries 
+\begin_inset Formula $\left(0:\hat{P}\right)$
+\end_inset
+
+of type precision 提供了，张量元对应 rank 绝对误差的幅值，如同在 subroutine N_cll 中。
+\end_layout
+
+\begin_layout Standard
+除了使用独立的 Aten_cll,..., Gten_cll ，还可以用 generic subroutine 计算张量元到任意
+\begin_inset Formula $N$
+\end_inset
+
+(原则上)
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+subroutine
+\end_layout
+
+\begin_layout Plain Layout
+
+	TNten_cll(TNten,TNtenuv,MomVec,MomInv,mass2,Nn,R,TNtenerr).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TNten_cll 跟 Aten_cll,...,Gten_cll 不同之处在于，多了一个 integer Nn 参数，用来指定圈图传播子的数目。
+\end_layout
+
+\begin_layout Standard
+如果使用 TNten_cll，那么 MomVec,MomInv,mass2 只能是单个数组的形式，长度为
+\begin_inset Formula $\left(0:3,1:N-1,\right),\left(1:n_{\mathcal{P}}\right)\text{and, }\left(0:N-1\right)$
+\end_inset
+
+，而不能是参数集合。但是输出中的Tnten TNtenuv 用户仍然可以选择使用
+\begin_inset Formula $\left(0:\hat{P},0:\hat{P},0:\hat{P},0:\hat{P}\right)$
+\end_inset
+
+，或者
+\begin_inset Formula $\left(1:n_{t}\left(P\right)\right)$
+\end_inset
+
+的形式。
+\end_layout
+
+\begin_layout Standard
+显然，不管是系数 subroutine A_cll,..,G_cll，TN_cll，还是张量元subroutine Aten_cll,...,Gten_cll,or
+ TNten_cll 的调用，都在各自的输出中，给出了相应标量积分的结果。如果用户只对标量 
+\begin_inset Formula $1$
+\end_inset
+
+–,...,
+\begin_inset Formula $4$
+\end_inset
+
+–点主积分感兴趣，可以选择限制 rank:
+\begin_inset Formula $R=0$
+\end_inset
+
+(i.e.
+\begin_inset Formula $\hat{P}=0$
+\end_inset
+
+)，或者使用可选的 routines N0_cll=A0_cll,..,D0_cll：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+subroutine N0_cll(TN0,MomInv,mass2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+double complex TN0: 
+\begin_inset Formula $T_{0}^{N}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
