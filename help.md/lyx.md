@@ -92,7 +92,6 @@ You need to  maybe `reconfigure`  and restart LyX.
 + `ctrl+shift+M` 插入display数学
 + `c+R` 查看pdf
 
-
 ### 字体
 
 Family: The “overall look” of the font. The possible options are,
@@ -114,3 +113,7 @@ Shape: As the name implies. Options are:
 + Italic This is the Italic font shape.
 + Slanted This is the Slanted font shape (although it might not be visible in LyX, this is different from italic).
 + Small Caps This is the Small caps font shape.
+
+### 插入latex code
+
+`ctrl+L` or `Insert->Tex code`

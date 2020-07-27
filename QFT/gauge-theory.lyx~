@@ -1,0 +1,948 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor}
+% Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+
+\usepackage{amsfonts} 
+\usepackage{hep} 
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{latexsym} 
+\usepackage{amssymb} 
+\usepackage{makeidx} 
+\usepackage{amsmath} 
+\usepackage{multirow} 
+\usepackage{slashed} 
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\trace}{tr} 
+\DeclareMathOperator{\Real}{Re} 
+\DeclareMathOperator{\Imag}{Im} 
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\end_preamble
+\options UTF8
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+gauge-theory
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Chapter
+非阿贝尔规范对称性
+\end_layout
+
+\begin_layout Section
+平行移动算子
+\end_layout
+
+\begin_layout Standard
+在定域规范变换下，要使不同时空点上的场之间有物理意义的联系，
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+color{red}{需要将一个时空点上的场移动到另一个点，然后进行比较}}
+\end_layout
+
+\end_inset
+
+（如加减，标量积等操作。）这时，必须引入一个引子来补偿不同时空点上，规范变换之间的差异。这种移动操作可以通过引入
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+color{red}{平行移动算子}}
+\end_layout
+
+\end_inset
+
+来实现。
+\end_layout
+
+\begin_layout Standard
+自由的Dirac 场（电子场）的拉氏量：
+\begin_inset Formula $\mathcal{L}_{0}\left(x\right)=\bar{\psi}\left(x\right)\left(i\gamma^{\mu}\partial_{\mu}-m\right)\psi\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+整体对称性：
+\begin_inset Formula $\psi\left(x\right)\to e^{i\alpha}\psi\left(x\right),\quad\bar{\psi}\left(x\right)\to\bar{\psi}\left(x\right)e^{-i\alpha}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+局域对称性中的
+\begin_inset Formula $\alpha$
+\end_inset
+
+依赖于坐标
+\begin_inset Formula $x$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+从 x 移动到y的平行移动算子
+\begin_inset Formula $U\left(y,x\right)$
+\end_inset
+
+满足性质：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U\left(y,x\right)\to e^{i\,\alpha\left(y\right)}U\left(y,x\right)e^{-i\,\alpha\left(x\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+普通导数：
+\begin_inset Formula $n^{\mu}\partial_{\mu}\psi\left(x\right)=\lim_{\varepsilon\to0}\frac{1}{\varepsilon}\left(\psi\left(x+n\epsilon\right)-\psi\left(x\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由于涉及到两个不同时空点上场的差。所以定域规范变换在两个时空点上是不同的，所以直接相减没有很好的定义。
+\end_layout
+
+\begin_layout Standard
+协变导数：
+\begin_inset Formula $n^{\mu}D_{\mu}\psi\left(x\right)=\lim_{\varepsilon\to0}\frac{1}{\varepsilon}\left(\psi\left(x+n\epsilon\right)-U\left(x+n\varepsilon,x\right)\psi\left(x\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+相当于移动到一起再相减。将无穷小平行移动算子在单位元附近作展开
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U\left(x+n\varepsilon,x\right)=1-i\varepsilon en^{\mu}A_{\mu}\left(x\right)+O\left(\varepsilon^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+含义：变化量正比于移动距离
+\begin_inset Formula $\varepsilon n$
+\end_inset
+
+，比例系数为
+\begin_inset Formula $A_{\mu}\left(x\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{\mu}\psi\left(x\right)=\partial_{\mu}\psi\left(x\right)+ieA_{\mu}\left(x\right)\psi\left(x\right)=\left(\partial_{\mu}+ieA_{\mu}\left(x\right)\right)\psi\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这实际上给出了电磁场的几何含义：
+\end_layout
+
+\begin_layout Standard
+定域的
+\begin_inset Formula $U\left(1\right)$
+\end_inset
+
+对称性自然引入了
+\begin_inset Formula $U\left(1\right)$
+\end_inset
+
+规范场，它是一种联络场。
+\end_layout
+
+\begin_layout Subsection
+有限平移算子
+\end_layout
+
+\begin_layout Standard
+如果将无穷小平行移动沿某条路径
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+从
+\begin_inset Formula $x$
+\end_inset
+
+到
+\begin_inset Formula $y$
+\end_inset
+
+连续作用，则会生成一个有限的平行移动算子
+\begin_inset Formula $U\left(y,x;\mathcal{C}\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+U\left(x+\Delta x,x\right) & =1-ie\Delta x^{\mu}A_{\mu}\left(x\right)+O\left(\Delta x^{2}\right)\\
+ & \approx\exp\left[-ie\int_{x}^{x+\Delta x}\dif y^{\mu}A_{\mu}\left(y\right)\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+U\left(y,x;\mathcal{C}\right) & =U\left(y,y-\Delta x\right)U\left(y-\Delta x,y-2\Delta x\right)\cdots U\left(x+\Delta x,x\right)\\
+ & \equiv\mathcal{P}\exp\left[-ie\int_{x,\mathcal{C}}^{y}\dif z^{\mu}A_{\mu}\left(z\right)\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+有限的平行移动算子
+\begin_inset Formula $U\left(y,x;\mathcal{C}\right)$
+\end_inset
+
+是和路径
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+有关的，且满足如下关系：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+U\left(y,x;\mathcal{C}\right)U\left(x,y;\mathcal{C}\right) & =1\\
+U\left(y,x;\mathcal{C}\right)^{-1}=U\left(x,y;\mathcal{C}\right) & =U^{\dagger}\left(y,x;\mathcal{C}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+非定域规范不变算子（Wilson line）：
+\begin_inset Formula $\bar{\psi}\left(y\right)\Gamma U\left(y,x;\mathcal{C}\right)\psi\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+规范场强是规范不变的：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+U\left(x,x;\mathcal{C}\right) & =U\left(x,y;\mathcal{C}_{1}\right)U\left(y,x;\mathcal{C}_{2}\right)\cdots U\left(x+\Delta x,x\right)\\
+ & \equiv\mathcal{P}\exp\left[-ie\oint_{\mathcal{C}}\dif z^{\mu}A_{\mu}\left(z\right)\right]=\exp\left[-ie\iint_{\partial\mathcal{C}}\dif\sigma^{\mu\nu}F_{\mu\nu}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+规范场强：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{\mu\nu}\left(x\right)=\partial_{\mu}A_{\nu}\left(x\right)-\partial_{\nu}A_{\mu}\left(x\right)
+\]
+
+\end_inset
+
+是规范不变的。
+\end_layout
+
+\begin_layout Section
+非阿贝尔规范对称性–Yang–Mills 理论
+\end_layout
+
+\begin_layout Standard
+假设两种费米子场
+\begin_inset Formula $\psi_{1}\left(x\right)$
+\end_inset
+
+and 
+\begin_inset Formula $\psi_{1}\left(x\right)$
+\end_inset
+
+，它们的质量相同，则它们的自由拉氏量可以写作
+\begin_inset Formula 
+\[
+\mathcal{L}_{0}=\bar{\psi}_{1}\left(i\gamma^{\mu}\partial-m\right)\psi_{1}+\bar{\psi}_{2}\left(i\gamma^{\mu}\partial-m\right)\psi_{2}\equiv\bar{\psi}\left(i\gamma^{\mu}\partial-m\right)\psi
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\psi\left(x\right) & =\left(\begin{array}{c}
+\psi_{1}\left(x\right)\\
+\psi_{2}\left(x\right)
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{L}_{0}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+在整体的
+\begin_inset Formula $SU\left(2\right)$
+\end_inset
+
+变换下不变：
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\psi\left(x\right)\to V\psi\left(x\right) & \bar{\psi}\left(x\right)\to\bar{\psi}\left(x\right)V^{\dagger}\\
+V,V^{\dagger}\in SU\left(2\right), & VV^{\dagger}=V^{\dagger}V=1 & \det V=1
+\end{array}
+\]
+
+\end_inset
+
+这个体系就有整体的
+\begin_inset Formula $SU\left(2\right)$
+\end_inset
+
+对称性。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $SU\left(2\right)$
+\end_inset
+
+群：二维复空间的幺正幺模矩阵群，三个生成元
+\begin_inset Formula $t^{a},a=1,2,3$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[t^{a},t^{b}\right]=i\varepsilon^{abc}t^{c},\qquad V=e^{i\theta^{a}t^{a}}\in SU\left(2\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $n$
+\end_inset
+
+维表示，生成元可以表示成
+\begin_inset Formula $n\times n$
+\end_inset
+
+的矩阵，我们经常用
+\begin_inset Formula $T^{a}$
+\end_inset
+
+来表示，以与基础表示矩阵
+\begin_inset Formula $t^{a}$
+\end_inset
+
+区分，相应的
+\begin_inset Formula $SU\left(2\right)$
+\end_inset
+
+的变换矩阵为
+\begin_inset Formula 
+\[
+V_{n\times n}=\exp[i\theta^{a}T^{a}]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+SU(N)定域规范对称性
+\end_layout
+
+\begin_layout Standard
+如果仿照QED的情形，我们将上述整体非阿贝尔变换定域化，即令群参数
+\begin_inset Formula $\theta^{a}$
+\end_inset
+
+是时空的函数，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(x\right)\in SU\left(2\right),\qquad V\left(x\right)=\exp^{i\theta^{a}\left(x\right)t^{a}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{L}_{0}\left(x\right)$
+\end_inset
+
+在这种定域变换下，不再是不变的（偏导数也作用于
+\begin_inset Formula $V\left(x\right)$
+\end_inset
+
+）
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{0}\left(x\right) & \to\bar{\psi}\left(x\right)V^{\dagger}\left(x\right)\left(i\gamma^{\mu}\partial_{\mu}\right)V\left(x\right)\psi\left(x\right)-m\bar{\psi}\left(x\right)\psi\left(x\right)\\
+ & \bar{\psi}\left(x\right)\left(i\gamma^{\mu}\partial_{\mu}-m\right)\psi\left(x\right)+i\bar{\psi}\left(x\right)\gamma^{\mu}V^{\dagger}\left(x\right)\left(\partial_{\mu}V\left(x\right)\right)\psi\left(x\right)\\
+ & \mathcal{L}_{0}\left(x\right)++i\bar{\psi}\left(x\right)\gamma^{\mu}V^{\dagger}\left(x\right)\left(\partial_{\mu}V\left(x\right)\right)\psi\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+平行移动算子，从
+\begin_inset Formula $x$
+\end_inset
+
+移动到
+\begin_inset Formula $y$
+\end_inset
+
+的平行移动算子
+\begin_inset Formula $U\left(y,x\right)$
+\end_inset
+
+满足性质：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U\left(y,x\right)\to V\left(y\right)U\left(y,x\right)v^{\dagger}\left(x\right),V\left(x\right)=e^{i\theta^{a}\left(x\right)t^{a}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+无穷小平行移动算子：在单位元附近作无穷小展开
+\begin_inset Formula 
+\begin{align*}
+U\left(x+n\varepsilon,x\right) & =I+i\varepsilon gn^{\mu}A_{\mu}\left(x\right)+O\left(\varepsilon\right)\\
+ & =I+i\varepsilon gn^{\mu}A_{\mu}^{a}\left(x\right)t^{a}+O\left(\varepsilon^{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+协变导数：
+\begin_inset Formula 
+\begin{align*}
+n^{\mu}D_{\mu}\psi\left(x\right) & =\lim_{\varepsilon\to0}\frac{1}{\varepsilon}\left[\psi\left(x+n\varepsilon\right)-U\left(x+n\varepsilon,x\right)\psi\left(x\right)\right]\\
+ & =\lim_{\varepsilon\to0}\frac{1}{\varepsilon}\left[\psi\left(x\right)+\varepsilon n^{\mu}\partial_{\mu}\psi\left(x\right)-\psi\left(x\right)-ig\varepsilon n^{\mu}A_{\mu}^{a}\left(x\right)t^{a}\psi\left(x\right)\right]\\
+ & =n^{\mu}\left(\partial_{\mu}-igA_{\mu}^{a}\left(x\right)t^{a}\right)\psi\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D_{\mu}=\partial_{\mu}-igA_{\mu}\left(x\right)=\partial_{\mu}-igA_{\mu}^{a}\left(x\right)t^{a}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $g$
+\end_inset
+
+:规范耦合常数
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{\mu}\left(x\right)=A_{\mu}^{a}\left(x\right)t^{a}$
+\end_inset
+
+称为规范场，它是一种联络场。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{\mu}\left(x\right)$
+\end_inset
+
+的规范变换性质：
+\begin_inset Formula 
+\begin{align*}
+\left.\begin{array}{c}
+U\left(y,x\right)\to V\left(y\right)U\left(y,x\right)v^{\dagger}\left(x\right)\\
+U\left(x+n\varepsilon,x\right)=I+i\varepsilon gn^{\mu}A_{\mu}\left(x\right)+O\left(\varepsilon^{2}\right)
+\end{array}\right\}  & \to\\
+I+ig\varepsilon n^{\mu}A_{\mu}\left(x\right)\to & I+ig\varepsilon n^{\mu}\left(V\left(x\right)A_{\mu}\left(x\right)V^{\dagger}\left(x\right)+\frac{i}{g}V\left(x\right)\partial_{\mu}V^{\mu}\left(x\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $A_{\mu}\left(x\right)$
+\end_inset
+
+的规范变换性质（重要）：
+\begin_inset Formula 
+\[
+A_{\mu}\left(x\right)\to V\left(x\right)A_{\mu}\left(x\right)V^{\dagger}\left(x\right)+\frac{i}{g}V\left(x\right)\partial_{\mu}V^{\dagger}\left(x\right)
+\]
+
+\end_inset
+
+即
+\begin_inset Formula $A_{\mu}\left(x\right)$
+\end_inset
+
+不是规范协变的，而
+\begin_inset Formula $D_{\mu}\psi\left(x\right)$
+\end_inset
+
+是规范协变的
+\begin_inset Formula 
+\[
+D_{\mu}\left(x\right)\psi\left(x\right)\to V\left(x\right)D_{\mu}\left(x\right)\psi\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+进一步地有
+\begin_inset Formula 
+\begin{align*}
+D_{\mu}\psi\left(x\right) & \to V\left(x\right)D_{\mu}\left(x\right)\psi\left(x\right)=V\left(x\right)D_{\mu}\left(x\right)\left(v^{\dagger}\left(x\right)V\left(x\right)\right)\psi\left(x\right)\\
+ & =V(x)D_{\mu}(x)V^{\dagger}(x)V(x)\psi(x)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D_{\mu}(x)\to V(x)D_{\mu}(x)V^{\dagger}(x)
+\]
+
+\end_inset
+
+进一步地，
+\begin_inset Formula 
+\[
+\left[D_{\mu}\left(x\right),D_{\mu}\left(y\right)\right]\psi\left(x\right)\to V\left(x\right)\left[D_{\mu}\left(x\right),D_{\mu}\left(y\right)\right]V^{\dagger}\left(x\right)V\left(x\right)\psi\left(x\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[D_{\mu}\left(x\right),D_{\mu}\left(y\right)\right]\to V\left(x\right)\left[D_{\mu}\left(x\right),D_{\mu}\left(y\right)\right]V^{\dagger}\left(x\right)
+\]
+
+\end_inset
+
+定义规范场强
+\begin_inset Formula $F_{\mu\nu}\equiv F_{\mu\nu}^{a}\left(x\right)t^{a}=\frac{i}{g}\left[D_{\mu}\left(x\right),D_{\nu}\left(x\right)\right]$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\[
+F_{\mu\nu}\left(x\right)\to V\left(x\right)F_{\mu\nu}\left(x\right)V^{\dagger}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+规范场强用规范场表示：
+\begin_inset Formula 
+\begin{align*}
+\left[D_{\mu},D_{\nu}\right]\psi & =\left[\partial_{\mu}-igA_{\mu},\partial_{\nu}-igA_{\nu}\right]\psi=-ig\left[\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}-ig\left[A_{\mu},A_{\nu}\right]\right]\psi\equiv-igF_{\mu\nu}\psi
+\end{align*}
+
+\end_inset
+
+所以，
+\begin_inset Formula 
+\[
+F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}-ig\left[A_{\mu},A_{\nu}\right]
+\]
+
+\end_inset
+
+利用群生成元的对易关系：
+\begin_inset Formula $\left[t^{a},t^{b}\right]=if^{abc}t^{c}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F_{\mu\nu}^{a}\left(x\right)=\partial_{\mu}A_{\nu}^{a}\left(x\right)-\partial_{\nu}A_{\mu}^{a}\left(x\right)+gf^{abc}A_{\mu}^{b}\left(x\right)A_{\nu}^{c}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+协变导数作用在自伴表示上：对于任意的
+\begin_inset Formula $B\left(x\right)=B^{a}\left(x\right)t^{a}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+D_{\mu}B\left(x\right) & =\partial_{\mu}B\left(x\right)-ig\left[A_{\mu},B\right]\\
+\left(D_{\mu}\right)_{b}^{a}B^{b}\left(x\right) & =\partial_{\mu}B^{a}+gf^{abc}A_{\mu}^{b}B^{c}=\partial_{\mu}B^{a}-igA_{\mu}^{b}\left(T^{b}\right)^{ac}B^{c}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+if^{abc} & =T^{b,ac}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+T^{b,ac}=-if^{b,ac}
+\]
+
+\end_inset
+
+省略洛伦兹指标，
+\begin_inset Formula 
+\begin{align}
+D^{ab}B^{b}\left(x\right) & =\partial B^{a}+gf^{abc}A^{b}B^{c}=\partial B^{a}-igA^{b}T^{b,ac}B^{c}\\
+ & =\partial B^{a}+igT^{a,bc}A^{b}B^{c}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+小结：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D_{\mu}=\partial_{\mu}-igA_{\mu}\left(x\right)=\partial_{\mu}-igA_{\mu}^{a}\left(x\right)t^{a}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+有限的非阿贝尔变换，
+\begin_inset Formula $V\left(x\right)=e^{i\theta^{a}\left(x\right)t^{a}\in G}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{c}
+\text{\ensuremath{\psi\left(x\right)\to V\left(x\right)\psi\left(x\right)=e^{i\theta^{a}\left(x\right)t^{a}}\psi\left(x\right)}}\\
+D_{\mu}\left(x\right)\psi\left(x\right)\to V\left(x\right)D_{\mu}\psi\left(x\right)=e^{i\theta^{a}\left(x\right)t^{a}}D_{\mu}\psi\left(x\right)\\
+D_{\mu}\left(x\right)\to V\left(x\right)D_{\mu}\left(x\right)V^{\dagger}\left(x\right)\\
+F_{\mu\nu}\left(x\right)\to V\left(x\right)F_{\mu\nu}\left(x\right)V^{\dagger}\left(x\right)
+\end{array}
+\end{equation}
+
+\end_inset
+
+但是规范场
+\begin_inset Formula $A_{\mu}\left(x\right)$
+\end_inset
+
+不是规范协变的：
+\begin_inset Formula 
+\[
+A_{\mu}\left(x\right)\to V\left(x\right)A_{\mu}\left(x\right)V^{\dagger}\left(x\right)+\frac{i}{g}V\left(x\right)\partial_{\mu}V^{\dagger}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+无穷小非阿贝尔变换 
+\begin_inset Formula $V\left(x\right)=1+i\varepsilon^{a}t^{a}+O\left(\varepsilon^{2}\right)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{c}
+\text{\ensuremath{\psi\left(x\right)\to\left(1+i\varepsilon^{a}\left(x\right)t^{a}\right)\psi\left(x\right)\Rightarrow\delta\psi=i\varepsilon^{a}t^{a}\psi\left(x\right)}}\end{array}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+F_{\mu\nu}\left(x\right)\to\left(1+i\varepsilon^{a}\left(x\right)t^{a}\right)F_{\mu\nu}\left(x\right)\left(1-i\varepsilon^{a}\left(x\right)t^{a}\right)\\
+=F_{\mu\nu}\left(x\right)-i\varepsilon^{a}(x)\left[F_{\mu\nu}(x),t^{a}\right]\\
+\Rightarrow\delta F_{\mu\nu}(x)=i\varepsilon^{a}(x)\left[t^{a},F_{\mu\nu}(x)\right]
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+A(x)\to\left(1+i\varepsilon^{a}(x)t^{a}\right)A_{\mu}(x)\left(1-i\varepsilon^{a}(x)t^{a}\right)\\
++\frac{i}{g}\left(1+i\varepsilon^{a}(x)t^{a}\right)\partial_{\mu}\left(1-i\varepsilon^{a}(x)t^{a}\right)\\
+=A_{\mu}(x)+i\varepsilon^{a}\left[t^{a},A_{\mu}\left(x\right)\right]+\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}-\frac{1}{g}\varepsilon^{a}(x)t^{a}\left(\partial_{\mu}1\right)\\
+=A_{\mu}(x)+\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}-\left[iA_{\mu}\left(x\right),\varepsilon^{a}t^{a}\right]
+\end{align}
+
+\end_inset
+
+其中，
+\begin_inset Formula $\varepsilon(x)=\varepsilon^{a}(x)t^{a}$
+\end_inset
+
+，利用
+\begin_inset Formula $\left[t^{a},t^{b}\right]=if^{abc}t^{c}$
+\end_inset
+
+，所以，
+\begin_inset Formula 
+\begin{align*}
+\delta A_{\mu}(x)=\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}-\left[iA_{\mu}\left(x\right),\varepsilon^{a}t^{a}\right]\\
+=\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}+f^{bac}A_{\mu}^{b}\left(x\right)\varepsilon^{a}t^{c}
+\end{align*}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+若写成分量形式，得到：
+\begin_inset Formula 
+\begin{align*}
+\delta A_{\mu}^{a}=\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)-f^{abc}\varepsilon^{b}A_{\mu}^{c}\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref61"
+literal "true"
+
+\end_inset
+
+ref61
+\end_layout
+
+\end_body
+\end_document

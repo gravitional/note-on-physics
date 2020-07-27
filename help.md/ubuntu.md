@@ -48,6 +48,36 @@ bash 物理行上单个语句不用分号。两个语句并列时，采用分号
 + `whatis` 程序显示匹配特定关键字的手册页的名字和一行命令说明:
 + GNU 项目提供了一个命令程序手册页的替代物,称为`info`。
 
+### Ubuntu 镜像使用帮助
+
+清华大学的源
+
+域名选择
+
+```bash
+https://mirrors.tuna.tsinghua.edu.cn 自动选择
+https://mirrors6.tuna.tsinghua.edu.cn 只解析 IPv6
+https://mirrors4.tuna.tsinghua.edu.cn 只解析 IPv4
+```
+
+Ubuntu 的软件源配置文件是 `/etc/apt/sources.list`。将系统自带的该文件做个备份，将该文件替换为下面内容，即可使用 `TUNA` 的软件源镜像。
+
+```bash
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+```
+
 ### 别名(alias)
 
 可以把多个命令放在同一行上,命令之间 用”;”分开
@@ -253,6 +283,12 @@ fc-cache -fv
 在使用 apt 命令时，用户不必再由 apt-get 转到 apt-cache 或 apt-config，而且 apt 更加结构化，并为用户提供了管理软件包所需的必要选项。
 
 > 简单来说就是：`apt = apt-get`,`apt-cache` 和 `apt-config` 中最常用命令选项的集合。
+
+### apt-get
+
+`--install-suggests`
+
+Consider suggested packages as a dependency for installing. Configuration Item: APT::Install-Suggests.
 
 ### 修复应用
 
@@ -780,6 +816,48 @@ EXAMPLES
 
 `Ubuntu 18.04 Server` 安装好后，Netplan 的默认描述文件是：`/etc/netplan/50-cloud-init.yaml`.
 
+[Ubuntu18.04的网络配置 netplan]
+
+[Ubuntu18.04的网络配置 netplan]: https://blog.csdn.net/uaniheng/article/details/104233137?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
+
+### 配置netplan 固定ip
+
+`vim /etc/netplan/50-cloud-init.yaml `
+
+配置如下：
+
+```bash
+network:
+    ethernets:
+        enp3s0:
+            addresses: [192.168.0.20/24]  //IP址
+            gateway4: 192.168.0.1  // 网关
+            nameservers:
+             addresses: [114.114.114.114, 192.168.0.1] //DNS
+            dhcp4: no
+            optional: no
+    version: 2
+```
+
+或者配置dhcp自动获取ip
+
+`vim /etc/netplan/50-cloud-init.yaml `
+
+配置如下：
+
+```bash
+network:
+    ethernets:
+        enp3s0:
+            dhcp4: true
+            optional: yes
+    version: 2
+```
+
+应用：
+
+`sudo netplan apply`
+
 ### ubuntu查看MAC地址
 
 + `ifconfig | awk '/eth/{print $1,$5}'`
@@ -994,7 +1072,88 @@ vi /etc/profile //编辑profile文件
 
 ## lyx
 
+***
 如果是后安装的`texlive`, `lyx` 需要运行 `tools-reconfigure` 进行配置
+
+***
+[compiling-lyx-2-2-on-debian][]
+
+[compiling-lyx-2-2-on-debian]: https://unix.stackexchange.com/questions/321039/compiling-lyx-2-2-on-debian
+
+编译的时候报错，`cannot compile a simple Qt executable. Check you have the right $QTDIR`.
+
+`QTDIR` shouldn't really be necessary, but try setting it to `/usr/share/qt5`.
+
+解决方法：
+
+You could build the Debian source package instead:
+
+```bash
+sudo apt-get install devscripts dpkg-dev build-essential
+sudo apt-get build-dep lyx
+dget http://httpredir.debian.org/debian/pool/main/l/lyx/lyx_2.3.2-1.dsc
+cd lyx-2.2.0
+dpkg-buildpackage -us -uc
+```
+
+The first two commands install the packages necessary to build `lyx`; 
+then `dget` downloads and extracts the source package, 
+and `dpkg-buildpackage` builds it and produces a series of `.deb` packages 
+you can install manually using `dpkg` as usual.
+
+***
+代码解释
+
+`build-dep `causes `apt-get` to install/remove packages in an attempt to satisfy the build dependencies for a source package. 
+
+By default the dependencies are satisfied to build the package natively
+
+这样的话需要在 source.list 中添加软件源代码的源，即以 deb src 开头的行。
+
+`gpg`
+
+Your issue is you have not imported our public key into your keyring. You skipped a step.
+
+***
+`tar --one-top-level -xJvf  lyx`
+
+`-J, --xz`
+
+Filter the archive through xz(1).
+
+`--one-top-level[=DIR]`
+
+Extract all files into DIR, or, if used without argument, into a subdirectory named by the base name of the archive (minus standard  compression  suffixes recognizable by --auto-compress).
+
+***
+`dpkg-buildpackage -us -uc`
+
+-us, --unsigned-source
+Do not sign the source package (long option since dpkg 1.18.8).
+
+uc, --unsigned-changes
+Do not sign the .buildinfo and .changes files (long option since dpkg 1.18.8).
+
+***
+Compiling and installing LyX
+
+Quick compilation guide
+
+These four steps will compile, test and install LyX:
+
+1. Linux users beware: You need `qt4/5` and `qt4/5-devel` packages of the same version to compile LyX.
+In general, it is also recommended to have `pkg-config`installed (the name might vary depending on your distribution).
+
+1. `./configure` configures LyX according to your system. 
+You may have to set `--with-qt-dir=<path-to-your-qt-installation>` (for example, "`--with-qt-dir=/usr/share/qt4/`") if the environment variable `QTDIR` is not set and `pkg-config` is not available.
+You will need `--enable-qt5` switch for choosing qt5 over qt4.
+See Note below if `./configure` script is not present.
+
+`./configure --enable-qt5`
+
+1. `make`   compiles the program.
+1. `src/lyx`    runs the program so you can check it out.
+1. `make install` will install it. You can use "`make install-strip`" instead if you want a smaller binary.
 
 ## && || () {} 用法
 
@@ -1342,7 +1501,7 @@ fi
 + `[[ -n $str1 ]]`   如果 `str1` 是非`null`字符串，则返回真
 
 使用逻辑运算符 `&&` 和 `||` 可以轻松地将多个条件组合起来, 比如：
-
+ 
 ```bash
 str1="Not empty"
 str2=""
@@ -1541,6 +1700,7 @@ Warning: The general facility for changing configuration values is here, but tin
 
 ### texlive安装与卸载
 
+***
 [Linux环境下LaTex的安装与卸载][]
 [Ubuntu Texlive 2019 安装与环境配置][]
 [TexLive 2019 安装指南][]
@@ -1554,22 +1714,25 @@ Warning: The general facility for changing configuration values is here, but tin
 ***
 准备工作：下载，清除
 
+注意：安装 lyx, apt 会默认安装 tex2017版本，覆盖掉新版的texlive2020
+
 注意：如果重新安装，请务必完全删除之前的失败安装，默认情况下，这将在这两个目录中：
 
 ```bash
-rm -rf /usr/local/texlive/2018 
-rm -rf /.texlive2018
+rm -rf /usr/local/texlive/2020
+rm -rf ~/.texlive2020
 ```
 
 或者参考下面的命令
 
 ```bash
+rm -rf /usr/local/texlive/2020
+rm -rf ~/.texlive2020
+sudo rm -rf /usr/local/texlive 
+sudo rm -rf /usr/local/share/texmf
+sudo rm -rf /var/lib/texmf
+sudo rm -rf /etc/texmf
 sudo apt-get purge texlive*
-rm -rf /usr/local/texlive 
-rm -rf ~/.texlive*
-rm -rf /usr/local/share/texmf
-rm -rf /var/lib/texmf
-rm -rf /etc/texmf
 sudo apt-get remove tex-common --purge
 ```
 
@@ -1579,7 +1742,7 @@ sudo apt-get remove tex-common --purge
 因为下载好的是一个`iso`镜像文件，所以下载好之后，还需要挂载到`/mnt`目录下
 
 ```bash
-mount -o ro,loop,noauto /texlive.iso /mnt 
+sudo mount -o ro,loop,noauto texlive2020-20200406.iso /mnt
 ```
 
 + `ro` :     Mount the filesystem read-only.
@@ -2019,261 +2182,3 @@ sys 0m0.008s
 
 原来的脚本扫描整个文本文件需耗时`3.168`秒,而该新版本,使用参数展开,仅仅花费了`0.06`秒 —— 一个非常巨
 大的提高。
-
-## sed
-
-### sed命令
-
-+ `a\` 在当前行下面插入文本。
-+ `i\` 在当前行上面插入文本。
-+ `c\` 把选定的行改为新的文本。
-+ `d` 删除，删除选择的行。
-+ `D` 删除模板块的第一行。
-+ `s` 替换指定字符
-+ `h` 拷贝模板块的内容到内存中的缓冲区。
-+ `H` 追加模板块的内容到内存中的缓冲区。
-+ `g` 获得内存缓冲区的内容，并替代当前模板块中的文本。
-+ `G` 获得内存缓冲区的内容，并追加到当前模板块文本的后面。
-+ `l` 列表不能打印字符的清单。
-+ `n` 读取下一个输入行，用下一个命令处理新的行而不是用第一个命令。
-+ `N` 追加下一个输入行到模板块后面并在二者间嵌入一个新行，改变当前行号码。
-+ `p` 打印模板块的行。
-+ `P` (大写) 打印模板块的第一行。
-+ `q` 退出Sed。
-+ `b lable` 分支到脚本中带有标记的地方，如果分支不存在则分支到脚本的末尾。
-+ `r file` 从file中读行。
-+ `t label` if分支，从最后一行开始，条件一旦满足或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。
-+ `T label` 错误分支，从最后一行开始，一旦发生错误或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。
-+ `w file` 写并追加模板块到file末尾。
-+ `W file` 写并追加模板块的第一行到file末尾。
-+ `!` 表示后面的命令对所有没有被选定的行发生作用。
-+ `=` 打印当前行号码。
-+ `#` 把注释扩展到下一个换行符以前。
-
-### sed替换标记
-
-+ `g` 表示行内全面替换。
-+ `p` 表示打印行。
-+ `w` 表示把行写入一个文件。
-+ `x` 表示互换模板块中的文本和缓冲区中的文本。
-+ `y` 表示把一个字符翻译为另外的字符（但是不用于正则表达式）
-+ `\1` 子串匹配标记
-+ `&` 已匹配字符串标记
-
-### sed元字符集
-
-+ `^` 匹配行开始，如：`/^sed/`匹配所有以`sed`开头的行。
-+ `$` 匹配行结束，如：`/sed$/`匹配所有以`sed`结尾的行。
-+ `.` 匹配一个非换行符的任意字符，如：`/s.d/`匹配`s`后接一个任意字符，最后是`d`。
-+ `*` 匹配`0`个或多个字符，如：`/*sed/`匹配所有模板是一个或多个空格后紧跟`sed`的行。
-+ `[]` 匹配一个指定范围内的字符，如`/[ss]ed/`匹配sed和Sed。
-+ `[^]` 匹配一个不在指定范围内的字符，如：`/[^A-RT-Z]ed/`匹配不包含`A-R`和`T-Z`的一个字母开头，紧跟`ed`的行。
-+ `\(..\)` 匹配子串，保存匹配的字符，如`s/\(love\)able/\1rs`，loveable被替换成lovers。
-+ `&` 保存搜索字符用来替换其他字符，如`s/love/**&**/`，love这成`**love**`。
-+ `\<` 匹配单词的开始，如:`/\<love/`匹配包含以love开头的单词的行。
-+ `\>` 匹配单词的结束，如`/love\>/`匹配包含以love结尾的单词的行。
-+ `x\{m\}` 重复字符`x`，`m`次，如：`/0\{5\}/`匹配包含5个0的行。
-+ `x\{m,\}` 重复字符`x`，至少`m`次，如：`/0\{5,\}/`匹配至少有5个0的行。
-+ `x\{m,n\}` 重复字符`x`，至少`m`次，不多于n次，如：`/0\{5,10\}/`匹配5~10个0的行。
-
-### sed用法实例
-
-#### 替换操作：s命令
-
-替换文本中的字符串：
-
-```bash
-sed 's/book/books/' file
-```
-
-`-n`选项和`p`命令一起使用表示只打印那些发生替换的行：
-
-```bash
-sed -n 's/test/TEST/p' file
-```
-
-直接编辑文件选项`-i`，会匹配`file`文件中每一行的第一个`book`替换为`book`s：
-
-```bash
-sed -i 's/book/books/g' file
-```
-
-全面替换标记`g`
-
-使用后缀 `/g` 标记会替换每一行中的所有匹配：
-
-```bash
-sed 's/book/books/g' file
-```
-
-## 空白字符
-
-[对C标准中空白字符的理解][]
-[Shell中去掉文件中的换行符简单方法][]
-
-[对C标准中空白字符的理解]: https://blog.csdn.net/boyinnju/article/details/6877087
-
-[Shell中去掉文件中的换行符简单方法]: https://blog.csdn.net/Jerry_1126/java/article/details/85009615
-
-### 空白字符
-
-`C`标准库里`<ctype.h>`中声明了一个函数:
-
-`int isspace(int c);`
-
-该函数判断字符`c`是否为一个空白字符。
-
-`C`标准中空白字符有六个：
-空格（`' '`）、换页（`'\f'`）、换行（`'\n'`）、回车（`'\r'`）、水平制表符（`'\t'`）、垂直制表符（`'\v'`）
-
-***
-空格: ASCII码为`0x20`，而不是`0x00`。`0x00`代表空（`NULL`）
-
-`0X00-0XFF` `16`进制一共`256`个，刚好是一个`bit`的范围。
-
-***
-回车（'\r'）效果是输出回到本行行首，结果可能会将这一行之前的输出覆盖掉，例如执行：
-
-```bash
-puts("hello world!\rxxx");
-#在终端输出的是：
-xxxlo world!
-```
-
-如果将上面的字符串写入文件中，例如执行：
-
-```bash
-char *s = "hello world!\rxxx";
-FILE *str = fopen("t.txt","r");
-fwrite(s, 16, 1, str);
-```
-
-用文本编辑器打开`t.txt`。显示的效果将由打开的编辑器所决定。
-vi将`\r`用`^M`代替，而记事本就没有显示该字符。
-
-***
-换行（'\n'）
-顾名思义，换行就是转到下一行输出。例如：
-
-```bash
-puts("hello\nworld!");
-#在终端中将输出
-hello
-world!
-```
-
-但需要注意的是，终端输出要达到换行效果用“`\n`”就可以，但要在文本文件输出中达到换行效果在各个系统中有所区别。
-在`*nix`系统中，每行的结尾是"`\n`"，windows中则是"`\n\r`",mac则是"`\r`"。
-
-***
-水平制表符（'\t'）
-
-相信大家对'\t'还是比较熟悉的。一般来说，其在终端和文件中的输出显示相当于按下键盘`TAB`键效果。
-一般系统中，显示水平制表符将占8列。同时水平制表符开始占据的初始位置是第`8*n`列（第一列的下标为0）。例如：
-
-```bash
-puts("0123456\txx");
-puts("0123456t\txx");
-```
-
-***
-垂直制表符（'\v'）
-
-垂直制表符不常用。它的作用是让`'\v'`后面的字符从下一行开始输出，且开始的列数为“`\v`”前一个字符所在列后面一列。例如：
-
-```bash
-puts("01\v2345");
-```
-
-***
-换页（'\f'）
-
-换页符的在终端的中的效果相当于`*nix`中`clear`命令。
-终端在输出`'\f'`之后内容之前，会将整个终端屏幕清空空，然后在输出内容。给人的该觉是在`clear`命令后的输出字符串。
-
-最后我想说明一点，`\t \r, \v \f`也是控制字符，它们会控制字符的输出方式。
-它们在终端输出时会有上面的表现，但如果写入文本文件，一般文本编辑器（vi或记事本）对`\t \r, \v \f`的显示是没有控制效果的。
-
-### 去掉文件中的换行符号
-
-文件中每行都以`\n`结尾，如果要去掉换行符，使用`sed`命令
-
-```bash
-[root@host ~]# sed -i 's/\n//g' FileName
-```
-
-或者使用`tr`命令: tr - translate or delete characters
-
-```bash
-[root@host ~]# cat fileName | tr '\n' ''
-```
-
-有一种简单的方法:
-
-`xargs` - build and execute command lines from standard input
-
- ```bash
-cat FileName | xargs | echo -n   # 连文件末尾换行符也去掉
-# 或者
-cat FileName | xargs           # 会保留文件末尾的换行符
- ```
-
-## eval
-
-[Shell 中eval的用法][]
-
-[Shell 中eval的用法]: https://blog.csdn.net/luliuliu1234/article/details/80994391
-
-```bash
-eval command-line
-```
-
-其中`command-line`是在终端上键入的一条普通命令行。
-然而当在它前面放上`eval`时，其结果是`shell`在执行命令行之前扫描它两次。如：
-
-```bash
-$ pipe="|"
-$ eval ls $pipe wc -l
-1
-2
-3
-```
-
-shell第1次扫描命令行时，它替换出`pipe`的值`|`，接着`eval`使它再次扫描命令行，这时shell把`|`作为管道符号了。
-
-如果变量中包含任何需要`shell`直接在命令行中看到的字符，就可以使用eval。
-命令行结束符（`;  |  &`），I/o重定向符（`< >`）和引号就属于对shell具有特殊意义的符号，必须直接出现在命令行中。
-
-`eval echo \$$#`取得最后一个参数, 如：
-
-```bash
-$ cat last    #此处last是一个脚本文件，内容是下一行显示
-$  eval echo \$$#
-$ ./last one two three four
-
-four
-```
-
-第一遍扫描后，shell把反斜杠去掉了。当shell再次扫描该行时，它替换了`$4`的值，并执行echo命令
-
-***
-以下示意如何用`eval`命令创建指向变量的“指针”：
-
-```bash
-x=100
-ptrx=x
-eval echo \$$ptrx  #指向 ptrx，用这里的方法可以理解上面的例子
-eval $ptrx=50 #将 50 存到 ptrx 指向的变量中。
-echo $x
-```
-
-```bash
-# ptrx 指向x
-echo $ptrx
-x
-# \$ 转义之后，再跟 x 连成一个字符串
-echo \$$ptrx
-$x
-# eval 执行两次扫描，所以相当于 echo $x
-eval echo \$$ptrx
-```

@@ -1,0 +1,652 @@
+# ubuntu-2.md
+
+## lyx
+
+### 安装新的 latex 文件
+
+一般使用texlive的包管理工具，否则需要手动安装:
+
+1. Get the package from [CTAN](http://www.ctan.org/CTAN) or wherever.
+2. 如果其中有一个文件是`.ins` 结尾的，打开终端，执行命令`latex foiltex.ins`，就获得了安装需要的包。大多数 latex 包没有打包，所以可以跳过这一步。
+3. 现在你需要决定，这个包要安装给所有用户使用，还是only for you。
+4. 在*nix 系统上（OSX），给所有用户使用，安装到`local` TeX tree, 给自己使用，安装到`user`TeX tree。
+
+查看`texmf.cnf`文件，它通常在`$TEXMF/web2c`文件夹，但是可以用`kpsewhich texmf.cnf`定位。
+
+`local` Tree 的位置在 `TEXMFLOCAL` variable 中定义，通常像是`/usr/local/share/texmf`。
+`user`  Tree 的位置在`TEXMFHOME`中定义，通常像是`$HOME/texmf` or `$HOME/.texliveXXXX`
+
+如果这些变量没有定义，你需要手工指定。修改`local` Tree 可能需要 root 权限。建议修改 user tree, 因为在升级的时候，不会被覆盖。这样在备份系统的时候，可以一起备份。
+
+现在，你需要告诉 Latex 有新文件。这取决于 LaTex 发行版。
+
+1. 对于 TeXLive，运行`texhash`,可能需要 root 权限
+2. 对于MikTeX，运行 `Settings (Admin)` and press the button marked `Refresh FNDB`
+
+5. 最后，你需要告诉 LyX 有新的包可以使用。在LyX 中，运行 `Tools->Reconfigure` and then restart LyX
+
+现在，新的文档 class 可以选择了，`Document->Settings->Document Class`。
+
+### lyx error
+
+~/.lyx/textclass.lst 中的条目格式有问题，如
+
+`"IEEEtran-CompSoc"` 变成了 `"b'IEEEtran-CompSoc'"`
+
+python中字节字符串不能格式化。
+获取到的网页有时候是字节字符串，需要转化后再解析。
+
+bytes 转 string 方式：
+
+```python
+>>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
+>>>string=str(b,'utf-8')
+>>>string
+## 或者
+>>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
+>>>string=b.decode()
+'人生苦短，我要用python'
+```
+
+[python基础之string与bytes的转换]
+
+[python基础之string与bytes的转换]: https://blog.csdn.net/Panda996/java/article/details/84780377
+
+## dpkg-buildpackage
+
+`dget` -- Download Debian source and binary packages
+
+SYNOPSIS
+
+```
+dget [options] URL ...
+dget [options] [--all] package[=version] ...
+```
+
+DESCRIPTION
+
+dget downloads Debian packages.  
+
+In the first form, dget fetches the requested `URLs`.  If this is a `.dsc` or `.changes` file, 
+then dget acts as a source-package aware form of wget: it also fetches any files referenced in the `.dsc/.changes` file.  
+The downloaded source is then checked with `dscverify` and, if successful, unpacked by `dpkg-source`.
+
+6.1. 完整的(重)构建
+
+为保证完整的软件包(重)构建能顺利进行，你必须保证系统中已经安装
+
+    build-essential 软件包；
+
+    列于 Build-Depends 域的软件包(参看 第 4.1 节 “control”)；
+
+    列于 Build-Depends-indep 域的软件包(参看 第 4.1 节 “control”)。
+
+然后在源代码目录中执行以下命令：
+
+$ dpkg-buildpackage -us -uc
+
+这样会自动完成所有从源代码包构建二进制包的工作，包括：
+
+    清理源代码树(debian/rules clean)
+
+    构建源代码包(dpkg-source -b)
+
+    构建程序(debian/rules build)
+
+    构建二进制包(fakeroot debian/rules binary)
+
+    制作 .dsc 文件
+
+    用 dpkg-genchanges 命令制作 .changes 文件。
+
+如果构建结果令人满意，那就用 debsign 命令以你的私有 GPG 密钥签署 .dsc 文件和 .changes 文件。你需要输入密码两次。 [63]
+
+对于非本土 Debian 软件包，比如 gentoo， 构建软件包之后，你将会在上一级目录(~/gentoo) 中看到下列文件：
+
+    gentoo_0.9.12.orig.tar.gz
+
+    这是原始的源代码 tarball，最初由 dh_make -f ../gentoo-0.9.12.tar.gz 命令创建，它的内容与上游 tarball 相同，仅被重命名以符合 Debian 的标准。
+
+    gentoo_0.9.12-1.dsc
+
+    这是一个从 control 文件生成的源代码概要，可被 dpkg-source(1) 程序解包。
+
+    gentoo_0.9.12-1.debian.tar.gz
+
+    这个压缩的 Tar 归档包含你的 debian 目录内容。其他所有对于源代码的修改都由 quilt 补丁存储于 debian/patches 中。
+
+    如果其他人想要重新构建你的软件包，他们可以使用以上三个文件很容易地完成。只需复制三个文件，再运行 dpkg-source -x gentoo_0.9.12-1.dsc。 [64]
+
+    gentoo_0.9.12-1_i386.deb
+
+    这是你的二进制包，可以使用 dpkg 程序安装或卸载它，就像其他软件包一样。
+
+    gentoo_0.9.12-1_i386.changes
+
+    这个文件描述了当前修订版本软件包中的全部变更，它被 Debian FTP 仓库维护程序用于安装二进制和源代码包。它是部分从 changelog 和 .dsc 文件生成的。
+
+    随着你不断完善这个软件包，程序的行为会发生变化，也会有更多新特性添加进来。下载你软件包的人可以查看这个文件来快速找到有哪些变化，Debian 仓库维护程序还会把它的内容发表至 debian-devel-changes@lists.debian.org 邮件列表。
+
+在上传到 Debian FTP 仓库中前，gentoo_0.9.12-1.dsc 文件和 gentoo_0.9.12-1_i386.changes 文件必须用 debsign 命令签署，其中使用你自己存放在 ~/.gnupg/ 目录中的 GPG 私钥。 用你的公钥，可以令 GPG 签名证明这些文件真的是你的。
+
+debsign 命令可以用来以指定 ID 的 GPG 密钥进行签署 （这方便了赞助(sponsor)软件包）， 只要照着下边在 ~/.devscripts 中的内容：
+
+DEBSIGN_KEYID=Your_GPG_keyID
+
+.dsc 和 .changes 文件中很长的数字串是其中提及文件的 SHA1/SHA256 校验和。下载你软件包的人可以使用 sha1sum(1) 或 sha256sum(1) 来进行核对。如果校验和不符，则说明文件已被损坏或偷换
+
+### Hostname
+
+[What Is a Hostname? ][]
+
+[What Is a Hostname? ]: https://www.lifewire.com/what-is-a-hostname-2625906
+
+域名（英语：`Domain Name`），又称网域，是由一串用点分隔的名字组成的`Internet`上某一台计算机或计算机组的名称，
+用于在数据传输时对计算机的定位标识（有时也指地理位置）
+
+由于`IP`地址具有不方便记忆并且不能显示地址组织的名称和性质等缺点，人们设计出了域名，
+并通过网域名称系统（`DNS`，`Domain Name System`）来将域名和`IP`地址相互映射，使人更方便地访问互联网，
+而不用去记住能够被机器直接读取的`IP`地址数串
+
+A `hostname` is a label assigned to a `device` (a host) on a `network`. 
+
+It distinguishes one device from another on a specific network or over the internet. 
+The hostname for a computer on a home network may be something like `new laptop`, `Guest-Desktop`, or `FamilyPC`.
+
+Hostnames are also used by `DNS` servers so you can access a website by a common, easy-to-remember name. This way, you don't have to remember a string of numbers (an `IP address`) to open a website.
+
+A computer's hostname may instead be referred to as a computer name, sitename, or nodename. 
+You may also see hostname `spelled` as host name.
+
+### Examples of a Hostname
+
+Each of the following is an example of a Fully Qualified Domain Name with its hostname written off to the side:
+
++ `www.google.com: www`
++ `images.google.com: images`
++ `products.office.com: products`
++ `www.microsoft.com: www`
+
+The hostname (like `products`) is the text that *precedes* the `domain` name (for example, office), which is the text that comes before the *top-level domain* (`.com`).
+
+### How to Find a Hostname in Windows
+
+Executing `hostname` from the Command Prompt is the easiest way to show the hostname of a computer.
+
+## linux查看设备信息和驱动安装信息
+
+[linux查看设备信息和驱动安装信息]
+
+[linux查看设备信息和驱动安装信息]: https://blog.csdn.net/m1223853767/article/details/79615011
+
+`lspci`是列出所有的硬件信息，包括已经安装了驱动还是没有安装驱动的硬件设备，因为根据`pci`规范，只要改设备在`pci`总线上挂着，就可以读到其`Vendor ID`和`Device ID`等一系列信息，就能知道这个设备是什么设备。
+
+如果要确认有没有安装驱动，就需要通过`lsmod`命令来看，当然`lsmod`命令只能显示编译`linux`内核时选中为“`M`”的驱动程序，最靠谱的还是`dmesg`来查看该设备的驱动有没有安装，`dmesg`信息太多，需要grep来过滤一下。
+
+工作中的时候总结的一些经验
+
+1. 确定需要安装驱动的硬件型号，可以在`/etc/sysconfig/hwconf`中找到，里面列出了所有硬件的型号和生产商等信息，其中`vendorId`指的是硬件的生产商编号，`deviceId`是指该设备的编号，一般生产商和设备编号都是四位的（ `debian`系的没有`sysconfig`都在`/etc/init.d/`里面）
+2. `lspci`命令可以查看当前系统中所有PCI的设备的信息，`lspci -n|grep 02:00` 可以查看`02:00`设备对应的生产商和设备编号信息，这些信息也可以在`hwconf`中找到
+3. 找到了设备编号可以到`http://pci-ids.ucw.cz/iii/`查找与该设备相关的信息，可以找到设备的名字
+4. 通过设备名字和型号查找设备驱动
+5. 编译模块/驱动
+6. `lsmod`命令可以列出当前系统中所有已经加载了的模块/驱动
+7. `modinfo`命令可以单看指定的模块/驱动的信息，其中`alias`指的是这个模块/驱动所支持的硬件的型号
+8. 使用`modprobe`或者`insmod`命令可以加载驱动，使用`rmmod`可以删除一个模块/驱动
+
+在LINUX环境开发驱动程序，首先要探测到新硬件，接下来就是开发驱动程序。
+
+常用命令整理如下：
+
++ 用硬件检测程序`kuduz`探测新硬件：`service kudzu start ( or restart)`
++ 查看CPU信息：`cat /proc/cpuinfo`
++ 查看板卡信息：`cat /proc/pci`
++ 查看PCI信息：`lspci` (相比`cat /proc/pci`更直观）
++ 查看内存信息：`cat /proc/meminfo`
++ 查看USB设备：`cat /proc/bus/usb/devices`
++ 查看键盘和鼠标:`cat /proc/bus/input/devices`
++ 查看系统硬盘信息和使用情况：`fdisk & disk - l & df`
++ 查看各设备的中断请求(IRQ):`cat /proc/interrupts`
++ 查看系统体系结构：`uname -a`
++ `dmidecode` 查看硬件信息，包括bios、cpu、内存等信息
++ `dmesg | less` 查看硬件信息
+
+[Linux下/proc目录简介][]
+
+[Linux下/proc目录简介]: https://blog.csdn.net/zdwzzu2006/article/details/7747977
+
+Linux 内核提供了一种通过 `/proc` 文件系统，在运行时访问内核内部数据结构、改变内核设置的机制。proc文件系统是一个伪文件系统，它只存在内存当中，而不占用外存空间。它以文件系统的方式为访问系统内核数据的操作提供接口。
+
+用户和应用程序可以通过proc得到系统的信息，并可以改变内核的某些参数。
+由于系统的信息，如进程，是动态改变的，所以用户或应用程序读取proc文件时，proc文件系统是动态从系统内核读出所需信息并提交的。
+下面列出的这些文件或子文件夹，并不是都是在你的系统中存在，这取决于你的内核配置和装载的模块。
+另外，在`/proc`下还有三个很重要的目录：`net`，`scsi`和`sys`。 `Sys`目录是可写的，可以通过它来访问或修改内核的参数，而`net`和`scsi`则依赖于内核配置。例如，如果系统不支持`scsi`，则`scsi`目录不存在。
+
+除了以上介绍的这些，还有的是一些以数字命名的目录，它们是进程目录。
+系统中当前运行的每一个进程都有对应的一个目录在`/proc`下，以进程的 `PID`号为目录名，它们是读取进程信息的接口。
+而`self`目录则是读取进程本身的信息接口，是一个`link`。
+
+## Linux各目录含义
+
+### FHS标准
+
+其实，linux系统的目录都遵循一个标准，即由Linux基金会发布的 文件系统层次结构标准 (`Filesystem Hierarchy Standard`, FHS)。
+这个标准里面定义了linux系统该有哪些目录，各个目录应该存放什么，起什么作用等等。具体说明如下：
+
+目录  含义
+
++ `/bin`  binary，即用来存放二进制可执行文件，并且比较特殊的是`/bin`里存放的是所有一般用户都能使用的可执行文件，如：`cat`, `chmod`, `chown`, `mv`, `mkdir`, `cd` 等常用指令
++ `/boot`  存放开机时用到的引导文件
++ `/dev`  device（并不是`develop`哦），任何设备都以文件的形式存放在这个目录中
++ `/etc`  `Editable Text Configuration`（早期含义为`etcetera`，但是有争议），存放系统配置文件，如各种服务的启动配置，账号密码等
++ `/home`  用户的主目录，每当新建一个用户系统都会在这个目录下创建以该用户名为名称的目录作为该用户的主目录。并且在命令行中~代表当前用户的主目录，~yousiku表示yousiku这个用户的主目录
++ `/lib`  library，存放着系统开机时所需的函数库以及/bin和/sbin目录下的命令会调用的函数库
++ `/lib64`  存放相对于/lib中支持64位格式的函数库
++ `/media`  可移除的媒体设备，如光盘，DVD等
++ `/mnt`  `mount`，临时挂载的设备文件
++ `/opt`  `optional`，可选的软件包，即第三方软件。我们可以将除了系统自带软件之外的其他软件安装到这个目录下
++ `/proc`  `process`，该目录是一个虚拟文件系统，即该目录的内容存放于内存中而不是硬盘中，存放着系统内核以及进程的运行状态信息
++ `/root`  超级管理员root的主目录
++ `/run`  最近一次开机后所产生的各项信息，如当前的用户和正在运行中的守护进程等
++ `/sbin`  存放一些只有root账户才有权限执行的可执行文件，如init, ip, mount等命令
++ `/srv`  service，存放一些服务启动后所需的数据
++ `/sys`  system，与/proc类似也是一个虚拟文件系统，存放系统核心与硬件相关的信息
++ `/tmp`  temporary，存放临时文件，可以被所有用户访问，系统重启时会清空该目录
++ `/usr`  Unix Software Resource（并不是指user哦），存放着所有用户的绝大多数工具和应用程序（下文详细介绍）
++ `/var`  variable，存放动态文件，如系统日志，程序缓存等（下文详细介绍）
+
+### /usr目录
+
+`Unix Software Resource` 意为 `Unix`系统软件资源，系统自带的软件都装在这个目录下（好比Windows系统的"C:\Windows"），用户安装的第三方软件也在这个目录下（好比Windows系统的"C:\Program Files"），不同的是，在Windows系统上安装软件通常将该软件的所有文件放置在同一个目录下，但是在Linux系统安装软件会将该软件的不同文件分别放置在/usr目录下的不同子目录下，而不应该自行创建该软件自己的独立目录。进入到`/usr`目录，一般有以下子目录：
+
+```python
+[root@localhost /]# cd usr/
+[root@localhost usr]# ls
+bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
+```
+
+目录  含义
+
++ `/usr/bin`  即`/bin`，用链接文件到方式将`/bin`链接至此
++ `/usr/etc`  应用程序的配置文件
++ `/usr/games`  与游戏相关的数据
++ `/usr/include`  `c/c++`程序的头文件
++ `/usr/lib`  即`/lib`，用链接文件到方式将`/lib`链接至此
++ `/usr/lib64`  即`/lib64`，用链接文件到方式将`/lib64`链接至此
++ `/usr/libexec`  不常用的执行文件或脚本
++ `/usr/local`  应用程序的安装目录，每个应用程序目录下还会有对应的`bin`, `etc`, `lib`等目录
++ `/usr/sbin`  即`/sbin`，用链接文件到方式将`/sbin`链接至此
++ `/usr/share`  共享文件，通常是一些文字说明文件，如软件文档等
++ `/usr/src`  `source`，应用程序源代码
++ `/usr/tmp`  应用程序临时文件
+
+[Linux各目录含义][]
+
+[Linux各目录含义]: https://www.jianshu.com/p/142deb98ed5a
+
+## 输入法
+
+重启输入法
+
+`ibus restart`: Restart ibus-daemon.
+
+## 查看文件、文件夹和磁盘空间的大小
+
+[Ubuntu下查看文件、文件夹和磁盘空间的大小][]
+
+[Ubuntu下查看文件、文件夹和磁盘空间的大小]: https://blog.csdn.net/BigData_Mining/java/article/details/88998472
+
+在实际使用`ubuntu`时候，经常要碰到需要查看文件以及文件夹大小的情况。
+有时候，自己创建压缩文件，可以使用 `ls -hl`查看文件大小。参数`-h` 表示`Human-Readable`，使用`GB`,`MB`等易读的格式方式显示。对于文件夹的大小，`ll -h` 显示只有`4k`。
+
+***
+那么如何来查看文件夹的大小呢？
+
+使用`du`命令查看文件或文件夹的磁盘使用空间,`–max-depth` 用于指定深入目录的层数。
+
+如要查看当前目录已经使用总大小及当前目录下一级文件或文件夹各自使用的总空间大小，
+输入`du -h --max-depth=1`即可。
+
+如要查看当前目录已使用总大小可输入：`du -h --max-depth=0`
+
+***
+
+```bash
+du [OPTION]... [FILE]...
+du [OPTION]... --files0-from=F
+```
+
++ `-s,` `--summarize`: display only a total for each argument
++ ` -h`, `--human-readable`: print sizes in human readable format (e.g., 1K 234M 2G)
++ `-d,` `--max-depth=N`: print the total for a directory (or file, with `--all`) only if it is N or fewer levels below the command line argument;  `--max-depth=0` is the same as `--summarize`
++ `--si`   like `-h`, but use powers of `1000` not `1024`
++ `-a,` `--all` :write counts for all files, not just directories
+
+### 查看磁盘空间大小命令
+
+`df`命令是linux系统以磁盘分区为单位查看文件系统，可以加上参数查看磁盘剩余空间信息，命令格式：
+
+`df - report file system disk space usage`
+
+***
+SYNOPSIS
+
+`df [OPTION]... [FILE]...`
+
++ `-a`, `--all` include pseudo, duplicate, inaccessible file systems
++ `-l`, `--local` limit listing to local file systems
++ `-h`, `--human-readable` print sizes in powers of 1024 (e.g., 1023M)
++ `-T`, `--print-type` print file system type
+
+### 删除日志文件
+
+```bash
+sudo /dev/null > /var/log/**.log 
+```
+
+下面这个推荐使用,删除30天之前的旧文件
+
+```bash
+sudo find /var/log/ -type f -mtime +30 -exec rm -f {} \;
+```
+
+***
+`find` - search for files in a directory hierarchy
+
+`find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]`
+
+***
+`expression`
+
+The part of the command line after the list of starting points is the `expression`.  This is a kind of query specification describing how we match files  and  what we do with the files that were matched.  
+An expression is composed of a sequence of things: Test, Actions,...
+
+`-exec command ;`
+              Execute  command;  true if 0 status is returned.  All following arguments to find are taken to be arguments to the command until an argument consisting of
+              `;' is encountered.  The string `{}' is replaced by the current file name being processed everywhere it occurs in the arguments to the command,  not  just
+              in  arguments where it is alone, as in some versions of find.  Both of these constructions might need to be escaped (with a `\') or quoted to protect them
+              from expansion by the shell.  See the EXAMPLES section for examples of the use of the -exec option.  The specified command is run once  for  each  matched
+              file.   The  command  is executed in the starting directory.   There are unavoidable security problems surrounding use of the -exec action; you should use
+              the -execdir option instead.
+
+       -exec command {} +
+              This variant of the -exec action runs the specified command on the selected files, but the command line is built by appending each selected file  name  at
+              the  end;  the  total number of invocations of the command will be much less than the number of matched files.  The command line is built in much the same
+              way that xargs builds its command lines.  Only one instance of `{}' is allowed within the command, and (when find is being invoked from a shell) it should
+              be  quoted (for example, '{}') to protect it from interpretation by shells.  The command is executed in the starting directory.  If any invocation returns
+              a non-zero value as exit status, then find returns a non-zero exit status.  If find encounters an error, this can sometimes cause an  immediate  exit,  so
+              some pending commands may not be run at all.  This variant of -exec always returns true.
+
+
+`-mtime n`
+File's  data  was  last  modified  `n*24` hours ago.  
+See the comments for -atime to understand how rounding affects the interpretation of file modificationtimes
+
+
+`-type c`
+File is of type c:
+
++ `b`  block (buffered) special
++ `c`  character (unbuffered) special
++ `d`  directory
++ `p`  named pipe (FIFO)
++ `f`  regular file
+
+## sed
+
+### sed命令
+
++ `a\` 在当前行下面插入文本。
++ `i\` 在当前行上面插入文本。
++ `c\` 把选定的行改为新的文本。
++ `d` 删除，删除选择的行。
++ `D` 删除模板块的第一行。
++ `s` 替换指定字符
++ `h` 拷贝模板块的内容到内存中的缓冲区。
++ `H` 追加模板块的内容到内存中的缓冲区。
++ `g` 获得内存缓冲区的内容，并替代当前模板块中的文本。
++ `G` 获得内存缓冲区的内容，并追加到当前模板块文本的后面。
++ `l` 列表不能打印字符的清单。
++ `n` 读取下一个输入行，用下一个命令处理新的行而不是用第一个命令。
++ `N` 追加下一个输入行到模板块后面并在二者间嵌入一个新行，改变当前行号码。
++ `p` 打印模板块的行。
++ `P` (大写) 打印模板块的第一行。
++ `q` 退出Sed。
++ `b lable` 分支到脚本中带有标记的地方，如果分支不存在则分支到脚本的末尾。
++ `r file` 从file中读行。
++ `t label` if分支，从最后一行开始，条件一旦满足或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。
++ `T label` 错误分支，从最后一行开始，一旦发生错误或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。
++ `w file` 写并追加模板块到file末尾。
++ `W file` 写并追加模板块的第一行到file末尾。
++ `!` 表示后面的命令对所有没有被选定的行发生作用。
++ `=` 打印当前行号码。
++ `#` 把注释扩展到下一个换行符以前。
+
+### sed替换标记
+
++ `g` 表示行内全面替换。
++ `p` 表示打印行。
++ `w` 表示把行写入一个文件。
++ `x` 表示互换模板块中的文本和缓冲区中的文本。
++ `y` 表示把一个字符翻译为另外的字符（但是不用于正则表达式）
++ `\1` 子串匹配标记
++ `&` 已匹配字符串标记
+
+### sed元字符集
+
++ `^` 匹配行开始，如：`/^sed/`匹配所有以`sed`开头的行。
++ `$` 匹配行结束，如：`/sed$/`匹配所有以`sed`结尾的行。
++ `.` 匹配一个非换行符的任意字符，如：`/s.d/`匹配`s`后接一个任意字符，最后是`d`。
++ `*` 匹配`0`个或多个字符，如：`/*sed/`匹配所有模板是一个或多个空格后紧跟`sed`的行。
++ `[]` 匹配一个指定范围内的字符，如`/[ss]ed/`匹配sed和Sed。
++ `[^]` 匹配一个不在指定范围内的字符，如：`/[^A-RT-Z]ed/`匹配不包含`A-R`和`T-Z`的一个字母开头，紧跟`ed`的行。
++ `\(..\)` 匹配子串，保存匹配的字符，如`s/\(love\)able/\1rs`，loveable被替换成lovers。
++ `&` 保存搜索字符用来替换其他字符，如`s/love/**&**/`，love这成`**love**`。
++ `\<` 匹配单词的开始，如:`/\<love/`匹配包含以love开头的单词的行。
++ `\>` 匹配单词的结束，如`/love\>/`匹配包含以love结尾的单词的行。
++ `x\{m\}` 重复字符`x`，`m`次，如：`/0\{5\}/`匹配包含5个0的行。
++ `x\{m,\}` 重复字符`x`，至少`m`次，如：`/0\{5,\}/`匹配至少有5个0的行。
++ `x\{m,n\}` 重复字符`x`，至少`m`次，不多于n次，如：`/0\{5,10\}/`匹配5~10个0的行。
+
+### sed用法实例
+
+#### 替换操作：s命令
+
+替换文本中的字符串：
+
+```bash
+sed 's/book/books/' file
+```
+
+`-n`选项和`p`命令一起使用表示只打印那些发生替换的行：
+
+```bash
+sed -n 's/test/TEST/p' file
+```
+
+直接编辑文件选项`-i`，会匹配`file`文件中每一行的第一个`book`替换为`book`s：
+
+```bash
+sed -i 's/book/books/g' file
+```
+
+全面替换标记`g`
+
+使用后缀 `/g` 标记会替换每一行中的所有匹配：
+
+```bash
+sed 's/book/books/g' file
+```
+
+## 空白字符
+
+[对C标准中空白字符的理解][]
+[Shell中去掉文件中的换行符简单方法][]
+
+[对C标准中空白字符的理解]: https://blog.csdn.net/boyinnju/article/details/6877087
+
+[Shell中去掉文件中的换行符简单方法]: https://blog.csdn.net/Jerry_1126/java/article/details/85009615
+
+### 空白字符
+
+`C`标准库里`<ctype.h>`中声明了一个函数:
+
+`int isspace(int c);`
+
+该函数判断字符`c`是否为一个空白字符。
+
+`C`标准中空白字符有六个：
+空格（`' '`）、换页（`'\f'`）、换行（`'\n'`）、回车（`'\r'`）、水平制表符（`'\t'`）、垂直制表符（`'\v'`）
+
+***
+空格: ASCII码为`0x20`，而不是`0x00`。`0x00`代表空（`NULL`）
+
+`0X00-0XFF` `16`进制一共`256`个，刚好是一个`bit`的范围。
+
+***
+回车（'\r'）效果是输出回到本行行首，结果可能会将这一行之前的输出覆盖掉，例如执行：
+
+```bash
+puts("hello world!\rxxx");
+#在终端输出的是：
+xxxlo world!
+```
+
+如果将上面的字符串写入文件中，例如执行：
+
+```bash
+char *s = "hello world!\rxxx";
+FILE *str = fopen("t.txt","r");
+fwrite(s, 16, 1, str);
+```
+
+用文本编辑器打开`t.txt`。显示的效果将由打开的编辑器所决定。
+vi将`\r`用`^M`代替，而记事本就没有显示该字符。
+
+***
+换行（'\n'）
+顾名思义，换行就是转到下一行输出。例如：
+
+```bash
+puts("hello\nworld!");
+#在终端中将输出
+hello
+world!
+```
+
+但需要注意的是，终端输出要达到换行效果用“`\n`”就可以，但要在文本文件输出中达到换行效果在各个系统中有所区别。
+在`*nix`系统中，每行的结尾是"`\n`"，windows中则是"`\n\r`",mac则是"`\r`"。
+
+***
+水平制表符（'\t'）
+
+相信大家对'\t'还是比较熟悉的。一般来说，其在终端和文件中的输出显示相当于按下键盘`TAB`键效果。
+一般系统中，显示水平制表符将占8列。同时水平制表符开始占据的初始位置是第`8*n`列（第一列的下标为0）。例如：
+
+```bash
+puts("0123456\txx");
+puts("0123456t\txx");
+```
+
+***
+垂直制表符（'\v'）
+
+垂直制表符不常用。它的作用是让`'\v'`后面的字符从下一行开始输出，且开始的列数为“`\v`”前一个字符所在列后面一列。例如：
+
+```bash
+puts("01\v2345");
+```
+
+***
+换页（'\f'）
+
+换页符的在终端的中的效果相当于`*nix`中`clear`命令。
+终端在输出`'\f'`之后内容之前，会将整个终端屏幕清空空，然后在输出内容。给人的该觉是在`clear`命令后的输出字符串。
+
+最后我想说明一点，`\t \r, \v \f`也是控制字符，它们会控制字符的输出方式。
+它们在终端输出时会有上面的表现，但如果写入文本文件，一般文本编辑器（vi或记事本）对`\t \r, \v \f`的显示是没有控制效果的。
+
+### 去掉文件中的换行符号
+
+文件中每行都以`\n`结尾，如果要去掉换行符，使用`sed`命令
+
+```bash
+[root@host ~]# sed -i 's/\n//g' FileName
+```
+
+或者使用`tr`命令: tr - translate or delete characters
+
+```bash
+[root@host ~]# cat fileName | tr '\n' ''
+```
+
+有一种简单的方法:
+
+`xargs` - build and execute command lines from standard input
+
+ ```bash
+cat FileName | xargs | echo -n   # 连文件末尾换行符也去掉
+# 或者
+cat FileName | xargs           # 会保留文件末尾的换行符
+ ```
+
+## eval
+
+[Shell 中eval的用法][]
+
+[Shell 中eval的用法]: https://blog.csdn.net/luliuliu1234/article/details/80994391
+
+```bash
+eval command-line
+```
+
+其中`command-line`是在终端上键入的一条普通命令行。
+然而当在它前面放上`eval`时，其结果是`shell`在执行命令行之前扫描它两次。如：
+
+```bash
+$ pipe="|"
+$ eval ls $pipe wc -l
+1
+2
+3
+```
+
+shell第1次扫描命令行时，它替换出`pipe`的值`|`，接着`eval`使它再次扫描命令行，这时shell把`|`作为管道符号了。
+
+如果变量中包含任何需要`shell`直接在命令行中看到的字符，就可以使用eval。
+命令行结束符（`;  |  &`），I/o重定向符（`< >`）和引号就属于对shell具有特殊意义的符号，必须直接出现在命令行中。
+
+`eval echo \$$#`取得最后一个参数, 如：
+
+```bash
+$ cat last    #此处last是一个脚本文件，内容是下一行显示
+$  eval echo \$$#
+$ ./last one two three four
+
+four
+```
+
+第一遍扫描后，shell把反斜杠去掉了。当shell再次扫描该行时，它替换了`$4`的值，并执行echo命令
+
+***
+以下示意如何用`eval`命令创建指向变量的“指针”：
+
+```bash
+x=100
+ptrx=x
+eval echo \$$ptrx  #指向 ptrx，用这里的方法可以理解上面的例子
+eval $ptrx=50 #将 50 存到 ptrx 指向的变量中。
+echo $x
+```
+
+```bash
+# ptrx 指向x
+echo $ptrx
+x
+# \$ 转义之后，再跟 x 连成一个字符串
+echo \$$ptrx
+$x
+# eval 执行两次扫描，所以相当于 echo $x
+eval echo \$$ptrx
+```
+
