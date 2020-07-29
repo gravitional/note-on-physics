@@ -91,7 +91,7 @@ git push [远程仓库] --delete [branchname]
 
 第一次推送`branchname`分支的所有内容，并把本地的`branchname`分支和远程的`branchname`分支关联起来
 
-## diff
+## git diff
 
 `git-diff` - Show changes between commits, commit and working tree, etc
 
@@ -107,6 +107,49 @@ git diff [<options>] <commit> <commit> [--] [<path>…​]
 git diff [<options>] <blob> <blob>
 git diff [<options>] --no-index [--] <path> <path>
 ```
+
+***
+`git diff [--options] [--] [<path>...]`
+
+changes 相对于`index`(`stage`)
+
+***
+`git diff --no-index [--options] [--] [<path>...]`
+
+文件系统上的两个`path`，如果其中一个不是Git 控制的working tree，可以不加`--no-index`
+
+***
+`git diff [--options] --cached [<commit>] [--] [<path>...]`
+
+比较`staged` and `<commit>`，默认commi 是 HEAD。`--staged` is a synonym of `--cached`.
+
+***
+`git diff [--options] <commit> [--] [<path>...]`
+
+比较 working tree 相对于`<commit>`，commit可以是HEAD，也可以是分支名字，就是比较 分支的顶端。
+
+***
+`git diff [--options] <commit> <commit> [--] [<path>...]`
+
+比较任意两个 `<commit>`.
+
+***
+`git diff [--options] <commit>..<commit> [--] [<path>...]`
+
+跟上一个相同，如果有一边的`<commit>`省略，则相当于`HEAD`
+
+***
+`git diff [--options] <commit>...<commit> [--] [<path>...]`
+
+查看变化，从A，B的共同祖先开始，到B为止，"git diff A...B" 等价于`git diff $(git-merge-base A B) B`
+
+You can omit any one of `<commit>`, which has the same effect as using HEAD instead.
+
+为了避免你写的很奇怪，注意所有的`<commit>`，除了最后两个使用`..`记号的，都可以是任何`<tree>`
+
+更完整的关于拼写`<commit>`的方法，见"SPECIFYING REVISIONS" in gitrevisions(7)
+然而，`diff`比较的是两个 endpoints，而不是一个范围。
+所以 `<commit>..<commit>`and `<commit>...<commit>`在这里指的不是范围。
 
 ### DESCRIPTION
 

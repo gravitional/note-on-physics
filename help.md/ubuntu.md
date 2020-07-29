@@ -6,6 +6,10 @@
 
 bash 物理行上单个语句不用分号。两个语句并列时，采用分号
 
+## 查看当前用户
+
+[root@test01 ~]# whoami 
+
 ## shell 模式切换
 
 1. 查看系统支持的shell模式及位置
@@ -1324,11 +1328,11 @@ A=1; echo $A; (A=2); echo $A
 ### $(( )) 与 $( ) ${ }
 
 ***
-$( ) 与 ``
+`$( )` 与 `backtick`
 
 在 bash shell 中，`$( )` 与 \`\` (反引号) 都是用来做命令替换用(`command substitution`)的。
 
-用 $( ) 的理由：
+用 `$( )` 的理由：
 
 1. \`\` 很容易与`' '` ( 单引号)搞混乱，尤其对初学者来说。
 2. 在多层次的复合替换中，\`\` 须要额外的跳脱( \` )处理，而 `$( )` 则比较直观。
@@ -1361,7 +1365,8 @@ bash 的组数替换方法可参考如下方法：
 + `${#A[0]}` 可得到 `1` (即第一个组数(`a`)的长度)，`${#A[3]}` 可得到 `3` (第四个组数(def)的长度)
 + `A[3]=xyz` 则是将第四个组数重新定义为 `xyz` …
 
-***
+### (())
+
 好了，最后为大家介绍 `$(( ))` 的用途吧：它是用来作整数运算的。
 
 在 bash 中，`$(( ))` 的整数运算符号大致有这些：
@@ -1562,11 +1567,13 @@ eval  $delimiter
 
 # 判断当前tex文件列表中是否包含 main.tex
 # 若有 main.tex，使用之，若没有，则使用 列表中的tex
-if [[ $tex_usual=~$tex_here ]]
+# tex_file=${${tex_here}%% *}
+
+if [[ $tex_usual =~ $tex_here ]]
 then
     tex_file=$tex_usual
 else
-    tex_file=${$tex_here%%" *"}
+    tex_file=${tex_here}
 fi
 
 echo "tex_file $nameis $tex_file"
@@ -1577,6 +1584,7 @@ eval  $delimiter
 
 # 把下面这行加入到 ~/.latexmkrc，指定 pdf 查看程序
 # $pdf_previewer = 'evince %O %S';
+# -silent 可以抑制输出
 
 latexmk -xelatex  -silent -pv  -view=pdf -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file}
 
@@ -1937,6 +1945,10 @@ foo_file
 
 #### 管理空变量的展开
 
+`null`
+`undefined`
+`defined`
+
 几种用来处理不存在和空变量的参数展开形式。
 这些展开形式对于解决丢失的位置参数和给参数指定默认值的情况很方便。
 
@@ -1944,7 +1956,7 @@ foo_file
 ${parameter:-word}
 ```
 
-若 parameter 没有设置(例如,不存在)或者为空,展开结果是 word 的值。
+若 parameter 没有设置(例如,不存在)或者为空,展开结果是 `word` 的值。
 若 parameter 不为空,则展开结果是 parameter 的值。
 
 ```bash
@@ -2182,3 +2194,15 @@ sys 0m0.008s
 
 原来的脚本扫描整个文本文件需耗时`3.168`秒,而该新版本,使用参数展开,仅仅花费了`0.06`秒 —— 一个非常巨
 大的提高。
+
+### octet bash 脚本
+
+```bash
+curveopacity=1
+markers="Bands"
+markopacity=0.1
+expr_marker=3
+expr_opacity=1
+
+wolframscript -print "all" -file ./f.figure.series-full.rencon3.strange.baryons-all.band.wl "full" 0.90 1.50 $curveopacity $markers $markopacity $expr_marker $expr_opacity
+```

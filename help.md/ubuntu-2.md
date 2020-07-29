@@ -1,8 +1,75 @@
 # ubuntu-2.md
 
-## lyx
+## tex的TDS
 
-### 安装新的 latex 文件
+latex 组织文件的规范叫做 TDS-compliant
+
+a standard `TeX Directory Structure` (TDS): a directory hierarchy for macros, fonts, and the other implementation-independent TeX system files.
+
+### TDS 特征
+
+The common properties throughout the TDS tree.
+
++ Subdirectory searching
++ Rooting the tree
++ Local additions
++ Duplicate filenames 
+
+***
+子目录搜索
+
+Technical Working Group (TWG) 要求，一个综合的TDS 需要支持 implicit subdirectory searching。
+
+更精确地说，具体实现要满足，在寻找输入文件（TeX，Metafont and their companion utilities ）的时候，能够指定具体路径，也能够递归地遍历所有的子文件夹。
+
+***
+tree的根目录
+
+我们把TDS的根目录称为`texmf`(TeX and Metafont)，意思是，这个目录包含了一个完整TeX 系统附属的文件(including Metafont, MetaPost, BibTeX, etc.)，而不是只有单独的 TeX 自己。
+
+***
+Local additions
+
+TDS 不能精确地指出，哪些包是"local addition"。
+
+One common case of local additions is dynamically generated files, e.g., PK fonts by the mktexpk script (which originated in Dvips as MakeTeXPK). A site may store the generated files directly in any of:
+
++ their standard location in the main TDS tree (if it can be made globally writable);
++ an alternative location in the main TDS tree (for example, under texmf/fonts/tmp);
++ a second complete TDS tree (as outlined above);
++ any other convenient directory (perhaps under /var, for example /var/spool/fonts). 
+
+***
+重复文件名
+
+TDS tree 中的文件可能有相同的文件名。默认并不进一步区分，但TDS要求满足以下例外：
+
+Names of TeX input files must be unique within each first-level subdirectory of `texmf/tex` and `texmf/tex/generic`, but not within all of `texmf/tex`; 比如, different TeX formats may have files by the same name. 
+
+所以具体实现必须提供**格式依赖**的路径指定方式。
+
+### 顶层目录
+
+texmf root 下面包含了 TeX system 的主要成员
+The top-level directories specified by the TDS are:
+
++ `tex` for TeX files (Section Macros).
++ `fonts` for font-related files (Section Fonts).
++ `metafont` for Metafont files which are not fonts (Section Non-font Metafont files).
++ `metapost` for MetaPost files (Section MetaPost).
++ `bibtex` for BibTeX files (Section BibTeX).
++ `scripts` for platform-independent executables (Section Scripts).
++ `doc` for user documentation (Section Documentation).
++ `source` for sources. This includes both traditional program sources (for example, Web2C sources go in texmf/source/web2c) and, e.g., LaTeX dtx sources (which go in texmf/source/latex). The TDS leaves unspecified any structure under source.
++ `implementation` for implementations (examples: `emtex`, `vtex`, `web2c`), to be used for whatever purpose deemed suitable by the implementor or TeX administrator. 
+That is, files that cannot be shared between implementations, such as pool files (tex.pool) and memory dump files (plain.fmt) go here, in addition to implementation-wide configuration files.
++ `program` for program-specific input and configuration files for any TeX-related programs (examples: `mft`, `dvips`). In fact, the `tex`, `metafont`, `metapost`, and `bibtex` items above may all be seen as instances of this case. 
+
+## 安装latex包
+
+[Ubuntu/Mint下LaTeX宏包安装及更新][]
+
+[Ubuntu/Mint下LaTeX宏包安装及更新]: https://blog.csdn.net/codeforces_sphinx/article/details/7315044
 
 一般使用texlive的包管理工具，否则需要手动安装:
 
@@ -27,9 +94,30 @@
 
 现在，新的文档 class 可以选择了，`Document->Settings->Document Class`。
 
+### 安装方式2
+
+首先要找到默认宏包所在目录，一般是：
+
+```bash
+/usr/share/texmf/tex/latex
+/usr/share/texmf-texlive/tex/latex
+```
+
+1. 如果是安装一个新的宏包，就直接把宏包的压缩文件扔进第一个目录下，直接解压就行，注意解压后的文件里可能有安装说明，照着安装说明做就是了。
+如果是更新一个宏包，一般都可以在第二个目录下找到，把原先的宏包重命名成`*-backup`，再解压新下载的宏包压缩文件，同时如果有安装说明的话，也照着做。
+2. 之后要对宏包重新标记下，终端下执行
+
+```bash
+# texhash
+```
+
+3. `Log off` / `Log in`后，就完成了～
+
+## lyx
+
 ### lyx error
 
-~/.lyx/textclass.lst 中的条目格式有问题，如
+`~/.lyx/textclass.lst` 中的条目格式有问题，如
 
 `"IEEEtran-CompSoc"` 变成了 `"b'IEEEtran-CompSoc'"`
 
@@ -377,11 +465,9 @@ An expression is composed of a sequence of things: Test, Actions,...
               a non-zero value as exit status, then find returns a non-zero exit status.  If find encounters an error, this can sometimes cause an  immediate  exit,  so
               some pending commands may not be run at all.  This variant of -exec always returns true.
 
-
 `-mtime n`
 File's  data  was  last  modified  `n*24` hours ago.  
 See the comments for -atime to understand how rounding affects the interpretation of file modificationtimes
-
 
 `-type c`
 File is of type c:
@@ -392,9 +478,35 @@ File is of type c:
 + `p`  named pipe (FIFO)
 + `f`  regular file
 
+### shell 换行
+
+把换行符注释掉，如果同时想插入注释，可以用`$()`或者两个`backtick`包裹注释
+
+```bash
+emcc -o ./dist/test.html `# 目标文件` \
+--shell-file ./tmp.html `# 模板文件` \
+--source-map-base dist `# source map 根路径` \
+-O3 `# 优化级别` \
+```
+
 ## sed
 
-### sed命令
+sed是一种流编辑器，它是文本处理中非常中的工具，能够完美的配合正则表达式使用，功能不同凡响。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等
+
+命令格式
+
+sed [options] 'command' file(s)
+sed [options] -f scriptfile file(s)
+
+### 选项
+
+-e<script>或--expression=<script>：以选项中的指定的script来处理输入的文本文件；
+-f<script文件>或--file=<script文件>：以选项中指定的script文件来处理输入的文本文件；
+-h或--help：显示帮助；
+-n或--quiet或——silent：仅显示script处理后的结果；
+-V或--version：显示版本信息。
+
+### 命令
 
 + `a\` 在当前行下面插入文本。
 + `i\` 在当前行上面插入文本。
@@ -422,7 +534,7 @@ File is of type c:
 + `=` 打印当前行号码。
 + `#` 把注释扩展到下一个换行符以前。
 
-### sed替换标记
+### 替换标记
 
 + `g` 表示行内全面替换。
 + `p` 表示打印行。
@@ -432,7 +544,7 @@ File is of type c:
 + `\1` 子串匹配标记
 + `&` 已匹配字符串标记
 
-### sed元字符集
+### 元字符集
 
 + `^` 匹配行开始，如：`/^sed/`匹配所有以`sed`开头的行。
 + `$` 匹配行结束，如：`/sed$/`匹配所有以`sed`结尾的行。
@@ -448,7 +560,31 @@ File is of type c:
 + `x\{m,\}` 重复字符`x`，至少`m`次，如：`/0\{5,\}/`匹配至少有5个0的行。
 + `x\{m,n\}` 重复字符`x`，至少`m`次，不多于n次，如：`/0\{5,10\}/`匹配5~10个0的行。
 
-### sed用法实例
+### 用法实例
+
+### ip地址
+
+先观察原始信息，利用`ip monitor address dev enp0s31f6` 监视 IP变化
+
+ip monitor address dev enp0s31f6
+
+```bash
+dev_name="enp0s31f6" #设备名称
+dev_addr=$(ip monitor address dev $dev_name)  #监视ip变化
+echo $dev_addr |\ 
+grep -Po "${dev_name}[ ]+inet[ ]+[ \w\d\./]+brd" | `#用grep 提取出address一行`\
+sed "s/${dev_name} \{1,\}inet//g" | sed "s/brd//g"
+```
+
+```bash
+dev_name="enp0s31f6" #设备名称
+ip monitor address dev $dev_name | while read line
+do
+echo $line |\ 
+grep -Po "${dev_name}[ ]+inet[ ]+[ \w\d\./]+brd" | `#用grep 提取出address一行`\
+sed "s/${dev_name} \{1,\}inet//g" | sed "s/brd//g"
+done
+```
 
 #### 替换操作：s命令
 
@@ -470,7 +606,7 @@ sed -n 's/test/TEST/p' file
 sed -i 's/book/books/g' file
 ```
 
-全面替换标记`g`
+#### 全面替换标记g
 
 使用后缀 `/g` 标记会替换每一行中的所有匹配：
 
@@ -478,7 +614,209 @@ sed -i 's/book/books/g' file
 sed 's/book/books/g' file
 ```
 
-## 空白字符
+ 当需要从第N处匹配开始替换时，可以使用 /Ng：
+
+echo sksksksksksk | sed 's/sk/SK/2g'
+skSKSKSKSKSK
+
+echo sksksksksksk | sed 's/sk/SK/3g'
+skskSKSKSKSK
+
+echo sksksksksksk | sed 's/sk/SK/4g'
+skskskSKSKSK
+
+#### 定界符
+
+以上命令中字符 / 在sed中作为定界符使用，也可以使用任意的定界符：
+
+sed 's:test:TEXT:g'
+sed 's|test|TEXT|g'
+
+定界符出现在样式内部时，需要进行转义：
+
+sed 's/\/bin/\/usr\/local\/bin/g'
+
+#### 删除操作：d命令
+
+删除空白行：
+
+sed '/^$/d' file
+
+删除文件的第2行：
+
+sed '2d' file
+
+删除文件的第2行到末尾所有行：
+
+sed '2,$d' file
+
+删除文件最后一行：
+
+sed '$d' file
+
+删除文件中所有开头是test的行：
+
+sed '/^test/'d file
+
+#### 已匹配字符串标记&
+
+正则表达式 \w\+ 匹配每一个单词，使用 [&] 替换它，& 对应于之前所匹配到的单词：
+
+echo this is a test line | sed 's/\w\+/[&]/g'
+[this] [is] [a] [test] [line]
+
+所有以192.168.0.1开头的行都会被替换成它自已加localhost：
+
+sed 's/^192.168.0.1/&localhost/' file
+192.168.0.1localhost
+
+#### 子串匹配标记\1
+
+匹配给定样式的其中一部分：
+
+echo this is digit 7 in a number | sed 's/digit \([0-9]\)/\1/'
+this is 7 in a number
+
+命令中 digit 7，被替换成了 7。样式匹配到的子串是 7，\(..\) 用于匹配子串，对于匹配到的第一个子串就标记为 \1，依此类推匹配到的第二个结果就是 \2，例如：
+
+echo aaa BBB | sed 's/\([a-z]\+\) \([A-Z]\+\)/\2 \1/'
+BBB aaa
+
+love被标记为1，所有loveable会被替换成lovers，并打印出来：
+
+sed -n 's/\(love\)able/\1rs/p' file
+
+#### 组合多个表达式
+
+sed '表达式' | sed '表达式'
+
+等价于：
+
+sed '表达式; 表达式'
+
+#### 引用
+
+sed表达式可以使用单引号来引用，但是如果表达式内部包含变量字符串，就需要使用双引号。
+
+test=hello
+echo hello WORLD | sed "s/$test/HELLO"
+HELLO WORLD
+
+#### 选定行的范围：,（逗号）
+
+所有在模板test和check所确定的范围内的行都被打印：
+
+sed -n '/test/,/check/p' file
+
+打印从第5行开始到第一个包含以test开始的行之间的所有行：
+
+sed -n '5,/^test/p' file
+
+对于模板test和west之间的行，每行的末尾用字符串aaa bbb替换：
+
+sed '/test/,/west/s/$/aaa bbb/' file
+
+#### 多点编辑：e命令
+
+-e选项允许在同一行里执行多条命令：
+
+sed -e '1,5d' -e 's/test/check/' file
+
+上面sed表达式的第一条命令删除1至5行，第二条命令用check替换test。命令的执行顺序对结果有影响。如果两个命令都是替换命令，那么第一个替换命令将影响第二个替换命令的结果。
+
+和 -e 等价的命令是 --expression：
+
+sed --expression='s/test/check/' --expression='/love/d' file
+
+#### 从文件读入：r命令
+
+file里的内容被读进来，显示在与test匹配的行后面，如果匹配多行，则file的内容将显示在所有匹配行的下面：
+
+sed '/test/r file' filename
+
+#### 写入文件：w命令  
+
+在example中所有包含test的行都被写入file里：
+
+sed -n '/test/w file' example
+
+#### 追加（行下）：a\命令
+
+将 this is a test line 追加到 以test 开头的行后面：
+
+sed '/^test/a\this is a test line' file
+
+在 test.conf 文件第2行之后插入 this is a test line：
+
+sed -i '2a\this is a test line' test.conf
+
+#### 插入（行上）：i\命令
+
+将 this is a test line 追加到以test开头的行前面：
+
+sed '/^test/i\this is a test line' file
+
+在test.conf文件第5行之前插入this is a test line：
+
+sed -i '5i\this is a test line' test.conf
+
+#### 下一个：n命令
+
+如果test被匹配，则移动到匹配行的下一行，替换这一行的aa，变为bb，并打印该行，然后继续：
+
+sed '/test/{ n; s/aa/bb/; }' file
+
+#### 变形：y命令
+
+把1~10行内所有abcde转变为大写，注意，正则表达式元字符不能使用这个命令：
+
+sed '1,10y/abcde/ABCDE/' file
+
+#### 退出：q命令
+
+打印完第10行后，退出sed
+
+sed '10q' file
+
+#### 保持和获取：h命令和G命令
+
+在sed处理文件的时候，每一行都被保存在一个叫模式空间的临时缓冲区中，除非行被删除或者输出被取消，否则所有被处理的行都将 打印在屏幕上。接着模式空间被清空，并存入新的一行等待处理。
+
+sed -e '/test/h' -e '$G' file
+
+在这个例子里，匹配test的行被找到后，将存入模式空间，h命令将其复制并存入一个称为保持缓存区的特殊缓冲区内。第二条语句的意思是，当到达最后一行后，G命令取出保持缓冲区的行，然后把它放回模式空间中，且追加到现在已经存在于模式空间中的行的末尾。在这个例子中就是追加到最后一行。简单来说，任何包含test的行都被复制并追加到该文件的末尾。
+
+#### 保持和互换：h命令和x命令
+
+互换模式空间和保持缓冲区的内容。也就是把包含test与check的行互换：
+
+sed -e '/test/h' -e '/check/x' file
+
+#### 脚本scriptfile
+
+sed脚本是一个sed的命令清单，启动Sed时以-f选项引导脚本文件名。Sed对于脚本中输入的命令非常挑剔，在命令的末尾不能有任何空白或文本，如果在一行中有多个命令，要用分号分隔。以#开头的行为注释行，且不能跨行。
+
+sed [options] -f scriptfile file(s)
+
+#### 打印奇数行或偶数行
+
+方法1：
+
+sed -n 'p;n' test.txt  #奇数行
+sed -n 'n;p' test.txt  #偶数行
+
+方法2：
+
+sed -n '1~2p' test.txt  #奇数行
+sed -n '2~2p' test.txt  #偶数行
+
+#### 打印匹配字符串的下一行
+
+grep -A 1 SCC URFILE
+sed -n '/SCC/{n;p}' URFILE
+awk '/SCC/{getline; print}' URFILE
+
+## shell空白字符
 
 [对C标准中空白字符的理解][]
 [Shell中去掉文件中的换行符简单方法][]
@@ -650,3 +988,87 @@ $x
 eval echo \$$ptrx
 ```
 
+### 卸载 Mathematica
+
+Linux
+
+如要卸载 Mathematica，需删除下列目录。请备份这些目录下任何需要保存的文件：
+
++ `/usr/local/Wolfram/Mathematica/`
++ `/usr/share/Mathematica/`
++ `~/.Mathematica/`
++ `~/.Wolfram/`
++ `~/.cache/Wolfram/`
+
+
+mathematic ~/.config/wolfram/xx.conf 中的环境变量影响了 wolframscript 的运行，清除失效的路径就可以了
+
+如果用字符串作 cd 的参数，应该用完整形式避免`~`解析问题。
+
+***
+
+linux shell 中判断文件、目录是否存在
+李寻欢1993 2017-04-18 20:40:51 44972 收藏 9
+分类专栏： linux
+版权
+
+-e filename 如果 filename存在，则为真
+-d filename 如果 filename为目录，则为真
+-f filename 如果 filename为常规文件，则为真
+-L filename 如果 filename为符号链接，则为真
+-r filename 如果 filename可读，则为真
+-w filename 如果 filename可写，则为真
+-x filename 如果 filename可执行，则为真
+-s filename 如果文件长度不为0，则为真
+-h filename 如果文件是软链接，则为真
+
+常用例子
+如果存在某文件，则删除
+
+if [ -f trials ]; then rm ${result_path}trials; fi
+
+    1
+
+如果没有文件夹，则创建
+
+if [ ! -d $result_name ];then
+      mkdir -p $result_name
+fi
+
+***
+
+```bash
+#!/bin/bash
+
+# 复制到论文中的都是 ci==1.50 的结果
+user_name=$(whoami)
+# 配置计算结果目录，论文目录，论文压缩文件目录
+originpath=$(pwd)
+paperpath="/home/${user_name}/private/paper-2.prd/"
+deskpath="/home/${user_name}/Desktop/paper.ff/"
+# 复制计算结果到论文目录
+cp "fig.baryons.ge.charge.L-0.90.ci-1.50.pdf"  ${paperpath}"fig4.pdf"
+cp "fig.baryons.ge.neutral.L-0.90.ci-1.50.pdf" ${paperpath}"fig5.pdf"
+cp "fig.baryons.gm.charge.L-0.90.ci-1.50.pdf" ${paperpath}"fig2.pdf"
+cp "fig.baryons.gm.neutral.L-0.90.ci-1.50.pdf" ${paperpath}"fig3.pdf"
+# cd 到论文目录，重新编译论文
+cd $paperpath
+./build.sh
+# 如果桌面还没有压缩文件目录，就创建一个
+if [ ! -d $deskpath ];then
+      mkdir -p $deskpath
+fi
+# 把论文目录的东西复制到桌面目录中
+cp  ./* $deskpath 
+# 进入桌面目录，删除tex编译过程中的额外文件
+cd $deskpath 
+echo -e '\n delete auxilary files \n'
+for rmtype in aux lof log lot fls out toc fmt fot cb cb2 ptc xdv fdb_latexmk synctex.gz  swp ps1 sh bib bbl blg 
+do
+    rm *.${rmtype}
+done
+# 产生论文压缩文件
+7z a ../paper.7z $deskpath
+# 回到原来的文件夹
+cd $originpath 
+```

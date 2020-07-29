@@ -21,11 +21,13 @@ eval  $delimiter
 
 # 判断当前tex文件列表中是否包含 main.tex
 # 若有 main.tex，使用之，若没有，则使用 列表中的tex
-if [[ $tex_usual=~$tex_here ]]
+# tex_file=${${tex_here}%% *}
+
+if [[ $tex_usual =~ $tex_here ]]
 then
     tex_file=$tex_usual
 else
-    tex_file=${$tex_here%%" *"}
+    tex_file=${tex_here}
 fi
 
 echo "tex_file $nameis $tex_file"
@@ -36,6 +38,7 @@ eval  $delimiter
 
 # 把下面这行加入到 ~/.latexmkrc，指定 pdf 查看程序
 # $pdf_previewer = 'evince %O %S';
+# -silent 可以抑制输出
 
 latexmk -xelatex  -silent -pv  -view=pdf -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file}
 

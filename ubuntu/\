@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# 设置格式化相关的部分
+delimiter="echo -e \\\n+++++++++++++"
+nameis="name is :"
+eval  $delimiter
+
+# 默认文件名是 main，否则使用文件夹中的tex文件名
+tex_usual="main"
+echo "tex_usual $nameis $tex_usual"
+eval  $delimiter
+
+# 当前tex文件列表，去掉后缀
+
+tex_list=$(ls -x *.tex)
+echo "tex_list $nameis $tex_list"
+
+tex_here=${tex_list//".tex"/}
+echo "tex_here $nameis $tex_here"
+eval  $delimiter
+
+# 判断当前tex文件列表中是否包含 main.tex
+# 若有 main.tex，使用之，若没有，则使用 列表中的tex
+if [[ $tex_usual =~ $tex_here ]]
+then
+    tex_file=$tex_usual
+else
+    tex_file=${tex_here}
+fi
+
+echo "tex_file $nameis $tex_file"
+eval  $delimiter
+
+a=b
+b=666
+
+if (( ai = b )); then
+echo "aaaaa"
+fi
