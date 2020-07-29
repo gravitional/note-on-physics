@@ -1,13 +1,19 @@
 # ubuntu
 
+***
 `ls *.tex` and `"ls *.tex"`
-
 前一种 bash 认为 `*.tex` 是参数，后一种 bash 认为 `"ls *.tex"` 是一个整体命令的名字。
 
-bash 物理行上单个语句不用分号。两个语句并列时，采用分号
+bash 物理行上单个语句不用分号，两个语句并列时，采用分号。
 
-## 查看当前用户
+***
+如果用显式字符串作 `cd` 的参数，应该用绝对路径避免`~`的解析问题。如
 
+```bash
+cd  /home/tom/Downloads
+```
+
+***
 [root@test01 ~]# whoami 
 
 ## shell 模式切换
@@ -1203,7 +1209,7 @@ See Note below if `./configure` script is not present.
 + `%` ：余数运算
 + `& | ^ !`：分别为 "`AND`,`OR`,`XOR`,`NOT`" 运算。
 
-### 逻辑运算符
+### &&运算符
 
 `&&` 运算符:
 ***
@@ -1365,7 +1371,7 @@ bash 的组数替换方法可参考如下方法：
 + `${#A[0]}` 可得到 `1` (即第一个组数(`a`)的长度)，`${#A[3]}` 可得到 `3` (第四个组数(def)的长度)
 + `A[3]=xyz` 则是将第四个组数重新定义为 `xyz` …
 
-### (())
+### (())算术比较
 
 好了，最后为大家介绍 `$(( ))` 的用途吧：它是用来作整数运算的。
 
@@ -1422,11 +1428,7 @@ $ echo "obase=8;$(( 8#666 & (8#777 ^ 8#$(umask)) ))" | bc
 + `==`：等于
 + `!=`：不等于
 
-## 中括号[]
-
-[Shell 中的中括号用法总结][]
-
-[Shell 中的中括号用法总结]: https://www.runoob.com/w3cnote/shell-summary-brackets.html
+### []中括号-文件系统属性测试
 
 Shell 里面的中括号（包括单中括号与双中括号）可用于一些条件的测试：
 
@@ -1436,8 +1438,7 @@ Shell 里面的中括号（包括单中括号与双中括号）可用于一些�
 
 `[]` 常常可以使用 `test` 命令来代替，后面有介绍。
 
-### 算术比较
-
+***
 对变量或值进行算术条件判断：
 
 + `[ $var -eq 0 ]`  # 当 `$var` 等于 `0` 时，返回真
@@ -1459,13 +1460,12 @@ Shell 里面的中括号（包括单中括号与双中括号）可用于一些�
 `[ $var1 -ne 0 -a $var2 -gt 2 ]`  # 使用逻辑与 `-a`
 `[ $var1 -ne 0 -o $var2 -gt 2 ]`  # 使用逻辑或 `-o`
 
-### 文件系统属性测试
-
+***
 使用不同的条件标志测试不同的文件系统属性。
 
 + `[ -f $file_var ]` 变量 `$file_var` 是一个正常的文件路径或文件名 (`file`)，则返回真
 + `[ -x $var ]` 变量 `$var` 包含的文件可执行 (`execute`)，则返回真
-+ `[ -d $var ]` 变量 `$var` 包含的文件是目录 (dir`ectory)，则返回真
++ `[ -d $var ]` 变量 `$var` 包含的文件是目录 (`directory`)，则返回真
 + `[ -e $var ]` 变量 `$var` 包含的文件存在 (`exist`)，则返回真
 + `[ -c $var ]` 变量 `$var` 包含的文件是一个字符设备文件的路径 (`character`)，则返回真
 + `[ -b $var ]` 变量 `$var` 包含的文件是一个块设备文件的路径 (`block`)，则返回真
@@ -1473,18 +1473,32 @@ Shell 里面的中括号（包括单中括号与双中括号）可用于一些�
 + `[ -r $var ]` 变量 `$var` 包含的文件可读 (`read`)，则返回真
 + `[ -L $var ]` 变量 `$var` 包含是一个符号链接 (`link`)，则返回真
 
-使用方法如下：
+也可以是
+
+`-e filename` 如果 `filename` 存在，则为真
+
+常用例子，如果存在某文件，则删除
 
 ```bash
-fpath="/etc/passwd"
-if [ -e $fpath ]; then
-  echo File exits;
-else
-  echo Does not exit;
+if [ -f trials ]; then rm ${result_path}trials; fi
+```
+
+如果没有文件夹，则创建
+
+```bash
+if [ ! -d $result_name ];then
+      mkdir -p $result_name
 fi
 ```
 
-### 字符串比较
+[Shell 中的中括号用法总结][]
+[linux shell 中判断文件、目录是否存在][]
+
+[Shell 中的中括号用法总结]: https://www.runoob.com/w3cnote/shell-summary-brackets.html
+
+[linux shell 中判断文件、目录是否存在]: https://blog.csdn.net/yifeng4321/article/details/70232436
+
+### [[ ]]字符串比较
 
 在进行字符串比较时，最好使用双中括号 `[[ ]]`. 因为单中括号可能会导致一些错误，因此最好避开它们。
 
@@ -2195,7 +2209,7 @@ sys 0m0.008s
 原来的脚本扫描整个文本文件需耗时`3.168`秒,而该新版本,使用参数展开,仅仅花费了`0.06`秒 —— 一个非常巨
 大的提高。
 
-### octet bash 脚本
+### formfactor bash 脚本
 
 ```bash
 curveopacity=1

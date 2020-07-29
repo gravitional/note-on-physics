@@ -1000,42 +1000,9 @@ Linux
 + `~/.Wolfram/`
 + `~/.cache/Wolfram/`
 
+命令行下运行wolframscript脚本出错，是因为
 
-mathematic ~/.config/wolfram/xx.conf 中的环境变量影响了 wolframscript 的运行，清除失效的路径就可以了
-
-如果用字符串作 cd 的参数，应该用完整形式避免`~`解析问题。
-
-***
-
-linux shell 中判断文件、目录是否存在
-李寻欢1993 2017-04-18 20:40:51 44972 收藏 9
-分类专栏： linux
-版权
-
--e filename 如果 filename存在，则为真
--d filename 如果 filename为目录，则为真
--f filename 如果 filename为常规文件，则为真
--L filename 如果 filename为符号链接，则为真
--r filename 如果 filename可读，则为真
--w filename 如果 filename可写，则为真
--x filename 如果 filename可执行，则为真
--s filename 如果文件长度不为0，则为真
--h filename 如果文件是软链接，则为真
-
-常用例子
-如果存在某文件，则删除
-
-if [ -f trials ]; then rm ${result_path}trials; fi
-
-    1
-
-如果没有文件夹，则创建
-
-if [ ! -d $result_name ];then
-      mkdir -p $result_name
-fi
-
-***
+`~/.config/Wolfram/WolframScript/WolframScript.conf `中的wolfram环境变量影响了 `wolframscript` 的运行，清除失效的路径就可以了
 
 ```bash
 #!/bin/bash
@@ -1061,14 +1028,71 @@ fi
 # 把论文目录的东西复制到桌面目录中
 cp  ./* $deskpath 
 # 进入桌面目录，删除tex编译过程中的额外文件
+# if [ -f *.${rmtype} ]; then rm *.${rmtype}; fi
 cd $deskpath 
 echo -e '\n delete auxilary files \n'
-for rmtype in aux lof log lot fls out toc fmt fot cb cb2 ptc xdv fdb_latexmk synctex.gz  swp ps1 sh bib bbl blg 
+for rmtype in aux lof log lot fls out toc fmt fot cb cb2 ptc xdv \
+fdb_latexmk synctex.gz  swp ps1 sh bib bbl blg
 do
-    rm *.${rmtype}
+rm *.${rmtype}
 done
 # 产生论文压缩文件
 7z a ../paper.7z $deskpath
 # 回到原来的文件夹
 cd $originpath 
 ```
+
+### chmod
+
+chmod - change file mode bits
+
+SYNOPSIS
+
+`chmod [OPTION]... MODE[,MODE]... FILE...`
+`chmod [OPTION]... OCTAL-MODE FILE...`
+`chmod [OPTION]... --reference=RFILE FILE...`
+
+DESCRIPTION
+
+chmod 后面可以接符号表示新的权限，也可以接一个octal number --表示新的mode bits。
+
+符号mode的格式一般是`[ugoa...][[-+=][perms...]...]`，`perms`一般是`0`，或者`rwxXst`中的多个字符，
+或者`ugo`中的一个字符。多种符号mode可以给出，用逗号隔开。
+
+`ugoa`表示控制特定用户访问权限：
+
++ u：the user who owns it 
++ g：other users in the file's group
++ o：other users not in the file's group
++ a：all  users
+如果没有给出，默认就是 a，but bits that are set in the umask are not affected.
+
+operator `+`添加权限，`-`删除权限，`=`设置为`xxx`，except that a directory's unmentioned set user and group ID bits are not affected.
+
+`rwxXst`表示mode bits，read (r), write (w), execute (or  search  for directories)  (x)，
+execute/search  only if the file is a directory or already has execute permission for some user (X),
+set user or group ID on execution (s), restricted deletion flag or sticky bit (t)
+
+或者指定`ugo`中的一个，
+the permissions granted to the user who owns the file (u),
+ the permissions granted to other users who are members of the file's group (g), 
+ and the permissions granted to users that are in neither of the two preceding categories (o).
+
+***
+数字模式
+
+数字mode 是1到4个 octal digits（0-7），derived by adding up the bits with values 4, 2, and 1.
+
+省略的数字被认为是前置的`0`。
+
+第一位数字选择用户组
+the set user ID (4) and 
+set group  ID(2)  and  
+restricted deletion or sticky (1) attributes.  
+
+第二位数字选择权限
+read (4), write (2), and execute (1); 
+
+第三位数字设定组中其他用户的权限
+
+第四位数字设定不在组中用户的权限

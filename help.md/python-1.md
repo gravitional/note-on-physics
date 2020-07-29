@@ -25,11 +25,12 @@ hello, world
 执行一个`.py`文件只能在命令行模式执行。
 想要输出结果，必须自己用`print()`打印出来
 
-能不能像`.exe`文件那样直接运行`.py`文件呢？在Windows上是不行的，但是，在Mac和Linux上是可以的，方法是在.py文件的第一行加上一个特殊的注释：
+能不能像`.exe`文件那样直接运行`.py`文件呢？在Windows上是不行的，但是，在Mac和Linux上是可以的，方法是在`.py`文件的第一行加上一个特殊的注释：
+
+**python env 设置**
 
 ```python
 #!/usr/bin/env python3
-
 print('hello, world')
 ```
 
