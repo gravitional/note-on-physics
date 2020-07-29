@@ -1024,7 +1024,8 @@ IO编程中，Stream（流）是一个很重要的概念，可以把流想象成
 读写文件是最常见的IO操作。Python内置了读写文件的函数，用法和C是兼容的。
 
 读写文件前，我们先必须了解一下，在磁盘上读写文件的功能都是由操作系统提供的，现代操作系统不允许普通的程序直接操作磁盘，所以，读写文件就是请求操作系统打开一个文件对象（通常称为文件描述符），然后，通过操作系统提供的接口从这个文件对象中读取数据（读文件），或者把数据写入这个文件对象（写文件）。
-读文件
+
+#### 读文件
 
 要以读文件的模式打开一个文件对象，使用Python内置的`open()`函数，传入文件名和标示符：
 
@@ -1142,7 +1143,7 @@ with open('/Users/michael/test.txt', 'w') as f:
 
 [Python的官方文档]: https://docs.python.org/3/library/functions.html#open
 
-练习
+#### 练习
 
 请将本地一个文本文件读为一个str并打印出来：
 
@@ -1254,10 +1255,10 @@ Python内置的`os`模块也可以直接调用操作系统提供的接口函数�
 
 ```python
 >>> os.uname()
-posix.uname_result(sysname='Darwin', nodename='MichaelMacPro.local', release='14.3.0', version='Darwin Kernel Version 14.3.0: Mon Mar 23 11:59:05 PDT 2015; root:xnu-2782.20.48~5/RELEASE_X86_64', machine='x86_64')
+('Linux', 'OP7050', '4.15.0-112-generic', '#113-Ubuntu SMP Thu Jul 9 23:41:39 UTC 2020', 'x86_64')
 ```
 
-注意`uname()`函数在Windows上不提供，也就是说，os模块的某些函数是跟操作系统相关的。
+注意`uname()`函数在Windows上不提供，也就是说，`os`模块的某些函数是跟操作系统相关的。
 
 #### 环境变量
 
@@ -1295,13 +1296,11 @@ environ({'VERSIONER_PYTHON_PREFER_32_BIT': 'no', 'TERM_PROGRAM_VERSION': '326', 
 >>> os.rmdir('/Users/michael/testdir')
 ```
 
+***
 把两个路径合成一个时，不要直接拼字符串，而要通过`os.path.join()`函数，这样可以正确处理不同操作系统的路径分隔符。
 在`Linux/Unix/Mac`下，`os.path.join()`返回这样的字符串：
-
 `part-1/part-2`
-
 而`Windows`下会返回这样的字符串：
-
 `part-1\part-2`
 
 同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过`os.path.split()`函数，这样可以把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名：
@@ -1318,7 +1317,7 @@ environ({'VERSIONER_PYTHON_PREFER_32_BIT': 'no', 'TERM_PROGRAM_VERSION': '326', 
 ('/path/to/file', '.txt')
 ```
 
-这些合并、拆分路径的函数并不要求目录和文件要真实存在，它们只对字符串进行操作。
+这些合并、拆分路径的函数**并不要求目录和文件要真实存在**，它们只对字符串进行操作。
 
 文件操作使用下面的函数。假定当前目录下有一个`test.txt`文件：
 
@@ -1329,8 +1328,7 @@ environ({'VERSIONER_PYTHON_PREFER_32_BIT': 'no', 'TERM_PROGRAM_VERSION': '326', 
 >>> os.remove('test.py')
 ```
 
-但是复制文件的函数居然在`os`模块中不存在！
-原因是复制文件并非由操作系统提供的系统调用。
+但是复制文件的函数居然在`os`模块中不存在！原因是复制文件并非由操作系统提供的系统调用。
 理论上讲，我们通过上一节的读写文件可以完成文件复制，只不过要多写很多代码。
 
 幸运的是`shutil`模块提供了`copyfile()`的函数，你还可以在`shutil`模块中找到很多实用函数，它们可以看做是`os`模块的补充。

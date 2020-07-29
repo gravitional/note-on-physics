@@ -160,3 +160,19 @@ Show:
 + changes between two trees,
 + changes between two `blob` objects,
 + changes between two `files` on disk.
+
+### checkout还原文件
+
+```bash
+git checkout [<tree-ish>] [--] <pathspec>…​
+```
+
+用 **index**或者`<tree-ish>`（通常是一个`commit`）里面的内容替换working tree里面的 paths。
+当给出一个`<tree-ish>`的时候，the **paths** that match the `<pathspec>`会在**index** and in the **working tree**里面都更新。
+
+index 中可能包含有之前合并失败的entries。默认情况下，如果你想checkout 一个这样的entries，会失败，什么都不会发生。
+使用`-f`选项忽略未合并的entries。
+
+The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`.
+
+With `-m`, changes made to the working tree file can be discarded to re-create the original conflicted merge result.

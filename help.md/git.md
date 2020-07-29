@@ -449,10 +449,11 @@ git reset --hard branch2
 
 [Git Reset 三种模式][]
 [git reset --hard xxx、git reset --soft 及git revert 的区别][]
+[Git Reset 三种模式][]
 
 [git reset --hard xxx、git reset --soft 及git revert 的区别]: https://www.jianshu.com/p/8be0cc35e672
 
-[]: https://www.jianshu.com/p/c2ec5f06cf1a
+[Git Reset 三种模式]: https://www.jianshu.com/p/c2ec5f06cf1a
 
 ### 恢复EXAMPLES
 
@@ -489,19 +490,20 @@ Note the quotes around `*.c` The file `hello.c` will also be restored, even thou
 命令`git rm`用于删除一个文件。
 如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
 
-### checkout
+### checkout还原文件
 
 ```bash
 git checkout [<tree-ish>] [--] <pathspec>…​
 ```
 
-Overwrite paths in the working tree by replacing with the contents in the **index** or in the `<tree-ish>` (most often a `commit`). When a `<tree-ish>` is given,
-the **paths** that match the `<pathspec>` are updated both in the **index** and in the **working tree**.
+用 **index**或者`<tree-ish>`（通常是一个`commit`）里面的内容替换working tree里面的 paths。
+当给出一个`<tree-ish>`的时候，the **paths** that match the `<pathspec>`会在**index** and in the **working tree**里面都更新。
 
-The index may contain unmerged entries because of a previous failed merge. By default, if you try to check out such an entry from the index, the checkout operation will fail and nothing will be checked out.
-Using `-f` will ignore these unmerged entries.
+index 中可能包含有之前合并失败的entries。默认情况下，如果你想checkout 一个这样的entries，会失败，什么都不会发生。
+使用`-f`选项忽略未合并的entries。
 
 The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`.
+
 With `-m`, changes made to the working tree file can be discarded to re-create the original conflicted merge result.
 
 ## 分支管理

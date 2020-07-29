@@ -1897,7 +1897,7 @@ mount /dev/loop0 /home/groad/disk_test   #将循环设备 mount 到目录 disk_t
 mount -t minix -o loop ./disk.img ./disk_test
 ```
 
-## 字符串和数字
+]## 字符串和数字
 
 commandline chapter 35
 
