@@ -90,6 +90,10 @@ deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricte
 
 ### 别名(alias)
 
+[Linux shell 脚本中使用 alias 定义的别名][]
+
+[Linux shell 脚本中使用 alias 定义的别名]: https://www.cnblogs.com/chenjo/p/11145021.html
+
 可以把多个命令放在同一行上,命令之间 用”;”分开
 
 ```bash
@@ -144,6 +148,9 @@ alias name='string'
 [me@linuxbox ~]$ type foo
 bash: type: foo: not found
 ```
+
+如果想要永久保存定义的`alias`，可以将其写入到 `/etc/profile` 或者 `~/.bash_rc` 中去，
+两个的区别是影响的范围不一样而已
 
 ### ls
 

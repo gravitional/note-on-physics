@@ -170,7 +170,7 @@ end{itemize}
 \end_layout
 
 \begin_layout Enumerate
-Collier 支持 complex 质量，在计算不稳定粒子时会需要。 
+COLLIER 支持 complex 质量，在计算不稳定粒子时会需要。 
 \end_layout
 
 \begin_layout Enumerate
@@ -182,7 +182,7 @@ Collier 支持 complex 质量，在计算不稳定粒子时会需要。
 \end_layout
 
 \begin_layout Chapter
-collier doc
+COLLIER doc
 \end_layout
 
 \begin_layout Section
@@ -429,7 +429,7 @@ reference "eq:8"
 \end_layout
 
 \begin_layout Standard
-Collier的输出对应
+COLLIER的输出对应
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:8"
@@ -681,12 +681,12 @@ multi-leg one-loop amplitudes 振幅求值的巨大进步，来自于两方面�
 
 \begin_layout Standard
 相反，费曼图方法，包括最近的递归方法依赖于张量积分。 此方法允许分解方法自适应于相空间的不同区域，在相当大的程度上， 通过最优选择避免数值不稳定性。
- Collier 库提供了计算标量和张量积分的全面工具。 在两种互补的方法中都能应用。
+ COLLIER 库提供了计算标量和张量积分的全面工具。 在两种互补的方法中都能应用。
 \end_layout
 
 \begin_layout Standard
 将张量积分约化到一小族基本积分的方法，可以追溯到 Brown and Feynman, Melrose, and Passarino and Veltman。
- 又经过了数十年的发展，文献[43, 50] 展示的完整方法，是Collier代码的基础。 作为张量分解基础的标量积分首次由t' Hooft and
+ 又经过了数十年的发展，文献[43, 50] 展示的完整方法，是COLLIER代码的基础。 作为张量分解基础的标量积分首次由t' Hooft and
  Veltman 进行了系统研究。 已经存在数个计算单圈标量和张量积分的库，比如：
 \end_layout
 
@@ -703,11 +703,11 @@ GoLem95C，PJFRY，Package-X
 \end_layout
 
 \begin_layout Standard
-这里介绍的Collier库，提供完全的张量积分集合，处理带有复数质量的过程， 并且没有先验的粒子数限制。
+这里介绍的COLLIER库，提供完全的张量积分集合，处理带有复数质量的过程， 并且没有先验的粒子数限制。
 \end_layout
 
 \begin_layout Standard
-Collier 已在用于多个前沿课题的计算。
+COLLIER 已在用于多个前沿课题的计算。
 \end_layout
 
 \begin_layout Standard
@@ -715,7 +715,7 @@ Collier 已在用于多个前沿课题的计算。
 \end_layout
 
 \begin_layout Itemize
-Section 2： Collier相关约定 
+Section 2： COLLIER相关约定 
 \end_layout
 
 \begin_layout Itemize
@@ -723,7 +723,7 @@ Section 3：计算张量积分的方法轮廓
 \end_layout
 
 \begin_layout Itemize
-Section 4：Collier 库的内部结构
+Section 4：COLLIER 库的内部结构
 \end_layout
 
 \begin_layout Itemize
@@ -807,7 +807,7 @@ literal "true"
 
 \end_inset
 
-。所有这些方法都在collier中得到实现，并且对于展开参数可以到任意阶。为了决定一个特定相空间点的约化方法，以下步骤被采用：
+。所有这些方法都在COLLIER中得到实现，并且对于展开参数可以到任意阶。为了决定一个特定相空间点的约化方法，以下步骤被采用：
 \end_layout
 
 \begin_layout Enumerate
@@ -835,7 +835,7 @@ Passarino-Veltman
 \noun on
 Gram
 \noun default
- 行列式。Collier 切换到专用展开。为决定到哪一阶是足够的，一个先验的误差估计式
+ 行列式。COLLIER 切换到专用展开。为决定到哪一阶是足够的，一个先验的误差估计式
 \begin_inset Formula $\Delta T_{\text{prelim}}^{N}\left(P\right)$
 \end_inset
 
@@ -954,7 +954,7 @@ RECOLA，
 \begin_inset Formula $T^{N,\mu1,\cdots,\mu P}$
 \end_inset
 
-的分量。为了达到这个目的，collier 中实现了一套高效的算法，来从
+的分量。为了达到这个目的，COLLIER 中实现了一套高效的算法，来从
 \begin_inset Formula $T_{i1,\cdots,iP}^{N}$
 \end_inset
 
@@ -963,7 +963,7 @@ RECOLA，
 \end_inset
 
 。它递归地计算4中那些单举动量构造的张量结构。张量结构的非零分量包括度规矩阵递归地得到，通过添加成对相等的洛伦兹指标，到带有更少度规的张量上，考虑到指标组合因子
-和度规张量引起的符号。相关的组合系数在collier 初始化的时候计算并列表。
+和度规张量引起的符号。相关的组合系数在COLLIER 初始化的时候计算并列表。
 \end_layout
 
 \begin_layout Standard
@@ -1005,7 +1005,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Collier 约化链：对于
+COLLIER 约化链：对于
 \begin_inset Formula $N\geq6$
 \end_inset
 
@@ -1070,7 +1070,7 @@ literal "true"
 \begin_inset Formula $T^{N,\mu1,\cdots,\mu P}$
 \end_inset
 
-的约化，Collier 直接在张量层次实现，而不用依赖于协变分解。
+的约化，COLLIER 直接在张量层次实现，而不用依赖于协变分解。
 \end_layout
 
 \begin_layout Standard
@@ -1132,7 +1132,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Collier 的结构在图2中图形化的展示出来。库的核心由模块 COLI 和 DD 组成。它们是标量积分
+COLLIER 的结构在图2中图形化的展示出来。库的核心由模块 COLI 和 DD 组成。它们是标量积分
 \begin_inset Formula $T_{0}^{N}$
 \end_inset
 
@@ -1160,7 +1160,7 @@ tensors
 \begin_inset Formula $N$
 \end_inset
 
-点积分，张量层次的直接约化。用户通过Collier的全局界面和COLI，DD,and tensors 的常规流程交互。它提供了路径，去设置或提取
+点积分，张量层次的直接约化。用户通过COLLIER的全局界面和COLI，DD,and tensors 的常规流程交互。它提供了路径，去设置或提取
  COLI 和 DD 的参数，还有计算张量系数
 \begin_inset Formula $T_{i_{1}\cdots i_{P}}^{N}$
 \end_inset
@@ -1189,7 +1189,7 @@ tensors
 \begin_inset Formula $N\prime\leq N-2$
 \end_inset
 
-阶的积分，有不同的抵达路径。为了避免对同一个积分进行重复运算，Collier 的子库连接到了一个Global的cache系统，其工作原理如下：
+阶的积分，有不同的抵达路径。为了避免对同一个积分进行重复运算，COLLIER 的子库连接到了一个Global的cache系统，其工作原理如下：
 \end_layout
 
 \begin_layout Standard
@@ -1223,7 +1223,7 @@ tensors
 \end_layout
 
 \begin_layout Standard
-下载包 collier-
+下载包 COLLIER-
 \begin_inset Formula $v$
 \end_inset
 
@@ -1240,11 +1240,11 @@ literal "false"
 \begin_inset Formula $v$
 \end_inset
 
-是库的版本。还应该安装CMAKE创建系统。由于Collier是一个单机的 Fortran95 代码，无需额外的库。
+是库的版本。还应该安装CMAKE创建系统。由于COLLIER是一个单机的 Fortran95 代码，无需额外的库。
 \end_layout
 
 \begin_layout Standard
-gunzip and untar collier-v.tar.gz 将会解压到 ./collier-
+gunzip and untar COLLIER-v.tar.gz 将会解压到 ./COLLIER-
 \begin_inset Formula $v$
 \end_inset
 
@@ -1252,11 +1252,11 @@ gunzip and untar collier-v.tar.gz 将会解压到 ./collier-
 \end_layout
 
 \begin_layout Enumerate
-Cmakelists.txt ：cmake makefile 用来产生collier 库。
+Cmakelists.txt ：cmake makefile 用来产生COLLIER 库。
 \end_layout
 
 \begin_layout Enumerate
-src：collier 源代码库，包含collier的主要代码和子库的主要代码。
+src：COLLIER 源代码库，包含COLLIER的主要代码和子库的主要代码。
 \end_layout
 
 \begin_deeper
@@ -1294,7 +1294,7 @@ COPYING：版权信息文件。
 \end_layout
 
 \begin_layout Standard
-使用以下命令创建collier库：
+使用以下命令创建COLLIER库：
 \end_layout
 
 \begin_layout Standard
@@ -1323,7 +1323,7 @@ make
 \end_layout
 
 \begin_layout Standard
-默认cmake会建立一个动态库。如果需要静态库，在 collier-v 文件夹中，使用以下选项
+默认cmake会建立一个动态库。如果需要静态库，在 COLLIER-v 文件夹中，使用以下选项
 \end_layout
 
 \begin_layout Standard
@@ -1365,12 +1365,12 @@ cmake -DCMAKE_Fortran_COMPILER=ifort ..
 \end_layout
 
 \begin_layout Standard
-makefile创建以后，make命令就会产生动态库 libcollier.so 或者静态库 libcollier.a 在collier-v 文件夹中，可以用来链接
+makefile创建以后，make命令就会产生动态库 libCOLLIER.so 或者静态库 libCOLLIER.a 在COLLIER-v 文件夹中，可以用来链接
 到用户程序。
 \end_layout
 
 \begin_layout Standard
-若要创建demos 文件夹内示例程序的可执行文件，在文件夹collier-v/build 内使用
+若要创建demos 文件夹内示例程序的可执行文件，在文件夹COLLIER-v/build 内使用
 \end_layout
 
 \begin_layout Standard
@@ -1402,11 +1402,11 @@ make clean
 \begin_inset Quotes erd
 \end_inset
 
-来丢弃，在 collier-v/build 中来运行。
+来丢弃，在 COLLIER-v/build 中来运行。
 \end_layout
 
 \begin_layout Standard
-也可以删除 collier-v/build 中的所有文件。
+也可以删除 COLLIER-v/build 中的所有文件。
 \end_layout
 
 \begin_layout Standard
@@ -1426,7 +1426,7 @@ Sample programs
 \end_layout
 
 \begin_layout Standard
-在collier-v/build 文件夹中使用以下命令创建两个示例程序
+在COLLIER-v/build 文件夹中使用以下命令创建两个示例程序
 \begin_inset listings
 inline false
 status open
@@ -1443,7 +1443,7 @@ make democache
 
 \end_inset
 
-可以在collier-v/demo 文件夹使用以下命令运行
+可以在COLLIER-v/demo 文件夹使用以下命令运行
 \begin_inset listings
 inline false
 status open
@@ -1473,7 +1473,7 @@ status open
 \end_inset
 
 点-积分中选择一个例子来计算。计算结果被写入 demo_Npoint_exampleX.dat 中，它指向 demo.f90 中的段落，其中给出了计算各个积分的源代
-码，接着一小段程序，用来给collier输出化，对于所有示例程序都差不多。其中包含了很多被注释的行，去掉感叹号就会起作用，其中展示了很多collier的glob
+码，接着一小段程序，用来给COLLIER输出化，对于所有示例程序都差不多。其中包含了很多被注释的行，去掉感叹号就会起作用，其中展示了很多COLLIER的glob
 al参数，可以修改使用。
 \end_layout
 
@@ -1523,11 +1523,11 @@ COLLIER-
 
 中的
 \emph on
-library libcollier.so
+library libCOLLIER.so
 \emph default
  or 
 \emph on
-libcollier.a
+libCOLLIER.a
 \emph default
  必须提供给
 \noun on
@@ -1656,7 +1656,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Table 2: lists of collier parameters
+Table 2: lists of COLLIER parameters
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Table-2:-lists"
@@ -2561,7 +2561,7 @@ integer 参数 R 表示张量积分的最高 rank
 \begin_inset Formula $n_{c}\left(N,\hat{P}\right)$
 \end_inset
 
-。由 collier 在初始化过程中表格化，可以由以下函数获取
+。由 COLLIER 在初始化过程中表格化，可以由以下函数获取
 \end_layout
 
 \begin_layout Standard
@@ -2752,7 +2752,7 @@ momentum components
 \end_inset
 
 。注意 MomVec, MomInv, mass2 的参数形式应该一样，或者是单个数组，或者是一堆参数。和 MomInv 一样，type double
- complex （尽管在现版本的collier 中不支持虚部)。对于单点积分 A_cll，MomVec参数应该省略。
+ complex （尽管在现版本的COLLIER 中不支持虚部)。对于单点积分 A_cll，MomVec参数应该省略。
 \end_layout
 
 \begin_layout Standard
@@ -2780,7 +2780,7 @@ momentum components
 \begin_inset Formula $n_{t}\left(P\right)$
 \end_inset
 
-在 collier 初始化的时候决定，可以用以下函数获得
+在 COLLIER 初始化的时候决定，可以用以下函数获得
 \end_layout
 
 \begin_layout Standard
@@ -3034,7 +3034,7 @@ douoble complex DB011,
 
 \begin_layout Standard
 张量积分的结果不仅依赖于质量和动量参数的确切值，还依赖于 regularization parameters， as well as on technical
- parameters 决定约化方案的选择，和展开方法的迭代次数。最后的两组参数，对于一组确定的积分调用，通常是固定的。在 Collier初始化期间，它们被初始
+ parameters 决定约化方案的选择，和展开方法的迭代次数。最后的两组参数，对于一组确定的积分调用，通常是固定的。在 COLLIER初始化期间，它们被初始
 化成默认值，在
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4195,7 +4195,7 @@ subroutine SwitchOffTenRed_cll
 \end_layout
 
 \begin_layout Standard
-Collier 安排有 Cache 系统，避免重复计算相同的积分，以此来加快运算速度。它可以运行在 local 或者 global mode：在local
+COLLIER 安排有 Cache 系统，避免重复计算相同的积分，以此来加快运算速度。它可以运行在 local 或者 global mode：在local
  mode，仅仅在单个 subroutine call 的过程中（Section 5.3），积分被存储。cache 系统探测在约化过程中，通过不同路径到达的相同积
 分，然后避免它们的重复计算。在 Global 中，不同的 subroutine call 也被连接起来。local mode 总是在工作的，而
  global mode 需要被显式指定。为了这个目的，也许需要创建
@@ -4244,7 +4244,7 @@ integer ncache, Nmax
 \begin_inset Formula $\text{\ensuremath{\mu_{\text{UV}}^{2}}}$
 \end_inset
 
-，mode of collier 等等)不能被 reset，因为积分是依靠在用户调用序列中的次序来identified。注意对 cacheNr
+，mode of COLLIER 等等)不能被 reset，因为积分是依靠在用户调用序列中的次序来identified。注意对 cacheNr
  的数目没有限制，需要的内存被动态分配，during the first phase-space points。取决于所解决的问题，cache
  in global mode 可能会引起 hig use of memory resources。
 \end_layout
@@ -4384,7 +4384,7 @@ integer cache_no
 \end_layout
 
 \begin_layout Standard
-内部错误或者精度不够，在collier中有两种处理方法：一方面，可以在运行过程中，设置和读取 flags for errors and accurary；另一方
+内部错误或者精度不够，在COLLIER中有两种处理方法：一方面，可以在运行过程中，设置和读取 flags for errors and accurary；另一方
 面，对应的错误信息，和出错的积分calls，将会被记录在输出文件中。
 \end_layout
 
@@ -4588,7 +4588,7 @@ subroutine InitAccFlag_cll
 \end_layout
 
 \begin_layout Standard
-在初始化collier的时候，用户可以选择 errors and accurary 的 messages 返回的方式。默认地，collier 把它们存储在
+在初始化COLLIER的时候，用户可以选择 errors and accurary 的 messages 返回的方式。默认地，COLLIER 把它们存储在
  
 \begin_inset listings
 inline false
@@ -4668,7 +4668,7 @@ character(len=*) fname
 
 \begin_layout Standard
 Error messages 被导出至 files ErrOut.coli, ErrOut.dd, and ErrOut.cll 取决于err 来自于
- COLI,DD,or global接口 (or module tensors)。在初始化collier的时候，这些文件被创建，一个free output
+ COLI,DD,or global接口 (or module tensors)。在初始化COLLIER的时候，这些文件被创建，一个free output
  channel（number
 \begin_inset Formula $>$
 \end_inset
@@ -4702,7 +4702,7 @@ integer outchan
 
 channel number outchan 是integer 参数。尤其是，可以通过选择 outchan=6，将 error 重定向到标准channel。注意
 ，如果文件输出被关闭，通过 subroutine SwitchOffFileOutput_cll， standard channel 并不会被关闭，而且，重定向
-到标准channel（terminal或者一个专用文件）的collier输出会继续传递。当前选择的输出 channel 可以如下获取
+到标准channel（terminal或者一个专用文件）的COLLIER输出会继续传递。当前选择的输出 channel 可以如下获取
 \begin_inset listings
 inline false
 status open
@@ -4760,7 +4760,7 @@ integer nout
 
 \end_inset
 
-指定对应的 integer 数目 nout 即可 。默认error 等的counters在 每次 collier 重新初始化之后被重置，如果不希望重置的话，可以
+指定对应的 integer 数目 nout 即可 。默认error 等的counters在 每次 COLLIER 重新初始化之后被重置，如果不希望重置的话，可以
 将 noreset=.true.传递给 Init_cll，这些 counters 也可以手动重置
 \begin_inset listings
 inline false
@@ -5144,7 +5144,7 @@ integer outchan
 \begin_inset Formula $n_{\text{crit}}^{\text{N,max}}=50$
 \end_inset
 
-个问题
+个有问题的
 \begin_inset Formula $N$
 \end_inset
 
@@ -5184,7 +5184,239 @@ integer npointarray(Nmax)
 
 \end_inset
 
-工作方式和 subroutine SetMaxCheck_cll and SetMaxCheckDB_cll 是完全相似的。
+工作方式和 subroutine SetMaxCheck_cll and SetMaxCheckDB_cll 是完全相似的。初始化或者后续初始化of
+ COLLIER 不会改变
+\begin_inset Formula $n_{\text{crit}}^{\text{N,max}},n_{\text{crit}}^{\text{B\ensuremath{\prime},max}}$
+\end_inset
+
+和对应的counters。但是，call of InitMonitoring_cll 将重置
+\begin_inset Formula $n_{\text{crit}}^{\text{1,max}}=\cdots=n_{\text{crit}}^{\text{N,max}}=n_{\text{crit}}^{\text{B\ensuremath{\prime},max}}=50$
+\end_inset
+
+，相应的counters也将重置为
+\begin_inset Formula $0$
+\end_inset
+
+。若想只重置conunters,可以calling
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+subroutine InitPointsCnt_cll.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+示例程序
+\end_layout
+
+\begin_layout Standard
+在文件夹 diretory COLLIER-
+\begin_inset Formula $v$
+\end_inset
+
+/build 中执行命令
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+make demo
+\end_layout
+
+\begin_layout Plain Layout
+
+make democache
+\end_layout
+
+\end_inset
+
+会产生两个示例程序，可以通过下面的命令执行
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+./demo
+\end_layout
+
+\begin_layout Plain Layout
+
+./democache
+\end_layout
+
+\end_inset
+
+in the folder COLLIER-
+\begin_inset Formula $v$
+\end_inset
+
+/demos
+\end_layout
+
+\begin_layout Standard
+程序 demo 专门用来计算单个张量积分。在运行过程中，用户会被要求指定 mode，并在众多
+\begin_inset Formula $N$
+\end_inset
+
+–点积分的例子中选择一个偏爱的进行计算。计算结果写入到文件 demo_Npoint_exampleX.dat 中，引导用户查找到 demo.90 中各个积分的计算程
+序。在许多例子中，展示了同一个积分的各种调用，展示了如何与subroutine 传递参数的不同方式。例子中使用的变量定义在文件demo.f90的一开始。其中包含了
+很多注释，通过移除前面的感叹号，可以激活它们，以此来改变COLLIER的各种全局参数。
+\end_layout
+
+\begin_layout Standard
+程序 democache 展示了缓存的使用。对1000个相空间的点集，计算了一系列共8个张量积分，并重复几次。这个玩具 Monte Carlo
+ 在四种配置下分别计算：使用COLI 分支，with or without cache,然后使用 DD 分支，with and without
+ cache。源代码放在 democache.f90 中。
+\end_layout
+
+\begin_layout Section
+总结
+\end_layout
+
+\begin_layout Standard
+fortran-based library COLLIER 数值计算单圈标量或张量积分，并且对粒子的multiplicities 没有先天的限制。COLLIER
+的特别在于：对相空间的delicate区域，用专用技术自动优化数值稳定性，支持不稳定粒子的complex质量，对于红外发散，可以选择使用维数或质量正规化。此外，
+COLLIER支持检查结果的正确性和数值稳定性，由于它使用了两种独立的积分libraries，COLI and DD。
+\end_layout
+
+\begin_layout Standard
+COLLIER 可以用在传统的费曼图方法和现代的幺正性方法中。The library 已经是essential building block的代表，在自动化单圈
+振幅generator，如 OPENLOOPS and RECOLA，也将被更多其他生成器所使用。
+\end_layout
+
+\begin_layout Section
+附录A.
+ 动量不变量的集合，对于
+\begin_inset Formula $N=1,...,7$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $N$
+\end_inset
+
+–点张量积分依赖于动量不变量
+\begin_inset Formula $\mathcal{P}_{N}$
+\end_inset
+
+的完整集合，
+\begin_inset Formula $\mathcal{P}_{N}$
+\end_inset
+
+由
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式中传播子中的动量
+\begin_inset Formula $p_{i}$
+\end_inset
+
+组成。我们对集合
+\begin_inset Formula $\mathcal{P}_{N}$
+\end_inset
+
+中元素次序的约定在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:12"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:13"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中给出。为了方便，我们
+\begin_inset Formula $N=2,\cdots,7$
+\end_inset
+
+的
+\begin_inset Formula $\mathcal{P}_{N}$
+\end_inset
+
+清楚地列在这里:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{P}_{2}=\left\{ p_{1}^{2}\right\} ,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{P}_{3}=\left\{ p_{1}^{2},(p_{2}-p_{1})^{2},p_{2}^{2}\right\} ,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{P}_{4}=\left\{ p_{1}^{2},(p_{2}-p_{1})^{2},(p_{3}-p_{2})^{2},p_{3}^{2},p_{2}^{2},(p_{3}-p_{1})^{2}\right\} ,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathcal{P}_{5}= & \{p_{1}^{2},(p_{2}-p_{1})^{2},(p_{3}-p_{2})^{2},(p_{4}-p_{3})^{2},p_{4}^{2},\\
+ & p_{2}^{2},(p_{3}-p_{1})^{2},(p_{4}-p_{2})^{2},p_{3}^{2},(p_{1}-p_{4})^{2}\},
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathcal{P}_{6}= & \{p_{1}^{2},(p_{2}-p_{1})^{2},(p_{3}-p_{2})^{2},(p_{4}-p_{3})^{2},(p_{5}-p_{4})^{2},p_{5}^{2},\\
+ & p_{2}^{2},(p_{3}-p_{1})^{2},(p_{4}-p_{2})^{2},(p_{5}-p_{3})^{2},p_{4}^{2},(p_{1}-p_{5})^{2},\\
+ & p_{3}^{2},(p_{4}-p_{1})^{2},(p_{5}-p_{2})^{2}\},
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathcal{P}_{7}= & \{p_{1}^{2},(p_{2}-p_{1})^{2},(p_{3}-p_{2})^{2},(p_{4}-p_{3})^{2},(p_{5}-p_{4})^{2},(p_{6}-p_{5})^{2},p_{6}^{2},\\
+ & p_{2}^{2},(p_{3}-p_{1})^{2},(p_{4}-p_{2})^{2},(p_{5}-p_{3})^{2},(p_{6}-p_{4})^{2},p_{5}^{2},(p_{1}-p_{6})^{2},\\
+ & p_{3}^{2},(p_{4}-p_{1})^{2},(p_{5}-p_{2})^{2},(p_{6}-p_{3})^{2},p_{4}^{2},(p_{1}-p_{5})^{2},(p_{2}-p_{6})^{2}\}.
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

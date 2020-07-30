@@ -651,6 +651,14 @@ if __name__ == '__main__':
         # print i
 ```
 
+## 函数
+
+函数参数类型，一共五种
+
+装饰器
+
+map reduce
+
 ## python库
 
 ### glob
