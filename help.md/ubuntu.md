@@ -493,11 +493,18 @@ ln -s /home/me/playground/fun dir1/fun-sym
 ## bash 快捷键
 
 [Bash 快捷键大全 ][]
+[vim ,vi总是卡死，终于找到原因了。][]
 
 [Bash 快捷键大全 ]: https://linux.cn/article-5660-1.html
 
+[vim ,vi总是卡死，终于找到原因了。]: https://www.cnblogs.com/cocoliu/p/6369749.html
+
 `Alt+tab`：切换程序
 `` Alt+` ``：切换程序的不同窗口
+
+在`vim`下，有时候不小心按下了`CTRL-S`，会冻结终端的输入，表现为按什么键都没有反应，这时候按下`CTRL-Q`即可恢复。
+
+`CTRL-S`: `Suspend(XOFF)`，挂起。这个是冻结终端的`stdin`。要恢复可以按`CTRL-Q`。
 
 ### 常用的
 

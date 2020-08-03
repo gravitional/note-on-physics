@@ -1206,3 +1206,108 @@ export PATH=$PAHT:<PATH 1>:<PATH 2>:<PATH 3>:--------:< PATH n >
 + `getenv()` 返回一个环境变量。
 + `setenv()` 设置一个环境变量。
 + `unsetenv()` 清除一个环境变量。
+
+## shell脚本中的符号
+
+[shell脚本中一些特殊符号][]
+
+[shell脚本中一些特殊符号]: https://www.cnblogs.com/xuxm2007/archive/2011/10/20/2218846.html
+
+## 开机报错
+
+[System program problem detected?][]
+
+[System program problem detected?]: https://askubuntu.com/questions/1160113/system-program-problem-detected
+
+### What causes this
+
+See the crash report that is dumped on your disk. 
+The directory you want is `/var/crash/` and it will contain several files pointing you to the package it is about and what the crash is.
+
+This directory is described as:
+
+>`/var/crash` : System crash dumps (optional)
+>This directory holds system crash dumps. 
+>As of the date of this release of the standard, system crash dumps were not supported under Linux but may be supported by other systems which may comply with the FHS.
+
+Ubuntu releases use this (optional) directory to dump crashes and the package that does that is called `apport` (and `whoopsie`). 
+The link has a detailed description and also has a PDF that describes the crash report data format.
+
+If you want really detailed reports on a crash install `GDB`: `The GNU Project Debugger` with `sudo apt-get install gdb`.
+
+### How to get rid of it
+
+Depends on what you call "get rid". The ideal fix would be to check what is inside the reports, and try and find a fix for it. 
+If the package it is about is unneeded or benign you could also purge it. Most times it is a core functionality though.
+
+If you can not understand those crash reports most times you can google the error notice (there will always be one in there). Or drop a message in chat. 
+Generally crashes are off topic on AU as those are bugs and would need to be reported (through this service ;) ).
+
+You can pick any of these to remove the crash report up to actually removing the package (would be rather ironic if the error comes from apport itself):
+
++ `sudo rm /var/crash/*` will delete old crashes and stop informing you about them until some package crashes again.
++ You can stop the service with `sudo systemctl` disable apport (and enable it again with `sudo systemctl enable apport`)
++ If you do not want to see crash reports you can disable it by doing sudo `vim /etc/default/apport` 
+and changing `enabled=1` to `enabled=0`. (or `sudo nano /etc/default/apport`). 
+Editing it in reverse will enable it again.
++ You can delete the service with `sudo apt purge apport` (and install it again with `sudo apt install apport`)
++ And there is also a desktop method (option "problem reporting":
+
+[how to read and use crash reports?][] has some interesting answers. 
+It has an example crash report and a method to retrace crashes.
+
+[how to read and use crash reports?]: https://askubuntu.com/questions/346953/how-to-read-and-use-crash-reports
+
+## grub2
+
+[grub2详解(翻译和整理官方手册)][]
+[官方手册原文][]
+
+[grub2详解(翻译和整理官方手册)]: https://www.cnblogs.com/f-ck-need-u/archive/2017/06/29/7094693.html#auto_id_37
+
+[官方手册原文]: https://www.gnu.org/software/grub/manual/html_node/Simple-configuration.html#Simple-configuration
+
+`grub2-mkconfig`是根据`/etc/default/grub`文件来创建配置文件的。
+该文件中定义的是`grub`的全局宏，修改内置的宏可以快速生成`grub`配置文件。实际上在`/etc/grub.d/`目录下还有一些`grub`配置脚本，这些shell脚本读取一些脚本配置文件(如`/etc/default/grub`)，根据指定的逻辑生成`grub`配置文件。
+若有兴趣，不放读一读`/etc/grub.d/10_linux`文件，它指导了创建`grub.cfg`的细节，例如如何生成启动菜单。
+
+```bash
+[root@xuexi ~]# ls /etc/grub.d/
+00_header  00_tuned  01_users  10_linux  20_linux_xen  20_ppc_terminfo  30_os-prober  40_custom  41_custom  README
+```
+
+在`/etc/default/grub`中，使用`key=vaule`的格式，`key`全部为大小字母，如果`vaule`部分包含了空格或其他特殊字符，则需要使用引号包围。
+
+例如，下面是一个`/etc/default/grub`文件的示例：
+
+```bash
+[root@xuexi ~]# cat /etc/default/grub
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="crashkernel=auto biosdevname=0 net.ifnames=0 rhgb quiet"
+GRUB_DISABLE_RECOVERY="true"
+```
+
+虽然可用的宏较多，但可能用的上的就几个：
+`GRUB_DEFAULT`、`GRUB_TIMEOUT`、`GRUB_CMDLINE_LINUX`和`GRUB_CMDLINE_LINUX_DEFAULT`。
+
+以下列出了部分key。
+
+***
+`GRUB_DEFAULT`
+
+默认的菜单项，默认值为`0`。其值可为数值`N`，表示从`0`开始计算的第`N`项是默认菜单，也可以指定对应的`title`表示该项为默认的菜单项。
+使用数值比较好，因为使用的`title`可能包含了容易改变的设备名。例如有如下菜单项
+
+```grub
+menuentry 'Example GNU/Linux distribution' --class gnu-linux --id example-gnu-linux {
+    ...
+}
+```
+
+如果想将此菜单设为默认菜单，则可设置`GRUB_DEFAULT=example-gnu-linux`。
+
+如果`GRUB_DEFAULT`的值设置为`saved`，则表示默认的菜单项是`GRUB_SAVEDEFAULT`或`grub-set-default`所指定的菜单项。

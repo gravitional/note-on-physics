@@ -12,6 +12,8 @@
 gcc main.cpp -lstdc++ -o main
 ```
 
+gcc helloworld.cpp -lstdc++ -o helloworld
+
 下面是一个保存在文件 `helloworld.cpp` 中一个简单的 `C++` 程序的代码：
 
 ```cpp
