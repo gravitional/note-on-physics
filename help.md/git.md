@@ -449,10 +449,11 @@ git reset --hard branch2
 
 [Git Reset 三种模式][]
 [git reset --hard xxx、git reset --soft 及git revert 的区别][]
+[Git Reset 三种模式][]
 
 [git reset --hard xxx、git reset --soft 及git revert 的区别]: https://www.jianshu.com/p/8be0cc35e672
 
-[]: https://www.jianshu.com/p/c2ec5f06cf1a
+[Git Reset 三种模式]: https://www.jianshu.com/p/c2ec5f06cf1a
 
 ### 恢复EXAMPLES
 
@@ -489,19 +490,20 @@ Note the quotes around `*.c` The file `hello.c` will also be restored, even thou
 命令`git rm`用于删除一个文件。
 如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
 
-### checkout
+### checkout还原文件
 
 ```bash
 git checkout [<tree-ish>] [--] <pathspec>…​
 ```
 
-Overwrite paths in the working tree by replacing with the contents in the **index** or in the `<tree-ish>` (most often a `commit`). When a `<tree-ish>` is given,
-the **paths** that match the `<pathspec>` are updated both in the **index** and in the **working tree**.
+用 **index**或者`<tree-ish>`（通常是一个`commit`）里面的内容替换working tree里面的 paths。
+当给出一个`<tree-ish>`的时候，the **paths** that match the `<pathspec>`会在**index** and in the **working tree**里面都更新。
 
-The index may contain unmerged entries because of a previous failed merge. By default, if you try to check out such an entry from the index, the checkout operation will fail and nothing will be checked out.
-Using `-f` will ignore these unmerged entries.
+index 中可能包含有之前合并失败的entries。默认情况下，如果你想checkout 一个这样的entries，会失败，什么都不会发生。
+使用`-f`选项忽略未合并的entries。
 
 The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`.
+
 With `-m`, changes made to the working tree file can be discarded to re-create the original conflicted merge result.
 
 ## 分支管理
@@ -1294,7 +1296,7 @@ First, rewinding head to replay your work on top of it...
 Applying: added staged command
 ```
 
-它的原理是首先找到这两个分支（即当前分支 `experiment`、变基操作的目标基底分支 `master`）的最近共同祖先 `C2`，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目标基底 `C3`, 最后以此将之前另存为临时文件的修改依序应用
+它的原理是首先找到这两个分支（即当前分支 `experiment`、变基操作的目标基底分支 `master`）的最近共同祖先 `C2`，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将**当前分支**指向目标基底 `C3`, 最后以此将之前另存为临时文件的修改依序应用
 
 ### scm-book 例子 2
 
@@ -1330,7 +1332,7 @@ git rebase --onto master[被施加重放的分支] server[父节点/修改起始
 1. 创建.gitignore
 2. 修改文件，添加忽略正则
 
-*****
+***
 
 + `.idea` //忽略`.idea`文件夹及文件夹下文件
 + `*.iml` //忽略以`.iml`结尾的文件
@@ -1368,7 +1370,7 @@ dbg
 + `[abc]`：代表`a`,`b`,`c`中任一字符即可
 + `[ ^abc]`：代表必须不是`a`,`b`,`c`中任一字符
 
-*****
+***
 添加忽略之后，已经提交到版本库中的文件是无法忽略的。
 只能clone到本地，删除后，再进行忽略。
 
@@ -1466,12 +1468,12 @@ test content
 
 ### Tree Objects
 
-The next type of Git object we’ll examine is the `tree`, which solves the problem of storing the filename and also allows you to store a group of files together.
+`tree`，解决了git中储存文件名的问题，并且允许你把一组文件存在一起。
 
-Git stores content in a manner similar to a `UNIX` filesystem, but a bit simplified.
-All the content is stored as `tree` and `blob` objects, with trees corresponding to UNIX directory entries and blobs corresponding more or less to `inodes` or `file contents`.
+git 存储文件的方式类似于`Unix`系统，但是有点简化。所有的内容被存储为`tree`and`blob`，`tree`对应UNIX 文件夹，
+`blob`对应`inodes`or `file contents`
 
-A single tree object contains one or more entries, each of which is the SHA-1 hash of a blob or `subtree` with its associated mode, type, and filename. For example, the most recent tree in a project may look something like this:
+一个`tree`包含一个或多个条目，每一个条目是一个`SHA-1 hash`of a blob or `subtree`with its associated mode, type, and filename. 比如，项目中最新的一个tree看起来大概像：
 
 ```git
 $ git cat-file -p master^{tree}
@@ -1480,42 +1482,44 @@ $ git cat-file -p master^{tree}
 040000 tree 99f1a6d12cb4b6f19c8655fca46c3ecf317074e0      lib
 ```
 
-The `master^{tree}` syntax specifies the tree object that is pointed to by the last commit on your master branch. Notice that the `lib` subdirectory isn’t a `blob` but a pointer to another `tree`:
+The `master^{tree}` syntax 指定了master分支的最新提交。
+注意the `lib` subdirectory isn't a `blob` but a `pointer` to another `tree`:
 
 ```git
 $ git cat-file -p 99f1a6d12cb4b6f19c8655fca46c3ecf317074e0
 100644 blob 47c6340d6459e05787f644c2447d2595f5d3a54b      simplegit.rb
 ```
 
-Note
-
-Depending on what shell you use, you may encounter errors when using the `master^{tree}` syntax.
+注意，取决于你用的shell，当你使用`master^{tree}` syntax时，可能会遇到一些错误
 
 In CMD on Windows, the `^` character is used for escaping, so you have to double it to avoid this: `git cat-file -p master^^{tree}`.
 When using PowerShell, parameters using `{}` characters have to be quoted to avoid the parameter being parsed incorrectly: `git cat-file -p 'master^{tree}'`.
 
-If you’re using ZSH, the `^` character is used for globbing, so you have to enclose the whole expression in quotes: `git cat-file -p "master^{tree}"`.
+If you’re using `ZSH`, the `^` character is used for globbing, so you have to enclose the whole expression in quotes: `git cat-file -p "master^{tree}"`.
 
-You can fairly easily create your own tree.
+*** 你可以相当容易的创建你自己的tree
 
-Git normally creates a tree by taking the state of your `staging` area or `index` and writing a series of tree objects from it.
-So, to create a tree object, you first have to set up an index by staging some files.
-To create an index with a single entry — the first version of your test.txt file — you can use the plumbing command git update-index.
-You use this command to artificially add the earlier version of the `test.txt` file to a new staging area.
+git 通常用 `staging` area ( `index`)中的state创建`tree`，然后写入一系列tree对象。所以首先来`staging`一些文件
 
-You must pass it the `--add` option because the file doesn’t yet exist in your staging area (you don’t even have a staging area set up yet) and `--cacheinfo` because the file you’re adding isn’t in your directory but is in your database.
+先创建一个`index`with a single entry--the first version of your `test.txt file`，使用管道命令`git update-index`，使用这个命令，手动添加earlier version of the `test.txt`to a new staging area.
+
+你需要用`--add` option，因为这个文件在your staging area中还不存在，
+还有`--cacheinfo`，because the file you're adding isn't in your directory but is in your database.
+
 Then, you specify the `mode`, `SHA-1`, and `filename`:
 
 ```git
-$ git update-index --add --cacheinfo 100644 \
-  83baae61804e65cc73a7201a7252750c76066a30 test.txt
+git update-index --add --cacheinfo 100644 \
+83baae61804e65cc73a7201a7252750c76066a30 test.txt
 ```
 
-In this case, you’re specifying a mode of `100644`, which means it’s a normal file. Other options are `100755`, which means it’s an executable file; and `120000`, which specifies a symbolic link.
-The mode is taken from normal UNIX modes but is much less flexible — these three modes are the only ones that are valid for files (blobs) in Git (although other modes are used for directories and submodules).
+在本例中，你指定的模式是`100644`，代表它是正常文件。其他选项有`100755`，代表可执行文件；
+还有`120000`，代表符号链接。
 
-Now, you can use `git write-tree` to write the staging area out to a tree object.
-No `-w` option is needed — calling this command automatically creates a tree object from the state of the index if that tree doesn’t yet exist:
+这些模式来自于 普通Unix mode，但是比较简化--这是对files（blobs）合法的三个mode。
+
+现在，用 `git write-tree` 把`stage`写入到一个`tree` object 中。
+不用加上`-w` option--这个命令会自动创建一个tree from the state of the index ，如果它还不存在。
 
 ```git
 $ git write-tree
@@ -1524,14 +1528,14 @@ $ git cat-file -p d8329fc1cc938780ffdd9f94e0d364e0ea74f579
 100644 blob 83baae61804e65cc73a7201a7252750c76066a30      test.txt
 ```
 
-You can also verify that this is a tree object using the same `git cat-file` command you saw earlier:
+你可以验证，它的确是一个tree object，using `git cat-file -t` command you saw earlier:
 
 ```git
 $ git cat-file -t d8329fc1cc938780ffdd9f94e0d364e0ea74f579
 tree
 ```
 
-You’ll now create a new tree with the second version of test.txt and a new file as well:
+你可以创建一个新tree，包含 `test.txt`的新版本和一个新文件：
 
 ```git
 $ git read-tree --prefix=bak d8329fc1cc938780ffdd9f94e0d364e0ea74f579
@@ -1668,3 +1672,176 @@ $ git log refs/remotes/origin/master
 [git中的refspec是什么意思?][]
 
 [git中的refspec是什么意思?]: http://www.imooc.com/wenda/detail/503063
+
+## revision 的写法
+
+A revision parameter  `<rev>`一般是`commit`，它使用what is called an extended SHA-1 syntax
+
+***
+`<sha1>`, e.g. `dae86e1950b1277e545cee180551750029cfe735`, `dae86e`
+
+The full SHA-1 object name (40-byte hexadecimal string), or a leading substring that is  within the repository
+
+***
+`<describeOutput>`, e.g. `v1.7.4.2-679-g3bee7fb`
+
+Output from git describe; 
+i.e. a closest tag,  optionally followed by a dash and a number of commits,  followed by a dash, a g, and an abbreviated object name.
+
+***
+`<refname>`, e.g. `master`, `heads/master`, `refs/heads/master`
+
+A symbolic `ref` name. E.g.  `master` typically means the commit object referenced by `refs/heads/master`.
+If you happen to have both `heads/master` and `tags/master`,you can explicitly say heads/master to tell Git which one you mean. 
+
+***
+`@`
+
+`@` alone is a shortcut for `HEAD`.
+
+***
+`<refname>@{<date>}`, e.g. `master@{yesterday}`, `HEAD@{5 minutes ago}`
+
+A ref followed by the suffix `@` with a 日期包围在大括号中 (e.g.  `{yesterday}`, `{1 month 2 weeks 3 days 1 hour 1 second ago}` or `{1979-02-26 18:30:00}`) specifies the value of the ref at a prior point in time. 
+
+这个后缀只能用在 ref name 后面。它会寻找给定时间内的状态，比如上星期，
+如果你想寻找时间段内的，用`--since` and `--until`.
+
+***
+`<refname>@{<n>}, e.g. master@{1}`
+
+A ref followed by the suffix `@` with an 大括号中的顺序(e.g.  `{1}`, `{15}`) specifies the `n-th` prior value of that ref. 
+
+For example `master@{1}` is the immediate prior value of `master` while `master@{5}` is the 5th prior value of master. 
+
+This suffix may only be used immediately following a ref name and the ref must have an existing log (`$GIT_DIR/logs/<refname>`).
+
+`@{<n>}`, e.g. `@{1}`
+
+如果省略前面的ref指定的话，默认指的是当前分支
+
+For example, if you are on branch blabla then @{1} means the same as blabla@{1}.
+
+***
+`@{-<n>}, e.g. @{-1}`
+The construct `@{-<n>}` means the `<n>th` `branch/commit` checked out before the current one.
+
+***
+`<branchname>@{upstream}`, e.g. `master@{upstream}`, `@{u}`
+`<branchname>@{push}`, e.g. `master@{push}`, `@{push}`
+
+上游分支，推送分支，
+
+Here’s an example to make it more clear:
+
+```git
+$ git config push.default current # 配置默认 
+$ git config remote.pushdefault myfork #默认远程push 分支
+$ git checkout -b mybranch origin/master #创建并切换到新分支 mybranch，上游是`origin/master`
+
+$ git rev-parse --symbolic-full-name @{upstream} # 给出 上游分支
+refs/remotes/origin/master
+
+$ git rev-parse --symbolic-full-name @{push} #给出默认push分支
+refs/remotes/myfork/mybranch
+```
+
+在这个例子中，我们建立了一个triangular workflow（三角形工作流），从一个位置pull然后push到另一个位置，如果是一个普通的工作流，那么`@{push}` is the same as `@{upstream}`。
+
+后缀`@{push}` or `@{upstream}`大小写不敏感
+
+***
+`<rev>^`, e.g. `HEAD^`, `v1.5.1^0`
+
+`<rev>^`等价于`<rev>^1`，`^<n>`意思是当前`ref`的第`n`个父节点，指的是同一个level上的，也就是水平方向的。
+
+As a special rule,` <rev>^0` 指向自身，可以用`tag`（tag object）指向提交（commit object）
+
+***
+`<rev>~<n>`, e.g. `master~3`
+
+A suffix `~<n>` to a revision parameter 之的是第`n`个第首位父节点，
+I.e.  `<rev>~3` is equivalent to `<rev>^^^` which is equivalent to `<rev>^1^1^1`. 
+
+参见下面的图示
+
+***
+`<rev>^{<type>}`, e.g. `v0.99.8^{commit}`
+       
+A suffix `^` followed by 大括号中的类型名 means dereference the object at `<rev>`  recursively until an object of type `<type>` is found or the object cannot be dereferenced anymore (in which case, barf). 
+
+For example, if `<rev>` is a commit-ish, `<rev>^{commit}` describes the corresponding commit object. 
+Similarly, if `<rev>` is a tree-ish, `<rev>^{tree}` describes the corresponding tree object.  
+`<rev>^0` is a short-hand for `<rev>^{commit}`.
+
+`rev^{object}` can be used to make sure `rev` names an object that exists, 
+
+without requiring `rev` to be a tag, and without dereferencing rev;  because a tag is already an object, it does not have to be dereferenced even once to get to an object.
+
+`rev^{tag}` can be used to ensure that `rev` identifies an existing tag object.
+
+***
+`<rev>^{}`, e.g. `v0.99.8^{}`
+
+`<rev>^{}` 意思是这个object可能是个tag, and  the tag recursively until a non-tag object is found.
+
+***
+`<rev>^{/<text>}`, e.g. `HEAD^{/fix nasty bug}`
+
+这个形式等价于下面的`:/fix nasty bug` ，除了它返回  the youngest matching commit which is reachable from the `<rev>` before `^`.
+
+***
+`:/<text>`, e.g. `:/fix nasty bug`
+
+引用一个commit，它的commit message matches the specified regular expression. 正则表达式可以匹配commit message的任意部分。
+
+匹配某些字符开头，用`:/^foo`，序列`/!`有特殊含义，`:/!-foo` 反相匹配，`:/!!foo`匹配`!foo`本身，
+
+Any other sequence beginning with :`/!`  is reserved for now.
+
+***
+`<rev>:<path>`, e.g. `HEAD:README`, `:README`, `master:./README`
+
+给出tree-ish object `<rev>`下的`path`对应的文件（ blob or tree），
+
+`:path` (`:`前面没有指定`rev`) 表示的是`index`中的内容， A path starting with `./` or `../` is relative to the current working directory. 
+
+给出的路径会被转换成相对于 working tree的根目录，对于引用跟当前working tree 有相同目录结构的commit or tree是很有用的。
+
+***
+`:<n>:<path>`, e.g. `:0:README`, `:README`
+
+冒号后面的数字可以取`0` to `3`，引用相应`index`中的`blob` object，缺省数字的话相当于`0`，
+在`merge`的时候，`stage 1`(也就是index)指代common ancestor，stage 2是目标分支（一般是当前分支）
+`stage 3`是被合并过来的分支
+
+***
+这里有一个图示, by Jon Loeliger. 
+
+nodes B and C 是 A 的父节点，父亲的顺序从左到右。
+
+```graph
+G         H   I       J
+ \        /       \    /
+  D    E          F
+   \     |       /     \
+    \    |     /        |
+     \   |  /           |
+        B             C
+        \            /
+            \      /
+                A
+```
+
+```git
+A =      = A^0
+B = A^   = A^1     = A~1
+C = A^2  = A^2
+D = A^^  = A^1^1   = A~2
+E = B^2  = A^^2
+F = B^3  = A^^3
+G = A^^^ = A^1^1^1 = A~3
+H = D^2  = B^^2    = A^^^2  = A~2^2
+I = F^   = B^3^    = A^^3^
+J = F^2  = B^3^2   = A^^3^2
+```

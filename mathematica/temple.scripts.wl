@@ -9,6 +9,8 @@
 
 
 Once[
+git`remote`name="octet.formfactor";
+(*\:7ed9\:51fa\:8fdc\:7a0bgit\:4ed3\:5e93\:7684\:540d\:5b57*)
 If[
 (* if $ScriptCommandLine==={}, the environment is frontend*)
 SameQ[$ScriptCommandLine,{}],
@@ -17,12 +19,13 @@ CompoundExpression[
 (*\:6587\:4ef6\:7edd\:5bf9\:8def\:5f84*)
 filename=NotebookFileName[],
 (*\:5355\:5143\:5bf9\:8c61,\:7b2c\:4e00\:4e2a\:5355\:5143*)
-cell`title=Cells[][[1]],
+cell`title=(Cells[][[1]]),
 (*\:5237\:65b0\:7b2c\:4e00\:4e2a\:5355\:5143\:7684\:540d\:5b57*)
 NotebookWrite[cell`title,Cell[FileNameSplit[filename][[-1]],"Title"]],
 (*if execute in commandline mode, print a ready message*)
-git`root`dir=StringCases[NotebookDirectory[],StartOfString~~((WordCharacter|":"|"\\")..)~~"octet.formfactor"][[1]]
-(*add the base git root dir*)
+git`local`name=FileNameJoin[Append[TakeWhile[FileNameSplit[NotebookDirectory[]],
+UnsameQ[#1,git`remote`name]&],git`remote`name]]
+(*add the base git local dir*)
 ],
 CompoundExpression[
 Print["Ready to execute this script"]

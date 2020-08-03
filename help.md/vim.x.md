@@ -170,3 +170,67 @@ Run `:PlugClean`. It will detect and remove undeclared plugins.
 | ------- | ------- | ------- | ------ | ------ |
 |   `Numbered`    |  `0`至`9`    |  `vim`     | 否 |  ``寄存器 0: 最近一次复制。寄存器 1: 最近一次删除。寄存器 2: 倒数第二次删除，以此类推。对于寄存器 1 至 9，他们其实是只读的最多包含 9 个元素的队列。这里的队列即为数据类型 queue``
 |   `Named`   |  `a`至`z`, `A`至`Z`    |  用户   |  否    |   `如果你通过复制操作存储文本至寄存器 a，那么 a 中的文本就会被完全覆盖。如果你存储至 A，那么会将文本添加给寄存器 a，不会覆盖之前已有的文本`   |
+
+### ubuntu vim复制内容至系统剪切板
+
+[ubuntu vim复制内容至系统剪切板][]
+
+[ubuntu vim复制内容至系统剪切板]: https://blog.csdn.net/u012604810/article/details/79431698
+
+在VIM中编辑的程序有时需要复制到网页、gedit，或者这window系统中(如果ubuntu是虚拟机)，
+那么用原先的复制y(yank)和p(paste)就不行了。
+
+#### vim寄存器
+
+为何用`y``,`p`可以在vim之间复制内容，却不能将内容复制到其他软件中呢？
+因为`y`是将内容复制到vim的一个寄存器，而这个寄存器并不是系统的剪切板。
+`vim`中也有系统剪切板的寄存器，需要用其他命令进行操作。
+
+```vim
+:help registers
+```
+
+可以在vim使用上述命令，查看vim支持的所有寄存器.
+
+```vim
+There are ten types of registers:
+1. The unnamed register ""
+...
+8. The selection and drop registers "*, "+ and "~
+```
+
+第8个寄存器就对应系统的剪切板。
+只有当`vim`的`xterm_clipboard`存在时，方可以使用系统的剪切板。
+那么如何看vim的xterm_clipboard是否存在呢？
+
+```vim
+$vim --version | grep clipboard
+```
+
+查看`xterm_clipboard`前是`+`还是`-`,`+`表示可用，`-`表示不可用。
+
+如果`xterm_clipboard`不可用，需要按照vim的插件
+
+```A
+$sudo apt-get install vim vim-scripts vim-gtk vim-gnome
+```
+
+安装之后，可以再次查看，发现`xterm_clipboard`从`-`变成了`+`。
+
+#### 操作方法
+
+可以`shift+v`，`ctrl+v`进行`visual`模式进行选择。
+
+复制：`"+y`
+粘贴：`"+gp`
+
+但是显然复制和粘贴的命令都比较复杂，可以将其绑定成其他更方便的快捷键。进行`.vimrc`文件添加下列命令
+
+```vim
+let mapleader = ","
+"set shortcut for copy to clipboard of system 
+nmap <leader>c "+y
+nmap <leader>v "+gp
+```
+
+就将`"+y` 绑定为 `,c`，将`"+p` 绑定为 `,v`

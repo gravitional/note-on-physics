@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13575,        344]
-NotebookOptionsPosition[     12037,        308]
-NotebookOutlinePosition[     12459,        327]
-CellTagsIndexPosition[     12416,        324]
+NotebookDataLength[     13667,        346]
+NotebookOptionsPosition[     12149,        311]
+NotebookOutlinePosition[     12551,        329]
+CellTagsIndexPosition[     12508,        326]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -31,87 +31,90 @@ Cell["initial 1", "Chapter",
 8a14830d6021"],
 
 Cell[BoxData[
- RowBox[{"Once", "[", "\n", " ", 
-  RowBox[{"If", "[", "\n", "  ", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"if", " ", "$ScriptCommandLine"}], "===", 
-      RowBox[{"{", "}"}]}], ",", " ", 
-     RowBox[{"the", " ", "environment", " ", "is", " ", "frontend"}]}], 
-    "*)"}], "\n", "  ", 
+ RowBox[{"Once", "[", "\n", 
+  RowBox[{
+   RowBox[{"git`remote`name", "=", "\"\<octet.formfactor\>\""}], ";", "\n", 
    RowBox[{
-    RowBox[{"SameQ", "[", 
-     RowBox[{"$ScriptCommandLine", ",", " ", 
-      RowBox[{"{", "}"}]}], "]"}], ",", "\n", "  ", 
-    RowBox[{"(*", 
+   "(*", "\:7ed9\:51fa\:8fdc\:7a0bgit\:4ed3\:5e93\:7684\:540d\:5b57", "*)"}], 
+   "\n", " ", 
+   RowBox[{"If", "[", "\n", "  ", 
+    RowBox[{"(*", " ", 
      RowBox[{
       RowBox[{
-      "if", " ", "execute", " ", "in", " ", "the", " ", "frontend", " ", 
-       "mode"}], ",", " ", 
-      RowBox[{"refresh", " ", "the", " ", "title", " ", "name"}]}], "*)"}], 
-    "\n", "  ", 
-    RowBox[{"CompoundExpression", "[", "\n", "   ", 
-     RowBox[{"(*", "\:6587\:4ef6\:7edd\:5bf9\:8def\:5f84", "*)"}], "\n", 
-     "   ", 
-     RowBox[{
-      RowBox[{"filename", " ", "=", " ", 
-       RowBox[{"NotebookFileName", "[", "]"}]}], ",", "\n", "   ", 
-      RowBox[{"(*", 
-       RowBox[{
-       "\:5355\:5143\:5bf9\:8c61", ",", "\:7b2c\:4e00\:4e2a\:5355\:5143"}], 
-       "*)"}], "\n", "   ", 
-      RowBox[{"cell`title", " ", "=", " ", 
-       RowBox[{"First", "[", 
-        RowBox[{
-         RowBox[{"Cells", "[", "]"}], ",", 
-         "\"\<please Open the frontend\>\""}], "]"}]}], ",", "\n", "   ", 
-      RowBox[{
-      "(*", "\:5237\:65b0\:7b2c\:4e00\:4e2a\:5355\:5143\:7684\:540d\:5b57", 
-       "*)"}], "\n", "   ", 
-      RowBox[{"NotebookWrite", "[", 
-       RowBox[{"cell`title", ",", " ", 
-        RowBox[{"Cell", "[", 
-         RowBox[{
-          RowBox[{"Last", "[", 
-           RowBox[{"FileNameSplit", "[", "filename", "]"}], "]"}], ",", " ", 
-          "\"\<Title\>\""}], "]"}]}], "]"}], ",", "\n", "   ", 
-      RowBox[{"(*", 
-       RowBox[{
-        RowBox[{
-        "if", " ", "execute", " ", "in", " ", "commandline", " ", "mode"}], 
-        ",", " ", 
-        RowBox[{"print", " ", "a", " ", "ready", " ", "message"}]}], "*)"}], 
-      "\n", "   ", 
-      RowBox[{"git`root`dir", " ", "=", " ", 
-       RowBox[{"First", "[", 
-        RowBox[{
-         RowBox[{"StringCases", "[", 
-          RowBox[{
-           RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
-           RowBox[{"StartOfString", " ", "~~", " ", "\n", "   ", 
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-               "WordCharacter", " ", "|", " ", "\"\<:\>\"", " ", "|", " ", 
-                "\"\<\\\\\>\""}], ")"}], " ", ".."}], ")"}], " ", "~~", " ", 
-            "\"\<octet.formfactor\>\""}]}], "]"}], ",", "\n", "   ", 
-         "\"\<please adjust the string pattern\>\""}], "]"}]}]}], "\n", "   ", 
+       RowBox[{"if", " ", "$ScriptCommandLine"}], "===", 
+       RowBox[{"{", "}"}]}], ",", " ", 
+      RowBox[{"the", " ", "environment", " ", "is", " ", "frontend"}]}], 
+     "*)"}], "\n", "  ", 
+    RowBox[{
+     RowBox[{"SameQ", "[", 
+      RowBox[{"$ScriptCommandLine", ",", " ", 
+       RowBox[{"{", "}"}]}], "]"}], ",", "\n", "  ", 
      RowBox[{"(*", 
       RowBox[{
-      "add", " ", "the", " ", "base", " ", "git", " ", "root", " ", "dir"}], 
-      "*)"}], "\n", "   ", "]"}], ",", "\n", "  ", 
-    RowBox[{"CompoundExpression", "[", "\n", "   ", 
-     RowBox[{"Print", "[", "\"\<Ready to execute this script\>\"", "]"}], 
-     "\n", "   ", "]"}]}], "\n", "  ", "]"}], "\n", " ", "]"}]], "Code",
+       RowBox[{
+       "if", " ", "execute", " ", "in", " ", "the", " ", "frontend", " ", 
+        "mode"}], ",", " ", 
+       RowBox[{"refresh", " ", "the", " ", "title", " ", "name"}]}], "*)"}], 
+     "\n", "  ", 
+     RowBox[{"CompoundExpression", "[", "\n", "   ", 
+      RowBox[{"(*", "\:6587\:4ef6\:7edd\:5bf9\:8def\:5f84", "*)"}], "\n", 
+      "   ", 
+      RowBox[{
+       RowBox[{"filename", " ", "=", " ", 
+        RowBox[{"NotebookFileName", "[", "]"}]}], ",", "\n", "   ", 
+       RowBox[{"(*", 
+        RowBox[{
+        "\:5355\:5143\:5bf9\:8c61", ",", "\:7b2c\:4e00\:4e2a\:5355\:5143"}], 
+        "*)"}], "\n", "   ", 
+       RowBox[{"cell`title", " ", "=", " ", 
+        RowBox[{"First", "[", 
+         RowBox[{
+          RowBox[{"Cells", "[", "]"}], ",", 
+          "\"\<please Open the frontend\>\""}], "]"}]}], ",", "\n", "   ", 
+       RowBox[{
+       "(*", "\:5237\:65b0\:7b2c\:4e00\:4e2a\:5355\:5143\:7684\:540d\:5b57", 
+        "*)"}], "\n", "   ", 
+       RowBox[{"NotebookWrite", "[", 
+        RowBox[{"cell`title", ",", " ", 
+         RowBox[{"Cell", "[", 
+          RowBox[{
+           RowBox[{"Last", "[", 
+            RowBox[{"FileNameSplit", "[", "filename", "]"}], "]"}], ",", " ", 
+           "\"\<Title\>\""}], "]"}]}], "]"}], ",", "\n", "   ", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+         "if", " ", "execute", " ", "in", " ", "commandline", " ", "mode"}], 
+         ",", " ", 
+         RowBox[{"print", " ", "a", " ", "ready", " ", "message"}]}], "*)"}], 
+       "\n", "\t", 
+       RowBox[{"git`local`name", "=", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"Append", "[", 
+          RowBox[{
+           RowBox[{"TakeWhile", "[", 
+            RowBox[{
+             RowBox[{"FileNameSplit", "[", 
+              RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", "\n", "\t", 
+             RowBox[{
+              RowBox[{"UnsameQ", "[", 
+               RowBox[{"#1", ",", "git`remote`name"}], "]"}], "&"}]}], "]"}], 
+           ",", "git`remote`name"}], "]"}], "]"}]}]}], "\n", "\t", 
+      RowBox[{"(*", 
+       RowBox[{
+       "add", " ", "the", " ", "base", " ", "git", " ", "local", " ", "dir"}],
+        "*)"}], "\n", "   ", "]"}], ",", "\n", "  ", 
+     RowBox[{"CompoundExpression", "[", "\n", "   ", 
+      RowBox[{"Print", "[", "\"\<Ready to execute this script\>\"", "]"}], 
+      "\n", "   ", "]"}]}], "\n", "  ", "]"}]}], "\n", " ", "]"}]], "Code",
  CellChangeTimes->{{3.79920678473974*^9, 3.7992068101818933`*^9}, {
    3.7992068481407375`*^9, 3.7992070429651628`*^9}, {3.799207131881463*^9, 
    3.7992071886600823`*^9}, {3.799207474255161*^9, 3.7992075496725855`*^9}, {
    3.7992168889841166`*^9, 3.799216889206132*^9}, 3.799217317710707*^9, {
    3.7996295279304686`*^9, 3.7996295513631706`*^9}, {3.7996296209136133`*^9, 
    3.7996296310418873`*^9}, {3.799629667050804*^9, 3.799629675500029*^9}, 
-   3.7998872557401295`*^9},ExpressionUUID->"ffeb4b2c-2fa9-40b8-9126-\
+   3.7998872557401295`*^9, 
+   3.805083577278604*^9},ExpressionUUID->"ffeb4b2c-2fa9-40b8-9126-\
 99ce1bbc3a5e"],
 
 Cell["********************************** notebook \:5907\:5fd8\:5f55", "Text",
@@ -308,11 +311,10 @@ Cell[BoxData[
 },
 WindowToolbars->"EditBar",
 Evaluator->"te1",
-WindowSize->{988, 602},
-WindowMargins->{{Automatic, -29}, {5, Automatic}},
+WindowSize->{1146, 877},
+WindowMargins->{{Automatic, 170}, {66, Automatic}},
 Magnification->1.25,
-FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (2019\:5e745\:670818\
-\:65e5)",
+FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -327,23 +329,23 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 90, 0, 121, "Title",ExpressionUUID->"7d997899-f9d4-4fca-a506-58b77e97f3a7"],
+Cell[580, 22, 90, 0, 125, "Title",ExpressionUUID->"7d997899-f9d4-4fca-a506-58b77e97f3a7"],
 Cell[CellGroupData[{
-Cell[695, 26, 231, 4, 86, "Chapter",ExpressionUUID->"f567b535-b777-42dc-9cb9-8a14830d6021"],
-Cell[929, 32, 3575, 82, 592, "Code",ExpressionUUID->"ffeb4b2c-2fa9-40b8-9126-99ce1bbc3a5e"],
-Cell[4507, 116, 257, 4, 43, "Text",ExpressionUUID->"4b0a22ee-9d9e-48ba-8fc2-bd2646c68bc4"],
-Cell[4767, 122, 351, 5, 43, "Text",ExpressionUUID->"b8979e7d-ecd1-4fb0-b46e-7e57d12ea0df"]
+Cell[695, 26, 231, 4, 89, "Chapter",ExpressionUUID->"f567b535-b777-42dc-9cb9-8a14830d6021"],
+Cell[929, 32, 3687, 85, 701, "Code",ExpressionUUID->"ffeb4b2c-2fa9-40b8-9126-99ce1bbc3a5e"],
+Cell[4619, 119, 257, 4, 45, "Text",ExpressionUUID->"4b0a22ee-9d9e-48ba-8fc2-bd2646c68bc4"],
+Cell[4879, 125, 351, 5, 45, "Text",ExpressionUUID->"b8979e7d-ecd1-4fb0-b46e-7e57d12ea0df"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5155, 132, 155, 3, 86, "Chapter",ExpressionUUID->"329d997c-7314-46d1-bb03-ee26a5a5196c"],
-Cell[5313, 137, 393, 9, 64, "Code",ExpressionUUID->"567530d3-64ed-4625-878c-76cbcf6e869b"],
-Cell[5709, 148, 1709, 39, 548, "Code",ExpressionUUID->"5f463185-6978-419f-ab90-793f8938926f"],
-Cell[7421, 189, 2005, 32, 64, "Code",ExpressionUUID->"b828979f-e8fb-411e-8d0e-e5710b86a0dd"],
-Cell[9429, 223, 689, 18, 145, "Input",ExpressionUUID->"b340386c-dc39-4cb3-8f44-2480e6bcc591"]
+Cell[5267, 135, 155, 3, 89, "Chapter",ExpressionUUID->"329d997c-7314-46d1-bb03-ee26a5a5196c"],
+Cell[5425, 140, 393, 9, 67, "Code",ExpressionUUID->"567530d3-64ed-4625-878c-76cbcf6e869b"],
+Cell[5821, 151, 1709, 39, 635, "Code",ExpressionUUID->"5f463185-6978-419f-ab90-793f8938926f"],
+Cell[7533, 192, 2005, 32, 64, "Code",ExpressionUUID->"b828979f-e8fb-411e-8d0e-e5710b86a0dd"],
+Cell[9541, 226, 689, 18, 145, "Input",ExpressionUUID->"b340386c-dc39-4cb3-8f44-2480e6bcc591"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10155, 246, 163, 3, 86, "Chapter",ExpressionUUID->"a3d68430-b2a0-40d0-bb41-07e3343116ac"],
-Cell[10321, 251, 1688, 53, 235, "Input",ExpressionUUID->"3d32b924-6a56-4310-a331-344edc06fad8"]
+Cell[10267, 249, 163, 3, 86, "Chapter",ExpressionUUID->"a3d68430-b2a0-40d0-bb41-07e3343116ac"],
+Cell[10433, 254, 1688, 53, 235, "Input",ExpressionUUID->"3d32b924-6a56-4310-a331-344edc06fad8"]
 }, Open  ]]
 }, Open  ]]
 }

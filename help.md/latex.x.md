@@ -317,6 +317,30 @@ f(n) = \begin{cases} n/2 &\mbox{if } n \equiv 0 \\
 
 main, second, third
 
+***
+xcolor 使用
+
+需求：`xcolor`默认颜色只有`19`种，使用时可以在`option`中加入另外3张颜色表来极大扩充颜色库。
+
+宏包：`\usepackage{xcolor}`
+选项：`dvipsnames, svgnames, x11names`
+使用：`\usepackage[dvipsnames, svgnames, x11names]{xcolor}`
+注意：`xcolor`宏包一般要放在最前面！否则那3张颜色表容易加不进来。
+
+使用：
+
+```latex
+{\color{red}{红色}}是19个基本颜色中的一个，下面秀几个高级货：
+
+这里是{\color{NavyBlue}{海军蓝}}，这个是{\color{Peach}{桃子色}}
+
+这个是{\color{SpringGreen}{春天绿}}，最后一个{\color{SeaGreen3}{海绿3}}
+```
+
+[LaTeX：xcolor颜色介绍][]
+
+[LaTeX：xcolor颜色介绍]: https://www.jianshu.com/p/5aee7c366369
+
 ### 颜色包的使用
 
 ```latex
@@ -493,7 +517,7 @@ Synopsis:
 \end{enumerate}
 ```
 
-Environment to produce a numbered list of items. The format of the label numbering depends on the nesting level of this environment; see below. The default top-level numbering is ‘`1.`’, ‘`2.`’, etc. Each enumerate list environment must have at least one item; having none causes the `LaTeX` error `‘Something's wrong--perhaps a missing \item’`.
+Environment to produce a numbered list of items. The format of the label numbering depends on the nesting level of this environment; see below. The default top-level numbering is ‘`1.`’, ‘`2.`’, etc. Each enumerate list environment must have at least one item; having none causes the `LaTeX` error `Something's wrong--perhaps a missing \item`.
 
 This example gives the first two finishers in the 1908 Olympic marathon. As a top-level list the labels would come out as ‘`1.`’ and ‘`2.`’.
 
