@@ -460,105 +460,38 @@ echo $myUrl
 
 上面的脚本没有任何输出。
 
-## 网络
+## 网络配置
+
+### ip 命令
 
 EXAMPLES
-       ip addr
-           Shows addresses assigned to all network interfaces.
 
-       ip neigh
-           Shows the current neighbour table in kernel.
+***
 
-       ip link set x up
-           Bring up interface x.
++ `ip addr` Shows addresses assigned to all network interfaces.
++ `ip neigh` Shows the current neighbour table in kernel.
++ `ip link set x up` Bring up interface x.
++ `ip link set x down` Bring down interface x.
++ `ip route` Show table routes.
 
-       ip link set x down
-           Bring down interface x.
-
-       ip route
-           Show table routes.
-
+### ip route
 
 EXAMPLES
-       ip ro
-           Show all route entries in the kernel.
 
-       ip route add default via 192.168.1.1 dev eth0
-           Adds a default route (for all addresses) via the local gateway 192.168.1.1 that can be reached on device eth0.
+***
 
-       ip route add 10.1.1.0/30 encap mpls 200/300 via 10.1.1.1 dev eth0
-           Adds an ipv4 route with mpls encapsulation attributes attached to it.
++ `ip ro` Show all route entries in the kernel.
++ `ip route add default via 192.168.1.1 dev eth0` Adds a default route (for all addresses) via the local gateway `192.168.1.1` that can be reached on device `eth0`.
++ `ip route add 10.1.1.0/30 encap mpls 200/300 via 10.1.1.1 dev eth0` Adds an ipv4 route with mpls encapsulation attributes attached to it.
++ `ip -6 route add 2001:db8:1::/64 encap seg6 mode encap segs 2001:db8:42::1,2001:db8:ffff::2 dev eth0` Adds an IPv6 route with SRv6 encapsulation and two segments attached.
 
-       ip -6 route add 2001:db8:1::/64 encap seg6 mode encap segs 2001:db8:42::1,2001:db8:ffff::2 dev eth0
-           Adds an IPv6 route with SRv6 encapsulation and two segments attached.
+### ubuntu18-netplan-配置
 
-
-Ubuntu 18.04 Server 安装好后，Netplan 的默认描述文件是：/etc/netplan/50-cloud-init.yaml。
-
-
+`Ubuntu 18.04 Server `安装好后，Netplan 的默认描述文件是：`/etc/netplan/50-cloud-init.yaml`。
 
 ubuntu如何查看MAC地址:
 
-ifconfig | awk '/eth/{print $1,$5}'
-
-arp -a | awk '{print $4}
-
-sudo lshw -C network
-
-sudo lshw -c network | grep serial
-
-
-*-network                 
-       description: Ethernet interface
-       product: RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
-       vendor: Realtek Semiconductor Co., Ltd.
-       physical id: 0
-       bus info: pci@0000:01:00.0
-       logical name: enp1s0
-       version: 15
-       serial: c4:65:16:b9:89:3c
-       capacity: 1Gbit/s
-       width: 64 bits
-       clock: 33MHz
-       capabilities: pm msi pciexpress msix bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
-       configuration: autonegotiation=on broadcast=yes driver=r8169 firmware=rtl8168h-2_0.0.2 02/26/15 latency=0 link=no multicast=yes port=MII
-       resources: irq:52 ioport:4000(size=256) memory:e0b04000-e0b04fff memory:e0b00000-e0b03fff
-  *-network
-       description: Wireless interface
-       product: RTL8822BE 802.11a/b/g/n/ac WiFi adapter
-       vendor: Realtek Semiconductor Co., Ltd.
-       physical id: 0
-       bus info: pci@0000:02:00.0
-       logical name: wlp2s0
-       version: 00
-       serial: 10:5b:ad:df:4c:cd
-       width: 64 bits
-       clock: 33MHz
-       capabilities: pm msi pciexpress bus_master cap_list ethernet physical wireless
-       configuration: broadcast=yes driver=rtw_pci driverversion=5.3.0-62-generic firmware=N/A ip=192.168.32.6 latency=0 link=yes multicast=yes wireless=IEEE 802.11
-       resources: irq:75 ioport:3000(size=256) memory:e0a00000-e0a0ffff
-
- wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff
-    inet 192.168.32.6/24 brd 192.168.32.255 scope global dynamic noprefixroute wlp2s0
-       valid_lft 4185sec preferred_lft 4185sec
-    inet6 fe80::310a:df04:1f02:d5ac/64 scope link noprefixroute 
-       valid_lft forever preferred_lft forever
-
-
-ifis:
-                  all-wlans:
-                    # useful on a system where you know there is
-                    # only ever going to be one device
-                    match: {}
-                    access-points:
-                      "Joe's home":
-                        # mode defaults to "infrastructure" (client)
-                            password: "s3kr1t"
-                  # this creates an AP on wlp1s0 using hostapd
-                  # no match rules, thus the ID is the interface name
-                  wlp1s0:
-                    access-points:
-                      "guest":
-                         mode: ap
-                         # no WPA config implies default of open
++ `ifconfig | awk '/eth/{print $1,$5}'`
++ `arp -a | awk '{print $4}`
++ `sudo lshw -C network`
++ `sudo lshw -c network | grep serial`
