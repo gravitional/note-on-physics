@@ -1311,3 +1311,22 @@ menuentry 'Example GNU/Linux distribution' --class gnu-linux --id example-gnu-li
 如果想将此菜单设为默认菜单，则可设置`GRUB_DEFAULT=example-gnu-linux`。
 
 如果`GRUB_DEFAULT`的值设置为`saved`，则表示默认的菜单项是`GRUB_SAVEDEFAULT`或`grub-set-default`所指定的菜单项。
+
+## ibus下定制自己的libpinyin
+
+[ibus下定制自己的libpinyin][]
+
+[ibus下定制自己的libpinyin]: https://blog.csdn.net/godbreak/article/details/9031887
+
+智能拼音输入法从`ibus-pinyin`更名为`ibus-libpinyin`
+
+`libpinyin`添加了词库导入功能，并刚刚修复相关`bug`，所以要先更新`libpinyin`到最新版。
+在`libpinyin`的配置界面（可以从`语言选项`---`输入源`找到，实在找不到，`/usr/share/ibus-libpinyin/setup/main2.py`），可以找到**用户数据导入选项**。
+
+这个要求文件: 
+
+1. 文件采用本地编码格式 
+2. 格式为每行`字符 拼音 位置(可选)`，且字符数和拼音数要对应，例如`你好 ni'hao 5`。
+
+去搜狗词库下搜狗细胞词库文件，然后下个**深蓝词库转换器**（`exe`），`wine`中打开转换器，选择从搜狗细胞词库转换到手机`QQ`格式，转换结束后不要选择文件保存本地，编码格式不大对，在输出框里面全选复制粘贴到你的文本编辑器，保存为`.txt`后缀。
+然后在`libpinyin`配置界面导入即可。导入完成后，`kill ibus-engine-libpinyin`进程，再切回拼音输入法。
