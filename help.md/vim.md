@@ -901,3 +901,41 @@ p-> ~
 对于 `C` 代码，需要建立标签文件并设置 '`tags`' 选项。在 `ft-c-omni`  中有进一步的解
 释。对于其他文件类型，需要做类似的事情，请查看  `compl-omni-filetypes` 。补全只
 对特定文件类型有效。查看 '`omnifunc`' 选项的值，以便检查补全能否正常工作。
+
+## Vim显示空白字符
+
+[ Vim怎么显示空格、Tab制表符、行尾换行符等非打印字符][]
+
+[ Vim怎么显示空格、Tab制表符、行尾换行符等非打印字符]: https://vimjc.com/vim-display-unprintable-character.html
+
+默认配置下，Vim下无法显示空格、tab键、换行符等特殊的不可打印字符。
+但恰恰是这些不可打印字符，经常对源代码编译、文件编码、错误输入检查等问题定位产生干扰。
+
+Vim教程网(https://vimjc.com)介绍如何通过VIM设置，在Vim下正常显示出空格、tab制表符、换行符等字符.
+
+### Vim显示行尾换行符
+
+Vim设置项 `list` (默认关闭，只对当前窗口有效) 可用于设置 `List mode`：使用` ^I` (通过组合键 `<CTRL-I>`输入) 显示 `tab` 制表符，使用 `$` 符号显示行尾。
+
+因此，如果仅仅是需要在 `Vim` 中显示制表符和行尾结束符，可以在 `Vim` 命令行下执行 `:set list` 命令达到目的。
+
+`:set nolist` 可关闭 “`List mode`”，即不再在Vim下显示出行尾和制表符等特殊符号。
+
+可以通过 `:help 'list'` 查看Vim官方文档中对 `list` 选项的介绍。
+
+### Vim定制Tab制表符、行尾结束符显示格式
+
+如果希望更改 Vim 默认对空格、行尾结束符、Tab制表符的显示样式，需要使用到 `listchars` (缩写形式 `lcs`) 选项。
+
+Vim 的 `listchars` 选项用于设置 “List mode” 以及 `:list` 命令的显示样式 (Strings to use in ‘list’ mode and for the :list command)，通过分割不同字符的设置。
+
+1. 可通过 `set listchars=eol:c` 设置 某个字符 来显示每行的行尾结束符 (Character to show at the end of each line)。
+2. 可通过 `set listchars=tab:xy` 设置 两个字符 来显示`Tab`制表符。第一个字符只会显示一次，制表符剩余的空间会用第二个字符重复进行显示。
+
+例如，若设置了 `set listchars=tab:>-`，则会用 `>--- `显示4个长度的制表符。
+可阅读[Vim自动缩进配置、原理和tab键替换空格][] 查看关于Vim缩进以及Tab键显示相关介绍。
+
+3. 可通过 `set listchars=space:c` 设置 某个字符 来显示一个空格 (Character to show for a space)。
+4. 可通过 `set listchars=trail:c` 设置 某个字符 来显示一个行尾空格 (Character to show for trailing spaces)。
+
+[Vim自动缩进配置、原理和tab键替换空格]: https://vimjc.com/vim-indent.html

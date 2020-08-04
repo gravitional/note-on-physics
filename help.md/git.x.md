@@ -1,5 +1,29 @@
 # git.x.md
 
+## git 分支的目录结构
+
+`.git`文件夹下，有`/refs/`文件夹，`/refs/`结构如下：
+
+```bash
+/heads/
+   branch1
+   branch2
+   ...
+/remotes/
+   origin
+       reomote_branch1
+       HEAD
+   origin2
+   ...
+/tags/
+   tag1
+   ...
+```
+
+$ git log origin/master
+$ git log remotes/origin/master
+$ git log refs/remotes/origin/master
+
 ## 恢复文件
 
 ```git
@@ -81,15 +105,62 @@ git push [远程仓库] --delete [branchname]
 
 ## 创建新分支
 
-先运行 co -b 命令创建新分支
+`git checkout -b|-B <new_branch> [<start point>]`
 
-`git checkout -b "branchname" "startpoint"`
+指定`-b`选项，将会创建新分支，如同调用`git-branch(1)`，然后`checkout`一样。
 
-然后用 push -u 命令推送到远程
+在这种情况下，你可以使用`--track` or `--no-track` options，这些选项会传递给`git branch`
+为方便起见，`--track` without `-b`意味着创建新分支；见`--track` 的描述
 
-`git push -u origin branchname` 
+***
+`git checkout`:
+`-t, --track`
 
-第一次推送`branchname`分支的所有内容，并把本地的`branchname`分支和远程的`branchname`分支关联起来
+当创建新分支的时候，自动设置上游。
+如果`-b` 选项没有给出，本地分支的名字会从`remote-tracking branch`推导。
+git先查看本地中远程的`refspec`，然后把前面的初始部分去掉。
+也就是说，如果远程名字是`origin/hack` (or `remotes/origin/hack`, or even `refs/remotes/origin/hack`)，
+新的本地分支就叫做`hack`，如果查询到的名称中没有“slash”(`/`)，或者上面的猜测得到一个空字符串，那么猜测就会停止，
+你可以用`-b`选项手动指定一个名字。
+
+***
+`git branch`:
+`-t`, `--track`
+
+当创建新分支的时候，设置`branch.<name>.remote`和`branch.<name>.merge`条目，
+把`start-point branch`当作`upstream`（上游分支）。
+
+这个配置会告诉git，在`git status` and `git branch -v`命令中显示两个分支的关系。
+而且，当切换到新分支的时候，它指导不带参数的`git pull`从上游拉取更新。
+
+如果 `start point` 是`remote-tracking`分支，会默认进行上面的设置。
+可以配置变量`branch.autoSetupMerge`为`false`，如果你想让`git checkout` and `git branch`默认行为是`--no-track`，也就是不自动跟踪上游。也可以设置成`always`，这样不管`start-point`是本地还是远程分支，都会自动跟踪。
+
+### 常见使用方法
+
+先运行 `checkout -b` 命令创建新分支
+
+`git checkout -b branchname startpoint`
+
+然后用 `push -u` 命令推送到远程
+
+`git push -u origin <refspec>` 
+
+第一次推送`source`分支的所有内容，并把本地的`source`分支和远程的`destination`分支关联起来
+
+`git push`:
+`<refspec>...`
+
+`<refspec>`指定用`source object`更新哪一个`destination ref`。
+`<refspec> `的格式是：可选的`+`号，接着一个`source object <src>`，然后是`:`，
+然后是the `destination ref <dst>`,就是`本地分支:远程分支`的格式，
+
+推送一个空的`<src>`相当于删除远程库中的`<dst> ref`。
+特殊的refspec `:` (or `+:` to allow non-fast-forward updates) ，
+告诉Git推送匹配的分支：如果远程库里存在和本地名字一样的分支，就把本地分支推送过去。
+
+`--all`
+推送所有分支(i.e. `refs/heads/`下面的所有ref)；这时候不要再指定其他特定`<refspec>`。
 
 ## git diff
 
@@ -98,7 +169,9 @@ git push [远程仓库] --delete [branchname]
 `commit` 可以用`HEAD~2`的格式，
 `HEAD~2`最后的数字`2`指的是显示到倒数第几次，比如`2`指定倒数第二次
 
-### SYNOPSIS
+### 语法
+
+SYNOPSIS
 
 ```git
 git diff [<options>] [<commit>] [--] [<path>…​]
@@ -151,17 +224,7 @@ You can omit any one of `<commit>`, which has the same effect as using HEAD inst
 然而，`diff`比较的是两个 endpoints，而不是一个范围。
 所以 `<commit>..<commit>`and `<commit>...<commit>`在这里指的不是范围。
 
-### DESCRIPTION
-
-Show:
-
-+ changes between the `working tree` and the `index` or a `tree`,
-+ changes between the `index` and `a tree`,
-+ changes between two trees,
-+ changes between two `blob` objects,
-+ changes between two `files` on disk.
-
-### checkout还原文件
+### checkout 还原文件
 
 ```bash
 git checkout [<tree-ish>] [--] <pathspec>…​

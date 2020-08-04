@@ -445,7 +445,7 @@ reset 如果不加参数，那么默认使用 `--mixed` 参数。它的行为是
 git reset --hard branch2
 ```
 
-把HEAD 和 branch移动到branch2指向的提交。
+把 `HEAD` 和 `branch`移动到`branch2`指向的提交。
 
 [Git Reset 三种模式][]
 [git reset --hard xxx、git reset --soft 及git revert 的区别][]
@@ -1414,7 +1414,9 @@ The git index goes by many names. But they all refer to the same thing. Some of 
 
 The Index Isn’t The Working Directory.
 
-## Git Objects
+## Git 对象
+
+Git Objects
 
 Git is a content-addressable filesystem. Great. What does that mean?
 It means that at the core of Git is a simple `key-value` data store.
@@ -1466,7 +1468,7 @@ $ git cat-file -p d670460b4b4aece5915caf5c68d12f560a9fe3e4
 test content
 ```
 
-### Tree Objects
+### Tree 对象
 
 `tree`，解决了git中储存文件名的问题，并且允许你把一组文件存在一起。
 
@@ -1548,7 +1550,7 @@ $ git cat-file -p 3c4e9cd789d88d8d89c1073707c3585e41b0e614
 100644 blob 1f7a7a472abf3dd9643fd615f6da379c4acb3e3a      test.txt
 ```
 
-### Commit Objects
+### Commit 对象
 
 To create a commit object, you call `commit-tree` and specify a single tree `SHA-1` and which commit objects, if any, directly preceded it. Start with the first tree you wrote:
 
@@ -1634,28 +1636,27 @@ $ find .git/objects -type f
 
 ### Tree-ish
 
-"Tree-ish" is a term that refers to any identifier that ultimately leads to a (sub)directory tree (Git refers to directories as "trees" and "tree objects").
+"Tree-ish" 是一个术语，指的是一个标识符，最终指引到一个（子）目录树（Git 把目录成为"tree" and "tree objects"）
 
-In the original poster's case, foo is a directory that he wants to specify. The correct way to specify a (sub)directory in Git is to use this "tree-ish" syntax:
+如果想指定文件夹`foo`，正确的方法是使用`git`的"tree-ish"语法:
 
 ```bash
 HEAD:README, :README, master:./README
 ```
 
-A suffix : followed by a path names the blob or tree at the given path in the tree-ish object named by the part before the colon.
-
-So, in other words, `master:foo` is the correct syntax, not `master/foo`.
+`:`（冒号）前面是tree-ish object，冒号后面是具体的路径，也就是说`master:foo`是正确的语法，而不能写成`master/foo`。
+注：`master`是分支的名字，`foo`是具体的路径。
 
 ### refspec
 
 应该是`Reference Specification`的缩写，字面意思就是具体的引用。
-它其实是一种格式，git通过这种格式的判断来获取不同引用下的数据。
+它其实是一种格式，`git`通过这种格式的判断来获取不同引用下的数据。
 
-你可以具体参考：http://git-scm.com/book/zh/ch9-5.html
-“
+你可以具体参考：[Reference Specification][]
+
 `Refspec` 的格式是一个可选的 `+` 号，接着是 `<src>:<dst>` 的格式，这里 `<src>` 是远端上的引用格式，`<dst>` 是将要记录在本地的引用格式。
 
-可选的 `+` 号告诉 Git 在即使不能快速演进的情况下，也去强制更新它。
+可选的 `+` 号告诉 `Git` 在即使不能"Fast Forward"的情况下，也去强制更新它。
 缺省情况下 `refspec` 会被 `git remote add` 命令所自动生成，
 `Git` 会获取远端上 `refs/heads/` 下面的所有引用，并将它写入到本地的 `refs/remotes/origin/`. 所以，如果远端上有一个 `master` 分支，你在本地可以通过下面这种方式来访问它的历史记录：
 
@@ -1673,11 +1674,14 @@ $ git log refs/remotes/origin/master
 
 [git中的refspec是什么意思?]: http://www.imooc.com/wenda/detail/503063
 
+[Reference Specification]: http://git-scm.com/book/zh/ch9-5.html
+
 ## revision 的写法
 
-A revision parameter  `<rev>`一般是`commit`，它使用what is called an extended SHA-1 syntax
+A revision parameter  `<rev>`一般是`commit`，它使用what is called an extended `SHA-1` syntax
 
-***
+### sha1
+
 `<sha1>`, e.g. `dae86e1950b1277e545cee180551750029cfe735`, `dae86e`
 
 The full SHA-1 object name (40-byte hexadecimal string), or a leading substring that is  within the repository
@@ -1688,13 +1692,15 @@ The full SHA-1 object name (40-byte hexadecimal string), or a leading substring 
 Output from git describe; 
 i.e. a closest tag,  optionally followed by a dash and a number of commits,  followed by a dash, a g, and an abbreviated object name.
 
-***
+### refname
+
 `<refname>`, e.g. `master`, `heads/master`, `refs/heads/master`
 
 A symbolic `ref` name. E.g.  `master` typically means the commit object referenced by `refs/heads/master`.
 If you happen to have both `heads/master` and `tags/master`,you can explicitly say heads/master to tell Git which one you mean. 
 
-***
+### @
+
 `@`
 
 `@` alone is a shortcut for `HEAD`.
@@ -1704,13 +1710,13 @@ If you happen to have both `heads/master` and `tags/master`,you can explicitly s
 
 A ref followed by the suffix `@` with a 日期包围在大括号中 (e.g.  `{yesterday}`, `{1 month 2 weeks 3 days 1 hour 1 second ago}` or `{1979-02-26 18:30:00}`) specifies the value of the ref at a prior point in time. 
 
-这个后缀只能用在 ref name 后面。它会寻找给定时间内的状态，比如上星期，
+这个后缀只能用在 `ref name` 后面。它会寻找给定时间内的状态，比如上星期，
 如果你想寻找时间段内的，用`--since` and `--until`.
 
 ***
 `<refname>@{<n>}, e.g. master@{1}`
 
-A ref followed by the suffix `@` with an 大括号中的顺序(e.g.  `{1}`, `{15}`) specifies the `n-th` prior value of that ref. 
+A `ref` followed by the suffix `@` with an 大括号中的顺序(e.g.  `{1}`, `{15}`) specifies the `n-th` prior value of that `ref`. 
 
 For example `master@{1}` is the immediate prior value of `master` while `master@{5}` is the 5th prior value of master. 
 
@@ -1718,13 +1724,13 @@ This suffix may only be used immediately following a ref name and the ref must h
 
 `@{<n>}`, e.g. `@{1}`
 
-如果省略前面的ref指定的话，默认指的是当前分支
+如果省略前面的`ref`指定的话，默认指的是当前分支
 
 For example, if you are on branch blabla then @{1} means the same as blabla@{1}.
 
 ***
 `@{-<n>}, e.g. @{-1}`
-The construct `@{-<n>}` means the `<n>th` `branch/commit` checked out before the current one.
+The construct `@{-<n>}` means the `<n>th branch/commit` checked out before the current one.
 
 ***
 `<branchname>@{upstream}`, e.g. `master@{upstream}`, `@{u}`
@@ -1750,7 +1756,8 @@ refs/remotes/myfork/mybranch
 
 后缀`@{push}` or `@{upstream}`大小写不敏感
 
-***
+### ^ caret ~ tilde
+
 `<rev>^`, e.g. `HEAD^`, `v1.5.1^0`
 
 `<rev>^`等价于`<rev>^1`，`^<n>`意思是当前`ref`的第`n`个父节点，指的是同一个level上的，也就是水平方向的。
@@ -1790,10 +1797,11 @@ without requiring `rev` to be a tag, and without dereferencing rev;  because a t
 
 这个形式等价于下面的`:/fix nasty bug` ，除了它返回  the youngest matching commit which is reachable from the `<rev>` before `^`.
 
-***
+### : colon
+
 `:/<text>`, e.g. `:/fix nasty bug`
 
-引用一个commit，它的commit message matches the specified regular expression. 正则表达式可以匹配commit message的任意部分。
+引用一个commit，它的 commit message matches the specified regular expression. 正则表达式可以匹配commit message的任意部分。
 
 匹配某些字符开头，用`:/^foo`，序列`/!`有特殊含义，`:/!-foo` 反相匹配，`:/!!foo`匹配`!foo`本身，
 

@@ -16,17 +16,6 @@ cd  /home/tom/Downloads
 ***
 [root@test01 ~]# whoami 
 
-## shell 模式切换
-
-1. 查看系统支持的shell模式及位置
-
-`echo &SHELL`
-`cat /etc/shells`
-
-2. 切换shell为/bin/sh
-
-`# chsh -s /bin/sh`
-
 ## 常用命令
 
 命令可以是下面四种形式之一:
@@ -58,35 +47,22 @@ cd  /home/tom/Downloads
 + `whatis` 程序显示匹配特定关键字的手册页的名字和一行命令说明:
 + GNU 项目提供了一个命令程序手册页的替代物,称为`info`。
 
-### Ubuntu 镜像使用帮助
+### shell 模式切换
 
-清华大学的源
+1. 查看系统支持的shell模式及位置
 
-域名选择
+`echo &SHELL`
+`cat /etc/shells`
 
-```bash
-https://mirrors.tuna.tsinghua.edu.cn 自动选择
-https://mirrors6.tuna.tsinghua.edu.cn 只解析 IPv6
-https://mirrors4.tuna.tsinghua.edu.cn 只解析 IPv4
-```
+2. 切换shell为/bin/sh
 
-Ubuntu 的软件源配置文件是 `/etc/apt/sources.list`。将系统自带的该文件做个备份，将该文件替换为下面内容，即可使用 `TUNA` 的软件源镜像。
+`# chsh -s /bin/sh`
 
-```bash
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
-# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
-deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
-# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
-deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
-# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
-deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
-# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+### ls 只列出子目录
 
-# 预发布软件源，不建议启用
-# deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
-# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
-```
+`ls -d */`
+
+`-d`选项指定只列出目录，`glob`模式当前目录下`*/`表示所有的子目录
 
 ### 别名(alias)
 
@@ -716,7 +692,7 @@ echo "I am good at ${skill}Script"
 
 推荐给所有变量加上花括号`{ }`，这是个良好的编程习惯。
 
-## 修改变量的值
+### 修改变量的值
 
 已定义的变量，可以被重新赋值，如：
 
@@ -819,88 +795,279 @@ echo $myUrl
 
 上面的脚本没有任何输出。
 
-## 网络配置
+### 变量类型
 
-EXAMPLES
+运行`shell`时，会同时存在三种变量：
 
-+ `ip addr` Shows addresses assigned to all network interfaces.
-+ `ip neigh` Shows the current neighbour table in kernel.
-+ `ip link set x up` Bring up interface x.
-+ `ip link set x down` Bring down interface x.
-+ `ip route` Show table routes.
+1. **局部变量** 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。
+2. **环境变量** 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。
+3. **shell变量** shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行
 
-EXAMPLES
+## Shell 字符串
 
-+ `ip ro` Show all route entries in the kernel.
-+ `ip route add default via 192.168.1.1 dev eth0` Adds a default route (for all addresses) via the local gateway 192.168.1.1 that can be reached on device eth0.
-+ `ip route add 10.1.1.0/30 encap mpls 200/300 via 10.1.1.1 dev eth0` Adds an ipv4 route with mpls encapsulation attributes attached to it.
-+ `ip -6 route add 2001:db8:1::/64 encap seg6 mode encap segs 2001:db8:42::1,2001:db8:ffff::2 dev eth0` Adds an IPv6 route with SRv6 encapsulation and two segments attached.
+字符串是`shell`编程中最常用最有用的数据类型（除了数字和字符串，也没啥其它类型好用了），字符串可以用单引号，也可以用双引号，也可以不用引号。单双引号的区别跟PHP类似。
+
+### 单引号
+
+```bash
+str='this is a string'
+```
+
+单引号字符串的限制：
+
++ 单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；
++ 单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。
+
+### 双引号
+
+```bash
+your_name='runoob'
+str="Hello, I know you are \"$your_name\"! \n"
+echo -e $str
+out: Hello, I know you are "runoob"! 
+```
+
+双引号的优点：
+
++ 双引号里可以有变量
++ 双引号里可以出现转义字符
+
+### 拼接字符串
+
+```bash
+your_name="runoob"
+# 使用双引号拼接
+greeting="hello, "$your_name" !"
+greeting_1="hello, ${your_name} !"
+echo $greeting  $greeting_1
+out: hello, runoob ! hello, runoob !
+# 使用单引号拼接
+greeting_2='hello, '$your_name' !'
+greeting_3='hello, ${your_name} !'
+echo $greeting_2  $greeting_3
+out: hello, runoob ! hello, ${your_name} !
+```
+
+### 获取字符串长度
+
+```bash
+string="abcd"
+echo ${#string} #输出 4
+```
+
+### 提取子字符串
+
+以下实例从字符串第 `2` 个字符开始截取 `4` 个字符：
+
+```bash
+string="runoob is a great site"
+echo ${string:1:4} # 输出 unoo
+```
+
+注意：第一个字符的索引值为 `0`。
+
+### 查找子字符串
+
+查找字符 `i` 或 `o` 的位置(哪个字母先出现就计算哪个)：
+
+```bash
+string="runoob is a great site"
+echo $(expr index "$string" io)  # 输出 4
+```
+
+### Shell 数组
+
+bash支持一维数组（不支持多维数组），并且没有限定数组的大小。
+
+类似于 `C` 语言，数组元素的下标由 `0` 开始编号。
+获取数组中的元素要利用下标，下标可以是整数或算术表达式，其值应大于或等于 `0`。
+定义数组
+
+在 `Shell` 中，用括号来表示数组，数组元素用"空格"符号分割开。定义数组的一般形式为：
+
+```bash
+数组名=(值1 值2 ... 值n)
+```
+
+例如：
+
+```bash
+array_name=(value0 value1 value2 value3)
+```
+
+或者
+
+```bash
+array_name=(
+value0
+value1
+value2
+value3
+)
+```
+
+还可以单独定义数组的各个分量：
+
+```bash
+array_name[0]=value0
+array_name[1]=value1
+array_name[n]=valuen
+```
+
+可以不使用连续的下标，而且下标的范围没有限制。
+
+### 读取数组
+
+读取数组元素值的一般格式是：
+
+```bash
+${数组名[下标]}
+```
+
+例如：
+
+```bash
+valuen=${array_name[n]}
+```
+
+使用 `@` 符号可以获取数组中的所有元素，例如：
+
+```bash
+echo ${array_name[@]}
+```
+
+### 获取数组的长度
+
+获取数组长度的方法与获取字符串长度的方法相同，例如：
+
+```bash
+# 取得数组元素的个数
+length=${#array_name[@]}
+# 或者
+length=${#array_name[*]}
+# 取得数组单个元素的长度
+lengthn=${#array_name[n]}
+```
+
+### Shell 注释
+
+以 `#` 开头的行就是注释，会被解释器忽略。
+
+通过每一行加一个 `#` 号设置多行注释，像这样：
+
+```bash
+#--------------------------------------------
+# 这是一个注释
+# author：菜鸟教程
+# site：www.runoob.com
+# slogan：学的不仅是技术，更是梦想！
+#--------------------------------------------
+##### 用户配置区 开始 #####
+#
+#
+# 这里可以添加脚本描述信息
+# 
+#
+##### 用户配置区 结束  #####
+```
+
+如果在开发过程中，遇到大段的代码需要临时注释起来，过一会儿又取消注释，怎么办呢？
+
+每一行加个`#`符号太费力了，可以把这一段要注释的代码用一对花括号括起来，定义成一个函数，
+没有地方调用这个函数，这块代码就不会执行，达到了和注释一样的效果。
+
+### 多行注释
+
+多行注释还可以使用以下格式：
+
+```bash
+:<<EOF
+注释内容...
+注释内容...
+注释内容...
+EOF
+
+EOF 也可以使用其他符号:
+
+:<<'
+注释内容...
+注释内容...
+注释内容...
+'
+
+:<<!
+注释内容...
+注释内容...
+注释内容...
+!
+```
+
+## Shell 传递参数
+
+### 实例
+
+## Shell 数组
+
+### 实例
+
+### shell中的数组作为参数传递
+
+[shell中的数组作为参数传递][]
+
+[shell中的数组作为参数传递]: https://blog.csdn.net/brouse8079/article/details/6417836
+
+`./test.sh  "${atest[@]}"` 简而言之，需要把数组参数用引号括起来
+
+```bash
+#!/bin/bash
+
+echo $1
+echo $2
+...
+echo ${10}
+```
 
 ***
-
-`Ubuntu 18.04 Server` 安装好后，Netplan 的默认描述文件是：`/etc/netplan/50-cloud-init.yaml`.
-
-[Ubuntu18.04的网络配置 netplan]
-
-[Ubuntu18.04的网络配置 netplan]: https://blog.csdn.net/uaniheng/article/details/104233137?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
-
-### 配置netplan 固定ip
-
-`vim /etc/netplan/50-cloud-init.yaml `
-
-配置如下：
+构造数组
 
 ```bash
-network:
-    ethernets:
-        enp3s0:
-            addresses: [192.168.0.20/24]  //IP址
-            gateway4: 192.168.0.1  // 网关
-            nameservers:
-             addresses: [114.114.114.114, 192.168.0.1] //DNS
-            dhcp4: no
-            optional: no
-    version: 2
+atest=("a" "bb cc" "dd ee ff" "gg hh ii jj")
 ```
 
-或者配置dhcp自动获取ip
+***
+测试
 
-`vim /etc/netplan/50-cloud-init.yaml `
+`atest`为数组。此时若把这个数组的内容作为参数调用另一个shell脚本时，写法很关键。
 
-配置如下：
+第一种写法：`./test.sh ${atest[@]}`
+
+执行结果：
 
 ```bash
-network:
-    ethernets:
-        enp3s0:
-            dhcp4: true
-            optional: yes
-    version: 2
+a
+...
+a0
 ```
 
-应用：
+此时传递的参数为`a bb cc dd ee ff gg hh ii jj`。把数组的内容组成了一个字符串，已经破坏了原来数组的结构。
 
-`sudo netplan apply`
+第二种写法：`./test.sh  "${atest[@]}"`
 
-### ubuntu查看MAC地址
-
-+ `ifconfig | awk '/eth/{print $1,$5}'`
-+ `arp -a | awk '{print $4}`
-+ `sudo lshw -C network`
-+ `sudo lshw -c network | grep serial`
+执行结果：
 
 ```bash
-wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-      link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff
-    inet 192.168.32.6/24 brd 192.168.32.255 scope global dynamic noprefixroute wlp2s0
-       valid_lft 4185sec preferred_lft 4185sec
-    inet6 fe80::310a:df04:1f02:d5ac/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
+a
+bb cc
+dd ee ff
+gg hh ii jj
+a0
 ```
 
-`link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff` This is the mac address
+把数组用双引号括起来，此时传递到`test.sh`中的参数仍然为数组的原来结构。
 
-## source
+## 各种命令
+
+### source
 
 [Ubuntu如何使用source命令执行文件][]
 
@@ -1093,91 +1260,6 @@ environment文件在`/etc`目录下
 vi /etc/profile //编辑profile文件
 在PATH=/......中加入“:/xxx/xxx”
 ```
-
-## lyx
-
-***
-如果是后安装的`texlive`, `lyx` 需要运行 `tools-reconfigure` 进行配置
-
-***
-[compiling-lyx-2-2-on-debian][]
-
-[compiling-lyx-2-2-on-debian]: https://unix.stackexchange.com/questions/321039/compiling-lyx-2-2-on-debian
-
-编译的时候报错，`cannot compile a simple Qt executable. Check you have the right $QTDIR`.
-
-`QTDIR` shouldn't really be necessary, but try setting it to `/usr/share/qt5`.
-
-解决方法：
-
-You could build the Debian source package instead:
-
-```bash
-sudo apt-get install devscripts dpkg-dev build-essential
-sudo apt-get build-dep lyx
-dget http://httpredir.debian.org/debian/pool/main/l/lyx/lyx_2.3.2-1.dsc
-cd lyx-2.2.0
-dpkg-buildpackage -us -uc
-```
-
-The first two commands install the packages necessary to build `lyx`; 
-then `dget` downloads and extracts the source package, 
-and `dpkg-buildpackage` builds it and produces a series of `.deb` packages 
-you can install manually using `dpkg` as usual.
-
-***
-代码解释
-
-`build-dep `causes `apt-get` to install/remove packages in an attempt to satisfy the build dependencies for a source package. 
-
-By default the dependencies are satisfied to build the package natively
-
-这样的话需要在 source.list 中添加软件源代码的源，即以 deb src 开头的行。
-
-`gpg`
-
-Your issue is you have not imported our public key into your keyring. You skipped a step.
-
-***
-`tar --one-top-level -xJvf  lyx`
-
-`-J, --xz`
-
-Filter the archive through xz(1).
-
-`--one-top-level[=DIR]`
-
-Extract all files into DIR, or, if used without argument, into a subdirectory named by the base name of the archive (minus standard  compression  suffixes recognizable by --auto-compress).
-
-***
-`dpkg-buildpackage -us -uc`
-
--us, --unsigned-source
-Do not sign the source package (long option since dpkg 1.18.8).
-
-uc, --unsigned-changes
-Do not sign the .buildinfo and .changes files (long option since dpkg 1.18.8).
-
-***
-Compiling and installing LyX
-
-Quick compilation guide
-
-These four steps will compile, test and install LyX:
-
-1. Linux users beware: You need `qt4/5` and `qt4/5-devel` packages of the same version to compile LyX.
-In general, it is also recommended to have `pkg-config`installed (the name might vary depending on your distribution).
-
-1. `./configure` configures LyX according to your system. 
-You may have to set `--with-qt-dir=<path-to-your-qt-installation>` (for example, "`--with-qt-dir=/usr/share/qt4/`") if the environment variable `QTDIR` is not set and `pkg-config` is not available.
-You will need `--enable-qt5` switch for choosing qt5 over qt4.
-See Note below if `./configure` script is not present.
-
-`./configure --enable-qt5`
-
-1. `make`   compiles the program.
-1. `src/lyx`    runs the program so you can check it out.
-1. `make install` will install it. You can use "`make install-strip`" instead if you want a smaller binary.
 
 ## && || () {} 用法
 
@@ -1556,362 +1638,7 @@ if [ $var -eq 0 ]; then echo "True"; fi
 if test $var -eq 0; then echo "True"; fi
 ```
 
-## xelatex 脚本
-
-[shell 参数换行 & shell 输出换行的方法][]
-
-[shell 参数换行 & shell 输出换行的方法]: https://blog.csdn.net/donaldsy/article/details/99938408
-
-首先测试一下括号的用法：
-
-```bash
-tex_list=1; echo $tex_list; tex_list=$( { ls -x *.tex } ); echo $tex_list;
-tex_list=1; echo $tex_list; tex_list=$( ( ls -x *.tex ) ); echo $tex_list;
-tex_list=$(ls -x *.tex; ls -x *.log); echo $tex_list;
-tex_list=$( (ls -x *.tex; ls -x *.log) ); echo $tex_list;
-```
-
-```bash
-#!/bin/bash
-
-# 设置格式化相关的部分
-delimiter="echo -e \\\n+++++++++++++"
-nameis="name is :"
-eval  $delimiter
-
-# 默认文件名是 main，否则使用文件夹中的tex文件名
-tex_usual="main"
-echo "tex_usual $nameis $tex_usual"
-eval  $delimiter
-
-# 当前tex文件列表，去掉后缀
-
-tex_list=$(ls -x *.tex)
-echo "tex_list $nameis $tex_list"
-
-tex_here=${tex_list//".tex"/}
-echo "tex_here $nameis $tex_here"
-eval  $delimiter
-
-# 判断当前tex文件列表中是否包含 main.tex
-# 若有 main.tex，使用之，若没有，则使用 列表中的tex
-# tex_file=${${tex_here}%% *}
-
-if [[ $tex_usual =~ $tex_here ]]
-then
-    tex_file=$tex_usual
-else
-    tex_file=${tex_here}
-fi
-
-echo "tex_file $nameis $tex_file"
-eval  $delimiter
-
-# 可增加输出文件夹选项 -auxdir=temp -outdir=temp
-# 还有 -shell-escape 选项
-
-# 把下面这行加入到 ~/.latexmkrc，指定 pdf 查看程序
-# $pdf_previewer = 'evince %O %S';
-# -silent 可以抑制输出
-
-latexmk -xelatex  -silent -pv  -view=pdf -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file}
-
-## 输出错误记录
-eval  $delimiter
-echo 'error message'
-eval  $delimiter
-## 用 tail 减少输出数量
-## grep -m 100 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" | tail -n 50
-grep -m 10 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" 
-```
-
-***
-
-默认情况下，`echo`关闭了对转义字符的解释，添加 `-e `参数可打开`echo`对转义字符的解释功能。`-E`关闭转义字符，是默认值。
-
-```bash
-echo -e "hello\n wrold" #换行输出 hello world
-echo -E "hello\n wrold" #输出 hello\n world， 默认情况
-```
-
-## texlive
-
-`tlmgr [option]... action [option]... [operand]...`
-
-安装好 texlive 后
-
-如果使用`tlmgr option` 报错
-`cannot setup TLPDB in /home/USER/texmf at /usr/bin/tlmgr line 5308.`
-
-原因如下：
-
-this error is generated when `tlmgr` was not initialized. In most cases, launching the following command (as a normal user) solves the problem :
-
-`$ tlmgr init-usertree`
-
-This command will create few folders inside your home directory. See the man page for explanation :
-
->Before using `tlmgr` in user mode, you have to set up the user tree with the `init-usertree` action.
->This creates `usertree/web2c` and `usertree/tlpkg/tlpobj`, and a minimal `usertree/tlpkg/texlive.tlpdb`.
-> At that point, you can tell `tlmgr` to do the (supported) actions by adding the `--usermode` command line option.
-
-***
-下面这些是`tlmgr`的常用命令：
-
-+ `tlmgr option repository ctan`
-+ `tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet`
-
-如果要使用清华的`mirror`:
-
-`tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
-
-Tell "tlmgr" to use a nearby CTAN mirror for future updates; useful if you installed TeX Live from the DVD image and want to have continuing updates.
-The two commands are equivalent; "ctan" is just an alias for the given url.  Caveat: "mirror.ctan.org" resolves to many different hosts, and they are not perfectly synchronized; we recommend updating only daily (at most), and not more often.
-
-+ `tlmgr update --list` Report what would be updated without actually updating anything.
-+ `tlmgr update --all` Make your local TeX installation correspond to what is in the package repository (typically useful when updating from CTAN).
-+ `tlmgr info" what` Display detailed information about a package what, such as the installation status and description, of searches for what in all packages.
-
-### Actions
-
-***
-`install [option]... pkg...`
-
-Install each `pkg` given on the command line, if it is not already installed.
-(It does not touch existing packages; see the "update" action for how to get the latest version of a package.)
-
-By default this also installs all packages on which the given pkgs are dependent.  Options:
-
---dry-run
-
-Nothing is actually installed; instead, the actions to be performed are written to the terminal.
-
---file
-
-Instead of fetching a package from the installation repository, use the package files given on the command line.  These files must be standard TeX Live package files (with contained tlpobj file).
-
---force
-
-If updates to "tlmgr" itself (or other parts of the basic infrastructure) are present, "tlmgr" will bail out and not perform the installation unless this option is given.  Not recommended.
-
- --no-depends
-
-Do not install dependencies.  (By default, installing a package ensures that all dependencies of this package are fulfilled.)
-
---no-depends-at-all
-
-Normally, when you install a package which ships binary files the respective binary package will also be installed.
-That is, for a package "foo", the package "foo.i386-linux" will also be installed on an "i386-linux" system.  This option suppresses this behavior, and also implies "--no-depends".
-Don't use it unless you are sure of what you are doing.
-
---reinstall
-
-Reinstall a package (including dependencies for collections) even if it already seems to be installed (i.e, is present in the TLPDB).
-This is useful to recover from accidental removal of files in the hierarchy.
-
-***
-`conf [texmf|tlmgr|updmap [--conffile file] [--delete] [key [value]]]`
-`conf auxtrees [--conffile file] [show|add|delete] [value]`
-
-With only "conf", show general configuration information for TeX Live, including active configuration files, path settings, and more.  This is like running "texconfig conf", but works on all supported platforms.
-
-With one of "conf texmf", "conf tlmgr", or "conf updmap", shows all key/value pairs (i.e., all settings) as saved in "ROOT/texmf.cnf", the user-specific "tlmgr" configuration file (see below), or the first found (via "kpsewhich") "updmap.cfg" file, respectively.
-
-The "PATH" value shown by "conf" is as used by "tlmgr".  The directory in which the "tlmgr" executable is found is automatically prepended to the PATH value inherited from the environment.
-
-Here is a practical example of changing configuration values. If the execution of (some or all) system commands via "\write18" was left enabled during installation, you can disable it afterwards:
-
-`tlmgr conf texmf shell_escape 0`
- 
-The subcommand "auxtrees" allows adding and removing arbitrary additional texmf trees, completely under user control.  "auxtrees show" shows the list of additional trees, "auxtrees add" tree adds a tree to the list, and "auxtrees remove" tree removes a tree from the list (if present).
-
-The trees should not contain an "ls-R" file (or files might not be found if the "ls-R" becomes stale). This works by manipulating the Kpathsea variable "TEXMFAUXTREES", in "ROOT/texmf.cnf". Example:
-
-tlmgr conf auxtrees add /quick/test/tree
-tlmgr conf auxtrees remove /quick/test/tree
-
-In all cases the configuration file can be explicitly specified via the option "--conffile" file, if desired.
-
-Warning: The general facility for changing configuration values is here, but tinkering with settings in this way is strongly discouraged.  Again, no error checking on either keys or values is done, so any sort of breakage is possible.
-
-### texlive安装与卸载
-
-***
-[Linux环境下LaTex的安装与卸载][]
-[Ubuntu Texlive 2019 安装与环境配置][]
-[TexLive 2019 安装指南][]
-
-[Linux环境下LaTex的安装与卸载]: https://blog.csdn.net/l2563898960/article/details/86774599
-
-[Ubuntu Texlive 2019 安装与环境配置]: https://blog.csdn.net/williamyi96/java/article/details/90732304
-
-[TexLive 2019 安装指南]: https://zhuanlan.zhihu.com/p/64530166
-
-***
-准备工作：下载，清除
-
-注意：安装 lyx, apt 会默认安装 tex2017版本，覆盖掉新版的texlive2020
-
-注意：如果重新安装，请务必完全删除之前的失败安装，默认情况下，这将在这两个目录中：
-
-```bash
-rm -rf /usr/local/texlive/2020
-rm -rf ~/.texlive2020
-```
-
-或者参考下面的命令
-
-```bash
-rm -rf /usr/local/texlive/2020
-rm -rf ~/.texlive2020
-sudo rm -rf /usr/local/texlive 
-sudo rm -rf /usr/local/share/texmf
-sudo rm -rf /var/lib/texmf
-sudo rm -rf /etc/texmf
-sudo apt-get purge texlive*
-sudo apt-get remove tex-common --purge
-```
-
-***
-进行安装
-
-因为下载好的是一个`iso`镜像文件，所以下载好之后，还需要挂载到`/mnt`目录下
-
-```bash
-sudo mount -o ro,loop,noauto texlive2020-20200406.iso /mnt
-```
-
-+ `ro` :     Mount the filesystem read-only.
-+ `loop` : loop 文件
-+ `auto` :   Can be mounted with the -a option.
-+ `noauto` : Can only be mounted explicitly (i.e., the  -a  option  will  not cause the filesystem to be mounted).
-
-***
-接着运行`install-tl`脚本进行安装。
-
-```bash
-cd /tex_iso_directory
-sudo ./install-tl --profile installation.profile
-[... messages omitted ...]
-Enter command: i
-[... when done, see below for post-install ...]
-```
-
-若要更改安装目录或其他选项，请阅读提示和说明。
-
-安装程序的接口：文本，GUI，批处理
-安装程序支持：文本，图形，和批处理接口。（Linux系统下没有图像安装，在Windows下支持图形安装）
-
-`install-tl -gui text #`使用简单文本模式。也是输入`install-tl`默认选项。
-
-`install-tl --profile=profile #`进行一个批处理安装，需要一个 `profile` （配置文件），为了创建一个`profile`，最简单的方式是使用`tlpkg/texlive.profile`文件，这是安装器在安装成功后生成的文件。
-
-***
-卸载镜像文件
-
-```bash
-sudo umount /mnt
-```
-
-***
-字体配置
-
-```bash
-sudo cp /usr/local/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/20-texlive.conf
-sudo fc-cache -fsv
-```
-
-*** 
-环境变量
-
-安装完之后有提示：
-
-Add /usr/local/texlive/2020/texmf-dist/doc/man to MANPATH.
-Add /usr/local/texlive/2020/texmf-dist/doc/info to INFOPATH.
-Most importantly, add /usr/local/texlive/2020/bin/x86_64-linux
-to your PATH for current and future sessions.
-
-`~/.bashrc` 和 `~/.profile` 中均添加如下语句：
-
-```bash
-export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man
-export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info
-export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux
-```
-
-或者在命令行下面运行：
-配置普通用户的环境变量
-
-因为你一般是在普通用户下使用 `TeX Live`，所以还需要切换到普通用户下，配置一下环境变量。运行以下命令。
-在当前终端中，输入 `Ctrl + D`，退出 root 身份。
-在当前终端下，输入以下命令：
-
-```bash
-echo "export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man" >> ~/.bashrc
-echo "export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info" >> ~/.bashrc
-echo "export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux" >> ~/.bashrc
-source ~/.bashrc # 令 bashrc 生效
-```
-
-如果使用的是`zsh`，要把相应的` ~/.bashrc` 改成 `~/.zshrc`
-
-```bash
-echo "export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man" >> ~/.zshrc
-echo "export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info" >> ~/.zshrc
-echo "export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux" >> ~/.zshrc
-source ~/.zshrc # 令 zshrc 生效
-```
-
-***
-验证安装是否成功
-
-```bash
-tex -v
-```
-
-## loop 设备
-
-loop 设备 (循环设备)
-
-[loop 设备 (循环设备)][]
-
-[loop 设备 (循环设备)]: https://blog.csdn.net/neiloid/article/details/8150629?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param
-
-### loop 设备介绍
-
-在类 UNIX 系统里，loop 设备是一种伪设备(pseudo-device)，或者也可以说是仿真设备。它能使我们像块设备一样访问一个文件。
-
-在使用之前，一个 loop 设备必须要和一个文件进行连接。这种结合方式给用户提供了一个替代块特殊文件的接口。因此，如果这个文件包含有一个完整的文件系统，那么这个文件就可以像一个磁盘设备一样被 mount 起来。
-
-上面说的文件格式，我们经常见到的是 CD 或 DVD 的 ISO 光盘镜像文件或者是软盘(硬盘)的 *.img 镜像文件。通过这种 loop mount (回环mount)的方式，这些镜像文件就可以被 mount 到当前文件系统的一个目录下。
-
-至此，顺便可以再理解一下 loop 之含义：对于第一层文件系统，它直接安装在我们计算机的物理设备之上；而对于这种被 mount 起来的镜像文件(它也包含有文件系统)，它是建立在第一层文件系统之上，这样看来，它就像是在第一层文件系统之上再绕了一圈的文件系统，所以称为 loop。
-
-在 Linux 里，loop 设备的设备名形如：
-
-```bash
-ls /dev/loop*
-/dev/loop0  /dev/loop2  /dev/loop4  /dev/loop6
-/dev/loop1  /dev/loop3  /dev/loop5  /dev/loop7
-... ...
-```
-
-例如，要在一个目录下 mount 一个包含有磁盘镜像的文件，需要分 2 步走：
-
-```bash
-losetup /dev/loop0 disk.img           #使磁盘镜像文件与循环设备连结起来
-mount /dev/loop0 /home/groad/disk_test   #将循环设备 mount 到目录 disk_test 下
-```
-
-经过上面的两个命令后，镜像文件就如同一个文件系统挂载在 `disk_test` 目录下，当然我们也可以往镜像里面添加文件。
-
-其实上面的两个步骤可以写成一个步骤：
-
-```bash
-mount -t minix -o loop ./disk.img ./disk_test
-```
-
-]## 字符串和数字
+## 字符串和数字
 
 commandline chapter 35
 
@@ -1951,7 +1678,7 @@ parameter 后面可能接的保留字，`:` `#` `%` `/`
 尽管参数展开在第七章中出现过,但我们并没有详尽地介绍它,因为大多数的参数展开会用在脚本中,而不是命
 令行中。 我们已经使用了一些形式的参数展开;例如,shell 变量。shell 提供了更多方式。
 
-#### 基本参数
+### 基本参数展开
 
 最简单的参数展开形式反映在平常使用的变量上。
 
@@ -1971,7 +1698,7 @@ foo_file
 
 我们已经知道通过把数字包裹在花括号中,可以访问大于`9`的位置参数。例如,访问第十一个位置参数,我们可以这样做: `${11}`
 
-#### 管理空变量的展开
+### 管理空变量的展开
 
 `null`
 `undefined`

@@ -1,5 +1,35 @@
 # ubuntu-2.md
 
+## Ubuntu 镜像使用帮助
+
+清华大学的源
+
+域名选择
+
+```bash
+https://mirrors.tuna.tsinghua.edu.cn 自动选择
+https://mirrors6.tuna.tsinghua.edu.cn 只解析 IPv6
+https://mirrors4.tuna.tsinghua.edu.cn 只解析 IPv4
+```
+
+Ubuntu 的软件源配置文件是 `/etc/apt/sources.list`。将系统自带的该文件做个备份，将该文件替换为下面内容，即可使用 `TUNA` 的软件源镜像。
+
+```bash
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+# deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+```
+
 ## tex的TDS
 
 latex 组织文件的规范叫做 TDS-compliant
@@ -372,11 +402,39 @@ bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
 
 [Linux各目录含义]: https://www.jianshu.com/p/142deb98ed5a
 
-## 输入法
+## 语言显示
+
+### 输入法
 
 重启输入法
 
 `ibus restart`: Restart ibus-daemon.
+
+### gedit默认编码设置为UTF-8编码
+
+[ubuntu下gedit默认编码设置为UTF-8编码][]
+
+[ubuntu下gedit默认编码设置为UTF-8编码]:  https://blog.csdn.net/miscclp/article/details/39154639
+
+在终端下输入：
+
+```bash
+gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['UTF-8', 'GB18030', 'GB2312', 'GBK', 'BIG5', 'CURRENT', 'UTF-16']"
+```
+ 
+### 导入ibus词库
+
+终端下输入`ibus-setup`--`Input Method`--`Chinese - intelligent pinyin`，
+点击右侧的 `preference`--`user data`--`import`
+把制作好的词库导入进去即可。
+
+测试：
+`亥姆霍兹方程`
+`重整化群`
+
+[iBus拼音输入法导入搜狗词库][]
+
+[iBus拼音输入法导入搜狗词库]: https://blog.csdn.net/betabin/article/details/7798668
 
 ## 查看文件、文件夹和磁盘空间的大小
 
@@ -1330,3 +1388,524 @@ menuentry 'Example GNU/Linux distribution' --class gnu-linux --id example-gnu-li
 
 去搜狗词库下搜狗细胞词库文件，然后下个**深蓝词库转换器**（`exe`），`wine`中打开转换器，选择从搜狗细胞词库转换到手机`QQ`格式，转换结束后不要选择文件保存本地，编码格式不大对，在输出框里面全选复制粘贴到你的文本编辑器，保存为`.txt`后缀。
 然后在`libpinyin`配置界面导入即可。导入完成后，`kill ibus-engine-libpinyin`进程，再切回拼音输入法。
+
+## 网络配置
+
+EXAMPLES
+
++ `ip addr` Shows addresses assigned to all network interfaces.
++ `ip neigh` Shows the current neighbour table in kernel.
++ `ip link set x up` Bring up interface x.
++ `ip link set x down` Bring down interface x.
++ `ip route` Show table routes.
+
+EXAMPLES
+
++ `ip ro` Show all route entries in the kernel.
++ `ip route add default via 192.168.1.1 dev eth0` Adds a default route (for all addresses) via the local gateway 192.168.1.1 that can be reached on device eth0.
++ `ip route add 10.1.1.0/30 encap mpls 200/300 via 10.1.1.1 dev eth0` Adds an ipv4 route with mpls encapsulation attributes attached to it.
++ `ip -6 route add 2001:db8:1::/64 encap seg6 mode encap segs 2001:db8:42::1,2001:db8:ffff::2 dev eth0` Adds an IPv6 route with SRv6 encapsulation and two segments attached.
+
+***
+
+`Ubuntu 18.04 Server` 安装好后，Netplan 的默认描述文件是：`/etc/netplan/50-cloud-init.yaml`.
+
+[Ubuntu18.04的网络配置 netplan]
+
+[Ubuntu18.04的网络配置 netplan]: https://blog.csdn.net/uaniheng/article/details/104233137?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
+
+### 配置netplan 固定ip
+
+`vim /etc/netplan/50-cloud-init.yaml `
+
+配置如下：
+
+```bash
+network:
+    ethernets:
+        enp3s0:
+            addresses: [192.168.0.20/24]  //IP址
+            gateway4: 192.168.0.1  // 网关
+            nameservers:
+             addresses: [114.114.114.114, 192.168.0.1] //DNS
+            dhcp4: no
+            optional: no
+    version: 2
+```
+
+或者配置dhcp自动获取ip
+
+`vim /etc/netplan/50-cloud-init.yaml `
+
+配置如下：
+
+```bash
+network:
+    ethernets:
+        enp3s0:
+            dhcp4: true
+            optional: yes
+    version: 2
+```
+
+应用：
+
+`sudo netplan apply`
+
+### ubuntu查看MAC地址
+
++ `ifconfig | awk '/eth/{print $1,$5}'`
++ `arp -a | awk '{print $4}`
++ `sudo lshw -C network`
++ `sudo lshw -c network | grep serial`
+
+```bash
+wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+      link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff
+    inet 192.168.32.6/24 brd 192.168.32.255 scope global dynamic noprefixroute wlp2s0
+       valid_lft 4185sec preferred_lft 4185sec
+    inet6 fe80::310a:df04:1f02:d5ac/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+`link/ether 10:5b:ad:df:4c:cd brd ff:ff:ff:ff:ff:ff` This is the mac address
+
+## xelatex 脚本
+
+[shell 参数换行 & shell 输出换行的方法][]
+
+[shell 参数换行 & shell 输出换行的方法]: https://blog.csdn.net/donaldsy/article/details/99938408
+
+首先测试一下括号的用法：
+
+```bash
+tex_list=1; echo $tex_list; tex_list=$( { ls -x *.tex } ); echo $tex_list;
+tex_list=1; echo $tex_list; tex_list=$( ( ls -x *.tex ) ); echo $tex_list;
+tex_list=$(ls -x *.tex; ls -x *.log); echo $tex_list;
+tex_list=$( (ls -x *.tex; ls -x *.log) ); echo $tex_list;
+```
+
+```bash
+#!/bin/bash
+
+# 设置格式化相关的部分
+delimiter="echo -e \\\n+++++++++++++"
+nameis="name is :"
+eval  $delimiter
+
+# 默认文件名是 main，否则使用文件夹中的tex文件名
+tex_usual="main"
+echo "tex_usual $nameis $tex_usual"
+eval  $delimiter
+
+# 当前tex文件列表，去掉后缀
+
+tex_list=$(ls -x *.tex)
+echo "tex_list $nameis $tex_list"
+
+tex_here=${tex_list//".tex"/}
+echo "tex_here $nameis $tex_here"
+eval  $delimiter
+
+# 判断当前tex文件列表中是否包含 main.tex
+# 若有 main.tex，使用之，若没有，则使用 列表中的tex
+# tex_file=${${tex_here}%% *}
+
+if [[ $tex_usual =~ $tex_here ]]
+then
+    tex_file=$tex_usual
+else
+    tex_file=${tex_here}
+fi
+
+echo "tex_file $nameis $tex_file"
+eval  $delimiter
+
+# 可增加输出文件夹选项 -auxdir=temp -outdir=temp
+# 还有 -shell-escape 选项
+
+# 把下面这行加入到 ~/.latexmkrc，指定 pdf 查看程序
+# $pdf_previewer = 'evince %O %S';
+# -silent 可以抑制输出
+
+latexmk -xelatex  -silent -pv  -view=pdf -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file}
+
+## 输出错误记录
+eval  $delimiter
+echo 'error message'
+eval  $delimiter
+## 用 tail 减少输出数量
+## grep -m 100 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" | tail -n 50
+grep -m 10 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" 
+```
+
+***
+
+默认情况下，`echo`关闭了对转义字符的解释，添加 `-e `参数可打开`echo`对转义字符的解释功能。`-E`关闭转义字符，是默认值。
+
+```bash
+echo -e "hello\n wrold" #换行输出 hello world
+echo -E "hello\n wrold" #输出 hello\n world， 默认情况
+```
+
+## texlive
+
+`tlmgr [option]... action [option]... [operand]...`
+
+安装好 texlive 后
+
+如果使用`tlmgr option` 报错
+`cannot setup TLPDB in /home/USER/texmf at /usr/bin/tlmgr line 5308.`
+
+原因如下：
+
+this error is generated when `tlmgr` was not initialized. In most cases, launching the following command (as a normal user) solves the problem :
+
+`$ tlmgr init-usertree`
+
+This command will create few folders inside your home directory. See the man page for explanation :
+
+>Before using `tlmgr` in user mode, you have to set up the user tree with the `init-usertree` action.
+>This creates `usertree/web2c` and `usertree/tlpkg/tlpobj`, and a minimal `usertree/tlpkg/texlive.tlpdb`.
+> At that point, you can tell `tlmgr` to do the (supported) actions by adding the `--usermode` command line option.
+
+***
+下面这些是`tlmgr`的常用命令：
+
++ `tlmgr option repository ctan`
++ `tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet`
+
+如果要使用清华的`mirror`:
+
+`tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
+
+Tell "tlmgr" to use a nearby CTAN mirror for future updates; useful if you installed TeX Live from the DVD image and want to have continuing updates.
+The two commands are equivalent; "ctan" is just an alias for the given url.  Caveat: "mirror.ctan.org" resolves to many different hosts, and they are not perfectly synchronized; we recommend updating only daily (at most), and not more often.
+
++ `tlmgr update --list` Report what would be updated without actually updating anything.
++ `tlmgr update --all` Make your local TeX installation correspond to what is in the package repository (typically useful when updating from CTAN).
++ `tlmgr info" what` Display detailed information about a package what, such as the installation status and description, of searches for what in all packages.
+
+### Actions
+
+***
+`install [option]... pkg...`
+
+Install each `pkg` given on the command line, if it is not already installed.
+(It does not touch existing packages; see the "update" action for how to get the latest version of a package.)
+
+By default this also installs all packages on which the given pkgs are dependent.  Options:
+
+--dry-run
+
+Nothing is actually installed; instead, the actions to be performed are written to the terminal.
+
+--file
+
+Instead of fetching a package from the installation repository, use the package files given on the command line.  These files must be standard TeX Live package files (with contained tlpobj file).
+
+--force
+
+If updates to "tlmgr" itself (or other parts of the basic infrastructure) are present, "tlmgr" will bail out and not perform the installation unless this option is given.  Not recommended.
+
+ --no-depends
+
+Do not install dependencies.  (By default, installing a package ensures that all dependencies of this package are fulfilled.)
+
+--no-depends-at-all
+
+Normally, when you install a package which ships binary files the respective binary package will also be installed.
+That is, for a package "foo", the package "foo.i386-linux" will also be installed on an "i386-linux" system.  This option suppresses this behavior, and also implies "--no-depends".
+Don't use it unless you are sure of what you are doing.
+
+--reinstall
+
+Reinstall a package (including dependencies for collections) even if it already seems to be installed (i.e, is present in the TLPDB).
+This is useful to recover from accidental removal of files in the hierarchy.
+
+***
+`conf [texmf|tlmgr|updmap [--conffile file] [--delete] [key [value]]]`
+`conf auxtrees [--conffile file] [show|add|delete] [value]`
+
+With only "conf", show general configuration information for TeX Live, including active configuration files, path settings, and more.  This is like running "texconfig conf", but works on all supported platforms.
+
+With one of "conf texmf", "conf tlmgr", or "conf updmap", shows all key/value pairs (i.e., all settings) as saved in "ROOT/texmf.cnf", the user-specific "tlmgr" configuration file (see below), or the first found (via "kpsewhich") "updmap.cfg" file, respectively.
+
+The "PATH" value shown by "conf" is as used by "tlmgr".  The directory in which the "tlmgr" executable is found is automatically prepended to the PATH value inherited from the environment.
+
+Here is a practical example of changing configuration values. If the execution of (some or all) system commands via "\write18" was left enabled during installation, you can disable it afterwards:
+
+`tlmgr conf texmf shell_escape 0`
+ 
+The subcommand "auxtrees" allows adding and removing arbitrary additional texmf trees, completely under user control.  "auxtrees show" shows the list of additional trees, "auxtrees add" tree adds a tree to the list, and "auxtrees remove" tree removes a tree from the list (if present).
+
+The trees should not contain an "ls-R" file (or files might not be found if the "ls-R" becomes stale). This works by manipulating the Kpathsea variable "TEXMFAUXTREES", in "ROOT/texmf.cnf". Example:
+
+tlmgr conf auxtrees add /quick/test/tree
+tlmgr conf auxtrees remove /quick/test/tree
+
+In all cases the configuration file can be explicitly specified via the option "--conffile" file, if desired.
+
+Warning: The general facility for changing configuration values is here, but tinkering with settings in this way is strongly discouraged.  Again, no error checking on either keys or values is done, so any sort of breakage is possible.
+
+### texlive安装与卸载
+
+***
+[Linux环境下LaTex的安装与卸载][]
+[Ubuntu Texlive 2019 安装与环境配置][]
+[TexLive 2019 安装指南][]
+
+[Linux环境下LaTex的安装与卸载]: https://blog.csdn.net/l2563898960/article/details/86774599
+
+[Ubuntu Texlive 2019 安装与环境配置]: https://blog.csdn.net/williamyi96/java/article/details/90732304
+
+[TexLive 2019 安装指南]: https://zhuanlan.zhihu.com/p/64530166
+
+***
+准备工作：下载，清除
+
+注意：安装 lyx, apt 会默认安装 tex2017版本，覆盖掉新版的texlive2020
+
+注意：如果重新安装，请务必完全删除之前的失败安装，默认情况下，这将在这两个目录中：
+
+```bash
+rm -rf /usr/local/texlive/2020
+rm -rf ~/.texlive2020
+```
+
+或者参考下面的命令
+
+```bash
+rm -rf /usr/local/texlive/2020
+rm -rf ~/.texlive2020
+sudo rm -rf /usr/local/texlive 
+sudo rm -rf /usr/local/share/texmf
+sudo rm -rf /var/lib/texmf
+sudo rm -rf /etc/texmf
+sudo apt-get purge texlive*
+sudo apt-get remove tex-common --purge
+```
+
+***
+进行安装
+
+因为下载好的是一个`iso`镜像文件，所以下载好之后，还需要挂载到`/mnt`目录下
+
+```bash
+sudo mount -o ro,loop,noauto texlive2020-20200406.iso /mnt
+```
+
++ `ro` :     Mount the filesystem read-only.
++ `loop` : loop 文件
++ `auto` :   Can be mounted with the -a option.
++ `noauto` : Can only be mounted explicitly (i.e., the  -a  option  will  not cause the filesystem to be mounted).
+
+***
+接着运行`install-tl`脚本进行安装。
+
+```bash
+cd /tex_iso_directory
+sudo ./install-tl --profile installation.profile
+[... messages omitted ...]
+Enter command: i
+[... when done, see below for post-install ...]
+```
+
+若要更改安装目录或其他选项，请阅读提示和说明。
+
+安装程序的接口：文本，GUI，批处理
+安装程序支持：文本，图形，和批处理接口。（Linux系统下没有图像安装，在Windows下支持图形安装）
+
+`install-tl -gui text #`使用简单文本模式。也是输入`install-tl`默认选项。
+
+`install-tl --profile=profile #`进行一个批处理安装，需要一个 `profile` （配置文件），为了创建一个`profile`，最简单的方式是使用`tlpkg/texlive.profile`文件，这是安装器在安装成功后生成的文件。
+
+***
+卸载镜像文件
+
+```bash
+sudo umount /mnt
+```
+
+***
+字体配置
+
+```bash
+sudo cp /usr/local/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/20-texlive.conf
+sudo fc-cache -fsv
+```
+
+*** 
+环境变量
+
+安装完之后有提示：
+
+Add /usr/local/texlive/2020/texmf-dist/doc/man to MANPATH.
+Add /usr/local/texlive/2020/texmf-dist/doc/info to INFOPATH.
+Most importantly, add /usr/local/texlive/2020/bin/x86_64-linux
+to your PATH for current and future sessions.
+
+`~/.bashrc` 和 `~/.profile` 中均添加如下语句：
+
+```bash
+export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man
+export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info
+export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux
+```
+
+或者在命令行下面运行：
+配置普通用户的环境变量
+
+因为你一般是在普通用户下使用 `TeX Live`，所以还需要切换到普通用户下，配置一下环境变量。运行以下命令。
+在当前终端中，输入 `Ctrl + D`，退出 root 身份。
+在当前终端下，输入以下命令：
+
+```bash
+echo "export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man" >> ~/.bashrc
+echo "export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info" >> ~/.bashrc
+echo "export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux" >> ~/.bashrc
+source ~/.bashrc # 令 bashrc 生效
+```
+
+如果使用的是`zsh`，要把相应的` ~/.bashrc` 改成 `~/.zshrc`
+
+```bash
+echo "export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man" >> ~/.zshrc
+echo "export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info" >> ~/.zshrc
+echo "export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux" >> ~/.zshrc
+source ~/.zshrc # 令 zshrc 生效
+```
+
+***
+验证安装是否成功
+
+```bash
+tex -v
+```
+
+## loop 设备
+
+loop 设备 (循环设备)
+
+[loop 设备 (循环设备)][]
+
+[loop 设备 (循环设备)]: https://blog.csdn.net/neiloid/article/details/8150629?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param
+
+### loop 设备介绍
+
+在类 UNIX 系统里，loop 设备是一种伪设备(pseudo-device)，或者也可以说是仿真设备。它能使我们像块设备一样访问一个文件。
+
+在使用之前，一个 loop 设备必须要和一个文件进行连接。这种结合方式给用户提供了一个替代块特殊文件的接口。因此，如果这个文件包含有一个完整的文件系统，那么这个文件就可以像一个磁盘设备一样被 mount 起来。
+
+上面说的文件格式，我们经常见到的是 CD 或 DVD 的 ISO 光盘镜像文件或者是软盘(硬盘)的 *.img 镜像文件。通过这种 loop mount (回环mount)的方式，这些镜像文件就可以被 mount 到当前文件系统的一个目录下。
+
+至此，顺便可以再理解一下 loop 之含义：对于第一层文件系统，它直接安装在我们计算机的物理设备之上；而对于这种被 mount 起来的镜像文件(它也包含有文件系统)，它是建立在第一层文件系统之上，这样看来，它就像是在第一层文件系统之上再绕了一圈的文件系统，所以称为 loop。
+
+在 Linux 里，loop 设备的设备名形如：
+
+```bash
+ls /dev/loop*
+/dev/loop0  /dev/loop2  /dev/loop4  /dev/loop6
+/dev/loop1  /dev/loop3  /dev/loop5  /dev/loop7
+... ...
+```
+
+例如，要在一个目录下 mount 一个包含有磁盘镜像的文件，需要分 2 步走：
+
+```bash
+losetup /dev/loop0 disk.img           #使磁盘镜像文件与循环设备连结起来
+mount /dev/loop0 /home/groad/disk_test   #将循环设备 mount 到目录 disk_test 下
+```
+
+经过上面的两个命令后，镜像文件就如同一个文件系统挂载在 `disk_test` 目录下，当然我们也可以往镜像里面添加文件。
+
+其实上面的两个步骤可以写成一个步骤：
+
+```bash
+mount -t minix -o loop ./disk.img ./disk_test
+```
+
+## lyx
+
+***
+如果是后安装的`texlive`, `lyx` 需要运行 `tools-reconfigure` 进行配置
+
+***
+[compiling-lyx-2-2-on-debian][]
+
+[compiling-lyx-2-2-on-debian]: https://unix.stackexchange.com/questions/321039/compiling-lyx-2-2-on-debian
+
+编译的时候报错，`cannot compile a simple Qt executable. Check you have the right $QTDIR`.
+
+`QTDIR` shouldn't really be necessary, but try setting it to `/usr/share/qt5`.
+
+解决方法：
+
+You could build the Debian source package instead:
+
+```bash
+sudo apt-get install devscripts dpkg-dev build-essential
+sudo apt-get build-dep lyx
+dget http://httpredir.debian.org/debian/pool/main/l/lyx/lyx_2.3.2-1.dsc
+cd lyx-2.2.0
+dpkg-buildpackage -us -uc
+```
+
+The first two commands install the packages necessary to build `lyx`; 
+then `dget` downloads and extracts the source package, 
+and `dpkg-buildpackage` builds it and produces a series of `.deb` packages 
+you can install manually using `dpkg` as usual.
+
+***
+代码解释
+
+`build-dep `causes `apt-get` to install/remove packages in an attempt to satisfy the build dependencies for a source package. 
+
+By default the dependencies are satisfied to build the package natively
+
+这样的话需要在 source.list 中添加软件源代码的源，即以 deb src 开头的行。
+
+`gpg`
+
+Your issue is you have not imported our public key into your keyring. You skipped a step.
+
+***
+`tar --one-top-level -xJvf  lyx`
+
+`-J, --xz`
+
+Filter the archive through xz(1).
+
+`--one-top-level[=DIR]`
+
+Extract all files into DIR, or, if used without argument, into a subdirectory named by the base name of the archive (minus standard  compression  suffixes recognizable by --auto-compress).
+
+***
+`dpkg-buildpackage -us -uc`
+
+-us, --unsigned-source
+Do not sign the source package (long option since dpkg 1.18.8).
+
+uc, --unsigned-changes
+Do not sign the .buildinfo and .changes files (long option since dpkg 1.18.8).
+
+***
+Compiling and installing LyX
+
+Quick compilation guide
+
+These four steps will compile, test and install LyX:
+
+1. Linux users beware: You need `qt4/5` and `qt4/5-devel` packages of the same version to compile LyX.
+In general, it is also recommended to have `pkg-config`installed (the name might vary depending on your distribution).
+
+1. `./configure` configures LyX according to your system. 
+You may have to set `--with-qt-dir=<path-to-your-qt-installation>` (for example, "`--with-qt-dir=/usr/share/qt4/`") if the environment variable `QTDIR` is not set and `pkg-config` is not available.
+You will need `--enable-qt5` switch for choosing qt5 over qt4.
+See Note below if `./configure` script is not present.
+
+`./configure --enable-qt5`
+
+1. `make`   compiles the program.
+1. `src/lyx`    runs the program so you can check it out.
+1. `make install` will install it. You can use "`make install-strip`" instead if you want a smaller binary.
