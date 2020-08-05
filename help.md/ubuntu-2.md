@@ -30,146 +30,6 @@ deb https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricte
 # deb-src https://mirrors6.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
-## tex的TDS
-
-latex 组织文件的规范叫做 TDS-compliant
-
-a standard `TeX Directory Structure` (TDS): a directory hierarchy for macros, fonts, and the other implementation-independent TeX system files.
-
-### TDS 特征
-
-The common properties throughout the TDS tree.
-
-+ Subdirectory searching
-+ Rooting the tree
-+ Local additions
-+ Duplicate filenames 
-
-***
-子目录搜索
-
-Technical Working Group (TWG) 要求，一个综合的TDS 需要支持 implicit subdirectory searching。
-
-更精确地说，具体实现要满足，在寻找输入文件（TeX，Metafont and their companion utilities ）的时候，能够指定具体路径，也能够递归地遍历所有的子文件夹。
-
-***
-tree的根目录
-
-我们把TDS的根目录称为`texmf`(TeX and Metafont)，意思是，这个目录包含了一个完整TeX 系统附属的文件(including Metafont, MetaPost, BibTeX, etc.)，而不是只有单独的 TeX 自己。
-
-***
-Local additions
-
-TDS 不能精确地指出，哪些包是"local addition"。
-
-One common case of local additions is dynamically generated files, e.g., PK fonts by the mktexpk script (which originated in Dvips as MakeTeXPK). A site may store the generated files directly in any of:
-
-+ their standard location in the main TDS tree (if it can be made globally writable);
-+ an alternative location in the main TDS tree (for example, under texmf/fonts/tmp);
-+ a second complete TDS tree (as outlined above);
-+ any other convenient directory (perhaps under /var, for example /var/spool/fonts). 
-
-***
-重复文件名
-
-TDS tree 中的文件可能有相同的文件名。默认并不进一步区分，但TDS要求满足以下例外：
-
-Names of TeX input files must be unique within each first-level subdirectory of `texmf/tex` and `texmf/tex/generic`, but not within all of `texmf/tex`; 比如, different TeX formats may have files by the same name. 
-
-所以具体实现必须提供**格式依赖**的路径指定方式。
-
-### 顶层目录
-
-texmf root 下面包含了 TeX system 的主要成员
-The top-level directories specified by the TDS are:
-
-+ `tex` for TeX files (Section Macros).
-+ `fonts` for font-related files (Section Fonts).
-+ `metafont` for Metafont files which are not fonts (Section Non-font Metafont files).
-+ `metapost` for MetaPost files (Section MetaPost).
-+ `bibtex` for BibTeX files (Section BibTeX).
-+ `scripts` for platform-independent executables (Section Scripts).
-+ `doc` for user documentation (Section Documentation).
-+ `source` for sources. This includes both traditional program sources (for example, Web2C sources go in texmf/source/web2c) and, e.g., LaTeX dtx sources (which go in texmf/source/latex). The TDS leaves unspecified any structure under source.
-+ `implementation` for implementations (examples: `emtex`, `vtex`, `web2c`), to be used for whatever purpose deemed suitable by the implementor or TeX administrator. 
-That is, files that cannot be shared between implementations, such as pool files (tex.pool) and memory dump files (plain.fmt) go here, in addition to implementation-wide configuration files.
-+ `program` for program-specific input and configuration files for any TeX-related programs (examples: `mft`, `dvips`). In fact, the `tex`, `metafont`, `metapost`, and `bibtex` items above may all be seen as instances of this case. 
-
-## 安装latex包
-
-[Ubuntu/Mint下LaTeX宏包安装及更新][]
-
-[Ubuntu/Mint下LaTeX宏包安装及更新]: https://blog.csdn.net/codeforces_sphinx/article/details/7315044
-
-一般使用texlive的包管理工具，否则需要手动安装:
-
-1. Get the package from [CTAN](http://www.ctan.org/CTAN) or wherever.
-2. 如果其中有一个文件是`.ins` 结尾的，打开终端，执行命令`latex foiltex.ins`，就获得了安装需要的包。大多数 latex 包没有打包，所以可以跳过这一步。
-3. 现在你需要决定，这个包要安装给所有用户使用，还是only for you。
-4. 在*nix 系统上（OSX），给所有用户使用，安装到`local` TeX tree, 给自己使用，安装到`user`TeX tree。
-
-查看`texmf.cnf`文件，它通常在`$TEXMF/web2c`文件夹，但是可以用`kpsewhich texmf.cnf`定位。
-
-`local` Tree 的位置在 `TEXMFLOCAL` variable 中定义，通常像是`/usr/local/share/texmf`。
-`user`  Tree 的位置在`TEXMFHOME`中定义，通常像是`$HOME/texmf` or `$HOME/.texliveXXXX`
-
-如果这些变量没有定义，你需要手工指定。修改`local` Tree 可能需要 root 权限。建议修改 user tree, 因为在升级的时候，不会被覆盖。这样在备份系统的时候，可以一起备份。
-
-现在，你需要告诉 Latex 有新文件。这取决于 LaTex 发行版。
-
-1. 对于 TeXLive，运行`texhash`,可能需要 root 权限
-2. 对于MikTeX，运行 `Settings (Admin)` and press the button marked `Refresh FNDB`
-
-5. 最后，你需要告诉 LyX 有新的包可以使用。在LyX 中，运行 `Tools->Reconfigure` and then restart LyX
-
-现在，新的文档 class 可以选择了，`Document->Settings->Document Class`。
-
-### 安装方式2
-
-首先要找到默认宏包所在目录，一般是：
-
-```bash
-/usr/share/texmf/tex/latex
-/usr/share/texmf-texlive/tex/latex
-```
-
-1. 如果是安装一个新的宏包，就直接把宏包的压缩文件扔进第一个目录下，直接解压就行，注意解压后的文件里可能有安装说明，照着安装说明做就是了。
-如果是更新一个宏包，一般都可以在第二个目录下找到，把原先的宏包重命名成`*-backup`，再解压新下载的宏包压缩文件，同时如果有安装说明的话，也照着做。
-2. 之后要对宏包重新标记下，终端下执行
-
-```bash
-# texhash
-```
-
-3. `Log off` / `Log in`后，就完成了～
-
-## lyx
-
-### lyx error
-
-`~/.lyx/textclass.lst` 中的条目格式有问题，如
-
-`"IEEEtran-CompSoc"` 变成了 `"b'IEEEtran-CompSoc'"`
-
-python中字节字符串不能格式化。
-获取到的网页有时候是字节字符串，需要转化后再解析。
-
-bytes 转 string 方式：
-
-```python
->>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
->>>string=str(b,'utf-8')
->>>string
-## 或者
->>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
->>>string=b.decode()
-'人生苦短，我要用python'
-```
-
-[python基础之string与bytes的转换]
-
-[python基础之string与bytes的转换]: https://blog.csdn.net/Panda996/java/article/details/84780377
-
 ## dpkg-buildpackage
 
 `dget` -- Download Debian source and binary packages
@@ -546,333 +406,6 @@ emcc -o ./dist/test.html `# 目标文件` \
 --source-map-base dist `# source map 根路径` \
 -O3 `# 优化级别` \
 ```
-
-## sed
-
-sed是一种流编辑器，它是文本处理中非常中的工具，能够完美的配合正则表达式使用，功能不同凡响。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等
-
-命令格式
-
-sed [options] 'command' file(s)
-sed [options] -f scriptfile file(s)
-
-### 选项
-
--e<script>或--expression=<script>：以选项中的指定的script来处理输入的文本文件；
--f<script文件>或--file=<script文件>：以选项中指定的script文件来处理输入的文本文件；
--h或--help：显示帮助；
--n或--quiet或——silent：仅显示script处理后的结果；
--V或--version：显示版本信息。
-
-### 命令
-
-+ `a\` 在当前行下面插入文本。
-+ `i\` 在当前行上面插入文本。
-+ `c\` 把选定的行改为新的文本。
-+ `d` 删除，删除选择的行。
-+ `D` 删除模板块的第一行。
-+ `s` 替换指定字符
-+ `h` 拷贝模板块的内容到内存中的缓冲区。
-+ `H` 追加模板块的内容到内存中的缓冲区。
-+ `g` 获得内存缓冲区的内容，并替代当前模板块中的文本。
-+ `G` 获得内存缓冲区的内容，并追加到当前模板块文本的后面。
-+ `l` 列表不能打印字符的清单。
-+ `n` 读取下一个输入行，用下一个命令处理新的行而不是用第一个命令。
-+ `N` 追加下一个输入行到模板块后面并在二者间嵌入一个新行，改变当前行号码。
-+ `p` 打印模板块的行。
-+ `P` (大写) 打印模板块的第一行。
-+ `q` 退出Sed。
-+ `b lable` 分支到脚本中带有标记的地方，如果分支不存在则分支到脚本的末尾。
-+ `r file` 从file中读行。
-+ `t label` if分支，从最后一行开始，条件一旦满足或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。
-+ `T label` 错误分支，从最后一行开始，一旦发生错误或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。
-+ `w file` 写并追加模板块到file末尾。
-+ `W file` 写并追加模板块的第一行到file末尾。
-+ `!` 表示后面的命令对所有没有被选定的行发生作用。
-+ `=` 打印当前行号码。
-+ `#` 把注释扩展到下一个换行符以前。
-
-### 替换标记
-
-+ `g` 表示行内全面替换。
-+ `p` 表示打印行。
-+ `w` 表示把行写入一个文件。
-+ `x` 表示互换模板块中的文本和缓冲区中的文本。
-+ `y` 表示把一个字符翻译为另外的字符（但是不用于正则表达式）
-+ `\1` 子串匹配标记
-+ `&` 已匹配字符串标记
-
-### 元字符集
-
-+ `^` 匹配行开始，如：`/^sed/`匹配所有以`sed`开头的行。
-+ `$` 匹配行结束，如：`/sed$/`匹配所有以`sed`结尾的行。
-+ `.` 匹配一个非换行符的任意字符，如：`/s.d/`匹配`s`后接一个任意字符，最后是`d`。
-+ `*` 匹配`0`个或多个字符，如：`/*sed/`匹配所有模板是一个或多个空格后紧跟`sed`的行。
-+ `[]` 匹配一个指定范围内的字符，如`/[ss]ed/`匹配sed和Sed。
-+ `[^]` 匹配一个不在指定范围内的字符，如：`/[^A-RT-Z]ed/`匹配不包含`A-R`和`T-Z`的一个字母开头，紧跟`ed`的行。
-+ `\(..\)` 匹配子串，保存匹配的字符，如`s/\(love\)able/\1rs`，loveable被替换成lovers。
-+ `&` 保存搜索字符用来替换其他字符，如`s/love/**&**/`，love这成`**love**`。
-+ `\<` 匹配单词的开始，如:`/\<love/`匹配包含以love开头的单词的行。
-+ `\>` 匹配单词的结束，如`/love\>/`匹配包含以love结尾的单词的行。
-+ `x\{m\}` 重复字符`x`，`m`次，如：`/0\{5\}/`匹配包含5个0的行。
-+ `x\{m,\}` 重复字符`x`，至少`m`次，如：`/0\{5,\}/`匹配至少有5个0的行。
-+ `x\{m,n\}` 重复字符`x`，至少`m`次，不多于n次，如：`/0\{5,10\}/`匹配5~10个0的行。
-
-### 用法实例
-
-### ip地址
-
-先观察原始信息，利用`ip monitor address dev enp0s31f6` 监视 IP变化
-
-ip monitor address dev enp0s31f6
-
-```bash
-dev_name="enp0s31f6" #设备名称
-dev_addr=$(ip monitor address dev $dev_name)  #监视ip变化
-echo $dev_addr |\ 
-grep -Po "${dev_name}[ ]+inet[ ]+[ \w\d\./]+brd" | `#用grep 提取出address一行`\
-sed "s/${dev_name} \{1,\}inet//g" | sed "s/brd//g"
-```
-
-```bash
-dev_name="enp0s31f6" #设备名称
-ip monitor address dev $dev_name | while read line
-do
-echo $line |\ 
-grep -Po "${dev_name}[ ]+inet[ ]+[ \w\d\./]+brd" | `#用grep 提取出address一行`\
-sed "s/${dev_name} \{1,\}inet//g" | sed "s/brd//g"
-done
-```
-
-#### 替换操作：s命令
-
-替换文本中的字符串：
-
-```bash
-sed 's/book/books/' file
-```
-
-`-n`选项和`p`命令一起使用表示只打印那些发生替换的行：
-
-```bash
-sed -n 's/test/TEST/p' file
-```
-
-直接编辑文件选项`-i`，会匹配`file`文件中每一行的第一个`book`替换为`book`s：
-
-```bash
-sed -i 's/book/books/g' file
-```
-
-#### 全面替换标记g
-
-使用后缀 `/g` 标记会替换每一行中的所有匹配：
-
-```bash
-sed 's/book/books/g' file
-```
-
- 当需要从第N处匹配开始替换时，可以使用 /Ng：
-
-echo sksksksksksk | sed 's/sk/SK/2g'
-skSKSKSKSKSK
-
-echo sksksksksksk | sed 's/sk/SK/3g'
-skskSKSKSKSK
-
-echo sksksksksksk | sed 's/sk/SK/4g'
-skskskSKSKSK
-
-#### 定界符
-
-以上命令中字符 / 在sed中作为定界符使用，也可以使用任意的定界符：
-
-sed 's:test:TEXT:g'
-sed 's|test|TEXT|g'
-
-定界符出现在样式内部时，需要进行转义：
-
-sed 's/\/bin/\/usr\/local\/bin/g'
-
-#### 删除操作：d命令
-
-删除空白行：
-
-sed '/^$/d' file
-
-删除文件的第2行：
-
-sed '2d' file
-
-删除文件的第2行到末尾所有行：
-
-sed '2,$d' file
-
-删除文件最后一行：
-
-sed '$d' file
-
-删除文件中所有开头是test的行：
-
-sed '/^test/'d file
-
-#### 已匹配字符串标记&
-
-正则表达式 \w\+ 匹配每一个单词，使用 [&] 替换它，& 对应于之前所匹配到的单词：
-
-echo this is a test line | sed 's/\w\+/[&]/g'
-[this] [is] [a] [test] [line]
-
-所有以192.168.0.1开头的行都会被替换成它自已加localhost：
-
-sed 's/^192.168.0.1/&localhost/' file
-192.168.0.1localhost
-
-#### 子串匹配标记\1
-
-匹配给定样式的其中一部分：
-
-echo this is digit 7 in a number | sed 's/digit \([0-9]\)/\1/'
-this is 7 in a number
-
-命令中 digit 7，被替换成了 7。样式匹配到的子串是 7，\(..\) 用于匹配子串，对于匹配到的第一个子串就标记为 \1，依此类推匹配到的第二个结果就是 \2，例如：
-
-echo aaa BBB | sed 's/\([a-z]\+\) \([A-Z]\+\)/\2 \1/'
-BBB aaa
-
-love被标记为1，所有loveable会被替换成lovers，并打印出来：
-
-sed -n 's/\(love\)able/\1rs/p' file
-
-#### 组合多个表达式
-
-sed '表达式' | sed '表达式'
-
-等价于：
-
-sed '表达式; 表达式'
-
-#### 引用
-
-sed表达式可以使用单引号来引用，但是如果表达式内部包含变量字符串，就需要使用双引号。
-
-test=hello
-echo hello WORLD | sed "s/$test/HELLO"
-HELLO WORLD
-
-#### 选定行的范围：,（逗号）
-
-所有在模板test和check所确定的范围内的行都被打印：
-
-sed -n '/test/,/check/p' file
-
-打印从第5行开始到第一个包含以test开始的行之间的所有行：
-
-sed -n '5,/^test/p' file
-
-对于模板test和west之间的行，每行的末尾用字符串aaa bbb替换：
-
-sed '/test/,/west/s/$/aaa bbb/' file
-
-#### 多点编辑：e命令
-
--e选项允许在同一行里执行多条命令：
-
-sed -e '1,5d' -e 's/test/check/' file
-
-上面sed表达式的第一条命令删除1至5行，第二条命令用check替换test。命令的执行顺序对结果有影响。如果两个命令都是替换命令，那么第一个替换命令将影响第二个替换命令的结果。
-
-和 -e 等价的命令是 --expression：
-
-sed --expression='s/test/check/' --expression='/love/d' file
-
-#### 从文件读入：r命令
-
-file里的内容被读进来，显示在与test匹配的行后面，如果匹配多行，则file的内容将显示在所有匹配行的下面：
-
-sed '/test/r file' filename
-
-#### 写入文件：w命令  
-
-在example中所有包含test的行都被写入file里：
-
-sed -n '/test/w file' example
-
-#### 追加（行下）：a\命令
-
-将 this is a test line 追加到 以test 开头的行后面：
-
-sed '/^test/a\this is a test line' file
-
-在 test.conf 文件第2行之后插入 this is a test line：
-
-sed -i '2a\this is a test line' test.conf
-
-#### 插入（行上）：i\命令
-
-将 this is a test line 追加到以test开头的行前面：
-
-sed '/^test/i\this is a test line' file
-
-在test.conf文件第5行之前插入this is a test line：
-
-sed -i '5i\this is a test line' test.conf
-
-#### 下一个：n命令
-
-如果test被匹配，则移动到匹配行的下一行，替换这一行的aa，变为bb，并打印该行，然后继续：
-
-sed '/test/{ n; s/aa/bb/; }' file
-
-#### 变形：y命令
-
-把1~10行内所有abcde转变为大写，注意，正则表达式元字符不能使用这个命令：
-
-sed '1,10y/abcde/ABCDE/' file
-
-#### 退出：q命令
-
-打印完第10行后，退出sed
-
-sed '10q' file
-
-#### 保持和获取：h命令和G命令
-
-在sed处理文件的时候，每一行都被保存在一个叫模式空间的临时缓冲区中，除非行被删除或者输出被取消，否则所有被处理的行都将 打印在屏幕上。接着模式空间被清空，并存入新的一行等待处理。
-
-sed -e '/test/h' -e '$G' file
-
-在这个例子里，匹配test的行被找到后，将存入模式空间，h命令将其复制并存入一个称为保持缓存区的特殊缓冲区内。第二条语句的意思是，当到达最后一行后，G命令取出保持缓冲区的行，然后把它放回模式空间中，且追加到现在已经存在于模式空间中的行的末尾。在这个例子中就是追加到最后一行。简单来说，任何包含test的行都被复制并追加到该文件的末尾。
-
-#### 保持和互换：h命令和x命令
-
-互换模式空间和保持缓冲区的内容。也就是把包含test与check的行互换：
-
-sed -e '/test/h' -e '/check/x' file
-
-#### 脚本scriptfile
-
-sed脚本是一个sed的命令清单，启动Sed时以-f选项引导脚本文件名。Sed对于脚本中输入的命令非常挑剔，在命令的末尾不能有任何空白或文本，如果在一行中有多个命令，要用分号分隔。以#开头的行为注释行，且不能跨行。
-
-sed [options] -f scriptfile file(s)
-
-#### 打印奇数行或偶数行
-
-方法1：
-
-sed -n 'p;n' test.txt  #奇数行
-sed -n 'n;p' test.txt  #偶数行
-
-方法2：
-
-sed -n '1~2p' test.txt  #奇数行
-sed -n '2~2p' test.txt  #偶数行
-
-#### 打印匹配字符串的下一行
-
-grep -A 1 SCC URFILE
-sed -n '/SCC/{n;p}' URFILE
-awk '/SCC/{getline; print}' URFILE
 
 ## shell空白字符
 
@@ -1825,7 +1358,47 @@ mount /dev/loop0 /home/groad/disk_test   #将循环设备 mount 到目录 disk_t
 mount -t minix -o loop ./disk.img ./disk_test
 ```
 
-## lyx
+## latex
+
+### jabref
+
+[JabRef中文手册][]
+
+[JabRef中文手册]: https://blog.csdn.net/zd0303/article/details/7676807
+
+题录时间戳
+
+本功能可以在`选项->偏好设置->通用设置`中关闭或配置。
+
+JabRef能自动的产生一个包含题录加入数据库的日期的域。
+
+Formatting
+
+The formatting of the time stamp is determined by a string containing designator words that indicate the position of the various parts of the date.
+
+These are some of the available designator letters (examples are given in parentheses for Wednesday 14th of September 2005 at 5.45 PM):
+
+    yy: year (05)
+
+    yyyy: year (2005)
+
+    MM: month (09)
+
+    dd: day in month (14)
+
+    HH: hour in day (17)
+
+    mm: minute in hour (45)
+
+These designators can be combined along with punctuation and whitespace. A couple of examples:
+
+    yyyy.MM.dd gives 2005.09.14
+
+    yy.MM.dd gives 05.09.14
+
+    yyyy.MM.dd HH:mm gives 2005.09.14 17:45
+
+### 手动编译lyx
 
 ***
 如果是后安装的`texlive`, `lyx` 需要运行 `tools-reconfigure` 进行配置
@@ -1909,3 +1482,254 @@ See Note below if `./configure` script is not present.
 1. `make`   compiles the program.
 1. `src/lyx`    runs the program so you can check it out.
 1. `make install` will install it. You can use "`make install-strip`" instead if you want a smaller binary.
+
+### lyx 文档类错误
+
+`~/.lyx/textclass.lst` 中的条目格式有问题，如
+
+`"IEEEtran-CompSoc"` 变成了 `"b'IEEEtran-CompSoc'"`
+
+python中字节字符串不能格式化。
+获取到的网页有时候是字节字符串，需要转化后再解析。
+
+bytes 转 string 方式：
+
+```python
+>>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
+>>>string=str(b,'utf-8')
+>>>string
+## 或者
+>>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
+>>>string=b.decode()
+'人生苦短，我要用python'
+```
+
+[python基础之string与bytes的转换]
+
+[python基础之string与bytes的转换]: https://blog.csdn.net/Panda996/java/article/details/84780377
+
+### latexmk 选项
+
+一般来说， `latexmk` 的通用`cmd`命令形式为：
+
+`latexmk [options] [file]`
+
+所有的选项可以用单个`-`连字符，也可以用双连字符`--`引入，e.g., "latexmk -help" or "latexmk --help".
+
+***
+注意：
+
+除了文档里列出的选项， `latexmk`认识几乎所有the options recognized by the latex, pdflatex programs (and their relatives),
+在当前的 TexLive and MikTeX 发行版中。
+
+这些程序的一些选项还会引起 latexmk 的特殊 action or behavior，在本文档中有解释。否则，它们被直接传递给latex or pdflatex。
+run `latexmk -showextraoptions`给出选项列表，这些选项被直接传递给latex or pdflatex。
+
+***
+注意：
+
+"Further processing" 意味着需要运行其他程序，或者再次运行`latex`(etc)，如果没有 `errors` 的话。
+如果你不想让`latex`在遇到错误的时候停下，应该使用 latexmk's option `-interaction=nonstopmode`
+
+`-xelatex`  使用`xelatex`编译
+`-pv `   - preview document.  (Side effect turn off continuous preview)
+` -pv-`   - turn off preview mode
+`-pvc`   - preview document and continuously update.  (This also turns  on force mode, so errors do not cause latexmk to stop.)
+(Side effect: turn off ordinary preview mode.)
+`-pvc-`  - turn off -pvc
+
+`-view=default` - viewer is default (dvi, ps, pdf)
+`-view=ps`      - viewer is for ps
+`-view=pdf`     - viewer is for pdf
+
+`-bibtex`       - use bibtex when needed (default)
+`-bibtex-`      - never use bibtex
+
+`-cd`    - Change to directory of source file when processing it
+
+`-recorder` - Use -recorder option for (pdf)latex (to give list of input and output files)
+` -recorder-` - Do not use -recorder option for (pdf)latex
+
+***
+简单传递的命令
+
+`-error-line=n` set the width of context lines on terminal error messages
+`-half-error-line=n`      set the width of first lines of contexts in terminal error messages
+
+`-file-line-error `       enable `file:line:error` style messages
+`-halt-on-error`          stop processing at the first error
+`-interaction=STRING`     set interaction mode (STRING=batchmode/nonstopmode/scrollmode/errorstopmode)
+`-synctex=NUMBER`         generate `SyncTeX` data for previewers if nonzero
+
+### tex的TDS
+              
+latex 组织文件的规范叫做 TDS-compliant
+
+a standard `TeX Directory Structure` (TDS): a directory hierarchy for macros, fonts, and the other implementation-independent TeX system files.
+
+#### TDS 特征
+
+The common properties throughout the TDS tree.
+
++ Subdirectory searching
++ Rooting the tree
++ Local additions
++ Duplicate filenames 
+
+***
+子目录搜索
+
+Technical Working Group (TWG) 要求，一个综合的TDS 需要支持 implicit subdirectory searching。
+
+更精确地说，具体实现要满足，在寻找输入文件（TeX，Metafont and their companion utilities ）的时候，能够指定具体路径，也能够递归地遍历所有的子文件夹。
+
+***
+tree的根目录
+
+我们把TDS的根目录称为`texmf`(TeX and Metafont)，意思是，这个目录包含了一个完整TeX 系统附属的文件(including Metafont, MetaPost, BibTeX, etc.)，而不是只有单独的 TeX 自己。
+
+***
+Local additions
+
+TDS 不能精确地指出，哪些包是"local addition"。
+
+One common case of local additions is dynamically generated files, e.g., PK fonts by the mktexpk script (which originated in Dvips as MakeTeXPK). A site may store the generated files directly in any of:
+
++ their standard location in the main TDS tree (if it can be made globally writable);
++ an alternative location in the main TDS tree (for example, under texmf/fonts/tmp);
++ a second complete TDS tree (as outlined above);
++ any other convenient directory (perhaps under /var, for example /var/spool/fonts). 
+
+***
+重复文件名
+
+TDS tree 中的文件可能有相同的文件名。默认并不进一步区分，但TDS要求满足以下例外：
+
+Names of TeX input files must be unique within each first-level subdirectory of `texmf/tex` and `texmf/tex/generic`, but not within all of `texmf/tex`; 比如, different TeX formats may have files by the same name. 
+
+所以具体实现必须提供**格式依赖**的路径指定方式。
+
+#### TDS顶层目录
+
+texmf root 下面包含了 TeX system 的主要成员
+The top-level directories specified by the TDS are:
+
++ `tex` for TeX files (Section Macros).
++ `fonts` for font-related files (Section Fonts).
++ `metafont` for Metafont files which are not fonts (Section Non-font Metafont files).
++ `metapost` for MetaPost files (Section MetaPost).
++ `bibtex` for BibTeX files (Section BibTeX).
++ `scripts` for platform-independent executables (Section Scripts).
++ `doc` for user documentation (Section Documentation).
++ `source` for sources. This includes both traditional program sources (for example, Web2C sources go in texmf/source/web2c) and, e.g., LaTeX dtx sources (which go in texmf/source/latex). The TDS leaves unspecified any structure under source.
++ `implementation` for implementations (examples: `emtex`, `vtex`, `web2c`), to be used for whatever purpose deemed suitable by the implementor or TeX administrator. 
+That is, files that cannot be shared between implementations, such as pool files (tex.pool) and memory dump files (plain.fmt) go here, in addition to implementation-wide configuration files.
++ `program` for program-specific input and configuration files for any TeX-related programs (examples: `mft`, `dvips`). In fact, the `tex`, `metafont`, `metapost`, and `bibtex` items above may all be seen as instances of this case. 
+
+### 安装latex包
+
+[Ubuntu/Mint下LaTeX宏包安装及更新][]
+
+[Ubuntu/Mint下LaTeX宏包安装及更新]: https://blog.csdn.net/codeforces_sphinx/article/details/7315044
+
+一般使用texlive的包管理工具，否则需要手动安装:
+
+1. Get the package from [CTAN](http://www.ctan.org/CTAN) or wherever.
+2. 如果其中有一个文件是`.ins` 结尾的，打开终端，执行命令`latex foiltex.ins`，就获得了安装需要的包。大多数 latex 包没有打包，所以可以跳过这一步。
+3. 现在你需要决定，这个包要安装给所有用户使用，还是only for you。
+4. 在*nix 系统上（OSX），给所有用户使用，安装到`local` TeX tree, 给自己使用，安装到`user`TeX tree。
+
+查看`texmf.cnf`文件，它通常在`$TEXMF/web2c`文件夹，但是可以用`kpsewhich texmf.cnf`定位。
+
+`local` Tree 的位置在 `TEXMFLOCAL` variable 中定义，通常像是`/usr/local/share/texmf`。
+`user`  Tree 的位置在`TEXMFHOME`中定义，通常像是`$HOME/texmf` or `$HOME/.texliveXXXX`
+
+如果这些变量没有定义，你需要手工指定。修改`local` Tree 可能需要 root 权限。建议修改 user tree, 因为在升级的时候，不会被覆盖。这样在备份系统的时候，可以一起备份。
+
+现在，你需要告诉 Latex 有新文件。这取决于 LaTex 发行版。
+
+1. 对于 TeXLive，运行`texhash`,可能需要 root 权限
+2. 对于MikTeX，运行 `Settings (Admin)` and press the button marked `Refresh FNDB`
+
+5. 最后，你需要告诉 LyX 有新的包可以使用。在LyX 中，运行 `Tools->Reconfigure` and then restart LyX
+
+现在，新的文档 class 可以选择了，`Document->Settings->Document Class`。
+
+### latex包安装方式2
+
+首先要找到默认宏包所在目录，一般是：
+
+```bash
+/usr/share/texmf/tex/latex
+/usr/share/texmf-texlive/tex/latex
+```
+
+1. 如果是安装一个新的宏包，就直接把宏包的压缩文件扔进第一个目录下，直接解压就行，注意解压后的文件里可能有安装说明，照着安装说明做就是了。
+如果是更新一个宏包，一般都可以在第二个目录下找到，把原先的宏包重命名成`*-backup`，再解压新下载的宏包压缩文件，同时如果有安装说明的话，也照着做。
+2. 之后要对宏包重新标记下，终端下执行
+
+```bash
+# texhash
+```
+
+3. `Log off` / `Log in`后，就完成了～
+
+## X窗口系统
+
+X窗口系统（使GUI工作的底层引擎）内建了一种机制，支持快速拷贝和粘贴技巧。
+
+按下鼠标左键，沿着文本拖动鼠标（或者双击一个单词）高亮了一些文本，
+那么这些高亮的文本就被拷贝到了一个由X管理的缓冲区里面。然后按下鼠标中键，这些文本就被粘贴到光标所在的位置。
+
+>`ctrl-c` and `ctrl-v`，这两个控制代码对于Shell 有不同的含义，它们在早于Microsoft Windows许多年之前就赋予了不同的意义。
+
+可以把聚焦策略设置为"跟随鼠标"，这样鼠标移动到的窗口，就可以接受输入
+
+### 幕后控制台
+ 
+即使仿真终端没有运行，后台仍然有几个终端会话运行。他们叫做虚拟终端或者虚拟控制台。
+
+在大多数Linux发行版中，可以通过按下 `Ctrl+Alt+F1` 到 `Ctrl+Alt+F6` 访问。
+
+切换可以直接按`Alt+F1..F6`。返回图形桌面，按下`Alt+F7`
+
+### 将标准输出重定向到剪贴板
+
+[将标准输出重定向到剪贴板][]
+
+[将标准输出重定向到剪贴板]: https://blog.csdn.net/tcliuwenwen/article/details/103752486
+
+作为一名优秀的程序员，终端和复制粘贴必将是必不可少的，手动将输出复制粘贴不应该是一名优秀程序员的作风。
+那么如何将标准输出重定向到剪贴板方便我们粘贴呢？
+
+安装`xsel`或者`xclip`
+
+```bash
+sudo apt install xsel
+sudo apt install xclip
+```
+
+***
+将输出通过管道重定向到剪贴板
+
+```bash
+ls | xsel -ib  # 使用xsel
+ls | xclip -select clip  # 使用xclip
+```
+
+***
+可以考虑使用别名来简短命令这里不再赘述
+
+### 剪贴板管理程序
+
+[10 款最佳剪贴板管理器][]
+
+[10 款最佳剪贴板管理器]: https://www.linuxprobe.com/10-best-linux-clipboard.html
+
++ CopyQ
++ GPaste
++ Klipper
++ Clipman
++ Diodon
+
+etc

@@ -1,4 +1,4 @@
-# ubuntu
+# ubuntu-1
 
 ***
 `ls *.tex` and `"ls *.tex"`
@@ -46,6 +46,16 @@ cd  /home/tom/Downloads
 + apropos - 显示适当的命令,基于某个关键字的匹配项。虽然很粗糙但有时很有用。 +
 + `whatis` 程序显示匹配特定关键字的手册页的名字和一行命令说明:
 + GNU 项目提供了一个命令程序手册页的替代物,称为`info`。
+
+### 简单命令
+
++ `date` 日期
++ `cal` 日历
++ `df` 磁盘剩余空间
++ `free` 空闲内存
++ ` file`  determine file type
++ `which` locate a command
++ `type` type is a shell builtin
 
 ### shell 模式切换
 
@@ -612,7 +622,7 @@ echo "$var" | col
 exit 0
 ```
 
-## glob()
+## glob() shell 通配符
 
 glob： 一滴 一团
 
@@ -1960,4 +1970,170 @@ expr_marker=3
 expr_opacity=1
 
 wolframscript -print "all" -file ./f.figure.series-full.rencon3.strange.baryons-all.band.wl "full" 0.90 1.50 $curveopacity $markers $markopacity $expr_marker $expr_opacity
+```
+
+### Shell中的通配符
+
+[Shell中的通配符][]
+
+[Shell中的通配符]: https://www.jianshu.com/p/25f3d0cd5fdc
+
+### 通配符（Wildcard）
+
+在 `Shell` 中命令中，通常会使用通配符表达式来匹配一些文件，如以下命令可以查找当前目录下所有后缀为 `.xml` 的文件
+`find . -name "*.xml" `
+
+Shell 中可以使用的通配符如下：
+
+| 通配符| 含义| 实例|
+|--|--|--|
+|`*`|  匹配 `0` 或多个字符   | `a*b`，`a`与`b`之间可以有任意长度的任意字符, 也可以一个也没有, 如 `aabcb`, `axyzb`, `a012b`, `ab`|
+| `?`| 匹配任意单个字符   |`a?b`，`a`与`b`之间有且只有一个字符, 可以是任意字符，如 `aab`, `abb`, `acb`, `a0b`|
+| `[list]`|  匹配 `list` 中的任意单个字符 | `a[xyz]b`，`a`与`b`之间必须也只能有一个字符, 但只能是 `x` 或 `y` 或 `z`, 如 `axb`, `ayb`, `azb`。|
+|`[!list]`|  匹配除 `list` 中的任意单一字符 |  `a[!0-9]b`，`a`与`b`之间必须也只能有一个字符, 但不能是阿拉伯数字, 如 `axb,` `aab`, `a-b`。|
+|`[c1-c2]`| 匹配 `c1-c2` 中的任意单一字符 | `a[0-9]b`，匹配`0`与`9`之间其中一个字符，如 `a0b`, `a1b`... `a9b`|
+| `{s1,s2,...}` | 匹配 `s1` 或 `s2` (或更多)中的一个字符串 |`a{abc,xyz,123}b`，`a`与`b`之间只能是`abc`或`xyz`或`123`这三个字符串之一|
+
+### 转义字符
+
+有的时候，我们匹配的内容里面会存在 `*`，`?`，`[`等通配符中的符号。
+为了表示他们原来的意思，我们需要使用转义字符 `\`，如 `a\[ac\]c` 表示匹配 `a[a]c` 或 `a[c]c`。
+
+`\ `本身用` \\` 表示。
+
+### 字符切割
+
+[Shell_Linux Shell 中实现字符串切割的几种方法][]
+[refs1][]
+[refs2][]
+
+[Shell_Linux Shell 中实现字符串切割的几种方法]: https://blog.csdn.net/u010003835/article/details/80750003
+[refs1]: https://blog.csdn.net/u010003835/article/details/80749220
+[refs2]: https://blog.csdn.net/whuslei/article/details/7187639  
+
+***
+shell 的 `for` 参数可以是一个连续的字符串，用`IFS`分割
+
+```bash
+#!/bin/bash
+string="hello shell split test"  ; for var in ${string[@]}; do    echo -e "$var EOF" ;done 
+####
+echo test2
+string="hello shell split test"  
+for var in ${string}
+do
+   echo -e "$var EOF"
+done 
+```
+
+***
+我们在shell 脚本编程中，经常需要用到字符串切割，即将字符串切割为一个数组，
+类似 `java` 中的`split`函数，下面对几种常见的方式做一个总结。
+
++ 利用shell 中 变量 的字符串替换   
++ 设置分隔符，通过 `IFS` 变量
++ 利用`tr` 指令实现字符替换  （！只能针对单个分隔符）
+
+***
+方法一：利用shell 中 变量的字符串替换
+
+示例：
+
+```bash
+#!/bin/bash
+string="hello,shell,split,test"
+array=(${string//,/ })  
+ 
+for var in ${array[@]}
+do
+   echo -e "$var \n"
+done 
+```
+
+***
+方法二： 设置分隔符，通过 `IFS `变量
+
+原理：自定义IFS变量, 改变分隔符, 对字符串进行切分
+
+IFS 介绍
+
+`Shell` 脚本中有个变量叫 `IFS`(Internal Field Seprator) ，**内部域分隔符**。
+
+`Shell` 的环境变量分为 `set`, `env` 两种，其中 `set` 变量可以通过 `export` 工具导入到 `env` 变量中。
+其中，`set` 是显示设置 `shell` 变量，仅在本 `shell` 中有效；`env` 是显示设置用户环境变量 ，仅在当前会话中有效。
+换句话说，`set` 变量里包含了 `env` 变量，但 `set` 变量不一定都是 `env` 变量。
+这两种变量不同之处在于变量的作用域不同。显然，`env` 变量的作用域要大些，它可以在 `subshell` 中使用。
+
+而 `IFS` 是一种 `set` 变量，当 `shell` 处理"命令替换"和"参数替换"时， `shell` 根据 `IFS` 的值，默认是 `space`, `tab`, `newline` 来拆解读入的变量，然后对特殊字符进行处理，最后重新组合赋值给该变量。
+
+***
+`IFS` 简单实例
+
+查看变量 `IFS` 的值。
+
+```bash
+$ echo $IFS  
+
+$ echo "$IFS" | od -b  
+0000000 040 011 012 012  
+0000004  
+```
+
+直接输出IFS是看不到的，把它转化为二进制就可以看到了，
+`040`是空格，`011`是Tab，`012`是换行符`\n` 。
+最后一个 `012` 是 `echo`输出的(`echo` 默认会换行的)。
+
+示例
+
+```bash
+#!/bin/bash
+ 
+string="hello,shell,split,test"  
+ 
+#对IFS变量 进行替换处理
+OLD_IFS="$IFS"
+IFS=","
+array=($string)
+IFS="$OLD_IFS"
+ 
+for var in ${array[@]}
+do
+   echo -e $var
+done
+```
+
+***
+方法三： 利用`tr`指令实现字符替换
+
+原理: 由于只是对单个字符进行的替换，则可以用  `echo args |   tr "oldSpilt" "newSpilt"`  的方式实现。
+
+`tr` 指令讲解: `tr`命令可以对来自标准输入的字符进行替换、压缩和删除。
+
+语法:`tr(选项)(参数)`
+
+选项
+
++ `-c`或`--complerment`：取代所有不属于第一字符集的字符；
++ `-d`或`--delete`：删除所有属于第一字符集的字符；
++ `-s`或`--squeeze-repeats`：把连续重复的字符以单独一个字符表示；
++ `-t`或`--truncate-set1`：先删除第一字符集较第二字符集多出的字符。
+
+参数
+
++ `字符集1`：指定要转换或删除的原字符集。当执行转换操作时，必须使用参数`字符集2`指定转换的目标字符集。
+但执行删除操作时，不需要参数`字符集2`；
++ `字符集2`：指定要转换成的目标字符集。
+
+示例：
+
+```bash
+#!/bin/bash
+ 
+string="hello,shell,split,test"  
+array=(`echo $string | tr ',' ' '` )  
+ 
+for var in ${array[@]}
+do
+   echo -e $var
+done 
 ```
