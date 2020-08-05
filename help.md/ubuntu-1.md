@@ -28,7 +28,7 @@ cd  /home/tom/Downloads
 置环境变量以及书写 shell 函数。但是现在, 仅仅意识到它们的存在就可以了。
 4. 是一个命令别名。我们可以定义自己的命令,建立在其它命令之上
 
-### 命令信息
+### 常用命令
 
 + `type` – 说明怎样解释一个命令名
 + `which` – 显示会执行哪个可执行程序
@@ -37,25 +37,31 @@ cd  /home/tom/Downloads
 + `info` – 显示命令 info
 + `whatis` – 显示一个命令的简洁描述
 + `alias` – 创建命令别名
-
-+ `type` 命令是 shell 内部命令,它会显示命令的类别
++ `type` 命令是 `shell` 内部命令,它会显示命令的类别
 + `which`这个命令只对可执行程序有效,不包括内部命令和命令别名,别名是真正的可执行程序的替代物
 + `bash` 有一个内建的帮助工具,可供每一个 `shell` 内部命令使用。输入`help`,接着是 `shell` 内部命令名。例如: `help cd`
 + 许多可执行程序支持一个` --help` 选项,这个选项是显示命令所支持的语法和选项说明。例如:
 + 许多希望被命令行使用的可执行程序,提供了一个正式的文档,叫做手册或手册页(man page)。一个特殊的叫做`man` 的分页程序,可用来浏览他们。它是这样使用的: `man program`
 + apropos - 显示适当的命令,基于某个关键字的匹配项。虽然很粗糙但有时很有用。 +
 + `whatis` 程序显示匹配特定关键字的手册页的名字和一行命令说明:
-+ GNU 项目提供了一个命令程序手册页的替代物,称为`info`。
++ `GNU` 项目提供了一个命令程序手册页的替代物,称为`info`。
++ `less ` 浏览文件内容
 
-### 简单命令
+***
+简单命令
 
 + `date` 日期
 + `cal` 日历
 + `df` 磁盘剩余空间
 + `free` 空闲内存
-+ ` file`  determine file type
++ ` file`  确定文件类型
 + `which` locate a command
 + `type` type is a shell builtin
++ `cd -` 更改工作目录到先前的工作目录
++ `cd ~user_name` 切换到用户家目录
++ `cp -u *.html destination` 更新文件到destination
++ `ln file link` 创建硬链接
++ `ln -s item link` 创建符号链接, `item`可以是一个文件或目录,`gnome`中，按住`ctrl+shift`拖动会创建链接.
 
 ### shell 模式切换
 
@@ -621,16 +627,6 @@ echo "$var" | col
 ## 上面的显示将会不一样
 exit 0
 ```
-
-## glob() shell 通配符
-
-glob： 一滴 一团
-
-The `glob()` function searches for all the pathnames matching pattern according to the rules used by the shell (see glob(7)).  No tilde expansion or parameter substitution is done; if you want these, use wordexp(3).
-
-The `globfree()` function frees the dynamically allocated storage from an earlier call to glob().
-
-`man 7 glob()` see glob(7)
 
 ## shell 变量
 
@@ -1980,6 +1976,17 @@ wolframscript -print "all" -file ./f.figure.series-full.rencon3.strange.baryons-
 
 ### 通配符（Wildcard）
 
+***
+glob()
+
+glob： 一滴 一团
+
+The `glob()` function searches for all the pathnames matching pattern according to the rules used by the shell (see glob(7)).  No tilde expansion or parameter substitution is done; if you want these, use wordexp(3).
+
+The `globfree()` function frees the dynamically allocated storage from an earlier call to glob().
+
+`man 7 glob()` see glob(7)
+
 在 `Shell` 中命令中，通常会使用通配符表达式来匹配一些文件，如以下命令可以查找当前目录下所有后缀为 `.xml` 的文件
 `find . -name "*.xml" `
 
@@ -1993,6 +2000,15 @@ Shell 中可以使用的通配符如下：
 |`[!list]`|  匹配除 `list` 中的任意单一字符 |  `a[!0-9]b`，`a`与`b`之间必须也只能有一个字符, 但不能是阿拉伯数字, 如 `axb,` `aab`, `a-b`。|
 |`[c1-c2]`| 匹配 `c1-c2` 中的任意单一字符 | `a[0-9]b`，匹配`0`与`9`之间其中一个字符，如 `a0b`, `a1b`... `a9b`|
 | `{s1,s2,...}` | 匹配 `s1` 或 `s2` (或更多)中的一个字符串 |`a{abc,xyz,123}b`，`a`与`b`之间只能是`abc`或`xyz`或`123`这三个字符串之一|
+| `[[:class:]]`| 匹配任意一个属于指定字符类中的字符 | `*[[:lower:]123]`，以小写字母开头，或者以`1`,`2`,`3`结尾的文件 |
+
+常用字符类
+
++ `[:alnum:]` : 匹配任意一个字母或数字
++ `[:alpha:]` :  匹配任意一个字母
++ `[:digit:]` : 匹配任意一个数字
++ `[:lower:]` : 匹配任意一个小写字母
++ `[:upper:]` : 匹配任意一个大写字母
 
 ### 转义字符
 
