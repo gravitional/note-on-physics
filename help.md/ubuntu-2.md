@@ -1733,3 +1733,19 @@ ls | xclip -select clip  # 使用xclip
 + Diodon
 
 etc
+
+### Linux 录屏软件
+
+[Linux 录屏软件有哪些][]
+
+[Linux 录屏软件有哪些]: https://www.zhihu.com/question/51920876
+
+如果是`Gnome3`系用户，可以按`ctrl + shift + alt + r`，屏幕右下角有红点出现，则开始录屏，
+要结束的话再按一次`ctrl + shift + alt + r`，录好的视频在`~/video`下
+
+***
+修改默认30秒的问题, 改成1小时
+
+```bash
+gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 3600
+```

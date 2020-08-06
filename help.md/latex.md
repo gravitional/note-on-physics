@@ -176,6 +176,15 @@ u+2014*2
 + `en dash`，大致相当于中文的连接号，可连接人名、时间、地点等，如 Newton–Leibniz formula、10–20，TeX 里面用`--`
 + `em dash`，大致相当于中文的破折号，TeX 里面用`---` (即三个 hyphen)
 
+### 数学符号
+
+```bash
+\DeclareMathOperator{\tr}{Tr} 
+\DeclareMathOperator{\re}{Re} 
+\DeclareMathOperator{\im}{Im} 
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+```
+
 ## 在文中使用链接
 
 使用宏包 `hyperref` 来制作

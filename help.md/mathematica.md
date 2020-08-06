@@ -175,7 +175,7 @@ tutorial/TheStructureOfGraphics
 + `Graphics[list]` 生成二维图形
 + `Graphics3D[list]` 生成三维图形
 
-*****
+***
 修改图形的局部和全局方式.,
 
 + 图形指令  范例: `RGBColor`, `Thickness`
@@ -215,6 +215,21 @@ Grid[Table[x, {4}, {7}],
 
 ## MapThread level 的区别
 
+一般编程语言中的`Map/Reduce`在mma中相当于
+
+`Map`以及一系列函数，`Fold`以及一系列函数
+
+由于`mma`是`m[m,m,m,..]`的形式，其中`m=Head[Sequence]`，(可以无穷无尽地套娃)
+
+所以除了函数作用到**一堆参数列表**上，还有反向操作，就是**一堆函数**作用到一个参数上，相应的函数为:
+
+`Through[p[f,g][args]]`
+`f,g`被组织在结构`p[]`中，`p`可以是列表，也可以是`Plus`，等等。
+
+还有专门用来对头部作用的函数:`Operate`
+
+`Operate[p,f[x,y]]`给出`p[f][x,y]`
+
 ```mathematica
 In[2]:= MapThread[f, {{{a, b}, {c, d}}, {{u, v}, {s, t}}}]
 Out[2]= {f[{a, b}, {u, v}], f[{c, d}, {s, t}]}
@@ -223,6 +238,29 @@ Out[2]= {f[{a, b}, {u, v}], f[{c, d}, {s, t}]}
 ```mathematica
 >In[3]:= MapThread[f, {{{a, b}, {c, d}}, {{u, v}, {s, t}}}, 2]
 Out[3]= {{f[a, u], f[b, v]}, {f[c, s], f[d, t]}}
+```
+
+### Thread
+
+神器 `Thread`，线程
+
+Thread可以理解成，自动对参数进行同样的处理，
+如果是一元算符，则直接轮流作用一遍。
+如果是多元算符，首先把参数列表对齐, 就是把参数中出现的单个元素扩充到和其他的一样长。
+
+还有神奇的自动过滤选项,
+
+`Thread[f[args],h,n] `
+threads **f** over objects with head **h** that appear in the first **n** args. 
+
+***
+`Thread` 和 `MapThread` 的区别
+
+MapThread works like Thread, but takes the function and arguments separately:
+
+```mathematica
+In[1]:= MapThread[f,{{a,b,c},{x,y,z}}]
+Out[1]= {f[a,x],f[b,y],f[c,z]}
 ```
 
 ## 目录和目录操作
@@ -646,7 +684,7 @@ Reap[expr]
 
 tutorial/GeneratingCAndFortranExpressions
 
-*****
+***
 
 一些我比较经常用的 mathematica 的功能
 
@@ -801,19 +839,46 @@ Out[4]= {0.409393, 0.730688}
 Flatten[{{ $m_{11}$, $m_{12}$}, {$m_{21}$, $m_{22}$ }},{{1,3},{2,4}}]
 实际上建立了由块 $m_{ij}$ 组成的单个矩阵.
 
+本来的矩阵，实际上有`4`个指标`ijkl`
+`{{1,3},{2,4}}` 的意思是，把第一个和第三个指标放在一起，把第二个和第四个指标放在一起。
+
 也就是说 Flatten 实际上是 矩阵索引 重新划分函数。
-对于一个矩阵，有n个索引（指标）。
-总的元素个数是 $a_1* a_2* a_3* a_4 \cdots$
-可以重新组合这些指标，例如把$a_1, a_2$ 并入一个指标中，
-指标的取值范围变成$1\to a_1*a_2$
+对于一个矩阵，有`n`个索引（指标）(`a1,a2,...,an`)。
+总的元素个数是 `a1* a2*...*an`
+可以重新组合这些指标，例如把`a1, a2` 并入一个指标中，
+指标的取值范围变成`1,2,...,a_1*a_2`
 
 类似的，矩阵的各种指标可以随意交换，
-$a_1* a_2* a_3* a_4 \to a_3* a_2* a_1* a_4 \cdots$
-这就是广义转置的过程，
-广义转置再加上重新划分，
-这就是Flatten的作用。
+`a1* a2* a3* a4` to `a3* a2* a1* a4`，这就是广义转置的过程。
+广义转置再加上重新划分（指标的重新组合），这就是Flatten的作用。
 
-## 笔记本操作
+类似的操作还有
+
+***
+数组展平
+`ArrayFlatten[a,r]` is normally equivalent to `Flatten[a,{{1,r+1},{2,r+2},...,{r,2r}}]`
+相当于`Flatten`的简化版
+
+***
+把数组重塑成指定维数的数组
+`ArrayReshape[list,dims] `
+arranges the elements of list into a rectangular array with dimensions dims.
+
+```mathematica
+In[1]:= ArrayReshape[{a,b,c,d,e,f},{2,3}]
+Out[1]= {{a,b,c},{d,e,f}}
+```
+
+***
+多行排列
+`Multicolumn[list,cols]`
+is an object that formats with the elements of list arranged in a grid with the indicated number of columns.
+
+***
+图例中的布局函数一定要加一个括号，如果使用匿名函数的话，例如：
+`SwatchLegend[63, Range[5], LegendLayout -> (Multicolumn[##, 1] &)]`
+
+## 笔记本目录操作
 
 设定目录时候，可以用`NotebookDirectory[]` 输出目标路径，然后采用字符串模式匹配的方法，获取根目录，这样得到的目录可以不依赖文件的子目录位置，例如
 
@@ -864,13 +929,13 @@ CurrentValue[InputNotebook[], WindowSize]
 CurrentValue[InputNotebook[], WindowSize] = {400, 300}
 ```
 
-*****
+***
 
 还可以通过内核移动笔记本
 
 在任何打开的笔记本中，前端总是保持当前的选择，这个选择由一个单元中的文本区域组成，或者是由这个单元组成. 通常这个选择在屏幕上是由一个高亮度形式表明. 这个选择也可以在文本的两个字符之间，或者在两个单元之间，这时它在屏幕上由两个竖直或水平的插入杠来表明.
 
-*****
+***
 
 查找笔记本的内容.
 
@@ -880,7 +945,7 @@ CurrentValue[InputNotebook[], WindowSize] = {400, 300}
 NotebookFind[nb,"cell",Previous]
 ```
 
-*****
+***
 为整个笔记本和当前选择寻找和设置选项.
 
 + `Options[obj,option]`  找出完整笔记本的一个选项值
@@ -888,7 +953,7 @@ NotebookFind[nb,"cell",Previous]
 + `SetOptions[obj,option->value]` 设置完整的笔记本的一个选项值
 + `SetOptions[NotebookSelection[obj],option->value]`  设置当前选择的值
 
-*****
+***
 
 整个笔记本的操作:
 
@@ -934,7 +999,7 @@ FrontEndExecute[FrontEndToken["New"]]
 ### 在前端直接执行笔记本指令
 
 在执行 `NotebookWrite[obj,data]` 等指令时，向笔记本中插入数据的实际操作是在前端进行的. 但为了估算原来的指令和构造送向前端的适当请求，还是要使用内核的. 不过，前端可以直接执行一定量的指令，而不需涉及内核. 
-*****
+***
 区分指令的内核和前端版本. 
 
 + `NotebookWrite[obj,data]` 在内核执行的 `NotebookWrite` 版本指令
@@ -951,7 +1016,7 @@ Wolfram 语言区分在内核执行的指令和前端直接执行的指令的基
 
 ### 单元结构
 
-*****
+***
 对应于单元的表达式. 
 
 + `Cell[contents,"style"]`  有特殊风格的单元
@@ -965,7 +1030,7 @@ Wolfram 系统实际上用`样式定义单元`来定义样式. 这些单元可�
 Wolfram 语言提供了大量的单元选项，这些选项都可以在前端中通过 选项设置 菜单项访问. 
 它们可以在单个单元层上直接设置，也可以在高层设置而让单个单元去继承. 
 
-*****
+***
 计算选项. 
 
 | 选项 | 典型默认值 | explanation |
@@ -990,7 +1055,7 @@ Wolfram 语言中常用特殊字符有许多别名.
 
 ### 笔记本选项
 
-*****
+***
 改变笔记本选项的方式. 
 
 + `\[FilledSmallSquare]` 用选项设置菜单交互式的改变选项.
@@ -1009,7 +1074,7 @@ CreateWindow[WindowFrame -> "ThinFrame", WindowSize -> {400, 300}]
 默认情况下，这些选项的值保存在一个"偏好文件"中，当重新运行 Wolfram 系统时就自动再次使用.
 这些选项包含可以用偏好设置对话框生成的设置.
 
-*****
+***
 前端全局选项的一些类型.
 
 + 风格定义  新笔记本使用的默认样式定义
@@ -1028,7 +1093,7 @@ CreateWindow[WindowFrame -> "ThinFrame", WindowSize -> {400, 300}]
 
 Wolfram 语言提供了一种简洁的方式来用字符串表示框符. 在将框符的设定作为普通文本进行导入和导出时，这种方式尤其方便.
 
-*****
+***
 区分原始框符和其代表的表达式. 
 
 + `\(input\)` 原始框符
@@ -1040,7 +1105,7 @@ Wolfram 系统将在必要时生成一个`\!\(...\)`形式. 这样做是为了�
 
 在选项的默认设置下，贴入 Wolfram 系统笔记本中的 `\!\(...\)` 格式自动显示成二维格式.
 
-*****
+***
 字符串中嵌入二维框件结构. 
 
 + `"\(input\)"` 一个原始字符串
@@ -1070,7 +1135,7 @@ ref: tutorial/RunningTheWolframSystemOverview
 
 Wolfram 系统是一个模块化的软件系统，其执行运算的内核与处理用户交互的前端是互相分离的.
 
-*****
+***
 Wolfram 系统的基本部分.
 
 + Wolfram 语言内核 实际执行运算的部分
@@ -1123,7 +1188,7 @@ windows: wolframscript.exe
 
 #### 编辑输入
 
-*****
+***
 编辑输入的默认键. 
 
 + `Ctrl+A`,`Home` 将光标移到输入的开始
@@ -1179,7 +1244,7 @@ Wolfram 系统会话
 
 reference: guide/WolframSystemSessions
 reference: tutorial/RunningTheWolframSystemOverview
-*****
+***
 mathematica 中的前端概念
 
 Wolfram 系统的组件 
@@ -1225,7 +1290,7 @@ tutorial/UsingATextBasedInterface
 
 ### NotebookEvaluate
 
-*****
+***
 
 NotebookEvaluate[notebook] 
 
@@ -1269,7 +1334,7 @@ ref:tutorial/Dialogs
 
 在标准交互式进程中，可以用 Wolfram 语言命令 Dialog 去建立一个**子进程**或者**对话.** 在进行计算的过程中，可以用对话与 Wolfram 语言相互作用. 像 "计算的跟踪" 中提到的一样，TraceDialog 在一个表达式计算的过程中的指定点自动调用 Dialog. 另外，在计算过程中要中断 Wolfram 语言时，一般用对话检查它的状态. 
 
-*****
+***
 启动对话和从对话返回. 
 
 +`Dialog[]` 启动 Wolfram 语言对话
@@ -1309,7 +1374,7 @@ tutorial/WorkingWithStylesheets
 
 样式表是笔记本的各种特殊单元的集合，它被其他笔记本引用，或者作为笔记本选项的一部分应用. 在后一种情形中，我们称样式表作为私有或本地样式表在笔记本内部"嵌入".
 
-*****
+***
 与样式表相关的函数.
 
 + `StyleDefinitions` 笔记本选项，指定具有样式定义的文件能够在笔记本中使用

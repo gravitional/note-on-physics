@@ -1010,6 +1010,11 @@ EOF 也可以使用其他符号:
 
 ## Shell 传递参数
 
+传入脚本的参数，要用双引号保护起来`"args"`，防止变量的自动分字（word splitting）
+也就是双层引号可以避免分字
+
+与`mathematica`配合的时候，尽量把长参数放到mathematica 脚本中，把短参数放到调用的`shell`中，结构化成一个关联的形式。
+
 ### 实例
 
 ## Shell 数组
@@ -2018,6 +2023,8 @@ Shell 中可以使用的通配符如下：
 `\ `本身用` \\` 表示。
 
 ### 字符切割
+
+分字 word splitting
 
 [Shell_Linux Shell 中实现字符串切割的几种方法][]
 [refs1][]

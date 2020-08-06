@@ -182,29 +182,34 @@ git diff [<options>] --no-index [--] <path> <path>
 ```
 
 ***
+working tree v.s. stage
 `git diff [--options] [--] [<path>...]`
 
-changes 相对于`index`(`stage`)
+默认相对于`index`(`stage`)的改动。
 
 ***
+path v.s. path
 `git diff --no-index [--options] [--] [<path>...]`
 
-文件系统上的两个`path`，如果其中一个不是Git 控制的working tree，可以不加`--no-index`
+文件系统上的两个`path`，如果其中一个不是`Git`控制的`working tree`，可以不加`--no-index`
 
 ***
+stage v.s. commit
 `git diff [--options] --cached [<commit>] [--] [<path>...]`
 
-比较`staged` and `<commit>`，默认commi 是 HEAD。`--staged` is a synonym of `--cached`.
+比较`staged` and `<commit>`，默认commit 是 HEAD。`--staged` is a synonym of `--cached`.
 
 ***
+commit v.s. working tree
 `git diff [--options] <commit> [--] [<path>...]`
 
-比较 working tree 相对于`<commit>`，commit可以是HEAD，也可以是分支名字，就是比较 分支的顶端。
+比较 `working tree` 相对于`<commit>`，commit可以是HEAD，也可以是分支名字，就是比较 分支的顶端。
 
 ***
+commit v.s. commit
 `git diff [--options] <commit> <commit> [--] [<path>...]`
 
-比较任意两个 `<commit>`.
+比较任意两个 `<commit>`，前一个是base，后一个是改动
 
 ***
 `git diff [--options] <commit>..<commit> [--] [<path>...]`
