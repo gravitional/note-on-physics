@@ -1195,7 +1195,7 @@ tutorial/RepresentingTextualFormsByBoxes
 
 内核--前端
 
-box--笔记本
+`box`--笔记本
 
 字符串表示--框符
 
@@ -1207,7 +1207,7 @@ box--笔记本
 
 往上，包括图形，二维化表示等等，这个层面上，出现 框符 的概念，
 
-二维化框符的显示，带来了一批处理显示相关的表达式，它们是 mma 的排版层。
+二维化框符的显示，带来了一批处理显示相关的表达式，它们是`mma`的排版层。
 
 框符不仅有 LISP 表示，而且有字符串表示。
 
@@ -1230,10 +1230,10 @@ Wolfram 系统将在必要时生成一个 `\!\(...\)` 形式.
 ***
 字符串中嵌入二维框件结构. 
 
-+ "\(input\)"`  一个原始字符串
-+ "\!\(input\)"`  含有框符的字符串
++ `"\(input\)"`  一个原始字符串
++ `"\!\(input\)"`  含有框符的字符串
 
-+ `\(box1,box2,...\)`  RowBox[box1,box2,...]
++ `\(box1,box2,...\)`  `RowBox[box1,box2,...]`
 + `box1\^box2`  SuperscriptBox[box1,box2]
 + `box1\_ box2`  SubscriptBox[box1,box2]
 + `box1\_box2\% box3`  SubsuperscriptBox[box1,box2,box3]
@@ -1243,14 +1243,14 @@ Wolfram 系统将在必要时生成一个 `\!\(...\)` 形式.
 + `box1\/box2`  FractionBox[box1,box2]
 + `\@box`  SqrtBox[box]
 + `\@box1\%box2`  RadicalBox[box1,box2]
-+ ``form\` box``  FormBox[box,form]
++ `` form\` box ``  FormBox[box,form]
 + `\*input`  构建来自 input 的框符
 
 ***
 控制输入被解释的方式. 
 
 + `\!\(input\)`  解释当前形式中的输入
-+ `\!\(form\`input\)`  使用指定形式解释输入
++ `` \!\(form\`input\) ``  使用指定形式解释输入
 
 ### 文本格式的框符表示
 
