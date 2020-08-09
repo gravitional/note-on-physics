@@ -1,336 +1,5 @@
 # ubuntu-3
 
-## sed
-
-sed是一种流编辑器，它是文本处理中非常中的工具，能够完美的配合正则表达式使用，功能不同凡响。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等
-
-命令格式
-
-```bash
-sed [options] 'command' file(s)
-sed [options] -f scriptfile file(s)
-```
-
-### 选项
-
--e<script>或--expression=<script>：以选项中的指定的script来处理输入的文本文件；
--f<script文件>或--file=<script文件>：以选项中指定的script文件来处理输入的文本文件；
--h或--help：显示帮助；
--n或--quiet或——silent：仅显示script处理后的结果；
--V或--version：显示版本信息。
-
-### 命令
-
-+ `a\` 在当前行下面插入文本。
-+ `i\` 在当前行上面插入文本。
-+ `c\` 把选定的行改为新的文本。
-+ `d` 删除，删除选择的行。
-+ `D` 删除模板块的第一行。
-+ `s` 替换指定字符
-+ `h` 拷贝模板块的内容到内存中的缓冲区。
-+ `H` 追加模板块的内容到内存中的缓冲区。
-+ `g` 获得内存缓冲区的内容，并替代当前模板块中的文本。
-+ `G` 获得内存缓冲区的内容，并追加到当前模板块文本的后面。
-+ `l` 列表不能打印字符的清单。
-+ `n` 读取下一个输入行，用下一个命令处理新的行而不是用第一个命令。
-+ `N` 追加下一个输入行到模板块后面并在二者间嵌入一个新行，改变当前行号码。
-+ `p` 打印模板块的行。
-+ `P` (大写) 打印模板块的第一行。
-+ `q` 退出Sed。
-+ `b lable` 分支到脚本中带有标记的地方，如果分支不存在则分支到脚本的末尾。
-+ `r file` 从file中读行。
-+ `t label` if分支，从最后一行开始，条件一旦满足或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。
-+ `T label` 错误分支，从最后一行开始，一旦发生错误或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。
-+ `w file` 写并追加模板块到file末尾。
-+ `W file` 写并追加模板块的第一行到file末尾。
-+ `!` 表示后面的命令对所有没有被选定的行发生作用。
-+ `=` 打印当前行号码。
-+ `#` 把注释扩展到下一个换行符以前。
-
-### 替换标记
-
-+ `g` 表示行内全面替换。
-+ `p` 表示打印行。
-+ `w` 表示把行写入一个文件。
-+ `x` 表示互换模板块中的文本和缓冲区中的文本。
-+ `y` 表示把一个字符翻译为另外的字符（但是不用于正则表达式）
-+ `\1` 子串匹配标记
-+ `&` 已匹配字符串标记
-
-### 元字符集
-
-+ `^` 匹配行开始，如：`/^sed/`匹配所有以`sed`开头的行。
-+ `$` 匹配行结束，如：`/sed$/`匹配所有以`sed`结尾的行。
-+ `.` 匹配一个非换行符的任意字符，如：`/s.d/`匹配`s`后接一个任意字符，最后是`d`。
-+ `*` 匹配`0`个或多个字符，如：`/*sed/`匹配所有模板是一个或多个空格后紧跟`sed`的行。
-+ `[]` 匹配一个指定范围内的字符，如`/[ss]ed/`匹配sed和Sed。
-+ `[^]` 匹配一个不在指定范围内的字符，如：`/[^A-RT-Z]ed/`匹配不包含`A-R`和`T-Z`的一个字母开头，紧跟`ed`的行。
-+ `\(..\)` 匹配子串，保存匹配的字符，如`s/\(love\)able/\1rs`，loveable被替换成lovers。
-+ `&` 保存搜索字符用来替换其他字符，如`s/love/**&**/`，love这成`**love**`。
-+ `\<` 匹配单词的开始，如:`/\<love/`匹配包含以love开头的单词的行。
-+ `\>` 匹配单词的结束，如`/love\>/`匹配包含以love结尾的单词的行。
-+ `x\{m\}` 重复字符`x`，`m`次，如：`/0\{5\}/`匹配包含5个0的行。
-+ `x\{m,\}` 重复字符`x`，至少`m`次，如：`/0\{5,\}/`匹配至少有5个0的行。
-+ `x\{m,n\}` 重复字符`x`，至少`m`次，不多于n次，如：`/0\{5,10\}/`匹配5~10个0的行。
-
-#### 替换操作：s命令
-
-替换文本中的字符串：
-
-```bash
-sed 's/book/books/' file
-```
-
-`-n`选项和`p`命令一起使用表示只打印那些发生替换的行：
-
-```bash
-sed -n 's/test/TEST/p' file
-```
-
-直接编辑文件选项`-i`，会匹配`file`文件中每一行的第一个`book`替换为`book`s：
-
-```bash
-sed -i 's/book/books/g' file
-```
-
-#### 全面替换标记g
-
-使用后缀 `/g` 标记会替换每一行中的所有匹配：
-
-```bash
-sed 's/book/books/g' file
-```
-
- 当需要从第N处匹配开始替换时，可以使用 /Ng：
-
-echo sksksksksksk | sed 's/sk/SK/2g'
-skSKSKSKSKSK
-
-echo sksksksksksk | sed 's/sk/SK/3g'
-skskSKSKSKSK
-
-echo sksksksksksk | sed 's/sk/SK/4g'
-skskskSKSKSK
-
-#### 定界符
-
-以上命令中字符 / 在sed中作为定界符使用，也可以使用任意的定界符：
-
-sed 's:test:TEXT:g'
-sed 's|test|TEXT|g'
-
-定界符出现在样式内部时，需要进行转义：
-
-sed 's/\/bin/\/usr\/local\/bin/g'
-
-#### 删除操作：d命令
-
-删除空白行：
-
-sed '/^$/d' file
-
-删除文件的第2行：
-
-sed '2d' file
-
-删除文件的第2行到末尾所有行：
-
-sed '2,$d' file
-
-删除文件最后一行：
-
-sed '$d' file
-
-删除文件中所有开头是test的行：
-
-sed '/^test/'d file
-
-#### 已匹配字符串标记&
-
-正则表达式 \w\+ 匹配每一个单词，使用 [&] 替换它，& 对应于之前所匹配到的单词：
-
-echo this is a test line | sed 's/\w\+/[&]/g'
-[this] [is] [a] [test] [line]
-
-所有以192.168.0.1开头的行都会被替换成它自已加localhost：
-
-sed 's/^192.168.0.1/&localhost/' file
-192.168.0.1localhost
-
-#### 子串匹配标记\1
-
-匹配给定样式的其中一部分：
-
-echo this is digit 7 in a number | sed 's/digit \([0-9]\)/\1/'
-this is 7 in a number
-
-命令中 digit 7，被替换成了 7。样式匹配到的子串是 7，\(..\) 用于匹配子串，对于匹配到的第一个子串就标记为 \1，依此类推匹配到的第二个结果就是 \2，例如：
-
-echo aaa BBB | sed 's/\([a-z]\+\) \([A-Z]\+\)/\2 \1/'
-BBB aaa
-
-love被标记为1，所有loveable会被替换成lovers，并打印出来：
-
-sed -n 's/\(love\)able/\1rs/p' file
-
-#### 组合多个表达式
-
-sed '表达式' | sed '表达式'
-
-等价于：
-
-sed '表达式; 表达式'
-
-#### 引用
-
-sed表达式可以使用单引号来引用，但是如果表达式内部包含变量字符串，就需要使用双引号。
-
-test=hello
-echo hello WORLD | sed "s/$test/HELLO"
-HELLO WORLD
-
-#### 选定行的范围：,（逗号）
-
-所有在模板test和check所确定的范围内的行都被打印：
-
-sed -n '/test/,/check/p' file
-
-打印从第5行开始到第一个包含以test开始的行之间的所有行：
-
-sed -n '5,/^test/p' file
-
-对于模板test和west之间的行，每行的末尾用字符串aaa bbb替换：
-
-sed '/test/,/west/s/$/aaa bbb/' file
-
-#### 多点编辑：e命令
-
--e选项允许在同一行里执行多条命令：
-
-sed -e '1,5d' -e 's/test/check/' file
-
-上面sed表达式的第一条命令删除1至5行，第二条命令用check替换test。命令的执行顺序对结果有影响。如果两个命令都是替换命令，那么第一个替换命令将影响第二个替换命令的结果。
-
-和 -e 等价的命令是 --expression：
-
-sed --expression='s/test/check/' --expression='/love/d' file
-
-#### 从文件读入：r命令
-
-file里的内容被读进来，显示在与test匹配的行后面，如果匹配多行，则file的内容将显示在所有匹配行的下面：
-
-sed '/test/r file' filename
-
-#### 写入文件：w命令
-
-在example中所有包含test的行都被写入file里：
-
-sed -n '/test/w file' example
-
-#### 追加（行下）：a\命令
-
-将 this is a test line 追加到 以test 开头的行后面：
-
-sed '/^test/a\this is a test line' file
-
-在 test.conf 文件第2行之后插入 this is a test line：
-
-sed -i '2a\this is a test line' test.conf
-
-#### 插入（行上）：i\命令
-
-将 this is a test line 追加到以test开头的行前面：
-
-sed '/^test/i\this is a test line' file
-
-在test.conf文件第5行之前插入this is a test line：
-
-sed -i '5i\this is a test line' test.conf
-
-#### 下一个：n命令
-
-如果test被匹配，则移动到匹配行的下一行，替换这一行的aa，变为bb，并打印该行，然后继续：
-
-sed '/test/{ n; s/aa/bb/; }' file
-
-#### 变形：y命令
-
-把1~10行内所有abcde转变为大写，注意，正则表达式元字符不能使用这个命令：
-
-sed '1,10y/abcde/ABCDE/' file
-
-#### 退出：q命令
-
-打印完第10行后，退出sed
-
-sed '10q' file
-
-#### 保持和获取：h命令和G命令
-
-在sed处理文件的时候，每一行都被保存在一个叫模式空间的临时缓冲区中，除非行被删除或者输出被取消，否则所有被处理的行都将 打印在屏幕上。接着模式空间被清空，并存入新的一行等待处理。
-
-sed -e '/test/h' -e '$G' file
-
-在这个例子里，匹配test的行被找到后，将存入模式空间，h命令将其复制并存入一个称为保持缓存区的特殊缓冲区内。第二条语句的意思是，当到达最后一行后，G命令取出保持缓冲区的行，然后把它放回模式空间中，且追加到现在已经存在于模式空间中的行的末尾。在这个例子中就是追加到最后一行。简单来说，任何包含test的行都被复制并追加到该文件的末尾。
-
-#### 保持和互换：h命令和x命令
-
-互换模式空间和保持缓冲区的内容。也就是把包含test与check的行互换：
-
-sed -e '/test/h' -e '/check/x' file
-
-#### 脚本scriptfile
-
-sed脚本是一个sed的命令清单，启动Sed时以-f选项引导脚本文件名。Sed对于脚本中输入的命令非常挑剔，在命令的末尾不能有任何空白或文本，如果在一行中有多个命令，要用分号分隔。以#开头的行为注释行，且不能跨行。
-
-sed [options] -f scriptfile file(s)
-
-#### 打印奇数行或偶数行
-
-方法1：
-
-sed -n 'p;n' test.txt  #奇数行
-sed -n 'n;p' test.txt  #偶数行
-
-方法2：
-
-sed -n '1~2p' test.txt  #奇数行
-sed -n '2~2p' test.txt  #偶数行
-
-#### 打印匹配字符串的下一行
-
-```bash
-grep -A 1 SCC URFILE
-sed -n '/SCC/{n;p}' URFILE
-awk '/SCC/{getline; print}' URFILE
-```
-
-### 用法实例
-
-### ip地址
-
-先观察原始信息，利用`ip monitor address dev enp0s31f6` 监视 IP变化
-
-ip monitor address dev enp0s31f6
-
-```bash
-dev_name="enp0s31f6" #设备名称
-dev_addr=$(ip monitor address dev $dev_name)  #监视ip变化
-echo $dev_addr |\
-grep -Po "${dev_name}[ ]+inet[ ]+[ \w\d\./]+brd" | `#用grep 提取出address一行`\
-sed "s/${dev_name} \{1,\}inet//g" | sed "s/brd//g"
-```
-
-```bash
-dev_name="enp0s31f6" #设备名称
-ip monitor address dev $dev_name | while read line
-do
-echo $line |\
-grep -Po "${dev_name}[ ]+inet[ ]+[ \w\d\./]+brd" | `#用grep 提取出address一行`\
-sed "s/${dev_name} \{1,\}inet//g" | sed "s/brd//g"
-done
-```
-
 ## Zsh和Bash的不同
 
 [Zsh和Bash究竟有何不同][]
@@ -391,7 +60,7 @@ $ file /bin/sh
 
 众所周知，`Debian`的默认`/bin/sh`是 `dash`（`Debian Almquist shell`），这是一个纯粹`POSIX shell`兼容的实现，基本上你要的`bash`和`ksh`里的那些高级特性它都没有。
 
-“如果你在一个`#!/bin/sh`脚本中用到了非`POSIX shell`的东西，说明你的脚本写得是错的，不关我们发行版的事情。”Debian开发者们在把默认的`/bin/sh`换成`dash`，导致一些脚本出错时这样宣称道。
+"如果你在一个`#!/bin/sh`脚本中用到了非`POSIX shell`的东西，说明你的脚本写得是错的，不关我们发行版的事情。"Debian开发者们在把默认的`/bin/sh`换成`dash`，导致一些脚本出错时这样宣称道。
 
 当然，我们应该继续假装与`POSIX shell`标准保持兼容是一件重要的事情，即使现在大家都已经用上了更高级的shell。
 
@@ -511,7 +180,7 @@ echo $text
 echo "$text"
 ```
 
-在`Zsh`中，你不需要通过双引号来告诉解释器“`$text`是一个字符串”。解释器不会把它转换成一个由`空格`或者`\n`分隔的参数列表或者别的什么。
+在`Zsh`中，你不需要通过双引号来告诉解释器"`$text`是一个字符串"。解释器不会把它转换成一个由`空格`或者`\n`分隔的参数列表或者别的什么。
 所以，没有`Bash`中的`trick`，直接`echo $text`就可以保留换行符。
 但是，如前一节所说，我们需要一个多余的工作来保证输出的是未转义的原始文本，那就是`-E`选项：
 
@@ -652,13 +321,13 @@ $ [ foo "==" bar ]; echo $?
 同样用一个简单的例子来说明。Bash：
 
 ```bash
-array=(alpha bravo charlie delta) 
-echo $array 
-echo ${array[*]} 
-echo ${#array[*]} 
-for ((i=0; i < ${#array[*]}; i++)); 
+array=(alpha bravo charlie delta)
+echo $array
+echo ${array[*]}
+echo ${#array[*]}
+for ((i=0; i < ${#array[*]}; i++));
 do
-    echo ${array[$i]} 
+    echo ${array[$i]}
 done
 ```
 
@@ -683,13 +352,13 @@ delta
 再来看这段`Zsh`：
 
 ```zsh
-array=(alpha bravo charlie delta) 
-echo $array 
-echo $array[*] 
-echo $#array 
-for ((i=1; i <= $#array[*]; i++)); 
-do  
-echo $array[$i] 
+array=(alpha bravo charlie delta)
+echo $array
+echo $array[*]
+echo $#array
+for ((i=1; i <= $#array[*]; i++));
+do
+echo $array[$i]
 done
 ```
 
@@ -803,7 +472,7 @@ bash: syntax error near unexpected token `;'
 ```
 
 解释是：`then`表示一个代码段的开始，`fi`表示结束，这中间的内容必须是若干行命令，或者以分号`;`结尾的放在同一行内的多条命令。
-我们知道在传统的`shell`中，分号本身并不是一条命令，空字符串也不是一条命令，因此，`then`后面紧接着的分号就会带来一条语法错误。（有些时候对某个“语言特性”的所谓解释只是为了掩饰设计者在一开始犯的错误，所以就此打住）
+我们知道在传统的`shell`中，分号本身并不是一条命令，空字符串也不是一条命令，因此，`then`后面紧接着的分号就会带来一条语法错误。（有些时候对某个"语言特性"的所谓解释只是为了掩饰设计者在一开始犯的错误，所以就此打住）
 
 在`Zsh`中，上述两种写法都合法。因为它允许只包含一个分号的空命令。
 
@@ -817,4 +486,127 @@ $ ;
 if [ 1 ]; then fi
 ```
 
-## 重定向
+## Linux技巧
+
+[应该知道的Linux技巧][]
+
+[应该知道的Linux技巧]: https://coolshell.cn/articles/8883.html
+
+### 基础
+
++ 学习 `Bash` 。你可以`man bash`来看看`bash`的东西，并不复杂也并不长。你用别的shell也行，但是bash是很强大的并且也是系统默认的。（学习zsh或tsch只会让你在很多情况下受到限制）
++ 学习 `vim` 。在Linux下，基本没有什么可与之竞争的编译辑器（就算你是一个Emacs或Eclipse的重度用户）。你可以看看《简明vim攻略》和 《Vim的冒险游戏》以及《给程序员的Vim速查卡》还有《把Vim变成一个编程的IDE》等等。
++ 了解 `ssh`。明白不需要口令的用户认证（通过`ssh-agent`, `ssh-add`），学会用`ssh`翻墙，用`scp`而不是`ftp`传文件，等等。你知道吗？`scp` 远端的时候，你可以按`tab`键来查看远端的目录和文件（当然，需要无口令的用户认证），这都是bash的功劳。
++ 熟悉`bash`的作业管理，如：`&`, `Ctrl-Z`, `Ctrl-C`, `jobs`, `fg`, `bg`, `kill`, 等等。当然，你也要知道`Ctrl+\`（SIGQUIT）和`Ctrl+C` （SIGINT）的区别。
++ 简单的文件管理 ： `ls` 和 `ls -l` (你最好知道 `ls -l` 的每一列的意思), `less`, `head`, `tail` 和 `tail -f`, `ln` 和 `ln -s` (你知道明白`hard link`和`soft link`的不同和优缺点), `chown`, `chmod`, `du` (如果你想看看磁盘的大小 `du -sk *`), `df`, `mount`,`find`
++ 基础的网络管理： `ip` 或 `ifconfig`, `dig`,`netstat`, `ping`, `traceroute`, 等
++ 理解正则表达式，还有`grep`/`egrep`的各种选项。比如： `-o`, `-A`, 和 `-B` 这些选项是很值得了解的。
++ 学习使用 `apt-get` 和 `yum` 来查找和安装软件（前者的经典分发包是Ubuntu，后者的经典分发包是Redhat），我还建议你试着从源码编译安装软件。
+
+### 日常
+
++ 在 `bash` 里，使用 `Ctrl-R` 而不是上下光标键来查找历史命令。
++ 在 `bash` 里，使用 `Ctrl-W` 来删除最后一个单词，使用 `Ctrl-U` 来删除一行。请`man bash`后查找`Readline Key Bindings`一节来看看`bash`的默认热键，比如：`Alt-.` 把上一次命令的最后一个参数打出来，而`Alt-*` 则列出你可以输入的命令。
++ 回到上一次的工作目录： `cd –`  （回到`home`是` cd ~`）
++ 使用 `xargs`。这是一个很强大的命令。你可以使用`-L`来限定有多少个命令，也可以用`-P`来指定并行的进程数。
+如果你不知道你的命令会变成什么样，你可以使用`xargs echo`来看看会是什么样。当然， `-I{}` 也很好用。示例：
+
+```bash
+find . -name \*.py | xargs grep some_function
+cat hosts | xargs -I{} ssh root@{} hostname
+```
+
++ `pstree -p` 可以帮你显示进程树。
++ 使用 `pgrep` 和 `pkill` 来找到或是`kill`某个名字的进程。 (`-f` 选项很有用).
++ 了解可以发给进程的信号。例如：要挂起一个进程，使用 `kill -STOP [pid]`. 使用 `man 7 signal` 来查看各种信号，使用`kill -l` 来查看数字和信号的对应表
++ 使用 `nohup` 或  `disown` 如果你要让某个进程运行在后台。
++ 使用`netstat -lntp`来看看有侦听在网络某端口的进程。当然，也可以使用`lsof`。
++ 在`bash`的脚本中，你可以使用`set -x`来debug输出。使用 `set -e` 来当有错误发生的时候`abort`执行。考虑使用 `set -o pipefail` 来限制错误。还可以使用`trap`来截获信号（如截获`ctrl+c`）。
++ 在bash 脚本中，`subshells` (写在圆括号里的) 是一个很方便的方式来组合一些命令。一个常用的例子是临时地到另一个目录中，例如：
+
+```bash
+# do something in current dir
+(cd /some/other/dir; other-command)
+# continue in original dir
+```
+
++ 在 bash 中有很多变量展开。如：检查一个变量是否存在: `${name:?error message}`。
+
+比如脚本参数的表达式： `input_file=${1:?usage: $0 input_file}`。
+计算表达式： `i=$(( (i + 1) % 5 ))`。
+一个序列： `{1..10}`。 
+截断一个字符串： `${var%suffix}` 和 `${var#prefix}`。 
+示例：`if var=foo.pdf; then echo ${var%.pdf}.txt;fi;`
+
++ 通过 `<(some command)` 可以把某命令当成一个文件。
+示例：比较一个本地文件和远程文件` /etc/hosts`： `diff /etc/hosts <(ssh somehost cat /etc/hosts)`
++ 了解什么叫 "here documents" ，就是诸如 `cat <<EOF` 这样的东西。
++ 在 bash中，使用重定向到标准输出和标准错误。如： `some-command >logfile 2>&1`。
+另外，要确认某命令没有把某个打开了的文件句柄重定向给标准输入，最佳实践是加上 `</dev/null`，把`/dev/null`重定向到标准输入。
++ 使用 `man ascii` 来查看 `ASCII` 表。
++ 在远端的 ssh 会话里，使用 `screen` 或 `dtach` 来保存你的会话。
++ 若要`debug Web`，试试`curl` 和 `curl -I` 或是 `wget` 。(我觉得debug Web的利器是`firebug`，`curl`和`wget`是用来抓网页的.)
++ 把 `HTML` 转成文本：`lynx -dump -stdin`
++ 如果你要处理`XML`，使用 `xmlstarlet`
++ 对于 Amazon S3， `s3cmd` 是一个很方便的命令（还有点不成熟）
++ 在 ssh中，知道怎么来使用`ssh`隧道。通过 `-L` or `-D` (还有`-R`) ，翻墙神器。
++ 你还可以对你的 `ssh` 做点优化。比如，`.ssh/config` 包含着一些配置：避免链接被丢弃，链接新的`host`时不需要确认，转发认证，以前使用压缩（如果你要使用scp传文件）：
+
+```bash
+TCPKeepAlive=yes
+ServerAliveInterval=15
+ServerAliveCountMax=6
+StrictHostKeyChecking=no
+Compression=yes
+ForwardAgent=yes
+```
+
++ 如果你输入了一行命令，但你改变注意了，又不想删除它，因为你要在历史命令中找到它，但你也不想执行它。
+那么，你可以按下 `Alt-#` ，于是这个命令关就被加了一个`#`字符，于是就被注释掉了。
+
+### 数据处理
+
++ 了解 `sort` 和 `uniq` 命令 (包括 `uniq` 的 `-u` 和 `-d` 选项).
++ 了解用 `cut`, `paste`, 和 `join` 命令来操作文本文件。很多人忘了在`cut`前使用`join`。
++ 如果你知道怎么用`sort`/`uniq`来做集合交集、并集、差集能很大地促进你的工作效率。
+假设有两个文本文件`a`和`b`已经被 `uniq`了，那么，用`sort`/`uniq`会是最快的方式，无论这两个文件有多大（`sort`不会被内存所限，你甚至可以使用`-T`选项，如果你的/tmp目录很小）
+
+```bash
+cat a b | sort | uniq > c   # c is a union b 并集
+cat a b | sort | uniq -d > c   # c is a intersect b 交集
+cat a b b | sort | uniq -u > c   # c is set difference a - b 差集
+```
+
++ 了解和字符集相关的命令行工具，包括排序和性能。
+很多的Linux安装程序都会设置`LANG `或是其它和字符集相关的环境变量。
+这些东西可能会让一些命令（如：`sort`）的执行性能慢N多倍（注：就算是你用`UTF-8`编码文本文件，你也可以很安全地使用`ASCII`来对其排序）。
+如果你想`Disable`那个`i18n` 并使用传统的基于`byte`的排序方法，那就设置`export LC_ALL=C` （实际上，你可以把其放在 `.bashrc`）。
+如果这设置这个变量，你的`sort`命令很有可能会是错的。
++ 了解 `awk` 和 `sed` ，并用他们来做一些简单的数据修改操作。例如：求第三列的数字之和： `awk '{ x += $3 } END { print x }'`。这可能会比Python快3倍，并比Python的代码少三倍。
++ 使用 `shuf` 来打乱一个文件中的行或是选择文件中一个随机的行。
++ 了解`sort`命令的选项。了解`key`是什么（`-t`和`-k`）。具体说来，你可以使用`-k1,1`来对第一列排序，`-k1`来对全行排序。
++ `sort -s` 会很有用。
+例如：如果你想对两列排序，先对第二列，再对第一列，那么你可以这样： `sort -k1,1 | sort -s -k2,2`
++ 我们知道，在`bash`命令行下，`Tab`键是用来做目录文件自动完成的事的。
+但是如果你想输入一个`Tab`字符（比如：你想在`sort -t`选项后输入`<tab>`字符），你可以先按`Ctrl-V`，然后再按`Tab`键，就可以输入`<tab>`字符了。当然，你也可以使用`\t`。
++ 如果你想查看二进制文件，你可以使用`hd`命令（在CentOS下是`hexdump`命令），如果你想编译二进制文件，你可以使用`bvi`命令（http://bvi.sourceforge.net/ 墙）
++ 另外，对于二进制文件，你可以使用`strings`（配合`grep`等）来查看二进制中的文本。
++ 对于文本文件转码，你可以试一下` iconv`。或是试试更强的 `uconv` 命令（这个命令支持更高级的Unicode编码）
++ 如果你要分隔一个大文件，你可以使用`split`命令（split by size）和`csplit`命令（split by a pattern）。
+
+### 系统调试
+
++ 如果你想知道磁盘、CPU、或网络状态，你可以使用 `iostat`, `netstat`, `top` (或更好的 `htop`), 还有 `dstat` 命令。你可以很快地知道你的系统发生了什么事。关于这方面的命令，还有`iftop`, `iotop`等（参看《28个Unix/Linux的命令行神器》）
++ 要了解内存的状态，你可以使用`free`和`vmstat`命令。具体来说，你需要注意 `"cached"` 的值，这个值是`Linux`内核占用的内存。还有`free`的值。
++ Java 系统监控有一个小的技巧是，你可以使用`kill -3 <pid>` 发一个`SIGQUIT`的信号给`JVM`，可以把堆栈信息（包括垃圾回收的信息）`dump`到`stderr/logs`。
++ 使用 `mtr `会比使用 `traceroute` 要更容易定位一个网络问题。
++ 如果你要找到哪个`socket`或进程在使用网络带宽，你可以使用 `iftop` 或 `nethogs`。
++ `Apache`的一个叫 `ab` 的工具是一个很有用的，用`quick-and-dirty`的方式来测试网站服务器的性能负载的工作。如果你需要更为复杂的测试，你可以试试 `siege`。
++ 如果你要抓网络包的话，试试 `wireshark` 或 `tshark。`
++ 了解 `strace` 和 `ltrace`。这两个命令可以让你查看进程的系统调用，这有助于你分析进程的hang在哪了，怎么crash和failed的。你还可以用其来做性能`profile`，使用 `-c` 选项，你可以使用`-p`选项来`attach`上任意一个进程。
++ 了解用`ldd`命令来检查相关的动态链接库。注意：`ldd`的安全问题
++ 使用`gdb`来调试一个正在运行的进程或分析`core dump`文件。参看我写的《GDB中应该知道的几个调试方法》
++ 学会到 `/proc` 目录中查看信息。这是一个Linux内核运行时记录的整个操作系统的运行统计和信息，比如： /proc/cpuinfo, /proc/xxx/cwd, /proc/xxx/exe, /proc/xxx/fd/, /proc/xxx/smaps.
++ 如果你调试某个东西为什么出错时，`sar`命令会有用。它可以让你看看 CPU, 内存, 网络, 等的统计信息。
++ 使用 `dmesg` 来查看一些硬件或驱动程序的信息或问题。
+
