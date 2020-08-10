@@ -61,7 +61,7 @@ awk 'BEGIN{printf "Sr No\tName\tSub\tMarks\n"} {print}' marks.txt
 默认情况下，如果某行与模式串匹配，AWK 会将整行输出：
 
 ```bash
-awk '/a/ {print $0}' test.txt
+awk '/a/ {print $0}' marks.txt
 ```
 
 上面的示例中，我们搜索模式串 `a`，每次成功匹配后都会执行主体块中的命令。
@@ -75,12 +75,12 @@ awk '/a/' marks.txt
 不过，我们可以让 AWK 只输出特定的域（列）的内容。 例如，下面的这个例子中当模式串匹配成功后只会输出第三列与第四列的内容:
 注意，列的顺序可以任意，比如下面的`$4 "\t" $3`
 
-`awk '/a/ {print $4 "\t" $3}' test.txt`
+`awk '/a/ {print $4 "\t" $3}' marks.txt`
 
 ***
 计数匹配次数并输出
 
-`awk '/a/{++cnt} END {print "Count = ", cnt}' test.txt`
+`awk '/a/{++cnt} END {print "Count = ", cnt}' marks.txt`
 
 ***
 输出字符数多于 `18` 的行
@@ -145,7 +145,7 @@ awk 'BEGIN { for (i = 0; i < ARGC - 1; ++i)
 
 此变量表示当前文件名称。
 
-`awk 'END {print FILENAME}' test.txt`
+`awk 'END {print FILENAME}' marks.txt`
 
 值得注意的是在开始块中`FILENAME`是未定义的。
 
@@ -519,7 +519,6 @@ AWK 支持如下关系运算符：
 
 `awk 'BEGIN { a = 10; b = 20; (a > b) ? max = a : max = b; print "Max =", max}'`
 
-
 ### 一元运算符
 
 AWK 支持如下几种一元运算符：
@@ -574,75 +573,147 @@ AWK 支持如下几种一元运算符：
 ***
 匹配运算符为 `~`。它用于搜索包含匹配模式字符串的域。下面的示例中将输出包括 `9` 的行：
 
-`awk '$0 ~ 9' test.txt`
+`awk '$0 ~ 9' marks.txt`
 
 ***
 不匹配操作符为 `!~`。 此操作符用于搜索不匹配指定字符串的域。如下示例输出不包含 `9` 的行：
 
 `awk '$0 !~ 9' marks.txt`
 
+## AWK 正则表达式
+
+AWK 可以方便高效地处理正则表达式。大量复杂的任务都可以由极其简单的正则表达式来解决。
+每一个精通命令行的人都知道正则表达式真正的威力所在。
+
+### 点（Dot）
+
+点字符（`.`）可以匹配除了行结束字符的所有字符。比如下面的便子就可以匹配 `fin`, `fun`, `fan` 等等。
+
+`echo -e "cat\nbat\nfun\nfin\nfan" | awk '/f.n/'`
+
+### 行开始
+
+行开始符(`^`)匹配一行的开始。下面的示例将输出所有以字符串 `The` 开始的行。
+
+`echo -e "This\nThat\nThere\nTheir\nthese" | awk '/^The/'`
+
+### 行结束
+
+行结束符(`$`)匹配一行的结束。下面的例子中将输出所有以字符 `n` 结束的行：
+
+`echo -e "knife\nknow\nfun\nfin\nfan\nnine" | awk '/n$/'`
+
+### 匹配字符集
+
+匹配字符集用于匹配集合（由方括号表示）中的一个字符。如下例子中，匹配 `Call` 与 `Tall` 而不会匹配 `Ball`。
+
+`echo -e "Call\nTall\nBall" | awk '/[CT]all/'`
+
+### 排除集
+
+正则匹配时会排除集合中的字符。如下例子中只会输出 `Ball` 。
+
+`echo -e "Call\nTall\nBall" | awk '/[^CT]all/'`
+
+### 或
+
+竖线(`|`)允许正则表达式实现逻辑或运算. 下面例子将会输出 `Ball` 与 `Call` 。
+
+`echo -e "Call\nTall\nBall\nSmall\nShall" | awk '/Call|Ball/'`
+
+### 最多出现一次
+
+该符号( `?`)前面的字符不出现或者出现一次。如下示例匹配 `Colour` 与 `Color。` 使用 `?` 使得 `u` 变成了可选字符 。
+
+`echo -e "Colour\nColor" | awk '/Colou?r/'`
+
+### 出现零次或多次
+
+该符号(`*`) 允许其前的字符出现多次或者不出现。如下示例将匹配 `ca`，`cat`, `catt` 等等。
+
+`echo -e "ca\ncat\ncatt" | awk '/cat*/'`
+
+### 出现一次或多次
+
+该符号(`+`)使得其前的字符出现一次或者多次。下面的例子会匹配一个 `2` 或者多个连续的 `2`。
+
+`echo -e "111\n22\n123\n234\n456\n222"  | awk '/2+/'`
+
+### 分组
+
+括号用于分组而字符 `|` 用于提供多种选择。如下的正则表达式会匹配所有包含 `Apple Juice` 或 `Aplle Cake` 的行。
+
+`echo -e "Apple Juice\nApple Pie\nApple Tart\nApple Cake" | awk '/Apple (Juice|Cake)/'`
+
 ## AWK 数组
 
-AWK 有关联数组这种数据结构，而这种数据结构最好的一个特点就是它的索引值不需要是连续的整数值。我们既可以使用数字也可以使用字符串作为数组的索引。除此之外，关联数组也不需要提前声明其大小，因为它在运行时可以自动的增大或减小。这一章节中将会讲解 AWK 数组的使用方法。
+AWK 有**关联数组**这种数据结构，而这种数据结构最好的一个特点就是它的索引值不需要是连续的整数值。
+我们既可以使用数字也可以使用字符串作为数组的索引。
+除此之外，关联数组也不需要提前声明其大小，因为它在运行时可以自动的增大或减小。
 
 如下为数组使用的语法格式：
 
+```bash
 array_name[index]=value
+```
 
-其中 array_name 是数组的名称，index 是数组索引，value 为数组中元素所赋予的值。
+其中 `array_name` 是数组的名称，`index` 是数组索引，`value` 为数组中元素所赋予的值。
 创建数组
 
 为了进一步了解数组，我们先来看一下如何创建数组以及如何访问数组元素：
 
-[jerry]$ awk 'BEGIN {
+```bash
+awk 'BEGIN {
 fruits["mango"]="yellow";
 fruits["orange"]="orange"
 print fruits["orange"] "\n" fruits["mango"]
 }'
+```
 
-执行上面的命令可以得到如下的结果：
+在上面的例子中，我们定义了一个水果(fruits)数组，该数组的索引为水果名称，值为水果的颜色。
+可以使用如下格式访问数组元素：
 
-orange
-yellow
+`array_name[index] `
 
-在上面的例子中，我们定义了一个水果(fruits)数组，该数组的索引为水果名称，值为水果的颜色。可以使用如下格式访问数组元素：
+### 删除数组元素
 
-array_name[index] 
+插入元素时我们使用赋值操作符。删除数组元素时，我们则使用 `delete` 语句。如下所示：
 
-删除数组元素
-
-插入元素时我们使用赋值操作符。删除数组元素时，我们则使用 delete 语句。如下所示：
-
-delete array_name[index]
+`delete array_name[index]`
 
 下面的例子中，数组中的 orange 元素被删除（删除命令没有输出）：
 
-[jerry]$ awk 'BEGIN {
+```bash
+awk 'BEGIN {
 fruits["mango"]="yellow";
 fruits["orange"]="orange";
 delete fruits["orange"];
 print fruits["orange"]
 }'
+```
 
-多维数组
+### 多维数组
 
 AWK 本身不支持多维数组，不过我们可以很容易地使用一维数组模拟实现多维数组。
 
-如下示例为一个 3x3 的三维数组：
+如下示例为一个 `3x3` 的三维数组：
 
+```bash
 100 200 300
 400 500 600
 700 800 900
+```
 
-上面的示例中，array[0][0] 存储 100，array[0][1] 存储 200 ，依次类推。为了在 array[0][0] 处存储100, 我们可以使用如下语法：
+上面的示例中，`array[0][0]` 存储 `100`，`array[0][1]` 存储 `200` ，依次类推。为了在 `array[0][0]` 处存储`100`, 我们可以使用如下语法：
 
-array["0,0"] = 100
+`array["0,0"] = 100`
 
-尽管在示例中，我们使用了 0,0 作为索引，但是这并不是两个索引值。事实上，它是一个字符串索引 0,0。
+尽管在示例中，我们使用了 `0,0` 作为索引，但是这并不是两个索引值。事实上，它是一个字符串索引 `0,0`。
 
 下面是模拟二维数组的例子：
 
-[jerry]$ awk 'BEGIN {
+```bash
+awk 'BEGIN {
 array["0,0"] = 100;
 array["0,1"] = 200;
 array["0,2"] = 300;
@@ -657,17 +728,863 @@ print "array[1,0] = " array["1,0"];
 print "array[1,1] = " array["1,1"];
 print "array[1,2] = " array["1,2"];
 }'
+```
 
-执行上面的命令可以得到如下结果：
+在数组上可以执行很多操作，比如，使用 `asort` 完成数组元素的排序，或者使用 `asorti` 实现数组索引的排序等等。
+我们会在后面的章节中介绍可以对数组进行操作的函数。 
 
-array[0,0] = 100
-array[0,1] = 200
-array[0,2] = 300
-array[1,0] = 400
-array[1,1] = 500
-array[1,2] = 600
+## AWK 控制流
 
-在数组上可以执行很多操作，比如，使用 asort 完成数组元素的排序，或者使用 asorti 实现数组索引的排序等等。我们会在后面的章节中介绍可以对数组进行操作的函数。 
+与其它编程语言一样，`AWK` 同样提供了条件语句控制程序的执行流程。
+
+### IF 语句
+
+条件语句测试条件然后根据条件选择执行相应的动作。下面是条件语句的语法：
+
+```bash
+if (condition)
+    action
+```
+
+也可以使用花括号来执行一组操作：
+
+```bash
+if (condition)
+{
+    action-1
+    action-1
+    .
+    .
+    action-n
+}
+```
+
+下面的例子判断数字是奇数还是偶数：
+
+`awk 'BEGIN {num = 10; if (num % 2 == 0) printf "%d is even number.\n", num }'`
+
+### IF - ELSE 语句
+
+`if-else`语句中允许在条件为假时执行另外一组的动作。下面为 `if-else` 的语法格式：
+
+```bash
+if (condition)
+    action-1
+else
+    action-2
+```
+
+其中，条件为真时执行 `action-1`，条件为假时执行 `action-2`。下面是使用该语句判断数字是否为偶数的例子：
+
+```bash
+awk 'BEGIN {num = 11; 
+   if (num % 2 == 0) printf "%d is even number.\n", num; 
+   else printf "%d is odd number.\n", num 
+                    }'
+```
+
+### if-else-if
+
+我们可以很轻松地使用多个 `if-else` 语句构造 `if-else-if` 梯从而实现多个条件的判断。示例如下：
+
+```bash
+awk 'BEGIN {
+a=30;
+if (a==10)
+  print "a = 10";
+else if (a == 20)
+  print "a = 20";
+else if (a == 30)
+  print "a = 30";
+}'
+```
+
+## AWK 循环
+
+除了前面介绍的条件语句，AWK 还提供了循环语句。该语句的作用就是当条件为真时重复执行一系列的命令。
+
+### For
+
+`For` 循环的语法如下：
+
+```bash
+for (initialisation; condition; increment/decrement)
+    action
+```
+
+`for` 语句首先执行初始化动作( initialisation )，然后再检查条件( condition )。如果条件为真，则执行动作( action )，然后执行递增( increment )或者递减( decrement )操作。
+只要条件为真循环就会一直执行。每次循环结束都会进条件检查，若条件为假则结束循环。下
+面的例子使用 `For` 循环输出数字 `1` 至 `5`：
+
+`awk 'BEGIN { for (i = 1; i <= 5; ++i) print i }'`
+
+### While
+
+`While` 循环会一直执行动作直到逻辑条件为假为止。其使用方法如下：
+
+```bash
+while (condition)
+    action
+```
+
+AWK 首先检查条件是否为真，若条件为真则执行动作。此过程一直重复直到条件为假时，则停止。
+下面是使用 `While` 循环输出数字 `1` 到 `5` 的例子：
+
+`awk 'BEGIN {i = 1; while (i < 6) { print i; ++i } }'`
+
+### Do-While
+
+`Do-While` 循环与 `While` 循环相似，但是 `Do-While` 的条件测试放到了循环的尾部。下面是 `do-while` 的语法：
+
+```bash
+do
+    action
+while (condition)
+```
+
+在 do-while 循环中，无论条件是真是假，循环语句至少执行一次，执行后检查条件真假。下面是使用 `do-While` 循环输出数字 `1` 到 `5` 的例子：
+
+`awk 'BEGIN {i = 1; do { print i; ++i } while (i < 6) }'`
+
+### Break
+
+顾名思义，`break` 用以结束循环过程。在下面的示例子中，当计算的和大于 `50` 的时候使用 `break` 结束循环过程：
+
+```bash
+awk 'BEGIN {
+    sum = 0; for (i = 0; i < 20; ++i) { 
+         sum += i; if (sum > 50) break; else print "Sum =", sum 
+                                      } 
+                    }'
+```
+
+### Continue
+
+`Continue` 语句用于在循环体内部结束本次循环，从而直接进入下一次循环迭代。
+当我们希望跳过循环中某处数据处理时就会用到 `Continue`。下面的例子输出 `1` 到 `20` 之间的偶数：
+
+`awk 'BEGIN {for (i = 1; i <= 20; ++i) {if (i % 2 == 0) print i ; else continue} }'`
+
+### Exit
+
+`Exit` 用于结束脚本程序的执行。该函数接受一个整数作为参数表示 `AWK` 进程结束状态。 
+如果没有提供该参数，其默认状态为 `0` 。下面例子中当和大于 `50` 时结束 AWK 程序。
+
+```bash
+awk 'BEGIN {
+    sum = 0; for (i = 0; i < 20; ++i) {
+        sum += i; if (sum > 50) exit(10); else print "Sum =", sum 
+                                     } 
+                    }'
+```
+
+让我们检查一下脚本执行后的返回状态：
+
+`echo $?`
+
+执行上面的命令可以得到如下的结果：
+
+`10`
+
+## AWK 内置函数
+
+AWK 为程序开发者提供了丰富的内置函数。
+这一章节会讲解 AWK 提供的算术函数、字符串操作函数、时间操作相关的函数、位操作函数以及其它各种各样的函数。
+
+### 算术函数
+
+AWK 提供了如下的内置算术运算函数：
+
+***
+`atan2(y,x)`
+
+该函数返回正切值 `y/x` 的角度值，角度以弧度为单位。示例如下：
+
+```bash
+awk 'BEGIN {
+  PI = 3.14159265
+  x = -10
+  y = 10
+  result = atan2 (y,x) * 180 / PI;
+  printf "The arc tangent for (x=%f, y=%f) is %f degrees\n", x, y, result
+}'
+```
+
+***
+cos(expr)
+
+该函数返回 `expr` 的余弦值， 输入参数以弧度为单位。示例如下：
+
+```bash
+awk 'BEGIN {
+  PI = 3.14159265
+  param = 60
+  result = cos(param * PI / 180.0);
+  printf "The cosine of %f degrees is %f.\n", param, result
+}'
+```
+
+***exp(expr)
+
+此函数返回自然数 `e` 的 `expr` 次幂。
+
+```bash
+awk 'BEGIN {
+  param = 5
+  result = exp(param);
+  printf "The exponential value of %f is %f.\n", param, result
+}'
+```
+
+***
+int(expr)
+
+此函数返回数值 `expr` 的整数部分。示例如下：
+
+```bash
+awk 'BEGIN {
+  param = 5.12345
+  result = int(param)
+
+  print "Truncated value =", result
+}'
+```
+
+***
+log(expr)
+
+此函数计算 `expr` 自然对数。
+
+```bash
+awk 'BEGIN {
+  param = 5.5
+  result = log (param)
+
+  printf "log(%f) = %f\n", param, result
+}'
+```
+
+***
+rand
+
+`rand` 函数返回一个大于等于 `0` 小于 `1` 的随机数 `N`（`0<= N < 1`）。示例如下：
+
+```bash
+awk 'BEGIN {
+  print "Random num1 =" , rand()
+  print "Random num2 =" , rand()
+  print "Random num3 =" , rand()
+}'
+```
+
+`sin(expr)`
+
+正弦函数返回角度 `expr` 的正弦值，角度以弧度为单位。示例如下：
+
+```bash
+awk 'BEGIN {
+  PI = 3.14159265
+  param = 30.0
+  result = sin(param * PI /180)
+  printf "The sine of %f degrees is %f.\n", param, result
+}'
+```
+
+***
+sqrt(expr)
+
+此函数计算 `expr` 的平方根。
+
+```bash
+awk 'BEGIN {
+  param = 1024.0
+  result = sqrt(param)
+  printf "sqrt(%f) = %f\n", param, result
+}'
+```
+
+***
+srand([expr])
+
+此函数使用种子值生成随机数，数值 `expr `作为随机数生成器的种子值。如果没有指定 `expr` 的值则函数默认使用当前系统时间作为种子值。
+
+```bash
+awk 'BEGIN {
+  param = 10
+  printf "srand() = %d\n", srand()
+  printf "srand(%d) = %d\n", param, srand(param)
+}'
+```
+
+### 字符串函数
+
+AWK 提供了下面所示的字符串操作函数：
+`asort(arr,[, d [,how] ])`
+
+`asort` 函数使用 `GAWK` 值比较的一般规则排序 `arr` 中的内容，然后用以 `1` 开始的有序整数替换排序内容的索引。
+
+```bash
+awk 'BEGIN {
+    arr[0] = "Three"
+    arr[1] = "One"
+    arr[2] = "Two"
+    print "Array elements before sorting:"
+    for (i in arr) {
+        print arr[i]
+    }
+    asort(arr)
+    print "Array elements after sorting:"
+    for (i in arr) {
+        print arr[i]
+    }
+}'
+```
+
+***
+`asorti(arr,[, d [,how] ])`
+
+`asorti` 函数的行为与 `asort` 函数的行为很相似，二者的差别在于 `aosrt` 对数组的值排序，而 `asorti` 对数组的索引排序。
+
+```bash
+awk 'BEGIN {
+    arr["Two"] = 1
+    arr["One"] = 2
+    arr["Three"] = 3
+    asorti(arr)
+    print "Array indices after sorting:"
+    for (i in arr) {
+        print arr[i]
+    }
+}'
+```
+
+***
+`gsub(regx,sub, string)`
+
+`gsub` 是全局替换( global substitution )的缩写。它将出现的子串（`sub`）替换为 `regx`。第三个参数 `string` 是可选的，默认值为 `$0`，表示在整个输入记录中搜索子串。
+
+```bash
+awk 'BEGIN {
+    str = "Hello, World"
+    print "String before replacement = " str
+    gsub("World", "Jerry", str)
+    print "String after replacement = " str
+}'
+```
+
+***
+`index(str,sub)`
+
+`index` 函数用于检测字符串 `sub` 是否是 `str` 的子串。
+如果 `sub` 是 `str` 的子串，则返回子串 `sub` 在字符串 `str` 的开始位置；若不是其子串，则返回 `0`。
+`str` 的字符位置索引从 `1` 开始计数。
+
+```bash
+awk 'BEGIN {
+    str = "One Two Three"
+    subs = "Two"
+    ret = index(str, subs)
+    printf "Substring \"%s\" found at %d location.\n", subs, ret
+}'
+```
+
+***
+`length(str)`
+
+`length` 函数返回字符串的长度。
+
+```bash
+awk 'BEGIN {
+    str = "Hello, World !!!"
+    print "Length = ", length(str)
+}'
+```
+
+***
+`match(str, regex)`
+
+`match` 返回正则表达式在字符串 `str` 中第一个最长匹配的位置。如果匹配失败则返回`0`。
+
+```bash
+awk 'BEGIN {
+    str = "One Two Three"
+    subs = "Two"
+    ret = match(str, subs)
+    printf "Substring \"%s\" found at %d location.\n", subs, ret
+}'
+```
+
+***
+`split(str, arr,regex)`
+
+`split` 函数使用正则表达式 `regex` 分割字符串 `str`。分割后的所有结果存储在数组 `arr` 中。如果没有指定 `regex` 则使用 `FS` 切分。
+
+```bash
+awk 'BEGIN {
+    str = "One,Two,Three,Four"
+    split(str, arr, ",")
+    print "Array contains following values"
+    for (i in arr) {
+        print arr[i]
+    }
+}'
+```
+
+***
+`sprintf(format,expr-list)`
+
+`sprintf` 函数按指定的格式（ format ）将参数列表 `expr-list` 构造成字符串然后返回。
+
+```bash
+awk 'BEGIN {
+    str = sprintf("%s", "Hello, World !!!")
+    print str
+}'
+```
+
+***
+`strtonum(str)`
+
+`strtonum` 将字符串 `str` 转换为数值。 如果字符串以 `0` 开始，则将其当作十进制数；
+如果字符串以 `0x` 或 `0X` 开始，则将其当作十六进制数；否则，将其当作浮点数。
+
+```bash
+awk 'BEGIN {
+    print "Decimal num = " strtonum("123")
+    print "Octal num = " strtonum("0123")
+    print "Hexadecimal num = " strtonum("0x123")
+}'
+```
+
+***
+`sub(regex,sub,string)`
+
+`sub` 函数执行一次子串替换。它将第一次出现的子串用 `regex` 替换。第三个参数是可选的，默认为 `$0`。
+
+```bash
+awk 'BEGIN {
+    str = "Hello, World"
+    print "String before replacement = " str
+    sub("World", "Jerry", str)
+    print "String after replacement = " str
+}'
+```
+
+***
+`substr(str, start, l)`
+
+`substr` 函数返回 `str` 字符串中从第 `start` 个字符开始长度为 `l` 的子串。如果没有指定 `l` 的值，返回 `str` 从第 start 个字符开始的后缀子串。
+
+```bash
+awk 'BEGIN {
+    str = "Hello, World !!!"
+    subs = substr(str, 1, 5)
+    print "Substring = " subs
+}'
+```
+
+***
+`tolower(str)`
+
+此函数将字符串 str 中所有大写字母转换为小写字母然后返回。注意，字符串 `str` 本身并不被改变。
+
+```bash
+awk 'BEGIN {
+    str = "HELLO, WORLD !!!"
+    print "Lowercase string = " tolower(str)
+}'
+```
+
+***
+`toupper(str)`
+
+此函数将字符串 `str` 中所有小写字母转换为大写字母然后返回。注意，字符串 `str` 本身不被改变。
+
+```bash
+awk 'BEGIN {
+    str = "hello, world !!!"
+    print "Uppercase string = " toupper(str)
+}'
+```
+
+### 时间函数
+
+AWK 提供了如下的内置时间函数：
+
+***
+`systime`
+
+此函数返回从 `Epoch` 以来到当前时间的秒数（在 `POSIX` `系统上，Epoch` 为`1970-01-01 00:00:00 UTC`）。
+
+```bash
+awk 'BEGIN {
+    print "Number of seconds since the Epoch = " systime()
+}'
+```
+
+***
+`mktime(dataspec)`
+
+此函数将字符串 `dataspec` 转换为与 `systime` 返回值相似的时间戳。 `dataspec` 字符串的格式为 `YYYY MM DD HH MM SS`。
+
+```bash
+awk 'BEGIN {
+    print "Number of seconds since the Epoch = " mktime("2014 12 14 30 20 10")
+}'
+```
+
+***
+`strftime([format [, timestamp[, utc-flag]]])`
+
+此函数根据 `format` 指定的格式将时间戳 `timestamp` 格式化。
+
+```bash
+awk 'BEGIN {
+    print strftime("Time = %m/%d/%Y %H:%M:%S", systime())
+}'
+```
+
+下面是 `AWK` 支持的不同的日期格式说明：
+
+SN  描述
+
++ `%a`  星期缩写(Mon-Sun)。
++ `%A`  星期全称（Monday-Sunday）。
++ `%b`  月份缩写（Jan）。
++ `%B`  月份全称（January）。
++ `%c`  本地日期与时间。
++ `%C`  年份中的世纪部分，其值为年份整除100。
++ `%d`  十进制日期(01-31)
++ `%D`  等价于 %m/%d/%y.
++ `%e`  日期，如果只有一位数字则用空格补齐
++ `%F`  等价于 %Y-%m-%d，这也是 ISO 8601 标准日期格式。
++ `%g`  ISO8610 标准周所在的年份模除 100（00-99)。比如，1993 年 1 月 1 日属于 1992 年的第 53 周。所以，虽然它是 1993 年第 1 天，但是其　ISO8601 标准周所在年份却是 1992。同样，尽管 1973 年 12 月 31 日属于 1973 年但是它却属于 1994 年的第一周。所以 1973 年 12 月 31 日的 ISO8610 标准周所在的年是 1974 而不是 1973。
++ `%G`  ISO 标准周所在年份的全称。
++ `%h`  等价于 %b.
++ `%H`  用十进制表示的 24 小时格式的小时(00-23)
++ `%I`  用十进制表示的 12 小时格式的小时（00-12）
++ `%j`  一年中的第几天（001-366）
++ `%m`  月份（01-12）
++ `%M`  分钟数（00-59)
++ `%n`  换行符 (ASCII LF)
++ `%p`  十二进制表示法（AM/PM）
++ `%r`  十二进制表示法的时间（等价于 %I:%M:%S %p）。
++ `%R`  等价于 %H:%M。
++ `%S`  时间的秒数值（00-60）
++ `%t`  制表符 (tab)
++ `%T`  等价于 %H:%M:%S。
++ `%u`  以数字表示的星期(1-7),1 表示星期一。
++ `%U`  一年中的第几个星期（第一个星期天作为第一周的开始），00-53
++ `%V`  一年中的第几个星期（第一个星期一作为第一周的开始），01-53。
++ `%w`  以数字表示的星期（0-6），0表示星期日 。
++ `%W`  十进制表示的一年中的第几个星期（第一个星期一作为第一周的开始），00-53。
++ `%x`  本地日期表示
++ `%X`  本地时间表示
++ `%y`  年份模除 100。
++ `%Y`  十进制表示的完整年份。
++ `%z`  时区，表示格式为+HHMM（例如，格式要求生成的 RFC 822或者 RFC 1036 时间头）
++ `%Z`  时区名称或缩写，如果时区待定则无输出。
+
+### 位操作函数
+
+AWK 提供了如下的内置的位操作函数：
+
+***
+`and`
+
+执行位与操作。
+
+```bash
+awk 'BEGIN {
+    num1 = 10
+    num2 = 6
+    printf "(%d AND %d) = %d\n", num1, num2, and(num1, num2)
+}'
+```
+
+***
+`compl`
+
+按位求补。
+
+```bash
+awk 'BEGIN {
+    num1 = 10
+    printf "compl(%d) = %d\n", num1, compl(num1)
+}'
+```
+
+***
+`lshift`
+
+左移位操作。
+
+```bash
+awk 'BEGIN {
+    num1 = 10
+    printf "lshift(%d) by 1 = %d\n", num1, lshift(num1, 1)
+}'
+```
+
+***
+`rshift`
+
+向右移位操作。
+
+```bash
+awk 'BEGIN {
+    num1 = 10
+
+    printf "rshift(%d) by 1 = %d\n", num1, rshift(num1, 1)
+}'
+```
+
+***
+`or`
+
+按位或操作。
+
+```bash
+awk 'BEGIN {
+    num1 = 10
+    num2 = 6
+
+    printf "(%d OR %d) = %d\n", num1, num2, or(num1, num2)
+}'
+```
+
+***
+`xor`
+
+按位异或操作。
+
+```bash
+awk 'BEGIN {
+    num1 = 10
+    num2 = 6
+
+    printf "(%d XOR %d) = %d\n", num1, num2, xor(num1, num2)
+}'
+```
+
+### 其它函数
+
+其它函数中主要包括:
+
+***
+`close(expr)`
+
+关闭管道的文件。
+
+```bash
+awk 'BEGIN {
+    cmd = "tr [a-z] [A-Z]"
+    print "hello, world !!!" |& cmd
+    close(cmd, "to")
+    cmd |& getline out
+    print out;
+    close(cmd);
+}'
+```
+
+脚本的内容看上去很神秘吗？让我们来揭开它神秘的面纱。
+
+第一条语句 `cmd = "tr [a-z] [A-Z]"` 在 `AWK` 中建立了一个双向的通信通道。
+第二条语句 `print` 为 ``tr`` 命令提供输入。&| 表示双向通信。
+第三条语句 `close(cmd, "to")` 完成执行后关闭 `to` 进程。
+第四条语句 `cmd |& getline out` 使用 `getline` 函数将输出存储到 `out` 变量中。
+接下来的输出语句打印输出的内容，最后 `close` 函数关闭 `cmd`。
+
+***
+`delete`
+
+`delete` 被用于从数组中删除元素。下面的例子演示了如何使用 `delete`：
+
+```bash
+awk 'BEGIN {
+    arr[0] = "One"
+    arr[1] = "Two"
+    arr[2] = "Three"
+    arr[3] = "Four"
+    print "Array elements before delete operation:"
+    for (i in arr) {
+        print arr[i]
+    }
+    delete arr[0]
+    delete arr[1]
+    print "Array elements after delete operation:"
+    for (i in arr) {
+        print arr[i]
+    }
+}'
+```
+
+***
+`exit`
+
+该函数终止脚本执行。它可以接受可选的参数 `expr` 传递 `AWK` 返回状态。示例如下：
+
+```bash
+awk 'BEGIN {
+    print "Hello, World !!!"
+    exit 10
+    print "AWK never executes this statement."
+}'
+```
+
+***
+`flush`
+
+flush 函数用于刷新打开文件或管道的缓冲区。 使用方法如下：
+
+`fflush([output-expr])`
+
+如果没有提供 `output-expr`，`fflush` 将刷新标准输出。若 `output-epxr `是空字符串 (`""`)，`fflush` 将刷新所有打开的文件和管道。
+
+***
+`getline`
+
+`getline` 函数读入下一行。示例中使用 `getline` 从文件 `marks.txt` 中读入一行并输出：
+
+`awk '{getline; print $0}' marks.txt `
+
+执行上面的命令可以得到如下的结果：
+
+```bash
+1)  Rahul   Maths   90
+2)  Kedar   English 85
+3)  Hari    History 89
+```
+
+脚本看似工作正常，但是第一行去哪儿了呢？让我们理一下整个过程。
+刚启动时，AWK 从文件 `marks.txt` 中读入一行存储到变量 `$0` 中。
+在下一条语句中，我们使用 `getline` 读入下一行。因此 `AWK` 读入第二行并存储到 `$0` 中。
+最后，AWK 使用 `print` 输出第二行的内容。这个过程一直到文件结束。
+
+***
+`next`
+
+`next` 停止处理当前记录，并且进入到下一条记录的处理过程。下面的例子中，当模式串匹配成功后程序并不执行任何操作：
+
+`awk '{if ($0 ~/Shyam/) next; print $0}' marks.txt`
+
+***
+`nextfile`
+
+`nextfile` 停止处理当前文件，从下一个文件第一个记录开始处理。
+下面的的例子中，匹配成功时停止处理第一个文件转而处理第二个文件：
+
+首先创建两个文件。 `file1.txt` 内容如下:
+
+```txt
+file1:str1
+file1:str2
+file1:str3
+file1:str4
+```
+
+文件 `file2.txt` 内容如下：
+
+```txt
+file2:str1
+file2:str2
+file2:str3
+file2:str4
+```
+
+现在我们来测试 `nextfile` 函数。
+
+`awk '{ if ($0 ~ /file1:str2/) nextfile; print $0 }' file1.txt file2.txt`
+
+***
+`return`
+
+`return` 用于从用户自定义的函数中返回值。请注意，如果没有指定返回值，那么的返回值是未定义的。
+下面的例子演示了 `return` 的使用方法：
+
+首先，创建文件 `functions.awk`，内容如下：
+
+```bash
+function addition(num1, num2)
+{
+    result = num1 + num2
+    return result
+}
+
+BEGIN {
+    res = addition(10, 20)
+    print "10 + 20 = " res
+}
+```
+
+***
+`system`
+
+`system` 函数可以执行特定的命令然后返回其退出状态。返回值为 `0` 表示命令执行成功；非 `0` 表示命令执行失败。下面的示例中执行 `Date` 显示当前的系统时间，然后输出命令的返回状态：
+
+`awk 'BEGIN { ret = system("date"); print "Return value = " ret }'`
+
+## AWK 用户自定义函数
+
+函数是程序的基本构造部分。AWK 允许我们自定义函数。
+事实上，大部分的程序功能都可以被切分成多个函数，这样每个函数可以独立的编写与测试。
+函数不仅提高了代码的复用度也提高代码的robust。
+
+下面是用户自定义函数的一般形式：
+
+```bash
+function function_name(argument1, argument2, ...)
+{
+    function body
+}
+```
+
+上述定义函数的语法中：
+
+`function_name` 是用户自定义函数的名称。函数名称应该以字母开头，其后可以是数字、字母或下划线的自由组合。
+AWK 保留的关键字不能作为用户自定义函数的名称。
+
+自定义函数可以接受多个输入参数，这些参数之间通过逗号分隔。
+参数并不是必须的。我们也可以定义没有任何输入参数的函数。
+
+`function body` 是函数体部分，它包含 AWK 程序代码。
+
+下面我们实现了两个简单函数，它们分别返回两个数值中的最小值和最大值。我们在主函数 `main` 中调用了这两个函数。 文件 `functions.awk` 内容如下：
+
+```bash
+# Returns minimum number
+function find_min(num1, num2)
+{
+  if (num1 < num2)
+    return num1
+  return num2
+}
+
+# Returns maximum number
+function find_max(num1, num2)
+{
+  if (num1 > num2)
+    return num1
+  return num2
+}
+
+# Main function
+function main(num1, num2)
+{
+  # Find minimum number
+  result = find_min(10, 20)
+  print "Minimum =", result
+
+  # Find maximum number
+  result = find_max(10, 20)
+  print "Maximum =", result
+}
+
+# Script execution starts here
+BEGIN {
+  main(10, 20)
+} 
+``` 
 
 ## AWK 输出重定向
 
@@ -751,1013 +1668,220 @@ awk 'BEGIN {
 + 第四条语句 `cmd |& getline out` 使用 `getline` 函数将输出存储到 `out` 变量中。
 + 接下来的输出语句打印输出的内容，最后 `close` 函数关闭 `cmd`。
 
-## another
+## AWK 优雅的输出
 
-[awk命令][]
+前面我们已经用过了 AWK 中的 `print` 函数与 `printf` 函数，它们将数据输出到标准输出流中。
+其实 `printf` 函数的功能远比我们前面演示的强大。这个函数是从 `C` 语言中借鉴来而的，主要用于生成格式化的输出。
+下面是 `printf` 的使用方法：
 
-[awk命令]: https://man.linuxde.net/awk
+`printf fmt, expr-list`
 
-`awk`是一种编程语言，用于在`linux/unix`下对文本和数据进行处理。数据可以来自标准输入(stdin)、一个或多个文件，或其它命令的输出。
-它支持用户自定义函数和动态正则表达式等先进功能，是`linux/unix`下的一个强大编程工具。
-它在命令行中使用，但更多是作为脚本来使用。
+其中，`fmt` 是字符串常量或者格式规格说明字符串，`expr-list` 是与格式说明相对应的参数列表。
 
-`awk`有很多内建的功能，比如数组、函数等，这是它和`C`语言的相同之处，灵活性是`awk`最大的优势。
+### 转义序列
 
-## awk命令格式和选项
+与一般字符串一样，格式化字符串也能内嵌转义序列。 `AWK` 支持的转义序列如下：
 
-我们可以直接通过命令行的方式为 `AWK` 程序提供 `AWK` 命令，也可以使用包括 `AWK` 命令的脚本文件。
-
-***
-语法形式
-
-```bash
-awk [options] 'script' var=value file(s)
-awk [options] -f scriptfile var=value file(s)
-```
++ `\n` 换行
++ `\t` 水平制表
++ `\v`垂直制表
++ `\b` 退格
++ `\r`  回车
++ `\f`  换页
 
 ***
-常用命令选项
+换行符
 
-+ `-F fs`   fs指定输入分隔符，`fs`可以是字符串或正则表达式，如`-F:`
-+ `-v var=value`   赋值一个用户定义变量，将外部变量传递给`awk`
-+ `-f scripfile`  从脚本文件中读取`awk`命令
-+ `-m[fr] val`   对`val`值设置内在限制，`-mf`选项限制分配给`val`的最大块数目；`-mr`选项限制记录的最大数目。这两个功能是Bell实验室版awk的扩展功能，在标准awk中不适用。
-+ `--dump-variables[=file] 选项`: 将全局变量及相应值按序输出到指定文件中，默认的输出文件名是 `awkvars.out`。
+下面的例子中使用换行符将 `Hello` 与 `World` 分开输出到独立两行：
+
+`awk 'BEGIN { printf "Hello\nWorld\n" }'`
 
 ***
-`--lint[=fatal]` 选项
+水平制表符
 
-这个选项用于检查程序的可移植情况以及代码中的可疑部分。如果提供了参数 `fatal`，AWK 会将所有的警告信息当作错误信息处理。下面这个简单的示例说明了 `lint` 选项的用法：
+如下示例，使用制表符显示不同的域：
 
-`awk --lint '' /bin/ls`
-
-***
-`--posix` 选项
-
-这个选项会打开严格 `POSIX` 兼容性审查。 如此，所有共同的以及 GAWK 特定的扩展将被设置为无效。
+`awk 'BEGIN { printf "Sr No\tName\tSub\tMarks\n" }'`
 
 ***
-`--profile[=file]` 选项
+垂直制表符
 
-这个选项会将程序文件以一种很优美的方式输出（译注：用于格式化 awk 脚本文件）。默认输出文件是 `awkprof.out`。示例如下：
+如下示例，使用垂直制表符输出不同域：
 
-```bash
-awk --profile 'BEGIN{printf"---|Header|--\n"} {print} END{printf"---|Footer|---\n"}' marks.txt > /dev/null
-cat awkprof.out
-```
+`awk 'BEGIN { printf "Sr No\vName\vSub\vMarks\n" }'`
 
 ***
-`--traditional` 选项
+退格符
 
-此选项用于禁止 GAWK 相关的扩展
+下面的例子中，我们在每个域输出后都再输出退格符（最后一个域除外）。这样前三个域的每一域的最后一个字符都会被删除。
+比如说，`Field 1` 输出为 `Field` 。因为最后一个字符被退格符删除。不过`Field 4`可以正常显示，因为在`Field 4`输出后没有输出退格符。
 
-### awk模式和操作
-
-awk脚本是由模式和操作组成的。
-
-***
-模式
-
-模式可以是以下任意一个：
-
-+ /正则表达式/：使用通配符的扩展集。
-+ 关系表达式：使用运算符进行操作，可以是字符串或数字的比较测试。
-+ 模式匹配表达式：用运算符`~`（匹配）和`~!`（不匹配）。
-+ `BEGIN`语句块、`pattern`语句块、`END`语句块：参见awk的工作原理
+`awk 'BEGIN { printf "Field 1\bField 2\bField 3\bField 4\n" }'`
 
 ***
-操作
+回车
 
-操作由一个或多个命令、函数、表达式组成，之间由换行符或分号隔开，并位于大括号内，主要部分是：
+下面的例子中，我们在每个域输出后输出一个回车符，随后输出的域会覆盖之前输出的内容。
+也就是说，我们只能看到最后输出的 `Field 4`。
 
-+ 变量或数组赋值
-+ 输出命令
-+ 内置函数
-+ 控制流语句
-
-### awk脚本基本结构
-
-```bash
-awk 'BEGIN{ print "start" } pattern{ commands } END{ print "end" }' file
-```
-
-一个`awk`脚本通常由：`BEGIN`语句块、能够使用模式匹配的通用语句块、`END`语句块3部分组成，这三个部分是可选的。
-任意一个部分都可以不出现在脚本中，脚本通常在单引号或双引号中，例如：
-
-```bash
-awk 'BEGIN{ i=0 } { i++ } END{ print i }' filename
-awk "BEGIN{ i=0 } { i++ } END{ print i }" filename
-```
-
-### awk的工作原理
-
-```bash
-awk 'BEGIN{ commands } pattern{ commands } END{ commands }'
-```
-
-+ 第一步：执行`BEGIN{ commands }`语句块中的语句；
-+ 第二步：从文件或标准输入(stdin)读取一行，然后执行`pattern{ commands }`语句块，它逐行扫描文件，从第一行到最后一行重复这个过程，直到文件全部被读取完毕。
-+ 第三步：当读至输入流末尾时，执行`END{ commands }`语句块。
-
-`BEGIN`语句块在`awk`开始从输入流中读取行之前被执行，
-这是一个可选的语句块，比如变量初始化、打印输出表格的表头等语句通常可以写在`BEGIN`语句块中。
-
-`END`语句块在`awk`从输入流中读取完所有的行之后即被执行，
-比如打印所有行的分析结果这类信息汇总都是在`END`语句块中完成，它也是一个可选语句块。
-
-`pattern`语句块中的通用命令是最重要的部分，它也是可选的。如果没有提供`pattern`语句块，则默认执行`{ print }`，即打印每一个读取到的行，`awk`读取的每一行都会执行该语句块。
-
-示例
-
-```bash
-echo -e "A line 1\nA line 2" | awk 'BEGIN{ print "Start" } { print } END{ print "End" }'
-```
-
-当使用不带参数的`print`时，它就打印当前行，当`print`的参数是以逗号进行分隔时，打印时则以空格作为定界符。
-在`awk`的`print`语句块中双引号是被当作拼接符使用，例如：
-
-```bash
-echo | awk '{ var1="v1"; var2="v2"; var3="v3"; print var1,var2,var3; }'
-v1 v2 v3
-```
-
-双引号拼接使用：
-
-```bash
-echo | awk '{ var1="v1"; var2="v2"; var3="v3"; print var1"="var2"="var3; }'
-v1=v2=v3
-```
-
-`{ }`类似一个循环体，会对文件中的每一行进行迭代，
-通常变量初始化语句（如：`i=0`）以及打印文件头部的语句放入`BEGIN`语句块中，将打印的结果等语句放在`END`语句块中。
-
-### awk内置变量
-
-内置变量，也就是预定义变量
-
-说明：`[A][N][P][G]`表示第一个支持变量的工具，`[A]=awk`、`[N]=nawk`、`[P]=POSIXawk`、`[G]=gawk`
-
-`$n`: 当前记录的第`n`个字段，比如`n`为`1`表示第一个字段，`n`为`2`表示第二个字段。
-`$0`: 这个变量包含执行过程中当前行的文本内容。
-`ARGC`: (`[N]` ) 命令行参数的数目。
-`ARGIND`: (`[G]` ) 命令行中当前文件的位置（从0开始算）。
-`ARGV`: (`[N]` ) 包含命令行参数的数组。
-`CONVFMT`: (`[G]` ) 数字转换格式（默认值为%.6g）。
-`ENVIRON`: (`[P]` ) 环境变量关联数组。
-`ERRNO`: (`[N]` ) 最后一个系统错误的描述。
-`FIELDWIDTHS`: (`[G]` ) 字段宽度列表（用空格键分隔）。
-`FILENAME`: (`[A]` ) 当前输入文件的名。
-`FNR`: (`[P]` ) 同NR，但相对于当前文件。
-`FS`: (`[A]` ) 字段分隔符（默认是任何空格）。
-`IGNORECASE`: (`[G]` ) 如果为真，则进行忽略大小写的匹配。
-`NF`: (`[A]` ) 表示字段数，在执行过程中对应于当前的字段数。
-`NR`: (`[A]` ) 表示记录数，在执行过程中对应于当前的行号。
-`OFMT`: (`[A]` ) 数字的输出格式（默认值是%.6g）。
-`OFS`: (`[A]` ) 输出字段分隔符（默认值是一个空格）。
-`ORS`: (`[A]` ) 输出记录分隔符（默认值是一个换行符）。
-`RS`: (`[A]` ) 记录分隔符（默认是一个换行符）。
-`RSTART`: (`[N]` ) 由match函数所匹配的字符串的第一个位置。
-`RLENGTH`: (`[N]` ) 由match函数所匹配的字符串的长度。
-`SUBSEP`: (`[N]` ) 数组下标分隔符（默认值是34）。
-
-### 内建变量示例
+`awk 'BEGIN { printf "Field 1\rField 2\rField 3\rField 4\n" }'`
 
 ***
-简单查询
+换页符
 
-```bash
-echo -e "line1 f2 f3\nline2 f4 f5\nline3 f6 f7" | awk '{print "行数:"NR, "字段总数:"NF, "字段0="$0, "字段1="$1, "字段2="$2, "字段3="$3}'
-```
+下面的例子中每个域后输出后输出一个换页符：
 
-使用`print $NF`可以打印出一行中的最后一个字段，使用`$(NF-1)`则是打印倒数第二个字段，其他以此类推：
+`awk 'BEGIN { printf "Sr No\fName\fSub\fMarks\n" }'`
 
-```bash
-echo -e "line1 f2 f3\n line2 f4 f5" | awk '{print $NF}'
-echo -e "line1 f2 f3\n line2 f4 f5" | awk '{print $(NF-1)}'
-```
+### 格式说明符
 
-打印每一行的第二和第三个字段：
+与 `C` 语言一样，AWK 也定义了格式说明符。 AWK 的 `printf` 允许如下的格式的转换：
 
-```bash
-awk '{ print $2,$3 }' filename
-```
-
-统计文件中的行数：
-
-```bash
-awk 'END{ print NR }' filename
-```
-
-以上命令只使用了`END`语句块，在读入每一行的时，`awk`会将`NR`更新为对应的行号，
-当到达最后一行`NR`的值就是最后一行的行号，所以`END`语句块中的`NR`就是文件的行数。
-
-一个每一行中第一个字段值累加的例子：
-
-```bash
-seq 5 | awk 'BEGIN{ sum=0; print "总和：" } { print $1"+"; sum+=$1 } END{ print "等于"; print sum }'
-```
-
-`seq` - print a sequence of numbers
-
-### 将外部变量值传递给awk
-
-借助`-v`选项，可以将外部值（并非来自`stdin`）传递给`awk`：
-
-```bash
-VAR=10000
-echo | awk -v VARIABLE=$VAR '{ print VARIABLE }'
-```
-
-另一种传递外部变量方法：
-
-```bash
-var1="aaa"
-var2="bbb"
-echo | awk '{ print v1,v2 }' v1=$var1 v2=$var2
-```
-
-当输入来自于文件时使用：
-
-`awk '{ print v1,v2 }' v1=$var1 v2=$var2 filename`
-
-以上方法中，变量之间用空格分隔作为`awk`的命令行参数跟随在`BEGIN`、`{}`和`END`语句块之后。
-
-## awk运算与判断
-
-作为一种程序设计语言所应具有的特点之一，`awk`支持多种运算，这些运算与C语言提供的基本相同。
-`awk`还提供了一系列内置的运算函数（如`log`、`sqr`、`cos`、`sin`等）和一些用于对字符串进行操作（运算）的函数（如`length`、`substr`等等）。
-
-这些函数的引用大大的提高了`awk`的运算功能。作为对条件转移指令的一部分，关系判断是每种程序设计语言都具备的功能，`awk`也不例外，`awk`中允许进行多种测试，作为样式匹配，还提供了模式匹配表达式`~`（匹配）和`~!`（不匹配）。
-作为对测试的一种扩充，`awk`也支持用逻辑运算符。
++ `%c` : 单个字符
++ `%d, %i` : 十进制整数`decimal` `integer`
++ `%e, %E` : 浮点数e or E
++ `%f, %F` ：浮点数 dot
++ `%g, %G` : 浮点数dot,删去冗余`0`
++ `%o` : 无符号八进制整数
++ `%u` ：无符号十进制整数
++ `%x, %X` ：无符号16进制数
 
 ***
-算术运算符
+`%c`
 
-+ `+ -`  加，减
-+ `* / &`  乘，除与求余
-+ `+ - !`  一元加，减和逻辑非
-+ `^ ***`  求幂
-+ `++ --`  增加或减少，作为前缀或后缀
+输出单个字符。如果参数是个数值，那么数值也会被当作字符然后输出。如果参数是字符串，那么只会输出字符串的第一个字符。
 
-例：
-
-```bash
-awk 'BEGIN{a="b";print a++,++a;}'
-```
-
-注意：所有用作算术运算符进行操作，操作数自动转为数值，所有非数值都变为0
-
-### 赋值运算符
-
-`= += -= *= /= %= ^= **=  赋值语句`
-
-例：
-
-`a+=5; 等价于：a=a+5; 其它同类`
-
-### 逻辑运算符
-
-+ `||`  逻辑或
-+ `&& ` 逻辑与
-
-例：
-
-```bash
-awk 'BEGIN{a=1;b=2;print (a>5 && b<=2),(a>5 || b<=2);}'
-```
-
-### 正则运算符
-
-`~ ~!`  匹配正则表达式和不匹配正则表达式
-
-例：
-
-```bash
-awk 'BEGIN{a="100testa";if(a ~ /^100*/){print "ok";}}'
-ok
-```
-
-### 关系运算符
-
-`< <= > >= != ==`  关系运算符
-
-例：
-
-```bash
-awk 'BEGIN{a=11;if(a >= 9){print "ok";}}'
-ok
-```
-
-注意：`>`,` < `可以作为字符串比较，也可以用作数值比较，关键看操作数（operand）。
-如果是字符串就会转换为字符串比较，两个都为数字才转为数值比较。字符串比较：按照`ASCII`码顺序比较。
-
-### 其它运算符
-
-+ `$`  字段引用
-+ `空格`  字符串连接符
-+ `?:`  C条件表达式
-+ `in`  **数组中**是否存在某**键值**
-
-例：
-
-```bash
-awk 'BEGIN{a="b";print a=="b"?"ok":"err";}'
-awk 'BEGIN{a="b";arr[0]="b";arr[1]="c";print (a in arr);}'
-awk 'BEGIN{a="b";arr[0]="b";arr["b"]="c";print (a in arr);}'
-```
-
-### 运算级优先级表
-
-级别越高越优先
-级别越高越优先
-
-## awk高级输入输出
-
-### 读取下一条记录
-
-`awk`中`next`语句使用：在循环逐行匹配，如果遇到`next`，就会跳过当前行，直接忽略下面语句。而进行下一行匹配。
-`next`语句一般用于多行合并：
-
-```bash
-cat text.txt
-a
-b
-c
-d
-e
-awk 'NR%2==1{next}{print NR,$0;}' text.txt
-```
-
-当记录行号除以`2`余`1`，就跳过当前行。下面的`print NR,$0`也不会执行。
-下一行开始，程序有开始判断`NR%2`值。这个时候记录行号是：`2` ，就会执行下面语句块：`printNR,$0`
+`awk 'BEGIN { printf "ASCII value 65 = character %c\n", 65 }'`
 
 ***
-例子
+`%d` 与 `%i`(效果一样)
 
-将包含有`web`的行与下面的行合并：
+输出十进制数的整数部分。
 
-```bash
-cat text.txt
-web01[192.168.2.100]
-httpd            ok
-tomcat               ok
-sendmail               ok
-web02[192.168.2.101]
-httpd            ok
-postfix               ok
-web03[192.168.2.102]
-mysqld            ok
-httpd               ok
-```
+`awk 'BEGIN { printf "Percentags = %d\n", 80.66 }'`
 
-```bash
-awk '/^web/{T=$0;next;}{print T":\t"$0;}' test.txt
-```
+***
+`%e` 与 `%E`
 
-### 简单地读取一条记录
+以 `[-]d.dddddde[+-]dd` 的格式输出浮点数。
 
-`awk` `getline`用法：输出重定向需用到`getline`函数。
+`awk 'BEGIN { printf "Percentags = %e\n", 80.66 }'`
 
-`getline`从标准输入、管道或者当前正在处理的文件之外的其他输入文件获得输入。
-它负责从输入获得下一行的内容，并给`NF`,`NR`和`FNR`等内建变量赋值。
-如果得到一条记录，`getline`函数返回`1`，如果到达文件的末尾就返回`0`，如果出现错误，例如打开文件失败，就返回`-1`。
+`%E` 格式使用 `E` 而不是 `e`。
 
-`getline`语法：`getline var`，变量`var`包含了特定行的内容。
+`awk 'BEGIN { printf "Percentags = %E\n", 80.66 }'`
 
-awk `getline`从整体上来说，用法说明：
+***
+`%f`
 
-当其左右无重定向符`|`或`<`时：`getline`作用于当前文件，读入当前文件的第一行给其后跟的变量`var`或`$0`（无变量时候），
-应该注意到，由于`awk`在处理`getline`之前已经读入了一行，所以`getline`得到的返回结果是隔行的。
+以 `[-]ddd.dddddd` 的格式输出浮点数。
 
-当其左右有重定向符`|`或`<`时：`getline`则作用于定向输入文件，
-由于该文件是刚打开，并没有被`awk`读入一行，只是`getline`读入，那么`getline`返回的是该文件的第一行，而不是隔行。
+`awk 'BEGIN { printf "Percentags = %f\n", 80.66 }'`
 
-示例：
+***
+`%g` 与 `%G`
 
-执行`linux`的`date`命令，并通过管道输出给`getline`，然后再把输出赋值给自定义变量`out`，并打印它：
+输出浮点数，使用 `%f` 或 `%F` 转换。但它们会删除那些对数值无影响的 `0`。
 
-```bash
-awk 'BEGIN{ "date" | getline out; print out }' test
-```
+`awk 'BEGIN { printf "Percentags = %g\n", 80.66 }'`
 
-执行`shell`的`date`命令，并通过管道输出给`getline`，然后`getline`从管道中读取并将输入赋值给`out`，`split`函数把变量`out`转化成数组`mon`，然后打印数组`mon`的第二个元素：
+`%G` 使用 `%E` 格式化，而不是` %e`。
 
-```bash
-awk 'BEGIN{ "date" | getline out; split(out,mon); print mon[2] }' test
-```
+`awk 'BEGIN { printf "Percentags = %G\n", 80.66 }'`
 
-命令`ls`的输出传递给`geline`作为输入，循环使`getline`从`ls`的输出中读取一行，并把它打印到屏幕。
-这里没有输入文件，因为`BEGIN`块在打开输入文件前执行，所以可以忽略输入文件。
+***
+`%o`
 
-```bash
-awk 'BEGIN{ while( "ls" | getline) print }'
-```
+无符号八进制输出。
 
-### 关闭文件
+`awk 'BEGIN { printf "Octal representation of decimal number 10 = %o\n", 10}'`
 
-`awk`中允许在程序中关闭一个**输入或输出**文件，方法是使用`awk`的`close`语句。
+***
+`%u`
 
-`close("filename")`
+无符号十进制数输出。
 
-`filename`可以是`getline`打开的文件，也可以是`stdin`，包含文件名的变量，或者`getline`使用的确切命令。
-或一个输出文件，可以是`stdout`，包含文件名的变量或使用管道的确切命令。
+`awk 'BEGIN { printf "Unsigned 10 = %u\n", 10 }'`
 
-### 输出到一个文件
+***
+`%x` 与 `%X`
 
-`awk`中允许用如下方式将结果输出到一个文件：
+输出无符号十六进制数。`%X `中使用大写字母，`%x` 使用小写字母。
 
-`echo | awk '{printf("hello word!n") > "datafile"}'`
-或
-`echo | awk '{printf("hello word!n") >> "datafile"}'`
+`awk 'BEGIN { printf "Hexadecimal representation of decimal number 15 = %x\n", 15}'`
 
-## 设置字段定界符
+***
+使用 `%X` 的输出结果如下：
 
-默认的字段定界符是空格，可以使用`-F "定界符"` 明确指定一个定界符：
+`awk 'BEGIN { printf "Hexadecimal representation of decimal number 15 = %X\n", 15}'`
 
-`awk -F: '{ print $NF }' /etc/passwd`
-或
-`awk 'BEGIN{ FS=":" } { print $NF }' /etc/passwd`
+***
+`%%`
 
-在`BEGIN`语句块中则可以用`OFS=“定界符”`设置输出字段的定界符。
+输出百分号（`%`），不需要输入参数。
 
-## 流程控制语句
+`awk 'BEGIN { printf "Percentags = %d%%\n", 80.66 }'`
 
-`linux awk`的`while`、`do-while`和`for`语句允许使用`break`,`continue`语句来控制流程走向，也允许使用`exit`这样的语句来退出。
+### % 的可选参数
 
-`break`中断当前正在执行的循环并跳到循环外执行下一条语句。`if `是流程选择用法。
-`awk`中，流程控制语句，语法结构，与c语言类似。有了这些语句，其实很多`shell`程序都可以交给`awk`，而且性能是非常快的。
-下面是各个语句用法。
+`%` 可以使用如下可选参数：
 
-### 条件判断语句
++ `%5` 输出宽度
++ `%0` 用`0`填充，`0` 要紧跟在`%`后面
++ `%-` 左对齐
++ `%+` 输出正负号
++ `%#` hash形式
+
+例如：
 
 ```bash
-if(表达式)
-  {语句1}
-else
-  {语句2}
-```
-
-格式中`语句1`可以是多个语句，为了方便判断和阅读，最好将多个语句用`{}`括起来。`awk`分枝结构允许嵌套，其格式为：
-
-```bash
-if(表达式)
-  {语句1}
-else if(表达式)
-  {语句2}
-else
-  {语句3}
-```
-
-示例：
-
-```bash
-awk 'BEGIN{
-test=100;
-if(test>90){
-  print "very good";
-  }
-  else if(test>60){
-    print "good";
-  }
-  else{
-    print "no pass";
-  }
-}'
-```
-
-每条命令语句后面可以用`;`分号结尾。
-
-### 循环语句
-
-`while`语句
-
-```bash
-while(表达式)
-  {语句}
-```
-
-示例：
-
-```bash
-awk 'BEGIN{
-test=100;
-total=0;
-while(i<=test){
-  total+=i;
-  i++;
-}
-print total;
-}'
+# 左对齐，用0填充，显示符号，小数6位，hash形式
+awk 'BEGIN { printf "Percentags = %0-+#20.6f\n", 34543.661 }' | cat -A
+# 用0填充，显示符号，hash形式
+awk 'BEGIN { printf "Percentags = %0+#20.6f\n", 34543.661 }' | cat -A
+用空格填充，显示符号，hash形式
+awk 'BEGIN { printf "Percentags = %+#20.6f\n", 34543.661 }' | cat -A
+#输出
+Percentags = +34543.661000       $
+Percentags = +000000034543.661000$
+Percentags =        +34543.661000$
 ```
 
 ***
-`for`循环
+宽度
 
-`for`循环有两种格式：
+输出域会被填充满足宽度要求。默认情况下使用空格字符填充。但是，当标志 `0` 被设置后会使用 `0` 填充。
 
-格式1：
-
-```bash
-for(变量 in 数组)
-  {语句}
-```
-
-示例：
-
-```bash
-awk 'BEGIN{
-for(k in ENVIRON){
-  print k"="ENVIRON[k];
-}
-}'
-```
-
-注：`ENVIRON`是`awk`常量，是字典型数组。
-
-格式2：
-
-```bash
-for(变量;条件;表达式)
-  {语句}
-```
-
-示例：
-
-```bash
-awk 'BEGIN{
-total=0;
-for(i=0;i<=100;i++){
-  total+=i;
-}
-print total;
-}'
-```
+`awk 'BEGIN { num1 = 10; num2 = 20; printf "Num1 = %10d\nNum2 = %10d\n", num1, num2 }'`
 
 ***
-`do`循环
+前导零
 
-```bash
-do
-{语句} while(条件)
-```
+紧接在 `%` 后的零被当作标示，表示输出应该使用零填充而不是空格字符。
+请注意，只有当域的宽度比要求宽度小时该标示才会有效。示例如下：
 
-例子：
-
-```bash
-awk 'BEGIN{
-total=0;
-i=0;
-do {total+=i;i++;} while(i<=100)
-  print total;
-}'
-```
-
-### 其他语句
-
-+ `break` 当 `break` 语句用于 `while` 或 `for` 语句时，导致退出程序循环。
-+ `continue` 当 `continue` 语句用于 `while` 或 `for` 语句时，使程序循环移动到下一个迭代。
-+ `next` 能能够导致读入下一个输入行，并返回到脚本的顶部。这可以避免对当前输入行执行其他的操作过程。
-+ `exit` 语句使主输入循环退出并将控制转移到`END`,如果`END`存在的话。如果没有定义`END`规则，或在`END`中应用`exit`语句，则终止脚本的执行。
-
-## 数组应用
-
-数组是`awk`的灵魂，处理文本中最不能少的就是它的数组处理。
-`awk`的数组索引（下标）可以是**数字**或者**字符串**，所以`awk`的数组叫做关联数组(associative arrays)。
-`awk` 中的数组不必提前声明，也不必声明大小。数组元素用`0`或**空字符串**来初始化，这根据上下文而定。
-
-### 数组的定义
-
-数字做数组索引（下标）：
-
-```bash
-Array[1]="sun"
-Array[2]="kai"
-```
-
-字符串做数组索引（下标）：
-
-```bash
-Array["first"]="www"
-Array["last"]="name"
-Array["birth"]="1987"
-```
-
-使用中`print Array[1]`会打印出`sun`；使用`print Array[2]`会打印出`kai`；使用`print["birth"]`会得到`1987`。
-
-读取数组的值
-
-```bash
-{ for(item in array) {print array[item]}; }       #输出的顺序是随机的
-{ for(i=1;i<=len;i++) {print array[i]}; }         #Len是数组的长度
-```
-
-### 数组相关函数
-
-得到数组长度：
-
-```bash
-awk 'BEGIN{info="it is a test";lens=split(info,tA," ");print length(tA),"length is:"lens;}'
-```
-
-`length`返回字符串以及数组长度，`split`进行分割字符串为数组，也会返回分割得到数组长度。
-
-```bash
-awk 'BEGIN{info="it is a test";split(info,tA," ");print asort(tA);for (k in tA){print k,tA[k];}}'
-```
-
-`asort`对数组进行排序，返回数组长度。
-
-输出数组内容（无序，有序输出）：
-
-```bash
-awk 'BEGIN{info="it is a test";split(info,tA," ");for(k in tA){print k,tA[k];}}'
-```
-
-`for…in`输出，因为数组是关联数组，默认是无序的。所以通过`for…in`得到是无序的数组。如果需要得到有序数组，需要通过下标获得。
-
-```bash
-awk 'BEGIN{info="it is a test";tlen=split(info,tA," ");for(k=1;k<=tlen;k++){print k,tA[k];}}'
-```
-
-注意：数组下标是从`1`开始，与`C`数组不一样。
-
-判断键值存在以及删除键值：
-
-```bash
-#错误的判断方法：
-awk 'BEGIN{tB["a"]="a1";tB["b"]="b1";if(tB["c"]!="1"){print "no found";};for(k in tB){print k,tB[k];}}'
-no found
-a a1
-b b1
-c
-```
-
-以上出现奇怪问题，`tB["c"]`没有定义，但是循环时候，发现已经存在该键值，它的值为空。
-这里需要注意，`awk`数组是关联数组，只要通过数组引用它的`key`，就会自动创建改序列。
-
-```bash
-#正确判断方法：
-awk 'BEGIN{tB["a"]="a1";tB["b"]="b1";if( "c" in tB){print "ok";};for(k in tB){print k,tB[k];}}'
-a a1
-b b1
-```
-
-`if(key in array)`通过这种方法判断数组中是否包含`key`键值。
-
-```bash
-#删除键值：
-[chengmo@localhost ~]$ awk 'BEGIN{tB["a"]="a1";tB["b"]="b1";delete tB["a"];for(k in tB){print k,tB[k];}}'
-b b1
-```
-
-`delete array[key]`可以删除，对应数组`key`的，序列值。
-
-### 二维、多维数组使用
-
-`awk`的多维数组在本质上是一维数组，更确切一点，`awk`在存储上并不支持多维数组。`awk`提供了逻辑上模拟二维数组的访问方式。
-例如，`array[2,4]=1`这样的访问是允许的。`awk`使用一个特殊的字符串`SUBSEP`作为分割字段，在上面的例子中，关联数组array存储的键值实际上是`2SUBSEP4`。
-
-类似一维数组的成员测试，多维数组可以使用`if ( (i,j) in array)`这样的语法，但是下标必须放置在圆括号中。
-
-```bash
-awk 'BEGIN{
-for(i=1;i<=4;i++){
-  for(j=1;j<=4;j++){
-    tarr[i,j]=i*j;
-  }
-}
-if ((4,5) in tarr)
-{print tarr[4,5]}
-else
-{print "does not exist"}
-
-if ((4,4) in tarr)
-{print tarr[4,4]}
-else
-{print "does not exist"}
-}'
-
-类似一维数组的循环访问，多维数组使用`for ( item in array )`这样的语法遍历数组。
-
-```bash
-awk 'BEGIN{
-for(i=1;i<=4;i++){
-  for(j=1;j<=4;j++){
-    tarr[i,j]=i*j;
-  }
-}
-for(m in tarr){
-  print m,tarr[m];
-}
-}'
-```
-
-与一维数组不同的是，多维数组必须使用`split()`函数来访问单独的下标分量。
-
-```bash
-awk 'BEGIN{
-for(i=1;i<=9;i++){
-  for(j=1;j<=9;j++){
-    tarr[i,j]=i*j; print i,"*",j,"=",tarr[i,j];
-  }
-}
-}'
-```
-
-可以通过`array[k,k2]`引用获得数组内容。
-
-另一种方法：
-
-```bash
-awk 'BEGIN{
-for(i=1;i<=9;i++){
-  for(j=1;j<=9;j++){
-    tarr[i,j]=i*j;
-  }
-}
-for(m in tarr){
-  split(m,tarr2,SUBSEP); print tarr2[1],"*",tarr2[2],"=",tarr[m];
-}
-}'
-```
-
-## 内置函数
-
-`awk`内置函数，主要分以下`3`种类似：算数函数、字符串函数、其它一般函数、时间函数。
-
-### 算术函数
-
-+ `atan2(y, x)`  返回 y/x 的反正切。
-+ `cos(x)`  返回 `x` 的余弦；`x` 是弧度。
-+ `sin(x)`  返回 `x` 的正弦；`x` 是弧度。
-+ `exp(x)`  返回 `x` 幂函数。
-+ `log(x)`  返回 `x` 的自然对数。
-+ `sqrt(x)`  返回 `x` 平方根。
-+ `int(x)`  返回 `x` 的截断至整数的值。
-+ `rand( )`  返回任意数字 `n`，其中 `0 <= n < 1`。
-+ `srand( [expr])`  将 `rand` 函数的种子值设置为 `Expr` 参数的值，或如果省略 `Expr` 参数则使用某天的时间。返回先前的种子值。
-
-举例说明：
-
-```bash
-awk 'BEGIN{OFMT="%.3f";fs=sin(1);fe=exp(10);fl=log(10);fi=int(3.1415);print fs,fe,fl,fi;}'
-0.841 22026.466 2.303 3
-```
-
-`OFMT` 设置输出数据格式是保留`3`位小数。
-
-获得随机数：
-
-```bash
-awk 'BEGIN{srand();fr=int(100*rand());print fr;}'
-awk 'BEGIN{srand();fr=int(100*rand());print fr;}'
-awk 'BEGIN{srand();fr=int(100*rand());print fr;}'
-```
-
-### 字符串函数
-
-+ `gsub(Ere, Repl, [In] )`  和`sub`函数类似，只不过进行所有可能的替换。
-+ `sub(Ere, Repl, [In] )`  匹配`In`中由 `Ere` 指定的字符串（扩展正则表达式），并用 `Repl`参数替换，只替换第一个具体值。`sub`函数返回替换的数量。用`&`来进行匹配结果的引用。如果未指定 `In` 参数，缺省值是整个记录（`$0` 记录变量）。
-+ `index(str1,str2)`  返回`str2`在`str1`中的位置，从 1 开始编号。如果 `str2`参数不在`str1`中出现，则返回`0`（零）。
-+ `length [(str)]`  返回 `str` 参数指定的字符串的长度（字符形式）。如果未给出 `str`，则返回整个记录的长度（`$0`的长度）。
-+ `blength [(str)]`  返回 `str` 参数指定的字符串的长度（以**字节**为单位）。如果未给出 `str` 参数，则返回整个记录的长度（`$0`的长度）。
-+ `substr(str,M,[N])`  返回`str`中长度为`N`的字符子串。子串从 `M`指定的位置开始。 `str` 中的第一个字符编号为 `1`。如果未指定 `N` 参数，则默认取到 `str` 的末尾。
-+ `match(str,Ere)`  返回 `str`中`Ere`的位置（字符形式），从`1` 开始编号。如果 Ere 参数不出现，则返回 `0`。`RSTART` 特殊变量记录返回值。`RLENGTH` 特殊变量记录匹配字符串的长度，或如果未找到任何匹配，则值为 `-1`。
-+ `split(str,A,[Ere])`  将 `str` 分割为数组 `A[1]`, `A[2]`, `. . .`, `A[n]`，并返回`n`（数组的长度）。分隔符为`Ere`指定的扩展正则表达式。如果没有给出 `Ere` 参数，则为当前字段分隔符（`FS` 特殊变量）。
-除非上下文指明特定的元素为数字值，否则 `A` 中的元素为字符串。
-+ `tolower(str)`  返回 `str` 的小写形式，大写和小写的映射由当前语言环境的 `LC_CTYPE` 范畴定义。
-+ `toupper(str)`  返回 `str` 的大写形式，大写和小写的映射由当前语言环境的`LC_CTYPE` 范畴定义。
-+ `sprintf(Format, Expr, Expr, . . . )`  根据 `Format` 参数指定的 `printf` 格式字输出 `Expr` 参数指定的表达式，并返回最后生成的字符串。
-
-注：`Ere`都可以是正则表达式。
+`awk 'BEGIN { num1 = -10; num2 = 20; printf "Num1 = %05d\nNum2 = %05d\n", num1, num2 }'`
 
 ***
-`gsub`,`sub`
+左对齐
 
-```bash
-awk 'BEGIN{info="this is a test2010test!";gsub(/[0-9]+/,"AAA",info);print info}'
-```
+输出域被设置为左对齐。当输出字符串字符数比指定宽度少时，你可能希望在输出它时能左对齐。
+比如，在右边添加空格符。在 `%` 之后数字之前使用减号（`-`）即可指定输出左对齐。
+下面的例子中，AWK 的输出作为 `cat` 的输入，`cat`会输出行结束符号（`$`）。
 
-在`info`中查找`/[0-9]+/ `,并用`"AAA"`替换，并将替换后的值，赋给`info`。
-如果未给出`info`参数，则默认为`$0`。
-
-***
-查找字符串`index`
-
-```bash
-awk 'BEGIN{info="this is a test2010test!";print index(info,"test")?"ok":"no found";}'
-## or
-awk 'BEGIN{info="this is a test2010test!";
-if(index(info,"test"))
-{print "Ok";}
-else{print "not found";}
-}'
-## or
-awk 'BEGIN{info="this is a test2010test!";
-if("test" in info)
-{print "Ok";}
-else{print "not found";}
-}'
-```
+`awk 'BEGIN { num = 10; printf "Num = %-5d\n", num }' | cat -vte`
 
 ***
-正则表达式匹配查找`match`
+符号前缀
 
-```bash
-awk 'BEGIN{info="this is a test2010test!";print match(info,/[0-9]+/)?"ok":"no found";}'
-```
+输出数值的符号，正号也输出。
 
-***
-截取字符串`substr`
-
-```bash
-awk 'BEGIN{info="this is a test2010test!";print substr(info,4,10);}'
-
-```
-
-从第 4个 字符开始，截取10个长度字符串
+`awk 'BEGIN { num1 = -10; num2 = 20; printf "Num1 = %+d\nNum2 = %+d\n", num1, num2 }'`
 
 ***
-字符串分割`split`
+哈希（Hash）`%#`
 
-awk 'BEGIN{info="this is a test";split(info,tA," ");print length(tA);for(k in tA){print k,tA[k];}}'
+使用 `Hash` 可以为 `%o` 的结果前添加`0`，为 `%x` 或 `%X` 输出的结果前添加 `0x` 或 `0X` （结果不为零时），
+为 `%e`，`%E`，`%f`，`%F`添加小数点；对于 `%g` 或 `%G`，使用哈希可以保留尾部的零。使用示例如下：
 
-分割`info`，动态创建数组`tA`。`awk`中的`for …in`循环，是一个无序的循环。
-并不是按照数组下标`1…n`循环 ，因此使用时候需要注意。
-
-***
-格式化字符串输出`sprintf`
-
-格式化的字符串包括两部分内容（内容和格式）：
-一部分是正常字符，这些字符将按原样输出;
-另一部分是格式控制字符，以`"%"`开始，后跟一个或几个规定字符,用来确定输出内容格式。
-
-格式  描述
-
-+ `%d`  十进制有符号整数
-+ `%u`  十进制无符号整数
-+ `%f`  浮点数
-+ `%s`  字符串
-+ `%c`  单个字符
-+ `%p`  指针的值
-+ `%e`  指数形式的浮点数
-+ `%x`  `%X` 无符号以十六进制表示的整数
-+ `%o`  无符号以八进制表示的整数
-+ `%g`  自动选择合适的表示法
-
-```bash
-awk 'BEGIN{n1=124.113;n2=-1.224;n3=1.2345; printf("%.2f,%.2u,%.2g,%X,%o\n",n1,n2,n3,n1,n1);}'
-```
-
-### 一般函数
-
-格式  描述
-
-+ `close(Expression)`  用同一个 `Expression`参数（值为字符串）来关闭文件或管道。它们由 `print`或`printf` 语句或`getline` 函数打开。
-如果文件或管道成功关闭，则返回`0`；其它情况下返回非零值。
-如果打算写一个文件，并稍后在同一个程序中读取文件，则`close`语句是必需的。
-+ `system(command)`  执行 `Command` 参数指定的命令，并返回退出状态。等同于 `system` 子例程。
-+ `Expression | getline [Variable]`  将 `Expression`的值当作命令执行，然后从管道传送的流中读取一个输入记录，并将该记录的值赋给`Variable`。如果当前不存在执行`Expression`得到的流，则创建一个。
-创建的流等同于调用 `popen` 子例程，此时 `Command` 参数取 `Expression` 的值且 `Mode` 为`r`。
-只要流保留打开且`Expression`不变，则`getline`函数继续读取下一个记录。如果未指定 `Variable` 参数，则使用 `$0` 和`NF`存储记录。
-+ `getline [Variable] < Expression` 从`Expression`指定的文件读取下一个记录，并将 `Variable`设置为该记录的值。只要流保留打开且`Expression`的值不变，则`getline`函数继续往下读取记录。
-如果未指定 `Variable` 参数，则使用 `$0` 和`NF`存储记录。
-+ `getline [Variable]`  将 `Variable` 设置为下一个输入记录。如果未指定 `Variable` 参数，则使用`$0`,`NF`、`NR` 和 `FNR` 特殊变量。
-
-### 打开外部文件（close用法）
-
-```bash
-awk 'BEGIN{while("cat /etc/passwd"|getline){print $0;};close("/etc/passwd");}'
-```
-
-逐行读取外部文件
-
-```bash
-awk 'BEGIN{while(getline < "/etc/passwd"){print $0;};close("/etc/passwd");}'
-```
-
-```bash
-awk 'BEGIN{print "Enter your name:";getline name;print name;}'
-```
-
-调用外部应用程序
-
-```bash
-awk 'BEGIN{b=system("ls -al");print b;}'
-```
-
-### 时间函数
-
-函数名  说明
-
-+ `mktime( YYYY MM dd HH MM ss[ DST])` 生成时间格式
-+ `strftime([format [, timestamp]])` 格式化时间输出，将时间戳转为时间字符串，具体格式见下表。
-+ `systime()`  得到时间戳,返回从`1970年1月1日`开始到当前时间(不计闰年)的整秒数
-
-建指定时间(mktime使用）
-
-```bash
-awk 'BEGIN{tstamp=mktime("2001 01 01 12 12 12");print strftime("%c",tstamp);}'
-```
-
-```bash
-awk 'BEGIN{tstamp1=mktime("2001 01 01 12 12 12");tstamp2=mktime("2001 02 01 0 0 0");print tstamp2-tstamp1;}'
-```
-
-***
-strftime日期和时间格式说明符
-
-格式  描述
-
-+ `%a`  星期几的缩写(Sun)
-+ `%A`  星期几的完整写法(Sunday)
-+ `%b`  月名的缩写(Oct)
-+ `%B`  月名的完整写法(October)
-+ `%c`  本地日期和时间
-+ `%d`  十进制日期
-+ `%D`  日期 `08/20/99`
-+ `%e`  日期，如果只有一位会补上一个空格
-+ `%H`  用十进制表示24小时格式的小时
-+ `%I`  用十进制表示12小时格式的小时
-+ `%j`  从`1`月`1`日起一年中的第几天
-+ `%m`  十进制表示的月份
-+ `%M`  十进制表示的分钟
-+ `%p`  12小时表示法(AM/PM)
-+ `%S`  十进制表示的秒
-+ `%U`  十进制表示的一年中的第几个星期(星期天作为一个星期的开始)
-+ `%w`  十进制表示的星期几(星期天是0)
-+ `%W`  十进制表示的一年中的第几个星期(星期一作为一个星期的开始)
-+ `%x`  重新设置本地日期(08/20/99)
-+ `%X`  重新设置本地时间(12：00：00)
-+ `%y`  两位数字表示的年(99)
-+ `%Y`  当前月份
-+ `%Z`  时区(PDT)
-+ `%%`  百分号(%)
-
-## 一些示例
-
-### 分隔文件
-
-下面这个例子，是按第`6`例分隔文件，相当的简单（其中的`NR!=1`表示不处理表头）。
-
-`awk 'NR!=1{print > $6}' netstat.txt`
-
-你也可以把指定的列输出到文件：
-
-`awk 'NR!=1{print $4,$5 > $6}' netstat.txt`
-
-再复杂一点：（注意其中的`if-else-if`语句，可见`awk`其实是个脚本解释器）
-
-```bash
-$ awk 'NR!=1{if($6 ~ /TIME|ESTABLISHED/) print > "1.txt";
-else if($6 ~ /LISTEN/) print > "2.txt";
-else print > "3.txt" }' netstat.txt
-```
-
-### 统计
-
-下面的命令计算所有的`C`文件，`CPP`文件和`H`文件的文件大小总和。
-
-```bash
-$ ls -l  *.cpp *.c *.h | awk '{sum+=$5} END {print sum}'
-```
-
-***
-注：如果你要指定多个分隔符，你可以这样来：
-
-awk -F '[;:]'
-
-***
-如果我们需要表头的话，我们可以引入内建变量NR：
-
-```bash
-awk '$3==0 && $6=="LISTEN" || NR==1 ' netstat.txt
-```
-
-### 环境变量
-
-即然说到了脚本，我们来看看怎么和环境变量交互：（使用`-v`参数和`ENVIRON`，使用`ENVIRON`的环境变量需要`export`）
-
-```bash
-$ x=5
-$ y=10
-$ export y
-$ echo $x $y
-5 10
-$ awk -v val=$x '{print $1, $2, $3, $4+val, $5+ENVIRON["y"]}' OFS="\t" score.txt
-```
-
-### 几个花活
-
-[AWK 简明教程][]
-
-```bash
-#从file文件中找出长度大于80的行
-awk 'length>80' file
-#按连接数查看客户端IP
-netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr
-#打印99乘法表
-seq 9 | sed 'H;g' | awk -v RS='' '{for(i=1;i<=NF;i++)printf("%dx%d=%d%s", i, NR, i*NR, i==NR?"\n":"\t")}'
-```
-
-[AWK 简明教程]: https://coolshell.cn/articles/9070.html
+`awk 'BEGIN { printf "Octal representation = %#o\nHexadecimal representaion = %#X\n", 10, 10}'`

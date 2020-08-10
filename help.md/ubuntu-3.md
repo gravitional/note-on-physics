@@ -606,7 +606,6 @@ cat a b b | sort | uniq -u > c   # c is set difference a - b 差集
 + 了解 `strace` 和 `ltrace`。这两个命令可以让你查看进程的系统调用，这有助于你分析进程的hang在哪了，怎么crash和failed的。你还可以用其来做性能`profile`，使用 `-c` 选项，你可以使用`-p`选项来`attach`上任意一个进程。
 + 了解用`ldd`命令来检查相关的动态链接库。注意：`ldd`的安全问题
 + 使用`gdb`来调试一个正在运行的进程或分析`core dump`文件。参看我写的《GDB中应该知道的几个调试方法》
-+ 学会到 `/proc` 目录中查看信息。这是一个Linux内核运行时记录的整个操作系统的运行统计和信息，比如： /proc/cpuinfo, /proc/xxx/cwd, /proc/xxx/exe, /proc/xxx/fd/, /proc/xxx/smaps.
++ 学会到 `/proc` 目录中查看信息。这是一个Linux内核运行时记录的整个操作系统的运行统计和信息，比如： `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 + 如果你调试某个东西为什么出错时，`sar`命令会有用。它可以让你看看 CPU, 内存, 网络, 等的统计信息。
 + 使用 `dmesg` 来查看一些硬件或驱动程序的信息或问题。
-
