@@ -1,7 +1,5 @@
 # awk2 
 
-## another
-
 [awk命令][]
 
 [awk命令]: https://man.linuxde.net/awk
