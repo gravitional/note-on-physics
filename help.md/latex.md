@@ -541,15 +541,13 @@ bibtex foo.aux
 
 ## texdoc
 
-`man`
-
-The man page points these command line options as being equivalent to using the command forms such as `\scrollmode`, for which the official doc is the `TeXBook`, or
+`man` page 指出这些命令行选项等价于使用the command forms as `\scrollmode`，官方文档是`TeXBook`，或者输入
 
 ```powershell
 texdoc texbytopic
 ```
 
-for a free alternative (see chapter 32).
+自由选择(see chapter 32).
 
 ## latex 编译调试
 
