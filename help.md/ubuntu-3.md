@@ -609,3 +609,17 @@ cat a b b | sort | uniq -u > c   # c is set difference a - b 差集
 + 学会到 `/proc` 目录中查看信息。这是一个Linux内核运行时记录的整个操作系统的运行统计和信息，比如： `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 + 如果你调试某个东西为什么出错时，`sar`命令会有用。它可以让你看看 CPU, 内存, 网络, 等的统计信息。
 + 使用 `dmesg` 来查看一些硬件或驱动程序的信息或问题。
+
+## transmission 屏蔽Ipv4
+
+`cd ~/.config/transmission/blocklists`
+
+创建空文件，文件名任意,写入
+`Ipv4:0.0.0.0-255.255.255.255`
+
+然后
+`cd ~/.config/transmission`
+`vim settings.json`
+
+设置`ip`屏蔽生效
+`"blocklist-enabled": true,`

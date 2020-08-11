@@ -166,6 +166,20 @@ bash: type: foo: not found
 
 短命令可以堆叠， `-i -r -f`=`-irf`=`--interactive --force --recursive`
 
+### tar压缩
+
+***
+创建压缩文件
+
+`tar -cvf a.tar /etc`
+or
+`tar -c -v -f a.tar /etc`
+
+***
+解压缩`xxx.tar.gz`
+
+`tar -xzvf  xxx.tar.gz`
+
 ### 7z解压缩
 
 支持的格式
