@@ -496,15 +496,16 @@ Note the quotes around `*.c` The file `hello.c` will also be restored, even thou
 git checkout [<tree-ish>] [--] <pathspec>…​
 ```
 
-用 **index**或者`<tree-ish>`（通常是一个`commit`）里面的内容替换working tree里面的 paths。
+用 **index**或者`<tree-ish>`（通常是一个`commit`）里面的内容替换`working tree`里面的 paths。
+
 当给出一个`<tree-ish>`的时候，the **paths** that match the `<pathspec>`会在**index** and in the **working tree**里面都更新。
 
-index 中可能包含有之前合并失败的entries。默认情况下，如果你想checkout 一个这样的entries，会失败，什么都不会发生。
-使用`-f`选项忽略未合并的entries。
+`index `中可能包含有之前合并失败的`entries`。默认情况下，如果你想checkout 一个这样的`entries`，会失败，什么都不会发生。
+使用`-f`选项忽略未合并的`entries`。
 
-The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`.
+可以选择`merge`的特定一方的内容，使用选项`--ours` or `--theirs`.
 
-With `-m`, changes made to the working tree file can be discarded to re-create the original conflicted merge result.
+使用`-m`选项，可以抛弃对`working tree`的更改，恢复到 the original conflicted merge result
 
 ## 分支管理
 
