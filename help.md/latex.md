@@ -874,6 +874,8 @@ xcolor 使用
 这里是{\color{NavyBlue}{海军蓝}}，这个是{\color{Peach}{桃子色}}
 
 这个是{\color{SpringGreen}{春天绿}}，最后一个{\color{SeaGreen3}{海绿3}}
+
+{\color{ocre}{红色}}
 ```
 
 [LaTeX：xcolor颜色介绍][]
@@ -1410,3 +1412,84 @@ and `\abs[size command]{\frac{22}{7}}` also gives bars that do not grow but are 
   \end{subarray}} P(i, j)
 \end{gather}
 ```
+
+## \newcommand
+
+[LaTeX2e unofficial reference manual (October 2018)][]
+
+[LaTeX2e unofficial reference manual (October 2018)]: http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html
+
+12.1 \newcommand & \renewcommand
+
+Synopses, one of:
+
+\newcommand{\cmd}{defn}
+\newcommand{\cmd}[nargs]{defn}
+\newcommand{\cmd}[nargs][optargdefault]{defn}
+\newcommand*{\cmd}{defn}
+\newcommand*{\cmd}[nargs]{defn}
+\newcommand*{\cmd}[nargs][optargdefault]{defn}
+
+or one of these.
+
+\renewcommand{\cmd}[nargs]{defn}
+\renewcommand{\cmd}[nargs]{defn}
+\renewcommand{\cmd}[nargs][optargdefault]{defn}
+\renewcommand*{\cmd}{defn}
+\renewcommand*{\cmd}[nargs]{defn}
+\renewcommand*{\cmd}[nargs][optargdefault]{defn}
+
+Define or redefine a command. See also the discussion of \DeclareRobustCommand in Class and package commands. The starred form of these two requires that the arguments not contain multiple paragraphs of text (in plain TeX terms that it not be \long).
+
+These are the parameters:
+
+cmd
+
+    Required; the command name. It must begin with a backslash, \, and must not begin with the four letter string \end. For \newcommand, it must not be already defined. For \renewcommand, this name must already be defined.
+nargs
+
+    Optional; an integer from 0 to 9, specifying the number of arguments that the command takes, including any optional argument. Omitting this argument is the same as specifying 0, meaning that the command has no arguments. If you redefine a command, the new version can have a different number of arguments than the old version.
+optargdefault
+
+    Optional; if this argument is present then the first argument of \cmd is optional, with default value optargdefault (which may be the empty string). If this argument is not present then \cmd does not take an optional argument.
+
+    That is, if \cmd is used with square brackets, as in \cmd[optval]{...}..., then within defn the parameter #1 is set to the value of optval. On the other hand, if \cmd is called without the square brackets then within defn the parameter #1 is set to the value of optargdefault. In either case, the required arguments start with #2.
+
+    Omitting [optargdefault] is different from having the square brackets with no contents, as in []. The former sets #1 to the value of optargdefault; the latter sets #1 to the empty string.
+defn
+
+    Required; the text to be substituted for every occurrence of \cmd. The parameters #1, #2, ... #nargs are replaced by the values that you supply when you call the command (or by the default value if there is an optional argument and you don’t exercise the option).
+
+TeX ignores spaces in the source following an alphabetic control sequence, as in ‘\cmd ’. If you actually want a space there, one solution is to type {} after the command (‘\cmd{} ’, and another solution is to use an explicit control space (‘\cmd\ ’).
+
+A simple example of defining a new command: \newcommand{\RS}{Robin Smith} results in \RS being replaced by the longer text. Redefining an existing command is similar: \renewcommand{\qedsymbol}{{\small QED}}.
+
+If you try to define a command and the name has already been used then you get something like ‘LaTeX Error: Command \fred already defined. Or name \end... illegal, see p.192 of the manual’. If you try to redefine a command and the name has not yet been used then you get something like ‘LaTeX Error: \hank undefined’.
+
+Here the first command definition has no arguments, and the second has one required argument.
+
+\newcommand{\student}{Ms~O'Leary}
+\newcommand{\defref}[1]{Definition~\ref{#1}}
+
+Use the first as in I highly recommend \student{} to you. The second has a variable, so that \defref{def:basis} expands to Definition~\ref{def:basis}, which ultimately expands to something like ‘Definition~3.14’.
+
+Similarly, but with two required arguments: \newcommand{\nbym}[2]{$#1 \times #2$} is invoked as \nbym{2}{k}.
+
+This example has an optional argument.
+
+\newcommand{\salutation}[1][Sir or Madam]{Dear #1:}
+
+Then \salutation gives ‘Dear Sir or Madam:’ while \salutation[John] gives ‘Dear John:’. And \salutation[] gives ‘Dear :’.
+
+This example has an optional argument and two required arguments.
+
+\newcommand{\lawyers}[3][company]{#2, #3, and~#1}
+I employ \lawyers[Howe]{Dewey}{Cheatem}.
+
+The output is ‘I employ Dewey, Cheatem, and Howe’. The optional argument, the Howe, is associated with #1, while Dewey and Cheatem are associated with #2 and #3. Because of the optional argument, \lawyers{Dewey}{Cheatem} will give the output ‘I employ Dewey, Cheatem, and company’.
+
+The braces around defn do not define a group, that is, they do not delimit the scope of the result of expanding defn. For example, with \newcommand{\shipname}[1]{\it #1}, in this sentence,
+
+The \shipname{Monitor} met the \shipname{Merrimac}.
+
+the words ‘met the’ would incorrectly be in italics. The solution is to put another pair of braces inside the definition: \newcommand{\shipname}[1]{{\it #1}}. 
