@@ -870,12 +870,8 @@ xcolor 使用
 
 ```latex
 {\color{red}{红色}}是19个基本颜色中的一个，下面秀几个高级货：
-
 这里是{\color{NavyBlue}{海军蓝}}，这个是{\color{Peach}{桃子色}}
-
 这个是{\color{SpringGreen}{春天绿}}，最后一个{\color{SeaGreen3}{海绿3}}
-
-{\color{ocre}{红色}}
 ```
 
 [LaTeX：xcolor颜色介绍][]

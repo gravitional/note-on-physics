@@ -810,7 +810,7 @@ else if (a == 30)
 
 ```bash
 for (initialisation; condition; increment/decrement)
-    action
+    {action}
 ```
 
 `for` 语句首先执行初始化动作( initialisation )，然后再检查条件( condition )。如果条件为真，则执行动作( action )，然后执行递增( increment )或者递减( decrement )操作。
@@ -1293,7 +1293,7 @@ AWK 提供了如下的内置的位操作函数：
 ***
 `and`
 
-执行位与操作。
+执行位**与**操作。
 
 ```bash
 awk 'BEGIN {
@@ -1882,7 +1882,9 @@ Percentags =        +34543.661000$
 ***
 哈希（Hash）`%#`
 
-使用 `Hash` 可以为 `%o` 的结果前添加`0`，为 `%x` 或 `%X` 输出的结果前添加 `0x` 或 `0X` （结果不为零时），
-为 `%e`，`%E`，`%f`，`%F`添加小数点；对于 `%g` 或 `%G`，使用哈希可以保留尾部的零。使用示例如下：
+使用 `Hash` 可以为 `%o` 的结果前添加`0`，
+为 `%x` 或 `%X` 输出的结果前添加 `0x` 或 `0X` （结果不为零时），
+为 `%e`，`%E`，`%f`，`%F`添加小数点；
+对于 `%g` 或 `%G`，使用哈希可以保留尾部的零。使用示例如下：
 
 `awk 'BEGIN { printf "Octal representation = %#o\nHexadecimal representaion = %#X\n", 10, 10}'`
