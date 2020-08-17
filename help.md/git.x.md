@@ -377,7 +377,8 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 ### log gitk
 
 ***
-`git-shortlog` - 总结`git log`的输出。
+
+1. `git-shortlog` - 总结`git log`的输出。
 
 选项:
 
@@ -386,8 +387,8 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 
 ***
 
-+ `gk`='\gitk --all --branches'
-+ `gke`='\gitk --all $(git log -g --pretty=%h)'
+2. `gk`='\gitk --all --branches'
+3. `gke`='\gitk --all $(git log -g --pretty=%h)'
 
 `--all`:假装`refs/`下的所有条目，包括`HEAD`都被列出 as `<commit>`
 `--branches[=<pattern>]`：类似`--all`，但是要匹配shell `glob`模式，`?`, `*`, or `[`, `/*`
