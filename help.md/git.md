@@ -411,19 +411,17 @@ Match the regular expression limiting patterns without regard to letter case.
 
 从 `commit` 灌入 `index`
 
-`git reset HEAD file`
 ***
+`git reset HEAD file`
 
 ```bash
 git reset --hard xxxx
 ```
 
 彻底回退版本，连本地文件都会被回退到上个版本的内容
-***
 
-```bash
-git reset --soft xxxx
-```
+***
+`git reset --soft xxxx`
 
 只回退commit，如果你想再次提交直接`git commit`即可
 
@@ -433,17 +431,16 @@ git reset --soft xxxx
 `--hard` 会清空`working tree`和`stage`的改动, 
 而 `--soft`则会保留`working tree`的内容，并把因为保留`working tree`内容所带来的新的文件差异放进`stage`
 
-```bash
-reset 不加参数(--mixed)
-```
+***
+`reset 不加参数(--mixed)`
 
 保留`working tree`，并清空`stage`
 
 `reset` 如果不加参数，那么默认使用 `--mixed` 参数。它的行为是：保留`working tree`，并且清空`stage`。
-
 也就是说，`working tree`的修改、`stage`的内容以及由 `reset` 所导致的新的文件差异，都会被放进`working tree`。
-简而言之，就是`把所有差异都混合（mixed）放在`working tree`中`。
+简而言之，就是把所有差异都混合（mixed）放在`working tree`中`。
 
+***
 同理，`reset --hard` 不仅可以撤销提交，还可以用来把 `HEAD` 和 `branch` 移动到其他的任何地方。
 
 ```bash
@@ -1762,7 +1759,7 @@ refs/remotes/myfork/mybranch
 
 后缀`@{push}` or `@{upstream}`大小写不敏感
 
-### ^ caret ~ tilde
+### ^ caret and ~ tilde
 
 `<rev>^`, e.g. `HEAD^`, `v1.5.1^0`
 
@@ -1773,7 +1770,7 @@ As a special rule,` <rev>^0` 指向自身，可以用`tag`（tag object）指向
 ***
 `<rev>~<n>`, e.g. `master~3`
 
-A suffix `~<n>` to a revision parameter 之的是第`n`个第首位父节点，
+A suffix `~<n>` to a revision parameter 之的是第`n`个首位父节点，
 I.e.  `<rev>~3` is equivalent to `<rev>^^^` which is equivalent to `<rev>^1^1^1`. 
 
 参见下面的图示

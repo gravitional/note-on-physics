@@ -140,6 +140,11 @@ bash: type: foo: not found
 如果想要永久保存定义的`alias`，可以将其写入到 `/etc/profile` 或者 `~/.bash_rc` 中去，
 两个的区别是影响的范围不一样而已
 
+***
+zsh 别名
+
++ `grep`='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+
 ### ls
 
 + `-m` fill width with a comma separated list of entries

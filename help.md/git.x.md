@@ -168,7 +168,9 @@ git先查看本地中远程的`refspec`，然后把前面的初始部分去掉�
 
 第一次推送`source`分支的所有内容，并把本地的`source`分支和远程的`destination`分支关联起来
 
+***
 `git push`:
+
 `<refspec>...`
 
 `<refspec>`指定用`source object`更新哪一个`destination ref`。
@@ -267,86 +269,221 @@ With `-m`, changes made to the working tree file can be discarded to re-create t
 
 ## zsh 定义的 git别名
 
-+ `g`=git
-+ `ga`='git add'
+### short
+
++ `gst`='git status'
 + `gaa`='git add --all'
-+ `gap`='git apply'
-+ `gapa`='git add --patch'
-+ `gapt`='git apply --3way'
-+ `gau`='git add --update'
-+ `gav`='git add --verbose'
++ `gcam`='git commit -a -m'
+
++ `gco`='git checkout'
++ `gb`='git branch'
++ `gcb`='git checkout -b'
+
++ `gf`='git fetch'
++ `gp`='git push'
++ `gpd`='git push --dry-run'
++ `gpoat`='git push origin --all && git push origin --tags'
++ `ggpull`='git pull origin "$(git_current_branch)"'
++ `gl`='git pull'
+
++ `gd`='git diff'
++ `gdw`='git diff --word-diff'
+
+### 查看状态
+
++ `gss`='git status -s' 
++ `gst`='git status'
+
+`-s` : short
+
+### branch
 
 + `gb`='git branch'
 + `gbD`='git branch -D'
 + `gba`='git branch -a'
 + `gbd`='git branch -d'
-+ `gbda`='git branch --no-color --merged | command grep -vE "^(\+|\*|\s*($(git_main_branch)|development|+ `develop`|devel|dev)\s*$)" | command xargs -n 1 git branch -d'
 + `gbr`='git branch --remote'
+
+选项：
+
++ `-D`: Shortcut for `--delete --force`.
++ `-d, --delete` ;Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with `--track` or `--set-upstream-to`.
++ `-f, --force`: Reset `<branchname>` to `<startpoint>`, even if `<branchname>` exists already. 
+Without `-f`, git branch refuses to change an existing branch.
+In combination with `-d` (or `--delete`), allow deleting the branch irrespective of its merged status.
+In combination with `-m` (or `--move`), allow renaming the branch even if the new branch           name already exists, the same applies for `-c` (or `--copy`).
+
+### add
+
++ `ga`='git add'
++ `gaa`='git add --all'
++ `gapa`='git add --patch'
++ `gau`='git add --update'
++ `gav`='git add --verbose'
+
+选项：
+
++ `-p`, `--patch`: 交互式地选择更新的内容。能够使用户在增加文件前查看与`index`的不同。
++ `-u`,` --update`: 更新 `index` 中匹配 `working tree`的文件。移除相比`working tree`多余的，但是不会增加新的文件。如果没有给出具体的`<pathspec>`，`working tree`中所有被追踪的文件都会被更新，下同。
++ `-A`,`--all`,`--no-ignore-removal`: 添加，修改，删除`index entries`，使之完全匹配`working tree`.
+
+### commit
 
 + `gc`='git commit -v'
 + `'gc!'`='git commit -v --amend'
 + `gca`='git commit -v -a'
 + `'gca!'`='git commit -v -a --amend'
 + `gcam`='git commit -a -m'
-+ `gcb`='git checkout -b'
-+ `gcf`='git config --list'
 
++ `gcs`='git commit -S'
++ `gcsm`='git commit -s -m'
+
+选项：
+
++ `-a`, `--all`：自动`stage`所有被修改或删除的文件，但是还没有被Git追踪的文件不受影响。
++ `-v`, `--verbose`: 在提交信息的尾部，展示`HEAD`和将要提交`commit`的`diff`。这个`diff`的输出行没有前置的`#`。并且不是提交信息的一部分。See the commit.verbose configuration variable in git-config(1).
+如果使用两次,i.e.`-vv`，则额外展示`working tree`和`next commit`的区别
++ `--amend`：创造一个新的`commit`，代替当前分支的`tip`。提交信息基于上次的`commit`。
++ `-m`: 添加提交信息，可以给出多个`-m`，会被当作多个段落被合并。
++ `-s`,`-S`:签名相关
+
+### checkout
+
++ `gcb`='git checkout -b'
 + `gco`='git checkout'
-+ `gcount`='git shortlog -sn'
 + `gcp`='git cherry-pick'
 + `gcpa`='git cherry-pick --abort'
 + `gcpc`='git cherry-pick --continue'
-+ `gcs`='git commit -S'
-+ `gcsm`='git commit -s -m'
+
+选项：
+
++ `git checkout -b|-B <new_branch> [<start point>]`:
+指定`-b`选项会创建新分支，如同调用了`git branch`一样，然后check out到新分支一样。
+可以使用`--track` or `--no-track`选项，它们会被传递给`git branch`。
+为了方便起见，`--track` without `-b`意味着创建新分支。
+如果给的是`-B`，新分支会被创建，或者直接`reset`已存在的分支,
+相当于`git branch -f <branch> [<start point>] ; git checkout <branch>`
+
+`git-cherry-pick` :从已经存在的一系列`commits`中应用改变
+
+给出一个或者多个已经存在的`commits`，然后apply每个的change，对于每个改变生成一个`commit`。
+需要`working tree`是clean的。 (从 HEAD commit 之后没有修改过).
+
+选项:
+
+`--abort`: 取消操作，回复到pre-sequence 状态。
+`--continue`: 继续操作，利用`.git/sequencer.`中的信息。可以在`cherry-pick` or `revert`失败，解决冲突之后使用。
+
+### log gitk
+
+***
+`git-shortlog` - 总结`git log`的输出。
+
+选项:
+
+`-n`, `--numbered`:对输出结果进行排序，按照每个提交者的提交数量，而不是字母顺序。
+`-s`, `--summary`: 压缩`commit`描述，只总结`commit`数量。
+
+***
+
++ `gk`='\gitk --all --branches'
++ `gke`='\gitk --all $(git log -g --pretty=%h)'
+
+`--all`:假装`refs/`下的所有条目，包括`HEAD`都被列出 as `<commit>`
+`--branches[=<pattern>]`：类似`--all`，但是要匹配shell `glob`模式，`?`, `*`, or `[`, `/*`
+`--tags[=<pattern>]`：类似`--branches`
+
+### push
+
++ `gp`='git push'
++ `gpd`='git push --dry-run'
++ `gpoat`='git push origin --all && git push origin --tags'
++ `'gpf!'`='git push --force'
++ `gpf`='git push --force-with-lease'
+
+选项:
+
+`-n`, `--dry-run`: 模拟运行所有步骤，但不实际发送更新。
+`--all`: Push all branches (i.e. refs under `refs/heads/`); cannot be used with other `<refspec>`.
+` --prune`: 删除远程分支，如果它没有local对应。
+`--force-with-lease` 单独使用,不指定细节，将会保护所有远程分支，如果远程分支的名字和remote-tracking branch 一样才更新。
+`-f`, `--force`: 通常，远程分支是本地分支祖先的时候，才会更新，并且名字需要和期望的一样。`-f`选项禁用这些检查，可能会使远程库丢失`commit`，小心使用。
+
+### fetch
+
++ `gf`='git fetch'
++ `gfa`='git fetch --all --prune'
++ `gfo`='git fetch origin'
+
+选项：
+
+`--all`: Fetch 所有`remote`
+`--prune`: Before fetching, remove any remote-tracking references，如果它们在远程上已经不存在。
+
+### pull
+
++ `ggpull`='git pull origin "$(git_current_branch)"'
++ `gl`='git pull'
++ `gup`='git pull --rebase'
+
+选项：
+
+1.`--all`: fetch all remotes.
+2. `-r`,` --rebase[=false|true|preserve|interactive]`:
+当设置为`true`时，`rebase`当前分支on top of the upstream branch after fetching.
+如果某一`remote-tracking branch`对应的`upstream`在上次`fetch`之后`rebase`过，`rebase`使用那些信息避免`rebase`非本地的改变。
+
+### diff
+
 + `gd`='git diff'
 + `gdca`='git diff --cached'
 + `gdcw`='git diff --cached --word-diff'
 + `gds`='git diff --staged'
 + `gdw`='git diff --word-diff'
-+ `gf`='git fetch'
-+ `gfa`='git fetch --all --prune'
-  
-+ `gfo`='git fetch origin'
-+ `ggpull`='git pull origin "$(git_current_branch)"'
-+ `ggpush`='git push origin "$(git_current_branch)"'
-+ `ggsup`='git branch --set-upstream-to=origin/$(git_current_branch)'
-+ `ghh`='git help'
 
-+ `gk`='\gitk --all --branches'
-+ `gke`='\gitk --all $(git log -g --pretty=%h)'
-+ `gl`='git pull'
-+ `glg`='git log --stat'
-+ `glgg`='git log --graph'
-+ `glgga`='git log --graph --decorate --all'
-+ `glgm`='git log --graph --max-count=10'
-+ `glgp`='git log --stat -p'
-+ `glo`='git log --oneline --decorate'
-+ `glod`='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)+ <%an>%Creset'\'
-+ `glods`='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)+ <%an>%Creset'\'' --date=short'
-+ `glog`='git log --oneline --decorate --graph'
-+ `gloga`='git log --oneline --decorate --graph --all'
-+ `glol`='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)+ <%an>%Creset'\'
-+ `glola`='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)+ <%an>%Creset'\'' --all'
-+ `glols`='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)+ <%an>%Creset'\'' --stat'
-  
+选项：
+
+1. `--color[=<when>]`: 展示着色的diff. 
+` --color` (i.e. `without =<when>`) is the same as `-color=always`. 
+` <when>` can be one of `always`, `never`, or `auto`
+
+2. `--word-diff[=<mode>]`: Show a word diff, 使用`<mode>`定界改变的`words`。
+默认的定界符是`whitespace`,参见下面的`--word-diff-regex`。
+`<mode>`默认是`plain`，可以是以下之一：
+
++ `color`: Highlight changed words using only colors. Implies --color.
++ `plain`: Show words as `[-removed-]` and `{+added+}`。不尝试`escape`定界符号，如果它们出现在input中，所以可能有歧义。
++ `porcelain`: 使用一种特殊的line-based格式for script consumption. 
+Added/removed/unchanged runs are printed in the usual unified diff format,
+starting with a `+/-/` character at the beginning of the line and extending to the end of the line. Newlines in the input are represented by a tilde `~` on a line of its own.
++ `none`: Disable word diff again.
+
+注意：不管使用哪个模式，都会使用颜色标示改变，如果可用的话。
+
+### others
+
++ `gpsup`='git push --set-upstream origin $(git_current_branch)'
++ `gpu`='git push upstream'
++ `gpv`='git push -v'
++ `ggpush`='git push origin "$(git_current_branch)"'
++ `gupa`='git pull --rebase --autostash'
++ `gupav`='git pull --rebase --autostash -v'
++ `gupv`='git pull --rebase -v'
+
 + `gm`='git merge'
 + `gma`='git merge --abort'
 + `gmom`='git merge origin/$(git_main_branch)'
 + `gmt`='git mergetool --no-prompt'
 + `gmtvim`='git mergetool --no-prompt --tool=vimdiff'
 + `gmum`='git merge upstream/$(git_main_branch)'
-+ `gp`='git push'
-+ `gpd`='git push --dry-run'
-+ `gpf`='git push --force-with-lease'
-+ `'gpf!'`='git push --force'
-+ `gpoat`='git push origin --all && git push origin --tags'
-+ `gpristine`='git reset --hard && git clean -dffx'
-+ `gpsup`='git push --set-upstream origin $(git_current_branch)'
-+ `gpu`='git push upstream'
-+ `gpv`='git push -v'
 
-+ `gr`='git remote'
-+ `gra`='git remote add'
++ `gpristine`='git reset --hard && git clean -dffx'
++ `grh`='git reset'
++ `grhh`='git reset --hard'
++ `groh`='git reset origin/$(git_current_branch) --hard'
++ `grev`='git revert'
++ `grs`='git restore'
+
 + `grb`='git rebase'
 + `grba`='git rebase --abort'
 + `grbc`='git rebase --continue'
@@ -354,19 +491,12 @@ With `-m`, changes made to the working tree file can be discarded to re-create t
 + `grbi`='git rebase -i'
 + `grbm`='git rebase $(git_main_branch)'
 + `grbs`='git rebase --skip'
-+ `grep`='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-+ `grev`='git revert'
-+ `grh`='git reset'
-+ `grhh`='git reset --hard'
-+ `grm`='git rm'
-+ `grmc`='git rm --cached'
-+ `grmv`='git remote rename'
-+ `groh`='git reset origin/$(git_current_branch) --hard'
-+ `grrm`='git remote remove'
-+ `grs`='git restore'
 
-+ `gss`='git status -s'
-+ `gst`='git status'
++ `gr`='git remote'
++ `gra`='git remote add'
++ `grmv`='git remote rename'
++ `grrm`='git remote remove'
+
 + `gsta`='git stash push'
 + `gstaa`='git stash apply'
 + `gstall`='git stash --all'
@@ -377,7 +507,5 @@ With `-m`, changes made to the working tree file can be discarded to re-create t
 + `gsts`='git stash show --text'
 + `gstu`='git stash --include-untracked'
 
-+ `gup`='git pull --rebase'
-+ `gupa`='git pull --rebase --autostash'
-+ `gupav`='git pull --rebase --autostash -v'
-+ `gupv`='git pull --rebase -v'
++ `grm`='git rm'
++ `grmc`='git rm --cached'
