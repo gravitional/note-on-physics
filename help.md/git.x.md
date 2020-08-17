@@ -279,11 +279,11 @@ With `-m`, changes made to the working tree file can be discarded to re-create t
 + `gb`='git branch'
 + `gcb`='git checkout -b'
 
-+ `gf`='git fetch'
 + `gp`='git push'
 + `gpd`='git push --dry-run'
 + `gpoat`='git push origin --all && git push origin --tags'
 + `ggpull`='git pull origin "$(git_current_branch)"'
++ `gf`='git fetch'
 + `gl`='git pull'
 
 + `gd`='git diff'
