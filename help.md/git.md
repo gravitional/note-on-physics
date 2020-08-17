@@ -91,9 +91,9 @@ Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
 `git add -A` 和 `git add .`   `git add -u`
 在功能上看似很相近，但还是存在一点差别
 
-`git add .` ：他会监控工作区的状态树，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(`modified`)以及新文件(`new`)，但不包括被删除的文件。
+`git add .` ：他会监控工作区的状态树，使用它会把工作时的所有变化提交到`stage`，包括文件内容修改(`modified`)以及新文件(`new`)，但不包括被删除的文件。
 
-`git add -u` ：他仅监控已经被`add`的文件（即`tracked file`），他会将被修改的文件提交到暂存区。`add -u` 不会提交新文件（`untracked file`）。（`git add --update`的缩写）
+`git add -u` ：他仅监控已经被`add`的文件（即`tracked file`），他会将被修改的文件提交到`stage`。`add -u` 不会提交新文件（`untracked file`）。（`git add --update`的缩写）
 
 `git add -A` ：是上面两个功能的合集（`git add --all`的缩写）
 
@@ -405,41 +405,46 @@ Match the regular expression limiting patterns without regard to letter case.
 
 ### reset restore and revert
 
-从 index 灌入 working tree
+从 `index` 灌入 `working tree`
 
 `git restore file`
 
-从commit 灌入 index
+从 `commit` 灌入 `index`
 
 `git reset HEAD file`
+***
 
 ```bash
 git reset --hard xxxx
 ```
 
 彻底回退版本，连本地文件都会被回退到上个版本的内容
+***
 
 ```bash
-git reset --sort xxxx
+git reset --soft xxxx
 ```
 
-只回退commit，如果你想再次提交直接git commit即可
+只回退commit，如果你想再次提交直接`git commit`即可
 
-`reset --soft` 会在重置 HEAD 和 branch 时，保留工作目录和暂存区中的内容，并把重置 HEAD 所带来的新的差异放进暂存区。
+`reset --soft` 会在重置 `HEAD` 和 `branch` 时，保留`working tree`和`stage`中的内容，并把重置 `HEAD` 所带来的新的差异放进`stage`。
 
-这就是--soft 和 --hard 的区别：--hard 会清空工作目录和暂存区的改动,*而 --soft则会保留工作目录的内容，并把因为保留工作目录内容所带来的新的文件差异放进暂存区
+这就是`--soft` 和 `--hard` 的区别：
+`--hard` 会清空`working tree`和`stage`的改动, 
+而 `--soft`则会保留`working tree`的内容，并把因为保留`working tree`内容所带来的新的文件差异放进`stage`
 
 ```bash
 reset 不加参数(--mixed)
 ```
 
-保留工作目录，并清空暂存区
+保留`working tree`，并清空`stage`
 
-reset 如果不加参数，那么默认使用 `--mixed` 参数。它的行为是：保留工作目录，并且清空暂存区。
-也就是说，工作目录的修改、暂存区的内容以及由 `reset` 所导致的新的文件差异，都会被放进工作目录。
-简而言之，就是「把所有差异都混合（mixed）放在工作目录中」。
+`reset` 如果不加参数，那么默认使用 `--mixed` 参数。它的行为是：保留`working tree`，并且清空`stage`。
 
-同理，`reset --hard` 不仅可以撤销提交，还可以用来把 HEAD 和 branch 移动到其他的任何地方。
+也就是说，`working tree`的修改、`stage`的内容以及由 `reset` 所导致的新的文件差异，都会被放进`working tree`。
+简而言之，就是`把所有差异都混合（mixed）放在`working tree`中`。
+
+同理，`reset --hard` 不仅可以撤销提交，还可以用来把 `HEAD` 和 `branch` 移动到其他的任何地方。
 
 ```bash
 git reset --hard branch2
@@ -621,9 +626,9 @@ Set it to `always` if you want this behavior when the start-point is either a lo
 
 ### 修改提交历史
 
-reset是用来修改提交历史的，想象这种情况，如果你在2天前提交了一个东西，突然发现这次提交是有问题的。
+reset是用来修改提交历史的，想象这种情况，如果你在`2`天前提交了一个东西，突然发现这次提交是有问题的。
 
-这个时候你有两个选择，要么使用git revert（推荐），要么使用git reset。
+这个时候你有两个选择，要么使用`git revert`（推荐），要么使用git reset。
 
 [git的reset和checkout的区别][]
 
