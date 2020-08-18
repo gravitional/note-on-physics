@@ -58,7 +58,8 @@ cd  /home/tom/Downloads
 + `cp -u *.html destination` 更新文件到destination
 + `ln file link` 创建硬链接
 + `ln -s item link` 创建符号链接, `item`可以是一个文件或目录,`gnome`中，按住`ctrl+shift`拖动会创建链接.
-
++ `df -h`，让你以 `MB` 或 `G` 为单位查看磁盘的空间。
+  
 ### shell 模式切换
 
 1. 查看系统支持的shell模式及位置
@@ -2022,7 +2023,7 @@ wolframscript -print "all" -file ./f.figure.series-full.rencon3.strange.baryons-
 
 [Shell中的通配符]: https://www.jianshu.com/p/25f3d0cd5fdc
 
-### 通配符（Wildcard）
+### shell中的通配符（Wildcard）
 
 ***
 glob()
