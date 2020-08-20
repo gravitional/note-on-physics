@@ -1045,7 +1045,7 @@ find ~ -print -and -type f -and -name '*.BAK'
 除了预定义的行为之外,我们也可以唤醒随意的命令.
 传统方式是通过 `-exec` 行为.这个 行为像这样工作:`-exec command {} ;`
 
-这里的 `command` 就是指一个命令的名字,{}是当前路径名的符号表示,分号是要求的界定符 表明命令结束.
+这里的 `command` 就是指一个命令的名字,`{}`是当前路径名的符号表示,分号是要求的界定符 表明命令结束.
 这里是一个使用 `-exec` 行为的例子,其作用如之前讨论的 `-delete` 行为:
 
 ```bash
@@ -1096,6 +1096,26 @@ find ~ -type f -name 'foo*' -exec ls -l '{}' +
 
 虽然我们得到一样的结果,但是系统只需要执行一次 `ls` 命令.
 
+### find 补充
+
+find 有一些称为`Global option`（全局选项）的选项，对于出现在前面的Test，它们仍然会产生影响。
+如果你把它放在别的位置，`find`会报出警告。它应该被放在`star points...`后面，也就是文件列表的后面。
+
+`...`表示一个参数可以有多个
+
+诸如 `-maxdepth levels`,`-mindepth levels`都是全局参数。
+
+`-maxdepth 0 ` 表示之应用在开始点列表本身。
+`-mindepth  1` 表示排除开始点列表，测试其余
+
+因为经常遇到文件名中包含空格，所以有一个常用操作
+
+```bash
+find ./ -mindepth 1 -maxdepth 1 -type f -iname '*.jpg' -print0 | xargs --null ls -l
+```
+
+通过指定分隔符为`null`(ASCII`0`)，来构建参数列表
+
 ### xargs
 
 这个 `xargs` 命令会执行一个有趣的函数.它从标准输入接受输入,并把输入转换为一个特定命令的 参数列表.
@@ -1106,12 +1126,12 @@ find ~ -type f -name 'foo\*' -print | xargs ls -l
 -rwxr-xr-x 1 me
 ```
 
-这里我们看到 `find` 命令的输出被管道到 `xargs` 命令,反过来,`xargs` 会为 ls 命令构建 参数列表,然后执行 ls 命令.
+这里我们看到 `find` 命令的输出被管道到 `xargs` 命令,反过来,`xargs` 会为 `ls` 命令构建 参数列表,然后执行 ls 命令.
 
 注意:当被放置到命令行中的参数个数相当大时,参数个数是有限制的.
 有可能创建的命令 太长以至于 shell 不能接受.
 当命令行超过系统支持的最大长度时,`xargs` 会执行带有最大 参数个数的指定命令,然后重复这个过程直到耗尽标准输入.
-执行带有 –show–limits 选项 的 `xargs` 命令,来查看命令行的最大值.
+执行带有 `–show–limits` 选项 的 `xargs` 命令,来查看命令行的最大值.
 
 #### 处理古怪的文件名
 
@@ -1122,13 +1142,29 @@ find ~ -type f -name 'foo\*' -print | xargs ls -l
 为了解决这个问题,`find` 命令和 `xarg` 程序 允许可选择的使用一个 `null` 字符作为参数分隔符.
 
 一个 `null` 字符被定义在 `ASCII` 码中,由数字 `0`来表示(相反的,例如,`空格字符`在 `ASCII` 码中由数字`32`表示).
-`find` 命令提供的 `-print0` 行为, 则会产生由 `null` 字符分离的输出,并且 `xargs` 命令有一个 `–null` 选项,这个选项会接受由 `null` 字符 分离的输入.
+`find` 命令提供的 `-print0` 行为, 则会产生由 `null` 字符分离的输出,并且 `xargs` 命令有一个 `--null` 选项,这个选项会接受由 `null` 字符 分离的输入.这里有一个例子:
 
 ```bash
-这里有一个例子:find ~ -iname `*.jpg` -print0 | xargs –null ls -l
+find ~ -iname '*.jpg' -print0 | xargs --null ls -l
 ```
 
 使用这项技术,我们可以保证所有文件,甚至那些文件名中包含空格的文件,都能被正确地处理.
+
+如果要使用通配符，需要用括号包住，或者进行转义(escape)，否则shell 会将路径名展开，find 会接受到错误的参数列表。
+
+比如`find . -name *.c  -print`会被shell 展开为类似于：`find . -name frcode.c locate.c word_io.c -print`
+这将会使`find`报错.
+ Instead of doing things this way, you should enclose the pattern in quotes or escape the wildcard:
+
++ `$ find . -name '*.c' -print`
++ `$ find . -name \*.c -print`
+
+`escape`:逃脱，逃离，避开，即避免`shell`对提供的字符串进行各种处理。
+
+***
+另一个例子，把子目录的所有文件复制到当前目录下
+
+`find ./  -type f -print0 | xargs -0 cp -t . --backup=t `
 
 ### 返回操练场
 

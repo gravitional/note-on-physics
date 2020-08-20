@@ -59,11 +59,11 @@ The downloaded source is then checked with `dscverify` and, if successful, unpac
 
     列于 Build-Depends-indep 域的软件包(参看 第 4.1 节 “control”)。
 
-然后在源代码目录中执行以下命令：
+然后在源代码目录中执行以下命令:
 
 $ dpkg-buildpackage -us -uc
 
-这样会自动完成所有从源代码包构建二进制包的工作，包括：
+这样会自动完成所有从源代码包构建二进制包的工作，包括:
 
     清理源代码树(debian/rules clean)
 
@@ -79,7 +79,7 @@ $ dpkg-buildpackage -us -uc
 
 如果构建结果令人满意，那就用 debsign 命令以你的私有 GPG 密钥签署 .dsc 文件和 .changes 文件。你需要输入密码两次。 [63]
 
-对于非本土 Debian 软件包，比如 gentoo， 构建软件包之后，你将会在上一级目录(~/gentoo) 中看到下列文件：
+对于非本土 Debian 软件包，比如 gentoo， 构建软件包之后，你将会在上一级目录(~/gentoo) 中看到下列文件:
 
     gentoo_0.9.12.orig.tar.gz
 
@@ -107,7 +107,7 @@ $ dpkg-buildpackage -us -uc
 
 在上传到 Debian FTP 仓库中前，gentoo_0.9.12-1.dsc 文件和 gentoo_0.9.12-1_i386.changes 文件必须用 debsign 命令签署，其中使用你自己存放在 ~/.gnupg/ 目录中的 GPG 私钥。 用你的公钥，可以令 GPG 签名证明这些文件真的是你的。
 
-debsign 命令可以用来以指定 ID 的 GPG 密钥进行签署 （这方便了赞助(sponsor)软件包）， 只要照着下边在 ~/.devscripts 中的内容：
+debsign 命令可以用来以指定 ID 的 GPG 密钥进行签署 （这方便了赞助(sponsor)软件包）， 只要照着下边在 ~/.devscripts 中的内容:
 
 DEBSIGN_KEYID=Your_GPG_keyID
 
@@ -119,7 +119,7 @@ DEBSIGN_KEYID=Your_GPG_keyID
 
 [What Is a Hostname? ]: https://www.lifewire.com/what-is-a-hostname-2625906
 
-域名（英语：`Domain Name`），又称网域，是由一串用点分隔的名字组成的`Internet`上某一台计算机或计算机组的名称，
+域名（英语:`Domain Name`），又称网域，是由一串用点分隔的名字组成的`Internet`上某一台计算机或计算机组的名称，
 用于在数据传输时对计算机的定位标识（有时也指地理位置）
 
 由于`IP`地址具有不方便记忆并且不能显示地址组织的名称和性质等缺点，人们设计出了域名，
@@ -174,18 +174,18 @@ Executing `hostname` from the Command Prompt is the easiest way to show the host
 
 在LINUX环境开发驱动程序，首先要探测到新硬件，接下来就是开发驱动程序。
 
-常用命令整理如下：
+常用命令整理如下:
 
-+ 用硬件检测程序`kuduz`探测新硬件：`service kudzu start ( or restart)`
-+ 查看CPU信息：`cat /proc/cpuinfo`
-+ 查看板卡信息：`cat /proc/pci`
-+ 查看PCI信息：`lspci` (相比`cat /proc/pci`更直观）
-+ 查看内存信息：`cat /proc/meminfo`
-+ 查看USB设备：`cat /proc/bus/usb/devices`
++ 用硬件检测程序`kuduz`探测新硬件:`service kudzu start ( or restart)`
++ 查看CPU信息:`cat /proc/cpuinfo`
++ 查看板卡信息:`cat /proc/pci`
++ 查看PCI信息:`lspci` (相比`cat /proc/pci`更直观）
++ 查看内存信息:`cat /proc/meminfo`
++ 查看USB设备:`cat /proc/bus/usb/devices`
 + 查看键盘和鼠标:`cat /proc/bus/input/devices`
-+ 查看系统硬盘信息和使用情况：`fdisk & disk - l & df`
++ 查看系统硬盘信息和使用情况:`fdisk & disk - l & df`
 + 查看各设备的中断请求(IRQ):`cat /proc/interrupts`
-+ 查看系统体系结构：`uname -a`
++ 查看系统体系结构:`uname -a`
 + `dmidecode` 查看硬件信息，包括bios、cpu、内存等信息
 + `dmesg | less` 查看硬件信息
 
@@ -198,7 +198,7 @@ Linux 内核提供了一种通过 `/proc` 文件系统，在运行时访问内�
 用户和应用程序可以通过proc得到系统的信息，并可以改变内核的某些参数。
 由于系统的信息，如进程，是动态改变的，所以用户或应用程序读取proc文件时，proc文件系统是动态从系统内核读出所需信息并提交的。
 下面列出的这些文件或子文件夹，并不是都是在你的系统中存在，这取决于你的内核配置和装载的模块。
-另外，在`/proc`下还有三个很重要的目录：`net`，`scsi`和`sys`。 `Sys`目录是可写的，可以通过它来访问或修改内核的参数，而`net`和`scsi`则依赖于内核配置。例如，如果系统不支持`scsi`，则`scsi`目录不存在。
+另外，在`/proc`下还有三个很重要的目录:`net`，`scsi`和`sys`。 `Sys`目录是可写的，可以通过它来访问或修改内核的参数，而`net`和`scsi`则依赖于内核配置。例如，如果系统不支持`scsi`，则`scsi`目录不存在。
 
 除了以上介绍的这些，还有的是一些以数字命名的目录，它们是进程目录。
 系统中当前运行的每一个进程都有对应的一个目录在`/proc`下，以进程的 `PID`号为目录名，它们是读取进程信息的接口。
@@ -209,11 +209,11 @@ Linux 内核提供了一种通过 `/proc` 文件系统，在运行时访问内�
 ### FHS标准
 
 其实，linux系统的目录都遵循一个标准，即由Linux基金会发布的 文件系统层次结构标准 (`Filesystem Hierarchy Standard`, FHS)。
-这个标准里面定义了linux系统该有哪些目录，各个目录应该存放什么，起什么作用等等。具体说明如下：
+这个标准里面定义了linux系统该有哪些目录，各个目录应该存放什么，起什么作用等等。具体说明如下:
 
 目录  含义
 
-+ `/bin`  binary，即用来存放二进制可执行文件，并且比较特殊的是`/bin`里存放的是所有一般用户都能使用的可执行文件，如：`cat`, `chmod`, `chown`, `mv`, `mkdir`, `cd` 等常用指令
++ `/bin`  binary，即用来存放二进制可执行文件，并且比较特殊的是`/bin`里存放的是所有一般用户都能使用的可执行文件，如:`cat`, `chmod`, `chown`, `mv`, `mkdir`, `cd` 等常用指令
 + `/boot`  存放开机时用到的引导文件
 + `/dev`  device（并不是`develop`哦），任何设备都以文件的形式存放在这个目录中
 + `/etc`  `Editable Text Configuration`（早期含义为`etcetera`，但是有争议），存放系统配置文件，如各种服务的启动配置，账号密码等
@@ -235,7 +235,7 @@ Linux 内核提供了一种通过 `/proc` 文件系统，在运行时访问内�
 
 ### /usr目录
 
-`Unix Software Resource` 意为 `Unix`系统软件资源，系统自带的软件都装在这个目录下（好比Windows系统的"C:\Windows"），用户安装的第三方软件也在这个目录下（好比Windows系统的"C:\Program Files"），不同的是，在Windows系统上安装软件通常将该软件的所有文件放置在同一个目录下，但是在Linux系统安装软件会将该软件的不同文件分别放置在/usr目录下的不同子目录下，而不应该自行创建该软件自己的独立目录。进入到`/usr`目录，一般有以下子目录：
+`Unix Software Resource` 意为 `Unix`系统软件资源，系统自带的软件都装在这个目录下（好比Windows系统的"C:\Windows"），用户安装的第三方软件也在这个目录下（好比Windows系统的"C:\Program Files"），不同的是，在Windows系统上安装软件通常将该软件的所有文件放置在同一个目录下，但是在Linux系统安装软件会将该软件的不同文件分别放置在/usr目录下的不同子目录下，而不应该自行创建该软件自己的独立目录。进入到`/usr`目录，一般有以下子目录:
 
 ```python
 [root@localhost /]# cd usr/
@@ -276,7 +276,7 @@ bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
 
 [ubuntu下gedit默认编码设置为UTF-8编码]:  https://blog.csdn.net/miscclp/article/details/39154639
 
-在终端下输入：
+在终端下输入:
 
 ```bash
 gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['UTF-8', 'GB18030', 'GB2312', 'GBK', 'BIG5', 'CURRENT', 'UTF-16']"
@@ -288,7 +288,7 @@ gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['UTF-8
 点击右侧的 `preference`--`user data`--`import`
 把制作好的词库导入进去即可。
 
-测试：
+测试:
 `亥姆霍兹方程`
 `重整化群`
 
@@ -313,7 +313,7 @@ gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['UTF-8
 如要查看当前目录已经使用总大小及当前目录下一级文件或文件夹各自使用的总空间大小，
 输入`du -h --max-depth=1`即可。
 
-如要查看当前目录已使用总大小可输入：`du -h --max-depth=0`
+如要查看当前目录已使用总大小可输入:`du -h --max-depth=0`
 
 ***
 
@@ -330,7 +330,7 @@ du [OPTION]... --files0-from=F
 
 ### 查看磁盘空间大小命令
 
-`df`命令是linux系统以磁盘分区为单位查看文件系统，可以加上参数查看磁盘剩余空间信息，命令格式：
+`df`命令是linux系统以磁盘分区为单位查看文件系统，可以加上参数查看磁盘剩余空间信息，命令格式:
 
 `df - report file system disk space usage`
 
@@ -424,7 +424,7 @@ emcc -o ./dist/test.html `# 目标文件` \
 
 该函数判断字符`c`是否为一个空白字符。
 
-`C`标准中空白字符有六个：
+`C`标准中空白字符有六个:
 空格（`' '`）、换页（`'\f'`）、换行（`'\n'`）、回车（`'\r'`）、水平制表符（`'\t'`）、垂直制表符（`'\v'`）
 
 ***
@@ -433,15 +433,15 @@ emcc -o ./dist/test.html `# 目标文件` \
 `0X00-0XFF` `16`进制一共`256`个，刚好是一个`bit`的范围。
 
 ***
-回车（'\r'）效果是输出回到本行行首，结果可能会将这一行之前的输出覆盖掉，例如执行：
+回车（'\r'）效果是输出回到本行行首，结果可能会将这一行之前的输出覆盖掉，例如执行:
 
 ```bash
 puts("hello world!\rxxx");
-#在终端输出的是：
+#在终端输出的是:
 xxxlo world!
 ```
 
-如果将上面的字符串写入文件中，例如执行：
+如果将上面的字符串写入文件中，例如执行:
 
 ```bash
 char *s = "hello world!\rxxx";
@@ -454,7 +454,7 @@ vi将`\r`用`^M`代替，而记事本就没有显示该字符。
 
 ***
 换行（'\n'）
-顾名思义，换行就是转到下一行输出。例如：
+顾名思义，换行就是转到下一行输出。例如:
 
 ```bash
 puts("hello\nworld!");
@@ -470,7 +470,7 @@ world!
 水平制表符（'\t'）
 
 相信大家对'\t'还是比较熟悉的。一般来说，其在终端和文件中的输出显示相当于按下键盘`TAB`键效果。
-一般系统中，显示水平制表符将占8列。同时水平制表符开始占据的初始位置是第`8*n`列（第一列的下标为0）。例如：
+一般系统中，显示水平制表符将占8列。同时水平制表符开始占据的初始位置是第`8*n`列（第一列的下标为0）。例如:
 
 ```bash
 puts("0123456\txx");
@@ -480,7 +480,7 @@ puts("0123456t\txx");
 ***
 垂直制表符（'\v'）
 
-垂直制表符不常用。它的作用是让`'\v'`后面的字符从下一行开始输出，且开始的列数为“`\v`”前一个字符所在列后面一列。例如：
+垂直制表符不常用。它的作用是让`'\v'`后面的字符从下一行开始输出，且开始的列数为“`\v`”前一个字符所在列后面一列。例如:
 
 ```bash
 puts("01\v2345");
@@ -530,7 +530,7 @@ eval command-line
 ```
 
 其中`command-line`是在终端上键入的一条普通命令行。
-然而当在它前面放上`eval`时，其结果是`shell`在执行命令行之前扫描它两次。如：
+然而当在它前面放上`eval`时，其结果是`shell`在执行命令行之前扫描它两次。如:
 
 ```bash
 $ pipe="|"
@@ -545,7 +545,7 @@ shell第1次扫描命令行时，它替换出`pipe`的值`|`，接着`eval`使�
 如果变量中包含任何需要`shell`直接在命令行中看到的字符，就可以使用eval。
 命令行结束符（`;  |  &`），I/o重定向符（`< >`）和引号就属于对shell具有特殊意义的符号，必须直接出现在命令行中。
 
-`eval echo \$$#`取得最后一个参数, 如：
+`eval echo \$$#`取得最后一个参数, 如:
 
 ```bash
 $ cat last    #此处last是一个脚本文件，内容是下一行显示
@@ -558,7 +558,7 @@ four
 第一遍扫描后，shell把反斜杠去掉了。当shell再次扫描该行时，它替换了`$4`的值，并执行echo命令
 
 ***
-以下示意如何用`eval`命令创建指向变量的“指针”：
+以下示意如何用`eval`命令创建指向变量的“指针”:
 
 ```bash
 x=100
@@ -596,12 +596,12 @@ chmod 后面可以接符号表示新的权限，也可以接一个octal number -
 符号mode的格式一般是`[ugoa...][[-+=][perms...]...]`，`perms`一般是`0`，或者`rwxXst`中的多个字符，
 或者`ugo`中的一个字符。多种符号mode可以给出，用逗号隔开。
 
-`ugoa`表示控制特定用户访问权限：
+`ugoa`表示控制特定用户访问权限:
 
-+ u：the user who owns it 
-+ g：other users in the file's group
-+ o：other users not in the file's group
-+ a：all  users
++ u:the user who owns it 
++ g:other users in the file's group
++ o:other users not in the file's group
++ a:all  users
 如果没有给出，默认就是 a，but bits that are set in the umask are not affected.
 
 operator `+`添加权限，`-`删除权限，`=`设置为`xxx`，except that a directory's unmentioned set user and group ID bits are not affected.
@@ -650,7 +650,7 @@ Allows only one copy of the front end to exist per DISPLAY setting and directs t
 
 Linux
 
-如要卸载 Mathematica，需删除下列目录。请备份这些目录下任何需要保存的文件：
+如要卸载 Mathematica，需删除下列目录。请备份这些目录下任何需要保存的文件:
 
 + `/usr/local/Wolfram/Mathematica/`
 + `/usr/share/Mathematica/`
@@ -720,23 +720,23 @@ Linux是一个多用户多任务的操作系统，可以在Linux中为不同的�
 ### Linux环境变量分类
 
 ***
-按照生命周期来分，Linux环境变量可以分为两类：
+按照生命周期来分，Linux环境变量可以分为两类:
 
-1. 永久的：需要用户修改相关的配置文件，变量永久生效。
-2. 临时的：用户利用`export`命令，在当前终端下声明环境变量，关闭Shell终端失效。
+1. 永久的:需要用户修改相关的配置文件，变量永久生效。
+2. 临时的:用户利用`export`命令，在当前终端下声明环境变量，关闭Shell终端失效。
 
 ***
-按照作用域来分，Linux环境变量可以分为：
+按照作用域来分，Linux环境变量可以分为:
 
-1. 系统环境变量：系统环境变量对该系统中所有用户都有效。
-2. 用户环境变量：顾名思义，这种类型的环境变量只对特定的用户有效。
+1. 系统环境变量:系统环境变量对该系统中所有用户都有效。
+2. 用户环境变量:顾名思义，这种类型的环境变量只对特定的用户有效。
 
 ### Linux设置环境变量的方法
 
 1. 在`/etc/profile`文件中添加变量 对所有用户生效（永久的）
 
 用`vim`在文件`/etc/profile`文件中增加变量，该变量将会对`Linux`下所有用户有效，并且是“永久的”。
-例如：编辑`/etc/profile`文件，添加`CLASSPATH`变量
+例如:编辑`/etc/profile`文件，添加`CLASSPATH`变量
 
 ```bash
 vim /etc/profile    
@@ -763,12 +763,12 @@ shell关闭了，变量也就失效了，再打开新shell时就没有这个变�
 
 ### Linux环境变量使用
 
-Linux中常见的环境变量有：
+Linux中常见的环境变量有:
 
 ***
-PATH：指定命令的搜索路径
+PATH:指定命令的搜索路径
 
-PATH声明用法：
+PATH声明用法:
 
 ```bash
 export PATH=$PAHT:<PATH 1>:<PATH 2>:<PATH 3>:--------:< PATH n >
@@ -778,17 +778,17 @@ export PATH=$PAHT:<PATH 1>:<PATH 2>:<PATH 3>:--------:< PATH n >
 
 可以利用`echo $PATH`查看当前当前系统PATH路径。
 
-    HOME：指定用户的主工作目录（即用户登陆到Linux系统中时，默认的目录）。
-    HISTSIZE：指保存历史命令记录的条数。
-    LOGNAME：指当前用户的登录名。
-    HOSTNAME：指主机的名称，许多应用程序如果要用到主机名的话，通常是从这个环境变量中来取得的
-    SHELL：指当前用户用的是哪种Shell。
-    LANG/LANGUGE：和语言相关的环境变量，使用多种语言的用户可以修改此环境变量。
-    MAIL：指当前用户的邮件存放目录。
+    HOME:指定用户的主工作目录（即用户登陆到Linux系统中时，默认的目录）。
+    HISTSIZE:指保存历史命令记录的条数。
+    LOGNAME:指当前用户的登录名。
+    HOSTNAME:指主机的名称，许多应用程序如果要用到主机名的话，通常是从这个环境变量中来取得的
+    SHELL:指当前用户用的是哪种Shell。
+    LANG/LANGUGE:和语言相关的环境变量，使用多种语言的用户可以修改此环境变量。
+    MAIL:指当前用户的邮件存放目录。
 
-注意：上述变量的名字并不固定，如HOSTNAME在某些Linux系统中可能设置成HOST
+注意:上述变量的名字并不固定，如HOSTNAME在某些Linux系统中可能设置成HOST
 
-2. Linux也提供了修改和查看环境变量的命令，下面通过几个实例来说明：
+2. Linux也提供了修改和查看环境变量的命令，下面通过几个实例来说明:
 
 + `echo`  显示某个环境变量值 `echo $PATH`
 + `export`  设置一个新的环境变量 `export HELLO="hello"` (可以无引号)
@@ -874,7 +874,7 @@ It has an example crash report and a method to retrace crashes.
 
 在`/etc/default/grub`中，使用`key=vaule`的格式，`key`全部为大小字母，如果`vaule`部分包含了空格或其他特殊字符，则需要使用引号包围。
 
-例如，下面是一个`/etc/default/grub`文件的示例：
+例如，下面是一个`/etc/default/grub`文件的示例:
 
 ```bash
 [root@xuexi ~]# cat /etc/default/grub
@@ -887,7 +887,7 @@ GRUB_CMDLINE_LINUX="crashkernel=auto biosdevname=0 net.ifnames=0 rhgb quiet"
 GRUB_DISABLE_RECOVERY="true"
 ```
 
-虽然可用的宏较多，但可能用的上的就几个：
+虽然可用的宏较多，但可能用的上的就几个:
 `GRUB_DEFAULT`、`GRUB_TIMEOUT`、`GRUB_CMDLINE_LINUX`和`GRUB_CMDLINE_LINUX_DEFAULT`。
 
 以下列出了部分key。
@@ -946,7 +946,7 @@ EXAMPLES
 
 ***
 
-`Ubuntu 18.04 Server` 安装好后，Netplan 的默认描述文件是：`/etc/netplan/50-cloud-init.yaml`.
+`Ubuntu 18.04 Server` 安装好后，Netplan 的默认描述文件是:`/etc/netplan/50-cloud-init.yaml`.
 
 [Ubuntu18.04的网络配置 netplan]
 
@@ -956,7 +956,7 @@ EXAMPLES
 
 `vim /etc/netplan/50-cloud-init.yaml `
 
-配置如下：
+配置如下:
 
 ```bash
 network:
@@ -975,7 +975,7 @@ network:
 
 `vim /etc/netplan/50-cloud-init.yaml `
 
-配置如下：
+配置如下:
 
 ```bash
 network:
@@ -986,7 +986,7 @@ network:
     version: 2
 ```
 
-应用：
+应用:
 
 `sudo netplan apply`
 
@@ -1024,10 +1024,10 @@ IP地址为`130.39.37.100`，
 子网地址为`130.39.37.0`,
 子网掩码为`255.255.255.0`，
 网络地址部分和子网标识部分对应`1`，host部分对应`0`。 
-使用CIDR表示为：`130.39.37.100/24`即`IP地址/ 掩码长度`。
+使用CIDR表示为:`130.39.37.100/24`即`IP地址/ 掩码长度`。
 
 `ipv4`是`8bit.8bit.8bit.8bit`的形式，二进制到十六进制是`4`位到`1`位，`8bit`相当于两个`16`进制数字。
-所以`ipv4`是四段地址：`0x0x.0x0x.0x0x.0x0x`，每段两个`16`进制数字。
+所以`ipv4`是四段地址:`0x0x.0x0x.0x0x.0x0x`，每段两个`16`进制数字。
 `24`表示掩码开头有`24`个`1`，对应地址中的`3`段，也就是公网地址是`3`段。
 
 `awk`执行按位**与**操作。
@@ -1044,18 +1044,18 @@ awk 'BEGIN {
 设
 
 ```ip
-A：10.1.1.10 /24
-B：10.1.1.20 /24
-C：50.1.1.80 /24
+A:10.1.1.10 /24
+B:10.1.1.20 /24
+C:50.1.1.80 /24
 ```
 
 AB在同一局域网，C位于外网。
 
-三个表：
+三个表:
 
-+ `ARP`表：主机维护，存放`IP`地址和`MAC`地址对应关系。
-+ `MAC`地址表：交换机维护，存放`MAC`地址和交换机端口对应关系。
-+ 路由表：路由器维护，存放`IP`地址和路由器端口对应关系。
++ `ARP`表:主机维护，存放`IP`地址和`MAC`地址对应关系。
++ `MAC`地址表:交换机维护，存放`MAC`地址和交换机端口对应关系。
++ 路由表:路由器维护，存放`IP`地址和路由器端口对应关系。
 
 首先`AB`通信，
 例如`A`要给`B`发送一个数据包，目前`A`知道`B`的`IP`地址，根据掩码规则判定`B`和自己在同一个局域网，同一个广播域。
@@ -1082,7 +1082,7 @@ AB在同一局域网，C位于外网。
 
 [shell 参数换行 & shell 输出换行的方法]: https://blog.csdn.net/donaldsy/article/details/99938408
 
-首先测试一下括号的用法：
+首先测试一下括号的用法:
 
 ```bash
 tex_list=1; echo $tex_list; tex_list=$( { ls -x *.tex } ); echo $tex_list;
@@ -1163,7 +1163,7 @@ echo -E "hello\n wrold" #输出 hello\n world， 默认情况
 如果使用`tlmgr option` 报错
 `cannot setup TLPDB in /home/USER/texmf at /usr/bin/tlmgr line 5308.`
 
-原因如下：
+原因如下:
 
 this error is generated when `tlmgr` was not initialized. In most cases, launching the following command (as a normal user) solves the problem :
 
@@ -1176,7 +1176,7 @@ This command will create few folders inside your home directory. See the man pag
 > At that point, you can tell `tlmgr` to do the (supported) actions by adding the `--usermode` command line option.
 
 ***
-下面这些是`tlmgr`的常用命令：
+下面这些是`tlmgr`的常用命令:
 
 + `tlmgr option repository ctan`
 + `tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet`
@@ -1268,11 +1268,11 @@ Warning: The general facility for changing configuration values is here, but tin
 [TexLive 2019 安装指南]: https://zhuanlan.zhihu.com/p/64530166
 
 ***
-准备工作：下载，清除
+准备工作:下载，清除
 
-注意：安装 lyx, apt 会默认安装 tex2017版本，覆盖掉新版的texlive2020
+注意:安装 lyx, apt 会默认安装 tex2017版本，覆盖掉新版的texlive2020
 
-注意：如果重新安装，请务必完全删除之前的失败安装，默认情况下，这将在这两个目录中：
+注意:如果重新安装，请务必完全删除之前的失败安装，默认情况下，这将在这两个目录中:
 
 ```bash
 rm -rf /usr/local/texlive/2020
@@ -1319,8 +1319,8 @@ Enter command: i
 
 若要更改安装目录或其他选项，请阅读提示和说明。
 
-安装程序的接口：文本，GUI，批处理
-安装程序支持：文本，图形，和批处理接口。（Linux系统下没有图像安装，在Windows下支持图形安装）
+安装程序的接口:文本，GUI，批处理
+安装程序支持:文本，图形，和批处理接口。（Linux系统下没有图像安装，在Windows下支持图形安装）
 
 `install-tl -gui text #`使用简单文本模式。也是输入`install-tl`默认选项。
 
@@ -1344,14 +1344,14 @@ sudo fc-cache -fsv
 *** 
 环境变量
 
-安装完之后有提示：
+安装完之后有提示:
 
 Add /usr/local/texlive/2020/texmf-dist/doc/man to MANPATH.
 Add /usr/local/texlive/2020/texmf-dist/doc/info to INFOPATH.
 Most importantly, add /usr/local/texlive/2020/bin/x86_64-linux
 to your PATH for current and future sessions.
 
-`~/.bashrc` 和 `~/.profile` 中均添加如下语句：
+`~/.bashrc` 和 `~/.profile` 中均添加如下语句:
 
 ```bash
 export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man
@@ -1359,12 +1359,12 @@ export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info
 export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux
 ```
 
-或者在命令行下面运行：
+或者在命令行下面运行:
 配置普通用户的环境变量
 
 因为你一般是在普通用户下使用 `TeX Live`，所以还需要切换到普通用户下，配置一下环境变量。运行以下命令。
 在当前终端中，输入 `Ctrl + D`，退出 root 身份。
-在当前终端下，输入以下命令：
+在当前终端下，输入以下命令:
 
 ```bash
 echo "export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man" >> ~/.bashrc
@@ -1405,9 +1405,9 @@ loop 设备 (循环设备)
 
 上面说的文件格式，我们经常见到的是 CD 或 DVD 的 ISO 光盘镜像文件或者是软盘(硬盘)的 *.img 镜像文件。通过这种 loop mount (回环mount)的方式，这些镜像文件就可以被 mount 到当前文件系统的一个目录下。
 
-至此，顺便可以再理解一下 loop 之含义：对于第一层文件系统，它直接安装在我们计算机的物理设备之上；而对于这种被 mount 起来的镜像文件(它也包含有文件系统)，它是建立在第一层文件系统之上，这样看来，它就像是在第一层文件系统之上再绕了一圈的文件系统，所以称为 loop。
+至此，顺便可以再理解一下 loop 之含义:对于第一层文件系统，它直接安装在我们计算机的物理设备之上；而对于这种被 mount 起来的镜像文件(它也包含有文件系统)，它是建立在第一层文件系统之上，这样看来，它就像是在第一层文件系统之上再绕了一圈的文件系统，所以称为 loop。
 
-在 Linux 里，loop 设备的设备名形如：
+在 Linux 里，loop 设备的设备名形如:
 
 ```bash
 ls /dev/loop*
@@ -1416,7 +1416,7 @@ ls /dev/loop*
 ... ...
 ```
 
-例如，要在一个目录下 mount 一个包含有磁盘镜像的文件，需要分 2 步走：
+例如，要在一个目录下 mount 一个包含有磁盘镜像的文件，需要分 2 步走:
 
 ```bash
 losetup /dev/loop0 disk.img           #使磁盘镜像文件与循环设备连结起来
@@ -1425,7 +1425,7 @@ mount /dev/loop0 /home/groad/disk_test   #将循环设备 mount 到目录 disk_t
 
 经过上面的两个命令后，镜像文件就如同一个文件系统挂载在 `disk_test` 目录下，当然我们也可以往镜像里面添加文件。
 
-其实上面的两个步骤可以写成一个步骤：
+其实上面的两个步骤可以写成一个步骤:
 
 ```bash
 mount -t minix -o loop ./disk.img ./disk_test
@@ -1485,7 +1485,7 @@ These designators can be combined along with punctuation and whitespace. A coupl
 
 `QTDIR` shouldn't really be necessary, but try setting it to `/usr/share/qt5`.
 
-解决方法：
+解决方法:
 
 You could build the Debian source package instead:
 
@@ -1565,7 +1565,7 @@ See Note below if `./configure` script is not present.
 python中字节字符串不能格式化。
 获取到的网页有时候是字节字符串，需要转化后再解析。
 
-bytes 转 string 方式：
+bytes 转 string 方式:
 
 ```python
 >>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
@@ -1583,14 +1583,14 @@ bytes 转 string 方式：
 
 ### latexmk 选项
 
-一般来说， `latexmk` 的通用`cmd`命令形式为：
+一般来说， `latexmk` 的通用`cmd`命令形式为:
 
 `latexmk [options] [file]`
 
 所有的选项可以用单个`-`连字符，也可以用双连字符`--`引入，e.g., "latexmk -help" or "latexmk --help".
 
 ***
-注意：
+注意:
 
 除了文档里列出的选项， `latexmk`认识几乎所有the options recognized by the latex, pdflatex programs (and their relatives),
 在当前的 TexLive and MikTeX 发行版中。
@@ -1599,7 +1599,7 @@ bytes 转 string 方式：
 run `latexmk -showextraoptions`给出选项列表，这些选项被直接传递给latex or pdflatex。
 
 ***
-注意：
+注意:
 
 "Further processing" 意味着需要运行其他程序，或者再次运行`latex`(etc)，如果没有 `errors` 的话。
 如果你不想让`latex`在遇到错误的时候停下，应该使用 latexmk's option `-interaction=nonstopmode`
@@ -1676,7 +1676,7 @@ One common case of local additions is dynamically generated files, e.g., PK font
 ***
 重复文件名
 
-TDS tree 中的文件可能有相同的文件名。默认并不进一步区分，但TDS要求满足以下例外：
+TDS tree 中的文件可能有相同的文件名。默认并不进一步区分，但TDS要求满足以下例外:
 
 Names of TeX input files must be unique within each first-level subdirectory of `texmf/tex` and `texmf/tex/generic`, but not within all of `texmf/tex`; 比如, different TeX formats may have files by the same name. 
 
@@ -1730,7 +1730,7 @@ That is, files that cannot be shared between implementations, such as pool files
 
 ### latex包安装方式2
 
-首先要找到默认宏包所在目录，一般是：
+首先要找到默认宏包所在目录，一般是:
 
 ```bash
 /usr/share/texmf/tex/latex
@@ -1822,3 +1822,62 @@ etc
 ```bash
 gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 3600
 ```
+
+## linux查看当前登录用户
+
+[linux查看当前登录用户][]
+
+[linux查看当前登录用户]: https://blog.csdn.net/wanchaopeng/article/details/88425067
+
+### w
+
+`w`:显示目前登入系统的用户信息
+
++ `-f`: 开启或关闭显示用户从何处登入系统。
++ `-h`: 不显示各栏位的标题信息列。
++ `-s`: 使用简洁格式列表，不显示用户登入时间，终端机阶段作业和程序所耗费的CPU时间。
++ `-u`: 忽略执行程序的名称，以及该程序耗费CPU时间的信息。
++ `-V`: 显示版本信息。
+
+输出的结果的含义:
+
++ `USER` 登录的用户名
++ `TTY` 登录终端
++ `FROM` 从哪个IP地址登录
++ `LOGIN`@ 登录时间
++ `IDLE` 用户闲置时间
++ `JCPU` 指的是和该终端连接的所有进程占用的时间，这个时间里并不包括过去的后台作业时间，但却包括当前正在运行的后台作业所占用的时间
++ `PCPU` 当前进程所占用的时间
++ `WHAT` 当前正在运行的命令
+
+### who
+
+显示当前已登录的用户信息,输出的结果有:用户名，登录终端，登录的时间
+
+### last
+
+列出目前与过去登入系统的用户相关信息。
+
++ `-R`: 省略 hostname 的栏位
++ `-n`:指定输出记录的条数。
++ `-f file`:指定用文件`file`作为查询用的`log`文件。
++ `-t time`:显示到指定的时间。
++ `-h `:显示帮助。
++ `-i` or`--ip`:以`数字`and `点`的形式显示`ip`地址。
++ `-x`:显示系统关闭、用户登录和退出的历史。
+
+命令的输出包含:用户名，登录终端，登录IP，登录时间，退出时间（在线时间）
+
+### lastlog
+
+`lastlog` 命令检查某特定用户上次登录的时间
+
++ `-b`, `--before DAYS`: 仅打印早于 DAYS 的最近登录记录
++ `-h`, `--help`: 显示此帮助信息并推出
++ `-R`, `--root CHROOT_DIR` directory to chroot into
++ `-t`, `--time DAYS` : 仅打印比 DAYS 新近的登录记录
++ `-u`, `--user LOGIN` : 打印 LOGIN 用户的最近登录记录
+
+注意:`lastlog`命令默认读取的是`/var/log/wtmp`这个文件的数据，一定注意这个文件不能用`vi`来查看。
+
+命令输出包括:用户名，登录终端，登录IP，最后一次登录时间

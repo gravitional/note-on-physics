@@ -312,6 +312,7 @@ With `-m`, changes made to the working tree file can be discarded to re-create t
 Without `-f`, git branch refuses to change an existing branch.
 In combination with `-d` (or `--delete`), allow deleting the branch irrespective of its merged status.
 In combination with `-m` (or `--move`), allow renaming the branch even if the new branch           name already exists, the same applies for `-c` (or `--copy`).
++ `-m` `-M`：对分支进行重命名，并且把`reflog`出现的分支名字一并更改。如果新分支已经存在，使用`-M`强迫重命名
 
 ### add
 
@@ -347,7 +348,7 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 + `-m`: 添加提交信息，可以给出多个`-m`，会被当作多个段落被合并。
 + `-s`,`-S`:签名相关
 
-### checkout
+### checkout cherry-pick
 
 + `gcb`='git checkout -b'
 + `gco`='git checkout'
