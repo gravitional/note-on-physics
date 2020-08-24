@@ -829,7 +829,7 @@ S矩阵元和格林函数
 \end_layout
 
 \begin_layout Chapter
-微绕论–格林函数的微扰计算
+微扰论–格林函数的微扰计算
 \end_layout
 
 \begin_layout Section
@@ -862,7 +862,7 @@ x^{\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}
 
 \end_inset
 
-
+洛伦兹变换是保度规变换
 \begin_inset Formula 
 \[
 g^{\rho\sigma}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\phantom{\rho}\nu}^{\sigma}g^{\mu\nu}
@@ -900,25 +900,63 @@ g_{\phantom{\rho}\sigma}^{\rho}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigm
 
 
 \begin_inset Formula 
+\begin{align*}
+\delta_{\phantom{\rho}\sigma}^{\rho} & =\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\nu}\delta_{\phantom{\mu}\nu}^{\mu}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\mu}\\
+ & \Rightarrow\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\mu}=\Lambda_{\phantom{\rho}\mu}^{\rho}(\Lambda^{\perp})_{\phantom{\sigma}\sigma}^{\mu}
+\end{align*}
+
+\end_inset
+
+这里不是普通的矩阵相乘，这里的相乘是指标收缩，也就是带度规的运算，如果要变成普通矩阵相乘，还需要乘上相应的
+\begin_inset Formula $\pm1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+即，洛伦兹矩阵转置，要包含指标的位置（表明度规）；求逆矩阵，需要转置，然后乘上相应的度规正负号。
+\begin_inset Newline newline
+\end_inset
+
+四维矢量表象下矩阵的具体形式如下（只考虑
+\begin_inset Formula $x$
+\end_inset
+
+方向boost时）：
+\begin_inset Formula 
 \[
-\delta_{\phantom{\rho}\sigma}^{\rho}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\nu}\delta_{\phantom{\mu}\nu}^{\mu}\Rightarrow\Lambda.\Lambda^{\perp}=I_{4\times4}
+\left(\begin{array}{c}
+x^{\prime}\\
+t^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & v/\beta\\
+v/\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+x\\
+t
+\end{array}\right)
 \]
 
 \end_inset
 
-即，洛伦兹矩阵是正交矩阵
-\begin_inset Formula $\Lambda^{-1}=\Lambda^{\perp}$
+
+\end_layout
+
+\begin_layout Standard
+逆矩阵就是把空间位置的元素中的
+\begin_inset Formula $v$
 \end_inset
 
-。但
-\begin_inset Formula $\Lambda^{\perp}$
+换成
+\begin_inset Formula $-v$
 \end_inset
 
-不一定等于
-\begin_inset Formula $\Lambda^{\dagger}$
-\end_inset
 
-，洛伦兹群不存在有限维幺正表示，因为XXX（忘了）。
+\end_layout
+
+\begin_layout Standard
+洛伦兹群不存在有限维幺正表示，因为XXX（忘了）。
 \end_layout
 
 \begin_layout Standard

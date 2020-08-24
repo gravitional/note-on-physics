@@ -619,7 +619,7 @@ S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\Sigma(p)F(
 
 \end_inset
 
-在对
+再对
 \begin_inset Formula $y$
 \end_inset
 
@@ -915,26 +915,237 @@ f_{0}=0,f_{n+1}=f_{n}(q+p)^{2}+p^{2n}
 \end_layout
 
 \begin_layout Section
-求导运算
+求解积分的方法–Ivanov
 \end_layout
 
 \begin_layout Standard
+ref: few-body systems 21,131-147, page 135
+\end_layout
+
+\begin_layout Standard
+关键在于利用上线积分导数的路径无关定义。原始文献:Mandelstam,S.:Ann.Phys.(NY)
+\series bold
+19
+\series default
+,1(1962)
 \begin_inset Formula 
 \[
-ieQ\int\dif^{4}y\delta(z-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\left(\int_{z}^{y}\delta(x^{\prime}-\omega)\dif\omega^{\mu}\right)\delta(y-y^{\prime})\right)
+I\left(x,y,P\right)=\int_{x}^{y}\dif z_{\mu}A^{\mu}(z)
 \]
 
 \end_inset
 
- 稍微重写一下记号，把
-\begin_inset Formula $x^{\prime}$
+
+\begin_inset Formula 
+\[
+\lim_{\dif x_{\mu}\to0}\dif x_{\mu}\frac{\partial}{\partial x^{\mu}}I\left(x,y,P\right)=\lim_{\dif x_{\mu}\to0}\left(I(x+\dif x,y,p^{\prime})-I(x,y,P)\right)
+\]
+
 \end_inset
 
-记作
+这里新路径
+\begin_inset Formula $P^{\prime}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+是通过在旧路径
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+末端
 \begin_inset Formula $x$
 \end_inset
 
+加上变动
+\begin_inset Formula $\dif x$
+\end_inset
 
+得到的。使用这个定义能得到
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial x^{\mu}}I\left(x,y,P\right)=A_{\mu}(x)\label{eq:independent}
+\end{equation}
+
+\end_inset
+
+这就是强行定义，呵呵。
+\begin_inset Formula $I\left(x,y,P\right)$
+\end_inset
+
+的导数不依赖于路径。我们在推导中一定要使用这个性质，才能得到和文献中一样的结果。
+\end_layout
+
+\begin_layout Standard
+推导费曼规则，关键在于计算
+\begin_inset Formula 
+\[
+F\left(-\partial_{x}^{2}\right)\exp\left(-ip\cdot x\right)I\left(x,y,P\right)
+\]
+
+\end_inset
+
+同时一定要利用
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:independent"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+比较容易发现
+\begin_inset Formula 
+\[
+F\left(-\partial_{x}^{2}\right)\exp\left(-ip\cdot x\right)I\left(x,y,P\right)=\exp\left(-ip\cdot x\right)F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{D}^{2}\equiv\left(\partial_{x}-ip\right)^{2}$
+\end_inset
+
+，这个很trivil。就是多项式求偏导的展开形式。所以我们需要计算
+\begin_inset Formula 
+\[
+F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P)=\sum_{n=0}^{\infty}(-)^{n}\frac{F^{(n)}(0)}{n!}\mathcal{D}_{x}^{2n}I(x,y,P)
+\]
+
+\end_inset
+
+我们发现
+\begin_inset Formula 
+\[
+\mathcal{D}_{x}^{2}I(x,y,P)=\partial_{x}A(x)-2ipA(x)-p^{2}I(x,y,P)\equiv L(A)-p^{2}I(x,y,P)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $L(A)\equiv\partial_{x}A(x)-2ipA(x)$
+\end_inset
+
+，然后迭代
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{D}_{x}^{2}\right)^{2}I(x,y,P) & =\left(\mathcal{D}_{x}^{2}\right)L(A)-p^{2}\left(\mathcal{D}_{x}^{2}\right)I(x,y,P)\\
+ & =\left(\mathcal{D}_{x}^{2}\right)L(A)-p^{2}\left(L(A)-p^{2}I(x,y,P)\right)\\
+ & =\left(\left(\mathcal{D}_{x}^{2}\right)-p^{2}\right)L(A)+\left(-p^{2}\right)^{2}I(x,y,P)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\mathcal{D}_{x}^{2}\right)^{3}I(x,y,P)=\left(\left(\mathcal{D}_{x}^{2}\right)^{2}-\left(\mathcal{D}_{x}^{2}\right)p^{2}+\left(-p^{2}\right)^{2}\right)L(A)+\left(-p^{2}\right)^{3}I(x,y,P)
+\]
+
+\end_inset
+
+由于每次
+\begin_inset Formula $p^{2}I(x,y,P$
+\end_inset
+
+都会分裂，所以项数逐渐增多,是个单系数套娃的过程：
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{D}_{x}^{2}\right)^{n}I(x,y,P) & =\sum_{k=0}^{n-1}\left(\mathcal{D}_{x}^{2}\right)^{n-1-k}\left(-p^{2}\right)^{k}L(A)+\left(-p^{2}\right)^{n}I(x,y,P)\\
+ & =\left(n\int_{0}^{1}\dif t\left(\mathcal{D}_{x}^{2}t-p^{2}(1-t)\right)^{n-1}L(A)\right)+(-p^{2})^{n}I(x,y,P)
+\end{align*}
+
+\end_inset
+
+这里使用了公式
+\begin_inset Formula 
+\begin{align*}
+\sum_{k=0}^{m}A^{m-l}B^{l} & =(m+1)\int_{0}^{1}\dif t\left(At+B(1-t)\right)^{m}\\
+ & =\frac{\left(At+B(1-t)\right)^{m+1}}{A-B}|_{0}^{1}=\frac{\left(A\right)^{m+1}-\left(B\right)^{m+1}}{A-B}
+\end{align*}
+
+\end_inset
+
+而我们有
+\begin_inset Formula 
+\[
+\left(A\right)^{m+1}-\left(B\right)^{m+1}=(A-B)\sum_{k=0}^{m}A^{m-l}B^{l}
+\]
+
+\end_inset
+
+类似于三次方的公式，其他次幂的被相互约掉了.
+\end_layout
+
+\begin_layout Standard
+最后，我们得到
+\begin_inset Formula 
+\begin{align*}
+F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P) & =\left(\sum_{n=0}^{\infty}(-)^{n}\frac{F^{(n)}(0)}{n!}n\int_{0}^{1}\dif t\left(\mathcal{D}_{x}^{2}t-p^{2}(1-t)\right)^{n-1}L(A)\right)\\
+ & +\sum_{n=0}^{\infty}(-)^{n}\frac{F^{(n)}(0)}{n!}(-p^{2})^{n}I(x,y,P)\\
+ & \Rightarrow\left(\int_{0}^{1}\dif tF^{\prime}\left(-\mathcal{D}_{x}^{2}t+p^{2}(1-t)\right)L(A)\right)+F\left(p^{2}\right)I(x,y,P)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $F^{\prime}=\frac{\dif F(x)}{\dif x}$
+\end_inset
+
+，代入
+\begin_inset Formula $A_{\mu}(x)=\int\dif^{4}q\exp(-iqx)A_{\mu}(q)$
+\end_inset
+
+,以及
+\begin_inset Formula $L(A)\equiv\partial_{x}A(x)-2ipA(x)$
+\end_inset
+
+得到，
+\begin_inset Formula 
+\begin{align*}
+ & F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P)=\int\dif^{4}qA_{\mu}(q)\Big\{\left(q^{\mu}+2p^{\mu}\right)e^{-iqx}\int_{0}^{1}\dif tF^{\prime}\left((p+q)^{2}t+p^{2}(1-t)\right)\\
+ & +F\left(p^{2}\right)\int_{y}^{x}\dif z^{\mu}e^{-iqz}\Big\}
+\end{align*}
+
+\end_inset
+
+注意到最后一项会消失，因为拉氏量中有一项
+\begin_inset Formula $\delta(x-y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+积分求解
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
  & ieQ\iiiint\dif^{4}x\dif^{4}y^{\prime}\dif^{4}z\dif^{4}y\exp\left(ip^{\prime}\cdot z-ip\cdot y^{\prime}-iq\cdot x\right)\\
@@ -943,33 +1154,125 @@ ieQ\int\dif^{4}y\delta(z-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\le
 
 \end_inset
 
-做一个假设，
-\begin_inset Formula $x$
+交换积分次序，先对
+\begin_inset Formula $y^{\prime}$
 \end_inset
 
-的积分域被限制在路径
-\begin_inset Formula $P(x;y)$
-\end_inset
-
-上，
+积分,
 \begin_inset Formula 
 \begin{align*}
- & ieQ\int_{P}\dif x\iiint\dif^{4}y^{\prime}\dif^{4}z\dif^{4}y\exp\left(-iq\cdot x\right)\exp\left(ip^{\prime}\cdot z-ip\cdot y^{\prime}\right)\\
- & \times\delta(z-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\left(y^{\mu}-z^{\mu}\right)\delta(y^{\prime}-y)\right)
+ & ieQ\iiiint\dif^{4}x\dif^{4}y^{\prime}\dif^{4}z\dif^{4}y\exp\left(ip^{\prime}\cdot z-iq\cdot x\right)\\
+ & \times\delta(z-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)\exp(-ipy^{\prime})\delta(y^{\prime}-y)\right)
 \end{align*}
 
 \end_inset
 
-令
-\begin_inset Formula $\int_{V}=ieQ\int_{P}\dif x\iiint\dif^{4}y^{\prime}\dif^{4}z\dif^{4}y$
+省略常数
+\begin_inset Formula $ieQ$
 \end_inset
 
-,
+以及积分符号
+\begin_inset Formula $\iiiint$
+\end_inset
+
+，
 \begin_inset Formula 
 \begin{align*}
- & \int_{V}\exp\left(-iq\cdot x\right)\exp\left(ip^{\prime}\cdot z-ip\cdot y^{\prime}\right)\delta(z-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}y^{\mu}\delta(y^{\prime}-y)\right)\\
- & -\int_{V}\exp\left(-iq\cdot x\right)\exp\left(ip^{\prime}\cdot z-ip\cdot y^{\prime}\right)\delta(z-y)z^{\mu}*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\delta(y^{\prime}-y)\right)
+ & \Rightarrow\exp\left(ip^{\prime}\cdot z-iq\cdot x\right)\delta(z-y)*\left(\Sigma\left[-\partial_{y}^{2}\right]e^{-ipy}\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)\right)
 \end{align*}
+
+\end_inset
+
+仿照上面的过程，定义
+\begin_inset Formula $I^{\mu}(z,y,P)=\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Sigma\left[-\partial_{y}^{2}\right]e^{-ipy}\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)=e^{-ipy}{\color{red}\Sigma\left[-\mathcal{D}_{y}^{2}\right]\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{D}_{y}^{2}\equiv\left(\partial_{y}-ip\right)^{2}$
+\end_inset
+
+,同样地，
+\begin_inset Formula 
+\[
+\mathcal{D}_{y}^{2}=\partial_{y}^{\mu}\delta(x-y)-2ip^{\mu}\delta(x-y)-p^{2}I^{\mu}(z,y,P)
+\]
+
+\end_inset
+
+定义
+\begin_inset Formula 
+\[
+L(\delta)\equiv\partial_{y}^{\mu}\delta(x-y)-2ip^{\mu}\delta(x-y)
+\]
+
+\end_inset
+
+类似地，
+\begin_inset Formula 
+\begin{align*}
+ & \Sigma\left[-\mathcal{D}_{y}^{2}\right]\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)\\
+ & =\left(\int_{0}^{1}\dif t\Sigma^{\prime}\left(-\mathcal{D}_{y}^{2}t+p^{2}(1-t)\right)L(\delta)\right)+\Sigma\left(p^{2}\right)I(z,y,P)
+\end{align*}
+
+\end_inset
+
+作用量里面的
+\begin_inset Formula $\delta(z-y)$
+\end_inset
+
+会消除第二项，我们得到
+\begin_inset Formula 
+\[
+\Sigma\left[-\mathcal{D}_{y}^{2}\right]\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)=\int_{0}^{1}\dif t\Sigma^{\prime}\left(-\mathcal{D}_{y}^{2}t+p^{2}(1-t)\right)L(\delta)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{D}_{y}^{2}\equiv\left(\partial_{y}-ip\right)^{2}$
+\end_inset
+
+,代回原式得，
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow\exp\left(ip^{\prime}\cdot z-iq\cdot x\right)\delta(z-y)e^{-ipy}\int_{0}^{1}\dif tF^{\prime}\left(-\mathcal{D}_{y}^{2}t+p^{2}(1-t)\right)L(\delta)\\
+ & \Rightarrow\exp\left(ip^{\prime}\cdot y-iq\cdot x-ip\cdot y\right)\int_{0}^{1}\dif t\Sigma^{\prime}\left(-\mathcal{D}_{y}^{2}t+p^{2}(1-t)\right)\left(\partial_{y}^{\mu}\delta(x-y)-2ip^{\mu}\delta(x-y)\right)\\
+ & \Rightarrow\exp\left(ip^{\prime}\cdot y-iq\cdot x-ip\cdot y\right)\int_{0}^{1}\dif t\Sigma^{\prime}\left(-\left(-iq-ip\right){}^{2}t+p^{2}(1-t)\right)\left(-iq-2ip\right)^{\mu}\delta(x-y)\\
+ & \Rightarrow-i\exp\left(ip^{\prime}\cdot y-iq\cdot y-ip\cdot y\right)\int_{0}^{1}\dif t\Sigma^{\prime}\left(\left(q+p\right)^{2}t+p^{2}(1-t)\right)\left(q+2p\right)^{\mu}\\
+ & \Rightarrow-i\exp\left(ip^{\prime}\cdot y-iq\cdot y-ip\cdot y\right)\int_{0}^{1}\dif t\Sigma^{\prime}\left(\left(q+p\right)^{2}t+p^{2}(1-t)\right)\left(q+2p\right)^{\mu}\\
+ & \Rightarrow-i\left(2\pi\right)^{4}\delta\left(p^{\prime}-q-p\right)\frac{\Sigma(q+p)-\Sigma(p)}{2p\cdot q+q^{2}}\left(q+2p\right)^{\mu}
+\end{align*}
+
+\end_inset
+
+代回常数
+\begin_inset Formula $ieQ$
+\end_inset
+
+得到，
+\begin_inset Formula 
+\[
+2\pi\delta\left(p^{\prime}-q-p\right)eQ\frac{\left(q+2p\right)^{\mu}}{2p\cdot q+q^{2}}\left(\Sigma(q+p)-\Sigma(p)\right)
+\]
+
+\end_inset
+
+即得到了动量空间的费曼规则，对于确定动量的反应过程的振幅。
+\end_layout
+
+\begin_layout Subsection
+补充
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:补充"
 
 \end_inset
 
@@ -977,96 +1280,130 @@ ieQ\int\dif^{4}y\delta(z-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\le
 \end_layout
 
 \begin_layout Standard
-对
-\begin_inset Formula $z$
+\begin_inset Formula 
+\[
+-\partial_{y}^{2}\left(f(x)g(x)\right)
+\]
+
 \end_inset
 
-积分，令
-\begin_inset Formula $\int_{V}=ieQ\int_{P}\dif x\iint\dif^{4}y^{\prime}\dif^{4}y$
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+首先，偏导数虽然写成
+\begin_inset Formula $\partial_{y}^{2}$
+\end_inset
+
+,但如果式子右边是相乘的形式，作用的时候，只能一个
+\begin_inset Formula $\partial$
+\end_inset
+
+一个
+\begin_inset Formula $\partial$
+\end_inset
+
+地去作用，而不能拿
+\begin_inset Formula $\partial^{2}$
+\end_inset
+
+整体去作用。
+\color inherit
+
+\begin_inset Newline newline
+\end_inset
+
+这是因为，之前引出
+\begin_inset Formula $\partial_{y}^{2}$
+\end_inset
+
+的时候，后面是单个函数
+\begin_inset Formula $\partial_{y}^{2}h(x)$
+\end_inset
+
+，对于单个函数，两个
+\begin_inset Formula $\partial_{x}$
+\end_inset
+
+一起作用和相继作用没有区别。
+\begin_inset Newline newline
+\end_inset
+
+但是在这里，我们利用
+\begin_inset Formula $\delta$
+\end_inset
+
+函数的性质，交换了
+\begin_inset Formula $\partial_{y}^{2}$
+\end_inset
+
+两边的函数，跟在
+\begin_inset Formula $\partial_{y}^{2}$
+\end_inset
+
+后的函数，其形式已变成了多函数相乘的形式–
+\begin_inset Formula $f(x)g(x)$
+\end_inset
+
+，必须要把
+\begin_inset Formula $\partial_{y}^{2}$
+\end_inset
+
+拆开，
+\begin_inset Newline newline
+\end_inset
+
+一个一个作用，而不能na
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\begin_inset Quotes erd
+\end_inset
+
+i
+\end_layout
+
+\end_inset
+
+ve地用
+\begin_inset Formula $\partial_{y}^{2}$
+\end_inset
+
+整体去作用。
+\end_layout
+
+\begin_layout Standard
+其次，高阶偏导数对
+\begin_inset Formula $f(x)g(x)$
+\end_inset
+
+的作用，会产生像是高次二项式展开的形式：
+\begin_inset Formula $\partial_{x}^{n}\left(f(x)g(x)\right)=\left(\partial_{1}+\partial_{2}\right)^{n}fg=\sum_{k+l=n}\partial^{k}f\partial^{l}g$
+\end_inset
+
+，
+\begin_inset Newline newline
+\end_inset
+
+也就是说，每一项前面有会有不同的展开系数（杨辉三角），例如：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\partial\left(f(x)g(x)\right)=(\partial f)g+f(\partial g)$
 \end_inset
 
 ,
 \begin_inset Formula 
 \begin{align*}
- & \int_{V}\exp\left(-iq\cdot x\right)\exp\left(ip^{\prime}\cdot y-ip\cdot y^{\prime}\right)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}y^{\mu}\delta(y^{\prime}-y)\right)\\
- & -\int_{V}\exp\left(-iq\cdot x\right)\exp\left(ip^{\prime}\cdot y-ip\cdot y^{\prime}\right)y^{\mu}\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\delta(y^{\prime}-y)\right)
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula $y^{\mu}$
-\end_inset
-
-顶多经受一次
-\begin_inset Formula $\partial_{y}^{\mu}$
-\end_inset
-
-的作用，从
-\begin_inset Formula $\left(-\partial_{y}^{2}\right)^{n}$
-\end_inset
-
-中拿出一个
-\begin_inset Formula $-\partial_{y}^{2}$
-\end_inset
-
-,剩下
-\begin_inset Formula $\left(-\partial_{y}^{2}\right)^{n-1}$
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & \int_{V}\exp\left(-iq\cdot x\right)\exp\left(ip^{\prime}\cdot y-ip\cdot y^{\prime}\right)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n-1}\left(-\partial_{y,\mu}\partial_{y}^{\mu}\right){\color{red}y^{\mu}}\delta(y^{\prime}-y)\right)\\
- & -\int_{V}\exp\left(-iq\cdot x\right)\exp\left(ip^{\prime}\cdot y-ip\cdot y^{\prime}\right){\color{red}y^{\mu}}\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n-1}\left(-\partial_{y}^{2}\right)\delta(y^{\prime}-y)\right)
-\end{align*}
-
-\end_inset
-
-首先看第一项，
-\begin_inset Formula 
-\begin{align*}
- & \int_{V}\exp\left(-iq\cdot x\right)\exp\left(ip^{\prime}\cdot y-ip\cdot y^{\prime}\right)\\
- & \left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n-1}\left({\color{red}-\partial_{y}^{\mu}}\delta(y^{\prime}-y)-\partial_{y}^{2}\delta(y^{\prime}-y)\right)\right)
-\end{align*}
-
-\end_inset
-
-利用
-\begin_inset Formula $\int f(x)\frac{\dif}{\dif x}\delta(x)=\int(-1)^{1}\delta(x)\frac{\dif}{\dif x}f(x)$
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & \Rightarrow\int_{V}\delta(y^{\prime}-y)\exp\left(-iq\cdot x-ip\cdot y^{\prime}\right)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n-1}\left({\color{red}-\partial_{y}^{\mu}}-\partial_{y}^{2}\right)\exp\left(ip^{\prime}\cdot y\right)\right)
-\end{align*}
-
-\end_inset
-
-对
-\begin_inset Formula $y^{\prime}$
-\end_inset
-
-积分，令
-\begin_inset Formula $\int_{V}=ieQ\int_{P}\dif x\int\dif^{4}y$
-\end_inset
-
-,
-\begin_inset Formula 
-\begin{align*}
- & \Rightarrow\int_{V}\delta(y^{\prime}-y)\exp\left(-iq\cdot x-ip\cdot y\right)\times\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n-1}\left({\color{red}-\partial_{y}^{\mu}}-\partial_{y}^{2}\right)\exp\left(ip^{\prime}\cdot y\right)\right)\\
- & \Rightarrow\int_{V}\delta(y^{\prime}-y)\exp\left(-iq\cdot x-ip\cdot y\right)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n-1}\left({\color{red}-ip^{\prime\mu}}+p^{\prime2}\right)\exp\left(ip^{\prime}\cdot y\right)\right)\\
- & \Rightarrow\int_{V}\exp\left(ip^{\prime}\cdot y-iq\cdot x-ip\cdot y\right)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(p^{\prime2}\right)^{n-1}\left({\color{red}-ip^{\prime\mu}}+p^{\prime2}\right)\right)
-\end{align*}
-
-\end_inset
-
-再看第二项，
-\begin_inset Formula 
-\begin{align*}
- & -\int_{V}\exp\left(-iq\cdot x\right)\exp\left(ip^{\prime}\cdot y-ip\cdot y^{\prime}\right){\color{red}y^{\mu}}\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n-1}\left(-\partial_{y}^{2}\right)\delta(y^{\prime}-y)\right)\\
- & \Rightarrow-\int_{V}\exp\left(-iq\cdot x-ip\cdot y^{\prime}\right)\delta(y^{\prime}-y)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n-1}\left(-\partial_{y}^{2}\right){\color{red}y^{\mu}}\exp\left(ip^{\prime}\cdot y\right)\right)
+\partial^{2}\left(f(x)g(x)\right) & =(\partial^{2}f)g+(\partial f)(\partial g)+(\partial f)(\partial g)+f(\partial g)^{2}\\
+ & =(\partial^{2}f)g+2(\partial f)(\partial g)+f(\partial g)^{2}
 \end{align*}
 
 \end_inset

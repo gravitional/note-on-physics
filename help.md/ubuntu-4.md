@@ -536,7 +536,7 @@ mv `two words.txt` two_words.txt
 记住,在双引号中,**参数展开**,**算术表达式展开**,和**命令替换**仍然有效:
 
 ```bash
-echo `$USER $((2+2)) $(cal)`
+echo `${USER} $((2+2)) $(cal)`
 me 4
 ```
 

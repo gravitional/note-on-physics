@@ -1,6 +1,6 @@
 # learn.vscode.md
 
- `C` for `Ctrl`, `A` for `Alt`, `S` for `Shift`, if there are no special declarations.
+`C` for `Ctrl`, `A` for `Alt`, `S` for `Shift`, if there are no special declarations.
 
 ## Preview mode --预览模式
 

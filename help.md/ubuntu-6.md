@@ -1615,6 +1615,8 @@ $ find playground -name 'file-A' | tar cf - --files-from=- | gzip > playground.t
 最后,这个由 `tar` 命令产生的归档 文件被管道到 `gzip` 命令中,然后创建了压缩归档文件 `playground.tgz`.
 `.tgz` 扩展名是被`gzip` 压缩过的 `tar` 文件的常规扩展名.有时候也会使用 `.tar.gz`这个扩展名.
 
+### 顺便压缩
+
 在这里我们手动调用了`gzip`来制作归档文件的压缩版本.
 实际上现在 GUN 版本的 `tar` 命令 ,可以直接在归档的同时进行压缩,`gzip`压缩对应选项`z`，`bzip2` 压缩对应选项`j`.
 之前的例子可以简化为:
@@ -1730,7 +1732,7 @@ adding: - (deflated 80%)
 在这个例子里,我们把 `ls` 命令的输出管道到 `zip` 命令.
 像 `tar` 命令,`zip` 命令把末尾的`横杠`解释为 `使用标准输入作为输入文件`
 
-`unzip` 程序允许把它的结果发送到标准输出,通过指定`-p`选项:
+通过指定`-p`选项,`unzip` 程序允许把它的结果发送到标准输出:
 
 ```bash
 $ unzip -p ls-etc.zip | less
@@ -1887,3 +1889,4 @@ $ rsync -av -delete rsync://rsync.gtlib.gatech.edu/fedora-linux-core/development
 可以在下面链接处找到:[http://www.gnu.org/software/tar/manual/index.html][]
 
 [http://www.gnu.org/software/tar/manual/index.html]: http://www.gnu.org/software/tar/manual/index.html
+

@@ -1747,6 +1747,14 @@ That is, files that cannot be shared between implementations, such as pool files
 
 3. `Log off` / `Log in`后，就完成了～
 
+### latex pdf 裁剪
+
+`texlive` 自带了一个叫做 `pdfcrop` 的 `perl` 脚本
+
+使用方法如下：
+
+`pdfcrop --margins 3 --clip --bbox '120 480 570 830' input.pdf output.pdf; `
+
 ## X窗口系统
 
 X窗口系统（使GUI工作的底层引擎）内建了一种机制，支持快速拷贝和粘贴技巧。

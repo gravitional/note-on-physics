@@ -317,6 +317,8 @@ refer:[runoob syntax][] and [runoob metachar][]
 
 可以使用非捕获元字符 `?:`、`?=`或`?!` 来重写捕获，忽略对相关匹配的保存。
 
+`vscode` 使用`$1`,`$2`进行反向引用
+
 ### 反向引用example
 
 相同的相邻单词

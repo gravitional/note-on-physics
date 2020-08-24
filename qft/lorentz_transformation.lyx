@@ -1,0 +1,460 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor}
+% Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+
+\usepackage{amsfonts} 
+\usepackage{hep} 
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{latexsym} 
+\usepackage{amssymb} 
+\usepackage{makeidx} 
+\usepackage{amsmath} 
+\usepackage{multirow} 
+\usepackage{slashed} 
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr} 
+\DeclareMathOperator{\re}{Re} 
+\DeclareMathOperator{\im}{Im} 
+\DeclareMathOperator{\res}{Res} 
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+洛伦兹变换
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Chapter
+沿
+\begin_inset Formula $x$
+\end_inset
+
+方向速度为
+\begin_inset Formula $v$
+\end_inset
+
+的洛伦兹变换
+\end_layout
+
+\begin_layout Standard
+欧几里得空间的正交变换有：
+\begin_inset Formula $\sin(\theta)^{2}+\cos(\theta)^{2}=1$
+\end_inset
+
+，
+\begin_inset Newline newline
+\end_inset
+
+想象对矢量
+\begin_inset Formula $(1,0)$
+\end_inset
+
+和
+\begin_inset Formula $(0,1)$
+\end_inset
+
+逆时针转动
+\begin_inset Formula $\theta$
+\end_inset
+
+角度，得到新矢量
+\begin_inset Formula $\left(\cos\theta,\sin\theta\right)$
+\end_inset
+
+and 
+\begin_inset Formula $\left(-\sin\theta,\cos\theta\right)$
+\end_inset
+
+，分别对应转动矩阵的第一列和第二列：
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+\cos(\theta) & -\sin(\theta)\\
+\sin(\theta) & \cos(\theta)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+类似地，我们知道
+\begin_inset Formula $\cosh(\theta)=\frac{e^{\theta}+e^{-\theta}}{2}$
+\end_inset
+
+,
+\begin_inset Formula $\sinh(\theta)=\frac{e^{\theta}-e^{-\theta}}{2}$
+\end_inset
+
+,
+\begin_inset Formula $\cosh(\theta)^{2}-\sinh(\theta)^{2}=1$
+\end_inset
+
+,所以
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+\cosh(\theta) & -\sinh(\theta)\\
+-\sinh(\theta) & \cosh(\theta)
+\end{array}\right)
+\]
+
+\end_inset
+
+在闵可夫斯基度规下，即可保证正交性，又可保证按度规归一化。
+\end_layout
+
+\begin_layout Standard
+在速度表象下，实际上是，
+\begin_inset Formula 
+\begin{align*}
+\beta & =\sqrt{1-v^{2}}\\
+\gamma & =1/\beta=1/\sqrt{1-v^{2}}\ge1
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $1/\gamma^{2}=1-v^{2}$
+\end_inset
+
+,
+\begin_inset Formula $\gamma^{2}-\left(\frac{v}{\beta}\right)^{2}=1$
+\end_inset
+
+,也就是
+\begin_inset Formula $\gamma^{2}-\gamma^{2}v^{2}=1$
+\end_inset
+
+所以，
+\begin_inset Formula 
+\[
+\theta=\ln\left(\frac{\gamma+\gamma v}{2}\right)=\frac{1}{2}\ln\left(\frac{\left(1+v\right)^{2}}{2(1-v^{2})}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+x^{\prime}\\
+t^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right)\left(\begin{array}{c}
+x\\
+t
+\end{array}\right)
+\]
+
+\end_inset
+
+ 这里的负号是一种约定，跟坐标系的手性有关。
+\end_layout
+
+\begin_layout Section
+推导速度表象下的表示形式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x^{\mu}=\Lambda^{\mu\nu}g_{\nu}
+\]
+
+\end_inset
+
+洛伦兹变换矩阵如何用速度
+\begin_inset Formula $v$
+\end_inset
+
+表示，A坐标系静止，B坐标系以速度
+\begin_inset Formula $v$
+\end_inset
+
+向右匀速移动，同时考察B坐标系的原点，得到
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+t^{\prime}\\
+0
+\end{array}\right)=\left(\begin{array}{cc}
+a & b\\
+b & a
+\end{array}\right)\left(\begin{array}{c}
+t\\
+vt
+\end{array}\right)
+\]
+
+\end_inset
+
+得到
+\begin_inset Formula 
+\begin{equation}
+a\frac{t}{t^{\prime}}=\frac{1}{1-v^{2}}\label{eq:1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+同时考虑洛伦兹矩阵的逆矩阵，根据定义有
+\begin_inset Formula 
+\begin{align*}
+\delta_{\phantom{\rho}\sigma}^{\rho} & =\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\nu}\delta_{\phantom{\mu}\nu}^{\mu}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\mu}\\
+ & \Rightarrow\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\mu}=\Lambda_{\phantom{\rho}\mu}^{\rho}(\Lambda^{\perp})_{\phantom{\sigma}\sigma}^{\mu}
+\end{align*}
+
+\end_inset
+
+这里不是普通的矩阵相乘，这里的相乘是指标收缩，也就是带度规的运算，如果要变成普通矩阵相乘，还需要乘上相应的
+\begin_inset Formula $\pm1$
+\end_inset
+
+。
+\begin_inset Newline newline
+\end_inset
+
+所以认为洛伦兹矩阵的逆矩阵是它的转置再乘上相应的度规（时间分量符号不变，空间分量
+\begin_inset Formula $-1$
+\end_inset
+
+）
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+t\\
+vt
+\end{array}\right)=\left(\begin{array}{cc}
+a & -b\\
+-b & a
+\end{array}\right)\left(\begin{array}{c}
+t^{\prime}\\
+0
+\end{array}\right)
+\]
+
+\end_inset
+
+得到
+\begin_inset Formula 
+\[
+t=at^{\prime}\Rightarrow\frac{t}{t^{\prime}}=a
+\]
+
+\end_inset
+
+结合
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，知道
+\begin_inset Formula $a^{2}=\frac{1}{1-v^{2}}$
+\end_inset
+
+，所以
+\begin_inset Formula $a=\frac{1}{\sqrt{1-v^{2}}}$
+\end_inset
+
+,由
+\begin_inset Formula $a^{2}-b^{2}=1$
+\end_inset
+
+可以得到
+\begin_inset Formula $b$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+洛伦兹生成元
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+[J,J]\times[\mu\nu,\rho\sigma] & =i*[g,J]\times([\mu\sigma,\nu\rho]+[\nu\rho,\mu\sigma]-[\mu\rho,\nu\sigma]-[\nu\sigma,\mu\rho])\\{}
+[J,J]\times[12,34] & =i*[g,J]\backslash times([14,23]+[23,14]-[13,24]-[24,13])\\{}
+[J,J]\times[12,34] & =-i*[g,J]\times([13,24]+[24,13]-[14,23]-[23,14])
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{S\ensuremath{\mu\nu}}=\frac{i}{4}(\gamma\mu,\gamma\nu)
+\]
+
+\end_inset
+
+by repeated use of Clifford Algebra, it is easy to verify that these matrices
+ satisfy the commutation relations，i.e.they are generators of Lorentz Group.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+sdds
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref61"
+literal "true"
+
+\end_inset
+
+xxxxx
+\end_layout
+
+\end_body
+\end_document

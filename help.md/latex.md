@@ -1,5 +1,37 @@
 # latex.md
 
+## 帮助文档
+
+查看latex 的帮助文档，可以直接用 `texdoc pkg`
+
+`texdoc` - find & view documentation in TeX Live
+
+SYNOPSIS
+
+`texdoc [OPTION]... NAME...`
+`texdoc ACTION`
+
+DESCRIPTION
+
+对于给定的名字（可以多个），试图寻找合适的TeX文档。或者，执行某些动作并退出。
+
+Actions:
+
+`-h`, `--help` 打印帮助信息。
+`-V`, `--version`打印版本号
+`-f`, `--files` 打印使用的配置文件
+`--just-view file` 展示文件，给出绝对路径（不搜索）
+
+OPTIONS
+
++ `-w`, `--view` 使用查看模式，打开文档阅读器（默认）
++ `-m`, `--mixed` 使用混合模式（查看或者列表） 
++ `-l`, `--list` 使用列表模式：列出搜索结果。
++ `-s`, `--showall` 展示所有模式，包括"坏"的结果
++ `-i`, `--interact` 使用交互菜单（默认）
++ `-I`, `--nointeract`使用plain列表，不需要交互
++ `-M`, `--machine` 机器可读的结果
+
 ## 浮动体
 
 [liam.page][]
@@ -57,7 +89,7 @@ Latex 设置字体大小命令由小到大依次为：
 + `\Huge`
 
 ***
-Latex下 字体大小命令 比较 
+Latex下 字体大小命令 比较
 
 |size| 10pt (default)| 11pt   |12pt |
 |---|---|---|---|
@@ -70,7 +102,7 @@ Latex下 字体大小命令 比较
 | `\Large` | `14pt`  | `14pt` | `17pt` |
 | `\LARGE` | `17pt`  | `17pt` | `20pt` |
 | `\huge` | `20pt`  | `20pt` | `25pt` |
-| `\Huge` | `25pt`  | `25pt` | `25pt` | 
+| `\Huge` | `25pt`  | `25pt` | `25pt` |
 
 ## pdftex/xetex --help
 
@@ -224,9 +256,9 @@ u+2014*2
 ### 数学符号
 
 ```bash
-\DeclareMathOperator{\tr}{Tr} 
-\DeclareMathOperator{\re}{Re} 
-\DeclareMathOperator{\im}{Im} 
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 ```
 
@@ -292,7 +324,7 @@ linktocpage=true, %
 
 [使用VSCode编写LaTeX]: https://blog.csdn.net/fenzang/article/details/99805315
 
-## BibTeX生成参考文献列表 
+## BibTeX生成参考文献列表
 
 [LaTeX技巧829:使用BibTeX生成参考文献列表][]
 
@@ -308,7 +340,7 @@ linktocpage=true, %
 `bib` 是 `BibTeX` 定义的"参考文献数据库"。
 通常，我们会按照 `BibTeX` 规定的格式，向 bib 文件写入多条文献信息。
 在实际使用时，我们就可以根据 bib 文件中定义的文献标记（label），
-从数据库中调取文献信息，继而排版成参考文献列表。 
+从数据库中调取文献信息，继而排版成参考文献列表。
 值得注意的是，bib 是一个数据库，其中的内容并不一定等于 LaTeX 排版参考文献列表时的内容。也就是说，如果 bib 数据库中有 10 条文献信息，并不一定说 LaTeX 排版出来的 PDF 文件中，参考文献列表里也一定有 10 条。
 实际排版出来的参考文献列表中有多少条文献，实际是哪几条，具体由文中使用的 `\cite` 命令（以及 `\nocite` 命令）指定。如果没有使用 `\cite` 命令调取文献信息，那么即使在 `bib` 文件中定义了文献信息，也不会展现在参考文献列表中。
 很多人对此误解甚深，于是经常有人问道"为什么我在 bib 文件里写的文献，不出现在参考文献中"之类的问题。
@@ -343,7 +375,7 @@ bar\cite{baz}
 ```
 
 在这里，`\relax` 表示休息一会儿，什么也不做；`\citation` 则是由 `tex` 文件中的 `\cite` 命令写入 `aux` 文件的标记。
-它说明了：用户需要标记为 `baz` 的参考文献信息。 
+它说明了：用户需要标记为 `baz` 的参考文献信息。
 当 BibTeX 读入 `aux` 文件的时候，它就会记录下所有 `\citation` 命令中的内容（即文献标记——`label`），这样就知道了用户需要哪些参考文献信息。
 
 ### 了解文献列表格式以及读取文献数据库
@@ -433,10 +465,10 @@ You've used 1 entry,
 ```
 
 我们看到，BibTeX 打出的日志文件中，记录了读入 `aux/bst/bib` 文件的情况。
-特别地，记录了所需的参考文献条目（entry）的数量（此处为 1）。 
+特别地，记录了所需的参考文献条目（entry）的数量（此处为 1）。
 日志中值得注意的地方是在提到 bib 文件时，使用了 `#1` 的标记。既然存在 `#1`，那么合理推测也可以存在`#2`。
 也就是说，BibTeX 可能支持两个或更多的 `bib` 数据库共同工作。
-具体如何实现，请读者自己阅读相关资料（手册或 Google 检索）后实验。 
+具体如何实现，请读者自己阅读相关资料（手册或 Google 检索）后实验。
 紧接着，我们再执行一次 `LaTeX` ：
 
 ```bash
@@ -454,7 +486,7 @@ latex foo.tex
 ```
 
 相比上一次的 `foo.aux`，在读入 BibTeX 之后，LaTeX 向 `aux` 文件写入了更多的信息。
-这里 `\bibcite{baz}{1}` 将 `baz` 这一参考文献标记（label）与参考文献编号（数字 `1`）绑定起来了。 
+这里 `\bibcite{baz}{1}` 将 `baz` 这一参考文献标记（label）与参考文献编号（数字 `1`）绑定起来了。
 接下来，我们看看 dvi 文件的内容：`foo.pdf`不难发现，由于读入了 `foo.bbl` 文件，参考文献列表已经正确展现出来了。
 然而，正文中依然有一个问号。 实际上，LaTeX 需要 `aux` 文件中的 `\bibcite` 命令，将参考文献标记与参考文献编号关联起来，从而在 tex文件中的 `\cite` 命令位置填上正确的参考文献编号。
 我们注意到，在我们第二次执行 `LaTeX` 命令编译之前，`foo.aux` 文件中是没有这些信息的，直到编译完成，这些信息才被正确写入。因此，第二次执行 `LaTeX` 命令时，`LaTeX` 还不能填入正确的文献编号，于是就写入了一个问号作为占位符。
@@ -1054,7 +1086,7 @@ Synopsis:
 \end{enumerate}
 ```
 
-Environment to produce a numbered list of items. The format of the label numbering depends on the nesting level of this environment; see below. 
+Environment to produce a numbered list of items. The format of the label numbering depends on the nesting level of this environment; see below.
 The default top-level numbering is ‘`1.`’, ‘`2.`’, etc. Each enumerate list environment must have at least one item; having none causes the `LaTeX` error  `Something's wrong--perhaps a missing \item`.
 
 This example gives the first two finishers in the 1908 Olympic marathon. As a top-level list the labels would come out as ‘`1.`’ and ‘`2.`’.
@@ -1064,7 +1096,7 @@ This example gives the first two finishers in the 1908 Olympic marathon. As a to
  \item Charles Hefferon (RSA)
 \end{enumerate}
 
-Start list items with the `\item` command (see `\item`). If you give `\item` an optional argument by following it with square brackets, as in `\item[Interstitial label]`, then the next item will continue the interrupted sequence (see `\item`). 
+Start list items with the `\item` command (see `\item`). If you give `\item` an optional argument by following it with square brackets, as in `\item[Interstitial label]`, then the next item will continue the interrupted sequence (see `\item`).
 That is, you will get labels like ‘`1.`’, then ‘`Interstitial label`’, then ‘`2.`’. Following the `\item` is optional text, which may contain multiple paragraphs.
 
 Enumerations may be nested within other enumerate environments, or within any `paragraph-making` environment such as `itemize` (see `itemize`), up to four levels deep. This gives `LaTeX`’s default for the format at each nesting level, where `1` is the top level, the outermost level.
@@ -1114,10 +1146,10 @@ This gives a two-item list.
 
 As a top-level list each label would come out as a bullet, $\textbullet$. The format of the labeling depends on the nesting level; see below.
 
-Start list items with the `\item` command (see `\item`). If you give `\item` an optional argument by following it with square brackets, as in `\item[Optional label]`, then by default it will appear in bold and be flush right, so it could extend into the left margin. 
+Start list items with the `\item` command (see `\item`). If you give `\item` an optional argument by following it with square brackets, as in `\item[Optional label]`, then by default it will appear in bold and be flush right, so it could extend into the left margin.
 For labels that are flush left see the description environment. Following the `\item` is optional text, which may contain multiple paragraphs.
 
-Itemized lists can be nested within one another, up to four levels deep. They can also be nested within other paragraph-making environments, such as `enumerate` (see `enumerate`). 
+Itemized lists can be nested within one another, up to four levels deep. They can also be nested within other paragraph-making environments, such as `enumerate` (see `enumerate`).
 The itemize environment uses the commands `\labelitemi` through `\labelitemiv` to produce the default label (this also uses the convention of lowercase roman numerals at the end of the command names that signify the nesting level). These are the default marks at each level.
 
 + $\textbullet$ (bullet, from \textbullet)
@@ -1131,7 +1163,7 @@ Change the labels with `\renewcommand`. For instance, this makes the first level
 \renewcommand{\labelitemi}{$\diamond$}
 ```
 
-The distance between the left margin of the enclosing environment and the left margin of the itemize list is determined by the parameters `\leftmargini` through `\leftmarginvi`. (Note the convention of using lowercase roman numerals a the end of the command name to denote the nesting level.) 
+The distance between the left margin of the enclosing environment and the left margin of the itemize list is determined by the parameters `\leftmargini` through `\leftmarginvi`. (Note the convention of using lowercase roman numerals a the end of the command name to denote the nesting level.)
 The defaults are: 2.5em in level 1 (2em in two-column mode), 2.2em in level 2, 1.87em in level 3, and 1.7em in level 4, with smaller values for more deeply nested levels.
 
 For other major `LaTeX` labeled list environments, see description and enumerate. For information about list layout parameters, including the default values, and for information about customizing list layout, see list. The package enu`mitem is useful for customizing lists.
@@ -1345,12 +1377,65 @@ and `\abs[size command]{\frac{22}{7}}` also gives bars that do not grow but are 
 
 ```latex
 \begin{displaymath}
-\mathop{\sum \sum}_{i,j=1}^{N} a_i a_j 
+\mathop{\sum \sum}_{i,j=1}^{N} a_i a_j
 {\sum \sum}_{i,j=1}^{N} a_i a_j
 \end{displaymath}
 ```
 
 `\mathop` is considered to be a single variable sized math symbol for purposes of placing limits below (subscripts) and above (superscripts)  in display math style
+
+数学符号的标准，首先是定义在 ISO 31-11 当中；而后这个标准被 ISO 80000-2:2009 取代。
+因此，此篇讨论的内容，都是基于 ISO 80000-2:2009 的。 在 ISO 80000-2:2009 中，微分算子被描述为
+
++ 直立的拉丁字母 `d`；
++ 一个右边没有间距的操作符。
+
+对于直立的拉丁字母 `d`，我们可以使用 `\mathrm{d}` 达成效果。
+而若要微分算子的左边有间距，而右边没有，这个问题就值得思考了。 最简单的办法，是将微分算子做如下实现
+
+```latex
+\newcommand*{\dif}{\,\mathrm{d}}
+```
+
+看起来，这样是没有问题的。但是，在某些情况下，就会出现尴尬的问题。比如
+
+```latex
+关于 $x$ 的微分 $\dif x$ 是指的思考的问题。
+```
+
+因为在 `\dif` 的定义中，`\mathrm{d}` 之前有不可省略的铅空 `\,`。
+于是，这份代码中 `\dif x` 与前后正文之间的距离就不一致了。为了解决这个问题，更有经验的人可能会选择这样定义
+
+```bash
+\newcommand*{\dif}{\mathop{\mathrm{d}}\!}
+```
+
+这份代码，试图利用 `\mathop`，只在必要的时候于左边插入空白，修复了上面的问题。
+不过，这样一来也带来了一些副作用——在 `\mathop` 的作用下，`\mathrm{d}` 的基线发生了改变，不再与正常的数学变量保持在同一个基线上。这也是不好的。 
+最终解决问题，应该对微分算子有这样的定义
+
+```latex
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+```
+
+在这个定义中，拉丁字母 d 本身的特点得到了保留（比如基线是正常的）。
+此外，在 \mathrm{d} 的左边，插入了一个空白的 `\mathop{}`；其左边的空白保留，而右边与 `\mathrm{d}` 之间的距离，则由 `\!` 抑制。这样就达成了我们的目标。 
+
+数学公式环境中，本来就没有距离，所以`\mathrm{d}`什么都没有，就代表右侧没有距离，
+左边的`\!`是用来把`\mathrm{d}`往左移动的，就是离左边稍微近一点,因为插入了一个空白的数学符号。
+
+测试如下：
+
+```latex
+$\int\,\mathrm{d} x$\\
+关于 $x$ 的微分 $\,\mathrm{d} x$ 是指的思考的问题。\\
+$\int \mathop{\mathrm{d}}\! x $\\
+关于 $x$ 的微分 $\mathop{\mathrm{d}}\! x$ 是指的思考的问题。\\
+$\int \mathop{}\!\mathrm{d} x $\\
+关于 $x$ 的微分 $\mathop{}\!\mathrm{d} x$ 是指的思考的问题。\\
+$\int \mathop{}\mathrm{d} x $\\
+关于 $x$ 的微分 $\mathop{}\mathrm{d} x$ 是指的思考的问题。\\
+```
 
 ### 上下划线和大括号
 
@@ -1369,7 +1454,7 @@ and `\abs[size command]{\frac{22}{7}}` also gives bars that do not grow but are 
 同时我们还可以用上下标在花括号上做标注, 如
 
 ```latex
-\[ 
+\[
  ( \overbrace{a_{0},a_{1},\dots,a_{n}}^{n+1} )=
  ( \underbrace{0,0,\dots 0}_{n},1 )
 \]
@@ -1388,7 +1473,7 @@ and `\abs[size command]{\frac{22}{7}}` also gives bars that do not grow but are 
 例如：
 
 ```latex
-\begin{equation}   
+\begin{equation}
 \sum_{\substack{k_0,k_1,\dots>0\\   k_0+k_1+\dots=n}}   F(k_i)
 \end{equation}
 ```
@@ -1488,4 +1573,10 @@ The braces around defn do not define a group, that is, they do not delimit the s
 
 The \shipname{Monitor} met the \shipname{Merrimac}.
 
-the words ‘met the’ would incorrectly be in italics. The solution is to put another pair of braces inside the definition: \newcommand{\shipname}[1]{{\it #1}}. 
+the words ‘met the’ would incorrectly be in italics. The solution is to put another pair of braces inside the definition: \newcommand{\shipname}[1]{{\it #1}}.
+
+## latex 注音符号
+
+http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Accents
+
+23.5 Accents

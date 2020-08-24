@@ -403,42 +403,31 @@ Match the regular expression limiting patterns without regard to letter case.
 
 要重返未来，用`git reflog`查看命令历史，以便确定要回到未来的哪个版本。
 
-### reset restore and revert
-
-从 `index` 灌入 `working tree`
-
-`git restore file`
-
-从 `commit` 灌入 `index`
+### git reset
 
 ***
-`git reset HEAD file`
+`git reset --hard <commit>` or 别名 `grhh <commit>` 
 
-```bash
-git reset --hard xxxx
-```
-
+`--hard` 会清空`working tree`和`index`的改动.
 彻底回退版本，连本地文件都会被回退到上个版本的内容
 
 ***
-`git reset --soft xxxx`
+`git reset --soft xxxx` or 别名 `grh --soft <commit>` 
 
-只回退commit，如果你想再次提交直接`git commit`即可
+保留`working tree`和`index`，并合并到`index`中。
+只回退`commit`，如果你想再次提交直接`git commit`即可。
 
-`reset --soft` 会在重置 `HEAD` 和 `branch` 时，保留`working tree`和`stage`中的内容，并把重置 `HEAD` 所带来的新的差异放进`stage`。
-
-这就是`--soft` 和 `--hard` 的区别：
-`--hard` 会清空`working tree`和`stage`的改动, 
-而 `--soft`则会保留`working tree`的内容，并把因为保留`working tree`内容所带来的新的文件差异放进`stage`
+`reset --soft` 会在重置 `HEAD` 和 `branch` 时，保留`working tree`和`index`中的内容，
+并把重置 `HEAD` 所带来的新的差异放进`index`。
 
 ***
-`reset 不加参数(--mixed)`
+`reset 不加参数(--mixed)` or 别名 `grh <commit>` 
 
-保留`working tree`，并清空`stage`
+清空`index`,`mix`到`working tree`中
 
-`reset` 如果不加参数，那么默认使用 `--mixed` 参数。它的行为是：保留`working tree`，并且清空`stage`。
-也就是说，`working tree`的修改、`stage`的内容以及由 `reset` 所导致的新的文件差异，都会被放进`working tree`。
-简而言之，就是把所有差异都混合（mixed）放在`working tree`中`。
+`reset` 如果不加参数，那么默认使用 `--mixed` 参数。它的行为是：保留`working tree`，并且清空`index`。
+也就是说，`working tree`的修改、`index`的内容以及由 `reset` 所导致的新的文件差异，都会被放进`working tree`。
+简而言之，就是把所有差异都混合（`mixed`）放在`working tree`中`。
 
 ***
 同理，`reset --hard` 不仅可以撤销提交，还可以用来把 `HEAD` 和 `branch` 移动到其他的任何地方。
@@ -452,6 +441,27 @@ git reset --hard branch2
 [Git Reset 三种模式][]
 [git reset --hard xxx、git reset --soft 及git revert 的区别][]
 [Git Reset 三种模式][]
+
+### git revert
+
+`git-revert` - 回复某些已经存在的提交
+
+SYNOPSIS
+
++ `git revert [--[no-]edit] [-n] [-m parent-number] [-s] [-S[<keyid>]] <commit>...`
++ `git revert --continue`
++ `git revert --quit`
++ `git revert --abort`
+
+DESCRIPTION
+
+给出一个或者多个提交，逆转相关的`patches` 引入的更改。并生成新的提交来记录这个操作。
+前提是你的 `working tree` 是 `clean` 的(no modifications from the HEAD commit).
+
+`git revert `用来记录撤销提交的操作（通常是错误的提交）。
+如果只是想丢弃工作区的修改，可以使用`git-reset --hard`，或者用`git checkout <commit>  -- <filename>`从别的提交中提取文件（覆盖当前版本），不同于`git revert`，这些操作都会导致工作区未提交的更改丢失。
+
+相比`git reset`，它不会改变现在的提交历史。因此，`git revert`可以用在公共分支上，`git reset`应该用在私有分支上。
 
 [git reset --hard xxx、git reset --soft 及git revert 的区别]: https://www.jianshu.com/p/8be0cc35e672
 

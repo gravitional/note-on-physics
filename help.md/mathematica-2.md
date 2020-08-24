@@ -1825,3 +1825,9 @@ inserts elem at position `{i,j,...}` in `expr`.
 
 `Inset[obj,pos,opos,size]`
 specifies the size of the inset in the coordinate system of the enclosing graphic. 
+
+## mathematica 求数列公式
+
+mathematica 求数列公式有个函数
+
+FindSequenceFunction

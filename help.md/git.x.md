@@ -24,7 +24,9 @@ $ git log origin/master
 $ git log remotes/origin/master
 $ git log refs/remotes/origin/master
 
-## restore恢复文件
+## 还原文件
+
+### git restore
 
 ```git
 git restore [<options>] [--source=<tree>] [--staged] [--worktree] <pathspec>…​
@@ -69,7 +71,7 @@ git restore --source master~2 Makefile
 git restore --source=9ea00d1 parton.note.1.nb
 ```
 
-## checkout还原文件
+### git checkout
 
 git-checkout - Switch branches or restore working tree files
 
@@ -88,6 +90,45 @@ git checkout [<tree-ish>] [--] <pathspec>…​
 The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`.
 
 With `-m`, 对 `working tree` 所做的更改将会被丢弃，重新创建冲突的 merge 结果
+
+### git reset
+
+***
+`git reset --hard <commit>` or 别名 `grhh <commit>` 
+
+`--hard` 会清空`working tree`和`index`的改动.
+彻底回退版本，连本地文件都会被回退到上个版本的内容
+
+***
+`git reset --soft xxxx` or 别名 `grh --soft <commit>` 
+
+保留`working tree`和`index`，并合并到`index`中。
+只回退`commit`，如果你想再次提交直接`git commit`即可。
+
+`reset --soft` 会在重置 `HEAD` 和 `branch` 时，保留`working tree`和`index`中的内容，
+并把重置 `HEAD` 所带来的新的差异放进`index`。
+
+***
+`reset 不加参数(--mixed)` or 别名 `grh <commit>` 
+
+清空`index`,`mix`到`working tree`中
+
+`reset` 如果不加参数，那么默认使用 `--mixed` 参数。它的行为是：保留`working tree`，并且清空`index`。
+也就是说，`working tree`的修改、`index`的内容以及由 `reset` 所导致的新的文件差异，都会被放进`working tree`。
+简而言之，就是把所有差异都混合（`mixed`）放在`working tree`中`。
+
+***
+同理，`reset --hard` 不仅可以撤销提交，还可以用来把 `HEAD` 和 `branch` 移动到其他的任何地方。
+
+```bash
+git reset --hard branch2
+```
+
+把 `HEAD` 和 `branch`移动到`branch2`指向的提交。
+
+[Git Reset 三种模式][]
+[git reset --hard xxx、git reset --soft 及git revert 的区别][]
+[Git Reset 三种模式][]
 
 ## git重命名文件夹
 
@@ -257,7 +298,7 @@ You can omit any one of `<commit>`, which has the same effect as using HEAD inst
 git checkout [<tree-ish>] [--] <pathspec>…​
 ```
 
-用 **index**或者`<tree-ish>`（通常是一个`commit`）里面的内容替换working tree里面的 paths。
+用 **index**或者`<tree-ish>`（通常是一个`commit`）里面的内容替换`working tree`里面的 `paths` 。
 当给出一个`<tree-ish>`的时候，the **paths** that match the `<pathspec>`会在**index** and in the **working tree**里面都更新。
 
 index 中可能包含有之前合并失败的entries。默认情况下，如果你想checkout 一个这样的entries，会失败，什么都不会发生。
