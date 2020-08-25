@@ -1580,3 +1580,27 @@ the words ‘met the’ would incorrectly be in italics. The solution is to put 
 http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Accents
 
 23.5 Accents
+
+### \RequirePackage \usepackage 区别
+
+[What's the difference between \RequirePackage and \usepackage?][]
+
+[What's the difference between \RequirePackage and \usepackage?]: https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
+
+惯例是在包或者文档类中使用`\RequirePackage`，在文档中使用`\usepackage`
+
+`\RequirePackage`可以用在`\documentclass ....`之前
+
+you can write :
+
+```latex
+\RequirePackage{atbegshi}      
+\documentclass ....
+```
+
+and not
+
+```latex
+\usepackage{atbegshi}      
+\documentclass ...
+```
