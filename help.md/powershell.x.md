@@ -1,5 +1,77 @@
 # conclusion.powershell.md
 
+## 查看pwsh 版本
+
+```powershell
+$PSVersionTable.PSVersion
+```
+
+## 通用语法
+
+### 语法表 sytax diagrams
+
+```powershell
+<command-name> -<Required Parameter Name> <Required Parameter Value> # 必选键值对 
+[-<Optional Parameter Name> <Optional Parameter Value>] # 可选键值对
+[-<Optional Switch Parameters>] # 可选开关
+[-<Optional Parameter Name>] <Required Parameter Value> # 可匿名键值对
+```
+
+***
+命令说明中，每一段都代表一种可能的语法格式.
+
+命令采用 `-参数 值`的形式，每个参数前面必须有一个`-`.
+`pwsh`是基于`Microsoft .NET`框架的，所以参数值是用它们的`.NET`类型表示的。
+
+***
+参数集合(Parameter Set)，语法表中的每一段是一种可能的命令使用形式。如果参数不能放在一起使用，它们会出现在不同的参数集合中(不同的段落中)。有些参数可能出现在多个 Parameter Sets 中。
+
+通过使用的参数名称，你隐式地指明了你想使用的参数集合。
+
+在每一个参数集合中，参数按照位置顺序出现。如果你省略了参数名称（键值），pwsh将会按照位置和类型对命令参数赋值。
+
+***
+语法表中的符号
+
++ 连字符`-`(hyphen)-表明接着的是一个参数的名字。如：
+
+```powershell
+New-Alias -Name
+```
+
++ 尖括号`<>`: 表示一个占位符，需要把其中的数据类型换成具体的用户输入。
+
++ 中括号`[]`: 表示一个可选项。表示参数键值都可以省略，或者参数值可以省略。如：
+
+```powershell
+New-Alias [-Description <string>]
+New-Alias [-Name] <string>
+```
+
+如果在一个`.NET`类型后面接上一个`[]`，表示这个参数可以接受多个同类型的值，用一个逗号分隔列表
+
+```powershell
+New-Alias [-Name] <string> # 接收一个值
+Get-Process [-Name] <string[]> # 接受多个值
+Get-Process -Name Explorer, Winlogon, Services
+```
+
+在语法示例中，`[]`也用于命名和强制转换为`.NET Framework`类型。这种时候，`[]`的意思不是一个元素可以省略。
+
++ 大括号`{}`:表明一个`枚举`，列出一个参数所有可能的选项，其中的值用`|`分隔，`|`是`exclusive OR`的意思，表示只能有一个。如：
+
+```powershell
+New-Alias -Option {None | ReadOnly | Constant | Private | AllScope}
+```
+
+## providers
+
+PowerShell providers 是一些特定的`.NET`程序，用来提供对特性data stores 的访问，方便查看和管理。
+数据出现在一个`driver`里，你可以像是访问硬盘中的文件那样访问它们。
+你也可以使用自定义的 `cmdlet`
+
+有时`provider`也会给`built-in cmdlets`提供动态参数。只有`cmdlets`作用在这些`provider`上面时，参数才是可用的。
+
 ## examples
 
 *****
@@ -343,7 +415,7 @@ In this command, no aliases are used and all parameters include the parameter na
 The second command is the more natural use of the comparison command format.
 The where alias is substituted for the Where-Object cmdlet name and all optional parameter names are omitted.
 
-```PowerShell
+```powershell
 Get-Process | Where-Object -Property Handles -GE -Value 1000
 Get-Process | where Handles -GE 1000
 ```
@@ -1049,7 +1121,7 @@ $LockWorkStation::LockWorkStation() | Out-Null
 
 校验文件Hash值的命令格式如下：
 
-```PowerShell
+```powershell
 Get-FileHash 文件路径 -Algorithm 校验的Hash值类型| Format-List
 ```
 
@@ -1058,13 +1130,13 @@ PS: 如果需要校验的文件路径比较复杂，例如路径中包含空格�
 Windows PowerShell命令可以校验的Hash值类型包括：SHA1、SHA256、SHA384、SHA512、MACTripleDES、MD5、RIPEMD160，暂不支持校验CRC32值。
 如果想要校验它的SHA1值，则运行如下命令：
 
-```PowerShell
+```powershell
 Get-FileHash C:\Windows\notepad.exe -Algorithm SHA1| Format-List
 ```
 
 如果想要校验SHA256值，则不需要带-Algorithm参数即可，命令如下：
 
-```PowerShell
+```powershell
 Get-FileHash C:\Windows\notepad.exe | Format-List
 ```
 
@@ -1166,7 +1238,7 @@ Start-Sleep –m 10000
 
 ## 不停查看一个文件夹内的内容
 
-```PowerShell
+```powershell
 $i=0
 while ($i -le 1000)
 {

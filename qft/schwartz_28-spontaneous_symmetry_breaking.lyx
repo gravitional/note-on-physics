@@ -20,7 +20,7 @@
 \definecolor{ocre}{RGB}{243,102,25} 
 \usepackage{enumerate} 
 
-
+%\usepackage{hepunits} % hep units
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
 \usepackage{bm} 
@@ -126,49 +126,56 @@ Thomas Young
 \begin_layout Standard
 
 \color red
-对称性的自发破缺，会产生无质量的哥德斯通粒子。
+对称性的自发破缺，会产生无质量的Goldstone粒子，无质量的性质不依赖于场的参数化（一定能找到）。
 \begin_inset Newline newline
 \end_inset
 
-原本拉氏量的对称性，会限制哥德斯通玻色子在规范变换下的变换形式。
+原本拉氏量的对称性，会限制Goldstone玻色子在规范变换下的变换形式。
 \end_layout
 
 \begin_layout Standard
-真正的vaccum 是拉氏量中势能项的最低点。
-\begin_inset Newline newline
+事实上，对称性自发破缺这个名字很容易误导你，让你觉得对称性被破坏了，不存在了，其实根本不是这样。更恰当的名字应该叫做`非平凡真空'，`真空平移'之类的。
+\end_layout
+
+\begin_layout Standard
+真正的vaccum 在拉氏量中势能项的极小值处（通过场
+\begin_inset Formula $\phi$
 \end_inset
 
-真正的vaccum具有对称性，它的对称性是理论对称群的一个子群。也就是说，真 vaccum 是一个对称的几何区域（环，球等等）。
-\begin_inset Newline newline
-\end_inset
+的合适取值）。
+\end_layout
 
-现实的物理系统总是从一个确定的真空点出发的，选定了一种场的参数化方式（或者说表象）之后，从拉氏量中就看不出原先的对称性了。
-\begin_inset Newline newline
-\end_inset
+\begin_layout Standard
+真正的vaccum具有对称性，它的对称性是理论对称群的一个子群。也就是说，真 vaccum 是一个对称的几何区域（圈，球等等）。现实的物理系统总是从一个确定的真
+空点出发的，选定了一种场的参数化方式（或者说表象）之后，从拉氏量中就看不出原先那种变换形式的对称性了。
+\end_layout
 
+\begin_layout Standard
 另一方面，在对称性的区域上，场的移动是平滑的，
 \begin_inset Formula $\dif\phi=0$
 \end_inset
 
-，一定可以选取某种参数化，使得
-\begin_inset Formula $\partial_{\mu}\phi^{\prime}\partial^{\mu}\phi^{\prime}=0$
+，所以场
+\begin_inset Formula $\phi$
 \end_inset
 
-，也就是相当于质量项等于零。
-\begin_inset Newline newline
+部分的拉氏量中只能出现平移不变的形式，
+\begin_inset Formula $\partial_{x,\mu}\phi(x)\partial^{x,\mu}\phi(x)$
 \end_inset
 
-因为质量项可以看成是拉氏量势能中的一部分。
+，也就是相当于质量项等于零(质量项是不满足平移对称性)。所以 Goldstone 玻色子都是无质量的。 
 \end_layout
 
 \begin_layout Standard
 选择了一个特定的真空（或者一个特定的参数化）之后，拉氏量表面上失去了原来的对称性（因为我们改变了场的参数化，相当于表象的改变，且不一定是线性的。对称变换的形式也
-改变了）
-\begin_inset Newline newline
-\end_inset
+改变了）但是拉氏量的对称性没有消失（对称变换在新的表象下采取新的形式，比如变成平移对称性了）。拉氏量的这种对称性，对新参数化下的场，比如Goldstone玻色子
+的场，显然仍然具有约束性。它限制了Goldstone 玻色子在对称变换下的变换形式，也就限制了 Goldstone 玻色子拉氏量的形式，也就限制了Goldsto
+ne玻色子相互作用的形式。
+\end_layout
 
-但是拉氏量的对称性没有消失（对称变换的表象变了，形式也变了，比如变成平移对称性了），拉氏量的这种对称性，对新参数化下的场，比如哥德斯通玻色子的场，显然仍然具有约
-束性。它限制了哥德斯通玻色子在对称变换下的变换形式，也就限制了拉氏量的形式，也就限制了哥德斯通玻色子相互作用的形式。
+\begin_layout Standard
+总的来说，通过重新选定真空，我们把原先理论中出现的场的自由度分成了两种，一种有质量，一种没质量，没质量是因为real真空具有对称性。但不管有没有质量，新的场仍然
+要遵守原先拉氏量的对称性。这就是一个重新参数化而已。
 \end_layout
 
 \begin_layout Chapter
@@ -263,7 +270,7 @@ for iron)以下时，能量开始变成主导项，当相邻原子指向相同�
 \begin_inset Formula $\vec{\sigma}$
 \end_inset
 
-，编码了围绕真空点的激发，也就是编码了自旋波，自旋波的量子被称为哥德斯通玻色子。
+，编码了围绕真空点的激发，也就是编码了自旋波，自旋波的量子被称为Goldstone玻色子。
 \end_layout
 
 \begin_layout Standard
@@ -576,7 +583,7 @@ with
 \begin_inset Newline newline
 \end_inset
 
-and
+and 
 \begin_inset Formula $\ket{\Omega_{-}}$
 \end_inset
 
@@ -678,23 +685,51 @@ Q=\int\dif^{3}J_{0}(x)=\int\dif^{3}x\sum_{m}\frac{\partial\mathcal{L}}{\partial\
 \begin_inset Formula $Q\ket{\Omega}_{\text{sym}}=0$
 \end_inset
 
-是不稳定的，真正的（稳定）真空是带荷的
+（假真空）是不稳定的，真正的（稳定）真空是带荷的，也就是
 \begin_inset Formula $Q\ket{\Omega}\neq0$
 \end_inset
 
-。（可以拿墨西哥帽模型想象。中心点在对称变换下是不变的，
+。（可以拿墨西哥帽模型想象。势能中心点(场
+\begin_inset Formula $\phi=0$
+\end_inset
+
+的点)在对称变换下是不变的，
 \begin_inset Formula $Q\ket{\Omega}_{\text{sym}}=0$
 \end_inset
 
-,而周围一圈（稳定）的真空，在对称变换下场会有个变化
+,而周围一圈真空（凹陷下去的部分，稳定的真空），在对称变换下，场
+\begin_inset Formula $\phi$
+\end_inset
+
+会有个变化
 \begin_inset Formula $Q\ket{\Omega}\neq0$
 \end_inset
 
-。另一方面，一般认为的真空不存在场，所以应该是对称的。我们一般规定的假真空都是定义其中场为零。所以关键是，真空是简并的，并且真空点并不是场为零的点）。
-\begin_inset Newline newline
+（
+\begin_inset Formula $\phi$
 \end_inset
 
-如果真空有能量
+沿势能极小值的平坦圆转动，
+\begin_inset Formula $\delta\phi\neq0$
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Standard
+也可以这么理解：一般认为的真空，是指场强为零的情况，因为什么都不存在——是空的(null)，完全空旷的东西在变换下应该等于它自己，
+\begin_inset Formula $\delta\ket{\Omega}_{\text{sym}}=0$
+\end_inset
+
+。我们一般规定的虚假真空（并不是能量最低的状态）都是定义其中场强为零。
+\end_layout
+
+\begin_layout Standard
+所以关键是，real 真空是简并的，并且real 真空中场强并不为零（反过来说，场强为零，能量不一定最低）。
+\end_layout
+
+\begin_layout Standard
+如果定义真空的能量为
 \begin_inset Formula $E_{0}$
 \end_inset
 
@@ -714,7 +749,11 @@ HQ\ket{\Omega}=\left[H,Q\right]\ket{\Omega}+QH\ket{\Omega}=E_{0}Q\ket{\Omega}\la
 \begin_inset Formula $Q\ket{\Omega}$
 \end_inset
 
-和基态是简并的（能量相同）。
+和我们选择的基态
+\begin_inset Formula $\ket{\Omega}$
+\end_inset
+
+（某个特定的real真空）是简并的（能量相同）。
 \end_layout
 
 \begin_layout Standard
@@ -734,11 +773,7 @@ HQ\ket{\Omega}=\left[H,Q\right]\ket{\Omega}+QH\ket{\Omega}=E_{0}Q\ket{\Omega}\la
 
 \end_inset
 
-它的能量是
-\begin_inset Formula $E(\vec{p})+E_{0}$
-\end_inset
-
-，不失一般性地，它的能量可以写成
+不失一般性地，它的能量可以写成
 \begin_inset Formula $E(\vec{p})+E_{0}$
 \end_inset
 
@@ -746,7 +781,11 @@ HQ\ket{\Omega}=\left[H,Q\right]\ket{\Omega}+QH\ket{\Omega}=E_{0}Q\ket{\Omega}\la
 \begin_inset Formula $E_{0}$
 \end_inset
 
-是真空的能量，按定义，真空能量最低）这里
+是real真空的能量，按定义，real真空能量最低，所以
+\begin_inset Formula $E(\vec{p})$
+\end_inset
+
+才是这个态的能量，能量都是相对的，这里就是相对于real真空）。这里
 \begin_inset Formula $F$
 \end_inset
 
@@ -754,11 +793,19 @@ HQ\ket{\Omega}=\left[H,Q\right]\ket{\Omega}+QH\ket{\Omega}=E_{0}Q\ket{\Omega}\la
 \begin_inset Formula $-2i$
 \end_inset
 
-因子是为了以后的方便。由于
+因子是为了以后的方便。
+\end_layout
+
+\begin_layout Standard
+由于
 \begin_inset Formula $\ket{\pi(\vec{0})}=\frac{-2i}{F}Q\ket{\Omega}$
 \end_inset
 
-，能量为
+，也就是说
+\begin_inset Formula $\vec{p}=0$
+\end_inset
+
+时，我们构造的态能量为
 \begin_inset Formula $E_{0}$
 \end_inset
 
@@ -780,6 +827,8 @@ Goldstone' theorem:
 \end_layout
 
 \begin_layout Standard
+
+\color red
 连续对称性的自发破缺暗示了无质量粒子（们）的存在。
 \end_layout
 
@@ -788,11 +837,8 @@ Goldstone' theorem:
 \begin_inset Formula $\ket{\pi\left(\vec{p}\right)}$
 \end_inset
 
-被称为哥德斯通粒子。哥德斯通定理是普遍的。有时候利用诺特流从真空构建哥德斯通粒子是有用的。
-\begin_inset Newline newline
-\end_inset
-
-大多数时候只需要利用别的方法，在 the broken phase of the theory 中定位哥德斯通粒子就足够了。
+被称为Goldstone粒子。 Goldstone 定理是普遍的。有时候会需要用诺特流从real真空构建Goldstone粒子，大多数时候用别的方法就行，只需要
+在对称性自发破缺之后的理论中，定位到 Goldstone 玻色子就足够了。
 \end_layout
 
 \begin_layout Standard
@@ -831,12 +877,12 @@ noprefix "false"
 。这个方程的洛伦兹不变版本，
 \begin_inset Formula 
 \begin{equation}
-\bra{\pi\left(\vec{q}\right)}J_{\mu}(y)\ket{\Omega}=iq_{\mu}Fe^{i\vec{q}\cdot\vec{y}}\label{eq:28.9}
+\bra{\pi\left(q\right)}J_{\mu}(y)\ket{\Omega}=iq_{\mu}Fe^{iq\cdot y}\label{eq:28.9}
 \end{equation}
 
 \end_inset
 
-是用来在粒子谱中鉴别哥德斯通玻色子的有效方法，我们在下文会见到。
+是用来在粒子谱中鉴别Goldstone玻色子的有效方法，我们会在下文见到。
 \end_layout
 
 \begin_layout Section
@@ -981,7 +1027,7 @@ linear sigma model。
 
 
 \series default
-场是无质量的哥德斯通玻色子。
+场是无质量的Goldstone玻色子。
 \begin_inset Formula $\pi$
 \end_inset
 
@@ -993,7 +1039,7 @@ pion，
 \begin_inset Formula $\pi^{\pm}$
 \end_inset
 
-and 
+ and 
 \begin_inset Formula $\pi^{0}$
 \end_inset
 
@@ -1019,7 +1065,8 @@ noprefix "false"
 \begin_inset Formula $\pi$
 \end_inset
 
-这样的无质量粒子会出现在任何对称性自发破缺的理论中（by 哥德斯通定理），每一个破缺的对称性对应一个无质量粒子。注意，无质量粒子的存在和我们如何参数化
+这样的无质量粒子会出现在任何对称性自发破缺的理论中（by Goldstone定理），每一个破缺的对称性对应一个无质量粒子（势场真空每一个平坦的移动方向都对应一个
+无质量粒子）。注意，无质量粒子的存在和我们如何参数化
 \begin_inset Formula $\phi$
 \end_inset
 
@@ -1090,7 +1137,7 @@ name "fig:图28.1"
 
 \end_inset
 
-哥德斯通粒子天然地和平移不变性联系在了一起。回忆起破缺的对称性是
+Goldstone粒子天然地和平移不变性联系在了一起。回忆起破缺的对称性是
 \begin_inset Formula $\phi(x)\to e^{i\theta}\phi(x)$
 \end_inset
 
@@ -1142,7 +1189,7 @@ noprefix "false"
 \begin_inset Formula $\pi(x)$
 \end_inset
 
-的质量项。事实上，哥德斯通定理要求的无质量mode，跟哥德斯通粒子的平移对称性，对应沿势能平坦方向的移动（如图
+的质量项。事实上，Goldstone定理要求的无质量mode，跟Goldstone粒子的平移对称性，对应沿势能平坦方向的移动（如图
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:图28.1"
@@ -1156,7 +1203,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-为了区分出哥德斯通玻色子，其相互作用形式由对称性限制，相比于轴向modes，后者跟模型无关，且在对称变换下不变。（参考式
+为了区分出Goldstone玻色子，其相互作用形式由对称性限制，相比于轴向modes，后者跟模型无关，且在对称变换下不变。（参考式
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:28.11"
@@ -1178,7 +1225,7 @@ noprefix "false"
 \begin_inset Formula $F_{\pi}=\frac{2m}{\sqrt{\lambda}}$
 \end_inset
 
-固定。（这里是为了把哥德斯通和轴向的拉氏量分开，可以简化运算）然后 Lagrangian 约化成
+固定。（这里是为了把Goldstone和轴向的拉氏量分开，可以简化运算）然后 Lagrangian 约化成
 \begin_inset Formula 
 \begin{equation}
 \mathcal{L}=\frac{1}{2}\left(\partial_{\mu}\pi\right)^{2}\label{eq:28.14}
@@ -1204,7 +1251,7 @@ noprefix "false"
 \series bold
 nonlinear sigma model 
 \series default
-的一个例子，就是在线性sigma 模型中
+的一个例子，nonlinear sigma model 就是把线性sigma 模型中
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -1226,7 +1273,7 @@ noprefix "false"
 
 \end_inset
 
-中的哥德斯通玻色子，我们计算脱耦和极限
+中的Goldstone玻色子，我们计算脱耦和极限
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:28.14"
@@ -1280,11 +1327,29 @@ noprefix "false"
 
 \end_inset
 
-我们看到
+（即
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.9-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）我们看到
 \begin_inset Formula $\ket{\pi}$
 \end_inset
 
-的确是哥德斯通玻色子。
+的确是Goldstone玻色子。
+\begin_inset Formula 
+\begin{equation}
+\bra{\pi\left(\vec{q}\right)}J_{\mu}(y)\ket{\Omega}=iq_{\mu}Fe^{i\vec{q}\cdot\vec{y}}\label{eq:28.9-1}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1356,8 +1421,12 @@ and
 \begin_inset Formula $g_{R}\in SU(2)_{R}$
 \end_inset
 
-。等价地，对称性可以写成
-\begin_inset Formula $q\to e^{i\left(\theta_{a}\tau^{a}+\gamma_{5}\beta_{a}\tau^{a}\right)}q$
+。
+\begin_inset Newline newline
+\end_inset
+
+等价地，对称性可以写成
+\begin_inset Formula $q\to e^{i\left(I\theta_{a}\tau^{a}+\gamma_{5}\beta_{a}\tau^{a}\right)}q$
 \end_inset
 
 ，其中
@@ -1375,7 +1444,11 @@ d
 \begin_inset Formula $d$
 \end_inset
 
-的味道二重态。用
+的味道二重态。
+\begin_inset Newline newline
+\end_inset
+
+用
 \begin_inset Formula $\theta_{a}$
 \end_inset
 
@@ -1383,11 +1456,22 @@ with
 \begin_inset Formula $\beta_{a}=0$
 \end_inset
 
-参数化的是对角子群，叫做 
+参数化的是对角子群（相当于前面乘上的是单位矩阵 
+\begin_inset Formula $I=\left(\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right)$
+\end_inset
+
+），叫做 
 \series bold
 同位旋(isospin)。
 \series default
-被
+
+\begin_inset Newline newline
+\end_inset
+
+用
 \begin_inset Formula $\beta_{a}$
 \end_inset
 
@@ -1397,7 +1481,16 @@ with
 
 参数化的叫做 
 \series bold
-轴转动(rotations)。
+轴转动( axial rotations)。
+\series default
+（在 Weyl 表象下 
+\begin_inset Formula $\gamma^{5}=\left(\begin{array}{cc}
+-1 & 0\\
+0 & 1
+\end{array}\right)$
+\end_inset
+
+，左手和右手的转动会差一个负号）。
 \end_layout
 
 \begin_layout Standard
@@ -1505,7 +1598,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-我们能够确认这一点，通过检查它暗示了和自然符合的重子谱。你可能会猜测
+我们能够证实这一点，通过确认它暗示了和自然符合的重子谱。你可能会猜测
 \begin_inset Formula $\langle\bar{u}u\rangle$
 \end_inset
 
@@ -1517,7 +1610,7 @@ noprefix "false"
 \begin_inset Formula $SU(2)_{L}\times SU(2)_{R}$
 \end_inset
 
-对称性将会被严重破坏。取而代之地，
+对称性将会被严重破坏。反而，
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:28.21"
@@ -1544,7 +1637,8 @@ with
 \begin_inset Formula $SU(2)\times SU(2)\to SU(2)_{\text{isospin}}$
 \end_inset
 
-。未破缺的对称性是对角子群，它按相同的方式转动左手和右手场。这和核物理中的isospin是相同的，在那里它联系了中子和质子。确实，中子是
+。未破缺的对称性是对角子群（就是左右手按照相同方式变化），它按相同的方式转动左手和右手场。这和核物理中的isospin是相同的，在那里它联系了中子和质子。确实，
+中子是
 \begin_inset Formula $uud$
 \end_inset
 
@@ -1579,8 +1673,8 @@ sospin对称性相联系。
 \begin_inset Formula $SU(2)\times SU(2)\to SU(2)_{\text{isospin}}$
 \end_inset
 
-出发，用复合场来写下一个有效描述。我们所构建的低能理论是pions 的其中一个。现实中，pions 是夸克和胶子的复合态，它们也是哥德斯通粒子。正如我们将看到的
-，单单是对称性破缺模式已经可以告诉我们很多 pions 相互作用的信息。它们的相互作用形式和它们是由QCD场组成的还是外星小绿人组成的无关。
+出发，用复合场来写下一个有效描述。我们所构建的低能理论是pions 的其中一个。现实中，pions 是夸克和胶子的复合态，它们也是Goldstone粒子。正如我
+们将看到的，单单是对称性破缺模式已经可以告诉我们很多 pions 相互作用的信息。它们的相互作用形式和它们是由QCD场组成的还是外星小绿人组成的无关。
 \end_layout
 
 \begin_layout Standard
@@ -1630,8 +1724,8 @@ noprefix "false"
 \begin_inset Formula $SU(2)\times SU(2)$
 \end_inset
 
-变换下是不变的。注意到我们只用到了普通导数，而不是协变导数，因为我们感兴趣的是全局对称性。（not local）。并且，我们选择了特定的相互作用势以保证存在自发
-对称性破缺。势能在
+变换下是不变的。注意到我们只用到了普通导数，而不是协变导数，因为我们感兴趣的是全局对称性（not local）。并且，我们选择了特定的相互作用势以保证存在自发对
+称性破缺。势能在
 \begin_inset Formula 
 \[
 \langle\Sigma_{ij}\rangle=\frac{\upsilon}{2}\left(\begin{array}{cc}
@@ -1706,7 +1800,7 @@ with
 \begin_inset Formula $\pi^{a}(x)$
 \end_inset
 
-能有正规的归一化的动能项，你可以通过展开
+能有正规的归一化的动能项，你可以通过展开 Eq.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:28.23"
@@ -1714,6 +1808,10 @@ plural "false"
 caps "false"
 noprefix "false"
 
+\end_inset
+
+: 
+\begin_inset Formula $\mathcal{L}=\lvert\partial_{\mu}\Sigma\rvert^{2}+m^{2}\lvert\Sigma\rvert^{2}-\frac{\lambda}{4}\lvert\Sigma\rvert^{4}$
 \end_inset
 
 证明。如果我们写
@@ -1728,7 +1826,7 @@ noprefix "false"
 \begin_inset Formula $\sigma$
 \end_inset
 
-是不变的且
+是不变的而
 \begin_inset Formula 
 \begin{equation}
 \pi^{a}\to\pi^{a}+\frac{F_{\pi}}{2}\left(\theta_{L}^{a}-\theta_{R}^{a}\right)-\frac{1}{2}f^{abc}\left(\theta_{L}^{b}+\theta_{R}^{b}\right)\pi^{c}+\cdots\label{eq:28.25}
@@ -1776,12 +1874,12 @@ noprefix "false"
 \begin_inset Formula $\pi^{a}$
 \end_inset
 
-场的变换是非线性的–在领头阶它们将会平移。变换中的高阶项可以直截了当的决定（见习题28.2）。（之前章节所说的，虽然选择真空使得对称性自发破缺，但是体系的
+场的变换是非线性的——在领头阶它们将会平移。变换中的高阶项可以直截了当的决定（见习题28.2）。（之前章节所说的，虽然选择真空使得对称性自发破缺，但是体系的
  Lagrangian 仍然具有对称性 。也就是场仍然要满足一定的对称变换，取决于参数化方式）。
 \end_layout
 
 \begin_layout Standard
-方程
+Eq.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:28.25"
@@ -1870,7 +1968,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-只依靠对称性引导我们，我们就能写下包含
+一般来说，不管原先的拉氏量是什么形式。自发破缺之后，只依靠对称性引导我们，我们就能写下包含
 \begin_inset Formula $U$
 \end_inset
 
@@ -1901,7 +1999,7 @@ noprefix "false"
 \end_inset
 
 的项是trivial的。因此，Chiral Lagrangian 中的每一项都必须包含一个协变导数。特别地，pions 不能有质量项，与 pions
- 是无质量哥德斯通玻色子一致。
+ 是无质量Goldstone玻色子一致。
 \end_layout
 
 \begin_layout Standard
@@ -1911,11 +2009,11 @@ noprefix "false"
 
 归一化是为了保证 pions 的动能项是正规的。展开头一项给出
 \begin_inset Formula 
-\begin{align*}
- & \frac{F_{\pi}^{2}}{4}\tr\left[\left(D_{\mu}U\right)\left(D_{\mu}U\right)^{\dagger}\right]\\
- & =\frac{1}{2}\left(\partial_{\mu}\pi^{0}\right)\left(\partial_{\mu}\pi^{0}\right)+\left(D_{\mu}\pi^{+}\right)\left(D_{\mu}\pi^{-}\right)^{\dagger}+\frac{1}{F_{\pi}^{2}}\left[-\frac{1}{3}\pi^{0}\pi^{0}D_{\mu}\pi^{+}D_{\mu}\pi^{-}+\cdots\right]\\
- & +\frac{1}{F_{\pi}^{4}}\left[\frac{1}{18}\left(\pi^{-}\pi^{+}\right)^{2}D_{\mu}\pi^{0}D_{\mu}\pi^{0}+\cdots\right]+\cdots
-\end{align*}
+\begin{align}
+ & \frac{F_{\pi}^{2}}{4}\tr\left[\left(D_{\mu}U\right)\left(D_{\mu}U\right)^{\dagger}\right]\nonumber \\
+ & =\frac{1}{2}\left(\partial_{\mu}\pi^{0}\right)\left(\partial_{\mu}\pi^{0}\right)+\left(D_{\mu}\pi^{+}\right)\left(D_{\mu}\pi^{-}\right)^{\dagger}+\frac{1}{F_{\pi}^{2}}\left[-\frac{1}{3}\pi^{0}\pi^{0}D_{\mu}\pi^{+}D_{\mu}\pi^{-}+\cdots\right]\label{eq:28.28}\\
+ & +\frac{1}{F_{\pi}^{4}}\left[\frac{1}{18}\left(\pi^{-}\pi^{+}\right)^{2}D_{\mu}\pi^{0}D_{\mu}\pi^{0}+\cdots\right]+\cdots\nonumber 
+\end{align}
 
 \end_inset
 
@@ -2041,11 +2139,413 @@ noprefix "false"
 \begin_inset Formula $J_{\mu}^{5a}$
 \end_inset
 
-包含有 quark 流，quark 拉氏量的守恒流的零分量，作用到真空上 ，生成哥德斯通粒子，就是 pions，通过
+包含有 quark 流，quark 拉氏量的守恒流的零分量，作用到真空上 ，生成Goldstone粒子，就是 pions，通过
 \begin_inset Formula $W_{\mu}^{a}$
 \end_inset
 
-的连接，生成轻子）
+的连接，生成轻子）。
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.30"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的矩阵元，表明了
+\begin_inset Formula $J_{\mu}^{5a}=F_{\pi}\partial_{\mu}\pi^{a}$
+\end_inset
+
+。确实，这不是啥新鲜事，利用方程
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.25"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的变换性质，它就是 Chiral Lagrangian 的诺特流
+\begin_inset Formula $F_{\pi}\partial_{\mu}\pi^{a}$
+\end_inset
+
+对于
+\begin_inset Formula $\theta_{L}^{a}=-\theta_{R}^{a}=\theta$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+方程 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.30"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中pions and axial current 的这种联系让我们可以通过弱衰变测量
+\begin_inset Formula $F_{\pi}$
+\end_inset
+
+。在
+\begin_inset Formula $4$
+\end_inset
+
+–费米理论中计算起来比较简单，
+\begin_inset Newline newline
+\end_inset
+
+该理论将
+\begin_inset Formula $W_{\mu}^{a}$
+\end_inset
+
+玻色子积掉，给出了流–流相互作用。总结我们将在 Chapter 29 推导出的结果，4–费米相互作用是
+\begin_inset Formula 
+\[
+\mathcal{L}_{4F}=\frac{G_{F}}{\sqrt{2}}J_{\mu}^{L}J^{\mu L}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+J_{\mu}^{L}=\bar{\psi}_{u}\gamma^{\mu}\left(1-\gamma^{5}\right)\psi_{d}+\bar{\psi}_{\nu_{\mu}}\gamma^{\mu}\gamma^{5}\psi_{\mu}+\cdots
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $\psi_{u},\psi_{d},\psi_{\mu}$
+\end_inset
+
+and 
+\begin_inset Formula $\psi_{\nu_{\mu}}$
+\end_inset
+
+分别是上夸克，下夸克,muon，and muon 中微子场。
+\begin_inset Formula $\cdots$
+\end_inset
+
+代表其他费米子种类。
+\begin_inset Formula $\mathcal{L}_{4F}$
+\end_inset
+
+由一套
+\begin_inset Formula $4$
+\end_inset
+
+–费米相互作用组成，包括四个夸克，四个轻子，或两个夸克和两个轻子。
+\begin_inset Formula $G_{F}$
+\end_inset
+
+可以通过轻子相互作用探测，比如
+\begin_inset Formula $\mu^{-}\to e^{-}\bar{\nu}_{e}\nu_{\mu}$
+\end_inset
+
+衰变率，给出了
+\begin_inset Formula $G_{F}=1.16\times10^{-5}\text{GeV}^{-2}$
+\end_inset
+
+(see Chapter 29 and 31)。Then, Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.30"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+允许pion 衰变到 axial current（强子流），然后（经过
+\begin_inset Formula $4$
+\end_inset
+
+–费米理论）变成轻子流。所以
+\begin_inset Formula $\pi^{+}\to\mu^{+}\nu_{e}$
+\end_inset
+
+的矩阵元是
+\begin_inset Formula 
+\[
+\mathcal{M}\left(\pi^{+}\to\mu^{+}\nu_{e}\right)=\frac{G_{F}}{2}F_{\pi}p^{\mu}\bar{\psi}_{\nu_{\mu}}\gamma^{\mu}\left(1-\gamma^{5}\right)\psi_{\mu}
+\]
+
+\end_inset
+
+将矩阵元平方，对轻子相空间积分，我们得到
+\begin_inset Formula $\pi^{+}\to\mu^{+}\nu_{e}$
+\end_inset
+
+的衰变率是
+\begin_inset Formula 
+\[
+\Gamma\left(\pi^{+}\to\mu^{+}\nu_{\mu}\right)=\frac{G_{F}^{2}F_{\pi}^{2}}{4\pi}m_{\pi}m_{\mu}^{2}\left(1-\frac{m_{\mu}^{2}}{m_{\pi}^{2}}\right)^{2}
+\]
+
+\end_inset
+
+使用测量到的 pion 寿命 
+\begin_inset Formula $\tau=\Gamma^{-1}=2.6\times10^{-8}s,m_{\pi}=139.5\text{MeV}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{\mu}=106\text{MeV}$
+\end_inset
+
+，我们得到 pion 衰变常数 是
+\begin_inset Formula $F_{\pi}=92\text{MeV}$
+\end_inset
+
+。With 
+\begin_inset Formula $F_{\pi}$
+\end_inset
+
+ 拟合到实验， Chiral Lagrangian 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.28"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的领头阶不再有任何自由参数。因此我们可以继续对振幅作出预测，比如
+\begin_inset Formula $\sigma\left(\pi^{0}\pi^{0}\to\pi^{+}\pi^{-}\right)$
+\end_inset
+
+，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.28"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中相互作用可以跟实验数据进行比较。
+\end_layout
+
+\begin_layout Standard
+我们也可以将夸克质量和pion质量联系起来，使用 current algebra 或者是 有效 Lagrangian.
+ 夸克质量明显破坏了手征对称性，它接着说明了 pions 不是无质量的Goldstone bosons 。为了看出夸克质量时如何影响pions质量的，我们把夸克
+质量项写成
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}_{m}=\bar{q}Mq,\quad M=\left(\begin{array}{cc}
+m_{u} & 0\\
+0 & m_{d}
+\end{array}\right)\label{eq:28.35}
+\end{equation}
+
+\end_inset
+
+如果
+\begin_inset Formula $M$
+\end_inset
+
+是常数矩阵，那么这一项可以分开
+\begin_inset Formula $\mathcal{L}_{m}=M\bar{q}_{L}q_{L}+M\bar{q}_{R}q_{R}$
+\end_inset
+
+，可以保证手征对称性。
+\begin_inset Newline newline
+\end_inset
+
+但是
+\begin_inset Formula $M$
+\end_inset
+
+不是常数的时候，会变成
+\begin_inset Formula $\mathcal{L}_{m}=\bar{q}_{L}Mq_{R}+\bar{q}_{R}Mq_{L}=\bar{q}_{L}Mq_{R}+\bar{q}_{L}\gamma^{0}M^{\dagger}\gamma^{0}q_{R}=2\bar{q}_{L}Mq_{R}=2\bar{q}_{R}Mq_{L}$
+\end_inset
+
+,这就不一定有手征对称性了。
+\end_layout
+
+\begin_layout Standard
+然而，我们现在会使用一种技巧重新获得手征对称性。让我们暂且假装质量矩阵不是常数，而场碰巧是常数。然后我们把变换性质分配给
+\begin_inset Formula $M$
+\end_inset
+
+。如果我们令
+\begin_inset Formula $SU(2)\times SU(2)$
+\end_inset
+
+变换下质量矩阵的变换形式是
+\begin_inset Formula $M\to g_{L}Mg_{R}^{\dagger}$
+\end_inset
+
+（假设
+\begin_inset Formula $M\to g_{R}Mg_{L}^{\dagger}$
+\end_inset
+
+应该也是类似的，也就是说选择其中一种就可以，原因还不太清楚），那么质量项就是不变的。这种被看作场的常数（指
+\begin_inset Formula $M$
+\end_inset
+
+矩阵）被称为 spurions （虚假粒子），由于它们是虚假（fictional）场。现在，pions 的低能理论中不再有夸克，但是可以有质量矩阵。因此我们可以
+利用 spurious（假的） 变换性质限制 Chiral Lagrangian 中质量矩阵可能出现的方式。确实，我们能添加到 nonlinear
+ sigma model 中领头的
+\begin_inset Formula $SU(2)\times SU(2)$
+\end_inset
+
+不变项是
+\begin_inset Formula 
+\begin{align}
+\mathcal{L}_{M} & =\frac{V^{3}}{2}\tr\left(MU+M^{\dagger}U^{\dagger}\right)\nonumber \\
+ & =V^{3}\left(m_{u}+m_{d}\right)-\frac{V^{3}}{2F_{\pi}^{2}}\left(m_{u}+m_{d}\right)\left(\pi_{0}^{2}+\pi_{1}^{2}+\pi_{2}^{2}\right)+\mathcal{O}(\pi^{3})\label{eq:28.36}
+\end{align}
+
+\end_inset
+
+前置因子
+\begin_inset Formula $\frac{V^{3}}{2}$
+\end_inset
+
+是这样决定的。
+\begin_inset Formula $\mathcal{L}_{M}$
+\end_inset
+
+贡献的真空能应该匹配
+\begin_inset Formula $\mathcal{L}_{m}$
+\end_inset
+
+贡献的真空能。确实，当
+\begin_inset Formula $\langle\bar{u}u\rangle=\langle\bar{d}d\rangle=V^{3}$
+\end_inset
+
+，我们发现
+\begin_inset Formula $\mathcal{L}_{m}=m_{u}\langle\bar{u}u\rangle+m_{d}\langle\bar{d}d\rangle=V^{3}\left(m_{u}+m_{d}\right)$
+\end_inset
+
+。，它和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.36"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的展开式是匹配的。现在我们可以读出pion 质量了：
+\begin_inset Formula 
+\[
+m_{\pi}^{2}=\frac{V^{3}}{F_{\pi}^{2}}\left(m_{u}+m_{d}\right)
+\]
+
+\end_inset
+
+这被称为 Gell-Mann-Oakes-Renner 关系。它表明pion质量的平方线性依赖于夸克质量。例如，当
+\begin_inset Formula $V\sim\Lambda_{\text{QCD}}\sim250\text{MeV}$
+\end_inset
+
+，
+\begin_inset Formula $F_{\pi}=130\text{MeV}$
+\end_inset
+
+，and 
+\begin_inset Formula $m_{\pi}=140\text{MeV}$
+\end_inset
+
+，这个关系给出
+\begin_inset Formula $m_{u}+m_{d}\sim11\text{MeV}$
+\end_inset
+
+。Gell-Mann-Oakes-Renner 关系经过了格点QCD的验证。（见图25.3）记住，这些夸克质量对应的是 Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.35"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中出现的，随便怎么重整化的质量，不非得是 pole masses or 
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+ masses.
+\end_layout
+
+\begin_layout Standard
+因此，只利用对称性破缺的模式，我们就能提取出 pion 衰变常数 
+\begin_inset Formula $F_{\pi}$
+\end_inset
+
+，联系pion 质量和夸克质量，and 计算量子效应比如pion散射。对称性也限制了pion和重子，比如 proton and neutron
+ 的作用形式。确实，protons and neutrons 间的强相互作用的模型阐明了那些被我们简洁地编码在 Chiral Lagrangian
+ 中的对称性原则。在这个模型中，proton and neutron通过交换 pion 传递的 Yukawa 力相互作用。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\bra{\Omega}J_{\mu}^{5a}(x)\ket{\pi^{b}(p)}=ip^{\mu}F_{\pi}e^{-ipx}\delta^{ab}\label{eq:28.30-1}
+\end{equation}
+
+\end_inset
+
+顺便注意到，用
+\begin_inset Formula $p_{\mu}$
+\end_inset
+
+和 Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.30"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+（即 Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:28.30-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）收缩，我们会发现，如果流
+\begin_inset Formula $J_{\mu}^{5a}$
+\end_inset
+
+是守恒的，那么
+\begin_inset Formula $p^{2}F_{\pi}^{2}=m_{\pi}^{2}F_{\pi}^{2}=0$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+\partial_{x,\mu}\bra{\Omega}J_{\mu}^{5a}(x)\ket{\pi^{b}(p)} & =\bra{\Omega}\partial_{x,\mu}J_{\mu}^{5a}(x)\ket{\pi^{b}(p)}=0\text{, as J_{\mu}^{5a} is conserved}\\
+ & =(-ip_{\mu})ip^{\mu}F_{\pi}e^{-ipx}\delta^{ab}=p^{2}F_{\pi}e^{-ipx}\delta^{ab}
+\end{align*}
+
+\end_inset
+
+这联系了手征对称性和 Goldstone 玻色子的无质量性，通过它对应的守恒流。如果流不是精确守恒的，就好比在真实世界中由于夸克质量造成的，那么
+\begin_inset Formula $\partial_{\mu}J_{\mu}^{a}=m_{q}\bar{q}\gamma^{5}\tau^{a}q\neq0$
+\end_inset
+
+，这种情况下pion获得一个正比于
+\begin_inset Formula $m_{q}$
+\end_inset
+
+的质量。
 \end_layout
 
 \begin_layout Standard
