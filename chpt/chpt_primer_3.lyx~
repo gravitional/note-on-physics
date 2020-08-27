@@ -186,17 +186,17 @@ M_{1}\equiv\left\{ \Phi:m^{4}\to\mathbb{R}^{n}|\phi_{i}:M^{4}\to\mathbb{R}\,\tex
 
 具有以下性质：
 \begin_inset Formula 
-\[
-\varphi\left(e,\Phi\right)=\Phi\quad\forall\quad\Phi\in M_{1},\quad e\,\text{identity of }G
-\]
+\begin{equation}
+\varphi\left(e,\Phi\right)=\Phi\quad\forall\quad\Phi\in M_{1},\quad e\text{ is identity of }G\label{eq:3.31}
+\end{equation}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
-\varphi\left(g_{1},\varphi(g_{2},\Phi)\right)=\varphi\left(g_{1}g_{2},\Phi\right)\quad\forall\quad g_{1},g_{2}\in G,\quad\forall\Phi\in M_{1}
-\]
+\begin{equation}
+\varphi\left(g_{1},\varphi(g_{2},\Phi)\right)=\varphi\left(g_{1}g_{2},\Phi\right)\quad\forall\quad g_{1},g_{2}\in G,\quad\forall\Phi\in M_{1}\label{eq:3.32}
+\end{equation}
 
 \end_inset
 
@@ -208,7 +208,7 @@ M_{1}\equiv\left\{ \Phi:m^{4}\to\mathbb{R}^{n}|\phi_{i}:M^{4}\to\mathbb{R}\,\tex
 \begin_inset Formula $M_{1}$
 \end_inset
 
-。第二个性质叫做群同态。这个映射，一般来说，不是群
+。第二个性质叫做群同态(group-homomorphism)。这个映射，一般来说，不是群
 \begin_inset Formula $G$
 \end_inset
 
@@ -260,7 +260,789 @@ M_{1}\equiv\left\{ \Phi:m^{4}\to\mathbb{R}^{n}|\phi_{i}:M^{4}\to\mathbb{R}\,\tex
 \begin_inset Formula $G/H$
 \end_inset
 
-）的联系。陪集要么完全重合，要么没有任何公共元素（completely disjoint）
+）的联系。陪集要么完全重合，要么没有任何公共元素（completely disjoint）。EQ
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.31"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，EQ
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.32"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+导致两个重要的性质：
+\end_layout
+
+\begin_layout Enumerate
+一个给定陪集的所有元素把原点(origin)映射到同一个矢量
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+映射对于商群
+\begin_inset Formula $G/H$
+\end_inset
+
+的元素（即陪集）是单射（injective）。
+\end_layout
+
+\begin_layout Standard
+证明：
+\begin_inset Formula 
+\[
+\varphi(gh,0)=\varphi(g,\varphi(h,0))=\varphi(g,0)\quad\forall g\in G\quad h\in H
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们假设
+\begin_inset Formula $g,g^{\prime}$
+\end_inset
+
+是群
+\begin_inset Formula $G$
+\end_inset
+
+的两个元素，并且
+\begin_inset Formula $g^{\prime}\notin gH$
+\end_inset
+
+。让我们假设
+\begin_inset Formula $\varphi(g,0)=\varphi(g^{\prime},0)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+0=\varphi(e,0)=\varphi(g^{-1}g,0)=\varphi(g^{-1},\varphi(g,0))=\varphi(g^{-1},\varphi(g^{\prime},0))=\varphi(g^{-1}g^{\prime},0)
+\]
+
+\end_inset
+
+这意味着
+\begin_inset Formula $g^{-1}g^{\prime}\in H$
+\end_inset
+
+ or 
+\begin_inset Formula $g^{\prime}\in gH$
+\end_inset
+
+，无论哪一个，都跟假设相矛盾。源和像的映射是可以颠倒的。
+\end_layout
+
+\begin_layout Standard
+结论是，商群
+\begin_inset Formula $G/H$
+\end_inset
+
+和 Goldstone bosons 间存在一个同构映射( isomorphic mapping)。当然， Goldstone bosons 不是
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+中的常数，而是 Minkowski 空间上的函数。这可以通过允许陪集
+\begin_inset Formula $gH$
+\end_inset
+
+也依赖于
+\begin_inset Formula $x$
+\end_inset
+
+来完成，反正论证过程与
+\begin_inset Formula $x$
+\end_inset
+
+无关。
+\end_layout
+
+\begin_layout Standard
+也就是说，
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted4.png
+	scale 28
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Goldstone bosons 跟陪集的同态关系
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+应用到QCD
+\end_layout
+
+\begin_layout Standard
+QCD中的对称性是
+\begin_inset Formula 
+\[
+G=SU(N)\times SU(N)=\left\{ (L,R)|L\in SU(N),R\in SU(N)\right\} 
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+H=\left\{ (V,V)\right\} |V\in SU(N)\cong SU(N)
+\]
+
+\end_inset
+
+如果
+\begin_inset Formula $N=2$
+\end_inset
+
+ for massless 
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\begin_inset Formula $d$
+\end_inset
+
+ quarks and 
+\begin_inset Formula $N=3$
+\end_inset
+
+ for massless u, d and s quarks.
+\end_layout
+
+\begin_layout Standard
+令
+\begin_inset Formula $\tilde{g}=(\tilde{L},\tilde{R})\in G$
+\end_inset
+
+，我们用用
+\begin_inset Formula $SU(N)$
+\end_inset
+
+矩阵
+\begin_inset Formula $U=\tilde{R}\tilde{L}^{\dagger}$
+\end_inset
+
+刻画陪集元素，如此可写成：
+\begin_inset Formula $\tilde{g}H=(1,\tilde{R}\tilde{L}^{\dagger})H$
+\end_inset
+
+。这是一种约定，我们令陪集的代表元素的首位上是单位矩阵（相当于一起从右边乘上
+\begin_inset Formula $\tilde{L}^{\dagger}$
+\end_inset
+
+）。
+\begin_inset Formula $U$
+\end_inset
+
+在
+\begin_inset Formula $g=(L,R)\in G$
+\end_inset
+
+下的变换行为，同构于左陪集
+\begin_inset Formula $\tilde{g}H$
+\end_inset
+
+左乘
+\begin_inset Formula $g$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+g\tilde{g}H=(L,R\tilde{R}\tilde{L}^{\dagger})H=(1,R\tilde{R}\tilde{L}^{\dagger}\tilde{L}^{\dagger})(L,L)H=(1,R(\tilde{R}\tilde{L}^{\dagger})L^{\dagger})H
+\]
+
+\end_inset
+
+这里我们使用了群的重排定理。任何元素
+\begin_inset Formula $\left(L,L\right)\in H$
+\end_inset
+
+乘以
+\begin_inset Formula $H$
+\end_inset
+
+得到
+\begin_inset Formula $H$
+\end_inset
+
+自己。根据我们的约定，变换后的陪集的代表元素是
+\begin_inset Formula $\left(1,R\tilde{R}\tilde{L}^{\dagger}L^{\dagger}\right)$
+\end_inset
+
+。因此,
+\begin_inset Formula $U$
+\end_inset
+
+的变换行为是
+\begin_inset Formula 
+\[
+U=\tilde{R}\tilde{L}^{\dagger}\mapsto U^{\prime}=R(\tilde{R}\tilde{L}^{\dagger})L^{\dagger}=RUL^{\dagger}
+\]
+
+\end_inset
+
+如果乘上的是子群
+\begin_inset Formula $H$
+\end_inset
+
+的群元
+\begin_inset Formula $(V,V)$
+\end_inset
+
+，按照之前的约定，等价于乘上的是
+\begin_inset Formula $(1,VV^{\dagger})=(1,1)$
+\end_inset
+
+，所以陪集代表元
+\begin_inset Formula $U$
+\end_inset
+
+对
+\begin_inset Formula $H$
+\end_inset
+
+子群的变换具有不变性。到这里，
+\begin_inset Formula $U$
+\end_inset
+
+是某些幺正矩阵，跟
+\begin_inset Formula $G$
+\end_inset
+
+的商群是同态关系。但
+\begin_inset Formula $U$
+\end_inset
+
+不一定对应物理上的场。
+\end_layout
+
+\begin_layout Standard
+现在我们定义三个空间：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{1}\equiv\begin{cases}
+\left\{ \Phi:M^{4}\to\mathbb{R}^{3}|\phi_{i}:M^{4}\to\mathbb{R}\text{ smooth}\right\}  & \text{for }N=2\\
+\left\{ \Phi:M^{4}\to\mathbb{R}^{8}|\phi_{i}:M^{4}\to\mathbb{R}\text{ smooth}\right\}  & \text{for }N=3
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+S_{2}\equiv\left\{ \phi:M^{4}\to\tilde{\mathscr{H}}(N)|\phi\text{ smooth}\right\} 
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\tilde{\mathscr{H}}(N)\equiv\left\{ A\in\text{gl}\left(N,\mathbb{C}\right)|A^{\dagger}=A\land\tr(A)=0\right\} $
+\end_inset
+
+, 所有的
+\begin_inset Formula $N\times N$
+\end_inset
+
+无迹厄米矩阵。他们在矩阵加法下组成一个实矢量线性空间。
+\begin_inset Formula $S_{2}$
+\end_inset
+
+映射是 Minkowski 
+\begin_inset Formula $4$
+\end_inset
+
+–维空间到一个无迹矩阵的映射，每一个entry 是一个光滑函数。对于
+\begin_inset Formula $N=2$
+\end_inset
+
+，
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ 可以像下面这样联系起来：
+\begin_inset Formula 
+\begin{equation}
+\phi=\sum_{i=1}^{3}\phi_{i}\tau_{i}=\left(\begin{array}{cc}
+\phi_{3} & \phi_{1}-i\phi_{2}\\
+\phi_{1}+i\phi_{2} & -\phi_{3}
+\end{array}\right)\equiv\left(\begin{array}{cc}
+\pi^{0} & \sqrt{2}\pi^{+}\\
+\sqrt{2}\pi^{-} & -\pi^{0}
+\end{array}\right)\label{eq:3.36}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\tau_{i}$
+\end_inset
+
+是通常的 Pauli 矩阵 and 
+\begin_inset Formula $\phi_{i}=\frac{1}{2}\tr\left[\tau_{i}\phi\right]$
+\end_inset
+
+。
+\begin_inset Formula $N=3$
+\end_inset
+
+是类似的，
+\begin_inset Formula 
+\begin{equation}
+\phi=\sum_{a=1}^{8}\phi_{a}\lambda_{a}\equiv\left(\begin{array}{ccc}
+\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{-} & \sqrt{2}K^{+}\\
+\sqrt{2}\pi^{+} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
+\sqrt{2}K^{-} & \sqrt{2}\bar{K}^{0} & \frac{-2}{\sqrt{3}}\eta
+\end{array}\right)\label{eq:3.37}
+\end{equation}
+
+\end_inset
+
+例如有
+\begin_inset Formula $\pi^{+}=\frac{1}{\sqrt{2}}\left(\phi_{1}-i\phi_{2}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+最后定义一个
+\begin_inset Formula 
+\[
+S_{3}\equiv\left\{ U:M^{4}\to SU(N)|U=\exp\left(i\frac{\phi}{F_{0}}\right),\phi\in M_{2}\right\} 
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $F_{0}$
+\end_inset
+
+是一个量纲约化因子，和玻色子场量纲一样，为
+\begin_inset Formula $E^{1}$
+\end_inset
+
+。稍后会确定
+\begin_inset Formula $F_{0}$
+\end_inset
+
+为手征极限下的衰变常数。这里需要注意的是
+\begin_inset Formula $S_{3}$
+\end_inset
+
+并不是一个矢量空间，因为两个
+\begin_inset Formula $SU(N)$
+\end_inset
+
+的和不是
+\begin_inset Formula $SU(N)$
+\end_inset
+
+矩阵。到这里，我们的
+\begin_inset Formula $U$
+\end_inset
+
+才有了物理意义，开始对应物理上的场。我们同时也引入对坐标
+\begin_inset Formula $x$
+\end_inset
+
+的依赖。
+\begin_inset Formula $U(x)=\exp\left(\frac{i\phi(x)}{F_{0}}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+可以在
+\begin_inset Formula $S_{3}$
+\end_inset
+
+上定义群
+\begin_inset Formula $SU(N)\times SU(N)$
+\end_inset
+
+的一个实现（realization）:
+\begin_inset Formula 
+\[
+\phi:G\times S_{3}\to S_{3}\quad\text{with}\quad\varphi\left[(L,R),U\right]\equiv RUL^{\dagger}
+\]
+
+\end_inset
+
+defines an operation of 
+\begin_inset Formula $G$
+\end_inset
+
+ on 
+\begin_inset Formula $S_{3}$
+\end_inset
+
+，由于
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $RUL^{\dagger}$
+\end_inset
+
+是一个
+\begin_inset Formula $SU(N)$
+\end_inset
+
+矩阵。
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\varphi\left[\left(1,1\right),U\right]=1U1=U$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+let 
+\begin_inset Formula $g_{i}=(L_{i},R_{i})\in G$
+\end_inset
+
+and thus 
+\begin_inset Formula $g_{1}g_{2}=(L_{1}L_{2},R_{1}R_{2})\in G$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+\varphi\left[g_{1},\varphi\left[g_{2},U\right]\right] & =\varphi\left[g_{1},\left(R_{2}UL_{2}^{\dagger}\right)\right]=R_{1}R_{2}UL_{2}^{\dagger}L_{1}^{\dagger}\\
+\varphi\left[g_{1}g_{2},U\right] & =R_{1}R_{2}U\left(L_{1}L_{2}\right)^{\dagger}=R_{1}R_{2}UL_{2}^{\dagger}L_{1}^{\dagger}
+\end{align*}
+
+\end_inset
+
+映射
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is homogeneous of degree one 但是不是一个表示，因为
+\begin_inset Formula $M_{3}$
+\end_inset
+
+不是一个线性空间。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi=0$
+\end_inset
+
+(for all 
+\begin_inset Formula $x$
+\end_inset
+
+), i.e.
+ 
+\begin_inset Formula $U_{0}=1$
+\end_inset
+
+，表示系统的基态。在子群
+\begin_inset Formula $H=\left\{ \left(V,V\right)|V\in SU(N)\right\} $
+\end_inset
+
+的变化下是不变的（对应QCD中的左手夸克场和右手夸克场按相同的
+\begin_inset Formula $V$
+\end_inset
+
+转动），
+\begin_inset Formula 
+\[
+\varphi\left[g=(V,V),U_{0}\right]=VU_{0}V^{\dagger}=VV^{\dagger}=1=U_{0}
+\]
+
+\end_inset
+
+另一方面，在 `axial transformation' 下，亦即用
+\begin_inset Formula $A$
+\end_inset
+
+转动左手夸克场，用
+\begin_inset Formula $A^{\dagger}$
+\end_inset
+
+转动右手夸克场，基态不会保持不变
+\begin_inset Formula 
+\[
+\varphi\left[g=\left(A,A^{\dagger}\right),U_{0}\right]=A^{\dagger}U_{0}A^{\dagger}=A^{\dagger}A^{\dagger}\neq U_{0}
+\]
+
+\end_inset
+
+这跟假设的对称性自发破缺一致。
+\end_layout
+
+\begin_layout Standard
+EQ
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.36"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.37"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中包含了 Goldstone bosons fields。我们想讨论它们在子群
+\begin_inset Formula $H=\left\{ (V,V)|V\in SU(N)\right\} $
+\end_inset
+
+下的变换性质。展开
+\begin_inset Formula 
+\begin{align}
+U & =1+i\frac{\phi}{F_{0}}-\frac{\phi^{2}}{2F_{0}^{2}}+\cdots\mapsto V(1+i\frac{\phi}{F_{0}}-\frac{\phi^{2}}{2F_{0}^{2}}+\cdots)V^{\dagger}\nonumber \\
+ & 1+i\frac{V\phi V^{\dagger}}{F_{0}}-\frac{V\phi V^{\dagger}V\phi V^{\dagger}}{2F_{0}^{2}}+\cdots\label{eq:3.38}
+\end{align}
+
+\end_inset
+
+我们看到，如果限制对称变换只在子群
+\begin_inset Formula $H$
+\end_inset
+
+中，映射
+\begin_inset Formula $\varphi$
+\end_inset
+
+在
+\begin_inset Formula $S_{2}$
+\end_inset
+
+上，定义了一个表示(representation),
+\begin_inset Formula $S_{2}\ni\phi\mapsto V\phi V^{\dagger}\in M_{2}$
+\end_inset
+
+,因为
+\begin_inset Formula 
+\begin{align*}
+\left(V\phi V^{\dagger}\right)^{\dagger}=V\phi V^{\dagger}, & \tr\left(V\phi V^{\dagger}\right)=\tr\left(\phi\right)=0\\
+V_{1}\left(V_{2}\phi V_{2}^{\dagger}\right)V_{1}^{\dagger} & =\left(V_{1}V_{2}\right)\phi\left(V_{1}V_{2}\right)^{\dagger}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+比如
+\begin_inset Formula $SU(3)$
+\end_inset
+
+情况下，我们选取参数化
+\begin_inset Formula 
+\[
+V=\exp\left(-i\Theta_{\text{Vb}}\frac{\lambda_{b}}{2}\right)
+\]
+
+\end_inset
+
+比较EQ
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.38"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+两边，
+\begin_inset Formula 
+\begin{align*}
+\phi & =\phi_{a}\lambda_{a}\overset{h\in SU(3)_{V}}{\longmapsto}V\phi V^{\dagger}=\phi-i\Theta_{\text{Vb}}\phi_{a}\underbrace{\left[\frac{\lambda_{b}}{2},\lambda_{a}\right]}_{if_{bac}\lambda_{c}}+\cdots\\
+ & =\phi+f_{abc}\Theta_{Vb}\phi_{b}\lambda_{c}+\cdots
+\end{align*}
+
+\end_inset
+
+这正是自伴表示(adjoing representation)。也就是说，
+\begin_inset Formula $\phi_{a}$
+\end_inset
+
+在
+\begin_inset Formula $SU(3)$
+\end_inset
+
+变换下，
+\begin_inset Formula $\phi_{a}$
+\end_inset
+
+按一个八重态(octet)变换。跟之前的 EQ3.17 一致。
+\end_layout
+
+\begin_layout Standard
+对于群
+\begin_inset Formula $G$
+\end_inset
+
+中的群元
+\begin_inset Formula $(A,A^{\dagger})$
+\end_inset
+
+，可以按照类似的方法讨论。但是在axial变换下，
+\begin_inset Formula $\phi_{a}$
+\end_inset
+
+没有一个简单的变换行为。换句话说，
+\begin_inset Formula $\left[Q_{Aa},\phi_{b}\right]$
+\end_inset
+
+这个对易关系的结果比较复杂，是的场的非线性函数。这也是为什么我们说上面的映射是手征对称性的非线性实现(nonlinear realization
+ of chiral symmetry)。
+\end_layout
+
+\begin_layout Chapter
+补充：关于平移对称性
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U(x)\phi(0)U^{-1}(x)=\phi(x)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $U(x)$
+\end_inset
+
+是 Hilbert 空间上的幺正算符。
+\begin_inset Formula $U(x)=\exp\left(iP^{\mu}x_{\mu}\right),P^{\mu}=(H,\vec{P})$
+\end_inset
+
+，
+\begin_inset Formula $H,\vec{P}$
+\end_inset
+
+分别是系统的总哈密顿和总动量（积分之后的）。
+\end_layout
+
+\begin_layout Standard
+一般来说，一个光滑函数
+\begin_inset Formula 
+\[
+f(a)=\sum_{n=0}^{\infty}f^{(n)}(0)\frac{a^{n}}{n!}=\exp(a*\partial_{x=0})\cdot f(x)
+\]
+
+\end_inset
+
+所以平移算符
+\begin_inset Formula $Q_{a}f(x)=f(x+a)$
+\end_inset
+
+可以写成上面的形式
+\begin_inset Formula $\exp(a*\partial_{x=0})\cdot f(x)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(x)\phi(0)U^{-1}(x)=\phi(x)$
+\end_inset
+
+也就是一种平移操作。
+\begin_inset Formula $S=\int\dif^{4}x\mathcal{L}(x)$
+\end_inset
+
+，拉氏量具有时间平移不变性和空间平移不变性。
+\begin_inset Formula $H$
+\end_inset
+
+是时间平移不变性的守恒荷，
+\begin_inset Formula $\vec{P}$
+\end_inset
+
+是空间平移不变性的守恒荷。即使在量子理论中，诺特定理也成立，经典层次的守恒荷在量子层次仍然是守恒的（对于时空平移不变性，转动不变性这种基本的对称性）。
+\end_layout
+
+\begin_layout Standard
+由场论的基本对易关系
+\begin_inset Formula $\left[\phi_{a}(x),\pi_{b}(x)\right]=2\pi\,\delta^{(3)}(x-y)\delta_{ab}$
+\end_inset
+
+可以推导出，守恒荷是场论体系对称变换的生成元，
+\begin_inset Formula 
+\[
+\left[Q,\phi_{a}\right]=\frac{\delta\phi_{a}}{\delta\alpha}
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula $H$
+\end_inset
+
+生成时间平移变换，
+\begin_inset Formula $\vec{P}$
+\end_inset
+
+生成空间平移变换。所以有
+\begin_inset Formula $U(x)\phi(0)U^{-1}(x)=\phi(x)$
+\end_inset
+
+。不仅对于自由场论，对于相互作用场论，这个结论也成立，因为场论体系的拉氏量一般必须满足庞加莱不变性。所以这个等式是群论的必然要求。跟理论的量子化细节无关。
 \end_layout
 
 \begin_layout Standard
