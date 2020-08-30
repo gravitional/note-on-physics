@@ -1,0 +1,329 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor}
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{amsfonts} 
+\usepackage{latexsym} 
+% Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+
+%\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{makeidx} 
+\usepackage{multirow} 
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr} 
+\DeclareMathOperator{\re}{Re} 
+\DeclareMathOperator{\im}{Im} 
+\DeclareMathOperator{\res}{Res} 
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+用generalized parton distributions阐释重子结构
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Chapter
+Abstract
+\end_layout
+
+\begin_layout Standard
+generalized parton distributions ，大约在十年(1995)之前被引入。
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ref1"
+literal "false"
+
+\end_inset
+
+成为用来描述强子的通用工具——使用夸克和胶子自由度。它结合了 form factors, parton densities and distribution
+ amplitudes——以前在很长时间的函数内被用来研究强子结构的函数。GPD 类似于非相对论量子力学中的 Wigner quasi-probability
+ 函数，后者编码了一个量子力学系统的所有信息。
+\end_layout
+
+\begin_layout Standard
+GPD的最终目的是提供一个核子的三维空间图像，以及夸克轨道角动量和各种各样的 inter- and multi- parton correlation
+ 的直接测量.
+\end_layout
+
+\begin_layout Section
+补充：单举与遍举
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "What's the difference between inclusive and exclusive decays?"
+target "https://physics.stackexchange.com/questions/1217/whats-the-difference-between-inclusive-and-exclusive-decays#"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+实验解释An experimental take
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Exclusive
+\series default
+ 意味着你测量了所有产物的能量和动量（下文会有一个例外）
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Inclusive
+\series default
+ 意思是你可能有一些产物不进行测量。
+\end_layout
+
+\begin_layout Standard
+这对散射过程和衰变过程都适用。
+\end_layout
+
+\begin_layout Standard
+Some things to note:
+\end_layout
+
+\begin_layout Standard
+Exclusive measurements 允许你 nail down(确定，明确；用钉钉住) 一个良好定义的物理过程，而inclusive
+ measurements 会告诉你一个过程的某个collection。If there are more than a couple of products,
+ 就会需要很多实验仪器，方能可靠地把他们全部收集起来，并估计实验完成度。
+\end_layout
+
+\begin_layout Standard
+在你所提问的过程中，中微子必然是观测不到的，致使这个实验是 inclusive，更进一步的说，常常用 
+\begin_inset Formula $\mathbf{X}$
+\end_inset
+
+ 来指代末态中未测量或者未指明的 stuff（也就是说实验一开始就设计成 inclusive ）。这里未指明的情况包括，in high acceptance
+ instruments，你考虑带有特定产物的所有事件：其中一些 
+\begin_inset Formula $\mathbf{X}$
+\end_inset
+
+ 为空，其中一些 
+\begin_inset Formula $\mathbf{X}$
+\end_inset
+
+ 不为空而且well characterized, 还有一些 
+\begin_inset Formula $\mathbf{X}$
+\end_inset
+
+ ill-characterized。
+\end_layout
+
+\begin_layout Subsection
+Theoretical view
+\end_layout
+
+\begin_layout Standard
+我不是很确定理论学家如何使用这些术语，但是应该是类似的。比如: 
+\series bold
+exclusive 
+\series default
+意思是单个过程，
+\series bold
+inclusive 
+\series default
+指的是所有过程包括所有详细产物。
+\end_layout
+
+\begin_layout Subsubsection
+Convergence of theory and experiment
+\end_layout
+
+\begin_layout Standard
+当然，除非我们理论结合实验，否则我们学不到任何东西。但是这个过程可能很traumatic(痛苦的；极不愉快的) for both communities。
+\end_layout
+
+\begin_layout Standard
+不过，exclusive 测量和计算很清楚地指的是同一个事情，而 inclusivity 可以达成一致，with some care in building
+ the experiment and assembling the theoretical results.
+\end_layout
+
+\begin_layout Subsubsection
+Experimenters cheating on exclusivity
+\end_layout
+
+\begin_layout Standard
+有的时候，在核物理学中，我们把一些散射实验当成 exclusive，但是有一些重的，反冲的原子核没有测量。
+\end_layout
+
+\begin_layout Standard
+这里的假设是，它仅仅携带了能动量中的一小部分，可以被忽略。然而可能会有些风险，如果这个原子核最后是处于高激发态的。
+\end_layout
+
+\begin_layout Standard
+In particular my dissertation(专题论文;学位论文) project was on 
+\begin_inset Formula $A(e,e^{\prime}p)$
+\end_inset
+
+ reaction (elastic scattering of protons out of a stationary nuclear target
+ where the beam was characterized and both the proton and outgoing electron
+ were observed),and we assumed that the remnant(残余部份；剩余部份) nucleus was left
+ largely undisturbed and recoiling with a momentum opposite the Fermi motion
+ of the target proton.
+\end_layout
+
+\begin_layout Chapter
+preface
+\end_layout
+
+\begin_layout Standard
+文章内容介绍
+\end_layout
+
+\begin_layout Chapter
+揭开物质的层次：从原子到 partons
+\end_layout
+
+\begin_layout Section
+量子力学可观测量
+\end_layout
+
+\begin_layout Standard
+对于一个纯态，密度矩阵
+\begin_inset Formula $\rho$
+\end_inset
+
+定义为，
+\begin_inset Formula 
+\[
+\rho\left(\vec{r}_{1},\vec{r}_{2}\right)=\psi^{\ast}\left(\vec{r}_{1}\right)\psi\left(\vec{r}_{2}\right)
+\]
+
+\end_inset
+
+测量了
+\begin_inset Formula $\rho$
+\end_inset
+
+就可以知道量子系统的所有信息。 
+\end_layout
+
+\begin_layout Section
+补充
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref1"
+literal "false"
+
+\end_inset
+
+arXiv:hep-ph/0504030v3 27 Jun 2005
+\end_layout
+
+\end_body
+\end_document

@@ -1755,6 +1755,8 @@ That is, files that cannot be shared between implementations, such as pool files
 
 `pdfcrop --margins 3 --clip --bbox '120 480 570 830' input.pdf output.pdf; `
 
+`left bottom right top`
+
 ## X窗口系统
 
 X窗口系统（使GUI工作的底层引擎）内建了一种机制，支持快速拷贝和粘贴技巧。

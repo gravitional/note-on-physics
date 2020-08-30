@@ -13,6 +13,8 @@ AWK 可以做非常多的工作。 下面只是其中的一小部分：
 + 进行算术运算，
 + 字符串操作，以及其它更多。
 
++ awk 用`#`进行注释。
+ 
 ## AWK 工作流程
 
 ### 工作流程
@@ -309,7 +311,7 @@ awk 'BEGIN { for (i = 0; i < ARGC - 1; ++i)
 与其它编程语言一样，AWK 也提供了大量的操作符。这一章节中，我们将结合例子介绍　AWK 操作符的使用方法：　
 
 ### 算术运算符　　
-　
+
 ***
 加法运算符　
 
@@ -518,7 +520,9 @@ AWK 支持如下关系运算符：
 
 当条件表达式（ condition expression）为真时，`statement1` 执行，否则 `statement2` 执行。下面的示例将返回最大数值：
 
-`awk 'BEGIN { a = 10; b = 20; (a > b) ? max = a : max = b; print "Max =", max}'`
+```bash
+awk 'BEGIN { a = 10; b = 20; (a > b) ? max = a : max = b; print "Max =", max}'
+```
 
 ### 一元运算符
 
@@ -1888,3 +1892,32 @@ Percentags =        +34543.661000$
 对于 `%g` 或 `%G`，使用哈希可以保留尾部的零。使用示例如下：
 
 `awk 'BEGIN { printf "Octal representation = %#o\nHexadecimal representaion = %#X\n", 10, 10}'`
+
+## awk 计算精度
+
+[gawk/manual/gawk.html#Setting-precision][]
+
+[gawk/manual/gawk.html#Setting-precision]: https://www.gnu.org/software/gawk/manual/gawk.html#Setting-precision
+
+`gawk`使用`MPFR`库来控制精度和近似。在命令行选项中使用`-M`来启用`MPFR `:来支持任意精度的计算。
+
+有两个预定义的变量，`PREC` and `ROUNDMODE`，提供了工作精度控制和近似模式，可以进行全局设置。
+
+`gawk`使用一个全局精度，而不跟踪每个数字的精度。函数的结果被精确到给定的工作精度。默认是`53 bits`。
+
+你可以通过更改预定义变量`PREC`来更改。也可以设置为下面的字符串（大小写敏感的），来模拟`IEEE 754 binary format`.
+Table 16.4: Predefined precision strings for PREC
+PREC IEEE 754 binary format
+
++ `"half"` 16-bit half-precision
++ `"single"`  32-bit single precision
++ `"double"`  64-bit double precision
++ `"quad"`  128-bit quadruple precision
++ `"oct"` 256-bit octuple precision
+  
+```bash
+gawk -M -v PREC="double" 'BEGIN { 
+    printf("%0.25f\n", 0.1) 
+
+    }'
+```

@@ -653,6 +653,14 @@ if __name__ == '__main__':
 
 ## 函数
 
+```python
+def write_result(str):
+  writeresult=file(r'D:\eclipse4.4.1 script\my_selenium\model\test_result.log','a+')
+  str1=writeresult.write(str+'\n')
+  writeresult.close()
+  return str
+```
+
 函数参数类型，一共五种
 
 装饰器
@@ -714,3 +722,58 @@ import glob
 for name in glob.glob('dir/*[0-9].*'):
     print (name)
 ```
+
+## python vscode 调试
+
+`open launch.json` 打开调试文件
+
+有两种标准配置，或者在`code`的集成终端中运行，或者在外部终端运行：
+
+```json
+{
+    "name": "Python: Current File (Integrated Terminal)",
+    "type": "python",
+    "request": "launch",
+    "program": "${file}",
+    "console": "integratedTerminal"
+},
+{
+    "name": "Python: Current File (External Terminal)",
+    "type": "python",
+    "request": "launch",
+    "program": "${file}",
+    "console": "externalTerminal"
+}
+```
+
+还可以添加其他设置如`args`，但它不属于标准配置的一部分。比如，你总要 launch `startup.py` with the arguments `--port 1593`，可以添加如下配置：
+
+```bash
+ {
+     "name": "Python: startup.py",
+     "type": "python",
+     "request": "launch",
+     "program": "${workspaceFolder}/startup.py",
+     "args" : ["--port", "1593"]
+ },
+```
+
++ `name` : `vscode` 下拉列表中的名字
++ `type`: type of debugger to use; leave this set to python for Python code.
++ `request` : Specifies the mode in which to start debugging:
+`launch`: start the debugger on the file specified in program
+`attach`: attach the debugger to an already running process. See Remote debugging for an example.
++ `program`: 程序的路径。`${file}`，当前激活的编辑器,可以是绝对路径，也可以是相对路径，如：`"program": "${workspaceFolder}/pokemongo_bot/event_handlers/__init__.py"`
++ `python`: 用来debug的python 解释器的全路径。如果不指定，使用`python.pythonPath`,等价于`${config:python.pythonPath}`，也可以使用环境变量。还可以向解释器传递参数，`"python": ["<path>", "<arg>",...]`.
++ `args` : 传递给 python 程序的参数。如`"args": ["--quiet", "--norepeat", "--port", "1593"]`
++ `stopOnEntry`： 当设置为`true`时，在地一行停下。默认忽略，在第一个间断点停下。
++ `console`:  指定程序如何输出结果，可以设置成`"internalConsole"`,`"externalTerminal"`,`"integratedTerminal" (default)`
++ `cwd` 指定当前工作目录，默认为`${workspaceFolder}` (打开`vscode`的目录)
++ `redirectOutput`: 是否重定向debug输出。选择`XXterminal`时，默认关闭。(不在VS code debug window中输出)
++ `justMyCode`: `true`或忽略，只调试用户写的代码。`false`也调试标准库函数。
++ `django`: When set to true, activates debugging features specific to the Django web framework.
++ `sudo`: 设置为`true`,且调试窗口选择为`externalTerminal`时，可以提升权限
++ `pyramid` : When set to true, ensures that a Pyramid app is launched with the necessary pserve command.
++ `env`: 设置可选的环境变量，为debugger 进程，除了系统变量之外。值必须为字符串。
++ `envFile`: Optional path to a file that contains environment variable definitions. See Configuring Python environments - environment variable definitions file.
++ `gevent`: If set to true, enables debugging of gevent monkey-patched code.

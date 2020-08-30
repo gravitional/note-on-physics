@@ -90,7 +90,7 @@ days = ['Monday', 'Tuesday', 'Wednesday',
 The quick brown fox jumps over the lazy dog
 ```
 
-`print()`会依次打印每个字符串，遇到逗号“,”会输出一个空格，因此，输出的字符串是这样拼起来的
+`print()`会依次打印每个字符串，遇到逗号`,`会输出一个空格，因此，输出的字符串是这样拼起来的
 
 ### 输入
 
@@ -2889,7 +2889,7 @@ else:
 
 ### 迭代器
 
-我们已经知道，可以直接作用于for循环的数据类型有以下几种：
+我们已经知道，可以直接作用于`for`循环的数据类型有以下几种：
 
 一类是集合数据类型，如list、tuple、dict、set、str等；
 一类是generator，包括生成器和带yield的generator function。

@@ -42,6 +42,7 @@ cd  /home/tom/Downloads
 + `bash` 有一个内建的帮助工具,可供每一个 `shell` 内部命令使用。输入`help`,接着是 `shell` 内部命令名。例如: `help cd`
 + 许多可执行程序支持一个` --help` 选项,这个选项是显示命令所支持的语法和选项说明。例如:
 + `less ` 浏览文件内容
++ `basename file suffix` 用来去掉文件后缀名
 
 ***
 简单命令
