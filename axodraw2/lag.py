@@ -88,7 +88,7 @@ finally:
 
 # 开始画图
 with open(file, 'a', encoding='utf-8') as f:
-    f.write('\
+    f.write('\n\
         % (起点)，(终点)\n\
         \\Line['+arr_line+']('+x1[0]+','+x1[1]+')('+x2[0]+','+x2[1]+')\n\
         \\Line['+arr_line+']('+x1[0]+','+x1[1]+')('+x3[0]+','+x3[1]+')\n\

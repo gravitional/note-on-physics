@@ -64,13 +64,14 @@ Get-Process -Name Explorer, Winlogon, Services
 New-Alias -Option {None | ReadOnly | Constant | Private | AllScope}
 ```
 
-## providers
+## providers 提供者
 
 PowerShell providers 是一些特定的`.NET`程序，用来提供对特性data stores 的访问，方便查看和管理。
 数据出现在一个`driver`里，你可以像是访问硬盘中的文件那样访问它们。
 你也可以使用自定义的 `cmdlet`
 
 有时`provider`也会给`built-in cmdlets`提供动态参数。只有`cmdlets`作用在这些`provider`上面时，参数才是可用的。
+
 
 ## examples
 

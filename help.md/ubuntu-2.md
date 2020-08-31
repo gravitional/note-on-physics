@@ -1753,9 +1753,17 @@ That is, files that cannot be shared between implementations, such as pool files
 
 使用方法如下：
 
-`pdfcrop --margins 3 --clip --bbox '120 480 570 830' input.pdf output.pdf; `
+`pdfcrop --margins 3 --clip input.pdf output.pdf; `
+or
 
-`left bottom right top`
+```bash
+pdfcrop --clip --bbox '120 480 570 830' input.pdf output.pdf; 
+```
+
+四个数字的含义是，以左下角为原点，给出`left bottom right top`的数值，单位是`point`
+
+`1 point`=`0.3527 mm`=`1/72 inch`.
+A4纸张(mm) `210` * `297`=`595.4 point`*`842.1 point`.
 
 ## X窗口系统
 
