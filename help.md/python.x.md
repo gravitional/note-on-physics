@@ -830,7 +830,9 @@ for name in glob.glob('dir/*[0-9].*'):
 + `envFile`: Optional path to a file that contains environment variable definitions. See Configuring Python environments - environment variable definitions file.
 + `gevent`: If set to true, enables debugging of gevent monkey-patched code.
 
-## python 格式化输出
+## 字符串格式化输出
+
+### python 格式化输出
 
 [更漂亮的输出格式][]
 
@@ -846,422 +848,100 @@ for name in glob.glob('dir/*[0-9].*'):
 'Results of the 2016 Referendum'
 ```
 
-## python 词法分析
+### 三引号
 
-[词法分析¶][]
-
-[词法分析¶]: https://docs.python.org/zh-cn/3/reference/lexical_analysis.html
-
-### 逻辑行
-
-Python 程序由一个 `解析器` 读取。
-输入到解析器的是一个由 `词法分析器` 所生成的 `形符` (`tokens`)流，本章将描述词法分析器是如何将一个文件拆分为一个个形符的。
-
-一个 Python 程序可分为许多 `逻辑行`。
-
-`逻辑行`的结束是以 `NEWLINE` 形符表示的。
-语句不能跨越逻辑行的边界，除非其语法允许包含 `NEWLINE` (例如复合语句可由多行子语句组成)。
-一个逻辑行可由一个或多个 `物理行` 按照明确或隐含的 行拼接 规则构成。
-
-`物理行`是以一个`行终止序列`结束的字符序列。
-在源文件和字符串中，可以使用任何标准平台上的`行终止序列` - Unix 所用的 ASCII 字符 `LF` (换行), Windows 所用的 ASCII 字符序列 `CR LF` (回车加换行), 或者旧 Macintosh 所用的 ASCII 字符 `CR` (回车)。
-所有这些形式均可使用，无论具体平台。输入的结束也会被作为最后一个物理行的隐含终止标志。
-
-当嵌入 Python 时，源码字符串传入 Python API 应使用标准 C 的传统换行符 (即 `\n`，表示 ASCII 字符 `LF` 作为行终止标志)。
-
-### 注释
-
-一条注释以不包含在字符串字面值内的井号 (`#`) 开头，并在物理行的末尾结束。 一条注释标志着逻辑行的结束，除非存在隐含的行拼接规则。 注释在语法分析中会被忽略。
-
-编码声明
-
-如果一条注释位于 Python 脚本的第一或第二行，并且匹配正则表达式 `coding[=:]\s*([-\w.]+)`，这条注释会被作为编码声明来处理；
-
-上述表达式的第一组指定了源码文件的编码。编码声明必须独占一行。
-如果它是在第二行，则第一行也必须是注释。推荐的编码声明形式如下
+字符串字面值可以跨行连续输入。一种方式是用三重引号：`"""..."""` 或 `'''...'''`。
+字符串中的回车换行会自动包含到字符串中，如果不想包含，在行尾添加一个 `\` 即可。如下例:
 
 ```python
-# -*- coding: <encoding-name> -*-
+print("""\
+Usage: thingy [OPTIONS]
+     -h                        Display this usage message
+     -H hostname               Hostname to connect to
+""")
 ```
 
-这也是 GNU Emacs 认可的形式，以及
-
-```vim
-# vim:fileencoding=<encoding-name>
-```
-
-这是 Bram Moolenaar 的 `VIM` 认可的形式。
-
-如果没有编码声明，则默认编码为 UTF-8。此外，如果文件的首字节为 UTF-8 字节顺序标志 (`b'\xef\xbb\xbf'`)，文件编码也声明为 `UTF-8` (这是 Microsoft 的 notepad 等软件支持的形式)。
-
-编码声明指定的编码名称必须是 Python 所认可的编码。所有词法分析将使用此编码，包括语义字符串、注释和标识符。
-
-### 行拼接
-
-显式的行拼接
-
-两个或更多个物理行可使用反斜杠字符 (`\`) 拼接为一个逻辑行，规则如下: 当一个物理行以一个不在字符串或注释内的反斜杠结尾时，它将与下一行拼接构成一个单独的逻辑行，反斜杠及其后的换行符会被删除。例如:
+将产生如下输出（注意最开始的换行没有包括进来）:
 
 ```python
-if 1900 < year < 2100 and 1 <= month <= 12 \
-   and 1 <= day <= 31 and 0 <= hour < 24 \
-   and 0 <= minute < 60 and 0 <= second < 60:   # Looks like a valid date
-        return 1
+Usage: thingy [OPTIONS]
+     -h                        Display this usage message
+     -H hostname               Hostname to connect to
 ```
 
-+ 以反斜杠结束的行不能带有注释。
-+ 反斜杠不能用来拼接注释。
-+ 反斜杠不能用来拼接`tokens`，字符串除外 (即`literal string`以外的`tokens`不能用反斜杠分隔到两个物理行)。
-+ 不允许有`literal string`以外的反斜杠存在于物理行的其他位置(出现在用来拼接的`\`的前面)。
-
-***
-隐式的行拼接
-
-圆括号、方括号或花括号以内的表达式允许分成多个物理行，无需使用反斜杠。总之，括号以内可以断行。
-例如:
+字符串可以用 `+` 进行连接（粘到一起），也可以用 `*` 进行重复:
 
 ```python
-month_names = ['Januari', 'Februari', 'Maart',      # These are the
-               'April',   'Mei',      'Juni',       # Dutch names
-               'Juli',    'Augustus', 'September',  # for the months
-               'Oktober', 'November', 'December']   # of the year
+>>> # 3 times 'un', followed by 'ium'
+>>> 3 * 'un' + 'ium'
+'unununium'
 ```
 
-隐式的行拼接可以带有注释。后续行的缩进不影响程序结构。后续行也允许为空白行。
-隐式拼接的行之间不会有 `NEWLINE` 形符。
-隐式拼接的行也可以出现于`三引号`字符串中 (见下)；此情况下这些行不允许带有注释。
-
-### 空白行
-
-一个只包含`空格符`，`制表符`，`进纸符`或者`注释`的逻辑行会被忽略 (即不生成 `NEWLINE` 形符)。
-在交互模式输入语句时，对空白行的处理可能会因读取-求值-打印循环的具体实现方式而存在差异。
-在标准交互模式解释器中，一个完全空白的逻辑行 (即连空格或注释都没有) 将会结束一条多行复合语句。
-
-### 缩进
-
-一个逻辑行开头处的空白 (空格符和制表符) 被用来计算该行的缩进等级，以决定语句段落的组织结构。
-
-制表符会被 (从左至右) 替换为一至八个空格，这样缩进的空格总数为八的倍数 (这是为了与 Unix 所用的规则一致)。
-首个非空白字符之前的空格总数将确定该行的缩进层次。
-一个缩进不可使用反斜杠进行多行拼接；首个反斜杠之前的空格将确定缩进层次。
-
-在一个源文件中如果混合使用制表符和空格符缩进，并使得确定缩进层次需要依赖于制表符对应的空格数量设置，则被视为不合规则；
-此情况将会引发 `TabError`。
-
-跨平台兼容性注释: 由于非 UNIX 平台上文本编辑器本身的特性，在一个源文件中混合使用制表符和空格符是不明智的。
-另外也要注意不同平台还可能会显式地限制最大缩进层级。
-
-行首有时可能会有一个进纸符；它在上述缩进层级计算中会被忽略。
-处于行首空格内其他位置的进纸符的效果未定义 (例如它可能导致空格计数重置为零)。
-
-多个连续行各自的缩进层级将会被放入一个堆栈用来生成 `INDENT` 和 `DEDENT` 形符，具体说明如下(省略)
-
-以下示例显示了各种缩进错误:
+相邻的两个或多个 字符串字面值 （引号引起来的字符）将会自动连接到一起.
 
 ```python
- def perm(l):                       # error: first line indented
-for i in range(len(l)):             # error: not indented
-    s = l[:i] + l[i+1:]
-        p = perm(l[:i] + l[i+1:])   # error: unexpected indent
-        for x in p:
-                r.append(l[i:i+1] + x)
-            return r                # error: inconsistent dedent
+>>> 'Py' 'thon'
+'Python'
 ```
 
-(实际上，前三个错误会被解析器发现；只有最后一个错误是由词法分析器发现的 --- `return r `的缩进无法匹配弹出栈的缩进层级。)
-
-### 形符之间的空白
-
-除非是在逻辑行的开头或字符串内，空格符、制表符和进纸符等空白符都同样可以用来分隔形符。
-如果两个形符彼此相连会被解析为一个不同的形符，则需要使用空白来分隔 (例如 `ab` 是一个形符，而 `a b` 是两个形符)。
-
-### 其他形符
-
-除了 `NEWLINE`, `INDENT` 和 `DEDENT`，还存在以下类别的形符: `标识符`, `关键字`, `字面值`, `运算符` 以及 `分隔符`。
-
-空白字符 (之前讨论过的行终止符除外) 不属于形符，而是用来分隔形符。
-如果存在二义性，将从左至右读取尽可能长的合法字符串组成一个形符。
-
-### 标识符和关键字
-
-标识符 (或者叫做 `名称`) 由以下词法定义进行描述。
-
-Python 中的标识符语法是基于 Unicode 标准附件 `UAX-31`，并加入了下文所定义的细化与修改；更多细节还可参见 PEP 3131 。
-
-在 ASCII 范围内 (`U+0001..U+007F`)，可用于标识符的字符与 Python 2.x 一致: 大写和小写字母 `A` 至 `Z`，下划线 `_` 以及数字 `0` 至 `9`，但不可以数字打头。
-
-Python 3.0 引入了 ASCII 范围以外的额外字符 (见 PEP 3131)。这些字符的分类使用包含于 `unicodedata` 模块中的 Unicode 字符数据库版本。
-
-标识符的长度没有限制。对大小写敏感。
-
-所有标识符在解析时会被转换为规范形式 NFKC；标识符的比较都是基于 NFKC。
-
-Unicode 4.1 中所有可用的标识符字符列表可参见以下[非正式 HTML 文件][]
-
-[非正式 HTML 文件]:  https://www.unicode.org/Public/13.0.0/ucd/DerivedCoreProperties.txt
-
-### 关键字
-
-以下标识符被作为语言的保留字或称 关键字，不可被用作普通标识符。关键字的拼写必须与这里列出的完全一致。
-
-+ `False`   `await` `else`  `import`    `pass`
-+ `None`    `break` `except`    `in`    `raise`
-+ `True`    `class` `finally`   `is`    `return`
-+ `and` `continue`  `for`   `lambda`    `try`
-+ `as`  `def`   `from`  `nonlocal`  `while`
-+ `assert`  `del`   `global`    `not`   `with`
-+ `async`   `elif`  `if`    `or`    `yield`
-
-### 保留的标识符类
-
-某些标识符类 (除了关键字) 具有特殊的含义。这些标识符类的命名模式是以下划线字符打头和结尾:
-
-+ `_*`
-
-不会被 `from module import *` 导入。特殊标识符 `_` 在交互式解释器中被用来存放最近一次求值结果；
-它保存在 `builtins` 模块中。当不处于交互模式时，`_` 无特殊含义也没有预定义。参见 `import` 语句。
-
-注解: `_` 作为名称常用于连接国际化文本；请参看 gettext 模块文档了解有关此约定的详情。
-
-+ `__*__`
-
-系统定义的名称，在非正式场合下被叫做 "dunder" 名称。 这些名称是由解释器及其实现（包括标准库）定义的。 现有系统定义名称相关的讨论请参见 特殊方法名称 等章节。 未来的 Python 版本中还将定义更多此类名称。 任何情况下 任何 不遵循文档所显式指明的` __*__ `名称使用方式都可能导致无警告的错误。
-
-+ `__*`
-
-类的私有名称。这种名称在类定义中使用时，会以一种混合形式重写以避免在基类及派生类的 "私有" 属性之间出现名称冲突。
-参见 标识符（名称）。
-
-### 字面值(literal:原义的)
-
-字面值用于表示一些内置类型的常量。
-
-***
-字符串和字节串字面值
-
-自然语言描述: 两种字面值都可以用成对单引号 (`) 或双引号 (`) 来标示首尾。
-它们也可以用成对的`连续三个单引号或双引号`来标示首尾 (这通常被称为 `三引号字符串`)。
-反斜杠 (`\`) 字符被用来对特殊含义的字符进行转义，例如换行，反斜杠本身或是引号等字符。
-
-`字节串`字面值总是带有前缀 `'b'` 或 `'B'`；它们生成 `bytes` 类型而非 `str` 类型的实例。
-它们只能包含 `ASCII` 字符；字节对应数值在`128`及以上必须以转义形式来表示。
-
-字符串和字节串字面值都可以带有前缀 `'r'` 或 `'R'`；
-这种字符串被称为 原始字符串 其中的反斜杠会被当作其本身的字面字符来处理。
-因此在原始字符串字面值中，`'\U'` 和 `'\u'` 转义形式不会被特殊对待。
-由于 Python 2.x 的原始统一码字面值的特性与 Python 3.x 不一致，`'ur'` 语法已不再被支持。
-
-包含 `'f'` 或 `'F'` 前缀的字符串字面值称为 格式化字符串字面值；参见 格式化字符串字面值。
-`'f'` 可与 `'r'` 连用，但不能与 `'b'` 或 `'u'` 连用，因此存在原始格式化字符串，但不存在格式化字节串字面值。
-
-在三引号字面值中，允许存在未经转义的换行和引号 (并原样保留)，要输入三引号本身，需要转义。
-
-除非带有 `'r'` 或 `'R'` 前缀，字符串和字节串字面值中的转义序列会基于类似标准 `C` 中的转义规则来解读。
-可用的转义序列如下:
-
-2.4.2. 字符串字面值拼接
-
-多个相邻的字符串或字节串字面值 (以空白符分隔)，所用的引号可以彼此不同，其含义等同于全部拼接为一体。因此， "hello" 'world' 等同于 "helloworld"。此特性可以减少反斜杠的使用，以方便地将很长的字符串分成多个物理行，甚至每部分字符串还可分别加注释，例如:
-
-re.compile("[A-Za-z_]"       # letter or underscore
-           "[A-Za-z0-9_]*"   # letter, digit or underscore
-          )
-
-注意此特性是在句法层面定义的，但是在编译时实现。在运行时拼接字符串表达式必须使用 '+' 运算符。还要注意字面值拼接时每个部分可以使用不同的引号风格 (甚至混合使用原始字符串和三引号字符串)，格式化字符串字面值也可与普通字符串字面值拼接。
-
-### 格式化字符串字面值
-
-3.6 新版功能.
-
-格式化字符串字面值 或称 f-string 是带有 `'f'` 或 'F' 前缀的字符串字面值。这种字符串可包含替换字段，即以 {} 标示的表达式。而其他字符串字面值总是一个常量，格式化字符串字面值实际上是会在运行时被求值的表达式。
-
-转义序列会像在普通字符串字面值中一样被解码 (除非字面值还被标示为原始字符串)。解码之后，字符串内容所用的语法如下:
-
-f_string          ::=  (literal_char | "{{" | "}}" | replacement_field)*
-replacement_field ::=  "{" f_expression ["="] ["!" conversion] [":" format_spec] "}"
-f_expression      ::=  (conditional_expression | "*" or_expr)
-                         ("," conditional_expression | "," "*" or_expr)* [","]
-                       | yield_expression
-conversion        ::=  "s" | "r" | "a"
-format_spec       ::=  (literal_char | NULL | replacement_field)*
-literal_char      ::=  <any code point except "{", "}" or NULL>
-
-字符串在花括号以外的部分按其字面值处理，除了双重花括号 '{{' 或 '}}' 会被替换为相应的单个花括号。 单个左花括号 '{' 标示一个替换字段，它以一个 Python 打头。 要同时显示表达式文本及其求值后的结果值（这在调试时很有用），可以在表达式后加一个等于号 '='。 之后可能带有一个以叹号 '!' 标示的转换字段。 之后还可能带有一个以冒号 ':' 标示的格式说明符。 替换字段以一个右花括号 '}' 作为结束。
-
-格式化字符串字面值中的表达式会被当作包含在圆括号中的普通 Python 表达式一样处理，但有少数例外。 空表达式不被允许，lambda 和赋值表达式 := 必须显式地加上圆括号。 替换表达式可以包含换行（例如在三重引号字符串中），但是不能包含注释。 每个表达式会在格式化字符串字面值所包含的位置按照从左至右的顺序被求值。
-
-在 3.7 版更改: 在 Python 3.7 之前， await 表达式包含 async for 子句的推导式不允许在格式化字符串字面值表达式中使用，这是因为具体实现存在一个问题。
-
-在提供了等于号 '=' 的时候，输出将包含表达式文本，'=' 以及求值结果。 左花括号 '{' 之后包含在表达式中及 '=' 后的空格将在输出时被保留。 默认情况下，'=' 会导致表达式的 repr() 被使用，除非专门指定了格式。 当指定了格式时默认会使用表达式的 str()，除非声明了转换字段 '!r'。
-
-3.8 新版功能: 等于号 '=' 在 Python 3.8 中加入。
-
-如果指定了转换符，表达式的求值结果会先转换再格式化。转换符 '!s' 即对结果调用 str()，'!r' 为调用 repr()，而 '!a' 为调用 ascii()。
-
-在此之后结果会使用 format() 协议进行格式化。格式说明符会被传入表达式或转换结果的 __format__() 方法。如果省略格式说明符则会传入一个空字符串。然后格式化结果会包含在整个字符串最终的值当中。
-
-顶层的格式说明符可以包含有嵌套的替换字段。这些嵌套字段也可以包含有自己的转换字段和 格式说明符，但不可再包含更深层嵌套的替换字段。这里的 格式说明符微型语言 与字符串 .format() 方法所使用的相同。
-
-格式化字符串字面值可以拼接，但是一个替换字段不能拆分到多个字面值。
-
-一些格式化字符串字面值的示例:
->>>
-
->>> name = "Fred"
->>> f"He said his name is {name!r}."
-"He said his name is 'Fred'."
->>> f"He said his name is {repr(name)}."  # repr() is equivalent to !r
-"He said his name is 'Fred'."
->>> width = 10
->>> precision = 4
->>> value = decimal.Decimal("12.34567")
->>> f"result: {value:{width}.{precision}}"  # nested fields
-'result:      12.35'
->>> today = datetime(year=2017, month=1, day=27)
->>> f"{today:%B %d, %Y}"  # using date format specifier
-'January 27, 2017'
->>> f"{today=:%B %d, %Y}" # using date format specifier and debugging
-'today=January 27, 2017'
->>> number = 1024
->>> f"{number:#0x}"  # using integer format specifier
-'0x400'
->>> foo = "bar"
->>> f"{ foo = }" # preserves whitespace
-" foo = 'bar'"
->>> line = "The mill's closed"
->>> f"{line = }"
-'line = "The mill\'s closed"'
->>> f"{line = :20}"
-"line = The mill's closed   "
->>> f"{line = !r:20}"
-'line = "The mill\'s closed" '
-
-与正常字符串字面值采用相同语法导致的一个结果就是替换字段中的字符不能与外部的格式化字符串字面值所用的引号相冲突:
-
-f"abc {a["x"]} def"    # error: outer string literal ended prematurely
-f"abc {a['x']} def"    # workaround: use different quoting
-
-格式表达式中不允许有反斜杠，这会引发错误:
-
-f"newline: {ord('\n')}"  # raises SyntaxError
-
-想包含需要用反斜杠转义的值，可以创建一个临时变量。
->>>
-
-newline = ord('\n')
-
-f"newline: {newline}"
-'newline: 10'
-
-格式化字符串字面值不可用作文档字符串，即便其中没有包含表达式。
->>>
-
->>> def foo():
-...     f"Not a docstring"
-...
->>> foo.__doc__ is None
-True
-
-另请参见 PEP 498 了解加入格式化字符串字面值的提议，以及使用了相关的格式字符串机制的 str.format()。
-
-### 数字字面值
-
-数字字面值有三种类型: 整型数、浮点数和虚数。没有专门的复数字面值 (复数可由一个实数加一个虚数合成)。
-
-注意数字字面值并不包含正负号；`-1` 这样的负数实际上是由单目运算符 `'-'` 和字面值 `1` 合成的。
-
-### 整型数字面值
-
-整型数字面值由以下词法定义进行描述:
+把很长的字符串拆开分别输入的时候尤其有用:
 
 ```python
-integer      ::=  decinteger | bininteger | octinteger | hexinteger
-decinteger   ::=  nonzerodigit (["_"] digit)* | "0"+ (["_"] "0")*
-bininteger   ::=  "0" ("b" | "B") (["_"] bindigit)+
-octinteger   ::=  "0" ("o" | "O") (["_"] octdigit)+
-hexinteger   ::=  "0" ("x" | "X") (["_"] hexdigit)+
-nonzerodigit ::=  "1"..."9"
-digit        ::=  "0"..."9"
-bindigit     ::=  "0" | "1"
-octdigit     ::=  "0"..."7"
-hexdigit     ::=  digit | "a"..."f" | "A"..."F"
+>>> text = ('Put several strings within parentheses '
+...         'to have them joined together.')
+>>> text
+'Put several strings within parentheses to have them joined together.'
 ```
 
-整型数字面值的长度没有限制，能一直大到占满可用内存。
-
-在确定数字大小时字面值中的下划线会被忽略。它们可用来将数码分组以提高可读性。一个下划线可放在数码之间，也可放在基数说明符例如 0x 之后。
-
-注意非零的十进制数开头不允许有额外的零。这是为了避免与 Python 在版本 3.0 之前所使用的 C 风格八进制字面值相混淆。
-
-一些整型数字面值的示例如下:
-
-7     2147483647                        0o177    0b100110111
-3     79228162514264337593543950336     0o377    0xdeadbeef
-      100_000_000_000                   0b_1110_0101
-
-在 3.6 版更改: 允许在字面值中使用下划线进行分组。
-
-2.4.6. 浮点数字面值
-
-浮点数字面值由以下词法定义进行描述:
-
-floatnumber   ::=  pointfloat | exponentfloat
-pointfloat    ::=  [digitpart] fraction | digitpart "."
-exponentfloat ::=  (digitpart | pointfloat) exponent
-digitpart     ::=  digit (["_"] digit)*
-fraction      ::=  "." digitpart
-exponent      ::=  ("e" | "E") ["+" | "-"] digitpart
-
-注意整型数部分和指数部分在解析时总是以 10 为基数。例如，077e010 是合法的，且表示的数值与 77e10 相同。浮点数字面值允许的范围依赖于具体实现。对于整型数字面值，支持以下划线进行分组。
-
-一些浮点数字面值的示例如下:
-
-3.14    10.    .001    1e100    3.14e-10    0e0    3.14_15_93
-
-在 3.6 版更改: 允许在字面值中使用下划线进行分组。
-
-2.4.7. 虚数字面值
-
-虚数字面值由以下词法定义进行描述:
-
-imagnumber ::=  (floatnumber | digitpart) ("j" | "J")
-
-一个虚数字面值将生成一个实部为 0.0 的复数。复数是以一对浮点数来表示的，它们的取值范围相同。要创建一个实部不为零的复数，就加上一个浮点数，例如 (3+4j)。一些虚数字面值的示例如下:
-
-3.14j   10.j    10j     .001j   1e100j   3.14e-10j   3.14_15_93j
-
-### 运算符
-
-以下形符属于运算符:
+只能对两个字面值这样操作，变量或表达式不行:
 
 ```python
-+       -       *       **      /       //      %      @
-<<      >>      &       |       ^       ~       :=
-<       >       <=      >=      ==      !=
+>>> prefix = 'Py'
+>>> prefix 'thon'  # can't concatenate a variable and a string literal
+  File "<stdin>", line 1
+    prefix 'thon'
+                ^
+SyntaxError: invalid syntax
+>>> ('un' * 3) 'ium'
+  File "<stdin>", line 1
+    ('un' * 3) 'ium'
+                   ^
+SyntaxError: invalid syntax
 ```
 
-### 分隔符
-
-以下形符在语法中归类为分隔符:
+如果你想连接变量，或者连接变量和字面值，可以用 `+` 号:
 
 ```python
-(       )       [       ]       {       }
-,       :       .       ;       @       =       ->
-+=      -=      *=      /=      //=     %=      @=
-&=      |=      ^=      >>=     <<=     **=
+>>> prefix + 'thon'
+'Python'
 ```
 
-句点也可出现于浮点数和虚数字面值中。连续三个句点有表示一个省略符的特殊含义。
-以上列表的后半部分为增强赋值操作符，在词法中作为分隔符，但也起到运算作用。
-
-以下可打印 ASCII 字符作为其他形符的组成部分时**具有**特殊含义，或是对词法分析器有重要意义:
+字符串是可以被 索引 （下标访问）的，第一个字符索引是 `0`。单个字符并没有特殊的类型，只是一个长度为一的字符串:
 
 ```python
-'       "       #       \
+>>> word = 'Python'
+>>> word[0]  # character in position 0
+'P'
+>>> word[5]  # character in position 5
+'n'
 ```
 
-以下可打印 ASCII 字符**不在** Python 词法中使用。如果出现于字符串字面值和注释之外将无条件地引发错误:
+索引也可以用负数，这种会从右边开始数:
 
 ```python
-$       ?       `
+>>> word[-1]  # last character
+'n'
+>>> word[-2]  # second-last character
+'o'
+>>> word[-6]
+'P'
 ```
+
+## 括号
+
+带逗号
+大括号：字典
+中括号：数组
+小括号：元组（固定不变的数组）
+
+小括号不带逗号：表示对括号内的单一表达式求值。小括号可以用来把一个式子分成多行。

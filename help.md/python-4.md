@@ -124,7 +124,7 @@ finally:
 print('END')
 ```
 
-Python的错误其实也是class，所有的错误类型都继承自`BaseException`，所以在使用`except`时需要注意的是，它不但捕获该类型的错误，还把其子类也“一网打尽”。比如：
+Python的错误其实也是class，所有的错误类型都继承自`BaseException`，所以在使用`except`时需要注意的是，它不但捕获该类型的错误，还把其子类也"一网打尽"。比如：
 
 ```python
 try:
@@ -451,7 +451,7 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 ```
 
-注意：断言的开关“`-O`”是英文大写字母`O`，不是数字`0`。
+注意：断言的开关"`-O`"是英文大写字母`O`，不是数字`0`。
 
 关闭后，你可以把所有的`assert`语句当成pass来看。
 
@@ -608,7 +608,7 @@ ZeroDivisionError: division by zero
 
 ### 单元测试
 
-如果你听说过“测试驱动开发”（TDD：Test-Driven Development），单元测试就不陌生。
+如果你听说过"测试驱动开发"（TDD：Test-Driven Development），单元测试就不陌生。
 
 单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作。
 
@@ -868,7 +868,7 @@ def abs(n):
 
 无疑更明确地告诉函数的调用者该函数的期望输入和输出。
 
-并且，Python内置的“文档测试”（`doctest`）模块可以直接提取注释中的代码并执行测试。
+并且，Python内置的"文档测试"（`doctest`）模块可以直接提取注释中的代码并执行测试。
 
 `doctest`严格按照Python交互式命令行的输入和输出来判断测试结果是否正确。只有测试异常的时候，可以用...表示中间一大段烦人的输出。
 
@@ -1005,13 +1005,13 @@ IO编程中，Stream（流）是一个很重要的概念，可以把流想象成
 
 第一种是CPU等着，也就是程序暂停执行后续代码，等100M的数据在10秒后写入磁盘，再接着往下执行，这种模式称为同步IO；
 
-另一种方法是CPU不等待，只是告诉磁盘，“您老慢慢写，不着急，我接着干别的事去了”，于是，后续代码可以立刻接着执行，这种模式称为异步IO。
+另一种方法是CPU不等待，只是告诉磁盘，"您老慢慢写，不着急，我接着干别的事去了"，于是，后续代码可以立刻接着执行，这种模式称为异步IO。
 
-同步和异步的区别就在于是否等待IO执行的结果。好比你去麦当劳点餐，你说“来个汉堡”，服务员告诉你，对不起，汉堡要现做，需要等5分钟，于是你站在收银台前面等了5分钟，拿到汉堡再去逛商场，这是同步IO。
+同步和异步的区别就在于是否等待IO执行的结果。好比你去麦当劳点餐，你说"来个汉堡"，服务员告诉你，对不起，汉堡要现做，需要等5分钟，于是你站在收银台前面等了5分钟，拿到汉堡再去逛商场，这是同步IO。
 
-你说“来个汉堡”，服务员告诉你，汉堡需要等5分钟，你可以先去逛商场，等做好了，我们再通知你，这样你可以立刻去干别的事情（逛商场），这是异步IO。
+你说"来个汉堡"，服务员告诉你，汉堡需要等5分钟，你可以先去逛商场，等做好了，我们再通知你，这样你可以立刻去干别的事情（逛商场），这是异步IO。
 
-很明显，使用异步IO来编写程序性能会远远高于同步IO，但是异步IO的缺点是编程模型复杂。想想看，你得知道什么时候通知你“汉堡做好了”，而通知你的方法也各不相同。如果是服务员跑过来找到你，这是回调模式，如果服务员发短信通知你，你就得不停地检查手机，这是轮询模式。总之，异步IO的复杂度远远高于同步IO。
+很明显，使用异步IO来编写程序性能会远远高于同步IO，但是异步IO的缺点是编程模型复杂。想想看，你得知道什么时候通知你"汉堡做好了"，而通知你的方法也各不相同。如果是服务员跑过来找到你，这是回调模式，如果服务员发短信通知你，你就得不停地检查手机，这是轮询模式。总之，异步IO的复杂度远远高于同步IO。
 
 操作IO的能力都是由操作系统提供的，每一种编程语言都会把操作系统提供的低级C接口封装起来方便使用，Python也不例外。我们后面会详细讨论Python的IO编程接口。
 
@@ -1557,9 +1557,9 @@ Python语言特定的序列化模块是`pickle`，但如果要把序列化搞得
 
 ## 进程和线程
 
-很多同学都听说过，现代操作系统比如Mac OS X，UNIX，Linux，Windows等，都是支持“多任务”的操作系统。
+很多同学都听说过，现代操作系统比如Mac OS X，UNIX，Linux，Windows等，都是支持"多任务"的操作系统。
 
-什么叫“多任务”呢？简单地说，就是操作系统可以同时运行多个任务。打个比方，你一边在用浏览器上网，一边在听MP3，一边在用Word赶作业，这就是多任务，至少同时有3个任务正在运行。还有很多任务悄悄地在后台同时运行着，只是桌面上没有显示而已。
+什么叫"多任务"呢？简单地说，就是操作系统可以同时运行多个任务。打个比方，你一边在用浏览器上网，一边在听MP3，一边在用Word赶作业，这就是多任务，至少同时有3个任务正在运行。还有很多任务悄悄地在后台同时运行着，只是桌面上没有显示而已。
 
 现在，多核CPU已经非常普及了，但是，即使过去的单核CPU，也可以执行多任务。由于CPU执行代码都是顺序执行的，那么，单核CPU是怎么执行多任务的呢？
 
@@ -1567,9 +1567,10 @@ Python语言特定的序列化模块是`pickle`，但如果要把序列化搞得
 
 真正的并行执行多任务只能在多核CPU上实现，但是，由于任务数量远远多于CPU的核心数量，所以，操作系统也会自动把很多任务轮流调度到每个核心上执行。
 
-对于操作系统来说，一个任务就是一个进程（Process），比如打开一个浏览器就是启动一个浏览器进程，打开一个记事本就启动了一个记事本进程，打开两个记事本就启动了两个记事本进程，打开一个Word就启动了一个Word进程。
+对于操作系统来说，一个任务就是一个进程（`Process`），比如打开一个浏览器就是启动一个浏览器进程，打开一个记事本就启动了一个记事本进程，打开两个记事本就启动了两个记事本进程，打开一个Word就启动了一个Word进程。
 
-有些进程还不止同时干一件事，比如Word，它可以同时进行打字、拼写检查、打印等事情。在一个进程内部，要同时干多件事，就需要同时运行多个“子任务”，我们把进程内的这些“子任务”称为线程（Thread）。
+有些进程还不止同时干一件事，比如Word，它可以同时进行打字、拼写检查、打印等事情。
+在一个进程内部，要同时干多件事，就需要同时运行多个"子任务"，我们把进程内的这些"子任务"称为线程（`Thread`）。
 
 由于每个进程至少要干一件事，所以，一个进程至少有一个线程。当然，像Word这种复杂的进程可以有多个线程，多个线程可以同时执行，多线程的执行方式和多进程是一样的，也是由操作系统在多个线程之间快速切换，让每个线程都短暂地交替运行，看起来就像同时执行一样。当然，真正地同时执行多线程需要多核CPU才可能实现。
 
@@ -1589,27 +1590,29 @@ Python语言特定的序列化模块是`pickle`，但如果要把序列化搞得
 + 多线程模式；
 + 多进程+多线程模式。
 
-同时执行多个任务通常各个任务之间并不是没有关联的，而是需要相互通信和协调，有时，任务1必须暂停等待任务2完成后才能继续执行，有时，任务3和任务4又不能同时执行，所以，多进程和多线程的程序的复杂度要远远高于我们前面写的单进程单线程的程序。
+同时执行多个任务通常各个任务之间并不是没有关联的，而是需要相互通信和协调，有时，`任务1`必须暂停等待`任务2`完成后才能继续执行，有时，`任务3`和`任务4`又不能同时执行，所以，多进程和多线程的程序的复杂度要远远高于我们前面写的单进程单线程的程序。
 
-因为复杂度高，调试困难，所以，不是迫不得已，我们也不想编写多任务。但是，有很多时候，没有多任务还真不行。想想在电脑上看电影，就必须由一个线程播放视频，另一个线程播放音频，否则，单线程实现的话就只能先把视频播放完再播放音频，或者先把音频播放完再播放视频，这显然是不行的。
+因为复杂度高，调试困难，所以，不是迫不得已，我们也不想编写多任务。但是，有很多时候，没有多任务还真不行。
+想想在电脑上看电影，就必须由一个线程播放视频，另一个线程播放音频，否则，单线程实现的话就只能先把视频播放完再播放音频，或者先把音频播放完再播放视频，这显然是不行的。
 
 Python既支持多进程，又支持多线程，我们会讨论如何编写这两种多任务程序。
 
 小结
 
-线程是最小的执行单元，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。
+线程是最小的执行单元，而进程由至少一个线程组成。
+如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。
 
 多进程和多线程的程序涉及到同步、数据共享的问题，编写起来更复杂。
 
-### 多进程
+### multiprocessing
 
-要让Python程序实现多进程（`multiprocessing`），我们先了解操作系统的相关知识。
+要让Python程序实现多process（`multiprocessing`），我们先了解操作系统的相关知识。
 
-Unix/Linux操作系统提供了一个`fork()`系统调用，它非常特殊。普通的函数调用，调用一次，返回一次，但是`fork()`调用一次，返回两次，因为操作系统自动把当前进程（称为父进程）复制了一份（称为子进程），然后，分别在父进程和子进程内返回。
+`Unix/Linux`操作系统提供了一个`fork()`系统调用，它非常特殊。普通的函数调用，调用一次，返回一次，但是`fork()`调用一次，返回两次，因为操作系统自动把当前process（称为父process）复制了一份（称为子process），然后，分别在父process和子process内返回。
 
-子进程永远返回`0`，而父进程返回子进程的`ID`。这样做的理由是，一个父进程可以`fork`出很多子进程，所以，父进程要记下每个子进程的`ID`，而子进程只需要调用`getppid()`就可以拿到父进程的`ID`。
+子process永远返回`0`，而父process返回子process的`ID`。这样做的理由是，一个父process可以`fork`出很多子process，所以，父process要记下每个子process的`ID`，而子process只需要调用`getppid()`就可以拿到父process的`ID`。
 
-Python的`os`模块封装了常见的系统调用，其中就包括`fork`，可以在Python程序中轻松创建子进程：
+Python的`os`模块封装了常见的系统调用，其中就包括`fork`，可以在Python程序中轻松创建子process：
 
 ```python
 import os
@@ -1632,24 +1635,24 @@ I am child process (877) and my parent is 876.
 ```
 
 由于Windows没有`fork`调用，上面的代码在Windows上无法运行。
-而Mac系统是基于BSD（Unix的一种）内核，所以，在Mac下运行是没有问题的，推荐大家用Mac学Python！
+而Mac系统是基于BSD（Unix的一种）内核，所以，在Mac下运行是没有问题的.
 
-有了`fork`调用，一个进程在接到新任务时就可以复制出一个子进程来处理新任务，常见的`Apache`服务器就是由父进程监听端口，每当有新的`http`请求时，就`fork`出子进程来处理新的http请求。
+有了`fork`调用，一个process在接到新任务时就可以复制出一个子process来处理新任务，常见的`Apache`服务器就是由父process监听端口，每当有新的`http`请求时，就`fork`出子process来处理新的http请求。
 
 #### multiprocessing
 
-如果你打算编写多进程的服务程序，`Unix/Linux`无疑是正确的选择。
-由于Windows没有`fork`调用，难道在Windows上无法用Python编写多进程的程序？
+如果你打算编写多process的服务程序，`Unix/Linux`无疑是正确的选择。
+由于Windows没有`fork`调用，难道在Windows上无法用Python编写多process的程序？
 
-由于Python是跨平台的，自然也应该提供一个跨平台的多进程支持。`multiprocessing`模块就是跨平台版本的多进程模块。
+由于Python是跨平台的，自然也应该提供一个跨平台的多process支持。`multiprocessing`模块就是跨平台版本的多process模块。
 
-`multiprocessing`模块提供了一个Process类来代表一个进程对象，下面的例子演示了启动一个子进程并等待其结束：
+`multiprocessing`模块提供了一个Process类来代表一个process对象，下面的例子演示了启动一个子process并等待其结束：
 
 ```python
 from multiprocessing import Process
 import os
 
-# 子进程要执行的代码
+# 子process要执行的代码
 def run_proc(name):
     print('Run child process %s (%s)...' % (name, os.getpid()))
 
@@ -1668,32 +1671,32 @@ if __name__=='__main__':
 Parent process 928.
 Child process will start.
 Run child process test (929)...
-Process end.
+Child process end.
 ```
 
-创建子进程时，只需要传入一个执行函数和函数的参数，
-创建一个Process实例，用`start()`方法启动，这样创建进程比`fork()`还要简单。
+创建子process时，只需要传入一个执行函数和函数的参数，
+创建一个Process实例，用`start()`方法启动，这样创建process比`fork()`还要简单。
 
-`join()`方法可以等待子进程结束后再继续往下运行，通常用于进程间的同步。
+`join()`方法可以等待子process结束后再继续往下运行，通常用于process间的同步。
 
 #### Pool
 
-如果要启动大量的子进程，可以用**进程池**的方式批量创建子进程：
+如果要启动大量的子process，可以用`process池`的方式批量创建子process：
 
 ```python
-from multiprocessing import Pool
+import multiprocessing
 import os, time, random
 
 def long_time_task(name):
-    print('Run task %s (%s)...' % (name, os.getpid()))
-    start = time.time()
+    print('Run task %s (%s)...' % (name, os.getpid())) #打印process名字和号码
+    start = time.time() # 打印开始时间
     time.sleep(random.random() * 3)
-    end = time.time()
+    end = time.time() # 打印结束时间
     print('Task %s runs %0.2f seconds.' % (name, (end - start)))
 
 if __name__=='__main__':
     print('Parent process %s.' % os.getpid())
-    p = Pool(4)
+    p = multiprocessing.Pool(4)
     for i in range(5):
         p.apply_async(long_time_task, args=(i,))
     print('Waiting for all subprocesses done...')
@@ -1706,40 +1709,31 @@ if __name__=='__main__':
 
 ```python
 Parent process 669.
-Waiting for all subprocesses done...
-Run task 0 (671)...
-Run task 1 (672)...
-Run task 2 (673)...
-Run task 3 (674)...
-Task 2 runs 0.14 seconds.
-Run task 4 (673)...
-Task 1 runs 0.27 seconds.
-Task 3 runs 0.86 seconds.
-Task 0 runs 1.41 seconds.
+...
 Task 4 runs 1.91 seconds.
 All subprocesses done.
 ```
 
 代码解读：
 
-对`Pool`对象调用`join()`方法会等待所有子进程执行完毕，调用`join()`之前必须先调用`close()`，调用`close()`之后就不能继续添加新的Process了。
+对`Pool`对象调用`join()`方法会等待所有子process执行完毕，调用`join()`之前必须先调用`close()`，调用`close()`之后就不能继续添加新的Process了。
 
-请注意输出的结果，`task 0`，`1`，`2`，`3`是立刻执行的，而`task 4`要等待前面某个task完成后才执行，这是因为`Pool`的默认大小在我的电脑上是`4`，因此，最多同时执行`4`个进程。这是`Pool`有意设计的限制，并不是操作系统的限制。如果改成：
+请注意输出的结果，`task 0`，`1`，`2`，`3`是立刻执行的，而`task 4`要等待前面某个`task`完成后才执行，这是因为`Pool`的默认大小在我的电脑上是`4`，因此，最多同时执行`4`个process。这是`Pool`有意设计的限制，并不是操作系统的限制。如果改成：
 
 ```python
 p = Pool(5)
 ```
 
-就可以同时跑`5`个进程。
+就可以同时跑`5`个process。
 
-由于Pool的默认大小是`CPU`的核数，如果你不幸拥有8核`CPU`，你要提交至少9个子进程才能看到上面的等待效果。
+由于Pool的默认大小是`CPU`的核数，如果你不幸拥有8核`CPU`，你要提交至少9个子process才能看到上面的等待效果。
 
-#### 子进程
+#### 子process
 
-很多时候，子进程并不是自身，而是一个外部进程。
-我们创建了子进程后，还需要控制子进程的输入和输出。
+很多时候，子process并不是自身，而是一个外部process。
+我们创建了子process后，还需要控制子process的输入和输出。
 
-`subprocess`模块可以让我们非常方便地启动一个子进程，然后控制其输入和输出。
+`subprocess`模块可以让我们非常方便地启动一个子process，然后控制其输入和输出。
 
 下面的例子演示了如何在Python代码中运行命令`nslookup www.python.org`，
 这和命令行直接运行的效果是一样的：
@@ -1757,23 +1751,23 @@ print('Exit code:', r)
 ```python
 $ nslookup www.python.org
 Server: 192.168.19.4
-Address:    192.168.19.4#53
-
-Non-authoritative answer:
-www.python.org  canonical name = python.map.fastly.net.
-Name:   python.map.fastly.net
-Address: 199.27.79.223
+...
 
 Exit code: 0
 ```
 
-如果子进程还需要输入，则可以通过`communicate()`方法输入：
+如果子process还需要输入，则可以通过`communicate()`方法输入：
 
 ```python
 import subprocess
 
 print('$ nslookup')
-p = subprocess.Popen(['nslookup'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+p = subprocess.Popen(
+    ['nslookup'], 
+    stdin=subprocess.PIPE, 
+    stdout=subprocess.PIPE, 
+    stderr=subprocess.PIPE
+    )
 output, err = p.communicate(b'set q=mx\npython.org\nexit\n')
 print(output.decode('utf-8'))
 print('Exit code:', p.returncode)
@@ -1805,17 +1799,17 @@ mail.python.org has AAAA address 2001:888:2000:d::a6
 Exit code: 0
 ```
 
-#### 进程间通信
+#### process间通信
 
-Process之间肯定是需要通信的，操作系统提供了很多机制来实现进程间的通信。Python的`multiprocessing`模块包装了底层的机制，提供了`Queue`、`Pipes`等多种方式来交换数据。
+Process之间肯定是需要通信的，操作系统提供了很多机制来实现process间的通信。Python的`multiprocessing`模块包装了底层的机制，提供了`Queue`、`Pipes`等多种方式来交换数据。
 
-我们以`Queue`为例，在父进程中创建两个子进程，一个往`Queue`里写数据，一个从`Queue`里读数据：
+我们以`Queue`为例，在父process中创建两个子process，一个往`Queue`里写数据，一个从`Queue`里读数据：
 
 ```python
 from multiprocessing import Process, Queue
 import os, time, random
 
-# 写数据进程执行的代码:
+# 写数据process执行的代码:
 def write(q):
     print('Process to write: %s' % os.getpid())
     for value in ['A', 'B', 'C']:
@@ -1823,7 +1817,7 @@ def write(q):
         q.put(value)
         time.sleep(random.random())
 
-# 读数据进程执行的代码:
+# 读数据process执行的代码:
 def read(q):
     print('Process to read: %s' % os.getpid())
     while True:
@@ -1831,17 +1825,17 @@ def read(q):
         print('Get %s from queue.' % value)
 
 if __name__=='__main__':
-    # 父进程创建Queue，并传给各个子进程：
+    # 父process创建Queue，并传给各个子process：
     q = Queue()
     pw = Process(target=write, args=(q,))
     pr = Process(target=read, args=(q,))
-    # 启动子进程pw，写入:
+    # 启动子processpw，写入:
     pw.start()
-    # 启动子进程pr，读取:
+    # 启动子processpr，读取:
     pr.start()
     # 等待pw结束:
     pw.join()
-    # pr进程里是死循环，无法等待其结束，只能强行终止:
+    # prprocess里是死循环，无法等待其结束，只能强行终止:
     pr.terminate()
 ```
 
@@ -1858,13 +1852,13 @@ Put C to queue...
 Get C from queue.
 ```
 
-在Unix/Linux下，multiprocessing模块封装了`fork()`调用，使我们不需要关注`fork()`的细节。由于Windows没有fork调用，因此，multiprocessing需要“模拟”出fork的效果，父进程所有Python对象都必须通过`pickle`序列化再传到子进程去，所以，如果multiprocessing在Windows下调用失败了，要先考虑是不是`pickle`失败了。
+在Unix/Linux下，multiprocessing模块封装了`fork()`调用，使我们不需要关注`fork()`的细节。由于Windows没有fork调用，因此，multiprocessing需要"模拟"出fork的效果，父process所有Python对象都必须通过`pickle`序列化再传到子process去，所以，如果multiprocessing在Windows下调用失败了，要先考虑是不是`pickle`失败了。
 
-#### 小结-多进程
+#### 小结-多process
 
-+ 在Unix/Linux下，可以使用`fork()`调用实现多进程。
-+ 要实现跨平台的多进程，可以使用`multiprocessing`模块。
-+ 进程间通信是通过`Queue`、`Pipes`等实现的。
++ 在Unix/Linux下，可以使用`fork()`调用实现多process。
++ 要实现跨平台的多process，可以使用`multiprocessing`模块。
++ process间通信是通过`Queue`、`Pipes`等实现的。
 
 #### 理解-2
 
@@ -1879,52 +1873,52 @@ Get C from queue.
 **保证在座的各位都能看懂的版本！**
 
 先说两句：
-什么是进程？有什么用？
+什么是process？有什么用？
 ——ok，那我问你，你能一手画圆一手画方吗？
 ——我猜不能。
 
 但计算机就不一样了，一边绘制正方体一边绘制球体都是小case（屏幕上自动绘制图形），
-这是因为计算机启动了另一个"大脑"来处理另一个任务，即两个“大脑”分别同时画两个图形 效率X2！
-我们之前的写程序都是计算机一个“大脑”在工作！ok，那怎么启动计算机其他的大脑呢？
-——启动另一个进程就可以了！
+这是因为计算机启动了另一个"大脑"来处理另一个任务，即两个"大脑"分别同时画两个图形 效率X2！
+我们之前的写程序都是计算机一个"大脑"在工作！ok，那怎么启动计算机其他的大脑呢？
+——启动另一个process就可以了！
 
-##### 创建进程
+##### 创建process
 
 ```python
 import multiprocessing
 import time
 
-def action(a, b):  # 待会两个进程要执行的任务↓
+def action(a, b):  # 待会两个process要执行的任务↓
     for i in range(30):  # 循环30次
         print(a, ' ', b)
         time.sleep(0.1)  # 等待0.1s
 
 if __name__ == '__main__':  
-# 这行代码很重要，新建进程的时候都加上它！！原因不用管（我也不知道233）
+# 这行代码很重要，新建process的时候都加上它！！原因不用管（我也不知道233）
 # 在命令行执行.py文件的时候，才会执行下面的语句
 
-    jc1 = multiprocessing.Process(target=action, args=('进程一', 0))  # 准备建立一个进程：multiprocessing.Process()
-    jc2 = multiprocessing.Process(target=action, args=('进程二', 1))  
+    jc1 = multiprocessing.Process(target=action, args=('process一', 0))  # 准备建立一个process：multiprocessing.Process()
+    jc2 = multiprocessing.Process(target=action, args=('process二', 1))  
 
     '''
-    再准备建立一个新进程，这是基本格式 记住←
-    必要参数 target : 指定进程要执行的任务(这里是执行函数 action),
+    再准备建立一个新process，这是基本格式 记住←
+    必要参数 target : 指定process要执行的任务(这里是执行函数 action),
     必要参数args : 直译成中文就是'参数'，顾名思义就是前面target的参数，
     即action的参数，注意args是个元组，所以args后的参数写成tuple元组格式。
-    直接写target('进程一',0) 一定报错的
+    直接写target('process一',0) 一定报错的
     '''
 
-    jc1.start()  # 将蓄势待发的jc1进程正式启动！！
+    jc1.start()  # 将蓄势待发的jc1process正式启动！！
     jc2.start()  # 同上...
 
-    jc1.join()  # 等待进程jc1将任务执行完...
+    jc1.join()  # 等待processjc1将任务执行完...
     jc2.join()  # ...
     print('jc1,jc2任务都已执行完毕')
 
-    jc1.close()  # 彻底关闭进程jc1
+    jc1.close()  # 彻底关闭processjc1
     jc2.close()  # ...
 
-     #输出结果是两个进程同时且连续打印0、1
+     #输出结果是两个process同时且连续打印0、1
 ```
 
 ##### Pool-2
@@ -1937,75 +1931,75 @@ import os
 def action1(a, b=50):
     for i in range(b):
         print(a, os.getpid(), ' ', i)  
-        # os.getpid(): pid简单来说就是每个进程的“身份证”
+        # os.getpid(): pid简单来说就是每个process的"身份证"
         time.sleep(0.1)
 
 if __name__ == '__main__':  # 还要添加这行，否则可能出现异常
 
-    ci = Pool(3)  # 创建一个进程池，容量为3个进程
-    ci.apply_async(action1, args=('进程一',))  # 启动第一个子进程...
-    ci.apply_async(action1, args=('进程二', 50))  
-    # 和普通进程的启动方式有很大不同仔细看
-    ci.apply_async(action1, args=('进程三', 60))  
+    ci = Pool(3)  # 创建一个process池，容量为3个process
+    ci.apply_async(action1, args=('process一',))  # 启动第一个子process...
+    ci.apply_async(action1, args=('process二', 50))  
+    # 和普通process的启动方式有很大不同仔细看
+    ci.apply_async(action1, args=('process三', 60))  
     # Pool的最基本格式记住←
 
     '''
-    注意：程序现在有4个进程在运行：
-    上面的三个子进程 和一个最为核心的：主进程
+    注意：程序现在有4个process在运行：
+    上面的三个子process 和一个最为核心的：主process
     '''
-    ci.close()  # 关闭进程池（但池子内已启动的子进程还会继续进行）
-    ci.join()  # 等待进程池内的所有子进程完毕
-    print('比如说这最后的一行输出就是主进程执行任务打印出来的')
+    ci.close()  # 关闭process池（但池子内已启动的子process还会继续进行）
+    ci.join()  # 等待process池内的所有子process完毕
+    print('比如说这最后的一行输出就是主process执行任务打印出来的')
 
     '''
-    主进程（父进程）全程干了什么？
-    创建进程池、启动子进程、关闭进程池、等待子进程完毕、打印最后一行
+    主process（父process）全程干了什么？
+    创建process池、启动子process、关闭process池、等待子process完毕、打印最后一行
     '''
 ```
 
-##### 进程间的通信
+##### process间的通信
 
 ```python
 import multiprocessing,time
 
 def foo(tx):
     time.sleep(0.5)
-    ss = tx.get()  # 管子的另一端放在子进程这里，子进程接收到了数据
-    print('子进程已收到数据...')
-    print(ss)  # 子进程打印出了数据内容
+    ss = tx.get()  # 管子的另一端放在子process这里，子process接收到了数据
+    print('子process已收到数据...')
+    print(ss)  # 子process打印出了数据内容
 
 if __name__ == '__main__':  # 要加这行
 
     tx = multiprocessing.Queue()  
-    # 创建进程通信的Queue，你可以理解为我拿了个管子来...
+    # 创建process通信的Queue，你可以理解为我拿了个管子来...
     jc = multiprocessing.Process(target=foo, args=(tx,))  
-    # 创建子进程
-    jc.start()  # 启子子进程
+    # 创建子process
+    jc.start()  # 启子子process
 
-    print('主进程准备发送数据...')
+    print('主process准备发送数据...')
     tx.put('有内鬼，终止交易！')  
-    # 将管子的一端放在主进程这里，主进程往管子里丢入数据
+    # 将管子的一端放在主process这里，主process往管子里丢入数据
     jc.join()
 
-    #这种方法可以实现任意进程间的通信，这里写的是主、子进程间的通信
+    #这种方法可以实现任意process间的通信，这里写的是主、子process间的通信
 ```
 
-### 多线程
+### multithread
 
-多任务可以由多进程完成，也可以由一个进程内的多线程完成。
+多任务可以由多process完成，也可以由一个process内的多thread完成。
 
-我们前面提到了进程是由若干线程组成的，一个进程至少有一个线程。
+我们前面提到了process是由若干thread组成的，一个process至少有一个thread。
 
-由于线程是操作系统直接支持的执行单元，因此，高级语言通常都内置多线程的支持，Python也不例外，并且，Python的线程是真正的`Posix Thread`，而不是模拟出来的线程。
+由于thread是操作系统直接支持的执行单元，因此，高级语言通常都内置多thread的支持，Python也不例外，并且，Python的thread是真正的`Posix Thread`，而不是模拟出来的thread。
 
 Python的标准库提供了两个模块：`_thread`和`threading`，`_thread`是低级模块，`threading`是高级模块，对`_thread`进行了封装。绝大多数情况下，我们只需要使用`threading`这个高级模块。
 
-启动一个线程就是把一个函数传入并创建Thread实例，然后调用`start()`开始执行：
+启动一个thread就是把一个函数传入并创建Thread实例，然后调用`start()`开始执行：
 
 ```python
 import time, threading
 
-# 新线程执行的代码:
+# 新thread执行的代码:
 def loop():
     print('thread %s is running...' % threading.current_thread().name)
     n = 0
@@ -2036,14 +2030,14 @@ thread LoopThread ended.
 thread MainThread ended.
 ```
 
-由于任何**进程**默认就会启动一个**线程**，我们把该线程称为主线程，主线程又可以启动新的线程，Python的`threading`模块有个`current_thread()`函数，它永远返回当前线程的实例。
-主线程实例的名字叫`MainThread`，子线程的名字在创建时指定，我们用`LoopThread`命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，如果不起名字Python就自动给线程命名为Thread-1，Thread-2……
+由于任何**process**默认就会启动一个**thread**，我们把该thread称为主thread，主thread又可以启动新的thread，Python的`threading`模块有个`current_thread()`函数，它永远返回当前thread的实例。
+主thread实例的名字叫`MainThread`，子thread的名字在创建时指定，我们用`LoopThread`命名子thread。名字仅仅在打印时用来显示，完全没有其他意义，如果不起名字Python就自动给thread命名为Thread-1，Thread-2……
 
 #### Lock
 
-多线程和多进程最大的不同在于，多进程中，同一个变量，各自有一份拷贝存在于每个进程中，互不影响，而多线程中，所有变量都由所有线程共享，所以，任何一个变量都可以被任何一个线程修改，因此，线程之间共享数据最大的危险在于多个线程同时改一个变量，把内容给改乱了。
+多thread和多process最大的不同在于，多process中，同一个变量，各自有一份拷贝存在于每个process中，互不影响，而多thread中，所有变量都由所有thread共享，所以，任何一个变量都可以被任何一个thread修改，因此，thread之间共享数据最大的危险在于多个thread同时改一个变量，把内容给改乱了。
 
-来看看多个线程同时操作一个变量怎么把内容给改乱了：
+来看看多个thread同时操作一个变量怎么把内容给改乱了：
 
 ```python
 import time, threading
@@ -2070,7 +2064,7 @@ t2.join()
 print(balance)
 ```
 
-我们定义了一个共享变量`balance`，初始值为`0`，并且启动两个线程，先存后取，理论上结果应该为`0`，但是，由于线程的调度是由操作系统决定的，当t1、t2交替执行时，只要循环次数足够多，`balance`的结果就不一定是`0`了。
+我们定义了一个共享变量`balance`，初始值为`0`，并且启动两个thread，先存后取，理论上结果应该为`0`，但是，由于thread的调度是由操作系统决定的，当t1、t2交替执行时，只要循环次数足够多，`balance`的结果就不一定是`0`了。
 
 原因是因为高级语言的一条语句在CPU执行时是若干条语句，即使一个简单的计算：
 
@@ -2090,7 +2084,7 @@ x = balance + n
 balance = x
 ```
 
-由于`x`是局部变量，两个线程各自都有自己的`x`，当代码正常执行时：
+由于`x`是局部变量，两个thread各自都有自己的`x`，当代码正常执行时：
 
 初始值 balance = 0
 
@@ -2128,12 +2122,12 @@ t2: balance = x2   # balance = -8
 
 结果 `balance = -8`
 
-究其原因，是因为修改`balance`需要多条语句，而执行这几条语句时，线程可能中断，从而导致多个线程把同一个对象的内容改乱了。
+究其原因，是因为修改`balance`需要多条语句，而执行这几条语句时，thread可能中断，从而导致多个thread把同一个对象的内容改乱了。
 
-两个线程同时一存一取，就可能导致余额不对，你肯定不希望你的银行存款莫名其妙地变成了负数，所以，我们必须确保一个线程在修改`balance`的时候，别的线程一定不能改。
+两个thread同时一存一取，就可能导致余额不对，你肯定不希望你的银行存款莫名其妙地变成了负数，所以，我们必须确保一个thread在修改`balance`的时候，别的thread一定不能改。
 
-如果我们要确保`balance`计算正确，就要给`change_it()`上一把锁，当某个线程开始执行`change_it()`时，我们说，该线程因为获得了锁，因此其他线程不能同时执行`change_it()`，只能等待，直到锁被释放后，获得该锁以后才能改。
-由于锁只有一个，无论多少线程，同一时刻最多只有一个线程持有该锁，所以，不会造成修改的冲突。创建一个锁就是通过`threading.Lock()`来实现：
+如果我们要确保`balance`计算正确，就要给`change_it()`上一把锁，当某个thread开始执行`change_it()`时，我们说，该thread因为获得了锁，因此其他thread不能同时执行`change_it()`，只能等待，直到锁被释放后，获得该锁以后才能改。
+由于锁只有一个，无论多少thread，同一时刻最多只有一个thread持有该锁，所以，不会造成修改的冲突。创建一个锁就是通过`threading.Lock()`来实现：
 
 ```python
 balance = 0
@@ -2151,11 +2145,11 @@ def run_thread(n):
             lock.release()
 ```
 
-当多个线程同时执行`lock.acquire()`时，只有一个线程能成功地获取锁，然后继续执行代码，其他线程就继续等待直到获得锁为止。
+当多个thread同时执行`lock.acquire()`时，只有一个thread能成功地获取锁，然后继续执行代码，其他thread就继续等待直到获得锁为止。
 
-获得锁的线程用完后一定要释放锁，否则那些苦苦等待锁的线程将永远等待下去，成为死线程。所以我们用`try...finally`来确保锁一定会被释放。
+获得锁的thread用完后一定要释放锁，否则那些苦苦等待锁的thread将永远等待下去，成为死thread。所以我们用`try...finally`来确保锁一定会被释放。
 
-锁的好处就是确保了某段关键代码只能由一个线程从头到尾完整地执行，坏处当然也很多，首先是阻止了多线程并发执行，包含锁的某段代码实际上只能以单线程模式执行，效率就大大地下降了。其次，由于可以存在多个锁，不同的线程持有不同的锁，并试图获取对方持有的锁时，可能会造成死锁，导致多个线程全部挂起，既不能执行，也无法结束，只能靠操作系统强制终止。
+锁的好处就是确保了某段关键代码只能由一个thread从头到尾完整地执行，坏处当然也很多，首先是阻止了多thread并发执行，包含锁的某段代码实际上只能以单thread模式执行，效率就大大地下降了。其次，由于可以存在多个锁，不同的thread持有不同的锁，并试图获取对方持有的锁时，可能会造成死锁，导致多个thread全部挂起，既不能执行，也无法结束，只能靠操作系统强制终止。
 
 #### 多核CPU
 
@@ -2163,7 +2157,7 @@ def run_thread(n):
 
 如果写一个死循环的话，会出现什么情况呢？
 
-打开Mac OS X的Activity Monitor，或者Windows的Task Manager，都可以监控某个进程的CPU使用率。
+打开Mac OS X的Activity Monitor，或者Windows的Task Manager，都可以监控某个process的CPU使用率。
 
 我们可以监控到一个死循环线程会100%占用一个CPU。
 
@@ -2196,7 +2190,7 @@ for i in range(multiprocessing.cpu_count()):
 
 所以，在Python中，可以使用多线程，但不要指望能有效利用多核。如果一定要通过多线程利用多核，那只能通过C扩展来实现，不过这样就失去了Python简单易用的特点。
 
-不过，也不用过于担心，Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的`GIL`锁，互不影响。
+不过，也不用过于担心，Python虽然不能利用多线程实现多核任务，但可以通过多process实现多核任务。多个Pythonprocess有各自独立的`GIL`锁，互不影响。
 
 #### 小结-多线程
 
@@ -2297,27 +2291,27 @@ Hello, Bob (in Thread-B)
 
 一个`ThreadLocal`变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。`ThreadLocal`解决了参数在一个线程中各个函数之间互相传递的问题。
 
-### 进程 vs. 线程
+### process vs. 线程
 
-我们介绍了多进程和多线程，这是实现多任务最常用的两种方式。现在，我们来讨论一下这两种方式的优缺点。
+我们介绍了多process和多线程，这是实现多任务最常用的两种方式。现在，我们来讨论一下这两种方式的优缺点。
 
 首先，要实现多任务，通常我们会设计Master-Worker模式，Master负责分配任务，Worker负责执行任务，因此，多任务环境下，通常是一个Master，多个Worker。
 
-如果用多进程实现Master-Worker，主进程就是Master，其他进程就是Worker。
+如果用多process实现Master-Worker，主process就是Master，其他process就是Worker。
 
 如果用多线程实现Master-Worker，主线程就是Master，其他线程就是Worker。
 
-多进程模式最大的优点就是稳定性高，因为一个子进程崩溃了，不会影响主进程和其他子进程。（当然主进程挂了所有进程就全挂了，但是Master进程只负责分配任务，挂掉的概率低）著名的Apache最早就是采用多进程模式。
+多process模式最大的优点就是稳定性高，因为一个子process崩溃了，不会影响主process和其他子process。（当然主process挂了所有process就全挂了，但是Masterprocess只负责分配任务，挂掉的概率低）著名的Apache最早就是采用多process模式。
 
-多进程模式的缺点是创建进程的代价大，在Unix/Linux系统下，用fork调用还行，在Windows下创建进程开销巨大。另外，操作系统能同时运行的进程数也是有限的，在内存和CPU的限制下，如果有几千个进程同时运行，操作系统连调度都会成问题。
+多process模式的缺点是创建process的代价大，在Unix/Linux系统下，用fork调用还行，在Windows下创建process开销巨大。另外，操作系统能同时运行的process数也是有限的，在内存和CPU的限制下，如果有几千个process同时运行，操作系统连调度都会成问题。
 
-多线程模式通常比多进程快一点，但是也快不到哪去，而且，多线程模式致命的缺点就是任何一个线程挂掉都可能直接造成整个进程崩溃，因为所有线程共享进程的内存。在Windows上，如果一个线程执行的代码出了问题，你经常可以看到这样的提示：“该程序执行了非法操作，即将关闭”，其实往往是某个线程出了问题，但是操作系统会强制结束整个进程。
+多线程模式通常比多process快一点，但是也快不到哪去，而且，多线程模式致命的缺点就是任何一个线程挂掉都可能直接造成整个process崩溃，因为所有线程共享process的内存。在Windows上，如果一个线程执行的代码出了问题，你经常可以看到这样的提示："该程序执行了非法操作，即将关闭"，其实往往是某个线程出了问题，但是操作系统会强制结束整个process。
 
-在Windows下，多线程的效率比多进程要高，所以微软的IIS服务器默认采用多线程模式。由于多线程存在稳定性的问题，IIS的稳定性就不如Apache。为了缓解这个问题，IIS和Apache现在又有多进程+多线程的混合模式，真是把问题越搞越复杂。
+在Windows下，多线程的效率比多process要高，所以微软的IIS服务器默认采用多线程模式。由于多线程存在稳定性的问题，IIS的稳定性就不如Apache。为了缓解这个问题，IIS和Apache现在又有多process+多线程的混合模式，真是把问题越搞越复杂。
 
 #### 线程切换
 
-无论是多进程还是多线程，只要数量一多，效率肯定上不去，为什么呢？
+无论是多process还是多线程，只要数量一多，效率肯定上不去，为什么呢？
 
 我们打个比方，假设你不幸正在准备中考，每天晚上需要做语文、数学、英语、物理、化学这5科的作业，每项作业耗时1小时。
 
@@ -2325,7 +2319,7 @@ Hello, Bob (in Thread-B)
 
 假设你打算切换到多任务模型，可以先做1分钟语文，再切换到数学作业，做1分钟，再切换到英语，以此类推，只要切换速度足够快，这种方式就和单核CPU执行多任务是一样的了，以幼儿园小朋友的眼光来看，你就正在同时写5科作业。
 
-但是，切换作业是有代价的，比如从语文切到数学，要先收拾桌子上的语文书本、钢笔（这叫保存现场），然后，打开数学课本、找出圆规直尺（这叫准备新环境），才能开始做数学作业。操作系统在切换进程或者线程时也是一样的，它需要先保存当前执行的现场环境（CPU寄存器状态、内存页等），然后，把新任务的执行环境准备好（恢复上次的寄存器状态，切换内存页等），才能开始执行。这个切换过程虽然很快，但是也需要耗费时间。如果有几千个任务同时进行，操作系统可能就主要忙着切换任务，根本没有多少时间去执行任务了，这种情况最常见的就是硬盘狂响，点窗口无反应，系统处于假死状态。
+但是，切换作业是有代价的，比如从语文切到数学，要先收拾桌子上的语文书本、钢笔（这叫保存现场），然后，打开数学课本、找出圆规直尺（这叫准备新环境），才能开始做数学作业。操作系统在切换process或者线程时也是一样的，它需要先保存当前执行的现场环境（CPU寄存器状态、内存页等），然后，把新任务的执行环境准备好（恢复上次的寄存器状态，切换内存页等），才能开始执行。这个切换过程虽然很快，但是也需要耗费时间。如果有几千个任务同时进行，操作系统可能就主要忙着切换任务，根本没有多少时间去执行任务了，这种情况最常见的就是硬盘狂响，点窗口无反应，系统处于假死状态。
 
 所以，多任务一旦多到一个限度，就会消耗掉系统所有的资源，结果效率急剧下降，所有任务都做不好。
 
@@ -2343,9 +2337,9 @@ IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时�
 
 #### 异步IO
 
-考虑到CPU和IO之间巨大的速度差异，一个任务在执行的过程中大部分时间都在等待IO操作，单进程单线程模型会导致别的任务无法并行执行，因此，我们才需要多进程模型或者多线程模型来支持多任务并发执行。
+考虑到CPU和IO之间巨大的速度差异，一个任务在执行的过程中大部分时间都在等待IO操作，单process单线程模型会导致别的任务无法并行执行，因此，我们才需要多process模型或者多线程模型来支持多任务并发执行。
 
-现代操作系统对IO操作已经做了巨大的改进，最大的特点就是支持异步IO。如果充分利用操作系统提供的异步IO支持，就可以用单进程单线程模型来执行多任务，这种全新的模型称为事件驱动模型，Nginx就是支持异步IO的Web服务器，它在单核CPU上采用单进程模型就可以高效地支持多任务。在多核CPU上，可以运行多个进程（数量与CPU核心数相同），充分利用多核CPU。由于系统总的进程数量十分有限，因此操作系统调度非常高效。用异步IO编程模型来实现多任务是一个主要的趋势。
+现代操作系统对IO操作已经做了巨大的改进，最大的特点就是支持异步IO。如果充分利用操作系统提供的异步IO支持，就可以用单process单线程模型来执行多任务，这种全新的模型称为事件驱动模型，Nginx就是支持异步IO的Web服务器，它在单核CPU上采用单process模型就可以高效地支持多任务。在多核CPU上，可以运行多个process（数量与CPU核心数相同），充分利用多核CPU。由于系统总的process数量十分有限，因此操作系统调度非常高效。用异步IO编程模型来实现多任务是一个主要的趋势。
 
 对应到Python语言，**单线程的异步编程模型称为协程**，有了协程的支持，就可以基于事件驱动编写高效的多任务程序。我们会在后面讨论如何编写协程。
 
