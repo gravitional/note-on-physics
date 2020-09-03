@@ -186,7 +186,7 @@ and
 \begin_inset Formula $\cosh(\theta)^{2}-\sinh(\theta)^{2}=1$
 \end_inset
 
-,所以
+,所以设逆变矢量的变换矩阵为：
 \begin_inset Formula 
 \[
 \left(\begin{array}{cc}
@@ -247,7 +247,15 @@ t
 
 \end_inset
 
- 这里的负号是一种约定，跟坐标系的手性有关。
+ 这里的负号是一种约定，跟坐标系的手性有关。逆变矢量就这么变，
+\begin_inset Formula 
+\[
+x^{\prime\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}
+\]
+
+\end_inset
+
+这里虽然写的是指标上下收缩的形式，但是相乘的时候，就按普通的矩阵乘法。负号已经考虑在矩阵里面了。
 \end_layout
 
 \begin_layout Section
@@ -299,7 +307,20 @@ a\frac{t}{t^{\prime}}=\frac{1}{1-v^{2}}\label{eq:1}
 \end_layout
 
 \begin_layout Standard
-同时考虑洛伦兹矩阵的逆矩阵，根据定义有
+同时考虑洛伦兹矩阵的逆矩阵，
+\begin_inset Formula 
+\begin{align*}
+ & x^{\prime\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}\\
+\Rightarrow & \Lambda i_{\phantom{\mu}\mu}^{\nu}x^{\prime\mu}=x^{\nu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+根据定义有
 \begin_inset Formula 
 \begin{align*}
 \delta_{\phantom{\rho}\sigma}^{\rho} & =\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\nu}\delta_{\phantom{\mu}\nu}^{\mu}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\mu}\\
@@ -345,7 +366,7 @@ t=at^{\prime}\Rightarrow\frac{t}{t^{\prime}}=a
 
 \end_inset
 
-结合
+结合EQ:
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:1"
@@ -371,7 +392,39 @@ noprefix "false"
 \begin_inset Formula $b$
 \end_inset
 
+。
+\end_layout
 
+\begin_layout Standard
+验证：
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right).\left(\begin{array}{cc}
+\gamma & \gamma v\\
+\gamma v & \gamma
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma^{2}-\gamma^{2}v^{2} & 0\\
+0 & -\gamma^{2}v^{2}+\gamma^{2}
+\end{array}\right)=\left(\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right)
+\]
+
+\end_inset
+
+这里是按照普通的矩阵乘法相乘的。
+\end_layout
+
+\begin_layout Standard
+也就是说，通过考察一个结果已知的特殊坐标变换，并且利用洛伦兹矩阵的正交归一性质，我们可以确定两个未知的矩阵元
+\begin_inset Formula $a,b$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Chapter

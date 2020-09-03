@@ -32,6 +32,15 @@ OPTIONS
 + `-I`, `--nointeract`使用plain列表，不需要交互
 + `-M`, `--machine` 机器可读的结果
 
+## latex 编译模式
+
+[如何加速 LaTeX 编译][]
+
+[如何加速 LaTeX 编译]: https://zhuanlan.zhihu.com/p/55043560
+
+不同的编译模式也有细微的影响。
+经过测试，使用批处理模式（`batchmode`）速度要优于默认的模式（不加参数）和其他一些模式（比如 `nonstopmode` 和 `scrollmode`），这是因为批处理模式在编译和执行阶段是静默的，不输出任何信息，因此要快上一些。
+
 ## 浮动体
 
 [liam.page][]
