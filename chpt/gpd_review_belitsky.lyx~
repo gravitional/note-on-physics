@@ -413,6 +413,22 @@ Clifford 代数的表示
 \end_layout
 
 \begin_layout Standard
+一个对称变换会分别（独立地）作用到量子场的三个构成部分上：空间函数
+\begin_inset Formula $\phi(x)$
+\end_inset
+
+，自旋函数
+\begin_inset Formula $u\left(p\right)$
+\end_inset
+
+，希尔伯特空间(产生湮灭算符)
+\begin_inset Formula $a^{^{\dagger}},a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 狄拉克矩阵遵守四维 Clifford 代数
 \begin_inset Formula 
 \[
@@ -516,18 +532,97 @@ Weyl 表示
 \begin_inset Formula $\sigma^{y}$
 \end_inset
 
-作为电荷共轭矩阵。Dirac 矩阵在 Weyl 表象下的形式为
+作为电荷共轭矩阵。Dirac 矩阵在 Weyl 表象下的形式为(
+\color red
+这里和文献中的有点不同
+\color inherit
+)
 \begin_inset Formula 
 \[
 \gamma^{\mu}=\left(\begin{array}{cc}
-0 & \bar{\sigma}^{\mu}\\
-\sigma^{\mu} & 0
+0 & \sigma^{\mu}\\
+\bar{\sigma}^{\mu} & 0
 \end{array}\right)
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+这里有个trick 
+\begin_inset Formula 
+\[
+\left\{ \left(\begin{array}{cc}
+0 & A^{\mu}\\
+B^{\mu} & 0
+\end{array}\right)\text{,}\left(\begin{array}{cc}
+0 & A^{\nu}\\
+B^{\nu} & 0
+\end{array}\right)\right\} =\left(\begin{array}{cc}
+AB^{\left\{ \mu,\nu\right\} } & 0\\
+0 & BA^{\left\{ \mu,\nu\right\} }
+\end{array}\right)
+\]
+
+\end_inset
+
+会导致指标对称化
+\begin_inset Formula $AB^{\left\{ \mu,\nu\right\} }$
+\end_inset
+
+，注意这跟我们平常用的算子对称化
+\begin_inset Formula $\{A^{\mu},B^{\nu}\}=\{AB\}^{\mu\nu}$
+\end_inset
+
+是不一样的，而
+\begin_inset Formula $\sigma\bar{\sigma}^{\{\mu,\nu\}}=2g^{\mu\nu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(p\cdot\sigma)(p\cdot\bar{\sigma})=p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}=\frac{1}{2}\left(p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}+p^{\nu}\sigma_{\nu}p^{\mu}\bar{\sigma}_{\mu}\right)=p^{\mu}p^{\nu}g_{\mu\nu}=p^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+也就是说，由于指标总可以对称化，对于
+\begin_inset Formula $(p\cdot A)(p\cdot B)$
+\end_inset
+
+的形式，如果
+\begin_inset Formula $A=B$
+\end_inset
+
+，指标对称化将进化成算子对称化。
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $A\neq B$
+\end_inset
+
+，但是
+\begin_inset Formula $[A,B]^{\left\{ \mu,\nu\right\} }=0,\text{ i.e. }AB^{\left\{ \mu,\nu\right\} }=BA^{\left\{ \mu,\nu\right\} }$
+\end_inset
+
+，则
+\begin_inset Formula $C=\left(\begin{array}{cc}
+0 & A\\
+B & 0
+\end{array}\right)$
+\end_inset
+
+满足算子对称化关系
+\begin_inset Formula $\{C,C\}^{\mu\nu}=AB^{\left\{ \mu,\nu\right\} }$
+\end_inset
+
+。
 \begin_inset Formula 
 \[
 \sigma^{\mu}=(1,\vec{\sigma}),\quad\bar{\sigma}^{\mu}=(1,-\vec{\sigma})
@@ -584,6 +679,52 @@ Weyl 表示
 。
 \end_layout
 
+\begin_layout Subsection
+Dirac 表示
+\end_layout
+
+\begin_layout Standard
+Dirac 表示可有 Wyel 表示做一个 幺正变换得到
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma_{D}=\mathcal{U}^{\dagger}\gamma_{w}\mathcal{U},\quad\mathcal{U}=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+1 & 1\\
+1 & -1
+\end{array}\right)
+\]
+
+\end_inset
+
+Dirac 矩阵的形式为
+\begin_inset Formula 
+\[
+\gamma^{0}=\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right),\quad\vec{\gamma}=\left(\begin{array}{cc}
+0 & \vec{\sigma}\\
+-\vec{\sigma} & 0
+\end{array}\right)\quad\gamma^{5}=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\quad C=\left(\begin{array}{cc}
+0 & -i\sigma_{2}\\
+-i\sigma_{2} & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+一些关系
+\end_layout
+
 \begin_layout Standard
 电荷共轭矩阵具有表象无关的关系
 \begin_inset Formula 
@@ -628,511 +769,8 @@ C\gamma_{\mu}^{T}C=\gamma_{\mu},\quad C\gamma_{5}^{T}C=-\gamma_{5},\quad C\left(
 
 \end_layout
 
-\begin_layout Standard
-证明：
-\end_layout
-
-\begin_layout Standard
-这个等式实际上蕴含着一个重要的思想，把张量按照对称性进行分解。也就是说，
-\end_layout
-
-\begin_layout Enumerate
-如果
-\begin_inset Formula $\mu\nu\rho$
-\end_inset
-
-全相等，结果为
-\begin_inset Formula $\gamma^{\mu}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-如果有两个相等，可能性为
-\begin_inset Formula $g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\rho\mu}\gamma^{\nu}$
-\end_inset
-
-，这里其实和全部相等有重叠，如果全部相等，刚好回到
-\begin_inset Formula $\gamma^{\mu}$
-\end_inset
-
-，所以上面的一项可以去掉。
-\end_layout
-
-\begin_layout Enumerate
-三个指标各不相等，这样的话，我们考虑引入另一个矩阵
-\begin_inset Formula $\gamma^{\sigma}$
-\end_inset
-
-,且
-\begin_inset Formula $\sigma\notin\{\mu,\nu,\rho\}$
-\end_inset
-
-，利用
-\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
-\end_inset
-
-，和
-\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}=-\gamma^{\nu}\gamma^{\mu},\mu\neq\nu$
-\end_inset
-
- and 
-\begin_inset Formula $\gamma^{\mu}\gamma_{\mu}=1,\text{ without sum }\mu$
-\end_inset
-
-，这种对称性下的项可以写成
-\begin_inset Formula 
-\[
-\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}(-i\gamma_{\sigma})=i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{5}
-\]
-
-\end_inset
-
-注意到由于
-\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
-\end_inset
-
-的全反对称性质，
-\begin_inset Formula $\sigma$
-\end_inset
-
-只取
-\begin_inset Formula $0,1,2,3$
-\end_inset
-
-中的一个值，与取全部值（求和）是等价的，因为我们假设了
-\begin_inset Formula $\mu,\nu,\rho$
-\end_inset
-
-各不相等，穷尽了其他三个值，所以求和只有一项有效值。
-\end_layout
-
-\begin_layout Standard
-综上
-\begin_inset Formula 
-\begin{equation}
-\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\rho\mu}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{5}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-讨论
-\end_layout
-
-\begin_layout Enumerate
-两个矩阵的乘积：
-\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}=g^{\mu\nu}-i\sigma^{\mu\nu}$
-\end_inset
-
-，元素是
-\begin_inset Formula $g^{\mu\nu}$
-\end_inset
-
-,
-\begin_inset Formula $\sigma^{\mu\nu}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-三个矩阵的乘积：
-\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\mu\rho}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma_{5}$
-\end_inset
-
-，元素是
-\begin_inset Formula $g^{\mu\nu}\gamma^{\rho}$
-\end_inset
-
-,
-\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma_{5}$
-\end_inset
-
-,
-\end_layout
-
-\begin_layout Enumerate
-四个矩阵的乘积：
-\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\alpha}=g^{\mu\nu}\gamma^{\rho}\gamma^{\alpha}+g^{\nu\rho}\gamma^{\mu}\gamma^{\alpha}-g^{\mu\rho}\gamma^{\nu}\gamma^{\alpha}-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{5}\gamma_{\sigma}\gamma^{\alpha}$
-\end_inset
-
-利用上面的公式。元素是
-\begin_inset Formula $g^{\mu\nu}$
-\end_inset
-
-,
-\begin_inset Formula $\sigma^{\mu\nu}$
-\end_inset
-
-,
-\begin_inset Formula $\varepsilon^{\mu\nu\rho\alpha}$
-\end_inset
-
-,
-\begin_inset Formula $\gamma_{5}$
-\end_inset
-
-。
-\begin_inset Formula 
-\begin{align*}
--i\varepsilon^{\mu\nu\rho\sigma}\gamma_{5}\gamma_{\sigma}\gamma^{\alpha} & =-i\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}\gamma_{5}\left(g^{\mu\nu}-i\sigma^{\mu\nu}\right)\\
- & =-\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}\left(\frac{i}{2}\varepsilon^{\sigma\alpha\theta\zeta}\sigma_{\theta\zeta}+ig^{\sigma\alpha}\gamma_{5}\right)\\
- & =\frac{1}{4}\left(\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}\varepsilon^{\sigma\alpha\theta\zeta}\sigma_{\theta\zeta}+\varepsilon^{\mu\nu\rho\alpha}\gamma_{5}\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-含有
-\begin_inset Formula $\gamma^{5}$
-\end_inset
-
-矩阵的，利用
-\begin_inset Formula $\gamma^{5}\sigma^{\mu\nu}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\gamma^{5}$
-\end_inset
-
-乘一个矩阵：
-\begin_inset Formula $\gamma^{\mu}\gamma^{5}=-\gamma^{5}\gamma^{\mu}$
-\end_inset
-
-,元素是
-\begin_inset Formula $\gamma^{\mu}\gamma^{5}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\gamma^{5}$
-\end_inset
-
-乘两个矩阵：
-\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{\nu}=\gamma^{\mu}\gamma^{\nu}\gamma^{5}=\frac{1}{2}\gamma^{5}\left(\sigma^{\mu\nu}+g^{\mu\nu}\right)=\frac{1}{2}g^{\mu\nu}\gamma^{5}+\frac{i}{4}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
-\end_inset
-
-，元素是
-\begin_inset Formula $g^{\mu\nu}$
-\end_inset
-
-,
-\begin_inset Formula $\sigma^{\mu\nu}$
-\end_inset
-
-,
-\begin_inset Formula $\gamma^{5}$
-\end_inset
-
-,
-\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
-\end_inset
-
-,
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\gamma^{5}$
-\end_inset
-
-乘三个矩阵：
-\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=\gamma^{5}\left(g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\mu\rho}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma_{5}\right)=g^{\mu\nu}\gamma^{5}\gamma^{\rho}+g^{\nu\rho}\gamma^{5}\gamma^{\mu}-g^{\mu\rho}\gamma^{5}\gamma^{\nu}-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}$
-\end_inset
-
-，元素是
-\begin_inset Formula $g^{\mu\nu}\gamma^{5}\gamma^{\rho}$
-\end_inset
-
-,
-\begin_inset Formula $i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\gamma^{5}$
-\end_inset
-
-乘四个矩阵：
-\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\alpha}=g^{\mu\nu}\gamma^{5}\gamma^{\rho}\gamma^{\alpha}+g^{\nu\rho}\gamma^{5}\gamma^{\mu}\gamma^{\alpha}-g^{\mu\rho}\gamma^{5}\gamma^{\nu}\gamma^{\alpha}-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{\alpha}$
-\end_inset
-
-，元素是
-\end_layout
-
-\begin_layout Subsection
-\begin_inset Formula $\gamma^{5}$
-\end_inset
-
- and 
-\begin_inset Formula $\sigma^{\mu\nu}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-旋量的表示，洛伦兹群生成元满足
-\begin_inset Formula 
-\begin{align*}
-\left[J_{\mu\nu},J_{\rho\sigma}\right] & =i(g_{\nu\rho}J_{\mu\sigma}-g_{\mu\rho}J_{\nu\sigma}-g_{\nu\sigma}J_{\mu\rho}+g_{\mu\sigma}J_{\nu\rho})
-\end{align*}
-
-\end_inset
-
-考虑到
-\begin_inset Formula $g_{\mu\nu}$
-\end_inset
-
-是对称张量，指标顺序无所谓，上面可以写成
-\begin_inset Formula 
-\[
-\left[J_{12},J_{34}\right]=ig_{\text{rest}}J_{(14+23-24-13)}
-\]
-
-\end_inset
-
-rest 表示剩下的指标。
-\begin_inset Formula 
-\[
-S_{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]
-\]
-
-\end_inset
-
-满足这个对易关系，是洛伦兹群生成元的四维旋量表示，所以
-\begin_inset Formula $\sigma^{\mu\nu}=\frac{i}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]$
-\end_inset
-
-满足
-\begin_inset Formula 
-\begin{align*}
-\left[\sigma_{12},\sigma_{34}\right] & =2ig_{\text{rest}}\sigma_{(14+23-24-13)}\\
- & =2i(g_{23}\sigma_{14}-g_{14}\sigma_{23}-g_{13}\sigma_{24}+g_{24}\sigma_{13})
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-利用
-\begin_inset Formula $\gamma^{\nu}\gamma^{\mu}=-\gamma^{\mu}\gamma^{\nu}+2g^{\mu\nu}$
-\end_inset
-
-，
-\begin_inset Formula 
-\begin{align*}
-\sigma^{\mu\nu}\sigma_{\mu\nu} & =-\frac{2}{4}\left(\gamma^{\mu}\gamma^{\nu}\gamma_{\mu}\gamma_{\nu}-\gamma^{\mu}\gamma^{\nu}\gamma_{\nu}\gamma_{\mu}\right)\\
- & =-\frac{2}{4}\left(\left(-4*4+2*4\right)-4*4\right)\\
- & =\frac{-1}{2}(-8-16)=12\\
-\sigma^{\mu\nu}\sigma_{\mu\nu} & =12
-\end{align*}
-
-\end_inset
-
-如同泡利矩阵,
-\begin_inset Formula $\sigma^{\mu\nu}$
-\end_inset
-
-矩阵的模为
-\begin_inset Formula $1$
-\end_inset
-
-，
-\begin_inset Formula $\sigma^{\mu\nu}\sigma_{\mu\nu}=1,\mu\neq\nu$
-\end_inset
-
-（重复指标不求和，并注意指标的位置）
-\begin_inset Formula 
-\[
-\sigma^{\mu\nu}\sigma^{\rho\sigma}=\frac{-2}{4}\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}-\gamma^{\mu}\gamma^{\nu}\gamma^{\sigma}\gamma^{\rho}\right)
-\]
-
-\end_inset
-
-由于
-\begin_inset Formula $\sigma^{\rho\sigma}$
-\end_inset
-
-是反对称的，所以考虑
-\begin_inset Formula $\rho\neq\sigma$
-\end_inset
-
-,利用
-\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\sigma^{\mu\nu}\sigma^{\rho\sigma} & =\frac{-4}{4}\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\right)=-\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\\
- & =i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}-g^{\mu\nu}\gamma^{\rho}\gamma^{\sigma}-\cdots-g^{\mu\nu}g^{\rho\sigma}-\cdots
-\end{align*}
-
-\end_inset
-
-省略号代表各种可能的组合，如果
-\begin_inset Formula $\mu,\nu,\rho,\sigma$
-\end_inset
-
-各不相等，
-\begin_inset Formula 
-\[
-\sigma^{\mu\nu}\sigma^{\rho\sigma}=i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-所以有
-\begin_inset Formula 
-\begin{align*}
-\gamma^{5} & =\frac{-i}{4!}\varepsilon_{\mu\nu\rho\sigma}\sigma^{\mu\nu}\sigma^{\rho\sigma}=\frac{i}{4!}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}\sigma_{\rho\sigma}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-证明：
-\end_layout
-
-\begin_layout Standard
-证明
-\begin_inset Formula $\gamma^{5}\sigma^{\mu\nu}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
-\end_inset
-
-,利用
-\begin_inset Formula $\sigma^{\mu\nu}\sigma^{\rho\sigma}=i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}$
-\end_inset
-
-，右边乘上
-\begin_inset Formula $\gamma^{5}$
-\end_inset
-
-,
-\begin_inset Formula $\left(\gamma^{5}\right)^{2}=1$
-\end_inset
-
-,注意这些指标
-\begin_inset Formula $\mu,\nu,\rho,\sigma$
-\end_inset
-
-各不相等
-\begin_inset Formula 
-\begin{align*}
-\sigma^{\mu\nu}\sigma^{\rho\sigma}= & i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}\\
-\sigma^{\mu\nu}\sigma^{\rho\sigma}\gamma^{5}= & i\varepsilon^{\mu\nu\rho\sigma}\\
-\sigma_{\mu\nu}\sigma^{\mu\nu}\sigma^{\rho\sigma}\gamma^{5}= & i\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula $\sigma_{\mu\nu}\sigma^{\mu\nu}$
-\end_inset
-
-这个求和中的指标跟
-\begin_inset Formula $\sigma^{\rho\sigma}$
-\end_inset
-
-中的
-\begin_inset Formula $\rho\sigma$
-\end_inset
-
-不能相等，
-\begin_inset Formula $\rho,\sigma$
-\end_inset
-
-也不相等，因为指标总数为
-\begin_inset Formula $0,1,2,3$
-\end_inset
-
-,如此一来，求和只有两项,如
-\begin_inset Formula $\sigma_{12}\sigma^{12}+\sigma_{21}\sigma^{21}=2$
-\end_inset
-
-，所以
-\begin_inset Formula 
-\begin{align*}
-\sigma^{\rho\sigma}\gamma^{5} & =\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}\text{ 交换指标次序}\\
-\gamma^{5}\sigma^{\rho\sigma} & =\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}
-\end{align*}
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Subsection
-Dirac 表示
-\end_layout
-
-\begin_layout Standard
-Dirac 表示可有 Wyel 表示做一个 幺正变换得到
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\gamma_{D}=\mathcal{U}^{\dagger}\gamma_{w}\mathcal{U},\quad\mathcal{U}=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
-1 & 1\\
-1 & -1
-\end{array}\right)
-\]
-
-\end_inset
-
-Dirac 矩阵的形式为
-\begin_inset Formula 
-\[
-\gamma^{0}=\left(\begin{array}{cc}
-1 & 0\\
-0 & -1
-\end{array}\right),\quad\vec{\gamma}=\left(\begin{array}{cc}
-0 & \vec{\sigma}\\
--\vec{\sigma} & 0
-\end{array}\right)\quad\gamma^{5}=\left(\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right),\quad C=\left(\begin{array}{cc}
-0 & -i\sigma_{2}\\
--i\sigma_{2} & 0
-\end{array}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-自旋–
-\begin_inset Formula $1/2$
-\end_inset
-
-旋量
+自旋–1/2旋量
 \end_layout
 
 \begin_layout Standard
@@ -1194,370 +832,8 @@ W^{\mu}=\frac{1}{2}\varepsilon^{\mu\nu\rho\sigma}P_{\nu}M_{\rho\sigma}
 
 \end_layout
 
-\begin_layout Subsection
-求解：
-\end_layout
-
-\begin_layout Standard
-在这个坐标系中，
-\begin_inset Formula 
-\[
-\slashed{p}=\left(\begin{array}{cc}
-E_{\vec{p}} & -\vec{p}.\vec{\sigma}\\
-\vec{p}.\vec{\sigma} & -E_{\vec{p}}
-\end{array}\right)
-\]
-
-\end_inset
-
-所以，
-\begin_inset Formula 
-\[
-\slashed{p}-m=\left(\begin{array}{cc}
-E_{\vec{p}}-m & -\vec{p}.\vec{\sigma}\\
-\vec{p}.\vec{\sigma} & -E_{\vec{p}}-m
-\end{array}\right)
-\]
-
-\end_inset
-
-令
-\begin_inset Formula $u(p)=\left(\begin{array}{c}
-w_{1}\\
-w_{2}
-\end{array}\right)$
-\end_inset
-
-，得到
-\begin_inset Formula 
-\[
-\begin{cases}
-\left(E_{\vec{p}}-m\right)w_{1}-\left(\vec{p}.\vec{\sigma}\right)w_{2}=0\\
-\left(\vec{p}.\vec{\sigma}\right)w_{1}-\left(E_{\vec{p}}+m\right)w_{2}=0
-\end{cases}
-\]
-
-\end_inset
-
-考虑到
-\begin_inset Formula $E^{2}-p^{2}=m^{2}$
-\end_inset
-
-，以及
-\begin_inset Formula $\left\{ \sigma^{i},\sigma^{j}\right\} =2\delta^{ij},\left(\vec{p}.\vec{\sigma}\right)^{2}=p^{i}\sigma^{i}p^{j}\sigma^{j}=p^{2}$
-\end_inset
-
-。这两个方程是等价的。化简为
-\begin_inset Formula 
-\[
-w_{2}=\frac{\left(\vec{p}.\vec{\sigma}\right)}{E_{\vec{p}}+m}w_{1}
-\]
-
-\end_inset
-
-重新选择归一化，令
-\begin_inset Formula $w_{1}=\sqrt{E_{\vec{p}}+m}w_{\lambda}$
-\end_inset
-
-，得到
-\begin_inset Formula 
-\begin{align*}
-w_{2} & =\frac{\left(\vec{p}.\vec{\sigma}\right)\sqrt{E_{\vec{p}}+m}}{E_{\vec{p}}+m}w_{\lambda}=\frac{\left(\vec{p}.\vec{\sigma}\right)\sqrt{E_{\vec{p}}-m}}{\sqrt{E_{\vec{p}}+m}\sqrt{E_{\vec{p}}-m}}w_{\lambda}\\
- & =\frac{\left(\vec{p}.\vec{\sigma}\right)\sqrt{E_{\vec{p}}-m}}{\sqrt{\vec{p}^{2}}}w_{\lambda}=\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
-\end{align*}
-
-\end_inset
-
-
-\color red
-最终得到
-\color inherit
-，
-\begin_inset Formula 
-\[
-u_{\lambda}(p)=\left(\begin{array}{c}
-\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
-\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
-\end{array}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-其中
-\begin_inset Formula $\vec{n}\equiv\vec{p}/\sqrt{\vec{p}^{2}}$
-\end_inset
-
-，为动量方向的单位矢量。
-\end_layout
-
-\begin_layout Standard
-由于
-\begin_inset Formula $\gamma^{0}=\left(\begin{array}{cc}
-1 & 0\\
-0 & -1
-\end{array}\right)$
-\end_inset
-
-，
-\begin_inset Formula $\bar{u}=u^{\dagger}\gamma^{0}=(u_{1}^{\dagger},-u_{2}^{\dagger})$
-\end_inset
-
-,归一化为,
-\begin_inset Formula 
-\[
-\bar{u}_{\lambda}(p)u_{\lambda^{\prime}}(p)=\left(E_{\vec{p}}+m\right)-\left(E_{\vec{p}}-m\right)\delta_{\lambda\lambda^{\prime}}=2m\delta_{\lambda\lambda^{\prime}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color red
-同理，在Weyl表象下,
-\color inherit
-
-\begin_inset Formula 
-\[
-\slashed{p}-m=\left(\begin{array}{cc}
--m & E_{\vec{p}}-\vec{p}.\vec{\sigma}\\
-E_{\vec{p}}+\vec{p}.\vec{\sigma} & -m
-\end{array}\right)
-\]
-
-\end_inset
-
-令
-\begin_inset Formula $u(p)=\left(\begin{array}{c}
-w_{1}\\
-w_{2}
-\end{array}\right)$
-\end_inset
-
-，得到
-\begin_inset Formula 
-\[
-\begin{cases}
-\left(-m\right)w_{1}+\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)w_{2}=0\\
-\left(E_{\vec{p}}+\vec{p}.\vec{\sigma}\right)w_{1}+\left(-m\right)w_{2}=0
-\end{cases}
-\]
-
-\end_inset
-
-同上，这两个方程是等价的，
-\begin_inset Formula 
-\[
-w_{1}=\frac{\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)}{m}w_{2}
-\]
-
-\end_inset
-
-重新选择归一化，令
-\begin_inset Formula $w_{2}=\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}w_{\lambda}$
-\end_inset
-
-，得到,
-\begin_inset Formula 
-\[
-w_{1}=\frac{m}{\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}}w_{\lambda}
-\]
-
-\end_inset
-
-这里
-\begin_inset Formula $\sqrt{}$
-\end_inset
-
-的含义应该理解为，变换到对角表象中开方后再逆变换回来。
-\end_layout
-
-\begin_layout Standard
-
-\color red
-最终得到
-\color inherit
-，
-\begin_inset Formula 
-\[
-u_{\lambda}(p)=\left(\begin{array}{c}
-\frac{m}{\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}}w_{\lambda}\\
-\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}w_{\lambda}
-\end{array}\right)=\left(\begin{array}{c}
-bw_{\lambda}\\
-b^{-1}w_{\lambda}
-\end{array}\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula $b=\sqrt{\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)}=\sqrt{p.\sigma}$
-\end_inset
-
-，
-\begin_inset Formula $b$
-\end_inset
-
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-在静止系为
-\begin_inset Formula $\sqrt{m}$
-\end_inset
-
-。
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-
-\begin_inset Formula $b$
-\end_inset
-
-为
-\begin_inset Formula $\sigma^{\mu}$
-\end_inset
-
-和动量收缩的根，简称
-\begin_inset Formula $\sigma$
-\end_inset
-
-内积根。 
-\end_layout
-
-\begin_layout Standard
-顺便一提，
-\begin_inset Formula $b^{-1}(p^{\mu})=b(-p^{\mu})$
-\end_inset
-
-，也就是说，动量反向，变成逆矩阵。
-\end_layout
-
-\begin_layout Standard
-由于
-\begin_inset Formula $\gamma^{0}=\left(\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array}\right)$
-\end_inset
-
-，
-\begin_inset Formula $\bar{u}=u^{\dagger}\gamma^{0}=(u_{2}^{\dagger},u_{1}^{\dagger})$
-\end_inset
-
-,归一化为
-\begin_inset Formula 
-\[
-\bar{u}_{\lambda}(p)u_{\lambda^{\prime}}(p)=mw_{\lambda}^{\dagger}w_{\lambda^{\prime}}+mw_{\lambda}^{\dagger}w_{\lambda^{\prime}}=2m\delta_{\lambda\lambda^{\prime}}
-\]
-
-\end_inset
-
-我们看到，每一项的来源都很清晰，
-\begin_inset Formula $2$
-\end_inset
-
-来自于
-\begin_inset Formula $u_{\lambda}(p)$
-\end_inset
-
-中包含两个基础旋量，
-\begin_inset Formula $m$
-\end_inset
-
-来自于
-\begin_inset Formula $b$
-\end_inset
-
-的模长，内部的
-\begin_inset Formula $b,b^{-1}$
-\end_inset
-
-来自于
-\begin_inset Formula $\gamma^{0}$
-\end_inset
-
-作用后，归一化 cancel 的要求。
-\end_layout
-
-\begin_layout Standard
-
-\color red
-如果是负能解
-\color inherit
- 
-\begin_inset Formula $v\exp(ip\cdot x)$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left(\slashed{p}+m\right)u(p)=0
-\]
-
-\end_inset
-
-可以看到，相当于求解过程中的
-\begin_inset Formula $m$
-\end_inset
-
-多了一个负号，所以上半部分和下半部分的旋量会差一个负号。我们选择负号在下半部分，得到：
-\begin_inset Formula 
-\[
-v_{\eta}(p)=\left(\begin{array}{c}
-bq_{\eta}\\
--b^{-1}q_{\eta}
-\end{array}\right)
-\]
-
-\end_inset
-
-同样，
-\begin_inset Formula $b=\sqrt{p.\sigma}$
-\end_inset
-
-，
-\begin_inset Formula $b$
-\end_inset
-
-为
-\begin_inset Formula $\sigma^{\mu}$
-\end_inset
-
-和动量收缩的根，简称
-\begin_inset Formula $\sigma$
-\end_inset
-
-内积根
-\end_layout
-
-\begin_layout Subsection
-补充 Pauli-Lubanski
+\begin_layout Section
+补充：Pauli-Lubanski 矢量
 \end_layout
 
 \begin_layout Standard
@@ -1640,8 +916,124 @@ W^{\mu}=-\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}S_{\rho\sigma}\partial_{\nu}
 有关。
 \end_layout
 
+\begin_layout Section
+密度矩阵
+\end_layout
+
 \begin_layout Standard
-同理，在
+两个量子态
+\begin_inset Formula $\ket{\psi_{1}}$
+\end_inset
+
+,
+\begin_inset Formula $\ket{\psi_{2}}$
+\end_inset
+
+可以有两种叠加方式：
+\end_layout
+
+\begin_layout Enumerate
+相干叠加，就是量子力学中的
+\begin_inset Formula $\ket{\psi}=c_{1}\ket{\psi_{1}}+c_{2}\ket{\psi_{2}}$
+\end_inset
+
+，结果形成一个`纯态'。新的态和原来任意一个态不同。
+\end_layout
+
+\begin_layout Enumerate
+不相干叠加，
+\begin_inset Formula $\lvert\psi_{1}(x_{0})\rvert^{2}p_{1}+\lvert\psi_{2}(x_{0})\rvert^{2}p_{2}$
+\end_inset
+
+，即按照平方之后的概率幅进行叠加，结果形成一个`混合态'。它按照概率
+\begin_inset Formula $p_{1}$
+\end_inset
+
+处于状态
+\begin_inset Formula $\psi_{1}(x_{0})$
+\end_inset
+
+，按照概率
+\begin_inset Formula $p_{2}$
+\end_inset
+
+处于状态
+\begin_inset Formula $\psi_{2}(x_{0})$
+\end_inset
+
+，是经典物理中的统计概率。
+\end_layout
+
+\begin_layout Standard
+不管是纯态，还是混合态，都可以统一的用`
+\color red
+密度矩阵
+\color inherit
+'来描述：
+\end_layout
+
+\begin_layout Standard
+
+\color red
+对于纯态：
+\color inherit
+
+\begin_inset Formula 
+\[
+\rho=\ket{\psi}\bra{\psi}
+\]
+
+\end_inset
+
+物理量
+\begin_inset Formula $A$
+\end_inset
+
+的平均值:
+\begin_inset Formula 
+\[
+\langle A\rangle=\tr\left(A.\rho\right)
+\]
+
+\end_inset
+
+矩阵
+\begin_inset Formula $A,\rho$
+\end_inset
+
+在同一组完备基
+\begin_inset Formula $\sum_{n}\ket{n}\bra{n}=1$
+\end_inset
+
+表示。
+\end_layout
+
+\begin_layout Standard
+
+\color red
+对于混合态：
+\color inherit
+
+\begin_inset Formula 
+\[
+\rho=\sum_{i}\ket{\psi}p_{i}\bra{\psi}\quad\sum_{i}p_{i}=1
+\]
+
+\end_inset
+
+物理量
+\begin_inset Formula $A$
+\end_inset
+
+的平均值的表达式相同:
+\begin_inset Formula 
+\[
+\langle A\rangle=\tr\left(A.\rho\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

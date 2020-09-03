@@ -1,0 +1,3458 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor}
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{amsfonts} 
+\usepackage{latexsym} 
+% Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+
+%\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{makeidx} 
+\usepackage{multirow} 
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr} 
+\DeclareMathOperator{\re}{Re} 
+\DeclareMathOperator{\im}{Im} 
+\DeclareMathOperator{\res}{Res} 
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Dirac 相关的运算
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Chapter
+自旋1/2
+\end_layout
+
+\begin_layout Section
+张量
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g_{\mu\nu}=g^{\mu\nu}=\text{diag}(1,-1,-1,-1)
+\]
+
+\end_inset
+
+逆变张量和协变张量分别为
+\begin_inset Formula 
+\[
+v^{\mu}=(v_{0},\vec{v}),\quad v_{\mu}=(v_{0},-\vec{v})
+\]
+
+\end_inset
+
+全反对称 Levi-Civita 张量 
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+，采用归一化
+\begin_inset Formula 
+\[
+\varepsilon^{0123}=1,\quad\varepsilon_{0123}=-1
+\]
+
+\end_inset
+
+这个归一化有一个subtle 的负号，因为
+\begin_inset Formula $\varepsilon_{\mu\nu\rho\sigma}$
+\end_inset
+
+要求指标
+\begin_inset Formula $\mu\nu\rho\sigma$
+\end_inset
+
+各不相同，所以四个指标同时升降的时候，一定会有个负号(
+\begin_inset Formula $3$
+\end_inset
+
+负号
+\begin_inset Formula $1$
+\end_inset
+
+正号)
+\end_layout
+
+\begin_layout Standard
+它遵守 Schouten 恒等式
+\begin_inset Formula 
+\[
+g^{\alpha\beta}\varepsilon^{\mu\nu\rho\sigma}-g^{\alpha\mu}\varepsilon^{\beta\nu\rho\sigma}+g^{\alpha\nu}\varepsilon^{\beta\mu\rho\sigma}-g^{\alpha\rho}\varepsilon^{\beta\mu\nu\sigma}+g^{\alpha\sigma}\varepsilon^{\beta\mu\nu\rho}=0
+\]
+
+\end_inset
+
+这个恒等式来自于四维空间中不存在五阶完全反对称张量。
+\end_layout
+
+\begin_layout Standard
+这个公式的证明如下，
+\begin_inset Formula $\mu\nu\rho\sigma$
+\end_inset
+
+各不相同，穷尽四维空间的指标个数。不失一般性的，设
+\begin_inset Formula $\alpha=\mu,\beta=\nu$
+\end_inset
+
+，则
+\begin_inset Formula 
+\begin{align*}
+ & g^{\alpha\beta}\varepsilon^{\mu\nu\rho\sigma}-g^{\alpha\mu}\varepsilon^{\beta\nu\rho\sigma}+g^{\alpha\nu}\varepsilon^{\beta\mu\rho\sigma}-g^{\alpha\rho}\varepsilon^{\beta\mu\nu\sigma}+g^{\alpha\sigma}\varepsilon^{\beta\mu\nu\rho}\\
+ & =g^{\alpha\beta}\varepsilon^{\mu\nu\rho\sigma}+g^{\alpha\nu}\varepsilon^{\beta\mu\rho\sigma}\\
+ & =g^{\alpha\nu}\varepsilon^{\mu\nu\rho\sigma}+g^{\alpha\nu}\varepsilon^{\nu\mu\rho\sigma}=0
+\end{align*}
+
+\end_inset
+
+其他情形类似，一共有
+\begin_inset Formula $4$
+\end_inset
+
+种情况，把它们加起来即可（并考虑奇偶置换带来的符号）。
+\end_layout
+
+\begin_layout Section
+Clifford 代数的表示
+\end_layout
+
+\begin_layout Standard
+一个对称变换会分别（独立地）作用到量子场的三个构成部分上：空间函数
+\begin_inset Formula $\phi(x)$
+\end_inset
+
+，自旋函数
+\begin_inset Formula $u\left(p\right)$
+\end_inset
+
+，希尔伯特空间(产生湮灭算符)
+\begin_inset Formula $a^{^{\dagger}},a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+狄拉克矩阵遵守四维 Clifford 代数
+\begin_inset Formula 
+\[
+\left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2g^{\mu\nu}\cdot\mathbbm{1}_{4\times4}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathbbm{1}_{4\times4}$
+\end_inset
+
+是
+\begin_inset Formula $4\times4$
+\end_inset
+
+的单位矩阵。我们主要使用两种特殊表示。
+\end_layout
+
+\begin_layout Subsection
+Weyl 表示
+\end_layout
+
+\begin_layout Standard
+在这个表示中，一个双旋量包括一个左Weyl旋量
+\begin_inset Formula $\bar{\chi}_{\downarrow}$
+\end_inset
+
+和右Weyl旋量
+\begin_inset Formula $\lambda_{\uparrow}$
+\end_inset
+
+，只需要把它们放在一起即可构建。
+\begin_inset Formula 
+\[
+\psi=\left(\begin{array}{c}
+\lambda_{\uparrow}\\
+\bar{\chi}_{\downarrow}
+\end{array}\right)
+\]
+
+\end_inset
+
+这就是 Dirac 旋量。这么做的主要原因是，在空间宇称变换下，这两个Weyl 旋量会交换位置，
+\begin_inset Formula $\bar{\chi}_{\downarrow}\leftrightarrow\lambda_{\uparrow}$
+\end_inset
+
+。回忆洛伦兹群的表示
+\begin_inset Formula $L_{+}^{\uparrow}=SO(3,1)=SO(4,\mathbb{C})_{\downarrow R}\approx\left(SL(2,\mathbb{C})\otimes SL(2,\mathbb{C})\right)_{\downarrow R}$
+\end_inset
+
+——a real form of the complexified group of four-dimensional rotations。由一对数字
+\begin_inset Formula $\left(j_{1},j_{2}\right)$
+\end_inset
+
+标记，它们是
+\begin_inset Formula $SL(2)$
+\end_inset
+
+群Casimir 算子 
+\begin_inset Formula $J_{i}^{2}$
+\end_inset
+
+的本征值
+\begin_inset Formula $j_{i}(j_{i}+1)$
+\end_inset
+
+。旋量
+\begin_inset Formula $\bar{\chi}_{\downarrow}$
+\end_inset
+
+和
+\begin_inset Formula $\lambda_{\uparrow}$
+\end_inset
+
+分别按照
+\begin_inset Formula $(\frac{1}{2},0)$
+\end_inset
+
+ and 
+\begin_inset Formula $(0,\frac{1}{2})$
+\end_inset
+
+表示变换。
+\begin_inset Formula $\bar{\chi}_{\downarrow}$
+\end_inset
+
+的共轭(complex conjugate)变换形式像
+\begin_inset Formula $\lambda_{\uparrow}$
+\end_inset
+
+，即
+\begin_inset Formula 
+\[
+\bar{\chi}_{\downarrow}^{\ast}\sim i\sigma^{y}\lambda_{\uparrow}
+\]
+
+\end_inset
+
+其中第二个泡利矩阵
+\begin_inset Formula $\sigma^{y}$
+\end_inset
+
+作为电荷共轭矩阵。Dirac 矩阵在 Weyl 表象下的形式为(
+\color red
+这里和文献中的有点不同
+\color inherit
+)
+\begin_inset Formula 
+\[
+\gamma^{\mu}=\left(\begin{array}{cc}
+0 & \sigma^{\mu}\\
+\bar{\sigma}^{\mu} & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这里有个trick 
+\begin_inset Formula 
+\[
+\left\{ \left(\begin{array}{cc}
+0 & A^{\mu}\\
+B^{\mu} & 0
+\end{array}\right)\text{,}\left(\begin{array}{cc}
+0 & A^{\nu}\\
+B^{\nu} & 0
+\end{array}\right)\right\} =\left(\begin{array}{cc}
+AB^{\left\{ \mu,\nu\right\} } & 0\\
+0 & BA^{\left\{ \mu,\nu\right\} }
+\end{array}\right)
+\]
+
+\end_inset
+
+会导致指标对称化
+\begin_inset Formula $AB^{\left\{ \mu,\nu\right\} }$
+\end_inset
+
+，注意这跟我们平常用的算子对称化
+\begin_inset Formula $\{A^{\mu},B^{\nu}\}=\{AB\}^{\mu\nu}$
+\end_inset
+
+是不一样的，而
+\begin_inset Formula $\sigma\bar{\sigma}^{\{\mu,\nu\}}=2g^{\mu\nu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(p\cdot\sigma)(p\cdot\bar{\sigma})=p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}=\frac{1}{2}\left(p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}+p^{\nu}\sigma_{\nu}p^{\mu}\bar{\sigma}_{\mu}\right)=p^{\mu}p^{\nu}g_{\mu\nu}=p^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+也就是说，由于指标总可以对称化，对于
+\begin_inset Formula $(p\cdot A)(p\cdot B)$
+\end_inset
+
+的形式，如果
+\begin_inset Formula $A=B$
+\end_inset
+
+，指标对称化将进化成算子对称化。
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $A\neq B$
+\end_inset
+
+，但是
+\begin_inset Formula $[A,B]^{\left\{ \mu,\nu\right\} }=0,\text{ i.e. }AB^{\left\{ \mu,\nu\right\} }=BA^{\left\{ \mu,\nu\right\} }$
+\end_inset
+
+，则
+\begin_inset Formula $C=\left(\begin{array}{cc}
+0 & A\\
+B & 0
+\end{array}\right)$
+\end_inset
+
+满足算子对称化关系
+\begin_inset Formula $\{C,C\}^{\mu\nu}=AB^{\left\{ \mu,\nu\right\} }$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\sigma^{\mu}=(1,\vec{\sigma}),\quad\bar{\sigma}^{\mu}=(1,-\vec{\sigma})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[\sigma^{i},\sigma^{j}\right]=2i\varepsilon^{ijk}\sigma^{k},\quad\left\{ \sigma^{i},\sigma^{j}\right\} =2\delta^{ij}
+\]
+
+\end_inset
+
+相应的手征矩阵和电荷共轭矩阵的形式为
+\begin_inset Formula 
+\[
+\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}=\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right),\quad C=i\gamma^{2}\gamma^{0}=\left(\begin{array}{cc}
+-i\sigma^{2} & 0\\
+0 & i\sigma^{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma^{5}=\frac{i}{4!}\varepsilon_{\mu\nu\rho\sigma}\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}=-\frac{i}{4!}\varepsilon^{\mu\nu\rho\sigma}\gamma_{\mu}\gamma_{\nu}\gamma_{\rho}\gamma_{\sigma}
+\]
+
+\end_inset
+
+手征矩阵
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+的要点在于，
+\series bold
+它要与所有的其他
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵反对易
+\series default
+。
+\begin_inset Formula $\left\{ \gamma^{5},\gamma^{\mu}\right\} =0,\left\{ \gamma^{5},\sigma^{\mu\nu}\right\} =0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+Dirac 表示
+\end_layout
+
+\begin_layout Standard
+Dirac 表示可有 Wyel 表示做一个 幺正变换得到
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma_{D}=\mathcal{U}^{\dagger}\gamma_{w}\mathcal{U},\quad\mathcal{U}=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+1 & 1\\
+1 & -1
+\end{array}\right)
+\]
+
+\end_inset
+
+Dirac 矩阵的形式为
+\begin_inset Formula 
+\[
+\gamma^{0}=\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right),\quad\vec{\gamma}=\left(\begin{array}{cc}
+0 & \vec{\sigma}\\
+-\vec{\sigma} & 0
+\end{array}\right)\quad\gamma^{5}=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\quad C=\left(\begin{array}{cc}
+0 & -i\sigma_{2}\\
+-i\sigma_{2} & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+一些关系
+\end_layout
+
+\begin_layout Standard
+电荷共轭矩阵具有表象无关的关系
+\begin_inset Formula 
+\[
+C^{T}=C^{-1}=-C,\quad C^{2}=-1,\quad C\gamma^{\mu}=-(\gamma^{\mu})^{T}C
+\]
+
+\end_inset
+
+电荷共轭矩阵可以用来做转置
+\begin_inset Formula 
+\begin{equation}
+C\gamma_{\mu}^{T}C=\gamma_{\mu},\quad C\gamma_{5}^{T}C=-\gamma_{5},\quad C\left(\gamma_{\mu}\gamma_{5}\right)^{T}C=-\gamma_{\mu}\gamma_{5},\quad C\sigma_{\mu\nu}^{T}C=\sigma_{\mu\nu}\label{eq:A.12}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\sigma_{\mu\nu}=\frac{i}{2}\left[\gamma_{\mu},\gamma_{\nu}\right]$
+\end_inset
+
+是反对称矩阵，它具有性质
+\begin_inset Formula 
+\begin{equation}
+\gamma^{5}\sigma^{\mu\nu}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}\label{eq:A.13-1}
+\end{equation}
+
+\end_inset
+
+三个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵乘积可以被约化成一个，通过等式
+\begin_inset Formula 
+\begin{equation}
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\rho\mu}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{5}\label{eq:A-13}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+自旋–1/2旋量
+\end_layout
+
+\begin_layout Standard
+Dirac 方程平面波解的振幅部分(旋量部分),
+\begin_inset Formula $\psi=u\exp\left(-ip\cdot x\right)+v\exp(ip\cdot x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\slashed{p}-m\right)u(p)=0
+\]
+
+\end_inset
+
+使用Dirac表象中的 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ 矩阵，Dirac双旋量可以写成
+\begin_inset Formula 
+\[
+u_{\lambda}(p)=\left(\begin{array}{c}
+\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
+\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\end{array}\right)
+\]
+
+\end_inset
+
+它定义了一个粒子，能量是
+\begin_inset Formula $E_{\vec{p}}$
+\end_inset
+
+，动量为
+\begin_inset Formula $\vec{p}$
+\end_inset
+
+,沿着单位矢量
+\begin_inset Formula $\vec{n}\equiv\vec{p}/\sqrt{\vec{p}^{2}}$
+\end_inset
+
+的方向运动。Weyl 旋量
+\begin_inset Formula $w_{\lambda}$
+\end_inset
+
+是螺旋度算符的本征函数。
+\end_layout
+
+\begin_layout Standard
+回忆起 Pauli-Lubanski 矢量为
+\begin_inset Formula 
+\[
+W^{\mu}=\frac{1}{2}\varepsilon^{\mu\nu\rho\sigma}P_{\nu}M_{\rho\sigma}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵公式
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}$
+\end_inset
+
+乘积约化
+\end_layout
+
+\begin_layout Standard
+这个等式实际上蕴含着一个重要的思想，把张量按照对称性进行分解。也就是说，
+\end_layout
+
+\begin_layout Enumerate
+如果
+\begin_inset Formula $\mu\nu\rho$
+\end_inset
+
+全相等，结果为
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+如果有两个相等，可能性为
+\begin_inset Formula $g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\rho\mu}\gamma^{\nu}$
+\end_inset
+
+，这里其实和全部相等有重叠，如果全部相等，刚好回到
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+，所以上面的一项可以去掉。
+\end_layout
+
+\begin_layout Enumerate
+三个指标各不相等，这样的话，我们考虑引入另一个矩阵
+\begin_inset Formula $\gamma^{\sigma}$
+\end_inset
+
+,且
+\begin_inset Formula $\sigma\notin\{\mu,\nu,\rho\}$
+\end_inset
+
+，利用
+\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
+\end_inset
+
+，和
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}=-\gamma^{\nu}\gamma^{\mu},\mu\neq\nu$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma^{\mu}\gamma_{\mu}=1,\text{ without sum }\mu$
+\end_inset
+
+，这种对称性下的项可以写成
+\begin_inset Formula 
+\[
+\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}(-i\gamma_{\sigma})=i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{5}
+\]
+
+\end_inset
+
+注意到由于
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+的全反对称性质，
+\begin_inset Formula $\sigma$
+\end_inset
+
+只取
+\begin_inset Formula $0,1,2,3$
+\end_inset
+
+中的一个值，与取全部值（求和）是等价的，因为我们假设了
+\begin_inset Formula $\mu,\nu,\rho$
+\end_inset
+
+各不相等，穷尽了其他三个值，所以求和只有一项有效值。
+\end_layout
+
+\begin_layout Standard
+综上
+\begin_inset Formula 
+\begin{equation}
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\rho\mu}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+多个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵乘积的约化
+\end_layout
+
+\begin_layout Enumerate
+两个矩阵的乘积：
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}=g^{\mu\nu}-i\sigma^{\mu\nu}$
+\end_inset
+
+，元素是
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+三个矩阵的乘积：
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\mu\rho}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma_{5}$
+\end_inset
+
+，元素是
+\begin_inset Formula $g^{\mu\nu}\gamma^{\rho}$
+\end_inset
+
+,
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma_{5}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+四个矩阵的乘积：
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\alpha}=g^{\mu\nu}\gamma^{\rho}\gamma^{\alpha}+g^{\nu\rho}\gamma^{\mu}\gamma^{\alpha}-g^{\mu\rho}\gamma^{\nu}\gamma^{\alpha}-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{5}\gamma_{\sigma}\gamma^{\alpha}$
+\end_inset
+
+利用上面的公式。元素是
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\alpha}$
+\end_inset
+
+,
+\begin_inset Formula $\gamma_{5}$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{5}\gamma_{\sigma}\gamma^{\alpha} & =-i\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}\gamma_{5}\left(g^{\mu\nu}-i\sigma^{\mu\nu}\right)\\
+ & =-\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}\left(\frac{i}{2}\varepsilon^{\sigma\alpha\theta\zeta}\sigma_{\theta\zeta}+ig^{\sigma\alpha}\gamma_{5}\right)\\
+ & =\frac{1}{4}\left(\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}\varepsilon^{\sigma\alpha\theta\zeta}\sigma_{\theta\zeta}+\varepsilon^{\mu\nu\rho\alpha}\gamma_{5}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+含有
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+矩阵的，利用
+\begin_inset Formula $\gamma^{5}\sigma^{\mu\nu}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+乘一个矩阵：
+\begin_inset Formula $\gamma^{\mu}\gamma^{5}=-\gamma^{5}\gamma^{\mu}$
+\end_inset
+
+,元素是
+\begin_inset Formula $\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+乘两个矩阵：
+\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{\nu}=\gamma^{\mu}\gamma^{\nu}\gamma^{5}=\frac{1}{2}\gamma^{5}\left(\sigma^{\mu\nu}+g^{\mu\nu}\right)=\frac{1}{2}g^{\mu\nu}\gamma^{5}+\frac{i}{4}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
+\end_inset
+
+，元素是
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+,
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+乘三个矩阵：
+\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=\gamma^{5}\left(g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\mu\rho}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma_{5}\right)=g^{\mu\nu}\gamma^{5}\gamma^{\rho}+g^{\nu\rho}\gamma^{5}\gamma^{\mu}-g^{\mu\rho}\gamma^{5}\gamma^{\nu}-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}$
+\end_inset
+
+，元素是
+\begin_inset Formula $g^{\mu\nu}\gamma^{5}\gamma^{\rho}$
+\end_inset
+
+,
+\begin_inset Formula $i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+乘四个矩阵：
+\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\alpha}=g^{\mu\nu}\gamma^{5}\gamma^{\rho}\gamma^{\alpha}+g^{\nu\rho}\gamma^{5}\gamma^{\mu}\gamma^{\alpha}-g^{\mu\rho}\gamma^{5}\gamma^{\nu}\gamma^{\alpha}-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{\alpha}$
+\end_inset
+
+，元素是
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+的关系
+\end_layout
+
+\begin_layout Standard
+旋量的表示，洛伦兹群生成元满足
+\begin_inset Formula 
+\begin{align*}
+\left[J_{\mu\nu},J_{\rho\sigma}\right] & =i(g_{\nu\rho}J_{\mu\sigma}-g_{\mu\rho}J_{\nu\sigma}-g_{\nu\sigma}J_{\mu\rho}+g_{\mu\sigma}J_{\nu\rho})
+\end{align*}
+
+\end_inset
+
+考虑到
+\begin_inset Formula $g_{\mu\nu}$
+\end_inset
+
+是对称张量，指标顺序无所谓，上面可以写成
+\begin_inset Formula 
+\[
+\left[J_{12},J_{34}\right]=ig_{\text{rest}}J_{(14+23-24-13)}
+\]
+
+\end_inset
+
+rest 表示剩下的指标。
+\begin_inset Formula 
+\[
+S_{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]
+\]
+
+\end_inset
+
+满足这个对易关系，是洛伦兹群生成元的四维旋量表示，所以
+\begin_inset Formula $\sigma^{\mu\nu}=\frac{i}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]$
+\end_inset
+
+满足
+\begin_inset Formula 
+\begin{align*}
+\left[\sigma_{12},\sigma_{34}\right] & =2ig_{\text{rest}}\sigma_{(14+23-24-13)}\\
+ & =2i(g_{23}\sigma_{14}-g_{14}\sigma_{23}-g_{13}\sigma_{24}+g_{24}\sigma_{13})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+利用
+\begin_inset Formula $\gamma^{\nu}\gamma^{\mu}=-\gamma^{\mu}\gamma^{\nu}+2g^{\mu\nu}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\sigma^{\mu\nu}\sigma_{\mu\nu} & =-\frac{2}{4}\left(\gamma^{\mu}\gamma^{\nu}\gamma_{\mu}\gamma_{\nu}-\gamma^{\mu}\gamma^{\nu}\gamma_{\nu}\gamma_{\mu}\right)\\
+ & =-\frac{2}{4}\left(\left(-4*4+2*4\right)-4*4\right)\\
+ & =\frac{-1}{2}(-8-16)=12\\
+\sigma^{\mu\nu}\sigma_{\mu\nu} & =12
+\end{align*}
+
+\end_inset
+
+如同泡利矩阵,
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+矩阵的模为
+\begin_inset Formula $1$
+\end_inset
+
+，
+\begin_inset Formula $\sigma^{\mu\nu}\sigma_{\mu\nu}=1,\mu\neq\nu$
+\end_inset
+
+（重复指标不求和，并注意指标的位置）
+\begin_inset Formula 
+\[
+\sigma^{\mu\nu}\sigma^{\rho\sigma}=\frac{-2}{4}\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}-\gamma^{\mu}\gamma^{\nu}\gamma^{\sigma}\gamma^{\rho}\right)
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula $\sigma^{\rho\sigma}$
+\end_inset
+
+是反对称的，所以考虑
+\begin_inset Formula $\rho\neq\sigma$
+\end_inset
+
+,利用
+\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sigma^{\mu\nu}\sigma^{\rho\sigma} & =\frac{-4}{4}\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\right)=-\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\\
+ & =i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}-g^{\mu\nu}\gamma^{\rho}\gamma^{\sigma}-\cdots-g^{\mu\nu}g^{\rho\sigma}-\cdots
+\end{align*}
+
+\end_inset
+
+省略号代表各种可能的组合，如果
+\begin_inset Formula $\mu,\nu,\rho,\sigma$
+\end_inset
+
+各不相等，
+\begin_inset Formula 
+\[
+\sigma^{\mu\nu}\sigma^{\rho\sigma}=i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+利用
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+张量的性质，有
+\begin_inset Formula 
+\begin{align*}
+\gamma^{5} & =\frac{-i}{4!}\varepsilon_{\mu\nu\rho\sigma}\sigma^{\mu\nu}\sigma^{\rho\sigma}=\frac{i}{4!}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}\sigma_{\rho\sigma}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+证明：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma^{5}\sigma^{\mu\nu}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
+\end_inset
+
+,利用
+\begin_inset Formula $\sigma^{\mu\nu}\sigma^{\rho\sigma}=i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}$
+\end_inset
+
+，右边乘上
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+,
+\begin_inset Formula $\left(\gamma^{5}\right)^{2}=1$
+\end_inset
+
+,注意这些指标
+\begin_inset Formula $\mu,\nu,\rho,\sigma$
+\end_inset
+
+各不相等
+\begin_inset Formula 
+\begin{align*}
+\sigma^{\mu\nu}\sigma^{\rho\sigma}= & i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}\\
+\sigma^{\mu\nu}\sigma^{\rho\sigma}\gamma^{5}= & i\varepsilon^{\mu\nu\rho\sigma}\\
+\sigma_{\mu\nu}\sigma^{\mu\nu}\sigma^{\rho\sigma}\gamma^{5}= & i\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\sigma_{\mu\nu}\sigma^{\mu\nu}$
+\end_inset
+
+这个求和中的指标跟
+\begin_inset Formula $\sigma^{\rho\sigma}$
+\end_inset
+
+中的
+\begin_inset Formula $\rho\sigma$
+\end_inset
+
+不能相等，
+\begin_inset Formula $\rho,\sigma$
+\end_inset
+
+也不相等，因为指标总数为
+\begin_inset Formula $0,1,2,3$
+\end_inset
+
+,如此一来，求和只有两项,如
+\begin_inset Formula $\sigma_{12}\sigma^{12}+\sigma_{21}\sigma^{21}=2$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\begin{align*}
+\sigma^{\rho\sigma}\gamma^{5} & =\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}\text{ 交换指标次序}\\
+\gamma^{5}\sigma^{\rho\sigma} & =\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Dirac 方程求解
+\end_layout
+
+\begin_layout Standard
+Dirac 方程平面波解的振幅部分(旋量部分),
+\begin_inset Formula $\psi=u\exp\left(-ip\cdot x\right)+v\exp(ip\cdot x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\slashed{p}-m\right)u(p)=0
+\]
+
+\end_inset
+
+使用Dirac表象中的 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ 矩阵，Dirac双旋量可以写成
+\begin_inset Formula 
+\[
+u_{\lambda}(p)=\left(\begin{array}{c}
+\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
+\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\end{array}\right)
+\]
+
+\end_inset
+
+它定义了一个粒子，能量是
+\begin_inset Formula $E_{\vec{p}}$
+\end_inset
+
+，动量为
+\begin_inset Formula $\vec{p}$
+\end_inset
+
+,沿着单位矢量
+\begin_inset Formula $\vec{n}\equiv\vec{p}/\sqrt{\vec{p}^{2}}$
+\end_inset
+
+的方向运动。Weyl 旋量
+\begin_inset Formula $w_{\lambda}$
+\end_inset
+
+是螺旋度算符的本征函数。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\psi$
+\end_inset
+
+一般地说，有
+\begin_inset Formula $4$
+\end_inset
+
+个分量，每个分量可以为复数，共有
+\begin_inset Formula $8$
+\end_inset
+
+个实数自由度。
+\begin_inset Newline newline
+\end_inset
+
+Dirac 方程投影掉了非物理的解，左右手旋量应该一样。所以实数自由度变成
+\begin_inset Formula $4$
+\end_inset
+
+。（正反粒子
+\begin_inset Formula $*$
+\end_inset
+
+两种自旋取向）
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\psi$
+\end_inset
+
+分成正频解
+\begin_inset Formula $u$
+\end_inset
+
+和负频解
+\begin_inset Formula $v$
+\end_inset
+
+，每个解有
+\begin_inset Formula $2$
+\end_inset
+
+个实数自由度，所以
+\begin_inset Formula $\xi$
+\end_inset
+
+为
+\begin_inset Formula $2$
+\end_inset
+
+分量旋量，并且维数为
+\begin_inset Formula $2$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+Dirac 表象
+\end_layout
+
+\begin_layout Standard
+在这个坐标系中，
+\begin_inset Formula 
+\[
+\slashed{p}=\left(\begin{array}{cc}
+E_{\vec{p}} & -\vec{p}.\vec{\sigma}\\
+\vec{p}.\vec{\sigma} & -E_{\vec{p}}
+\end{array}\right)
+\]
+
+\end_inset
+
+所以，
+\begin_inset Formula 
+\[
+\slashed{p}-m=\left(\begin{array}{cc}
+E_{\vec{p}}-m & -\vec{p}.\vec{\sigma}\\
+\vec{p}.\vec{\sigma} & -E_{\vec{p}}-m
+\end{array}\right)
+\]
+
+\end_inset
+
+令
+\begin_inset Formula $u(p)=\left(\begin{array}{c}
+w_{1}\\
+w_{2}
+\end{array}\right)$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\[
+\begin{cases}
+\left(E_{\vec{p}}-m\right)w_{1}-\left(\vec{p}.\vec{\sigma}\right)w_{2}=0\\
+\left(\vec{p}.\vec{\sigma}\right)w_{1}-\left(E_{\vec{p}}+m\right)w_{2}=0
+\end{cases}
+\]
+
+\end_inset
+
+考虑到
+\begin_inset Formula $E^{2}-p^{2}=m^{2}$
+\end_inset
+
+，以及
+\begin_inset Formula $\left\{ \sigma^{i},\sigma^{j}\right\} =2\delta^{ij},\left(\vec{p}.\vec{\sigma}\right)^{2}=p^{i}\sigma^{i}p^{j}\sigma^{j}=p^{2}$
+\end_inset
+
+。这两个方程是等价的。化简为
+\begin_inset Formula 
+\[
+w_{2}=\frac{\left(\vec{p}.\vec{\sigma}\right)}{E_{\vec{p}}+m}w_{1}
+\]
+
+\end_inset
+
+重新选择归一化，令
+\begin_inset Formula $w_{1}=\sqrt{E_{\vec{p}}+m}w_{\lambda}$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\begin{align*}
+w_{2} & =\frac{\left(\vec{p}.\vec{\sigma}\right)\sqrt{E_{\vec{p}}+m}}{E_{\vec{p}}+m}w_{\lambda}=\frac{\left(\vec{p}.\vec{\sigma}\right)\sqrt{E_{\vec{p}}-m}}{\sqrt{E_{\vec{p}}+m}\sqrt{E_{\vec{p}}-m}}w_{\lambda}\\
+ & =\frac{\left(\vec{p}.\vec{\sigma}\right)\sqrt{E_{\vec{p}}-m}}{\sqrt{\vec{p}^{2}}}w_{\lambda}=\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\end{align*}
+
+\end_inset
+
+
+\color red
+最终得到
+\color inherit
+，
+\begin_inset Formula 
+\[
+u_{\lambda}(p)=\left(\begin{array}{c}
+\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
+\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula $\vec{n}\equiv\vec{p}/\sqrt{\vec{p}^{2}}$
+\end_inset
+
+，为动量方向的单位矢量。
+\end_layout
+
+\begin_layout Standard
+由于
+\begin_inset Formula $\gamma^{0}=\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)$
+\end_inset
+
+，
+\begin_inset Formula $\bar{u}=u^{\dagger}\gamma^{0}=(u_{1}^{\dagger},-u_{2}^{\dagger})$
+\end_inset
+
+,归一化为,
+\begin_inset Formula 
+\[
+\bar{u}_{\lambda}(p)u_{\lambda^{\prime}}(p)=\left(E_{\vec{p}}+m\right)-\left(E_{\vec{p}}-m\right)\delta_{\lambda\lambda^{\prime}}=2m\delta_{\lambda\lambda^{\prime}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Weyl表象
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\slashed{p}-m=\left(\begin{array}{cc}
+-m & E_{\vec{p}}-\vec{p}.\vec{\sigma}\\
+E_{\vec{p}}+\vec{p}.\vec{\sigma} & -m
+\end{array}\right)
+\]
+
+\end_inset
+
+令
+\begin_inset Formula $u(p)=\left(\begin{array}{c}
+w_{1}\\
+w_{2}
+\end{array}\right)$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\[
+\begin{cases}
+\left(-m\right)w_{1}+\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)w_{2}=0\\
+\left(E_{\vec{p}}+\vec{p}.\vec{\sigma}\right)w_{1}+\left(-m\right)w_{2}=0
+\end{cases}
+\]
+
+\end_inset
+
+同上，这两个方程是等价的，
+\begin_inset Formula 
+\[
+w_{1}=\frac{\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)}{m}w_{2}
+\]
+
+\end_inset
+
+重新选择归一化，令
+\begin_inset Formula $w_{2}=\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}w_{\lambda}$
+\end_inset
+
+，得到,
+\begin_inset Formula 
+\[
+w_{1}=\frac{m}{\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}}w_{\lambda}
+\]
+
+\end_inset
+
+这里
+\begin_inset Formula $\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}$
+\end_inset
+
+的含义应该理解为，变换到对角表象中开方后再逆变换回来。
+\end_layout
+
+\begin_layout Standard
+
+\color red
+最终得到
+\color inherit
+，
+\begin_inset Formula 
+\begin{align*}
+u_{\lambda}(p) & =\left(\begin{array}{c}
+\frac{m}{\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}}w_{\lambda}\\
+\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}w_{\lambda}
+\end{array}\right)=\sqrt{m}\left(\begin{array}{c}
+bw_{\lambda}\\
+b^{-1}w_{\lambda}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $b=\sqrt{\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)/m}=\sqrt{p.\sigma/m}$
+\end_inset
+
+，
+\begin_inset Formula $b$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+在静止系为
+\begin_inset Formula $1$
+\end_inset
+
+。
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $b$
+\end_inset
+
+为
+\begin_inset Formula $\sigma^{\mu}$
+\end_inset
+
+在动量方向的投影的根，简称为
+\begin_inset Formula $\sigma$
+\end_inset
+
+投影根。 
+\end_layout
+
+\begin_layout Standard
+顺便一提，
+\begin_inset Formula $b(-\vec{p})=b^{-1}(\vec{p})$
+\end_inset
+
+，也就是说，动量反向，变成逆矩阵。总之，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u_{\lambda}(p)=\sqrt{m}\left(\begin{array}{c}
+bw_{\lambda}\\
+b^{-1}w_{\lambda}
+\end{array}\right)\quad b=\sqrt{p.\sigma/m}\quad b(\tilde{p})=b^{-1}(p)\label{eq:solution_u}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由于
+\begin_inset Formula $\gamma^{0}=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right)$
+\end_inset
+
+，
+\begin_inset Formula $\bar{u}=u^{\dagger}\gamma^{0}=(u_{2}^{\dagger},u_{1}^{\dagger})$
+\end_inset
+
+,归一化为
+\begin_inset Formula 
+\[
+\bar{u}_{\lambda}(p)u_{\lambda^{\prime}}(p)=mw_{\lambda}^{\dagger}w_{\lambda^{\prime}}+mw_{\lambda}^{\dagger}w_{\lambda^{\prime}}=2m\delta_{\lambda\lambda^{\prime}}
+\]
+
+\end_inset
+
+我们看到，每一项的来源都很清晰，
+\begin_inset Formula $2$
+\end_inset
+
+来自于
+\begin_inset Formula $u_{\lambda}(p)$
+\end_inset
+
+中包含两个基础旋量，
+\begin_inset Formula $m$
+\end_inset
+
+来自于外面的
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+系数
+\begin_inset Formula $\sqrt{m}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+，内部的
+\begin_inset Formula $b,b^{-1}$
+\end_inset
+
+来自于
+\begin_inset Formula $\gamma^{0}$
+\end_inset
+
+作用后，归一化 cancel 的要求。
+\end_layout
+
+\begin_layout Standard
+
+\color red
+如果是负能解：
+\color inherit
+ 
+\begin_inset Formula $v\exp(ip\cdot x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\slashed{p}+m\right)u(p)=0
+\]
+
+\end_inset
+
+可以看到，相当于求解过程中的
+\begin_inset Formula $m$
+\end_inset
+
+多了一个负号，所以上半部分和下半部分的旋量会差一个负号。我们选择负号在下半部分，得到：
+\begin_inset Formula 
+\[
+v_{\eta}(p)=\sqrt{m}\left(\begin{array}{c}
+bq_{\eta}\\
+-b^{-1}q_{\eta}
+\end{array}\right)
+\]
+
+\end_inset
+
+同样，
+\begin_inset Formula $b=\sqrt{p.\sigma/m}$
+\end_inset
+
+，
+\begin_inset Formula $b$
+\end_inset
+
+为
+\begin_inset Formula $\sigma^{\mu}$
+\end_inset
+
+在动量方向的投影的根，简称为
+\begin_inset Formula $\sigma$
+\end_inset
+
+投影根。 
+\end_layout
+
+\begin_layout Section
+CPT变换
+\end_layout
+
+\begin_layout Standard
+参考 Peskin book。
+\end_layout
+
+\begin_layout Standard
+物理体系对称群的变换为
+\begin_inset Formula $\Lambda$
+\end_inset
+
+，场的变换形式为
+\begin_inset Formula 
+\[
+U(\Lambda)\psi(x)U^{-1}(\Lambda)=\Lambda_{\frac{1}{2}}^{-1}\psi(\Lambda x)
+\]
+
+\end_inset
+
+注意，这是在 Hilbert 空间实现的，
+\begin_inset Formula $U(\Lambda)$
+\end_inset
+
+作为一个幺正的表示矩阵。但又不是用单粒子态
+\begin_inset Formula $a^{\dagger}\ket{0}$
+\end_inset
+
+作为表示空间的基实现的，而是把它们收集到了
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+中，用
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+作为基。
+\begin_inset Formula $U(\Lambda)$
+\end_inset
+
+这里体现出了旋量结构。
+\series bold
+另外，重要的是
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+内外的
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的相对关系
+\series default
+。上面的式子等价于
+\begin_inset Formula 
+\[
+U(\Lambda)\psi(x)U^{-1}(\Lambda)=\Lambda_{\frac{1}{2}}\psi(\Lambda^{-1}x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+根据我们在上一节得到的Dirac 方程的解，可以查看旋量在CPT变换下的形式。
+\end_layout
+
+\begin_layout Standard
+首先在动量空间, Dirac 方程的形式为，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \left(\slashed{p}-m\right)u(p)=0\\
+ & \left(\slashed{p}+m\right)v(p)=0
+\end{align*}
+
+\end_inset
+
+它的转置，复共轭，和厄米共轭一定成立。但是系数矩阵的形式，还有解的形式，都会发生改变。我们想找出系数矩阵不变，也就是保持
+\begin_inset Formula $\slashed{p}-m$
+\end_inset
+
+不变，
+\begin_inset Formula $u(p)$
+\end_inset
+
+改变的形式。
+\end_layout
+
+\begin_layout Standard
+同时注意，CPT 联合变换不变，刚好跟转置(
+\begin_inset Formula $T$
+\end_inset
+
+)，复共轭(
+\begin_inset Formula $*$
+\end_inset
+
+)，和厄米共轭
+\begin_inset Formula $\dagger$
+\end_inset
+
+联合不变对应。
+\end_layout
+
+\begin_layout Standard
+我们研究Wyel 表象下， 
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+矩阵在
+\begin_inset Formula $T,*,\dagger$
+\end_inset
+
+变换下的性质。
+\begin_inset Formula $\gamma^{\mu}=\left(\begin{array}{cc}
+0 & \sigma^{\mu}\\
+\bar{\sigma}^{\mu} & 0
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在
+\begin_inset Formula $\dagger$
+\end_inset
+
+变换下，
+\begin_inset Formula $\gamma^{0}$
+\end_inset
+
+不变，其他
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+增加一个负号。
+\begin_inset Newline newline
+\end_inset
+
+在
+\begin_inset Formula $*$
+\end_inset
+
+ 变换下，
+\begin_inset Formula $\gamma^{2}$
+\end_inset
+
+增加一个负号，其他
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵不变。
+\begin_inset Newline newline
+\end_inset
+
+基于不同指标
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵的反对易关系，哪一个矩阵特殊，就可以用来生成这个变换:
+\begin_inset Formula 
+\begin{align*}
+\gamma^{0}\gamma^{\mu}\gamma^{0} & =\gamma^{\mu\dagger}\\
+i\gamma^{2}\gamma^{\mu}i\gamma^{2} & =\gamma^{\mu*}\\
+\left(\gamma^{2}\gamma^{0}\right)\gamma^{\mu}\left(\gamma^{2}\gamma^{0}\right) & =\gamma^{\mu T}
+\end{align*}
+
+\end_inset
+
+最后一个等式考虑了
+\begin_inset Formula $T=*\dagger$
+\end_inset
+
+，矩阵变换的天然关系。
+\end_layout
+
+\begin_layout Standard
+另一方面，考虑到
+\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{5}=-\gamma^{\mu}$
+\end_inset
+
+，也就是
+\begin_inset Formula $\left(i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}\right)\gamma^{\mu}\left(i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}\right)=-\gamma^{\mu}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+-\left(\gamma^{1}\gamma^{3}\gamma^{2}\gamma^{0}\right)\gamma^{\mu}\left(\gamma^{2}\gamma^{0}\gamma^{1}\gamma^{3}\right) & =-\gamma^{\mu}\\
+\left(i\gamma^{1}\gamma^{3}\right)\gamma^{\mu T}\left(i\gamma^{1}\gamma^{3}\right) & =\gamma^{\mu}
+\end{align*}
+
+\end_inset
+
+所以，
+\begin_inset Formula $i\gamma^{1}\gamma^{3}$
+\end_inset
+
+可以等价地生成
+\begin_inset Formula $\gamma^{\mu T}$
+\end_inset
+
+变换。
+\end_layout
+
+\begin_layout Subsection
+宇称变换
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\psi(x) & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}a^{s}(p)u^{s}(p)\exp\left(-ip\cdot x\right)+b^{s\dagger}(p)v^{s}(p)\exp\left(+ip\cdot x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在宇称变换下，所有矢量的空间部分加个负号，
+\begin_inset Formula $p^{\mu}\to\tilde{p}^{\mu}$
+\end_inset
+
+，
+\begin_inset Formula $\tilde{p}^{\mu}=(p^{0},-\vec{p})$
+\end_inset
+
+。也就是动量反向。同理，
+\begin_inset Formula $x^{\mu}\to\tilde{x}^{\mu}$
+\end_inset
+
+。但粒子的自旋是轴矢量，轴矢量不变，所以自旋指标
+\begin_inset Formula $u^{s}(p)$
+\end_inset
+
+在宇称变换下不变。
+\end_layout
+
+\begin_layout Standard
+波函数是 算符
+\begin_inset Formula $*$
+\end_inset
+
+系数 并求和的形式，系数包括普通函数系数
+\begin_inset Formula $\exp\left(-ip\cdot x\right)$
+\end_inset
+
+和旋量结构
+\begin_inset Formula $u^{s}(p)$
+\end_inset
+
+部分。我们最后想达到的效果是在宇称变换下：
+\begin_inset Formula 
+\[
+U(P)a_{\vec{p}}^{s}U(p)^{\dagger}\to\eta_{a}a_{-\vec{p}}^{s},\quad U(P)b_{\vec{p}}^{s}U(p)^{\dagger}\to\eta_{b}b_{-\vec{p}}^{s}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $P$
+\end_inset
+
+可以表现为 Hilbert 空间中的幺正算符
+\begin_inset Formula $U(p)$
+\end_inset
+
+，但由于 Hilbert 空间是个线性空间，基是固定的，根据群的表示理论，
+\begin_inset Formula $P$
+\end_inset
+
+也可以表现为系数的改变。也就是说，总可以把变化归结到场展开式的系数中，也就是
+\begin_inset Formula $\exp\left(-ip\cdot x\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $u^{s}(p)$
+\end_inset
+
+ 上。考虑到
+\begin_inset Formula 
+\[
+u_{\lambda}(p)=\sqrt{m}\left(\begin{array}{c}
+bw_{\lambda}\\
+b^{-1}w_{\lambda}
+\end{array}\right)\quad b=\sqrt{p.\sigma/m}\quad b(\tilde{p})=b^{-1}(p)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+u(p) & =\gamma^{0}u(\tilde{p})\\
+v(p) & =-\gamma^{0}v(\tilde{p})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+把 Hilbert 空间幺正算符 
+\begin_inset Formula $U(P)$
+\end_inset
+
+ 作用到产生湮灭算符上，然后把变化转换成系数的变化：
+\series default
+
+\begin_inset Formula 
+\begin{align*}
+U(p)\psi(x)U(P) & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}\eta_{a}a^{s}(\tilde{p})u^{s}(p)\exp\left(-ip.x\right)+\eta_{b}^{\ast}b^{s\dagger}(\tilde{p})v^{s}(p)\exp\left(+ip.x\right)
+\end{align*}
+
+\end_inset
+
+利用旋量解的性质，和积分变量替换
+\begin_inset Formula $p\to\tilde{p}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+ & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}\eta_{a}a^{s}(\tilde{p})\gamma^{0}u^{s}(\tilde{p})\exp\left(-ip.x\right)-\eta_{b}^{\ast}b^{s\dagger}(\tilde{p})\gamma^{0}v^{s}(\tilde{p})\exp\left(+ip.x\right)\\
+ & =\int\frac{\dif^{3}\tilde{p}}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}\eta_{a}a^{s}(\tilde{p})\gamma^{0}u^{s}(\tilde{p})\exp\left(-i\tilde{p}.\tilde{x}\right)-\eta_{b}^{\ast}b^{s\dagger}(\tilde{p})\gamma^{0}v^{s}(\tilde{p})\exp\left(+i\tilde{p}.\tilde{x}\right)
+\end{align*}
+
+\end_inset
+
+我们把任意相因子取成
+\begin_inset Formula $\eta_{a}=1\text{，}\eta_{b}^{\ast}=-1$
+\end_inset
+
+，得到：
+\begin_inset Formula 
+\[
+P\psi(x)P=\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}a^{s}(p)\gamma^{0}u^{s}(p)\exp\left(-ip.\tilde{x}\right)+b^{s\dagger}(p)\gamma^{0}v^{s}(p)\exp\left(+ip.\tilde{x}\right)
+\]
+
+\end_inset
+
+注意积分变量又重写了一次，所以最终，
+\begin_inset Formula 
+\[
+P\psi(x)P=\gamma^{0}\psi(\tilde{x})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+P\bar{\psi}(x)P=\left(P\psi(x)P\right)^{\dagger}\gamma^{0}=\bar{\psi}(x)\gamma^{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+双线性型的变化形式如下，
+\begin_inset Formula 
+\begin{align*}
+P\bar{\psi}(x)\psi(x)P & =+\bar{\psi}\psi(\tilde{x})\\
+P\bar{\psi}(x)\gamma^{\mu}\psi(x)P & =\bar{\psi}\gamma^{\mu\dagger}\psi(\tilde{x})\\
+P\bar{\psi}(x)i\gamma^{5}\psi(x)P & =-\bar{\psi}i\gamma^{5}\psi(\tilde{x})\\
+P\bar{\psi}(x)\gamma^{\mu}\gamma^{5}\psi(x)P & =-\bar{\psi}\gamma^{\mu\dagger}\gamma^{5}\psi(\tilde{x})\\
+P\bar{\psi}(x)i\sigma^{\mu\nu}\psi(x)P & =\bar{\psi}i\sigma^{\mu\nu\dagger}\psi(\tilde{x})
+\end{align*}
+
+\end_inset
+
+其中的
+\begin_inset Formula $i$
+\end_inset
+
+因子是为了保证整个量是厄米(Hermitian)的。
+\end_layout
+
+\begin_layout Standard
+注意，对于正反费米子，宇称变换有一个相对负号。这很重要。对于一个 femion-antifermion state 
+\begin_inset Formula $a_{\vec{p}}^{s\dagger}b_{\vec{q}}^{r\dagger}\ket{0}$
+\end_inset
+
+，应用
+\begin_inset Formula $P$
+\end_inset
+
+变换，会变成
+\begin_inset Formula $-\left(a_{\vec{p}}^{s\dagger}b_{\vec{q}}^{r\dagger}\ket{0}\right)$
+\end_inset
+
+，会出现一个额外负号。对于束缚态，如果空间波函数在
+\begin_inset Formula $\vec{x}\to-\vec{x}$
+\end_inset
+
+下，没有负号，那么总的态函数将是 odd parity，也就是会有个负号。如果空间波函数是反对称的，那么总的态函数是 even parity。所以
+\begin_inset Formula $J=0$
+\end_inset
+
+是赝标量，
+\begin_inset Formula $J=1$
+\end_inset
+
+是矢量。可以应用到电子偶素和夸克反夸克系统上。（比如低能介子八重态）
+\end_layout
+
+\begin_layout Subsection
+时间反演
+\end_layout
+
+\begin_layout Standard
+在时间反演下，所有矢量的时间部分加个负号，
+\begin_inset Formula $p^{\mu}\to\tilde{p}^{\mu}$
+\end_inset
+
+，
+\begin_inset Formula $\tilde{p}^{\mu}=(p^{0},-\vec{p})$
+\end_inset
+
+。也就是动量反向。同理，
+\begin_inset Formula $x^{\mu}\to\tilde{x}^{\mu}$
+\end_inset
+
+。还要考虑自旋翻转方向。
+\begin_inset Formula 
+\[
+U(T)a_{\vec{p}}^{\uparrow}U(T)^{\dagger}\to a_{-\vec{p}}^{\downarrow},\quad U(T)b_{\vec{p}}^{\uparrow}U(T)^{\dagger}\to b_{-\vec{p}}^{\downarrow}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+只有时间改变符号是不行的，不能称为Hilbert 空间中的幺正变换:
+\series default
+
+\begin_inset Formula 
+\begin{align*}
+\psi(t,\vec{x}) & =\exp\left(iHt\right)\psi(\vec{x})\exp\left(-iHt\right)\\
+\Rightarrow & U(T)\psi(t,\vec{x})U(T)=\exp\left(iHt\right)T\psi(\vec{x})T\exp\left(-iHt\right)\\
+\Rightarrow & U(T)\psi(t,\vec{x})U(T)\ket{0}=\exp\left(iHt\right)T\psi(\vec{x})T\ket{0}
+\end{align*}
+
+\end_inset
+
+这里使用了场的平移对称性和真空能量为
+\begin_inset Formula $0$
+\end_inset
+
+。左边是正频解求和（
+\begin_inset Formula $\approx\exp\left(-iHt\right)\psi(\vec{x})\ket{0}$
+\end_inset
+
+），右边是负频解求和(
+\begin_inset Formula $\approx\exp\left(iHt\right)\psi(\vec{x})\ket{0}$
+\end_inset
+
+)，所以一定不成立。
+\end_layout
+
+\begin_layout Standard
+所以必须使用反线性（or 反幺正）定义，
+\begin_inset Formula 
+\[
+T.(\text{c-number})=(\text{c-number})^{\ast}.T
+\]
+
+\end_inset
+
+由于复共轭运算不是线性运算，所以被称为反线性or反幺正算符。
+\begin_inset Formula $A^{\ast}$
+\end_inset
+
+不能表示成
+\begin_inset Formula $A$
+\end_inset
+
+的线性组合。
+\end_layout
+
+\begin_layout Standard
+在方向
+\begin_inset Formula $\theta,\phi$
+\end_inset
+
+的自旋本征矢量为
+\begin_inset Formula 
+\[
+\xi(\uparrow)=\left(\begin{array}{c}
+\cos\frac{\theta}{2}\\
+e^{i\phi}\sin\frac{\theta}{2}
+\end{array}\right),\quad\xi(\downarrow)=\left(\begin{array}{c}
+-e^{-i\phi}\sin\frac{\theta}{2}\\
+\cos\frac{\theta}{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+证明，方向
+\begin_inset Formula $\theta,\phi$
+\end_inset
+
+的矢量为
+\begin_inset Formula $(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$
+\end_inset
+
+，对应的
+\begin_inset Formula $SU(2)$
+\end_inset
+
+矩阵为
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+\cos\theta & \sin\theta\cos\phi-i\sin\theta\sin\phi\\
+\sin\theta\cos\phi+i\sin\theta\sin\phi & -\cos\theta
+\end{array}\right)=\left(\begin{array}{cc}
+\cos\theta & \sin\theta\,e^{-i\phi}\\
+\sin\theta\,e^{i\phi} & -\cos\theta
+\end{array}\right)
+\]
+
+\end_inset
+
+用mma求解，得到
+\begin_inset Formula 
+\[
+(+1)\to\left(\begin{array}{c}
+\cos\frac{\theta}{2}\\
+e^{i\phi}\sin\frac{\theta}{2}
+\end{array}\right),(-1)\to\left(\begin{array}{c}
+-e^{-i\phi}\sin\frac{\theta}{2}\\
+\cos\frac{\theta}{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+和上面形式一样。
+\end_layout
+
+\begin_layout Standard
+我们定义
+\begin_inset Formula $\xi^{s}=\left(\xi(\uparrow),\xi(\downarrow)\right)$
+\end_inset
+
+,for 
+\begin_inset Formula $s=1,2$
+\end_inset
+
+。并定义
+\begin_inset Formula 
+\[
+\xi^{-s}=-i\sigma^{2}\left(\xi^{s}\right)^{\ast}=\left(\begin{array}{cc}
+ & -1\\
+1
+\end{array}\right)\left(\xi^{s}\right)^{\ast}
+\]
+
+\end_inset
+
+相当于
+\begin_inset Formula 
+\[
+(+1)\to\left(\begin{array}{c}
+-e^{-i\phi}\sin\frac{\theta}{2}\\
+\cos\frac{\theta}{2}
+\end{array}\right),(-1)\to\left(\begin{array}{c}
+-\cos\frac{\theta}{2}\\
+-e^{i\phi}\sin\frac{\theta}{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+所以相当于
+\begin_inset Formula 
+\[
+\xi^{-s}=\left(\xi(\downarrow),-\xi(\uparrow)\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\xi^{-s}=-i\sigma^{2}\left(\xi^{s}\right)^{\ast}$
+\end_inset
+
+这个关系其实可以从更一般的关系推导出来。
+\begin_inset Formula 
+\begin{align*}
+\sigma^{2}\sigma^{i}\sigma^{2} & =-\sigma^{\ast},i=1,2,3\\
+\sigma^{2}\sigma^{\mu}\sigma^{2} & =\tilde{\sigma}{}^{\mu\ast},\mu=0,1,2,3
+\end{align*}
+
+\end_inset
+
+所以，如果一个矢量
+\begin_inset Formula $\xi$
+\end_inset
+
+满足
+\begin_inset Formula $(\vec{n}.\vec{\sigma})\xi=+\xi$
+\end_inset
+
+，那么
+\begin_inset Formula 
+\[
+(\vec{n}\cdot\vec{\sigma})(-i\sigma^{2}\xi^{\ast})=-i\sigma^{2}(-\vec{n}\cdot\vec{\sigma})^{\ast}\xi^{\ast}=i\sigma^{2}\xi^{\ast}=-(-i\sigma^{2}\xi^{\ast})
+\]
+
+\end_inset
+
+注意，根据这个约定，两次反转，会产生一个
+\begin_inset Formula $(-1)$
+\end_inset
+
+，而不是回到原来的状态。
+\begin_inset Formula $-i\sigma^{2}\left(-i\sigma^{2}\xi^{s\ast}\right)^{\ast}=-\sigma^{2}\sigma^{2}\xi^{s}=-\xi^{s}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+仿照
+\begin_inset Formula $\xi^{-s}=\left(\xi(\downarrow),-\xi(\uparrow)\right)$
+\end_inset
+
+，我们定义
+\begin_inset Formula 
+\begin{align*}
+a_{\vec{p}}^{-s}=\left(a_{\vec{p}}^{2},-a_{\vec{p}}^{1}\right) & \quad b_{\vec{p}}^{-s}=\left(b_{\vec{p}}^{2},-b_{\vec{p}}^{1}\right)\\
+\xi^{s}=\left(\xi(\uparrow),\xi(\downarrow)\right) & \quad\xi^{-s}=\left(\xi(\downarrow),-\xi(\uparrow)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+现在我们把产生湮灭算符和这些旋量联系起来。令
+\begin_inset Formula $a_{\vec{p}}^{s}$
+\end_inset
+
+湮灭，
+\begin_inset Formula $\xi^{s}$
+\end_inset
+
+构建的
+\begin_inset Formula $u^{s}(p)$
+\end_inset
+
+，令
+\begin_inset Formula $b_{\vec{p}}^{s}$
+\end_inset
+
+湮灭，
+\begin_inset Formula $\xi^{-s}$
+\end_inset
+
+构建的
+\begin_inset Formula $v^{s}(p)$
+\end_inset
+
+。这里故意构建的不同，相差一个负号。反正最后场
+\begin_inset Formula $\psi$
+\end_inset
+
+中的
+\begin_inset Formula $u^{s}(p),v^{s}(p)$
+\end_inset
+
+会被求和掉，所以选取是任意的。只要正交就行。相应地，
+\color red
+
+\begin_inset Formula 
+\[
+U(T)a_{\vec{p}}^{s}U(T)^{\dagger}\to a_{-\vec{p}}^{-s},\quad U(T)b_{\vec{p}}^{s}U(T)^{\dagger}\to b_{-\vec{p}}^{-s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+利用
+\begin_inset Formula $\sigma^{2}\sqrt{p\cdot\sigma^{\ast}}\sigma^{2}=\sqrt{\tilde{p}\cdot\sigma}$
+\end_inset
+
+，证明：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tilde{p}.\sigma$
+\end_inset
+
+的逆矩阵是
+\begin_inset Formula $p\cdot\sigma/m^{2}$
+\end_inset
+
+。而
+\begin_inset Formula $p\cdot\sigma^{\ast}=p^{\ast}\cdot\sigma^{\ast}$
+\end_inset
+
+和
+\begin_inset Formula $p\cdot\sigma/m^{2}$
+\end_inset
+
+可以同时对角化，所以
+\begin_inset Formula $p\cdot\sigma^{\ast}$
+\end_inset
+
+和
+\begin_inset Formula $\tilde{p}.\sigma$
+\end_inset
+
+可以同时对角化，
+\begin_inset Formula 
+\[
+\sigma^{2}\sqrt{p\cdot\sigma^{\ast}}\sigma^{2}.\sigma^{2}\sqrt{p\cdot\sigma^{\ast}}\sigma^{2}=\sigma^{2}p\cdot\sigma^{\ast}\sigma^{2}=\tilde{p}.\sigma
+\]
+
+\end_inset
+
+所以上面的式子可以直接开方:
+\begin_inset Formula 
+\[
+\sigma^{2}\sqrt{p\cdot\sigma^{\ast}}\sigma^{2}=\sqrt{\tilde{p}\cdot\sigma}
+\]
+
+\end_inset
+
+利用这个等式，
+\begin_inset Formula 
+\begin{align*}
+u^{-s}(\tilde{p}) & =\sqrt{m}\left(\begin{array}{c}
+\sqrt{\tilde{p}\cdot\sigma/m}\left(-i\sigma^{2}\xi^{s\ast}\right)\\
+\sqrt{\tilde{p}\cdot\bar{\sigma}/m}\left(-i\sigma^{2}\xi^{s\ast}\right)
+\end{array}\right)=\sqrt{m}\left(\begin{array}{c}
+-i\sigma^{2}\sqrt{p\cdot\sigma^{\ast}/m}\xi^{s\ast}\\
+-i\sigma^{2}\sqrt{p\cdot\bar{\sigma}^{\ast}/m}\xi^{s\ast}
+\end{array}\right)\\
+ & =-i\left(\begin{array}{cc}
+\sigma^{2} & 0\\
+0 & \sigma^{2}
+\end{array}\right)\sqrt{m}\left(\begin{array}{c}
+\sqrt{p\cdot\sigma^{\ast}/m}\xi^{s\ast}\\
+\sqrt{p\cdot\bar{\sigma}^{\ast}/m}\xi^{s\ast}
+\end{array}\right)\\
+ & =-i\left(\begin{array}{cc}
+\sigma^{2} & 0\\
+0 & \sigma^{2}
+\end{array}\right)\left(u^{s}(p)\right)^{\ast}\\
+{\color{red}u^{-s}(\tilde{p})} & {\color{red}=-\gamma^{1}\gamma^{3}\left(u^{s}(p)\right)^{\ast}}
+\end{align*}
+
+\end_inset
+
+设置
+\begin_inset Formula $v^{s}(p)$
+\end_inset
+
+由
+\begin_inset Formula $\xi^{-s}=\left(\xi(\downarrow),-\xi(\uparrow)\right)$
+\end_inset
+
+构建，连续两次
+\begin_inset Formula $\xi^{-s}=-i\sigma^{2}\left(\xi^{s}\right)^{\ast}$
+\end_inset
+
+变换的结果，会出一个负号,
+\begin_inset Formula $v^{-s}$
+\end_inset
+
+包含
+\begin_inset Formula $\xi^{-(-s)}=-\xi^{s}$
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v^{s}(p)=\sqrt{m}\left(\begin{array}{c}
+\sqrt{p\cdot\sigma/m}\left(-i\sigma^{2}\xi^{s\ast}\right)\\
+-\sqrt{p\cdot\bar{\sigma}/m}\left(-i\sigma^{2}\xi^{s\ast}\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+v^{-s}(\tilde{p}) & =\sqrt{m}\left(\begin{array}{c}
+\sqrt{\tilde{p}\cdot\sigma/m}\left(-\xi^{s}\right)\\
+-\sqrt{\tilde{p}\cdot\bar{\sigma}/m}\left(-\xi^{s}\right)
+\end{array}\right)=\sqrt{m}\left(\begin{array}{c}
+-i\sigma^{2}\sqrt{p\cdot\sigma^{\ast}/m}\left(-i\sigma^{2}\xi^{s}\right)\\
+i\sigma^{2}\sqrt{p\cdot\bar{\sigma}^{\ast}/m}\left(-i\sigma^{2}\xi^{s}\right)
+\end{array}\right)\\
+ & =-i\left(\begin{array}{cc}
+\sigma^{2} & 0\\
+0 & \sigma^{2}
+\end{array}\right)\left(v^{s}(p)\right)^{\ast}\\
+u^{-s}(\tilde{p}) & =-\gamma^{1}\gamma^{3}\left(u^{s}(p)\right)^{\ast}
+\end{align*}
+
+\end_inset
+
+
+\color red
+
+\begin_inset Formula 
+\[
+v^{-s}(\tilde{p})=-\gamma^{1}\gamma^{3}\left(v^{s}(p)\right)^{\ast}
+\]
+
+\end_inset
+
+
+\color inherit
+由这些关系，我们得到
+\begin_inset Formula 
+\begin{align*}
+T\psi(t,\vec{x})T & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}a^{-s}(\tilde{p})\left(u^{s}(p)\right)^{\ast}\exp\left(ip.x\right)+b^{-s\dagger}(\tilde{p})\left(v^{s}(p)\right)^{\ast}\exp\left(-ip.x\right)\\
+ & =\left(\gamma^{1}\gamma^{3}\right)\int\frac{\dif^{3}\tilde{p}}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\tilde{p}}}}\sum_{s}a^{-s}(\tilde{p})u^{-s}(\tilde{p})\exp\left(i\tilde{p}.\tilde{x}\right)+b^{-s\dagger}(\tilde{p})v^{-s}(\tilde{p})\exp\left(-i\tilde{p}.\tilde{x}\right)\\
+T\psi(t,\vec{x})T & =\left(\gamma^{1}\gamma^{3}\right)\psi\left(-t,\vec{x}\right)
+\end{align*}
+
+\end_inset
+
+利用了
+\begin_inset Formula $\tilde{p}\cdot\tilde{x}=-\tilde{p}\cdot(-t,\vec{x})$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+同样的，查看双线性型的变化：
+\begin_inset Formula 
+\[
+T\bar{\psi}(x)T=\left(T\psi(x)T\right)^{\dagger}\gamma^{0}=\psi^{\dagger}(-t,\vec{x})\left(\gamma^{1}\gamma^{3}\right)^{\dagger}\gamma^{0}=\bar{\psi}(-t,\vec{x})\left(-\gamma^{1}\gamma^{3}\right)=\bar{\psi}(-t,\vec{x})\left(\gamma^{3}\gamma^{1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+双线性型的变化形式如下，
+\begin_inset Formula 
+\begin{align*}
+T\bar{\psi}(x)\psi(x)T & =+\bar{\psi}\psi(x^{\prime})\\
+T\bar{\psi}(x)\gamma^{\mu}\psi(x)T & =\bar{\psi}\gamma^{\mu\dagger}\psi(x^{\prime})\\
+T\bar{\psi}(x)i\gamma^{5}\psi(x)T & =-\bar{\psi}i\gamma^{5}\psi(x^{\prime})\\
+T\bar{\psi}(x)\gamma^{\mu}\gamma^{5}\psi(x)T & =-\bar{\psi}\gamma^{\mu\dagger}\gamma^{5}\psi(x^{\prime})\\
+T\bar{\psi}(x)i\sigma^{\mu\nu}\psi(x)T & =\bar{\psi}i\sigma^{\mu\nu\dagger}\psi(x^{\prime})
+\end{align*}
+
+\end_inset
+
+其中，
+\begin_inset Formula $x^{\prime}=(-t,\vec{x})$
+\end_inset
+
+，总之，跟宇称变换的结果相似。对于
+\begin_inset Formula $i\gamma^{5}$
+\end_inset
+
+，不要忘记
+\begin_inset Formula $i^{\ast}=-i$
+\end_inset
+
+，会多一个负号。
+\end_layout
+
+\begin_layout Standard
+矢量流
+\begin_inset Formula $T\bar{\psi}(x)\gamma^{\mu}\psi(x)T$
+\end_inset
+
+
+\begin_inset Formula $j^{0}$
+\end_inset
+
+分量不变，其他分量多一个负号。
+\end_layout
+
+\begin_layout Subsection
+电荷共轭
+\end_layout
+
+\begin_layout Standard
+电荷共轭习惯上定义成正反费米子之间的变换，自旋方向不变。
+\begin_inset Formula 
+\[
+Ca_{\vec{p}}^{s}C=b_{\vec{p}}^{s},\quad Cb_{\vec{p}}^{s}C=a_{\vec{p}}^{s}
+\]
+
+\end_inset
+
+我们找出
+\begin_inset Formula $u^{s}(p)$
+\end_inset
+
+和
+\begin_inset Formula $v^{s}(p)$
+\end_inset
+
+的关系：
+\begin_inset Formula 
+\begin{align*}
+\left(v^{s}(p)\right)^{\ast} & =\sqrt{m}\left(\begin{array}{c}
+\sqrt{p\cdot\sigma/m}\left(-i\sigma^{2}\xi^{*}\right)\\
+-\sqrt{p\cdot\bar{\sigma}/m}\left(-i\sigma^{2}\xi^{*}\right)
+\end{array}\right)^{\ast}=\sqrt{m}\left(\begin{array}{c}
+-i\sigma^{2}\sqrt{p\cdot\bar{\sigma}^{\ast}/m}\xi^{s*}\\
+i\sigma^{2}\sqrt{p\cdot\sigma^{\ast}/m}\xi^{s*}
+\end{array}\right)^{\ast}\\
+ & =\left(\begin{array}{cc}
+0 & -i\sigma^{2}\\
+i\sigma^{2} & 0
+\end{array}\right)\sqrt{m}\left(\begin{array}{c}
+\sqrt{p\cdot\sigma/m}\xi^{s}\\
+\sqrt{p\cdot\bar{\sigma}/m}\xi^{s}
+\end{array}\right)=-i\gamma^{2}u^{s}(p)
+\end{align*}
+
+\end_inset
+
+也就是说，
+\begin_inset Formula 
+\[
+u^{s}(p)=-i\gamma^{2}v^{s}(p)^{\ast},\quad v^{s}(p)=-i\gamma^{2}u^{s}(p)^{\ast}
+\]
+
+\end_inset
+
+所以，
+\begin_inset Formula 
+\begin{align*}
+C\psi(x)C & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}\left(-i\gamma^{2}b^{s}(p)v^{s}(p)\right)^{\ast}e^{-ipx}-i\gamma^{2}a^{s\dagger}(p)\left(u^{s}(p)\right)^{\ast}\exp\left(+ip.x\right)\\
+ & =-i\gamma^{2}\psi^{\ast}(x)=-i\gamma^{2}\left(\psi^{\dagger}\right)^{T}=-i\left(\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}=i\gamma^{2}\gamma^{0}\bar{\psi}^{T}
+\end{align*}
+
+\end_inset
+
+其中使用了
+\begin_inset Formula $\gamma^{2T}=\gamma^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+同样的，查看双线性型的变化：
+\begin_inset Formula 
+\[
+C\bar{\psi}(x)C=C\psi(x)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=i\psi^{T}\gamma^{2}\gamma^{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+双线性型的变化形式如下，
+\begin_inset Formula 
+\begin{align*}
+C\bar{\psi}(x)\psi(x)C & =+\bar{\psi}\psi(x)\\
+C\bar{\psi}(x)\gamma^{\mu}\psi(x)C & =-\bar{\psi}\gamma^{\mu}\psi(x)\\
+C\bar{\psi}(x)i\gamma^{5}\psi(x)C & =+\bar{\psi}i\gamma^{5}\psi(x)\\
+C\bar{\psi}(x)\gamma^{\mu}\gamma^{5}\psi(x)C & =+\bar{\psi}\gamma^{\mu}\gamma^{5}\psi(x)\\
+C\bar{\psi}(x)i\sigma^{\mu\nu}\psi(x)C & =-\bar{\psi}i\sigma^{\mu\nu}\psi(x)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+CPT变换总结
+\end_layout
+
+\begin_layout Standard
+以下均在Weyl 表象下
+\end_layout
+
+\begin_layout Standard
+
+\color red
+\begin_inset Formula $P$
+\end_inset
+
+变换下：粒子，系数（旋量和场）的变换，它们是相互协调的：
+\color inherit
+
+\begin_inset Formula 
+\[
+U(P)a_{\vec{p}}^{s}U(p)^{\dagger}\to a_{-\vec{p}}^{s},\quad U(P)b_{\vec{p}}^{s}U(p)^{\dagger}\to-b_{-\vec{p}}^{s}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+u(p) & =\gamma^{0}u(\tilde{p})\\
+v(p) & =-\gamma^{0}v(\tilde{p})\\
+P\psi(x)P & =\gamma^{0}\psi(\tilde{x})\\
+P\bar{\psi}(x)P & =\bar{\psi}(\tilde{x})\gamma^{0}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\tilde{x}=(t,-\vec{x})$
+\end_inset
+
+。
+\begin_inset Formula $\gamma^{0}=\text{\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right)}$
+\end_inset
+
+，相当于交换
+\begin_inset Formula $\xi$
+\end_inset
+
+的位置，交换左右手的位置。
+\end_layout
+
+\begin_layout Standard
+
+\color red
+\begin_inset Formula $T$
+\end_inset
+
+变换下：粒子，系数（旋量和场）的变换，它们是相互协调的：
+\color inherit
+
+\begin_inset Formula 
+\[
+U(T)a_{\vec{p}}^{s}U(T)^{\dagger}\to a_{-\vec{p}}^{-s},\quad U(T)b_{\vec{p}}^{s}U(T)^{\dagger}\to b_{-\vec{p}}^{-s}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+u^{-s}(\tilde{p}) & =-\gamma^{1}\gamma^{3}u^{s}(p)^{\ast}\\
+v^{-s}(\tilde{p}) & =-\gamma^{1}\gamma^{3}v^{s}(p)^{\ast}\\
+T\psi(t,\vec{x})T & =\left(\gamma^{1}\gamma^{3}\right)\psi\left(-\tilde{x}\right)\\
+T\bar{\psi}(x)T & =-\bar{\psi}(-\tilde{x})\left(\gamma^{1}\gamma^{3}\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $-\tilde{x}=(-t,\vec{x})$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+-\gamma^{1}\gamma^{3}={\color{red}\left(\begin{array}{cc}
+-i\sigma^{2} & 0\\
+0 & -i\sigma^{2}
+\end{array}\right)}=\left(\begin{array}{cc}
+\left(\begin{array}{cc}
+0 & -1\\
+1 & 0
+\end{array}\right) & 0\\
+0 & \left(\begin{array}{cc}
+0 & -1\\
+1 & 0
+\end{array}\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+相当于求
+\begin_inset Formula $\xi$
+\end_inset
+
+的共轭旋量
+\begin_inset Formula $-i\sigma^{2}\sqrt{p\cdot\sigma^{\ast}/m}\xi^{\ast}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+
+\color red
+\begin_inset Formula $C$
+\end_inset
+
+变换下：粒子，系数（旋量和场）的变换，它们是相互协调的：
+\color inherit
+
+\begin_inset Formula 
+\[
+Ca_{\vec{p}}^{s}C=b_{\vec{p}}^{s},\quad Cb_{\vec{p}}^{s}C=a_{\vec{p}}^{s}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+u^{s}(p) & =-i\gamma^{2}v^{s}(p)^{\ast}\\
+v^{s}(p) & =-i\gamma^{2}u^{s}(p)^{\ast}\\
+C\psi(x)C & =\left(i\gamma^{2}\gamma^{0}\right)\bar{\psi}^{T}=\left(\bar{\psi}\left(-i\gamma^{0}\gamma^{2}\right)\right)^{T}\\
+C\bar{\psi}(x)C & =\psi^{T}\left(i\gamma^{2}\gamma^{0}\right)=\left(\left(-i\gamma^{0}\gamma^{2}\right)\psi(x)\right)^{T}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+-i\gamma^{2}=-\left(\begin{array}{cc}
+0 & -\left(\begin{array}{cc}
+0 & -1\\
+1 & 0
+\end{array}\right)\\
+\left(\begin{array}{cc}
+0 & -1\\
+1 & 0
+\end{array}\right) & 0
+\end{array}\right),\quad-i\gamma^{2}\gamma^{0}=-\left(\begin{array}{cc}
+-\left(\begin{array}{cc}
+0 & -1\\
+1 & 0
+\end{array}\right) & 0\\
+0 & \left(\begin{array}{cc}
+0 & -1\\
+1 & 0
+\end{array}\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+相当于：在内部，求
+\begin_inset Formula $\xi$
+\end_inset
+
+的共轭旋量
+\begin_inset Formula $-i\sigma^{2}\sqrt{p\cdot\sigma^{\ast}/m}\xi^{\ast}$
+\end_inset
+
+。在外部，交换
+\begin_inset Formula $\xi$
+\end_inset
+
+的位置，并添加负号，即把
+\begin_inset Formula $u$
+\end_inset
+
+变成
+\begin_inset Formula $v$
+\end_inset
+
+，把
+\begin_inset Formula $v$
+\end_inset
+
+变成
+\begin_inset Formula $u$
+\end_inset
+
+。这样就要求
+\begin_inset Formula $u$
+\end_inset
+
+和
+\begin_inset Formula $v$
+\end_inset
+
+的内部旋量选取方法具有对称性。
+\end_layout
+
+\begin_layout Subsection
+CPT表格
+\end_layout
+
+\begin_layout Standard
+下面的表格给出了
+\begin_inset Formula $CPT$
+\end_inset
+
+变换下，各种双线性型的符号改变。注意
+\begin_inset Formula $i\gamma^{5}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{\mu\nu}=\frac{i}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]$
+\end_inset
+
+中的
+\begin_inset Formula $i$
+\end_inset
+
+因子，是为了让双线性型是 Hermitian （厄米的）。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bar{\psi}\psi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $i\bar{\psi}\gamma^{5}\psi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\psi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\gamma^{5}\psi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bar{\psi}\sigma^{\mu\nu}\psi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $g(\mu)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-g(\mu)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $g(\mu)g(\nu)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $g(\mu)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $g(\mu)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $g(\mu)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-g(\mu)g(\nu)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-g(\mu)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $CPT$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+各种 fermion bilinears 在 
+\begin_inset Formula $CPT$
+\end_inset
+
+变换下的变换性质。其中
+\begin_inset Formula $g(\mu)=1$
+\end_inset
+
+, for 
+\begin_inset Formula $\mu=0$
+\end_inset
+
+; 
+\begin_inset Formula $g(\mu)=-1$
+\end_inset
+
+, for 
+\begin_inset Formula $\mu=1,2,3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Pauli-Lubanski 矢量
+\end_layout
+
+\begin_layout Standard
+回忆起 Pauli-Lubanski 矢量为
+\begin_inset Formula 
+\[
+W^{\mu}=\frac{1}{2}\varepsilon^{\mu\nu\rho\sigma}P_{\nu}M_{\rho\sigma}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $M_{\rho\sigma}$
+\end_inset
+
+为
+\begin_inset Formula $SO(3,1)$
+\end_inset
+
+生成元。最一般的形式为
+\begin_inset Formula $M_{\mu\nu}=L_{\mu\nu}+S_{\mu\nu}=i(x_{\mu}\partial_{\nu}-x_{\nu}\partial_{\mu})+S_{\mu\nu}$
+\end_inset
+
+。
+\begin_inset Formula $S_{\mu\nu}$
+\end_inset
+
+厄米，对
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+反对称，满足和
+\begin_inset Formula $L_{\mu\nu}$
+\end_inset
+
+同样的李代数，并且与
+\begin_inset Formula $L_{\mu\nu}$
+\end_inset
+
+对易。也就是分别作用在函数上和旋量上。一般的表示可以写成
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\psi_{1}(x)\\
+\psi_{2}(x)\\
+\vdots\\
+\psi_{n}(x)
+\end{array}\right)
+\]
+
+\end_inset
+
+函数和旋量结构在洛伦兹群作用下，都要进行相应的变换。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{\mu}=i\partial_{\mu}=i\frac{\partial}{\partial x^{\mu}}$
+\end_inset
+
+是厄米的时空平移生成元。
+\begin_inset Formula $\left[M_{\mu\nu},P_{\rho}\right]=-ig_{\mu\rho}P_{\nu}+ig_{\nu\rho}P_{\mu}$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\[
+W^{\mu}=-\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}S_{\rho\sigma}\partial_{\nu}
+\]
+
+\end_inset
+
+由此可见，
+\begin_inset Formula $W^{\mu}$
+\end_inset
+
+实际上只和洛伦兹生成元中的“自旋”部分
+\begin_inset Formula $S_{\rho\sigma}$
+\end_inset
+
+有关。
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref61"
+literal "true"
+
+\end_inset
+
+xxxxx
+\end_layout
+
+\end_body
+\end_document
