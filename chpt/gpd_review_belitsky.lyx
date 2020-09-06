@@ -983,15 +983,7 @@ s^{\mu}=2m\left(\begin{array}{cc}
 \end_inset
 
 ，说明
-\begin_inset Formula $\vec{s}=\frac{1}{2}\vec{\sigma}$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(m+m\right)\left(1+\gamma_{5}(2\vec{n}\cdot\vec{s})\right)=m(1+\gamma_{5}(2\vec{n}\cdot\vec{s}))
-\]
-
+\begin_inset Formula $\vec{s}^{2}=\frac{1}{4}$
 \end_inset
 
 
@@ -1019,6 +1011,14 @@ u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(m+m\right)\left(1+\gamma_{5}(2\vec{n}\cdo
 \end_inset
 
 方向的分量）。
+\end_layout
+
+\begin_layout Standard
+这两个关系都是对于general 自旋状态成立的。
+\end_layout
+
+\begin_layout Subsection
+lorentz 变换补充
 \end_layout
 
 \begin_layout Standard
@@ -1321,37 +1321,47 @@ W^{\mu}=-\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}S_{\rho\sigma}\partial_{\nu}
 
 \end_layout
 
+\begin_layout Subsection
+文献中的计算
+\end_layout
+
 \begin_layout Standard
 本文中的密度矩阵为：
 \begin_inset Formula $u(p)\otimes\bar{u}(p)=u(p)_{a}\left(\bar{u}(p)^{\dagger}\gamma^{0}\right)_{b}$
 \end_inset
 
-,考虑到 Dirac 表象下，
+
+\end_layout
+
+\begin_layout Standard
+考虑到 Dirac 表象下，
 \begin_inset Formula $\gamma^{0}=\left(\begin{array}{cc}
 1 & 0\\
 0 & -1
+\end{array}\right),\vec{\gamma}=\left(\begin{array}{cc}
+0 & \vec{\sigma}\\
+-\vec{\sigma} & 0
+\end{array}\right),\gamma^{5}=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
 \end{array}\right)$
 \end_inset
 
-,
+，
+\begin_inset Formula $\slashed{p}=\left(\begin{array}{cc}
+E & -\vec{p}\cdot\vec{\sigma}\\
+\vec{p}\cdot\vec{\sigma} & -E
+\end{array}\right)$
+\end_inset
+
+
 \begin_inset Formula 
 \[
 u_{\lambda}(p)=\left(\begin{array}{c}
 \sqrt{E_{\vec{p}}+m}w_{\lambda}\\
 \sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
 \end{array}\right),\bar{u}(p)=\left(\begin{array}{cc}
-\sqrt{E_{\vec{p}}+m}w_{\lambda}^{\dagger} & -\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}^{\dagger}\end{array}\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-u(p)\otimes\bar{u}(p)=\left(\begin{array}{cc}
-\left(E_{\vec{p}}+m\right) & -\vec{p}\cdot\vec{\sigma}\\
-\vec{p}\cdot\vec{\sigma} & -\left(E_{\vec{p}}-m\right)
-\end{array}\right)
+\sqrt{E_{\vec{p}}+m}w_{\lambda}^{\dagger}, & -\sqrt{E_{\vec{p}}-m}w_{\lambda}^{\dagger}\left(\vec{n}\cdot\vec{\sigma}\right)\end{array}\right)
 \]
 
 \end_inset
@@ -1362,9 +1372,145 @@ u(p)\otimes\bar{u}(p)=\left(\begin{array}{cc}
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\slashed{p}=\left(\begin{array}{cc}
-E & -\vec{p}\cdot\vec{\sigma}\\
-\vec{p}\cdot\vec{\sigma} & -E
+u(p)\otimes\bar{u}(p)=\left(\begin{array}{cc}
+(E+m)w\otimes w^{\dagger} & -w\otimes w^{\dagger}\left(\vec{p}\cdot\vec{\sigma}\right)\\
+\left(\vec{p}\cdot\vec{\sigma}\right)w\otimes w^{\dagger} & -(E-m)\left((\vec{n}\cdot\sigma)w\right)\otimes\left(w^{\dagger}(\vec{n}\cdot\sigma)\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left((\vec{n}\cdot\sigma)w\right)\otimes\left(w^{\dagger}(\vec{n}\cdot\sigma)\right)\\
+= & \left((\vec{n}\cdot\sigma)\otimes w^{\dagger}\right).\left(w\otimes(\vec{n}\cdot\sigma)\right)
+\end{align*}
+
+\end_inset
+
+计算
+\begin_inset Formula $w\otimes w^{\dagger}=\left(\begin{array}{cc}
+aa^{\ast} & ab^{\ast}\\
+ba^{\ast} & bb^{\ast}
+\end{array}\right)$
+\end_inset
+
+按照对称性分解。（有迹的和无迹的）首先注意到
+\begin_inset Formula $\tr{w\otimes w^{\dagger}}=1$
+\end_inset
+
+（根据归一化条件），则
+\begin_inset Formula $\tr{w\otimes w^{\dagger}-I}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+然后把
+\begin_inset Formula $w\otimes w^{\dagger}-I$
+\end_inset
+
+依照
+\begin_inset Formula $\vec{\sigma}$
+\end_inset
+
+矩阵分解，二维刚好只有三个。第
+\begin_inset Formula $i$
+\end_inset
+
+个系数为
+\begin_inset Formula 
+\[
+\tr{(w\otimes w^{\dagger}-I)\cdot\sigma_{i}}=\tr{(w\otimes w^{\dagger})\cdot\sigma}=w^{\dagger}\sigma_{i}w
+\]
+
+\end_inset
+
+这一步利用了密度矩阵的概念。所以
+\begin_inset Formula 
+\[
+w\otimes w^{\dagger}=1+w^{\dagger}\vec{\sigma}w\cdot\vec{\sigma}=1+2\vec{s}\cdot\vec{\sigma}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+s^{\mu} & =2m\left(\begin{array}{cc}
+\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}, & \vec{s}+\frac{\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\end{array}\right),\quad s^{2}=-m^{2},\vec{s}^{2}=\frac{1}{4}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(\gamma\cdot p+m\right)\left(1+\gamma_{5}\frac{s}{m}\cdot\gamma\right)
+\]
+
+\end_inset
+
+在静止系下，
+\begin_inset Formula 
+\begin{align*}
+u(p)\otimes\bar{u}(p) & =\frac{1}{2}\left(m\gamma^{0}+m\right)\left(1-\gamma_{5}2\vec{s}\cdot\vec{\gamma}\right)\\
+ & =\frac{1}{2}\left(\begin{array}{cc}
+2m & 0\\
+0 & 0
+\end{array}\right)\left(\begin{array}{cc}
+1+2\vec{s}\cdot\vec{\sigma} & 0\\
+0 & 1-2\vec{s}\cdot\vec{\sigma}
+\end{array}\right)\\
+ & =m\left(\begin{array}{cc}
+1+2\vec{s}\cdot\vec{\sigma} & 0\\
+0 & 0
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+fdsgasdgdfgdafgadfg
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{s\cdot\gamma}{m} & =2\left(\begin{array}{cc}
+\frac{\left(\vec{p}\cdot\vec{s}\right)}{m} & -\left(\vec{\sigma}\cdot\vec{s}+\frac{\vec{\sigma}\cdot\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\right)\\
+\left(\vec{\sigma}\cdot\vec{s}+\frac{\vec{\sigma}\cdot\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\right) & -\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left(1+\gamma_{5}\frac{\slashed{s}}{m}\right)\\
+= & 2\left(\begin{array}{cc}
+\left(1+\vec{\sigma}\cdot\vec{s}+\frac{\vec{\sigma}\cdot\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\right) & -\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}\\
+\frac{\left(\vec{p}\cdot\vec{s}\right)}{m} & 1-\left(\vec{\sigma}\cdot\vec{s}+\frac{\vec{\sigma}\cdot\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\right)
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+u(p)\otimes\bar{u}(p)=\left(\begin{array}{cc}
+\left(E_{\vec{p}}+m\right) & -\vec{p}\cdot\vec{\sigma}\\
+\vec{p}\cdot\vec{\sigma} & -\left(E_{\vec{p}}-m\right)
 \end{array}\right)
 \]
 

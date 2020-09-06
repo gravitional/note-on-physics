@@ -28,6 +28,7 @@
 \usepackage{simplewick} 
 \usepackage{makeidx} 
 \usepackage{multirow} 
+\usepackage{bbm} 
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
 %%++++++++++++++++++++ 
@@ -483,6 +484,404 @@ B & 0
 。
 \end_layout
 
+\begin_layout Section
+SU(2) and SO(3)
+\end_layout
+
+\begin_layout Standard
+参见黄飞的PPT，SU
+\begin_inset Formula $(2)$
+\end_inset
+
+群任何一个元素可以写成
+\begin_inset Formula 
+\[
+u=\exp\left(-i\omega\vec{n}\cdot\frac{\vec{\sigma}}{2}\right)=\cos(\frac{\omega}{2})-i(\vec{n}\cdot\vec{\sigma})\sin(\frac{\omega}{2})
+\]
+
+\end_inset
+
+这里的参数:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{\vec{\sigma}}{2}$
+\end_inset
+
+是生成元，和
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+SO
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $(3)$
+\end_inset
+
+群生成元满足相同的李代数，说明SU
+\begin_inset Formula $(2)$
+\end_inset
+
+ and SO
+\begin_inset Formula $(3)$
+\end_inset
+
+是局部同构的。
+\end_layout
+
+\begin_layout Enumerate
+群参数
+\begin_inset Formula $\omega$
+\end_inset
+
+,
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+等价于
+\begin_inset Formula $\theta_{1},\theta_{2},\theta_{3}$
+\end_inset
+
+，
+\begin_inset Formula $u=\exp\left(-i\theta^{i}\frac{\sigma^{i}}{2}\right)$
+\end_inset
+
+但是
+\begin_inset Formula $\omega$
+\end_inset
+
+,
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+由物理意义。这样的参数化，通过
+\begin_inset Formula $U=\sum_{i}x_{i}\sigma_{i}$
+\end_inset
+
+，将二维复旋量和三维矢量联系起来，
+\begin_inset Formula $\omega$
+\end_inset
+
+对应三维SO
+\begin_inset Formula $(3)$
+\end_inset
+
+转动的角度，
+\begin_inset Formula $\vec{n}$
+\end_inset
+
+对应三维SO
+\begin_inset Formula $(3)$
+\end_inset
+
+转动的转动轴。基础表示到共轭表示的一个映射。
+\end_layout
+
+\begin_layout Enumerate
+如图，展示了SU
+\begin_inset Formula $(2)$
+\end_inset
+
+ and SO
+\begin_inset Formula $(3)$
+\end_inset
+
+的同构关系。
+\begin_inset Formula $u$
+\end_inset
+
+是一个SU
+\begin_inset Formula $(2)$
+\end_inset
+
+矩阵，
+\begin_inset Formula $w$
+\end_inset
+
+是二维旋量，
+\begin_inset Formula $h$
+\end_inset
+
+是二维厄米无迹矩阵，
+\begin_inset Formula $r$
+\end_inset
+
+是三维矢量。
+\begin_inset Formula $h=\sum_{i}x_{i}\sigma_{i},x_{k}=\frac{1}{2}\{\sigma_{k},h\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+h & \overset{SU(2)}{\rightarrow} & h^{\prime}=uhu^{-1}\\
+\updownarrow & \, & \updownarrow\\
+r & \overset{SO(3)}{\rightarrow} & r^{\prime}=Rr
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+平均值映射
+\end_layout
+
+\begin_layout Standard
+旋量是二维的，自旋的对称群为SU
+\begin_inset Formula $(2)$
+\end_inset
+
+，空间旋转的对称群为SO
+\begin_inset Formula $(3)$
+\end_inset
+
+，基础自旋只有
+\begin_inset Formula $2$
+\end_inset
+
+个分量，基础空间矢量有
+\begin_inset Formula $3$
+\end_inset
+
+个分量。它们不是一个表示空间的东西，一般来讲，应该是独立的。但是自旋有物理效应——磁矩，可以和角动量耦合。这两个表示空间的东西发生了相互作用。这种联系是通过`平
+均值映射'完成的。
+\end_layout
+
+\begin_layout Standard
+令
+\begin_inset Formula 
+\[
+\vec{x}=\frac{1}{2}w^{\dagger}\vec{\sigma}w
+\]
+
+\end_inset
+
+可以把二维旋量
+\begin_inset Formula $w$
+\end_inset
+
+和三维矢量
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+联系起来。
+\begin_inset Formula $\vec{\sigma}$
+\end_inset
+
+是泡利矩阵。将一个SU
+\begin_inset Formula $(2)$
+\end_inset
+
+矩阵
+\begin_inset Formula $u$
+\end_inset
+
+作用到
+\begin_inset Formula $w$
+\end_inset
+
+上，
+\begin_inset Formula $w^{\prime}=uw$
+\end_inset
+
+，所以有
+\begin_inset Formula 
+\[
+\vec{x}^{\prime}=\frac{1}{2}w^{\dagger}u^{\dagger}\vec{\sigma}uw
+\]
+
+\end_inset
+
+根据李群的自伴表示，
+\begin_inset Formula $u^{\dagger}\vec{\sigma}u=R^{\dagger}\vec{\sigma}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\vec{x}^{\prime}=\frac{1}{2}w^{\dagger}R^{\dagger}\vec{\sigma}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+对应
+\begin_inset Formula $\vec{\sigma}$
+\end_inset
+
+，那么
+\begin_inset Formula $\vec{x}^{\prime}$
+\end_inset
+
+对应
+\begin_inset Formula $R^{\dagger}\vec{\sigma}$
+\end_inset
+
+。
+\begin_inset Formula $x^{\prime}=R^{\dagger}x$
+\end_inset
+
+，满足群同构的性质。且表象
+\begin_inset Formula $x$
+\end_inset
+
+中，基按照矢量变换。所以可以通过求
+\begin_inset Formula $\vec{\sigma}$
+\end_inset
+
+的平均值，把旋量和矢量对应起来。我们把
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+称为自旋（磁矩）矢量，注意它已经是
+\begin_inset Formula $3$
+\end_inset
+
+维的了。反过来，
+\begin_inset Formula $3$
+\end_inset
+
+维空间的一个磁矩矢量对应旋量空间的某个
+\begin_inset Formula $w$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+我们说的自旋上下，跟自旋（磁矩）指向不是同一个概念，后者值得是
+\begin_inset Formula $\langle\vec{\sigma}\rangle$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+也许会差一个三维转动，我们默认它是
+\begin_inset Formula $I$
+\end_inset
+
+（恒元）。
+\end_layout
+
+\begin_layout Section
+一些细节
+\end_layout
+
+\begin_layout Standard
+我们认为SU
+\begin_inset Formula $(2)$
+\end_inset
+
+ 群的这种参数化
+\begin_inset Formula $u=\exp\left(-i\omega\vec{n}\cdot\frac{\vec{\sigma}}{2}\right)$
+\end_inset
+
+，其中的参数
+\begin_inset Formula $\omega,\vec{n}$
+\end_inset
+
+恰好就是SO
+\begin_inset Formula $(3)$
+\end_inset
+
+群表示（轨道中的）空间指向和转动角度
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\exp\left(-i\omega\vec{n}\cdot\frac{\vec{\sigma}}{2}\right)w_{\lambda} & =\exp\left(-i\omega\lambda\right)w_{\lambda}\\
+\left(1-i\omega(\vec{n}\cdot\frac{\vec{\sigma}}{2})\right) & w_{\lambda}=\left(1-i\omega\lambda\right)w_{\lambda}\\
+i\omega(\vec{n}\cdot\frac{\vec{\sigma}}{2})w_{\lambda} & =i\omega\lambda w_{\lambda}
+\end{align*}
+
+\end_inset
+
+也就是说，本征方程
+\begin_inset Formula $(\vec{n}\cdot\frac{\vec{\sigma}}{2})w_{\lambda}=\lambda w_{\lambda}$
+\end_inset
+
+的解，即本征矢量，在SU
+\begin_inset Formula $(2)$
+\end_inset
+
+群元素作用下，只是增加一个
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+U
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $(1)$
+\end_inset
+
+的相位
+\begin_inset Formula $\exp\left(-i\omega\lambda\right)$
+\end_inset
+
+。相当于SU(2)群本征值为
+\begin_inset Formula $\exp\left(-i\omega\lambda\right)$
+\end_inset
+
+的本征矢量。
+\end_layout
+
 \begin_layout Subsection
 Dirac 表示
 \end_layout
@@ -578,6 +977,29 @@ C\gamma_{\mu}^{T}C=\gamma_{\mu},\quad C\gamma_{5}^{T}C=-\gamma_{5},\quad C\left(
 \end_inset
 
 矩阵公式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}$
+\end_inset
+
+，我们把它写成一个简单的形式
+\begin_inset Formula $\gamma[\mu\nu\rho\sigma]$
+\end_inset
+
+，注意利用反对易关系的时候
+\begin_inset Formula 
+\[
+\gamma[\mu\nu\rho\sigma]=-\gamma[\nu\mu\rho\sigma]+2g[\mu\nu]\gamma[\rho\sigma]
+\]
+
+\end_inset
+
+简写为
+\begin_inset Formula $\mu\nu\rho\sigma=-\nu\mu\rho\sigma+2(\mu\nu)\rho\sigma$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1066,11 +1488,7 @@ Dirac 方程平面波解的振幅部分(旋量部分),
 
 \end_inset
 
-使用Dirac表象中的 
-\begin_inset Formula $\gamma$
-\end_inset
-
- 矩阵，Dirac双旋量可以写成
+，Dirac双旋量可以写成
 \begin_inset Formula 
 \[
 u_{\lambda}(p)=\left(\begin{array}{c}
@@ -1164,7 +1582,20 @@ Dirac 表象
 \end_layout
 
 \begin_layout Standard
-在这个坐标系中，
+在这个表象中，
+\begin_inset Formula $\gamma^{0}=\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right),\vec{\gamma}=\left(\begin{array}{cc}
+0 & \vec{\sigma}\\
+-\vec{\sigma} & 0
+\end{array}\right),\gamma^{5}=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right)$
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \slashed{p}=\left(\begin{array}{cc}

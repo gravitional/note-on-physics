@@ -1613,3 +1613,16 @@ and not
 \usepackage{atbegshi}      
 \documentclass ...
 ```
+
+## 使用 Beamer 制作学术讲稿 
+
+[使用 Beamer 制作学术讲稿 ][]
+
+[使用 Beamer 制作学术讲稿 ]: https://www.latexstudio.net/archives/2825.html
+
+```latex
+\newcommand{\cmod}[2]{{\color{red}{ $-$\{#1\} }} {\color{blue}{$+$\{#2\}}}}
+\newcommand{\cdel}[1]{{\color{red}{ $-$\{#1\}}}}
+\newcommand{\cadd}[1]{{\color{blue}{$+$\{#1\}}}}
+
+```
