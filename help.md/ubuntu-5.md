@@ -108,17 +108,27 @@ ps 选项
 
 For BSD formats and when the stat keyword is used, additional characters may be displayed:
 
-               <    high-priority (not nice to other users)
-               N    low-priority (nice to other users)
-               L    has pages locked into memory (for real-time and custom IO)
-               s    is a session leader
-               l    is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
-               +    is in the foreground process group
++ `<` :高优先级进程 (not nice to other users)
++ `N` : 低优先级进程 (nice to other users)
++ `L` : has pages locked into memory (for real-time and custom IO)
++ `s` : is a session leader
++ `l` : 多线程进程 (using CLONE_THREAD, like NPTL pthreads do)
++ `+` : 在前端进程组中
 
 与 `awk`结合使用
 
 ```bash
-ps  aux |awk '$8 ~ "Z[\x00-\x7F]*"'
+ps  aux |awk '$8 ~ "Z[\x00-\x7F]*"' # 匹配zombie 进程
+ps  aux | gawk '$8 ~ "Z\\w*"' # 此处要用 \\ 对 \ 进行转义
+ps  aux | gawk '$8 ~ "\\w+\\+\\w*"' # 此处要用 \\ 对 \ 进行转义
+```
+
+自带的排序功能
+
+```bash
+ps jax --sort=uid,-ppid,+pid # 按照 uid, ppid, pid 排序，+表示升序，-表示降序
+ps aux --sort=-start | less # 按照运行时间排序
+ps ux --sort=-start_time | head -n 10 # 查看用户最近运行的进程
 ```
 
 ### 用top命令动态查看进程
