@@ -1253,7 +1253,7 @@ ref: [LaTeX —— 特殊符号与数学字体][]
 + $\mathcal{D}$ 表示样本集
 + $\mathcal{N}$ 常用来表示高斯分布；
 
-#### 其他数学字体
+### 其他数学字体
 
 + `\mathsf`
 + `\mathtt`
@@ -1274,7 +1274,7 @@ ref: [LaTeX —— 特殊符号与数学字体][]
 \]
 ```
 
-### 小写字母的数字花体字体
+### 小写字母的数字花体
 
 ref-2: [LaTeX小写花体字母][]
 ref-3: [查找任意符号的LaTeX指令][]
@@ -1469,6 +1469,24 @@ $\int \mathop{}\mathrm{d} x $\\
 \]
 ```
 
+### 下划线，中划线
+
+[LaTeX文字的加粗、斜体、下划线、删除线等][]
+
+[LaTeX文字的加粗、斜体、下划线、删除线等]: https://www.jianshu.com/p/a1838fa53882
+
++ 加粗 `\textbf{文字}`
++ 斜体 `\emph{文字}`
++ 下划线 `\underline{文字}`
++ 删除线 
+删除线需要调用package：
+`\usepackage{ulem}`
+而后是：
++ `\sout{文字}` %删除线
++ `\uwave{文字}` %波浪线
++ `\xout{文字}` %斜删除线
++ `\uuline{文字}`  %双下划线
+
 ### 多重下标
 
 [如何排版公式的多行下标][]
@@ -1503,7 +1521,7 @@ $\int \mathop{}\mathrm{d} x $\\
 \end{gather}
 ```
 
-## \newcommand
+## newcommand 新命令
 
 [LaTeX2e unofficial reference manual (October 2018)][]
 
@@ -1511,78 +1529,82 @@ $\int \mathop{}\mathrm{d} x $\\
 
 12.1 \newcommand & \renewcommand
 
-Synopses, one of:
+语法,使用下面形式中的一个:
 
+```latex
 \newcommand{\cmd}{defn}
 \newcommand{\cmd}[nargs]{defn}
 \newcommand{\cmd}[nargs][optargdefault]{defn}
 \newcommand*{\cmd}{defn}
 \newcommand*{\cmd}[nargs]{defn}
 \newcommand*{\cmd}[nargs][optargdefault]{defn}
+```
 
 or one of these.
 
+```bash
 \renewcommand{\cmd}[nargs]{defn}
 \renewcommand{\cmd}[nargs]{defn}
 \renewcommand{\cmd}[nargs][optargdefault]{defn}
 \renewcommand*{\cmd}{defn}
 \renewcommand*{\cmd}[nargs]{defn}
 \renewcommand*{\cmd}[nargs][optargdefault]{defn}
+```
 
-Define or redefine a command. See also the discussion of \DeclareRobustCommand in Class and package commands. The starred form of these two requires that the arguments not contain multiple paragraphs of text (in plain TeX terms that it not be \long).
+定义或重定义一个命令。See also the discussion of \DeclareRobustCommand in Class and package commands.
+这两个命令的`*`号形式要求参数中不包含多段文字。（用 `plain TeX` 术语说，不能为`\long` ）。
 
-These are the parameters:
+参数说明:
 
-cmd
-
-    Required; the command name. It must begin with a backslash, \, and must not begin with the four letter string \end. For \newcommand, it must not be already defined. For \renewcommand, this name must already be defined.
-nargs
-
-    Optional; an integer from 0 to 9, specifying the number of arguments that the command takes, including any optional argument. Omitting this argument is the same as specifying 0, meaning that the command has no arguments. If you redefine a command, the new version can have a different number of arguments than the old version.
-optargdefault
-
-    Optional; if this argument is present then the first argument of \cmd is optional, with default value optargdefault (which may be the empty string). If this argument is not present then \cmd does not take an optional argument.
-
-    That is, if \cmd is used with square brackets, as in \cmd[optval]{...}..., then within defn the parameter #1 is set to the value of optval. On the other hand, if \cmd is called without the square brackets then within defn the parameter #1 is set to the value of optargdefault. In either case, the required arguments start with #2.
-
-    Omitting [optargdefault] is different from having the square brackets with no contents, as in []. The former sets #1 to the value of optargdefault; the latter sets #1 to the empty string.
-defn
-
-    Required; the text to be substituted for every occurrence of \cmd. The parameters #1, #2, ... #nargs are replaced by the values that you supply when you call the command (or by the default value if there is an optional argument and you don’t exercise the option).
-
-TeX ignores spaces in the source following an alphabetic control sequence, as in ‘\cmd ’. If you actually want a space there, one solution is to type {} after the command (‘\cmd{} ’, and another solution is to use an explicit control space (‘\cmd\ ’).
-
-A simple example of defining a new command: \newcommand{\RS}{Robin Smith} results in \RS being replaced by the longer text. Redefining an existing command is similar: \renewcommand{\qedsymbol}{{\small QED}}.
-
-If you try to define a command and the name has already been used then you get something like ‘LaTeX Error: Command \fred already defined. Or name \end... illegal, see p.192 of the manual’. If you try to redefine a command and the name has not yet been used then you get something like ‘LaTeX Error: \hank undefined’.
++ `cmd`：必选，命令名称。用`\`开头。且不能以`\end`开头，对于`\newcommand`，命令不能定义过。
+对于`\renewcommand`，命令必须已经定义过。
++ `nargs`:可选，一个从`0`到`9`的整数。指定命令接受的参数个数，包括可选参数。忽略这个参数相当于设定为`0`，
+意味着命令不接受参数。如果重定义命令，新命令可以和旧命令的参数数目可以不一样。
++ `optargdefault`：可选。如果这个参数存在,`\cmd`的第一个参数将是可选参数（可以是空字符串）。如果这个参数不存在，`\cmd`不使用可选参数。也就是说，如果用`\cmd[optval]{...}`调用，`#1`将会被设置成`optval`; 如果用`\cmd{...}`调用，`#1`将会被设置成`optargdefault`。两种情况下，必选参数都从`#2`开始。
+忽略`[optargdefault]`与使用`[]`是不同的，前一种情况, `#1`被设置为`optargdefault`；后一种情况，`#1`被设置为空字符串。
++ `defn`: 需要；每次遇到`\cmd`就用`defn`替换. 参数`#1`,`#2`被替换成你提供的值。`Tex`会忽略跟在`\cmd`后面的空白。如果你想要一个空白，使用`\cmd{}`或者使用显式的控制序列`'\cmd\ '`。
+一个简单的定义新命令的例子：`\newcommand{\RS}{Robin Smith}`，文中的每个`\RS`会被`Robin Smith`替换。
+重定义命令是类似的`\renewcommand{\qedsymbol}{{\small QED}}`.
+用`\newcommand`重定义命令，或者用`\renewcommand`定义新命令，都会报错。
 
 Here the first command definition has no arguments, and the second has one required argument.
 
+```bash
 \newcommand{\student}{Ms~O'Leary}
 \newcommand{\defref}[1]{Definition~\ref{#1}}
+```
 
-Use the first as in I highly recommend \student{} to you. The second has a variable, so that \defref{def:basis} expands to Definition~\ref{def:basis}, which ultimately expands to something like ‘Definition~3.14’.
+使用第一个命令时，建议用`\student{}`(以便于和后面有空格区分开)。
+第二个命令有一个变量，`\defref{def:basis}`将会展开成`Definition~\ref{def:basis}`，最终展开成类似于`Definition~3.14`。
 
-Similarly, but with two required arguments: \newcommand{\nbym}[2]{$#1 \times #2$} is invoked as \nbym{2}{k}.
+类似地，两个必选参数：`\newcommand{\nbym}[2]{$#1 \times #2$}`，调用时使用`\nbym{2}{k}`.
 
-This example has an optional argument.
+可选参数的例子：`\newcommand{\salutation}[1][Sir or Madam]{Dear #1:}`
+`\salutation`给出`Dear Sir or Madam:`，`\salutation[John]`给出`Dear John:`.
+`\salutation[]`给出 `Dear :`
 
-\newcommand{\salutation}[1][Sir or Madam]{Dear #1:}
+这个例子给出一个可选参数和两个必选参数：
 
-Then \salutation gives ‘Dear Sir or Madam:’ while \salutation[John] gives ‘Dear John:’. And \salutation[] gives ‘Dear :’.
-
-This example has an optional argument and two required arguments.
-
+```bash
 \newcommand{\lawyers}[3][company]{#2, #3, and~#1}
 I employ \lawyers[Howe]{Dewey}{Cheatem}.
+```
 
-The output is ‘I employ Dewey, Cheatem, and Howe’. The optional argument, the Howe, is associated with #1, while Dewey and Cheatem are associated with #2 and #3. Because of the optional argument, \lawyers{Dewey}{Cheatem} will give the output ‘I employ Dewey, Cheatem, and company’.
+输出是`I employ Dewey, Cheatem, and Howe`.
+`\lawyers{Dewey}{Cheatem}`将给出`I employ Dewey, Cheatem, and company`
 
-The braces around defn do not define a group, that is, they do not delimit the scope of the result of expanding defn. For example, with \newcommand{\shipname}[1]{\it #1}, in this sentence,
+`defn` 周围的大括号并不会定义一个组，也就是说，它并不会限制指令的生效范围。
+比如，使用`\newcommand{\shipname}[1]{\it #1}`, 
 
+```latex
 The \shipname{Monitor} met the \shipname{Merrimac}.
+```
 
-the words ‘met the’ would incorrectly be in italics. The solution is to put another pair of braces inside the definition: \newcommand{\shipname}[1]{{\it #1}}.
+单词 `met the`也会变成斜体`italics`。解决方法是在定义中额外加上一对大括号：
+
+```latex
+\newcommand{\shipname}[1]{{\it #1}}
+```
 
 ## latex 注音符号
 
@@ -1620,9 +1642,9 @@ and not
 
 [使用 Beamer 制作学术讲稿 ]: https://www.latexstudio.net/archives/2825.html
 
-```latex
-\newcommand{\cmod}[2]{{\color{red}{ $-$\{#1\} }} {\color{blue}{$+$\{#2\}}}}
-\newcommand{\cdel}[1]{{\color{red}{ $-$\{#1\}}}}
-\newcommand{\cadd}[1]{{\color{blue}{$+$\{#1\}}}}
 
-```
+
+
+
+
+
