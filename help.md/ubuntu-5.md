@@ -57,7 +57,7 @@ ps x
 加上 `x` 选项(注意没有开头的 `-` 字符),告诉 `ps` 命令,展示所有进程,不管它们由什么 终端(如果有的话)控制.
 在 `TTY` 一栏中出现的 `?` ,表示没有控制终端.使用这个 `x` 选项,可以 看到我们所拥有的每个进程的信息.
 
-因为系统中正运行着许多进程,所以 `ps` 命令的输出结果很长.把 `ps` 的输出结果管道到less 命令经常很有帮助.
+因为系统中正运行着许多进程,所以 `ps` 命令的输出结果很长.把 `ps` 的输出结果管道到`less`命令经常很有帮助.
 一些选项组合也会产生很长的输出结果,所以最大化 终端仿真器窗口,也是一个好主意.
 
 输出结果中,新添加了一栏,标题为 `STAT` .`STAT` 是 `state` 的简写,它揭示了进程当前状态:
@@ -69,7 +69,7 @@ ps x
 + `S` :  正在睡眠. 进程没有运行,而是,正在等待一个事件, 比如说,一个按键或者网络数据包.
 + `D` :  不可中断睡眠.进程正在等待` I/O`,比方说,一个磁盘驱动器的` I/O`.
 + `T` :  已停止. 已经指示进程停止运行.稍后介绍更多.
-+ `Z` :  一个死进程或`僵尸`进程.这是一个已经终止的子进程,但是它的父进程还没有清空它. (父进程没有把子进程从进程表中删除)
++ `Z` :  一个死进程或`僵尸`(zombie)进程.这是一个已经终止的子进程,但是它的父进程还没有清空它. (父进程没有把子进程从进程表中删除)
 + `<` : 一个高优先级进程.这可能会授予一个进程更多重要的资源,给它更多的CPU 时间. 进程的这种属性叫做niceness.
 具有高优先级的进程据说是不好的(less nice), 因为它占用了比较多的 CPU 时间,这样就给其它进程留下很少时间.
 + `N` :低优先级进程. 一个低优先级进程(一个`好`进程)只有当其它高优先级进程执行之后,才会得到处理器时间.
@@ -97,7 +97,31 @@ Linux 版本的 `ps` 命令,可以模拟几个不同 Unix 版本中的 `ps` 程�
 + `RSS` 进程占用的物理内存的大小,以千字节为单位.
 + `START` 进程运行的起始时间.若超过`24`小时,则用天表示.
 
-### 用 `top` 命令动态查看进程
+寻找进程：`top ps pgrep`
+发送信号：`kill`
+
+ps 选项
+
++ `ps u -C lyx`: Display user-oriented format, with command `lyx`
++ `ps u t 2` : Display user-oriented format, with tty `2`
++ `ps l`:  Display BSD long format.
+
+For BSD formats and when the stat keyword is used, additional characters may be displayed:
+
+               <    high-priority (not nice to other users)
+               N    low-priority (nice to other users)
+               L    has pages locked into memory (for real-time and custom IO)
+               s    is a session leader
+               l    is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
+               +    is in the foreground process group
+
+与 `awk`结合使用
+
+```bash
+ps  aux |awk '$8 ~ "Z[\x00-\x7F]*"'
+```
+
+### 用top命令动态查看进程
 
 虽然 `ps` 命令能够展示许多计算机运行状态的信息,但是它只是提供,`ps` 命令执行时刻的机器状态快照.
 为了看到更多动态的信息,我们使用 `top` 命令:
@@ -259,7 +283,7 @@ xlogo
 
 一个程序能够倾听和响应信号,这个事实允许一个程序做些事情, 比如,当程序接到一个终止信号时,它可以保存所做的工作.
 
-#### 通过 `kill` 命令给进程发送信号
+#### 通过 kill命令给进程发送信号
 
 `kill` 命令被用来给程序发送信号.它最常见的语法形式看起来像这样:
 
@@ -331,7 +355,7 @@ xlogo
 kill -l
 ```
 
-#### 通过 `killall` 命令给多个进程发送信号
+#### 通过 killall命令给多个进程发送信号
 
 也有可能通过 `killall` 命令,给匹配特定程序或用户名的多个进程发送信号.下面是 `killall` 命令的语法形式:
 

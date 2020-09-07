@@ -590,6 +590,41 @@ AWK 支持如下几种一元运算符：
 AWK 可以方便高效地处理正则表达式。大量复杂的任务都可以由极其简单的正则表达式来解决。
 每一个精通命令行的人都知道正则表达式真正的威力所在。
 
+字符集
+
+Class Meaning
+
++ `[:alnum:]` Alphanumeric characters
++ `[:alpha:]` Alphabetic characters
++ `[:blank:]` Space and TAB characters
++ `[:cntrl:]` Control characters
++ `[:digit:]` Numeric characters
++ `[:graph:]` Characters that are both printable and visible (a space is printable but not visible, whereas an 'a' is both)
++ `[:lower:]`    Lowercase alphabetic characters
++ `[:print:]`    Printable characters (characters that are not control characters)
++ `[:punct:]`    Punctuation characters (characters that are not letters, digits, control characters, or space characters)
++ `[:space:]` Space characters (these are: space, TAB, newline, carriage return, formfeed and vertical tab)
++ `[:upper:]` Uppercase alphabetic characters
++ `[:xdigit:]` Characters that are hexadecimal digits
+
+若要匹配ASCII 字符集，使用`[\x00-\x7F]`，匹配`0`到`127`。匹配非ASCII字符集，使用`[^\x00-\x7F]`
+
+`gawk` 还允许以下拓展用法
+
+`\s` : 空白符号，相当于`[[:space:]]`
+`\S` : 非空白字符，相当于`[^[:space:]]`
+`\w`: 匹配任何word字符，字母数字下划线，相当于`[[:alnum:]_]`
+`\W`: 匹配任何非word字符，相当于`[^[:alnum:]_]`
+`\<` : 匹配单词开头（空字符），如`/\<away/`匹配`'away'`，但不匹配`'stowaway'`
+`\>` : 匹配单词结尾（空字符），如`/stow\>/`匹配`'stow'`但不匹配`'stowaway'`
+`\y`: 匹配开头或者结尾
+`\B`: 匹配word中间的空字符位置。比如，`/\Brat\B/`匹配`'crate'`，但不匹配`'dirty rat'`，它是`\y`的反义。
+
+There are two other operators that work on buffers. In Emacs, a buffer is, naturally, an Emacs buffer. Other GNU programs, including gawk, consider the entire string to match as the buffer. The perators are:
+
+`` \` ``: Matches the empty string at the beginning of a buffer (string)
+`` \' ``: Matches the empty string at the end of a buffer (string) 
+
 ### 点（Dot）
 
 点字符（`.`）可以匹配除了行结束字符的所有字符。比如下面的便子就可以匹配 `fin`, `fun`, `fan` 等等。
@@ -767,6 +802,9 @@ if (condition)
 下面的例子判断数字是奇数还是偶数：
 
 `awk 'BEGIN {num = 10; if (num % 2 == 0) printf "%d is even number.\n", num }'`
+
+`awk ' if ($8  == 0) printf "%d is even number.\n"'`
+
 
 ### IF - ELSE 语句
 
