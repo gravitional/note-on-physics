@@ -125,7 +125,7 @@ Thomas Young
 \end_layout
 
 \begin_layout Section
-张量
+度规张量
 \end_layout
 
 \begin_layout Standard
@@ -649,7 +649,7 @@ r & \overset{SO(3)}{\rightarrow} & r^{\prime}=Rr
 \end_layout
 
 \begin_layout Section
-平均值映射
+SU(2)平均值映射
 \end_layout
 
 \begin_layout Standard
@@ -796,11 +796,11 @@ r & \overset{SO(3)}{\rightarrow} & r^{\prime}=Rr
 \begin_inset Formula $I$
 \end_inset
 
-（恒元）.
+（恒元）。
 \end_layout
 
-\begin_layout Section
-一些细节
+\begin_layout Subsection
+物理含义
 \end_layout
 
 \begin_layout Standard
@@ -1464,6 +1464,107 @@ S_{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]
 \begin{align*}
 \sigma^{\rho\sigma}\gamma^{5} & =\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}\text{ 交换指标次序}\\
 \gamma^{5}\sigma^{\rho\sigma} & =\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+gamma求迹公式
+\end_layout
+
+\begin_layout Standard
+peskin page134，总结求迹公式：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\tr\left(\boldsymbol{1}\right) & =4\\
+\tr\left(\text{any odd \# of }\gamma's\right) & =0\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\right) & =4g^{\mu\nu}\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\right) & =4\left(g^{\mu\nu}g^{\rho\sigma}-g^{\mu\rho}g^{\nu\sigma}+g^{\mu\sigma}g^{\nu\rho}\right)\\
+\tr\left(\gamma^{5}\right) & =0\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{5}\right) & =0\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{5}\right) & =0\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\gamma^{5}\right) & =-4i\varepsilon^{\mu\nu\rho\sigma}
+\end{align*}
+
+\end_inset
+
+含有
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+的求迹中，从含有
+\begin_inset Formula $4$
+\end_inset
+
+个
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+开始才不为零。
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+和奇数个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵求迹等于
+\begin_inset Formula $0$
+\end_inset
+
+。
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+有恒等式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\varepsilon^{\alpha\beta\gamma\delta}\varepsilon_{\alpha\beta\gamma\delta} & =-24\\
+\varepsilon^{\alpha\beta\gamma\mu}\varepsilon_{\alpha\beta\gamma\nu} & =-6\delta_{\phantom{\mu}\nu}^{\mu}\\
+\varepsilon^{\alpha\beta\mu\nu}\varepsilon_{\alpha\beta\rho\sigma} & =-2\left(\delta_{\phantom{\mu}\rho}^{\mu}\delta_{\phantom{\mu}\sigma}^{\nu}-\delta_{\phantom{\mu}\sigma}^{\mu}\delta_{\phantom{\mu}\rho}^{\nu}\right)
+\end{align*}
+
+\end_inset
+
+这些等式全都可以通过考虑对称因子，然后计算一个特殊的例子来决定整体的常数。
+\end_layout
+
+\begin_layout Standard
+还有一个等式，翻转求迹括号内的次序：
+\begin_inset Formula 
+\[
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\cdots\right)=\tr\left(\cdots\gamma^{\sigma}\gamma^{\rho}\gamma^{\nu}\gamma^{\mu}\right)
+\]
+
+\end_inset
+
+这个关系可以通过使用
+\begin_inset Formula $C\equiv\gamma^{0}\gamma^{2}$
+\end_inset
+
+ （电荷共轭）证明。
+\end_layout
+
+\begin_layout Standard
+如果求迹内部出现
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵收缩，首先要化简收缩：
+\begin_inset Formula 
+\begin{align*}
+\gamma^{\mu}\gamma^{\nu}\gamma_{\mu} & =-2\gamma^{\nu}\\
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma_{\mu} & =4g^{\nu\rho}\\
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\gamma_{\mu} & =-2\gamma^{\sigma}\gamma^{\rho}\gamma^{\nu}
 \end{align*}
 
 \end_inset
@@ -2566,8 +2667,8 @@ e^{i\phi}\sin\frac{\theta}{2}
 \begin_inset Formula 
 \[
 \xi^{-s}=-i\sigma^{2}\left(\xi^{s}\right)^{\ast}=\left(\begin{array}{cc}
- & -1\\
-1
+0 & -1\\
+1 & 0
 \end{array}\right)\left(\xi^{s}\right)^{\ast}
 \]
 

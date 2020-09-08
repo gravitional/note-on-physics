@@ -986,7 +986,7 @@ s^{\mu}=2m\left(\begin{array}{cc}
 \begin_inset Formula $\vec{s}^{2}=\frac{1}{4}$
 \end_inset
 
-
+。
 \end_layout
 
 \begin_layout Standard
@@ -1014,7 +1014,15 @@ s^{\mu}=2m\left(\begin{array}{cc}
 \end_layout
 
 \begin_layout Standard
-这两个关系都是对于general 自旋状态成立的。
+这两个关系都是对于general 自旋状态成立的。利用密度矩阵，我们发现
+\begin_inset Formula 
+\[
+\bar{u}(p)\gamma^{\mu}u(p)=2p^{\mu},\quad\bar{u}(p)\gamma^{\mu}\gamma^{5}u(p)=2s^{\mu}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1335,7 +1343,9 @@ W^{\mu}=-\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}S_{\rho\sigma}\partial_{\nu}
 
 \begin_layout Standard
 考虑到 Dirac 表象下，
-\begin_inset Formula $\gamma^{0}=\left(\begin{array}{cc}
+\begin_inset Formula 
+\[
+\gamma^{0}=\left(\begin{array}{cc}
 1 & 0\\
 0 & -1
 \end{array}\right),\vec{\gamma}=\left(\begin{array}{cc}
@@ -1344,14 +1354,12 @@ W^{\mu}=-\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}S_{\rho\sigma}\partial_{\nu}
 \end{array}\right),\gamma^{5}=\left(\begin{array}{cc}
 0 & 1\\
 1 & 0
-\end{array}\right)$
-\end_inset
-
-，
-\begin_inset Formula $\slashed{p}=\left(\begin{array}{cc}
+\end{array}\right),\slashed{p}=\left(\begin{array}{cc}
 E & -\vec{p}\cdot\vec{\sigma}\\
 \vec{p}\cdot\vec{\sigma} & -E
-\end{array}\right)$
+\end{array}\right)
+\]
+
 \end_inset
 
 
@@ -1373,7 +1381,7 @@ u_{\lambda}(p)=\left(\begin{array}{c}
 \begin_inset Formula 
 \[
 u(p)\otimes\bar{u}(p)=\left(\begin{array}{cc}
-(E+m)w\otimes w^{\dagger} & -w\otimes w^{\dagger}\left(\vec{p}\cdot\vec{\sigma}\right)\\
+(E+m)w\otimes w^{\dagger} & -w\otimes\left(w^{\dagger}\left(\vec{p}\cdot\vec{\sigma}\right)\right)\\
 \left(\vec{p}\cdot\vec{\sigma}\right)w\otimes w^{\dagger} & -(E-m)\left((\vec{n}\cdot\sigma)w\right)\otimes\left(w^{\dagger}(\vec{n}\cdot\sigma)\right)
 \end{array}\right)
 \]
@@ -1381,14 +1389,9 @@ u(p)\otimes\bar{u}(p)=\left(\begin{array}{cc}
 \end_inset
 
 
-\begin_inset Formula 
-\begin{align*}
- & \left((\vec{n}\cdot\sigma)w\right)\otimes\left(w^{\dagger}(\vec{n}\cdot\sigma)\right)\\
-= & \left((\vec{n}\cdot\sigma)\otimes(\vec{n}\cdot\sigma)\right).\left(w\otimes w^{\dagger}\right)
-\end{align*}
+\end_layout
 
-\end_inset
-
+\begin_layout Enumerate
 计算
 \begin_inset Formula $w\otimes w^{\dagger}=\left(\begin{array}{cc}
 aa^{\ast} & ab^{\ast}\\
@@ -1401,15 +1404,11 @@ ba^{\ast} & bb^{\ast}
 \end_inset
 
 （根据归一化条件），则
-\begin_inset Formula $\tr{w\otimes w^{\dagger}-I}=0$
+\begin_inset Formula $\tr{w\otimes w^{\dagger}-\frac{1}{2}I}=0$
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
-然后把
-\begin_inset Formula $w\otimes w^{\dagger}-I$
+。然后把
+\begin_inset Formula $w\otimes w^{\dagger}-\frac{1}{2}I$
 \end_inset
 
 依照
@@ -1423,7 +1422,7 @@ ba^{\ast} & bb^{\ast}
 个系数为
 \begin_inset Formula 
 \[
-\tr{(w\otimes w^{\dagger}-I)\cdot\sigma_{i}}=\tr{(w\otimes w^{\dagger})\cdot\sigma}=w^{\dagger}\sigma_{i}w
+\tr{(w\otimes w^{\dagger}-\frac{1}{2}I)\cdot\sigma_{i}}=\tr{(w\otimes w^{\dagger})\cdot\sigma}=w^{\dagger}\sigma_{i}w
 \]
 
 \end_inset
@@ -1431,16 +1430,44 @@ ba^{\ast} & bb^{\ast}
 这一步利用了密度矩阵的概念。所以
 \begin_inset Formula 
 \[
-w\otimes w^{\dagger}=1+w^{\dagger}\vec{\sigma}w\cdot\vec{\sigma}=1+2\vec{s}\cdot\vec{\sigma}
+w\otimes w^{\dagger}=\frac{1}{2}+w^{\dagger}\vec{\sigma}w\cdot\vec{\sigma}=\frac{1}{2}+\vec{s}\cdot\vec{\sigma}
 \]
+
+\end_inset
+
+其中
+\begin_inset Formula $\vec{s}=w^{\dagger}\vec{\sigma}w$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+然后，利用直乘公式: 
+\begin_inset Formula $(A.B)\otimes(C.D)=(A\otimes C).(B\otimes D)$
+\end_inset
+
+，得到：
+\begin_inset Formula 
+\begin{align*}
+w\otimes\left(w^{\dagger}\left(\vec{p}\cdot\vec{\sigma}\right)\right) & =\left(w.1\right)\otimes\left(w^{\dagger}\left(\vec{p}\cdot\vec{\sigma}\right)\right)\\
+ & =\left(w\otimes w^{\dagger}\right).\left(1\otimes\left(\vec{p}\cdot\vec{\sigma}\right)\right)\\
+ & =\left(w\otimes w^{\dagger}\right)\cdot\left(\vec{p}\cdot\vec{\sigma}\right)\\
+ & =\left(\frac{1}{2}+\vec{s}\cdot\vec{\sigma}\right)\cdot\left(\vec{p}\cdot\vec{\sigma}\right)\\
+ & =\left(\vec{p}\cdot\vec{\sigma}\right)\cdot\left(\frac{1}{2}-\vec{s}\cdot\vec{\sigma}\right)+2\vec{s}\cdot\vec{p}
+\end{align*}
 
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
-s^{\mu} & =2m\left(\begin{array}{cc}
-\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}, & \vec{s}+\frac{\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\end{array}\right),\quad s^{2}=-m^{2},\vec{s}^{2}=\frac{1}{4}
+\left((\vec{n}\cdot\sigma)w\right)\otimes\left(w^{\dagger}(\vec{n}\cdot\sigma)\right) & =\left(\left(\vec{n}\cdot\vec{\sigma}\right)w\otimes w^{\dagger}\right).\left(\vec{n}\cdot\sigma\right)\\
+ & =\left(\left(\vec{n}\cdot\vec{\sigma}\right)\otimes1\right).\left(w\otimes w^{\dagger}\right).\left(\vec{n}\cdot\sigma\right)\\
+ & =\left(\vec{n}\cdot\vec{\sigma}\right).\left(w\otimes w^{\dagger}\right).\left(\vec{n}\cdot\vec{\sigma}\right)\\
+ & =\left(\vec{n}\cdot\vec{\sigma}\right).\left(\frac{1}{2}+\vec{s}\cdot\vec{\sigma}\right).\left(\vec{n}\cdot\vec{\sigma}\right)\\
+ & =\frac{1}{2}+\left(\vec{n}\cdot\vec{\sigma}\right)\left(\vec{s}\cdot\vec{\sigma}\right)\left(\vec{n}\cdot\vec{\sigma}\right)\\
+ & =\frac{1}{2}-\left(\vec{s}\cdot\vec{\sigma}\right)+2\vec{s}\cdot\vec{n}
 \end{align*}
 
 \end_inset
@@ -1449,13 +1476,126 @@ s^{\mu} & =2m\left(\begin{array}{cc}
 \end_layout
 
 \begin_layout Standard
+所以，
+\begin_inset Formula $u(p)\otimes\bar{u}(p)=$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left(\begin{array}{cc}
+(E+m)\left(\frac{1}{2}+\vec{s}\cdot\vec{\sigma}\right) & -\left(\vec{p}\cdot\vec{\sigma}\right)\cdot\left(\frac{1}{2}-\vec{s}\cdot\vec{\sigma}\right)-2\vec{s}\cdot\vec{p}\\
+\left(\vec{p}\cdot\vec{\sigma}\right)\left(\frac{1}{2}+\vec{s}\cdot\vec{\sigma}\right) & -(E-m)\left(\frac{1}{2}-\left(\vec{s}\cdot\vec{\sigma}\right)+2\vec{s}\cdot\vec{n}\right)
+\end{array}\right)\\
+= & \left(\begin{array}{cc}
+(E+m)\left(\frac{1}{2}+\vec{s}\cdot\vec{\sigma}\right) & -\left(\vec{p}\cdot\vec{\sigma}\right)\cdot\left(\frac{1}{2}-\vec{s}\cdot\vec{\sigma}\right)\\
+\left(\vec{p}\cdot\vec{\sigma}\right)\left(\frac{1}{2}+\vec{s}\cdot\vec{\sigma}\right) & -(E-m)\left(\frac{1}{2}-\left(\vec{s}\cdot\vec{\sigma}\right)\right)
+\end{array}\right)+{\color{red}\left(\begin{array}{cc}
+0 & -2\vec{s}\cdot\vec{p}\\
+0 & -(E-m)\left(2\vec{s}\cdot\vec{n}\right)
+\end{array}\right)}
+\end{align*}
+
+\end_inset
+
+假设
+\begin_inset Formula $\vec{s}$
+\end_inset
+
+是静止系中的，此时
+\begin_inset Formula $\vec{p}=0,\vec{s}\cdot\vec{p}=0$
+\end_inset
+
+。第二项可以扔掉。
+\end_layout
+
+\begin_layout Standard
+而
+\begin_inset Formula $\slashed{p}+m=$
+\end_inset
+
+
 \begin_inset Formula 
 \[
-u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(\gamma\cdot p+m\right)\left(1+\gamma_{5}\frac{s}{m}\cdot\gamma\right)
+\left(\begin{array}{cc}
+E+m & -\vec{p}\cdot\vec{\sigma}\\
+\vec{p}\cdot\vec{\sigma} & -(E-m)
+\end{array}\right)
 \]
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+此外, 
+\begin_inset Formula $\frac{1}{2}\left(1-\gamma_{5}(2\vec{s})\cdot\vec{\gamma}\right)=$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \frac{1}{2}-\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right)\cdot\vec{s}\cdot\left(\begin{array}{cc}
+0 & \vec{\sigma}\\
+-\vec{\sigma} & 0
+\end{array}\right)\\
+= & \frac{1}{2}-\left(\begin{array}{cc}
+-\vec{s}\cdot\vec{\sigma} & 0\\
+0 & \vec{s}\cdot\vec{\sigma}
+\end{array}\right)\\
+= & \left(\begin{array}{cc}
+\frac{1}{2}+\vec{s}\cdot\vec{\sigma} & 0\\
+0 & \frac{1}{2}-\vec{s}\cdot\vec{\sigma}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+所以，
+\begin_inset Formula 
+\[
+u(p)\otimes\bar{u}(p)=\left(p\cdot\gamma+m\right)\frac{1}{2}\left(1-\gamma_{5}(2\vec{s})\cdot\vec{\gamma}\right)
+\]
+
+\end_inset
+
+再做一个方向为
+\begin_inset Formula $-\vec{p}$
+\end_inset
+
+,速度为
+\begin_inset Formula $\vec{p}/E_{\vec{p}}$
+\end_inset
+
+ 的 Lorentz boost，得到：
+\begin_inset Formula 
+\[
+u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(\gamma\cdot p+m\right)\left(1+\gamma_{5}\frac{s\cdot\gamma}{m}\right)
+\]
+
+\end_inset
+
+其中，重新选取了
+\begin_inset Formula $s^{\mu}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+s^{\mu} & =2m\left(\begin{array}{cc}
+\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}, & \vec{s}+\frac{\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\end{array}\right),\quad s^{2}=-m^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 在静止系下，
 \begin_inset Formula 
 \begin{align*}
@@ -1478,17 +1618,19 @@ u(p)\otimes\bar{u}(p) & =\frac{1}{2}\left(m\gamma^{0}+m\right)\left(1-\gamma_{5}
 
 \end_layout
 
+\begin_layout Subsection
+平均值
+\end_layout
+
 \begin_layout Standard
-fdsgasdgdfgdafgadfg
+用得到的密度矩阵求平均值：
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\frac{s\cdot\gamma}{m} & =2\left(\begin{array}{cc}
-\frac{\left(\vec{p}\cdot\vec{s}\right)}{m} & -\left(\vec{\sigma}\cdot\vec{s}+\frac{\vec{\sigma}\cdot\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\right)\\
-\left(\vec{\sigma}\cdot\vec{s}+\frac{\vec{\sigma}\cdot\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\right) & -\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}
-\end{array}\right)
+\bar{u}(p)\gamma^{\mu}u(p) & =\tr\left(\frac{1}{2}\left(\gamma\cdot p+m\right)\left(1+\gamma_{5}\frac{s\cdot\gamma}{m}\right)\cdot\gamma^{\mu}\right)\\
+ & =\tr\left(\frac{1}{2}\left(\gamma\cdot p+m\right)\left(\gamma^{\mu}+\gamma_{5}\frac{s\cdot\gamma}{m}\gamma^{\mu}\right)\right)
 \end{align*}
 
 \end_inset
@@ -1496,24 +1638,149 @@ fdsgasdgdfgdafgadfg
 
 \begin_inset Formula 
 \begin{align*}
- & \left(1+\gamma_{5}\frac{\slashed{s}}{m}\right)\\
-= & 2\left(\begin{array}{cc}
-\left(1+\vec{\sigma}\cdot\vec{s}+\frac{\vec{\sigma}\cdot\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\right) & -\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}\\
-\frac{\left(\vec{p}\cdot\vec{s}\right)}{m} & 1-\left(\vec{\sigma}\cdot\vec{s}+\frac{\vec{\sigma}\cdot\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\right)
-\end{array}\right)
+\bar{u}(p)\gamma^{\mu}\gamma^{5}u(p) & =\tr\left(\frac{1}{2}\left(\gamma\cdot p+m\right)\left(1+\gamma_{5}\frac{s\cdot\gamma}{m}\right)\cdot\gamma^{\mu}\gamma^{5}\right),\\
+ & =\tr\left(\frac{1}{2}\left(\gamma\cdot p+m\right)\left(\gamma^{\mu}\gamma^{5}+\gamma_{5}\frac{s\cdot\gamma}{m}\gamma^{\mu}\gamma^{5}\right)\right)
 \end{align*}
+
+\end_inset
+
+利用
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵求迹公式，(少于
+\begin_inset Formula $4$
+\end_inset
+
+个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵乘以
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+求迹等于零)得到： 
+\begin_inset Formula 
+\[
+\bar{u}(p)\gamma^{\mu}u(p)=2p^{\mu}
+\]
 
 \end_inset
 
 
 \begin_inset Formula 
 \[
-u(p)\otimes\bar{u}(p)=\left(\begin{array}{cc}
-\left(E_{\vec{p}}+m\right) & -\vec{p}\cdot\vec{\sigma}\\
-\vec{p}\cdot\vec{\sigma} & -\left(E_{\vec{p}}-m\right)
+\bar{u}(p)\gamma^{\mu}\gamma^{5}u(p)=2s^{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Weyl 表象中的左右旋量的解释非常直观。也就是说，取 Dirac 方程的相对论极限，我们可以忽略质量，令
+\begin_inset Formula $m=0,\lvert\vec{p}\rvert=E_{\vec{p}}$
+\end_inset
+
+,那么方程
+\begin_inset Formula $(\slashed{p}-m)u(p)=0$
+\end_inset
+
+变成：
+\begin_inset Formula 
+\[
+(1+\vec{n}\cdot\vec{\sigma})\bar{\chi}_{\downarrow}=0,\quad(1-\vec{n}\cdot\vec{\sigma})\lambda_{\uparrow}=0
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $\psi=\left(\begin{array}{c}
+\lambda_{\uparrow}\\
+\bar{\chi}_{\downarrow}
+\end{array}\right)$
+\end_inset
+
+。其中，
+\begin_inset Formula $\vec{n}=\vec{p}/E_{\vec{p}}$
+\end_inset
+
+定义了粒子的运动方向。选择它沿着
+\begin_inset Formula $z$
+\end_inset
+
+轴，
+\begin_inset Formula $\vec{n}=(0,0,1)$
+\end_inset
+
+，可以得到解
+\begin_inset Formula 
+\[
+\bar{\chi}_{\downarrow}\sim\left(\begin{array}{c}
+0\\
+1
+\end{array}\right),\quad\lambda_{\uparrow}=\left(\begin{array}{c}
+1\\
+0
 \end{array}\right)
 \]
 
+\end_inset
+
+所以左手旋量
+\begin_inset Formula $\bar{\chi}_{\downarrow}$
+\end_inset
+
+定义的粒子自旋和运动方向相反，而右手旋量
+\begin_inset Formula $\lambda_{\uparrow}$
+\end_inset
+
+自旋和运动方向相同。
+\end_layout
+
+\begin_layout Standard
+这里我们给出本文中使用的不同坐标系下，Dirac bilinears 
+\begin_inset Formula $\bar{u}(p_{2})\Gamma u(p_{1})$
+\end_inset
+
+的表达式。在算符矩阵元的参数化中很有用。
+\end_layout
+
+\begin_layout Section
+Breit frame
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Breit frame 定义为
+\begin_inset Formula $\vec{p}_{1}+\vec{p}_{2}=0$
+\end_inset
+
+，且没有能量交换
+\begin_inset Formula $\Delta^{0}=E_{\vec{p}_{1}}-E_{\vec{p}_{2}}=0$
+\end_inset
+
+，则
+\begin_inset Formula 
+\[
+E_{\vec{p}_{1}}=E_{\vec{p}_{2}}=m\sqrt{1+\boldsymbol{\Delta}^{2}/(4m^{2})},\quad\vec{p}_{1}=-\vec{p}_{2}=\boldsymbol{\Delta}/2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+也就是散射前动量为
+\begin_inset Formula $\boldsymbol{p}$
+\end_inset
+
+，散射后为动量为
+\begin_inset Formula $-\boldsymbol{p}$
 \end_inset
 
 

@@ -416,7 +416,7 @@ noprefix "false"
 
 \end_inset
 
-
+这里是按照普通的矩阵乘法相乘的。
 \end_layout
 
 \begin_layout Standard
@@ -425,6 +425,106 @@ noprefix "false"
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Section
+lorentz 变换例子
+\end_layout
+
+\begin_layout Standard
+矢量垂直于boost方向的分量，经过boost是不变的。沿某一个轴boost的洛伦兹矩阵为，
+\begin_inset Formula 
+\[
+\Lambda_{\phantom{\mu}\nu}^{\mu}=\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right),\quad\gamma=\frac{1}{\sqrt{1-v^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+一个四动量
+\begin_inset Formula $\left(\begin{array}{c}
+m\\
+\vec{0}
+\end{array}\right)$
+\end_inset
+
+经过朝
+\begin_inset Formula $z$
+\end_inset
+
+轴方向，速度为
+\begin_inset Formula $-v$
+\end_inset
+
+的变换后，得到
+\begin_inset Formula $\left(\begin{array}{c}
+E=\gamma m\\
+p=\gamma mv
+\end{array}\right)$
+\end_inset
+
+，所以坐标变换参数
+\begin_inset Formula $\gamma=E/m$
+\end_inset
+
+,
+\begin_inset Formula $\gamma v=p/m$
+\end_inset
+
+。一般的有
+\begin_inset Formula $\gamma=E_{\vec{p}}/m,\gamma\vec{v}=\vec{p}/m$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset Formula $\vec{s}$
+\end_inset
+
+是归一化的，
+\begin_inset Formula $\vec{s}_{\parallel}=\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert},\vec{s}_{\perp}=\vec{s}-\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}$
+\end_inset
+
+，矢量
+\begin_inset Formula $\left(\begin{array}{c}
+0\\
+\vec{s}
+\end{array}\right)$
+\end_inset
+
+经过
+\begin_inset Formula $-v$
+\end_inset
+
+boost，
+\begin_inset Formula $\Lambda_{\phantom{\mu}\nu}^{\mu}=\left(\begin{array}{cc}
+\gamma & \gamma v\\
+\gamma v & \gamma
+\end{array}\right)$
+\end_inset
+
+，得到:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+(0,\vec{s}) & \to\left(\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\cdot\frac{\lvert\vec{p}\rvert}{m},\,\frac{E_{\vec{p}}}{m}\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}+\vec{s}-\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}\right)\\
+ & \Rightarrow\left(\frac{\left(\vec{p}\cdot\vec{s}\right)}{m},\,\vec{s}+\frac{(E_{\vec{p}}-m)}{m\lvert\vec{p}\rvert^{2}}\left(\vec{s}\cdot\vec{p}\right)\vec{p}\right)\\
+ & \Rightarrow\left(\frac{\left(\vec{p}\cdot\vec{s}\right)}{m},\,\vec{s}+\frac{\left(\vec{s}\cdot\vec{p}\right)\vec{p}}{m\left(E_{\vec{p}}+m\right)}\right)
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -444,46 +544,119 @@ noprefix "false"
 
 \begin_inset Formula 
 \[
-\text{S\ensuremath{\mu\nu}}=\frac{i}{4}(\gamma\mu,\gamma\nu)
+S_{\mu\nu}=\frac{i}{4}(\gamma\mu,\gamma\nu)
 \]
 
 \end_inset
 
-by repeated use of Clifford Algebra, it is easy to verify that these matrices
- satisfy the commutation relations，i.e.they are generators of Lorentz Group.
+使用 Clifford 代数，很容易验证，矩阵
+\begin_inset Formula $S_{\mu\nu}$
+\end_inset
+
+满足洛伦兹群的对易关系，即它们是洛伦兹群的生成元。
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+此代数在任何维度都成立，with Lorentz or Euclidean 度规。特别地，在三维空间中它应该也成立。实际上，我们可以简单地写出
+\end_layout
 
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename pasted1.png
-	scale 50
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma^{j}\equiv i\sigma^{j}(\text{Pauli sigma matrices})
+\]
+
+\end_inset
+
+则
+\begin_inset Formula 
+\[
+\left\{ \gamma^{i},\gamma^{j}\right\} =-2\delta^{ij}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $i$
+\end_inset
+
+因子完全是习惯约定。则洛伦兹群的表示矩阵是
+\begin_inset Formula 
+\[
+S^{ij}=\frac{1}{2}\varepsilon^{ijk}\sigma^{k}
+\]
+
+\end_inset
+
+我们认出，这是转动群的二维表示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵和
+\begin_inset Formula $S^{\rho\sigma}$
+\end_inset
+
+的对易关系：
+\begin_inset Formula 
+\[
+\left[\gamma^{\mu},S^{\rho\sigma}\right]=\left(\mathcal{J}^{\rho\sigma}\right)_{\phantom{\mu}\nu}^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+或者等价地，
+\begin_inset Formula 
+\[
+\left(1+\frac{i}{2}\omega_{\rho\sigma}S^{\rho\sigma}\right)\gamma^{\mu}\left(1-\frac{i}{2}\omega_{\rho\sigma}S^{\rho\sigma}\right)=\left(1-\frac{i}{2}\omega_{\rho\sigma}\mathcal{J}^{\rho\sigma}\right)_{\phantom{\mu}\nu}^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+有限形式
+\begin_inset Formula 
+\[
+\Lambda_{\frac{1}{2}}^{-1}\gamma^{\mu}\Lambda_{\frac{1}{2}}=\Lambda_{\phantom{\mu}\nu}^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+也就是说，
+\begin_inset Formula $\left\{ \gamma^{\mu}\right\} $
+\end_inset
+
+可以看成左边按照
+\begin_inset Formula $\Lambda_{\frac{1}{2}}^{-1}$
+\end_inset
+
+变，右边按照
+\begin_inset Formula $\Lambda_{\frac{1}{2}}$
+\end_inset
+
+变的矢量
+\begin_inset Formula 
+\[
+\Lambda_{\frac{1}{2}}=\exp\left(-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}\right)
+\]
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-sdds
-\end_layout
-
+\begin_layout Standard
+定义
+\begin_inset Formula $\bar{\psi}=\psi^{\dagger}\gamma^{0}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
+，
+\begin_inset Formula 
+\begin{align*}
+\bar{\psi} & \to\psi^{\dagger}\left(1+\frac{i}{2}\omega_{\mu\nu}\left(S^{\mu\nu}\right)^{\dagger}\right)\gamma^{0}\\
+\bar{\psi} & \to\bar{\psi}\Lambda_{\frac{1}{2}}^{-1}
+\end{align*}
 
 \end_inset
 
