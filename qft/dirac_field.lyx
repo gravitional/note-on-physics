@@ -484,6 +484,44 @@ B & 0
 。
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+注意：
+\end_layout
+
+\begin_layout Standard
+对于拓展的四维泡利矩阵矢量
+\begin_inset Formula $\sigma,\bar{\sigma}$
+\end_inset
+
+满足关系
+\begin_inset Formula $\left(p\cdot\sigma\right)\left(p\cdot\bar{\sigma}\right)=p^{2}$
+\end_inset
+
+，类似地，对于
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵，
+\begin_inset Formula $\left(p\cdot\gamma\right)\left(p\cdot\gamma\right)=p^{2}$
+\end_inset
+
+，这里的运算都是包含度规的，而且只有对于同一个矢量
+\begin_inset Formula $p$
+\end_inset
+
+才成立，也就是
+\begin_inset Formula $\left(p\cdot\gamma\right)\left(k\cdot\gamma\right)\neq p\cdot k$
+\end_inset
+
+，类似地，
+\begin_inset Formula $\left(p\cdot\sigma\right)\left(p\cdot\sigma\right)=\left(p\cdot\sigma\right)\left(\bar{p}\cdot\bar{\sigma}\right)\neq p\cdot\bar{p}$
+\end_inset
+
+。
+\end_layout
+
 \begin_layout Section
 SU(2) and SO(3)
 \end_layout
@@ -784,7 +822,7 @@ SU(2)平均值映射
 \begin_layout Standard
 
 \series bold
-我们说的自旋上下，跟自旋（磁矩）指向不是同一个概念，后者值得是
+我们说的自旋上下，跟自旋（磁矩）指向不是同一个概念，后者指的是
 \begin_inset Formula $\langle\vec{\sigma}\rangle$
 \end_inset
 
@@ -1589,7 +1627,7 @@ Dirac 方程平面波解的振幅部分(旋量部分),
 
 \end_inset
 
-，Dirac双旋量可以写成
+在Dirac 表象下，Dirac双旋量可以写成
 \begin_inset Formula 
 \[
 u_{\lambda}(p)=\left(\begin{array}{c}
@@ -1885,9 +1923,10 @@ w_{1}=\frac{m}{\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}}w_{\lambda}
 u_{\lambda}(p) & =\left(\begin{array}{c}
 \frac{m}{\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}}w_{\lambda}\\
 \sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}w_{\lambda}
-\end{array}\right)=\sqrt{m}\left(\begin{array}{c}
-bw_{\lambda}\\
-b^{-1}w_{\lambda}
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}w_{\lambda}\\
+\sqrt{p\cdot\bar{\sigma}}w_{\lambda}
 \end{array}\right)
 \end{align*}
 
@@ -1948,19 +1987,27 @@ b^{-1}w_{\lambda}
 
 \begin_layout Standard
 顺便一提，
-\begin_inset Formula $b(-\vec{p})=b^{-1}(\vec{p})$
+\begin_inset Formula $\left(p\cdot\sigma\right)\left(p\cdot\bar{\sigma}\right)=p^{2}=m^{2}$
 \end_inset
 
-，也就是说，动量反向，变成逆矩阵。总之，
+，且
+\begin_inset Formula $p\cdot\bar{\sigma}=\bar{p}\cdot\sigma$
+\end_inset
+
+，
+\begin_inset Formula $\bar{p}=(E,-\vec{p})$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-u_{\lambda}(p)=\sqrt{m}\left(\begin{array}{c}
-bw_{\lambda}\\
-b^{-1}w_{\lambda}
-\end{array}\right)\quad b=\sqrt{p.\sigma/m}\quad b(\tilde{p})=b^{-1}(p)\label{eq:solution_u}
+u_{\lambda}(p)=\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}w_{\lambda}\\
+\sqrt{p\cdot\bar{\sigma}}w_{\lambda}
+\end{array}\right)\label{eq:solution_u}
 \end{equation}
 
 \end_inset
@@ -1982,9 +2029,10 @@ b^{-1}w_{\lambda}
 
 ,归一化为
 \begin_inset Formula 
-\[
-\bar{u}_{\lambda}(p)u_{\lambda^{\prime}}(p)=mw_{\lambda}^{\dagger}w_{\lambda^{\prime}}+mw_{\lambda}^{\dagger}w_{\lambda^{\prime}}=2m\delta_{\lambda\lambda^{\prime}}
-\]
+\begin{align*}
+\bar{u}_{\lambda}(p)u_{\lambda^{\prime}}(p) & =mw_{\lambda}^{\dagger}w_{\lambda^{\prime}}+mw_{\lambda}^{\dagger}w_{\lambda^{\prime}}=2m\delta_{\lambda\lambda^{\prime}}\\
+u_{\lambda}^{\dagger}(p)u_{\lambda^{\prime}}(p) & =2E_{p}\delta_{\lambda\lambda^{\prime}}
+\end{align*}
 
 \end_inset
 

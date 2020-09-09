@@ -103,6 +103,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\bullet 0 0 17 -1
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -1126,6 +1127,401 @@ boost，
 \end_layout
 
 \begin_layout Section
+Breit frame
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Breit frame 定义为
+\begin_inset Formula $\vec{p}_{1}+\vec{p}_{2}=0$
+\end_inset
+
+，且没有能量交换
+\begin_inset Formula $\Delta^{0}=E_{\vec{p}_{1}}-E_{\vec{p}_{2}}=0$
+\end_inset
+
+，则
+\begin_inset Formula 
+\[
+E_{\vec{p}_{1}}=E_{\vec{p}_{2}}=m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})},\quad\vec{p}_{1}=-\vec{p}_{2}=\vec{\Delta}/2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+也就是说，粒子散射前动量为
+\begin_inset Formula $\vec{p}$
+\end_inset
+
+，散射后为动量为
+\begin_inset Formula $-\vec{p}$
+\end_inset
+
+。则
+\begin_inset Formula $\vec{\Delta}=\vec{p}_{1}-\vec{p}_{2}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+E_{\vec{p}}=\sqrt{m^{2}+\vec{p}^{2}}=\sqrt{m^{2}+\left(\vec{\Delta}/2\right)^{2}}=m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma^{0}=\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right),\vec{\gamma}=\left(\begin{array}{cc}
+0 & \vec{\sigma}\\
+-\vec{\sigma} & 0
+\end{array}\right),\gamma^{5}=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\slashed{p}=\left(\begin{array}{cc}
+E & -\vec{p}\cdot\vec{\sigma}\\
+\vec{p}\cdot\vec{\sigma} & -E
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+u_{\lambda}(p)=\left(\begin{array}{c}
+\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
+\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\end{array}\right),\bar{u}(p)=\left(\begin{array}{cc}
+\sqrt{E_{\vec{p}}+m}w_{\lambda}^{\dagger}, & -\sqrt{E_{\vec{p}}-m}w_{\lambda}^{\dagger}\left(\vec{n}\cdot\vec{\sigma}\right)\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以，偶宇称的 Dirac bilinears 用二分量 Weyl spinors 表示就是
+\begin_inset Formula 
+\begin{align*}
+ & \bar{u}(p_{2})\gamma^{0}u(p_{1})=2m\omega_{2}^{\dagger}\omega_{1}, & \bar{u}(p_{2})\gamma^{k}u(p_{1})=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}\\
+ & \bar{u}(p_{2})\frac{i\sigma^{\mu0}\Delta_{\mu}}{2m}u(p_{1})=-\frac{\vec{\Delta}^{2}}{2m}\omega_{2}^{\dagger}\omega_{1}, & \bar{u}(p_{2})\frac{i\sigma^{\mu k}\Delta_{\mu}}{2m}u(p_{1})=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\vec{\Delta}\times\vec{\sigma}\equiv\varepsilon^{ijk}\Delta^{j}\sigma^{k}$
+\end_inset
+
+。如同公式中可以看到的，在 Breit 坐标系中，螺旋度翻转和不翻转的transition 在
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+和
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+中都存在。
+\end_layout
+
+\begin_layout Standard
+类似地，奇宇称的 Dirac bilinears为：
+\begin_inset Formula 
+\begin{align*}
+ & \bar{u}(p_{2})\gamma^{0}\gamma^{5}u(p_{1})=0, & \bar{u}(p_{2})\gamma^{k}\gamma^{5}u(p_{1})=2m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})}\omega_{2}^{\dagger}\sigma^{k}\omega_{1}\\
+ & \bar{u}(p_{2})\gamma^{5}u(p_{1})=\omega_{2}^{\dagger}\left(\vec{\sigma}\cdot\vec{\Delta}\right)\omega_{1}, & -\frac{\omega_{2}^{\dagger}\Delta^{k}\left(\vec{\sigma}\cdot\vec{\Delta}\right)\omega_{1}}{2m\left(1+\sqrt{1+\vec{\Delta}^{2}/(4m^{2})}\right)}
+\end{align*}
+
+\end_inset
+
+或者简写为，
+\begin_inset Formula 
+\[
+\bar{u}(p_{2})\gamma^{k}\gamma^{5}u(p_{1})=\omega_{2}^{\dagger}\left(2E\sigma^{k}-\frac{\left(\vec{\sigma}\cdot\vec{\Delta}\right)\Delta^{k}}{2\left(m+E\right)}\right)\omega_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+补充：计算过程
+\end_layout
+
+\begin_layout Standard
+Gordon 恒等式 (来自于Dirac 方程)
+\begin_inset Formula 
+\[
+\bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu\nu}\Delta_{\mu}}{2m}u\left(p_{1}\right)=\bar{u}\left(p_{2}\right)\frac{i\sigma^{\nu\mu}q_{\mu}}{2m}u\left(p_{1}\right)=\bar{u}\left(p_{2}\right)\left(\gamma^{\nu}-\frac{\left(p_{1}+p_{2}\right)^{\nu}}{2m}\right)u\left(p_{1}\right)
+\]
+
+\end_inset
+
+在本文中，
+\begin_inset Formula $\vec{p}_{1}=-\vec{p}_{2}=\vec{\Delta}/2$
+\end_inset
+
+。所以
+\begin_inset Formula $\vec{p}_{1}+\vec{p}_{2}=\vec{0}$
+\end_inset
+
+。注意
+\begin_inset Formula $\bar{u}\left(p_{2}\right)u\left(p_{1}\right)=\bar{u}\left(p\right)u\left(-p\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+使用这个等式，可以算出
+\begin_inset Formula $\bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu\nu}\Delta_{\mu}}{2m}u\left(p_{1}\right)$
+\end_inset
+
+的值。
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset Formula $u(p)$
+\end_inset
+
+是Dirac 方程
+\begin_inset Formula $\left(\slashed{p}-m\right)u(p)=0$
+\end_inset
+
+的解，则现有一任意矢量
+\begin_inset Formula $k$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\slashed{k}u(p) & =\frac{1}{m}\slashed{k}\slashed{p}u(p)\\
+ & =\frac{1}{m}\left(k_{\mu}p_{\nu}\gamma^{\mu}\gamma^{\nu}\right)u(p)\\
+ & =\frac{1}{m}k_{\mu}p_{\nu}\left(g^{\mu\nu}-i\sigma^{\mu\nu}\right)u(p)\\
+ & =\frac{1}{m}\left(k\cdot p\right)u(p)-i\frac{1}{m}\sigma^{\mu\nu}k_{\mu}p_{\nu}u(p)
+\end{align*}
+
+\end_inset
+
+其中后一项
+\begin_inset Formula $\sigma^{\mu\nu}k_{\mu}p_{\nu}u(p)$
+\end_inset
+
+，我们一般用到双线性型，和左边的
+\begin_inset Formula $\bar{u}(p)$
+\end_inset
+
+结合起来，并利用 Dirac 方程。
+\begin_inset Formula 
+\[
+\bar{u}(p)\sigma^{\mu\nu}p_{\nu}u(p)=\bar{u}(p)\frac{i}{2}\left(\gamma^{\mu}m-m\gamma^{\mu}\right)u(p)=0
+\]
+
+\end_inset
+
+所以最后只剩下对称的一项：
+\begin_inset Formula 
+\[
+\slashed{k}u(p)=\frac{k\cdot p}{m}u(p)
+\]
+
+\end_inset
+
+由此也可以看出，
+\begin_inset Formula $\bar{u}(p)\slashed{k}u(p)=0$
+\end_inset
+
+, 如果
+\begin_inset Formula $k\cdot p=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Section
+Lorentz-covariant Breit 坐标系
+\end_layout
+
+\begin_layout Standard
+这个坐标系是 Breit 坐标系的一种形式，被用在 重-baryon 极限下，见 Sec.3.12.
+ 在大质量近似下，入射和出射核子和四动量的时间分量占据主导地位（相对于空间分量），所以可以分解为
+\begin_inset Formula 
+\[
+p_{1,2}^{\mu}=mv^{\mu}+k^{\mu}\pm\Delta^{\mu}/2
+\]
+
+\end_inset
+
+这里的
+\begin_inset Formula $\Delta^{\mu}=(0,\vec{\Delta})$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+其中四速度
+\begin_inset Formula $v^{\mu}=(1,\vec{0})$
+\end_inset
+
+ residual 动量为
+\begin_inset Formula 
+\[
+k^{\mu}=\left(m\sqrt{1-\Delta^{2}/(4m)^{2}}-1\text{，\vec{0}}\right)
+\]
+
+\end_inset
+
+通过对
+\begin_inset Formula $u_{\lambda}(p)=\left(\begin{array}{c}
+\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
+\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\end{array}\right)$
+\end_inset
+
+进行投影，可以得到重子旋量（依赖于速度的）中的大分量
+\begin_inset Formula 
+\[
+u_{v}(p_{i})=\frac{\left(1+\slashed{v}\right)u(p_{i})}{\sqrt{2+2\left(v\cdot p_{i}\right)/m}}
+\]
+
+\end_inset
+
+这里
+\begin_inset Formula $\frac{1+\slashed{v}}{\sqrt{2}}$
+\end_inset
+
+是投影算符，
+\begin_inset Formula $\left(\frac{1+\slashed{v}}{\sqrt{2}}\right)^{2}=1$
+\end_inset
+
+，
+\begin_inset Formula $\frac{1}{\sqrt{1+\left(v\cdot p_{i}\right)/m}}$
+\end_inset
+
+来自于归一化。
+\begin_inset Formula 
+\begin{align*}
+\bar{u}_{v}(p_{i})u_{v}(p_{i}) & =\frac{\bar{u}_{v}(p_{i})\left(1+\slashed{v}\right)u(p_{i})}{1+\left(v\cdot p_{i}\right)/m}\\
+ & =\frac{2m+\bar{u}_{v}(p_{i})\left(\slashed{v}\right)u(p_{i})}{1+\left(v\cdot p_{i}\right)/m}\\
+ & =\frac{2m+\bar{u}_{v}(p_{i})\left(\left(v\cdot p_{i}\right)/m\right)u(p_{i})}{1+\left(v\cdot p_{i}\right)/m}\\
+ & =2m\frac{1+\left(v\cdot p_{i}\right)/m}{1+\left(v\cdot p_{i}\right)/m}=2m
+\end{align*}
+
+\end_inset
+
+即归一化为
+\begin_inset Formula 
+\[
+\bar{u}_{v}u_{v}=2m
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+利用这些结果，Eq.3.121 中的Dirac bilinears 可以用下列式子化简
+\begin_inset Formula 
+\begin{align*}
+\bar{u}(p_{2})\gamma_{\mu}u(p_{1}) & =\bar{u}_{v}(p_{2})v_{\mu}u_{v}(p_{1})+\frac{1}{m}\bar{u}_{v}(p_{2})\left[S\cdot\Delta,S_{\mu}\right]u_{v}(p_{1}),\\
+\bar{u}(p_{2})\frac{i\sigma_{\mu\nu}\Delta^{\nu}}{2m}u(p_{1}) & =\frac{\Delta^{2}}{4m^{2}}\bar{u}_{v}(p_{2})v_{\mu}u_{v}(p_{1})+\frac{1}{m}\bar{u}_{v}(p_{2})\left[S\cdot\Delta,S_{\mu}\right]u_{v}(p_{1}),
+\end{align*}
+
+\end_inset
+
+这里
+\begin_inset Formula $S^{\mu}\equiv\frac{i}{2}\sigma^{\mu\nu}\gamma^{5}v_{\nu}$
+\end_inset
+
+ is Pauli-Lubanski spin vector。在核子静止系中，它显然和自旋
+\begin_inset Formula $3$
+\end_inset
+
+–矢量相符
+\begin_inset Formula $S^{\mu}=(0,\vec{\Sigma}/2)$
+\end_inset
+
+,其中
+\begin_inset Formula $\vec{\Sigma}=\text{diag}\left(\vec{\sigma},\vec{\sigma}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Section
+光锥坐标系
+\end_layout
+
+\begin_layout Standard
+Light-cone 坐标系被广泛应用，它的量子化轴比较独特，由boosted hadron 定义。因此，所有态的螺旋度（helicity）相对于这个首选的方向
+定义。光锥坐标系螺旋度基下的旋量
+\begin_inset Formula $u^{\text{LC}}$
+\end_inset
+
+，和之前习惯上采用的
+\begin_inset Formula $u$
+\end_inset
+
+，可以通过一个幺正变换联系起来
+\begin_inset Formula 
+\begin{align*}
+\left(\begin{array}{c}
+u_{\uparrow}\\
+u_{\downarrow}
+\end{array}\right) & =\frac{1}{\sqrt[4]{8}\sqrt{p^{+}\lvert\vec{p}\rvert\left(\lvert\vec{p}\rvert+p^{3}\right)\left(E_{p}+\lvert\vec{p}\rvert\right)}}\\
+ & \times\left(\begin{array}{cc}
+\left(\lvert\vec{p}\rvert+p^{3}\right)\left(E_{p}+\lvert\vec{p}\rvert\right) & mp_{\perp}\\
+-m\bar{p}_{\perp} & \left(\lvert\vec{p}\rvert+p^{3}\right)\left(E_{p}+\lvert\vec{p}\rvert\right)
+\end{array}\right)\left(\begin{array}{c}
+u_{\uparrow}^{\text{LC}}\\
+u_{\downarrow}^{\text{LC}}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+当粒子快速运动的时候，非对角元素为零，所以usual和light–cone的螺旋度刚好一致。下面，我们会丢掉下标
+\begin_inset Formula $\text{LC}$
+\end_inset
+
+，由于这一节我们只处理光锥旋量。具有确定光锥螺旋度的旋量的明确形式，可以从上面的方程得到。Dirac 表示下的结果是
+\begin_inset Formula 
+\[
+u_{\uparrow}(p)=\frac{1}{\sqrt[4]{2}\sqrt{p^{+}}}\left(\begin{array}{c}
+p^{+}+m/\sqrt{2}\\
+p_{\perp}/\sqrt{2}\\
+p^{+}-m/\sqrt{2}\\
+p_{\perp}/\sqrt{2}
+\end{array}\right),\quad u_{\downarrow}(p)=\frac{1}{\sqrt[4]{2}\sqrt{p^{+}}}\left(\begin{array}{c}
+-\bar{p}_{\perp}/\sqrt{2}\\
+p^{+}+m/\sqrt{2}\\
+\bar{p}_{\perp}/\sqrt{2}\\
+-p^{+}+m/\sqrt{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 补充：Pauli-Lubanski 矢量
 \end_layout
 
@@ -1746,44 +2142,6 @@ Weyl 表象中的左右旋量的解释非常直观。也就是说，取 Dirac �
 \end_inset
 
 的表达式。在算符矩阵元的参数化中很有用。
-\end_layout
-
-\begin_layout Section
-Breit frame
-\end_layout
-
-\begin_layout Standard
-
-\noun on
-Breit frame 定义为
-\begin_inset Formula $\vec{p}_{1}+\vec{p}_{2}=0$
-\end_inset
-
-，且没有能量交换
-\begin_inset Formula $\Delta^{0}=E_{\vec{p}_{1}}-E_{\vec{p}_{2}}=0$
-\end_inset
-
-，则
-\begin_inset Formula 
-\[
-E_{\vec{p}_{1}}=E_{\vec{p}_{2}}=m\sqrt{1+\boldsymbol{\Delta}^{2}/(4m^{2})},\quad\vec{p}_{1}=-\vec{p}_{2}=\boldsymbol{\Delta}/2
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-也就是散射前动量为
-\begin_inset Formula $\boldsymbol{p}$
-\end_inset
-
-，散射后为动量为
-\begin_inset Formula $-\boldsymbol{p}$
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

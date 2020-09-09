@@ -115,12 +115,11 @@ For BSD formats and when the stat keyword is used, additional characters may be 
 + `l` : 多线程进程 (using CLONE_THREAD, like NPTL pthreads do)
 + `+` : 在前端进程组中
 
-与 `awk`结合使用
+### 与 `awk`结合使用
 
 ```bash
 ps  aux |awk '$8 ~ "Z[\x00-\x7F]*"' # 匹配zombie 进程
-ps  aux | gawk '$8 ~ "Z\\w*"' # 此处要用 \\ 对 \ 进行转义
-ps  aux | gawk '$8 ~ "\\w+\\+\\w*"' # 此处要用 \\ 对 \ 进行转义
+ps  aux | gawk '$8 ~ "Z\\w*"' # 此处要用 \\ 对 \ 进行转义, 查看zombie进程
 ```
 
 自带的排序功能

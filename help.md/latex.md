@@ -1328,6 +1328,7 @@ ref-3: [查找任意符号的LaTeX指令][]
 | `\left| a \right|` | $\left\| a \right\|$ | absolute value 绝对值 |
 | `\leftrightarrow` | $\leftrightarrow$ | 双向箭头 |
 | `\widehat{}` | $\widehat{M}$ | 宽帽子 |
+|`\sqrt[4]{8}`|$\sqrt[4]{8}$ | 四次根号`8` |
 
 ### 自定义数学符号
 
