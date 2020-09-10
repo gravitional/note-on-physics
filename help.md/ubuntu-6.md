@@ -1133,6 +1133,16 @@ find ~ -type f -name 'foo\*' -print | xargs ls -l
 当命令行超过系统支持的最大长度时,`xargs` 会执行带有最大 参数个数的指定命令,然后重复这个过程直到耗尽标准输入.
 执行带有 `–show–limits` 选项 的 `xargs` 命令,来查看命令行的最大值.
 
+[Shell中去掉文件中的换行符简单方法][]
+
+[]: https://blog.csdn.net/Jerry_1126/article/details/85009615
+
+```bash
+cat FileName | xargs echo -n   # 连文件末尾换行符也去掉
+# 或者
+cat FileName | xargs           # 会保留文件末尾的换行符
+```
+
 #### 处理古怪的文件名
 
 类 Unix 的系统允许在文件名中嵌入空格(甚至换行符).

@@ -348,12 +348,13 @@ With `-m`, changes made to the working tree file can be discarded to re-create t
 选项：
 
 + `-D`: Shortcut for `--delete --force`.
-+ `-d, --delete` ;Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with `--track` or `--set-upstream-to`.
++ `-d, --delete` ;Delete a branch. The branch must be fully merged in its upstream branch, or in `HEAD` if no upstream was set with `--track` or `--set-upstream-to`.
 + `-f, --force`: Reset `<branchname>` to `<startpoint>`, even if `<branchname>` exists already. 
 Without `-f`, git branch refuses to change an existing branch.
 In combination with `-d` (or `--delete`), allow deleting the branch irrespective of its merged status.
 In combination with `-m` (or `--move`), allow renaming the branch even if the new branch           name already exists, the same applies for `-c` (or `--copy`).
 + `-m` `-M`：对分支进行重命名，并且把`reflog`出现的分支名字一并更改。如果新分支已经存在，使用`-M`强迫重命名
++ `-r`,` --remotes` List or delete (if used with `-d`) the remote-tracking branches.
 
 ### add
 
@@ -408,8 +409,8 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 
 `git-cherry-pick` :从已经存在的一系列`commits`中应用改变
 
-给出一个或者多个已经存在的`commits`，然后apply每个的change，对于每个改变生成一个`commit`。
-需要`working tree`是clean的。 (从 HEAD commit 之后没有修改过).
+给出一个或者多个已经存在的`commits`，然后`apply`每个的`change`，对于每个改变生成一个`commit`。
+需要`working tree`是`clean`的。 (从 HEAD commit 之后没有修改过).
 
 选项:
 

@@ -226,6 +226,30 @@ xlogo &
 
 结果显示我们有一个任务,编号为`1`,它正在运行,并且这个任务的命令是 `xlogo &`.
 
+```bash
+jobs [-lnprs] [jobspec ...] or jobs -x command [args]
+```
+
+Display status of jobs.
+    
+Lists the active jobs.  JOBSPEC restricts output to that job.
+    Without options, the status of all active jobs is displayed.
+    
+Options:
+
++ `-l`    lists process IDs in addition to the normal information
++ `-n`    lists only processes that have changed status since the last notification
++ `-p`    lists process IDs only
++ `-r`    restrict output to running jobs
++ `-s`    restrict output to stopped jobs
+    
+If -x is supplied, COMMAND is run after all job specifications that appear in ARGS have been replaced with the process ID of that job's   process group leader.
+    
+Exit Status:
+
+Returns success unless an invalid option is given or an error occurs.
+If -x is used, returns the exit status of COMMAND.
+
 #### 进程返回到前台
 
 一个在后台运行的进程对一切来自键盘的输入都免疫,也不能用 `Ctrl-c` 来中断它.

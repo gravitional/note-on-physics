@@ -622,10 +622,10 @@ Set it to `always` if you want this behavior when the start-point is either a lo
 
 ### 重命名git分支名称
 
-1. `git branch -m` 要改的本地分支名 修改后的分支名(修改本地分支)
-1. `git push origin` :远程修改前的分支名（删除远程分支）
-1. `git push origin` 修改后的分支名:远程分支名（`push`到远程分支）
-1. `git branch -u  origin/修改后的分支名`绑定远程分支
+1. `git branch -m local_oldbranch local_newbranch`(修改本地分支)
+2. `git push origin :remote_branch`（删除远程分支）
+3. `git push origin local_newbranch:remote_branch`（push到远程分支）
+4. `git branch -u  origin/remote_branch`绑定远程分支
 
 ### merge-file 合并文件
 
@@ -1271,6 +1271,20 @@ stash@{0}: WIP on dev: f52c633 add merge
 一是用`git stash apply`恢复，但是恢复后，`stash`内容并不删除，你需要用`git stash drop`来删除；
 
 另一种方式是用`git stash pop`，恢复的同时把`stash`内容也删了
+
+Use git stash when you want to record the current state of the working directory and the index, but want to go
+       back to a clean working directory. The command saves your local modifications away and reverts the working
+       directory to match the HEAD commit.
+
+       The modifications stashed away by this command can be listed with git stash list, inspected with git stash
+       show, and restored (potentially on top of a different commit) with git stash apply. Calling git stash without
+       any arguments is equivalent to git stash push. A stash is by default listed as "WIP on branchname ...", but
+       you can give a more descriptive message on the command line when you create one.
+
+       The latest stash you created is stored in refs/stash; older stashes are found in the reflog of this reference
+       and can be named using the usual reflog syntax (e.g. stash@{0} is the most recently created stash, stash@{1}
+       is the one before it, stash@{2.hours.ago} is also possible). Stashes may also be referenced by specifying just
+       the stash index (e.g. the integer n is equivalent to stash@{n}).
 
 ## rebase 变基
 

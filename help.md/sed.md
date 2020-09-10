@@ -378,11 +378,11 @@ sed -n 's/\(love\)able/\1rs/p' file
 
 #### 组合多个表达式
 
-sed '表达式' | sed '表达式'
+`sed '表达式' | sed '表达式'`
 
 等价于：
 
-sed '表达式; 表达式'
+`sed '表达式; 表达式'`
 
 #### 引用
 
@@ -408,7 +408,7 @@ sed '/test/,/west/s/$/aaa bbb/' file
 
 #### 多点编辑：e命令
 
--e选项允许在同一行里执行多条命令：
+`-e`选项允许在同一行里执行多条命令：
 
 sed -e '1,5d' -e 's/test/check/' file
 
