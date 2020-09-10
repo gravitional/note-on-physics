@@ -806,15 +806,15 @@ Dirac 方程平面波解的振幅部分(旋量部分),
 \begin_inset Formula 
 \[
 u_{\lambda}(p)=\left(\begin{array}{c}
-\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
-\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\sqrt{E_{p}+m}w_{\lambda}\\
+\sqrt{E_{p}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
 \end{array}\right)
 \]
 
 \end_inset
 
 它定义了一个粒子，能量是
-\begin_inset Formula $E_{\vec{p}}$
+\begin_inset Formula $E_{p}$
 \end_inset
 
 ，动量为
@@ -966,7 +966,7 @@ u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(\slashed{p}+m\right)\left(1+\gamma_{5}\fr
 \begin_inset Formula 
 \[
 s^{\mu}=2m\left(\begin{array}{cc}
-\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}, & \vec{s}+\frac{\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\end{array}\right),\quad s^{2}=-m^{2}
+\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}, & \vec{s}+\frac{\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{p}+m\right)}\end{array}\right),\quad s^{2}=-m^{2}
 \]
 
 \end_inset
@@ -1077,7 +1077,7 @@ p=\gamma mv
 \end_inset
 
 。一般的有
-\begin_inset Formula $\gamma=E_{\vec{p}}/m,\gamma\vec{v}=\vec{p}/m$
+\begin_inset Formula $\gamma=E_{p}/m,\gamma\vec{v}=\vec{p}/m$
 \end_inset
 
 。
@@ -1116,9 +1116,9 @@ boost，
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-(0,\vec{s}) & \to\left(\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\cdot\frac{\lvert\vec{p}\rvert}{m},\,\frac{E_{\vec{p}}}{m}\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}+\vec{s}-\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}\right)\\
- & \Rightarrow\left(\frac{\left(\vec{p}\cdot\vec{s}\right)}{m},\,\vec{s}+\frac{(E_{\vec{p}}-m)}{m\lvert\vec{p}\rvert^{2}}\left(\vec{s}\cdot\vec{p}\right)\vec{p}\right)\\
- & \Rightarrow\left(\frac{\left(\vec{p}\cdot\vec{s}\right)}{m},\,\vec{s}+\frac{\left(\vec{s}\cdot\vec{p}\right)\vec{p}}{m\left(E_{\vec{p}}+m\right)}\right)
+(0,\vec{s}) & \to\left(\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\cdot\frac{\lvert\vec{p}\rvert}{m},\,\frac{E_{p}}{m}\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}+\vec{s}-\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}\right)\\
+ & \Rightarrow\left(\frac{\left(\vec{p}\cdot\vec{s}\right)}{m},\,\vec{s}+\frac{(E_{p}-m)}{m\lvert\vec{p}\rvert^{2}}\left(\vec{s}\cdot\vec{p}\right)\vec{p}\right)\\
+ & \Rightarrow\left(\frac{\left(\vec{p}\cdot\vec{s}\right)}{m},\,\vec{s}+\frac{\left(\vec{s}\cdot\vec{p}\right)\vec{p}}{m\left(E_{p}+m\right)}\right)
 \end{align*}
 
 \end_inset
@@ -1138,13 +1138,13 @@ Breit frame 定义为
 \end_inset
 
 ，且没有能量交换
-\begin_inset Formula $\Delta^{0}=E_{\vec{p}_{1}}-E_{\vec{p}_{2}}=0$
+\begin_inset Formula $\Delta^{0}=E_{p_{1}}-E_{p_{2}}=0$
 \end_inset
 
 ，则
 \begin_inset Formula 
 \[
-E_{\vec{p}_{1}}=E_{\vec{p}_{2}}=m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})},\quad\vec{p}_{1}=-\vec{p}_{2}=\vec{\Delta}/2
+E_{p_{1}}=E_{p_{2}}=m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})},\quad\vec{p}_{1}=-\vec{p}_{2}=\vec{\Delta}/2
 \]
 
 \end_inset
@@ -1168,7 +1168,7 @@ E_{\vec{p}_{1}}=E_{\vec{p}_{2}}=m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})},\quad\vec{p}
 ，
 \begin_inset Formula 
 \[
-E_{\vec{p}}=\sqrt{m^{2}+\vec{p}^{2}}=\sqrt{m^{2}+\left(\vec{\Delta}/2\right)^{2}}=m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})}
+E_{p}=\sqrt{m^{2}+\vec{p}^{2}}=\sqrt{m^{2}+\left(\vec{\Delta}/2\right)^{2}}=m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})}
 \]
 
 \end_inset
@@ -1200,10 +1200,10 @@ E & -\vec{p}\cdot\vec{\sigma}\\
 \begin_inset Formula 
 \[
 u_{\lambda}(p)=\left(\begin{array}{c}
-\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
-\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\sqrt{E_{p}+m}w_{\lambda}\\
+\sqrt{E_{p}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
 \end{array}\right),\bar{u}(p)=\left(\begin{array}{cc}
-\sqrt{E_{\vec{p}}+m}w_{\lambda}^{\dagger}, & -\sqrt{E_{\vec{p}}-m}w_{\lambda}^{\dagger}\left(\vec{n}\cdot\vec{\sigma}\right)\end{array}\right)
+\sqrt{E_{p}+m}w_{\lambda}^{\dagger}, & -\sqrt{E_{p}-m}w_{\lambda}^{\dagger}\left(\vec{n}\cdot\vec{\sigma}\right)\end{array}\right)
 \]
 
 \end_inset
@@ -1388,8 +1388,8 @@ k^{\mu}=\left(m\sqrt{1-\Delta^{2}/(4m)^{2}}-1\text{，\vec{0}}\right)
 
 通过对
 \begin_inset Formula $u_{\lambda}(p)=\left(\begin{array}{c}
-\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
-\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\sqrt{E_{p}+m}w_{\lambda}\\
+\sqrt{E_{p}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
 \end{array}\right)$
 \end_inset
 
@@ -1762,10 +1762,10 @@ E & -\vec{p}\cdot\vec{\sigma}\\
 \begin_inset Formula 
 \[
 u_{\lambda}(p)=\left(\begin{array}{c}
-\sqrt{E_{\vec{p}}+m}w_{\lambda}\\
-\sqrt{E_{\vec{p}}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
+\sqrt{E_{p}+m}w_{\lambda}\\
+\sqrt{E_{p}-m}\left(\vec{n}\cdot\vec{\sigma}\right)w_{\lambda}
 \end{array}\right),\bar{u}(p)=\left(\begin{array}{cc}
-\sqrt{E_{\vec{p}}+m}w_{\lambda}^{\dagger}, & -\sqrt{E_{\vec{p}}-m}w_{\lambda}^{\dagger}\left(\vec{n}\cdot\vec{\sigma}\right)\end{array}\right)
+\sqrt{E_{p}+m}w_{\lambda}^{\dagger}, & -\sqrt{E_{p}-m}w_{\lambda}^{\dagger}\left(\vec{n}\cdot\vec{\sigma}\right)\end{array}\right)
 \]
 
 \end_inset
@@ -1964,7 +1964,7 @@ u(p)\otimes\bar{u}(p)=\left(p\cdot\gamma+m\right)\frac{1}{2}\left(1-\gamma_{5}(2
 \end_inset
 
 ,速度为
-\begin_inset Formula $\vec{p}/E_{\vec{p}}$
+\begin_inset Formula $\vec{p}/E_{p}$
 \end_inset
 
  的 Lorentz boost，得到：
@@ -1983,7 +1983,7 @@ u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(\gamma\cdot p+m\right)\left(1+\gamma_{5}\
 \begin_inset Formula 
 \begin{align*}
 s^{\mu} & =2m\left(\begin{array}{cc}
-\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}, & \vec{s}+\frac{\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{\vec{p}}+m\right)}\end{array}\right),\quad s^{2}=-m^{2}
+\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}, & \vec{s}+\frac{\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{p}+m\right)}\end{array}\right),\quad s^{2}=-m^{2}
 \end{align*}
 
 \end_inset
@@ -2077,7 +2077,7 @@ u(p)\otimes\bar{u}(p) & =\frac{1}{2}\left(m\gamma^{0}+m\right)\left(1-\gamma_{5}
 
 \begin_layout Standard
 Weyl 表象中的左右旋量的解释非常直观。也就是说，取 Dirac 方程的相对论极限，我们可以忽略质量，令
-\begin_inset Formula $m=0,\lvert\vec{p}\rvert=E_{\vec{p}}$
+\begin_inset Formula $m=0,\lvert\vec{p}\rvert=E_{p}$
 \end_inset
 
 ,那么方程
@@ -2100,7 +2100,7 @@ Weyl 表象中的左右旋量的解释非常直观。也就是说，取 Dirac �
 \end_inset
 
 。其中，
-\begin_inset Formula $\vec{n}=\vec{p}/E_{\vec{p}}$
+\begin_inset Formula $\vec{n}=\vec{p}/E_{p}$
 \end_inset
 
 定义了粒子的运动方向。选择它沿着
@@ -2290,6 +2290,97 @@ reference "eq:a.20"
 plural "false"
 caps "false"
 noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+光锥坐标系
+\end_layout
+
+\begin_layout Standard
+在光锥坐标中，动量的各分量定义为： 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{align*}
+k^{\pm}= & k_{0}\pm k_{3},\\
+k_{\perp}^{2}= & k_{1}^{2}+k_{2}^{2}\\
+k^{2}= & k_{0}^{2}-k_{1}^{2}-k_{2}^{2}-k_{3}^{2}=k^{+}k^{-}-k_{\perp}^{2},\\
+p^{+}p^{-}= & M^{2},\quad p_{\perp}^{2}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+per.pen.dicu.lar 垂直的；成直角的
+\end_layout
+
+\begin_layout Standard
+k
+\begin_inset Formula $_{\perp}$
+\end_inset
+
+ :垂直方向的动量，在垂直面上可以分解成两个方向的投影，把这个矢量记作 
+\begin_inset Formula $\vec{k_{\perp}}$
+\end_inset
+
+, 其模方为
+\begin_inset Formula $k_{\perp}^{2}$
+\end_inset
+
+。上式最后一行中我们假设核子在
+\begin_inset Formula $z$
+\end_inset
+
+方向快速运动，因此
+\begin_inset Formula $p_{\perp}^{2}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+符号约定:介子和重子传播子因子
+\begin_inset Formula $D_{\phi}(k)$
+\end_inset
+
+和
+\begin_inset Formula $D_{B}(k)$
+\end_inset
+
+定义为：
+\begin_inset Formula 
+\begin{align*}
+D_{\phi}(k) & =k^{2}-m_{\phi}^{2}+i\epsilon=k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}+i\epsilon=k^{+}k^{-}-\Omega_{\phi}+i\epsilon\\
+D_{B}(p-k) & =(p-k)^{2}-m_{B}^{2}+i\epsilon=(p-k)^{+}(p-k)^{-}-k_{\perp}^{2}-m_{B}^{2}+i\epsilon\\
+ & =(p-k)^{+}(p-k)^{-}-\Omega_{B}+i\epsilon
+\end{align*}
+
+\end_inset
+
+其中，
+\begin_inset Formula 
+\begin{align*}
+\Omega_{\phi} & =k_{\perp}^{2}+m_{\phi}^{2}\geq0\\
+\Omega_{\phi} & =k_{\perp}^{2}+m_{\phi}^{2}\geq0
+\end{align*}
 
 \end_inset
 
