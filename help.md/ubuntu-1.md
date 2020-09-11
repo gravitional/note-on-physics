@@ -1191,6 +1191,12 @@ Dash to Panel 是 Gnome Shell 的一个高度可配置面板，是 Ubuntu Dock �
 sudo fdisk -l
 ```
 
+显示某个特定设备
+
+```bash
+sudo fdisk -l /dev/sdb
+```
+
 首先查看所有已经 mount 的设备：
 
 ```bash
