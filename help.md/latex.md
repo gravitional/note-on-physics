@@ -1373,9 +1373,10 @@ For such that, as in the definition of a set, use `\mid` because it is a relatio
 For absolute value you can use the `mathtools` package and in your preamble put `\DeclarePairedDelimiter\abs{\lvert}{\rvert}`.
 
 This gives you three command variants for single-line vertical bars that are correctly horizontally spaced:
-if in the document body you write the starred version `\abs*{\frac{22}{7}}` then the height of the vertical bars will match the height of the argument,
-whereas with `\abs{\frac{22}{7}}` the bars do not grow with the height of the argument but instead are the default height,
-and `\abs[size command]{\frac{22}{7}}` also gives bars that do not grow but are set to the size given in the size command, e.g., `\Bigg`.
+
+在正文中，使用带星号的版本，`\abs*{\frac{22}{7}}`，竖线的高度会匹配参数的高度
+而`\abs{\frac{22}{7}}`会保留默认高度。
+`\abs[size command]{\frac{22}{7}}`会给出指定的高度，比如`\Bigg`
 
 ### 微分符号
 

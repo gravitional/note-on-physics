@@ -1,0 +1,1461 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor}
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{amsfonts} 
+\usepackage{latexsym} 
+% Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+
+\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{makeidx} 
+\usepackage{multirow}
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\res}{Res}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+32:Quantum chromodynamics and the parton model
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Chapter
+部分子模型
+\end_layout
+
+\begin_layout Standard
+在本章中，我们探索微扰 QCD and Hadron 物理之间的联系。
+\end_layout
+
+\begin_layout Standard
+目前为止我们讨论了两种研究强子的方法。第一种是手征微扰理论，只借用了QCD的对称性。对称性限制了强子可能的作用形式（特别是轻介子之间的）。但是手征理论无法系统地
+和QCD 在微扰框架下匹配起来，（就像四费米理论和弱相互作用理论那样）。另外一种方法是格点QCD。
+\end_layout
+
+\begin_layout Standard
+直觉上，在高能质子散射的情况下，微扰QCD应该具有一些预言能力。由于强相互作用在近距离时变弱（Section 26.6）。因此，非常高的能量下，强子间的碰撞，由本
+质上自由的夸克和胶子间的相互作用主导。通过算符乘积展开和有效场论，我们可以把短距离和长距离的物理分开，然后把微扰计算和实验观测量相联系。
+\end_layout
+
+\begin_layout Section
+电子–质子散射
+\end_layout
+
+\begin_layout Section
+弹性
+\begin_inset Formula $e^{-}p^{+}$
+\end_inset
+
+散射
+\end_layout
+
+\begin_layout Standard
+在低能情况下，
+\begin_inset Formula $e^{-}p^{+}$
+\end_inset
+
+散射行为和
+\begin_inset Formula $e^{-}\mu^{+}$
+\end_inset
+
+一样。领头阶费曼图是
+\begin_inset Formula $t$
+\end_inset
+
+–channel 光子交换图（末态不交叉叫做
+\begin_inset Formula $t$
+\end_inset
+
+道）。我们称之为库仑散射（Coulomb scattering）。光子能量足够高的时候，才能看到质子的内部结构，低能情况下，质子看起来就和 muon
+ 一样，是个基本费米子。
+\end_layout
+
+\begin_layout Standard
+自旋–
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+的两个点粒子散射的截面为
+\begin_inset Formula 
+\[
+\left(\frac{\dif\sigma}{\dif\Omega}\right)_{\text{lab}}=\frac{\alpha_{e}^{2}}{4E^{2}\sin^{4}\frac{\theta}{2}}\frac{E^{\prime}}{E}\left(\cos^{2}\frac{\theta}{2}-\frac{q^{2}}{2m_{p}^{2}}\sin^{2}\frac{\theta}{2}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $E$
+\end_inset
+
+ and 
+\begin_inset Formula $E^{\prime}$
+\end_inset
+
+ 是电子的初态和末态能量。
+\begin_inset Formula $q^{\mu}=k^{\mu}-k^{\prime\mu}$
+\end_inset
+
+是动量转移。
+\begin_inset Formula $\theta$
+\end_inset
+
+是出射和入射电子的夹角。所以
+\begin_inset Formula $\theta=0$
+\end_inset
+
+是向前散射。这些量由下式联系
+\begin_inset Formula 
+\[
+q^{2}=-2k\cdot k^{\prime}=-\left(4E^{\prime}E\sin^{2}\frac{\theta}{2}\right)_{\text{lab}}
+\]
+
+\end_inset
+
+这个公式在实验室系中成立，proton 初态静止。另一个实验室系中有用的关系是
+\begin_inset Formula $q^{2}=2m_{p}(E^{\prime}-E)$
+\end_inset
+
+。上面的式子只用了初末态电子的物理量构建，实验上比较容易测量。
+\end_layout
+
+\begin_layout Standard
+为了比较容易地研究量子修正，可以把电子拿掉，考虑一个动量为
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+的 off-shell 光子和质子散射的过程，如同在 Chapter 20 。在 Chapter 17 and Section 19.3,我们把
+ off-shell 光子和自旋
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+粒子最一般的相互作用参数化成两个形状因子
+\begin_inset Formula $F_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+。这个参数化没有假设关于相互作用的任何事情，所以在QCD中也成立。在这个例子中，如同在QED中，一般的顶点可以写成
+\begin_inset Formula $\bar{u}(p^{\prime})(ie\Gamma^{\mu})u(p)$
+\end_inset
+
+，其中
+\begin_inset Formula $\bar{u}(p^{\prime}),u(p)$
+\end_inset
+
+是出射质子和入射质子旋量，我们假设它们都是 on -shell 的。
+\begin_inset Formula $F^{\mu}$
+\end_inset
+
+可以分解为:
+\begin_inset Formula 
+\[
+\Gamma^{\mu}=F_{1}(q^{2})\gamma^{\mu}+\frac{i\sigma^{\mu\nu}}{2m_{p}}q_{\nu}F_{2}(q^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于点粒子比如电子，考虑
+\begin_inset Formula $1$
+\end_inset
+
+--loop修正后，
+\begin_inset Formula $F_{2}(0)=\frac{\alpha_{2}}{2\pi}$
+\end_inset
+
+，
+\begin_inset Formula $g_{e}=2+\frac{\alpha_{e}}{\pi}$
+\end_inset
+
+。而对于质子
+\begin_inset Formula $g_{p}=5.58$
+\end_inset
+
+，说明质子不是点粒子。
+\end_layout
+
+\begin_layout Standard
+顶点
+\begin_inset Formula $\bar{u}(p^{\prime})(ie\Gamma^{\mu})u(p)$
+\end_inset
+
+对应的树图阶的散射截面为，
+\begin_inset Formula 
+\[
+\left(\frac{\dif\sigma}{\dif\Omega}\right)_{\text{lab}}=\frac{\alpha_{e}^{2}}{4E^{2}\sin^{4}\frac{\theta}{2}}\frac{E^{\prime}}{E}\left\{ \left(F_{1}^{2}-\frac{q^{2}}{4m_{p}^{2}}F_{2}^{2}\right)\cos^{2}\frac{\theta}{2}-\frac{q^{2}}{2m_{p}^{2}}\left(F_{1}+F_{2}\right)^{2}\sin^{2}\frac{\theta}{2}\right\} 
+\]
+
+\end_inset
+
+这就是 
+\series bold
+Rosenbluth formula
+\series default
+。
+\end_layout
+
+\begin_layout Standard
+如果质子只通过 QED 相互作用，
+\begin_inset Formula $F_{1}(q^{2})$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{2}(q^{2})$
+\end_inset
+
+ 可以通过计算并且和实验数据比较。比如
+\begin_inset Formula $e^{-}\tau^{+}$
+\end_inset
+
+散射。tauon 是质量为
+\begin_inset Formula $1.7$
+\end_inset
+
+ GeV 的轻子，和质子质量接近。对于
+\begin_inset Formula $\abs{q^{2}}\gg m_{\tau}^{2}$
+\end_inset
+
+，
+\begin_inset Formula $F_{2}\to0$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{1}$
+\end_inset
+
+ 对能量是对数依赖的。
+\begin_inset Formula 
+\[
+F_{1}(q_{1}^{2})-F_{1}(q_{2}^{2})\approx-\frac{e^{2}}{16\pi^{2}}\ln\frac{q_{1}^{2}}{q_{2}^{2}},\quad\abs{q_{1}^{2}},\abs{q_{2}^{2}}\gg m_{\tau}^{2}
+\]
+
+\end_inset
+
+和实验测量到的一致。但是对于proton，行为非常不同，从1960s开始的实验开始。形状因子符合表达式
+\begin_inset Formula 
+\[
+F_{1}(q^{2})\sim\frac{1}{\left(1-\frac{q^{2}}{0.71\GeV^{2}}\right)^{2}}
+\]
+
+\end_inset
+
+其中出现了一个确定的能标 
+\begin_inset Formula $0.71\GeV^{2}$
+\end_inset
+
+，即使在差中
+\begin_inset Formula $F_{1}(q_{1}^{2})-F_{2}(q_{2}^{2})$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+形状因子对应于散射势的傅立叶变换，通过 Born 近似（section 5.2）。up to 一些运动学因子和归一化
+\begin_inset Formula $F_{1}(q)^{2}=\int\dif^{3}xe^{i\vec{q}\cdot\vec{x}}V(x)$
+\end_inset
+
+，which leads to 
+\begin_inset Formula $V(r)=\frac{m^{3}}{4\pi}e^{-mr}$
+\end_inset
+
+。所以质子的形状具有指数势的特点
+\begin_inset Formula $\rho(r)\sim e^{-r/r_{0}}$
+\end_inset
+
+，特征长度
+\begin_inset Formula $r_{0}\sim(0.84\GeV)^{-1}\sim1$
+\end_inset
+
+fm.
+\end_layout
+
+\begin_layout Standard
+结论是质子的特征长度量级为
+\begin_inset Formula $1$
+\end_inset
+
+fm.
+ 这个长度并不使人感到意外，它就是质子的 Compton 波长。使人意外的是这里居然有一个能标(scale)。在电子散射tauons的实验中，我们只会看到一个对
+数依赖于能量的形状因子。tauon'size 并不是
+\begin_inset Formula $m_{\tau}^{-1}$
+\end_inset
+
+，如果有大小的话，它也必定远远小于
+\begin_inset Formula $m_{\tau}^{-1}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+为了进一步了解质子结构，必须提高能量。在能量
+\begin_inset Formula $\abs*{q^{2}}>1\GeV^{2}$
+\end_inset
+
+的时候，你或许会期待
+\begin_inset Formula $e^{-}p^{+}$
+\end_inset
+
+阐明更多复杂的电荷分布和更多的能标。Instead，令人有些震惊的（从实验的角度看），它们又退化到点粒子散射的情形。也就是说，高能
+\begin_inset Formula $e^{-}p^{+}$
+\end_inset
+
+散射的揭露出质子内部具有点粒子状的成分，现在我们知道是夸克。下面我们说明如何来看到这个简化。
+\end_layout
+
+\begin_layout Section
+非弹性
+\begin_inset Formula $e^{-}p^{+}$
+\end_inset
+
+散射
+\end_layout
+
+\begin_layout Standard
+如果质心系能量超过
+\begin_inset Formula $m_{p}$
+\end_inset
+
+，proton开始分裂。比如
+\begin_inset Formula $e^{-}p^{+}\to e^{-}p^{+}\pi^{0}$
+\end_inset
+
+将会发生，见Fig
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:32.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。引人注目的是，在深度非弹性散射的regime，我们可以作出精确的理论预言。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted3.png
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+32.1 随着能量增加，
+\begin_inset Formula $e^{-}p^{+}$
+\end_inset
+
+散射从弹性到非弹性，末态开始有
+\begin_inset Formula $e^{-}p^{+}\pi^{0}$
+\end_inset
+
+，到深度非弹，质子完全分裂
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:32.1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在弹性散射中，可以将光子-光子相互作用化简为
+\begin_inset Formula $\bar{u}(p^{\prime})\gamma^{\mu}u(p)$
+\end_inset
+
+ or 
+\begin_inset Formula $\bar{u}(p^{\prime})\sigma^{\mu\nu}q_{\mu}u(p)$
+\end_inset
+
+。但是当质子分裂的时候，在 deep inelastic scattering (DIS)中，这种参数化就不再适用了。Instead，我们需要参数化
+ photon–proton-
+\begin_inset Formula $X$
+\end_inset
+
+ 相互作用，其中
+\begin_inset Formula $X$
+\end_inset
+
+是任何质子可能分裂到的成分。因此，参数化散射截面（而不是顶点）更合理一些，使用动量转移
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+ and 质子动量
+\begin_inset Formula $P^{\mu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+在实验室系中，我们定义
+\begin_inset Formula $E$
+\end_inset
+
+ and 
+\begin_inset Formula $E^{\prime}$
+\end_inset
+
+ 为入射和出射电子的能量，
+\begin_inset Formula $\theta$
+\end_inset
+
+为
+\begin_inset Formula $\vec{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{k}^{\prime}$
+\end_inset
+
+ 之间的角度（电子动量），所以
+\begin_inset Formula $\theta=0$
+\end_inset
+
+是向前散射。散射截面可以写成
+\begin_inset Formula 
+\[
+\left(\frac{\dif\sigma}{\dif\Omega\dif E^{\prime}}\right)_{\text{lab}}=\frac{\alpha_{e}^{2}}{4\pi m_{p}q^{4}}\frac{E^{\prime}}{E}L^{\mu\nu}W_{\mu\nu}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $L_{\mu\nu}$
+\end_inset
+
+是 leptonic tensor，其中编码了电子的极化信息（或者等价地，off-shell 光子的）.
+ 在 Chapter 20 中讨论 IR 发散的时候，我们已经使用过这样的参数化。对于非极化散射，轻子张量为
+\begin_inset Formula 
+\[
+L_{\mu\nu}=\frac{1}{2}\tr\left[\slashed{k}^{\prime}\gamma^{\mu}\slashed{k}\gamma^{\nu}\right]=2\left(k^{\prime\mu}k^{\nu}+k^{\prime\nu}k^{\mu}-k\cdot k^{\prime}g^{\mu\nu}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\vec{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{k}^{\prime}$
+\end_inset
+
+ 是初末态电子的动量。
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+来自于对初态电子自旋求平均。注意
+\begin_inset Formula $L_{\mu\nu}=L_{\nu\mu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+The hadronic tensor 
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+ 包含了对所有末态粒子相空间的积分。它给出
+\begin_inset Formula $\gamma^{\star}p^{+}\to\text{anything}$
+\end_inset
+
+的散射率:
+\begin_inset Formula 
+\[
+e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu}=\frac{1}{2}\sum_{X,\text{spins}}\int\dif\Pi_{X}(2\pi)^{4}\delta^{4}\left(q+P-p_{X}\right)\abs*{\mathcal{M}(\gamma^{\star}p^{+}\to X)}^{2}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\epsilon_{\mu}$
+\end_inset
+
+是 off-shell 光子的极化。由于末态被积分，
+\begin_inset Formula $W_{\mu\nu}$
+\end_inset
+
+只能依赖于
+\begin_inset Formula $P^{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+。在非极化散射中，它必须是对称的
+\begin_inset Formula $W^{\mu\nu}=W_{\mu\nu}$
+\end_inset
+
+（因为
+\begin_inset Formula $L_{\mu\nu}$
+\end_inset
+
+就是对称的）。也必须满足
+\begin_inset Formula $q_{\mu}W^{\mu\nu}=0$
+\end_inset
+
+ by the Ward identity(Chapter 14)，由于相互作用仅仅通过一个光子。因此，最一般的参数化为
+\begin_inset Formula 
+\[
+W^{\mu\nu}=W_{1}\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)+W_{2}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $W_{1}$
+\end_inset
+
+and 
+\begin_inset Formula $W_{2}$
+\end_inset
+
+ 可以依赖于 Lorentz 标量
+\begin_inset Formula $P^{2}=m_{p}^{2},q^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $P\cdot q$
+\end_inset
+
+。一个自然的选择是
+\begin_inset Formula $Q\equiv\sqrt{-q^{2}}>0$
+\end_inset
+
+，即这个碰撞的能标，和
+\begin_inset Formula 
+\[
+\nu\equiv\frac{P\cdot q}{m_{p}}=(E-E^{\prime})_{\text{lab}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\nu$
+\end_inset
+
+是一个洛伦兹不变量。在质子静止系中，约化到电子的能量损失。还有一个可选择的是无量纲比率
+\begin_inset Formula 
+\[
+x\equiv\frac{Q^{2}}{2P\cdot q}
+\]
+
+\end_inset
+
+它被称为 
+\series bold
+Bjorken 
+\series default
+
+\begin_inset Formula $x$
+\end_inset
+
+，之后会扮演重要角色。
+\end_layout
+
+\begin_layout Standard
+这里
+\begin_inset Formula $q^{2}<0$
+\end_inset
+
+是因为
+\begin_inset Formula $\vec{q}=\vec{k}^{\prime}-\vec{k}$
+\end_inset
+
+，因为空间有三个分量（角动量守恒，散射平面上有两个分量）。两个三动量，总可以通过一个垂直分量的boost，使得两个三动量的模长相等，加上静止质量一样，就是
+\begin_inset Formula $E^{\prime}=E$
+\end_inset
+
+，所以
+\begin_inset Formula $\vec{q}$
+\end_inset
+
+的时间分量总是可以通过boost变成零，但是空间分量不一定为零，所以
+\begin_inset Formula $q^{2}=0-\vec{q}^{2}<0$
+\end_inset
+
+。本质上这是因为空间维度比时间多。
+\end_layout
+
+\begin_layout Standard
+把
+\begin_inset Formula $L_{\mu\nu}$
+\end_inset
+
+ and 
+\begin_inset Formula $W_{\mu\nu}$
+\end_inset
+
+ 进行缩并，得到散射截面为
+\begin_inset Formula 
+\[
+\left(\frac{\dif\sigma}{\dif\Omega\dif E^{\prime}}\right)_{\text{lab}}=\frac{\alpha_{e}^{2}}{8\pi E^{2}\sin^{4}\frac{\theta}{2}}\left[\frac{m_{p}}{2}W_{2}(x,Q)\cos^{2}\frac{\theta}{2}+\frac{1}{m_{p}}W_{1}(x,Q)\sin^{2}\frac{\theta}{2}\right]
+\]
+
+\end_inset
+
+类似于弹性散射的情形，我们把式子用入射和出射电子相关的量表示，这样我们不用知道关于末态强子
+\begin_inset Formula $X$
+\end_inset
+
+的信息。也就是说，
+\begin_inset Formula $W_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $W_{2}$
+\end_inset
+
+ 可以由测量出射电子的能量和角动量依赖完全决定。
+\end_layout
+
+\begin_layout Standard
+由费曼提出的，关于 
+\series bold
+partion model
+\series default
+ 的典型假设是，质子中的部分子本质上是自由的。当联系QCD，我们知道部分子指的是夸克，胶子，反夸克，光子（标准模型中可能出现的任何粒子）。现在，我们仅仅假设质子
+中存在部分子，其中有些带电。为了检验部分子模型，我们需要决定电子跟质量为
+\begin_inset Formula $m_{q}$
+\end_inset
+
+的部分子散射的形状因子
+\begin_inset Formula $W_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $W_{2}$
+\end_inset
+
+。看起来像Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:32.17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。其中圆形代表质子，三根进出的线条代表质子中的部分子，其中只有一个参与了和电子的相互作用。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted4.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+32.17 电子和部分子弹性散射图示
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:32.17"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+设被散射的部分子出没动量为
+\begin_inset Formula $p_{i}^{\mu},p_{f}^{\mu}$
+\end_inset
+
+，且
+\begin_inset Formula $p_{i}^{\mu}+q^{\mu}=p_{f}^{\mu}$
+\end_inset
+
+（动量守恒）。两边平方得到，
+\begin_inset Formula 
+\[
+m_{q}^{2}+2p_{i}\cdot q+q^{2}=m_{q}^{2}\Rightarrow\frac{Q^{2}}{2p_{i}\cdot q}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+不幸的是，部分子的动量是无法测量的。但是我们可以假设它占质子动量的分数为
+\begin_inset Formula $\xi$
+\end_inset
+
+，
+\begin_inset Formula $p_{i}^{\mu}=\xi P^{\mu}$
+\end_inset
+
+。那么
+\begin_inset Formula 
+\[
+x=\frac{Q^{2}}{2P\cdot q}=\frac{\xi Q^{2}}{2p_{i}\cdot q}=\xi
+\]
+
+\end_inset
+
+（
+\begin_inset Formula $x$
+\end_inset
+
+反映了动量转移中有多少对质子进行了输出, up to some constants。）特别的，如果部分子模型是对的，那么通过测量
+\begin_inset Formula $x$
+\end_inset
+
+，我们就能够测量在部分子层次上有多少质子的动量参与了散射。
+\end_layout
+
+\begin_layout Standard
+现在，我们额外假设部分子的相互作用很弱，可以微扰计算
+\begin_inset Formula $e^{-}q\to e^{-}q$
+\end_inset
+
+弹性散射。我们期望形状因子only weak, logarithmic dependence on 
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+ （就像
+\begin_inset Formula $e^{-}\mu^{-}\to e^{-}\mu^{-}$
+\end_inset
+
+散射那样）。当初态部分子动量确定，也就是
+\begin_inset Formula $x$
+\end_inset
+
+确定时，散射截面对
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+的依赖称为 
+\series bold
+Bjorken scaling
+\series default
+ (标度)，它被实验相当漂亮地佐证。
+\end_layout
+
+\begin_layout Standard
+部分子模型中的另一味佐料是经典概率
+\begin_inset Formula $f_{i}(\xi)\dif\xi$
+\end_inset
+
+：光子撞到类别为
+\begin_inset Formula $i$
+\end_inset
+
+，动量为
+\begin_inset Formula $\xi P^{\mu}$
+\end_inset
+
+的部分子的概率。这些
+\begin_inset Formula $f_{i}(\xi)$
+\end_inset
+
+被称为 
+\series bold
+Parton distribution function
+\series default
+（PDFs,部分子分布函数）。物理图像是，proton中咣当来咣当去的动量，时间scales
+\begin_inset Formula $\sim\Lambda_{\text{QCD}}^{-1}\sim m_{p}^{-1}$
+\end_inset
+
+。它比光子探针
+\begin_inset Formula $\sim Q^{-1}$
+\end_inset
+
+的时间scales 慢的多。能标
+\begin_inset Formula $Q\gg\Lambda_{\text{QCD}}$
+\end_inset
+
+的分离，使我们可以认为部分子的波函数是不相干的，给出了概率诠释。要确切证实这种不相干性，相当于证明 
+\emph on
+factorization。
+\emph default
+因子化在 Section32.4 中讨论。
+\end_layout
+
+\begin_layout Standard
+部分子模型假设，我们可以通过计算
+\begin_inset Formula $e^{-}p_{i}\to e^{-}X$
+\end_inset
+
+得到
+\begin_inset Formula $e^{-}P^{+}\to e^{-}X$
+\end_inset
+
+的散射截面。其中
+\begin_inset Formula $p_{i}$
+\end_inset
+
+是动量为
+\begin_inset Formula $p_{i}^{\mu}=\xi P^{\mu}$
+\end_inset
+
+的部分子，对
+\begin_inset Formula $\xi$
+\end_inset
+
+进行积分，我们得到
+\begin_inset Formula 
+\[
+\sigma(e^{-}P^{+}\to e^{-}X)=\sum_{i}\int_{0}^{1}\dif\xi f_{i}(\xi)\hat{\sigma}(e^{-}p_{i}\to e^{-}X)
+\]
+
+\end_inset
+
+这里采用了惯例，部分子相关的量带
+\begin_inset Formula $\hat{\,}$
+\end_inset
+
+，比如
+\begin_inset Formula $\hat{\sigma}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+假设部分子除了QED相互作用之外是自由的，电子之和夸克相互作用。对于一个给定的夸克动量
+\begin_inset Formula $p_{i}$
+\end_inset
+
+，散射截面跟QED中其他点粒子的截面并没有什么不同。由Rosenbluth formula 给出，并取
+\begin_inset Formula $F_{1}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{2}=0$
+\end_inset
+
+。在对末态电子能量
+\begin_inset Formula $E^{\prime}$
+\end_inset
+
+积分之前，截面是
+\begin_inset Formula 
+\begin{equation}
+\left(\frac{\dif\hat{\sigma}(e^{-}q\to e^{-}q)}{\dif\Omega\dif E^{\prime}}\right)_{\text{lab}}=\frac{\alpha_{e}C_{i}^{2}}{4E^{2}\sin^{4}\frac{\theta}{2}}\left[\cos^{2}\frac{\theta}{2}+\frac{Q^{2}}{2m_{q}^{2}}\sin^{2}\frac{\theta}{2}\right]\delta\left(E-E^{\prime}-\frac{Q^{2}}{2m_{q}}\right)\label{eq:32.19}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $C_{i}$
+\end_inset
+
+是夸克的电荷。考虑到动量守恒的限制
+\begin_inset Formula $q^{2}=-2k\cdot k^{\prime}=-\left(4E^{\prime}E\sin^{2}\frac{\theta}{2}\right)_{\text{lab}}$
+\end_inset
+
+，对
+\begin_inset Formula $\delta$
+\end_inset
+
+函数积分（对
+\begin_inset Formula $E^{\prime}$
+\end_inset
+
+积分），能回到Rosenbluth 公式（取
+\begin_inset Formula $F_{1}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{2}=0$
+\end_inset
+
+），
+\begin_inset Formula 
+\begin{equation}
+\left(\frac{\dif\sigma}{\dif\Omega}\right)_{\text{lab}}=\frac{\alpha_{e}^{2}}{4E^{2}\sin^{4}\frac{\theta}{2}}\frac{E^{\prime}}{E}\left\{ \left(F_{1}^{2}-\frac{q^{2}}{4m_{p}^{2}}F_{2}^{2}\right)\cos^{2}\frac{\theta}{2}-\frac{q^{2}}{2m_{p}^{2}}\left(F_{1}+F_{2}\right)^{2}\sin^{2}\frac{\theta}{2}\right\} \label{eq:32.7}
+\end{equation}
+
+\end_inset
+
+注意如果我们没有假设夸克是自由的，
+\begin_inset Formula $\cos^{2}\frac{\theta}{2},\sin^{2}\frac{\theta}{2}$
+\end_inset
+
+前面一般会有general 的
+\begin_inset Formula $G_{1}(Q^{2}),G_{2}(Q^{2})$
+\end_inset
+
+这样的形状因子。就像上面式子EQ.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:32.7"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的那样。这样的项会破坏 Bjorken 标度，它们的缺失本质上就是部分子模型对 DIS 过程的预言。
+\end_layout
+
+\begin_layout Standard
+为了得到DIS过程的散射截面，我们必须对入射夸克动量积分。由于
+\begin_inset Formula $p_{i}^{\mu}=\xi P^{\mu}$
+\end_inset
+
+并且在 lab 系中质子是静止的，这暗示了
+\begin_inset Formula $m_{q}=\xi m_{p}$
+\end_inset
+
+。我们使用
+\begin_inset Formula $\nu\equiv\frac{P\cdot q}{m_{p}}=(E-E^{\prime})_{\text{lab}}$
+\end_inset
+
+,
+\begin_inset Formula $x=\frac{Q^{2}}{2P\cdot q}=\frac{\xi Q^{2}}{2p_{i}\cdot q}=\xi$
+\end_inset
+
+，
+\begin_inset Formula $\Rightarrow\nu=(E-E^{\prime})_{\text{lab}}=\frac{Q^{2}}{2m_{p}x}$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\[
+\delta\left(E-E^{\prime}-\frac{Q^{2}}{2m_{q}}\right)=\delta\left(\frac{Q^{2}}{2m_{p}x}-\frac{Q^{2}}{2m_{p}\xi}\right)=\frac{2m_{p}}{Q^{2}}x^{2}\delta(\xi-x)
+\]
+
+\end_inset
+
+对
+\begin_inset Formula $\xi$
+\end_inset
+
+还是
+\begin_inset Formula $x$
+\end_inset
+
+都成立。
+\end_layout
+
+\begin_layout Standard
+所以，使用EQ.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:32.19"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，我们得到
+\begin_inset Formula 
+\[
+\left(\frac{\dif\sigma(e^{-}P^{+}\to e^{-}X)}{\dif\Omega\dif E^{\prime}}\right)_{\text{lab}}=\sum_{i}f_{i}(x)\frac{\alpha_{e}^{2}C_{i}^{2}}{4E^{2}\sin^{4}\frac{\theta}{2}}\left[\frac{2m_{p}}{Q^{2}}x^{2}\cos^{2}\frac{\theta}{2}+\frac{1}{m_{p}}\sin^{2}\frac{\theta}{2}\right]
+\]
+
+\end_inset
+
+与之前参数化的结果相比,
+\begin_inset Formula 
+\[
+\left(\frac{\dif\sigma}{\dif\Omega\dif E^{\prime}}\right)_{\text{lab}}=\frac{\alpha_{e}^{2}}{8\pi E^{2}\sin^{4}\frac{\theta}{2}}\left[\frac{m_{p}}{2}W_{2}(x,Q)\cos^{2}\frac{\theta}{2}+\frac{1}{m_{p}}W_{1}(x,Q)\sin^{2}\frac{\theta}{2}\right]
+\]
+
+\end_inset
+
+我们立马得到
+\begin_inset Formula 
+\begin{align}
+W_{1}(x,Q) & =2\pi\sum_{i}C_{i}^{2}f_{i}(x)\nonumber \\
+W_{2}(x,Q) & =8\pi\frac{x^{2}}{Q^{2}}\sum_{i}C_{i}^{2}f_{i}(x)\label{eq:32.24}
+\end{align}
+
+\end_inset
+
+现在我们对 Bjorken scaling有了一个坚实的预测。
+\begin_inset Formula $W_{1}(x,Q)$
+\end_inset
+
+ and 
+\begin_inset Formula $Q^{2}W_{2}(x,Q)$
+\end_inset
+
+在固定的
+\begin_inset Formula $x$
+\end_inset
+
+处跟
+\begin_inset Formula $Q$
+\end_inset
+
+无关。记住，虽然夸克不是可观测量，但是
+\begin_inset Formula $x$
+\end_inset
+
+是，由于
+\begin_inset Formula $\nu=(E-E^{\prime})_{\text{lab}}=\frac{Q^{2}}{2m_{p}x}$
+\end_inset
+
+, 
+\begin_inset Formula $x=\frac{Q^{2}}{2m_{p}(E-E^{\prime})}$
+\end_inset
+
+，其中
+\begin_inset Formula $E$
+\end_inset
+
+ and 
+\begin_inset Formula $E^{\prime}$
+\end_inset
+
+是lab frame 中初末态电子的能量。实验证实了 Bjorken scaling in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:图32.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted5.png
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+图32.2
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:图32.2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+部分子模型的另一个结果是
+\begin_inset Formula 
+\[
+W_{1}(x,Q)=\frac{Q^{2}}{4x^{2}}W_{2}(x,Q),\text{ for }Q\gg m_{p}
+\]
+
+\end_inset
+
+ 也可以从EQ.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:32.24"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+推出来。这被称为 
+\series bold
+Callan-Gross relation。
+\series default
+这个正比关系可以追溯至
+\begin_inset Formula $\frac{Q^{2}}{2m_{q}^{2}}=\frac{Q^{2}}{2x^{2}m_{p}^{2}}$
+\end_inset
+
+因子，in the 
+\begin_inset Formula $e^{-}q\to e^{-}q$
+\end_inset
+
+散射振幅，which is in turn due to the quarks being free Dirac fermions.
+ 所以 Callan-Gross 关系证明了夸克自旋为
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+为了完整，我们指出 Callan-Gross 关系经常用其他形式给出。我们可以把它写成洛伦兹不变的形式
+\begin_inset Formula $y=\frac{P\cdot q}{P\cdot k}=\frac{\nu}{E}=\frac{E-E^{\prime}}{E}$
+\end_inset
+
+，
+\begin_inset Formula $x=\frac{Q^{2}}{2m_{p}(E-E^{\prime})}$
+\end_inset
+
+，
+\begin_inset Formula $\dif\Omega=-2\pi\dif\cos\theta$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\begin{cases}
+y=\frac{E-E^{\prime}}{E} & E^{\prime}=E-Ey\\
+x=\frac{EE^{\prime}}{(E-E^{\prime})m_{p}}(1-2\cos\theta) & \cos\theta=\frac{1}{2}-\frac{Em_{p}x}{2E^{\prime}}
+\end{cases}
+\]
+
+\end_inset
+
+则
+\begin_inset Formula $\dif E^{\prime}\dif\Omega=\frac{2m_{p}E}{E^{\prime}}\pi y\dif x\dif y$
+\end_inset
+
+，（这里是一个 Jaccobi）那么（忽略电子和质子质量）
+\begin_inset Formula 
+\[
+\frac{\dif\sigma(e^{-}P\to e^{-}X)}{\dif x\dif y}=\frac{2\pi\alpha^{2}}{Q^{4}}s\left(1+(1-y)^{2}\right)\sum_{i}C_{i}^{2}xf_{i}(x)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $s=E_{\text{CM}}^{2}$
+\end_inset
+
+，这个特征性的
+\begin_inset Formula $1+(1-y)^{2}$
+\end_inset
+
+行为经常被当成 Callan-Gross relation.
+\end_layout
+
+\begin_layout Standard
+有时也使用无量纲结构函数：
+\begin_inset Formula 
+\[
+\mathcal{F}_{1}(x)\equiv\frac{1}{4\pi}W_{1}(x),\quad\mathcal{F}_{2}(x)\equiv\frac{Q^{2}}{8\pi x}W_{2}(x)
+\]
+
+\end_inset
+
+使用
+\begin_inset Formula 
+\begin{align*}
+W_{1}(x,Q) & =\frac{Q^{2}}{4x^{2}}W_{2}(x,Q),\text{ for }Q\gg m_{p}\\
+W_{1}(x,Q) & =2\pi\sum_{i}C_{i}^{2}f_{i}(x)\\
+W_{2}(x,Q) & =8\pi\frac{x^{2}}{Q^{2}}\sum_{i}C_{i}^{2}f_{i}(x)
+\end{align*}
+
+\end_inset
+
+Callan-Gross 关系变成
+\begin_inset Formula $\mathcal{F}_{1}(x)\equiv\frac{1}{2x}\mathcal{F}_{2}(x)=\frac{1}{2}\sum_{i}C_{i}^{2}f_{i}(x)$
+\end_inset
+
+。注意不要将
+\begin_inset Formula $\mathcal{F}_{i}$
+\end_inset
+
+与原来的质子形状因子
+\begin_inset Formula $F_{i}$
+\end_inset
+
+弄混。在Section32.4 中我们使用这些标准约定
+\begin_inset Formula $\mathcal{F}_{i}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Section
+Sum Rules
+\end_layout
+
+\begin_layout Standard
+由于 PDFs 代表概率，所以必须满足一些限制。比如，如果质子刚好只含一个下夸克，那么下夸克必然包含一些动量，所以有
+\begin_inset Formula $\int\dif\xi f_{d}(\xi)=1$
+\end_inset
+
+。现实中，质子中会有virtual down-antidown 夸克对，所以会有超过一个下夸克。然而，由于下夸克数守恒（in QED and QCD）我们有
+\begin_inset Formula 
+\[
+\int\dif\xi\left(f_{d}(\xi)-f_{\bar{d}}(\xi)\right)=1
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $f_{\bar{d}}$
+\end_inset
+
+是 down-antiquark PDF.
+ 类似地，质子中上夸克数目为
+\begin_inset Formula $2$
+\end_inset
+
+，and zero strange-quark number:
+\begin_inset Formula 
+\[
+\int\dif\xi\left(f_{u}(\xi)-f_{\bar{u}}(\xi)\right)=2\quad\text{and}\quad\int\dif\xi\left(f_{s}(\xi)-f_{\bar{s}}(\xi)\right)=0
+\]
+
+\end_inset
+
+奇异夸克sum rule 也适用于 bottom-quark and charm-quark PDFs.
+ 由于胶子数不守恒，所以
+\begin_inset Formula $f_{g}$
+\end_inset
+
+没有相联系的求和规则。另外
+\begin_inset Formula 
+\[
+\sum_{j}\int\dif\xi\left[\xi f_{j}(\xi)\right]=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这个sum rules 来自于动量守恒（见问题32.2）。每一个 sum rule 对应一个经典守恒流（up, down, strange number
+ or momentum）。数值地，实验证明
+\begin_inset Formula $\int\dif\xi\xi\left[f_{u}(\xi)+f_{d}(\xi)\right]\approx0.38$
+\end_inset
+
+。因此，质子动量中只有大约
+\begin_inset Formula $38\%$
+\end_inset
+
+包含在 
+\series bold
+valence quarks
+\series default
+（u and d）。质子中的胶子成分, given by 
+\begin_inset Formula $\int\dif\xi\,\xi f_{g}(\xi)$
+\end_inset
+
+，ranges from 
+\begin_inset Formula $35\%$
+\end_inset
+
+ to 
+\begin_inset Formula $50\%$
+\end_inset
+
+ depending on the scale( PDFs 的能标依赖性将在稍后讨论)。质子的剩余动量被包含在 sea quarks 中(也就是
+\begin_inset Formula $s,c$
+\end_inset
+
+ or 
+\begin_inset Formula $b$
+\end_inset
+
+夸克 和 
+\begin_inset Formula $\bar{d},\bar{u},\bar{c},\bar{s},$
+\end_inset
+
+or 
+\begin_inset Formula $\bar{b}$
+\end_inset
+
+反夸克)。
+\end_layout
+
+\begin_layout Standard
+实际上，PDFs 不仅仅从 DIS 中决定，也可能从其他高能过程中决定。b
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref61"
+literal "true"
+
+\end_inset
+
+xxxxx
+\end_layout
+
+\end_body
+\end_document

@@ -388,6 +388,39 @@ Change {page} to the page number. It's indexed at 1, so -f 1 would be the first 
 
 查看图片用 eye of gnome `eog`
 
+### ubuntu 自带截图
+
+ubuntu自带截图程序叫做`gnome-serceenshot`
+
+[Ubuntu设置截图到剪贴板，像QQ一样截图][]
+
+[Ubuntu设置截图到剪贴板，像QQ一样截图]: https://www.jianshu.com/p/7f453c144f9c
+
+定义一个快捷键，保存到桌面文件
+
+```bash
+gnome-screenshot -a --file=(~"/Desktop/$(date +%s).png")
+```
+
+`date +%s`给出 UTC 时间
+
+在 Ubuntu（18.04、16.04）或 Debian（Jessie 和更新版本）中安装 `GPaste`
+
+对于 Debian，GPaste 可用于 Jessie 和更新版本，而对于 Ubuntu，GPaste 在 16.04 及更新版本的仓库中（因此可在 Ubuntu 18.04 Bionic Beaver 中使用）。
+
+你可以使用以下命令在 Debian 或 Ubuntu 中安装 GPaste（守护程序和 Gnome Shell 扩展）：
+
+```bash
+sudo apt install gnome-shell-extensions-gpaste gpaste
+```
+
+安装完成后，按下 `Alt + F2` 并输入 `r` 重新启动 Gnome Shell，然后按回车键。
+现在应该启用了 GPaste Gnome Shell 扩展，其图标应显示在顶部 Gnome Shell 面板上。
+如果没有，请使用 Gnome Tweaks（Gnome Tweak Tool）启用扩展。
+
+Debian 和 Ubuntu 的 GPaste 3.28.0 中有一个错误，如果启用了图像支持选项会导致它崩溃，所以现在不要启用此功能。
+这在 GPaste 3.28.2 中被标记为已修复，但 Debian 和 Ubuntu 仓库中尚未提供此包。
+
 ### 文档格式转换
 
 用 `pandoc`
@@ -1232,7 +1265,7 @@ mount -t type device dir
 挂载到指定目录即可：
 
 ```bash
-sudo mount -t ntfs /dev/sdb2 /home/6T
+sudo mount -t ntfs /dev/sda1 /home/6T
 ```
 
 The option `-l` adds labels to this listing.

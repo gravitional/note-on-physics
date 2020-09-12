@@ -1471,6 +1471,12 @@ These designators can be combined along with punctuation and whitespace. A coupl
 
     yyyy.MM.dd HH:mm gives 2005.09.14 17:45
 
+### lyx 默认pdf查看
+
+在`tools-preferences-File Handling-File Formats`
+
+在 `Format` 一栏中选中`PDF(XeTex)`  或者其他想要更改的格式，然后在 `Viewer`中更改程序，或者自定义程序位置。 
+
 ### 手动编译lyx
 
 ***
