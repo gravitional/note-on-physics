@@ -697,19 +697,35 @@ Bjorken
 \begin_inset Formula $\vec{q}=\vec{k}^{\prime}-\vec{k}$
 \end_inset
 
-，因为空间有三个分量（角动量守恒，散射平面上有两个分量）。两个三动量，总可以通过一个垂直分量的boost，使得两个三动量的模长相等，加上静止质量一样，就是
-\begin_inset Formula $E^{\prime}=E$
+，总可以找到一个质心系，使得
+\begin_inset Formula $\vec{k}+\vec{k}^{\prime}=0$
 \end_inset
 
-，所以
-\begin_inset Formula $\vec{q}$
+(如果
+\begin_inset Formula $\vec{k}+\vec{k}^{\prime}=\vec{t}$
 \end_inset
 
-的时间分量总是可以通过boost变成零，但是空间分量不一定为零，所以
-\begin_inset Formula $q^{2}=0-\vec{q}^{2}<0$
+,那么向
+\begin_inset Formula $\vec{t}$
 \end_inset
 
-。本质上这是因为空间维度比时间多。
+的方向boost 
+\begin_inset Formula $v=p/E=\abs{t}/\sqrt{m^{2}+\abs{t}}$
+\end_inset
+
+即可)现在
+\begin_inset Formula $\abs*{\vec{k}}=\abs*{\vec{k}^{\prime}}$
+\end_inset
+
+，但是方向相反，由于静止质量相等，所以
+\begin_inset Formula $E=E^{\prime}$
+\end_inset
+
+,所以
+\begin_inset Formula $q=(0,\vec{q})$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
@@ -1435,7 +1451,391 @@ or
 \end_layout
 
 \begin_layout Standard
-实际上，PDFs 不仅仅从 DIS 中决定，也可能从其他高能过程中决定。b
+实际上，PDFs 不仅仅从 DIS 中决定，也可能从其他高能过程中决定。 比如
+\begin_inset Formula $p\bar{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $pp$
+\end_inset
+
+对撞。得到的PDFs取决于实验组如何决定不同贡献的权重，相关微扰计算中
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+的阶数，还有如何参数化PDFs。一个例子展示在 Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fig.32.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted6.png
+	scale 35
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fig.32.3
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fig.32.3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+DGLAP 方程
+\end_layout
+
+\begin_layout Standard
+我们已经看到了DIS的定性结论，比如 Bjorken scaling and the Callan-Gross relation， 可以从parton
+ model 中得到。然而，可以看到 Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:图32.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中 Bjorken scaling 不是完美成立–在结构函数中，可以看到一点对于
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+的弱依赖（对数依赖）。在本节中，我们会展示如何结合部分子模型和微扰 QCD 来计算出这种对
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+的对数依赖。因此，现在我们仍然假设部分子模型成立，则
+\begin_inset Formula $e^{-}p^{+}$
+\end_inset
+
+散射截面有部分子散射 rates 的求和给出，其中初态部分子的能量由经典概率分布函数
+\begin_inset Formula $f_{i}(\xi)$
+\end_inset
+
+给出。在下一节中，我们会讨论withinQCD 中，部分子模型能成立到什么程度。
+\end_layout
+
+\begin_layout Standard
+在 EQ.32.10中，
+\begin_inset Formula 
+\[
+\left(\frac{\dif\sigma}{\dif\Omega\dif E^{\prime}}\right)_{\text{lab}}=\frac{\alpha_{e}^{2}}{4\pi m_{p}q^{4}}\frac{E^{\prime}}{E}L^{\mu\nu}W_{\mu\nu}
+\]
+
+\end_inset
+
+我们把散射截面写成轻子流张量
+\begin_inset Formula $L^{\mu\nu}$
+\end_inset
+
+ and 强子流张量
+\begin_inset Formula $W^{\mu\nu}(x,Q^{2})$
+\end_inset
+
+，强子流张量由
+\begin_inset Formula $\abs*{\mathcal{M}(\gamma^{\star}p^{+}\to X)}^{2}$
+\end_inset
+
+对末态积分给出，如同在 EQ.32.12。我们令
+\begin_inset Formula $\hat{W}^{\mu\nu}(z,Q)$
+\end_inset
+
+为部分子版本的
+\begin_inset Formula $W^{\mu\nu}(x,Q)$
+\end_inset
+
+，given by 
+\begin_inset Formula $\abs*{\gamma^{\star}q\to X}$
+\end_inset
+
+对末态积分。这里
+\begin_inset Formula $z$
+\end_inset
+
+是部分子版本的
+\begin_inset Formula $x$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+x\equiv\frac{Q^{2}}{2P\cdot q},\qquad z\equiv\frac{Q^{2}}{2p_{i}\cdot q}
+\]
+
+\end_inset
+
+这里的部分子散射也是非弹性散射，所以没有类似于
+\begin_inset Formula $(p_{f}-q)^{2}=p_{i}^{2}$
+\end_inset
+
+的关系，所以
+\begin_inset Formula $z$
+\end_inset
+
+的值也是不确定的。
+\end_layout
+
+\begin_layout Standard
+现在我们使用部分子模型的假设，找到动量为
+\begin_inset Formula $p_{i}^{\mu}=\xi P^{\mu}$
+\end_inset
+
+（
+\begin_inset Formula $0\leq\xi\leq1$
+\end_inset
+
+）的概率为
+\begin_inset Formula $f_{i}(\xi)$
+\end_inset
+
+，也就是说动量为
+\begin_inset Formula $p_{i}^{\mu}=\xi P^{\mu}$
+\end_inset
+
+的parton被散射的概率为
+\begin_inset Formula $f_{i}(\xi)\dif\xi$
+\end_inset
+
+，截面为
+\begin_inset Formula $\hat{W}^{\mu\nu}(z,Q)$
+\end_inset
+
+。散射发生的时候，
+\begin_inset Formula $x=z\xi$
+\end_inset
+
+，我们需要对
+\begin_inset Formula $\xi$
+\end_inset
+
+积分(动量为
+\begin_inset Formula $\xi P,0\leq\xi\leq1$
+\end_inset
+
+的每一个部分子都有可能被散射)。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W$
+\end_inset
+
+的参数化只能依赖于
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+,
+\begin_inset Formula $m_{p}$
+\end_inset
+
+,
+\begin_inset Formula $P\cdot q$
+\end_inset
+
+,
+\begin_inset Formula $\nu=\frac{P.q}{m_{P}},x=\frac{Q^{2}}{2P\cdot q}$
+\end_inset
+
+。总可以找到一个坐标系，其中
+\begin_inset Formula $q_{\mu}=(0,0,0,Q)$
+\end_inset
+
+,当能量很高时，可以忽略质子质量，忽略横向动量，可以把质子动量写成
+\begin_inset Formula $P^{\mu}=(Q,0,0,-Q)$
+\end_inset
+
+相当于Breit 坐标系(质心系)(page 716)则
+\begin_inset Formula $x=\frac{Q^{2}}{2Q^{2}}=\frac{1}{2}$
+\end_inset
+
+。但一般形式为
+\begin_inset Formula 
+\[
+x\equiv\frac{Q^{2}}{2P\cdot q}=\frac{Q^{2}}{-2Q.P_{z}}=-\frac{Q}{2.P_{z}}
+\]
+
+\end_inset
+
+由于要相撞，
+\begin_inset Formula $P^{\mu}$
+\end_inset
+
+必须要有与
+\begin_inset Formula $q_{\mu}$
+\end_inset
+
+相反的
+\begin_inset Formula $P_{z}$
+\end_inset
+
+，即动量总是反向的，所以
+\begin_inset Formula $x>0$
+\end_inset
+
+。或者从质子静止系看说，能量损失
+\end_layout
+
+\begin_layout Standard
+现在
+\begin_inset Formula $0\leq\xi\leq1$
+\end_inset
+
+所以有
+\begin_inset Formula 
+\begin{align*}
+W^{\mu\nu}(x,Q) & =\sum_{i}\int_{0}^{1}\dif z\int_{0}^{1}\dif\xi f_{i}(\xi)\hat{W}^{\mu\nu}(z,Q)\delta(x-z\xi)\\
+ & =\int_{x}^{1}\frac{\dif\xi}{\xi}f_{i}(\xi)\hat{W}^{\mu\nu}(\frac{x}{\xi},Q)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\delta(x-z\xi)$
+\end_inset
+
+表示发生了散射，所以
+\begin_inset Formula $\xi$
+\end_inset
+
+的积分范围被改变。
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+补充：
+\begin_inset Formula $\delta$
+\end_inset
+
+函数计算.
+\series default
+
+\begin_inset Formula $\delta$
+\end_inset
+
+函数积分公式
+\begin_inset Formula $\int_{-\infty}^{x}\delta(t)\dif t=\theta(x)$
+\end_inset
+
+,其中
+\begin_inset Formula $\theta(x)$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\theta(x)=\begin{cases}
+0 & x<0\\
+\frac{1}{2} & x=0\\
+1 & x>0
+\end{cases}
+\]
+
+\end_inset
+
+在质子静止系中，对于发生散射的部分子
+\begin_inset Formula $p_{i}=\xi P$
+\end_inset
+
+，有
+\begin_inset Formula $(p_{f}-q)^{2}=p_{i}^{2},Q^{2}=2p_{i}\cdot q$
+\end_inset
+
+，
+\begin_inset Formula $x\equiv\frac{Q^{2}}{2P\cdot q}=\frac{\xi Q^{2}}{2p_{i}\cdot q}=\xi\geq0,$
+\end_inset
+
+所以
+\begin_inset Formula $x\geq0$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+\int_{0}^{1}\dif z\delta(x-z\xi) & =\frac{1}{\xi}\theta(z-\frac{x}{\xi})\rvert_{0}^{1}=\frac{1}{\xi}\left(\theta(1-\frac{x}{\xi})-\theta(-\frac{x}{\xi})\right)\\
+ & =\frac{1}{\xi}\left(\theta(1-\frac{x}{\xi})\right)
+\end{align*}
+
+\end_inset
+
+上式中的
+\begin_inset Formula $\theta(-\frac{x}{\xi})=0$
+\end_inset
+
+，因为
+\begin_inset Formula $\frac{x}{\xi}=1$
+\end_inset
+
+，要想有值，需要
+\begin_inset Formula $\xi>x$
+\end_inset
+
+,所以
+\begin_inset Formula $\xi$
+\end_inset
+
+的积分范围从
+\begin_inset Formula $\int_{0}^{1}$
+\end_inset
+
+变成
+\begin_inset Formula $\int_{x}^{1}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+我们来检查 leading-order QCD.
+ At order 
+\begin_inset Formula $\mathcal{O}(\alpha_{s}^{0})$
+\end_inset
+
+，对
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+有贡献的唯一部分子过程是
+\begin_inset Formula $\gamma^{\star}q\to q$
+\end_inset
+
+，那么，
 \end_layout
 
 \begin_layout Standard
