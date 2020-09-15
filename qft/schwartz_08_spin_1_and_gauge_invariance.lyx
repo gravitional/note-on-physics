@@ -2426,7 +2426,797 @@ A_{\mu}(x)=\int\frac{\dif^{3}}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\sum_{j=1}
 \begin_inset Formula $z$
 \end_inset
 
-方向，一个简单的基是
+方向，
+\begin_inset Formula $p^{\mu}=(E,0,0,E)$
+\end_inset
+
+，一个简单的基是
+\begin_inset Formula 
+\[
+\epsilon_{1}^{\mu}=(0,1,0,0),\quad\epsilon_{2}^{\mu}(p)=(0,0,1,0)
+\]
+
+\end_inset
+
+它们满足
+\begin_inset Formula $(\epsilon_{\mu}^{i})^{2}=-1$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon_{\mu}^{i}p^{\mu}=0$
+\end_inset
+
+。还有两个跟它们垂直的极化矢量
+\begin_inset Formula 
+\[
+\epsilon_{f}^{\mu}=(1,0,0,1),\quad\epsilon_{b}^{\mu}(p)=(1,0,0,-1)
+\]
+
+\end_inset
+
+其中的字母
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ 表示 forward and backward。
+\end_layout
+
+\begin_layout Standard
+现在我们将面临一个问题（又有问题？多灾多难的场论……）。尽管无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+粒子只有两个极化方向，构成洛伦兹群的一个不可约幺正二维表示。但是不可能把它们emded到一个如
+\begin_inset Formula $\epsilon_{\mu}$
+\end_inset
+
+这样的矢量场中。为了看清这个问题，回忆带质量情形。在保持
+\begin_inset Formula $p^{\mu}=(E,0,0,p_{z})$
+\end_inset
+
+不变的 little group SO(3)变换下，
+\begin_inset Formula $\epsilon_{1}^{\mu},\epsilon_{2}^{\mu}$
+\end_inset
+
+不仅两者之间混合，还要和纵向模
+\begin_inset Formula $\epsilon_{L}^{\mu}(p)=(\frac{p_{z}}{m},0,0,\frac{E}{m})$
+\end_inset
+
+混合。显然
+\begin_inset Formula $\abs{c_{1}}^{2}+\abs{c_{2}}^{2}+\abs{c_{3}}^{2}$
+\end_inset
+
+在SO(3)下是不变的，但是
+\begin_inset Formula $\abs{c_{1}}^{2}+\abs{c_{2}}^{2}$
+\end_inset
+
+不是不变的。所以就算选取了动量依赖的基矢也不成，咱得想点新法子。趋于
+\begin_inset Formula $m\to0$
+\end_inset
+
+的极限没有啥特别不连续的，动量变成
+\begin_inset Formula $p_{\mu}=(E,0,0,E)$
+\end_inset
+
+ and 纵向模变得跟前向极化的光子一样，up to normalization
+\begin_inset Formula 
+\[
+\lim_{m\to0}\epsilon_{\mu}^{L}(p)=\epsilon_{\mu}^{f}(p)\propto p_{\mu}
+\]
+
+\end_inset
+
+在无质量情形下，小群变成 ISO(2)（二维欧几里得空间保长变换群）。一般来说，保持
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+不变的小群还会将
+\begin_inset Formula $\epsilon_{\mu}^{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon_{\mu}^{2}$
+\end_inset
+
+ 和极化
+\begin_inset Formula $\epsilon_{\mu}^{f}(p)=p_{\mu}$
+\end_inset
+
+混合，
+\begin_inset Formula 
+\begin{align*}
+\epsilon_{\mu}^{1}(p) & \to c_{11}(\Lambda)\epsilon_{\mu}^{1}(p)+c_{12}(\Lambda)\epsilon_{\mu}^{2}(p)+c_{13}(\Lambda)p_{\mu}\\
+\epsilon_{\mu}^{2}(p) & \to c_{21}(\Lambda)\epsilon_{\mu}^{1}(p)+c_{22}(\Lambda)\epsilon_{\mu}^{2}(p)+c_{23}(\Lambda)p_{\mu}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $c_{ij}$
+\end_inset
+
+是数字。
+\end_layout
+
+\begin_layout Standard
+举个栗子，考虑洛伦兹变换
+\begin_inset Formula 
+\[
+\Lambda_{\nu}^{\mu}=\left(\begin{array}{cccc}
+\frac{3}{2} & 1 & 0 & -\frac{1}{2}\\
+1 & 1 & 0 & -1\\
+0 & 0 & 1 & 0\\
+\frac{1}{2} & 1 & 0 & \frac{1}{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+它满足
+\begin_inset Formula $\Lambda^{T}g\Lambda=g$
+\end_inset
+
+，所以是洛伦兹变换矩阵。并且
+\begin_inset Formula $\Lambda_{\mu}^{\nu}p^{\nu}=p^{\mu}$
+\end_inset
+
+，保持动量
+\begin_inset Formula $p^{\mu}=(E,0,0,E)$
+\end_inset
+
+不变。所以这个
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的确是小群的忠实一员。然而，
+\begin_inset Formula 
+\[
+\Lambda_{\nu}^{\mu}\epsilon_{1}^{\nu}=(1,1,0,1)=\epsilon_{1}^{\mu}+\frac{1}{E}p^{\mu}
+\]
+
+\end_inset
+
+所以它把物理极化和动量混合。相比于有质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+情形，基矢
+\begin_inset Formula $\epsilon_{\mu}^{i}$
+\end_inset
+
+对于混合是封闭的（当然了，那边有三个极化矢量嘛，人多力量大）。
+\end_layout
+
+\begin_layout Standard
+现在考虑用
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+进行散射，矩阵元差不多是下面这个样子
+\begin_inset Formula 
+\[
+\mathcal{M}=\epsilon_{\mu}M^{\mu}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\epsilon_{\mu}$
+\end_inset
+
+是两个物理极化 
+\begin_inset Formula $\epsilon_{\mu}^{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon_{\mu}^{2}$
+\end_inset
+
+ 的线性组合。那么，under a Lorentz transformaiton,
+\begin_inset Formula 
+\[
+\mathcal{M}\to\epsilon_{\mu}^{\prime}M^{\prime\mu}+c(\Lambda)p_{\mu}M^{\prime\mu}
+\]
+
+\end_inset
+
+对于一些系数
+\begin_inset Formula $c(\Lambda)$
+\end_inset
+
+，其中
+\begin_inset Formula $M_{\mu}\to M_{\mu}^{\prime}=\Lambda_{\mu\nu}M^{\nu}$
+\end_inset
+
+，
+\begin_inset Formula $\epsilon_{\mu}^{\prime}$
+\end_inset
+
+还是两个物理极化 
+\begin_inset Formula $\epsilon_{\mu}^{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon_{\mu}^{2}$
+\end_inset
+
+ 的线性组合，不过显然它们中出了个叛徒
+\begin_inset Formula $p_{\mu}$
+\end_inset
+
+，不是 
+\begin_inset Formula $\epsilon_{\mu}^{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon_{\mu}^{2}$
+\end_inset
+
+的线性组合。例如，在上面的显式洛伦兹变换下，
+\begin_inset Formula 
+\[
+\mathcal{M}=\epsilon_{\mu}^{1}M^{\mu}\to\left(\epsilon_{\mu}^{1}+\frac{1}{E}p_{\mu}\right)M^{\prime\mu}
+\]
+
+\end_inset
+
+那么问题出现了，极化为
+\begin_inset Formula $\epsilon_{\mu}^{1}+\frac{1}{E}p_{\mu}$
+\end_inset
+
+不在我们可怜的渺小的Hilbert 空间中，GG。There is only one way out （这不禁让我们有了一些非分之想）—— 
+\begin_inset Formula $p_{\mu}M^{\mu}=0$
+\end_inset
+
+。只有这样，无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+粒子的相互作用理论才是洛伦兹不变的，我们必须要
+\begin_inset Formula $p_{\mu}M^{\mu}=0$
+\end_inset
+
+，这很重要，所以我用红色复读一遍，
+\begin_inset Formula 
+\[
+{\color{red}p_{\mu}M^{\mu}=0}
+\]
+
+\end_inset
+
+它被称为 Ward identity （窝的恒等式）。Ward 恒等式必须成立，by 洛伦兹不变性和无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+粒子的幺正表示只有两个极化方向。我们没有展示它为啥能实现，只是它
+\series bold
+必须
+\series default
+成立，如果我们想要一个合理的物理理论。在微扰理论中证明这玩意儿有点难受，不过下一章我们概述一下。我们最终会用路径积分的方法非微扰地证明它成立（in
+ Chapter 14）。The Ward identity 和规范不变性紧密联系。由于拉格朗日在
+\begin_inset Formula $A_{\mu}\to A_{\mu}+\partial_{\mu}\alpha$
+\end_inset
+
+下不变，在动量空间，它暗示了
+\begin_inset Formula $\epsilon_{\mu}\to\epsilon_{\mu}+p_{\mu}$
+\end_inset
+
+是理论的一个对称性，正是窝的恒等式。
+\end_layout
+
+\begin_layout Section
+光子传播子
+\end_layout
+
+\begin_layout Standard
+为了计算任何跟光子有关的过程，我们都会需要它的传播子
+\begin_inset Formula $\Pi^{\mu\nu}$
+\end_inset
+
+，定义为
+\begin_inset Formula 
+\[
+\bra{0}T{A^{\mu}(x)A^{\nu}(x)}\ket{0}=i\int\frac{\dif^{4}p}{(2\pi)^{4}}e^{ip(x-y)}\Pi^{\mu\nu}(p)
+\]
+
+\end_inset
+
+在自由理论中求解。计算传播子最简单的方法是solve经典的格林函数，然后通过
+\begin_inset Formula $i\epsilon$
+\end_inset
+
+ prescription 添加编时乘积，如同在标量场那里。
+\end_layout
+
+\begin_layout Standard
+首先我们试图通过运动方程计算经典格林函数。先不选择规范，在存在current的情况下，
+\begin_inset Formula $\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2}-A_{\mu}J^{\mu}$
+\end_inset
+
+对应的运动方程是
+\begin_inset Formula 
+\[
+\partial_{\mu}F^{\mu\nu}=J^{\nu}
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\partial_{\mu}\partial^{\mu}A_{\nu}-\partial_{\mu}\partial_{\nu}A^{\mu}=J_{\nu}
+\]
+
+\end_inset
+
+或者在动量空间
+\begin_inset Formula 
+\[
+\left(-p^{2}g_{\mu\nu}+p_{\mu}p_{\nu}\right)A^{\mu}=J_{\nu}
+\]
+
+\end_inset
+
+我们想得到
+\begin_inset Formula $A_{\mu}=\Pi_{\mu\nu}J^{\nu}$
+\end_inset
+
+，so that 
+\begin_inset Formula $\left(-p^{2}g_{\mu\nu}+p_{\mu}p_{\nu}\right)\Pi_{\alpha}^{\nu}=g_{\mu\alpha}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(-p^{2}g_{\mu\nu}+p_{\mu}p_{\nu}\right)\Pi^{\mu\rho}J_{\rho} & =J_{\nu}
+\end{align*}
+
+\end_inset
+
+两边同时对
+\begin_inset Formula $J_{\alpha}$
+\end_inset
+
+求偏导既得。也就是说，我们想求动能项的逆，问题是
+\begin_inset Formula 
+\[
+\det\left(-p^{2}g_{\mu\nu}+p_{\mu}p_{\nu}\right)=0
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula $-p^{2}g_{\mu\nu}+p_{\mu}p_{\nu}$
+\end_inset
+
+有一个本征值为
+\begin_inset Formula $0$
+\end_inset
+
+的本征矢量
+\begin_inset Formula $p_{\mu}$
+\end_inset
+
+。所以动能项是无法求逆的(non-invertibility), 和对有限维线性算符作判断一样。不可逆性质是规范不变性的显示：
+\begin_inset Formula $A_{\mu}=\Pi_{\mu\nu}J^{\nu}$
+\end_inset
+
+，
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+不能由
+\begin_inset Formula $J_{\mu}$
+\end_inset
+
+唯一地确定（回忆经典电动力学，电流不能完全确定
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+）；不同的规范下，相同的
+\begin_inset Formula $J_{\mu}$
+\end_inset
+
+给出不同的
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+那咋办呀？好说。咱们随便选择一个规范吧。比如洛伦兹规范
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+。拉氏量将变成
+\begin_inset Formula 
+\[
+-\frac{1}{4}F_{\mu\nu}\to\frac{1}{2}A_{\mu}\square A^{\mu}
+\]
+
+\end_inset
+
+但是，现在看起来
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+有四个自由度，而不是两个。事实上，你可以继续做下去，只要牢记规范限制
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+ all along。一个更容易推广到non-Abelian理论，也更系统的方案是，添加一个辅助场（不传播），就好像一个拉格朗日乘子(Lagrange
+ multiplier)，在运动方程中烧录规范限制：
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2}-\frac{1}{2\xi}\left(\partial_{\mu}A^{\mu}\right)^{2}-J_{\mu}A^{\mu}
+\]
+
+\end_inset
+
+写成
+\begin_inset Formula $\frac{1}{2\xi}$
+\end_inset
+
+而不是
+\begin_inset Formula $\xi$
+\end_inset
+
+只是一种习惯。
+\begin_inset Formula $\xi$
+\end_inset
+
+的运动方程正是
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+，正是洛伦兹规范限制。换句话说，对于很小的
+\begin_inset Formula $\xi$
+\end_inset
+
+，Lagrangian 将感受到洪荒之力的压迫，需要
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+，来呆在极小值（minimum）附近。
+\end_layout
+
+\begin_layout Standard
+借助
+\begin_inset Formula $\xi$
+\end_inset
+
+项，
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+的运动方程变成
+\begin_inset Formula 
+\[
+\left(-p^{2}g_{\mu\nu}+(1-\frac{1}{\xi})p_{\mu}p_{\nu}\right)A^{\nu}=J_{\mu}
+\]
+
+\end_inset
+
+尽管不明显，但是容易检验，括号中算符的逆是
+\begin_inset Formula 
+\[
+\Pi_{\mu\nu}=-\frac{g_{\mu\nu}-(1-\xi)\frac{p_{\mu}p_{\nu}}{p^{2}}}{p^{2}}
+\]
+
+\end_inset
+
+检查一下
+\begin_inset Formula 
+\begin{align*}
+ & \left(-p^{2}g_{\mu\alpha}+(1-\frac{1}{\xi})p_{\mu}p_{\alpha}\right)\Pi_{\nu}^{\alpha}\\
+= & \left(p^{2}g_{\mu\alpha}-(1-\frac{1}{\xi})p_{\mu}p_{\alpha}\right)\left(\frac{p^{2}g_{\mu\nu}-(1-\xi)p_{\mu}p_{\nu}}{p^{2}}\right)\frac{1}{p^{4}}\\
+= & g_{\mu\nu}+\left(-(1-\frac{1}{\xi})-(1-\xi)+(1-\frac{1}{\xi})(1-\xi)\right)\frac{p_{\mu}p_{\nu}}{p^{4}}\\
+= & g_{\mu\nu}
+\end{align*}
+
+\end_inset
+
+光子的 The time-ordered Feynman propagator 可以用类似于标量场的方法推导出来
+\begin_inset Formula 
+\begin{align*}
+i\Pi^{\mu\nu}(p) & =\frac{-i}{p^{2}+i\epsilon}\left[g^{\mu\nu}-(1-\xi)\frac{p^{\mu}p^{\nu}}{p^{2}}\right]\\
+ & =\frac{i}{p^{2}+i\epsilon}\left[-g^{\mu\nu}+(1-\xi)\frac{p^{\mu}p^{\nu}}{p^{2}}\right]
+\end{align*}
+
+\end_inset
+
+这就是 
+\series bold
+covariant
+\series default
+ 或者 
+\series bold
+
+\begin_inset Formula $\mathbf{R}_{\xi}$
+\end_inset
+
+–Gauge 
+\series default
+下的光子传播子。
+\begin_inset Formula $-g^{\mu\nu}$
+\end_inset
+
+加上
+\begin_inset Formula $\xi$
+\end_inset
+
+互补乘上动量
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+的归一化并矢，度规张量的父加上
+\begin_inset Formula $(1-\xi)$
+\end_inset
+
+倍
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+并矢。
+\end_layout
+
+\begin_layout Standard
+如同在标量传播子那里，
+\begin_inset Formula $i\epsilon$
+\end_inset
+
+项是快速把 advanced and retarded propagators 结合成 time-ordered 传播子的方法。分子的符号可以这么记（老Sh，你
+也太贴心了）
+\begin_inset Formula 
+\[
+-ig^{\mu\nu}=\left(\begin{array}{cccc}
+-i & 0 & 0 & 0\\
+0 & i & 0 & 0\\
+0 & 0 & i & 0\\
+0 & 0 & 0 & i
+\end{array}\right)
+\]
+
+\end_inset
+
+传播子传播的是矢量场的空间分量
+\begin_inset Formula $A_{i}$
+\end_inset
+
+，所以
+\begin_inset Formula $A_{i}$
+\end_inset
+
+应该和标量传播子有相同的形式，
+\begin_inset Formula $i\Pi_{S}=\frac{i}{p^{2}+i\epsilon}$
+\end_inset
+
+，确定了是
+\begin_inset Formula $-ig^{\mu\nu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+补充
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\phi(x),\phi(y)\right]$
+\end_inset
+
+得到的是
+\begin_inset Formula $D_{R}$
+\end_inset
+
+ Retarded propagator，也就是延迟传播子，而
+\begin_inset Formula $T\{\phi(x)\phi(y)\}$
+\end_inset
+
+得到的是编时传播子。再加上 Wick 定理
+\begin_inset Formula 
+\[
+T\left\{ \phi\cdots\right\} =N\left\{ \phi\cdots+\text{all possible contractions}\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{Contract}\left[\phi(x)\phi(y)\right]\equiv\begin{cases}
+\left[\phi^{-}(x),\phi^{+}(y)\right] & \text{for }x^{0}>y^{0}\\
+\left[\phi^{-}(y),\phi^{+}(x)\right] & \text{for }y^{0}>x^{0}
+\end{cases}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\phi^{+}(x)$
+\end_inset
+
+是场的负频解，创造粒子（
+\begin_inset Formula $a^{\dagger}$
+\end_inset
+
+），
+\begin_inset Formula $\phi^{-}(x)$
+\end_inset
+
+是场的正频解，湮灭粒子（
+\begin_inset Formula $a$
+\end_inset
+
+）。收缩可以看成费曼传播子的等价定义。
+\begin_inset Formula $\text{for }x^{0}>y^{0}$
+\end_inset
+
+u时，
+\begin_inset Formula $\left[\phi^{+}(x),\phi^{-}(y)\right]$
+\end_inset
+
+等于零，因为
+\begin_inset Formula $\left[\phi(x),\phi(y)\right]$
+\end_inset
+
+是延迟传播子，不可能传播
+\begin_inset Formula $x$
+\end_inset
+
+到
+\begin_inset Formula $y$
+\end_inset
+
+点的过程。
+\end_layout
+
+\begin_layout Standard
+反映了场论相互作用的结构特点——连线消除游戏。
+\end_layout
+
+\begin_layout Subsection
+各种协变规范
+\end_layout
+
+\begin_layout Standard
+可以对
+\begin_inset Formula $\xi$
+\end_inset
+
+取不同的值，一些常用的是：
+\end_layout
+
+\begin_layout Itemize
+Feynman-'t Hooft gauge 
+\begin_inset Formula $\xi=1$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+i\Pi^{\mu\nu}(p)=\frac{-ig^{\mu\nu}}{p^{2}+i\epsilon}
+\]
+
+\end_inset
+
+大部分计算中使用的都是这个规范。
+\end_layout
+
+\begin_layout Itemize
+洛伦兹规范
+\begin_inset Formula $\xi=0$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+i\Pi^{\mu\nu}(p)=\frac{-i(g^{\mu\nu}-\frac{p^{\mu}p^{\nu}}{p^{2}})}{p^{2}+i\epsilon}
+\]
+
+\end_inset
+
+之前我们看到
+\begin_inset Formula $\xi\to0$
+\end_inset
+
+迫使
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+。注意到我们不能取
+\begin_inset Formula $\xi=0$
+\end_inset
+
+然后逆转动能项，但是我们可以先逆转然后令
+\begin_inset Formula $\xi=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Itemize
+幺正规范
+\begin_inset Formula $\xi\to\infty$
+\end_inset
+
+。这个规范在QED中是没用的，因为传播子炸了。但是在弱相互作用的规范理论中非常有用。
+\begin_inset Formula 
+\[
+i\Pi^{\mu\nu}(p)=\frac{i\xi\frac{p^{\mu}p^{\nu}}{p^{2}})}{p^{2}+i\epsilon}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其他一些非协变规范有时也很有用，比如光锥规范，with 
+\begin_inset Formula $n_{\mu}A^{\mu}=0$
+\end_inset
+
+，对于某确定的类光
+\begin_inset Formula $4$
+\end_inset
+
+–矢量
+\begin_inset Formula $n_{\mu}$
+\end_inset
+
+，如果有偏爱的方向，还是很方便的，在许多共线场的情况下。比如对于快速移动的质子中的夸克，光锥规范很有用（见 section 32.5 and Chapter
+ 36）。库仑规范，
+\begin_inset Formula $\nabla\cdot A=0$
+\end_inset
+
+，轴向规范或者 Fock-Schwinger 规范，
+\begin_inset Formula $x_{\mu}A^{\mu}(x)=0$
+\end_inset
+
+，也可以方便某些计算。对于QED，使用协变规范就
+\begin_inset Formula $\bigstar$
+\end_inset
+
+了。
+\end_layout
+
+\begin_layout Standard
+任何洛伦兹不变的量应该是规范无关的。使用协变规范
+\begin_inset Formula 
+\begin{align*}
+i\Pi^{\mu\nu}(p) & =\frac{i}{p^{2}+i\epsilon}\left[-g^{\mu\nu}+(1-\xi)\frac{p^{\mu}p^{\nu}}{p^{2}}\right]
+\end{align*}
+
+\end_inset
+
+意味着最后的结果应该不依赖于
+\begin_inset Formula $\xi$
+\end_inset
+
+。因此，无论我们用什么跟
+\begin_inset Formula $\Pi^{\mu\nu}(p)$
+\end_inset
+
+收缩，如果
+\begin_inset Formula $\Pi_{\mu\nu}\propto p^{\mu}p^{\nu}$
+\end_inset
+
+。这跟 Ward 恒等式的要求很像，它要求物理的外部极化作替换
+\begin_inset Formula $\epsilon^{\mu}\to p^{\mu}$
+\end_inset
+
+后，矩阵元应该为零。我们会在下一章描述简要的图形证明方法。并在 Chapter 14 用 路径积分方法给出完全的证明，both 规范不变性 and
+ Ward 恒等式。
+\end_layout
+
+\begin_layout Section
+规范不变性是真的吗？
 \end_layout
 
 \begin_layout Standard
