@@ -1,0 +1,2444 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor}
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{amsfonts} 
+\usepackage{latexsym} 
+% Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+
+\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{makeidx} 
+\usepackage{multirow}
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\res}{Res}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+自旋-1和规范对称性
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Standard
+page 129
+\end_layout
+
+\begin_layout Standard
+自旋和洛伦兹不变性有深刻的联系，这在非相对论量子力学中是obscure（模糊的，难以理解的 ）。回答这些问题，可以从 洛伦兹不变性和量子场论的一致性入手。这一章
+讨论整数自旋的粒子（tensor representation）。
+\end_layout
+
+\begin_layout Section
+庞加莱群的幺正表示
+\end_layout
+
+\begin_layout Standard
+理论应该在庞加莱群的变换下不变。庞加莱群包括平移群和洛伦兹群（the iosmetry of Minkowski space）ISO（1,3）。
+\end_layout
+
+\begin_layout Standard
+粒子被定义一组状态，为在庞加莱变换下，仅在这些状态之间相互混合。
+\end_layout
+
+\begin_layout Standard
+我们需要不可约幺正表示。幺正来自于要求矩阵元是庞加莱不变的。
+\begin_inset Formula 
+\[
+\ket{\psi_{i}}\to\mathcal{P}_{ij}\ket{\psi_{j}}\qquad\mathcal{M}=\bra{\psi_{1}}\mathcal{P}^{\dagger}\mathcal{P}\ket{\psi_{2}}
+\]
+
+\end_inset
+
+所以我们需要
+\begin_inset Formula $\mathcal{P}^{\dagger}\mathcal{P}=1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+幺正表示仅仅是庞加莱群所有表示中很小的一部分。一般表示，比如
+\begin_inset Formula $4$
+\end_inset
+
+–维矢量表示
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+，不是幺正的。
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+粒子按照庞加莱群的不可约幺正表示变换。
+\end_layout
+
+\begin_layout Standard
+另外对于物理理论，还有另一个限制：要求
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵是幺正的。要求
+\begin_inset Formula $S$
+\end_inset
+
+矩阵幺正，会限制理论的动力学，而要求庞加莱群的表示是幺正的，会限制自由粒子。Implications of unitarity of the 
+\begin_inset Formula $S$
+\end_inset
+
+–matrix is the subject of Chapter 24.
+\end_layout
+
+\begin_layout Standard
+庞加莱群没有有限维幺正表示。庞加莱群的不可约幺正表示由 Eugene Wigner in 1939 完成分类。它们都是无限维表示，自然用场来表示。Wigner表
+示，不可约幺正表示按照质量
+\begin_inset Formula $m$
+\end_inset
+
+和自旋
+\begin_inset Formula $J$
+\end_inset
+
+分类。如果
+\begin_inset Formula $J>0$
+\end_inset
+
+，对每一个
+\begin_inset Formula $p^{2}=m^{2}>0$
+\end_inset
+
+，有
+\begin_inset Formula $2J+1$
+\end_inset
+
+个独立的态。对于
+\begin_inset Formula $m=0$
+\end_inset
+
+，只有两个（分立的）状态。如果
+\begin_inset Formula $J=0$
+\end_inset
+
+，只有一个状态。
+\end_layout
+
+\begin_layout Standard
+我们必须考虑如何构建一个幺正的粒子的相互作用理论。我们想把不可约表示塞到带有时空指标的对象里。也就是说，我们想把自旋
+\begin_inset Formula $0,\frac{1}{2},0,1,\frac{3}{2},2$
+\end_inset
+
+等等的状态挤进标量场
+\begin_inset Formula $\phi(x)$
+\end_inset
+
+，矢量场
+\begin_inset Formula $V_{\mu}(x)$
+\end_inset
+
+，张量场
+\begin_inset Formula $T_{\mu\nu}(x)$
+\end_inset
+
+，旋量场
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+等等。这样能写出简洁的拉氏量。我们立马看到一个复杂性：张量是
+\begin_inset Formula $1,4,16,64,\cdots4^{n}$
+\end_inset
+
+维的，而自旋是
+\begin_inset Formula $1,3,5,7,\cdots,2j+1$
+\end_inset
+
+物理自由度的。所以把
+\begin_inset Formula $2j+1$
+\end_inset
+
+个状态塞到
+\begin_inset Formula $4^{n}$
+\end_inset
+
+维的张量中需要一些技巧，导致一些东西比如 gauge invariance, 我们马上会看到。
+\end_layout
+
+\begin_layout Subsection
+幺正性 versus 洛伦兹不变性
+\end_layout
+
+\begin_layout Standard
+量子力学总是假设基 any basis 的模为正（概率诠释）。假设我们有一组基
+\begin_inset Formula $\ket{V_{\mu}}$
+\end_inset
+
+，它们在洛伦兹变换下表现得像
+\begin_inset Formula $4$
+\end_inset
+
+–矢量
+\begin_inset Formula 
+\begin{align*}
+\ket{\psi} & =c_{0}\ket{V_{0}}+c_{1}\ket{V_{1}}+c_{2}\ket{V_{2}}+c_{3}\ket{V_{3}}\\
+\langle\psi|\psi\rangle & =\abs{c_{0}}^{2}+\abs{c_{1}}^{2}+\abs{c_{2}}^{2}+\abs{c_{3}}^{2}>0
+\end{align*}
+
+\end_inset
+
+但是显然这不是洛伦兹不变的。比如，如果我们令
+\begin_inset Formula $\ket{\psi}=\ket{V_{0}}$
+\end_inset
+
+，归一化为
+\begin_inset Formula $\langle\psi|\psi\rangle=1$
+\end_inset
+
+。那么如果在
+\begin_inset Formula $1$
+\end_inset
+
+方向boost，则我们得到
+\begin_inset Formula $\ket{\psi^{\prime}}=\cosh\beta\ket{V_{0}}+\sinh\beta\ket{V_{1}}$
+\end_inset
+
+。模变成了
+\begin_inset Formula 
+\[
+\langle\psi^{\prime}|\psi^{\prime}\rangle=\cosh^{2}\beta+\sinh^{2}\beta\neq1=\langle\psi|\psi\rangle
+\]
+
+\end_inset
+
+因此，我们找到一个状态的概率取决于我们所在的坐标系（这显然是不科学的）。我们看到模在洛伦兹boost下不是不变的。用矩阵术语来说，boost矩阵
+\begin_inset Formula 
+\[
+\Lambda=\left(\begin{array}{cc}
+\cosh\beta & \sinh\beta\\
+\sinh\beta & \cosh\beta
+\end{array}\right)
+\]
+
+\end_inset
+
+不是幺正的:
+\begin_inset Formula $\Lambda^{\dagger}\neq\Lambda^{-1}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+我们考虑把内积的定义修改成
+\begin_inset Formula 
+\[
+\langle\psi|\psi\rangle=\abs{c_{0}}^{2}-\abs{c_{1}}^{2}-\abs{c_{2}}^{2}-\abs{c_{3}}^{2}
+\]
+
+\end_inset
+
+它是洛伦兹不变的，但不是正定的。（Schwartz表示 ，即使用这种内积，任何态的概率
+\begin_inset Formula $P=\abs{\langle\psi|\psi\rangle}^{2}>0$
+\end_inset
+
+，况且量子力学的内积一般是个复数。）然而，问题在于概率不再
+\begin_inset Formula $\leq1$
+\end_inset
+
+。比如
+\begin_inset Formula 
+\begin{align*}
+\ket{\psi} & =\ket{V_{0}},\langle\psi|\psi\rangle=1\\
+\ket{\psi^{\prime}} & =\cosh\beta\ket{V_{0}}+\sinh\beta\ket{V_{1}}\\
+\abs{\langle\psi|\psi^{\prime}\rangle}^{2} & =\cosh^{2}\beta
+\end{align*}
+
+\end_inset
+
+由于
+\begin_inset Formula $\beta\neq1,\cosh\beta=\frac{\exp\beta+\exp(-\beta)}{2}>1$
+\end_inset
+
+,这就没法儿说是概率了。因此，由于洛伦兹变换可以把正负norm的态混合起来，所以概率不再是bounded。在问题8.1中，你可以证明，要想有概率诠释，with
+ 
+\begin_inset Formula $0\leq P\leq1$
+\end_inset
+
+，必须要求只有positive (or only negative) norm states.
+ 所以，满足幺正性，并且具有positive definite norm，对于量子力学的任何物理诠释都是critical。
+\end_layout
+
+\begin_layout Standard
+总结，Hilbert空间的 positive norm ，要求内积是
+\begin_inset Formula $\delta^{\mu\nu}$
+\end_inset
+
+，在幺正变换下保持不变；和洛伦兹不变性要求内积的
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+形式，在洛伦兹变换下不变。这两个要求是冲突的。在Chapter 10，我们会看到，conflict 来自于洛伦兹群是non-compact and
+ the boosts having anti-Hermitian generators。
+\end_layout
+
+\begin_layout Standard
+如何解决冲突呢？
+\end_layout
+
+\begin_layout Standard
+首先，洛伦兹群的四维矢量表示
+\begin_inset Formula $V^{\mu}$
+\end_inset
+
+是两个不可约表示的直和：一维的自旋–
+\begin_inset Formula $0$
+\end_inset
+
+表示，和三维的自旋–
+\begin_inset Formula $1$
+\end_inset
+
+表示。如果我们能把自旋–
+\begin_inset Formula $1$
+\end_inset
+
+（自旋–
+\begin_inset Formula $0$
+\end_inset
+
+）的表示投影掉，也许就能写出一个Lorentz-invariant Lagrangians for a theory with positive
+ norm.
+\end_layout
+
+\begin_layout Standard
+其次，虽然庞加莱群没有有限维幺正表示，但是有一些无限维表示是幺正的。后面，我们将使用动量依赖的基
+\begin_inset Formula $\epsilon_{\mu}(p)$
+\end_inset
+
+，而不是固定基，如
+\begin_inset Formula $(1,0,0,0),(0,1,0,0)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+所以计划是，对于一个特定质量和自旋（庞加莱群不可约表示）的粒子，首先把正确自由度数目塞进张量里，比如
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+。然后我们会看到无限维幺正表示如何产生。
+\end_layout
+
+\begin_layout Section
+把粒子嵌入场中
+\end_layout
+
+\begin_layout Standard
+我们从经典场开始。先要求能量正定。经典能量密度由能量–动量张量的
+\begin_inset Formula $00$
+\end_inset
+
+分量给出，在 Section3.3.1中计算过，它是
+\begin_inset Formula 
+\[
+\mathcal{E}=\mathcal{T}_{00}=\sum_{n}\frac{\partial\mathcal{L}}{\partial\dot{\phi}_{n}}\dot{\phi}_{n}-\mathcal{L}
+\]
+
+\end_inset
+
+总能量是
+\begin_inset Formula $E=\int\dif^{3}\mathcal{E}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+自旋0
+\end_layout
+
+\begin_layout Standard
+自旋0，直接把这个自由度对应标量场。The Lagrangian is,
+\begin_inset Formula 
+\[
+\mathcal{L}(x)=\frac{1}{2}\partial_{\mu}\phi(x)\partial^{\mu}\phi(x)-\frac{1}{2}m^{2}\phi(x)^{2}
+\]
+
+\end_inset
+
+它是洛伦兹不变的。运动方程是
+\begin_inset Formula 
+\[
+\left(\square+m^{2}\right)\phi=0
+\]
+
+\end_inset
+
+它的解是
+\begin_inset Formula $\phi=e^{\pm ipx},p^{2}=m^{2}$
+\end_inset
+
+。拉氏量可以差一个overall因子，给出了归一化约定。
+\end_layout
+
+\begin_layout Standard
+这个拉氏量的能量密度为
+\begin_inset Formula 
+\[
+\mathcal{E}=\frac{\partial\mathcal{L}}{\partial\dot{\phi}_{n}}\dot{\phi}_{n}-\mathcal{L}=\frac{1}{2}\left[\left(\partial_{t}\phi\right)^{2}+\left(\vec{\nabla}\phi\right)^{2}+m^{2}\phi^{2}\right]
+\]
+
+\end_inset
+
+它是正定的，bounded form below by 
+\begin_inset Formula $0$
+\end_inset
+
+。所以标量Lagrangian 中的符号跟能量正定是一致的。
+\end_layout
+
+\begin_layout Subsection
+带质量自旋1
+\end_layout
+
+\begin_layout Standard
+对于自旋
+\begin_inset Formula $1$
+\end_inset
+
+的粒子，如果
+\begin_inset Formula $m>0$
+\end_inset
+
+，将会有三个自由度。这是数学的结果，从物理上我们可以看到它如何实际发生。
+\end_layout
+
+\begin_layout Standard
+我们至少需要一个矢量场
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+才能塞下三个自由度。对于洛伦兹群，四维表示可约：
+\begin_inset Formula $4=3\oplus1$
+\end_inset
+
+。我们将看到，通过移除一个spin–
+\begin_inset Formula $0$
+\end_inset
+
+分量，可以得到正定的能量密度。
+\end_layout
+
+\begin_layout Standard
+我们来猜测带质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+场的拉氏量为
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{2}\partial_{\nu}A_{\mu}\partial_{\nu}A_{\mu}+\frac{1}{2}m^{2}A_{\mu}^{2}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $A_{\mu}^{2}=A_{\mu}A^{\mu}$
+\end_inset
+
+。那么运动方程是
+\begin_inset Formula 
+\[
+\left(\square+m^{2}\right)A_{\mu}=0
+\]
+
+\end_inset
+
+它有四个propagating mode。所以，其实它是4个带质量标量场
+\begin_inset Formula $A_{0},A_{1},A_{2},A_{3}$
+\end_inset
+
+，写在一起罢了。我们得到
+\begin_inset Formula $4=1\oplus1\oplus1\oplus1$
+\end_inset
+
+，尴尬。能量密度是
+\begin_inset Formula 
+\begin{align*}
+\mathcal{E} & =\frac{\partial\mathcal{L}}{\partial\left(\partial_{t}A_{\mu}\right)}\partial_{t}A_{\mu}-\mathcal{L}\\
+ & =-\frac{1}{2}\left[\left(\partial_{t}A_{0}\right)^{2}+\left(\vec{\nabla}A_{0}\right)^{2}+m^{2}A_{0}^{2}\right]+\frac{1}{2}\left[\left(\partial_{t}\vec{A}\right)^{2}+\left(\nabla_{i}A_{j}\right)^{2}+m^{2}\vec{A}^{2}\right]
+\end{align*}
+
+\end_inset
+
+不管怎么加整体因子，都不是正定的，所以这个拉氏量无法得到物理的理论。
+\end_layout
+
+\begin_layout Standard
+顺便一体，为啥我们想得到一个矢量场
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+，却得到四个标量场？（这han说好的不一样）。一般来说，我们不知道如何给一个理论强加（impose）对称性。我们只是起一条拉氏量，然后让理论自由奔跑。如果有对称
+性，并且拉氏量能够preserve 它们，那么最后对称性会出现在full相互作用理论的矩阵元里。比如，麦克斯韦理论和洛伦兹对称性，你用
+\begin_inset Formula $\vec{E}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{B}$
+\end_inset
+
+，洛伦兹对称性仍然存在，但是obscure，但是仍然发挥作用。事实上，一般我们都是从物理结果中观察对称性，然后回头在更深的层次看它为啥是这样。比如麦克斯韦处理电
+磁场，爱因斯坦处理狭义和广义相对论，Fermi,Feynman,Glashow,Weinberg and Salam 处理弱相互作用的
+\begin_inset Formula $V-A$
+\end_inset
+
+理论，Gell-Mann 处理夸克模型，和许多其他粒子。
+\end_layout
+
+\begin_layout Standard
+回到自旋–
+\begin_inset Formula $1$
+\end_inset
+
+的粒子，拉氏量可能还有一项是
+\begin_inset Formula $A_{\mu}\partial^{\mu}\partial_{\nu}A^{\nu}$
+\end_inset
+
+。所以一般形式为(up to an overall 
+\begin_inset Formula $\int\dif^{4}x\partial_{\mu}L^{\mu}$
+\end_inset
+
+，which can be neglected.)
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{a}{2}A_{\mu}\square A_{\mu}+\frac{b}{2}A_{\mu}\partial^{\mu}\partial_{\nu}A^{\nu}+\frac{1}{2}m^{2}A_{\mu}^{2}
+\]
+
+\end_inset
+
+只要
+\begin_inset Formula $b$
+\end_inset
+
+不为零，
+\begin_inset Formula $A_{\mu}\partial^{\mu}$
+\end_inset
+
+迫使
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+是一个矢量，因为否则就不是洛伦兹不变的了。所以这回咱们不用担心得到一个
+\begin_inset Formula $4=1\oplus1\oplus1\oplus1$
+\end_inset
+
+了。有机会剃掉一个spin–
+\begin_inset Formula $0$
+\end_inset
+
+的分量。
+\end_layout
+
+\begin_layout Standard
+运动方程是
+\begin_inset Formula 
+\[
+a\square A_{\mu}+b\partial_{\mu}\partial_{\nu}A_{\nu}+m^{2}A_{\mu}=0
+\]
+
+\end_inset
+
+对这个方程取
+\begin_inset Formula $\partial_{\mu}$
+\end_inset
+
+得到
+\begin_inset Formula 
+\[
+\left[(a+b)\square+m^{2}\right](\partial_{\mu}A^{\mu})=0
+\]
+
+\end_inset
+
+如果
+\begin_inset Formula $a=-b$
+\end_inset
+
+，并且
+\begin_inset Formula $m\neq0$
+\end_inset
+
+，就化简到
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+，可以用来移除一个自由度。这个方程不是凭空得到的，它来自于我们加入了
+\begin_inset Formula $\frac{b}{2}A_{\mu}\partial^{\mu}\partial_{\nu}A^{\nu}$
+\end_inset
+
+强迫
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+具有了矢量性质。取
+\begin_inset Formula $a=-b=1$
+\end_inset
+
+，我们得到
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L} & =\frac{1}{2}A_{\mu}\square A_{\mu}+\frac{-1}{2}A_{\mu}\partial^{\mu}\partial_{\nu}A^{\nu}+\frac{1}{2}m^{2}A_{\mu}^{2}\\
+ & =-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\frac{1}{2}m^{2}A_{\mu}^{2}
+\end{align*}
+
+\end_inset
+
+其中麦克斯韦张量为
+\begin_inset Formula $F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}$
+\end_inset
+
+。有时把它称作the Proa Lagrangian。注意我们没有谈论任何关于规范不变性或者电磁场的事情，我们只是想方设法地要去掉一个spin-
+\begin_inset Formula $0$
+\end_inset
+
+的场，只留下自旋–
+\begin_inset Formula $1$
+\end_inset
+
+的场。现在运动方程是
+\begin_inset Formula 
+\[
+\left(\square+m^{2}\right)A_{\mu}=0\quad\partial_{\mu}A_{\mu}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proca Lagrangian 的能动量张量是
+\begin_inset Formula 
+\[
+\mathcal{T}_{\mu\nu}=\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}A_{\alpha}\right)}\partial_{\nu}A_{\alpha}-g_{\mu\nu}\mathcal{L}=-F_{\mu\alpha}\partial_{\nu}A_{\alpha}+g_{\mu\nu}\left(\frac{1}{4}F_{\alpha\beta}^{2}-\frac{1}{2}m^{2}A_{\alpha}^{2}\right)
+\]
+
+\end_inset
+
+利用
+\begin_inset Formula $-\frac{1}{4}F_{\mu\nu}^{2}=\frac{1}{2}(\vec{E}^{2}-\vec{B}^{2})$
+\end_inset
+
+，其中
+\begin_inset Formula $\vec{E}=\partial_{t}\vec{A}-\vec{\nabla}A_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{B}=\vec{\nabla}\times\vec{A}$
+\end_inset
+
+。得到
+\begin_inset Formula 
+\begin{align*}
+\mathcal{E} & =\frac{1}{2}\left(\vec{E}^{2}+\vec{B}^{2}\right)+\frac{1}{2}m^{2}(A_{0}^{2}+\vec{A}^{2})\\
+ & +A_{0}\partial_{0}\left(\partial_{\mu}A_{\mu}\right)-A_{0}(\square+m^{2})A_{0}+\partial_{i}(A_{0}F_{0i})
+\end{align*}
+
+\end_inset
+
+第二行中，前两项可以由于运动方程，所以等于零。第三项是个空间全导数项，所以它对能量密度有贡献，但是对总能量没有贡献。所以 Proca Lagrangian
+ 的总能量是正定的，牛啤。
+\end_layout
+
+\begin_layout Standard
+现在让我们尝试写出运动方程的解。我们把场做一个傅立叶分解
+\begin_inset Formula 
+\begin{equation}
+A_{\mu}(x)=\sum_{i}\int\frac{\dif^{3}\vec{p}}{(2\pi)^{3}}\tilde{a}_{i}(\vec{p})\epsilon_{\mu}^{i}(p)e^{ipx},\quad p_{0}=\omega_{p}=\sqrt{\vec{p}^{2}+m^{2}}\label{eq:8.28}
+\end{equation}
+
+\end_inset
+
+对于一些基矢
+\begin_inset Formula $\epsilon_{\mu}^{i}(p)$
+\end_inset
+
+。我们想让这些基矢满足运动方程
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+。相当于要求
+\begin_inset Formula $p_{\mu}\epsilon^{i,\mu}=0$
+\end_inset
+
+。对于给定的
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+ with 
+\begin_inset Formula $p^{2}=m^{2}$
+\end_inset
+
+，由三个线性独立的解，当然依赖于
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+。我们把他们叫做极化矢量(polarization vectors)。所以在EQ.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:8.28"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中我们只需要对
+\begin_inset Formula $i=1,2,3$
+\end_inset
+
+求和。通常我们约定归一化为
+\begin_inset Formula $\epsilon_{\mu}^{*}\epsilon^{\mu}=-1$
+\end_inset
+
+（对应空间指标）。
+\begin_inset Newline newline
+\end_inset
+
+举个例子，假设
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+沿着
+\begin_inset Formula $z$
+\end_inset
+
+轴，
+\begin_inset Formula 
+\[
+p^{\mu}=(E,0,0,p),\quad E^{2}-p^{2}=m^{2}
+\]
+
+\end_inset
+
+我们可以取
+\begin_inset Formula 
+\[
+\epsilon^{\mu,1}=(0,1,0,0),\epsilon^{\mu,2}=(0,0,1,0)
+\]
+
+\end_inset
+
+它们满足
+\begin_inset Formula $p_{\mu}\epsilon^{\mu}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon_{\mu}\epsilon^{\mu}=-1$
+\end_inset
+
+。这些是横向极化(transvers polarizations)。另一个是
+\begin_inset Formula 
+\[
+\epsilon_{\mu}^{L}=\left(\frac{p}{m},0,0,\frac{E}{m}\right)
+\]
+
+\end_inset
+
+这是纵向极化（longitudinal polarization）容易检查
+\begin_inset Formula $\epsilon_{\mu}^{L}\epsilon^{L,\mu}=-1$
+\end_inset
+
+ and 
+\begin_inset Formula $p^{\mu}\epsilon_{\mu}^{L}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+这些极化矢量
+\begin_inset Formula $\epsilon_{\mu}^{i}(p)$
+\end_inset
+
+定义了一个不可约表示。它的基矢依赖于
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+，
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+被积分了，所以有无限个
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+的可能取值。所以这个表示是无限维的。带上傅立叶分量
+\begin_inset Formula $\tilde{a}_{i}(p)$
+\end_inset
+
+对这些基矢积分产生的矢量空间就是
+\series bold
+场空间
+\series default
+。它满足运动方程，是庞加莱群的一个无限维幺正表示。（运动方程只不过是把那些不满足物理要求的分量投影掉的一种操作）。
+\end_layout
+
+\begin_layout Standard
+带质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+场在现实中对应
+\begin_inset Formula $\rho$
+\end_inset
+
+介子，
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+ 玻色子。在高能下，对于
+\begin_inset Formula $E\gg m$
+\end_inset
+
+，纵向极化便变成
+\begin_inset Formula 
+\[
+\epsilon_{\mu}^{L}\sim\frac{E}{m}\left(1,0,0,1\right)
+\]
+
+\end_inset
+
+如果我们用纵向模式散射，我们的散射截面在高能下的行为会像是
+\begin_inset Formula $\dif\sigma\sim g^{2}(\epsilon^{L})^{2}\sim g^{2}\frac{E^{2}}{m^{2}}$
+\end_inset
+
+，其中
+\begin_inset Formula $g$
+\end_inset
+
+是耦合常数。所以就算
+\begin_inset Formula $g$
+\end_inset
+
+再小，如果能量足够高，散射截面一定会爆炸。然而，截面不可能任意大。毕竟，它们表示概率，bounded by 
+\begin_inset Formula $1$
+\end_inset
+
+。所以，在某个能标附近，我们的微扰计算失效了。我们看到，这发生在
+\begin_inset Formula $E\sim\frac{m}{g}$
+\end_inset
+
+。如果
+\begin_inset Formula $m\sim100\GeV$
+\end_inset
+
+ and 
+\begin_inset Formula $g\sim0.1$
+\end_inset
+
+，对应
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+玻色子的质量和耦合强度，那么
+\begin_inset Formula $E\sim1\TeV$
+\end_inset
+
+。所以
+\begin_inset Formula $\TeV$
+\end_inset
+
+量级是Tevatron and Large Hadron Colliders 的目标。关于perturbative unitary violation
+ 在Section 24.15 and 2.9.2 有更详细的讨论。
+\end_layout
+
+\begin_layout Standard
+另外，这个例子中，我们推导结论时，没有加上任何其他限制。自旋–
+\begin_inset Formula $1$
+\end_inset
+
+粒子的出现，完全由于拉氏量本身的性质。事实上，我们完全可以不用洛伦兹不变性和自旋之类的概念。如果我们计算物理量，所有跟自旋有关的性质都会fallen
+ out。这就是对称性的beauty：即使你不知道，它也在工作。但是知道对称性可以让我们选择一个nice坐标系，虽然这不是必须的。
+\end_layout
+
+\begin_layout Subsection
+无质量自旋1
+\end_layout
+
+\begin_layout Standard
+提升无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+理论的最简单方式是令质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+理论中的质量
+\begin_inset Formula $m\to0$
+\end_inset
+
+。Then the Lagrangian becomes
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2}
+\]
+
+\end_inset
+
+就是电动力学的Lagrangian。然而，这个无质量极限没有我们希望的那么顺滑。首先，限制方程
+\begin_inset Formula $m^{2}(\partial_{\mu}A^{\mu})=0$
+\end_inset
+
+，因为
+\begin_inset Formula $m=0$
+\end_inset
+
+的时候自动成立，不能得到
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+。因此，现在自旋–
+\begin_inset Formula $0$
+\end_inset
+
+的分量又杀回来了。另一个问题是当
+\begin_inset Formula $m\to0$
+\end_inset
+
+，纵向极化爆炸：
+\begin_inset Formula 
+\[
+\epsilon_{\mu}^{L}=(\frac{p}{m},0,0,\frac{E}{m})\to\infty
+\]
+
+\end_inset
+
+部分地，这是因为归一化。在无质量极限下，
+\begin_inset Formula $p\to E$
+\end_inset
+
+ and 动量变成lightlike，也就是，
+\begin_inset Formula 
+\[
+p_{\mu}\to(E,0,0,E)
+\]
+
+\end_inset
+
+或者说
+\begin_inset Formula $\epsilon_{\mu}^{L}\to p_{\mu}$
+\end_inset
+
+up to normalization。最终，由于表示理论，我们希望对于一个无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+粒子，只有两个极化矢量，所以自旋–
+\begin_inset Formula $0$
+\end_inset
+
+分量和纵向极化应该怎么着和物理系统退耦（decouple）。
+\end_layout
+
+\begin_layout Standard
+instead 分析无质量模式发生了什么，让我们直接假设拉氏量，然后分析自由度。我们开始以
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2},\quad F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}
+\]
+
+\end_inset
+
+这个拉氏量有一个带质量拉氏量所没有的重要性质： 
+\series bold
+规范不变性
+\series default
+。它在以下变换下不变
+\begin_inset Formula 
+\begin{equation}
+A_{\mu}(x)\to A_{\mu}(x)+\partial_{\mu}\alpha(x)\label{eq:8.37}
+\end{equation}
+
+\end_inset
+
+对于任意函数
+\begin_inset Formula $\alpha(x)$
+\end_inset
+
+。因此两个
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+场如果差一个标量场的导数，它们在物理上是差不厘的。
+\end_layout
+
+\begin_layout Standard
+从拉氏量里得到运动方程为
+\begin_inset Formula 
+\[
+\square A_{\mu}-\partial_{\mu}(\partial_{\nu}A_{\nu})=0
+\]
+
+\end_inset
+
+它其实是
+\begin_inset Formula $4$
+\end_inset
+
+个方程，为了方便我们把
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $i$
+\end_inset
+
+ 分量分开写：
+\begin_inset Formula 
+\begin{align*}
+-\partial_{j}^{2}A_{0}+\partial_{t}\partial_{j}A_{j} & =0\\
+\square A_{i}-\partial_{i}(\partial_{t}A_{0}-\partial_{j}A_{j}) & =0
+\end{align*}
+
+\end_inset
+
+为了数清楚物理的自由度，让我们利用eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:8.37"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 来对
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+施加一些限制，一个被称为规范固定(gauge-fixing)的手续。
+\begin_inset Formula $A_{\mu}(x)\to A_{\mu}(x)+\partial_{\mu}\alpha(x)$
+\end_inset
+
+，则
+\begin_inset Formula 
+\[
+\partial_{j}A_{j}\to\partial_{j}A_{j}+\partial_{i}^{2}\alpha
+\]
+
+\end_inset
+
+除非
+\begin_inset Formula $\partial_{j}A_{j}$
+\end_inset
+
+原地爆炸（is singular），我们可以选择
+\begin_inset Formula $\alpha$
+\end_inset
+
+ so that 
+\begin_inset Formula $\partial_{j}A^{j}=0$
+\end_inset
+
+，即
+\begin_inset Formula $\partial_{i}^{2}\alpha=-\partial_{j}A^{j}$
+\end_inset
+
+，这被称为库仑规范（Coulomb gauge）。然后
+\begin_inset Formula $A_{0}$
+\end_inset
+
+分量的运动方程变成
+\begin_inset Formula 
+\[
+\partial_{j}^{2}A_{0}=0
+\]
+
+\end_inset
+
+没有了时间导数。另外，我们还可以利用对称性剩下的渣渣，令
+\begin_inset Formula $A_{0}=0$
+\end_inset
+
+。因为如果
+\begin_inset Formula $\partial_{i}^{2}\alpha^{\prime}=0$
+\end_inset
+
+，加上这个
+\begin_inset Formula $\alpha^{\prime}$
+\end_inset
+
+并不破坏库仑规范。我们可以再次做变换，令
+\begin_inset Formula $A_{0}\to A_{0}+\partial_{t}\alpha=0$
+\end_inset
+
+，i.e.
+\begin_inset Formula $\partial_{t}\alpha=-A_{0}$
+\end_inset
+
+，
+\begin_inset Formula $\partial_{t}\partial_{i}^{2}\alpha=\partial_{i}^{2}\partial_{t}\alpha=-\partial_{i}^{2}A_{0}=-0$
+\end_inset
+
+，这并不矛盾。所以我们可以从
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+中完全消除一个自由度，现在只剩下
+\begin_inset Formula $3$
+\end_inset
+
+个。冲冲冲。
+\end_layout
+
+\begin_layout Standard
+在库仑规范中，剩下的方程简化成
+\begin_inset Formula 
+\[
+\square A_{i}=0
+\]
+
+\end_inset
+
+看起来像是传播了
+\begin_inset Formula $3$
+\end_inset
+
+个modes。但是别忘了
+\begin_inset Formula $\partial_{i}A^{j}=0$
+\end_inset
+
+。在傅立叶空间
+\begin_inset Formula 
+\[
+A_{\mu}(x)=\int\frac{\dif^{4}p}{(2\pi)^{4}}\epsilon_{\mu}(p)e^{ipx}
+\]
+
+\end_inset
+
+方程变成
+\begin_inset Formula $p^{2}=0$
+\end_inset
+
+（运动方程），
+\begin_inset Formula $p_{i}\epsilon^{i}=0$
+\end_inset
+
+（规范选择）and 
+\begin_inset Formula $\epsilon_{0}=0$
+\end_inset
+
+（规范选择）。选择一个坐标系，我们可以把动量写成
+\begin_inset Formula $p_{\mu}=(E,0,0,E)$
+\end_inset
+
+。这些方程有两个解
+\begin_inset Formula 
+\[
+\epsilon_{\mu}^{1}=(0,1,0,0)\qquad\epsilon_{\mu}^{2}=(0,0,1,0)
+\]
+
+\end_inset
+
+代表线偏振的光。所以我们现在构建了一个只有两个传播自由度的理论，是无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+粒子的恰当幺正表示。
+\end_layout
+
+\begin_layout Standard
+另一个经常选择光的横向极化是
+\begin_inset Formula 
+\[
+\epsilon_{\mu}^{R}=\frac{1}{\sqrt{2}}(0,1,i,0),\qquad\epsilon_{\mu}^{L}=\frac{1}{\sqrt{2}}(0,1,-i,0)
+\]
+
+\end_inset
+
+这些极化矢量对应圆偏振的光，被称为螺旋度本征态。
+\end_layout
+
+\begin_layout Standard
+我们也可以使用洛伦兹规范（
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+），其中我们发现三矢量满足
+\begin_inset Formula $p_{\mu}\epsilon^{\mu}=0$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\epsilon_{\mu}^{1}=(0,1,0,0)\quad\epsilon_{\mu}^{2}=(0,0,1,0)\quad\epsilon_{\mu}^{f}=(1,0,0,1)
+\]
+
+\end_inset
+
+前两个是物理的横向极化。第三个解
+\begin_inset Formula $\epsilon_{\mu}^{f}$
+\end_inset
+
+被称为前向极化(forward polarization)。它不对应物理态。一种方法是看到它不能归一化
+\begin_inset Formula $\epsilon_{\mu}^{f*}\epsilon^{f,\mu}=0$
+\end_inset
+
+。零一种方法是注意到
+\begin_inset Formula $\epsilon\propto p_{\mu}$
+\end_inset
+
+，对应于
+\begin_inset Formula $A_{\mu}=\partial_{\mu}\phi$
+\end_inset
+
+ 对于某个
+\begin_inset Formula $\phi$
+\end_inset
+
+。这个场是规范等价于
+\begin_inset Formula $A_{\mu}=0$
+\end_inset
+
+的（在
+\begin_inset Formula $A_{\mu}(x)\to A_{\mu}(x)+\partial_{\mu}\alpha(x)$
+\end_inset
+
+中选取
+\begin_inset Formula $\alpha=-\phi$
+\end_inset
+
+，并要求
+\begin_inset Formula $\partial_{\mu}\partial^{\mu}\phi=0$
+\end_inset
+
+，由于洛伦兹规范）。所以前向极化对应的场是纯粹规范的。类似地，如果我们没有施加第二个库仑条件
+\begin_inset Formula $\epsilon_{0}=0$
+\end_inset
+
+，我们会找到另一个极化矢量满足
+\begin_inset Formula $p_{i}\epsilon^{i}=0$
+\end_inset
+
+，它是
+\begin_inset Formula $\epsilon^{0}=(1,0,0,0)$
+\end_inset
+
+。这个矢量是timelike polarization，它不能被归一化成
+\begin_inset Formula $\epsilon_{\mu}^{i*}\epsilon^{j,\mu}=-\delta^{ij}$
+\end_inset
+
+（由于度规张量的原因），由于
+\begin_inset Formula $\epsilon^{0}$
+\end_inset
+
+是类时的，所以它是非物理的。（因为如果基矢归一化不一样，那能量就要变成不定的了）。
+\end_layout
+
+\begin_layout Subsection
+总结
+\end_layout
+
+\begin_layout Standard
+对于带质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+粒子，我们选择动能项为
+\begin_inset Formula $-\frac{1}{4}F_{\mu\nu}^{2}+\frac{1}{2}m^{2}A_{\mu}^{2}$
+\end_inset
+
+的形式，为了迫使
+\begin_inset Formula $\partial_{\mu}A^{\mu}=0$
+\end_inset
+
+，从
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+中消去了一个自由度 。能量密度是正定的，拉氏量没有规范不变性。
+\end_layout
+
+\begin_layout Standard
+对于无质量的情况，只有
+\begin_inset Formula $F_{\mu\nu}^{2}$
+\end_inset
+
+项，给我们带来规范不变性。允许我们额外削减一个自由度，剩下两个，是无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+庞加莱群表示的正确自由度数目。
+\end_layout
+
+\begin_layout Standard
+对于两种情况，我们都选取了极化矢量基矢
+\begin_inset Formula $\epsilon_{\mu}^{i}(p)$
+\end_inset
+
+，
+\begin_inset Formula $i=1,2,3$
+\end_inset
+
+ for 
+\begin_inset Formula $m>0$
+\end_inset
+
+ and 
+\begin_inset Formula $i=1,2$
+\end_inset
+
+ for 
+\begin_inset Formula $m=0$
+\end_inset
+
+。这些极化矢量依赖于
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+。也就是说，在洛伦兹变换下，
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+会变，这些极化矢量也会同步变化。这样表示是无限维的。full 庞加莱群的表示，是由保持
+\begin_inset Formula $P^{\mu}$
+\end_inset
+
+不变的子群的表示诱导(
+\series bold
+inducde
+\series default
+)出的，这些子群称为小群（
+\series bold
+little group
+\series default
+）。小群具有有限维表示。对于带质量情形，保持
+\begin_inset Formula $p^{\mu}=(m,0,0,0)$
+\end_inset
+
+（或者其他任意质量为
+\begin_inset Formula $m$
+\end_inset
+
+的四矢量，可以通过boost变成这个样子）不变的群正是三维旋转群。SO(3)具有有限维不可约表示，自旋为
+\begin_inset Formula $J$
+\end_inset
+
+，自由度为
+\begin_inset Formula $2J+1$
+\end_inset
+
+。对于无质量情形，保持无质量
+\begin_inset Formula $4$
+\end_inset
+
+–矢量比如
+\begin_inset Formula $(E,0,0,E)$
+\end_inset
+
+不变的群是ISO(2)（欧几里得空间的isometry 群）对于每一个自旋
+\begin_inset Formula $J$
+\end_inset
+
+，有两个自由度。研究子群的表示是证明Wigner分类定理的最好方法。我们不用被数学困扰，看一些具体的例子也能理解小群和
+\series bold
+诱导表示。
+\end_layout
+
+\begin_layout Section
+协变导数
+\end_layout
+
+\begin_layout Standard
+为了不影响我们数自由度，拉氏量中的相互作用项应该尊重规范不变性。
+\end_layout
+
+\begin_layout Standard
+只有自由度
+\begin_inset Formula $>2$
+\end_inset
+
+的场跟光子场耦合，才可能写出规范不变的相互作用项。因为要靠物质场的规范变换来抵消掉规范场的变化
+\begin_inset Formula $\partial_{\mu}\alpha$
+\end_inset
+
+。这也意味着，一定会有反粒子。
+\end_layout
+
+\begin_layout Standard
+我们定义协变导数，
+\begin_inset Formula 
+\begin{align*}
+D_{\mu}\phi & \equiv(\partial_{\mu}+ieA_{\mu})\phi\to e^{-i\alpha(x)}D_{\mu}\phi\\
+A_{\mu} & \to A_{\mu}+\frac{1}{e}\partial_{\mu}\alpha
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2}+(D_{\mu}\phi)^{*}(D_{\mu}\phi)-m^{2}\phi^{*}\phi
+\]
+
+\end_inset
+
+是规范不变的，它就是 scalar QED 的拉氏量。
+\end_layout
+
+\begin_layout Standard
+一般的，不同的场有不同的电荷
+\begin_inset Formula 
+\begin{align*}
+\phi^{n} & \to e^{Q_{n}i\alpha(x)}\phi_{n}\\
+D_{\mu}\phi & =(\partial_{\mu}-ieQ_{n}A_{\mu})\phi_{n}
+\end{align*}
+
+\end_inset
+
+所以上面的
+\begin_inset Formula $\phi$
+\end_inset
+
+相当于电荷为
+\begin_inset Formula $-1$
+\end_inset
+
+的场。
+\end_layout
+
+\begin_layout Standard
+也可以从几何的角度理解协变导数，如同在广义相对论中。因为
+\begin_inset Formula $\phi$
+\end_inset
+
+的相位是不可观测量，所以我们可以在不同的区域选取不同的相位without consequence。那么
+\begin_inset Formula $\phi(x)-\phi(y)$
+\end_inset
+
+ even 
+\begin_inset Formula $\abs{\phi(x)-\phi(y)}$
+\end_inset
+
+不再是良好定义的。规范场记录了相位约定的变化from point to point，规范变换相当于约定的改变。把这些语言翻译成数学就是 Wilson
+ lines，在 non-Abelian 规范场理论中很有用。
+\end_layout
+
+\begin_layout Subsection
+规范不变性和守恒流
+\end_layout
+
+\begin_layout Standard
+规范不变性可以分成全局的(global,
+\begin_inset Formula $\alpha=\text{const.}$
+\end_inset
+
+是时空坐标的常数) and 局域的(local 
+\begin_inset Formula $\alpha=\alpha(x)$
+\end_inset
+
+，是时空坐标的函数)。局域的当然暗示全局的。有全局的对称性就有守恒流，比如
+\begin_inset Formula $\mathcal{L}=-\phi^{*}\square\phi$
+\end_inset
+
+，对于
+\begin_inset Formula $\phi\to e^{-i\alpha}$
+\end_inset
+
+是不变的，
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a constant。
+\end_layout
+
+\begin_layout Standard
+让我们康康，如果包含规范场，诺特流会怎么变化。展开标量QED Lagrangian
+\begin_inset Formula $\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2}+(D_{\mu}\phi)^{*}(D_{\mu}\phi)-m^{2}\phi^{*}\phi$
+\end_inset
+
+，给出
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2}+\partial_{\mu}\phi^{*}\partial^{\mu}\phi+ieA_{\mu}(\phi\partial^{\mu}\phi^{*}-\phi^{*}\partial^{\mu}\phi)+e^{2}A_{\mu}^{2}\phi^{*}\phi-m^{2}\phi^{*}\phi
+\]
+
+\end_inset
+
+运动方程是
+\begin_inset Formula 
+\begin{align*}
+(\square+m^{2})\phi & =-2ieA_{\mu}\partial^{\mu}\phi+e^{2}A_{\mu}^{2}\phi\\
+(\square+m^{2})\phi^{*} & =2ieA_{\mu}\partial^{\mu}\phi^{*}+e^{2}A_{\mu}^{2}\phi^{*}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中`
+\begin_inset Formula $\text{,}$
+\end_inset
+
+'表示偏导的作用范围结束，`
+\begin_inset Formula $,$
+\end_inset
+
+'两边的结果进行相乘
+\end_layout
+
+\begin_layout Standard
+与这个全局对称性（
+\begin_inset Formula $\delta A_{\mu}=0$
+\end_inset
+
+）联系的诺特流为,
+\begin_inset Formula 
+\[
+J_{\mu}=\sum_{n}\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi_{n})}\frac{\delta\phi_{n}}{\delta\alpha}={\color{red}-i(\phi\partial_{\mu}\phi^{*}-\phi^{*}\partial_{\mu}\phi)}-2eA_{\mu}\phi^{*}\phi
+\]
+
+\end_inset
+
+右边第一项就是自由理论(
+\begin_inset Formula $e=0$
+\end_inset
+
+)中的诺特流。通过使用运动方程化简，全current也守恒，
+\begin_inset Formula $\partial_{\mu}J^{\mu}=0$
+\end_inset
+
+。因为full interaction理论仍然具有global对称性（
+\begin_inset Formula $\delta A_{\mu}=0$
+\end_inset
+
+），诺特流的推导仍然成立。
+\end_layout
+
+\begin_layout Standard
+顺便一提，在标量QED的Lagrangian中，线性于
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+的正好是
+\begin_inset Formula $-eA_{\mu}J^{\mu}$
+\end_inset
+
+。有一个快速的方法来查看为啥会是这样。
+\end_layout
+
+\begin_layout Subsection
+诺特定理的直观理解
+\end_layout
+
+\begin_layout Standard
+自由拉氏量为
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2}+\partial_{\mu}\phi^{*}\partial^{\mu}\phi
+\]
+
+\end_inset
+
+显然在
+\begin_inset Formula $\phi\to e^{-i\alpha}$
+\end_inset
+
+下是不变的。
+\end_layout
+
+\begin_layout Standard
+对于无穷小
+\begin_inset Formula $\alpha$
+\end_inset
+
+，变换为 
+\begin_inset Formula 
+\begin{align*}
+\frac{\delta\phi}{\delta\alpha}=-i\phi & \qquad\frac{\delta\phi^{*}}{\delta\alpha}=i\phi^{*}\\
+\phi\to1-\alpha i\phi & \qquad\phi^{*}\to1+\alpha i\phi^{*}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\delta\mathcal{L} & =\partial_{\mu}(i\alpha\phi^{*})\partial^{\mu}\phi+\partial_{\mu}\phi^{*}\partial^{\mu}(-\alpha i\phi)+\partial_{\mu}(i\alpha\phi^{*})\partial^{\mu}(-i\alpha\phi)\\
+ & =i\alpha\left(\partial_{\mu}\phi^{*},\partial^{\mu}\phi+\partial_{\mu}\phi^{*},-\partial^{\mu}\phi\right)+\partial_{\mu}\alpha\left(-i\phi\partial^{\mu}\phi^{*}+\partial_{\mu}\phi^{*},i\phi\right)\\
+ & +\alpha^{2}\partial_{\mu}\phi^{*},\partial^{\mu}\phi+\alpha\partial_{\mu}\alpha,\partial^{\mu}\phi^{*}\phi+\partial_{\mu}\alpha,\partial^{\mu}\alpha,\phi^{*}\phi
+\end{align*}
+
+\end_inset
+
+经过一些IBP，上时可以化简到
+\begin_inset Formula 
+\begin{align*}
+\delta\mathcal{L} & =\alpha\left(i\partial_{\mu}\phi^{*},\partial^{\mu}\phi-i\partial_{\mu}\phi^{*},\partial^{\mu}\phi\right)+\partial_{\mu}\alpha\left(i\partial_{\mu}\phi^{*},\phi-i\phi\partial^{\mu}\phi^{*}\right)\\
+ & +\alpha\partial_{\mu}\alpha,\left(\phi\partial^{\mu}\phi^{*}-\partial_{\mu}\phi^{*},\phi\right)+\partial_{\mu}\alpha,\partial^{\mu}\alpha,\phi^{*}\phi
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+可以看到，对于自由拉格朗日，假设
+\begin_inset Formula $\alpha$
+\end_inset
+
+不是常数，按照微分法则进行计算，通过IBP，我们可以把
+\begin_inset Formula $\mathcal{L}_{0}$
+\end_inset
+
+的变分组织成正比于
+\begin_inset Formula $\alpha$
+\end_inset
+
+,
+\begin_inset Formula $\partial_{\mu}\alpha$
+\end_inset
+
+幂次的形式（
+\begin_inset Formula $\alpha$
+\end_inset
+
+,
+\begin_inset Formula $\partial_{\mu}\alpha$
+\end_inset
+
+可以通过IBP相互转换，所以这种组织方式不是固定的）。由于
+\begin_inset Formula $\mathcal{L}_{0}$
+\end_inset
+
+在global 规范变换下（当
+\begin_inset Formula $\alpha$
+\end_inset
+
+为常数时）显然不变（不依赖于运动方程），所以变分中正比于
+\begin_inset Formula $\alpha$
+\end_inset
+
+的项一定为零（同样不依赖于运动方程，且不依赖于参数化）。
+\begin_inset Formula $\mathcal{L}_{0}$
+\end_inset
+
+的变分只能依赖于 
+\begin_inset Formula $\partial\alpha,\alpha\partial\alpha,\alpha^{2},\cdots$
+\end_inset
+
+ 等项。换句话说，
+\begin_inset Formula $\delta\mathcal{L}_{0}$
+\end_inset
+
+的渐近行为限制了它可能的形式。(另外，我们看到，对于可以线性化的
+\begin_inset Formula $\delta\phi$
+\end_inset
+
+，
+\begin_inset Formula $\partial_{\mu}\alpha$
+\end_inset
+
+总会伴随
+\begin_inset Formula $J^{\mu}$
+\end_inset
+
+的某一部分)。
+\end_layout
+
+\begin_layout Standard
+另一方面，如果想有
+\begin_inset Formula $\partial_{\mu}\alpha,\partial^{\mu}\alpha$
+\end_inset
+
+这样的项，拉氏量中必须有
+\begin_inset Formula $\partial_{\mu}X\partial^{\mu}Y$
+\end_inset
+
+这样的项，而spinor QED中没有这样的项。所以也不需要
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+(规范场)的二次方项(quadratic)用来抵消规范变换，full 理论中守恒流的形式也不会改变(守恒流中不会有偏导数)。
+\end_layout
+
+\begin_layout Standard
+按照幂次讨论
+\begin_inset Formula $\delta\mathcal{L}_{0}$
+\end_inset
+
+的行为
+\begin_inset Formula 
+\begin{equation}
+\delta\mathcal{L}_{0}=\left(\partial_{\mu}\alpha\right)J^{\mu}+\left(\partial_{\mu}\alpha\right)^{2}\phi^{*}\phi\label{eq:8.59}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $J_{\mu}=-i(\phi\partial_{\mu}\phi^{*}-\phi^{*}\partial_{\mu}\phi)$
+\end_inset
+
+。做一个分部积分，线性依赖于
+\begin_inset Formula $\alpha$
+\end_inset
+
+的项是
+\begin_inset Formula $\delta\mathcal{L}_{0}=-\alpha\partial_{\mu}J^{\mu}$
+\end_inset
+
+。上面我们提到了，不管怎么参数化，正比于
+\begin_inset Formula $\alpha$
+\end_inset
+
+的部分应该为零，所以有
+\begin_inset Formula $\partial_{\mu}J^{\mu}=0$
+\end_inset
+
+。
+\begin_inset Formula $J_{\mu}$
+\end_inset
+
+确实是诺特流，我们只不过相当于用不同的方法推导了一遍诺特定理。也就是不管怎么参数化，
+\begin_inset Formula $\alpha$
+\end_inset
+
+项的系数为零，
+\begin_inset Formula $\partial_{\mu}\alpha$
+\end_inset
+
+的系数守恒，如此才能在
+\begin_inset Formula $\mathcal{O}(\alpha)$
+\end_inset
+
+阶保证global不变。
+\end_layout
+
+\begin_layout Standard
+证明守恒流守恒一定会用到运动方程。看下面，我们把依赖于
+\begin_inset Formula $\partial_{\mu}\alpha$
+\end_inset
+
+的变分，转换成依赖于
+\begin_inset Formula $\alpha$
+\end_inset
+
+的变分的时候，一定用了运动方程，所以守恒流的成立一定依赖于运动方程。
+\begin_inset Formula 
+\begin{align*}
+\delta S & =\int\dif^{4}x\frac{\delta\mathcal{L}}{\delta\phi}\delta\phi+\frac{\delta\mathcal{L}}{\delta\left(\partial_{\mu}\phi\right)}\delta\left(\partial_{\mu}\phi\right)\\
+ & =\int\dif^{4}x\left(\frac{\delta\mathcal{L}}{\delta\alpha}-\partial_{\mu}\frac{\delta\mathcal{L}}{\delta\left(\partial_{\mu}\phi\right)}\right)\delta\phi+\partial_{\mu}\left(\frac{\delta\mathcal{L}}{\delta\left(\partial_{\mu}\phi\right)}\delta\phi\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+依然按照幂次讨论
+\begin_inset Formula $\delta\mathcal{L}_{0}$
+\end_inset
+
+的行为，如果不利用运动方程，我们也可以手动抵消这种改变，显然如果我们定义
+\begin_inset Formula 
+\[
+\mathcal{L}=\mathcal{L}_{0}-A_{\mu}J^{\mu}
+\]
+
+\end_inset
+
+在local规范变换下 
+\begin_inset Formula $\delta A^{\mu}=\partial_{\mu}\alpha$
+\end_inset
+
+，到
+\begin_inset Formula $\mathcal{O}(\alpha)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\delta\mathcal{L}=\delta\mathcal{L}_{0}-(\delta A_{\mu})J^{\mu}=(\partial^{\mu}\alpha)J_{\mu}-(\partial^{\mu}\alpha)J_{\mu}=0
+\]
+
+\end_inset
+
+也就是说我们手动搬砖，凑了一个规范不变的形式，至
+\begin_inset Formula $\mathcal{O}(\alpha)$
+\end_inset
+
+。因此，规范场和守恒流之间的耦合形式
+\begin_inset Formula $A_{\mu}J^{\mu}$
+\end_inset
+
+是generic and universal。至
+\begin_inset Formula $\mathcal{O}(\alpha)$
+\end_inset
+
+，这个
+\begin_inset Formula $\delta\mathcal{L}=0$
+\end_inset
+
+成立不依赖于运动方程，是对拉氏量做变分能直接得到的。如果你代入一个local规范变换，
+\begin_inset Formula $\delta\mathcal{L}$
+\end_inset
+
+自然就是
+\begin_inset Formula $0$
+\end_inset
+
+，不用依赖运动方程化简。所以在full理论下求诺特流的时候，要用global变换，毕竟local成立，global一定也成立。这时
+\begin_inset Formula $\delta A^{\mu}=\partial_{\mu}\alpha=0$
+\end_inset
+
+，相当于固定
+\begin_inset Formula $A^{\mu}$
+\end_inset
+
+不变，去计算
+\begin_inset Formula 
+\[
+J_{\mu}=\sum_{n}\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi_{n})}\frac{\delta\phi_{n}}{\delta\alpha}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果考虑到
+\begin_inset Formula $\mathcal{O}(\alpha^{2})$
+\end_inset
+
+阶，也就是二次方项，
+\begin_inset Formula 
+\[
+\delta^{2}\mathcal{L}=\delta^{2}\mathcal{L}_{0}-(\delta A_{\mu})(\delta J^{\mu})-A_{\mu}(\delta^{2}J^{\mu})
+\]
+
+\end_inset
+
+还需要加上其他的项，来手动抵消拉氏量的改变。例如，在scalar QED 拉氏量中，还有一项正比于
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+的二次方，用来抵消Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:8.59"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的
+\begin_inset Formula $\left(\partial_{\mu}\alpha\right)^{2}$
+\end_inset
+
+项。而在spinor QED中，我们会看到，只有线性项。一般我们不这样手动抵消，
+\series bold
+而是使用协变导数，这样可以照顾到任意高的阶
+\series default
+。
+\end_layout
+
+\begin_layout Subsection
+总结
+\end_layout
+
+\begin_layout Enumerate
+不管是free 还是full理论中，诺特流的成立，依赖于拉氏量的对称性和运动方程成立。诺特流只需要全局对称性，而不需要local对称性。
+\end_layout
+
+\begin_layout Enumerate
+在full相互作用理论中，local规范变换下，不依赖于运动方程就有
+\begin_inset Formula $\delta\mathcal{L}=0$
+\end_inset
+
+，这是在泛函结构上实现的。但是local意味着一定有global，一定有诺特流。一般来说，诺特流的形式会发生改变。比如scalar QED中，拉氏量为，
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2}+\partial_{\mu}\phi^{*}\partial^{\mu}\phi+ieA_{\mu}(\phi\partial^{\mu}\phi^{*}-\phi^{*}\partial^{\mu}\phi)+e^{2}A_{\mu}^{2}\phi^{*}\phi-m^{2}\phi^{*}\phi
+\]
+
+\end_inset
+
+守恒流为，
+\begin_inset Formula 
+\[
+J_{\mu}=\sum_{n}\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi_{n})}\frac{\delta\phi_{n}}{\delta\alpha}={\color{red}-i(\phi\partial_{\mu}\phi^{*}-\phi^{*}\partial_{\mu}\phi)}-2eA_{\mu}\phi^{*}\phi
+\]
+
+\end_inset
+
+多了一项
+\begin_inset Formula $-2eA_{\mu}\phi^{*}\phi$
+\end_inset
+
+，这一项是
+\begin_inset Formula $A_{\mu}J^{\mu}=ieA_{\mu}(\phi\partial^{\mu}\phi^{*}-\phi^{*}\partial^{\mu}\phi)$
+\end_inset
+
+耦合项带来的。若想要拉氏量的变分中出现
+\begin_inset Formula $\partial_{\mu}\alpha,\partial^{\mu}\alpha$
+\end_inset
+
+这样的项，拉氏量中必须有
+\begin_inset Formula $\partial_{\mu}X\partial^{\mu}Y$
+\end_inset
+
+这样的项，而spinor QED中没有这样的项。所以也不需要
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+(规范场)的二次方项(quadratic)用来抵消规范变换，full 理论中守恒流的形式也不会改变(spinor QED自由理论的守恒流中没有偏导数，所以不会有
+额外项)。
+\end_layout
+
+\begin_layout Section
+量子化和Ward 恒等式
+\end_layout
+
+\begin_layout Standard
+为了量子化具有多个自由度的场，我们只需要为每一个自由度分配一个产生湮灭算符。
+\end_layout
+
+\begin_layout Subsection
+带质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+带质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+的量子场算符是
+\begin_inset Formula 
+\[
+A_{\mu}(x)=\int\frac{\dif^{3}}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\sum_{j=1}^{3}\left(\epsilon_{\mu}^{j}(p)a_{p,j}e^{-ipx}+\epsilon_{\mu}^{j*}(p)a_{p,j}^{\dagger}e^{ipx}\right)
+\]
+
+\end_inset
+
+对于每一个动量和相应地极化矢量，都有单独的产生和湮灭算符，咱对它们求和。
+\begin_inset Formula $\epsilon_{\mu}^{j}(p)$
+\end_inset
+
+代表了一套正交的基矢量。
+\end_layout
+
+\begin_layout Standard
+现在我们给定一个渐近(asymptotic)态，除了给出动量，还需要给出极化
+\begin_inset Formula 
+\[
+a_{p,j}^{\dagger}\ket{0}=\frac{1}{\sqrt{2\omega_{p}}}\ket{p,\epsilon^{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+up ot normalization.
+ 因此
+\begin_inset Formula 
+\[
+\bra{0}A_{\mu}(x)\ket{p,\epsilon^{j}}=\epsilon_{\mu}^{j}e^{-ipx}
+\]
+
+\end_inset
+
+所以场在位置
+\begin_inset Formula $x$
+\end_inset
+
+产生了一个粒子，它的极化状态可以用适当的收缩投影出来。
+\end_layout
+
+\begin_layout Standard
+这些基矢量必须依赖于
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+，因为洛伦兹群没有有限维幺正表示。为了更清楚地看到这一点，假设我们选取了固定基矢，比如，
+\begin_inset Formula $\epsilon_{\mu}^{1}=(0,1,0,0),\epsilon_{\mu}^{2}=(0,0,1,0)$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon^{3}=(0,0,0,1)$
+\end_inset
+
+。问题立马就会产生，这套基不是完备的，因为在洛伦兹变换下，
+\begin_inset Formula 
+\[
+\epsilon_{\mu}^{i}=\Lambda_{\mu\nu}\epsilon_{\nu}^{i}
+\]
+
+\end_inset
+
+所以经过boost，这些基会和类时极化
+\begin_inset Formula $(1,0,0,0)$
+\end_inset
+
+混合。
+\end_layout
+
+\begin_layout Standard
+从解经典运动方程我们看出，我们可以选取动量依赖的基
+\begin_inset Formula $\epsilon_{\mu}^{1}(p),\epsilon_{\mu}^{2}(p),\epsilon_{\mu}^{3}(p)$
+\end_inset
+
+。比如，对于带质量情形，for 
+\begin_inset Formula $p_{\mu}$
+\end_inset
+
+指向
+\begin_inset Formula $z$
+\end_inset
+
+轴方向，
+\begin_inset Formula 
+\[
+p^{\mu}=(E,0,0,p_{z})
+\]
+
+\end_inset
+
+我们可以使用基
+\begin_inset Formula 
+\[
+\epsilon_{1}^{\mu}(p)=(0,1,0,0),\quad\epsilon_{2}^{\mu}(p)=(0,0,1,0)\quad\epsilon_{L}^{\mu}(p)=(\frac{p_{z}}{m},0,0,\frac{E}{m})
+\]
+
+\end_inset
+
+注意，这里的基虽然写成
+\begin_inset Formula $(0,1,0,0)$
+\end_inset
+
+的形式，但是其实是依赖于
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+的。即如果
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+经过转动，不再是
+\begin_inset Formula $(E,0,0,p_{z})$
+\end_inset
+
+的形式，这些基的写法也要跟着改变，或者更简单地说，这些基矢跟
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+同步转动或同步boost。它们满足
+\begin_inset Formula $\epsilon_{\mu}^{i}\epsilon_{\mu}^{*i}=-1$
+\end_inset
+
+ and 
+\begin_inset Formula $\epsilon_{\mu}^{i}p^{\mu}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+我们把矢量表示的第四个自由度藏到那里去了？垂直于以上三个的矢量是
+\begin_inset Formula $\epsilon_{s}^{\mu}=\frac{p^{\mu}}{m}=(\frac{E}{m},0,0,\frac{p}{m})$
+\end_inset
+
+。在位置空间，做一个IBP，相当于
+\begin_inset Formula $\epsilon_{s}^{\mu}=\frac{1}{m}\partial_{\mu}\alpha(x)$
+\end_inset
+
+对于某个标量函数
+\begin_inset Formula $\alpha(x)$
+\end_inset
+
+。很容易发现它不会跟其他极化矢量混合：它是标量函数
+\begin_inset Formula $\alpha(x)$
+\end_inset
+
+的散度，经过洛伦兹变换，它还是同一个函数的散度，只不过变成变成
+\begin_inset Formula $\alpha(x^{\prime})$
+\end_inset
+
+而已。
+\end_layout
+
+\begin_layout Standard
+那么这些基矢量在那些洛伦兹变换下会混合呢？答案就是那些保持
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+不变的变换。by definition, little group 的元素。举个例子，在静止系下
+\begin_inset Formula 
+\[
+q^{\mu}=(m,0,0,0)
+\]
+
+\end_inset
+
+我们可以选取极化矢量为
+\begin_inset Formula 
+\[
+\epsilon_{1}^{\mu}(q)=(0,1,0,0),\quad\epsilon_{2}^{\mu}(q)=(0,0,1,0)\quad\epsilon_{3}^{\mu}(q)=(0,0,0,1)
+\]
+
+\end_inset
+
+而
+\begin_inset Formula $\epsilon_{s}^{\mu}=(1,0,0,0)$
+\end_inset
+
+。保持
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+不变的小群刚好是 3D rotation group SO(3)。容易发现，三个极化矢量将会互相混合。而
+\begin_inset Formula $\epsilon_{S}^{\mu}=(1,0,0,0)$
+\end_inset
+
+将保持不变。如果我们做boost，看起来
+\begin_inset Formula $\epsilon_{i}^{\mu}$
+\end_inset
+
+会和
+\begin_inset Formula $\epsilon_{s}^{\mu}$
+\end_inset
+
+混合。但事实上并不会，因为基矢量
+\begin_inset Formula $\epsilon_{\mu}^{1}(q),\epsilon_{\mu}^{2}(q),\epsilon_{\mu}^{3}(q)$
+\end_inset
+
+也要改变，它们是同步变化的，
+\begin_inset Formula 
+\[
+\epsilon_{\mu}^{1}(q)\to\epsilon_{\mu}^{1}(q^{\prime}),\epsilon_{\mu}^{2}(q)\to\epsilon_{\mu}^{2}(q^{\prime}),\epsilon_{\mu}^{3}(q)\to\epsilon_{\mu}^{3}(q^{\prime})
+\]
+
+\end_inset
+
+保持
+\begin_inset Formula $p^{\mu}=(E,0,0,p_{z})$
+\end_inset
+
+不变的群也是SO(3)群，只不过不太容易看出来而已（注意，这个little group 并不是分块对角的那个三维转动矩阵，见下文）。它们只会将
+\begin_inset Formula $\epsilon_{1}^{\mu}(p),\epsilon_{2}^{\mu}(p),\epsilon_{L}^{\mu}(p)$
+\end_inset
+
+互相混合，而固定
+\begin_inset Formula $\epsilon_{s}^{\mu}$
+\end_inset
+
+不动。So everything works。洛伦兹变换的non-trivial 效果是：把在fixed 
+\begin_inset Formula $p_{\mu}$
+\end_inset
+
+的极化矢量混合起来。注意，这完全是靠我们选择了可变的基
+\begin_inset Formula $\epsilon^{i}(p)$
+\end_inset
+
+实现的。所以自旋–
+\begin_inset Formula $1$
+\end_inset
+
+的表示完全由这个liitle group 来刻画，它是保持
+\begin_inset Formula $p_{\mu}$
+\end_inset
+
+不变的洛伦兹群的子群。这种研究洛伦兹群表示的方法被称为 method of induced representations.
+\end_layout
+
+\begin_layout Standard
+little group 方法帮助我们解决了洛伦兹不变性和幺正性的conflict insection 8.1.1。在量子力学中，我们可以把任何极化展开到这组基上。
+让我们固定动量
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+。那么，任何物理的极化矢量
+\begin_inset Formula $\epsilon_{\mu}$
+\end_inset
+
+可以写成
+\begin_inset Formula 
+\[
+\epsilon_{\mu}=c_{j}\epsilon_{\mu}^{j}(q)
+\]
+
+\end_inset
+
+对应态的分解
+\begin_inset Formula $\ket{\epsilon}=c_{j}\ket{j}$
+\end_inset
+
+。由于基矢量满足
+\begin_inset Formula $\bra{j}\ket{j}=1$
+\end_inset
+
+，我们发现
+\begin_inset Formula 
+\[
+\bra{\epsilon}\ket{\epsilon}=\abs{c_{1}}^{2}+\abs{c_{2}}^{2}+\abs{c_{3}}^{2}
+\]
+
+\end_inset
+
+这个内积是旋转不变的，由旋转群的定义。boost 下以平庸的方式变换，
+\begin_inset Formula $c_{j}$
+\end_inset
+
+系数不变，因为
+\begin_inset Formula $\epsilon_{\mu}^{j}$
+\end_inset
+
+改变。所以
+\begin_inset Formula $\bra{\epsilon}\ket{\epsilon}$
+\end_inset
+
+是正定的，并且洛伦兹不变。
+\end_layout
+
+\begin_layout Standard
+在量子场论中，我们将会计算包含场
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+的矩阵元，这些矩阵元将会依赖于极化矢量，必定有以下形式
+\begin_inset Formula 
+\[
+\mathcal{M}=\epsilon_{\mu}M^{\mu}
+\]
+
+\end_inset
+
+这里
+\begin_inset Formula $M^{\mu}$
+\end_inset
+
+按
+\begin_inset Formula $4$
+\end_inset
+
+–矢量变换。
+\begin_inset Formula $\epsilon_{\mu}$
+\end_inset
+
+是极化矢量，外线光子的极化矢量在矩阵元计算中相当于常数，可以提到外面。可以是
+\begin_inset Formula $\epsilon_{\mu}^{j}$
+\end_inset
+
+的任意组合。假设我们用
+\begin_inset Formula $\epsilon_{\mu}^{1}$
+\end_inset
+
+开始，现在改变坐标系，则
+\begin_inset Formula $M_{\mu}\to M_{\mu}^{\prime}=\Lambda_{\mu\nu}M^{\nu}$
+\end_inset
+
+。那么矩阵元是不变的：
+\begin_inset Formula 
+\[
+\mathcal{M}=\epsilon_{\mu}^{\prime}M^{\mu\prime}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\epsilon_{\mu}^{\prime}(p^{\prime})=\Lambda_{\mu\nu}\epsilon^{\nu}(\Lambda_{\alpha\beta}p^{\beta})$
+\end_inset
+
+。新的极化矢量
+\begin_inset Formula $\epsilon_{\mu}^{\prime}(p^{\prime})$
+\end_inset
+
+还是 Hilbert 空间中的物理态，由于基矢
+\begin_inset Formula $\epsilon_{\mu}^{\prime}$
+\end_inset
+
+在洛伦兹群下是闭合的(closed)。或者更简洁地，我们可以说，
+\begin_inset Formula $\epsilon_{\mu}M^{\mu}$
+\end_inset
+
+在被限制的
+\begin_inset Formula $4$
+\end_inset
+
+–矢量空间
+\begin_inset Formula $\epsilon_{\mu}(p)=c_{j}\epsilon_{\mu}^{j}(p)$
+\end_inset
+
+中是洛伦兹不变的。这听起来很显然，但是理解带质量情形下的这种语言，会方便你理解无质量的情形，在那里有点subtle（subtlety is always
+ the greatest enemy of physcists）。
+\end_layout
+
+\begin_layout Subsection
+无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+跟带质量情形差不多，我们可以量子化无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+，但是只对两种极化矢量求和
+\begin_inset Formula 
+\[
+A_{\mu}(x)=\int\frac{\dif^{3}}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\sum_{j=1}^{2}\left(\epsilon_{\mu}^{i}(p)a_{p,i}e^{-ipx}+\epsilon_{\mu}^{i*}(p)a_{p,i}^{\dagger}e^{ipx}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref61"
+literal "true"
+
+\end_inset
+
+xxxxx
+\end_layout
+
+\end_body
+\end_document
