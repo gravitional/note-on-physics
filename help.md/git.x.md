@@ -267,6 +267,81 @@ ssh -T git@gitee.com
 + `git remote remove paul` 删除失效的远程仓库
 + `git remote set-url origin` 修改仓库对应的远程仓库地址
 
+### 设置多个远程分支
+
+[git 本地仓库同时推送到多个远程仓库][]
+
+[git 本地仓库同时推送到多个远程仓库]: https://blog.csdn.net/fox9916/article/details/79386169
+
+先准备两个空的远程仓库, 如果远程仓库里有`readme`这样的文件，先`pull`一下，如果`pull`的时候失败，提示：`fatal: refusing to merge unrelated histories`
+
+那么在进行 `git pull` 时，添加一个可选项
+`git pull origin master --allow-unrelated-histories`
+
+有两种方法
+
+#### git remote add 命令
+
+将本地仓库与远程仓库关联起来，再查看一下远程仓库情况
+
+```bash
+# 添加第一个仓库
+git remote add github git@xxxx1
+# 再添加另一个远程仓库
+git remote add gitee git@xxxx2
+# 查看远程仓库状态
+git remote -v
+```
+
+查看远程仓库的情况，可以看到已经有两个远程仓库了。
+然后再使用相应的命令 push 到对应的仓库就行了。这种方法的缺点是每次要 `push` 两次。
+
+```bash
+git  push github master:master
+git  push gitee master:master
+```
+
+#### git remote set-url 命令
+
+```bash
+#删除方法一的 gitee 远程仓库。
+git  remote rm gitee
+#使用如下命令添加远程仓库。
+git remote set-url --add  github git@xxxx2
+```
+
+查看远程仓库情况。可以看到 github 远程仓库有两个 push 地址。这种方法的好处是每次只需要 push 一次就行了。
+
+```bash
+git remote -v
+git push origin master:master
+```
+
+另外手动更改本地仓库`/.git/config`文件也是可以的，改成如下格式
+
+```bash
+[remote "github"]
+   url = git@github.com:xxx
+   url = git@gitee.com:xxx
+   fetch = +refs/heads/*:refs/remotes/github/*
+```
+
+下面介绍命令语法
+***
+
+```bash
+git remote get-url [--push] [--all] <name>
+git remote set-url [--push] <name> <newurl> [<oldurl>]
+git remote set-url --add [--push] <name> <newurl>
+git remote set-url --delete [--push] <name> <url>
+```
+
+为远程仓库设置新的链接,改变远程`<name>`的链接，可以通过给出` <oldurl>`进一步确认。
+
+`--push `，设置push URLs 而不是 fetch URLs
+`--add`，不改变已经存在的 URLs，添加新 URL
+`--delete`, 不改变已经存在的 URLs, 删除`<name>`上匹配 regex `<url>`的URLs.Trying to delete all non-push URLs is an error.
+
 ### 远程分支
 
 ***
