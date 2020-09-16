@@ -1738,7 +1738,29 @@ git push origin --tags --force
 git push origin --all --force
 ```
 
-git filter-branch --tree-filter 'rm -f "latex/doc/LaTeX2e完全学习手册-胡伟 清华大学出版社 2011.pdf"' --tag-name-filter cat -- --all
+git filter-branch --tree-filter 'rm -f "latex/doc/LaTeX入门-刘海洋（扫描版） 电子工业出版社 2013.pdf"' --tag-name-filter cat -- --all
+
+```bash
+git filter-branch --tree-filter \
+'rm -f "\
+qft/An introduction to quantum field theory-Addison-Wesley.pdf\
+"' --tag-name-filter cat -- --all
+```
+
+git filter-branch --tree-filter 'qft/An introduction to quantum field theory-Addison-Wesley.pdf"' --tag-name-filter cat -- --all
+git filter-branch --tree-filter 'qft/An introduction to quantum field theory-Addison-Wesley.pdf"' --tag-name-filter cat -- --all
+
+ Particle_Physics/Close-An Introduction To Quarks And Partons.pdf
+ chpt/chpt.Introduction-to-chpt.note.nb
+ fortran/fortran-PengGuoLun/Fortran95-peng.pdf
+ git/progit.pdf
+latex/doc/LaTeX2e完全学习手册-胡伟 清华大学出版社 2011.pdf
+latex/doc/LaTeX入门-刘海洋（扫描版） 电子工业出版社 2013.pdf
+qft/An introduction to quantum field theory-Addison-Wesley.pdf
+ git/progit_v2.1.31.pdf
+ mathematica/ColorData.nb
+
+
 
 
 如果在 `git filter-branch` 操作过程中遇到如下提示，需要在 `git filter-branch` 后面加上参数 -f
