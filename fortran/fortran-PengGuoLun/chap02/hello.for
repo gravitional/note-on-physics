@@ -1,5 +1,0 @@
-	PROGRAM MAIN
-	IMPLICIT NONE
-	WRITE(*,*) "Hello"
-	STOP
-	END
