@@ -1747,13 +1747,10 @@ qft/An introduction to quantum field theory-Addison-Wesley.pdf\
 "' --tag-name-filter cat -- --all
 ```
 
-git filter-branch --tree-filter 'qft/An introduction to quantum field theory-Addison-Wesley.pdf"' --tag-name-filter cat -- --all
-git filter-branch --tree-filter 'qft/An introduction to quantum field theory-Addison-Wesley.pdf"' --tag-name-filter cat -- --all
-
- Particle_Physics/Close-An Introduction To Quarks And Partons.pdf
- chpt/chpt.Introduction-to-chpt.note.nb
- fortran/fortran-PengGuoLun/Fortran95-peng.pdf
- git/progit.pdf
+Particle_Physics/Close-An Introduction To Quarks And Partons.pdf
+chpt/chpt.Introduction-to-chpt.note.nb
+fortran/fortran-PengGuoLun/Fortran95-peng.pdf
+git/progit.pdf
 latex/doc/LaTeX2e完全学习手册-胡伟 清华大学出版社 2011.pdf
 latex/doc/LaTeX入门-刘海洋（扫描版） 电子工业出版社 2013.pdf
 qft/An introduction to quantum field theory-Addison-Wesley.pdf
