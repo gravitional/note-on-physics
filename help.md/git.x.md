@@ -83,19 +83,17 @@ $ git config --global merge.tool vimdiff
    merge = refs/heads/master
 ```
 
-Named remote in configuration file
+配置文件的路径为 `$GIT_DIR/config`，指定远程的格式如下：
 
-You can choose to provide the name of a remote which you had previously configured using git-remote[1], git-config[1] or even by a manual edit to the $GIT_DIR/config file. The URL of this remote will be used to access the repository. The refspec of this remote will be used by default when you do not provide a refspec on the command line. The entry in the config file would appear like this:
+```gitconfig
+[remote "<name>"]
+   url = <url>
+   pushurl = <pushurl>
+   push = <refspec>
+   fetch = <refspec>
+```
 
-	[remote "<name>"]
-		url = <url>
-		pushurl = <pushurl>
-		push = <refspec>
-		fetch = <refspec>
-
-The <pushurl> is used for pushes only. It is optional and defaults to <url>.
-
-
+`pushurl`之用来推送，默认和`<url>`相同
 
 ## 还原文件
 
