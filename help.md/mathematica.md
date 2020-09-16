@@ -1424,3 +1424,10 @@ Notebook[{
 显示屏和打印环境的设置可以不同，方法是使用两种不同的菜单：`格式--显示屏环境` 和 `文件--打印设置--打印环境`. 
 在默认情况下，文档界面将显示屏环境设置为 `Working` ，将打印环境设置为 `Printout`. 
 因此，一定要注意这不是一个"所见即所得"的配置. 
+
+### 颜色数据
+
+ColorData["scheme"][par] 或 ColorData["scheme", par]
+给出指定颜色方案中对应于参数值 par 的 RGBColor 对象.
+ColorData["SiennaTones"]
+ColorData["SiennaTones"][0.7]

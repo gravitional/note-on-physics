@@ -1738,7 +1738,7 @@ git push origin --tags --force
 git push origin --all --force
 ```
 
-git filter-branch --tree-filter 'rm -f "latex/doc/LaTeX入门-刘海洋（扫描版） 电子工业出版社 2013.pdf"' --tag-name-filter cat -- --all
+git filter-branch --tree-filter 'rm -f "Particle_Physics/Close-An Introduction To Quarks And Partons.pdf"' --tag-name-filter cat -- --all
 
 ```bash
 git filter-branch --tree-filter \
