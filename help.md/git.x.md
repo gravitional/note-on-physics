@@ -150,6 +150,37 @@ ref: [git重命名文件夹][]
 
 `git commit --amend`
 
+## 远程仓库
+
+### 添加ssh 公匙
+
+[SSH 公钥设置 ][]
+
+[SSH 公钥设置 ]: https://gitee.com/help/articles/4191#article-header0
+
+用如下命令来生成 `sshkey`:
+
+```bash
+ssh-keygen -t rsa -C "xxxxx@xxxxx.com"  
+# Generating public/private rsa key pair...
+```
+
+注意：这里的 `xxxxx@xxxxx.com` 只是生成的 `sshkey` 的名称，并不约束或要求具体命名为某个邮箱。
+
+现网的大部分教程均讲解的使用邮箱生成，其一开始的初衷仅仅是为了便于辨识所以使用了邮箱
+复制生成后的 `ssh key`，在仓库主页`管理`页面中，添加生成的 public key 添加到仓库中。
+
+添加后，在终端中输入下面的命令，来检测是否能成功连接
+
+```bash
+ssh -T git@gitee.com
+# -T      Disable pseudo-terminal allocation.
+```
+
+首次使用需要确认并添加主机到本机SSH可信列表。若返回 `Hi XXX! You've successfully authenticated,....` 内容，则证明添加成功。
+
+添加成功后，就可以使用SSH协议对仓库进行操作了。
+
 ## 删除远程分支
 
 可以运行带有`--delete`选项的`git push`命令
