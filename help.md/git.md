@@ -717,13 +717,13 @@ git checkout feature f.txt
 
 远程跟踪分支是远程分支状态的引用。 它们是你不能移动的本地引用，当你做任何网络通信操作时，它们会自动移动。 远程跟踪分支像是你上次连接到远程仓库时，那些分支所处状态的书签。
 
-### 克隆远程
++ 克隆远程
 
 `git clone`
 
 要克隆一个仓库，首先必须知道仓库的地址，然后使用`git clone`命令克隆。
 
-### 添加远程
++ 添加远程
 
 `git remote add`
 
@@ -731,12 +731,12 @@ git checkout feature f.txt
 `git remote add origin git@server-name:path/repo-name.git`
 `origin` 是远程仓库的名字
 
-### 查看某个远程仓库
++ 查看某个远程仓库
 
 `git remote show [remote-name]` 命令。
 `remote-name` 如 `origin`
 
-### 从远程获取信息
++ 从远程获取更新
 
 `git fetch [remote-name]`
 
@@ -746,7 +746,7 @@ git checkout feature f.txt
 
 现在 `Paul` 的 `master` 分支可以在本地通过 `pb/master` 访问到——你可以将它合并到自己的某个分支中，
 
-### 删除远程分支
++ 删除远程分支
 
 可以运行带有`--delete`选项的`git push`命令
 
@@ -1009,8 +1009,7 @@ origin
 
 ### 清理无效远程追踪
 
-如果在远程版本库上删除了某一分支，该命令并不会删除本地的远程追踪分支，
-这时候，有另一个命令
+如果在远程版本库上删除了某一分支，该命令并不会删除本地的远程追踪分支，这时候，有另一个命令
 
 ```bash
 git remote prune
@@ -1703,6 +1702,14 @@ $ git log refs/remotes/origin/master
 
 [Reference Specification]: http://git-scm.com/book/zh/ch9-5.html
 
+### 路径指定
+
+
+
+### pack 包文件
+
+
+
 ## revision 的写法
 
 A revision parameter  `<rev>`一般是`commit`，它使用what is called an extended `SHA-1` syntax
@@ -1880,3 +1887,45 @@ H = D^2  = B^^2    = A^^^2  = A~2^2
 I = F^   = B^3^    = A^^3^
 J = F^2  = B^3^2   = A^^3^2
 ```
+
+## 比较二进制文件
+
+你可以使用 `Git 属性`来有效地比较两个二进制文件。 
+秘诀在于，告诉 Git 怎么把你的二进制文件转化为文本格式，从而能够使用普通的 diff 方式进行对比。
+
+比如：对 Microsoft Word 文档进行版本控制。 大家都知道，Microsoft Word 几乎是世上最难缠的编辑器，尽管如此，大家还是在用它。 如果想对 Word 文档进行版本控制，你可以把文件加入到 Git 库中，每次修改后提交即可。
+ 把下面这行文本加到你的 `.gitattributes` 文件中：
+
+```bash
+*.docx diff=word
+```
+
+这告诉 Git 当你尝试查看包含变更的比较结果时，所有匹配 `.docx` 模式的文件都应该使用`word`过滤器。 
+`word`过滤器是什么？ 我们现在就来设置它。 
+我们会对 Git 进行配置，令其能够借助 `docx2txt` 程序将 Word 文档转为可读文本文件，这样不同的文件间就能够正确比较了。
+
+首先，你需要安装 `docx2txt`；
+它可以从 [https://sourceforge.net/projects/docx2txt](https://sourceforge.net/projects/docx2txt) 下载。 按照 `INSTALL` 文件的说明，把它放到你的可执行路径下。 
+接下来，你还需要写一个脚本把输出结果包装成 `Git` 支持的格式。 在你的可执行路径下创建一个叫 `docx2txt` 文件，添加这些内容：
+
+```bash
+#!/bin/bash
+docx2txt.pl "$1" -
+```
+
+别忘了用 `chmod a+x` 给这个文件加上可执行权限。 最后，你需要配置 `Git` 来使用这个脚本：
+
+`$ git config diff.word.textconv docx2txt`
+
+现在如果在两个快照之间进行比较，Git 就会对那些以 .docx 结尾的文件应用`word`过滤器，即 `docx2txt`。 
+这样你的 Word 文件就能被高效地转换成文本文件并进行比较了。
+
+你还能用这个方法比较图像文件。 
+其中一个办法是，在比较时对图像文件运用一个过滤器，提炼出 `EXIF` 信息——这是在大部分图像格式中都有记录的一种元数据。 
+如果你下载并安装了 `exiftool` 程序，可以利用它将图像转换为关于元数据的文本信息，这样比较时至少能以文本的形式显示发生过的变动： 将以下内容放到你的 `.gitattributes` 文件中：
+
+`*.png diff=exif`
+
+配置 Git 以使用此工具：
+
+`$ git config diff.exif.textconv exiftool`

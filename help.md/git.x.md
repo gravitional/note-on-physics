@@ -24,6 +24,91 @@ $ git log origin/master
 $ git log remotes/origin/master
 $ git log refs/remotes/origin/master
 
+## git 配置
+
+[初次运行 Git 前的配置 ][]
+
+[初次运行 Git 前的配置 ]: https://gitee.com/help/articles/4107
+
+在新的系统上，我们一般都需要先配置下自己的 `Git` 工作环境。
+配置工作只需一次，以后升级时还会沿用现在的配置。当然，如果需要，你随时可以用相同的命令修改已有的配置。
+
+Git 提供了一个叫做 `git config` 的工具（译注：实际是 `git-config` 命令，只不过可以通过 `git` 加一个名字来呼叫此命令。），专门用来配置或读取相应的工作环境变量。
+而正是由这些环境变量，决定了 Git 在各个环节的具体工作方式和行为。这些变量可以存放在以下三个不同的地方：
+
++ `/etc/gitconfig` 文件：系统中对所有用户都普遍适用的配置。若使用 `git config` 时用 `--system` 选项，读写的就是这个文件。
++ `~/.gitconfig` 文件：用户目录下的配置文件只适用于该用户。若使用 `git config` 时用 --global 选项，读写的就是这个文件。
++ 当前仓库的 `Git` 目录中的配置文件（也就是工作目录中的 `.git/config` 文件）：这里的配置仅仅针对当前仓库有效。每一个级别的配置都会覆盖上层的相同配置，所以 `.git/config` 里的配置会覆盖 `/etc/gitconfig` 中的同名变量。
+外，Git 还会尝试找寻 /etc/gitconfig 文件，只不过看当初 Git 装在什么目录，就以此作为根目录来定位。
+
++ 用户信息配置
+
+第一个要配置的是你个人的用户名称和电子邮件地址,说明是谁提交了更新，会随更新内容一起被永久纳入历史记录：
+
+```bash
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
++ 文本编辑器配置
+
+接下来要设置的是默认使用的文本编辑器。Git 需要你输入一些额外消息的时候，会自动调用一个外部文本编辑器给你用。如果你有其他偏好，比如 Emacs 的话，可以重新设置：
+
+```bash
+$ git config --global core.editor emacs
+```
+
++ 差异分析工具
+
+```bash
+$ git config --global merge.tool vimdiff
+```
+
++ 查看配置信息 : `git config --list`
+
+### git 配置文件写法
+
+以`#` or `;` 开头的将被看成是注释，到行末。
+大部分空格将被忽略，空行也被忽略
+
+文件包含`Sections` 和`variables`，类似下面这种格式，`[section]`，还可以有`[section "subsection"]`
+所有名字都是大小写敏感的。其他的行被看成是设置变量值。
+
+```gitconfig
+[core]
+   repositoryformatversion = 0
+   filemode = true
+[branch "master"]
+   remote = origin
+   merge = refs/heads/master
+```
+
+push.default
+
+    Defines the action git push should take if no refspec is given (whether from the command-line, config, or elsewhere). Different values are well-suited for specific workflows; for instance, in a purely central workflow (i.e. the fetch source is equal to the push destination), upstream is probably what you want. Possible values are:
+
+        nothing - do not push anything (error out) unless a refspec is given. This is primarily meant for people who want to avoid mistakes by always being explicit.
+
+        current - push the current branch to update a branch with the same name on the receiving end. Works in both central and non-central workflows.
+
+        upstream - push the current branch back to the branch whose changes are usually integrated into the current branch (which is called @{upstream}). This mode only makes sense if you are pushing to the same repository you would normally pull from (i.e. central workflow).
+
+        tracking - This is a deprecated synonym for upstream.
+
+        simple - in centralized workflow, work like upstream with an added safety to refuse to push if the upstream branch’s name is different from the local one.
+
+        When pushing to a remote that is different from the remote you normally pull from, work as current. This is the safest option and is suited for beginners.
+
+        This mode has become the default in Git 2.0.
+
+        matching - push all branches having the same name on both ends. This makes the repository you are pushing to remember the set of branches that will be pushed out (e.g. if you always push maint and master there and no other branches, the repository you push to will have these two branches, and your local maint and master will be pushed there).
+
+        To use this mode effectively, you have to make sure all the branches you would push out are ready to be pushed out before running git push, as the whole point of this mode is to allow you to push all of the branches in one go. If you usually finish work on only one branch and push out the result, while other branches are unfinished, this mode is not for you. Also this mode is not suitable for pushing into a shared central repository, as other people may add new branches there, or update the tip of existing branches outside your control.
+
+        This used to be the default, but not since Git 2.0 (simple is the new default).
+
+
+
 ## 还原文件
 
 ### git restore
@@ -180,6 +265,48 @@ ssh -T git@gitee.com
 首次使用需要确认并添加主机到本机SSH可信列表。若返回 `Hi XXX! You've successfully authenticated,....` 内容，则证明添加成功。
 
 添加成功后，就可以使用SSH协议对仓库进行操作了。
+
+### 远程仓库操作
+
+远程仓库可以在你的本地主机上
+
++ `git remote -v` 查看远程仓库
++ `git remote add <shortname> <url>` 添加远程仓库
++ `git fetch <remote>` 从远程仓库抓取
++ `git push origin master` 推送到远程仓库
++ `git remote show origin` 查看某个远程仓库
++ `git remote rename pb paul` 将远程仓库`pb`重命名为`paul`
++ `git remote remove paul` 删除失效的远程仓库
++ `git remote set-url origin` 修改仓库对应的远程仓库地址
+
+### 远程分支
+
+***
+如果你的当前分支设置了`跟踪远程分支`, 那么可以用 `git pull` 命令来自动抓取后合并该远程分支到当前分支
+***
+推送工作使用`git push <remote> <branch>`，比如`$ git push origin serverfix`
+
+这里有些工作被简化了。 
+Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads/serverfix`， 意味着，推送本地的serverfix 分支来更新远程仓库上的 serverfix 分支。 
+我们将会详细学习 Git 内部原理 的 `refs/heads/` 部分， 但是现在可以先把它放在儿。你也可以运行 `git push origin serverfix:serverfix`， 它会做同样的事,  可以通过这种格式来推送本地分支到一个命名不相同的远程分支。 如果并不想让远程仓库上的分支叫做 `serverfix`，可以运行 `git push origin serverfix:awesomebranch` 来将本地的 serverfix 分支推送到远程仓库上的 `awesomebranch` 分支。
+
+使用 `git checkout -b serverfix origin/serverfix`来从设置的远程仓库里创建新分支
+
+这会给你一个用于工作的本地分支，并且起点位于 `origin/serverfix`。
+
+### 跟踪分支
+
+从一个远程跟踪分支`checkout`一个本地分支会自动创建所谓的`跟踪分支`（它跟踪的分支叫做`上游分支`）。 跟踪分支是与远程分支有直接关系的本地分支。
+如果在一个跟踪分支上输入 `git pull`，Git 能自动地识别去哪个服务器上抓取、合并到哪个分支。
+
+当克隆一个仓库时，它通常会自动地创建一个跟踪 `origin/master` 的 `master` 分支。 
+然而，如果你愿意的话可以设置这个远程库的其他分支，或是一个在其他远程仓库上的分支，又或者不跟踪`master` 分支。 
+
+***
+上游快捷方式
+
+当设置好跟踪分支后，可以通过简写 `@{upstream}` 或 `@{u}` 来引用它的上游分支。
+所以在 `master` 分支时并且它正在跟踪 `origin/master` 时，如果愿意的话可以使用 `git merge @{u}` 来取代 `git merge origin/master`。
 
 ## 删除远程分支
 
@@ -467,6 +594,18 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 `--all`:假装`refs/`下的所有条目，包括`HEAD`都被列出 as `<commit>`
 `--branches[=<pattern>]`：类似`--all`，但是要匹配shell `glob`模式，`?`, `*`, or `[`, `/*`
 `--tags[=<pattern>]`：类似`--branches`
+
+### remote
+
+`git remote add <shortname> <url>`
+
++ `gr`='git remote'
++ `gra`='git remote add'
++ `grmv`='git remote rename'
++ `grrm`='git remote remove'
++ `grset`='git remote set-url'
++ `grup`='git remote update'
++ `grv`='git remote -v'
 
 ### push
 
