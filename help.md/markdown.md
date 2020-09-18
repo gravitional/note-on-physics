@@ -1,0 +1,386 @@
+# learn.markdown.md
+
+reference: [Simplelified Markdown Syntax][]
+
+[Simplelified Markdown Syntax]: https://www.appinn.com/markdown/#backslash
+
+## 删除线
+
+```markdown
+~~这是删除线~~~~
+```
+
+~~这是删除线~~~~
+
+## 链接 常用
+
+```markdown
+I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+  [google]: http://google.com/        "Google"
+  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"
+  [msn]:    http://search.msn.com/    "MSN Search"
+```
+
+[Google][]
+And then define the link:
+
+[Google]: http://google.com/
+
+## 链接 详细
+
+[original context] []
+
+[original context]: https://www.appinn.com/markdown/#link "original context"
+
+>Markdown 支持两种形式的链接语法： 行内式和参考式两种形式。
+
+>不管是哪一种，链接文字都是用 [方括号] 来标记。
+
+### 行内式
+
+>要建立一个 行内式的链接，只要在方块括号后面紧接着圆括号并插入网址链接即可，
+>如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可，例如：
+
+```markdown
+
+This is [an example](http://example.com/ "Title") inline link.
+
+[This link](http://example.net/) has no title attribute.
+```
+
+This is [an example](http://example.com/ "Title") inline link.
+
+[This link](http://example.net/) has no title attribute.
+
+>如果你是要链接到同样主机的资源，你可以使用相对路径：
+
+```markdown
+See my [About](/about/) page for details.
+```
+
+### 参考式
+
+>参考式的链接是在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记：
+
+```markdown
+This is [an example][id] reference-style link.
+```
+
+你也可以选择性地在两个方括号中间加上一个空格：
+
+```markdown
+This is [an example] [id] reference-style link.
+```
+
+接着，在文件的任意处，你可以把这个标记的链接内容定义出来：
+
+```markdown
+[id]: http://example.com/  "Optional Title Here"
+```
+
+链接内容定义的形式为：
+
+方括号（前面可以选择性地加上至多三个空格来缩进），里面输入链接文字
+接着一个冒号
+接着一个以上的空格或制表符
+接着链接的网址
+选择性地接着 title 内容，可以用单引号、双引号或是括弧包着
+
+>下面这三种链接的定义都是相同：
+
+```markdown
+[foo]: http://example.com/  "Optional Title Here"
+[foo]: http://example.com/  'Optional Title Here'
+[foo]: http://example.com/  (Optional Title Here)
+```
+
+>请注意：有一个已知的问题是 Markdown.pl 1.0.1 会忽略单引号包起来的链接 title。
+
+>链接网址也可以用方括号包起来：
+
+```markdown
+[id]: <http://example.com/>  "Optional Title Here"
+```
+
+>你也可以把 title 属性放到下一行，也可以加一些缩进，若网址太长的话，这样会比较好看：
+
+```markdown
+[id]: http://example.com/longish/path/to/resource/here
+    "Optional Title Here"
+```
+
+>**网址定义只有在产生链接的时候用到，并不会直接出现在文件之中。**
+
+>链接辨别标签可以有字母、数字、空白和标点符号，但是并不区分大小写，因此下面两个链接是一样的：
+>
+```markdown
+[link text][a]
+[link text][A]
+```
+
+###  隐式链接
+
+隐式链接标记功能让你可以省略指定链接标记，这种情形下，链接标记会视为等同于链接文字，要用隐式链接标记只要在链接文字后面加上一个空的方括号，如果你要让 "Google" 链接到 google.com，你可以简化成：
+
+```markdown
+[Google][]
+```
+
+然后定义链接内容：
+
+```markdown
+[Google]: http://google.com/
+```
+
+由于链接文字可能包含空白，所以这种简化型的标记内也许包含多个单词：
+
+```markdown
+Visit [Daring Fireball][] for more information.
+```
+
+然后接着定义链接：
+
+```markdown
+[Daring Fireball]: http://daringfireball.net/
+```
+
+链接的定义可以放在文件中的任何一个地方，我比较偏好直接放在链接出现段落的后面，你也可以把它放在文件最后面，就像是注解一样。
+
+下面是一个参考式链接的范例：
+
+```markdown
+I get 10 times more traffic from [Google] [1] than from
+[Yahoo] [2] or [MSN] [3].
+
+  [1]: http://google.com/        "Google"
+  [2]: http://search.yahoo.com/  "Yahoo Search"
+  [3]: http://search.msn.com/    "MSN Search"
+```
+
+如果改成用链接名称的方式写：
+
+```markdown
+I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+  [google]: http://google.com/        "Google"
+  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"
+  [msn]:    http://search.msn.com/    "MSN Search"
+```
+
+上面两种写法都会产生下面的 HTML。
+
+```html
+<p>I get 10 times more traffic from <a href="http://google.com/"
+title="Google">Google</a> than from
+<a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a>
+or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
+```
+
+下面是用行内式写的同样一段内容的 Markdown 文件，提供作为比较之用：
+
+```markdown
+I get 10 times more traffic from [Google](http://google.com/ "Google")
+than from [Yahoo](http://search.yahoo.com/ "Yahoo Search") or
+[MSN](http://search.msn.com/ "MSN Search").
+```
+
+参考式的链接其实重点不在于它比较好写，而是它比较好读，比较一下上面的范例，使用参考式的文章本身只有 81 个字符，但是用行内形式的却会增加到 176 个字元，如果是用纯 HTML 格式来写，会有 234 个字元，在 HTML 格式中，标签比文本还要多。
+
+使用 Markdown 的参考式链接，可以让文件更像是浏览器最后产生的结果，让你可以把一些标记相关的元数据移到段落文字之外，你就可以增加链接而不让文章的阅读感觉被打断。
+
+## 代码区块 常用
+
+```markdown
+这是一个普通段落：
+
+    这是一个代码区块。
+```
+
+
+
+
+## 代码区块 详细
+
+[original context] []
+
+[original context]: https://www.appinn.com/markdown/#link "original context"
+
+和程序相关的写作或是标签语言原始码通常会有已经排版好的代码区块，通常这些区块我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示，
+Markdown 会用 `<pre>` 和 `<code>` 标签来把代码区块包起来。
+
+要在 Markdown 中建立代码区块很简单，只要简单地缩进 4 个空格或是 1 个制表符就可以，例如，下面的输入：
+
+```markdown
+这是一个普通段落：
+
+    这是一个代码区块。
+```
+
+Markdown 会转换成：
+
+```html
+<p>这是一个普通段落：</p>
+
+<pre><code>这是一个代码区块。
+</code></pre>
+```
+
+这个每行一阶的缩进（4 个空格或是 1 个制表符），都会被移除，例如：
+
+```markdown
+Here is an example of AppleScript:
+
+    tell application "Foo"
+        beep
+    end tell
+```
+
+会被转换为：
+
+```html
+<p>Here is an example of AppleScript:</p>
+
+<pre><code>tell application "Foo"
+    beep
+end tell
+</code></pre>
+```
+
+一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）。
+
+在代码区块里面， `&` 、 `<` 和 `>` 会自动转成 HTML 实体，这样的方式让你非常容易使用 Markdown 插入范例用的 HTML 原始码，只需要复制贴上，再加上缩进就可以了，剩下的 Markdown 都会帮你处理，例如：
+
+```html
+    <div class="footer">
+        &copy; 2004 Foo Corporation
+    </div>
+```
+
+会被转换为：
+
+```html
+<pre><code>&lt;div class="footer"&gt;
+    &amp;copy; 2004 Foo Corporation
+&lt;/div&gt;
+</code></pre>
+```
+
+代码区块中，一般的 Markdown 语法不会被转换，像是星号便只是星号，这表示你可以很容易地以 Markdown 语法撰写 Markdown 语法相关的文件。
+
+
+## 反斜杠
+
+Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，
+例如：如果你想要用星号加在文字旁边的方式来做出强调效果（但不用 `<em>` 标签），你可以在星号的前面加上反斜杠：
+
+```markdown
+\*literal asterisks\*
+```
+
+Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：
+
+    \   反斜线
+    `   反引号
+    *   星号
+    _   底线
+    {}  花括号
+    []  方括号
+    ()  括弧
+    #   井字号
+    +   加号
+    -   减号
+    .   英文句点
+    !   惊叹号
+
+## 行内代码
+
+如果要标记一小段行内代码，你可以用反引号把它包起来``（`）``，例如：
+
+```markdown
+Use the `printf()` function.
+```
+
+会产生：
+
+```html
+<p>Use the <code>printf()</code> function.</p>
+```
+
+如果要在代码区段内插入反引号，你可以用多个反引号来开启和结束代码区段：
+
+```markdown
+``There is a literal backtick (`) here.``
+```
+
+## markdownlint.config
+
+The default rule configuration disables `MD013/line-length` because many files include lines longer than the conventional `8`0 character limit:
+
+```json
+{
+    "MD013": false
+}
+```
+
+Note: `MD002/first-heading-h1` is disabled by default because it has been deprecated in the markdownlint library.
+
+Rules can be enabled, disabled, and customized by creating a `JSON` file named `.markdownlint.json` (or `.markdownlintrc`) or a `YAML` file named `.markdownlint.yaml` (or `.markdownlint.yml`) in any directory of a project.
+The rules defined by `.markdownlint`{`.json`,`.yaml`,`.yml`,`rc`} apply to Markdown files in the same directory and any sub-directories without their own `.markdownlint`{`.json`,`.yaml`,`.yml`,`rc`}.
+
+Note: .markdownlint{.json,.yaml,.yml,rc} is used only if a project has been opened.
+When no folder is open or a file is not part of the current project, normal user and workspace settings apply (see below).
+If multiple of these files are present in the same directory, `.markdownlint.json` will be used instead of `.markdownlint`,
+yaml will be used instead of `.markdownlint.yml` will be used instead of `.markdownlintrc`.
+
+A custom configuration is often defined by a `.markdownlint.json` file in the root of the project:
+
+```json
+{
+    "default": true,
+    "MD003": { "style": "atx_closed" },
+    "MD007": { "indent": 4 },
+    "no-hard-tabs": false
+}
+```
+
+To extend another configuration file, any configuration file can use the extends property to provide a relative path:
+
+```json
+{
+    "extends": "../.markdownlint.json",
+    "no-hard-tabs": true
+}
+```
+
+Files referenced via extends do not need to be part of the current project (but usually are).
+
+Rules can also be configured using Code's support for user and workspace settings.
+
+The earlier configuration might look like the following in Code's user settings:
+
+```json
+{
+    "editor.someSetting": true,
+    "markdownlint.config": {
+        "default": true,
+        "MD003": { "style": "atx_closed" },
+        "MD007": { "indent": 4 },
+        "no-hard-tabs": false
+    }
+}
+```
+
+File paths referenced by extends from user settings are resolved relative to the user's home directory (ex: `%USERPROFILE%` on Windows or `$HOME` on macOS/Linux).
+
+Configuration locations have the following precedence (in decreasing order):
+
++ `.markdownlint`{.json,.yaml,.yml,rc} file in the same directory
++ `.markdownlint`{.json,.yaml,.yml,rc} file in a parent directory
++ `.markdownlint`{.json,.yaml,.yml,rc} file in the root of the project
++ `Visual Studio` Code user/workspace settings
++ `Default configuration` (see above)
+
+Once a configuration is found, lower-precedence locations are ignored. Changes saved to any location take effect immediately. Files referenced via extends are not monitored for changes. Only the last two locations apply to files outside a project.

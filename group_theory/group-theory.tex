@@ -1,0 +1,126 @@
+\documentclass[cn,11pt,device=pad,mode=simple]{elegantbook}
+
+
+%%++++++++++++++++++++++++ start packages usual
+
+%%-------used already in elegantnote.cls-------------
+%\RequirePackage{graphicx}
+%\RequirePackage{enumerate}
+%\RequirePackage{amsmath,mathrsfs,amsfonts}
+%\RequirePackage{booktabs}
+
+%\RequirePackage{color,xcolor}
+%\RequirePackage{times}
+%\RequirePackage{mtpro2}
+%\RequirePackage{hyperref}
+%\RequirePackage{geometry}
+%\RequirePackage{wallpaper}
+%\RequirePackage[center,pagestyles]{titlesec}
+%\RequirePackage{fontenc}
+%\RequirePackage[no-math,cm-default]{fontspec}
+%\RequirePackage{xunicode}
+%\RequirePackage{xltxtra} 
+%\RequirePackage{xeCJK}
+%\RequirePackage{environ}
+%\RequirePackage{tikz}
+%\RequirePackage{pifont,manfnt}
+%\RequirePackage{fancyhdr}
+%\RequirePackage{lastpage}
+%%++++++++++++++++++++++++ used already in elegantnote.cls-------------
+
+%%++++++++++++++++++++++++ start usual package
+
+\usepackage{makecell}
+\usepackage{latexsym}
+\usepackage{makeidx}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{multirow}
+%\usepackage[vcentermath]{youngtab}
+\usepackage{ytableau}
+%\usepackage[
+%cal=mma,
+%calscaled=1,
+%bb=ams,frak=mma,
+%frakscaled=1,
+%scr=rsfs]{mathalpha}
+
+%%++++++++++++++++++++++++ end usual package
+
+%%++++++++++++++++++++++++ start packages high-energy-physics
+
+%%++++++++++++++++++++++++ Maths typesetting packages
+
+%\RequirePackage{amsmath} % ``Proper'' math commands and environments
+\usepackage{braket} % Dirac bra-ket notation
+\usepackage{cancel} % useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+%\RequirePackage{maybemath} % contextual math typesetting
+%\RequirePackage{hepmath} % Common HEP mathematical constructs and use-anywhere Greek letters
+
+
+%% Particle names (should be specified *after* hyperref)
+%\RequirePackage{hepparticles} % particle name typesetting (uses maybemath)
+%\RequirePackage{heppennames} % Particle Entity Notation macros for particle symbols
+%\RequirePackage{hepnicenames} % A ``friendly'' macro set for selected PEN symbols 
+% which includes hepparticles and heppennames
+
+
+%% SIunits package and HEP extensions
+\usepackage{hepunits} % imports SIunits with sensible options and HEP-specific units
+
+%%++++++++++++++++++++++++ end packages high-energy-physics 
+
+%%++++++++++++++++++++++++ start subfiles pkg
+
+\usepackage{subfiles}
+
+%%++++++++++++++++++++++++ end subfiles pkg
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% start noun definitions
+\def\Lagrangian{拉格朗日量} %for example
+
+%%%%%%%%%%%%%%%%%%%%%% end noun definitions
+
+
+
+\title{Group Theory}
+\subtitle{Permutation and SU(N)}
+
+\author{Thomas Young}
+\institute{UCAS}
+\date{\today}
+\version{1.00}
+
+
+\extrainfo{Stay sleepy, stay tired}
+
+\logo{logo.png}
+\cover{cover.jpg}
+
+
+\begin{document}
+	
+\maketitle
+	
+\tableofcontents
+% \thispagestyle{empty}
+	
+\mainmatter
+
+\hypersetup{pageanchor=true}
+
+
+\subfile{chapter6/chapter6}
+
+\subfile{chapter8/chapter8}
+
+
+
+
+
+
+\end{document}

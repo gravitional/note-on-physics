@@ -1,0 +1,1627 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor}
+% Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+
+\usepackage{amsfonts} 
+\usepackage{hep} 
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{latexsym} 
+\usepackage{amssymb} 
+\usepackage{makeidx} 
+\usepackage{amsmath} 
+\usepackage{multirow} 
+\usepackage{slashed} 
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr} 
+\DeclareMathOperator{\re}{Re} 
+\DeclareMathOperator{\im}{Im} 
+\DeclareMathOperator{\res}{Res} 
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+nonlocal.terning
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Section
+PATH EXPONENTIALS
+\end_layout
+
+\begin_layout Subsection
+路径指数因子
+\end_layout
+
+\begin_layout Standard
+作为热身，我们先来gauge一个自由夸克场，用一种不同往常的方式
+\end_layout
+
+\begin_layout Standard
+与光子作用的夸克的拉氏量为
+\begin_inset Formula 
+\[
+\mathcal{L}=\bar{\psi}(x).\gamma^{\mu}.(\partial_{\mu}-ieQV_{\mu}(x)).\psi(x)+\frac{F_{\mu\nu}F^{\mu\nu}}{4}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $Q$
+\end_inset
+
+是夸克的电荷矩阵。
+\end_layout
+
+\begin_layout Standard
+上面的拉氏量在以下规范变换下不变
+\begin_inset Formula 
+\begin{align}
+\psi(x)=(1+i\alpha(x)Q)\psi^{\prime}(x)\\
+\bar{\psi}(x)=\bar{\psi}^{\prime}(x)(1-i\alpha(x)Q)\label{eq:2}\\
+V_{\mu}(x)=V_{\mu}^{\prime}(x)+\frac{1}{e}\partial_{\mu}\alpha(x)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+可以用一种新方法去获得这个结果，新的方法更容易推广到non-local 的情形。
+\begin_inset Newline newline
+\end_inset
+
+path exponential introduced by Bloch, and path-ordered exponential introduced
+ by Wilson
+\end_layout
+
+\begin_layout Standard
+path ordering 对于电磁规范场来说并不必要，因为
+\begin_inset Formula $U(1)$
+\end_inset
+
+是Abelian 群，但是对于引入外部的弱相互作用规范场来说是必需的。
+\begin_inset Formula 
+\[
+\int\dif x\frac{\partial}{\partial x}\delta(x)f(x)=\int\dif x\frac{\partial}{\partial x}(\delta(x)f(x))-\int\dif x\frac{\partial}{\partial x}f(x)=-\int\dif x\delta(x)\frac{\partial}{\partial x}f(x)
+\]
+
+\end_inset
+
+消去那个边界项目。一般来说，奇数次求导挪动求导符号，并加一个符号，偶数次求导，直接挪动求导符号。
+\end_layout
+
+\begin_layout Standard
+考虑自由夸克的作用量，
+\begin_inset Formula 
+\begin{align*}
+S & =\int\dif^{4}x\bar{\psi}(x)\gamma.\partial_{x}.\psi(x)=\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\delta^{4}(x-y)\gamma.\partial_{y}.\psi(y)\\
+ & =\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\left(-\gamma.\partial_{y}\delta^{4}(x-y)\right).\psi(y)
+\end{align*}
+
+\end_inset
+
+这个作用量可以通过引入规范场线积分的指数因子来gauge化。
+\end_layout
+
+\begin_layout Standard
+对nonlocal有用的是路径积分指数因子的变换性质，在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+定义的规范变换下，指数因子的变换为
+\begin_inset Formula 
+\[
+\exp\left(-ieQ\int_{x}^{y}\dif\omega_{\nu}V^{\nu}\right)=\left(1+i\alpha(x)Q\right)\exp\left(-ieQ\int_{x}^{y}\dif\omega_{\nu}V^{\prime\nu}\right)\left(1-i\alpha(y)Q\right)
+\]
+
+\end_inset
+
+在非阿贝尔场中，这个简单的性质可以通过路径排序实现
+\end_layout
+
+\begin_layout Standard
+忽略
+\begin_inset Formula $F^{\mu\nu}F_{\mu\nu}$
+\end_inset
+
+项，规范不变的拉氏量为
+\begin_inset Formula 
+\begin{align*}
+S & =\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\left(-\gamma.\partial_{y}\delta^{4}(x-y)\right).\exp\left(-ieQ\int_{x}^{y}\dif\omega_{\nu}V^{\nu}\right)\psi(y)\\
+ & =\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\delta^{4}(x-y)\gamma.\partial_{y}\left(\exp\left(-ieQ\int_{x}^{y}\dif\omega_{\nu}V^{\nu}\right)\psi(y)\right)
+\end{align*}
+
+\end_inset
+
+路径积分的导数需要一个良好的定义，following Mandelstam[5]我们引入以下记号，
+\begin_inset Formula 
+\[
+I\left(x,y;p\right)\equiv\int_{x}^{y}\dif\omega^{\nu}V_{\nu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $p$
+\end_inset
+
+用来表示从
+\begin_inset Formula $x$
+\end_inset
+
+到
+\begin_inset Formula $y$
+\end_inset
+
+的路径依赖。
+\end_layout
+
+\begin_layout Standard
+然后导数可以定义为
+\begin_inset Formula 
+\begin{align*}
+ & \phantom{={}}\lim_{\Delta y^{\mu}\to0}\frac{I(x,y+\Delta y^{\mu};p^{\prime})-I(x,y;p)}{\Delta y^{\mu}}\\
+ & =\lim_{\Delta y^{\mu}\to0}\frac{I(x,y+\Delta y^{\mu};p^{\prime})-I(x,y+\Delta y^{\mu};p)+I(x,y+\Delta y^{\mu};p)-I(x,y;p)}{\Delta y^{\mu}}\\
+ & =\frac{\delta I(x,y;p)}{\delta p}+\frac{\partial}{\partial y^{\mu}}I(x,y;p)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $p^{\prime}$
+\end_inset
+
+是把
+\begin_inset Formula $\Delta y^{\mu}$
+\end_inset
+
+添加到原来路径
+\begin_inset Formula $p$
+\end_inset
+
+的末端
+\begin_inset Formula $y^{\mu}$
+\end_inset
+
+获得的新路径。选择如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的路径，认为导数的结果不依赖于用于定义它的路径,我们有
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial y_{\mu}}I(x,y;p)=V_{\mu}(y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted3.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+path used in calculatin the derivative of the line integral
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+展开上面式子中的
+\begin_inset Formula $\exp$
+\end_inset
+
+，容易看到，如果
+\begin_inset Formula 
+\[
+\delta(x-y)I(x,y;p)=0,\text{when: }x\to y
+\]
+
+\end_inset
+
+路径
+\begin_inset Formula $p$
+\end_inset
+
+收缩到一个点，而不是一个闭合回路，那么，
+\begin_inset Formula 
+\[
+S[g]=\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\delta(x-y)\gamma^{\mu}(\partial_{\mu}-ieQV_{\mu})\psi(y)
+\]
+
+\end_inset
+
+所以，只要引入正确的处方，处理路径排序，和零长度的路径积分，我们就可以恢复到最小耦合。
+\end_layout
+
+\begin_layout Subsection
+推导变换性质
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & V_{\mu}(x)=V_{\mu}^{\prime}(x)+\frac{1}{e}\partial_{\mu}\alpha(x)\\
+ & \exp\left(-ieQ\int_{x}^{y}\dif\omega_{\nu}V^{\nu}\right)\to\exp\left(-ieQ\int_{x}^{y}\dif\omega^{\nu}\left(V_{\nu}^{\prime}(\omega)+\frac{1}{e}\partial_{\nu}\alpha(\omega)\right)\right)\\
+ & =\exp\left(-ieQ\left(\frac{1}{e}\int_{x}^{x_{0}}\dif\omega^{\nu}\partial_{\nu}\alpha(\omega)+\int_{x}^{y}\dif\omega^{\nu}V_{\nu}^{\prime}(\omega)+\frac{1}{e}\int_{y_{0}}^{y}\dif\omega^{\nu}\partial_{\nu}\alpha(\omega)\right)\right)\\
+ & =\exp\left(-ieQ\left(-\frac{1}{e}\left(\alpha(x)-\alpha(x_{0})\right)+\int_{x}^{y}\dif\omega^{\nu}V_{\nu}^{\prime}(\omega)+\frac{1}{e}\left(\alpha(y)-\alpha(y_{0})\right)\right)\right)\\
+ & =\exp\left(-ieQ\left(-\frac{1}{e}\alpha(x)+\int_{x}^{y}\dif\omega^{\nu}V_{\nu}^{\prime}(\omega)+\frac{1}{e}\alpha(y)\right)\right)*\exp\left(-ieQ\left(-\frac{1}{e}\alpha(x_{0})+\frac{1}{e}\alpha(y_{0})\right)\right)
+\end{align*}
+
+\end_inset
+
+通过选取合适的路径，使得
+\begin_inset Formula $\alpha(x_{0})=\alpha(y_{0})$
+\end_inset
+
+,cancel 掉这两个边界项,得到
+\begin_inset Formula 
+\[
+\exp\left(i\alpha(x)Q\right)\exp\left(-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}^{\prime}(\omega)\right)\exp\left(-i\alpha(y)Q\right)
+\]
+
+\end_inset
+
+如果
+\begin_inset Formula $\alpha(x)$
+\end_inset
+
+是小量，将指数函数展开
+\begin_inset Formula 
+\[
+\left(1+i\alpha(x)Q\right)\exp\left(-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}^{\prime}(\omega)\right)\left(1-i\alpha(y)Q\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The gauged nonlocal mass
+\end_layout
+
+\begin_layout Standard
+下面的nonlocal拉氏量是
+\begin_inset Formula $N$
+\end_inset
+
+味夸克和
+\begin_inset Formula $N^{2}-1$
+\end_inset
+
+个Goldstone (GB)玻色子：
+\begin_inset Newline newline
+\end_inset
+
+nonlocal chiral quark model
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{NCQM}}(x,y)=\bar{\psi}(x)\delta(x-y)\gamma.\partial\psi(y)+\bar{\psi}(x)\Sigma_{\pi}(x,y)\psi(y)
+\]
+
+\end_inset
+
+其中，
+\begin_inset Formula 
+\begin{align*}
+ & \Sigma_{\pi}(x,y)=\\
+ & \Sigma(x-y)\left(1-\frac{i}{F_{0}}\gamma^{5}\left(\pi(x)+\pi(y)\right)-\frac{1}{2F_{0}^{2}}\left(\pi(x)^{2}+\pi(x)\pi(y)+\pi(y)\pi(x)+\mathcal{O}\left(\pi^{3}\right)\right)\right)
+\end{align*}
+
+\end_inset
+
+GB场包含在矩阵中
+\begin_inset Formula $\pi(z)\equiv\lambda^{a}\pi_{a}(z)$
+\end_inset
+
+，
+\begin_inset Formula $\lambda^{a}$
+\end_inset
+
+是
+\begin_inset Formula $SU(N)$
+\end_inset
+
+群的生成元,
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula $\tr\left(\lambda^{a},\lambda^{b}\right)=\frac{1}{2}\delta_{ab}$
+\end_inset
+
+,
+\begin_inset Formula $F_{0}$
+\end_inset
+
+取决于
+\begin_inset Formula $\pi$
+\end_inset
+
+场的适当归一化。
+\begin_inset Newline newline
+\end_inset
+
+拉氏量中包含一个动力学quark质量
+\begin_inset Formula $\Sigma(x-y)$
+\end_inset
+
+，在一个渐进自由的规范理论中应该存在。
+\begin_inset Newline newline
+\end_inset
+
+动力学质量是规范理论中，手征对称性自发破缺的序参数，相应的Goldstone玻色子作为非定域序参数的涨落。
+\end_layout
+
+\begin_layout Standard
+忽略
+\begin_inset Formula $F^{\mu\nu}F_{\mu\nu}$
+\end_inset
+
+项的规范相互作用为，
+\begin_inset Formula 
+\begin{align*}
+S_{g} & =\int\dif^{4}\bar{\psi}(x)\gamma^{\mu}\left(\partial_{\mu}-ieQV_{\mu}\right)\psi(x)\\
+ & +\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\Sigma(x-y)\exp\left(-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}\right)\psi(y)
+\end{align*}
+
+\end_inset
+
+对振幅的local贡献为（L for local，NL for NonLocal）
+\begin_inset Formula 
+\[
+ie\Gamma_{\text{L}}^{\mu}(x,y,z)=-\frac{\delta^{3}S_{\text{L}}}{\delta V_{\mu}(x)\delta\psi(y)\delta\bar{\psi}(z)}\rvert_{V_{\mu}=0}
+\]
+
+\end_inset
+
+这个泛函偏导总是先对
+\begin_inset Formula $\bar{\psi}$
+\end_inset
+
+求，再对
+\begin_inset Formula $\psi$
+\end_inset
+
+求。用
+\begin_inset Formula $\exp\left(i\left(p^{\prime}\cdot z-p\cdot y-q\cdot x\right)\right)$
+\end_inset
+
+进行傅立叶变换，拿掉通常的
+\begin_inset Formula $\left(2\pi\right)^{4}\delta\left(p^{\prime}-p-q\right)$
+\end_inset
+
+，得到：
+\begin_inset Formula 
+\[
+ie\Gamma_{\text{L}}^{\mu}\left(p,q,p+q\right)=ieQ\gamma^{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+非定域部分困难一些。首先，为了方便，对
+\begin_inset Formula $S_{\text{NL}}$
+\end_inset
+
+进行导数展开，令：
+\begin_inset Formula 
+\[
+F(x,y)=\exp\left(-ieQ\int_{x}^{y}V^{\nu}(\omega)\dif\omega_{\nu}\right)\psi(y)
+\]
+
+\end_inset
+
+进行傅立叶变换，把
+\begin_inset Formula 
+\begin{align*}
+S_{\text{NL}} & =\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\Sigma(x-y)\exp\left(-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}(\omega)\right)\psi(y)\\
+ & =\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\Sigma(x-y)F(x,y)
+\end{align*}
+
+\end_inset
+
+通过
+\begin_inset Formula $\exp\left(i(p^{\prime}z-py-qx)\right)$
+\end_inset
+
+变成
+\begin_inset Formula 
+\[
+S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\Sigma(p)F(k-p,p)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+推导过程
+\end_layout
+
+\begin_layout Standard
+假设作用量中的各个函数均存在傅立叶变换：
+\begin_inset Formula 
+\begin{align*}
+ & \iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\Sigma(x-y)F(x,y)=\\
+ & \frac{1}{(2\pi)^{4}}\dif^{4}k_{1}\bar{\psi}(k_{1})\exp(ik_{1}\cdot x)\\
+ & \frac{1}{(2\pi)^{4}}\dif^{4}k_{2}\Sigma(k_{2})\exp(-ik_{2}\cdot(x-y))\\
+ & \frac{1}{(2\pi)^{8}}\dif^{4}k_{3}\dif^{4}k_{4}F(k_{3},k_{4})\exp(-ik_{3}\cdot x-ik_{4}.y)
+\end{align*}
+
+\end_inset
+
+这里傅立叶变换的符号正负，是与下面对应的。
+\begin_inset Newline newline
+\end_inset
+
+先对
+\begin_inset Formula $x$
+\end_inset
+
+积分，
+\begin_inset Formula 
+\[
+\frac{1}{(2\pi)^{4}}\int\dif^{4}x\exp\left(ik_{1}x-ik_{2}x-ik_{3}x\right)\to\delta(k_{1}-k_{2}-k_{3})
+\]
+
+\end_inset
+
+再对
+\begin_inset Formula $y$
+\end_inset
+
+积分，
+\begin_inset Formula 
+\[
+\frac{1}{(2\pi)^{4}}\int\dif^{4}y\exp\left(ik_{2}y-ik_{4}y\right)\to\delta(k_{2}-k_{4})
+\]
+
+\end_inset
+
+最后，对
+\begin_inset Formula $k_{3},k_{4}$
+\end_inset
+
+积分，我们得到
+\begin_inset Formula 
+\[
+\frac{1}{(2\pi)^{8}}\dif^{4}k_{1}\dif^{4}k_{2}\bar{\psi}(k_{1})\Sigma(k_{2})F(k_{1}-k_{2},k_{2})
+\]
+
+\end_inset
+
+改写一下记号，得到
+\begin_inset Formula 
+\[
+\frac{1}{(2\pi)^{8}}\dif^{4}k\dif^{4}p\bar{\psi}(k)\Sigma(p)F(k-p,p)
+\]
+
+\end_inset
+
+傅立叶变换中的参数可正可负
+\begin_inset Formula 
+\[
+\frac{1}{(2\pi)^{8}}\dif^{4}k\dif^{4}p\bar{\psi}(-k)\Sigma(p)F(k-p,p)
+\]
+
+\end_inset
+
+然后对
+\begin_inset Formula $\Sigma(p)$
+\end_inset
+
+作泰勒展开，
+\begin_inset Formula 
+\[
+S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)(p^{2})^{n}\right)F(k-p,p)
+\]
+
+\end_inset
+
+进行逆向傅立叶变换，变回到位置空间，给出
+\begin_inset Formula 
+\begin{align*}
+S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\int\iiiint\dif^{4}x\dif^{4}y\dif^{4}z\dif^{4}k\dif^{4}p\exp\left(iz\cdot(k-p)-ix\cdot k\right)\bar{\psi}(x)\\
+ & \times\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(z,y)
+\end{align*}
+
+\end_inset
+
+其中导数仅作用在大括号内部区域，也就是
+\begin_inset Formula $\exp(ip\cdot y)$
+\end_inset
+
+上。进行这个傅立叶过程的原因是，相把
+\begin_inset Formula $\Sigma(x-y)$
+\end_inset
+
+写成级数求和的形式，方便推导动量空间费曼规则。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(p^{2}\right)^{n}\right)F(k-p,p)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bar{\psi}(k)=\int\dif^{4}x\bar{\psi}(x)\exp(-ix\cdot k)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F(k-p,p)=\int\dif^{4}z\dif^{4}yF(z,y)\exp\left(iz\cdot(k-p)\right)\exp\left(ip\cdot y\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*(p^{2})^{n}\to\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(ip\cdot y\right)
+\]
+
+\end_inset
+
+然后，分部积分得到：
+\begin_inset Formula 
+\begin{align*}
+S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\iint\dif^{4}x\dif^{4}y\delta(x-y)\bar{\psi}(x)\\
+ & \times\left(\Big(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(-ieQ\int_{x}^{y}V^{\nu}(\omega)\dif\omega_{\nu}\right)\psi(y)\Big)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+补充
+\end_layout
+
+\begin_layout Standard
+一般来说，场的傅里叶展开表达式中，积分测度
+\begin_inset Formula $d^{3}p*\text{积分区域}$
+\end_inset
+
+，在空间反射变换下都出个负号，相当于不变。理解起来也比较合理，即积分区间具有反射对称性。所以积分的奇偶性取决于函数本身的性质。
+\end_layout
+
+\begin_layout Standard
+场的表达式为：
+\begin_inset Formula 
+\begin{align*}
+\bar{\psi}(x) & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{p}}}\sum_{s}\left(a_{p}^{s\dagger}\bar{u}^{s}(p)\exp(ip\cdot x)+b_{p}^{s}\bar{v}^{s}(p)\exp(-ip\cdot x)\right)\\
+\bar{\psi}_{p} & =\frac{1}{\sqrt{2E_{p}}}\sum_{s}\left(a_{p}^{s\dagger}\bar{u}^{s}(p)\exp(ip\cdot x)+b_{p}^{s}\bar{v}^{s}(p)\exp(-ip\cdot x)\right)
+\end{align*}
+
+\end_inset
+
+场本身并没有明确的对称性。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\int\iiiint\dif^{4}x\dif^{4}y\dif^{4}z\dif^{4}k\dif^{4}p\exp\left(iz\cdot(k-p)-ix\cdot k\right)\bar{\psi}(x)\\
+ & \times\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(z,y)\\
+ & \dif^{4}k\Rightarrow\exp\left(iz\cdot(-p)\right)*\delta(z-x)\bar{\psi}(x)*(2\pi)^{4}*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(z,y)\\
+ & \dif^{4}z\Rightarrow\exp\left(ix\cdot(-p)\right)\bar{\psi}(x)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(x,y)\\
+ & \text{分部积分}\\
+ & \exp\left(ix\cdot(-p)\right)\bar{\psi}(x)\exp(ip\cdot y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}F(x,y)\right)\\
+ & \dif^{4}p\to\bar{\psi}(x)(2\pi)^{4}\delta(x-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}F(x,y)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+正规顶点
+\end_layout
+
+\begin_layout Standard
+所以正规顶点是:
+\begin_inset Formula 
+\[
+ie\Gamma_{\text{NL}}^{\mu}(y^{\prime},x^{\prime},z)=-\frac{\delta^{3}S_{\text{NL}}}{\delta V_{\mu}(x^{\prime})\delta\psi(y^{\prime})\delta\bar{\psi}(z)}\rvert_{V_{\mu}=0}
+\]
+
+\end_inset
+
+所以，
+\begin_inset Formula 
+\begin{align*}
+ & S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}x\dif^{4}y\delta(x-y)\bar{\psi}(x)\times\\
+ & \left(\Big(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(-ieQ\int_{x}^{y}V^{\nu}(\omega)\dif\omega_{\nu}\right)\psi(y)\Big)\right)\\
+ & {\color{red}\text{对}\bar{\psi}(z)\text{,\psi(y^{\prime})求导}}\Rightarrow-\iint\dif^{4}x\dif^{4}y\delta(x-y)\delta(x-z)\\
+ & \times\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(-ieQ\int_{x}^{y}V^{\nu}(\omega)\dif\omega_{\nu}\right)\delta(y-y^{\prime})\right)\\
+ & {\color{red}\text{对}V_{\mu}(x^{\prime})\text{求导},\text{并\text{且令}}V_{\mu}(x^{\prime})=0}\Rightarrow-\iint\dif^{4}x\dif^{4}y\delta(x-y)\delta(x-z)\\
+ & \times\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\left(-ieQ\int_{x}^{y}\delta(x^{\prime}-\omega)\dif\omega^{\mu}\right)\delta(y-y^{\prime})\right)\\
+ & {\color{red}\text{对}x\text{进行积分}}\\
+ & \Rightarrow(ieQ)\int\dif^{4}y\delta(z-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\left(\int_{z}^{y}\delta(x^{\prime}-\omega)\dif\omega^{\mu}\right)\delta(y-y^{\prime})\right)\\
+ & \Rightarrow ieQ\sum_{n=0}^{\infty}\Gamma_{\text{NL}}^{\mu,n}(y^{\prime},x^{\prime},z)
+\end{align*}
+
+\end_inset
+
+用
+\begin_inset Formula $\exp\left(ip^{\prime}\cdot z-ip\cdot y^{\prime}-iq\cdot x^{\prime}\right)$
+\end_inset
+
+进行傅立叶变换（负进正出，来自于LSZ公式，这里
+\begin_inset Formula $p,q$
+\end_inset
+
+进，
+\begin_inset Formula $p^{\prime}$
+\end_inset
+
+出），
+\begin_inset Newline newline
+\end_inset
+
+然后进行一长串繁琐的微分计算，我们得到
+\begin_inset Formula 
+\[
+ieQ\Gamma_{\text{NL}}^{\mu,n}(p,q,p+q)=-eQ\frac{1}{n!}\Sigma(n,0)(2p+q)^{\mu}*f_{n}
+\]
+
+\end_inset
+
+其中，
+\begin_inset Formula 
+\[
+f_{0}=0,f_{n+1}=f_{n}(q+p)^{2}+p^{2n}
+\]
+
+\end_inset
+
+注意，如果应用
+\begin_inset Formula $\delta(z-y)$
+\end_inset
+
+，即
+\begin_inset Formula $z=y$
+\end_inset
+
+,则
+\begin_inset Formula $\left(\int_{z}^{y}\delta(x^{\prime}-\omega)\dif\omega^{\mu}\right)=0$
+\end_inset
+
+，但这并不意味着整个式子就是零，因为前面有导数作用，也就是说,
+\begin_inset Formula 
+\[
+\int\dif^{4}x\delta(x)\left(\frac{\dif}{\dif x}f(x)\right)\neq\frac{\dif}{\dif x}\int\dif^{4}x\delta(x)f(x)
+\]
+
+\end_inset
+
+因为事实上，
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\dif}{\dif x}\int\dif^{4}x\left(f(x)\delta(x)\right)=\int\dif^{4}x\frac{\dif}{\dif x}\left(f(x)\delta(x)\right)\\
+ & {\color{red}=\int\dif^{4}x\delta(x)\left(\frac{\dif}{\dif x}f(x)\right)}+\int\dif^{4}xf(x)\left(\frac{\dif}{\dif x}\delta(x)\right)
+\end{align*}
+
+\end_inset
+
+或者说，
+\begin_inset Formula 
+\[
+\int\dif^{4}x\delta(x)\left(\frac{\dif}{\dif x}f(x)\right)=\int\dif^{4}x\delta(x)\lim_{\Delta x\to0}\left(\frac{f(x+\Delta x)-f(x)}{\Delta x}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\delta(x)$
+\end_inset
+
+强迫
+\begin_inset Formula $x$
+\end_inset
+
+等于零，但是并不会强迫
+\begin_inset Formula $\Delta x=0$
+\end_inset
+
+，所以尽管
+\begin_inset Formula $f(x)$
+\end_inset
+
+可能等于零，但是
+\begin_inset Formula $\frac{f(x+\Delta x)}{\Delta x}$
+\end_inset
+
+不一定为零。也就是说一阶导数与零阶导数（零点值）是无关的。
+\begin_inset Newline newline
+\end_inset
+
+从几何上说，曲线的起点与曲线的斜率是无关的。
+\end_layout
+
+\begin_layout Section
+求解积分的方法–Ivanov
+\end_layout
+
+\begin_layout Standard
+参考文献
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ivanov"
+literal "false"
+
+\end_inset
+
+中的方法，关键在于利用上面的定义，线积分的导数不依赖于路径。这种定义最早见于文献
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mandelstam"
+literal "false"
+
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+I\left(x,y,P\right)=\int_{x}^{y}\dif z_{\mu}A^{\mu}(z)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{\dif x_{\mu}\to0}\dif x_{\mu}\frac{\partial}{\partial x^{\mu}}I\left(x,y,P\right)=\lim_{\dif x_{\mu}\to0}\left(I(x+\dif x,y,p^{\prime})-I(x,y,P)\right)
+\]
+
+\end_inset
+
+这里新路径
+\begin_inset Formula $P^{\prime}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+是通过在旧路径
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+末端
+\begin_inset Formula $x$
+\end_inset
+
+加上变动
+\begin_inset Formula $\dif x$
+\end_inset
+
+得到的。使用这个定义能得到
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial x^{\mu}}I\left(x,y,P\right)=A_{\mu}(x)\label{eq:independent}
+\end{equation}
+
+\end_inset
+
+这就是强行定义，呵呵。
+\begin_inset Formula $I\left(x,y,P\right)$
+\end_inset
+
+的导数不依赖于路径。我们在推导中一定要使用这个性质，才能得到和文献中一样的结果。
+\end_layout
+
+\begin_layout Standard
+推导费曼规则，关键在于计算
+\begin_inset Formula 
+\[
+F\left(-\partial_{x}^{2}\right)\exp\left(-ip\cdot x\right)I\left(x,y,P\right)
+\]
+
+\end_inset
+
+同时一定要利用 eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:independent"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+比较容易发现
+\begin_inset Formula 
+\[
+F\left(-\partial_{x}^{2}\right)\exp\left(-ip\cdot x\right)I\left(x,y,P\right)=\exp\left(-ip\cdot x\right)F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{D}^{2}\equiv\left(\partial_{x}-ip\right)^{2}$
+\end_inset
+
+，这个很trivil。就是多项式求偏导的展开形式。所以我们需要计算
+\begin_inset Formula 
+\[
+F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P)=\sum_{n=0}^{\infty}(-)^{n}\frac{F^{(n)}(0)}{n!}\mathcal{D}_{x}^{2n}I(x,y,P)
+\]
+
+\end_inset
+
+我们发现
+\begin_inset Formula 
+\[
+\mathcal{D}_{x}^{2}I(x,y,P)=\partial_{x}A(x)-2ipA(x)-p^{2}I(x,y,P)\equiv L(A)-p^{2}I(x,y,P)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $L(A)\equiv\partial_{x}A(x)-2ipA(x)$
+\end_inset
+
+，然后迭代
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{D}_{x}^{2}\right)^{2}I(x,y,P) & =\left(\mathcal{D}_{x}^{2}\right)L(A)-p^{2}\left(\mathcal{D}_{x}^{2}\right)I(x,y,P)\\
+ & =\left(\mathcal{D}_{x}^{2}\right)L(A)-p^{2}\left(L(A)-p^{2}I(x,y,P)\right)\\
+ & =\left(\left(\mathcal{D}_{x}^{2}\right)-p^{2}\right)L(A)+\left(-p^{2}\right)^{2}I(x,y,P)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\mathcal{D}_{x}^{2}\right)^{3}I(x,y,P)=\left(\left(\mathcal{D}_{x}^{2}\right)^{2}-\left(\mathcal{D}_{x}^{2}\right)p^{2}+\left(-p^{2}\right)^{2}\right)L(A)+\left(-p^{2}\right)^{3}I(x,y,P)
+\]
+
+\end_inset
+
+由于每次
+\begin_inset Formula $p^{2}I(x,y,P$
+\end_inset
+
+都会分裂，所以项数逐渐增多,是个单系数套娃的过程：
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{D}_{x}^{2}\right)^{n}I(x,y,P) & =\sum_{k=0}^{n-1}\left(\mathcal{D}_{x}^{2}\right)^{n-1-k}\left(-p^{2}\right)^{k}L(A)+\left(-p^{2}\right)^{n}I(x,y,P)\\
+ & =\left(n\int_{0}^{1}\dif t\left(\mathcal{D}_{x}^{2}t-p^{2}(1-t)\right)^{n-1}L(A)\right)+(-p^{2})^{n}I(x,y,P)
+\end{align*}
+
+\end_inset
+
+这里使用了公式
+\begin_inset Formula 
+\begin{align*}
+\sum_{k=0}^{m}A^{m-l}B^{l} & =(m+1)\int_{0}^{1}\dif t\left(At+B(1-t)\right)^{m}\\
+ & =\frac{\left(At+B(1-t)\right)^{m+1}}{A-B}|_{0}^{1}=\frac{\left(A\right)^{m+1}-\left(B\right)^{m+1}}{A-B}
+\end{align*}
+
+\end_inset
+
+而我们有
+\begin_inset Formula 
+\[
+\left(A\right)^{m+1}-\left(B\right)^{m+1}=(A-B)\sum_{k=0}^{m}A^{m-l}B^{l}
+\]
+
+\end_inset
+
+比如三次方的情形：
+\begin_inset Formula $A^{3}-B^{3}=(A-B)(A^{2}+B^{2}+AB)$
+\end_inset
+
+，其他次幂的被相互约掉了.
+\end_layout
+
+\begin_layout Standard
+最后，我们得到
+\begin_inset Formula 
+\begin{align*}
+F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P) & =\left(\sum_{n=0}^{\infty}(-)^{n}\frac{F^{(n)}(0)}{n!}n\int_{0}^{1}\dif t\left(\mathcal{D}_{x}^{2}t-p^{2}(1-t)\right)^{n-1}L(A)\right)\\
+ & +\sum_{n=0}^{\infty}(-)^{n}\frac{F^{(n)}(0)}{n!}(-p^{2})^{n}I(x,y,P)\\
+ & \Rightarrow\left(\int_{0}^{1}\dif tF^{\prime}\left(-\mathcal{D}_{x}^{2}t+p^{2}(1-t)\right)L(A)\right)+F\left(p^{2}\right)I(x,y,P)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $F^{\prime}=\frac{\dif F(x)}{\dif x}$
+\end_inset
+
+，代入
+\begin_inset Formula $A_{\mu}(x)=\int\dif^{4}q\exp(-iqx)A_{\mu}(q)$
+\end_inset
+
+,以及
+\begin_inset Formula $L(A)\equiv\partial_{x}A(x)-2ipA(x)$
+\end_inset
+
+得到，
+\begin_inset Formula 
+\begin{align*}
+ & F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P)=\int\dif^{4}qA_{\mu}(q)\Big\{\left(q^{\mu}+2p^{\mu}\right)e^{-iqx}\int_{0}^{1}\dif tF^{\prime}\left((p+q)^{2}t+p^{2}(1-t)\right)\\
+ & +F\left(p^{2}\right)\int_{y}^{x}\dif z^{\mu}e^{-iqz}\Big\}
+\end{align*}
+
+\end_inset
+
+注意到最后一项会消失，因为拉氏量中有一项
+\begin_inset Formula $\delta(x-y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+积分求解
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & ieQ\iiiint\dif^{4}x\dif^{4}y^{\prime}\dif^{4}z\dif^{4}y\exp\left(ip^{\prime}\cdot z-ip\cdot y^{\prime}-iq\cdot x\right)\\
+ & \times\delta(z-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)\delta(y^{\prime}-y)\right)
+\end{align*}
+
+\end_inset
+
+交换积分次序，先对
+\begin_inset Formula $y^{\prime}$
+\end_inset
+
+积分,
+\begin_inset Formula 
+\begin{align*}
+ & ieQ\iiiint\dif^{4}x\dif^{4}y^{\prime}\dif^{4}z\dif^{4}y\exp\left(ip^{\prime}\cdot z-iq\cdot x\right)\\
+ & \times\delta(z-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)\exp(-ipy^{\prime})\delta(y^{\prime}-y)\right)
+\end{align*}
+
+\end_inset
+
+省略常数
+\begin_inset Formula $ieQ$
+\end_inset
+
+以及积分符号
+\begin_inset Formula $\iiiint$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow\exp\left(ip^{\prime}\cdot z-iq\cdot x\right)\delta(z-y)*\left(\Sigma\left[-\partial_{y}^{2}\right]e^{-ipy}\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)\right)
+\end{align*}
+
+\end_inset
+
+仿照上面的过程，定义
+\begin_inset Formula $I^{\mu}(z,y,P)=\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Sigma\left[-\partial_{y}^{2}\right]e^{-ipy}\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)=e^{-ipy}{\color{red}\Sigma\left[-\mathcal{D}_{y}^{2}\right]\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{D}_{y}^{2}\equiv\left(\partial_{y}-ip\right)^{2}$
+\end_inset
+
+,同样地，
+\begin_inset Formula 
+\[
+\mathcal{D}_{y}^{2}=\partial_{y}^{\mu}\delta(x-y)-2ip^{\mu}\delta(x-y)-p^{2}I^{\mu}(z,y,P)
+\]
+
+\end_inset
+
+定义
+\begin_inset Formula 
+\[
+L(\delta)\equiv\partial_{y}^{\mu}\delta(x-y)-2ip^{\mu}\delta(x-y)
+\]
+
+\end_inset
+
+类似地，
+\begin_inset Formula 
+\begin{align*}
+ & \Sigma\left[-\mathcal{D}_{y}^{2}\right]\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)\\
+ & =\left(\int_{0}^{1}\dif t\Sigma^{\prime}\left(-\mathcal{D}_{y}^{2}t+p^{2}(1-t)\right)L(\delta)\right)+\Sigma\left(p^{2}\right)I(z,y,P)
+\end{align*}
+
+\end_inset
+
+作用量里面的
+\begin_inset Formula $\delta(z-y)$
+\end_inset
+
+会消除第二项，我们得到
+\begin_inset Formula 
+\[
+\Sigma\left[-\mathcal{D}_{y}^{2}\right]\left(\int_{z}^{y}\delta(x-\omega)\dif\omega^{\mu}\right)=\int_{0}^{1}\dif t\Sigma^{\prime}\left(-\mathcal{D}_{y}^{2}t+p^{2}(1-t)\right)L(\delta)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{D}_{y}^{2}\equiv\left(\partial_{y}-ip\right)^{2}$
+\end_inset
+
+,代回原式得，
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow\exp\left(ip^{\prime}\cdot z-iq\cdot x\right)\delta(z-y)e^{-ipy}\int_{0}^{1}\dif tF^{\prime}\left(-\mathcal{D}_{y}^{2}t+p^{2}(1-t)\right)L(\delta)\\
+ & \Rightarrow\exp\left(ip^{\prime}\cdot y-iq\cdot x-ip\cdot y\right)\int_{0}^{1}\dif t\Sigma^{\prime}\left(-\mathcal{D}_{y}^{2}t+p^{2}(1-t)\right)\left(\partial_{y}^{\mu}\delta(x-y)-2ip^{\mu}\delta(x-y)\right)\\
+ & \Rightarrow\exp\left(ip^{\prime}\cdot y-iq\cdot x-ip\cdot y\right)\int_{0}^{1}\dif t\Sigma^{\prime}\left(-\left(-iq-ip\right){}^{2}t+p^{2}(1-t)\right)\left(-iq-2ip\right)^{\mu}\delta(x-y)\\
+ & \Rightarrow-i\exp\left(ip^{\prime}\cdot y-iq\cdot y-ip\cdot y\right)\int_{0}^{1}\dif t\Sigma^{\prime}\left(\left(q+p\right)^{2}t+p^{2}(1-t)\right)\left(q+2p\right)^{\mu}\\
+ & \Rightarrow-i\exp\left(ip^{\prime}\cdot y-iq\cdot y-ip\cdot y\right)\int_{0}^{1}\dif t\Sigma^{\prime}\left(\left(q+p\right)^{2}t+p^{2}(1-t)\right)\left(q+2p\right)^{\mu}\\
+ & \Rightarrow-i\left(2\pi\right)^{4}\delta\left(p^{\prime}-q-p\right)\frac{\Sigma(q+p)-\Sigma(p)}{2p\cdot q+q^{2}}\left(q+2p\right)^{\mu}
+\end{align*}
+
+\end_inset
+
+代回常数
+\begin_inset Formula $ieQ$
+\end_inset
+
+得到，
+\begin_inset Formula 
+\[
+2\pi\delta\left(p^{\prime}-q-p\right)eQ\frac{\left(q+2p\right)^{\mu}}{2p\cdot q+q^{2}}\left(\Sigma(q+p)-\Sigma(p)\right)
+\]
+
+\end_inset
+
+即得到了动量空间的费曼规则，对于确定动量的反应过程的振幅。
+\end_layout
+
+\begin_layout Subsection
+补充
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:补充"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\partial_{x}^{2}\left(f(x)g(x)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+首先，偏导数虽然写成
+\begin_inset Formula $\partial_{y}^{2}$
+\end_inset
+
+,但如果式子右边是相乘的形式，作用的时候，只能一个
+\begin_inset Formula $\partial$
+\end_inset
+
+一个
+\begin_inset Formula $\partial$
+\end_inset
+
+地去作用，而不能拿
+\begin_inset Formula $\partial^{2}$
+\end_inset
+
+整体去作用。
+\end_layout
+
+\begin_layout Standard
+其次，高阶偏导数对
+\begin_inset Formula $f(x)g(x)$
+\end_inset
+
+的作用，会产生像是高次二项式展开的形式：
+\begin_inset Formula $\partial_{x}^{n}\left(f(x)g(x)\right)=\left(\partial_{1}+\partial_{2}\right)^{n}fg=\sum_{k+l=n}\partial^{k}f\partial^{l}g$
+\end_inset
+
+，
+\begin_inset Newline newline
+\end_inset
+
+也就是说，每一项前面有会有不同的展开系数（杨辉三角），例如：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\partial\left(f(x)g(x)\right)=(\partial f)g+f(\partial g)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\partial^{2}\left(f(x)g(x)\right) & =(\partial^{2}f)g+(\partial f)(\partial g)+(\partial f)(\partial g)+f(\partial g)^{2}\\
+ & =(\partial^{2}f)g+2(\partial f)(\partial g)+f(\partial g)^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Appdix
+\end_layout
+
+\begin_layout Standard
+之前用到的假设；when
+\begin_inset Formula 
+\begin{equation}
+ie\Gamma_{\text{NL},n}^{\mu}(p,q,p+q)=-eQ\frac{1}{n!}\sum^{n}(0)(2p+q)^{\mu}f_{n}\label{eq:22}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f_{0} & =0,f_{1}=1\\
+f_{2} & =(q+p)^{2}+p^{2}\\
+f_{3} & =(p+p)^{4}+(q+p)^{2}p^{2}+p^{4}
+\end{align*}
+
+\end_inset
+
+一般来说，对于
+\begin_inset Formula $n\ge0$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+f_{0}=0,f_{n+1}=f_{n}(q+p)^{2}+p^{2n}
+\]
+
+\end_inset
+
+我们需要完成
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:22"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的级数求和
+\end_layout
+
+\begin_layout Subsection
+方法一
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{n+1}=f_{n}(q+p)^{2}+p^{2n}
+\]
+
+\end_inset
+
+相当于
+\begin_inset Formula 
+\[
+f_{n+1}=ff_{n}+g_{n}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $f=(q+p)^{2},g_{n}=p^{2n},g_{n+1}=gg_{n},g=p^{2}$
+\end_inset
+
+，我们试图构造一个新的数列
+\begin_inset Formula $t_{n}=f_{n}+yg_{n}$
+\end_inset
+
+，满足
+\begin_inset Formula 
+\begin{align*}
+ & f_{n+1}+yg_{n+1}=f(f_{n}+yg_{n})
+\end{align*}
+
+\end_inset
+
+代入上面
+\begin_inset Formula $f_{n+1}$
+\end_inset
+
+的递推公式得
+\begin_inset Formula 
+\begin{align*}
+ff_{n}+g_{n}+ygg_{n} & =ff_{n}+fyg_{n}\\
+yg+1 & =fy\\
+y & =\frac{1}{f-g}
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+f_{n+1}+\frac{1}{f-g}g_{n+1}=f(f_{n}+\frac{1}{f-g}g_{n})
+\]
+
+\end_inset
+
+所以新的数列是一个等比数列，我们有
+\begin_inset Formula $t_{n+1}=ft_{n}$
+\end_inset
+
+，所以
+\begin_inset Formula $t_{n+1}=f^{n}t_{1}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+t_{1} & =f_{1}+\frac{1}{f-g}g_{1}=1+\frac{1}{f-g}p^{2}\\
+t_{n+1} & =f^{n}\left(1+\frac{1}{f-g}p^{2}\right)
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+f_{n+1}=t_{n+1}-yg_{n+1}=f^{n}\left(1+\frac{1}{f-g}p^{2}\right)-\frac{1}{f-g}p^{2(n+1)}
+\]
+
+\end_inset
+
+代入
+\begin_inset Formula $f=(q+p)^{2},g=p^{2}$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\begin{align*}
+f_{n+1} & =(p+q)^{2n}\frac{(p+q)^{2}}{q^{2}+2p.q}-\frac{p^{2(n+1)}}{q^{2}+2p.q}\\
+ & =\frac{(p+q)^{2(n+1)}-p^{2(n+1)}}{q^{2}+2p.q}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+方法二–文献中的：
+\end_layout
+
+\begin_layout Standard
+考虑到
+\begin_inset Formula $f_{0}=0,f_{n+1}=f_{n}(q+p)^{2}+p^{2n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+考虑
+\begin_inset Formula ${\color{red}(q+p)^{2(n+1)}-p^{2(n+1)}}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+ & {\color{red}(q+p)^{2(n+1)}-p^{2(n+1)}}\\
+ & =(q^{2}+p^{2}+2q.p)(q+p)^{2n}-p^{2(n+1)}\\
+ & =(q^{2}+2p.q)(q+p)^{2n}+p^{2}\left({\color{red}(q+p)^{2n}-p^{2n}}\right)
+\end{align*}
+
+\end_inset
+
+令
+\begin_inset Formula ${\color{red}(q+p)^{2n}-p^{2n}}=(q^{2}+2p.q)g_{n},g_{1}=1$
+\end_inset
+
+,上式可以写成，
+\begin_inset Formula 
+\begin{align*}
+(q^{2}+2p.q)g_{n+1} & =(q^{2}+2p.q)\left((q+p)^{2n}+p^{2}g_{n}\right)\\
+g_{n+1} & =(q+p)^{2n}+p^{2}g_{n}
+\end{align*}
+
+\end_inset
+
+比较两个递推公式，
+\begin_inset Formula 
+\begin{align*}
+ & f_{n+1}=f_{n}(q+p)^{2}+p^{2n}\\
+ & g_{n+1}=g_{n}p^{\prime2}+(q^{\prime}+p^{\prime})^{2n}
+\end{align*}
+
+\end_inset
+
+求解方程组
+\begin_inset Formula 
+\[
+\begin{array}{c}
+p^{\prime}=q+p\\
+q^{\prime}+p^{\prime}=p
+\end{array}\to\begin{array}{c}
+q^{\prime}=-q\\
+p^{\prime}=q+p
+\end{array}
+\]
+
+\end_inset
+
+在
+\begin_inset Formula $g_{n+1}=g_{n}p^{2}+(q+p)^{2n}$
+\end_inset
+
+中作代换
+\begin_inset Formula 
+\[
+\begin{cases}
+q^{\prime}=-q\\
+p^{\prime}=p+q
+\end{cases}
+\]
+
+\end_inset
+
+得到
+\begin_inset Formula $g_{n+1}=g_{n}\left(p+q\right)^{2}+p{}^{2n}$
+\end_inset
+
+，也就是说
+\begin_inset Formula $f_{n+1}$
+\end_inset
+
+和
+\begin_inset Formula $g_{n+1}$
+\end_inset
+
+的递推关系在线性变换下是等价的。
+\begin_inset Formula 
+\begin{align*}
+f_{n}\left(q^{2}-2(p+q).q\right) & =p^{2n}-(p+q)^{2n}\\
+f_{n} & =\frac{(p+q)^{2n}-p^{2n}}{q^{2}+2q.p}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Ivanov"
+literal "true"
+
+\end_inset
+
+few-body systems 21,131-147, page 135
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Mandelstam"
+literal "false"
+
+\end_inset
+
+,S.:Ann.Phys.(NY)
+\series bold
+19
+\series default
+,1(1962)
+\end_layout
+
+\end_body
+\end_document

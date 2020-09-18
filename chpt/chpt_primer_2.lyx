@@ -1,0 +1,529 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor}
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{amsfonts} 
+\usepackage{latexsym} 
+% Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+
+%\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{makeidx} 
+\usepackage{multirow} 
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr} 
+\DeclareMathOperator{\re}{Re} 
+\DeclareMathOperator{\im}{Im} 
+\DeclareMathOperator{\res}{Res} 
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+chpt_primer_2
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Chapter
+对称性自发破缺和哥德斯通定理
+\end_layout
+
+\begin_layout Section
+简并的真空态
+\end_layout
+
+\begin_layout Standard
+对于一个无穷的体积，场的一般真空态
+\begin_inset Formula $\ket{\nu}$
+\end_inset
+
+定义为动量本征值为
+\begin_inset Formula $\vec{0}$
+\end_inset
+
+的态
+\begin_inset Formula 
+\[
+\vec{P}\ket{v}=0
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\vec{0}$
+\end_inset
+
+是一个离散的本征值。
+\end_layout
+
+\begin_layout Standard
+从下面的恒等式出发
+\begin_inset Formula 
+\[
+0=\bra{u}\left[H,\Phi(x)\right]\ket{v},\quad\forall\quad x
+\]
+
+\end_inset
+
+这个恒等式来自于真空态的能量简并，所以对易子为零。我们取
+\begin_inset Formula $t=0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int\dif^{3}y\bra{u}\mathscr{H}(\vec{y},0)\Phi(\vec{x},0)\ket{v}=\int\dif^{3}y\bra{u}\mathscr{H}(\vec{x},0)\Phi(\vec{y},0)\ket{v}
+\]
+
+\end_inset
+
+我们考虑左手边的式子，
+\begin_inset Formula 
+\begin{align*}
+\int\dif^{3}y\bra{u}\mathscr{H}(\vec{y},0)\Phi(\vec{x},0)\ket{v} & =\sum_{w}\bra{u}H\ket{w}\bra{w}\Phi(0)\ket{v}\\
+ & \int\dif^{3}y\dif^{3}p\sum_{n}\bra{u}\mathscr{H}(\vec{y},0)\ket{n,\vec{p}}\bra{n,\vec{p}}\Phi(0)\ket{v}e^{-i\vec{p}\cdot\vec{x}}
+\end{align*}
+
+\end_inset
+
+其中我们插入了一套完全集，分成真空贡献和其余贡献，并且利用了平移不变性。我们定义
+\begin_inset Formula 
+\[
+f_{n}(\vec{y},\vec{p})=\bra{u}\mathscr{H}(\vec{y},0)\ket{n,\vec{p}}\bra{n,\vec{p}}\Phi(0)\ket{v}
+\]
+
+\end_inset
+
+并假设
+\begin_inset Formula $f_{n}$
+\end_inset
+
+性质很好，可以应用 the lemma of Riemann and Lebesgue,
+\begin_inset Formula 
+\[
+\lim_{\lvert\vec{x}\rvert\to\infty}\int\dif^{3}pf(\vec{p})e^{-i\vec{p}\cdot\vec{x}}=0
+\]
+
+\end_inset
+
+在这里，体积无穷大的假设，
+\begin_inset Formula $\lvert\vec{x}\rvert\to\infty$
+\end_inset
+
+很关键。对右手边的式子重复以上操作，并且取极限
+\begin_inset Formula $\lvert\vec{x}\rvert\to\infty$
+\end_inset
+
+，只有真空部分的贡献留下来，我们得到
+\begin_inset Formula 
+\[
+\sum_{w}\bra{u}H\ket{w}\bra{w}\Phi(0)\ket{v}=\sum_{w}\bra{u}\Phi(0)\ket{w}\bra{w}H\ket{v}
+\]
+
+\end_inset
+
+对于任意的基态
+\begin_inset Formula $\ket{u}$
+\end_inset
+
+ and 
+\begin_inset Formula $\ket{v}$
+\end_inset
+
+。换句话说，矩阵
+\begin_inset Formula $\left(H_{uv}\right)\equiv\left(\bra{u}H\ket{v}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\Phi_{uv}\right)\equiv\bra{u}\Phi(0)\ket{v}$
+\end_inset
+
+对易，因此可以同时对角化。选择一个合适的基，可以得
+\begin_inset Formula 
+\[
+\bra{u}\Phi(0)\ket{v}=\delta_{nv}v,\quad v\in\mathbb{R}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\nu$
+\end_inset
+
+是
+\begin_inset Formula $\Phi$
+\end_inset
+
+在态
+\begin_inset Formula $\ket{v}$
+\end_inset
+
+中的期望值。
+\end_layout
+
+\begin_layout Standard
+因此，基态
+\begin_inset Formula $\ket{0,+}$
+\end_inset
+
+ and 
+\begin_inset Formula $\ket{0,-}$
+\end_inset
+
+ with 真空期望值
+\begin_inset Formula $\pm\Phi_{0}$
+\end_inset
+
+的确是正交的，并且满足
+\begin_inset Formula 
+\[
+\bra{0,+}H\ket{0,-}=\bra{0,-}H\ket{0,+}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+全局，连续，非阿贝尔对称性的自发破缺
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+g\in G:\quad\Phi_{i}\mapsto\Phi_{i}+\delta\Phi_{i},\quad\delta\Phi_{i}=-i\varepsilon_{a}t_{a,ij}\Phi_{j}\label{eq:2.21}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathscr{V}\left(\vec{\Phi}\right)=\mathscr{V}\left(\vec{\Phi}_{\text{min}}\right)+\underbrace{\frac{\partial\mathscr{V}\left(\vec{\Phi}_{\text{min}}\right)}{\partial\Phi_{i}}}_{=0}\chi_{i}+\frac{1}{2}\underbrace{\frac{\partial^{2}\mathscr{V}\left(\vec{\Phi}_{\text{min}}\right)}{\partial\Phi_{i}\partial\Phi_{j}}}_{\equiv m_{ij}^{2}}\chi_{i}\chi_{j}+\cdots\label{eq:2.22}
+\end{equation}
+
+\end_inset
+
+矩阵
+\begin_inset Formula $M^{2}\equiv\left(m_{ij}^{2}\right)$
+\end_inset
+
+一定是对称的（求导可以交换次序），并且由于是在极小点附近展开，所以是半正定的
+\begin_inset Formula 
+\begin{equation}
+\sum_{i,j}m_{ij}^{2}x_{i}x_{j}\geq0\quad\forall\quad\vec{x}\label{eq:2.23}
+\end{equation}
+
+\end_inset
+
+在这种情况下，
+\begin_inset Formula $M^{2}$
+\end_inset
+
+的所有本征值都是非负数。利用
+\begin_inset Formula $\mathscr{V}$
+\end_inset
+
+在对称群
+\begin_inset Formula $G$
+\end_inset
+
+下是不变的
+\begin_inset Formula 
+\begin{align*}
+\mathscr{V}\left(\vec{\Phi}_{\text{min}}\right) & =\mathscr{V}\left(D(g)\vec{\Phi}_{\text{min}}\right)=\mathscr{V}\left(\vec{\Phi}_{\text{min}}+\delta\vec{\Phi}_{\text{min}}\right)\\
+ & \overset{(\ref{eq:2.22})}{=}\mathscr{V}\left(\vec{\Phi}_{\text{min}}\right)+\frac{1}{2}m_{ij}^{2}\delta\Phi_{\text{min},i}\delta\Phi_{\text{min},j}+\cdots
+\end{align*}
+
+\end_inset
+
+可以通过比较系数得到
+\begin_inset Formula 
+\begin{equation}
+m_{ij}^{2}\delta\Phi_{\text{min},i}\delta\Phi_{\text{min},j}=0\label{eq:2.25}
+\end{equation}
+
+\end_inset
+
+这里的等于零并不是无穷小意义上的等于零，而是即使相对于无穷小的变分，其改变仍然等于零，也就是说泛函导数为零。将EQ
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.25"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+对
+\begin_inset Formula $\delta\Phi_{\text{min},k}$
+\end_inset
+
+求微分，并且利用
+\begin_inset Formula $m_{ij}^{2}=m_{ji}^{2}$
+\end_inset
+
+，导致矩阵方程
+\begin_inset Formula 
+\[
+M^{2}\delta\vec{\Phi}_{\text{min}}=\vec{0}
+\]
+
+\end_inset
+
+这里的等于零同上。将EQ
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.21"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中对任意
+\begin_inset Formula $\varepsilon_{a}$
+\end_inset
+
+的变分插入，
+\begin_inset Formula $\delta\vec{\Phi}_{\text{min}}=-i\varepsilon_{a}T_{a}\vec{\Phi}_{\text{min}}$
+\end_inset
+
+，我们总结到
+\begin_inset Formula 
+\begin{equation}
+M^{2}T_{a}\vec{\Phi}_{\text{min}}=\vec{0}\label{eq:2.27}
+\end{equation}
+
+\end_inset
+
+这里的等于零就是表面上的意思。
+\end_layout
+
+\begin_layout Standard
+回忆一下，
+\begin_inset Formula $T_{a}$
+\end_inset
+
+是 Lagrangian of EQ2.20 具有的对称性的生成元。方程
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.27"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的解可以分成两类。
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $T_{a},a=1,\cdots,n_{H}$
+\end_inset
+
+，是群
+\begin_inset Formula $G$
+\end_inset
+
+子群
+\begin_inset Formula $H$
+\end_inset
+
+的李代数中元素的表示矩阵，它保持选定的真空不变。所以
+\begin_inset Formula 
+\[
+T_{a}\vec{\Phi}_{\text{min}}=\vec{0},\quad a=1,\cdots,n_{H}
+\]
+
+\end_inset
+
+所以 EQ
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.27"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 自动满足，并没有告诉我们更多关于
+\begin_inset Formula $M^{2}$
+\end_inset
+
+的信息。
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $T_{a},a=n_{H}+1,\cdots,n_{G}$
+\end_inset
+
+，不是子群
+\begin_inset Formula $H$
+\end_inset
+
+李代数元素的表示矩阵。在这种情况下，
+\begin_inset Formula $T_{a}\vec{\Phi}_{\text{min}}\neq\vec{0}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{a}\vec{\Phi}_{\text{min}}$
+\end_inset
+
+是
+\begin_inset Formula $M^{2}$
+\end_inset
+
+本征值为
+\begin_inset Formula $0$
+\end_inset
+
+的本征矢。每一个这样的本征矢对应一个无质量 Goldstone boson。 特别的，不同的
+\begin_inset Formula $T_{a}\vec{\Phi}_{\text{min}}$
+\end_inset
+
+是线性独立的，导致有
+\begin_inset Formula $n_{G}-n_{H}$
+\end_inset
+
+个独立的 Goldstone bosons.
+ 因为如果它们不线性独立，那么存在一个线性组合
+\begin_inset Formula 
+\[
+\vec{0}=\sum_{a=n_{H}+1}^{n_{G}}c_{a}\left(T_{a}\vec{\Phi}_{\text{min}}\right)=\underbrace{\left(\sum_{a=n_{H}+1}^{n_{G}}c_{a}T_{a}\right)\vec{\Phi}_{\text{min}}}_{\equiv T}
+\]
+
+\end_inset
+
+这样
+\begin_inset Formula $T$
+\end_inset
+
+就是
+\begin_inset Formula $H$
+\end_inset
+
+李代数中的一个元素，跟我们的假设相矛盾。
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref61"
+literal "true"
+
+\end_inset
+
+xxxxx
+\end_layout
+
+\end_body
+\end_document

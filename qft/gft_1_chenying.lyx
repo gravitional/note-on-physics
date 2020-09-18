@@ -1,0 +1,1489 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{xcolor}
+% Required for specifying colors by name 
+\definecolor{ocre}{RGB}{243,102,25} 
+\usepackage{enumerate} 
+
+\usepackage{amsfonts} 
+\usepackage{hep} 
+\usepackage{bm} 
+\usepackage{graphicx,graphics,color} 
+\usepackage{simplewick} 
+\usepackage{latexsym} 
+\usepackage{amssymb} 
+\usepackage{makeidx} 
+\usepackage{amsmath} 
+\usepackage{multirow} 
+\usepackage{slashed} 
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr} 
+\DeclareMathOperator{\re}{Re} 
+\DeclareMathOperator{\im}{Im} 
+\DeclareMathOperator{\res}{Res} 
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+规范场论一
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Chapter
+正则量子化简单回顾
+\end_layout
+
+\begin_layout Section
+约定
+\end_layout
+
+\begin_layout Enumerate
+自然单位制,
+\begin_inset Formula $\hbar=c=1$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+[\text{长度}]=\text{[\text{时间}]}=[\text{能量}]^{-1}=[\text{质量}]^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+闵可夫斯基度规
+\begin_inset Formula 
+\[
+g_{\mu\nu}=g^{\mu\nu}=\left(\begin{array}{cccc}
+1 & 0 & 0 & 0\\
+0 & -1 & 0 & 0\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & -1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x^{\mu}=\left(x^{0},\vec{x}\right),x_{\mu}=g_{\mu\nu}x^{\nu}=\left(x^{0},-\vec{x}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{\mu}\equiv\frac{\partial}{\partial x^{\mu}}=\left(\frac{\partial}{\partial x^{0}},\nabla\right),\qquad p\cdot x=g_{\mu\nu}x^{\mu}x^{\nu}=p^{0}x^{0}-\vec{p}\cdot\vec{x}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\epsilon^{0123}=-1,\qquad\epsilon_{0123}=+1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pauli 矩阵
+\begin_inset Formula 
+\[
+\sigma^{1}=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\quad\sigma^{2}=\left(\begin{array}{cc}
+0 & -i\\
+i & 0
+\end{array}\right),\sigma^{3}=\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\gamma$
+\end_inset
+
+–矩阵的约定（引入
+\begin_inset Formula $2\times2$
+\end_inset
+
+单位矩阵
+\begin_inset Formula $\sigma^{0}=\left(\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right)$
+\end_inset
+
+）
+\end_layout
+
+\begin_layout Enumerate
+Dirac矩阵
+\begin_inset Newline newline
+\end_inset
+
+Weyl表示：
+\begin_inset Formula 
+\[
+\gamma^{0}=\left(\begin{array}{cc}
+0 & \sigma_{0}\\
+\sigma_{0} & 0
+\end{array}\right),\qquad\gamma_{i}=\left(\begin{array}{cc}
+0 & \sigma^{i}\\
+-\sigma^{i} & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma_{5}\equiv i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}=\frac{1}{4!}\epsilon^{\mu\nu\rho\sigma}\gamma_{\mu\nu\rho\sigma}=\gamma^{5}=\left(\begin{array}{cc}
+-\sigma_{0} & 0\\
+0 & \sigma_{0}
+\end{array}\right)
+\]
+
+\end_inset
+
+Dirac 表示：
+\begin_inset Formula 
+\[
+\gamma^{0}=\left(\begin{array}{cc}
+\sigma_{0} & 0\\
+0 & -\sigma_{0}
+\end{array}\right),\qquad\gamma_{i}=\left(\begin{array}{cc}
+0 & \sigma^{i}\\
+-\sigma^{i} & 0
+\end{array}\right),\qquad\gamma_{5}=\left(\begin{array}{cc}
+0 & \sigma_{0}\\
+\sigma_{0} & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+Majorana表示：
+\begin_inset Formula 
+\begin{align*}
+\gamma^{0}=\left(\begin{array}{cc}
+0 & \sigma^{2}\\
+\sigma^{2} & 0
+\end{array}\right), & \gamma^{1}=\left(\begin{array}{cc}
+i\sigma^{3} & 0\\
+0 & i\sigma^{3}
+\end{array}\right)\\
+\gamma^{2}=\left(\begin{array}{cc}
+0 & -\sigma^{2}\\
+\sigma^{2} & 0
+\end{array}\right), & \gamma^{3}=\left(\begin{array}{cc}
+-i\sigma^{1} & 0\\
+0 & -i\sigma^{1}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma^{5}=\left(\begin{array}{cc}
+\sigma_{2} & 0\\
+0 & -\sigma_{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+Dirac方程
+\begin_inset Formula $\left(i\gamma^{\mu}\partial_{\mu}-m\right)\psi=0$
+\end_inset
+
+在Majorana表象是实方程，可以将
+\begin_inset Formula $\psi$
+\end_inset
+
+分解为实部和虚部，实部和虚部各自都满足Dirac方程
+\end_layout
+
+\begin_layout Section
+常用公式
+\end_layout
+
+\begin_layout Subsection
+留数定理
+\end_layout
+
+\begin_layout Standard
+Jordan引理：如果函数
+\begin_inset Formula $g(z)$
+\end_inset
+
+沿上半平面圆周
+\begin_inset Formula $\Gamma_{R}:z=Re^{i\theta}\left(0\le\theta\le\pi\right)$
+\end_inset
+
+上连续(
+\begin_inset Formula $R$
+\end_inset
+
+充分大)，并且
+\begin_inset Formula $\lim_{R\to\infty}g(z)=0$
+\end_inset
+
+在
+\begin_inset Formula $\Gamma_{R}$
+\end_inset
+
+上一致成立，则：
+\begin_inset Formula 
+\[
+\lim_{R\to\infty}\int_{\Gamma_{R}}\dif zg(z)e^{imz}=0,\qquad(m>0)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+留数定理：对于满足上面条件的函数
+\begin_inset Formula $g(z)$
+\end_inset
+
+，且
+\begin_inset Formula $g(z)$
+\end_inset
+
+的极点
+\begin_inset Formula $a_{k}$
+\end_inset
+
+都不在实轴上，则
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif zg(z)e^{imz}=2\pi i\sum_{\im a_{k}>0}\res_{z=a_{k}}\left[g(z)e^{imz}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+阶跃函数
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta\left(x\right)=\begin{cases}
+0 & x<0\\
+1 & x>0
+\end{cases}
+\]
+
+\end_inset
+
+积分定义：
+\begin_inset Formula 
+\[
+\theta(t)=\frac{i}{2\pi}\int_{-\infty}^{+\infty}\dif s\frac{e^{-ist}}{s+i\epsilon}
+\]
+
+\end_inset
+
+可以自己验证，当
+\begin_inset Formula $t>0$
+\end_inset
+
+时，积分路径取实轴和下半平面的大圆构成的闭合回路。留数为
+\begin_inset Formula $1$
+\end_inset
+
+，积分回路是左手的，
+\begin_inset Formula $-2\pi i$
+\end_inset
+
+，最终给出
+\begin_inset Formula $1$
+\end_inset
+
+。如果
+\begin_inset Formula $t<0$
+\end_inset
+
+，从上面平面绕过，没有单极点，则等于零。
+\end_layout
+
+\begin_layout Subsection
+Dirac 
+\begin_inset Formula $\delta$
+\end_inset
+
+函数
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta(x)=\frac{\dif}{\dif x}\theta(x),\qquad\int_{-\infty}^{+\infty}\dif xf(x-a)=f(a)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+傅立叶变换
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x)=\int\frac{\dif^{4}k}{(2\pi)^{4}}e^{-ik\cdot x}\tilde{f}(k),\qquad\tilde{f}(k)=\int\dif^{4}xe^{ik\cdot x}f(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+自由场的量子化
+\end_layout
+
+\begin_layout Standard
+高能微观过程满足狭义相对论原理、量子力学原理。
+\begin_inset Newline newline
+\end_inset
+
+相对论因果律、大量的粒子产生和湮灭等特性要求相对论的量子场论。
+\begin_inset Newline newline
+\end_inset
+
+集团展开原理要求
+\color blue
+定域量子场论
+\color inherit
+。
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+集团展开原理：空间上相距很远的微观物理过程之间互不相关
+\end_layout
+
+\begin_layout Standard
+从表现形式来上来看，
+\begin_inset Formula $S$
+\end_inset
+
+矩阵元可以因子化为不同的集团（确定的初末态粒子集合）的乘积，最终可以表述为不同子集团的连通
+\begin_inset Formula $S$
+\end_inset
+
+矩阵元的集团展开。
+\begin_inset Newline newline
+\end_inset
+
+所谓连通的
+\begin_inset Formula $S$
+\end_inset
+
+矩阵元，是指其包含唯一一个反映能动量守恒的
+\begin_inset Formula $\delta$
+\end_inset
+
+函数
+\end_layout
+
+\begin_layout Section
+定域场论
+\end_layout
+
+\begin_layout Standard
+定域性：
+\begin_inset Formula $H_{\text{int}}(t)=\int\dif^{3}x\mathcal{H}_{\text{int}}\left(\vec{x},t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+洛仑兹不变性：
+\begin_inset Formula $U_{0}(\Lambda,a)\mathcal{H}_{\text{int}}(x)U_{0}^{-1}(\Lambda,a)=\mathcal{H}_{\text{int}}(\Lambda x+a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+微观因果律、集团展开原理：
+\begin_inset Formula $\left[\mathcal{H}(x),\mathcal{H}(x^{\prime})\right]=0$
+\end_inset
+
+,当
+\begin_inset Formula $(x-x^{\prime})^{2}\le0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+相对论性定域场论的直接结果：自旋统计关系、反粒子的存在等。
+\end_layout
+
+\begin_layout Section
+场按照Lorentz变换性质分类
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\psi_{\alpha}^{\prime}(x)=U(\Lambda,a)\psi_{\alpha}U^{-1}(\Lambda,a)=\sum_{\beta}D_{\alpha\beta}\left(\Lambda^{-1}\right)\psi_{\beta}\left(\Lambda x+a\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $U(\Lambda,a)$
+\end_inset
+
+：洛伦兹变换（洛伦兹转动
+\begin_inset Formula $\Lambda$
+\end_inset
+
+和平移
+\begin_inset Formula $a$
+\end_inset
+
+）;
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $D_{\alpha\beta}(\Lambda^{-1})$
+\end_inset
+
+：洛伦兹转动在
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+所属的表示空间的表示矩阵。
+\end_layout
+
+\begin_layout Standard
+不同的场所属的表示不同，
+\begin_inset Formula $D_{\alpha\beta}(\Lambda^{-1})$
+\end_inset
+
+也不同：
+\end_layout
+
+\begin_layout Standard
+标量场（
+\begin_inset Formula $S=0$
+\end_inset
+
+）：
+\begin_inset Formula $D(\Lambda)=1;$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+旋量场（
+\begin_inset Formula $S=1/2$
+\end_inset
+
+）：
+\begin_inset Formula $D(\Lambda)=\text{\ensuremath{\Lambda_{1/2}}}=\exp\left(-i\omega_{\alpha\beta}S^{\alpha\beta}/2\right),S^{\alpha\beta}=\frac{1}{4}\left[\gamma^{\alpha},\gamma^{\beta}\right]$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+矢量场（
+\begin_inset Formula $S=1$
+\end_inset
+
+）：
+\begin_inset Formula $D(\Lambda=\Lambda)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+二次量子化
+\end_layout
+
+\begin_layout Standard
+拉格朗日量（
+\begin_inset Formula $\mathcal{L}(\phi,\partial_{\mu}\phi)$
+\end_inset
+
+），作用量
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+(
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $S=\int\dif^{4}\mathcal{L}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+)
+\end_layout
+
+\begin_layout Standard
+Euler-lagrangian方程
+\begin_inset Formula $\frac{\partial\mathcal{L}}{\partial\phi}-\partial_{\mu}\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+Fock态空间：
+\color inherit
+
+\begin_inset Formula $F=\oplus_{n}\mathcal{H}_{n}$
+\end_inset
+
+，
+\begin_inset Formula $\mathcal{H}_{n}$
+\end_inset
+
+表示
+\begin_inset Formula $n$
+\end_inset
+
+粒子的Hilbert 态空间
+\end_layout
+
+\begin_layout Standard
+Fock态空间在所有的时间都是相同的，具有时间平移不变性。
+\end_layout
+
+\begin_layout Standard
+幺正变换：场论计算中，我们感兴趣的是矩阵元，即
+\color blue
+态矢量的内积
+\color inherit
+,
+\begin_inset Formula 
+\[
+\mathcal{M}=\left\langle \psi_{1}\vert\psi_{2}\right\rangle =\bra{\psi_{1}}P^{\dagger}P\ket{\psi_{2}}\Rightarrow P^{\dagger}P=I
+\]
+
+\end_inset
+
+要求态矢量（物理粒子态）是
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Poincar
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+的幺正表示。
+\end_layout
+
+\begin_layout Standard
+粒子是
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Poincar
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+群的不可约幺正表示，
+\begin_inset Newline newline
+\end_inset
+
+场
+\begin_inset Formula $\psi,A_{\mu},T_{\mu\nu},\cdots$
+\end_inset
+
+是
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Poincar
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+群的有限维表示，但不是幺正表示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Poincar
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+群不存在有限维的幺正表示，
+\begin_inset Newline newline
+\end_inset
+
+
+\color blue
+Wigner证明了，不可约幺正表示按照质量
+\begin_inset Formula $m$
+\end_inset
+
+和自旋
+\begin_inset Formula $J$
+\end_inset
+
+唯一分类
+\color inherit
+；
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $m=0$
+\end_inset
+
+时只存在两种极化态。（参见Schwartz and Weinberg(Vol.I)）
+\end_layout
+
+\begin_layout Section
+自由场的正则量子化
+\end_layout
+
+\begin_layout Section
+S矩阵和S矩阵元
+\end_layout
+
+\begin_layout Section
+S矩阵元和格林函数
+\end_layout
+
+\begin_layout Chapter
+微扰论–格林函数的微扰计算
+\end_layout
+
+\begin_layout Section
+约定
+\end_layout
+
+\begin_layout Standard
+电磁场强张量：
+\begin_inset Formula 
+\[
+F^{\mu\nu}=\left[\begin{array}{cccc}
+0 & -E^{1} & -E^{2} & -E^{3}\\
+E^{1} & 0 & B^{3} & -B^{2}\\
+E^{2} & -B^{3} & 0 & B^{1}\\
+E^{3} & B^{2} & -B^{1} & 0
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+洛伦兹变换：
+\begin_inset Formula 
+\[
+x^{\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}
+\]
+
+\end_inset
+
+洛伦兹变换是保度规变换
+\begin_inset Formula 
+\[
+g^{\rho\sigma}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\phantom{\rho}\nu}^{\sigma}g^{\mu\nu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+g_{\phantom{\rho}\sigma}^{\rho}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\nu}g_{\phantom{\mu}\nu}^{\mu}\Rightarrow\delta_{\phantom{\rho}\sigma}^{\rho}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\nu}\delta_{\phantom{\mu}\nu}^{\mu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\Lambda_{\sigma}^{\phantom{\sigma}\nu}$
+\end_inset
+
+是洛仑兹逆变换的矩阵，
+\begin_inset Formula $x_{\sigma}^{\prime}=\Lambda_{\sigma}^{\phantom{\sigma}\nu}x_{\nu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+矩阵的转置是交换行列指标，洛仑兹指标的升降是给行或者列加正负号。如果认为矩阵的转置会携带洛仑兹指标的状态，把行的正负号状态一并带到了列上（反之亦然）则，
+\begin_inset Formula 
+\[
+(\Lambda^{\perp}){}_{\sigma}^{\phantom{\sigma}\nu}=\Lambda_{\phantom{\sigma}\sigma}^{\nu}\text{ or, }(\Lambda^{\perp})_{\phantom{\sigma}\sigma}^{\nu}=\Lambda{}_{\sigma}^{\phantom{\sigma}\nu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\delta_{\phantom{\rho}\sigma}^{\rho} & =\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\nu}\delta_{\phantom{\mu}\nu}^{\mu}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\mu}\\
+ & \Rightarrow\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\mu}=\Lambda_{\phantom{\rho}\mu}^{\rho}(\Lambda^{\perp})_{\phantom{\sigma}\sigma}^{\mu}
+\end{align*}
+
+\end_inset
+
+这里不是普通的矩阵相乘，这里的相乘是指标收缩，也就是带度规的运算，如果要变成普通矩阵相乘，还需要乘上相应的
+\begin_inset Formula $\pm1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+即，洛伦兹矩阵转置，要包含指标的位置（表明度规）；求逆矩阵，需要转置，然后乘上相应的度规正负号。
+\begin_inset Newline newline
+\end_inset
+
+四维矢量表象下矩阵的具体形式如下（只考虑
+\begin_inset Formula $x$
+\end_inset
+
+方向boost时）：
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+x^{\prime}\\
+t^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & v/\beta\\
+v/\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+x\\
+t
+\end{array}\right)
+\]
+
+\end_inset
+
+逆矩阵就是把空间位置的元素中的
+\begin_inset Formula $v$
+\end_inset
+
+换成
+\begin_inset Formula $-v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+洛伦兹群不存在有限维幺正表示，因为XXX（忘了）。
+\end_layout
+
+\begin_layout Standard
+洛仑兹协变导数：
+\begin_inset Formula 
+\[
+x^{\prime\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu},\text{so}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial x^{\mu}}f\left[x^{\prime\mu}\right]=\frac{\partial x^{\prime\nu}}{\partial x^{\mu}}\frac{\partial}{\partial x^{\prime\nu}}f\left[x^{\prime\nu}\right]=\Lambda_{\phantom{\mu}\nu}^{\mu}\frac{\partial}{\partial x^{\prime\nu}}f\left[x^{\prime\nu}\right]
+\]
+
+\end_inset
+
+也就是说，
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial x^{\mu}}=\Lambda_{\phantom{\mu}\nu}^{\mu}\frac{\partial}{\partial x^{\prime\nu}}
+\]
+
+\end_inset
+
+所以相应地，
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial x^{\prime\mu}}=\Lambda_{\mu}^{\phantom{\sigma}\nu}\frac{\partial}{\partial x^{\nu}},
+\]
+
+\end_inset
+
+也就是说，
+\begin_inset Formula $\frac{\partial}{\partial x^{\prime\mu}}$
+\end_inset
+
+像是协变矢量一样变换
+\begin_inset Formula $\partial_{\prime\mu}=\Lambda_{\mu}^{\phantom{\sigma}\nu}\partial_{\nu}$
+\end_inset
+
+，所以定义
+\begin_inset Formula $\partial_{\mu}=\frac{\partial}{\partial x^{\mu}}$
+\end_inset
+
+，这是由于导数在分母上导致的，会发生指标的颠倒现象。
+\end_layout
+
+\begin_layout Section
+有质量光子和电子的相互作用理论
+\end_layout
+
+\begin_layout Standard
+Lagrangian: 
+\begin_inset Formula $\mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\frac{\mu^{2}}{2}A_{\mu}A^{\mu}+\bar{\psi}\left(i\gamma\cdot\partial-m\right)\psi-e\bar{\psi}\gamma^{\mu}\psi A_{\mu}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\cola{J^{\mu}=e\bar{\psi}\gamma^{\mu}\psi}$
+\end_inset
+
+是守恒流。
+\end_layout
+
+\begin_layout Standard
+Hamiltonian:
+\end_layout
+
+\begin_layout Standard
+对
+\begin_inset Formula $A_{\mu}\left(x\right)$
+\end_inset
+
+引入正则动量(
+\begin_inset Formula $A_{0}$
+\end_inset
+
+的正则动量为零，不是正则变量)
+\begin_inset Formula 
+\[
+\Pi^{i}=\frac{\partial\mathcal{L}}{\partial\left(\partial^{0}A^{i}\right)}=F^{0i}=-E^{i}=E_{i}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\vec{\Pi}=F^{0i}=-E^{i}=-\vec{E}
+\]
+
+\end_inset
+
+由此可以得到相互作用的哈密顿量
+\begin_inset Formula $\mathcal{H}_{\text{int}}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{H}_{\text{int}}=-\vec{J}\cdot\vec{A}-\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{E}+\frac{1}{2\mu^{2}}\left(J^{0}\right)^{2}
+\]
+
+\end_inset
+
+在相互作用表象中，场服从自由场的运动方程，
+\begin_inset Formula 
+\[
+\partial_{\mu}F_{I}^{\mu\nu}+\mu^{2}A_{I}^{\nu}=0\Rightarrow A_{I}^{0}=-\frac{1}{\mu^{2}}\nabla\cdot\vec{E}_{I}
+\]
+
+\end_inset
+
+代入到相互作用哈密顿量
+\begin_inset Formula $\mathcal{H}_{\text{int}}$
+\end_inset
+
+，得到相互作用表象的
+\begin_inset Formula $\mathcal{H}_{I}$
+\end_inset
+
+(也就是相当于把
+\begin_inset Formula $\mathcal{H}_{\text{int}}$
+\end_inset
+
+变换到了相互作用表象中)
+\begin_inset Formula 
+\[
+\mathcal{H}_{I}=-\vec{J}_{I}\vec{A}_{I}+J_{I}^{0}A_{I}^{0}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}=J_{I}^{\mu}A_{I,\mu}+\cola{\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}}
+\]
+
+\end_inset
+
+红色的就是非协变项。
+\end_layout
+
+\begin_layout Section
+附录：相互作用表象中
+\begin_inset Formula $\mathcal{H}_{I}$
+\end_inset
+
+形式的导出
+\end_layout
+
+\begin_layout Subsection
+在自由场情形
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{0} & =-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}=-\frac{1}{4}\left(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\right)\left(\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu}\right)\\
+ & =-\frac{1}{4}F_{\mu0}F^{\mu0}-\frac{1}{4}F_{\mu i}F^{\mu i}\\
+ & =-\frac{1}{4}F_{i0}F^{i0}-\frac{1}{4}F_{0i}F^{0i}-\frac{1}{4}F_{ij}F^{ij}\\
+ & =-\frac{1}{2}F_{i0}F^{i0}-\frac{1}{4}F_{ij}F^{ij}\\
+ & \mathbb{=}\frac{1}{2}\vec{\Pi}^{2}-\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}
+\end{align*}
+
+\end_inset
+
+这样，
+\begin_inset Formula 
+\[
+\mathcal{L}_{\gamma}=\frac{1}{4}F^{\mu\nu}F_{\mu\nu}+\frac{1}{2}\mu^{2}A^{\mu}A_{\mu}=\frac{1}{2}\vec{\Pi}^{2}-\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}-\frac{1}{2}\mu^{2}\vec{A}^{2}+\frac{1}{2}\mu^{2}A_{0}^{2}
+\]
+
+\end_inset
+
+通过勒让德变换，
+\begin_inset Formula 
+\[
+\vec{\Pi}=F^{0i}=-E^{i}=-\vec{E},+\partial^{i}A^{0}=-\nabla A_{0},\partial^{i}=-\nabla
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathcal{H} & =\vec{\Pi}\cdot\dot{\vec{A}}-\mathcal{L},\quad\vec{\Pi}\cdot\dot{\vec{A}}=\vec{\Pi}\cdot\left(F^{0i}+\partial^{i}A^{0}\right)\\
+ & =\vec{\Pi}\cdot\left(F^{0i}-\nabla A_{0}\right)=\vec{\Pi}^{2}-\vec{\Pi}\cdot\nabla A_{0}
+\end{align*}
+
+\end_inset
+
+有
+\begin_inset Formula 
+\begin{equation}
+\mathcal{H}=\frac{1}{2}\vec{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}+\frac{1}{2}\mu^{2}\vec{A}^{2}-\frac{1}{2}\mu^{2}A_{0}^{2}-\vec{\Pi}\cdot\nabla A_{0}\label{eq:hamiltonian1}
+\end{equation}
+
+\end_inset
+
+根据场方程
+\begin_inset Formula 
+\[
+\vec{\Pi}=F^{0i}=-E^{i}=-\vec{E},\partial_{i}=\nabla
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\partial_{\mu}F^{\mu0}+\mu^{2}A^{0} & =\partial_{i}F^{i0}+\mu^{2}A^{0}=0\Rightarrow\cola{A_{0}}=-\frac{1}{\mu^{2}}\partial_{i}F^{i0}\\
+ & =-\frac{1}{\mu^{2}}\nabla\cdot\left(-\vec{\Pi}\right)=-\frac{1}{\mu^{2}}\nabla\cdot\vec{E}\\
+ & =\frac{1}{\mu^{2}}\nabla\cdot\vec{\Pi}
+\end{align*}
+
+\end_inset
+
+代入得到
+\begin_inset Formula 
+\begin{align*}
+\vec{\Pi}\cdot\nabla A_{0} & =\frac{1}{\mu^{2}}\vec{\Pi}\cdot\nabla\left(\nabla\cdot\vec{\Pi}\right)=-\frac{1}{\mu^{2}}\left(\nabla\cdot\vec{\Pi}\right)^{2}+\text{表面项}\\
+ & =-\mu^{2}A_{0}^{2}
+\end{align*}
+
+\end_inset
+
+代入
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:hamiltonian1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+得到，
+\begin_inset Formula 
+\[
+-\frac{1}{2}\mu^{2}A_{0}^{2}-\vec{\Pi}\cdot\nabla A_{0}=+\frac{1}{2}\mu^{2}A_{0}^{2}
+\]
+
+\end_inset
+
+所以有
+\begin_inset Formula 
+\[
+\mathcal{H}_{\gamma}=\frac{1}{2}\vec{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}+\frac{1}{2}\mu^{2}\vec{A}^{2}+\frac{1}{2}\mu^{2}A_{0}^{2}\ge0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+考虑和电子场的守恒流耦合的情形
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\frac{\mu^{2}}{2}A_{\mu}A^{\mu}+\bar{\psi}\left(i\gamma\cdot\partial-m\right)\psi-e\bar{\psi}\gamma^{\mu}\psi A_{\mu}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $J^{\mu}=e\bar{\psi}\gamma^{\mu}\psi$
+\end_inset
+
+是守恒流，也就是说规范场的耦合不改变守恒流的形式。
+\begin_inset Formula $A_{\mu}\left(x\right)$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+的正则动量和自由情形相同；对
+\begin_inset Formula $\psi$
+\end_inset
+
+引入正则动量
+\begin_inset Formula $P_{\psi}=i\psi^{\dagger}$
+\end_inset
+
+，相应的
+\begin_inset Formula $A_{\mu}(x)$
+\end_inset
+
+的经典运动方程为
+\begin_inset Formula 
+\[
+\partial_{\mu}F^{\mu\nu}+\mu^{2}A^{\nu}=J^{\nu}\Rightarrow A^{0}=\frac{1}{\mu^{2}}\left(J^{0}+\nabla\cdot\vec{\Pi}\right)
+\]
+
+\end_inset
+
+这时，
+\begin_inset Formula $\mathcal{H_{\gamma}=}\frac{1}{2}\vec{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}+\frac{1}{2}\mu^{2}\vec{A}^{2}-\frac{1}{2}\mu^{2}A_{0}^{2}-\vec{\Pi}\cdot\nabla A_{0}$
+\end_inset
+
+如同
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:hamiltonian1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\mathcal{H}_{\psi} & =i\psi^{\dagger}\partial_{0}\psi-\left[\bar{\psi}\left(i\gamma\cdot\partial-m\right)\psi+\vec{J}.\vec{A}-J^{0}A^{0}\right]\\
+ & =i\bar{\psi}\gamma^{0}\partial_{0}\psi-\bar{\psi}\left(i\gamma\cdot\partial-m\right)\psi-\vec{J}.\vec{A}+J^{0}A^{0}\\
+ & =\bar{\psi}\left(i\vec{\gamma}\cdot\nabla+m\right)\psi-\vec{J}.\vec{A}+J^{0}A^{0}
+\end{align*}
+
+\end_inset
+
+对
+\begin_inset Formula $\mathcal{H}=\mathcal{H}_{\gamma}+\mathcal{H}_{\psi}$
+\end_inset
+
+重新组合，
+\begin_inset Formula 
+\[
+\mathcal{H}=\mathcal{H}_{0}^{\prime}+\mathcal{H}_{\text{int}}^{\prime}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{H}_{0}^{\prime}=\frac{1}{2}\vec{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}+\frac{1}{2}\mu^{2}\vec{A}^{2}+\bar{\psi}\left(i\vec{\gamma}\cdot\nabla+m\right)\psi
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\mathcal{H}_{\text{int}}^{\prime}=-\vec{J}\cdot\vec{A}+J^{0}A^{0}-\frac{1}{2}\mu^{2}A_{0}^{2}-\vec{\Pi}\cdot\nabla A^{0}\label{eq:hint}
+\end{equation}
+
+\end_inset
+
+利用
+\begin_inset Formula $A_{0}$
+\end_inset
+
+满足的经典方程
+\begin_inset Formula $A^{0}=\frac{1}{\mu^{2}}\left(J^{0}+\nabla\cdot\vec{\Pi}\right)$
+\end_inset
+
+，
+\begin_inset Formula $\mathcal{H}_{\text{int}}^{\prime}$
+\end_inset
+
+可以重新整理成
+\begin_inset Formula 
+\begin{align*}
+\mathcal{H}_{\text{int}}^{\prime} & =-\vec{J}.\vec{A}+\frac{1}{\mu^{2}}J^{0}\left(J^{0}+\nabla\cdot\vec{\Pi}\right)-\frac{1}{2\mu^{2}}\left(J^{0}+\nabla\cdot\vec{\Pi}\right)^{2}-\frac{1}{\mu^{2}}\vec{\Pi}\cdot\nabla\left(J^{0}+\nabla\cdot\vec{\Pi}\right)\\
+ & =-\vec{J}.\vec{A}+\frac{1}{\mu^{2}}\left(J^{0}\right)^{2}+\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{\Pi}-\frac{1}{2\mu^{2}}\left(J^{0}\right)^{2}-\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{\Pi}-\frac{1}{2\mu^{2}}\left(\nabla\cdot\vec{\Pi}\right)^{2}\\
+ & +\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{\Pi}+\frac{1}{\mu^{2}}\left(\nabla\cdot\vec{\Pi}\right)^{2}\text{(其中用了分部积分)}\\
+ & =-\vec{J}.\vec{A}+\frac{1}{2\mu^{2}}\left(J^{0}\right)^{2}+\frac{1}{2\mu^{2}}\left(\nabla\cdot\vec{\Pi}\right)^{2}+\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{\Pi}
+\end{align*}
+
+\end_inset
+
+将相互作用部分的哈密顿量
+\begin_inset Formula $\mathcal{H}_{\text{int}}^{\prime}$
+\end_inset
+
+变换到相互作用表象，
+\begin_inset Formula 
+\begin{align*}
+\ket{x} & \Rightarrow U\ket{x}=\exp\left[-iH_{\text{free}}t\right]\ket{x}\text{(开头总是一样的U)}\\
+\hat{O}[t_{0}] & \Rightarrow U\hat{O}[t_{0}]U^{\dagger}=\exp\left[-iH_{\text{free}}t\right]\hat{O}[t_{0}]\exp\left[iH_{\text{free}}t\right]
+\end{align*}
+
+\end_inset
+
+变换的时候，想象
+\begin_inset Formula $U\cdots U^{\dagger}$
+\end_inset
+
+之间自动插入各种
+\begin_inset Formula $UU^{\dagger}$
+\end_inset
+
+，把哈密顿量
+\begin_inset Formula $\mathcal{H}_{\text{int}}^{\prime}$
+\end_inset
+
+量中出现的每个场都变换到相互作用表象中去。也就是说，我们只要把
+\begin_inset Formula $\mathcal{H}_{\text{int}}^{\prime}$
+\end_inset
+
+出现的场替换成相互作用表象的场就可以了，
+\begin_inset Formula $\cola{\mathcal{H}_{\text{int}}^{\prime}\text{的形式可以不改变。}}$
+\end_inset
+
+即，
+\begin_inset Formula 
+\[
+\mathcal{H}_{\text{int}}^{\prime}=-\vec{J_{I}}.\vec{A_{I}}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}+\frac{1}{2\mu^{2}}\left(\nabla\cdot\vec{\Pi}_{I}\right)^{2}+\frac{1}{\mu^{2}}J_{I}^{0}\nabla\cdot\vec{\Pi}_{I}
+\]
+
+\end_inset
+
+注意到，相互作用表象中的场算符满足自由场的运动方程，
+\begin_inset Formula 
+\[
+A_{I}^{0}=-\frac{1}{\mu^{2}}\nabla\cdot\vec{E}_{I}=\frac{1}{\mu^{2}}\nabla\cdot\vec{\Pi}_{I}
+\]
+
+\end_inset
+
+代入上面公式得到
+\begin_inset Formula 
+\begin{align*}
+\mathcal{H}_{\text{int}}^{\prime} & =-\vec{J_{I}}.\vec{A_{I}}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}+\frac{1}{2}\mu^{2}(A_{I}^{0})^{2}+J_{I}^{0}A_{I}^{0}\\
+ & =J_{I}\cdot A_{I}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}+\frac{1}{2}\mu^{2}(A_{I}^{0})^{2}
+\end{align*}
+
+\end_inset
+
+由于
+\begin_inset Formula $A_{0}$
+\end_inset
+
+不是正则变量(对应的正则动量为零)，所以将
+\begin_inset Formula $\frac{1}{2}\mu^{2}(A_{I}^{0})^{2}$
+\end_inset
+
+吸收到自由哈密顿量中去，我们得到
+\begin_inset Formula 
+\[
+\mathcal{H}_{I}=J_{I}\cdot A_{I}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{0}=H_{0}^{\prime}+\frac{1}{2}\mu^{2}\left(A_{I}^{0}\right)^{2}
+\]
+
+\end_inset
+
+显然
+\begin_inset Formula $A_{I}^{0}$
+\end_inset
+
+满足自由场方程,
+\begin_inset Formula $\partial_{\mu}F_{I}^{\mu0}+\mu^{2}A_{I}^{0}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+有质量光子和电子的相互作用理论的Feynman规则
+\end_layout
+
+\begin_layout Standard
+光子的传播子将是非协变的，
+\begin_inset Formula 
+\[
+\frac{-i}{k^{2}-\mu^{2}+i\epsilon}\left(g_{\mu\nu}-\frac{k_{\mu}k_{\nu}}{\mu^{2}}\right)-\frac{i}{\mu^{2}}\delta_{\mu}^{0}\delta_{\nu}^{0}
+\]
+
+\end_inset
+
+相互作用顶点的费曼规则，将会多出一项非协变的顶点，四费米子相互作用顶点：
+\begin_inset Formula 
+\[
+-ie^{2}\frac{1}{2\mu^{2}}\gamma^{0}\otimes\gamma^{0}
+\]
+
+\end_inset
+
+计算比如Coulomb散射过程，
+\end_layout
+
+\begin_layout Enumerate
+“光子”传播子中的非Lorentz协变项和非协变的四费米子相互作用项正好抵消。
+\color blue
+振幅是Lorentz不变的。
+\end_layout
+
+\begin_layout Enumerate
+在
+\begin_inset Formula $\mu^{2}\to0$
+\end_inset
+
+时，振幅和QED的结果完全相同。
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref61"
+literal "true"
+
+\end_inset
+
+陈莹老师课件
+\end_layout
+
+\end_body
+\end_document
