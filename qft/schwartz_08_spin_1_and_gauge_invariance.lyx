@@ -3995,10 +3995,144 @@ with
 \end_inset
 
 的动能项
-\begin_inset Formula $\left(\partial_{\mu}\phi^{*}\right)\left(\partial^{\mu}\phi^{*}\right)$
+\begin_inset Formula $\left(\partial_{\mu}\phi^{*}\right)\left(\partial^{\mu}\phi\right)$
 \end_inset
 
 会变成
+\begin_inset Formula 
+\begin{align*}
+\left(\partial_{\mu}\phi^{*}\right)\left(\partial^{\mu}\phi\right) & \to\left(\partial_{\mu}\phi^{*}\right)\left(\partial^{\mu}\phi\right)-i\left[\left(\partial_{\mu}\phi^{*}\right)\left(\partial^{\mu}\pi\right)\phi-\left(\partial_{\mu}\phi\right)\left(\partial^{\mu}\pi\right)\phi^{*}\right]-(\pi\phi^{*})\square(\pi\phi)\\
+ & =\left(\partial_{\mu}\phi^{*}\right)\left(\partial^{\mu}\phi\right)-i\pi\left(\phi^{*}\square\phi-\phi\square\phi^{*}\right)-(\pi\phi^{*})\square(\pi\phi)
+\end{align*}
+
+\end_inset
+
+它和我们不想要的元素抵消了。但是，现在又多了一个
+\begin_inset Formula $\pi$
+\end_inset
+
+的二次方项，不能抵消。这可以通过给场
+\begin_inset Formula $\phi$
+\end_inset
+
+加上二阶项补偿
+\begin_inset Formula 
+\[
+\phi\to\phi-i\pi\phi-\frac{1}{2}\pi^{2}\phi
+\]
+
+\end_inset
+
+并且给 Lagrangian 加上另外一项：
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}F_{\mu\nu}^{2}+\left(\partial_{\mu}\phi^{*}\right)\left(\partial^{\mu}\phi\right)-iA_{\mu}(\phi^{*}\partial_{\mu}\phi-\phi\partial_{\mu}\phi^{*})+A_{\mu}^{2}\phi^{*}\phi
+\]
+
+\end_inset
+
+它至
+\begin_inset Formula $\pi^{3}$
+\end_inset
+
+阶是不变的，显然它就是
+\begin_inset Formula $A_{\mu}\to A_{\mu}+\partial_{\mu}\pi$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\to e^{-i\pi}\phi$
+\end_inset
+
+。In fact, it is just the scalar QED Lagrangian that we have derived from
+ the bottom up。（感觉这种方法对于scalar QED并没有什么卵用）
+\end_layout
+
+\begin_layout Section
+自旋2
+\end_layout
+
+\begin_layout Standard
+暂时省略。。。
+\end_layout
+
+\begin_layout Standard
+and the Lagrangian is 
+\begin_inset Formula 
+\[
+\mathcal{L}=\sqrt{-\det\left(\eta_{\mu\nu}+\frac{1}{M_{\text{P1}}}h_{\mu\nu}\right)}\phi
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $M_{\text{P1}}=G_{N}^{-1/2}\approx10^{19}\GeV$
+\end_inset
+
+ is the Planck scale, 它的引入可以使
+\begin_inset Formula $h_{\mu\nu}$
+\end_inset
+
+具有质量
+\begin_inset Formula $1$
+\end_inset
+
+次方的量纲。
+\end_layout
+
+\begin_layout Standard
+类似地，
+\begin_inset Formula $h_{\mu\nu}$
+\end_inset
+
+的动能项为
+\begin_inset Formula 
+\[
+\mathcal{L}=M_{\text{P1}}^{2}\sqrt{-\det\left(\eta_{\mu\nu}+\frac{1}{M_{\text{P1}}}h_{\mu\nu}\right)}R\left[\eta_{\mu\nu}+\frac{1}{M_{\text{P1}}}h_{\mu\nu}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+高于自旋2
+\end_layout
+
+\begin_layout Standard
+可以用和上面类似地方法推导高于自旋2的拉氏量。自然界中存在自旋–
+\begin_inset Formula $3$
+\end_inset
+
+的粒子，比如质量为
+\begin_inset Formula $1670\MeV$
+\end_inset
+
+的
+\begin_inset Formula $\omega_{3}$
+\end_inset
+
+，也存在自旋–
+\begin_inset Formula $4$
+\end_inset
+
+，自旋–
+\begin_inset Formula $5$
+\end_inset
+
+等等的。这些粒子都是有质量的。可以用类似地方法建立自由 Lagrangians。一个有趣而深刻的结论是，不可能对自旋大于
+\begin_inset Formula $2$
+\end_inset
+
+的粒子建立起相互作用理论。因为需要的规范对称性太严格了以至于没有能满足的。我们会在后面的章节证明。在 Problem 8.8 中对自旋–
+\begin_inset Formula $3$
+\end_inset
+
+的粒子建立动能项（引入
+\begin_inset Formula $Z_{\mu\nu\alpha}$
+\end_inset
+
+）。
 \end_layout
 
 \begin_layout Standard
