@@ -34,8 +34,8 @@
 %% \usepackage{axodraw2} 
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
-\DeclareMathOperator{\re}{Re}
-\DeclareMathOperator{\im}{Im}
+%\DeclareMathOperator{\re}{Re}
+%\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\res}{Res}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\cola}[1]{{\color{blue}{#1}}}
@@ -2449,7 +2449,43 @@ W^{\mu\nu}=2\Im T^{\mu\nu}
 
 \end_inset
 
+其中
+\begin_inset Formula 
+\[
+e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}T^{\mu\nu}(\omega,Q)=\mathcal{M}(\gamma^{*}p^{+}\to\gamma^{*}p^{+})
+\]
 
+\end_inset
+
+
+\begin_inset Formula $T_{\mu\nu}$
+\end_inset
+
+被称为 向前康普顿振幅（ 
+\series bold
+forward Compton amplitude 
+\series default
+）。它是个 forward amplitude 由于（不在壳）光子和质子在初末态具有相同的动量。用流来表示，我们可以把
+\begin_inset Formula $T_{\mu\nu}$
+\end_inset
+
+写成
+\begin_inset Formula 
+\[
+T_{\mu\nu}(\omega,Q)=i\int\dif^{4}xe^{iq\cdot x}\bra{P}T\left\{ J_{\mu}(x)J_{\nu}(0)\right\} \ket{P}
+\]
+
+\end_inset
+
+我们把一个矩阵元平方
+\begin_inset Formula $W_{\mu\nu}\sim\abs{\mathcal{M}(\gamma^{*}p^{+}\to X)}^{2}\sim\abs{\langle\{J\}\rangle}^{2}$
+\end_inset
+
+表示成矩阵元
+\begin_inset Formula $T_{\mu\nu}\sim\mathcal{M}(\gamma^{*}p\to\gamma^{*}p)\sim\langle T\{JJ\}\rangle$
+\end_inset
+
+的虚部。
 \end_layout
 
 \begin_layout Standard
@@ -2462,7 +2498,299 @@ e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu} & =\frac{1}{2}\sum_{X,\text{
 
 \end_inset
 
+通常把
+\begin_inset Formula $T_{\mu\nu}$
+\end_inset
 
+用它的自己结构函数展开，as in (32.13), with 稍微不同的归一化：
+\begin_inset Formula 
+\[
+T^{\mu\nu}(\omega,Q)=T_{1}(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}})+\frac{T_{2}}{P\cdot q}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+DIS 结构函数变成
+\begin_inset Formula $W_{1}=2\Im T_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $W_{2}=4\Im\frac{1}{\omega Q^{2}}T_{2}$
+\end_inset
+
+。在因子化分析的时候，习惯上也使用形状因子
+\begin_inset Formula $\mathcal{F}_{1,2}$
+\end_inset
+
+ in Eq.32.26: 
+\begin_inset Formula $\mathcal{F}_{1}(x)\equiv\frac{1}{4\pi}W_{1}(x),\quad\mathcal{F}_{2}(x)\equiv\frac{Q^{2}}{8\pi x}W_{2}(x)$
+\end_inset
+
+。则
+\begin_inset Formula $\mathcal{F}_{1,2}=\frac{1}{2\pi}\Im(T_{1,2})$
+\end_inset
+
+。因此，我们希望在领头阶
+\begin_inset Formula $\Im T_{2}=2\pi\sum_{i}C_{i}^{2}xf_{i}(x)$
+\end_inset
+
+，可以让我们匹配到部分子模型，一旦计算出
+\begin_inset Formula $T_{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+用编时乘积写出强子张量解决了第一个问题，因为它让我们可以使用费曼规则计算算符乘积。但这并不改变，当
+\begin_inset Formula $Q^{2}\to\infty$
+\end_inset
+
+时，不一定有
+\begin_inset Formula $x^{\mu}\to0$
+\end_inset
+
+，因此我们不能证明 a small 
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+ expansion。幸运的是，尽管我们不能一般性地证明 a small 
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+ expansion，但可以在某些情况下证明它。特别地，对
+\begin_inset Formula $\omega$
+\end_inset
+
+积分的时候，我们可以证明。
+\end_layout
+
+\begin_layout Standard
+为了看明白为啥对
+\begin_inset Formula $\omega$
+\end_inset
+
+积分就可以了，首先回忆，从 Section 24.1.2, 
+\begin_inset Formula $T^{\mu\nu}$
+\end_inset
+
+ 的虚数部分只能来自于在壳中间态
+\begin_inset Formula $\ket{X}$
+\end_inset
+
+(当然也就是，那些对
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+有贡献的物理的态)。由于在物理区域，
+\begin_inset Formula $\omega$
+\end_inset
+
+是实数并且大于
+\begin_inset Formula $1$
+\end_inset
+
+，固定
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+把
+\begin_inset Formula $\omega$
+\end_inset
+
+解析延拓到复平面上也许不错。At fixed
+\begin_inset Formula $Q^{2}>0$
+\end_inset
+
+，
+\begin_inset Formula $T^{\mu\nu}$
+\end_inset
+
+是
+\begin_inset Formula $\omega$
+\end_inset
+
+的解析函数，除了当
+\begin_inset Formula $\left(P\pm q\right)^{2}=Q^{2}(1\pm\omega)$
+\end_inset
+
+是一个物理 on-shell state 
+\begin_inset Formula $\ket{X}$
+\end_inset
+
+ 的质量。所以
+\begin_inset Formula $T^{\mu\nu}(\omega,Q)$
+\end_inset
+
+在
+\begin_inset Formula $\omega$
+\end_inset
+
+的实轴上有 branch cuts，with 
+\begin_inset Formula $\omega>1$
+\end_inset
+
+(the physical region ) or 
+\begin_inset Formula $\omega<-1$
+\end_inset
+
+(an unphysical region)。然后我们就可以使用套路，具有cut的函数的虚部由穿过cut时的不连续值给出：
+\begin_inset Formula 
+\begin{equation}
+W_{\mu\nu}(\omega,Q)=2\Im T_{\mu\nu}(\omega,Q)=-iT_{\mu\nu}(\omega+i\varepsilon,Q)+iT_{\mu\nu}(\omega-i\varepsilon,Q)=\text{Disc}(-iT_{\mu\nu})\label{eq:32.83}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+求中
+\begin_inset Formula $\text{Disc}$
+\end_inset
+
+表示不连续（见section 24.1.2）。你可以自己验证这个方程（Problem 32.8）。
+\begin_inset Formula $W_{\mu\nu}$
+\end_inset
+
+有时被称作
+\begin_inset Formula $T_{\mu\nu}$
+\end_inset
+
+的吸收部（ 
+\series bold
+absorptive part
+\series default
+ ）。
+\end_layout
+
+\begin_layout Standard
+现在，假设我们对
+\begin_inset Formula $1\leq\omega\leq\infty$
+\end_inset
+
+积分，对应于 Bjorken 
+\begin_inset Formula $x$
+\end_inset
+
+ from 
+\begin_inset Formula $0$
+\end_inset
+
+ to 
+\begin_inset Formula $1$
+\end_inset
+
+。这样的一个积分，根据 Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:32.83"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，可以通过在复平面的 cut 上下绕过完成。由于
+\begin_inset Formula $T_{\mu\nu}$
+\end_inset
+
+在实轴之外是解析的，我们可以将路径变形为绕着
+\begin_inset Formula $\omega=0$
+\end_inset
+
+，as shown in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig.32.4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。因此，我们只需要知道
+\begin_inset Formula $\omega=0$
+\end_inset
+
+附近的
+\begin_inset Formula $T_{\mu\nu}(\omega,Q)$
+\end_inset
+
+，所以我们可以证实 Taylor expanding at small 
+\begin_inset Formula $\omega$
+\end_inset
+
+。换句话说，我们可以对
+\begin_inset Formula $J^{\mu}(x)J^{\nu}(0)$
+\end_inset
+
+使用 OPE，as 
+\begin_inset Formula $x^{\mu}\to0$
+\end_inset
+
+来推导关于
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+的结果，只要我们对所有
+\begin_inset Formula $\omega$
+\end_inset
+
+积分。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted8.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+fig.32.4
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fig.32.4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+DIS 中的算符乘积展开
 \end_layout
 
 \begin_layout Standard
