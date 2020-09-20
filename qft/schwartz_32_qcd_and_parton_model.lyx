@@ -143,7 +143,7 @@ Thomas Young
 电子–质子散射
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 弹性
 \begin_inset Formula $e^{-}p^{+}$
 \end_inset
@@ -411,7 +411,7 @@ fm.
 散射的揭露出质子内部具有点粒子状的成分，现在我们知道是夸克。下面我们说明如何来看到这个简化。
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 非弹性
 \begin_inset Formula $e^{-}p^{+}$
 \end_inset
@@ -1355,7 +1355,7 @@ Callan-Gross 关系变成
 。
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Sum Rules
 \end_layout
 
@@ -1876,6 +1876,588 @@ noprefix "false"
  & \sum_{i}\int_{x}^{1}\frac{\dif\xi}{\xi}f_{i}(\xi)\hat{W}^{\mu\nu}(\frac{x}{\xi},Q)\\
 \Rightarrow & \sum_{i}\int_{x}^{1}\frac{\dif\xi}{\xi}f_{i}(\xi)2\pi C_{i}^{2}\delta(1-z)\frac{4z}{Q^{2}}\\
 = & \sum_{i}\frac{x}{x}f_{i}(x)2\pi C_{i}^{2}\frac{4}{Q^{2}}=8\pi\frac{4}{Q^{2}}\sum_{i}C_{i}^{2}f_{i}(x)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Parton showers
+\end_layout
+
+\begin_layout Standard
+在上一section李，我们推导了在部分子模型中，对深度非弹性散射到 next ot leading order的预测。关键的结果是
+\begin_inset Formula $\gamma^{*}q\to qg$
+\end_inset
+
+的散射截面是 IR 发散的，但是发散可以被吸收到重正化的 PDFs 中。这一section里，我们会追踪 IR 发散的起源，讨论它的普遍性 (universal
+ity)，并展示这个普遍性可以如何应用到一个重要的半经典近似中–称作 
+\series bold
+parton shower
+\series default
+.
+\end_layout
+
+\begin_layout Section
+因子化和部分子模型 from QCD
+\end_layout
+
+\begin_layout Standard
+出于实际目的，对包含强子的高能散射所作的微扰QCD计算，只需要用到 部分子模型 就够了。这个唯象的方法假设了因子化：PDFs are universal
+ objects, 所有涉及质子的散射过程都可以使用相同的 PDFs with 不同的微扰计算。令人瞩目的是，这个程序运行良好，因此值得好好推导一下因子化。
+\end_layout
+
+\begin_layout Standard
+不幸的是，因子化仅仅在一些例子中得到证明：inclusive deep inelastic scattering(只测量出射电子) and the
+ Drell-Yan process （
+\begin_inset Formula $pp$
+\end_inset
+
+ or 
+\begin_inset Formula $p\bar{p}$
+\end_inset
+
+ 碰撞的轻子对产生）。即使在这些过程中，证明也难以置信的复杂，with subtlety after subtlety confounding
+ the intuitive picture。严格的证明包括 characterizing the infrared singular regions
+ of Feynman diagrams （through pinch surfaces and Landau equations），这超出了本文的范畴。我们仅
+仅讨论对 inclusive deep inelastic scattering 的经典因子化证明，通过使用 operator product
+ expansion。This leads to the identification of moments of the PDFs with
+ operator matrix elements。在下一个section，给出了另一种更一般的 view of the PDFs as lightcone
+ quark matrix elements。
+\end_layout
+
+\begin_layout Standard
+要想证明因子化，首先要精确定义它。Intuitively, 因子化说，在QCD中，可以把同一个，代表远距离物理的非微扰对象（the PDFs），跟许多近距离计算
+结合起来。粗略地说，
+\begin_inset Formula $\sigma=f\otimes H$
+\end_inset
+
+，其中
+\begin_inset Formula $f$
+\end_inset
+
+是 PDFs，
+\begin_inset Formula $H$
+\end_inset
+
+ is the perturbative hard calculation, 
+\begin_inset Formula $\otimes$
+\end_inset
+
+代表卷积(convolution)。这样一个分离肯定不是精确成立的：the exact 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ must depend on all the brown muck inside the proton。因子化真正想说的时，这么计算跟真实情况相差很小：
+\begin_inset Formula $\sigma=f\otimes H+\mathcal{O}(\frac{\Lambda_{QCD}}{Q})$
+\end_inset
+
+，其中
+\begin_inset Formula $Q$
+\end_inset
+
+是过程中的某个高能 scale。现在，你已经可以发现为啥，在非完全inclusive的例子中，证明很有挑战性了：因为如果末态众多，可能会有很多scale
+ 
+\begin_inset Formula $Q$
+\end_inset
+
+ and 很难确保在相空间的所有区域它们总是很大。对于 inclusive DIS，我们知道
+\begin_inset Formula $Q=\sqrt{-(k-k^{\prime})^{2}}$
+\end_inset
+
+，which we take large while hoding 
+\begin_inset Formula $x=\frac{Q^{2}}{2P\cdot q}$
+\end_inset
+
+ fixed。因此，我们有希望推导出一个因子化定理。
+\end_layout
+
+\begin_layout Standard
+我们的方法是，首先把 DIS cross section 和流的乘积
+\begin_inset Formula $J^{\mu}(x)J^{\nu}(y)$
+\end_inset
+
+联系起来。然后我们把流的乘积写成 in terms of local operators, 
+\begin_inset Formula $J^{\mu}(x)J^{\nu}(y)=\sum_{n}C_{n}(x-y)\mathcal{O}_{n}(x)$
+\end_inset
+
+。DIS 极限
+\begin_inset Formula $Q^{2}\to\infty$
+\end_inset
+
+ at fixed Bjorken 
+\begin_inset Formula $x$
+\end_inset
+
+ 对应于
+\begin_inset Formula $x^{\mu}-y^{\mu}\to0$
+\end_inset
+
+，所以我们可以把 Wilson coefficients 
+\begin_inset Formula $C_{n}(x-y)$
+\end_inset
+
+ 泰勒展开 around 
+\begin_inset Formula $x^{\mu}=y^{\mu}$
+\end_inset
+
+，只保留领头项。然后，质子中这些算符的矩阵元会给出 PDFs 的定义：
+\begin_inset Formula $f\sim\bra{P}\mathcal{O}\ket{P}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+算符乘积展开
+\end_layout
+
+\begin_layout Standard
+算符乘积展开是位置空间中的低能展开，用来推导有效拉氏量。有效拉矢量中的算符是 复合算符（composite operators），其中场是在同一点的。比如，回忆
+\begin_inset Formula $4$
+\end_inset
+
+–费米理论如何近似弱相互作用（see Chapter 22,29 and 31）。如果我们在树图阶把
+\begin_inset Formula $W$
+\end_inset
+
+玻色子积分掉，我们会得到一个非定域拉氏量：
+\begin_inset Formula 
+\[
+\mathcal{L}_{W}=g^{2}\int\dif^{4}x\dif^{4}y\bar{\psi}(x)\gamma^{\mu}\psi(x)D_{\mu\nu}(x,y)\bar{\psi}(y)\gamma^{\nu}\psi(y)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+D_{\mu\nu}(x,y)=\int\frac{\dif^{4}p}{(2\pi)^{4}}\frac{-g_{\mu\nu}}{p^{2}-m_{W}^{2}}e^{ip(x-y)}=\frac{g^{\mu\nu}}{\square_{x}+m_{W}^{2}}\int\frac{\dif^{4}p}{(2\pi)^{4}}e^{ip(x-y)}
+\]
+
+\end_inset
+
+是
+\begin_inset Formula $W$
+\end_inset
+
+–玻色子的传播子。对于
+\begin_inset Formula $\square\sim p^{2}\ll m_{W}^{2}$
+\end_inset
+
+ we expand
+\begin_inset Formula 
+\[
+\frac{g^{\mu\nu}}{\square_{x}+m_{W}^{2}}=G_{F}\left(1-\frac{\square}{m_{W}^{2}}+(\frac{\square}{m_{W}^{2}})^{2}+\cdots\right)
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $G_{F}\sim\frac{g^{2}}{m_{W}^{2}}$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\[
+\mathcal{L}_{W}\sim G_{F}\int\dif^{4}x\left[\bar{\psi}\gamma^{\mu}\psi\bar{\psi}\gamma_{\mu}\psi-\bar{\psi}\gamma^{\mu}\psi\frac{\square}{m_{W}^{2}}\bar{\psi}\gamma_{\mu}\psi+\bar{\psi}\gamma^{\mu}\psi\frac{\square^{2}}{m_{W}^{4}}\bar{\psi}\gamma_{\mu}\psi\right]
+\]
+
+\end_inset
+
+所有的场都在同一点
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+。现在 Lagrangian 是 local 的。
+\end_layout
+
+\begin_layout Standard
+operator product expansion (OPE) 将在不同点local算符的乘积，在这些点接近彼此的极限下，写成复合local算符的和。把理论中
+所有可能的算符标记为
+\begin_inset Formula $\mathcal{O}_{n}$
+\end_inset
+
+。则 OPE 表示
+\begin_inset Formula 
+\[
+\lim_{x\to y}\mathcal{O}_{1}(x)\mathcal{O}_{2}(y)=\sum_{n}C_{n}(x-y)\mathcal{O}_{n}(x)
+\]
+
+\end_inset
+
+对于任意的算符 
+\begin_inset Formula $\mathcal{O}_{1}(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{O}_{2}(x)$
+\end_inset
+
+。OPE 这么牛啤的原因在于 because the expansion hold at the level of operators.
+ 也就是说，Wilson 系数
+\begin_inset Formula $C_{n}$
+\end_inset
+
+只是数，跟外部态（external state）无关。因此，在微扰理论中，
+\begin_inset Formula $C_{n}$
+\end_inset
+
+的计算一劳永逸，对任何过程都可以用。而且，为了计算
+\begin_inset Formula $C_{n}$
+\end_inset
+
+，只需要计算任何对它们敏感的任意矩阵元，得到的
+\begin_inset Formula $C_{n}$
+\end_inset
+
+对所有矩阵元都成立。
+\end_layout
+
+\begin_layout Standard
+比如，
+\begin_inset Formula $4$
+\end_inset
+
+–费米理论来自于两个挨很近的弱流
+\begin_inset Formula $J^{\mu}(x)=\bar{\psi}(x)\gamma^{\mu}\psi(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $J^{\mu}(y)=\bar{\psi}(y)\gamma^{\mu}\psi(y)$
+\end_inset
+
+ 的展开。我们会在 section 31.3 中进行
+\begin_inset Formula $1$
+\end_inset
+
+–loop OPE 通过匹配
+\begin_inset Formula $4$
+\end_inset
+
+–费米理论，对于给定的精度，只有有限个算符是相关的。在 DIS 的情况下，我们会看到无限数目的算符都是重要的（the twist-
+\begin_inset Formula $2$
+\end_inset
+
+ 算符，下面会定义），但是 OPE 仍然会有用。
+\end_layout
+
+\begin_layout Standard
+Intuitively，OPE 的存在非常合理：长距离的物理和短距离的物理应该是独立的。在许多其他领域，这都非常成功：牛顿定律和量子力学是独立的，化学和核物理是
+独立的，等等。也就是说，有效场论能行，OPE 就应该也行：物理学自然地把自己分成多个层次，我们可以把不相关的 scales 取成
+\begin_inset Formula $0$
+\end_inset
+
+ or 
+\begin_inset Formula $\infty$
+\end_inset
+
+，而不影响我们感兴趣的物理。尽管 OPE 在物理上是合理的，但是严格的数学证明仍旧缺乏。
+\end_layout
+
+\begin_layout Standard
+OPE的实用形式是
+\begin_inset Formula 
+\[
+\int\dif^{4}xe^{iqx}\mathcal{O}(x)\mathcal{O}(0)=\sum_{n}C_{n}(q)\mathcal{O}_{n}(0)
+\]
+
+\end_inset
+
+with the Wilson coefficients 在动量空间中，算符在位置空间中。我们经常通过估计
+\begin_inset Formula $C_{n}(q)$
+\end_inset
+
+计算OPE。
+\end_layout
+
+\begin_layout Subsection
+流的乘积
+\end_layout
+
+\begin_layout Standard
+为了把 OPE 应用到 DIS 中，首先我们想用从夸克构建的电磁流的矩阵元来表示 
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+。为了简化认为夸克电荷为
+\begin_inset Formula $Q=1$
+\end_inset
+
+，对应的流是
+\begin_inset Formula $J^{\mu}=\bar{\psi}(x)\gamma^{\mu}\psi(x)$
+\end_inset
+
+，其中
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+是夸克场。你可能回忆起 Eq.14.152 中光子的 
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元，其中由于LSZ，光子传播子被截断（amputated），等于光子耦合的流
+\begin_inset Formula $J^{\mu}$
+\end_inset
+
+的矩阵元。这个等价关系是必然的，在夸克纯态中 with spinor 
+\begin_inset Formula $u_{1}(p)$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{2}(p^{\prime})$
+\end_inset
+
+ with 动量 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $p^{\prime}$
+\end_inset
+
+，流的矩阵元为
+\begin_inset Formula 
+\[
+\bra{p^{\prime}}J^{\mu}(x)\ket{p}=\bar{u}_{2}(p^{\prime})\gamma^{\mu}u_{1}(p)e^{i(p^{\prime}-p)x}
+\]
+
+\end_inset
+
+为检查这个方程，把
+\begin_inset Formula $J^{\mu}(x)$
+\end_inset
+
+的表达式插入就可以了，它是由量子夸克场的乘积构成的，后者是由产生湮灭算符构成的。所以，在计算矩阵元的时候，从费曼图中出现的旋量乘积
+\begin_inset Formula $\bar{u}_{2}(p^{\prime})\gamma^{\mu}u_{1}(p)$
+\end_inset
+
+的简洁记法，就是流的矩阵元 at 
+\begin_inset Formula $x=0$
+\end_inset
+
+： 
+\begin_inset Formula $\bra{p^{\prime}}J^{\mu}(0)\ket{p}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eq.14.152 如下：
+\begin_inset Formula 
+\[
+\square_{2,\alpha\beta}\square_{1,\mu\nu}\langle A^{\nu}(x_{1})\cdots A^{\beta}(x_{2})\cdots\rangle=\langle j_{\mu}(x_{1})\cdots j_{\alpha}(x_{2})\cdots\rangle
+\]
+
+\end_inset
+
+
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+定义(32.12)：
+\begin_inset Formula 
+\[
+e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu}=\frac{1}{2}\sum_{X,\text{spins}}\int\dif\Pi_{X}(2\pi)^{4}\delta^{4}\left(q+P-p_{X}\right)\abs*{\mathcal{M}(\gamma^{\star}p^{+}\to X)}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于DIS，
+\begin_inset Formula $\gamma^{*}p^{+}\to X$
+\end_inset
+
+，我们需要这个流的矩阵元（因为光子耦合在上面）at 
+\begin_inset Formula $x=0$
+\end_inset
+
+ between 初态质子
+\begin_inset Formula $\ket{P}$
+\end_inset
+
+ and 任意一个末态
+\begin_inset Formula $\bra{X}$
+\end_inset
+
+，也就是说，我们需要
+\begin_inset Formula 
+\[
+\mathcal{M}(\gamma^{*}p^{+}\to X)=e\epsilon^{\mu}\bra{X}J_{\mu}(0)\ket{P}
+\]
+
+\end_inset
+
+对比上面
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+ 的定义，我们发现
+\begin_inset Formula 
+\begin{align*}
+W_{\mu\nu}(\omega,Q) & =\sum_{X}\int\dif\Pi_{X}\bra{P}J_{\mu}(0)\ket{X}\bra{X}J_{\nu}(0)\ket{P}(2\pi)^{4}\delta^{4}\left(q^{\mu}+P^{\mu}-p_{X}^{\mu}\right)\\
+ & =\sum_{x}\int\dif\Pi_{X}\int\dif^{4}xe^{i(q+P-p_{X})x}\bra{P}J_{\mu}(0)\ket{X}\bra{X}J_{\nu}(0)\ket{P}
+\end{align*}
+
+\end_inset
+
+这里我们把
+\begin_inset Formula $W_{\mu\nu}$
+\end_inset
+
+写成洛伦兹变量
+\begin_inset Formula $w=\frac{1}{x}=\frac{2P\cdot q}{Q^{2}}>1$
+\end_inset
+
+ and 
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+（使用
+\begin_inset Formula $\omega$
+\end_inset
+
+而不是 Bjorken 
+\begin_inset Formula $x$
+\end_inset
+
+ 以免和位置弄混）。
+\begin_inset Formula $W_{\mu\nu}$
+\end_inset
+
+中有对质子自旋的隐含平均。
+\end_layout
+
+\begin_layout Standard
+然后我们使用下式化简：
+\begin_inset Formula 
+\[
+\bra{P}J_{\mu}(0)\ket{X}=\bra{P}e^{-i\hat{\mathcal{P}}\cdot x}J_{\mu}(x)e^{i\hat{\mathcal{P}}\cdot x}\ket{X}=e^{-i(P-p_{X})\cdot x}\bra{P}J_{\mu}(x)\ket{X}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\hat{\mathcal{P}}$
+\end_inset
+
+是产生平移的动量算符。它给出
+\begin_inset Formula 
+\begin{align*}
+W_{\mu\nu}(\omega,Q) & =\sum_{x}\int\dif\Pi_{X}\int\dif^{4}xe^{iq\cdot x}\bra{P}J_{\mu}(x)\ket{X}\bra{X}J_{\nu}(0)\ket{P}\\
+ & =\int\dif^{4}xe^{iq\cdot x}\bra{P}J_{\mu}(x)J_{\nu}(0)\ket{P}
+\end{align*}
+
+\end_inset
+
+其中对
+\begin_inset Formula $\ket{X}$
+\end_inset
+
+进行了求和，我们不用再去想末态到底是啥了。现在我们把注意力转移到两个流算符的乘积上。
+\end_layout
+
+\begin_layout Standard
+现在我们想利用
+\begin_inset Formula $Q\to\infty$
+\end_inset
+
+极限（在固定
+\begin_inset Formula $\omega$
+\end_inset
+
+），在
+\begin_inset Formula $x^{\mu}=0$
+\end_inset
+
+附近展开算符乘积
+\begin_inset Formula $J_{\mu}(x)J_{\nu}(0)$
+\end_inset
+
+。不幸的是，这个展开存在两个问题。首先，我们知道如何利用费曼规则计算，两个不同位置场的编时乘积的矩阵元，但是不知道如何计算两个没有编时的乘积。第二个问题是大的
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+ 暗示了
+\begin_inset Formula $x_{\mu}x^{\mu}\to0$
+\end_inset
+
+（见问题 32.7，可以理解，能量越高，距离越近），但这不意味着
+\begin_inset Formula $x^{\mu}\to0$
+\end_inset
+
+。事实上，在大
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+时，流可以在光锥上离得很远。在动量空间，问题是，我们想按照
+\begin_inset Formula $Q^{-2}$
+\end_inset
+
+作泰勒展开。由于
+\begin_inset Formula $\omega=\frac{2P\cdot q}{Q^{2}}$
+\end_inset
+
+，这个极限意味着
+\begin_inset Formula $\omega\to0$
+\end_inset
+
+。然而，运动学上，
+\begin_inset Formula $P\cdot q>\frac{1}{2}Q^{2}$
+\end_inset
+
+，暗示了
+\begin_inset Formula $\omega>1$
+\end_inset
+
+（也就是说，Bjorken 
+\begin_inset Formula $x<1$
+\end_inset
+
+），so a naive large 
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+ expansion will take us out the physical region.
+ 为了解决这个问题，我们需要重新组织对象，让我们可以在
+\begin_inset Formula $\omega=0$
+\end_inset
+
+附近泰勒展开。
+\end_layout
+
+\begin_layout Standard
+为了解决第一个问题，我们使用光学定理把两个流的乘积转换成编时乘积。光学定理表示，
+\begin_inset Formula $\gamma^{*}p^{+}\to X$
+\end_inset
+
+的总rate 由
+\begin_inset Formula $\gamma^{*}p^{+}\to\gamma^{*}p^{+}$
+\end_inset
+
+向前散射rate 的虚部给出。使用 Eq.(32.12) and (24.11)，可以写出
+\begin_inset Formula 
+\[
+W^{\mu\nu}=2\Im T^{\mu\nu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+补充:
+\begin_inset Formula 
+\begin{align*}
+2i\Im\mathcal{M}(A & \to A)=i\sum_{X}\int\dif\Pi_{X}(2\pi)^{4}\delta^{4}(p_{A}-p_{X})\abs{\mathcal{M}(A\to X)}^{2}\text{(24.11)}\\
+e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu} & =\frac{1}{2}\sum_{X,\text{spins}}\int\dif\Pi_{X}(2\pi)^{4}\delta^{4}\left(q+P-p_{X}\right)\abs*{\mathcal{M}(\gamma^{\star}p^{+}\to X)}^{2}\text{(32.12)}
 \end{align*}
 
 \end_inset
