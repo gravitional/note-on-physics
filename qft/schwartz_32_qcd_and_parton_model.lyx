@@ -2638,7 +2638,30 @@ DIS 结构函数变成
 \begin_inset Formula $\omega<-1$
 \end_inset
 
-(an unphysical region)。然后我们就可以使用套路，具有cut的函数的虚部由穿过cut时的不连续值给出：
+(an unphysical region
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The on-shell state for 
+\begin_inset Formula $-\infty<\omega<1$
+\end_inset
+
+ cut are note plysical for DIS.
+ 由于
+\begin_inset Formula $\omega\to-\omega$
+\end_inset
+
+对应
+\begin_inset Formula $P\to-P$
+\end_inset
+
+，这个cut对应电子在反质子上的深度非弹性散射。
+\end_layout
+
+\end_inset
+
+ )。然后我们就可以使用套路，具有cut的函数的虚部由穿过cut时的不连续值给出：
 \begin_inset Formula 
 \begin{equation}
 W_{\mu\nu}(\omega,Q)=2\Im T_{\mu\nu}(\omega,Q)=-iT_{\mu\nu}(\omega+i\varepsilon,Q)+iT_{\mu\nu}(\omega-i\varepsilon,Q)=\text{Disc}(-iT_{\mu\nu})\label{eq:32.83}
@@ -2688,7 +2711,7 @@ absorptive part
 
 。这样的一个积分，根据 Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:32.83"
 plural "false"
 caps "false"
@@ -2791,6 +2814,162 @@ name "fig:fig.32.4"
 
 \begin_layout Section
 DIS 中的算符乘积展开
+\end_layout
+
+\begin_layout Standard
+现在我们把 OPE 应用到 DIS。我们想得到
+\begin_inset Formula 
+\[
+T\left\{ J^{\mu}(x)J^{\nu}(y)\right\} =\sum_{n}C_{n}(x-y)\mathcal{O}_{n}^{\mu\nu}(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们要做的是，首先计算外态为夸克的 OPE。然后，由于 OPE 是在算符层次成立的，与外态无关，我们可以把OPE应用到质子外态上，给出 PDFs
+ 的定义。
+\end_layout
+
+\begin_layout Standard
+在夸克态中的流流矩阵元跟康普顿散射
+\begin_inset Formula $\gamma^{*}q\to\gamma^{*}q$
+\end_inset
+
+中的向前散射矩阵元一样，with 光子不在壳，且去掉光子极化。在微扰理论的领头阶，结果是
+\begin_inset Formula 
+\begin{align}
+ & i\int\dif^{4}xe^{iqx}\bra{p}T\left\{ J^{\mu}(x)J^{\nu}(0)\right\} \ket{p}\nonumber \\
+ & =-\bar{u}(p)\frac{\gamma^{\mu}(\slashed{p}+\slashed{q})\gamma^{\nu}}{(p+q)^{2}+i\varepsilon}u(p)-\bar{u}(p)\frac{\gamma^{\nu}(\slashed{p}-\slashed{q})\gamma^{\mu}}{(p-q)^{2}+i\varepsilon}u(p)\label{eq:32.85}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+让我们首先处理
+\begin_inset Formula $p+q$
+\end_inset
+
+项。为计算 OPE 系数，在领头阶，对于
+\begin_inset Formula $Q^{2}\gg p^{2}$
+\end_inset
+
+，我们把 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.85"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的分母展开。（这等价于
+\begin_inset Formula $4$
+\end_inset
+
+–费米理论中，对于
+\begin_inset Formula $m_{W}^{2}\gg p^{2}$
+\end_inset
+
+展开
+\begin_inset Formula $\frac{1}{p^{2}-m_{W}^{2}}$
+\end_inset
+
+）分母的展开给出
+\begin_inset Formula 
+\[
+\frac{1}{(p+q)^{2}}=\frac{2}{-Q^{2}+2q\cdot p+p^{2}}=-\frac{1}{Q^{2}}\sum_{0}^{\infty}\left(\frac{2p\cdot q+p^{2}}{Q^{2}}\right)^{n}
+\]
+
+\end_inset
+
+所以，
+\begin_inset Formula 
+\begin{equation}
+i\int\dif^{4}xe^{iqx}\bra{p}T\left\{ J^{\mu}(x)J^{\nu}(0)\right\} \ket{p}=\frac{1}{Q^{2}}\bar{u}(p)\gamma^{\mu}(\slashed{p}+\slashed{q})\gamma^{\nu}u(p)\sum_{0}^{\infty}\left(\frac{2p\cdot q+p^{2}}{Q^{2}}\right)^{n}+\cdots\label{eq:32.87}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\cdots$
+\end_inset
+
+代表 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.85"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的第二项。
+\end_layout
+
+\begin_layout Standard
+每当我们有这样的动量空间展开时，我们都可以在OPE中读取Wilson系数和算符。为了使 OPE 有意义，所有的
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+因子都应该来自于在外部态中求值的
+\begin_inset Formula $i\partial^{\mu}$
+\end_inset
+
+因子（外部态依赖于
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+）。另一方面，所有对于短距离scale 
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+的依赖（and 
+\begin_inset Formula $Q^{2}=-q^{2}$
+\end_inset
+
+）应该在 Wilson coefficients 里。比如，这样的展开中，
+\begin_inset Formula $(\frac{p^{2}}{Q^{2}})^{n}$
+\end_inset
+
+项应该来自于算符
+\begin_inset Formula $\mathcal{O}_{n}=\bar{\psi}\square^{n}\psi$
+\end_inset
+
+，而 Wilson coefficients 为
+\begin_inset Formula $C_{n}=\frac{1}{Q^{2n}}$
+\end_inset
+
+。项
+\begin_inset Formula $(\frac{2p\cdot q}{Q^{2}})^{n}\frac{p^{2}}{Q^{2}}$
+\end_inset
+
+应该来自于
+\begin_inset Formula $\mathcal{O}_{n}=\bar{\psi}\partial^{\mu_{1}}\partial^{\mu_{2}}\partial^{\mu_{3}}\square\psi$
+\end_inset
+
+，而 Wilson coefficients 为
+\begin_inset Formula $C_{n}=\frac{1}{Q^{8}}q^{\mu_{1}}q^{\mu_{2}}q^{\mu_{3}}$
+\end_inset
+
+等等。对于 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.87"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，Wilson operators 比较混乱，所以在读取 OPE 之前我们先化简。
 \end_layout
 
 \begin_layout Standard
