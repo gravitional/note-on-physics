@@ -1905,3 +1905,53 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length
 注意:`lastlog`命令默认读取的是`/var/log/wtmp`这个文件的数据，一定注意这个文件不能用`vi`来查看。
 
 命令输出包括:用户名，登录终端，登录IP，最后一次登录时间
+
+## linux 版向日葵
+
+### 安装
+
+下载linux版本，然后安装
+
+安装命令：
+Ubuntu/Deepin系统：`sudo dpkg -i 文件名.deb`
+
+*卸载命令（2步）：
+
+```bash
+sudo dpkg -l | grep sunlogin
+sudo dpkg -r sunloginclient
+```
+
+PS：安装包因版本不同，名字可能会有所出入，建议直接复制当前下载安装包名字进行安装。
+如果您的系统高于16.04版本，遇到`lib`依赖问题的话，可按照如下操作：
+
+安装报错：
+
+```bash
+尝试sudo /安装路径/sunloginclient启动程序
+```
+
+启动报错：
+
+```bash
+使用ldd /安装路径/sunloginclient 查看依赖缺失问题
+```
+
+发现`libncurses.so.5/libform.so.5/libtinfo.so.5`缺失,由于版本较高，
+依赖包版本也可能是更高版本，因此需要创建软链接。
+
+具体如下：
+
+查找现有`lib`包
+
+可以使用`find / -name libncurses*`查找
+找到后使用`ln -s /usr/lib/源依赖包位置 /usr/lib/指向依赖包位置`
+
+创建成功后，卸载`sunloginclient`，再次安装`deb`包。
+
+安装成功。直接调用`sudo /usr/local/sunlogin/bin/sunloginclient`即可运行
+
+### 登录
+
+1. 通过命令行开启向日葵：`sudo /usr/local/sunlogin/bin/sunloginclient`启动（路径为向日葵默认安装路径）
+2. 登录向日葵：开启程序后的初始状态为未绑定，可见界面左上角的提示`Sunlogin （F12）`为进入菜单选项

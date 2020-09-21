@@ -72,11 +72,15 @@ cd  /home/tom/Downloads
 
 `# chsh -s /bin/sh`
 
-### ls 只列出子目录
+### ls 选项
 
 `ls -d */`
 
-`-d`选项指定只列出目录，`glob`模式当前目录下`*/`表示所有的子目录
+`-d`= 选项指定只列出目录，`glob`模式当前目录下`*/`表示所有的子目录
+`-S` 按文件大小排序，大的优先
+`--sort=WORD` =  按`WORD`排序，而不是`name`: none (-U), size (-S), time (-t), version (-v), extension (-X)
+`--time=WORD`= 和 `-l`一起使用，使用`WORD`代替默认的修改时间：atime or access or use (-u); ctime or status (-c); also use specified time as sort key if  `--sort=time` (newest first)
+`-X` = 按拓展名的字母顺序排列
 
 ### 别名(alias)
 
@@ -332,7 +336,7 @@ fc-cache -fv
 
 Consider suggested packages as a dependency for installing. Configuration Item: APT::Install-Suggests.
 
-### 修复应用
+### dpkg 安装应用
 
 ```bash
 apt-get -f install pkg
@@ -346,6 +350,10 @@ dpkg -i pkg
 ```
 
 `-i`== `--install`
+
+`-r` = `remove`
+
+`ldd /bin/ls` == `ldd`查看依赖信息
 
 ### 查看应用安装信息
 
