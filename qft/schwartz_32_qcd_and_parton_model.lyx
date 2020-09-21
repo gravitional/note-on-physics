@@ -2504,9 +2504,9 @@ e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu} & =\frac{1}{2}\sum_{X,\text{
 
 用它的自己结构函数展开，as in (32.13), with 稍微不同的归一化：
 \begin_inset Formula 
-\[
-T^{\mu\nu}(\omega,Q)=T_{1}(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}})+\frac{T_{2}}{P\cdot q}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)
-\]
+\begin{equation}
+T^{\mu\nu}(\omega,Q)=T_{1}(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}})+\frac{T_{2}}{P\cdot q}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)\label{eq:32.82}
+\end{equation}
 
 \end_inset
 
@@ -2812,7 +2812,7 @@ name "fig:fig.32.4"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 DIS 中的算符乘积展开
 \end_layout
 
@@ -3194,9 +3194,9 @@ noprefix "false"
 
 ，
 \begin_inset Formula 
-\[
-\hat{\mathcal{O}}_{2,0}^{\mu\nu}=\bar{\psi}_{q}\left(i\gamma^{\mu}\partial^{\nu}+i\gamma^{\nu}\partial^{\mu}-\frac{1}{2}ig^{\mu\nu}\slashed{\partial}\right)\psi_{q}
-\]
+\begin{equation}
+\hat{\mathcal{O}}_{2,0}^{\mu\nu}=\bar{\psi}_{q}\left(i\gamma^{\mu}\partial^{\nu}+i\gamma^{\nu}\partial^{\mu}-\frac{1}{2}ig^{\mu\nu}\slashed{\partial}\right)\psi_{q}\label{eq:32.92}
+\end{equation}
 
 \end_inset
 
@@ -3273,6 +3273,531 @@ twist
 的算符被压低，
 \series bold
 OPE 会被具有最低扭度的算符主导。
+\series default
+比如 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.92"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的算符 
+\begin_inset Formula $\hat{\mathcal{O}}_{2,0}^{\mu\nu}$
+\end_inset
+
+，它是量纲
+\begin_inset Formula $4$
+\end_inset
+
+ and 自旋
+\begin_inset Formula $2$
+\end_inset
+
+，所以扭度为
+\begin_inset Formula $2$
+\end_inset
+
+。一般来说，promoting the derivatives to covariant derivatives and 添加夸克味道label，我们定义
+\begin_inset Formula 
+\[
+\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}(x)=\bar{\psi}_{q}(x)\gamma^{\mu_{1}}iD^{\mu_{2}}\cdots iD^{\mu_{n}}\psi_{q}(x)+\text{symmetrizations of }\mu_{i}-\text{traces}
+\]
+
+\end_inset
+
+这就是规范不变 twist-
+\begin_inset Formula $2$
+\end_inset
+
+ 夸克算符的正规基(canonical basis)。
+\end_layout
+
+\begin_layout Standard
+QCD 中没有twist 小于
+\begin_inset Formula $2$
+\end_inset
+
+的规范不变的算符。为了看到这一点，首先注意到规范不变的算符必须至少由两个夸克场 or 两个胶子场强 
+\begin_inset Formula $F_{\mu\nu}$
+\end_inset
+
+ 。 添加更多的场，量纲会升高，所以 twist 也会升高。不带导数时，两个夸克的量纲为
+\begin_inset Formula $3$
+\end_inset
+
+ and 自旋为 
+\begin_inset Formula $0$
+\end_inset
+
+ or 
+\begin_inset Formula $1$
+\end_inset
+
+；因此，夸克算符最少为 twist-
+\begin_inset Formula $2$
+\end_inset
+
+。Derivatives 将量纲加
+\begin_inset Formula $1$
+\end_inset
+
+ and 对自旋
+\begin_inset Formula $1$
+\end_inset
+
+顶多加
+\begin_inset Formula $1$
+\end_inset
+
+；因此扭度不能低于
+\begin_inset Formula $2$
+\end_inset
+
+。对于胶子，
+\begin_inset Formula $F_{\mu\nu}^{2}$
+\end_inset
+
+的量纲为
+\begin_inset Formula $4$
+\end_inset
+
+ and 自旋最多为
+\begin_inset Formula $2$
+\end_inset
+
+。因此，胶子算符也满足
+\begin_inset Formula $t\geq2$
+\end_inset
+
+。明确地说，twist-2 胶子算符是
+\begin_inset Formula 
+\[
+\hat{\mathcal{O}}_{g}^{\mu_{1}\cdots\mu_{n}}=F^{\mu_{1}\nu}iD^{\mu_{2}}\cdots iD^{\mu_{n-1}}F^{\mu_{n}\nu}+\text{symmetrizations of }\mu_{i}-\text{traces}
+\]
+
+\end_inset
+
+在领头阶，这些胶子算符的 Wilson coefficients 为零。
+\end_layout
+
+\begin_layout Standard
+QCD 中所有扭度比
+\begin_inset Formula $2$
+\end_inset
+
+高的规范不变算符，一般都叫做 higher twist。经常把 twist-
+\begin_inset Formula $2$
+\end_inset
+
+ 当成 large
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+，fixed 
+\begin_inset Formula $x$
+\end_inset
+
+ limit 的同义词，and higher twist operators providing power corrections.
+\end_layout
+
+\begin_layout Standard
+总的来说，经过一些代数并恢复夸克电荷，可以把 OPE 写成 twist-
+\begin_inset Formula $2$
+\end_inset
+
+ 的算符，
+\begin_inset Formula 
+\begin{align*}
+ & i\int\dif^{4}xe^{iq\cdot x}T\left\{ J_{\mu}(x)J_{\nu}(0)\right\} \\
+ & =\sum_{q}C_{q}^{2}\Big\{\sum_{n=2,4,\cdots}^{\infty}\frac{(2q^{\mu_{1}})\cdots(2q^{\mu_{n}})}{Q^{2n}}\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\\
+ & +4\sum_{n=2,4,\cdots}^{\infty}\frac{(2q^{\mu_{3}})\cdots(2q^{\mu_{n}})}{Q^{2n-2}}\left(g^{\mu\mu_{1}}+\frac{q^{\mu}q^{\mu_{1}}}{q^{2}}\right)\left(g^{\nu\mu_{2}}+\frac{q^{\nu}q^{\mu_{2}}}{q^{2}}\right)\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\Big\}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+为了使用 OPE 计算 DIS 过程的编时强子张量
+\begin_inset Formula $T^{\mu\nu}$
+\end_inset
+
+，我们需要计算这个OPE在质子态中的矩阵元。通过洛伦兹不变性，对质子自旋求和后，我们得到的是
+\begin_inset Formula 
+\begin{equation}
+\sum_{\text{spin }}\bra{P}\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\ket{P}=\mathcal{A}_{q}^{n}P^{\mu_{1}}\cdots P^{\mu_{n}}-\text{traces}\label{eq:32.98}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{A}_{q}^{n}$
+\end_inset
+
+是
+\begin_inset Formula $Q$
+\end_inset
+
+的函数。这个展开式是自动对称的。The traces give factors of 
+\begin_inset Formula $P^{2}=m_{p}^{2}\ll Q^{2}$
+\end_inset
+
+ which are subleading 与 Wilson coefficients 中
+\begin_inset Formula $P^{\mu_{i}}$
+\end_inset
+
+ 和 
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+ 的收缩相比，后者给出
+\begin_inset Formula $q\cdot P=\frac{1}{2}\omega Q^{2}$
+\end_inset
+
+ 因子。因此，在 leading power 我们可以丢掉 traces and we find
+\begin_inset Formula 
+\begin{align*}
+T^{\mu\nu} & =\sum_{q}C_{q}^{2}\Big\{\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)\sum_{n=2,4,\cdots}^{\infty}\omega^{n}\mathcal{A}_{q}^{n}\\
+ & +\frac{4}{Q^{2}\omega^{2}}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)\sum_{n=2,4,\cdots}^{\infty}\omega^{n}\mathcal{A}_{q}^{n}
+\end{align*}
+
+\end_inset
+
+相比于 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.82"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+T^{\mu\nu}(\omega,Q)=T_{1}(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}})+\frac{T_{2}}{P\cdot q}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)
+\]
+
+\end_inset
+
+我们可以总结出
+\begin_inset Formula 
+\[
+T_{1}=\frac{\omega}{2}T_{2}=\sum_{q}C_{q}^{2}\left[\sum_{n=2,4,\cdots}\omega^{n}\mathcal{A}_{q}^{n}\right]
+\]
+
+\end_inset
+
+特别地，由于
+\begin_inset Formula $\mathcal{F}_{1}=\frac{1}{2\pi}\Im T_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{F}_{2}=\frac{1}{2\pi}\Im T_{2}$
+\end_inset
+
+ 我们重新推导出了 Callan-Gross relation 
+\begin_inset Formula $\mathcal{F}_{1}=\frac{\omega}{2}\mathcal{F}_{2}$
+\end_inset
+
+。更重要的是，由于在部分子模型中
+\begin_inset Formula $\mathcal{F}_{1}=\frac{1}{2}\sum_{q}C_{q}^{2}f_{1}(x)$
+\end_inset
+
+ ，可知
+\begin_inset Formula 
+\begin{equation}
+f_{q}(x)=\frac{1}{\pi}\sum_{n=2,4,\cdots}x^{-n}\Im\mathcal{A}_{q}^{n}\label{eq:32.101}
+\end{equation}
+
+\end_inset
+
+这给出了QCD 中 PDFs 的算符定义。
+\end_layout
+
+\begin_layout Subsection
+Moments of the PDFs
+\end_layout
+
+\begin_layout Standard
+有了 PDFs 的 算符定义，我们就可以检查 PDFs 满足 section 32.1.4 里面用物理参数推导出的求和规则了。比如，
+\begin_inset Formula $\int\dif xf_{q}(x)$
+\end_inset
+
+应该给出特定种类价夸克的总数。
+\end_layout
+
+\begin_layout Standard
+sum rules 一般的形式是
+\begin_inset Formula $x^{m}$
+\end_inset
+
+乘上 the PDFs，然后积分
+\begin_inset Formula 
+\begin{equation}
+C_{q}^{m}=\int_{0}^{1}\dif xx^{m-1}f_{q}(x)\label{eq:32.102}
+\end{equation}
+
+\end_inset
+
+它被称为 
+\series bold
+Mellin moment
+\series default
+ 。代入 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.101"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 得到
+\begin_inset Formula 
+\[
+C_{q}^{m}=\Im\frac{1}{\pi}\int_{1}^{\infty}\dif\omega\sum_{n}\omega^{n-m-1}\mathcal{A}_{q}^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+把虚部写成不连续（discontinuity），然后把积分回路变形成围绕原点的小圈，如同在 Fig.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:fig.32.4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中那样，我们得到
+\begin_inset Formula 
+\[
+C_{q}^{m}=\sum_{n}\frac{1}{2\pi i}\int\frac{\dif\omega}{\omega^{m-1}}\omega^{n-2}\mathcal{A}_{q}^{n}=\mathcal{A}_{q}^{m}
+\]
+
+\end_inset
+
+因此，the 
+\begin_inset Formula $\mathcal{A}_{q}^{n}$
+\end_inset
+
+刚好就是 PDFs 的 Mellin moments.
+ It is these moments that are rigorously defined by the OPE in DIS。
+\end_layout
+
+\begin_layout Standard
+两个重要的情形是
+\begin_inset Formula $m=2$
+\end_inset
+
+ and 
+\begin_inset Formula $m=1$
+\end_inset
+
+。对于
+\begin_inset Formula $m=2$
+\end_inset
+
+，相关的 twist-
+\begin_inset Formula $2$
+\end_inset
+
+ 算符为
+\begin_inset Formula 
+\[
+\hat{\mathcal{O}}_{q}^{\mu\nu}=\bar{\psi}_{q}\left(\gamma^{\mu}D^{\nu}+\gamma^{\nu}D^{\mu}\right)\psi_{q}
+\]
+
+\end_inset
+
+它是夸克的对称版本的，正规(canonical)能量–动量张量，我们在 Eq.12.62 中推导过:
+\begin_inset Formula 
+\[
+\mathcal{T}_{\mu\nu}=i\bar{\psi}\gamma_{\mu}\partial_{\nu}\psi-g_{\mu\nu}\left[\bar{\psi}(i\slashed{\partial}-m)\psi\right]
+\]
+
+\end_inset
+
+QCD 中full能量–动量张量是对夸克（和胶子）能–动量张量的求和。因此，将和式在质子态中求值，会得到质子能–动量的2倍：
+\begin_inset Formula 
+\[
+\sum_{j}\bra{P}\hat{\mathcal{O}}_{j}^{\mu\nu}\ket{P}=P^{\mu}P^{\nu}
+\]
+
+\end_inset
+
+其中求和是对所有部分子（partons）进行的（不止有夸克）。使用 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.102"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $C_{q}^{m}=\int_{0}^{1}\dif xx^{m-1}f_{q}(x)$
+\end_inset
+
+ with 
+\begin_inset Formula $m=2$
+\end_inset
+
+ and Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.98"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\sum_{\text{spin }}\bra{P}\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\ket{P}=\mathcal{A}_{q}^{n}P^{\mu_{1}}\cdots P^{\mu_{n}}-\text{traces}
+\]
+
+\end_inset
+
+我们得到
+\begin_inset Formula 
+\[
+\sum_{j}\int_{0}^{1}\dif xxf_{j}(x)=1
+\]
+
+\end_inset
+
+因此算符分析证明了动量诠释：
+\begin_inset Formula $\int_{0}^{1}\dif xxf_{j}(x)=\langle x\rangle_{j}$
+\end_inset
+
+是种类
+\begin_inset Formula $j$
+\end_inset
+
+携带的平均动量分数。而且，由于能量–动量张量是守恒的，求和与
+\begin_inset Formula $\mu$
+\end_inset
+
+无关。Intriguingly, 
+\begin_inset Formula $\langle x\rangle_{\text{up}}\approx0.3$
+\end_inset
+
+ and 
+\begin_inset Formula $\langle x\rangle_{\text{down}}\approx0.1$
+\end_inset
+
+ and 所以 
+\begin_inset Formula $60\%$
+\end_inset
+
+ 的质子动量是由胶子和海夸克携带的。你可以在 Problem 32.9 中研究
+\begin_inset Formula $m=1$
+\end_inset
+
+的情况。
+\end_layout
+
+\begin_layout Subsection
+总结
+\end_layout
+
+\begin_layout Standard
+在这个 section 中，我们给出了 部分子分布函数的 场论定义。我们把深度非弹性散射中的强子张量
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+，用 twist-
+\begin_inset Formula $2$
+\end_inset
+
+ 算符的期望值表示：
+\begin_inset Formula $\mathcal{A}^{n}\sim\bra{P}\mathcal{O}^{n}\ket{P}$
+\end_inset
+
+。匹配到部分子模型的图像时，这些
+\begin_inset Formula $\mathcal{A}^{n}$
+\end_inset
+
+可以被确定为 PDFs 的 Mellin moments。这种方法允许我们证明 PDFs 的一些性质，如它们的求和规则，在部分子模型中只能半经典地证明。尽管
+\begin_inset Formula $\mathcal{A}^{n}$
+\end_inset
+
+是非微扰的，它们的能标依赖可以在微扰论中计算。因此，可以预言DIS结构函数的对数
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+依赖和对 Bjorken scaling 的修正。The scaling violation is the same as we found with
+ the DGLAP equation，但是用这种方法，我们不需要假设部分子模型。
+\end_layout
+
+\begin_layout Standard
+对于DIS，虽然我们使用
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+非微扰地定义了 PDFs，但是该定义对于DIS以外的其他过程并不是很有用。我们试图证明，任何涉及质子的高能散射过程都可以写成
+\begin_inset Formula $\sigma=H\otimes f$
+\end_inset
+
+，with 
+\begin_inset Formula $H$
+\end_inset
+
+ a calculable hard function and 
+\begin_inset Formula $f$
+\end_inset
+
+ the same universal PDFs。对于 DIS 的情况，我们简单地定义
+\begin_inset Formula $f$
+\end_inset
+
+in terms of非微扰的 hadronic 形状因子
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+。这被称为 
+\series bold
+DIS PDF scheme.
+ 
+\series default
+在这个scheme中，
+\begin_inset Formula $H$
+\end_inset
+
+在所有阶被定义为
+\begin_inset Formula $1$
+\end_inset
+
+，我们唯一可以预测的是 the scale dependence of the PDFs（或者形状因子之间的差值）。In global PDF
+ fits, 不使用这种scheme；相反使用
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+ scheme，其中只有
+\begin_inset Formula $\frac{1}{\varepsilon}$
+\end_inset
+
+ poles 被吸收进 PDFs。当然，更改方案不会使我们对DIS的计算更具预测性。
+\end_layout
+
+\begin_layout Section
+光锥坐标系
 \end_layout
 
 \begin_layout Standard
