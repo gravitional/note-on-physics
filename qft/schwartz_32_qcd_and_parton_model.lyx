@@ -2973,6 +2973,309 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+迄今，我们还没有做过任何近似。我们想计算OPE在外态为质子时的值，使用在夸克外态中计算出的 Wilson 系数和算符。在 DIS 极限中，
+\begin_inset Formula $Q\to\infty$
+\end_inset
+
+ at fixed 
+\begin_inset Formula $\omega$
+\end_inset
+
+，我们可以丢掉算符中贡献正比于
+\begin_inset Formula $\frac{\Lambda_{\text{QCD}}}{Q}$
+\end_inset
+
+次幂的项。在质子的情况下，
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+被替换成质子动量的部分
+\begin_inset Formula $p^{\mu}=\xi P^{\mu}$
+\end_inset
+
+，则
+\begin_inset Formula $p^{2}=\xi^{2}P^{2}=\xi^{2}m_{p}^{2}\lesssim\Lambda_{\text{QCD}}^{2}$
+\end_inset
+
+。我们不需要知道
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+的精确值，but we do need to know that it has no access to 
+\begin_inset Formula $Q$
+\end_inset
+
+。算符中比如
+\begin_inset Formula $\square/Q^{2}$
+\end_inset
+
+的项，给出的
+\begin_inset Formula $p^{2}/Q^{2}$
+\end_inset
+
+因子是很小的。因此，我们可以在 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.87"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中取
+\begin_inset Formula $p^{2}/Q^{2}\to0$
+\end_inset
+
+极限，来抽取出简化版的算符。另一方面，算符中比如
+\begin_inset Formula $\partial_{\mu}/Q$
+\end_inset
+
+的项会给出
+\begin_inset Formula $q\cdot p/Q^{2}\sim\omega$
+\end_inset
+
+因子 that are not small （我们将对
+\begin_inset Formula $\omega$
+\end_inset
+
+进行积分）。因此我们只需要保留带有
+\begin_inset Formula $\partial^{\mu}$
+\end_inset
+
+的项。
+\end_layout
+
+\begin_layout Standard
+我们也可以化简 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.87"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的 Dirac 结构。由于末态对于指标
+\begin_inset Formula $\mu\leftrightarrow\nu$
+\end_inset
+
+必定是对称的，我们可以对称化，使用关系
+\begin_inset Formula 
+\[
+\gamma^{\mu}(\slashed{p}+\slashed{q})\gamma^{\nu}+\gamma^{\nu}(\slashed{p}+\slashed{q})\gamma^{\mu}=2\gamma^{\mu}(p^{\nu}+q^{\nu})+2\gamma^{\nu}(p^{\mu}+q^{\mu})-2g^{\mu\nu}(\slashed{p}+\slashed{q})
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\slashed{p}$
+\end_inset
+
+项作用在夸克态上给出
+\begin_inset Formula $m_{q}=0$
+\end_inset
+
+。使用
+\begin_inset Formula $\slashed{p}=\xi\slashed{P}$
+\end_inset
+
+，作用在质子态上给出
+\begin_inset Formula $\xi m_{p}\ll Q$
+\end_inset
+
+，所以也可以被丢掉。
+\end_layout
+
+\begin_layout Standard
+Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.85"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的第二项给出和第一项相同的 OPE，只不过
+\begin_inset Formula $q\to-q$
+\end_inset
+
+。所以我们可以把
+\begin_inset Formula $q$
+\end_inset
+
+的奇数次项丢掉，把
+\begin_inset Formula $q$
+\end_inset
+
+的偶数次项加倍。因此我们得到
+\begin_inset Formula 
+\begin{align}
+ & i\int\dif^{4}xe^{iqx}\bra{p}T\left\{ J^{\mu}(x)J^{\nu}(0)\right\} \ket{p}=\frac{2}{Q^{2}}\bar{u}(p)\left(p^{\mu}\gamma^{\nu}+\gamma^{\mu}p^{\nu}\right)\sum_{n=0,2,\cdots}^{\infty}\left(\frac{2q\cdot p}{Q^{2}}\right)^{n}u(p)\label{eq:32.89}\\
+ & +\frac{2}{Q^{2}}\bar{u}(p)\left(\gamma^{\mu}q^{\nu}+q^{\mu}\gamma^{\nu}-g^{\mu\nu}\slashed{q}\right)\sum_{n=1,3,\cdots}^{\infty}\left(\frac{2q\cdot p}{Q^{2}}\right)^{n}u(p)\nonumber 
+\end{align}
+
+\end_inset
+
+up to term that give 
+\begin_inset Formula $\frac{\Lambda_{\text{QCD}}}{Q}$
+\end_inset
+
+–suppressed 贡献 in proton external states。注意级数的所有项中都包含一个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵。所有的
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+项都应该来自于OPE算符中的导数（通过替换
+\begin_inset Formula $p_{\mu}\to i\partial_{\mu}$
+\end_inset
+
+）and 所有
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+项应该来自 Wilson coefficients。比如，Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.89"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的第一行可以重新写成
+\begin_inset Formula 
+\begin{equation}
+\mathcal{O}_{n+2}^{\mu\nu\mu_{1}\cdots\mu_{n}}=\bar{\psi}_{q}(x)\left(i\gamma^{\mu}\partial^{\nu}+i\gamma^{\nu}\partial^{\mu}\right)i\partial^{\mu_{1}}\cdots i\partial^{\mu_{n}}\psi_{q}(x)\label{eq:32.90}
+\end{equation}
+
+\end_inset
+
+with Wilson coefficients
+\begin_inset Formula 
+\[
+C_{n+2}^{\mu_{1}\cdots\mu_{n}}(q)=\frac{2}{Q^{2}}\frac{2^{n}}{Q^{2n}}q^{\mu_{1}}\cdots q^{\mu_{n}}
+\]
+
+\end_inset
+
+Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.89"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的第二行可以按照类似地方法分解。
+\end_layout
+
+\begin_layout Standard
+标准的做法是，选择按 Lorentz 群的不可约表示下变换的，规范不变的算符作为基。 spin 为 
+\begin_inset Formula $s$
+\end_inset
+
+ 的算符将会是对称的，阶为
+\begin_inset Formula $s$
+\end_inset
+
+的无迹张量。比如，对于自旋–
+\begin_inset Formula $2$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\hat{\mathcal{O}}_{2,0}^{\mu\nu}=\bar{\psi}_{q}\left(i\gamma^{\mu}\partial^{\nu}+i\gamma^{\nu}\partial^{\mu}-\frac{1}{2}ig^{\mu\nu}\slashed{\partial}\right)\psi_{q}
+\]
+
+\end_inset
+
+它满足
+\begin_inset Formula $g_{\mu\nu}\hat{\mathcal{O}}_{2,0}^{\mu\nu}=0$
+\end_inset
+
+。它与 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.90"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的区别在于多了一个表量算符
+\begin_inset Formula $\bar{\psi}\slashed{\partial}\psi$
+\end_inset
+
+。也就是，
+\begin_inset Formula 
+\[
+\mathcal{O}_{2}^{\mu\nu}=\mathcal{\hat{O}}_{2,0}^{\mu\nu}+\frac{1}{2}ig^{\mu\nu}\bar{\psi}_{q}\slashed{\partial}\psi_{q}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+自旋为
+\begin_inset Formula $s$
+\end_inset
+
+的算符是
+\begin_inset Formula 
+\[
+\hat{\mathcal{O}}_{s,r}^{\mu_{1}\cdots\mu_{s}}=\bar{\psi}\gamma^{\mu_{1}}i\partial^{\mu_{2}}\cdots i\partial^{\mu_{s}}(-\square)^{r}\psi+\text{ symmetrizations of }\mu_{i}-\text{ traces}
+\]
+
+\end_inset
+
+这些算符具有质量量纲
+\begin_inset Formula $d=2+s+2r$
+\end_inset
+
+（注意偏导数指标从
+\begin_inset Formula $\mu_{2}$
+\end_inset
+
+开始）。假如知道了量纲和自旋，可以确定
+\begin_inset Formula $t\equiv2+2r=d-s$
+\end_inset
+
+。量
+\begin_inset Formula $t$
+\end_inset
+
+被称为算符的扭度（
+\series bold
+twist
+\series default
+）。也就是，
+\begin_inset Formula $\text{twist}=\text{dimension}-\text{spin}$
+\end_inset
+
+。由于具有额外
+\begin_inset Formula $\square$
+\end_inset
+
+的算符被压低，
+\series bold
+OPE 会被具有最低扭度的算符主导。
+\end_layout
+
+\begin_layout Standard
 end of file
 \end_layout
 
