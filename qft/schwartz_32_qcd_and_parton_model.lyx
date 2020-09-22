@@ -4333,8 +4333,9 @@ Q^{2} & \equiv-q^{2}\equiv-(k-k^{\prime})^{2}=2kk^{\prime}=4EE^{\prime}\sin^{2}\
 
 \begin_inset Formula 
 \begin{align*}
-y & \equiv\frac{qP}{kP}=\frac{E_{\text{lab}}-E_{\text{lab}}^{\prime}}{E_{\text{lab}}}=\frac{\nu}{E_{\text{lab}}}=\left(\frac{s-M_{p}^{2}}{s}\right)\frac{1-\cos\theta^{*}}{2}\\
-x & \equiv\frac{Q^{2}}{2Pq}=\frac{Q^{2}}{2M_{p}\nu}=\frac{Q^{2}}{Q^{2}+W^{2}-M_{P}^{2}}\\
+\nu & \equiv\frac{P\cdot q}{m_{p}}=(E-E^{\prime})_{\text{lab}}\\
+y & \equiv\frac{q\cdot P}{k\cdot P}=\frac{E_{\text{lab}}-E_{\text{lab}}^{\prime}}{E_{\text{lab}}}=\frac{\nu}{E_{\text{lab}}}=\left(\frac{S-M_{p}^{2}}{S}\right)\frac{1-\cos\theta^{*}}{2}\\
+x & \equiv\frac{Q^{2}}{2P\cdot q}=\left(\frac{Q^{2}}{2M_{p}\nu}\right)_{\text{lab}}=\frac{Q^{2}}{Q^{2}+W^{2}-M_{P}^{2}}\\
 W^{2} & \equiv(q+P)^{2}=\frac{Q^{2}(1-x)}{x}+M_{p}^{2}
 \end{align*}
 
@@ -4545,7 +4546,7 @@ noprefix "false"
 \begin_inset Formula $E_{\text{lab}}^{\prime}$
 \end_inset
 
-通过下式练习
+通过下式联系
 \begin_inset Formula 
 \[
 E_{\text{lab}}^{\prime}=\frac{E_{\text{lab}}}{1+E_{\text{lab}}(1-\cos\theta_{\text{lab}})/M_{p}}
@@ -4581,7 +4582,7 @@ The so called
 \series bold
 Bjorken limit
 \series default
-，对应于理性情况当
+，对应于理想情况当
 \begin_inset Formula $Q^{2}\to\infty,P\cdot q\to\infty$
 \end_inset
 
@@ -4595,6 +4596,262 @@ Bjorken limit
 \begin_layout Standard
 上面的关系式，对于描述轻子在核子上的散射也适用，只需要作替换：
 \begin_inset Formula $M_{p}\to M_{\text{nucl}}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+自由度分析
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+l(k)+\text{proton}(p)\to l^{\prime}(k^{\prime})+X;\quad l,l^{\prime}=e,\mu,\nu_{e},\nu_{\mu}
+\]
+
+\end_inset
+
+对于此过程，如果末态
+\begin_inset Formula $X$
+\end_inset
+
+的不变质量确定（比如在弹性散射的情况下，为质子），那么有相对论关系
+\begin_inset Formula $p_{X}^{2}=m_{X}^{2}$
+\end_inset
+
+，末态
+\begin_inset Formula $X$
+\end_inset
+
+的能量分量不是独立分量。由于系统具有 azimuthal 方向上的对称性，只考虑平面情况，末态粒子共有
+\begin_inset Formula $2*2$
+\end_inset
+
+动量未确定，考虑
+\begin_inset Formula $1$
+\end_inset
+
+个能量守恒，
+\begin_inset Formula $2$
+\end_inset
+
+个动量守恒，最终只有一个自由度，一般选择为质心系散射角
+\begin_inset Formula $\theta^{*}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+如果末态的不变质量位置，对应末态
+\begin_inset Formula $X$
+\end_inset
+
+产物比较复杂，也就是
+\begin_inset Formula $(\sum_{X}p_{X})^{2}=?$
+\end_inset
+
+的情形，那么末态的能量分量是独立分量。守恒量提供的方程数目不变，现在未知量的个数是
+\begin_inset Formula $5$
+\end_inset
+
+个，所以最后有
+\begin_inset Formula $2$
+\end_inset
+
+个未确定变量，所以对于深度非弹性散射，要用一对变量标记散射过程的运动学。常用的为
+\begin_inset Formula $(Q^{2},x)$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+Q^{2} & \equiv-q^{2}\equiv-(k-k^{\prime})^{2}=2kk^{\prime}=4EE^{\prime}\sin^{2}\frac{\theta}{2}\\
+x & \equiv\frac{Q^{2}}{2P\cdot q}=\left(\frac{Q^{2}}{2M_{p}\nu}\right)_{\text{lab}}=\frac{Q^{2}}{Q^{2}+W^{2}-M_{P}^{2}}
+\end{align*}
+
+\end_inset
+
+从
+\begin_inset Formula $x$
+\end_inset
+
+的后一种表达式，也容易看出，为什么当
+\begin_inset Formula $Q^{2}\to\infty,P\cdot q\to\infty$
+\end_inset
+
+，比例
+\begin_inset Formula $x\equiv Q^{2}/2P\cdot q$
+\end_inset
+
+仍然可能保持有限。
+\end_layout
+
+\begin_layout Subsection
+取值范围
+\end_layout
+
+\begin_layout Standard
+由
+\begin_inset Formula $\nu\equiv\frac{P\cdot q}{m_{p}}=(E-E^{\prime})_{\text{lab}}$
+\end_inset
+
+，能量损失一般是正的，也就是说
+\begin_inset Formula $\nu\geq0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+质心系中，
+\begin_inset Formula $q\cdot P=E_{p}(E-E^{\prime})+\vec{k}(\vec{k}-\vec{k}^{\prime})=E^{2}(1-\cos\theta^{*})$
+\end_inset
+
+，而
+\begin_inset Formula $0\leq E^{2}(1-\cos\theta^{*})\leq2E^{2}$
+\end_inset
+
+，也就是说，如果
+\begin_inset Formula $\theta^{*}=0$
+\end_inset
+
+，电子向前散射，能量损失为零。如果
+\begin_inset Formula $\theta^{*}=\pi$
+\end_inset
+
+，也就是电子弹反(sekiro!)回来，
+\begin_inset Formula $\nu=2E^{2}$
+\end_inset
+
+，此时能量损失最大。在实验室系中也能看出，
+\begin_inset Formula 
+\[
+E_{\text{lab}}^{\prime}=\frac{E_{\text{lab}}}{1+E_{\text{lab}}(1-\cos\theta_{\text{lab}})/M_{p}}
+\]
+
+\end_inset
+
+反弹情况下，
+\begin_inset Formula 
+\[
+E_{\text{lab}}^{\prime}=\frac{E_{\text{lab}}}{1+2E_{\text{lab}}/M_{p}}=\frac{E_{\text{lab}}}{1+2E_{\text{lab}}/M_{p}}
+\]
+
+\end_inset
+
+而能量损失为
+\begin_inset Formula 
+\[
+E_{\text{lab}}-E_{\text{lab}}^{\prime}=E_{\text{lab}}\frac{2E_{\text{lab}}/M_{p}}{1+2E_{\text{lab}}/M_{p}}
+\]
+
+\end_inset
+
+在
+\begin_inset Formula $E_{\text{lab}}\gg M_{p}$
+\end_inset
+
+的情况下，右边
+\begin_inset Formula $\to1$
+\end_inset
+
+，也就是能量全部损失。
+\end_layout
+
+\begin_layout Standard
+由
+\begin_inset Formula $x\equiv\frac{Q^{2}}{2Pq}=\frac{Q^{2}}{Q^{2}+W^{2}-M_{P}^{2}}$
+\end_inset
+
+看出，只要末态不变质量
+\begin_inset Formula $W^{2}\equiv(q+P)^{2}>M_{p}^{2}$
+\end_inset
+
+，
+\begin_inset Formula $x$
+\end_inset
+
+就是小于
+\begin_inset Formula $1$
+\end_inset
+
+的。
+\begin_inset Formula $0\le x\le1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在质心系中，由能量守恒：
+\begin_inset Formula 
+\begin{align*}
+\sqrt{\abs{\vec{k}^{\prime}}^{2}+m_{p}^{2}}+\sqrt{\abs{\vec{k}^{\prime}}^{2}} & =\sqrt{\abs{\vec{k}}^{2}+m_{p}^{2}}+\sqrt{\abs{\vec{k}}^{2}}\\
+\abs{\vec{k}^{\prime}}^{2}-\abs{\vec{k}}^{2} & =\left(\abs{\vec{k}}-\abs{\vec{k}^{\prime}}\right)\left(\sqrt{\abs{\vec{k}^{\prime}}^{2}+m_{p}^{2}}+\sqrt{\abs{\vec{k}}^{2}+m_{p}^{2}}\right)\\
+\left(\abs{\vec{k}^{\prime}}-\abs{\vec{k}}\right)\left(\abs{\vec{k}^{\prime}}+\abs{\vec{k}}\right) & =\left(\abs{\vec{k}}-\abs{\vec{k}^{\prime}}\right)\left(\sqrt{\abs{\vec{k}^{\prime}}^{2}+m_{p}^{2}}+\sqrt{\abs{\vec{k}}^{2}+m_{p}^{2}}\right)
+\end{align*}
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\[
+\left(\abs{\vec{k}^{\prime}}-\abs{\vec{k}}\right)\left(\abs{\vec{k}^{\prime}}+\abs{\vec{k}}+\sqrt{\abs{\vec{k}^{\prime}}^{2}+m_{p}^{2}}+\sqrt{\abs{\vec{k}}^{2}+m_{p}^{2}}\right)=0
+\]
+
+\end_inset
+
+所以物理解是
+\begin_inset Formula 
+\[
+\abs{\vec{k}^{\prime}}-\abs{\vec{k}}=0\Rightarrow\abs{\vec{k}^{\prime}}=\abs{\vec{k}}
+\]
+
+\end_inset
+
+也就是在质心系中，散射前后的电子动量的模相等，这是由能量守恒决定的。根据动量守恒，散射前总动量为零，散射后动量应该也为零，但是散射后动量的模不能无限大，否则违反
+能量守恒。事实上，这时候
+\begin_inset Formula 
+\[
+E=\frac{S-m_{p}^{2}}{2\sqrt{S}},\quad E_{p}=\frac{S+m_{p}^{2}}{2\sqrt{S}}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $S=(P+k)^{2}=(E+E_{p})^{2}$
+\end_inset
+
+在质心系，
+\begin_inset Formula $m_{p}>0,S>m_{p}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+y & \equiv\frac{q\cdot P}{k\cdot P}=\frac{E_{p}(E-E^{\prime})+\vec{k}(\vec{k}-\vec{k}^{\prime})}{EE_{p}+\vec{k}^{2}}=\frac{E^{2}(1-\cos\theta^{*})}{EE_{p}+E^{2}}\\
+ & =\frac{2E^{2}(1-\cos\theta^{*})}{S-m_{p}^{2}}=\frac{(S-m_{p}^{2})^{2}}{4S}\frac{2(1-\cos\theta^{*})}{S-m_{p}^{2}}\\
+ & =\left(\frac{S-m_{p}^{2}}{S}\right)\frac{1-\cos\theta^{*}}{2}
+\end{align*}
+
+\end_inset
+
+由于
+\begin_inset Formula $\frac{S-m_{p}^{2}}{S}<1$
+\end_inset
+
+, and 
+\begin_inset Formula $0\leq\frac{1-\cos\theta^{*}}{2}\leq1$
+\end_inset
+
+，所以
+\begin_inset Formula $0<y<1$
 \end_inset
 
 。
