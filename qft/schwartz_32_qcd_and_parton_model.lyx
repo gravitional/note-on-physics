@@ -131,7 +131,7 @@ Thomas Young
 
 \begin_layout Standard
 目前为止我们讨论了两种研究强子的方法。第一种是手征微扰理论，只借用了QCD的对称性。对称性限制了强子可能的作用形式（特别是轻介子之间的）。但是手征理论无法系统地
-和QCD 在微扰框架下匹配起来，（就像四费米理论和弱相互作用理论那样）。另外一种方法是格点QCD。
+和QCD 在微扰框架下匹配起来，（反之，四费米理论可以和弱相互作用理论匹配）。另外一种方法是格点QCD。
 \end_layout
 
 \begin_layout Standard
@@ -1888,7 +1888,7 @@ Parton showers
 \end_layout
 
 \begin_layout Standard
-在上一section李，我们推导了在部分子模型中，对深度非弹性散射到 next ot leading order的预测。关键的结果是
+在上一section里，我们推导了在部分子模型中，对深度非弹性散射到 next ot leading order的预测。关键的结果是
 \begin_inset Formula $\gamma^{*}q\to qg$
 \end_inset
 
@@ -3798,6 +3798,415 @@ DIS PDF scheme.
 
 \begin_layout Section
 光锥坐标系
+\end_layout
+
+\begin_layout Standard
+上面使用OPE来证明因子化，依赖于在大
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+的时候，我们可以进行泰勒展开，然后我们丢掉 subleading terms。还有另一种方法，可以建立起DIS计算，允许我们丢掉 subleading
+ terms，它导致对 PDFs的另一种理解：as lightcone projections of proton matrix elements.
+ 尽管这种方法看起来没有OPE那么严格，但是对于一般的因子化参数更加友好。
+\end_layout
+
+\begin_layout Standard
+在部分子模型中， the PDFs 
+\begin_inset Formula $f(\xi)$
+\end_inset
+
+ 被诠释为：在质子中找到动量为
+\begin_inset Formula $p^{\mu}=\xi P^{\mu}$
+\end_inset
+
+的部分子的概率（我们使用
+\begin_inset Formula $\xi$
+\end_inset
+
+代替
+\begin_inset Formula $x$
+\end_inset
+
+来避免和
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+的混淆）。我们知道在量子力学（或者量子场论）中概率是什么：它们是矩阵元的平方。因此，我们应该能这么写
+\begin_inset Formula 
+\begin{equation}
+f(\xi)=\sum_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi P^{\mu}-p^{\mu}\right)=\bra{X}\psi^{\dagger}\psi\ket{P}\delta(\xi P^{\mu}-p^{\mu})\label{eq:32.108}
+\end{equation}
+
+\end_inset
+
+其中和之前一样，
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+是夸克动量。这几乎就要对了，由于
+\begin_inset Formula $\psi^{\dagger}\psi=\bar{\psi}\gamma^{0}\psi$
+\end_inset
+
+是夸克数密度（夸克数流
+\begin_inset Formula $J^{\mu}=\bar{\psi}\gamma^{\mu}\psi$
+\end_inset
+
+的零分量）。然而，it is not quite right, 由于部分子的动量不必和质子动量精确一样，动量在横向上可以由一个小小的涨落。也就是说，我们希望
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+在质子方向上的分量是
+\begin_inset Formula $\xi P^{\mu}$
+\end_inset
+
+，其他方向分量很小，
+\begin_inset Formula $\sim\frac{m_{P}}{Q}$
+\end_inset
+
+。显然，在质子静止系，质子的方向没有意义。自然的选择是质心系。在强子–强子碰撞中，比如 LHC，质心系是实验室系。但是对于固定靶实验（典型的如
+\begin_inset Formula $e^{-}p^{+}$
+\end_inset
+
+实验），质心系不是实验室系。所以对于DIS，我们首先改变参考系，然后回到 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.108"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma^{*}p\to X$
+\end_inset
+
+的质心系被称为 the 
+\series bold
+Breit frame
+\series default
+。 在这个参考系中，光子和质子动量为
+\begin_inset Formula 
+\[
+q^{\mu}=(0,0,0,Q)\qquad P^{\mu}=(Q,0,0,-Q)
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula $q_{\mu}=k_{\mu}-k_{\mu}^{\prime}$
+\end_inset
+
+，入射和出射电子的动量为
+\begin_inset Formula 
+\[
+k=\left(\frac{Q}{2},0,0,\frac{Q}{2}\right)\qquad k^{\prime}=\left(\frac{Q}{2},0,0,-\frac{Q}{2}\right)
+\]
+
+\end_inset
+
+也就是说，电子从质子上弹开，就好像装上了一堵砖墙。因此， 为了方便记忆，有时候也把 the Breit frame 称为 brick wall
+ frame.
+\end_layout
+
+\begin_layout Standard
+现在考虑质子中一些带有动量
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+的部分子。它们的动量应该和质子的动量 collinear, 
+\begin_inset Formula $p^{\mu}=\xi P^{\mu}$
+\end_inset
+
+，up to some 横向分量
+\begin_inset Formula $p_{T}$
+\end_inset
+
+。当我们从质子静止系boost到 the Breit frame 中时， 
+\begin_inset Formula $p_{T}$
+\end_inset
+
+不变，因此我们希望
+\begin_inset Formula $p_{T}\sim m_{p}\ll Q$
+\end_inset
+
+。考虑大
+\begin_inset Formula $Q$
+\end_inset
+
+时，哪些动量分量较小的一种干净方法是使用 lightcone coordinates。让
+\begin_inset Formula $n^{\mu}$
+\end_inset
+
+是任何类光
+\begin_inset Formula $4$
+\end_inset
+
+–矢量，也就是说，
+\begin_inset Formula $n^{2}=0$
+\end_inset
+
+，并归一化到
+\begin_inset Formula $n^{\mu}=(1,\vec{n})$
+\end_inset
+
+。对于DIS，我们可以取
+\begin_inset Formula $n^{\mu}=(1,0,0,1)$
+\end_inset
+
+，和质子的方向相反。定义
+\begin_inset Formula $n^{\mu}$
+\end_inset
+
+的反方向为
+\begin_inset Formula $\bar{n}^{\mu}=(1,-\vec{n})$
+\end_inset
+
+，so that 
+\begin_inset Formula $n\cdot\bar{n}=2$
+\end_inset
+
+。For DIS in the Breit frame, 
+\begin_inset Formula $\bar{n}^{\mu}=(1,0,0,-1)$
+\end_inset
+
+是质子的方向。In general, 任何 
+\begin_inset Formula $k^{\mu}$
+\end_inset
+
+ 都可以分解成
+\begin_inset Formula 
+\[
+k^{\mu}\equiv\frac{1}{2}(\bar{n}\cdot k)n^{\mu}+\frac{1}{2}(n\cdot k)\bar{n}^{\mu}+k_{T}^{\mu}
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $k_{T}\cdot n=k_{T}\cdot\bar{n}=0$
+\end_inset
+
+。
+\begin_inset Formula $k_{T}^{\mu}$
+\end_inset
+
+是
+\begin_inset Formula $k^{\mu}$
+\end_inset
+
+在横向（
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+）的部分。者可以通过与
+\begin_inset Formula $n^{\mu}$
+\end_inset
+
+ or 
+\begin_inset Formula $\bar{u}^{\mu}$
+\end_inset
+
+ 收缩检验。我们也发现
+\begin_inset Formula 
+\[
+k^{2}=(n\cdot k)(\bar{n}\cdot k)+k_{T}^{2}
+\]
+
+\end_inset
+
+使用这个记号，我们能够把质子中部分子的动量分数
+\begin_inset Formula $\xi$
+\end_inset
+
+，诠释成在
+\begin_inset Formula $n$
+\end_inset
+
+方向上的动量分量。也就是，
+\begin_inset Formula $n\cdot p=\xi(n\cdot P)$
+\end_inset
+
+。部分子的 
+\begin_inset Formula $\bar{n}\cdot p$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{T}$
+\end_inset
+
+ 分量很小，也就是
+\begin_inset Formula $\slashed{n}\psi\approx0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+现在我们出于质子能量很高的坐标系中，我们可以让 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.108"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+精确成立。我们得到
+\begin_inset Formula 
+\[
+f(\xi)=\sum_{X}\int\dif\Pi_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi n\cdot P-n\cdot p\right)
+\]
+
+\end_inset
+
+这就是在质子中找到一个给定动量分数的夸克的概率。要明确的是，在该方程式中没有散射。相反，它描述了质子动量如何分裂成
+\begin_inset Formula $P^{\mu}=p^{\mu}+p_{X}^{\mu}$
+\end_inset
+
+，其中
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+是部分子的动量 and 
+\begin_inset Formula $p_{X}^{\mu}$
+\end_inset
+
+ 是质子中任何其他东西的动量。插入一个
+\begin_inset Formula $\int\dif^{4}p\delta^{4}(P-p-p_{X})$
+\end_inset
+
+因子我们得到
+\begin_inset Formula 
+\begin{align*}
+f(\xi) & =\int\frac{\dif^{4}p_{i}}{(2\pi)^{4}}\sum_{X}\int\dif\Pi_{X}(2\pi)^{4}\delta(P^{\mu}-p^{\mu}-p_{X}^{\mu})\delta(\xi n\cdot P-n\cdot p)\abs{\bra{X}\psi(0)\ket{P}}^{2}\\
+ & =\sum_{X}\dif\Pi_{X}\delta\left(n\cdot\left(\xi P+p_{X}-P\right)\right)\abs{\bra{X}\psi(0)\ket{P}}^{2}\\
+ & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}\sum_{X}\int\dif\Pi_{X}e^{-itn\cdot(\xi P-P+p_{X})}\abs{\bra{X}\psi(0)\ket{P}}^{2}\\
+ & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}\sum_{X}\int\dif\Pi_{X}e^{-i\xi tn\cdot P}\bra{P}e^{i(n\hat{\mathcal{P}})t}\psi^{\dagger}(0)e^{-i(n\cdot\hat{\mathcal{P}})t}\ket{X}\bra{X}\psi(0)\ket{P}\\
+ & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}e^{-it\xi(n\cdot P)}\bra{P}\bar{\psi}(tn^{\mu})\gamma^{0}\psi(0)\ket{P}
+\end{align*}
+
+\end_inset
+
+我们可以进一步简化这个式子，注意到夸克主要是在
+\begin_inset Formula $\bar{u}^{\mu}$
+\end_inset
+
+方向前进，
+\begin_inset Formula $\slashed{\bar{n}}\psi\approx0$
+\end_inset
+
+。这暗示了
+\begin_inset Formula $\gamma^{0}\psi=-(\vec{n}\cdot\vec{\gamma})\psi$
+\end_inset
+
+ and so 
+\begin_inset Formula $2\gamma^{0}\psi=\slashed{n}\psi$
+\end_inset
+
+.
+ Then,
+\begin_inset Formula 
+\[
+f(\xi)=\int_{-\infty}^{\infty}\frac{\dif t}{4\pi}e^{-it\xi(n\cdot P)}\bra{P}\bar{\psi}(tn^{\mu})\slashed{n}\psi(0)\ket{P}
+\]
+
+\end_inset
+
+为了使它是规范不变的，我们插入一个从
+\begin_inset Formula $x=0$
+\end_inset
+
+ 延伸到
+\begin_inset Formula $x^{\mu}=tn^{\mu}$
+\end_inset
+
+ 的 Wilson line (see Section 25.2)，也就是夸克场取值的两个点：
+\begin_inset Formula 
+\[
+W_{n}=P\exp\left\{ ig_{s}n_{\nu}\int_{0}^{t}\dif sA^{\nu}(sn^{\mu})\right\} 
+\]
+
+\end_inset
+
+最后， 我们得到
+\begin_inset Formula 
+\begin{equation}
+f_{q}(\xi)=\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}e^{-it\xi(n\cdot P)}\bra{P}\bar{\psi}_{q}(tn^{\mu})\frac{\slashed{n}}{2}W_{n}\psi_{q}(0)\ket{P}\label{eq:32.117}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+需要明确的是，
+\begin_inset Formula $n^{\mu}=(1,\vec{n})$
+\end_inset
+
+是一个类光
+\begin_inset Formula $4$
+\end_inset
+
+–矢量指向质子动量的相反方向。你可以在 Problem 32.11 中检查按这个定义，moments of the PDFs 能够回到 Section
+ 32.4.4 中 twist-
+\begin_inset Formula $2$
+\end_inset
+
+ 算符的矩阵元。
+\end_layout
+
+\begin_layout Standard
+表达式 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:32.117"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的好处在于，它广泛的出现在质子为 ultra-relativistic 的高能过程中，比如 hadron-hadron 碰撞的实验室系。所以对其他过程可以有类
+似的分析，比如 Drell-Yan,直接光子产生（
+\begin_inset Formula $pp\to\gamma+X$
+\end_inset
+
+），dijet production, 等等。这些过程都有一个能标
+\begin_inset Formula $Q$
+\end_inset
+
+（Drell-Yan 过程中轻子的不变质量，光子的横向动量，或者 dijet 系统的不变质量）。当
+\begin_inset Formula $Q\gg m_{p}$
+\end_inset
+
+时，通过考虑 相关的 momenta 如何 scale with 
+\begin_inset Formula $Q$
+\end_inset
+
+(such as 
+\begin_inset Formula $P^{\mu}$
+\end_inset
+
+,
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+ for DIS)，人们经常可以使用lightcone PDFs 写下截面的因子化公式。If one is content with scaling
+ arguments as a proof of these factorization fomulas, then it is possible
+ to have a tremendous amount of predictive power without an OPE。
 \end_layout
 
 \begin_layout Standard
