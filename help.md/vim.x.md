@@ -1,5 +1,29 @@
 # learn.vim.x.md
 
+## 设置字体
+
+[gvim 字体（font）+风格（style）+ 大小（size）设置][]
+
+[gvim 字体（font）+风格（style）+ 大小（size）设置]: https://blog.csdn.net/sinat_34647203/article/details/90107444
+
+编辑配置文件，设置格式如下所示：
+
++ windows： `guifont=字体:风格:大小`
++ linux： `guifont=字体\ 风格\ 大小`
+
+三个部分每个部分中有空格的话， linux中在空格前面加个反斜线\，每个部分之间的分割线也是`\+空格`,  windows中用`下划线`代替空格。以上图为例，它们的设置如下：
+
++ windows:   `guifont=Courier_New:b:h16`
++ centos（linux）：`guifont=Courier\ 10\ Pitch\ Bold\ 12`
+
+我是严格按照图中的顺序设置的，即字体、风格、大小，若不这样的话，在linux中似乎有些问题。
+
+友情提示：
+常规风格可省略，windows中的各种风格分别为：斜体(`i`), 粗体(`b`), 粗斜体(两个都要写上，即 字体`:b:i:大小`)，大小加上`h`；
+linux风格和字体直接写完整单词，大小是数字，写在最后即可。
+
+修正1：由于这：是设置`gui`界面的，因此这两句放在`if has("gui_running") `后面比较好，免得在文字界面运行时有一条出错信息。
+
 ## 补全
 
 `Vim` 能自动补全插入的单词。你键入一个单词的开头部分，按 `CTRL-P`，`Vim` 就会为你猜

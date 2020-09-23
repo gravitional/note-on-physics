@@ -250,11 +250,17 @@ usage: `7z <command> [<switches>...] <archive_name> [<file_names>...] [<@listfil
 
 ### 查看所有可用的字体
 
+fc-list: list available fonts
+
+```
+fc-list [ -vVh ]  [ pattern  [ element... ]   ]
+```
+
 ```bash
 fc-list :lang=zh
 ```
 
-fc-list: list available fonts
+`:lang=zh` 代表匹配模式
 
 ### 安装字体
 
