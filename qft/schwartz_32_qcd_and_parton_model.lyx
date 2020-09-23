@@ -11,20 +11,19 @@
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
 %%%%%%%%%%%%%%%%%+++++++++++
 \usepackage{eso-pic} 
-\usepackage{xcolor}
-\usepackage{amsmath} 
-\usepackage{amssymb} 
-\usepackage{amsfonts} 
-\usepackage{latexsym} 
+% This package makes it easy to add some picture commands to every page at ab-solute positions
+\usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
+\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+
+\usepackage{amsmath,amssymb,amsfonts} % 数学字体
+\usepackage{mathrsfs} % 提供了mathscr 命令
 % Required for specifying colors by name 
-\definecolor{ocre}{RGB}{243,102,25} 
 \usepackage{enumerate} 
 
 \usepackage{hepunits} % hep units
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
-\usepackage{bm} 
-\usepackage{graphicx,graphics,color} 
+\usepackage{bm,bbm} 
 \usepackage{simplewick} 
 \usepackage{makeidx} 
 \usepackage{multirow}

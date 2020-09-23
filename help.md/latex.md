@@ -41,9 +41,16 @@ OPTIONS
 不同的编译模式也有细微的影响。
 经过测试，使用批处理模式（`batchmode`）速度要优于默认的模式（不加参数）和其他一些模式（比如 `nonstopmode` 和 `scrollmode`），这是因为批处理模式在编译和执行阶段是静默的，不输出任何信息，因此要快上一些。
 
-## 浮动体
+## 浮动体 图形
 
 [liam.page][]
+
+由两个 graphics packages:
+
+`graphics` : The `standard` graphics package.
+`graphicx` :The `extended` or `enhanced`  graphics package
+
+这两个包的区别在于可选参数给出的形式不同。参数名称和必选参数是相同的。
 
 插图和表格通常需要占据大块空间，所以在文字处理软件中我们经常需要调整他们的位置。`figure` 和 `table` 环境可以自动完成这样的任务；这种自动调整位置的环境称作浮动体(`float`)。我们以 `figure` 为例。
 
