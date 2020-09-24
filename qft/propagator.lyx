@@ -1,0 +1,515 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+% This package makes it easy to add some picture commands to every page at ab-solute positions
+\usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
+\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+
+\usepackage{amsmath,amssymb,amsfonts} % 数学字体
+\usepackage{mathrsfs} % 提供了mathscr 命令
+% Required for specifying colors by name 
+\usepackage{enumerate} 
+
+\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm,bbm} 
+\usepackage{simplewick} 
+\usepackage{makeidx} 
+\usepackage{multirow}
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr}
+%\DeclareMathOperator{\re}{Re}
+%\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\res}{Res}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+传播子，因果性，正反粒子，编时乘积
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Section
+传播子
+\end_layout
+
+\begin_layout Subsection
+实标量场各种传播子定义
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{R}=\left[\phi(x),\phi(y)\right]=\bra{0}\left[\phi(x),\phi(y)\right]\ket{0}$
+\end_inset
+
+（
+\begin_inset Formula $\left[\phi(x),\phi(y)\right]$
+\end_inset
+
+是
+\begin_inset Formula $C$
+\end_inset
+
+数）得到的是 Retarded propagator（也就是延迟传播子），写成四维形式，经过分析:
+\begin_inset Formula 
+\begin{align*}
+D_{R} & =\left[\phi(x),\phi(y)\right]=\bra{0}\left[\phi(x),\phi(y)\right]\ket{0}\\
+ & =\bra{0}\phi(x)\phi(y)\ket{0}-\bra{0}\phi(y)\phi(x)\ket{0}\\
+ & =\theta(x^{0}-y^{0})\bra{0}\left[\phi(x),\phi(y)\right]\ket{0}\\
+ & =\theta(x^{0}-y^{0})\bra{0}\phi(x)\phi(y)\ket{0}-\theta(x^{0}-y^{0})\bra{0}\phi(y)\phi(x)\ket{0}
+\end{align*}
+
+\end_inset
+
+其中，
+\begin_inset Formula $D(x-y)=\bra{0}\phi(x)\phi(y)\ket{0}$
+\end_inset
+
+是普通的传播振幅，对因果性有一丢丢违背。
+\end_layout
+
+\begin_layout Standard
+而
+\begin_inset Formula $D_{F}(x-y)=T\{\phi(x)\phi(y)\}$
+\end_inset
+
+得到的是编时传播子。再加上 Wick 定理，
+\begin_inset Formula 
+\[
+T\left\{ \phi\cdots\right\} =N\left\{ \phi\cdots+\text{all possible contractions}\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+T\{\phi(x)\phi(y)\} & =\text{Contract}\left[\phi(x)\phi(y)\right]\\
+ & \equiv\begin{cases}
+\left[\phi^{-}(x),\phi^{+}(y)\right]=D(x-y)=\bra{0}\phi(x)\phi(y)\ket{0} & \text{for }x^{0}>y^{0}\\
+\left[\phi^{-}(y),\phi^{+}(x)\right]=D(y-x)=\bra{0}\phi(y)\phi(x)\ket{0} & \text{for }y^{0}>x^{0}
+\end{cases}\\
+ & =\theta(x^{0}-y^{0})\bra{0}\phi(x)\phi(y)\ket{0}+\theta(y^{0}-x^{0})\bra{0}\phi(y)\phi(x)\ket{0}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\phi^{+}(x)$
+\end_inset
+
+是场的负频解，创造粒子（
+\begin_inset Formula $a^{\dagger}$
+\end_inset
+
+），
+\begin_inset Formula $\phi^{-}(x)$
+\end_inset
+
+是场的正频解，湮灭粒子（
+\begin_inset Formula $a$
+\end_inset
+
+）。
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+威克收缩
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+可以看成费曼传播子的等价定义。当
+\begin_inset Formula $x^{0}>y^{0}$
+\end_inset
+
+时，
+\begin_inset Formula $\left[\phi^{-}(x),\phi^{+}(y)\right]$
+\end_inset
+
+等于零，也反映了
+\begin_inset Formula $\left[\phi(x),\phi(y)\right]$
+\end_inset
+
+是延迟传播子，不可能传播
+\begin_inset Formula $x$
+\end_inset
+
+到
+\begin_inset Formula $y$
+\end_inset
+
+点的过程。
+\end_layout
+
+\begin_layout Standard
+所以费曼传播子的定义跟延迟传播子的区别在于，两个阶跃函数项的符号不同。
+\end_layout
+
+\begin_layout Subsection
+延迟传播子
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\phi(x),\phi(y)\right]$
+\end_inset
+
+是延迟传播子可以参考peskin page 27：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D(x-y)=\bra{0}\phi(x)\phi(y)\ket{0}=\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{2E_{\vec{p}}}e^{-ip\cdot(x-y)}=\int\frac{\dif^{4}p}{(2\pi)^{4}}\frac{i}{p^{2}-m^{2}}e^{-ip\cdot(x-y)}$
+\end_inset
+
+，其中后面协变形式中的积分路径需要良好的定义。
+\begin_inset Formula 
+\[
+D(x-y)=\begin{cases}
+\frac{1}{4\pi^{2}}\int_{m}^{\infty}\dif E\sqrt{E^{2}-m^{2}}e^{-iEt}\approx e^{-imt} & \text{timelike}\\
+\frac{-i}{2(2\pi)^{2}r}\int_{-\infty}^{+\infty}\dif p\frac{pe^{ipr}}{\sqrt{p^{2}+m^{2}}}\Rightarrow\\
+\Rightarrow\frac{1}{4\pi^{2}r}\int_{m}^{+\infty}\dif\rho\frac{\rho e^{-\rho r}}{\sqrt{\rho^{2}-m^{2}}}\approx e^{-mr} & \text{spacelike}
+\end{cases}
+\]
+
+\end_inset
+
+单纯的
+\begin_inset Formula $\bra{0}\phi(x)\phi(y)\ket{0}$
+\end_inset
+
+对于类时间隔，按照
+\begin_inset Formula $e^{-imt}$
+\end_inset
+
+传播（平面波形式）。对于类空间隔，即使在光锥外也不马上为零，而是按照
+\begin_inset Formula $e^{-mr}$
+\end_inset
+
+衰减到零的，也就是场在光锥之外仍然可以传播，看起来好像违反因果律。但是可以更宽泛地看待地因果律，要求两个类空间隔的测量不会相互影响即可，即要求光锥之外
+\begin_inset Formula $\left[\phi(x),\phi(y)\right]=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+可以证明，
+\begin_inset Formula $\left[\phi(x),\phi(y)\right]=D(x-y)-D(y-x)$
+\end_inset
+
+。对于类空间隔，存在连续的洛伦兹变换使得
+\begin_inset Formula $(x-y)\to-(x-y)$
+\end_inset
+
+，所以结果为零。对于类时间隔，不存在这样的连续洛伦兹变换，结果大概是
+\begin_inset Formula $e^{-imt}-e^{imt}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+所以，
+\begin_inset Formula $\left[\phi(x),\phi(y)\right]$
+\end_inset
+
+代表了因果律（causality ），起一个名字叫延迟传播子，表示它的影响只能是沿时间轴向后的。表示如果间隔是spatial的，两个测量不会互相干扰，也就是作用
+范围无法达到光锥外。而
+\begin_inset Formula $T\left\{ \phi(x)\phi(y)\right\} $
+\end_inset
+
+表示费曼传播子，因为相互作用理论的积分是对全时空的，包括
+\begin_inset Formula $x^{0}>y^{0}$
+\end_inset
+
+的情形和
+\begin_inset Formula $y^{0}>x^{0}$
+\end_inset
+
+的情形。所以费曼传播子是两种情况下延迟传播子的结合。在计算中通过加上对称因子
+\begin_inset Formula $\frac{1}{n!}$
+\end_inset
+
+cancel掉重复统计。
+\end_layout
+
+\begin_layout Standard
+这反映了场论相互作用的结构特点——连线消除游戏。
+\end_layout
+
+\begin_layout Standard
+一般求传播子我们也不用这么麻烦，直接变换到傅立叶空间，求系数的逆，然后用费曼处方
+\begin_inset Formula $+i\epsilon$
+\end_inset
+
+，给它加上编时特性就可以了。
+\end_layout
+
+\begin_layout Subsection
+复标量场
+\end_layout
+
+\begin_layout Standard
+因果律,延迟传播子：
+\begin_inset Formula 
+\[
+\left[\phi^{*}(x),\phi(y)\right]=\theta(x^{0}-y^{0})\bra{0}\left[\phi^{*}(x),\phi(y)\right]\ket{0}
+\]
+
+\end_inset
+
+编时传播子：
+\begin_inset Formula 
+\begin{align*}
+T\left\{ \phi(x)^{*}\phi(y)\right\}  & =\theta(x^{0}-y^{0})\bra{0}\phi^{*}(x)\phi(y)\ket{0}+\theta(y^{0}-x^{0})\bra{0}\phi(y)\phi^{*}(x)\ket{0}\\
+ & =\theta(x^{0}-y^{0})\bra{0}\phi^{*-}(x)\phi^{+}(y)\ket{0}+\theta(y^{0}-x^{0})\bra{0}\phi(y)^{-}\phi^{*+}(x)\ket{0}
+\end{align*}
+
+\end_inset
+
+见 qft_schwartz page 162: 复标量场的传播子同时传播
+\begin_inset Formula $\phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi^{*}$
+\end_inset
+
+，也就是同时传播粒子和反粒子，they cannot be disentangled（它们不能被分清）。
+\end_layout
+
+\begin_layout Standard
+在画费曼图的时候，用电荷箭头表示电荷的传播方向，净电荷的传播方向总是不变的，这是电荷守恒的要求。也就是会同时传播粒子和反粒子。只需要考虑一种情况即可，费曼传播子
+会将两种情况都加起来，所以不用考虑同时一定会成立的反粒子的费曼图，只用考虑一种即可。
+\end_layout
+
+\begin_layout Standard
+标量场费曼传播子的三维形式是：
+\begin_inset Formula 
+\begin{align*}
+T\left\{ \phi(x)\phi(y)\right\}  & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{2E_{\vec{p}}}\left(e^{-ip\cdot(x-y)}+e^{ip\cdot(x-y)}\right)\\
+ & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{2E_{\vec{p}}}2\cos(p\cdot(x-y))
+\end{align*}
+
+\end_inset
+
+积分测度加上积分域
+\begin_inset Formula $\int\frac{\dif^{3}p}{(2\pi)^{3}}$
+\end_inset
+
+对于
+\begin_inset Formula $p\to-p$
+\end_inset
+
+这样的变换总是不变的，
+\begin_inset Formula $E_{\vec{p}}$
+\end_inset
+
+也不变，即
+\begin_inset Formula $\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{2E_{\vec{p}}}$
+\end_inset
+
+对于
+\begin_inset Formula $p\to-p$
+\end_inset
+
+不变，后面等于
+\begin_inset Formula 
+\begin{align*}
+e^{-ip\cdot(x-y)}+e^{ip\cdot(x-y)} & =e^{-iE_{p}(x^{0}-y^{0})+i\vec{p}(\vec{x}-\vec{y})}+e^{iE_{p}(x^{0}-y^{0})-i\vec{p}(\vec{x}-\vec{y})}\\
+ & =e^{-iE_{p}(x^{0}-y^{0}))}\left(e^{+i\vec{p}(\vec{x}-\vec{y})}+e^{2iE_{p}(x^{0}-y^{0})-i\vec{p}(\vec{x}-\vec{y})}\right)
+\end{align*}
+
+\end_inset
+
+这一项对于
+\begin_inset Formula $p\to-p$
+\end_inset
+
+的变换不是naive的，所以积分域不能简单地折叠，
+\begin_inset Formula $\int_{-\infty}^{+\infty}\to2\int_{0}^{+\infty}$
+\end_inset
+
+。不过显然标量场费曼传播子是
+\begin_inset Formula $x-y$
+\end_inset
+
+的偶函数。
+\end_layout
+
+\begin_layout Standard
+顺便，延迟传播子为：
+\begin_inset Formula 
+\[
+\bra{0}\left[\phi^{*}(x),\phi(y)\right]\ket{0}=\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{2E_{\vec{p}}}\left(e^{-ip\cdot(x-y)}-e^{ip\cdot(x-y)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+编时乘积
+\end_layout
+
+\begin_layout Standard
+参考 qft_peskin page 84, 编时乘积的作用是，将幺正的演化算符
+\begin_inset Formula $U(t,t_{0})$
+\end_inset
+
+的迭代展开对称化：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U(t,t_{0})=1+(-i)\int_{t_{0}}^{t}\dif t_{1}H_{I}(t_{1})+(-i)^{2}\int_{t_{0}}^{t}\dif t_{1}\int_{t_{0}}^{t_{1}}\dif t_{2}H_{I}(t_{1})H_{I}(t_{2})+\cdots
+\]
+
+\end_inset
+
+经过编时乘积将各个时间变量的积分域对称化，可以得到：
+\begin_inset Formula 
+\begin{align*}
+U(t,t_{0}) & =1+(-i)\int_{t_{0}}^{t}\dif t_{1}H_{I}(t_{1})+\frac{(-i)^{2}}{2!}\int_{t_{0}}^{t}\dif t_{1}\int_{t_{0}}^{t}\dif t_{2}H_{I}(t_{1})H_{I}(t_{2})+\cdots\\
+ & =T\left\{ \exp\left[-i\int_{t_{0}}^{t}\dif t^{\prime}H_{I}(t^{\prime})\right]\right\} 
+\end{align*}
+
+\end_inset
+
+所以使用编时乘积之后，可以把相互作用项的时间积分域变成同样的，更方便处理，但是相当于做了重复计数，最后要用
+\begin_inset Formula $\frac{1}{n!}$
+\end_inset
+
+cancel掉。这个重复计数最终体现在传播子里面，也就是使用费曼传播子完成了这一对称化操作。
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref61"
+literal "true"
+
+\end_inset
+
+xxxxx
+\end_layout
+
+\end_body
+\end_document

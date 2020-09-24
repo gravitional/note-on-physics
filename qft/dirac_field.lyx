@@ -2161,15 +2161,27 @@ U(\Lambda)\psi(x)U^{-1}(\Lambda)=\Lambda_{\frac{1}{2}}^{-1}\psi(\Lambda x)
 
 \end_inset
 
-注意，这是在 Hilbert 空间实现的，
+注意，式子的左边是在 Hilbert 空间实现的，也就是把场
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+里面的产生湮灭算符做了相似变换，
 \begin_inset Formula $U(\Lambda)$
 \end_inset
 
-作为一个幺正的表示矩阵。但又不是用单粒子态
+作为一个幺正的表示矩阵，作用到产生湮灭算符上。
+\end_layout
+
+\begin_layout Standard
+但是
+\begin_inset Formula $U(\Lambda)$
+\end_inset
+
+并不是直接拿单粒子态
 \begin_inset Formula $a^{\dagger}\ket{0}$
 \end_inset
 
-作为表示空间的基实现的，而是把它们收集到了
+作为表示空间的基，而是把它们收集到了
 \begin_inset Formula $\psi(x)$
 \end_inset
 
@@ -2178,10 +2190,34 @@ U(\Lambda)\psi(x)U^{-1}(\Lambda)=\Lambda_{\frac{1}{2}}^{-1}\psi(\Lambda x)
 \end_inset
 
 作为基。
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+中其他的部分可以看成是组合系数，包括旋量解和平面波因子。旋量解和平面波因子在
 \begin_inset Formula $U(\Lambda)$
 \end_inset
 
-这里体现出了旋量结构。
+下是不变的。
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+的指标是
+\begin_inset Formula $x$
+\end_inset
+
+，所以
+\begin_inset Formula $\tilde{x},-\tilde{x}$
+\end_inset
+
+等等都属于
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+
 \series bold
 另外，重要的是
 \begin_inset Formula $\psi(x)$
@@ -2414,7 +2450,7 @@ U(P)a_{\vec{p}}^{s}U(p)^{\dagger}\to\eta_{a}a_{-\vec{p}}^{s},\quad U(P)b_{\vec{p
 \begin_inset Formula $U(p)$
 \end_inset
 
-，但由于 Hilbert 空间是个线性空间，基是固定的，根据群的表示理论，
+，但由于 Hilbert 空间是个线性空间，基在变换下是完备的，根据群的表示理论，
 \begin_inset Formula $P$
 \end_inset
 
@@ -2502,12 +2538,32 @@ P\psi(x)P=\gamma^{0}\psi(\tilde{x})
 
 \begin_inset Formula 
 \[
-P\bar{\psi}(x)P=\left(P\psi(x)P\right)^{\dagger}\gamma^{0}=\bar{\psi}(x)\gamma^{0}
+P\bar{\psi}(x)P=\left(P\psi(x)P\right)^{\dagger}\gamma^{0}=\bar{\psi}(\tilde{x})\gamma^{0}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+对于一个费米子链，时间反演相当于
+\begin_inset Formula $\bar{\psi}O(p)\psi\to\bar{\psi}(\tilde{x})\gamma^{0}O(\tilde{p})\gamma^{0}\psi(\tilde{x})$
+\end_inset
+
+，
+\begin_inset Formula $O(p)$
+\end_inset
+
+是一串伽马矩阵的乘积。
+\end_layout
+
+\begin_layout Standard
+对应的旋量的变换是
+\begin_inset Formula $\bar{u}(p)O(p)u(p)\to\bar{u}(\tilde{p})\gamma^{0}O(\tilde{p})\gamma^{0}u(\tilde{p})=\bar{u}(p)O(\tilde{p})u(p)$
+\end_inset
+
+，最后一个等号利用了旋量的性质。
 \end_layout
 
 \begin_layout Standard
@@ -3018,6 +3074,26 @@ T\bar{\psi}(x)T=\left(T\psi(x)T\right)^{\dagger}\gamma^{0}=\psi^{\dagger}(-t,\ve
 \end_layout
 
 \begin_layout Standard
+对于一个费米子链，时间反演相当于
+\begin_inset Formula $\bar{\psi}O(p)\psi\to\bar{\psi}(-t,\vec{x})\left(\gamma^{3}\gamma^{1}\right)O^{*}\left(\gamma^{1}\gamma^{3}\right)\psi\left(-t,\vec{x}\right)$
+\end_inset
+
+，
+\begin_inset Formula $O$
+\end_inset
+
+是一串伽马矩阵的乘积。
+\end_layout
+
+\begin_layout Standard
+对应的旋量的变换是
+\begin_inset Formula $\bar{u}(p)O(p)u(p)\to\bar{u}(\tilde{p})\gamma^{3}\gamma^{1}O^{*}(\tilde{p})\gamma^{1}\gamma^{3}u(\tilde{p})=\bar{u}(p)\gamma^{0}\gamma^{3}\gamma^{1}O^{*}(\tilde{p})\gamma^{1}\gamma^{3}\gamma^{0}u(p)$
+\end_inset
+
+，最后一个等号利用了旋量的性质。
+\end_layout
+
+\begin_layout Standard
 双线性型的变化形式如下，
 \begin_inset Formula 
 \begin{align*}
@@ -3127,9 +3203,25 @@ C\psi(x)C & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{
 同样的，查看双线性型的变化：
 \begin_inset Formula 
 \[
-C\bar{\psi}(x)C=C\psi(x)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=i\psi^{T}\gamma^{2}\gamma^{0}
+C\bar{\psi}(x)C=C\psi(x)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=(-i\gamma^{0}\gamma^{2}\psi)^{T}=i\psi^{T}\gamma^{2}\gamma^{0}
 \]
 
+\end_inset
+
+对于一个费米子链，电荷共轭相当于
+\begin_inset Formula $\bar{\psi}O\psi\to(\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi)^{T}=\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi$
+\end_inset
+
+，
+\begin_inset Formula $O$
+\end_inset
+
+是一串伽马矩阵的乘积。
+\end_layout
+
+\begin_layout Standard
+对应的旋量的变换是
+\begin_inset Formula $\bar{u}(p)O(p)u(p)\to\bar{u}(p)\gamma^{2}\gamma^{0}O^{T}(p)\gamma^{0}\gamma^{2}u(p)$
 \end_inset
 
 
@@ -3840,19 +3932,10 @@ status open
 \end_inset
 
 变换下的变换性质。其中
-\begin_inset Formula $g(\mu)=1$
-\end_inset
-
-, for 
-\begin_inset Formula $\mu=0$
-\end_inset
-
-; 
-\begin_inset Formula $g(\mu)=-1$
-\end_inset
-
-, for 
-\begin_inset Formula $\mu=1,2,3$
+\begin_inset Formula $\begin{cases}
+g(\mu)=1, & \text{for }\mu=0\\
+g(\mu)=-1, & \text{for }\mu=1,2,3
+\end{cases}$
 \end_inset
 
 

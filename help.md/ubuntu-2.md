@@ -43,10 +43,10 @@ dget [options] [--all] package[=version] ...
 
 DESCRIPTION
 
-dget downloads Debian packages.  
+dget downloads Debian packages.
 
-In the first form, dget fetches the requested `URLs`.  If this is a `.dsc` or `.changes` file, 
-then dget acts as a source-package aware form of wget: it also fetches any files referenced in the `.dsc/.changes` file.  
+In the first form, dget fetches the requested `URLs`.  If this is a `.dsc` or `.changes` file,
+then dget acts as a source-package aware form of wget: it also fetches any files referenced in the `.dsc/.changes` file.
 The downloaded source is then checked with `dscverify` and, if successful, unpacked by `dpkg-source`.
 
 6.1. 完整的(重)构建
@@ -126,14 +126,14 @@ DEBSIGN_KEYID=Your_GPG_keyID
 并通过网域名称系统（`DNS`，`Domain Name System`）来将域名和`IP`地址相互映射，使人更方便地访问互联网，
 而不用去记住能够被机器直接读取的`IP`地址数串
 
-A `hostname` is a label assigned to a `device` (a host) on a `network`. 
+A `hostname` is a label assigned to a `device` (a host) on a `network`.
 
-It distinguishes one device from another on a specific network or over the internet. 
+It distinguishes one device from another on a specific network or over the internet.
 The hostname for a computer on a home network may be something like `new laptop`, `Guest-Desktop`, or `FamilyPC`.
 
 Hostnames are also used by `DNS` servers so you can access a website by a common, easy-to-remember name. This way, you don't have to remember a string of numbers (an `IP address`) to open a website.
 
-A computer's hostname may instead be referred to as a computer name, sitename, or nodename. 
+A computer's hostname may instead be referred to as a computer name, sitename, or nodename.
 You may also see hostname `spelled` as host name.
 
 ### Examples of a Hostname
@@ -281,7 +281,7 @@ bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
 ```bash
 gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['UTF-8', 'GB18030', 'GB2312', 'GBK', 'BIG5', 'CURRENT', 'UTF-16']"
 ```
- 
+
 ### 导入ibus词库
 
 终端下输入`ibus-setup`--`Input Method`--`Chinese - intelligent pinyin`，
@@ -347,7 +347,7 @@ SYNOPSIS
 ### 删除日志文件
 
 ```bash
-sudo /dev/null > /var/log/**.log 
+sudo /dev/null > /var/log/**.log
 ```
 
 下面这个推荐使用,删除30天之前的旧文件
@@ -364,7 +364,7 @@ sudo find /var/log/ -type f -mtime +30 -exec rm -f {} \;
 ***
 `expression`
 
-The part of the command line after the list of starting points is the `expression`.  This is a kind of query specification describing how we match files  and  what we do with the files that were matched.  
+The part of the command line after the list of starting points is the `expression`.  This is a kind of query specification describing how we match files  and  what we do with the files that were matched.
 An expression is composed of a sequence of things: Test, Actions,...
 
 `-exec command ;`
@@ -384,7 +384,7 @@ An expression is composed of a sequence of things: Test, Actions,...
               some pending commands may not be run at all.  This variant of -exec always returns true.
 
 `-mtime n`
-File's  data  was  last  modified  `n*24` hours ago.  
+File's  data  was  last  modified  `n*24` hours ago.
 See the comments for -atime to understand how rounding affects the interpretation of file modificationtimes
 
 `-type c`
@@ -598,7 +598,7 @@ chmod 后面可以接符号表示新的权限，也可以接一个octal number -
 
 `ugoa`表示控制特定用户访问权限:
 
-+ u:the user who owns it 
++ u:the user who owns it
 + g:other users in the file's group
 + o:other users not in the file's group
 + a:all  users
@@ -612,7 +612,7 @@ set user or group ID on execution (s), restricted deletion flag or sticky bit (t
 
 或者指定`ugo`中的一个，
 the permissions granted to the user who owns the file (u),
- the permissions granted to other users who are members of the file's group (g), 
+ the permissions granted to other users who are members of the file's group (g),
  and the permissions granted to users that are in neither of the two preceding categories (o).
 
 ***
@@ -623,12 +623,12 @@ the permissions granted to the user who owns the file (u),
 省略的数字被认为是前置的`0`。
 
 第一位数字选择用户组
-the set user ID (4) and 
-set group  ID(2)  and  
-restricted deletion or sticky (1) attributes.  
+the set user ID (4) and
+set group  ID(2)  and
+restricted deletion or sticky (1) attributes.
 
 第二位数字选择权限
-read (4), write (2), and execute (1); 
+read (4), write (2), and execute (1);
 
 第三位数字设定组中其他用户的权限
 
@@ -677,10 +677,10 @@ result_path=os.path.join(originpath,'expression-results/')
 paper_path=os.path.join('/home',user_name,'private','paper-2.prd/')
 desk_path=os.path.join('/home',user_name,'Desktop','paper.ff/')
 # 复制计算结果到论文目录
-shutil.copy(os.path.join(result_path,'fig.baryons.ge.charge.L-0.90.ci-1.50.pdf'),os.path.join(paper_path,'fig4.pdf')) 
-shutil.copy(os.path.join(result_path,'fig.baryons.ge.neutral.L-0.90.ci-1.50.pdf'),os.path.join(paper_path,'fig5.pdf')) 
-shutil.copy(os.path.join(result_path,'fig.baryons.gm.charge.L-0.90.ci-1.50.pdf'),os.path.join(paper_path,'fig2.pdf')) 
-shutil.copy(os.path.join(result_path,'fig.baryons.gm.neutral.L-0.90.ci-1.50.pdf'),os.path.join(paper_path,'fig3.pdf')) 
+shutil.copy(os.path.join(result_path,'fig.baryons.ge.charge.L-0.90.ci-1.50.pdf'),os.path.join(paper_path,'fig4.pdf'))
+shutil.copy(os.path.join(result_path,'fig.baryons.ge.neutral.L-0.90.ci-1.50.pdf'),os.path.join(paper_path,'fig5.pdf'))
+shutil.copy(os.path.join(result_path,'fig.baryons.gm.charge.L-0.90.ci-1.50.pdf'),os.path.join(paper_path,'fig2.pdf'))
+shutil.copy(os.path.join(result_path,'fig.baryons.gm.neutral.L-0.90.ci-1.50.pdf'),os.path.join(paper_path,'fig3.pdf'))
 # cd 到论文目录，重新编译论文
 os.chdir(paper_path)
 # 清除之前的编译结果，重新编译
@@ -739,7 +739,7 @@ Linux是一个多用户多任务的操作系统，可以在Linux中为不同的�
 例如:编辑`/etc/profile`文件，添加`CLASSPATH`变量
 
 ```bash
-vim /etc/profile    
+vim /etc/profile
 export CLASSPATH=./JAVA_HOME/lib;$JAVA_HOME/jre/lib
 ```
 
@@ -755,7 +755,7 @@ export CLASSPATH=./JAVA_HOME/lib;$JAVA_HOME/jre/lib
 ```
 
 1. 直接运行`export`命令定义变量 [只对当前shell（BASH）有效（临时的）]
-   
+
 在shell的命令行下直接使用`export 变量名=变量值`
 
 定义变量，该变量只在当前的shell（BASH）或其子shell（BASH）下是有效的，
@@ -817,39 +817,39 @@ export PATH=$PAHT:<PATH 1>:<PATH 2>:<PATH 3>:--------:< PATH n >
 
 ### What causes this
 
-See the crash report that is dumped on your disk. 
+See the crash report that is dumped on your disk.
 The directory you want is `/var/crash/` and it will contain several files pointing you to the package it is about and what the crash is.
 
 This directory is described as:
 
 >`/var/crash` : System crash dumps (optional)
->This directory holds system crash dumps. 
+>This directory holds system crash dumps.
 >As of the date of this release of the standard, system crash dumps were not supported under Linux but may be supported by other systems which may comply with the FHS.
 
-Ubuntu releases use this (optional) directory to dump crashes and the package that does that is called `apport` (and `whoopsie`). 
+Ubuntu releases use this (optional) directory to dump crashes and the package that does that is called `apport` (and `whoopsie`).
 The link has a detailed description and also has a PDF that describes the crash report data format.
 
 If you want really detailed reports on a crash install `GDB`: `The GNU Project Debugger` with `sudo apt-get install gdb`.
 
 ### How to get rid of it
 
-Depends on what you call "get rid". The ideal fix would be to check what is inside the reports, and try and find a fix for it. 
+Depends on what you call "get rid". The ideal fix would be to check what is inside the reports, and try and find a fix for it.
 If the package it is about is unneeded or benign you could also purge it. Most times it is a core functionality though.
 
-If you can not understand those crash reports most times you can google the error notice (there will always be one in there). Or drop a message in chat. 
+If you can not understand those crash reports most times you can google the error notice (there will always be one in there). Or drop a message in chat.
 Generally crashes are off topic on AU as those are bugs and would need to be reported (through this service ;) ).
 
 You can pick any of these to remove the crash report up to actually removing the package (would be rather ironic if the error comes from apport itself):
 
 + `sudo rm /var/crash/*` will delete old crashes and stop informing you about them until some package crashes again.
 + You can stop the service with `sudo systemctl` disable apport (and enable it again with `sudo systemctl enable apport`)
-+ If you do not want to see crash reports you can disable it by doing sudo `vim /etc/default/apport` 
-and changing `enabled=1` to `enabled=0`. (or `sudo nano /etc/default/apport`). 
++ If you do not want to see crash reports you can disable it by doing sudo `vim /etc/default/apport`
+and changing `enabled=1` to `enabled=0`. (or `sudo nano /etc/default/apport`).
 Editing it in reverse will enable it again.
 + You can delete the service with `sudo apt purge apport` (and install it again with `sudo apt install apport`)
 + And there is also a desktop method (option "problem reporting":
 
-[how to read and use crash reports?][] has some interesting answers. 
+[how to read and use crash reports?][] has some interesting answers.
 It has an example crash report and a method to retrace crashes.
 
 [how to read and use crash reports?]: https://askubuntu.com/questions/346953/how-to-read-and-use-crash-reports
@@ -919,9 +919,9 @@ menuentry 'Example GNU/Linux distribution' --class gnu-linux --id example-gnu-li
 `libpinyin`添加了词库导入功能，并刚刚修复相关`bug`，所以要先更新`libpinyin`到最新版。
 在`libpinyin`的配置界面（可以从`语言选项`---`输入源`找到，实在找不到，`/usr/share/ibus-libpinyin/setup/main2.py`），可以找到**用户数据导入选项**。
 
-这个要求文件: 
+这个要求文件:
 
-1. 文件采用本地编码格式 
+1. 文件采用本地编码格式
 2. 格式为每行`字符 拼音 位置(可选)`，且字符数和拼音数要对应，例如`你好 ni'hao 5`。
 
 去搜狗词库下搜狗细胞词库文件，然后下个**深蓝词库转换器**（`exe`），`wine`中打开转换器，选择从搜狗细胞词库转换到手机`QQ`格式，转换结束后不要选择文件保存本地，编码格式不大对，在输出框里面全选复制粘贴到你的文本编辑器，保存为`.txt`后缀。
@@ -1023,7 +1023,7 @@ IP地址为`130.39.37.100`，
 网络地址为`130.39.0.0`,
 子网地址为`130.39.37.0`,
 子网掩码为`255.255.255.0`，
-网络地址部分和子网标识部分对应`1`，host部分对应`0`。 
+网络地址部分和子网标识部分对应`1`，host部分对应`0`。
 使用CIDR表示为:`130.39.37.100/24`即`IP地址/ 掩码长度`。
 
 `ipv4`是`8bit.8bit.8bit.8bit`的形式，二进制到十六进制是`4`位到`1`位，`8bit`相当于两个`16`进制数字。
@@ -1142,7 +1142,7 @@ echo 'error message'
 eval  $delimiter
 ## 用 tail 减少输出数量
 ## grep -m 100 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" | tail -n 50
-grep -m 10 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" 
+grep -m 10 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log"
 ```
 
 ***
@@ -1242,7 +1242,7 @@ The "PATH" value shown by "conf" is as used by "tlmgr".  The directory in which 
 Here is a practical example of changing configuration values. If the execution of (some or all) system commands via "\write18" was left enabled during installation, you can disable it afterwards:
 
 `tlmgr conf texmf shell_escape 0`
- 
+
 The subcommand "auxtrees" allows adding and removing arbitrary additional texmf trees, completely under user control.  "auxtrees show" shows the list of additional trees, "auxtrees add" tree adds a tree to the list, and "auxtrees remove" tree removes a tree from the list (if present).
 
 The trees should not contain an "ls-R" file (or files might not be found if the "ls-R" becomes stale). This works by manipulating the Kpathsea variable "TEXMFAUXTREES", in "ROOT/texmf.cnf". Example:
@@ -1284,7 +1284,7 @@ rm -rf ~/.texlive2020
 ```bash
 rm -rf /usr/local/texlive/2020
 rm -rf ~/.texlive2020
-sudo rm -rf /usr/local/texlive 
+sudo rm -rf /usr/local/texlive
 sudo rm -rf /usr/local/share/texmf
 sudo rm -rf /var/lib/texmf
 sudo rm -rf /etc/texmf
@@ -1341,7 +1341,7 @@ sudo cp /usr/local/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf /et
 sudo fc-cache -fsv
 ```
 
-*** 
+***
 环境变量
 
 安装完之后有提示:
@@ -1475,7 +1475,7 @@ These designators can be combined along with punctuation and whitespace. A coupl
 
 在`tools-preferences-File Handling-File Formats`
 
-在 `Format` 一栏中选中`PDF(XeTex)`  或者其他想要更改的格式，然后在 `Viewer`中更改程序，或者自定义程序位置。 
+在 `Format` 一栏中选中`PDF(XeTex)`  或者其他想要更改的格式，然后在 `Viewer`中更改程序，或者自定义程序位置。
 
 ### 手动编译lyx
 
@@ -1503,15 +1503,15 @@ cd lyx-2.2.0
 dpkg-buildpackage -us -uc
 ```
 
-The first two commands install the packages necessary to build `lyx`; 
-then `dget` downloads and extracts the source package, 
-and `dpkg-buildpackage` builds it and produces a series of `.deb` packages 
+The first two commands install the packages necessary to build `lyx`;
+then `dget` downloads and extracts the source package,
+and `dpkg-buildpackage` builds it and produces a series of `.deb` packages
 you can install manually using `dpkg` as usual.
 
 ***
 代码解释
 
-`build-dep `causes `apt-get` to install/remove packages in an attempt to satisfy the build dependencies for a source package. 
+`build-dep `causes `apt-get` to install/remove packages in an attempt to satisfy the build dependencies for a source package.
 
 By default the dependencies are satisfied to build the package natively
 
@@ -1551,7 +1551,7 @@ These four steps will compile, test and install LyX:
 1. Linux users beware: You need `qt4/5` and `qt4/5-devel` packages of the same version to compile LyX.
 In general, it is also recommended to have `pkg-config`installed (the name might vary depending on your distribution).
 
-1. `./configure` configures LyX according to your system. 
+1. `./configure` configures LyX according to your system.
 You may have to set `--with-qt-dir=<path-to-your-qt-installation>` (for example, "`--with-qt-dir=/usr/share/qt4/`") if the environment variable `QTDIR` is not set and `pkg-config` is not available.
 You will need `--enable-qt5` switch for choosing qt5 over qt4.
 See Note below if `./configure` script is not present.
@@ -1641,7 +1641,7 @@ run `latexmk -showextraoptions`给出选项列表，这些选项被直接传递�
 `-synctex=NUMBER`         generate `SyncTeX` data for previewers if nonzero
 
 ### tex的TDS
-              
+
 latex 组织文件的规范叫做 TDS-compliant
 
 a standard `TeX Directory Structure` (TDS): a directory hierarchy for macros, fonts, and the other implementation-independent TeX system files.
@@ -1653,7 +1653,7 @@ The common properties throughout the TDS tree.
 + Subdirectory searching
 + Rooting the tree
 + Local additions
-+ Duplicate filenames 
++ Duplicate filenames
 
 ***
 子目录搜索
@@ -1677,14 +1677,14 @@ One common case of local additions is dynamically generated files, e.g., PK font
 + their standard location in the main TDS tree (if it can be made globally writable);
 + an alternative location in the main TDS tree (for example, under texmf/fonts/tmp);
 + a second complete TDS tree (as outlined above);
-+ any other convenient directory (perhaps under /var, for example /var/spool/fonts). 
++ any other convenient directory (perhaps under /var, for example /var/spool/fonts).
 
 ***
 重复文件名
 
 TDS tree 中的文件可能有相同的文件名。默认并不进一步区分，但TDS要求满足以下例外:
 
-Names of TeX input files must be unique within each first-level subdirectory of `texmf/tex` and `texmf/tex/generic`, but not within all of `texmf/tex`; 比如, different TeX formats may have files by the same name. 
+Names of TeX input files must be unique within each first-level subdirectory of `texmf/tex` and `texmf/tex/generic`, but not within all of `texmf/tex`; 比如, different TeX formats may have files by the same name.
 
 所以具体实现必须提供**格式依赖**的路径指定方式。
 
@@ -1701,9 +1701,9 @@ The top-level directories specified by the TDS are:
 + `scripts` for platform-independent executables (Section Scripts).
 + `doc` for user documentation (Section Documentation).
 + `source` for sources. This includes both traditional program sources (for example, Web2C sources go in texmf/source/web2c) and, e.g., LaTeX dtx sources (which go in texmf/source/latex). The TDS leaves unspecified any structure under source.
-+ `implementation` for implementations (examples: `emtex`, `vtex`, `web2c`), to be used for whatever purpose deemed suitable by the implementor or TeX administrator. 
++ `implementation` for implementations (examples: `emtex`, `vtex`, `web2c`), to be used for whatever purpose deemed suitable by the implementor or TeX administrator.
 That is, files that cannot be shared between implementations, such as pool files (tex.pool) and memory dump files (plain.fmt) go here, in addition to implementation-wide configuration files.
-+ `program` for program-specific input and configuration files for any TeX-related programs (examples: `mft`, `dvips`). In fact, the `tex`, `metafont`, `metapost`, and `bibtex` items above may all be seen as instances of this case. 
++ `program` for program-specific input and configuration files for any TeX-related programs (examples: `mft`, `dvips`). In fact, the `tex`, `metafont`, `metapost`, and `bibtex` items above may all be seen as instances of this case.
 
 ### 安装latex包
 
@@ -1763,7 +1763,7 @@ That is, files that cannot be shared between implementations, such as pool files
 or
 
 ```bash
-pdfcrop --clip --bbox '120 480 570 830' input.pdf output.pdf; 
+pdfcrop --clip --bbox '120 480 570 830' input.pdf output.pdf;
 ```
 
 四个数字的含义是，以左下角为原点，给出`left bottom right top`的数值，单位是`point`
@@ -1783,7 +1783,7 @@ X窗口系统（使GUI工作的底层引擎）内建了一种机制，支持快�
 可以把聚焦策略设置为"跟随鼠标"，这样鼠标移动到的窗口，就可以接受输入
 
 ### 幕后控制台
- 
+
 即使仿真终端没有运行，后台仍然有几个终端会话运行。他们叫做虚拟终端或者虚拟控制台。
 
 在大多数Linux发行版中，可以通过按下 `Ctrl+Alt+F1` 到 `Ctrl+Alt+F6` 访问。
@@ -1955,3 +1955,107 @@ PS：安装包因版本不同，名字可能会有所出入，建议直接复制
 
 1. 通过命令行开启向日葵：`sudo /usr/local/sunlogin/bin/sunloginclient`启动（路径为向日葵默认安装路径）
 2. 登录向日葵：开启程序后的初始状态为未绑定，可见界面左上角的提示`Sunlogin （F12）`为进入菜单选项
+
+## Powerline 状态条
+
+Powerline 是一个极棒的 Vim 编辑器的状态行插件，这个插件是使用 Python 开发的，主要用于显示状态行和提示信息，适用于很多软件，比如 `bash`、`zsh`、`tmux` 等等。
+
+[使用Powerline为VIM和Bash注入强劲动力][]
+
+[使用Powerline为VIM和Bash注入强劲动力]: https://linux.cn/article-8118-1.html
+
+首次安装`pip`，即python包管理器，在 Debian、Ubuntu 和 Linux Mint 中安装 `pip`
+
+```bash
+apt-get install python-pip
+```
+
+然后你可以通过 pip 命令安装 `Powerline`。
+
+```bash
+pip3 install git+git://github.com/powerline/powerline
+```
+
+### 在 Linux 中安装 Powerline 的字体
+
+`Powerline` 使用特殊的符号来为开发者显示特殊的箭头效果和符号内容。因此你的系统中必须要有符号字体或者补丁过的字体。
+
+通过下面的 `wget` 命令下载最新的系统字体及字体配置文件。
+
+```bash
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+```
+
+然后你将下载的字体放到字体目录下 `/usr/share/fonts` 或者 `/usr/local/share/fonts`，或者你可以通过 `xset q` 命令找到一个有效的字体目录。
+
+```bash
+mv PowerlineSymbols.otf /usr/share/fonts/
+```
+
+接下来你需要通过如下命令更新你系统的字体缓存。
+
+```bash
+fc-cache -vf /usr/share/fonts/
+```
+
+其次安装字体配置文件。
+
+```bash
+mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+```
+
+### 打开 Bash Shell 中的 Powerline
+
+如果希望在 `bash shell` 中默认打开 `Powerline`，可以在 `~/.bashrc` 中添加如下内容。
+
+首先通过如下命令获取 powerline 的安装位置。
+
+```bash
+pip3 show powerline-status
+...
+Location: XXXXX
+...
+```
+
+一旦找到 `powerline` 的具体位置后，根据你系统的情况替换到下列行中的 `XXXXX` 对应的位置。
+
+```bash
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+source XXXXX/powerline/bindings/bash/powerline.sh
+```
+
+然后退出后重新登录，现在 `powerline` 的状态行应该如下显示了。
+
+### 在 Vim 中打开 Powerline
+
+首先通过如下命令获取 `powerline` 的安装位置。
+
+```bash
+pip3 show powerline-status
+```
+
+在 `~/.vimrc` 中添加如下内容打开该插件（译注：注意同样需要根据你的系统情况修改路径）。
+
+```bash
+set rtp+=/home/tom/.local/lib/python3.6/site-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+```
+
+然后你打开 `vim` 后会看到一个新的状态行
+
+## CMake
+
+[CMake is an open-source][]
+[Ubuntu16.04下安装Cmake][]
+
+[Ubuntu16.04下安装Cmake]: https://blog.csdn.net/l1216766050/article/details/77513045
+
+[CMake is an open-source]: https://cmake.org/
+
+CMake is an open-source, cross-platform family of tools designed to build, test and package software. 
+
+CMake用于使用简单平台和独立于编译器的配置文件来控制软件编译过程，并生成可在您选择的编译器环境中使用的本机makefile和工作区。 CMake工具套件是由Kitware创建的，旨在满足ITK和VTK等开源项目对强大，跨平台构建环境的需求。

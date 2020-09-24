@@ -234,6 +234,111 @@ S=1+iT
 
 \end_layout
 
+\begin_layout Section
+费曼规则
+\end_layout
+
+\begin_layout Standard
+由LSZ公式
+\begin_inset Formula 
+\begin{align*}
+\bra{p_{3}\cdots p_{n}}S\ket{p_{1}p_{2}} & =\left(i\int d\dif^{4}x_{1}e^{-ip_{1}x_{1}}(\square_{1}+m^{2})\right)\cdots\left(i\int d\dif^{4}x_{n}e^{ip_{1}x_{n}}(\square_{n}+m^{2})\right)\\
+ & \times\bra{\Omega}T\left\{ \phi(x_{1})\phi(x_{2})\phi(x_{3})\cdots\phi(x_{n})\right\} \ket{\Omega}
+\end{align*}
+
+\end_inset
+
+初态对应指数因子上的
+\begin_inset Formula $-i$
+\end_inset
+
+，末态对应指数因子上的
+\begin_inset Formula $+i$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+LSZ 公式告诉我们，可以通过构造投影算符，物理态对应的pole的留数，就是散射矩阵元。做一个分部积分，
+\begin_inset Formula $i(\square_{1}+m^{2})=-i(p_{1}^{2}-m^{2})$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+然后在计算散射矩阵元的时候，有一个external 粒子，就有一个
+\begin_inset Formula $\dif^{4}x_{1}e^{\pm ip_{1}x_{1}}$
+\end_inset
+
+积分，散射矩阵元只对应跟外线有联系的费曼图。场之间的收缩对应一个传播子，每个内线有一个
+\begin_inset Formula $\int\frac{\dif^{4}p}{(2\pi)^{4}}$
+\end_inset
+
+积分。但是
+\begin_inset Formula $\dif^{4}x_{1}e^{\pm ip_{1}x_{1}}$
+\end_inset
+
+积分最后会成为
+\begin_inset Formula $\delta(\sum p_{i})$
+\end_inset
+
+函数，每个跟外线有连接的顶点会产生一个
+\begin_inset Formula $\delta(\sum p_{i})$
+\end_inset
+
+函数，也就是每个顶点会对应一个能量守恒，这样内线传播子的积分
+\begin_inset Formula $\int\frac{\dif^{4}p}{(2\pi)^{4}}\delta(\sum p_{i})$
+\end_inset
+
+不会是每个都独立的。提取出一个 overall 的动量守恒，如果有
+\begin_inset Formula $n$
+\end_inset
+
+个顶点，会有
+\begin_inset Formula $n-1$
+\end_inset
+
+个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数，用来消除内线传播子动量的自由度，比如
+\begin_inset Formula $e^{+}e^{-}\to\gamma\gamma$
+\end_inset
+
+，由两个顶点，一条内线，所以内线自由度为零，所有内线的
+\begin_inset Formula $\int\frac{\dif^{4}p}{(2\pi)^{4}}$
+\end_inset
+
+积分都被
+\begin_inset Formula $\delta(\sum p_{i})$
+\end_inset
+
+函数去掉。只有圈图才会剩余有类似于
+\begin_inset Formula $\int\frac{\dif^{4}k}{(2\pi)^{4}}$
+\end_inset
+
+的内线动量积分。
+\end_layout
+
+\begin_layout Standard
+所以费曼图的顶点就是场拿掉之后剩下的系数，因为场的威克收缩变成了传播子，剩下的当然就是顶点。但是有的时候，相互作用项中含有
+\begin_inset Formula $\partial_{\mu}$
+\end_inset
+
+，要先做一个分部积分，即
+\begin_inset Formula $\partial_{\mu}e^{\pm ip_{1}x_{1}}=\pm ip_{\mu}$
+\end_inset
+
+，再将场进行威克收缩，这样顶点会出现带有特定动量
+\begin_inset Formula $\pm ip_{\mu}$
+\end_inset
+
+的系数。根据上面LSZ公式的约定，负进正出。
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout
