@@ -173,6 +173,37 @@ zsh 别名
 
 短命令可以堆叠， `-i -r -f`=`-irf`=`--interactive --force --recursive`
 
+### 重命名 rename
+
+重命名除了使用`move`，也可以使用`rename`，以下是简单的说明
+
+rename - renames multiple files
+
+SYNOPSIS
+
+```bash
+rename [ -h|-m|-V ] [ -v ] [ -n ] [ -f ] [ -e|-E perlexpr]*|perlexpr [ files ]
+```
+
+DESCRIPTION
+
+`rename`根据指定为第一个参数的规则重命名提供的文件名。 
+`perlexpr`参数是一个`Perl`表达式，它可以`$ _`中的字符串。
+如果给定的文件名未被表达式修改，则不会重命名。
+如果命令行中未提供文件名，则将通过标准输入读取文件名。
+
+例如，要重命名所有匹配`* .bak`的文件，以去除扩展名，可以用
+
+```bash
+rename 's/\e.bak$//' *.bak
+```
+
+要将大写名称转换为小写，可以使用
+
+```bash
+rename 'y/A-Z/a-z/' *
+```
+
 ### tar压缩
 
 ***

@@ -55,9 +55,9 @@ The downloaded source is then checked with `dscverify` and, if successful, unpac
 
     build-essential 软件包；
 
-    列于 Build-Depends 域的软件包(参看 第 4.1 节 “control”)；
+    列于 Build-Depends 域的软件包(参看 第 4.1 节 `control`)；
 
-    列于 Build-Depends-indep 域的软件包(参看 第 4.1 节 “control”)。
+    列于 Build-Depends-indep 域的软件包(参看 第 4.1 节 `control`)。
 
 然后在源代码目录中执行以下命令:
 
@@ -159,7 +159,7 @@ Executing `hostname` from the Command Prompt is the easiest way to show the host
 
 `lspci`是列出所有的硬件信息，包括已经安装了驱动还是没有安装驱动的硬件设备，因为根据`pci`规范，只要改设备在`pci`总线上挂着，就可以读到其`Vendor ID`和`Device ID`等一系列信息，就能知道这个设备是什么设备。
 
-如果要确认有没有安装驱动，就需要通过`lsmod`命令来看，当然`lsmod`命令只能显示编译`linux`内核时选中为“`M`”的驱动程序，最靠谱的还是`dmesg`来查看该设备的驱动有没有安装，`dmesg`信息太多，需要grep来过滤一下。
+如果要确认有没有安装驱动，就需要通过`lsmod`命令来看，当然`lsmod`命令只能显示编译`linux`内核时选中为``M``的驱动程序，最靠谱的还是`dmesg`来查看该设备的驱动有没有安装，`dmesg`信息太多，需要grep来过滤一下。
 
 工作中的时候总结的一些经验
 
@@ -463,7 +463,7 @@ hello
 world!
 ```
 
-但需要注意的是，终端输出要达到换行效果用“`\n`”就可以，但要在文本文件输出中达到换行效果在各个系统中有所区别。
+但需要注意的是，终端输出要达到换行效果用``\n``就可以，但要在文本文件输出中达到换行效果在各个系统中有所区别。
 在`*nix`系统中，每行的结尾是"`\n`"，windows中则是"`\n\r`",mac则是"`\r`"。
 
 ***
@@ -480,7 +480,7 @@ puts("0123456t\txx");
 ***
 垂直制表符（'\v'）
 
-垂直制表符不常用。它的作用是让`'\v'`后面的字符从下一行开始输出，且开始的列数为“`\v`”前一个字符所在列后面一列。例如:
+垂直制表符不常用。它的作用是让`'\v'`后面的字符从下一行开始输出，且开始的列数为``\v``前一个字符所在列后面一列。例如:
 
 ```bash
 puts("01\v2345");
@@ -558,7 +558,7 @@ four
 第一遍扫描后，shell把反斜杠去掉了。当shell再次扫描该行时，它替换了`$4`的值，并执行echo命令
 
 ***
-以下示意如何用`eval`命令创建指向变量的“指针”:
+以下示意如何用`eval`命令创建指向变量的`指针`:
 
 ```bash
 x=100
@@ -735,7 +735,7 @@ Linux是一个多用户多任务的操作系统，可以在Linux中为不同的�
 
 1. 在`/etc/profile`文件中添加变量 对所有用户生效（永久的）
 
-用`vim`在文件`/etc/profile`文件中增加变量，该变量将会对`Linux`下所有用户有效，并且是“永久的”。
+用`vim`在文件`/etc/profile`文件中增加变量，该变量将会对`Linux`下所有用户有效，并且是`永久的`。
 例如:编辑`/etc/profile`文件，添加`CLASSPATH`变量
 
 ```bash
@@ -747,7 +747,7 @@ export CLASSPATH=./JAVA_HOME/lib;$JAVA_HOME/jre/lib
 
 2. 在用户目录下的`~/.bashrc`文件中增加变量 [对单一用户生效（永久的）]
 
-用`vim ~/.bashrc`文件中增加变量，改变量仅会对当前用户有效，并且是“永久的”。
+用`vim ~/.bashrc`文件中增加变量，改变量仅会对当前用户有效，并且是`永久的`。
 
 ```bash
 vim ~/.bashrc
@@ -1165,15 +1165,15 @@ echo -E "hello\n wrold" #输出 hello\n world， 默认情况
 
 原因如下:
 
-this error is generated when `tlmgr` was not initialized. In most cases, launching the following command (as a normal user) solves the problem :
+未初始化`tlmgr`时会产生此错误。 在大多数情况下，以普通用户身份启动以下命令可以解决此问题：
 
 `$ tlmgr init-usertree`
 
-This command will create few folders inside your home directory. See the man page for explanation :
+此命令将在您的家目录内创建几个文件夹。 请参见手册页以获取解释：
 
->Before using `tlmgr` in user mode, you have to set up the user tree with the `init-usertree` action.
->This creates `usertree/web2c` and `usertree/tlpkg/tlpobj`, and a minimal `usertree/tlpkg/texlive.tlpdb`.
-> At that point, you can tell `tlmgr` to do the (supported) actions by adding the `--usermode` command line option.
+>在用户模式下使用`tlmgr`之前，您必须使用`init-usertree`操作设置用户树。
+>这将创建`usertree / web2c`和`usertree / tlpkg / tlpobj`，以及最小的`usertree / tlpkg / texlive.tlpdb`。
+>此时，您可以通过添加`--usermode`命令行选项来告诉`tlmgr`执行（支持的）动作。
 
 ***
 下面这些是`tlmgr`的常用命令:
@@ -1185,74 +1185,69 @@ This command will create few folders inside your home directory. See the man pag
 
 `tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
 
-Tell "tlmgr" to use a nearby CTAN mirror for future updates; useful if you installed TeX Live from the DVD image and want to have continuing updates.
-The two commands are equivalent; "ctan" is just an alias for the given url.  Caveat: "mirror.ctan.org" resolves to many different hosts, and they are not perfectly synchronized; we recommend updating only daily (at most), and not more often.
+告诉“ tlmgr”使用附近的CTAN镜像进行将来的更新； 如果您从DVD映像安装了TeX Live，并且想要持续更新，则很有用。
+这两个命令是等效的。 “ ctan”只是给定URL的别名。 
+注意：“ mirror.ctan.org”解析为许多不同的主机，它们并没有完全同步。 我们建议仅（最多）每天更新一次，而不要更频繁。
 
-+ `tlmgr update --list` Report what would be updated without actually updating anything.
-+ `tlmgr update --all` Make your local TeX installation correspond to what is in the package repository (typically useful when updating from CTAN).
-+ `tlmgr info" what` Display detailed information about a package what, such as the installation status and description, of searches for what in all packages.
++ `tlmgr update --list` 报告将要更新的内容，而无需实际更新任何内容。
++ `tlmgr update --all` 使本地TeX安装与软件包存储库中的安装相对应（从CTAN更新时通常很有用）。
++ `tlmgr info" what` 显示有关软件包内容的详细信息，例如搜索所有软件包中内容的安装状态和描述。
 
 ### Actions
 
 ***
 `install [option]... pkg...`
 
-Install each `pkg` given on the command line, if it is not already installed.
-(It does not touch existing packages; see the "update" action for how to get the latest version of a package.)
+如果尚未安装，请安装命令行上给出的每个`pkg`。
+（它不涉及现有软件包；有关如何获取软件包的最新版本，请参见`更新`操作。）
 
-By default this also installs all packages on which the given pkgs are dependent.  Options:
+默认情况下，这还会安装给定pkg所依赖的所有软件包。 选项：
 
---dry-run
-
-Nothing is actually installed; instead, the actions to be performed are written to the terminal.
-
---file
-
-Instead of fetching a package from the installation repository, use the package files given on the command line.  These files must be standard TeX Live package files (with contained tlpobj file).
-
---force
-
-If updates to "tlmgr" itself (or other parts of the basic infrastructure) are present, "tlmgr" will bail out and not perform the installation unless this option is given.  Not recommended.
-
- --no-depends
-
-Do not install dependencies.  (By default, installing a package ensures that all dependencies of this package are fulfilled.)
-
---no-depends-at-all
-
-Normally, when you install a package which ships binary files the respective binary package will also be installed.
-That is, for a package "foo", the package "foo.i386-linux" will also be installed on an "i386-linux" system.  This option suppresses this behavior, and also implies "--no-depends".
-Don't use it unless you are sure of what you are doing.
-
---reinstall
-
-Reinstall a package (including dependencies for collections) even if it already seems to be installed (i.e, is present in the TLPDB).
-This is useful to recover from accidental removal of files in the hierarchy.
++ `--dry-run` : 实际没有安装任何东西。 而是将要执行的动作写入终端。
++ `--file`: 不从安装库中获取软件包，不如使用命令行上给出的软件包文件。 这些文件必须是标准的TeX Live软件包文件（包含tlpobj文件）。
++ `--force`:如果存在对`tlmgr`本身（或基本基础结构的其他部分）的更新，
+则除非给出此选项，否则`tlmgr`将退出紧急状态并且不会执行安装。 不建议。
++ `--no-depends`:不要安装依赖项。 （默认情况下，安装软件包可确保满足该软件包的所有依赖关系。）
++ `--no-depends-at-all`:通常，当您安装附带二进制文件的软件包时，还将安装相应的二进制软件包。
+也就是说，对于软件包`foo`，软件包`foo.i386-linux`也将安装在`i386-linux`系统上。 
+此选项抑制了这种行为，并且还暗示了`--no-depends`。
+除非您确定自己在做什么，否则不要使用它。
++ `--reinstall`:即使似乎已经安装了软件包（即TLPDB中已存在），也要重新安装软件包（包括集合的依赖项）。
+这对于从意外删除层次结构中的文件中恢复非常有用。
 
 ***
-`conf [texmf|tlmgr|updmap [--conffile file] [--delete] [key [value]]]`
-`conf auxtrees [--conffile file] [show|add|delete] [value]`
 
-With only "conf", show general configuration information for TeX Live, including active configuration files, path settings, and more.  This is like running "texconfig conf", but works on all supported platforms.
++ `conf [texmf|tlmgr|updmap [--conffile file] [--delete] [key [value]]]`
++ `conf auxtrees [--conffile file] [show|add|delete] [value]`
 
-With one of "conf texmf", "conf tlmgr", or "conf updmap", shows all key/value pairs (i.e., all settings) as saved in "ROOT/texmf.cnf", the user-specific "tlmgr" configuration file (see below), or the first found (via "kpsewhich") "updmap.cfg" file, respectively.
+仅使用`conf`，即可显示TeX Live的常规配置信息，包括活动配置文件，路径设置等。 
+这就像运行`texconfig conf`一样，但是可以在所有支持的平台上运行。
 
-The "PATH" value shown by "conf" is as used by "tlmgr".  The directory in which the "tlmgr" executable is found is automatically prepended to the PATH value inherited from the environment.
+使用`conf texmf`，`conf tlmgr`或`conf updmap`之一显示`ROOT / texmf.cnf`（用户特定的`tlmgr`配置）中保存的所有键/值对（即所有设置） 文件（请参见下文）或第一个（通过`kpsewhich`找到的）`updmap.cfg`文件。
 
-Here is a practical example of changing configuration values. If the execution of (some or all) system commands via "\write18" was left enabled during installation, you can disable it afterwards:
+`conf`显示的`PATH`值与`tlmgr`使用的值相同。 包含`tlmgr`可执行文件的目录会自动添加到从环境继承的PATH值之前。
 
-`tlmgr conf texmf shell_escape 0`
+这是更改配置值的实际示例。 如果在安装过程中启用了通过`\ write18`执行的（部分或全部）系统命令，则可以在以后将其禁用：
 
-The subcommand "auxtrees" allows adding and removing arbitrary additional texmf trees, completely under user control.  "auxtrees show" shows the list of additional trees, "auxtrees add" tree adds a tree to the list, and "auxtrees remove" tree removes a tree from the list (if present).
+```bash
+tlmgr conf texmf shell_escape 0
+```
 
-The trees should not contain an "ls-R" file (or files might not be found if the "ls-R" becomes stale). This works by manipulating the Kpathsea variable "TEXMFAUXTREES", in "ROOT/texmf.cnf". Example:
+子命令` auxtrees`允许完全在用户控制下添加和删除任意其他texmf树。
+` auxtrees show`显示其他树的列表，` auxtrees add`树将树添加到列表中，` auxtrees remove`树从列表中删除树（如果存在）。
 
+树中不应包含` ls-R`文件（否则，如果` ls-R`过时，则可能找不到文件）。 
+通过操作` ROOT / texmf.cnf`中的Kpathsea变量` TEXMFAUXTREES`来生效。 例：
+
+```bash
 tlmgr conf auxtrees add /quick/test/tree
 tlmgr conf auxtrees remove /quick/test/tree
+```
 
-In all cases the configuration file can be explicitly specified via the option "--conffile" file, if desired.
+在所有情况下，如果需要，都可以通过选项` --conffile`文件显式指定配置文件。
 
-Warning: The general facility for changing configuration values is here, but tinkering with settings in this way is strongly discouraged.  Again, no error checking on either keys or values is done, so any sort of breakage is possible.
+警告：此处是用于更改配置值的一般工具，但是强烈建议不要以这种方式修改设置。 
+同样，不对键或值进行错误检查，因此可能发生任何破损。
 
 ### texlive安装与卸载
 
@@ -1270,7 +1265,7 @@ Warning: The general facility for changing configuration values is here, but tin
 ***
 准备工作:下载，清除
 
-注意:安装 lyx, apt 会默认安装 tex2017版本，覆盖掉新版的texlive2020
+注意:安装 `lyx`, apt 会默认安装 tex2017版本，覆盖掉新版的texlive2020
 
 注意:如果重新安装，请务必完全删除之前的失败安装，默认情况下，这将在这两个目录中:
 
@@ -1388,6 +1383,13 @@ source ~/.zshrc # 令 zshrc 生效
 ```bash
 tex -v
 ```
+
+### ubuntu 仓库的texlive
+
+使用`apt`命令从`ubuntu`仓库安装的`texlive`可以使用`dpkg -L texlive-full`查询
+
+安装在 `/usr/local/`目录下，
+`texmf`(TDS的根目录)在`/usr/share/texmf` and `/usr/share/texlive/texmf-dist`
 
 ## loop 设备
 
@@ -1644,11 +1646,11 @@ run `latexmk -showextraoptions`给出选项列表，这些选项被直接传递�
 
 latex 组织文件的规范叫做 TDS-compliant
 
-a standard `TeX Directory Structure` (TDS): a directory hierarchy for macros, fonts, and the other implementation-independent TeX system files.
+a standard `TeX Directory Structure` (TDS): 宏，字体和其他与实现无关的TeX系统文件的目录层次结构。
 
 #### TDS 特征
 
-The common properties throughout the TDS tree.
+TDS树中的共有属性
 
 + Subdirectory searching
 + Rooting the tree
@@ -1665,7 +1667,7 @@ Technical Working Group (TWG) 要求，一个综合的TDS 需要支持 implicit 
 ***
 tree的根目录
 
-我们把TDS的根目录称为`texmf`(TeX and Metafont)，意思是，这个目录包含了一个完整TeX 系统附属的文件(including Metafont, MetaPost, BibTeX, etc.)，而不是只有单独的 TeX 自己。
+我们把`TDS`的根目录称为`texmf`(TeX and Metafont)，意思是，这个目录包含了一个完整TeX 系统附属的文件(including Metafont, MetaPost, BibTeX, etc.)，而不是只有单独的 TeX 自己。
 
 ***
 Local additions

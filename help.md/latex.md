@@ -120,6 +120,145 @@ Latex下 字体大小命令 比较
 | `\huge` | `20pt`  | `20pt` | `25pt` |
 | `\Huge` | `25pt`  | `25pt` | `25pt` |
 
+## LaTeX对齐
+
+[LaTeX 对齐问题][]
+
+[LaTeX 对齐问题]: https://blog.csdn.net/lvchaoshun/article/details/50518271
+
+[latex23 doc](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005ccentering)
+
+对齐的语法是
+
+`{\centering ... }`
+
+or
+
+```latex
+\begin{group}
+  \centering ...
+\end{group}
+```
+
+它使材料在其范围内（scope）居中。 它最常在诸如图形之类的环境中或在`parbox`中使用。
+常用来使插图居中：
+
+```latex
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{ctan_lion.png}
+  \caption{CTAN Lion}  \label{fig:CTANLion}
+\end{figure}
+```
+
+`\centering `的作用范围到`\end{figure}`为止.
+
+与`center`环境不同，`\centering`命令不会在文本上方和下方添加垂直空间。 
+这就是上面示例中的优势——没有多余的空间。
+
+### 一行文本对齐
+
++ `\leftline{左对齐}`
++ `\centerline{居中}`
++ `\rightline{右对齐}`
+
+### 多行文本或段落对齐
+
+左对齐
+
+```latex
+\begin{flushleft}
+...
+\end{flushleft}
+```
+
+居中
+
+```latex
+\begin{center}
+...
+\end{center}
+```
+
+右对齐
+
+```latex
+\begin{flushright}
+...
+\end{flushright}
+```
+
+### LaTeX公式对齐
+
+默认情况下公式是居中对齐的，但若希望改成左对齐可以
+
+```latex
+\documentclass[a4paper,fleqn]{article}
+```
+
+这对整篇文章都有效。
+
+对某一行公式进行左对齐
+
+```latex
+\begin{flalign}
+  your equation (1)  
+\end{flalign}
+```
+
+对某一个公式左对齐
+
+```latex
+some text here\\
+yourequationhere
+\\
+and more text here.
+```
+
+对某几行公式
+
+```latex
+\begin{flalign}  
+\begin{split}  
+your equation (1)  
+your equation (2)  
+\end{split}&  
+\end{flalign}
+```
+
+[amsdoc](http://mirrors.ustc.edu.cn/CTAN/macros/latex/required/amsmath/amsldoc.pdf)
+
+ams 数学环境包括：
+
+```latex
+equation     equation*    align          align*
+gather          gather*         alignat      alignat* 
+multline      multline*     flalign        flalign*
+split
+```
+
+`split`环境是一种特殊的从属形式，仅在其他方程环境内部使用。 但是它不能在`multline`中使用。
+`split`仅支持一个对齐（`＆`）列； 如果需要更多，应使用`aligned`或`alignedat`。
+`split`结构的宽度是full line width
+
+```latex
+\begin{equation}\label{xx}
+\begin{split}a& =b+c-d\\
+& \quad +e-f\\
+& =g+h\\
+& =i
+\end{split}
+\end{equation}
+```
+
+### 其它方法
+
+左对齐、居中对齐、右对齐的环境分别为`flushleft`、`center`和`flushright`。
+也可以使用命令`\raggedright`、`\centering`和`\raggedleft`使以后的文本按指定方式对齐.
+
+加载amsmath宏包后，使用选项`fleqn`（就是声明加载宏包时使用`\usepackage[fleqn]{amsmath}`）
+可以使本该居中对齐的行间公式改为左对齐.
+
 ## pdftex/xetex --help
 
 ```bash
@@ -538,10 +677,9 @@ bibtex foo.aux
 ***
 我希望将一条文献展示在参考文献列表中，但不想在正文中用 `\cite` 命令引用，怎么办？
 
-首先，确保这条文献已经写入了 `bib` 文件。其次，可以在 `\bibliography` 命令之前，用 `\nocite{label}`提示 `BibTeX` 调取这条文献。
-
+首先，确保这条文献已经写入了 `bib` 文件。
+其次，可以在 `\bibliography` 命令之前，用 `\nocite{label}`提示 `BibTeX` 调取这条文献。
 我有很多条文献，都存在这样的情况。每条文献逐一 `\nocite` 太繁琐了，有没有懒人适用的办法？
-
 有的。`\nocite{*}`。
 
 ***
@@ -552,7 +690,8 @@ bibtex foo.aux
 ***
 我对默认提供的 `bst` 文件的格式效果不满意，哪里能找到更多的 `bst` ？
 
-现代 TeX 发行版都提供了多种 `bst` 可供选择，每个 `bst` 文件的格式、适用范围、使用条件都不一样，需要仔细甄别。具体可以去安装目录下搜索试试。
+现代 TeX 发行版都提供了多种 `bst` 可供选择，每个 `bst` 文件的格式、适用范围、使用条件都不一样，需要仔细甄别。
+具体可以去安装目录下搜索试试。
 
 ***
 有没有遵循国家标准的 `bst`？
@@ -574,6 +713,89 @@ bibtex foo.aux
 我听说还有一个名为 `biblatex` 的工具，能介绍一下吗？
 
 `biblatex` 与 `BibTeX` 是不同的工具，超出了本文的范围。
+
+### 其他的参考文献包
+
+#### cite
+
+[cite – Improved citation handling in LaTeX](https://www.ctan.org/pkg/cite)
+
+`cite`支持压缩，排序的数字引用列表，还处理各种标点符号和其他表示形式的问题，包括对断点的全面管理。 
+该软件包与`hyperref`和`backref`兼容。
+
+支持给出多种`cite`格式:
+`[?,Einstein,4–6,6–9]`
+`[5a–5c] or [T1–T4])`
+`‘information;12`
+
+`cite` and `natbib` 不能同时使用。
+
+#### natbib
+
+[natbib – Flexible bibliography support ](https://www.ctan.org/tex-archive/macros/latex/contrib/natbib/)
+
+
+natbib软件包是LATEX的扩展，允许作者年份(author–year)的引用形式，也支持数字引用。
+可以方便的切换。
+
+首先导入包，`\usepackage[sectionbib,square]{natbib}`
+natbib 提供了三种新的格式，
+
++ plainnat.bst
++ abbrvnat.bst
++ unsrtnat.bst
+
+通过在正文中调用以下命令使用这些格式：
+
+`bibliographystyle{plainnat}`
+
+natbib 特别定义了 `citet` (cite textual) and `citep`(cite parenthetical).
+以及 `\citet*` and `\citep*` 可以打印出作者全名。
+这些命令都可以接受一到两个参数，在引用前后输出额外文字。
+可以同时引用多个参考文献。
+
+```latex
+\citet{jon90,jam91} --> Jones et al.  (1990); James et al.  (1991)
+\citep{jon90,jam91} --> (Jones et al., 1990; James et al.  1991)
+\citep{jon90,jon91} --> (Jones et al., 1990, 1991)
+\citep{jon90a,jon90b} --> (Jones et al., 1990a,b)
+```
+
+These examples are for author–year citation mode.  
+In numerical mode,the results are different.
+
+```latex
+\citet{jon90} --> Jones et al.  [21]
+\citet[chap.~2]{jon90} --> Jones et al.  [21, chap. 2]
+\citep{jon90} --> [21]
+\citep[chap.~2]{jon90} --> [21, chap. 2]
+\citep[see][]{jon90} --> [see 21]
+\citep[see][chap.~2]{jon90} --> [see 21, chap. 2]
+\citep{jon90a,jon90b} --> [21, 32]
+```
+
+***
+调用`\usepackage[options]{natbib}`时可以使用很多选项
+
++ `round` （默认）圆括号；
++ `square` 用于方括号；
++ `curly` 花括号;
++ `angle` 用于尖括号;
++ `semicolon` （默认）使用分号分隔多个引用；
++ `colon` 与`semicolon`相同，这是一个较早的术语错误；
++ `comma` 使用逗号作为分隔符；
++ `authoryear` （默认）作者年份（ author–year）引文；
++ `numbers` 数字引用；
++ `super` 用于上标数字引用，类似`Nature`中的。
++ `sort` 将多个引文按其在参考文献列表中出现的顺序排序；
++ `sort&compress` 类似`sort`，但如果可能的话，还会压缩多个数字引用（如`3-6,15`）；
++ `compress` 压缩而不排序，因此压缩仅在给定的引用按照数字升序时生效；
++ `longnamesfirst` 使任何参考文献的第一个引用都等同于已加星标的变体（完整作者列表），而随后的引用均是普通引用（缩写列表）；
++ `sectionbib` 重新定义`\ thebibliography`来引用`\ section *`而不是`\ chapter *`;仅对带有`\ chapter`命令的类有效； 与`chapterbib`软件包一起使用；
++ `nonamebreak` 将所有作者的名字放在同一行中,导致`hbox`过多，但有助于解决一些`hyperref`问题；
++ `merge` 允许在`citation key`前面加上`*`前缀，并将此类引文的引用与先前引文的引用合并；
++ `elide` 合并参考文献后，去掉重复的共同要素，例如作者或年份；
++ `mcite`识别（并忽略）合并语法
 
 ### input与include
 
@@ -1645,15 +1867,27 @@ and not
 \documentclass ...
 ```
 
-## 使用 Beamer 制作学术讲稿 
+## 保留字符 Reserved characters
 
-[使用 Beamer 制作学术讲稿 ][]
+[23.1 Reserved characters][]
 
-[使用 Beamer 制作学术讲稿 ]: https://www.latexstudio.net/archives/2825.html
+[23.1 Reserved characters]: http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005c_007e
 
+LaTeX为特殊目的预留了以下字符。 例如，百分号％用于注释。 它们被称为保留字符或特殊字符。
 
+`# $ % & { } _ ~ ^ \ `
 
+除了最后三个，都可以用转义实现
 
+If you want a reserved character to be printed as itself, in the text body font, for all but the final three characters in that list simply put a backslash \ in front of the character. Thus, typing \$1.23 will produce $1.23 in your output.
+最后三个要使用
+`\~{}` ： 本来是用来给后面跟的字符加上波浪线的
+`\^{}`：同理，本是用来加上音调符号的
+`\textbackslash{}`：这个不知道有啥用，就是加个`backslash`
 
+若要使用`typewriter font `，使用`verb!! `语法
 
-
+\begin{center}
+  \# \$ \% \& \{ \} \_ \~{} \^{} \textbackslash \\
+  \verb!# $ % & { } _ ~ ^ \!
+\end{center}

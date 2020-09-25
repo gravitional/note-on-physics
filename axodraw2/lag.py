@@ -38,7 +38,8 @@ if background:
             \AxoGrid(0, 0)(10, 10)(52, 52){LightGray}{0.5}
             % ++++++++++++++++++++
             ''')
-
+            
+# 文字转动的角度
 tex_ang = '0'
 # 图像的左右边界
 fig_x1 = [20, 260]
@@ -49,7 +50,7 @@ fig_y1 = [20, 260]
 
 
 def tostr(li):
-    if isinstance([], Iterable):
+    if isinstance(li, Iterable):
         return list(map(str, li))
     else:
         print('illegal input')
@@ -77,7 +78,7 @@ x5 = tostr([(0*fig_x1[0]+2*fig_x1[1])/2-epsilon, (1*fig_y1[0]+2*fig_y1[1])/3])
 
 # 定义箭头样式
 arr_line = r'arrow,arrowpos=0.34,arrowlength=6,arrowwidth=3,arrowinset=0.1'
-
+# 查看计算出的值是否合理
 try:
     print('value calculated')
     print(fig_x1, fig_y1)
