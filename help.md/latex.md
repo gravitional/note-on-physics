@@ -128,7 +128,7 @@ Latex下 字体大小命令 比较
 | `\huge` | `20pt`  | `20pt` | `25pt` |
 | `\Huge` | `25pt`  | `25pt` | `25pt` |
 
-或者直接设置子页面宽度
+## 设置子页面宽度resizebox
 
 [一行代码解决LaTex表格过宽或过窄问题][]
 
@@ -396,9 +396,9 @@ Invoke-Expression $("lualatex" + " " + "-halt-on-error " + "-output-directory=te
 ## 简单的规则
 
 1. 空格：`Latex` 中空格不起作用. 
-1. 换行：用控制命令“`\\``,或“`\newline``.
-1. 分段：用控制命令“`\par`` 或空出一行. 
-1. 换页：用控制命令“`\newpage``或“`\clearpage``
+1. 换行：用控制命令``\\``,或``\newline``.
+1. 分段：用控制命令``\par`` 或空出一行. 
+1. 换页：用控制命令``\newpage``或``\clearpage``
 1. 特殊控制字符: `#`,`$`, `%`, `&`, `-` ,`{}`, `^`, `~`
 
 ## 子方程
@@ -527,7 +527,7 @@ linktocpage=true, %
 
 ### URL链接
 
-链接有颜色,显示为“OpenBSD官方网站`,链接到`http://www.openbsd.org`
+链接有颜色,显示为`OpenBSD官方网站`,链接到`http://www.openbsd.org`
 
 ```latex
 \href{http://www.openbsd.org}{OpenBSD官方网站}
@@ -1338,13 +1338,13 @@ These are different from `accents` in `normal text` (see `Accents`).
 ## 简单的规则
 
 1. 空格：Latex 中空格不起作用. 
-1. 换行：用控制命令“\\\`,或`\newline`.
-1. 分段：用控制命令“\par` 或空出一行. 
+1. 换行：用控制命令`\\\`,或`\newline`.
+1. 分段：用控制命令`\par` 或空出一行. 
 1. 特殊控制字符: #,$, %, &, - ,{, }, ^, ~
 
 ## 换页
 
-用控制命令“`\newpage``或“`\clearpage``
+用控制命令``\newpage``或``\clearpage``
 
 + `\newpage`：  The `\newpage` command ends the current page.
 + `\clearpage`：The `\clearpage` command ends the current page and causes all figures and tables that have so far appeared in the input to be printed.
@@ -1514,7 +1514,7 @@ Especially for lists with short items, it may be desirable to elide space betwee
 
 ### URL链接
 
-链接有颜色,显示为“OpenBSD官方网站`,链接到`http://www.openbsd.org`
+链接有颜色,显示为`OpenBSD官方网站`,链接到`http://www.openbsd.org`
 
 ```latex
 \href{http://www.openbsd.org}{OpenBSD官方网站}
@@ -1966,7 +1966,55 @@ If you want a reserved character to be printed as itself, in the text body font,
 
 若要使用`typewriter font `,使用`verb!! `语法
 
+```latex
 \begin{center}
   \# \$ \% \& \{ \} \_ \~{} \^{} \textbackslash \\
   \verb!# $ % & { } _ ~ ^ \!
 \end{center}
+```
+
+## 原文 verbatim
+
+### verb 宏
+
+概要：
+
+```latex
+\verb char文字文本char
+\verb * char文字文本char
+```
+
+使用打字机（`\tt`）字体对输入的文字文本进行原样排版，包括特殊字符和空格。
+此示例显示了`\verb`的两种不同调用。
+
+```latex
+This is \verb!literally! the biggest pumpkin ever.
+And this is the best squash, \verb+literally!+
+```
+
+第一个`\verb`的文字文本带有感叹号`！`。第二个取而代之的是使用加号`+`，因为感叹号是文字文本的一部分。
+
+包围文字文本的单字符定界符`char`必须相同。
+`\verb`或`\verb*`与`char`之间，`char`与文字文本之间，或文本与第二个`char`之间不能有空格
+（上面的空格是为了区分不同部分）。分隔符不能出现在后续文本中，文本中不能包含换行符。
+`*`形式的不同之处仅在于，空格以可见的空格字符打印。
+
+### verbatim 环境
+
+概要：
+
+```latex
+\ begin {verbatim}
+文字文本
+\ end {verbatim}
+```
+
+创建一个段落，对内容原样输出。例如，在文字文本中，反斜杠`\`字符不会启动命令，它会产生一个打印的`\`，
+并按字面意义使用回车符和空格。输出以类似等距打字机的字体（`\tt`）出现。
+文字文本的唯一限制是它不能包含字符串`\end {verbatim}`。
+您不能在宏的参数（例如`\section`的参数）中使用逐字记录环境。（但是cprotect软件包可以帮助您解决此问题。）
+
+`verbatim`的一种常见用法是排版计算机代码。有一些软件包可以改善`verbatim`。
+例如，一种改进是允许逐字包含外部文件或这些文件的一部分，比如`listings`, and `minted`.
+一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`。另一个是`verbatimbox`。
+有关所有相关软件包的列表，请参见CTAN。

@@ -13,7 +13,7 @@
 ### Structuring a Frame 组织一个frame
 
 + 使用块环境，例如 `block`, `theorem`, `proof`, `example` 等。
-+ 优先使用`enumerations` and `itemiz` 而不是纯文本环境。
++ 优先使用`enumerations` and `itemize` 而不是纯文本环境。
 + 在定义几件事时使用`description`。
 + 请勿使用超过两个级别的`“subitemizing.”`。`beamer`支持三个级别，但您不应使用三层。通常，您甚至都不应该使用第二个。请改用优质的图形。
 + 不要创建无尽的逐项`itemize`或`enumerate`列表。
