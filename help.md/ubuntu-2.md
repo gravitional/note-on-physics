@@ -1185,9 +1185,9 @@ echo -E "hello\n wrold" #输出 hello\n world， 默认情况
 
 `tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
 
-告诉“ tlmgr”使用附近的CTAN镜像进行将来的更新； 如果您从DVD映像安装了TeX Live，并且想要持续更新，则很有用。
-这两个命令是等效的。 “ ctan”只是给定URL的别名。 
-注意：“ mirror.ctan.org”解析为许多不同的主机，它们并没有完全同步。 我们建议仅（最多）每天更新一次，而不要更频繁。
+告诉`tlmgr`使用附近的CTAN镜像进行将来的更新； 如果您从DVD映像安装了TeX Live，并且想要持续更新，则很有用。
+这两个命令是等效的。 `ctan`只是给定URL的别名。 
+注意：`mirror.ctan.org`解析为许多不同的主机，它们并没有完全同步。 我们建议仅（最多）每天更新一次，而不要更频繁。
 
 + `tlmgr update --list` 报告将要更新的内容，而无需实际更新任何内容。
 + `tlmgr update --all` 使本地TeX安装与软件包存储库中的安装相对应（从CTAN更新时通常很有用）。

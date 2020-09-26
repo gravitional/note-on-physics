@@ -133,7 +133,7 @@ bash: type: foo: not found
 alias name='string'
 ```
 
-在命令`alias`之后,输入“name`,紧接着(没有空格)是一个等号,等号之后是 一串用引号引起的字符串,字符串的内容要赋值给 `name`。
+在命令`alias`之后,输入`name`,紧接着(没有空格)是一个等号,等号之后是 一串用引号引起的字符串,字符串的内容要赋值给 `name`。
 
 删除别名,使用 unalias 命令,像这样:
 
@@ -159,7 +159,7 @@ zsh 别名
 + `-q, --hide-control-chars` print ? instead of nongraphic characters
 + `--format=WORD` across `-x`, commas `-m`, horizontal `-x`, long `-l`, single-column `-1`, verbose `-l`, vertical `-C`
 
-### 复制移动
+### 复制移动删除
 
 复制移动的时候，可以加上 `-i` 参数，防止覆盖
 
@@ -173,10 +173,22 @@ zsh 别名
 
 短命令可以堆叠， `-i -r -f`=`-irf`=`--interactive --force --recursive`
 
+要删除名称以`-`开头的文件，例如` -foo`，请使用以下命令之一：
+
++ `rm -- -foo`
++ `rm ./-foo`
+
+删除本层目录下除了源文件的`latex`辅助文件
+
+```
+temp_a=$(find . -mindepth 1 -maxdepth 1 -type f   \( -not -name  "*.pdf" \)  \( -not -name  "*.tex" \) \( -not -name  "*.bib" \) -print0); if [[ ${temp_a} != '' ]]; then  echo -n ${temp_a} |  xargs --null rm; fi
+```
+
 ### 重命名 rename
 
-重命名除了使用`move`，也可以使用`rename`，以下是简单的说明
+重命名除了使用`move`，也可以使用`rename`，以下是简单的说明:
 
+***
 rename - renames multiple files
 
 SYNOPSIS
@@ -1482,7 +1494,7 @@ environment文件在`/etc`目录下
 
 ```bash
 vi /etc/profile //编辑profile文件
-在PATH=/......中加入“:/xxx/xxx`
+在PATH=/......中加入`:/xxx/xxx`
 ```
 
 ## && || () {} 用法
@@ -1537,7 +1549,7 @@ vi /etc/profile //编辑profile文件
 `command1  && command2`
 
 `&&`左边的命令（命令`1`）返回真(即返回`0`，成功被执行）后，`&&`右边的命令（命令`2`）才能够被执行；
-换句话说，“如果这个命令执行成功`&&`那么执行这个命令`。
+换句话说，`如果这个命令执行成功`&&`那么执行这个命令`。
 
 语法格式如下：
 
@@ -1563,7 +1575,7 @@ command1 || command2
 ```
 
 `||`则与`&&`相反。如果`||`左边的命令（command1）未执行成功，那么就执行`||`右边的命令（command2）；
-或者换句话说，“如果这个命令执行失败了`||`那么就执行这个命令。
+或者换句话说，`如果这个命令执行失败了`||`那么就执行这个命令。
 
 命令之间使用 `||` 连接，实现逻辑或的功能。
 
@@ -1612,34 +1624,28 @@ echo $BASH | grep -q 'bash' || { exec bash "$0" "$@" || exit 1; }
 格式:
 
 ```bash
-(command1;command2;command3....)        多个命令之间用;分隔
+(command1;command2;command3....)        多个命令之间用`;`分隔
 ```
 
 一条命令需要独占一个物理行，如果需要将多条命令放在同一行，命令之间使用命令分隔符`(;)`分隔。
-执行的效果等同于多个独立的命令单独执行的效果。
+执行的效果等同于多个独立的命令单独执行的效果。`()` 表示在子shell 中将多个命令作为一个整体执行。
+需要注意的是，使用 `()` 括起来的命令执行后，不会切换当前的工作目录。
 
-`()` 表示在当前 shell 中将多个命令作为一个整体执行。
-
-需要注意的是，使用 `()` 括起来的命令在执行前面都不会切换当前工作目录，
-也就是说命令组合都是在当前工作目录下被执行的，尽管命令中有切换目录的命令。
-
-命令组合常和命令执行控制结合起来使用。
-
-如果目录`dir`不存在，则执行命令组合。
+命令组合常和命令执行控制结合起来使用。比如如果目录`dir`不存在，则执行命令组合。
 
 ```bash
 ls dir &>/dev/null || (cd /home/; ls -lh; echo "success")
+ls dir &>/dev/null || { cd /home/; ls -lh; echo "success" }
 ```
 
 ### {} 运算符
 
 如果使用`{}`来代替`()`，那么相应的命令将在当前shell中作为一个整体被执行，
-只有在`{}`中所有命令的输出作为一个整体被重定向时，其中的命令才被放到子shell中执行，否则在当前shell执行。
 
 它的一般形式为：
 
 ```bash
-{ command1;command2;command3… }
+{空格command1;command2;command3…空格}
 ```
 
 注意：在使用`{}`时，`{}`与命令之间必须使用一个`空格`
@@ -1694,8 +1700,8 @@ bash 的组数替换方法可参考如下方法：
 ### (())算术比较
 
 好了，最后为大家介绍 `$(( ))` 的用途吧：它是用来作整数运算的。
-
 在 bash 中，`$(( ))` 的整数运算符号大致有这些：
+括号`(())`和`==`等操作符周围都不需要空格，但是为了统一，也可以加上
 
 + `+ - * /` ：分别为 "加、减、乘、除"。
 + `%` ：余数运算
@@ -1725,7 +1731,6 @@ $ echo $(( (a*b)%c))
 ```
 
 在 `$(( ))` 中的变量名称，可于其前面加 `$` 符号来替换，也可以不用，如：`$(( $a + $b * $c))` 也可得到 `19` 的结果
-
 此外，`$(( ))` 还可作不同进位(如二进制、八进位、十六进制)作运算，只是，输出结果皆为十进制：
 
 ```bash
@@ -1834,13 +1839,13 @@ fi
 检查两个字符串是否相同：
 
 ```bash
-[[ $str1 = $str2 ]]
+[[ $str1 == $str2 ]]
 ```
 
 当 `str1` 等于 `str2` 时，返回真。也就是说， `str1` 和 `str2` 包含的文本是一样的。
-其中的单等于号也可以写成双等于号，也就是说，上面的字符串比较等效于 `[[ $str1 == $str2 ]]`。
-
+其中的双等于号也可以写成单等于号，也就是说，上面的字符串比较等效于 `[[ $str1 = $str2 ]]`。
 注意 `=` 前后有一个`空格`，如果忘记加空格, 就变成了赋值语句，而非比较关系了。
+字符串比较，`[[`,`]]`,`==`周围必须都有空格，中括号比较时，变量必须写成如`$a`的形式。
 
 字符串的其他比较情况：
 
@@ -1915,7 +1920,7 @@ parameter 后面可能接的保留字，`:` `#` `%` `/`
 
 最简单的参数展开形式反映在平常使用的变量上。
 
-在这个例子中,我们试图创建一个文件名,通过把字符串 “`_file`` 附加到变量 `a` 的值的后面。
+在这个例子中,我们试图创建一个文件名,通过把字符串 ``_file`` 附加到变量 `a` 的值的后面。
 
 ```bash
 [me@linuxbox ~]$ a="foo"
@@ -2195,23 +2200,18 @@ expr_opacity=1
 wolframscript -print "all" -file ./f.figure.series-full.rencon3.strange.baryons-all.band.wl "full" 0.90 1.50 $curveopacity $markers $markopacity $expr_marker $expr_opacity
 ```
 
-### Shell中的通配符
+### 通配符/Wildcard/glob
 
 [Shell中的通配符][]
 
 [Shell中的通配符]: https://www.jianshu.com/p/25f3d0cd5fdc
 
-### shell中的通配符（Wildcard）
+`glob()`, glob： 一滴 一团
 
-***
-glob()
+`glob()`函数根据`shell`使用的规则搜索所有与模式匹配的路径名 (请参阅`glob(7)`) 
+没有`tilde expansion`或`parameter substitution`； 如果需要这些，请使用`wordexp(3)`.
 
-glob： 一滴 一团
-
-The `glob()` function searches for all the pathnames matching pattern according to the rules used by the shell (see glob(7)).  No tilde expansion or parameter substitution is done; if you want these, use wordexp(3).
-
-The `globfree()` function frees the dynamically allocated storage from an earlier call to glob().
-
+`globfree()`函数释放先前调用`glob()`时，动态分配的存储空间 。
 `man 7 glob()` see glob(7)
 
 在 `Shell` 中命令中，通常会使用通配符表达式来匹配一些文件，如以下命令可以查找当前目录下所有后缀为 `.xml` 的文件

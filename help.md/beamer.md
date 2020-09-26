@@ -128,3 +128,23 @@
 
 bibtex 标准 style `plain`,`unsrt`,`alpha`,`abbrv`
 
+用find 查找到的本机的安装的支持`nat`的`bst`:
+
++ /bst/shipunov/rusnat.bst
++ /bst/bib-fr/abbrvnat-fr.bst
++ /bst/bib-fr/plainnat-fr.bst
++ /bst/bib-fr/unsrtnat-fr.bst
++ /bst/ksfh_nat/ksfh_nat.bst
++ /bst/natbib/unsrtnat.bst
++ /bst/natbib/plainnat.bst
++ /bst/natbib/abbrvnat.bst
++ /bst/persian-bib/plainnat-fa.bst
++ /bst/nature/naturemag.bst
++ /bst/sort-by-letters/plainnat-letters.bst
++ /bst/sort-by-letters/frplainnat-letters.bst
++ /bst/phfnote/naturemagdoi.bst
++ /bst/beebe/humannat.bst
++ /bst/swebib/sweplnat.bst
++ /bst/upmethodology/upmplainnat.bst
++ /bst/dinat/dinat.bst
++ /bst/din1505/natdin.bst

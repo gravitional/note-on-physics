@@ -636,7 +636,7 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 `--abort`: 取消操作，回复到pre-sequence 状态。
 `--continue`: 继续操作，利用`.git/sequencer.`中的信息。可以在`cherry-pick` or `revert`失败，解决冲突之后使用。
 
-### log gitk
+### gitk log
 
 ***
 
@@ -648,6 +648,7 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 `-s`, `--summary`: 压缩`commit`描述，只总结`commit`数量。
 
 ***
+` gitk [<options>] [<revision range>] [--] [<path>...]`
 
 2. `gk`='\gitk --all --branches'
 3. `gke`='\gitk --all $(git log -g --pretty=%h)'
@@ -655,6 +656,8 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 `--all`:假装`refs/`下的所有条目，包括`HEAD`都被列出 as `<commit>`
 `--branches[=<pattern>]`：类似`--all`，但是要匹配shell `glob`模式，`?`, `*`, or `[`, `/*`
 `--tags[=<pattern>]`：类似`--branches`
+
+`gitk`可以查看单个文件的提交历史，使用`gitk filepath`
 
 ### remote
 
