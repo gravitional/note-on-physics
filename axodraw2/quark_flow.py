@@ -7,13 +7,14 @@
 # 或者用这个指令 \Line[arrow,dash,double](10,10)(80,10)
 # 文字 \Text(x, y)(旋转)[对齐]{{文字}}
 # 顶点  \Vertex(40,10){1.5} 位置，半径
+# 圆弧 \Arc[arrow,dash,clockwise](40,40)(30,20,160) （圆心），（半径，角度指定）
 
 import os
 import math
 from collections import Iterable
 
 fpath = r'/home/tom/note/axodraw2'
-tex_name = r"nonlocal_vertex.tex"
+tex_name = r"quark_flow.tex"
 file = os.path.join(fpath, tex_name)
 
 fig_size = [100, 200]
@@ -51,17 +52,14 @@ tex_ang = '0'
 # 图像的左右边界
 fig_x1 = [10, 90]
 # 图像的下上边界
-fig_y1 = [130, 170]
+fig_y1= [130, 170]
 
 # 用来产生坐标列表的函数，把数字转换成字符串
-
-
 def tostr(li):
     if isinstance([], Iterable):
         return list(map(str, li))
     else:
         print('illegal input')
-
 
 # 点的坐标和文字坐标，每个x给出一个横纵坐标
 
@@ -96,62 +94,39 @@ except ZeroDivisionError as e:
 finally:
     print('custom finally...')
 
-# 开始画图，在文本中，用{}表示变量，用{{}}转义括号
-
-with open(file, 'a', encoding='utf-8') as f:  # 'a' 表示追加模式
-    f.write(fr'''
-        % (起点)，(终点)
-        % 水平的费米子线1
-        \Line[{arr_line1}]({x1[0]},{x1[1]})({x2[0]},{x2[1]})
-        % 水平的费米子线2
-        \Line[{arr_line1}]({x2[0]},{x2[1]})({x3[0]},{x3[1]})
-        % 垂直的介子线
-        \Line[{arr_line2}]({x4[0]},{x4[1]})({x2[0]},{x2[1]})
-        % 文字部分
-        \Text({t1[0]}, {t1[1]})({tex_ang}){{$\Sigma^{{+}}$}}
-        \Text({t3[0]}, {t3[1]})({tex_ang}){{$\bar{{\Xi^0}}$}}
-        \Text({t4[0]}, {t4[1]})({tex_ang}){{$K^{{-}}$}}
-        ''')
-
-# 图像的下上边界
+# 开始画图，在文本中，用{var}表示变量，用{{}}表示括号
+# 圆弧的直径和角度
+arc_rad = 30
+arc_ang = tostr([0, 180])
+arc_sty = r'arrow,dash,clockwise'
+# 子图的下上边界
 fig_y1 = [70, 110]
-
-# 子图2 +++++++++++++++++++++++++++++++
 # 第一个点
 x1 = tostr([fig_x1[0], fig_y1[0]])
 t1 = tostr([fig_x1[0], fig_y1[0]+epsilon])
 # 第二个点
-x2 = tostr([(fig_x1[0]+fig_x1[1])/2, fig_y1[0]])
-t2 = tostr([(fig_x1[0]+fig_x1[1])/2, fig_y1[0]+epsilon])
+x2 = tostr([(0*fig_x1[0]+1*fig_x1[1])/1, (0*fig_y1[0]+1*fig_y1[1])/1])
+t2 =tostr([(0*fig_x1[0]+1*fig_x1[1])/1, (0*fig_y1[0]+1*fig_y1[1])/1+epsilon])
 # 第三个点
-x3 = tostr([(0*fig_x1[0]+fig_x1[1]), fig_y1[0]])
-t3 = tostr([(0*fig_x1[0]+fig_x1[1]), fig_y1[0]+epsilon])
+x3 = tostr([(1*fig_x1[0]+1*fig_x1[1])/2, (1*fig_y1[0]+0*fig_y1[1])/1])
+t3 = tostr([(1*fig_x1[0]+1*fig_x1[1])/2, (1*fig_y1[0]+0*fig_y1[1])/1+epsilon])
 # 第四个点
-x4 = tostr([(fig_x1[0]+0*fig_x1[1])/1, (0*fig_y1[0]+fig_y1[1])/1])
-t4 = tostr([(fig_x1[0]+0*fig_x1[1])/1+epsilon, (0*fig_y1[0]+fig_y1[1])/1])
-# 第五个点
-x5 = tostr([(0*fig_x1[0]+fig_x1[1])/1, (0*fig_y1[0]+1*fig_y1[1])/1])
-t5 = tostr([(0*fig_x1[0]+fig_x1[1])/1-epsilon, (0*fig_y1[0]+1*fig_y1[1])/1])
-# 光子线的振幅和数目
-wig_amp = 3
-wig_num = 7
+x4 = tostr([(1*fig_x1[0]+1*fig_x1[1])/2, (1*fig_y1[0]+0*fig_y1[1])/1+arc_rad])
+t4 = tostr([(1*fig_x1[0]+1*fig_x1[1])/2, (1*fig_y1[0]+0*fig_y1[1])/1+arc_rad+epsilon])
 
 with open(file, 'a', encoding='utf-8') as f:
     f.write(fr'''
         % (起点)，(终点)
         % 水平的费米子线1
         \Line[{arr_line1}]({x1[0]},{x1[1]})({x2[0]},{x2[1]})
-        % 水平的费米子线2
+        % 圆弧
         \Line[{arr_line1}]({x2[0]},{x2[1]})({x3[0]},{x3[1]})
-        % 倾斜的介子线
-        \Line[{arr_line2}]({x4[0]},{x4[1]})({x2[0]},{x2[1]})
-        %倾斜的光子线
-        \Photon({x5[0]},{x5[1]})({x2[0]},{x2[1]}){{{wig_amp}}}{{{wig_num}}}
+        \Arc[{arc_sty}]({x3[0]},{x3[1]})({arc_rad},{arc_ang[0]},{arc_ang[1]})
         % 文字部分
         \Text({t1[0]}, {t1[1]})({tex_ang}){{$\Sigma^{{+}}$}}
         \Text({t3[0]}, {t3[1]})({tex_ang}){{$\bar{{\Xi^0}}$}}
-        \Text({t4[0]}, {t4[1]})({tex_ang}){{$K^{{-}}$}}
-        \Text({t5[0]}, {t5[1]})({tex_ang}){{$\gamma$}}
+        \Text({t3[0]}, {t3[1]})({tex_ang}){{$K^{{-}}$}}
+        \Text({t4[0]}, {t4[1]})({tex_ang}){{$\gamma$}}
         ''')
 
 # 图像的下上边界
@@ -179,7 +154,7 @@ t6 = tostr([(fig_x1[0]+fig_x1[1])/2-epsilon, (1*fig_y1[0]+0*fig_y1[1])/1])
 wig_amp = 3
 wig_num = 7
 # 光子顶点的半径
-size_ver = 3
+size_ver=3
 
 with open(file, 'a', encoding='utf-8') as f:
     f.write(fr'''
@@ -209,22 +184,22 @@ with open(file, 'a', encoding='utf-8') as f:
         \end{document}
         ''')
 
-# 运行latex编译程序
-sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
-    xelatex ${texbase}; axohelp ${texbase}; xelatex ${texbase} \n\
-    if [ -f "${texbase}.pdf" ] ;   then \n\
-        evince "${texbase}.pdf" &  \n\
-    fi\n '
-print(sh_com)
-os.system(sh_com)
+# # 运行latex编译程序
+# sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
+#     xelatex ${texbase}; axohelp ${texbase}; xelatex ${texbase} \n\
+#     if [ -f "${texbase}.pdf" ] ;   then \n\
+#         evince "${texbase}.pdf" &  \n\
+#     fi\n '
+# print(sh_com)
+# os.system(sh_com)
 
-# pdfcrop     参数是 left bottom right top, 单位是`point`, A4纸张(mm) =`595.4 point`*`842.1 point`
-sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
-if [ -f "${texbase}.pdf" ]; then \n\
-    pdfcrop --margins 3 --clip --bbox \'250 520 345 680\' "${texbase}.pdf" "${texbase}_cropped.pdf" \n\
-fi \n\
-if [ -f "${texbase}_cropped.pdf" ]; then \n\
-    evince "${texbase}_cropped.pdf" & \n\
-fi\n'
-#
-os.system(sh_com)
+# # pdfcrop     参数是 left bottom right top, 单位是`point`, A4纸张(mm) =`595.4 point`*`842.1 point`
+# sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
+# if [ -f "${texbase}.pdf" ]; then \n\
+#     pdfcrop --margins 3 --clip --bbox \'250 520 345 680\' "${texbase}.pdf" "${texbase}_cropped.pdf" \n\
+# fi \n\
+# if [ -f "${texbase}_cropped.pdf" ]; then \n\
+#     evince "${texbase}_cropped.pdf" & \n\
+# fi\n'
+# # 
+# os.system(sh_com)
