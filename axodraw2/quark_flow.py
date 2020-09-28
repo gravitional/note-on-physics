@@ -97,20 +97,20 @@ finally:
 # 开始画图，在文本中，用{var}表示变量，用{{}}表示括号
 # 圆弧的直径和角度
 arc_rad = 30
-arc_ang = tostr([0, 180])
+arc_ang = tostr([180, 360])
 arc_sty = r'arrow,dash,clockwise'
 # 子图的下上边界
 fig_y1 = [70, 110]
-# 第一个点
+# 费米子起点
 x1 = tostr([fig_x1[0], fig_y1[0]])
 t1 = tostr([fig_x1[0], fig_y1[0]+epsilon])
-# 第二个点
-x2 = tostr([(0*fig_x1[0]+1*fig_x1[1])/1, (0*fig_y1[0]+1*fig_y1[1])/1])
-t2 =tostr([(0*fig_x1[0]+1*fig_x1[1])/1, (0*fig_y1[0]+1*fig_y1[1])/1+epsilon])
-# 第三个点
+# 费米子终点
+x2 = tostr([(0*fig_x1[0]+1*fig_x1[1])/1, (1*fig_y1[0]+0*fig_y1[1])/1])
+t2 =tostr([(0*fig_x1[0]+1*fig_x1[1])/1, (1*fig_y1[0]+0*fig_y1[1])/1+epsilon])
+# 费米子中间
 x3 = tostr([(1*fig_x1[0]+1*fig_x1[1])/2, (1*fig_y1[0]+0*fig_y1[1])/1])
 t3 = tostr([(1*fig_x1[0]+1*fig_x1[1])/2, (1*fig_y1[0]+0*fig_y1[1])/1+epsilon])
-# 第四个点
+# 圆弧上端
 x4 = tostr([(1*fig_x1[0]+1*fig_x1[1])/2, (1*fig_y1[0]+0*fig_y1[1])/1+arc_rad])
 t4 = tostr([(1*fig_x1[0]+1*fig_x1[1])/2, (1*fig_y1[0]+0*fig_y1[1])/1+arc_rad+epsilon])
 
@@ -120,13 +120,12 @@ with open(file, 'a', encoding='utf-8') as f:
         % 水平的费米子线1
         \Line[{arr_line1}]({x1[0]},{x1[1]})({x2[0]},{x2[1]})
         % 圆弧
-        \Line[{arr_line1}]({x2[0]},{x2[1]})({x3[0]},{x3[1]})
         \Arc[{arc_sty}]({x3[0]},{x3[1]})({arc_rad},{arc_ang[0]},{arc_ang[1]})
         % 文字部分
-        \Text({t1[0]}, {t1[1]})({tex_ang}){{$\Sigma^{{+}}$}}
-        \Text({t3[0]}, {t3[1]})({tex_ang}){{$\bar{{\Xi^0}}$}}
-        \Text({t3[0]}, {t3[1]})({tex_ang}){{$K^{{-}}$}}
-        \Text({t4[0]}, {t4[1]})({tex_ang}){{$\gamma$}}
+        \Text({t1[0]}, {t1[1]})({tex_ang}){{$p$}}
+        \Text({t2[0]}, {t2[1]})({tex_ang}){{$p$}}
+        \Text({t3[0]}, {t3[1]})({tex_ang}){{$n$}}
+        \Text({t4[0]}, {t4[1]})({tex_ang}){{$\pi^{{+}}$}}
         ''')
 
 # 图像的下上边界
@@ -184,14 +183,14 @@ with open(file, 'a', encoding='utf-8') as f:
         \end{document}
         ''')
 
-# # 运行latex编译程序
-# sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
-#     xelatex ${texbase}; axohelp ${texbase}; xelatex ${texbase} \n\
-#     if [ -f "${texbase}.pdf" ] ;   then \n\
-#         evince "${texbase}.pdf" &  \n\
-#     fi\n '
-# print(sh_com)
-# os.system(sh_com)
+# 运行latex编译程序
+sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
+    xelatex ${texbase}; axohelp ${texbase}; xelatex ${texbase} \n\
+    if [ -f "${texbase}.pdf" ] ;   then \n\
+        evince "${texbase}.pdf" &  \n\
+    fi\n '
+print(sh_com)
+os.system(sh_com)
 
 # # pdfcrop     参数是 left bottom right top, 单位是`point`, A4纸张(mm) =`595.4 point`*`842.1 point`
 # sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
