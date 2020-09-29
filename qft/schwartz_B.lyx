@@ -136,8 +136,935 @@ Thomas Young
 最简单的是
 \begin_inset Formula 
 \[
-\frac{1}{AB}=\int_{0}^{1}\dif x\frac{1}{\left[A+(B-A)x\right]^{2}}=\int_{0}^{1}\dif x\dif y\frac{1}{\left[A+(B-A)x\right]^{2}}
+\frac{1}{AB}=\int_{0}^{1}\dif x\frac{1}{\left[A+(B-A)x\right]^{2}}=\int_{0}^{1}\dif x\dif y\delta(x+y-1)\frac{1}{\left[xA+yB\right]^{2}}
 \]
+
+\end_inset
+
+这个等式可以这么理解，首先从量纲上，右边的积分结果一定是
+\begin_inset Formula $A,B$
+\end_inset
+
+的负二次方，结果只可能由
+\begin_inset Formula $A,B$
+\end_inset
+
+和它们的系数组成。积分对
+\begin_inset Formula $A,B$
+\end_inset
+
+是对称的，所以不可能出现类似
+\begin_inset Formula $\frac{A}{B}$
+\end_inset
+
+的结构，所以只能是
+\begin_inset Formula $\frac{n}{AB}$
+\end_inset
+
+，然后考虑系数。首先取
+\begin_inset Formula $A=B$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\frac{1}{A^{2}}\int_{0}^{1}\dif x\dif y\delta(x+y-1)
+\]
+
+\end_inset
+
+
+\series bold
+这种类型的积分需要考虑积分区域的变化，因为
+\begin_inset Formula $\delta(x)$
+\end_inset
+
+函数相当于一个分布，使得积分区间中某些区域不贡献了
+\series default
+。
+\begin_inset Formula $\delta(x)$
+\end_inset
+
+函数总是会减少一个维度，因此总相当于积分区域
+\begin_inset Formula $D$
+\end_inset
+
+的维度减少，这样我们需要知道降维的积分区域
+\begin_inset Formula $D^{\prime}$
+\end_inset
+
+的面积，和相对于原来积分测度的伸缩比例。
+\end_layout
+
+\begin_layout Standard
+比如在二维情况下，
+\begin_inset Formula $\delta(x+y-1)$
+\end_inset
+
+限定积分区域在
+\begin_inset Formula $x+y=1$
+\end_inset
+
+的一条支线上，这条直线长度为
+\begin_inset Formula $\sqrt{2}$
+\end_inset
+
+，直线上的点坐标为
+\begin_inset Formula $(x,1-x)$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\[
+\dif s=\sqrt{\abs{\frac{\partial x}{\partial x}}^{2}+\abs{\frac{\partial(1-x)}{\partial x}}^{2}}\dif x=\sqrt{2}\dif x
+\]
+
+\end_inset
+
+与原本低维的积分测度
+\begin_inset Formula $\dif x=\dif y$
+\end_inset
+
+相比，放大了
+\begin_inset Formula $\sqrt{2}$
+\end_inset
+
+倍，因此回去的时候要乘以
+\begin_inset Formula $\frac{1}{\sqrt{2}}$
+\end_inset
+
+，跟长度约掉，刚好为
+\begin_inset Formula $1$
+\end_inset
+
+。其实有一个更简单的考虑方法，这条线在
+\begin_inset Formula $x$
+\end_inset
+
+轴 or 
+\begin_inset Formula $y$
+\end_inset
+
+轴的投影刚好为
+\begin_inset Formula $(0,1)$
+\end_inset
+
+。也就是说，满足条件的积分区域对原来低维测度的投影长度为
+\begin_inset Formula $1$
+\end_inset
+
+，所以直接得到积分区域的低维长度为
+\begin_inset Formula $1$
+\end_inset
+
+。注意这个投影总是向原点的方向进行的。
+\end_layout
+
+\begin_layout Standard
+对于高维的情况，
+\begin_inset Formula $\delta(x+y+z+\cdots)=1$
+\end_inset
+
+。总的测度体积是
+\begin_inset Formula $1^{n}=1$
+\end_inset
+
+。用积分式表示
+\begin_inset Formula $\delta$
+\end_inset
+
+函数的限制，可以写成 
+\begin_inset Formula 
+\[
+\int_{0}^{1}\dif x\int_{0}^{1}\dif y\int_{0}^{1}\dif z\cdots\delta(x+y+z+\cdots)\to\int_{0}^{1}\dif x\int_{0}^{1-x+\epsilon}\dif y\int_{0}^{1-x-y+\epsilon}\dif z\delta(x+y+z+\cdots)
+\]
+
+\end_inset
+
+这个积分表示的是
+\begin_inset Formula $n-1$
+\end_inset
+
+维单位锥体的体积（各边都相等），
+\begin_inset Formula $V=\frac{1}{(n-1)!}$
+\end_inset
+
+。所以，一般有
+\begin_inset Formula 
+\[
+\frac{1}{A_{1}A_{2}\cdots A_{n}}=\int_{0}^{1}\dif x_{1}\cdots\dif x_{n}\delta(\sum x_{1}-1)\frac{(n-1)!}{\left[x_{1}A_{1}+\cdots+x_{n}A_{n}\right]^{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+类似地，
+\begin_inset Formula 
+\[
+\frac{1}{AB^{n}}=\int_{0}^{1}\dif x\dif y\delta(x+y-1)\frac{ny^{n-1}}{\left[xA+yB\right]^{n+1}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{ABC}=\int_{0}^{1}\dif x\dif y\dif z\delta(x+y+z-1)\frac{2}{\left[xA+yB+zC\right]^{3}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+通过这些公式，可以把传播子合并起来，
+\begin_inset Formula 
+\begin{align*}
+\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{k^{2}}\frac{1}{(k-p)^{2}} & =\int\frac{\dif^{4}k}{(2\pi)^{4}}\int_{0}^{1}\dif x\frac{1}{\left[k^{2}+x\left((k-p)^{2}-k^{2}\right)\right]^{2}}\\
+ & =\int\frac{\dif^{4}k}{(2\pi)^{4}}\int_{0}^{1}\dif x\frac{1}{\left[k^{2}-2kxp+xp^{2}\right]^{2}}\\
+ & =\int_{0}^{1}\dif x\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{\left[(k-xp)^{2}-\Delta\right]^{2}}
+\end{align*}
+
+\end_inset
+
+when 
+\begin_inset Formula $\Delta=-p^{2}x(1-x)$
+\end_inset
+
+。我们可以通过shift 
+\begin_inset Formula $k\to k+xp$
+\end_inset
+
+使积分只依赖于
+\begin_inset Formula $k^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+Schwinger 参数化
+\end_layout
+
+\begin_layout Standard
+当
+\begin_inset Formula $\Im{A}>0$
+\end_inset
+
+时：
+\begin_inset Formula 
+\begin{equation}
+\frac{i}{A}=\int_{0}^{\infty}\dif se^{isA}\label{eq:b.5}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $\Im{A}>0$
+\end_inset
+
+可以保证积分是良好定义的。
+\begin_inset Formula 
+\[
+(\frac{i}{A})^{2}=\int_{0}^{\infty}s\dif se^{isA}
+\]
+
+\end_inset
+
+可以通过不停求导，得到更多等式。Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:b.5"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+暗示了
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{AB}=-\int_{0}^{\infty}\dif s\int_{0}^{\infty}\dif te^{isA+itB}\label{eq:b.7}
+\end{equation}
+
+\end_inset
+
+当
+\begin_inset Formula $\Im{A}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\Im{B}>0$
+\end_inset
+
+(也就是用费曼传播子)。Schwinger 参数 
+\begin_inset Formula $s$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+ 具有很好的物理解释：
+\begin_inset Formula $s$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+ 是 proper times of the particles as they travel along their paths in the
+ Feynman graph。Schwinger proper-time interpretation 见 Chapter 32。
+\end_layout
+
+\begin_layout Standard
+注意如果令
+\begin_inset Formula $s+t=\tau$
+\end_inset
+
+ and 
+\begin_inset Formula $x=\frac{t}{s+t}$
+\end_inset
+
+,or 
+\begin_inset Formula $t=x\tau$
+\end_inset
+
+ and 
+\begin_inset Formula $s=(1-x)\tau$
+\end_inset
+
+，Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:b.7"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+变成
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{AB} & =-\int_{0}^{\infty}\tau\dif\tau\int_{0}^{1}\dif xe^{i\tau(A+Bx-Ax)}\\
+ & =\int_{0}^{1}\dif x\frac{1}{\left[A+(B-A)x\right]^{2}}
+\end{align*}
+
+\end_inset
+
+所以费曼参数化
+\begin_inset Formula $x$
+\end_inset
+
+ 也有物理意义，as the relative proper time 
+\begin_inset Formula $\frac{s}{s+t}$
+\end_inset
+
+ of the two particles in the loop.
+\end_layout
+
+\begin_layout Standard
+另外一些有用的等式为
+\begin_inset Formula 
+\[
+\frac{1}{A^{n}B^{m}}=\frac{\Gamma(n+m)}{\Gamma(n)\Gamma(m)}\int_{0}^{\infty}\dif s\frac{s^{m-1}}{(A+Bs)^{n+m}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{AB}=\int_{0}^{\infty}\dif s\frac{1}{(A+Bs)^{2}}
+\]
+
+\end_inset
+
+Schwinger paramerters 用于 Chapter 34 and Chapter 35.
+\end_layout
+
+\begin_layout Section
+Wick rotations
+\end_layout
+
+\begin_layout Standard
+做完费曼参数化之后，得到一个在 Minkowski 空间对圈动量的积分。恢复费曼传播子中的
+\begin_inset Formula $i\epsilon$
+\end_inset
+
+因子，
+\begin_inset Formula $1$
+\end_inset
+
+–loop 积分经常是
+\begin_inset Formula 
+\[
+\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{n}}
+\]
+
+\end_inset
+
+在
+\begin_inset Formula $k_{0}$
+\end_inset
+
+复平面上，积分的极点在二四象限，实轴上的积分和虚轴上的积分是大小相等，符号相反的。所以，令
+\begin_inset Formula $k^{2}\to-k_{0}^{2}-\vec{k}^{2}=-k_{E}^{2}$
+\end_inset
+
+，其中
+\begin_inset Formula $k_{E}^{2}=k_{0}^{2}+\vec{k}^{2}$
+\end_inset
+
+是 Euclidean momentum.
+ 这被称为 Wick rotation。经过 Wick rotation，
+\begin_inset Formula $i\varepsilon$
+\end_inset
+
+没有用了，我们可以令
+\begin_inset Formula $\varepsilon=0$
+\end_inset
+
+。wick转动的最终效果是
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{n}}\to\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{(2\pi)^{4}}\frac{i}{(-k_{E}^{2}-\Delta+i\varepsilon)^{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+四维 Euclidean 空间的单位球体表面积为
+\begin_inset Formula $\int\dif\Omega_{4}=2\pi^{2}$
+\end_inset
+
+。所以
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{(2\pi)^{4}}f(k_{E}^{2})=\frac{1}{16\pi^{4}}\int\dif\Omega_{4}\int_{0}^{\infty}k_{E}^{3}\dif k_{E}f(k_{E}^{2})=\frac{1}{8\pi^{2}}\int_{0}^{\infty}k_{E}^{3}\dif k_{E}f(k_{E}^{2})
+\]
+
+\end_inset
+
+Wick rotation 只是数学技巧，并没有物理内容，只要没有新的 pole 违反回路转动，它就成立。只有在两圈或者多圈图中才会遇到。
+\end_layout
+
+\begin_layout Standard
+常用公式有：
+\begin_inset Formula 
+\begin{align*}
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{k^{2}}{(k^{2}-\Delta+i\varepsilon)^{4}} & =\frac{-i}{48\pi^{2}}\frac{1}{\Delta}\\
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{r}} & =\frac{i(-1)^{r}}{16\pi^{2}}\frac{1}{(r-1)(r-2)}\frac{1}{\Delta^{r-2}},r>2\\
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{k^{2}}{(k^{2}-\Delta+i\varepsilon)^{r}} & =\frac{i(-1)^{r-1}}{16\pi^{2}}\frac{2}{(r-1)(r-2)(r-3)}\frac{1}{\Delta^{r-3}},r>3
+\end{align*}
+
+\end_inset
+
+等等。
+\end_layout
+
+\begin_layout Section
+维数正规化
+\end_layout
+
+\begin_layout Standard
+现在最常用的是维数正规化。key observation is 
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{2}}
+\]
+
+\end_inset
+
+只有在
+\begin_inset Formula $d\geq4$
+\end_inset
+
+的时候才是发散的。如果
+\begin_inset Formula $d<4$
+\end_inset
+
+，它是收敛的。我们可以 Wick rotate，然后把结果解析延拓到
+\begin_inset Formula $d$
+\end_inset
+
+维中。
+\end_layout
+
+\begin_layout Subsection
+旋量代数
+\end_layout
+
+\begin_layout Standard
+在
+\begin_inset Formula $d$
+\end_inset
+
+维中，度规矩阵是
+\begin_inset Formula 
+\[
+g^{\mu\nu}=\text{diag}(1,-1,-1,\cdots,-1),
+\]
+
+\end_inset
+
+即使对于非正数
+\begin_inset Formula $d$
+\end_inset
+
+，也精确地有一个 timelike dimension。度规矩阵满足
+\begin_inset Formula 
+\[
+g^{\mu\nu}g_{\mu\nu}=d
+\]
+
+\end_inset
+
+洛伦兹不变的相空间为
+\begin_inset Formula 
+\[
+\dif\Pi_{\text{LIPS}}\equiv(2\pi)^{d}\prod_{\text{final states }j}\frac{\dif^{d-1}p_{j}}{(2\pi)^{d-1}}\frac{1}{2E_{p_{j}}}\delta^{d}(\sum p)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们可以定义
+\begin_inset Formula $d=4-\varepsilon$
+\end_inset
+
+时空的旋量代数和
+\begin_inset Formula $d=4$
+\end_inset
+
+的代数类似。更确切地说，我们假设
+\begin_inset Formula $d$
+\end_inset
+
+维时空中，
+\begin_inset Formula $\left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2g^{\mu\nu}$
+\end_inset
+
+。旋量空间中的单位矩阵满足
+\begin_inset Formula $\tr\mathbbm{1}_{\alpha\beta}=4$
+\end_inset
+
+ as in four dimensions。在包含
+\begin_inset Formula $\gamma_{5}$
+\end_inset
+
+的理论中，我们假设存在一个矩阵，满足
+\begin_inset Formula 
+\[
+\left\{ \gamma^{5},\gamma^{\mu}\right\} =0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+具有 anomalies 的理论是唯一可能会有 subtleties 的地方。可参考 [Polchinski 1998, Appendix B]。
+\end_layout
+
+\begin_layout Subsection
+标量积分
+\end_layout
+
+\begin_layout Standard
+我们将使表达式只依赖于
+\begin_inset Formula $k$
+\end_inset
+
+的幅度，然后使用
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif^{d}k=\int\dif\Omega_{d}\int k^{d-1}\dif k
+\]
+
+\end_inset
+
+其中，
+\begin_inset Formula $\dif\Omega_{d}$
+\end_inset
+
+是
+\begin_inset Formula $d$
+\end_inset
+
+维空间单维球体的微分立体角。明确写出来是，
+\begin_inset Formula 
+\begin{equation}
+\dif\Omega_{d}=\sin^{d-2}(\phi_{d-1})\dif\phi_{d-1}\sin^{d-3}(\phi_{d-2})\dif\phi_{d-2}\cdots\sin(\phi_{2})\dif\phi_{2}\dif\phi_{1}\label{eq:b.23}
+\end{equation}
+
+\end_inset
+
+共有
+\begin_inset Formula $d-1$
+\end_inset
+
+个角度坐标，
+\begin_inset Formula $\dif\phi_{1}$
+\end_inset
+
+直接积分，从
+\begin_inset Formula $\phi_{2}$
+\end_inset
+
+开始有
+\begin_inset Formula $\sin$
+\end_inset
+
+函数，
+\begin_inset Formula $\sin(\phi_{2})\dif\phi_{2}$
+\end_inset
+
+，后面
+\begin_inset Formula $\sin$
+\end_inset
+
+的次幂依次升高，最高
+\begin_inset Formula $d-2$
+\end_inset
+
+次幂。其中
+\begin_inset Formula $\phi_{i}$
+\end_inset
+
+是相对于
+\begin_inset Formula $i$
+\end_inset
+
+th 轴的角度。令
+\begin_inset Formula $0\leq\phi_{1}\leq2\pi$
+\end_inset
+
+ and 
+\begin_inset Formula $0\leq\phi_{i}<\pi$
+\end_inset
+
+ for 
+\begin_inset Formula $i>1$
+\end_inset
+
+。例如，
+\begin_inset Formula $\dif\Omega_{2}=\dif\phi$
+\end_inset
+
+。对于
+\begin_inset Formula $d=3$
+\end_inset
+
+，我们一般写成
+\begin_inset Formula $\phi_{1}=\phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi_{2}=\theta$
+\end_inset
+
+ giving
+\begin_inset Formula 
+\[
+\dif\Omega_{3}=\dif\cos\theta\dif\phi
+\]
+
+\end_inset
+
+
+\begin_inset Formula $d$
+\end_inset
+
+维空间的表面为
+\begin_inset Formula $d-1$
+\end_inset
+
+维。
+\begin_inset Formula $d$
+\end_inset
+
+维单位球的
+\begin_inset Formula $d-1$
+\end_inset
+
+维表面积为
+\begin_inset Formula 
+\[
+\Omega_{2}=\int\dif\Omega_{2}=2\pi\text{ (circle) },\int\dif\Omega_{3}=4\pi\text{ sphere },\int\dif\Omega_{4}=2\pi^{2}\text{ three-sphere},\cdots,
+\]
+
+\end_inset
+
+
+\begin_inset Formula $d$
+\end_inset
+
+维球的体积为
+\begin_inset Formula 
+\[
+V_{d}=\Omega_{d}\int_{0}^{R}\dif r\,r^{d-1}=\Omega_{d}\frac{1}{d}R^{d}
+\]
+
+\end_inset
+
+which are 
+\begin_inset Formula $V_{2}=\pi R^{2},V_{3}=\frac{4}{3}\pi R^{3},V_{4}=\frac{1}{2}\pi^{2}R^{4}$
+\end_inset
+
+,etc.
+\end_layout
+
+\begin_layout Standard
+对于非整数维，表面积公式可以用类似高斯积分的方法求出：
+\begin_inset Formula 
+\begin{align*}
+(\sqrt{\pi})^{d} & =\left(\int\dif xe^{-x^{2}}\right)^{d}=\int\dif\Omega_{d}\int_{0}^{\infty}\dif r\,r^{d-1}e^{-r^{2}}\\
+ & =\int\dif\Omega_{d}\int_{0}^{\infty}\frac{1}{2}(\dif r^{2})\,r^{2(\nicefrac{d}{2}-1)}e^{-r^{2}}\\
+ & =\frac{1}{2}\Gamma(\frac{d}{2})\int\dif\Omega_{d}
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\Omega_{d}=\int\dif\Omega_{d}=\frac{2\pi^{\nicefrac{d}{2}}}{\Gamma(\frac{d}{2})}=2\frac{\pi^{\nicefrac{d}{2}}}{\Gamma(\frac{d}{2})}
+\]
+
+\end_inset
+
+也可以选择直接把 Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:b.23"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 积出来：
+\begin_inset Formula 
+\begin{align*}
+\Omega_{d} & =2\pi\prod_{n=2}^{d-1}\left(\int_{0}^{\pi}\dif\phi_{n}\sin^{n-1}(\phi_{n})\right)=2\pi\prod_{n=2}^{d-1}\left(-\int_{1}^{-1}\dif\cos(\phi_{n})\left(1-\cos^{2}\phi_{n}\right)^{(n-2)/2}\right)\\
+ & =2\pi\prod_{n=2}^{d-1}2\int_{0}^{1}\dif x\left(1-x^{2}\right)^{(n-2)/2}=2\pi\prod_{n=2}^{d-1}\int_{0}^{1}\dif x^{2}\left(1-x^{2}\right)^{(n-2)/2}x^{2(-1/2)}\\
+ & =2\pi\prod_{n=2}^{d-1}\beta(\frac{n}{2},\frac{1}{2})=2\pi\prod_{n=2}^{d-1}\frac{\Gamma(\frac{n}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{n+1}{2})}\\
+ & 2\pi\prod_{n=2}^{d-1}\sqrt{\pi}\left(\frac{\Gamma(\frac{n}{2})}{\Gamma(\frac{n+1}{2})}\right)\\
+ & =2\pi^{d/2}\frac{\Gamma(\frac{2}{2})}{\Gamma(\frac{3}{2})}\frac{\Gamma(\frac{3}{2})}{\Gamma(\frac{4}{2})}\cdots\frac{\Gamma(\frac{d-1}{2})}{\Gamma(\frac{d}{2})}=2\pi^{d/2}\frac{\Gamma(1)}{\Gamma(\frac{d}{2})}
+\end{align*}
+
+\end_inset
+
+Using 
+\begin_inset Formula $\Gamma(1)=(1-1)!=1$
+\end_inset
+
+，回到
+\begin_inset Formula $\Omega_{d}=2\frac{\pi^{\nicefrac{d}{2}}}{\Gamma(\frac{d}{2})}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+上面的推导使用了公式
+\begin_inset Formula 
+\[
+\Gamma(z)=\int_{0}^{\infty}x^{z-1}e^{x}\dif x
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\Gamma(t)$
+\end_inset
+
+的收敛域是
+\begin_inset Formula $t>0$
+\end_inset
+
+，它具有递推公式
+\begin_inset Formula 
+\[
+\Gamma(n)=\Gamma(n-1)(n-1)
+\]
+
+\end_inset
+
+它是阶乘的解析延拓。
+\begin_inset Formula 
+\[
+\Gamma(1)=1,\Gamma(2)=1,\Gamma(3)=2,\Gamma(x)=(x-1)!
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\Gamma(z)$
+\end_inset
+
+在
+\begin_inset Formula $z=0$
+\end_inset
+
+以及所以负整数处有奇点，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\sin(\pi x) & =\frac{\pi(1-x)}{\Gamma(x)\Gamma(2-x)},\text{ or }\Gamma(x)\Gamma(1-x)=\frac{\pi}{\sin(\pi x)}\\
+\cos(\pi x) & =\left(\frac{1-2x}{2x}\right)\frac{\Gamma(1-x)\Gamma(1+x)}{\Gamma(2-2x)\Gamma(2x)}
+\end{align*}
+
+\end_inset
+
+由此可得
+\begin_inset Formula 
+\[
+\Gamma(\frac{1}{2})^{2}=\pi\Rightarrow\Gamma(\frac{1}{2})=\sqrt{\pi},\Gamma(\frac{3}{2})=\frac{1}{2}\sqrt{\pi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+而欧拉 
+\begin_inset Formula $\beta$
+\end_inset
+
+–function
+\begin_inset Formula 
+\[
+\beta(a,b)=\int_{0}^{1}\dif x(1-x)^{a-1}x^{b-1}=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\beta$
+\end_inset
+
+显然对
+\begin_inset Formula $a,b$
+\end_inset
+
+是对称的，
+\begin_inset Formula 
+\[
+\beta(a,b)=\int_{0}^{1}\dif x(1-x)^{b-1}x^{a-1}\stackrel{y=1-x}{\Longrightarrow}\int_{1}^{0}-\dif y(y)^{b-1}(1-y)^{a-1}=\int_{0}^{1}\dif y(1-y)^{a-1}(y)^{b-1}
+\]
+
+\end_inset
+
+它的收敛阈是
+\begin_inset Formula $a>0,b>0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+补充：
+\begin_inset CommandInset href
+LatexCommand href
+name "https://zhuanlan.zhihu.com/p/114041258"
+target "https://zhuanlan.zhihu.com/p/114041258"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+伽马函数的四种定义：
+\begin_inset Formula 
+\[
+\Gamma(z)=\int_{0}^{\infty}x^{z-1}e^{-x}\dif x
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Gamma(z)=\lim_{n\to\infty}\frac{n^{z}n!}{z(z+1)(z+2)\cdots z(+n)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Gamma(z)=\frac{1}{z}\prod_{k=1}^{\infty}\frac{\left(1+\frac{1}{k}\right)^{z}}{1+\frac{z}{k}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{\Gamma(z)}=ze^{\gamma z}\prod_{k=1}^{\infty}\left(1+\frac{z}{k}\right)e^{-\frac{z}{k}}
+\]
+
+\end_inset
+
+其中，
+\begin_inset Formula $\gamma$
+\end_inset
+
+是欧拉—马斯克若尼常数（Euler—Mascheroni constant）：
+\begin_inset Formula 
+\begin{align*}
+\gamma & =\lim_{n\to\infty}\sum_{n=1}^{n}\frac{1}{k}-\ln(n)\\
+ & =\frac{1}{1}+\frac{1}{2}+\frac{1}{3}+\dots+\frac{1}{n}-\ln(n)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Digamma 函数
+\begin_inset Formula 
+\begin{align*}
+\psi(z) & =\frac{\Gamma^{\prime}(z)}{\Gamma(z)}=-\gamma+\sum_{n=0}^{\infty}\left(\frac{1}{n+1}-\frac{1}{n+z}\right)\\
+\psi(1) & =-\gamma
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Gamma^{\prime}(z) & =\int_{0}^{\infty}x^{z-1}\ln(x)e^{-x}\dif x\\
+\Gamma^{\prime}(1) & =\int_{0}^{\infty}\ln(x)e^{-x}\dif x=-\gamma
+\end{align*}
+
+\end_inset
+
+Digamma函数的积分表达式
+\begin_inset Formula 
+\begin{align*}
+\psi(z) & =\frac{\Gamma^{\prime}(z)}{\Gamma(z)}=-\gamma+\int_{0}^{1}\frac{1-x^{z-1}}{1-x}\dif x
+\end{align*}
 
 \end_inset
 

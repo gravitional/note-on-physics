@@ -1555,6 +1555,10 @@ ref: [LaTeX —— 特殊符号与数学字体][]
 + `mathrm`：math roman
 + `mathbf`：math boldface
 
+`\usepackage{bbm}`
+
++ `\mathbbm`: 黑板粗体字母
+
 花体`\mathcal`：`L,F,D,N`
 
 + $\mathcal{L}$ 常用来表示损失函数
