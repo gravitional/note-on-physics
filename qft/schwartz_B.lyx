@@ -841,11 +841,35 @@ which are
 所以
 \begin_inset Formula 
 \[
-\Omega_{d}=\int\dif\Omega_{d}=\frac{2\pi^{\nicefrac{d}{2}}}{\Gamma(\frac{d}{2})}=2\frac{\pi^{\nicefrac{d}{2}}}{\Gamma(\frac{d}{2})}
+\Omega_{d}=\int\dif\Omega_{d}=\frac{2\pi^{\nicefrac{d}{2}}}{\Gamma(\frac{d}{2})}=2\frac{\pi^{\nicefrac{d}{2}}}{\Gamma(\frac{d}{2})}=2\frac{\pi^{z}}{\Gamma(z)}@\frac{d}{2}
 \]
 
 \end_inset
 
+
+\begin_inset Formula 
+\[
+\Omega_{3}=2\frac{\pi^{3/2}}{\Gamma(\frac{3}{2})=\frac{1}{2}\pi^{1/2}}=4\pi^{2}
+\]
+
+\end_inset
+
+两倍的的
+\begin_inset Formula $\pi$
+\end_inset
+
+指数比上
+\begin_inset Formula $\Gamma$
+\end_inset
+
+函数，在
+\begin_inset Formula $\nicefrac{d}{2}$
+\end_inset
+
+处的取值。
+\end_layout
+
+\begin_layout Standard
 也可以选择直接把 Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -920,7 +944,7 @@ Using
 \begin_inset Formula $z=0$
 \end_inset
 
-以及所以负整数处有奇点，
+以及所以负整数处有 simple poles，
 \end_layout
 
 \begin_layout Standard
@@ -980,7 +1004,127 @@ Using
 \end_layout
 
 \begin_layout Standard
+我们经常需要在
+\begin_inset Formula $z=0$
+\end_inset
+
+附近展开
+\begin_inset Formula $\Gamma(z)$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\Gamma(\epsilon)=\frac{1}{\epsilon}-\gamma_{E}+\mathcal{O}(\epsilon)+\cdots
+\]
+
+\end_inset
+
+其中，
+\begin_inset Formula $\gamma_{E}$
+\end_inset
+
+是 Euler-Maschroni constant, 
+\begin_inset Formula $\gamma_{E}\approx0.577$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+这个表达式可以由 
+\begin_inset Formula $\Gamma(z)$
+\end_inset
+
+ 函数的Weierstrass 定义推导出：
+\begin_inset Formula 
+\[
+\frac{1}{\Gamma(z)}=ze^{\gamma z}\prod_{k=1}^{\infty}\left(1+\frac{z}{k}\right)e^{-\frac{z}{k}}
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $z\to0$
+\end_inset
+
+时，
+\begin_inset Formula $\Gamma(z)$
+\end_inset
+
+在
+\begin_inset Formula $z=0$
+\end_inset
+
+处是单极点，
+\begin_inset Formula $\prod_{k=1}^{\infty}\left(1+\frac{z}{k}\right)e^{-\frac{z}{k}}=\prod_{k=1}^{\infty}e^{\frac{z}{k}}e^{-\frac{z}{k}}\to1$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\Gamma(\epsilon)=\frac{e^{\gamma\epsilon}}{\epsilon}=\frac{1}{\epsilon}(1+\gamma\epsilon+\frac{1}{2!}(\gamma\epsilon)^{2}+\frac{1}{3!}(\gamma\epsilon)^{3})
+\]
+
+\end_inset
+
+可以看到
+\begin_inset Formula $\Gamma(\epsilon)$
+\end_inset
+
+的洛朗展开中，
+\begin_inset Formula $\frac{1}{\epsilon}$
+\end_inset
+
+项的系数为
+\begin_inset Formula $1$
+\end_inset
+
+，
+\begin_inset Formula $\epsilon^{0}$
+\end_inset
+
+(常数项)的系数为
+\begin_inset Formula $\gamma$
+\end_inset
+
+，
+\begin_inset Formula $\epsilon^{1}$
+\end_inset
+
+的系数为
+\begin_inset Formula $\gamma^{2}/2$
+\end_inset
+
+，etc.
+\end_layout
+
+\begin_layout Standard
+利用以上这些关系，可以求解欧几里得空间的圈积分：
+\begin_inset Formula 
+\[
+\int_{0}^{\infty}\dif k_{E}\frac{k_{E}^{a}}{(k_{E}^{2}+\Delta)^{b}}=\beta()
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{k^{2a}}{(k^{2}-\Delta)^{b}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 补充：
+\end_layout
+
+\begin_layout Standard
+参考：
 \begin_inset CommandInset href
 LatexCommand href
 name "https://zhuanlan.zhihu.com/p/114041258"
@@ -1001,6 +1145,79 @@ literal "true"
 
 \end_inset
 
+第一个定义只有当
+\begin_inset Formula $\Re(z)>0$
+\end_inset
+
+才成立。下面这些可以看成是它的解析延拓，在
+\begin_inset Formula $\Re(z)>0$
+\end_inset
+
+时跟
+\begin_inset Formula $\int_{0}^{\infty}x^{z-1}e^{-x}\dif x$
+\end_inset
+
+相同，在
+\begin_inset Formula $\Re(z)<0$
+\end_inset
+
+解析连续，不连续点在
+\begin_inset Formula $-n$
+\end_inset
+
+处(负整数处)。见 fig.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:gamma1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename gamma1.pdf
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Gamma$
+\end_inset
+
+函数在复平面上的图像
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:gamma1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \begin_inset Formula 
 \[
@@ -1009,7 +1226,7 @@ literal "true"
 
 \end_inset
 
-
+Gamma的欧拉乘积形式：
 \begin_inset Formula 
 \[
 \Gamma(z)=\frac{1}{z}\prod_{k=1}^{\infty}\frac{\left(1+\frac{1}{k}\right)^{z}}{1+\frac{z}{k}}
@@ -1017,7 +1234,7 @@ literal "true"
 
 \end_inset
 
-
+Weierstrass 定义：
 \begin_inset Formula 
 \[
 \frac{1}{\Gamma(z)}=ze^{\gamma z}\prod_{k=1}^{\infty}\left(1+\frac{z}{k}\right)e^{-\frac{z}{k}}
