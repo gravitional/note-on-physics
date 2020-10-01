@@ -1102,21 +1102,350 @@ Using
 \begin_layout Standard
 利用以上这些关系，可以求解欧几里得空间的圈积分：
 \begin_inset Formula 
-\[
-\int_{0}^{\infty}\dif k_{E}\frac{k_{E}^{a}}{(k_{E}^{2}+\Delta)^{b}}=\beta()
-\]
+\begin{align*}
+\int_{0}^{\infty}\dif k_{E}\frac{k_{E}^{a}}{(k_{E}^{2}+\Delta)^{b}} & =\int_{0}^{\infty}\dif\Delta^{1/2}t\frac{\Delta^{a/2}t^{a}}{\Delta^{b}(t^{2}+1)^{b}}=\Delta^{\frac{a+1}{2}-b}\int_{0}^{\infty}\dif t\frac{t^{a}}{(t^{2}+1)^{b}}\\
+ & =\Delta^{\frac{a+1}{2}-b}\int_{0}^{\infty}\dif t\frac{t^{a}}{(t^{2}+1)^{b}}{\color{red}\text{ with }t=\tan kx,\dif t=\dif kx/\cos^{2}kx},k=\frac{\pi}{2}\\
+ & =\Delta^{\frac{a+1}{2}-b}\int_{0}^{1}\dif kx(\sin kx)^{a}(\cos kx)^{2b-2-a}\\
+ & =\frac{1}{2}\Delta^{\frac{a+1}{2}-b}\int_{0}^{1}\left(\dif\cos(kx)^{2}\right)(\sin kx)^{a-1}(\cos kx)^{2b-3-a}\\
+ & =\frac{1}{2}\Delta^{\frac{a+1}{2}-b}\int_{0}^{1}\left(\dif\cos(kx)^{2}\right)\left(1-\cos(kx)^{2}\right)^{(a-1)/2}(\cos kx)^{b-\frac{a+3}{2}}\\
+ & =\frac{1}{2}\Delta^{\frac{a+1}{2}-b}\beta(\frac{a+1}{2},b-\frac{a+1}{2})\\
+ & =\Delta^{\frac{a+1}{2}-b}\frac{\Gamma(\frac{a+1}{2})\Gamma(b-\frac{a+1}{2})}{2\Gamma(b)}
+\end{align*}
+
+\end_inset
+
+或者用多项式代换
+\begin_inset Formula 
+\begin{align*}
+ & \int_{0}^{\infty}\dif k_{E}\frac{k_{E}^{a}}{(k_{E}^{2}+\Delta)^{b}}=\Delta^{\frac{a+1}{2}-b}\int_{0}^{\infty}\dif t\frac{t^{a}}{(t^{2}+1)^{b}},\\
+ & \text{ with }x=\frac{1}{t^{2}+1},t=(1-x)^{1/2}x^{-1/2},\dif x=\frac{-2t\dif t}{(1+t^{2})^{2}}=-2(1-x)^{1/2}x^{3/2}\dif t\\
+ & =\Delta^{\frac{a+1}{2}-b}\frac{1}{2}\int_{0}^{1}\dif x(1-x)^{-1/2}x^{-3/2}(1-x)t^{a/2}x^{-a/2}x^{b}\\
+ & =\Delta^{\frac{a+1}{2}-b}\frac{1}{2}\int_{0}^{1}\dif t(1-x)^{(a-1)/2}x^{b-(a+3)/2}\\
+ & =\Delta^{\frac{a+1}{2}-b}\frac{\Gamma(\frac{a+1}{2})\Gamma(b-\frac{a+1}{2})}{2\Gamma(b)}
+\end{align*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+结合之前的
+\begin_inset Formula $\int_{-\infty}^{+\infty}\dif^{d}k=\int\dif\Omega_{d}\int k^{d-1}\dif k,\Omega_{d}=2\frac{\pi^{\nicefrac{d}{2}}}{\Gamma(\frac{d}{2})}$
+\end_inset
+
+，我们得到
+\begin_inset Formula 
+\begin{align*}
+\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{k^{2a}}{(k^{2}-\Delta)^{b}} & =i(-1)^{a-b}2\frac{\pi^{\nicefrac{d}{2}}}{\Gamma(\frac{d}{2})}\frac{1}{(2\pi)^{d}}\Delta^{\frac{2a+d}{2}-b}\frac{\Gamma(\frac{2a+d}{2})\Gamma(b-\frac{2a+d}{2})}{2\Gamma(b)}\\
+ & =i(-1)^{a-b}\frac{1}{(4\pi)^{d/2}}\frac{1}{\Delta^{b-a-\frac{d}{2}}}\frac{\Gamma(a+\frac{d}{2})\Gamma(b-a-\frac{d}{2})}{\Gamma(b)\Gamma(\frac{d}{2})}
+\end{align*}
+
+\end_inset
+
+经常用到的特殊情况如下：
+\begin_inset Formula 
+\begin{align*}
+\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{(k^{2}-\Delta+i\epsilon)^{2}} & =\frac{i}{(4\pi)^{d/2}}\frac{1}{\Delta^{2-\frac{d}{2}}}\Gamma(\frac{4-d}{2})\\
+\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{k^{2}}{(k^{2}-\Delta+i\epsilon)^{2}} & =-\frac{d}{2}\frac{i}{(4\pi)^{d/2}}\frac{1}{\Delta^{1-\frac{d}{2}}}\Gamma(\frac{2-d}{2})\\
+\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{k^{2}}{(k^{2}-\Delta+i\epsilon)^{3}} & =\frac{d}{4}\frac{i}{(4\pi)^{d/2}}\frac{1}{\Delta^{2-\frac{d}{2}}}\Gamma(\frac{4-d}{2})\\
+\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{(k^{2}-\Delta+i\epsilon)^{3}} & =\frac{-i}{2(4\pi)^{d/2}}\frac{1}{\Delta^{3-\frac{d}{2}}}\Gamma(\frac{6-d}{2})
+\end{align*}
+
+\end_inset
+
+最后一个积分对于
+\begin_inset Formula $d=4$
+\end_inset
+
+是收敛的；然而，
+\begin_inset Formula $d$
+\end_inset
+
+–维形式对于带有 IR 发散的圈积分是很重要的（见 chapter 20）.
+\end_layout
+
+\begin_layout Standard
+所有采用维数正规化的发散积分都在
+\begin_inset Formula $d=4$
+\end_inset
+
+有极点。所以，我们经常按
+\begin_inset Formula $d=4-\epsilon$
+\end_inset
+
+展开，然后把丢掉 
+\begin_inset Formula $\mathcal{O}(\epsilon)$
+\end_inset
+
+项。另一个常用的约定是
+\begin_inset Formula $d=4-\epsilon$
+\end_inset
+
+。如果您与其他人的结果相差
+\begin_inset Formula $2$
+\end_inset
+
+倍，请检查约定！
+\end_layout
+
+\begin_layout Subsection
+场的量纲
+\end_layout
+
+\begin_layout Standard
+接下来，我们计算 Lagrangian 中场和耦合常数的量纲。action应该是无量纲的，所以 Lagrangian 的量纲为
+\begin_inset Formula $d$
+\end_inset
+
+(
+\begin_inset Formula $M^{d}$
+\end_inset
+
+)。比如，在QED中，the Lagrangian is 
 \begin_inset Formula 
 \[
-\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{k^{2a}}{(k^{2}-\Delta)^{b}}
+\mathcal{L}_{\text{QED}}=-\frac{1}{4}\left(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\right)^{2}+\bar{\psi}\left(i\gamma^{\mu}\partial_{\mu}-m\right)\psi-e\bar{\psi}\gamma^{\mu}\psi A_{\mu}
 \]
 
 \end_inset
 
+这暗示了各个场的量纲
+\begin_inset Formula 
+\[
+[A_{\nu}]=\frac{d-2}{2}.[\psi]=\frac{d-1}{2},[m]=1
+\]
 
+\end_inset
+
+and also 
+\begin_inset Formula $[e]=\frac{d-2}{4}$
+\end_inset
+
+。然而，比起耦合常数带量纲，一般会选取
+\begin_inset Formula 
+\begin{equation}
+e\to\mu^{\frac{4-d}{2}}e\label{eq:b.42}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\mu$
+\end_inset
+
+是质量量纲为
+\begin_inset Formula $1$
+\end_inset
+
+的任意参数。我们保持
+\begin_inset Formula $e$
+\end_inset
+
+是无量纲的。
+\end_layout
+
+\begin_layout Standard
+一般只有当
+\begin_inset Formula $e$
+\end_inset
+
+（或者其他耦合常数）进入圈积分中时，才考虑把
+\begin_inset Formula $e$
+\end_inset
+
+替换
+\begin_inset Formula $e\to\mu^{\frac{4-d}{2}}e$
+\end_inset
+
+。如果圈图不是单粒子不可约图，可能会有其他的
+\begin_inset Formula $e$
+\end_inset
+
+，不过 把它们留到四维一般会更简单。这仅仅是一种约定。如果把所有
+\begin_inset Formula $e$
+\end_inset
+
+因子都作变换 eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:b.42"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，答案还是对的。但是在
+\begin_inset Formula $d=4$
+\end_inset
+
+附近展开时，会包含冗杂的能标的对数。当然，这些冗杂的系数在最终的物理量中会消失，不过，也可以在中间过程中就避免掉，也就是我们只对跟圈有关的耦合常数才加上
+\begin_inset Formula $\mu$
+\end_inset
+
+因子。
+\end_layout
+
+\begin_layout Standard
+eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:b.42"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的
+\begin_inset Formula $\mu$
+\end_inset
+
+因子把圈积分修改成
+\begin_inset Formula 
+\[
+\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{e^{2}}{(k^{2}-\Delta+i\epsilon)^{2}}\to\mu^{4-d}\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{e^{2}}{(k^{2}-\Delta+i\varepsilon)^{2}}
+\]
+
+\end_inset
+
+记住
+\begin_inset Formula $\mu$
+\end_inset
+
+不是一个 large sacle。它不是一个 UV cutoff。量纲正规化是通过
+\begin_inset Formula $d\to4$
+\end_inset
+
+去掉的，而不是通过
+\begin_inset Formula $\mu\to\infty$
+\end_inset
+
+去掉的。因此，
+\begin_inset Formula $\mu$
+\end_inset
+
+不像 Pauli-Villars mass 
+\begin_inset Formula $M$
+\end_inset
+
+ or a generic UV scale 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+。实际上，我们经常将
+\begin_inset Formula $\mu$
+\end_inset
+
+用作与重正化群相关的物理红外能标的 proxy。 不过，在维数正规化中有两个非物理参数，
+\begin_inset Formula $\epsilon$
+\end_inset
+
+和
+\begin_inset Formula $\mu$
+\end_inset
+
+；两者都必须退出物理预测。
+\end_layout
+
+\begin_layout Standard
+包括这个
+\begin_inset Formula $\mu$
+\end_inset
+
+因子，积分的对数发散可以写成
+\begin_inset Formula 
+\[
+\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{e^{2}}{(k^{2}-\Delta+i\varepsilon)^{2}}\to\mu^{4-d}\frac{ie^{2}}{(4\pi)^{d/2}}\Gamma(\frac{4-d}{2})(\frac{1}{\Delta})^{2-\frac{d}{2}}
+\]
+
+\end_inset
+
+现在让
+\begin_inset Formula $d=4-\varepsilon$
+\end_inset
+
+，之前得到
+\begin_inset Formula $\Gamma(\epsilon)=\frac{1}{\epsilon}-\gamma_{E}+\mathcal{O}(\epsilon)+\cdots$
+\end_inset
+
+，
+\begin_inset Formula $a^{\varepsilon}=e^{\varepsilon\ln a}=1+\varepsilon\ln a$
+\end_inset
+
+我们绕
+\begin_inset Formula $\varepsilon=0$
+\end_inset
+
+展开得到：
+\begin_inset Formula 
+\begin{align*}
+ & \mu^{4-d}\frac{ie^{2}}{(4\pi)^{d/2}}\Gamma(\frac{4-d}{2})(\frac{1}{\Delta})^{2-\frac{d}{2}}\Rightarrow\\
+ & \frac{ie^{2}}{16\pi^{2}}(1+\varepsilon\ln\mu)(1+\frac{\varepsilon}{2}\ln4\pi)(\frac{2}{\varepsilon}-\gamma_{E})(1-\frac{\varepsilon}{2}\ln\Delta)\\
+ & =\frac{ie^{2}}{16\pi^{2}}\left[\frac{2}{\varepsilon}+(-\gamma_{E}+\ln4\pi+\ln\mu^{2}-\ln\Delta)+\mathcal{O}(\varepsilon)\right]\\
+ & =\frac{ie^{2}}{16\pi^{2}}\left[\frac{2}{\varepsilon}+\ln\frac{4\pi e^{-\gamma_{E}}\mu^{2}}{\Delta}+\mathcal{O}(\varepsilon)\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\gamma_{E}$
+\end_inset
+
+来自于积分
+\begin_inset Formula $\int\frac{\dif^{d}k}{k^{4}}$
+\end_inset
+
+，
+\begin_inset Formula $4\pi$
+\end_inset
+
+来自于相空间
+\begin_inset Formula $\frac{1}{(2\pi)^{d}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ 来自于
+\begin_inset Formula $\mu^{4-d}$
+\end_inset
+
+。这个组合，
+\begin_inset Formula $4\pi e^{-\gamma_{E}}\mu^{2}$
+\end_inset
+
+经常出现，可以单独命名一个符号来简记
+\begin_inset Formula 
+\[
+\tilde{\mu}^{2}\equiv4\pi e^{-\gamma_{E}}\mu^{2}
+\]
+
+\end_inset
+
+从而可以把上面的表达式缩写为
+\begin_inset Formula 
+\[
+\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{e^{2}}{(k^{2}-\Delta+i\varepsilon)^{2}}\to\frac{ie^{2}}{16\pi^{2}}\left[\frac{2}{\varepsilon}+\ln\frac{\tilde{\mu}^{2}}{\Delta}+\mathcal{O}(\varepsilon)\right]
+\]
+
+\end_inset
+
+有的时候，我们干脆直接把
+\begin_inset Formula $\tilde{\mu}$
+\end_inset
+
+写成
+\begin_inset Formula $\mu$
+\end_inset
+
+。注意当
+\begin_inset Formula $\varepsilon\to0$
+\end_inset
+
+的时候，这个表达式仍会发散。
 \end_layout
 
 \begin_layout Section
@@ -1201,7 +1530,7 @@ status open
 \begin_inset Formula $\Gamma$
 \end_inset
 
-函数在复平面上的图像
+函数的绝对值在复平面上的图像
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:gamma1"
@@ -1221,7 +1550,7 @@ name "fig:gamma1"
 
 \begin_inset Formula 
 \[
-\Gamma(z)=\lim_{n\to\infty}\frac{n^{z}n!}{z(z+1)(z+2)\cdots z(+n)}
+\Gamma(z)=\lim_{n\to\infty}\frac{n^{z}n!}{z(z+1)(z+2)\cdots(z+n)}
 \]
 
 \end_inset
@@ -1262,7 +1591,7 @@ Weierstrass 定义：
 Digamma 函数
 \begin_inset Formula 
 \begin{align*}
-\psi(z) & =\frac{\Gamma^{\prime}(z)}{\Gamma(z)}=-\gamma+\sum_{n=0}^{\infty}\left(\frac{1}{n+1}-\frac{1}{n+z}\right)\\
+\psi(z) & =\frac{\Gamma^{\prime}(z)}{\Gamma(z)}=-\gamma+\sum_{k=0}^{\infty}\left(\frac{1}{n+1}-\frac{1}{n+z}\right)\\
 \psi(1) & =-\gamma
 \end{align*}
 
@@ -1282,6 +1611,69 @@ Digamma函数的积分表达式
 \begin{align*}
 \psi(z) & =\frac{\Gamma^{\prime}(z)}{\Gamma(z)}=-\gamma+\int_{0}^{1}\frac{1-x^{z-1}}{1-x}\dif x
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+反函数
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+，
+\begin_inset Formula $f$
+\end_inset
+
+是一一对应，有反函数
+\begin_inset Formula $x=g(y)$
+\end_inset
+
+。对于一组
+\begin_inset Formula $(x,y)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x=g(y)=g(f(x))
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\begin{align*}
+\dif x & =g^{\prime}(y)f^{\prime}(x)\dif x\\
+g^{\prime}(y)f^{\prime}(x) & =1\\
+g^{\prime}(y) & =\frac{1}{f^{\prime}(x)}\\
+g^{\prime}(y) & =\frac{1}{f^{\prime}(g(y))}
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula $\tan^{\prime}(x)=1/\cos(x)^{2}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\arctan^{\prime}(x)=\frac{1}{1/\cos(\arctan(x))^{2}}=\cos(\arctan(x))^{2}=1-x^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int_{0}^{x}\frac{1}{1-t^{2}}=\arctan(x)
+\]
 
 \end_inset
 
