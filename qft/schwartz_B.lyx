@@ -1448,6 +1448,178 @@ noprefix "false"
 的时候，这个表达式仍会发散。
 \end_layout
 
+\begin_layout Standard
+维数正规化刻画了积分在高能量时候的发散程度，通过正规化结果的解析性质，而不是 cutoff scale 的幂次。比如，积分
+\begin_inset Formula $\int\frac{\dif^{4}k}{(k^{2}-\Delta)^{2}}\sim\Gamma(\frac{4-d}{2})$
+\end_inset
+
+在
+\begin_inset Formula $d=4$
+\end_inset
+
+ 有一个简单的极点，在
+\begin_inset Formula $d<4$
+\end_inset
+
+的时候没有额外的 poles.
+ 一个二次发散的积分，比如
+\begin_inset Formula $\int\frac{\dif^{4}k}{k^{2}-\Delta}$
+\end_inset
+
+，在
+\begin_inset Formula $d$
+\end_inset
+
+维空间对应的是
+\begin_inset Formula $\int\frac{\dif^{4}k}{(k^{2}-\Delta)}\sim\Gamma(\frac{2-d}{2})$
+\end_inset
+
+.将结果在
+\begin_inset Formula $d=4$
+\end_inset
+
+附近展开给出一个
+\begin_inset Formula $\frac{1}{\epsilon}$
+\end_inset
+
+ pole，跟对数发散的积分一样。但是，这不意味着维数正规化中没有高次幂发散。它们被隐藏起来了，在
+\begin_inset Formula $d<4$
+\end_inset
+
+的整数维度下。比如，平方发散变成了
+\begin_inset Formula $\Gamma(\frac{2-d}{2})$
+\end_inset
+
+ at 
+\begin_inset Formula $d=2$
+\end_inset
+
+ 时候的 pole。因此，维数正规化将发散的程度转化成在
+\begin_inset Formula $d$
+\end_inset
+
+维中振幅的奇异性结构（singularity structure of amplitudes）。
+\end_layout
+
+\begin_layout Standard
+维数正规化也可以用来正规化 IR-发散的积分。比如，
+\begin_inset Formula $\int\frac{\dif^{4}k}{(k^{2}-m^{2})k^{4}}$
+\end_inset
+
+ 是 IR 发散的，当
+\begin_inset Formula $d<4$
+\end_inset
+
+。我们可以在
+\begin_inset Formula $d=4-\varepsilon$
+\end_inset
+
+维中求解这个积分 with 
+\begin_inset Formula $\varepsilon<0$
+\end_inset
+
+ instead of 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+。维数正规化作为 IR 正规子的一个良好特性是，它在 virtual graphs and phase space integrals 中都能用。
+\end_layout
+
+\begin_layout Standard
+有时候在使用维数正规化的时候，我们会遇到即 UV 又 IR 发散的积分；比如，无标度积分
+\begin_inset Formula 
+\[
+\int\frac{\dif^{d}k}{k^{4}}\sim i(-1)^{2}\int_{-\infty}^{\infty}\frac{\dif^{d}k_{E}}{k_{E}^{4}}=\frac{i}{(4\pi)^{d/2}}\frac{1}{\varepsilon_{\text{IR}}^{2-\frac{d}{2}}}\Gamma(\frac{4-d}{2})
+\]
+
+\end_inset
+
+这个积分对任意
+\begin_inset Formula $d$
+\end_inset
+
+都不收敛。然而，计算这样的积分也是有用的。为了能继续下去，我们引入一个任意的能标来把欧几里得空间的 UV and IR 能区分开：
+\begin_inset Formula 
+\begin{align*}
+\int_{-\infty}^{\infty}\frac{\dif^{d}k_{E}}{k_{E}^{4}} & =\Omega_{d}\int_{0}^{\Lambda}\dif k_{E}k_{E}^{d-5}+\Omega_{d}\int_{\Lambda}^{\infty}\dif k_{E}k_{E}^{d-5}\\
+ & ={\color{red}\Omega_{d}\left(\ln(\infty)-\ln(\epsilon)\right)=\Omega_{d}\left(\ln(\infty/\epsilon)\right)}\\
+ & =\Omega_{d}\left(\frac{\Lambda^{-\varepsilon_{\text{IR}}}}{-\varepsilon_{\text{IR}}}-\frac{0^{-\varepsilon_{\text{IR}}}}{-\varepsilon_{\text{IR}}}\right)+\Omega_{d}\left(\frac{\Lambda^{-\varepsilon_{\text{UV}}}}{\varepsilon_{\text{UV}}}-\frac{\infty^{-\varepsilon_{\text{UV}}}}{\varepsilon_{\text{UV}}}\right)\\
+ & =\Omega_{d}\left(\ln\Lambda-\frac{1}{\varepsilon_{\text{IR}}}\right)+\Omega_{d}\left(\frac{1}{\varepsilon_{\text{UV}}}-\ln\Lambda\right)
+\end{align*}
+
+\end_inset
+
+其中对于第一个积分，我们令
+\begin_inset Formula $d=4-\varepsilon_{\text{IR}}$
+\end_inset
+
+，并假设
+\begin_inset Formula $\varepsilon_{\text{IR}}<0$
+\end_inset
+
+，and 对于第二个积分，令
+\begin_inset Formula $d=4-\varepsilon_{\text{UV}}$
+\end_inset
+
+ ,
+\begin_inset Formula $\varepsilon_{\text{UV}}>0$
+\end_inset
+
+。因为我们知道
+\begin_inset Formula $\varepsilon_{\text{IR}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon_{\text{UV}}$
+\end_inset
+
+必须从物理量中消失，所以不必对每个无标度积分进行此拆分，而是通常只需要设置
+\begin_inset Formula $\varepsilon_{\text{IR}}=\varepsilon_{\text{UV}}=\epsilon$
+\end_inset
+
+即可。 完成此操作后，积分就是
+\begin_inset Formula $0$
+\end_inset
+
+。 一个更简单的理由是，积分中不存在含有质量量纲的量，所以无标度积分如
+\begin_inset Formula $\int\frac{\dif^{d}k}{k^{4}}$
+\end_inset
+
+在
+\begin_inset Formula $d$
+\end_inset
+
+维中必须为零。
+\end_layout
+
+\begin_layout Standard
+通常我们只对积分UV发散的部分感兴趣，无标度积分中的UV发散部分为
+\begin_inset Formula 
+\[
+\left[\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{k^{4}}\right]_{\text{UV-div}}=i\frac{\Omega_{d}}{(2\pi)^{d}}\frac{1}{\varepsilon_{\text{UV}}}=i\frac{2}{(2\pi)^{d}}\frac{\pi^{d/2}}{\Gamma(d/2)}\frac{1}{\varepsilon_{\text{UV}}}=\frac{i}{8\pi^{2}}\frac{1}{\varepsilon_{\text{UV}}}
+\]
+
+\end_inset
+
+这个捷径对于提取 UV 发散很有用。
+\end_layout
+
+\begin_layout Standard
+补充：
+\begin_inset Formula $\ln(z)$
+\end_inset
+
+ 在
+\begin_inset Formula $z=0$
+\end_inset
+
+处有奇点，但是由于奇点不是孤立的（ branch cut，在竖直方向穿越实轴的时候，会发生
+\begin_inset Formula $\pm2\pi$
+\end_inset
+
+的变化，一阶导数无穷大，相比于奇点的零阶导数无穷大），所以即不能被分类成 pole, 也不能被分类成 essential singularity.
+\end_layout
+
 \begin_layout Section
 补充：
 \end_layout
