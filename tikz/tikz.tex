@@ -26,24 +26,30 @@ See the following reference p. 58-63 \S 189 to 202
     url       = {http://books.google.ca/books?id=DDYGAQAAIAAJ}
   }
 \end{comment}
+
 \begin{document}
 \begin{tikzpicture}[font=\LARGE] 
 
-    \begin{feynman}
-
-        \vertex (a1) {\(p\)};
-        \vertex[right=2cm of a1] (a2);
-        \vertex[right=4cm of a2] (a3);
-        \vertex[right=2cm of a3] (a4) {\(p\)};
-
-        \diagram* {
-        {
-            [edges=fermion]
-        (a1) -- (a2) -- (a3) -- (a4),
-        },
-        (a2) -- [ edge label=\(\pi^+\),half left,charged scalar] (a3),
-        };
-    \end{feynman}
+\coordinate [label=left:a](a) at (0,0);
+\node[draw,circle,label=right:b] (b) at (6,4){};
+\draw (a) to (b);
+\draw (a) to [out=90, in=90] (b);
+\draw (a) to [bend right=60] (b);
 
 \end{tikzpicture}
 \end{document}
+
+\coordinate [label=left:{$a$}](a) at (0,0);
+\draw (a) circle (0.5);
+\node[inner color=white, outer color=orange,inner sep=0.5cm] (b) at (5,2){$b$};
+\draw (a)--(b);
+\draw (a) controls (1,3) and (5,5)--(b);
+\draw (a) -| (b);
+\draw (a)|- (b);
+
+\coordinate [label=left:a](a) at (0,0);
+\node[draw,circle,label=right:b] (b) at (6,4);
+(a)to(b),
+(a)to [out=90, in=90]b,
+(a) to [bend right=60]b,
+

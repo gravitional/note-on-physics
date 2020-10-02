@@ -180,3 +180,13 @@ TikZ提供了图的支持,通过类似于`dot`语言的方式来生成图关系
 ```
 
 [各种更样的示例](http://www.texample.net/tikz/examples/)
+
+```latex
+\coordinate [label=left:{$a$}](a) at (0,0);
+\draw (a) circle (0.5);
+\node[inner color=white, outer color=orange,inner sep=0.5cm] (b) at (5,2){$b$};
+\draw (a)--(b);
+\draw (a) .. controls (1,3) and (5,5) .. (b);
+\draw (a) -| (b);
+\draw (a)|- (b);
+```

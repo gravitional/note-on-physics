@@ -1,0 +1,1552 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+\usepackage{tikz}
+\usepackage{tikz-feynman}
+% This package makes it easy to add some picture commands to every page at ab-solute positions
+\usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
+\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+
+\usepackage{amsmath,amssymb,amsfonts} % 数学字体
+\usepackage{mathrsfs} % 提供了mathscr 命令
+% Required for specifying colors by name 
+\usepackage{enumerate} 
+
+\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm,bbm} 
+\usepackage{simplewick} 
+\usepackage{makeidx} 
+\usepackage{multirow}
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr}
+%\DeclareMathOperator{\re}{Re}
+%\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\res}{Res}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+系统的重正化
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Section
+紫外发散的计数
+\end_layout
+
+\begin_layout Standard
+可以用以下的量来刻画一个 QED 费曼图：
+\begin_inset Formula 
+\begin{align*}
+N_{e} & =\text{电子外线的数目}\\
+N_{\gamma} & =\text{光子外线的数目}\\
+P_{e} & =\text{电子传播子的数目}\\
+P_{\gamma} & =\text{光子传播子的数目}\\
+V & =\text{顶点的数目}\\
+L & =\text{圈的数目}
+\end{align*}
+
+\end_inset
+
+我们可以定义一个费曼图的表观发散度，大概等于分子中动量
+\begin_inset Formula $k$
+\end_inset
+
+的幂次减去分母中动量的幂次，也就是积分的幂次。
+\begin_inset Formula 
+\begin{align*}
+D & \equiv(\text{power of \ensuremath{k} in numerator}-\text{power of \ensuremath{k} in denominator})\\
+ & =4L-P_{e}-2P_{\gamma}
+\end{align*}
+
+\end_inset
+
+之所以称为表观是因为，当考虑对称性（如 Ward identity ）的时候，也许发散的没有那么厉害。当图形包含有发散的子图时，发散程度可能加剧。
+ 
+\end_layout
+
+\begin_layout Standard
+考虑 QED 的拓扑，圈的数目为
+\begin_inset Formula 
+\[
+L=P_{e}+P_{\gamma}-V+1
+\]
+
+\end_inset
+
+每一个传播子有一个动量积分，每一个顶点有一个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数，其中一个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数只是意味着整体的动量守恒。此外，顶点的数目为
+\begin_inset Formula 
+\[
+V=2P_{\gamma}+N_{\gamma}=\frac{1}{2}(2P_{e}+N_{e})
+\]
+
+\end_inset
+
+由于每个顶点包含一条光子线和两条电子线（传播子包含两个顶点）。代入这些关系，得到：
+\begin_inset Formula 
+\begin{align*}
+D & =4(P_{e}+P_{\gamma}-V+1)-P_{e}-2P_{\gamma}\\
+D & =4-N_{\gamma}-\frac{3}{2}N_{e}
+\end{align*}
+
+\end_inset
+
+跟顶点数目无关。 
+\begin_inset Formula $4$
+\end_inset
+
+维QED 的表观发散度只依赖于不同类型外腿的数目。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted10.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+QED 中的一些图。第一个图是有限的，尽管
+\begin_inset Formula $D=0$
+\end_inset
+
+。第三个图是对数发散的，尽管
+\begin_inset Formula $D=2$
+\end_inset
+
+，由于 Ward identity。第四个图是发散的，尽管
+\begin_inset Formula $D<0$
+\end_inset
+
+，因为它 包括发散的子图。只有第二个和第五个图表观发散度和真实发散度一致。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+根据
+\begin_inset Formula $D=4-N_{\gamma}-\frac{3}{2}N_{e}$
+\end_inset
+
+，只有外腿少的图，可能会有发散。QED 中可能发散的图画在下面。由于外腿并不会进入积分的发散中，所以我们限制我们地讨论在 截腿的（amputated）图。由于可
+约图是不可约图的乘积，我们同时限制在单粒子不可约图中。最终我们分析 fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fig10.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中截腿的单粒子不可约图就可以了。其他图只有当包含这些子图的时候，才会是发散的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted11.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fig10.2"
+
+\end_inset
+
+ QED 振幅中的7钟表观发散度大于零的基本图。圆形代表所有可能图的求和。
+\begin_inset Formula $a$
+\end_inset
+
+ 与散射无关，
+\begin_inset Formula $b,d$
+\end_inset
+
+ 由于对称性消失。
+\begin_inset Formula $e$
+\end_inset
+
+是非零的，但是由于 Ward identity，发散部分互相约掉。剩下的 
+\begin_inset Formula $c,f,g$
+\end_inset
+
+都是对数发散的，尽管对于
+\begin_inset Formula $c,f$
+\end_inset
+
+，
+\begin_inset Formula $D>0$
+\end_inset
+
+ 。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fig10.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中，
+\begin_inset Formula $a$
+\end_inset
+
+发散程度很高，但是只造成真空能量的平移，对
+\begin_inset Formula $S$
+\end_inset
+
+矩阵元没有贡献。具有奇数条外腿的图，由于电荷共轭对称性，贡献为零。
+\begin_inset Formula $Cj^{\mu}(x)C^{\dagger}=-j^{\mu}(x)$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\bra{\Omega}Tj^{\mu}(x)\ket{\text{\ensuremath{\Omega}}}=\bra{\Omega}C^{\dagger}CTj^{\mu}(x)C^{\dagger}C\ket{\text{\ensuremath{\Omega}}}=-\bra{\Omega}Tj^{\mu}(x)\ket{\text{\ensuremath{\Omega}}}=0
+\]
+
+\end_inset
+
+其他的图，可以用量纲分析推测发散性质。
+\end_layout
+
+\begin_layout Standard
+比如
+\begin_inset Formula $f$
+\end_inset
+
+图，电子自能修正，它是电子动量
+\begin_inset Formula $p$
+\end_inset
+
+的函数，让我们在
+\begin_inset Formula $p=0$
+\end_inset
+
+做泰勒展开：
+\begin_inset Formula 
+\[
+\text{电子自能修正}\text{图}=A_{0}+A_{1}\slashed{p}+A_{2}\slashed{p}^{2}+c\dots
+\]
+
+\end_inset
+
+其中系数跟
+\begin_inset Formula $p$
+\end_inset
+
+无关：
+\begin_inset Formula 
+\[
+A_{n}=\left.\frac{1}{n!}\frac{\dif^{n}}{\dif\slashed{p}^{n}}(\text{电子自能修正图})\right\vert_{\slashed{p}=0}
+\]
+
+\end_inset
+
+这些系数是红外发散的，为了计算它们，我们需要一个红外正规子。我们知道电子全传播子大概是
+\begin_inset Formula $\frac{1}{\slashed{p}-m}$
+\end_inset
+
+这种形式，对它微分，得到各阶贡献
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif\slashed{p}}\left(\frac{1}{\slashed{k}+\slashed{p}-m}\right)=-\frac{1}{(\slashed{k}+\slashed{p}-m)^{2}}
+\]
+
+\end_inset
+
+每次求导，发散程度都会降低。根据表观发散度，
+\begin_inset Formula $A_{0}$
+\end_inset
+
+是线性发散，
+\begin_inset Formula $A_{1}$
+\end_inset
+
+只能是对数发散，其他阶为有限项。
+\end_layout
+
+\begin_layout Standard
+电子自能还有一个 subtlety。由于如果电子质量为零，左右手旋量场脱耦，那么它们就没有关系了，不管考虑到多少阶，圈图修正也不能让他们重新耦合。所以圈图修正在
+\begin_inset Formula $m\to0$
+\end_inset
+
+的时候消失。
+\begin_inset Formula $m=0$
+\end_inset
+
+时候的手征对称性静止质量修正。也就是常数项正比于
+\begin_inset Formula $m$
+\end_inset
+
+。所以自能修正的形式为
+\begin_inset Formula 
+\[
+\text{电子自能修正图}=a_{0}m\log\Lambda+a_{1}\slashed{p}\log\Lambda+(\text{finite terms})
+\]
+
+\end_inset
+
+正是 eq.(7.19) 中的形式。
+\end_layout
+
+\begin_layout Standard
+可以对电子–光子顶点进行类似地分析（假设红外发散被正规化）。由于求导让发散度减
+\begin_inset Formula $1$
+\end_inset
+
+，所以只有常数项是发散的。这个振幅只包含一个发散的常数：
+\begin_inset Formula 
+\[
+\text{顶角修正图}\propto-ie\gamma^{\mu}\log\Lambda+(\text{finite terms})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如同在 section 7.5 讨论的，光子自能 (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fig10.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+c)被 Ward identity 限制形式为：
+\begin_inset Formula 
+\[
+\text{光子自能图}\propto(g^{\mu\nu}q^{2}-q^{\mu}q^{\nu})\Pi(q^{2})+(\text{finite terms})
+\]
+
+\end_inset
+
+把它看成泰勒展开，我们发现常数项和线性项都消失了，表观发散度从
+\begin_inset Formula $2$
+\end_inset
+
+降到
+\begin_inset Formula $0$
+\end_inset
+
+。所以唯一的发散在
+\begin_inset Formula $\Pi(q^{2})$
+\end_inset
+
+的常数项中，为对数发散。这个分析和 eq.(7.90)中的最低阶结果相符。
+\end_layout
+
+\begin_layout Standard
+最后考虑光子–光子散射 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fig10.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+e。 Ward identity 要求振幅与任何一个光子外动量收缩为零
+\begin_inset Formula 
+\[
+k^{\mu}\text{光子--光子散射}(\mu\nu\rho\sigma)=0
+\]
+
+\end_inset
+
+所以振幅中含有四个类似于
+\begin_inset Formula $(g^{\mu\nu}k^{\sigma}-g^{\mu\sigma}k^{\nu})$
+\end_inset
+
+的项。所以展开式是从动量的四次方开始的。第一个非零项的
+\begin_inset Formula $D=0-4=-4$
+\end_inset
+
+，因此振幅是有限的。
+\end_layout
+
+\begin_layout Standard
+总而言之，我们发现QED中只有三个``原始''的发散振幅：我们已经在第6章和第7章中找到了第三个振幅。（其他振幅也可能是发散的，但仅仅是因为图中包含这些原始振幅
+成分）。此外，这些发散的振幅对外动量的依赖非常简单。如果我们将每个振幅按照外动量的幂级数展开，这些展开中总共只有四个发散系数。换句话说，QED仅包含四个发散的数
+。在下一节中，我们将看到如何将这些数字吸收到不可观测的拉格朗日参数中，以便可观测的散射振幅始终是有限的。
+\end_layout
+
+\begin_layout Standard
+在
+\begin_inset Formula $d$
+\end_inset
+
+维空间中，表观发散度为
+\begin_inset Formula 
+\begin{align*}
+D & \equiv dL-P_{e}-2P_{\gamma}
+\end{align*}
+
+\end_inset
+
+考虑拓扑关系，同样有
+\begin_inset Formula 
+\[
+D=d+\left(\frac{d-4}{2}\right)V-\left(\frac{d-2}{2}\right)N_{\gamma}-\left(\frac{d-1}{2}\right)N_{e}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $d=4$
+\end_inset
+
+情况的cancellation是很特殊的。当
+\begin_inset Formula $d<4$
+\end_inset
+
+时，顶点越多，发散度越低，所以发散图的总数是有限的。当
+\begin_inset Formula $d>4$
+\end_inset
+
+时，顶点越多，发散程度越高，所以在微扰论足够高的阶，每个振幅都发散。可以把量子场论的紫外行为分成三类：
+\end_layout
+
+\begin_layout Enumerate
+超可重正理论：只有有限个数目的费曼图表观发散
+\end_layout
+
+\begin_layout Enumerate
+可重正理论：只有有限个振幅表观发散；但是在微扰论的所有阶都存在发散。
+\end_layout
+
+\begin_layout Enumerate
+不可重正化理论：在微扰论足够高的阶，所有的振幅都发散。
+\end_layout
+
+\begin_layout Standard
+使用这个术语，我们说 QED 是可重正理论。In section10.4 会说明，表观可重正理论的发散总是可以吸收到 Lagrangian 的参数中。
+\end_layout
+
+\begin_layout Standard
+另一个计算紫外发散度的例子可以见于下面的拉氏量
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}\left(\partial_{\mu}\phi\right)^{2}-\frac{1}{2}m^{2}\phi^{2}-\frac{\lambda}{n!}\phi^{n}
+\]
+
+\end_inset
+
+做一个量纲分析，可以发现
+\begin_inset Formula 
+\[
+d-N(\frac{d-2}{2})=V\left[d-n(\frac{d-2}{2})\right]+D
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $N$
+\end_inset
+
+是外线的数目，
+\begin_inset Formula $V$
+\end_inset
+
+是顶点的数目。注意到
+\begin_inset Formula $V$
+\end_inset
+
+前面的恰好是耦合常数
+\begin_inset Formula $\lambda$
+\end_inset
+
+的量纲。这个分析对于 QED 或者其他场论也适用。所以可重正性也可以这么刻画：
+\end_layout
+
+\begin_layout Enumerate
+超可重正理论：耦合常数带有正质量量纲。
+\end_layout
+
+\begin_layout Enumerate
+可重正理论：耦合常数量纲为零。
+\end_layout
+
+\begin_layout Enumerate
+不可重正化理论：耦合常数带有负质量量纲。
+\end_layout
+
+\begin_layout Standard
+QED 的耦合常数
+\begin_inset Formula $e$
+\end_inset
+
+是无量纲的，因此 QED 是可重正理论。
+\end_layout
+
+\begin_layout Section
+重正化的微扰理论
+\end_layout
+
+\begin_layout Standard
+可重正化的量子场论包含很少的表观发散振幅。在QED中，只有三个发散的振幅，包括四个无限大常数。在 Chapter 6 and 7中，我们看到顶点修正和电子场强重
+正化约掉，真空极化中的无穷大只导致了电子电荷的不可观测平移。事实上，可重正化量子场论的发散永远不会出现在可观测量中。
+\end_layout
+
+\begin_layout Standard
+为了获得涉及发散图的振幅的有限结果，到目前为止，我们已使用以下过程：使用正规子计算费曼图得到获取表达式，它依赖于裸质量（
+\begin_inset Formula $m_{0}$
+\end_inset
+
+），裸耦合常数（
+\begin_inset Formula $e_{0}$
+\end_inset
+
+）和一些紫外截断（
+\begin_inset Formula $\Lambda$
+\end_inset
+
+）。然后计算物理质量（
+\begin_inset Formula $m$
+\end_inset
+
+）和物理耦合常数（
+\begin_inset Formula $e$
+\end_inset
+
+），至于算到哪一阶跟别的计算一致；这些量也将取决于
+\begin_inset Formula $m_{0}$
+\end_inset
+
+，
+\begin_inset Formula $e_{0}$
+\end_inset
+
+和
+\begin_inset Formula $\Lambda$
+\end_inset
+
+。为了计算
+\begin_inset Formula $S$
+\end_inset
+
+矩阵元（而不是关联函数），还必须计算场强重正化
+\begin_inset Formula $Z$
+\end_inset
+
+（根据等式（7.45）LSZ公式）。结合所有这些表达式，消除
+\begin_inset Formula $m_{0}$
+\end_inset
+
+和
+\begin_inset Formula $e_{0}$
+\end_inset
+
+，代之以
+\begin_inset Formula $m$
+\end_inset
+
+和
+\begin_inset Formula $e$
+\end_inset
+
+；这一步是``重正化''。振幅的表达式应在
+\begin_inset Formula $\Lambda\to\infty$
+\end_inset
+
+时有限。
+\end_layout
+
+\begin_layout Standard
+以上过程在可重正化量子场论中始终有效。但是，它通常很麻烦，尤其是在微扰论高阶的情况下。在本节中，我们将开发一种更自动的替代程序。我们将首先针对
+\begin_inset Formula $\phi^{4}$
+\end_inset
+
+理论进行此操作，然后在下一部分中回到 QED 。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi^{4}$
+\end_inset
+
+理论的 Lagrangian 是
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}\left(\partial_{\mu}\phi\right)^{2}-\frac{1}{2}m_{0}^{2}\phi^{2}-\frac{\lambda_{0}}{4!}\phi^{4}
+\]
+
+\end_inset
+
+我们特意写成
+\begin_inset Formula $m_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{0}$
+\end_inset
+
+，来说明它们是 bare （裸量），不是实验中测到的量。 
+\end_layout
+
+\begin_layout Standard
+具有
+\begin_inset Formula $N$
+\end_inset
+
+个外腿的图的表观发散度是
+\begin_inset Formula 
+\[
+D=4-N
+\]
+
+\end_inset
+
+由于这个理论具有
+\begin_inset Formula $\phi\to-\phi$
+\end_inset
+
+的对称性，所以奇数个外腿的图振幅为零。发散的振幅只有
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted12.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+忽略真空图，两个振幅只包含三个无穷大常数。我们的目标是把这它们吸收到理论的三个不可观测参数中：裸质量，裸耦合常数，and 场强。为了达成这个目标，重新整理微扰展
+开会方便一些，让这些不可观测量不出现在费曼规则中。
+\end_layout
+
+\begin_layout Standard
+首先，我们将消除场强的变化。 从 section 7.1节回忆起，确切的两点函数具有以下形式：
+\begin_inset Formula 
+\[
+\int_{-\infty}^{\infty}\dif^{4}x\bra{\Omega}T\phi(x)\phi(0)\ket{\Omega}=\frac{iZ}{p^{2}-m^{2}}+(\text{terms regular at }p^{2}=m^{2})
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $m$
+\end_inset
+
+是物理质量。我们可以重标度场去掉留数
+\begin_inset Formula $Z$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\phi=Z^{1/2}\phi_{r}
+\]
+
+\end_inset
+
+这样 LSZ 公式中的
+\begin_inset Formula $Z$
+\end_inset
+
+就可以拿掉了。重新标度之后的拉氏量为：
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}Z\left(\partial_{\mu}\phi_{r}\right)^{2}-\frac{1}{2}m_{0}^{2}Z\phi_{r}^{2}-\frac{\lambda_{0}}{4!}Z^{2}\phi_{r}^{4}
+\]
+
+\end_inset
+
+然后我们再定义：
+\begin_inset Formula 
+\begin{equation}
+\delta_{Z}=Z-1,\delta_{m}=m_{0}^{2}Z-m^{2},\delta_{\lambda}=\lambda_{0}Z^{2}-\lambda\label{eq:10.17}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ 是物理上测量到的质量和耦合常数。则 Lagrangian 变成
+\begin_inset Formula 
+\begin{align}
+\mathcal{L} & =\frac{1}{2}\left(\partial_{\mu}\phi_{r}\right)^{2}-\frac{1}{2}m^{2}\phi_{r}^{2}-\frac{\lambda}{4!}\phi_{r}^{4}\nonumber \\
+ & \quad+\frac{1}{2}\delta_{Z}\left(\partial_{\mu}\phi_{r}\right)^{2}-\frac{1}{2}\delta_{m}\phi_{r}^{2}-\frac{\delta_{\lambda}}{4!}\phi_{r}^{4}\label{eq:10.18}
+\end{align}
+
+\end_inset
+
+第一行就跟普通的
+\begin_inset Formula $\phi^{4}$
+\end_inset
+
+理论看起来差不多，只不过使用物理的质量和耦合常数西出来的。第二行被称为 抵消项(counter terms)，吸收了裸参数和物理参数之间无穷大的不可观测变化。我
+们只不过是把拉氏量中每一项分成两项。
+\end_layout
+
+\begin_layout Standard
+我们必须能够给出 eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中物理参数的确切定义。
+\begin_inset Formula $\int_{-\infty}^{\infty}\dif^{4}x\bra{\Omega}T\phi(x)\phi(0)\ket{\Omega}=\frac{iZ}{p^{2}-m^{2}}+(\text{terms regular at }p^{2}=m^{2})$
+\end_inset
+
+定义了
+\begin_inset Formula $m^{2}$
+\end_inset
+
+是全传播子的pole。对于
+\begin_inset Formula $\lambda$
+\end_inset
+
+没有明显更优越的定义，把它定义成零动量时候的散射振幅就行。因此我们有了两个定义关系
+\begin_inset Formula 
+\begin{align}
+\text{全传播子} & =\frac{i}{p^{2}-m^{2}}+(\text{terms regular at }p^{2}=m^{2})\nonumber \\
+\text{截腿树图散射振幅} & =-i\lambda\qquad\text{at }s=4m^{2},t=u=0\label{eq:10.19}
+\end{align}
+
+\end_inset
+
+这些方程被称为 重正化条件 (renormalization conditions)。第一个方程实际上包含两个条件，指定了 pole 的位置和留数的大小。eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.18"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 给出了新的费曼规则。展现在 fig.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:fig.10.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中。包括通常规则，和抵消项规则。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted13.png
+	scale 48
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+fig.10.3
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fig.10.3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们可以使用这些新的费曼规则来计算
+\begin_inset Formula $\phi^{4}$
+\end_inset
+
+理论中的任何振幅。步骤如下：计算所有可能图的总和，它们由 fig.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:fig.10.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的顶点和传播子构成。费曼图中的圈积分经常会发散，因此必须引入一个正规子。计算的结果将是三个未知参数
+\begin_inset Formula $\delta_{Z}$
+\end_inset
+
+，
+\begin_inset Formula $\delta_{m}$
+\end_inset
+
+和
+\begin_inset Formula $\delta_{\lambda}$
+\end_inset
+
+的函数。根据需要调整（或``重正化''）这三个参数，以保持重正化重归一化条件 eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.19"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。调整之后，振幅的表达式应该是有限的，并且与正规子无关。
+\end_layout
+
+\begin_layout Standard
+这个使用抵消项费因曼规则的步骤，称为重正化的微扰理论。而 Part I 中使用的过程被称为裸微扰理论（因为Feynman规则涉及裸质量和耦合常数）。这两种方法是
+完全等效的。它们之间的差异纯粹是 book keeping。无论使用哪种方法，都将得到相同的答案，因此可以选择更方便的方法。通常，重正化微扰理论在技术上更易于使
+用，尤其是对于多圈图而言。然而，有时裸微扰理论对于复杂的单圈图更容易计算。在本书的其余大部分内容中，我们将使用重正化微扰理论。
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $\phi^{4}$
+\end_inset
+
+理论的单圈结构
+\end_layout
+
+\begin_layout Standard
+为了对重正化步骤更有感觉，让我们在单圈水平上明确执行它。
+\end_layout
+
+\begin_layout Standard
+考虑基本的两粒子散射振幅
+\begin_inset Formula 
+\begin{align*}
+i\mathcal{M}(p_{1}p_{2}\to p_{3}p_{4}) & =\text{两粒子散射图}\\
+ & =\text{树图}+\text{一圈图}+\text{抵消项}
+\end{align*}
+
+\end_inset
+
+如果我们定义
+\begin_inset Formula $p=p_{1}+p_{2}$
+\end_inset
+
+，一圈图部分是
+\begin_inset Formula 
+\begin{align*}
+\text{s 道图} & =\frac{(-i\lambda)^{2}}{2}\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{i}{k^{2}-m^{2}}\frac{i}{(k+p)^{2}-m^{2}}\\
+ & =(-i\lambda)^{2}*iV(p^{2})
+\end{align*}
+
+\end_inset
+
+注意
+\begin_inset Formula $p^{2}$
+\end_inset
+
+就是 Mandelstam 变量 
+\begin_inset Formula $s$
+\end_inset
+
+。后面两个图是全同的，除了把
+\begin_inset Formula $s$
+\end_inset
+
+换成
+\begin_inset Formula $t$
+\end_inset
+
+ and 
+\begin_inset Formula $u$
+\end_inset
+
+。全振幅可以写成
+\begin_inset Formula 
+\begin{equation}
+i\mathcal{M}=-i\lambda+(i\lambda)^{2}\left(iV(s)+iV(t)+iV(u)\right)-i\delta_{\lambda}\label{eq:10.21}
+\end{equation}
+
+\end_inset
+
+根据我们的重正化条件：
+\begin_inset Formula 
+\begin{align}
+\text{全传播子} & =\frac{i}{p^{2}-m^{2}}+(\text{terms regular at }p^{2}=m^{2})\nonumber \\
+\text{截腿树图散射振幅} & =-i\lambda\qquad\text{at }s=4m^{2},t=u=0
+\end{align}
+
+\end_inset
+
+这个振幅在
+\begin_inset Formula $s=4m^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $t=u=0$
+\end_inset
+
+ 应该等于
+\begin_inset Formula $-i\lambda$
+\end_inset
+
+。因此会有：
+\begin_inset Formula 
+\[
+\delta_{\lambda}=-\lambda^{2}\left[V(4m^{2})+2V(0)\right]
+\]
+
+\end_inset
+
+在更高的阶，
+\begin_inset Formula $\delta_{\lambda}$
+\end_inset
+
+也会得到额外贡献。
+\end_layout
+
+\begin_layout Standard
+我们可以使用维数正规化清楚地计算
+\begin_inset Formula $V(p^{2})$
+\end_inset
+
+。步骤是：费曼参数化，平移积分变量，Wick 转动，然后动量积分。我们得到
+\begin_inset Formula 
+\begin{align*}
+V(p^{2}) & =\frac{i}{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{\left[k^{2}+2xk\cdot p+xp^{2}-m^{2}\right]^{2}}\\
+ & =\frac{i}{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}l}{(2\pi)^{d}}\frac{1}{\left[l^{2}+x(1-x)p^{2}-m^{2}\right]^{2}}\qquad(l=k+xp)\\
+ & =-\frac{1}{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}l_{E}}{(2\pi)^{d}}\frac{1}{\left[l_{E}^{2}-x(1-x)p^{2}+m^{2}\right]^{2}}\qquad(l_{E}^{0}=-il^{0})\\
+ & =-\frac{1}{2}\int_{0}^{1}\dif x\frac{\Gamma(2-\frac{d}{2})}{(4\pi)^{d/2}}\frac{1}{\left[m^{2}-x(1-x)p^{2}\right]^{2-d/2}}\\
+ & \overset{d\to4}{\longrightarrow}-\frac{1}{32\pi^{2}}\int_{0}^{1}\dif x\left(\frac{1}{\epsilon}-\gamma+\log(4\pi)-\log\left[m^{2}-x(1-x)p^{2}\right]\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\epsilon=4-d$
+\end_inset
+
+。因此耦合常数的变化
+\begin_inset Formula $\delta_{\lambda}=-\lambda^{2}\left[V(4m^{2})+2V(0)\right]$
+\end_inset
+
+等于
+\begin_inset Formula 
+\begin{align*}
+\delta_{\lambda} & =\frac{\lambda^{2}}{2}\frac{\Gamma(2-\frac{d}{2})}{(4\pi)^{d/2}}\int_{0}^{1}\dif x\left(\frac{1}{\left[m^{2}-x(1-x)4m^{2}\right]^{2-d/2}}+\frac{2}{\left[m^{2}\right]^{2-d/2}}\right)\\
+ & \overset{d\to4}{\longrightarrow}\frac{\lambda}{32\pi^{2}}\int_{0}^{1}\dif x\left(\frac{6}{\epsilon}-3\gamma+3\log(4\pi)-\log\left[m^{2}-x(1-x)4m^{2}\right]-2\log\left[m^{2}\right]\right)
+\end{align*}
+
+\end_inset
+
+这些表达式在
+\begin_inset Formula $d\to4$
+\end_inset
+
+的时候是发散的。但是如果我们按照 eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.21"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $i\mathcal{M}=-i\lambda+(i\lambda)^{2}\left(iV(s)+iV(t)+iV(u)\right)-i\delta_{\lambda}$
+\end_inset
+
+组合它们，我们会得到有限的结果，
+\begin_inset Formula 
+\begin{align*}
+i\mathcal{M} & =-i\lambda\left[4m^{2}\right]-\frac{i\lambda\left[4m^{2}\right]^{2}}{32\pi^{2}}\int_{0}^{1}\dif x\Big[\log\left(\frac{m^{2}-x(1-x)s}{m^{2}-x(1-x)4m^{2}}\right)+\log\left(\frac{m^{2}-x(1-x)t}{m^{2}}\right)\\
+ & +\log\left(\frac{m^{2}-x(1-x)u}{m^{2}}\right)\Big]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\lambda\left[4m^{2}\right]$
+\end_inset
+
+表示耦合常数是在
+\begin_inset Formula $4m^{2}$
+\end_inset
+
+能量下测量到的。
+\end_layout
+
+\begin_layout Standard
+为了决定
+\begin_inset Formula $\delta_{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta_{m}$
+\end_inset
+
+ 我们必须计算两点函数。如同在 section 7.2, 我们定义
+\begin_inset Formula $-iM^{2}(p^{2})$
+\end_inset
+
+作为所有单粒子不可约图的和插入到传播子中：
+\begin_inset Formula 
+\[
+\text{1PI 图}=-iM^{2}(p^{2})
+\]
+
+\end_inset
+
+那么 full 两点函数由几何级数给出，
+\begin_inset Formula 
+\begin{align*}
+\text{full传播子} & =\text{传播子}+\text{1PI 图}+\text{\text{1PI 图}*\text{1PI 图}}+\cdots\\
+ & =\frac{i}{p^{2}-m^{2}-M^{2}(p^{2})}
+\end{align*}
+
+\end_inset
+
+重正化条件 eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.19"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 要求全传播子的 pole 在
+\begin_inset Formula $p^{2}-m^{2}$
+\end_inset
+
+ and 留数为
+\begin_inset Formula $1$
+\end_inset
+
+。这两个条件分别等价于
+\begin_inset Formula 
+\begin{equation}
+\left.M^{2}(p^{2})\right|_{p^{2}=m^{2}}=0\quad\text{and}\quad\left.\frac{\dif}{\dif p^{2}}M^{2}(p^{2})\right|_{p^{2}=m^{2}}=0\label{eq:10.28}
+\end{equation}
+
+\end_inset
+
+第二个条件可以这么获得，在
+\begin_inset Formula $\frac{1}{p^{2}-m^{2}}$
+\end_inset
+
+处的留数为
+\begin_inset Formula $i$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+ & \lim_{p^{2}-m^{2}\to0}(p^{2}-m^{2})\frac{i}{p^{2}-m^{2}-M^{2}(p^{2})}=\frac{i}{1-\frac{M^{2}(p^{2})}{p^{2}-m^{2}}}=i\\
+ & \Rightarrow\frac{M^{2}(p^{2})}{p^{2}-m^{2}}=0\Rightarrow\left.\frac{\dif}{\dif p^{2}}M^{2}(p^{2})\right|_{p^{2}=m^{2}}=0
+\end{align*}
+
+\end_inset
+
+最后一步使用了洛比达法则。
+\end_layout
+
+\begin_layout Standard
+到一圈图，明确写出来为：
+\begin_inset Formula 
+\begin{align*}
+-iM^{2}(p^{2}) & =\text{泡图}+\text{质量抵消项图}\\
+ & =-i\lambda*\frac{1}{2}*\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{i}{k^{2}-m^{2}}+i(p^{2}\delta_{Z}-\delta_{m})\\
+ & =-\frac{i\lambda}{2}\frac{1}{(4\pi)^{d/2}}\frac{\Gamma(1-\frac{d}{2})}{(m^{2})^{1-d/2}}+i(p^{2}\delta_{Z}-\delta_{m})
+\end{align*}
+
+\end_inset
+
+我们想让
+\begin_inset Formula 
+\[
+\left.M^{2}(p^{2})\right|_{p^{2}=m^{2}}=0\quad\text{and}\quad\left.\frac{\dif}{\dif p^{2}}M^{2}(p^{2})\right|_{p^{2}=m^{2}}=0
+\]
+
+\end_inset
+
+由于第一项和
+\begin_inset Formula $p^{2}$
+\end_inset
+
+无关，结果很 trivil: 令
+\begin_inset Formula 
+\[
+\delta_{Z}=0\qquad\text{and}\qquad\delta_{m}=-\frac{\lambda}{2(4\pi)^{d/2}}\frac{\Gamma(1-\frac{d}{2})}{(m^{2})^{1-d/2}}
+\]
+
+\end_inset
+
+即可满足
+\begin_inset Formula $M^{2}(p^{2})=0$
+\end_inset
+
+对于所有的
+\begin_inset Formula $p^{2}$
+\end_inset
+
+，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.28"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的两个条件都满足。
+\end_layout
+
+\begin_layout Standard
+对
+\begin_inset Formula $M^{2}(p^{2})$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta_{Z}$
+\end_inset
+
+ 的第一项非零贡献正比于
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+，来自于下面的图
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{feynman} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[right=1cm of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[right=1cm of a2] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[right=1cm of a3] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+diagram* { 
+\end_layout
+
+\begin_layout Plain Layout
+
+(a1) -- [red] (a2) -- [red] (a3) -- [red] (a4), 
+\end_layout
+
+\begin_layout Plain Layout
+
+(a2) -- [red,half right] (a3),
+\end_layout
+
+\begin_layout Plain Layout
+
+(a2) -- [red,half left] (a3),
+\end_layout
+
+\begin_layout Plain Layout
+
+}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{feynman} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+$+$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{feynman} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[right=1cm of a1,crossed dot,red] (a2){};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[right=1cm of a2] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[above=0.5cm of a2] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[left=0.5cm of a6] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[right=0.5cm of a6] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+diagram* { 
+\end_layout
+
+\begin_layout Plain Layout
+
+(a1) -- [red] (a2) -- [red] (a3), 
+\end_layout
+
+\begin_layout Plain Layout
+
+}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[red] (a2) to [out=135, in=270] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[red] (a2) to [out=45, in=270] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[red,looseness=2.5] (a4) to [out=100, in=80] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref61"
+literal "true"
+
+\end_inset
+
+xxxxx
+\end_layout
+
+\end_body
+\end_document
