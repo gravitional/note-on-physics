@@ -1451,21 +1451,78 @@ vertex[right=1cm of a2] (a3);
 
 
 \backslash
-vertex[above=0.5cm of a2] (a6);
+diagram* { 
+\end_layout
+
+\begin_layout Plain Layout
+
+(a1) -- [red] (a2) -- [red] (a3), 
+\end_layout
+
+\begin_layout Plain Layout
+
+}; 
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-vertex[left=0.5cm of a6] (a4);
+draw[red,looseness=25] (a2) to [out=45, in=135] (a2);
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-vertex[right=0.5cm of a6] (a5);
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+$+$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{feynman} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[right=1cm of a1,crossed dot,red] (a2){};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[right=1cm of a2] (a3);
 \end_layout
 
 \begin_layout Plain Layout
@@ -1489,27 +1546,6 @@ diagram* {
 
 
 \backslash
-draw[red] (a2) to [out=135, in=270] (a4);
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[red] (a2) to [out=45, in=270] (a5);
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[red,looseness=2.5] (a4) to [out=100, in=80] (a5);
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
 end{feynman}
 \end_layout
 
@@ -1518,10 +1554,6 @@ end{feynman}
 
 \backslash
 end{tikzpicture}
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
