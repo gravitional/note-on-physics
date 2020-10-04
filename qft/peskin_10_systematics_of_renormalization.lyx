@@ -1112,13 +1112,13 @@ i\mathcal{M}=-i\lambda+(i\lambda)^{2}\left(iV(s)+iV(t)+iV(u)\right)-i\delta_{\la
 
 。步骤是：费曼参数化，平移积分变量，Wick 转动，然后动量积分。我们得到
 \begin_inset Formula 
-\begin{align*}
-V(p^{2}) & =\frac{i}{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{\left[k^{2}+2xk\cdot p+xp^{2}-m^{2}\right]^{2}}\\
- & =\frac{i}{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}l}{(2\pi)^{d}}\frac{1}{\left[l^{2}+x(1-x)p^{2}-m^{2}\right]^{2}}\qquad(l=k+xp)\\
- & =-\frac{1}{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}l_{E}}{(2\pi)^{d}}\frac{1}{\left[l_{E}^{2}-x(1-x)p^{2}+m^{2}\right]^{2}}\qquad(l_{E}^{0}=-il^{0})\\
- & =-\frac{1}{2}\int_{0}^{1}\dif x\frac{\Gamma(2-\frac{d}{2})}{(4\pi)^{d/2}}\frac{1}{\left[m^{2}-x(1-x)p^{2}\right]^{2-d/2}}\\
- & \overset{d\to4}{\longrightarrow}-\frac{1}{32\pi^{2}}\int_{0}^{1}\dif x\left(\frac{1}{\epsilon}-\gamma+\log(4\pi)-\log\left[m^{2}-x(1-x)p^{2}\right]\right)
-\end{align*}
+\begin{align}
+V(p^{2}) & =\frac{i}{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{\left[k^{2}+2xk\cdot p+xp^{2}-m^{2}\right]^{2}}\nonumber \\
+ & =\frac{i}{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}l}{(2\pi)^{d}}\frac{1}{\left[l^{2}+x(1-x)p^{2}-m^{2}\right]^{2}}\qquad(l=k+xp)\nonumber \\
+ & =-\frac{1}{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}l_{E}}{(2\pi)^{d}}\frac{1}{\left[l_{E}^{2}-x(1-x)p^{2}+m^{2}\right]^{2}}\qquad(l_{E}^{0}=-il^{0})\nonumber \\
+ & =-\frac{1}{2}\int_{0}^{1}\dif x\frac{\Gamma(2-\frac{d}{2})}{(4\pi)^{d/2}}\frac{1}{\left[m^{2}-x(1-x)p^{2}\right]^{2-d/2}}\nonumber \\
+ & \overset{d\to4}{\longrightarrow}-\frac{1}{32\pi^{2}}\int_{0}^{1}\dif x\left(\frac{1}{\epsilon}-\gamma+\log(4\pi)-\log\left[m^{2}-x(1-x)p^{2}\right]\right)\label{eq:10.23}
+\end{align}
 
 \end_inset
 
@@ -2222,94 +2222,208 @@ status collapsed
 
 \begin_layout Plain Layout
 
+
 \backslash
-begin{equation}
+begin{equation*}
 \end_layout
 
 \begin_layout Plain Layout
-  
+
+
 \backslash
 begin{aligned}
 \end_layout
 
 \begin_layout Plain Layout
-  -i M^2 (p^2)=
+
+-i M^2 (p^2)=& 
 \backslash
 text{一圈图}+
 \end_layout
 
 \begin_layout Plain Layout
-  
+
+
 \backslash
 adjustbox{valign=M}{
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \backslash
 begin{tikzpicture}[baseline=(current bounding box.base)]
 \end_layout
 
 \begin_layout Plain Layout
-    
+
+        
 \backslash
 begin{feynman} 
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \backslash
 vertex (a1); 
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \backslash
 vertex[right=1cm of a1,crossed dot,red] (a2){};
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \backslash
 vertex[right=1cm of a2] (a3);
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \backslash
 diagram* { 
 \end_layout
 
 \begin_layout Plain Layout
-    (a1) -- [red] (a2) -- [red] (a3), 
+
+        (a1) -- [red] (a2) -- [red] (a3), 
 \end_layout
 
 \begin_layout Plain Layout
+
     }; 
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
     
 \backslash
-end{tikzpicture}}
+end{tikzpicture}} 
+\backslash
+
+\backslash
+
 \end_layout
 
 \begin_layout Plain Layout
-  
+
+        =&-(-ig)^{2}
+\backslash
+int
+\backslash
+frac{
+\backslash
+dif^{d}k}{(2
+\backslash
+pi)^{d}}
+\backslash
+tr
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+left[
+\backslash
+frac{i
+\backslash
+left(
+\backslash
+slashed{k}+
+\backslash
+slashed{p}+m_{f}
+\backslash
+right)}{(k+p)^{2}-m_{f}^{2}}
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+frac{i
+\backslash
+left(
+\backslash
+slashed{k}+m_{f}
+\backslash
+right)}{k^{2}-m_{f}^{2}}
+\backslash
+right]+i(p^{2}
+\backslash
+delta_{Z}-
+\backslash
+delta_{m})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            =&-4g^{2}
+\backslash
+int
+\backslash
+frac{
+\backslash
+dif^{d}k}{(2
+\backslash
+pi)^{d}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac{k
+\backslash
+cdot(p+k)+m_{f}^{2}}{
+\backslash
+left((p+k)^{2}-m_{f}^{2}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+    (k^{2}-m_{f}^{2})}+i
+\backslash
+left(p^{2}
+\backslash
+delta_{Z}-
+\backslash
+delta_{m}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
 \backslash
 end{aligned}
 \end_layout
 
 \begin_layout Plain Layout
-  
+
+    
 \backslash
-end{equation}
+end{equation*}
 \end_layout
 
 \end_inset
@@ -2318,7 +2432,363 @@ end{equation}
 \begin_inset Formula $m_{f}$
 \end_inset
 
-是耦合到 Yukawa 场的费米子的质量。为了计算这个积分。
+是耦合到 Yukawa 场的费米子的质量。为了计算这个积分。 如同 eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:10.23"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 那样结合分母，做变量平移，结果的第一项变成
+\begin_inset Formula 
+\begin{align*}
+ & -4g^{2}\int_{0}^{1}\dif x\int\frac{\dif^{d}l}{(2\pi)^{d}}\frac{l^{2}-x(1-x)p^{2}+m_{f}^{2}}{\left(l^{2}+x(1-x)p^{2}-m_{f}^{2}\right)^{2}}\\
+ & =-4g^{2}\int_{0}^{1}\dif x\frac{-i}{(4\pi)^{d/2}}\left(\frac{\frac{d}{2}\Gamma(1-\frac{d}{2})}{\Delta^{1-d/2}}-\frac{\Delta\Gamma(2-\frac{d}{2})}{\Delta^{2-d/2}}\right)\\
+ & =\frac{4ig^{2}(d-1)}{(4\pi)^{d/2}}\int_{0}^{1}\dif x\frac{\Gamma(1-\frac{d}{2})}{\Delta^{1-d/2}}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\Delta=m_{f}^{2}-x(1-x)p^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+现在我们看到，为了满足重正化条件 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:10.28"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\left.M^{2}(p^{2})\right|_{p^{2}=m^{2}}=0\quad\text{and}\quad\left.\frac{\dif}{\dif p^{2}}M^{2}(p^{2})\right|_{p^{2}=m^{2}}=0
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $\delta_{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta_{Z}$
+\end_inset
+
+ 都必须取非零的值。为了决定
+\begin_inset Formula $\delta_{m}$
+\end_inset
+
+，我们像之前那样，减去圈积分在
+\begin_inset Formula $p^{2}=m^{2}$
+\end_inset
+
+的值，so that
+\begin_inset Formula 
+\[
+\delta_{m}=\frac{4g^{2}(d-1)}{(4\pi)^{d/2}}\int_{0}^{1}\dif x\frac{\Gamma(1-\frac{d}{2})}{\left[m_{f}^{2}-x(1-x)m^{2}\right]^{1-d/2}}+m^{2}\delta_{Z}
+\]
+
+\end_inset
+
+为了决定
+\begin_inset Formula $\delta_{Z}$
+\end_inset
+
+，我们让圈积分对
+\begin_inset Formula $p^{2}$
+\end_inset
+
+的一阶导数为零。这给出
+\begin_inset Formula 
+\begin{align*}
+\delta_{Z} & =-\frac{4g^{2}(d-1)}{(4\pi)^{d/2}}\int_{0}^{1}\dif x\frac{x(1-x)\Gamma(2-\frac{d}{2})}{\left[m_{f}^{2}-x(1-x)m^{2}\right]^{2-d/2}}\\
+ & \underset{d\to4}{\longrightarrow}-\frac{3g^{2}}{4\pi^{2}}\int_{0}^{1}\dif xx(1-x)\left(\frac{2}{\epsilon}-\gamma-\frac{2}{3}+\log(4\pi)-\log\left[m_{f}^{2}-x(1-x)m^{2}\right]\right)
+\end{align*}
+
+\end_inset
+
+所以，在 Yukawa 理论中，在单圈水平，传播子修正需要一个平方发散的质量重正化，和一个对数发散的场强重正化。这是标量场理论的通常情况。
+\end_layout
+
+\begin_layout Section
+量子电动力学的重正化
+\end_layout
+
+\begin_layout Standard
+我们在上一节中遵循的过程，产生了用可测的物理量表述的``重正化''微扰理论，可以概括如下：
+\end_layout
+
+\begin_layout Enumerate
+通过重新标度场，将场强重正化吸收到 Lagrangian 中。
+\end_layout
+
+\begin_layout Enumerate
+把 Lagrangian 的每一项分成两个部分，将无穷大的不可观测平移吸收到抵消项中。
+\end_layout
+
+\begin_layout Enumerate
+制定重正化条件，它定义了物理质量和耦合常数，并且保持场强重正化为
+\begin_inset Formula $1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+使用新的费曼规则计算振幅，按需求调节抵消项使重正化条件成立。
+\end_layout
+
+\begin_layout Standard
+现在让我们是用着个步骤来对 QED 建立重正化的微扰理论。
+\end_layout
+
+\begin_layout Standard
+原先的 Lagrangian 是
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}(F_{\mu\nu})^{2}+\bar{\psi}(i\slashed{\partial}-m_{0})\psi-e_{0}\bar{\psi}\gamma^{\mu}\psi A_{\mu}
+\]
+
+\end_inset
+
+使用这个 Lagrangian 计算电子和光子的传播子，我们会发现具有下列一般形式的表达式
+\begin_inset Formula 
+\[
+\text{电子传播子}=\frac{iZ_{2}}{\slashed{p}-m}+\cdots;\quad\text{光子传播子}=\frac{-iZ_{3}g_{\mu\nu}}{q^{2}}+\cdots
+\]
+
+\end_inset
+
+（我们在第7章的显式单圈计算中找到了这样的表达式。）为了把 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $Z_{3}$
+\end_inset
+
+ 吸收到
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+中，从而在 eq.(7.45) 中的
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元里消除它们，我们定义
+\begin_inset Formula $\psi=Z_{2}^{1/2}\psi_{r}$
+\end_inset
+
+ and 
+\begin_inset Formula $A^{\mu}=Z_{3}^{1/2}A_{r}^{\mu}$
+\end_inset
+
+。然后 Lagrangian 变成
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{4}Z_{3}(F_{r}^{\mu\nu})^{2}+Z_{2}\bar{\psi}_{r}(i\slashed{\partial}-m_{0})\psi_{r}-e_{0}Z_{2}Z_{3}^{1/2}\bar{\psi}_{r}\gamma^{\mu}\psi_{r}A_{r,\mu}
+\]
+
+\end_inset
+
+我们可以引入物理的电荷
+\begin_inset Formula $e$
+\end_inset
+
+，measured at large distances (
+\begin_inset Formula $q=0$
+\end_inset
+
+)，通过像如下这样定义一个标度因子
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+e_{0}Z_{2}Z_{3}^{1/2}=eZ_{1}
+\]
+
+\end_inset
+
+如果我们令
+\begin_inset Formula $m$
+\end_inset
+
+为物理质量（电子传播子pole的位置），然后我们把 Lagrangian 中的每一项分成两部分：
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L} & =-\frac{1}{4}(F_{r}^{\mu\nu})^{2}+\bar{\psi}_{r}(i\slashed{\partial}-m)\psi_{r}-e_{0}\bar{\psi}_{r}\gamma^{\mu}\psi_{r}A_{r,\mu}\\
+ & -\frac{1}{4}\delta_{3}(F_{r}^{\mu\nu})^{2}+\bar{\psi}_{r}(i\delta_{2}\slashed{\partial}-\delta_{m})\psi_{r}-e\delta_{1}\bar{\psi}_{r}\gamma^{\mu}\psi_{r}A_{r,\mu}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\delta_{3}=Z_{3}-1,\qquad\delta_{2}=Z_{2}-1
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\delta_{m}=Z_{2}m_{0}-m,\quad\text{and}\quad\delta_{1}=Z_{1}-1=(e_{0}/e)Z_{2}Z_{3}^{1/2}-1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+重正化 QED 的费曼规则在 fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig10.4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中给出。除了熟悉的传播子和顶点，还有另外三个抵消项顶点。
+\begin_inset Formula $ee$
+\end_inset
+
+ and 
+\begin_inset Formula $ee\gamma$
+\end_inset
+
+ 抵消项顶点可以直接从 Lagrangian (10.38) 中读出。为了推导双光子抵消项，对
+\begin_inset Formula $-\frac{1}{4}F_{\mu\nu}^{2}$
+\end_inset
+
+进行分部积分，得到
+\begin_inset Formula $-\frac{1}{2}A_{\mu}(-\partial^{2}g^{\mu\nu}+\partial^{\mu}\partial^{\nu})A_{\nu}$
+\end_inset
+
+；这给除了图中所示的表达式。再后文中，当我们建立好重正化的QED，我们会省略下标
+\begin_inset Formula $r$
+\end_inset
+
+来简化。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted14.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+fig10.4
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fig10.4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+四个抵消项的系数必须由 重正化条件 确定。我们需要的四个条件已经隐式地叙述过了：其中两个固定电子和光子的场强重正化为
+\begin_inset Formula $1$
+\end_inset
+
+，另外两个定义物理的电子质量和电荷。为了更清楚地写出这些条件，回忆我们在 chapter 6 and 7 中使用的记号：
+\begin_inset Formula 
+\begin{align*}
+\text{光子自能} & =i\Pi^{\mu\nu}(q)=i(g^{\mu\nu}q^{2}-q^{\mu}q^{\nu})\Pi(q^{2})\\
+\text{电子自能} & =-i\Sigma(\slashed{p})\\
+\text{顶点修正} & =-ie\Gamma^{\mu}(p^{\prime},p)
+\end{align*}
+
+\end_inset
+
+现在，将在重正化的微扰理论中计算这些幅度； 我们重新定义
+\begin_inset Formula $\Pi(q^{2})$
+\end_inset
+
+，
+\begin_inset Formula $\Sigma(\slashed{p})$
+\end_inset
+
+和
+\begin_inset Formula $\Gamma(p^{\prime},p)$
+\end_inset
+
+以包括抵消项顶点。 此外，
+\begin_inset Formula $\Gamma$
+\end_inset
+
+的新定义涉及物理的电子电荷。使用这些符号，四个重正化条件是
+\begin_inset Formula 
+\begin{align*}
+\Sigma(\slashed{p}=m) & =0;\\
+\frac{\dif}{\dif\slashed{p}}\left.\Sigma(\slashed{p})\right\vert_{\slashed{p}=m} & =0;\\
+\Pi(q^{2}=0) & =0;\\
+-ie\Gamma^{\mu}(p^{\prime}-p=0) & =-ie\gamma^{\mu};
+\end{align*}
+
+\end_inset
+
+第一个条件固定电子质量在
+\begin_inset Formula $m$
+\end_inset
+
+，后面两个固定电子和光子传播子的留数是
+\begin_inset Formula $1$
+\end_inset
+
+。鉴于这些条件，最后的条件固定电子电荷为
+\begin_inset Formula $e$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Section
+QED 的单圈结构
 \end_layout
 
 \begin_layout Standard
