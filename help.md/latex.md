@@ -2022,3 +2022,37 @@ And this is the best squash, \verb+literally!+
 例如，一种改进是允许逐字包含外部文件或这些文件的一部分，比如`listings`, and `minted`.
 一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`。另一个是`verbatimbox`。
 有关所有相关软件包的列表，请参见CTAN。
+
+## parbox
+
+[20.3 \parbox](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#g_t_005cparbox)
+
+概要，其中之一：
+
+```latex
+\parbox{width} {contents}
+\parbox[position] {width} {contents}
+\parbox[position] [height] {width} {contents}
+\parbox[position] [height] [inner-pos] {width} {contents}
+```
+
+产生一个宽度为宽度的文本框。使用此命令可以使一小段文本框变成单个段落。该命令是易碎的（请参阅\ protect）。
+
+\ begin {picture}（0,0）
+  ...
+  \ put（1,2）{\ parbox {1.75in} {\ raggedright因为图形是一条直线
+                         这本半对数论文，关系是
+                         指数。}}
+\ end {picture}
+
+内容以文本模式处理（请参见“模式”），因此LaTeX会中断换行以形成段落。但是它不会包含多个段落；为此，请使用小型页面环境（请参见小型页面）。
+
+\ parbox的选项（内容除外）与minipage的选项相同。为方便起见，此处提供了选项的摘要，但完整说明请参见迷你页。
+
+有两个必需的参数。宽度是刚性长度（请参见长度）。它设置LaTeX将内容排版到其中的框的宽度。内容是放置在该框中的文本。它不应包含任何段落创建组件。
+
+有三个可选参数，位置，高度和内部位置。该位置使配电箱相对于周围材料垂直对齐。可能的值是c或m以使parbox的垂直中心与相邻线的中心对齐（这是默认值），或t可以使parbox的顶行与周围材料的基线匹配，或者b匹配底线。
+
+可选参数height覆盖框的自然高度。
+
+可选参数inner-pos控制内容在parbox中的位置。它的默认值是position的值。其可能的值为：t将内容放置在框的顶部，c将其放置在框的垂直中心，b将其放置在框的底部，并且s将其垂直延伸（为此，文本必须包含垂直可拉伸的空间）。

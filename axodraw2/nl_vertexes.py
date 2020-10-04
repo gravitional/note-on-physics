@@ -13,7 +13,7 @@ import math
 from collections import Iterable
 
 fpath = r'/home/tom/note/axodraw2'
-tex_name = r"nonlocal_vertex.tex"
+tex_name = r"tex_nonlocal_vertex.tex"
 file = os.path.join(fpath, tex_name)
 
 fig_size = [100, 200]

@@ -9,7 +9,7 @@
 我们先从一个最简单的例子开始：画一条直线。 代码如下：
 
 ```latex
-\documentclass[tikz]{standalone}
+\documentclass[tikz,border=10pt]{standalone} % 生成自动裁剪过的pdf
 \usepackage{tikz}
 \begin{document}
     \begin{tikzpicture}
@@ -189,4 +189,46 @@ TikZ提供了图的支持,通过类似于`dot`语言的方式来生成图关系
 \draw (a) .. controls (1,3) and (5,5) .. (b);
 \draw (a) -| (b);
 \draw (a)|- (b);
+```
+
+## tikz 对齐
+
+[LaTeX中tikz画的图放在公式环境中如何和公式对齐](https://www.zhihu.com/question/381314763/answer/1096658439)
+
+```latex
+\documentclass{ctexart}
+\usepackage{adjustbox}
+\usepackage{tikz}
+
+\makeatletter
+\newcommand\valignWithTikz[1]{%
+  text \tikzcircle{#1} text, $a^2 + \tikzcircle{#1} + b^2$ \par
+}
+\newcommand\tikzcircle[1]{%
+  \tikz[#1] \draw (0, 0) circle (.5);
+}
+
+\newcommand\sep{\par\hspace*{10em}}
+\makeatother
+
+\begin{document}
+\subsection*{默认效果}
+绘图底部和文字基线对齐 \sep 
+  \valignWithTikz{}
+
+\subsection*{使用 \texttt{baseline} 选项}
+\verb|\tikz[baseline=(current bounding box.center)]| \sep
+  \valignWithTikz{baseline=(current bounding box.center)}
+调整纵向偏移，\verb|\tikz[baseline={([yshift=-.5ex]current bounding box.center)}]| \sep
+  \valignWithTikz{baseline={([yshift=-.5ex]current bounding box.center)}}
+
+\subsection*{使用 \texttt{\char`\\adjustbox} 命令的 \texttt{valign} 选项}
+\renewcommand{\tikzcircle}[1]{%
+  \adjustbox{valign=#1}{\tikz \draw (0, 0) circle (.5);}%
+}
+\verb|\adjustbox{valign=M}{\tikz ...}| \sep
+  \valignWithTikz{M}
+\verb|\adjustbox{valign=m}{\tikz ...}| \sep
+  \valignWithTikz{m}
+\end{document}
 ```

@@ -13,6 +13,7 @@
 \usepackage{eso-pic} 
 \usepackage{tikz}
 \usepackage{tikz-feynman}
+\usepackage{adjustbox} % 对齐tikz图用
 % This package makes it easy to add some picture commands to every page at ab-solute positions
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
 \definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
@@ -115,7 +116,7 @@
 \begin_body
 
 \begin_layout Title
-系统的重正化
+系统式的重正化
 \end_layout
 
 \begin_layout Author
@@ -202,7 +203,7 @@ D & =4-N_{\gamma}-\frac{3}{2}N_{e}
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -270,7 +271,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -395,7 +396,7 @@ noprefix "false"
 无关：
 \begin_inset Formula 
 \[
-A_{n}=\left.\frac{1}{n!}\frac{\dif^{n}}{\dif\slashed{p}^{n}}(\text{电子自能修正图})\right\vert_{\slashed{p}=0}
+A_{n}=\left.\frac{1}{n!}\frac{\dif^{n}}{\dif\slashed{p}^{n}}(\text{电子自能修正图})\right\vert _{\slashed{p}=0}
 \]
 
 \end_inset
@@ -769,7 +770,7 @@ D=4-N
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -920,7 +921,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1190,19 +1191,486 @@ i\mathcal{M} & =-i\lambda\left[4m^{2}\right]-\frac{i\lambda\left[4m^{2}\right]^{
 \end_inset
 
 作为所有单粒子不可约图的和插入到传播子中：
-\begin_inset Formula 
-\[
-\text{1PI 图}=-iM^{2}(p^{2})
-\]
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+			
+\backslash
+begin{tikzpicture}[baseline={(current bounding box.center)}]
+\end_layout
+
+\begin_layout Plain Layout
+        
+\backslash
+begin{feynman} 
+\end_layout
+
+\begin_layout Plain Layout
+        
+\backslash
+vertex (a1) at (1,0); 
+\end_layout
+
+\begin_layout Plain Layout
+        
+\backslash
+node[circle,draw=green!40!black, pattern color=green!40!black] (a2) at (2,0){1PI
+};
+\end_layout
+
+\begin_layout Plain Layout
+        
+\backslash
+vertex (a3) at (3,0); 
+\end_layout
+
+\begin_layout Plain Layout
+        
+\backslash
+diagram* { 
+\end_layout
+
+\begin_layout Plain Layout
+        (a1) -- [red] (a2) -- [red] (a3) , 
+\end_layout
+
+\begin_layout Plain Layout
+        }; 
+\end_layout
+
+\begin_layout Plain Layout
+        
+\backslash
+end{feynman} 
+\end_layout
+
+\begin_layout Plain Layout
+        
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+=-iM^2(p^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
 
 \end_inset
 
 那么 full 两点函数由几何级数给出，
-\begin_inset Formula 
-\begin{align*}
-\text{full传播子} & =\text{传播子}+\text{1PI 图}+\text{\text{1PI 图}*\text{1PI 图}}+\cdots\\
- & =\frac{i}{p^{2}-m^{2}-M^{2}(p^{2})}
-\end{align*}
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline={(current bounding box.center)}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a1) at (1,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[blob,draw=green!40!black, pattern color=green!40!black] (a2) at (2,0){};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a3) at (3,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+diagram* {
+\end_layout
+
+\begin_layout Plain Layout
+
+(a1) -- [red] (a2) -- [red] (a3) ,
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline={(current bounding box.center)}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a1) at (1,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a3) at (2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+diagram* {
+\end_layout
+
+\begin_layout Plain Layout
+
+(a1)--[red] (a3) ,
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+}+
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline={(current bounding box.center)}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a1) at (1,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle,draw=green!40!black, pattern color=green!40!black] (a2) at (2,0){1PI
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a3) at (3,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+diagram* {(a1) -- [red] (a2) -- [red] (a3) ,
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
++
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline={(current bounding box.center)}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a1) at (1,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle,draw=green!40!black, pattern color=green!40!black] (a2) at (2,0){1PI
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle,draw=green!40!black, pattern color=green!40!black] (a3) at (3.5,0){1P
+I};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a4) at (4.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+diagram* {
+\end_layout
+
+\begin_layout Plain Layout
+
+(a1) -- [red] (a2) --[red](a3)--[red](a4),
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}}
+\end_layout
+
+\begin_layout Plain Layout
+
++
+\backslash
+cdots 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+frac{i}{p^2-m^2-M^2(p^2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
 
 \end_inset
 
@@ -1318,17 +1786,28 @@ noprefix "false"
 \end_inset
 
 ，来自于下面的图
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-begin{tikzpicture} 
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline=(current bounding box.base)]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1404,19 +1883,26 @@ end{feynman}
 
 
 \backslash
-end{tikzpicture}
+end{tikzpicture}}
 \end_layout
 
 \begin_layout Plain Layout
 
-$+$
++
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-begin{tikzpicture} 
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline=(current bounding box.center)]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1482,19 +1968,26 @@ end{feynman}
 
 
 \backslash
-end{tikzpicture}
+end{tikzpicture}}
 \end_layout
 
 \begin_layout Plain Layout
 
-$+$
++
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-begin{tikzpicture} 
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline=(current bounding box.base)]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1553,12 +2046,141 @@ end{feynman}
 
 
 \backslash
-end{tikzpicture}
+end{tikzpicture}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
 \end_layout
 
 \end_inset
 
+第二个图包含了
+\begin_inset Formula $\delta_{\lambda}$
+\end_inset
 
+(
+\begin_inset Formula $-i\delta_{\lambda}$
+\end_inset
+
+)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline=(current bounding box.center)]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{feynman} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a1) at (0,0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex[crossed dot,red] (o1) at (.5,.5){};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a2) at (1,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a3) at (0,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vertex (a4) at (1,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+diagram* { 
+\end_layout
+
+\begin_layout Plain Layout
+
+(a1) -- [red] (o1) -- [red] (a3), 
+\end_layout
+
+\begin_layout Plain Layout
+
+(a2) -- [red] (o1) -- [red] (a4), 
+\end_layout
+
+\begin_layout Plain Layout
+
+}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}}
+\end_layout
+
+\end_inset
+
+接触项，之前已经计算过。它和第一个图中的紫外发散的
+\begin_inset Formula $A$
+\end_inset
+
+部分相互抵消，第一个图中
+\begin_inset Formula $A$
+\end_inset
+
+部分发散时一个圈动量很大，另一个圈动量很小的时候的发散。第三个图又是
+\begin_inset Formula $(p^{2}\delta_{Z}-\delta_{m})$
+\end_inset
+
+抵消项，现在被确定到
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+ order, 通过要求剩余的发散被抵消（也就是两个圈动量都很大的发散）。
 \end_layout
 
 \begin_layout Standard
