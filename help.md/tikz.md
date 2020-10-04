@@ -232,3 +232,21 @@ TikZ提供了图的支持,通过类似于`dot`语言的方式来生成图关系
   \valignWithTikz{m}
 \end{document}
 ```
+
+## 例子
+
+```latex
+\begin{equation}
+\begin{aligned}
+-i M^2 (p^2)=
+\adjustbox{valign=M}{
+\feynmandiagram [layered layout, horizontal=b to c] {
+a -- [photon, momentum=\(p\)] b
+-- [fermion, half left, momentum=\(k\)] c
+-- [fermion, half left, momentum=\(k-p\)] b,
+c -- [photon, momentum=\(p\)] d,
+
+}};
+\end{aligned}
+\end{equation}
+```

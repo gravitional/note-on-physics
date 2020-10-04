@@ -1203,29 +1203,34 @@ status collapsed
 
 \begin_layout Plain Layout
 
+
 \backslash
 adjustbox{valign=M}{
 \end_layout
 
 \begin_layout Plain Layout
+
 			
 \backslash
 begin{tikzpicture}[baseline={(current bounding box.center)}]
 \end_layout
 
 \begin_layout Plain Layout
+
         
 \backslash
 begin{feynman} 
 \end_layout
 
 \begin_layout Plain Layout
+
         
 \backslash
 vertex (a1) at (1,0); 
 \end_layout
 
 \begin_layout Plain Layout
+
         
 \backslash
 node[circle,draw=green!40!black, pattern color=green!40!black] (a2) at (2,0){1PI
@@ -1233,38 +1238,45 @@ node[circle,draw=green!40!black, pattern color=green!40!black] (a2) at (2,0){1PI
 \end_layout
 
 \begin_layout Plain Layout
+
         
 \backslash
 vertex (a3) at (3,0); 
 \end_layout
 
 \begin_layout Plain Layout
+
         
 \backslash
 diagram* { 
 \end_layout
 
 \begin_layout Plain Layout
+
         (a1) -- [red] (a2) -- [red] (a3) , 
 \end_layout
 
 \begin_layout Plain Layout
+
         }; 
 \end_layout
 
 \begin_layout Plain Layout
+
         
 \backslash
 end{feynman} 
 \end_layout
 
 \begin_layout Plain Layout
+
         
 \backslash
 end{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
@@ -2180,7 +2192,133 @@ end{tikzpicture}}
 \begin_inset Formula $\lambda^{2}$
 \end_inset
 
- order, 通过要求剩余的发散被抵消（也就是两个圈动量都很大的发散）。
+ order, 通过要求剩余的发散被抵消（也就是两个圈动量都很大的发散）。在 section 10.4 我们会看到两圈计算中各种各样的抵消项如何相互影响。
+\end_layout
+
+\begin_layout Standard
+单圈的
+\begin_inset Formula $\delta_{Z}$
+\end_inset
+
+为零是
+\begin_inset Formula $\phi^{4}$
+\end_inset
+
+理论的一个特殊情况，在标量场的一般理论中并不会存在。 Section 4.7 中描述的 Yukawa 理论给出了一个明确例子，它的单圈修正需要
+\begin_inset Formula $\delta_{Z}$
+\end_inset
+
+抵消项。
+\end_layout
+
+\begin_layout Standard
+在 Yukawa 理论中，标量场的传播子在 order 
+\begin_inset Formula $g^{2}$
+\end_inset
+
+ 受到 费米子圈和两个传播子抵消项的修正。使用 page.118 的费曼规则计算圈图，得到
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+begin{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+  -i M^2 (p^2)=
+\backslash
+text{一圈图}+
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+adjustbox{valign=M}{
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+begin{tikzpicture}[baseline=(current bounding box.base)]
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+begin{feynman} 
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+vertex (a1); 
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+vertex[right=1cm of a1,crossed dot,red] (a2){};
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+vertex[right=1cm of a2] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+diagram* { 
+\end_layout
+
+\begin_layout Plain Layout
+    (a1) -- [red] (a2) -- [red] (a3), 
+\end_layout
+
+\begin_layout Plain Layout
+    }; 
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+end{tikzpicture}}
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+end{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+  
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+其中
+\begin_inset Formula $m_{f}$
+\end_inset
+
+是耦合到 Yukawa 场的费米子的质量。为了计算这个积分。
 \end_layout
 
 \begin_layout Standard
