@@ -2434,7 +2434,7 @@ end{equation*}
 
 是耦合到 Yukawa 场的费米子的质量。为了计算这个积分。 如同 eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:10.23"
 plural "false"
 caps "false"
@@ -2462,7 +2462,7 @@ noprefix "false"
 \begin_layout Standard
 现在我们看到，为了满足重正化条件 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:10.28"
 plural "false"
 caps "false"
@@ -2617,9 +2617,9 @@ noprefix "false"
 
 :
 \begin_inset Formula 
-\[
-e_{0}Z_{2}Z_{3}^{1/2}=eZ_{1}
-\]
+\begin{equation}
+e_{0}Z_{2}Z_{3}^{1/2}=eZ_{1}\label{eq:10.37}
+\end{equation}
 
 \end_inset
 
@@ -2629,10 +2629,10 @@ e_{0}Z_{2}Z_{3}^{1/2}=eZ_{1}
 
 为物理质量（电子传播子pole的位置），然后我们把 Lagrangian 中的每一项分成两部分：
 \begin_inset Formula 
-\begin{align*}
-\mathcal{L} & =-\frac{1}{4}(F_{r}^{\mu\nu})^{2}+\bar{\psi}_{r}(i\slashed{\partial}-m)\psi_{r}-e_{0}\bar{\psi}_{r}\gamma^{\mu}\psi_{r}A_{r,\mu}\\
- & -\frac{1}{4}\delta_{3}(F_{r}^{\mu\nu})^{2}+\bar{\psi}_{r}(i\delta_{2}\slashed{\partial}-\delta_{m})\psi_{r}-e\delta_{1}\bar{\psi}_{r}\gamma^{\mu}\psi_{r}A_{r,\mu}
-\end{align*}
+\begin{align}
+\mathcal{L} & =-\frac{1}{4}(F_{r}^{\mu\nu})^{2}+\bar{\psi}_{r}(i\slashed{\partial}-m)\psi_{r}-e_{0}\bar{\psi}_{r}\gamma^{\mu}\psi_{r}A_{r,\mu}\nonumber \\
+ & -\frac{1}{4}\delta_{3}(F_{r}^{\mu\nu})^{2}+\bar{\psi}_{r}(i\delta_{2}\slashed{\partial}-\delta_{m})\psi_{r}-e\delta_{1}\bar{\psi}_{r}\gamma^{\mu}\psi_{r}A_{r,\mu}\label{eq:10.38}
+\end{align}
 
 \end_inset
 
@@ -2763,12 +2763,12 @@ name "fig:fig10.4"
 
 的新定义涉及物理的电子电荷。使用这些符号，四个重正化条件是
 \begin_inset Formula 
-\begin{align*}
-\Sigma(\slashed{p}=m) & =0;\\
-\frac{\dif}{\dif\slashed{p}}\left.\Sigma(\slashed{p})\right\vert_{\slashed{p}=m} & =0;\\
-\Pi(q^{2}=0) & =0;\\
--ie\Gamma^{\mu}(p^{\prime}-p=0) & =-ie\gamma^{\mu};
-\end{align*}
+\begin{align}
+\Sigma(\slashed{p}=m) & =0;\nonumber \\
+\frac{\dif}{\dif\slashed{p}}\left.\Sigma(\slashed{p})\right\vert_{\slashed{p}=m} & =0;\nonumber \\
+\Pi(q^{2}=0) & =0;\nonumber \\
+-ie\Gamma^{\mu}(p^{\prime}-p=0) & =-ie\gamma^{\mu};\label{eq:10.40}
+\end{align}
 
 \end_inset
 
@@ -2789,6 +2789,388 @@ name "fig:fig10.4"
 
 \begin_layout Section
 QED 的单圈结构
+\end_layout
+
+\begin_layout Standard
+eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:10.40"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的四个条件允许我们使用圈图的值取计算四个抵消项。在 Chapter 4 and 7 中我们计算了在单圈确定这些抵消项，需要的所有图。我们现在收集这些结果，在
+ order 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ 找出 QED 重整化常数的明确表达式。为了整体连贯性，我们使用维数正规化控制紫外发散，光子质量
+\begin_inset Formula $\mu$
+\end_inset
+
+来控制红外发散。在 Part I 中，引进维数正规化之前，我们使用 Pauli-Villars 正规化方案计算了顶点和自能图。现在，我们有机会引用这些用维数正规
+化计算的图的值。
+\end_layout
+
+\begin_layout Standard
+头两个条件包含电子自能。我们在 section 7.1，使用 Pauli-Villars 正规子，计算了对
+\begin_inset Formula $\Sigma(p)$
+\end_inset
+
+有贡献的单圈图。结果在 Eq.(7.19)中给出。如果我们在维数正规化中重新计算这些图，我们会在 Dirac 代数中得到一些额外的项，来自于修改的收缩关系
+ Eq.(7.89)。考虑到这些项，我们发现对于这个图（
+\begin_inset Formula $\epsilon=4-d$
+\end_inset
+
+）
+\begin_inset Formula 
+\begin{align*}
+-i\Sigma_{2}(p) & =-i\frac{e^{2}}{(4\pi)^{d/2}}\int_{0}^{1}\dif x\frac{\Gamma(2-d/2)}{\left((1-x)m^{2}+x\mu^{2}-x(1-x)p^{2}\right)^{2-d/2}}\\
+ & \times\left((4-\epsilon)m-(2-\epsilon)x\slashed{p}\right)
+\end{align*}
+
+\end_inset
+
+所以，根据 eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.40"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的第一个条件
+\begin_inset Formula $\Sigma(\slashed{p}=m)=0;$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+m\delta_{2}-\delta_{m}=\Sigma_{2}(m)=\frac{e^{2}m}{(4\pi)^{d/2}}\int_{0}^{1}\dif x\frac{\Gamma(2-\frac{d}{2})\cdot\left(4-2x-\epsilon(1-x)\right)}{\left((1-x)^{2}m^{2}+x\mu^{2}\right)^{2-d/2}}
+\]
+
+\end_inset
+
+类似地， eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.40"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的第二项决定了
+\begin_inset Formula $\delta_{2}$
+\end_inset
+
+，
+\begin_inset Formula $\frac{\dif}{\dif\slashed{p}}\left.\Sigma(\slashed{p})\right\vert _{\slashed{p}=m}=0;$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align}
+\delta_{2} & =\frac{\dif}{\dif\slashed{p}}\Sigma_{2}(m)\nonumber \\
+ & =-\frac{e^{2}}{(4\pi)^{d/2}}\int_{0}^{1}\dif x\frac{\Gamma(2-\frac{d}{2})}{\left((1-x)^{2}m^{2}+x\mu^{2}\right)^{2-d/2}}\nonumber \\
+ & \phantom{=}\times\left[(2-\epsilon)x-\frac{\epsilon}{2}\frac{2x(1-x)m^{2}}{2(1-x)^{2}m^{2}+x\mu^{2}}\left(4-2x-\epsilon(1-x)\right)\right]\label{eq:10.43}
+\end{align}
+
+\end_inset
+
+注意到，当
+\begin_inset Formula $\epsilon\to0$
+\end_inset
+
+，括号中的第二项给出了有限的结果，因为它乘上的是发散的 gamma 函数。
+\end_layout
+
+\begin_layout Standard
+eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.40"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的第三个条件，
+\begin_inset Formula $\Pi(q^{2}=0)=0$
+\end_inset
+
+，需要 (7.90) 中光子自能图的值：
+\begin_inset Formula 
+\[
+\Pi_{2}(q^{2})=-\frac{e^{2}}{(4\pi)^{d/2}}\int_{0}^{1}\dif x\frac{\Gamma(2-\frac{d}{2})}{\left(m^{2}-x(1-x)q^{2}\right)^{2-d/2}}\left(8x(1-x)\right)
+\]
+
+\end_inset
+
+那么
+\begin_inset Formula 
+\[
+\delta_{3}=\Pi_{2}(0)=-\frac{e^{2}}{(4\pi)^{d/2}}\int_{0}^{1}\dif x\frac{\Gamma(2-\frac{d}{2})}{\left(m^{2}\right)^{2-d/2}}\left(8x(1-x)\right)
+\]
+
+\end_inset
+
+最后一个条件需要电子顶点函数的值，在 Section 6.3 中计算过。我们在维数正规化下重新得到结果。则形状因子
+\begin_inset Formula $F_{1}(q^{2})$
+\end_inset
+
+的改变为
+\begin_inset Formula 
+\begin{align*}
+\delta F_{1}(q^{2}) & =-\frac{e^{2}}{(4\pi)^{d/2}}\int\dif x\dif y\dif z\delta(x+y+z-1)\Bigg[\frac{\Gamma(2-\frac{d}{2})}{\Delta^{2-d/2}}\frac{(2-\epsilon)^{2}}{2}\\
+ & +\frac{\Gamma(3-\frac{d}{2})}{\Delta^{3-d/2}}\left(q^{2}\left[2(1-x)(1-y)-\epsilon xy\right]+m^{2}\left[2(1-4z+z^{2})-\epsilon(1-z)^{2}\right]\right)\Bigg]
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\Delta=(1-z)^{2}m^{2}+z\mu^{2}-xyq^{2}$
+\end_inset
+
+。第四个重正化条件
+\begin_inset Formula $-ie\Gamma^{\mu}(p^{\prime}-p=0)=-ie\gamma^{\mu}$
+\end_inset
+
+，决定了
+\begin_inset Formula 
+\begin{align}
+\delta_{1} & =-\delta F_{1}(0)=-\frac{e^{2}}{(4\pi)^{d/2}}\int\dif z(1-z)\Bigg[\frac{\Gamma(2-\frac{d}{2})}{((1-z)^{2}m^{2}+z\mu^{2})^{2-d/2}}\frac{(2-\epsilon)^{2}}{2}\label{eq:10.46}\\
+ & +\frac{\Gamma(3-\frac{d}{2})}{((1-z)^{2}m^{2}+z\mu^{2})^{3-d/2}}\left(m^{2}\left[2(1-4z+z^{2})-\epsilon(1-z)^{2}\right]\right)\Bigg]\nonumber 
+\end{align}
+
+\end_inset
+
+使用和 eq.(7.
+ 32) 中类似的分部积分，可以从 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.43"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.46"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 清楚地得到
+\begin_inset Formula $\delta_{1}=\delta_{2}$
+\end_inset
+
+，也就是说，在 order 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ 有
+\begin_inset Formula $Z_{1}=Z_{2}$
+\end_inset
+
+。就像之前推导的，这个等式来自于 Ward identity.
+ 不带抵消项的 Lagrangian 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.38"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L} & =-\frac{1}{4}(F_{r}^{\mu\nu})^{2}+\bar{\psi}_{r}(i\slashed{\partial}-m)\psi_{r}-e_{0}\bar{\psi}_{r}\gamma^{\mu}\psi_{r}A_{r,\mu}\\
+ & -\frac{1}{4}\delta_{3}(F_{r}^{\mu\nu})^{2}+\bar{\psi}_{r}(i\delta_{2}\slashed{\partial}-\delta_{m})\psi_{r}-e\delta_{1}\bar{\psi}_{r}\gamma^{\mu}\psi_{r}A_{r,\mu}
+\end{align*}
+
+\end_inset
+
+是规范不变的，如果正规子也是规范不变的（我们使用了维数正则化），这暗示了对于不含抵消项顶点的图存在 Ward identity。特别地，这暗示着
+\begin_inset Formula $\delta F_{1}(0)=-\left.\frac{\dif\Sigma_{2}}{\dif\slashed{p}}\right|_{m}$
+\end_inset
+
+。然后两个用来抵消这两个因子的抵消项
+\begin_inset Formula $\delta_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta_{2}$
+\end_inset
+
+，应该是相等的。
+\end_layout
+
+\begin_layout Standard
+通过继续这个论证，使用 section 7.4 中的类似方法（在裸微扰论中证明 Ward-Takahashi identity），可以在费曼图的所有阶证明
+\begin_inset Formula $\delta_{1}=\delta_{2}$
+\end_inset
+
+。将section 7.4 中的论证稍稍推广，可以证明图形等式 eq.7.68 对于包含抵消项顶点的图也成立。因此，如果在 order 
+\begin_inset Formula $\alpha^{n}$
+\end_inset
+
+ 时，确定了
+\begin_inset Formula $\delta_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta_{2}$
+\end_inset
+
+，在order 
+\begin_inset Formula $\alpha^{n+1}$
+\end_inset
+
+时， 
+\begin_inset Formula $q^{2}=0$
+\end_inset
+
+ 的未重正化顶点图等于未重正化电子自能图的导数。为了满足重正化条件 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.40"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，我们必须在 
+\begin_inset Formula $\alpha^{n+1}$
+\end_inset
+
+ 阶，令
+\begin_inset Formula $\delta_{1}$
+\end_inset
+
+ 等于 
+\begin_inset Formula $\delta_{2}$
+\end_inset
+
+。这个递归的论证给出了在 QED 微扰论所有阶
+\begin_inset Formula $Z_{1}=Z_{2}$
+\end_inset
+
+的另一个证明。关系 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.37"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+e=\frac{Z_{2}}{Z_{1}}Z_{3}^{1/2}e_{0}\label{eq:10.47}
+\end{equation}
+
+\end_inset
+
+给出了等式
+\begin_inset Formula $Z_{1}=Z_{2}$
+\end_inset
+
+更深刻的物理诠释，使用
+\begin_inset Formula $Z_{1}=Z_{2}$
+\end_inset
+
+我们把 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.47"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 写成
+\begin_inset Formula 
+\[
+e=\sqrt{Z_{3}}e_{0}
+\]
+
+\end_inset
+
+正是在 section 7.5 中我们时有图形方法证明的 relation 7.76 。它表明裸电荷和重正化电荷的关系只跟 光子场强重正化有关，而跟电子独有的量无关
+。为了看出这个关系的重要性，考虑写下两类带电例子的 重正化量子电动力学，比如，电子和 muons。那么，除了 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.37"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，我们还会有 光子–muon 顶点：
+\begin_inset Formula 
+\begin{equation}
+eZ_{1}^{\prime}=Z_{3}^{1/2}Z_{2}^{\prime}e_{0}\label{eq:10.48}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $Z_{1}^{\prime}$
+\end_inset
+
+ and 
+\begin_inset Formula $Z_{2}^{\prime}$
+\end_inset
+
+ 是 muon 的顶点和场强重正化。这两个常数都取决于muon的质量， 所以 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.48"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 看起来会给出和 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.47"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 不同的
+\begin_inset Formula $e^{0},e$
+\end_inset
+
+ 关系。然而 Ward identity 保证了
+\begin_inset Formula $Z_{1}^{\prime}=Z_{2}^{\prime}$
+\end_inset
+
+，相互约掉，留下一个对所有种类带电粒子都相同的单位电荷的数值。
 \end_layout
 
 \begin_layout Standard
