@@ -347,20 +347,20 @@ Usage: xetex [OPTION]... [TEXNAME[.tex]] [COMMANDS]
    or: xetex [OPTION]... &FMT ARGS
 ```
 
-在`TEXNAME`上运行`XeTeX`，通常创建`TEXNAME.pdf`.
-读取`TEXNAME`后，所有剩余的` COMMANDS`都将作为` XeTeX`input 处理.
+在`TEXNAME`上运行`XeTeX`,通常创建`TEXNAME.pdf`.
+读取`TEXNAME`后,所有剩余的` COMMANDS`都将作为` XeTeX`input 处理.
 
-如果`TEXNAME`的第一行是`%&FMT`，而`FMT`是现有的`.fmt`文件，将使用它. 
-否则使用`NAME.fmt`，其中`NAME`是程序调用名称，最常见的是`xetex`.
+如果`TEXNAME`的第一行是`%&FMT`,而`FMT`是现有的`.fmt`文件,将使用它. 
+否则使用`NAME.fmt`,其中`NAME`是程序调用名称,最常见的是`xetex`.
 
 (**note:** `.FMT` : `Format File Tex`)
 
-或者，如果第一个非选项参数以`反斜杠`开头，则将所有非选项参数解释为`XeTeX` input 行.
+或者,如果第一个非选项参数以`反斜杠`开头,则将所有非选项参数解释为`XeTeX` input 行.
 
-或者，如果第一个非选项参数以`&`开头，则将下一个单词作为要读取的`FMT`，覆盖其他所有设置.
+或者,如果第一个非选项参数以`&`开头,则将下一个单词作为要读取的`FMT`,覆盖其他所有设置.
 其余所有参数均按上述方式处理.
 
-如果未指定任何参数或选项，则提示输入.
+如果未指定任何参数或选项,则提示输入.
 
 | options | effect |
 | ----- | ----- |
@@ -422,8 +422,8 @@ Invoke-Expression $("lualatex" + " " + "-halt-on-error " + "-output-directory=te
 
 ## 占位符号Placeholders
 
-使用占位符：如果完成的命令具有需要填写的选项，
-则将`占位符`放在此位置，并可以通过使用`Ctrl + Right`/`Ctrl + Left`跳转到它们
+使用占位符：如果完成的命令具有需要填写的选项,
+则将`占位符`放在此位置,并可以通过使用`Ctrl + Right`/`Ctrl + Left`跳转到它们
 
 ## shell-escape
 
@@ -431,14 +431,14 @@ What does --shell-escape do?
 
 [tex.stackexchange.com](https://tex.stackexchange.com/questions/88740/what-does-shell-escape-do)
 
-有时候，能够从`tex`文件内部运行外部命令很有用：
-例如，它可以使某些排版外部化，或使用诸如`bibtex`之类的外部工具。 可通过`\write18` tex primitive 达成。
+有时候,能够从`tex`文件内部运行外部命令很有用：
+例如,它可以使某些排版外部化,或使用诸如`bibtex`之类的外部工具. 可通过`\write18` tex primitive 达成.
 
-问题在于它几乎允许所有事情。`tex`文件本来就是可移植的，
-并且在编译第三方文件时不应该担心任何安全问题。 因此，默认情况下，此 primitive 处于禁用状态。
+问题在于它几乎允许所有事情.`tex`文件本来就是可移植的,
+并且在编译第三方文件时不应该担心任何安全问题. 因此,默认情况下,此 primitive 处于禁用状态.
 
-如果用户需要使用它，则需要明确告诉编译器，
-他信任带有`shell`交互的文件的作者，而这正是可选的`--shell-escape`参数的目的。
+如果用户需要使用它,则需要明确告诉编译器,
+他信任带有`shell`交互的文件的作者,而这正是可选的`--shell-escape`参数的目的.
 
 ## align环境如何对齐
 
@@ -470,15 +470,15 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)      removing `math shift' on input line 1938.
 ```
 
-`PDF`书签与目录是不同的。 
-书签不是由`TeX`排版的：它们只是字符串，因此不允许使用数学或一般的格式说明。
+`PDF`书签与目录是不同的. 
+书签不是由`TeX`排版的：它们只是字符串,因此不允许使用数学或一般的格式说明.
 避免警告的最简单方法是使用`\texorpdfstring`：
 
 ```latex
 \subsection{The classes \texorpdfstring{$\mathcal{L}(\gamma)$}{Lg}}
 ```
 
-在第二个参数位置中你写下一个最佳的近似即可； 毕竟，书签只是参考文档的指南。
+在第二个参数位置中你写下一个最佳的近似即可； 毕竟,书签只是参考文档的指南.
 
 ## 符号
 
@@ -814,7 +814,7 @@ bibtex foo.aux
 支持给出多种`cite`格式:
 `[?,Einstein,4–6,6–9]`
 `[5a–5c] or [T1–T4])`
-`‘information;12`
+`information;12`
 
 `cite` and `natbib` 不能同时使用. 
 
@@ -1389,10 +1389,11 @@ These are different from `accents` in `normal text` (see `Accents`).
 
 ## 计数器 Counters
 
-Everything `LaTeX` numbers for you has a `counter` associated with it.
-The name of the `counter` is often the same as the name of the `environment` or `command` associated with the number, except that the `counter`’s name has no backslash `\`. Thus, associated with the `\chapter` command is the `chapter` counter that keeps track of the `chapter` number.
+所有的` LaTeX`自动编号都有一个`counter`与之关联.
+`counter`的名称通常与与数字关联的`environment`或`command`的名称相同,只是`counter`的名称没有反斜杠` \`. 
+因此,与` \chapter`命令相关联的是` chapter`counter,该counter跟踪` chapter`编号.
 
-Below is a list of the counters used in `LaTeX`’s standard document classes to control numbering.
+以下是在` LaTeX`的标准文档类中用于控制编号的`counter`列表.
 
 | | | | |
 | ----- | ----- | ----- | ----- |
@@ -1432,43 +1433,41 @@ Synopsis:
 \end{enumerate}
 ```
 
-产生编号项目清单的环境。 
-标签编号的格式取决于此环境的嵌套级别。 见下文。
-默认的顶级编号是``1.``，``2.``等。每个枚举列表环境必须至少包含一个项目； 
-缺少将导致` LaTeX`错误`Something's wrong--perhaps a missing \item`.。
+产生编号项目清单的环境. 
+标签编号的格式取决于此环境的嵌套级别. 见下文.
+默认的顶级编号是``1.``,``2.``等.每个枚举列表环境必须至少包含一个项目； 
+缺少将导致` LaTeX`错误`Something's wrong--perhaps a missing \item`..
 
-此示例给出了1908年奥运会马拉松比赛的前两名。 作为顶级列表，标签将显示为` 1.`和` 2.`。
+此示例给出了1908年奥运会马拉松比赛的前两名. 作为顶级列表,标签将显示为` 1.`和` 2.`.
 
 \begin{enumerate}
  \item Johnny Hayes (USA)
  \item Charles Hefferon (RSA)
 \end{enumerate}
 
-用`\ item`命令开始列表项（请参阅`\ item`）。 
-如果您给`\item`提供可选参数，通过在其后加上方括号，例如`\item[Interstitial label]`，
-则下一项将继续中断的序列（请参见`\item`）。
+用`\ item`命令开始列表项（请参阅`\ item`）. 
+如果您给`\item`提供可选参数,通过在其后加上方括号,例如`\item[Interstitial label]`,
+则下一项将继续中断的序列（请参见`\item`）.
 
-也就是说，您将获得诸如` 1`，`Interstitial label`，` 2`之类的标签。 `\item`之后是可选文本，其中可能包含多个段落。
+也就是说,您将获得诸如` 1`,`Interstitial label`,` 2`之类的标签. `\item`之后是可选文本,其中可能包含多个段落.
 
-`Enumerations`可以嵌套在其他`enumerate`环境中，也可以嵌套在任何`paragraph-making`环境中，
-例如` itemize`（请参阅` itemize`），深度最多为四个级别。 
-下面给出了` LaTeX`对每个嵌套层提供的默认格式，其中` 1`是顶层，即最外层。
+`Enumerations`可以嵌套在其他`enumerate`环境中,也可以嵌套在任何`paragraph-making`环境中,
+例如` itemize`（请参阅` itemize`）,深度最多为四个级别. 
+下面给出了` LaTeX`对每个嵌套层提供的默认格式,其中` 1`是顶层,即最外层.
 
-Enumerations may be nested within other enumerate environments, or within any `paragraph-making` environment such as `itemize` (see `itemize`), up to four levels deep. This gives `LaTeX`’s default for the format at each nesting level, where `1` is the top level, the outermost level.
-
-+ arabic number followed by a period: ‘`1.`’, ‘`2.`’, ...
-+ lowercase letter inside parentheses: ‘`(a)`’, ‘`(b)`’ ...
-+ lowercase roman numeral followed by a period: ‘`i.`’, ‘`ii.`’, ...
-+ uppercase letter followed by a period: ‘`A.`’, ‘`B.`’, ...
++ arabic number followed by a period: `1.`, `2.`, ...
++ lowercase letter inside parentheses: `(a)`, `(b)` ...
++ lowercase roman numeral followed by a period: `i.`, `ii.`, ...
++ uppercase letter followed by a period: `A.`, `B.`, ...
 
 The enumerate environment uses the counters `\enumi` through `\enumiv` (see `Counters`).
 
-对于其他主要的LaTeX标签列表环境，请参阅`description`和`itemize`。 
-有关列表`layout parameters`（包括默认值）的信息，以及有关自定义列表布局的信息，请参见`list`。 
-软件包`enumitem`可用于自定义列表。
+对于其他主要的LaTeX标签列表环境,请参阅`description`和`itemize`. 
+有关列表`layout parameters`（包括默认值）的信息,以及有关自定义列表布局的信息,请参见`list`. 
+软件包`enumitem`可用于自定义列表.
 
-要更改标签的格式，对命令`\labelenumi`使用`\renewcommand`（请参阅`\newcommand`和`\renewcommand`）。 
-例如，下面使第一级列表以大写字母标记，并以`boldface`显示，并且没有尾随句点。
+要更改标签的格式,对命令`\labelenumi`使用`\renewcommand`（请参阅`\newcommand`和`\renewcommand`）. 
+例如,下面使第一级列表以大写字母标记,并以`boldface`显示,并且没有尾随句点.
 
 ```latex
 \renewcommand{\labelenumi}{\textbf{\Alph{enumi}}}
@@ -1491,10 +1490,10 @@ Synopsis:
 \end{itemize}
 ```
 
-产生一个无序的列表，有时称为项目符号列表。 
-环境必须至少有一个“ \item”； 没有导致“ LaTeX”错误`Something's wrong--perhaps a missing \item`。
+产生一个无序的列表,有时称为项目符号列表. 
+环境必须至少有一个` \item`； 没有导致` LaTeX`错误`Something's wrong--perhaps a missing \item`.
 
-这给出了两个项目列表。
+这给出了两个项目列表.
 
 ```latex
 \begin{itemize}
@@ -1503,45 +1502,45 @@ Synopsis:
 \end{itemize}
 ```
 
-作为顶层列表，每个标签将以`bullet``$\textbullet$`的形式出现。标签的格式取决于嵌套级别。见下文。
+作为顶层列表,每个标签将以`bullet``$\textbullet$`的形式出现.标签的格式取决于嵌套级别.见下文.
 
-用`\item`命令开始列表项（请参阅`\item`）。
-如果您给`\item`一个可选参数，通过在其后加上方括号（如`\item[Optional label]`），
-则默认情况下它将以粗体显示并向右对齐，so it could extend into the left margin.
-对于向左对齐的标签，请参见`description`环境。 `\item`之后是可选文本，其中可能包含多个段落。
+用`\item`命令开始列表项（请参阅`\item`）.
+如果您给`\item`一个可选参数,通过在其后加上方括号（如`\item[Optional label]`）,
+则默认情况下它将以粗体显示并向右对齐,so it could extend into the left margin.
+对于向左对齐的标签,请参见`description`环境. `\item`之后是可选文本,其中可能包含多个段落.
 
-逐项列出的列表可以相互嵌套，最多可嵌套四个层次。
-它们也可以嵌套在其他段落创建环境中，例如`enumerate`（请参阅​​`enumerate`）。
+逐项列出的列表可以相互嵌套,最多可嵌套四个层次.
+它们也可以嵌套在其他段落创建环境中,例如`enumerate`（请参阅​​`enumerate`）.
 `itemize`环境使用命令`\labelitemi`到`\labelitemiv`来生成默认标签
-（这在命令名称的末尾使用小写罗马数字的约定来表示嵌套级别）。下面是每个级别的默认标记。
+（这在命令名称的末尾使用小写罗马数字的约定来表示嵌套级别）.下面是每个级别的默认标记.
 
 + $\textbullet$ (bullet, from \textbullet)
 + $\textdash$ (bold en-dash, from `\normalfont\bfseries\textendash`)
 + $\textasteriskcentered$ (asterisk, from `\textasteriskcentered`)
 + $\textperiodcentered$ (centered dot, rendered here as a period, from `\textperiodcentered`)
 
-用`\renewcommand`更改标签。 例如，这使得第一级使用`diamonds`。
+用`\renewcommand`更改标签. 例如,这使得第一级使用`diamonds`.
 
 ```latex
 \renewcommand{\labelitemi}{$\diamond$}
 ```
 
-`enclosing`环境的左边距与`itemize`列表的左边距之间的距离由参数`\leftmargini`到`\leftmarginvi`确定。 
-（请注意在命令名称的末尾使用小写罗马数字的约定，以表示嵌套级别。）
-默认值为：`1`级`2.5em`（两列模式下`2em`），`2`级`2.2em`，`3`级`1.87em`和`4`级`1.7em`，较小的值表示嵌套深度更深的级。
+`enclosing`环境的左边距与`itemize`列表的左边距之间的距离由参数`\leftmargini`到`\leftmarginvi`确定. 
+（请注意在命令名称的末尾使用小写罗马数字的约定,以表示嵌套级别.）
+默认值为：`1`级`2.5em`（两列模式下`2em`）,`2`级`2.2em`,`3`级`1.87em`和`4`级`1.7em`,较小的值表示嵌套深度更深的级.
 
-对于其他带有LaTeX标签的主要列表环境，请参见`description`和`enumerate`。 
-有关列表布局参数（包括默认值）的信息，以及有关自定义列表布局的信息，请参见`list`。 软件包`enumitem`对于自定义列表很有用。
+对于其他带有LaTeX标签的主要列表环境,请参见`description`和`enumerate`. 
+有关列表布局参数（包括默认值）的信息,以及有关自定义列表布局的信息,请参见`list`. 软件包`enumitem`对于自定义列表很有用.
 
-本示例极大地减少了最外面的`itemized`列表的边距空间。
+本示例极大地减少了最外面的`itemized`列表的边距空间.
 
 ```latex
 \setlength{\leftmargini}{1.25em} % default 2.5em
 ```
 
-特别是对于带有短`items`的列表，可能需要消除`items`之间的空间。
-这是一个定义`itemize*`环境的示例，该环境在`items`之间或单个`item`内的段落之间没有多余的间距
-（`\parskip`不是列表特有的，请参阅`\parindent`和`\parskip`）：
+特别是对于带有短`items`的列表,可能需要消除`items`之间的空间.
+这是一个定义`itemize*`环境的示例,该环境在`items`之间或单个`item`内的段落之间没有多余的间距
+（`\parskip`不是列表特有的,请参阅`\parindent`和`\parskip`）：
 
 ```latex
 \newenvironment{itemize*}%
@@ -1701,22 +1700,22 @@ ref-3: [查找任意符号的LaTeX指令][]
 [is-there-a-preference-of-when-to-use-text-and-mathrm]: https://tex.stackexchange.com/questions/19502/is-there-a-preference-of-when-to-use-text-and-mathrm
 
 警告：以下讨论假定软件包`amsmath`已加载.
-通常， `\ mathrm`应用于`符号`，而 `\ text`应用于文本. :)
+通常, `\ mathrm`应用于`符号`,而 `\ text`应用于文本. :)
 
-但是，最好对代表函数的罗马字母簇使用运算符：命令`\lcm`和`\gcd`已预定义； 
-对于`ord`，没有预定义的命令，但是把下列定义放入导言区就足够了
+但是,最好对代表函数的罗马字母簇使用运算符：命令`\lcm`和`\gcd`已预定义； 
+对于`ord`,没有预定义的命令,但是把下列定义放入导言区就足够了
 
 ```latex
 \DeclareMathOperator{\ord}{ord}
 ```
 
-在这种情况下，`\text {divides}`和`\mathrm {divides}`可能给出相同的结果，
-但是它们在概念上是不同的（根据所使用的数学字体，它们实际上可以以不同的方式打印）.
-例如，`\mathrm`的参数中的空格将被忽略.
-此外，`\text`跟周围环境的字体有关：在定理的陈述中它将以斜体显示.
+在这种情况下,`\text {divides}`和`\mathrm {divides}`可能给出相同的结果,
+但是它们在概念上是不同的（根据所使用的数学字体,它们实际上可以以不同的方式打印）.
+例如,`\mathrm`的参数中的空格将被忽略.
+此外,`\text`跟周围环境的字体有关：在定理的陈述中它将以斜体显示.
 
 应特别注意诸如`m/s`之类的单位；
-最好不要`手工`制作它们，而要使用`siunitx`之类的程序包，它可以处理所有的细节，同时又非常灵活.
+最好不要`手工`制作它们,而要使用`siunitx`之类的程序包,它可以处理所有的细节,同时又非常灵活.
 
 #### 求迹 Trace etc
 
@@ -1731,18 +1730,18 @@ ref-3: [查找任意符号的LaTeX指令][]
 
 `\vert` or `|`
 
-单行竖线（普通）。
+单行竖线（普通）.
 
-类似：双线竖线`\Vert`。
-如果是类似于定义一个集合时用到，请使用`\mid`，因为它是一个关系。
+类似：双线竖线`\Vert`.
+如果是类似于定义一个集合时用到,请使用`\mid`,因为它是一个关系.
 
-对于绝对值，您可以使用`mathtools`软件包，并在您的序言中放入。
+对于绝对值,您可以使用`mathtools`软件包,并在您的序言中放入.
 
 ```latex
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 ```
 
-它会提供三个命令变体，提供正确的水平对齐的单行铅垂线：
+它会提供三个命令变体,提供正确的水平对齐的单行铅垂线：
 
 在正文中,使用带星号的版本,`\abs*{\frac{22}{7}}`,竖线的高度会匹配参数的高度
 而`\abs{\frac{22}{7}}`会保留默认高度. 
@@ -2020,8 +2019,8 @@ LaTeX为特殊目的预留了以下字符.  例如,百分号％用于注释.  �
 
 除了最后三个,都可以用转义实现
 
-如果希望保留的字符以其自身的形式打印在文本正文中，
-则除该列表中的最后三个字符外，对于所有字符，只需在字符前面加上反斜杠`\`. 因此，键入`\$ 1.23`将在输出中产生`$ 1.23`.
+如果希望保留的字符以其自身的形式打印在文本正文中,
+则除该列表中的最后三个字符外,对于所有字符,只需在字符前面加上反斜杠`\`. 因此,键入`\$ 1.23`将在输出中产生`$ 1.23`.
 
 最后三个要使用
 `\~{}` ： 本来是用来给后面跟的字符加上波浪线的
