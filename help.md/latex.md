@@ -347,19 +347,20 @@ Usage: xetex [OPTION]... [TEXNAME[.tex]] [COMMANDS]
    or: xetex [OPTION]... &FMT ARGS
 ```
 
-Run XeTeX on `TEXNAME`, usually creating `TEXNAME.pdf`.
-Any remaining `COMMANDS` are processed as `XeTeX input`, after `TEXNAME` is read.
+在`TEXNAME`上运行`XeTeX`，通常创建`TEXNAME.pdf`.
+读取`TEXNAME`后，所有剩余的` COMMANDS`都将作为` XeTeX`input 处理.
 
-If the first line of `TEXNAME` is `%&FMT`, and `FMT` is an existing `.fmt` file, use it. Else use `NAME.fmt`, where `NAME` is the program invocation name, most commonly `xetex`.
+如果`TEXNAME`的第一行是`%&FMT`，而`FMT`是现有的`.fmt`文件，将使用它. 
+否则使用`NAME.fmt`，其中`NAME`是程序调用名称，最常见的是`xetex`.
 
 (**note:** `.FMT` : `Format File Tex`)
 
-Alternatively, if the first non-option argument begins with a `backslash`, interpret all non-option arguments as a line of `XeTeX input`.
+或者，如果第一个非选项参数以`反斜杠`开头，则将所有非选项参数解释为`XeTeX` input 行.
 
-Alternatively, if the first non-option argument begins with a `&`, the next word is taken as the `FMT` to read, overriding all else.
-Any remaining arguments are processed as above.
+或者，如果第一个非选项参数以`&`开头，则将下一个单词作为要读取的`FMT`，覆盖其他所有设置.
+其余所有参数均按上述方式处理.
 
-If no arguments or options are specified, prompt for input.
+如果未指定任何参数或选项，则提示输入.
 
 | options | effect |
 | ----- | ----- |
@@ -419,9 +420,10 @@ Invoke-Expression $("lualatex" + " " + "-halt-on-error " + "-output-directory=te
 
 `/,`  `/:` `/;` `/quad` `/qquad`
 
-## Placeholders
+## 占位符号Placeholders
 
-Use Placeholders: if the completed commands have options which need to be filled out, "place holder" are put at this positions and they can be jumped to by using `Ctrl+Right/Ctrl+Left`
+使用占位符：如果完成的命令具有需要填写的选项，
+则将`占位符`放在此位置，并可以通过使用`Ctrl + Right`/`Ctrl + Left`跳转到它们
 
 ## shell-escape
 
@@ -429,9 +431,14 @@ What does --shell-escape do?
 
 [tex.stackexchange.com](https://tex.stackexchange.com/questions/88740/what-does-shell-escape-do)
 
->Sometimes, it is useful to be able to run external commands from inside the tex file : it allows for example to externalize some typesetting, or to use external tools like bibtex. This is available via the \write18 tex primitive.
->The problem is that it allows for almost everything. A tex file is meant to be portable, and one shouldn't have to fear any security issue when compiling a third-party file. So by default, this primitive is disabled.
->If an user needs to use it, he needs to explicitely tell the compiler that he trusts the author of the file with shell interaction, and that's exactly the point of the optional --shell-escape argument.
+有时候，能够从`tex`文件内部运行外部命令很有用：
+例如，它可以使某些排版外部化，或使用诸如`bibtex`之类的外部工具。 可通过`\write18` tex primitive 达成。
+
+问题在于它几乎允许所有事情。`tex`文件本来就是可移植的，
+并且在编译第三方文件时不应该担心任何安全问题。 因此，默认情况下，此 primitive 处于禁用状态。
+
+如果用户需要使用它，则需要明确告诉编译器，
+他信任带有`shell`交互的文件的作者，而这正是可选的`--shell-escape`参数的目的。
 
 ## align环境如何对齐
 
@@ -448,7 +455,7 @@ What does --shell-escape do?
 
 ## Token not allowed
 
-Hyperref - Token not allowed [duplicate]
+`Hyperref - Token not allowed [duplicate]`
 
 The following code:
 
@@ -456,21 +463,22 @@ The following code:
 \subsection{The classes $\mathcal{L}(\gamma)$}
 ```
 
-generates the errors:
+产生错误：
 
 ```shell
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)      removing `math shift' on input line 1938.
 ```
 
->The PDF bookmarks are a different thing than the table of contents. The bookmarks are not typeset by TeX: they simply are strings of characters, so no math or general formatting instructions are allowed.
->The easiest method to avoid the warnings is to use \texorpdfstring:
+`PDF`书签与目录是不同的。 
+书签不是由`TeX`排版的：它们只是字符串，因此不允许使用数学或一般的格式说明。
+避免警告的最简单方法是使用`\texorpdfstring`：
 
 ```latex
 \subsection{The classes \texorpdfstring{$\mathcal{L}(\gamma)$}{Lg}}
 ```
 
->where in the second argument you put the best approximation possible; after all the bookmarks are only a guide for consulting the document.
+在第二个参数位置中你写下一个最佳的近似即可； 毕竟，书签只是参考文档的指南。
 
 ## 符号
 
@@ -1179,6 +1187,27 @@ f(n) = \begin{cases} n/2 &\mbox{if } n \equiv 0 \\
 \end{aligned}\end{equation}
 ```
 
+参考 amsdoc_4.1_矩阵
+
+除了LATEX的基本阵列环境外,amsmath软件包还为矩阵提供了一些环境.
+`pmatrix`,`bmatrix`,`Bmatrix`,`vmatrix`和`Vmatrix`
+分别具有`()`,`[]`,`{}`,`|`,`||`分隔符.
+为了命名一致性,有一个`matrix`环境,没有定界符.
+
+对于`array`环境,这并不是完全多余的.`matrix`环境都`array`环境的水平间距更经济.
+另外,与阵列环境不同,您不必为任何`matrix`环境提供`column specifications`；
+默认情况下,您最多可以有`10`个居中的列. （如果需要以一列或其他特殊格式左对齐或右对齐,则必须诉诸`array`.）
+
+为了产生适用于文本的小矩阵,需要有一个`smallmatrix`环境,它比普通矩阵更适合于单个文本行.
+必须提供定界符；没有`p`,`b`,`B`,`v`,`V`版本的`smallmatrix`.
+上面的例子可以这些生成
+
+```latex
+\bigl( \begin{smallmatrix}
+a&b\\ c&d
+\end{smallmatrix} \bigr)
+```
+
 ### 分隔符
 
 ```latex
@@ -1403,18 +1432,27 @@ Synopsis:
 \end{enumerate}
 ```
 
-Environment to produce a numbered list of items. The format of the label numbering depends on the nesting level of this environment; see below.
-The default top-level numbering is ‘`1.`’, ‘`2.`’, etc. Each enumerate list environment must have at least one item; having none causes the `LaTeX` error  `Something's wrong--perhaps a missing \item`.
+产生编号项目清单的环境。 
+标签编号的格式取决于此环境的嵌套级别。 见下文。
+默认的顶级编号是``1.``，``2.``等。每个枚举列表环境必须至少包含一个项目； 
+缺少将导致` LaTeX`错误`Something's wrong--perhaps a missing \item`.。
 
-This example gives the first two finishers in the 1908 Olympic marathon. As a top-level list the labels would come out as ‘`1.`’ and ‘`2.`’.
+此示例给出了1908年奥运会马拉松比赛的前两名。 作为顶级列表，标签将显示为` 1.`和` 2.`。
 
 \begin{enumerate}
  \item Johnny Hayes (USA)
  \item Charles Hefferon (RSA)
 \end{enumerate}
 
-Start list items with the `\item` command (see `\item`). If you give `\item` an optional argument by following it with square brackets, as in `\item[Interstitial label]`, then the next item will continue the interrupted sequence (see `\item`).
-That is, you will get labels like ‘`1.`’, then ‘`Interstitial label`’, then ‘`2.`’. Following the `\item` is optional text, which may contain multiple paragraphs.
+用`\ item`命令开始列表项（请参阅`\ item`）。 
+如果您给`\item`提供可选参数，通过在其后加上方括号，例如`\item[Interstitial label]`，
+则下一项将继续中断的序列（请参见`\item`）。
+
+也就是说，您将获得诸如` 1`，`Interstitial label`，` 2`之类的标签。 `\item`之后是可选文本，其中可能包含多个段落。
+
+`Enumerations`可以嵌套在其他`enumerate`环境中，也可以嵌套在任何`paragraph-making`环境中，
+例如` itemize`（请参阅` itemize`），深度最多为四个级别。 
+下面给出了` LaTeX`对每个嵌套层提供的默认格式，其中` 1`是顶层，即最外层。
 
 Enumerations may be nested within other enumerate environments, or within any `paragraph-making` environment such as `itemize` (see `itemize`), up to four levels deep. This gives `LaTeX`’s default for the format at each nesting level, where `1` is the top level, the outermost level.
 
@@ -1425,9 +1463,12 @@ Enumerations may be nested within other enumerate environments, or within any `p
 
 The enumerate environment uses the counters `\enumi` through `\enumiv` (see `Counters`).
 
-For other major LaTeX labeled list environments, see description and itemize. For information about list layout parameters, including the default values, and for information about customizing list layout, see list. The package enumitem is useful for customizing lists.
+对于其他主要的LaTeX标签列表环境，请参阅`description`和`itemize`。 
+有关列表`layout parameters`（包括默认值）的信息，以及有关自定义列表布局的信息，请参见`list`。 
+软件包`enumitem`可用于自定义列表。
 
-To change the format of the label use `\renewcommand` (see `\newcommand` & `\renewcommand`) on the commands `\labelenumi` through `\labelenumiv`. For instance, this first level list will be labelled with uppercase letters, in boldface, and without a trailing period.
+要更改标签的格式，对命令`\labelenumi`使用`\renewcommand`（请参阅`\newcommand`和`\renewcommand`）。 
+例如，下面使第一级列表以大写字母标记，并以`boldface`显示，并且没有尾随句点。
 
 ```latex
 \renewcommand{\labelenumi}{\textbf{\Alph{enumi}}}
@@ -1450,9 +1491,10 @@ Synopsis:
 \end{itemize}
 ```
 
-Produce a list that is unordered, sometimes called a bullet list. The environment must have at least one `\item`; having none causes the `LaTeX` error ‘`Something's wrong--perhaps a missing \item`’.
+产生一个无序的列表，有时称为项目符号列表。 
+环境必须至少有一个“ \item”； 没有导致“ LaTeX”错误`Something's wrong--perhaps a missing \item`。
 
-This gives a two-item list.
+这给出了两个项目列表。
 
 ```latex
 \begin{itemize}
@@ -1461,37 +1503,45 @@ This gives a two-item list.
 \end{itemize}
 ```
 
-As a top-level list each label would come out as a bullet, $\textbullet$. The format of the labeling depends on the nesting level; see below.
+作为顶层列表，每个标签将以`bullet``$\textbullet$`的形式出现。标签的格式取决于嵌套级别。见下文。
 
-Start list items with the `\item` command (see `\item`). If you give `\item` an optional argument by following it with square brackets, as in `\item[Optional label]`, then by default it will appear in bold and be flush right, so it could extend into the left margin.
-For labels that are flush left see the description environment. Following the `\item` is optional text, which may contain multiple paragraphs.
+用`\item`命令开始列表项（请参阅`\item`）。
+如果您给`\item`一个可选参数，通过在其后加上方括号（如`\item[Optional label]`），
+则默认情况下它将以粗体显示并向右对齐，so it could extend into the left margin.
+对于向左对齐的标签，请参见`description`环境。 `\item`之后是可选文本，其中可能包含多个段落。
 
-Itemized lists can be nested within one another, up to four levels deep. They can also be nested within other paragraph-making environments, such as `enumerate` (see `enumerate`).
-The itemize environment uses the commands `\labelitemi` through `\labelitemiv` to produce the default label (this also uses the convention of lowercase roman numerals at the end of the command names that signify the nesting level). These are the default marks at each level.
+逐项列出的列表可以相互嵌套，最多可嵌套四个层次。
+它们也可以嵌套在其他段落创建环境中，例如`enumerate`（请参阅​​`enumerate`）。
+`itemize`环境使用命令`\labelitemi`到`\labelitemiv`来生成默认标签
+（这在命令名称的末尾使用小写罗马数字的约定来表示嵌套级别）。下面是每个级别的默认标记。
 
 + $\textbullet$ (bullet, from \textbullet)
 + $\textdash$ (bold en-dash, from `\normalfont\bfseries\textendash`)
 + $\textasteriskcentered$ (asterisk, from `\textasteriskcentered`)
 + $\textperiodcentered$ (centered dot, rendered here as a period, from `\textperiodcentered`)
 
-Change the labels with `\renewcommand`. For instance, this makes the first level use diamonds.
+用`\renewcommand`更改标签。 例如，这使得第一级使用`diamonds`。
 
 ```latex
 \renewcommand{\labelitemi}{$\diamond$}
 ```
 
-The distance between the left margin of the enclosing environment and the left margin of the itemize list is determined by the parameters `\leftmargini` through `\leftmarginvi`. (Note the convention of using lowercase roman numerals a the end of the command name to denote the nesting level.)
-The defaults are: 2.5em in level 1 (2em in two-column mode), 2.2em in level 2, 1.87em in level 3, and 1.7em in level 4, with smaller values for more deeply nested levels.
+`enclosing`环境的左边距与`itemize`列表的左边距之间的距离由参数`\leftmargini`到`\leftmarginvi`确定。 
+（请注意在命令名称的末尾使用小写罗马数字的约定，以表示嵌套级别。）
+默认值为：`1`级`2.5em`（两列模式下`2em`），`2`级`2.2em`，`3`级`1.87em`和`4`级`1.7em`，较小的值表示嵌套深度更深的级。
 
-For other major `LaTeX` labeled list environments, see description and enumerate. For information about list layout parameters, including the default values, and for information about customizing list layout, see list. The package enu`mitem is useful for customizing lists.
+对于其他带有LaTeX标签的主要列表环境，请参见`description`和`enumerate`。 
+有关列表布局参数（包括默认值）的信息，以及有关自定义列表布局的信息，请参见`list`。 软件包`enumitem`对于自定义列表很有用。
 
-This example greatly reduces the margin space for outermost itemized lists.
+本示例极大地减少了最外面的`itemized`列表的边距空间。
 
 ```latex
 \setlength{\leftmargini}{1.25em} % default 2.5em
 ```
 
-Especially for lists with short items, it may be desirable to elide space between items. Here is an example defining an `itemize*` environment with no extra spacing between items, or between paragraphs within a single item (`\parskip` is not list-specific, see `\parindent` & `\parskip`):
+特别是对于带有短`items`的列表，可能需要消除`items`之间的空间。
+这是一个定义`itemize*`环境的示例，该环境在`items`之间或单个`item`内的段落之间没有多余的间距
+（`\parskip`不是列表特有的，请参阅`\parindent`和`\parskip`）：
 
 ```latex
 \newenvironment{itemize*}%
@@ -1650,19 +1700,23 @@ ref-3: [查找任意符号的LaTeX指令][]
 
 [is-there-a-preference-of-when-to-use-text-and-mathrm]: https://tex.stackexchange.com/questions/19502/is-there-a-preference-of-when-to-use-text-and-mathrm
 
-*Caution: the following discussion assumes that the package amsmath has been loaded.*
-In general `\mathrm` should be used for "symbols" and `\text` for, yes, text . :)
+警告：以下讨论假定软件包`amsmath`已加载.
+通常， `\ mathrm`应用于`符号`，而 `\ text`应用于文本. :)
 
-However, it's best to use operators for clusters of Roman letters that represent functions: the commands `\lcm` and `\gcd` are predefined; for "ord" there's not a predefined command, but it suffices to put in the preamble
+但是，最好对代表函数的罗马字母簇使用运算符：命令`\lcm`和`\gcd`已预定义； 
+对于`ord`，没有预定义的命令，但是把下列定义放入导言区就足够了
 
 ```latex
 \DeclareMathOperator{\ord}{ord}
 ```
 
-In this case `\text{divides}` and `\mathrm{divides}` might give the same result, but they are conceptually different (and can actually be printed in different ways, depending on the math fonts used).
-Spaces in the argument of `\mathrm` are ignored, for example. Moreover, `\text` honors the font of the surrounding environment: it will print in italics in the statement of a theorem.
+在这种情况下，`\text {divides}`和`\mathrm {divides}`可能给出相同的结果，
+但是它们在概念上是不同的（根据所使用的数学字体，它们实际上可以以不同的方式打印）.
+例如，`\mathrm`的参数中的空格将被忽略.
+此外，`\text`跟周围环境的字体有关：在定理的陈述中它将以斜体显示.
 
-Particular attention should be paid to units such as "`m/s`"; it's best not to do them "by hand", but employ a package like `siunitx` that takes care of all the subtleties, while being very flexible.
+应特别注意诸如`m/s`之类的单位；
+最好不要`手工`制作它们，而要使用`siunitx`之类的程序包，它可以处理所有的细节，同时又非常灵活.
 
 #### 求迹 Trace etc
 
@@ -1675,16 +1729,20 @@ Particular attention should be paid to units such as "`m/s`"; it's best not to d
 
 绝对值
 
-`\vert` `|`
+`\vert` or `|`
 
-Single line vertical bar (ordinary).
+单行竖线（普通）。
 
-Similar: double-line vertical bar `\Vert`.
-For such that, as in the definition of a set, use `\mid` because it is a relation.
+类似：双线竖线`\Vert`。
+如果是类似于定义一个集合时用到，请使用`\mid`，因为它是一个关系。
 
-For absolute value you can use the `mathtools` package and in your preamble put `\DeclarePairedDelimiter\abs{\lvert}{\rvert}`.
+对于绝对值，您可以使用`mathtools`软件包，并在您的序言中放入。
 
-This gives you three command variants for single-line vertical bars that are correctly horizontally spaced:
+```latex
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+```
+
+它会提供三个命令变体，提供正确的水平对齐的单行铅垂线：
 
 在正文中,使用带星号的版本,`\abs*{\frac{22}{7}}`,竖线的高度会匹配参数的高度
 而`\abs{\frac{22}{7}}`会保留默认高度. 
@@ -1865,7 +1923,7 @@ or one of these.
 \renewcommand*{\cmd}[nargs][optargdefault]{defn}
 ```
 
-定义或重定义一个命令. See also the discussion of \DeclareRobustCommand in Class and package commands.
+定义或重定义一个命令. See also the discussion of `\DeclareRobustCommand` in Class and package commands.
 这两个命令的`*`号形式要求参数中不包含多段文字. （用 `plain TeX` 术语说,不能为`\long` ）. 
 
 参数说明:
@@ -1962,7 +2020,9 @@ LaTeX为特殊目的预留了以下字符.  例如,百分号％用于注释.  �
 
 除了最后三个,都可以用转义实现
 
-If you want a reserved character to be printed as itself, in the text body font, for all but the final three characters in that list simply put a backslash \ in front of the character. Thus, typing \$1.23 will produce $1.23 in your output.
+如果希望保留的字符以其自身的形式打印在文本正文中，
+则除该列表中的最后三个字符外，对于所有字符，只需在字符前面加上反斜杠`\`. 因此，键入`\$ 1.23`将在输出中产生`$ 1.23`.
+
 最后三个要使用
 `\~{}` ： 本来是用来给后面跟的字符加上波浪线的
 `\^{}`：同理,本是用来加上音调符号的
@@ -1988,20 +2048,20 @@ If you want a reserved character to be printed as itself, in the text body font,
 \verb * char文字文本char
 ```
 
-使用打字机（`\tt`）字体对输入的文字文本进行原样排版，包括特殊字符和空格。
-此示例显示了`\verb`的两种不同调用。
+使用打字机（`\tt`）字体对输入的文字文本进行原样排版,包括特殊字符和空格.
+此示例显示了`\verb`的两种不同调用.
 
 ```latex
 This is \verb!literally! the biggest pumpkin ever.
 And this is the best squash, \verb+literally!+
 ```
 
-第一个`\verb`的文字文本带有感叹号`！`。第二个取而代之的是使用加号`+`，因为感叹号是文字文本的一部分。
+第一个`\verb`的文字文本带有感叹号`！`.第二个取而代之的是使用加号`+`,因为感叹号是文字文本的一部分.
 
-包围文字文本的单字符定界符`char`必须相同。
-`\verb`或`\verb*`与`char`之间，`char`与文字文本之间，或文本与第二个`char`之间不能有空格
-（上面的空格是为了区分不同部分）。分隔符不能出现在后续文本中，文本中不能包含换行符。
-`*`形式的不同之处仅在于，空格以可见的空格字符打印。
+包围文字文本的单字符定界符`char`必须相同.
+`\verb`或`\verb*`与`char`之间,`char`与文字文本之间,或文本与第二个`char`之间不能有空格
+（上面的空格是为了区分不同部分）.分隔符不能出现在后续文本中,文本中不能包含换行符.
+`*`形式的不同之处仅在于,空格以可见的空格字符打印.
 
 ### verbatim 环境
 
@@ -2013,21 +2073,21 @@ And this is the best squash, \verb+literally!+
 \ end {verbatim}
 ```
 
-创建一个段落，对内容原样输出。例如，在文字文本中，反斜杠`\`字符不会启动命令，它会产生一个打印的`\`，
-并按字面意义使用回车符和空格。输出以类似等距打字机的字体（`\tt`）出现。
-文字文本的唯一限制是它不能包含字符串`\end {verbatim}`。
-您不能在宏的参数（例如`\section`的参数）中使用逐字记录环境。（但是cprotect软件包可以帮助您解决此问题。）
+创建一个段落,对内容原样输出.例如,在文字文本中,反斜杠`\`字符不会启动命令,它会产生一个打印的`\`,
+并按字面意义使用回车符和空格.输出以类似等距打字机的字体（`\tt`）出现.
+文字文本的唯一限制是它不能包含字符串`\end {verbatim}`.
+您不能在宏的参数（例如`\section`的参数）中使用逐字记录环境.（但是cprotect软件包可以帮助您解决此问题.）
 
-`verbatim`的一种常见用法是排版计算机代码。有一些软件包可以改善`verbatim`。
-例如，一种改进是允许逐字包含外部文件或这些文件的一部分，比如`listings`, and `minted`.
-一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`。另一个是`verbatimbox`。
-有关所有相关软件包的列表，请参见CTAN。
+`verbatim`的一种常见用法是排版计算机代码.有一些软件包可以改善`verbatim`.
+例如,一种改进是允许逐字包含外部文件或这些文件的一部分,比如`listings`, and `minted`.
+一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`.另一个是`verbatimbox`.
+有关所有相关软件包的列表,请参见CTAN.
 
 ## parbox
 
 [20.3 \parbox](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#g_t_005cparbox)
 
-概要，其中之一：
+概要,其中之一：
 
 ```latex
 \parbox{width} {contents}
@@ -2036,23 +2096,34 @@ And this is the best squash, \verb+literally!+
 \parbox[position] [height] [inner-pos] {width} {contents}
 ```
 
-产生一个宽度为宽度的文本框。使用此命令可以使一小段文本框变成单个段落。该命令是易碎的（请参阅\ protect）。
+产生一个宽度为`width`的文本框.
+使用此命令可以使一小段文本框变成单个段落.该命令是`fragile`的（请参阅`\protect`）.
 
-\ begin {picture}（0,0）
+```latex
+\begin{picture}(0,0)
   ...
-  \ put（1,2）{\ parbox {1.75in} {\ raggedright因为图形是一条直线
-                         这本半对数论文，关系是
-                         指数。}}
-\ end {picture}
+  \put(1,2){\parbox{1.75in}{\raggedright Because the graph is a line on
+                         this semilog paper, the relationship is
+                         exponential.}}
+\end{picture}
+```
 
-内容以文本模式处理（请参见“模式”），因此LaTeX会中断换行以形成段落。但是它不会包含多个段落；为此，请使用小型页面环境（请参见小型页面）。
+内容被以文本模式处理
+（请参见[`Modes`](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Modes)）,
+因此`LaTeX`会中断换行以形成段落.但是它不会包含多个段落；为此,请使用`minipage`环境（请参见`minipage`）.
 
-\ parbox的选项（内容除外）与minipage的选项相同。为方便起见，此处提供了选项的摘要，但完整说明请参见迷你页。
+`\parbox`的选项（除了内容）与`minipage`的选项相同.为方便起见,此处提供了选项的摘要,但完整说明请参见[minipage](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#minipage).
 
-有两个必需的参数。宽度是刚性长度（请参见长度）。它设置LaTeX将内容排版到其中的框的宽度。内容是放置在该框中的文本。它不应包含任何段落创建组件。
+有两个必需的参数.`width`是刚性长度（请参见`Lengths`）.
+它设置LaTeX将内容排版到其中的框的宽度.`contents`是放置在该框中的文本.它不应包含任何`paragraph-making`组件.
 
-有三个可选参数，位置，高度和内部位置。该位置使配电箱相对于周围材料垂直对齐。可能的值是c或m以使parbox的垂直中心与相邻线的中心对齐（这是默认值），或t可以使parbox的顶行与周围材料的基线匹配，或者b匹配底线。
+有三个可选参数,`position`, `height`, and `inner-pos`.
+`position`给出`parbox`相对于周围材料的垂直对齐.
+可能的值是`c`或`m`以使`parbox`的垂直中心与相邻线的中心对齐（这是默认值）,
+或`t`可以使`parbox`的顶行与周围材料的基线匹配,或者`b`匹配底线.
 
-可选参数height覆盖框的自然高度。
+可选参数`height`覆盖框的自然高度.
 
-可选参数inner-pos控制内容在parbox中的位置。它的默认值是position的值。其可能的值为：t将内容放置在框的顶部，c将其放置在框的垂直中心，b将其放置在框的底部，并且s将其垂直延伸（为此，文本必须包含垂直可拉伸的空间）。
+可选参数`inner-pos`控制内容在`parbox`中的位置.它的默认值是`position`的值.
+其可能的值为：`t`将内容放置在框的顶部,`c`将其放置在框的垂直中心,`b`将其放置在框的底部,
+`s`将其垂直拉伸（为此,文本必须包含垂直可拉伸的空间）.
