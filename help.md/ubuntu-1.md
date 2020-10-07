@@ -551,7 +551,108 @@ head -n [-]num
 
 `-num` 不输出最后num行
 
-### 创建链接
+### 查看使用的桌面环境
+
+[如何找出你所使用的桌面环境 ][]
+
+[如何找出你所使用的桌面环境 ]: https://linux.cn/article-12124-1.html
+
+#### 检查你使用的是哪个桌面环境
+
+你可以在 Linux 中使用 `echo` 命令在终端中显示 `XDG_CURRENT_DESKTOP` 变量的值。
+
+```bash
+echo $XDG_CURRENT_DESKTOP
+```
+
+#### 如何获取桌面环境版本
+
+与获取桌面环境的名称不同。获取其版本号的方法并不直接，因为它没有标准的命令或环境变量可以提供此信息。
+在 Linux 中获取桌面环境信息的一种方法是使用 `Screenfetch` 之类的工具。
+此命令行工具以 ascii 格式显示 Linux 发行版的 logo 以及一些基本的系统信息。桌面环境版本就是其中之一。
+安装：`sudo apt install screenfetch`。
+
+对于其他 Linux 发行版，请使用系统的软件包管理器来安装此程序。
+安装后，只需在终端中输入 `screenfetch` 即可，它应该显示桌面环境版本以及其他系统信息。
+
+### 查看linux 系统信息
+
+ref: [3 Ways to Check Linux Kernel Version in Command Line](https://itsfoss.com/find-which-kernel-version-is-running-in-ubuntu/)
+
+#### uname
+
+`inxi -S`
+
+`uname - print system information`
+
+`uname -r`
+命令的输出应如下所示：
+`5.4.0-48-generic`
+
+这意味着您正在运行Linux内核`5.4.0-48`，或更笼统地说，您正在运行Linux内核版本`5.4`。
+
+但是其他数字在这里意味着什么？
+
++ `5` – 内核版本
++ `4` – 重大修订
++ `0` – 次要修订
++ `48`– Bug fix
++ `generic`–特定于发行版的字符串。对于Ubuntu，这表示我使用的是`desktop`版本。
+对于Ubuntu服务器版本，它将是`server`
+
+使用`-a`选项可以输出更多信息
+`uname -a`
+
+命令的输出应如下所示：
+`Linux OP7050 5.4.0-48-generic #52-Ubuntu SMP Thu Sep 10 10:58:49 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux`
+
+让我解释一下输出及其含义：
+
++ `Linux` –内核名称。 如果在BSD或macOS上运行相同的命令，结果将有所不同。
++ `OP7050` –主机名。
++ `5.4.0-48-generic` –内核版本（如我们在上面看到的）。
++ `52-Ubuntu SMP Thu Sep 10 10:58:49 UTC 2020` –这意味着Ubuntu已编译`5.4.0-48-generic` `52`次。 最后一次编译的时间戳也在那里。
++ `x86_64` –机器架构。
++ `x86_64` –处理器架构。
++ `x86_64` –操作系统体系结构（您可以在64位处理器上运行32位OS）。
++ `GNU / Linux` –操作系统（它不会显示发行版名称）。
+
+让我们看看其他一些命令来查找您的Linux内核版本。
+
+#### 使用 /proc/version file
+
+在Linux中，您还可以在文件`/proc/version`中找到内核信息。 只需查看此文件的内容即可：
+
+`cat /proc/version`
+
+在命令行中检查Linux内核版本, 您会看到类似于uname的输出。
+
+`Linux version 5.4.0-48-generic (buildd@lcy01-amd64-010) (gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2)) #52-Ubuntu SMP Thu Sep 10 10:58:49 UTC 2020`
+
+您可以在此处看到内核版本`5.4.0-48-generic`。
+
+#### 使用dmesg
+
+[Linux dmesg命令](https://www.runoob.com/linux/linux-comm-dmesg.html)
+
+dmesg是用于编写内核消息的强大命令。这对于获取系统信息也非常有用。`dmesg`命令用于显示开机信息。
+kernel会将开机信息存储在`ring buffer`中。您若是开机时来不及查看信息，可利用dmesg来查看。开机信息亦保存在`/var/log`目录中，名称为`dmesg`的文件里。
+
+由于`dmesg`提供了很多信息，使用`grep`挑选。
+
+```bash
+dmesg | grep Linux
+```
+
+输出将包含几行，但是您应该能够在其中轻松识别Linux内核版本。
+
+```bash
+[    0.000000] Linux version 5.4.0-48-generic (buildd@lcy01-amd64-010) (gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2)) #52-Ubuntu SMP Thu Sep 10 10:58:49 UTC 2020 (Ubuntu 5.4.0-48.52-generic 5.4.60)
+...
+[   12.936690] Intel(R) Wireless WiFi driver for Linux
+```
+
+## 创建链接
 
 `ln` — 创建链接
 
@@ -562,7 +663,7 @@ head -n [-]num
 + `ln file link` 创建硬链接
 + `ln -s item link` 创建符号链接,`item` 可以是一个文件或是一个目录。
 
-#### 硬链接
+### 硬链接
 
 硬链接和符号链接比起来,硬链接是最初 `Unix` 创建链接的方式,而符号链接更加现代。 在默认情况下,每个文
 件有一个硬链接,这个硬链接给文件起名字。
@@ -577,7 +678,7 @@ head -n [-]num
 的磁盘空间不会被重新分配), 直到所有关联这个文件的链接都删除掉。知道硬链接很重要,因为你可能有时
 会遇到它们,但现在实际中更喜欢使用符号链接,下一步我们会讨论符号链接。
 
-#### 符号链接
+### 符号链接
 
 创建符号链接是为了克服硬链接的局限性。
 符号链接生效,是通过创建一个特殊类型的文件,这个文件包含一个关联文件或目录的文本指针。
@@ -602,7 +703,7 @@ head -n [-]num
 [me@linuxbox playground]$ ln fun dir2/fun-hard
 ```
 
-ls 命令有一种方法,来展示(文件索引节点)的信息。在命令中加上``-i``选项:
+`ls` 命令有一种方法,来展示(文件索引节点)的信息。在命令中加上``-i``选项:
 
 ***
 创建符号链接
@@ -630,12 +731,15 @@ ln -s /home/me/playground/fun dir1/fun-sym
 
 也可用相对路径名,正如前面例题所展示的。使用相对路径名更令人满意, 因为它允许一个包含符号链接的目录重命名或移动,而不会破坏链接。
 
-### Shell basename
+## basename
 
-截取文件名和后缀
+### 截取文件名和后缀
 
-编写Shell脚本的过程中，经常会和文件名和文件路径打交道。如果用户输入了一个文件的全名（可能包含绝对路径和文件后缀），如何得到文件的路径名，文件名，文件后缀这些信息呢。Shell脚本拥有强大的字符串处理能力，如果把文件名当做字符串，我们不难使用cut或sed这样的工具得到我们想要的结果。
+编写Shell脚本的过程中，经常会和文件名和文件路径打交道。
+如果用户输入了一个文件的全名（可能包含绝对路径和文件后缀），如何得到文件的路径名，文件名，文件后缀这些信息呢。
+Shell脚本拥有强大的字符串处理能力，如果把文件名当做字符串，我们不难使用`cut`或`sed`这样的工具得到我们想要的结果。
 
+```bash
 $fullfile=/the/path/foo.txt
 $fullname=$(basename $fullfile)
 $dir=$(dirname $fullfile)
@@ -643,35 +747,48 @@ $filename=$(echo $fullname | cut -d . -f1)
 $extension=$(echo $fullname | cut -d . -f2)
 $ echo $dir , $fullname , $filename , $extension
 /the/path , foo.txt , foo , txt
+```
 
-这里使用basename命令可以直接得到包含后缀的文件名，而dirname命令可以得到路径名，然后就能简单的用cut截取文件名和后缀名。
-更复杂的情况
+这里使用`basename`命令可以直接得到包含后缀的文件名，而`dirname`命令可以得到路径名，
+然后就能简单的用`cut`截取文件名和后缀名。
 
-如果对付简单应用场景，到这里已经可以打完收工了，但是有时候文件可能不止有一个后缀，比如*.tar.gz，怎样得到最后一个后缀呢？再cut一回？当然可以，但是如果文件名是mylib.1.0.1a.zip这样的呢？呃......正则表达式肯定可以。
+### 更复杂的情况
 
+如果对付简单应用场景，到这里已经可以打完收工了，但是有时候文件可能不止有一个后缀，比如`*.tar.gz`，怎样得到最后一个后缀呢？
+再`cut`一回？当然可以，但是如果文件名是`mylib.1.0.1a.zip`这样的呢？呃......正则表达式肯定可以。
+
+```bash
 $ fullname=mylib.1.0.1a.zip
 $ filename=$(echo $fullname | sed 's/\.[^.]*$//')
 $ extension=$(echo $fullname | sed 's/^.*\.//')
 $ echo $filename, $extension
 mylib.1.0.1a, zip
+```
 
 这里面的逻辑是这样的：
 
-    文件名：把以.字符开头以后一直到行尾都是非.字符的子串替换为空。
-    后缀名：把从行首开始以.字符结尾的子串替换为空。
+文件名：把以`.`字符开头以后一直到行尾都是非`.`字符的子串替换为空。
+后缀名：把从行首开始以`.`字符结尾的子串替换为空。
 
-光用语言把这两个正则表达式描述出来脑细胞也要死不少。有没有像上面cut版本一样简单容易理解的方法呢？由于.分隔符的个数不确定，正常使用cut来分割最后一个.字符是不太可能的。但是我们可使用 rev 命令将字符串反转一下，区分后缀和文件名的.字符位置就确定了。截取了想要的部分之后，再次反转就得到了我们想要的内容。
+光用语言把这两个正则表达式描述出来脑细胞也要死不少。有没有像上面`cut`版本一样简单容易理解的方法呢？
+由于`.`分隔符的个数不确定，正常使用`cut`来分割最后一个`.`字符是不太可能的。
+但是我们可使用`rev`命令将字符串反转一下，区分后缀和文件名的`.`字符位置就确定了。
+截取了想要的部分之后，再次反转就得到了我们想要的内容。
 
+```bash
 $ fullname=mylib.1.0.1a.zip
 $ filename=$(rev <<< $fullname | cut -d . -f2- | rev)
 $ extension=$(rev <<< $fullname | cut -d . -f1 | rev)
 $ echo $filename, $extension
 mylib.1.0.1a, zip
+```
 
-使用参数扩展
+### 使用参数扩展
 
-其实不借助复杂的正则表达式，甚至不调用basename, dirname, cut, sed命令，shell脚本一样可以做到所有的操作。看下面的实现：
+其实不借助复杂的正则表达式，甚至不调用`basename`, `dirname`, `cut`, `sed`命令，`shel`l脚本一样可以做到所有的操作。
+看下面的实现：
 
+```bash
 $ fullfile=/the/path/mylib.1.0.1a.zip
 $ fullname="${fullfile##*/}"
 $ dir="${fullfile%/*}"
@@ -679,27 +796,24 @@ $ extension="${fullname##*.}"
 $ filename="${fullname%.*}"
 $ echo $dir , $fullname , $filename , $extension
 /the/path , mylib.1.0.1a.zip , mylib.1.0.1a , zip
+```
 
 真是不能再简洁了，大括号之内变量名配合几个神奇的字符，就是Shell的参数扩展(Parameter Extension)功能。
 
-    ${fullfile##*/}：从前面开始删除fullfile中最大匹配(longest matching pattern) */ 的字符串
-    ${fullfile%/*}：从后面开始删除fullfile中最小匹配(shortest matching pattern) /* 的字符串
-    ${fullname##*.}：从前面开始删除fullname中最大匹配(longest matching pattern) *. 的字符串
-    ${fullname%.*}：从后面开始删除fullname中最小匹配(shortest matching pattern) .* 的字符串
++ `${fullfile##*/}`：从前面开始删除`fullfile`中最大匹配(longest matching pattern) `*/` 的字符串
++ `${fullfile%/*}`：从后面开始删除`fullfile`中最小匹配(shortest matching pattern) `/*` 的字符串
++ `${fullname##*.}`：从前面开始删除`fullname`中最大匹配(longest matching pattern) `*.` 的字符串
++ `${fullname%.*}`：从后面开始删除`fullname`中最小匹配(shortest matching pattern) `.*` 的字符串
 
-参数扩展有多种形式，在shell编程中可以用作参数的拼接，字符串的替换，参数列表截取，变量初值等操作，这里不再详述，请参考后面的功能列表和官方文档
-
-my example
+参数扩展有多种形式，在shell编程中可以用作参数的拼接，字符串的替换，参数列表截取，变量初值等操作，
+这里不再详述，请参考后面的功能列表和官方文档
 
 ***
-使用`basename`命令输出所有文件名
+使用`basename`命令输出所有`*.tex`的名字
 
 ```bash
 basename -s '.tex' $(ls *.tex) | xargs echo
 ```
-
-***
-直接使用参数展开
 
 ## bash 快捷键
 
