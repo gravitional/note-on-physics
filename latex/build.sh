@@ -1,51 +1,56 @@
 #!/bin/bash
 
 # 设置格式化相关的部分
-delimiter="echo -e \\\n+++++++++++++"
 nameis="name is :"
-eval  $delimiter
-
+# 定义一个打印的函数
+function echo2()
+{
+delimiter1="+++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+delimiter2="-------------------------------------------------------"
+echo -e "${delimiter1}\n $* \n${delimiter2}"
+}
+# 打印当前目录
+echo2 "current directory is " $(pwd)
 # 默认文件名是 main，否则使用文件夹中的tex文件名
 tex_usual="main"
-echo "tex_usual $nameis $tex_usual"
-eval  $delimiter
+echo2 "tex_usual" $nameis $tex_usual
 
-# 当前tex文件列表，去掉后缀
-
-tex_list=$(ls -x *.tex)
-echo "tex_list $nameis $tex_list"
-
-tex_here=${tex_list//".tex"/}
-echo "tex_here $nameis $tex_here"
-eval  $delimiter
-
+# 当前tex文件列表， 去掉后缀的.tex
+tex_here=$(basename -s '.tex' $(ls *.tex) | xargs echo)
+echo2 "tex_here $nameis $tex_here"
 # 判断当前tex文件列表中是否包含 main.tex
 # 若有 main.tex，使用之，若没有，则使用 列表中的tex
-# tex_file=${${tex_here}%% *}
-
-if [[ $tex_usual =~ $tex_here ]]
+result=$(echo $tex_here | grep -iP "main" )
+if [[ $* != "" ]];then
+ tex_here=$*
+echo2 "because cml argument given, using <$tex_here> as input"
+elif [[ ${result} != "" ]]
 then
-    tex_file=$tex_usual
+    tex_here=${tex_usual}
+echo2 "because there is a tex file named 'main', so we just compile the, $tex_here"
 else
-    tex_file=${tex_here}
+echo2 "because there isn't a tex file named 'main', so we just compile the, $tex_here"
 fi
-
-echo "tex_file $nameis $tex_file"
-eval  $delimiter
-
+# 开始循环，对每一个tex文件编译，并寻找错误
 # 可增加输出文件夹选项 -auxdir=temp -outdir=temp
 # 还有 -shell-escape 选项
-
 # 把下面这行加入到 ~/.latexmkrc，指定 pdf 查看程序
 # $pdf_previewer = 'evince %O %S';
-# -silent 可以抑制输出
-
-latexmk -xelatex  -silent -pv  -view=pdf -bibtex -cd -recorder -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -view=pdf ${tex_file}
-
+# -silent 选项可以抑制输出
+for var in ${tex_here}
+do
+# 打印正在处理的tex 文件名字
+echo2 "the tex processed is ${var}"
+# 用latexmk 逐个编译 *.tex
+latexmk -silent -xelatex -pv -view=pdf -bibtex -cd -recorder -file-line-error -interaction=nonstopmode -synctex=1  $var
 ## 输出错误记录
-eval  $delimiter
-echo 'error message'
-eval  $delimiter
-## 用 tail 减少输出数量
-## grep -m 100 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" | tail -n 50
-grep -m 10 -i -n --color -P -B 0 -A 8 "\[\d+\]" ./$tex_file".log" 
+echo2 'echo message'
+## 之前用 tail 减少输出数量
+## grep -m 100 -i -n --color -P -B 0 -A 8 "\[\d+\]" "$var.log" | tail -n 50
+# 输出警告
+grep -m 10 -i -n --color -P -B 0 -A 8 "\[\d+\]" "${var}.log"
+# 输出errors
+echo2 'echo errors'
+grep -m 15 -i -n --color -P -B 0 -A 8 "${var}\.tex:\d+:" "${var}.log"
+done
+
