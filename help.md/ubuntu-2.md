@@ -1076,7 +1076,9 @@ AB在同一局域网，C位于外网。
 
 外网包的话只要网关设置对了就没问题。
 
-## xelatex 脚本
+## tex相关
+
+### xelatex 脚本
 
 [shell 参数换行 & shell 输出换行的方法][]
 
@@ -1154,7 +1156,162 @@ echo -e "hello\n wrold" #换行输出 hello world
 echo -E "hello\n wrold" #输出 hello\n world， 默认情况
 ```
 
-## texlive
+### texlive安装与卸载
+
+***
+[Linux环境下LaTex的安装与卸载][]
+[Ubuntu Texlive 2019 安装与环境配置][]
+[TexLive 2019 安装指南][]
+
+[TeX Live - Quick install](https://tug.org/texlive/quickinstall.html)
+
+[Linux环境下LaTex的安装与卸载]: https://blog.csdn.net/l2563898960/article/details/86774599
+
+[Ubuntu Texlive 2019 安装与环境配置]: https://blog.csdn.net/williamyi96/java/article/details/90732304
+
+[TexLive 2019 安装指南]: https://zhuanlan.zhihu.com/p/64530166
+
+***
+准备工作:下载，清除
+
+注意:安装 `lyx`, `apt` 会默认安装 `tex2017`版本，覆盖掉新版的`texlive2020`
+
+注意:如果重新安装，请务必完全删除之前的失败安装，默认情况下，这将在这两个目录中:
+
+```bash
+rm -rf /usr/local/texlive/2020
+rm -rf ~/.texlive2020
+```
+
+或者参考下面的命令
+
+```bash
+sudo rm -rf /usr/local/texlive/2020
+rm -rf ~/.texlive2020
+sudo rm -rf /usr/local/texlive
+sudo rm -rf /usr/local/share/texmf
+sudo rm -rf /var/lib/texmf
+sudo rm -rf /etc/texmf
+sudo apt-get purge texlive*
+sudo apt-get remove tex-common --purge
+```
+
+***
+进行安装
+
+因为下载好的是一个`iso`镜像文件，所以下载好之后，还需要挂载到`/mnt`目录下
+
+```bash
+sudo mount -o ro,loop,noauto texlive2020-20200406.iso /mnt
+```
+
++ `ro` :     Mount the filesystem read-only.
++ `loop` : loop 文件
++ `auto` :   Can be mounted with the -a option.
++ `noauto` : Can only be mounted explicitly (i.e., the  -a  option  will  not cause the filesystem to be mounted).
+
+***
+接着运行`install-tl`脚本进行安装。
+
+若要更改安装目录或其他选项，请阅读提示和说明。
+一般需要更改路径到自己有读写权限的文件夹下面，按`D`，然后按`1`，输入比如`~/texlive/2020`
+
+更改目录到
+
++ `TEXDIR:         /home/tome/texlive/2020`
++ `main tree:      /home/tome/texlive/2020/texmf-dist`
+
++ `TEXMFLOCAL:     /home/tome/texlive/texmf-local`
++ `TEXMFSYSVAR:    /home/tome/texlive/2020/texmf-var`
++ `TEXMFSYSCONFIG: /home/tome/texlive/2020/texmf-config`
++ `TEXMFVAR:       ~/.texlive2020/texmf-var`
++ `TEXMFCONFIG:    ~/.texlive2020/texmf-config`
++ `TEXMFHOME:      ~/texmf`
+
+```bash
+cd /tex_iso_directory
+sudo ./install-tl --profile installation.profile
+[... messages omitted ...]
+Enter command: i
+[... when done, see below for post-install ...]
+```
+
+安装程序的接口:文本，GUI，批处理
+安装程序支持:文本，图形，和批处理接口。（Linux系统下没有图像安装，在Windows下支持图形安装）
+
+`install-tl -gui text #`使用简单文本模式。也是输入`install-tl`默认选项。
+
+`install-tl --profile=profile #`进行一个批处理安装，需要一个 `profile` （配置文件），为了创建一个`profile`，最简单的方式是使用`tlpkg/texlive.profile`文件，这是安装器在安装成功后生成的文件。
+
+***
+卸载镜像文件
+
+```bash
+sudo umount /mnt
+```
+
+***
+字体配置
+
+```bash
+sudo cp /home/tom/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/20-texlive.conf
+sudo fc-cache -fsv
+```
+
+***
+环境变量
+
+安装完之后有提示:
+
+```bash
+Add /home/tom/texlive/2020/texmf-dist/doc/man to MANPATH.
+Add /home/tom/texlive/2020/texmf-dist/doc/info to INFOPATH.
+Most importantly, add /home/tom/texlive/2020/bin/x86_64-linux
+to your PATH for current and future sessions.
+```
+
+我用的是`zsh`，不过下面的命令也会添加到`bashrc`中，其中的`/home/tom/texlive/2020`改称你安装时的路径
+命令末尾要加上`:`
+
+```bash
+if [[ $SHELL == "/bin/zsh" ]] ;then
+echo -e '\n# add texlive paths' >> ~/.zshrc
+echo 'export MANPATH=/home/tom/texlive/2020/texmf-dist/doc/man:${MANPATH}' >> ~/.zshrc
+echo 'export INFOPATH=/home/tom/texlive/2020/texmf-dist/doc/info:${INFOPATH}' >> ~/.zshrc
+echo 'export PATH=/home/tom/texlive/2020/bin/x86_64-linux:${PATH}' >> ~/.zshrc
+source ~/.zshrc # 令 zshrc 生效
+elif [[ $SHELL == "/bin/bash" ]] ;then
+echo -e '\n# add texlive paths' >> ~/.bashrc
+echo 'export MANPATH=/home/tom/texlive/2020/texmf-dist/doc/man:${MANPATH}' >> ~/.bashrc
+echo 'export INFOPATH=/home/tom/texlive/2020/texmf-dist/doc/info:${INFOPATH}' >> ~/.bashrc
+echo 'export PATH=/home/tom/texlive/2020/bin/x86_64-linux:${PATH}' >> ~/.bashrc
+source ~/.bashrc # 令 bashrc 生效
+fi
+```
+
+***
+验证安装是否成功
+
+```bash
+tex -v
+```
+
+***
+设置默认纸张尺寸
+
+`tlmgr paper letter`
+
+***
+ubuntu 仓库的texlive
+
+使用`apt`命令从`ubuntu`仓库安装的`texlive`可以使用`dpkg -L texlive-full`查询
+
+安装在 `/usr/local/`目录下，
+`texmf`(TDS的根目录)在`/usr/share/texmf` and `/usr/share/texlive/texmf-dist`
+
+### texlive常用命令
+
+用`texlive**.iso`手动安装的 texlive 是可以正常使用下面这些命令的，而用 `debian`源`apt`安装的，可能会出问题。
 
 `tlmgr [option]... action [option]... [operand]...`
 
@@ -1180,6 +1337,9 @@ echo -E "hello\n wrold" #输出 hello\n world， 默认情况
 
 + `tlmgr option repository ctan`
 + `tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet`
++ `tlmgr repository list`
++ `tlmgr update --self`
++ `tlmgr update  --all`
 
 如果要使用清华的`mirror`:
 
@@ -1191,9 +1351,18 @@ echo -E "hello\n wrold" #输出 hello\n world， 默认情况
 
 + `tlmgr update --list` 报告将要更新的内容，而无需实际更新任何内容。
 + `tlmgr update --all` 使本地TeX安装与软件包存储库中的安装相对应（从CTAN更新时通常很有用）。
-+ `tlmgr info" what` 显示有关软件包内容的详细信息，例如搜索所有软件包中内容的安装状态和描述。
++ `tlmgr info pkg` 显示有关软件包内容的详细信息，例如搜索所有软件包中内容的安装状态和描述。
 
-### Actions
+可能遇到的错误：
+
+[tlmgr: unexpected return value from verify_checksum: -5](https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5)
+
++ `tlmgr key list`列出所有的`keys`
++ `tlmgr repository list`列出使用的仓库
++ `curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -`添加新的gpg key
++ `tlmgr install lm-math --verify-repo=none` 免去验证
+
+### tlmgr 命令
 
 ***
 `install [option]... pkg...`
@@ -1233,207 +1402,21 @@ echo -E "hello\n wrold" #输出 hello\n world， 默认情况
 tlmgr conf texmf shell_escape 0
 ```
 
-子命令` auxtrees`允许完全在用户控制下添加和删除任意其他texmf树。
-` auxtrees show`显示其他树的列表，` auxtrees add`树将树添加到列表中，` auxtrees remove`树从列表中删除树（如果存在）。
+子命令`auxtrees`允许完全在用户控制下添加和删除任意其他texmf树。
+`auxtrees show`显示其他树的列表，`auxtrees add`树将树添加到列表中，`auxtrees remove`树从列表中删除树（如果存在）。
 
-树中不应包含` ls-R`文件（否则，如果` ls-R`过时，则可能找不到文件）。 
-通过操作` ROOT / texmf.cnf`中的Kpathsea变量` TEXMFAUXTREES`来生效。 例：
+树中不应包含`ls-R`文件（否则，如果`ls-R`过时，则可能找不到文件）。 
+通过操作`ROOT / texmf.cnf`中的Kpathsea变量`TEXMFAUXTREES`来生效。 例：
 
 ```bash
 tlmgr conf auxtrees add /quick/test/tree
 tlmgr conf auxtrees remove /quick/test/tree
 ```
 
-在所有情况下，如果需要，都可以通过选项` --conffile`文件显式指定配置文件。
+在所有情况下，如果需要，都可以通过选项`--conffile`文件显式指定配置文件。
 
 警告：此处是用于更改配置值的一般工具，但是强烈建议不要以这种方式修改设置。 
 同样，不对键或值进行错误检查，因此可能发生任何破损。
-
-### texlive安装与卸载
-
-***
-[Linux环境下LaTex的安装与卸载][]
-[Ubuntu Texlive 2019 安装与环境配置][]
-[TexLive 2019 安装指南][]
-
-[Linux环境下LaTex的安装与卸载]: https://blog.csdn.net/l2563898960/article/details/86774599
-
-[Ubuntu Texlive 2019 安装与环境配置]: https://blog.csdn.net/williamyi96/java/article/details/90732304
-
-[TexLive 2019 安装指南]: https://zhuanlan.zhihu.com/p/64530166
-
-***
-准备工作:下载，清除
-
-注意:安装 `lyx`, apt 会默认安装 tex2017版本，覆盖掉新版的texlive2020
-
-注意:如果重新安装，请务必完全删除之前的失败安装，默认情况下，这将在这两个目录中:
-
-```bash
-rm -rf /usr/local/texlive/2020
-rm -rf ~/.texlive2020
-```
-
-或者参考下面的命令
-
-```bash
-rm -rf /usr/local/texlive/2020
-rm -rf ~/.texlive2020
-sudo rm -rf /usr/local/texlive
-sudo rm -rf /usr/local/share/texmf
-sudo rm -rf /var/lib/texmf
-sudo rm -rf /etc/texmf
-sudo apt-get purge texlive*
-sudo apt-get remove tex-common --purge
-```
-
-***
-进行安装
-
-因为下载好的是一个`iso`镜像文件，所以下载好之后，还需要挂载到`/mnt`目录下
-
-```bash
-sudo mount -o ro,loop,noauto texlive2020-20200406.iso /mnt
-```
-
-+ `ro` :     Mount the filesystem read-only.
-+ `loop` : loop 文件
-+ `auto` :   Can be mounted with the -a option.
-+ `noauto` : Can only be mounted explicitly (i.e., the  -a  option  will  not cause the filesystem to be mounted).
-
-***
-接着运行`install-tl`脚本进行安装。
-
-```bash
-cd /tex_iso_directory
-sudo ./install-tl --profile installation.profile
-[... messages omitted ...]
-Enter command: i
-[... when done, see below for post-install ...]
-```
-
-若要更改安装目录或其他选项，请阅读提示和说明。
-
-安装程序的接口:文本，GUI，批处理
-安装程序支持:文本，图形，和批处理接口。（Linux系统下没有图像安装，在Windows下支持图形安装）
-
-`install-tl -gui text #`使用简单文本模式。也是输入`install-tl`默认选项。
-
-`install-tl --profile=profile #`进行一个批处理安装，需要一个 `profile` （配置文件），为了创建一个`profile`，最简单的方式是使用`tlpkg/texlive.profile`文件，这是安装器在安装成功后生成的文件。
-
-***
-卸载镜像文件
-
-```bash
-sudo umount /mnt
-```
-
-***
-字体配置
-
-```bash
-sudo cp /usr/local/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/20-texlive.conf
-sudo fc-cache -fsv
-```
-
-***
-环境变量
-
-安装完之后有提示:
-
-Add /usr/local/texlive/2020/texmf-dist/doc/man to MANPATH.
-Add /usr/local/texlive/2020/texmf-dist/doc/info to INFOPATH.
-Most importantly, add /usr/local/texlive/2020/bin/x86_64-linux
-to your PATH for current and future sessions.
-
-`~/.bashrc` 和 `~/.profile` 中均添加如下语句:
-
-```bash
-export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man
-export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info
-export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux
-```
-
-或者在命令行下面运行:
-配置普通用户的环境变量
-
-因为你一般是在普通用户下使用 `TeX Live`，所以还需要切换到普通用户下，配置一下环境变量。运行以下命令。
-在当前终端中，输入 `Ctrl + D`，退出 root 身份。
-在当前终端下，输入以下命令:
-
-```bash
-echo "export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man" >> ~/.bashrc
-echo "export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info" >> ~/.bashrc
-echo "export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux" >> ~/.bashrc
-source ~/.bashrc # 令 bashrc 生效
-```
-
-如果使用的是`zsh`，要把相应的` ~/.bashrc` 改成 `~/.zshrc`
-
-```bash
-echo "export MANPATH=${MANPATH}:/usr/local/texlive/2020/texmf-dist/doc/man" >> ~/.zshrc
-echo "export INFOPATH=${INFOPATH}:/usr/local/texlive/2020/texmf-dist/doc/info" >> ~/.zshrc
-echo "export PATH=${PATH}:/usr/local/texlive/2020/bin/x86_64-linux" >> ~/.zshrc
-source ~/.zshrc # 令 zshrc 生效
-```
-
-***
-验证安装是否成功
-
-```bash
-tex -v
-```
-
-### ubuntu 仓库的texlive
-
-使用`apt`命令从`ubuntu`仓库安装的`texlive`可以使用`dpkg -L texlive-full`查询
-
-安装在 `/usr/local/`目录下，
-`texmf`(TDS的根目录)在`/usr/share/texmf` and `/usr/share/texlive/texmf-dist`
-
-## loop 设备
-
-loop 设备 (循环设备)
-
-[loop 设备 (循环设备)][]
-
-[loop 设备 (循环设备)]: https://blog.csdn.net/neiloid/article/details/8150629?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param
-
-### loop 设备介绍
-
-在类 UNIX 系统里，loop 设备是一种伪设备(pseudo-device)，或者也可以说是仿真设备。它能使我们像块设备一样访问一个文件。
-
-在使用之前，一个 loop 设备必须要和一个文件进行连接。这种结合方式给用户提供了一个替代块特殊文件的接口。因此，如果这个文件包含有一个完整的文件系统，那么这个文件就可以像一个磁盘设备一样被 mount 起来。
-
-上面说的文件格式，我们经常见到的是 CD 或 DVD 的 ISO 光盘镜像文件或者是软盘(硬盘)的 *.img 镜像文件。通过这种 loop mount (回环mount)的方式，这些镜像文件就可以被 mount 到当前文件系统的一个目录下。
-
-至此，顺便可以再理解一下 loop 之含义:对于第一层文件系统，它直接安装在我们计算机的物理设备之上；而对于这种被 mount 起来的镜像文件(它也包含有文件系统)，它是建立在第一层文件系统之上，这样看来，它就像是在第一层文件系统之上再绕了一圈的文件系统，所以称为 loop。
-
-在 Linux 里，loop 设备的设备名形如:
-
-```bash
-ls /dev/loop*
-/dev/loop0  /dev/loop2  /dev/loop4  /dev/loop6
-/dev/loop1  /dev/loop3  /dev/loop5  /dev/loop7
-... ...
-```
-
-例如，要在一个目录下 mount 一个包含有磁盘镜像的文件，需要分 2 步走:
-
-```bash
-losetup /dev/loop0 disk.img           #使磁盘镜像文件与循环设备连结起来
-mount /dev/loop0 /home/groad/disk_test   #将循环设备 mount 到目录 disk_test 下
-```
-
-经过上面的两个命令后，镜像文件就如同一个文件系统挂载在 `disk_test` 目录下，当然我们也可以往镜像里面添加文件。
-
-其实上面的两个步骤可以写成一个步骤:
-
-```bash
-mount -t minix -o loop ./disk.img ./disk_test
-```
-
-## latex
 
 ### jabref
 
@@ -1441,37 +1424,79 @@ mount -t minix -o loop ./disk.img ./disk_test
 
 [JabRef中文手册]: https://blog.csdn.net/zd0303/article/details/7676807
 
-题录时间戳
+entry时间戳
 
 本功能可以在`选项->偏好设置->通用设置`中关闭或配置。
+`JabRef`能自动的产生一个包含题录加入数据库的日期的域。
 
-JabRef能自动的产生一个包含题录加入数据库的日期的域。
+格式：
 
-Formatting
+时间戳记的格式由包含指示词的字符串确定，指示词表示日期各部分的位置。
+以下是一些可用的指示字母（示例在括号中给出，为： 2005年9月14日（星期三）下午5.45）：
 
-The formatting of the time stamp is determined by a string containing designator words that indicate the position of the various parts of the date.
++ yy: year (05)
++ yyyy: year (2005)
++ MM: month (09)
++ dd: day in month (14)
++ HH: hour in day (17)
++ mm: minute in hour (45)
 
-These are some of the available designator letters (examples are given in parentheses for Wednesday 14th of September 2005 at 5.45 PM):
+这些指示符可以与标点符号和空格一起使用。 几个例子：
 
-    yy: year (05)
++ `yyyy.MM.dd gives 2005.09.14`
++ `yy.MM.dd gives 05.09.14`
++ `yyyy.MM.dd HH:mm gives 2005.09.14 17:45`
 
-    yyyy: year (2005)
+### lyx 报错
 
-    MM: month (09)
+***
+有时安装好了texlive，也安装好了lyx，却仍然报错，这个时候一般是因为路径(`$PATH`)没有配置好，
+lyx没有检测到texlive的各种文件。参考 [LYX Manuals](https://wiki.lyx.org/uploads//LyX/Manuals/1.6.4//Manuals.pdf)
 
-    dd: day in month (14)
+`LYX`的一些功能可以从`LYX`内部进行配置，而无需重新配置文件。 
+首先，`LYX`能够检查您的系统，以查看可以使用哪些程序，`LATEX`文档类和`LATEX`软件包。 
+它使用此知识为多个`Preferences`设置提供合理的默认值。
+尽管在系统上安装`LYX`时已经完成了此配置，但是您可能需要在本地安装一些项目，
+新的`LATEX`类，而`LYX`看不到这种变化。
+要强制LYX重新检查系统，您应该使用`Tools,Reconfigure`。 然后，您应该重新启动LYX以确保考虑到更改。
 
-    HH: hour in day (17)
+添加`tex`文件的路径到`$PATH`中的时候，注意尽量把新的`tex`路径添加到`$PATH`前面，
+以防止之前安装的残留掩盖新的路径。也就是,
 
-    mm: minute in hour (45)
+```bash
+if [[ $SHELL == "/bin/zsh" ]] ;then
+echo "\n# add texlive paths" >> ~/.zshrc
+echo "export MANPATH=your_texlive_path/texmf-dist/doc/man:${MANPATH}" >> ~/.zshrc
+echo "export INFOPATH=your_texlive_path/texmf-dist/doc/info:${INFOPATH}" >> ~/.zshrc
+echo "export PATH=your_texlive_path/bin/x86_64-linux:${PATH}" >> ~/.zshrc
+fi
+```
 
-These designators can be combined along with punctuation and whitespace. A couple of examples:
+***
+可能2
 
-    yyyy.MM.dd gives 2005.09.14
+`~/.lyx/textclass.lst` 中的条目格式有问题，如
 
-    yy.MM.dd gives 05.09.14
+`"IEEEtran-CompSoc"` 变成了 `"b'IEEEtran-CompSoc'"`
 
-    yyyy.MM.dd HH:mm gives 2005.09.14 17:45
+python中字节字符串不能格式化。
+获取到的网页有时候是字节字符串，需要转化后再解析。
+
+bytes 转 string 方式:
+
+```python
+>>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
+>>>string=str(b,'utf-8')
+>>>string
+## 或者
+>>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
+>>>string=b.decode()
+'人生苦短，我要用python'
+```
+
+[python基础之string与bytes的转换]
+
+[python基础之string与bytes的转换]: https://blog.csdn.net/Panda996/java/article/details/84780377
 
 ### lyx 默认pdf查看
 
@@ -1479,7 +1504,7 @@ These designators can be combined along with punctuation and whitespace. A coupl
 
 在 `Format` 一栏中选中`PDF(XeTex)`  或者其他想要更改的格式，然后在 `Viewer`中更改程序，或者自定义程序位置。
 
-### 手动编译lyx
+### lyx手动编译
 
 ***
 如果是后安装的`texlive`, `lyx` 需要运行 `tools-reconfigure` 进行配置
@@ -1563,31 +1588,6 @@ See Note below if `./configure` script is not present.
 1. `make`   compiles the program.
 1. `src/lyx`    runs the program so you can check it out.
 1. `make install` will install it. You can use "`make install-strip`" instead if you want a smaller binary.
-
-### lyx 文档类错误
-
-`~/.lyx/textclass.lst` 中的条目格式有问题，如
-
-`"IEEEtran-CompSoc"` 变成了 `"b'IEEEtran-CompSoc'"`
-
-python中字节字符串不能格式化。
-获取到的网页有时候是字节字符串，需要转化后再解析。
-
-bytes 转 string 方式:
-
-```python
->>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
->>>string=str(b,'utf-8')
->>>string
-## 或者
->>>b=b'\xe4\xba\xba\xe7\x94\x9f\xe8\x8b\xa6\xe7\x9f\xad\xef\xbc\x8c\xe6\x88\x91\xe8\xa6\x81\xe7\x94\xa8python'
->>>string=b.decode()
-'人生苦短，我要用python'
-```
-
-[python基础之string与bytes的转换]
-
-[python基础之string与bytes的转换]: https://blog.csdn.net/Panda996/java/article/details/84780377
 
 ### latexmk 选项
 
@@ -1772,6 +1772,50 @@ pdfcrop --clip --bbox '120 480 570 830' input.pdf output.pdf;
 
 `1 point`=`0.3527 mm`=`1/72 inch`.
 A4纸张(mm) `210` * `297`=`595.4 point`*`842.1 point`.
+
+## loop 设备
+
+loop 设备 (循环设备)
+
+[loop 设备 (循环设备)][]
+
+[loop 设备 (循环设备)]: https://blog.csdn.net/neiloid/article/details/8150629?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param
+
+### loop 设备介绍
+
+在类 UNIX 系统里，`loop` 设备是一种伪设备(pseudo-device)，或者也可以说是仿真设备。它能使我们像块设备一样访问一个文件。
+
+在使用之前，一个 `loop` 设备必须要和一个文件进行连接。这种结合方式给用户提供了一个替代块特殊文件的接口。因此，如果这个文件包含有一个完整的文件系统，那么这个文件就可以像一个磁盘设备一样被 `mount` 起来。
+
+上面说的文件格式，我们经常见到的是 CD 或 DVD 的 ISO 光盘镜像文件或者是软盘(硬盘)的 *.img 镜像文件。通过这种 `loop mount` (回环`mount`)的方式，这些镜像文件就可以被 `mount` 到当前文件系统的一个目录下。
+
+至此，顺便可以再理解一下 `loop` 的含义:对于第一层文件系统，它直接安装在我们计算机的物理设备之上；
+而对于这种被 `mount` 起来的镜像文件(它也包含有文件系统)，它是建立在第一层文件系统之上，
+这样看来，它就像是在第一层文件系统之上再绕了一圈的文件系统，所以称为 `loop`。
+
+在 Linux 里，`loop` 设备的设备名形如:
+
+```bash
+ls /dev/loop*
+/dev/loop0  /dev/loop2  /dev/loop4  /dev/loop6
+/dev/loop1  /dev/loop3  /dev/loop5  /dev/loop7
+... ...
+```
+
+例如，要在一个目录下 mount 一个包含有磁盘镜像的文件，需要分 2 步走:
+
+```bash
+losetup /dev/loop0 disk.img           #使磁盘镜像文件与循环设备连结起来
+mount /dev/loop0 /home/groad/disk_test   #将循环设备 mount 到目录 disk_test 下
+```
+
+经过上面的两个命令后，镜像文件就如同一个文件系统挂载在 `disk_test` 目录下，当然我们也可以往镜像里面添加文件。
+
+其实上面的两个步骤可以写成一个步骤:
+
+```bash
+mount -t minix -o loop ./disk.img ./disk_test
+```
 
 ## X窗口系统
 

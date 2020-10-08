@@ -164,6 +164,17 @@ With `-m`, 对 `working tree` 所做的更改将会被丢弃，重新创建冲�
 
 ### git reset
 
+```bash
+git reset [-q] [<tree-ish>] [--] <pathspec>...
+git reset [-q] [--pathspec-from-file=<file> [--pathspec-file-nul]] [<tree-ish>]
+git reset (--patch | -p) [<tree-ish>] [--] [<pathspec>...]
+git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [-q] [<commit>]
+```
+
+在前三种形式中，将`entries`从`<tree-ish>`复制到`index`。 
+在最后一种形式中，将当前分支头（`HEAD`）设置为`<commit>`，可以选择修改`index`和`working tree`以使其匹配。
+` <tree-ish>` / `<commit>`在所有形式中均默认为`HEAD`。
+
 ***
 `git reset --hard <commit>` or 别名 `grhh <commit>` 
 
@@ -200,6 +211,40 @@ git reset --hard branch2
 [Git Reset 三种模式][]
 [git reset --hard xxx、git reset --soft 及git revert 的区别][]
 [Git Reset 三种模式][]
+
+### git-restore
+
+SYNOPSIS
+
+```bash
+git restore [<options>] [--source=<tree>] [--staged] [--worktree] [--] <pathspec>...
+git restore [<options>] [--source=<tree>] [--staged] [--worktree] --pathspec-from-file=<file> [--pathspec-file-nul]
+git restore (-p|--patch) [<options>] [--source=<tree>] [--staged] [--worktree] [--] [<pathspec>...]
+```
+
+DESCRIPTION
+
+使用`restore source`中的某些内容还原`working tree`中的指定路径。 
+如果`path`被追踪，但在`restore source`中不存在，则会将其删除以匹配该`restore source`。
+
+该命令还可用于通过`--staged`还原`index`中的内容，或通过`--staged --worktree`还原`working tree`和`index`。
+
+默认情况下，`working tree`和`index`的`restore source`分别是`index`和`HEAD`。 
+`--source`可用于将`commit`指定为`restore source`。
+
+有关这三个命令之间的差异，See "Reset, restore and revert" in git(1)。
+此命令是实验性的。 行为可能会改变。
+
+### 三者的区别
+
+有三个名称相似的命令：`git reset`，`git restore`和`git revert`。
+
++ `git-revert (1)` 用于进行新的`commit`，该`commit`将还原其他`commit`所做的更改。
++ `git-restore (1)` 用于从`index`或另一个`commit`还原`working tree`中的文件。 
+此命令不会更新您的分支。 该命令还可用于从另一个`commit`还原`index`中的文件。
++ `git-reset (1)` 用于更新分支，移动`tip`以从分支中添加或删除`branch`。 此操作更改`commit`历史记录。
+
++ `git reset`也可以用来还原`index`，与`git restore`功能重叠。
 
 ## git重命名文件夹
 
@@ -517,10 +562,10 @@ You can omit any one of `<commit>`, which has the same effect as using HEAD inst
 git checkout [<tree-ish>] [--] <pathspec>…​
 ```
 
-用 **index**或者`<tree-ish>`（通常是一个`commit`）里面的内容替换`working tree`里面的 `paths` 。
-当给出一个`<tree-ish>`的时候，the **paths** that match the `<pathspec>`会在**index** and in the **working tree**里面都更新。
+用 `index`或者`<tree-ish>`（通常是一个`commit`）里面的内容替换`working tree`里面的 `pathspec` (可以有多个指定)。
+当给出一个`<tree-ish>`的时候，the`paths` that match the `<pathspec>`会在`index` and in the `working tree`里面都更新。
 
-index 中可能包含有之前合并失败的entries。默认情况下，如果你想checkout 一个这样的entries，会失败，什么都不会发生。
+`index`中可能包含有之前合并失败的`entries`。默认情况下，如果你想`checkout `一个这样的entries，会失败，什么都不会发生。
 使用`-f`选项忽略未合并的entries。
 
 The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`.

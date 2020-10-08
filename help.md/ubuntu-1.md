@@ -421,15 +421,15 @@ It supports glob(7) patterns for matching package names as well as options to li
 
 ### grep 过滤输出
 
-`-n` 行号
-`-v`,`--invert-match` 匹配不符合
-`--color` 染色
-`-P` perl 拓展
-`-B` before 前输出
-`-A` after 后输出
-`-o` only 仅输出匹配字符
-`-i` `--ignore-case` 忽略大小写
-`-m NUM`, `--max-count=NUM` 输出的最大行
++ `-n` 行号
++ `-v`,`--invert-match` 匹配不符合
++ `--color` 染色
++ `-P` perl 拓展
++ `-B` before 前输出
++ `-A` after 后输出
++ `-o` only 仅输出匹配字符
++ `-i` `--ignore-case` 忽略大小写
++ `-m NUM`, `--max-count=NUM` 输出的最大行
 
 Stop  reading  a  file after `NUM` matching lines.  
 
@@ -445,6 +445,12 @@ example:
 ```bash
 grep -n --color -P -B 1 -A 6 "(?:tex:\d+:|warning:)" ./temp $tex_file".log"
 ```
+
+`-e PATTERNS`, `--regexp=PATTERNS`: 使用`PATTERNS`作为模式。 
+此选项可以多次使用或与`-f`（`--file`）选项结合使用，搜索给定的所有模式。 此选项可用于保护以`-`开头的模式。
+
+`f FILE`, `--file=FILE`：从`FILE`中获取模式，每行一个。 
+如果此选项多次使用或与`-e`（`--regexp`）选项结合使用，则搜索给定的所有模式。 空文件包含零个模式，因此不匹配。
 
 ### 图片格式转换
 

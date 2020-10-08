@@ -49,6 +49,28 @@ OPTIONS
 temp_a=$(find . -mindepth 1 -maxdepth 1 -type f   \( -not -name  "*.pdf" \)  \( -not -name  "*.tex" \) \( -not -name  "*.bib" \) -print0); if [[ ${temp_a} != '' ]]; then  echo -n ${temp_a} |  xargs --null rm; fi
 ```
 
+***
+`latexmk -c`
+
+清理除了`dvi`,`postscript`和`pdf`以外的,所有由`latex`和`bibtex`或`biber`生成的可重新生成的文件.
+这些文件是`log`文件,`aux`文件,`latexmk`创建的关于源文件信息的`database`文件以及在`@generated_exts`配置变量中指定的扩展名的文件的组合.
+     
+另外,将删除`$ clean_ext`和`@generation_exts`配置变量指定的文件.
+
+此清理不是`regular make`.如果要先清理然后再进行`make`,请参阅`-gg`选项.
+
+`.bbl`文件的处理：如果`$bibtex_use`设置为`0`或`1`,则`bbl`文件始终被视为不可重新生成.
+
+如果`$bibtex_use`设置为`1.5`:则取决于是否存在`bib`文件.
+如果存在`bib`文件,则`bbl`文件可重新生成,并在清理中被删除.
+如果不存在`bib`文件,则`bbl`文件将被视为不可重新生成,因此不会被删除.
+
+相反,如果`$bibtex_use`设置为`2`,则`bbl`文件始终被视为可重新生成的文件,并在清理时将其删除.
+
+`latexmk -C`
+
+与`-c`选项相同,只是增加了`dvi`,`postscript`和`pdf`文件以及`$clean_full_ext`配置变量中指定的文件.
+
 ## 浮动体 图形
 
 [liam.page][]
@@ -82,51 +104,6 @@ temp_a=$(find . -mindepth 1 -maxdepth 1 -type f   \( -not -name  "*.pdf" \)  \( 
 [浮动体的系列文章]: https://liam.page/series/#LaTeX-%E4%B8%AD%E7%9A%84%E6%B5%AE%E5%8A%A8%E4%BD%93
 
 [我的回答]: https://www.zhihu.com/question/25082703/answer/30038248
-
-### 表格字号大小
-
-[latex设置表格字体大小][]
-
-[latex设置表格字体大小] :https://blog.csdn.net/zzmgood/article/details/36419493
-
-```bash
-\begin{table}[h]
-\small %此处写字体大小控制命令
-\begin{tabular}
-...
-\end{tabular}
-\end{table}
-```
-
-***
-Latex 设置字体大小命令由小到大依次为：
-
-+ `\tiny`
-+ `\scriptsize`
-+ `\footnotesize`
-+ `\small`
-+ `\normalsize`
-+ `\large`
-+ `\Large`
-+ `\LARGE`
-+ `\huge`
-+ `\Huge`
-
-***
-Latex下 字体大小命令 比较
-
-|size| 10pt (default)| 11pt   |12pt |
-|---|---|---|---|
-| `\tiny` | `5pt`  | `6pt` | `6pt` |
-| `\scriptsize` | `7pt`  | `8pt` | `8pt` |
-| `\footnotesize` | `8pt`  | `9pt` | `10pt` |
-| `\small` | `9pt`  | `10pt` | `11pt` |
-| `\normalsize` | `10pt`  | `11pt` | `12pt` |
-| `\large` | `12pt`  | `12pt` | `14pt` |
-| `\Large` | `14pt`  | `14pt` | `17pt` |
-| `\LARGE` | `17pt`  | `17pt` | `20pt` |
-| `\huge` | `20pt`  | `20pt` | `25pt` |
-| `\Huge` | `25pt`  | `25pt` | `25pt` |
 
 ## 设置子页面宽度resizebox
 
@@ -1585,11 +1562,165 @@ Synopsis:
 
 [LaTeX技巧159：如何在文中使用链接]: https://www.latexstudio.net/archives/7741.html
 
-## 特殊符号与数学字体
+## 字体 font
 
 ref: [LaTeX —— 特殊符号与数学字体][]
 
 [LaTeX —— 特殊符号与数学字体]: https://blog.csdn.net/lanchunhui/article/details/54633576
+
+### latex 字体设置
+
+[latex 字体设置][]
+
+[latex 字体设置] :https://www.jianshu.com/p/68da21a1501a
+
+字体是由一些正交的属性决定的,通常讨论的属性为
+
++ 字体族（font family）
++ 字体形状（font shape）
++ 字体系列（font series）
+
+关于字号这个属性我们一般单独作为一个字体属性进行设置.
+本文不对具体的字体属性进行说明,仅通过实例来说明如何在我们的文档中分别设置中、西文字体.
+
+***
+预定义的字体族有3种：
+
+字体族 带参数命令 声明命令
+
++ 默认的罗马字体族（roman family）,`\textrm{}` , `\rmfamily`
++ 无衬线字体族（sans serif family）, `textsf{}`,`sffamily`
++ 打印机字体族（typewriter family）,`texttt{}`,`ttfamily`
+
+***
+预定义的字体形状
+字体族 带参数命令 声明命令
+
++ 默认的直立（upright shape,也称roman shape）,`\textup`, `\upshape`
++ 意大利（italic shape）,`\textit{}`,`\itshape`
++ 倾斜（slanted shape）,`\textsl{}`,`\slshape`
++ 小型大写（small capitals shape）,`\textsc{}`,`\scshape`
+
+我们通常所说的"倾斜"往往是指意大利形状,因此我们在设置倾斜字体的时候往往都是指定意大利形状字体.
+
+***
+>字体形状这些概念源于英文,对于中文来说字体并没有这么复杂.
+>中文中并没有倾斜字体,我们在 word 中看到的倾斜字体实际是通过对字符进行水平错切得到的伪斜体（对应的还有伪粗体是对字符多次略微错位输出得到的）.
+>一般情况下我们使用楷体来对应英文中的倾斜字体,用黑体来替代英文中的加粗字体.
+>这一点后面的示例会进行说明.如果我们想使用伪斜体请查阅相关文档.
+
+***
+预定义的字体系列
+字体族 带参数命令 声明命令
+
++ 默认的中等（medium）,`\textmd{}`,`\mdseries`
++ 加宽加粗（bold extended）,`\textbf{}`,`\bfseries`
+
+### 编写样式表
+
+在我们编写自己的包或者类文件时,一般我们都需要设置三个字体族使用什么样字体.
+对于其他两个字体形状和字体系列,我们往往只关心罗马字体族的"倾斜"（实际为意大利）和加粗两个属性.
+下面是一个常用的设置示例：
+
+```latex
+\RequirePackage{fontspec}
+
+\setmainfont{Times New Roman} %正文罗马字体族
+\setsansfont{Myriad Pro} %无衬线字体族
+\setmonofont{Courier Std} %打印机字体族
+
+\setCJKmainfont[BoldFont={方正小标宋_GBK}, ItalicFont={方正楷体_GBK}, BoldItalicFont={方正仿宋_GBK}]{方正书宋_GBK}
+\setCJKsansfont{方正黑体_GBK}
+\setCJKmonofont{方正中等线_GBK}
+```
+
+这里假设我们使用的文档模板为`ctexart`,这样我们可以直接使用下面三个 `CJK` 相关的命令.
+第一个命令是用来加载包的,如果在我们的文档中使用的话对应的命令为`\usepackage{fontspec}`.
+
+接下来的三行是设置英文状态下三种字体族使用的字体.
+分别设置了正文罗马字体族、无衬线字体族和打印机字体族.
+英文字体一般都是成套的,当我们设置好这三种字体后,`fontspec` 宏包会自动的寻找对应的变体,无需我们关心.
+
+最后的三行是设置中文状态下的三种字体族使用的字体.
+中文各个字体之间一般都是独立的（只有少数字体由不同重量的成套字体）,
+因此这里我们给主要字体指定了其在加粗、倾斜以及加粗倾斜时使用的字体.
+由于正文字体及其加粗、倾斜变体一般足以覆盖我们90%以上的文档,所以这里不再给另外两个字体族设置变体字体了.
+
+### 更多字体
+
+接下来介绍如何在 LaTeX 中引入更多的系统字体.
+
+加载更多英文字体使用的命令为 `fontspec` 宏包的 `\newfontfamily<命令>[(可选项)]{<字体名>}`.
+`xeCJK` 宏包（`ctex`宏包或文档类[包括我们这里的 `ctexart `文档]会自动调用）中对应的命令为 `\setCJKfamilyfont{<中文字体族>}[<可选项>]{字体名}`.下面是一个使用示例：
+
+```latex
+\setCJKfamilyfont{hwhp}{华文琥珀}
+\newcommand{\hwhp}{\CJKfamily{hwhp}}
+\newfontfamily\tempus{Tempus Sans ITC}
+```
+
+这里使用 `\newcommand` 命令将中文字体选择的命令重定义成一个更简单的形式.下面是一个使用示例：
+
+```latex
+{\hwhp 这是一段华文琥珀文字, english not work}
+{\tempus this is Technic font, 中文不起作用}
+```
+
+对于字体不起作用的字符,会自动使用前面设置的正文罗马字体.
+
+### 字号
+
+[latex设置表格字体大小](https://blog.csdn.net/zzmgood/article/details/36419493)
+
+默认的字号大小可以在我们加载标准文档时,通过指定参数来进行设置.如：`\documentclass[12pt]{report}` .
+正文默认字体的选项有`10pt`（默认）,`11pt`,`12pt`三种.
+如果使用的为 `ctexart`,`ctexrep`,`ctexbook` 则还额外提供了 `c5size` 和 `cs4size` 两个选项.
+其中 `c5size` 为默认值,表示五号字（`10.5pt`）,`cs4size` 表示小四号字（`12pt`）.
+
+如果我们想要局部的修改某些字体的大小可以使用如下命令：
+
++ `\tiny`
++ `\scriptsize`
++ `\footnotesize`
++ `\small`
++ `\normalsize`
++ `\large`
++ `\Large`
++ `\LARGE`
++ `\huge`
++ `\Huge`
+这些命令对应字体的大小和默认字体有关,具体对应关系如下：
+
+***
+Latex下 字体大小命令 比较
+
+|size| 10pt (default)| 11pt   |12pt |
+|---|---|---|---|
+| `\tiny` | `5pt`  | `6pt` | `6pt` |
+| `\scriptsize` | `7pt`  | `8pt` | `8pt` |
+| `\footnotesize` | `8pt`  | `9pt` | `10pt` |
+| `\small` | `9pt`  | `10pt` | `11pt` |
+| `\normalsize` | `10pt`  | `11pt` | `12pt` |
+| `\large` | `12pt`  | `12pt` | `14pt` |
+| `\Large` | `14pt`  | `14pt` | `17pt` |
+| `\LARGE` | `17pt`  | `17pt` | `20pt` |
+| `\huge` | `20pt`  | `20pt` | `25pt` |
+| `\Huge` | `25pt`  | `25pt` | `25pt` |
+
+如修改表格字体大小
+
+```bash
+\begin{table}[h]
+{\small %此处写字体大小控制命令
+\begin{tabular}
+...
+\end{tabular}
+}
+\end{table}
+```
+
+当然 LaTeX 中还允许更加灵活的设置字号,参考：
+[Changing the font size in LaTeX](https://texblog.org/2012/08/29/changing-the-font-size-in-latex/)
 
 ### 特殊符号
 
@@ -1598,6 +1729,10 @@ ref: [LaTeX —— 特殊符号与数学字体][]
 + $\nabla$ 微分算子
 
 ### 数学字体
+
+[LaTeX数学公式的默认字体是什么？ - 孟晨的回答 - 知乎](https://www.zhihu.com/question/30058577/answer/46612848)
+
+`Computer Modern Math`, `Latin Modern Math`, 用 XeTeX 的时候是后一个.
 
 + `mathbb`：blackboard bold,黑板粗体
 + `mathcal`：calligraphy（美术字）
