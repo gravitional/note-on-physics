@@ -204,6 +204,8 @@ DESCRIPTION
 如果给定的文件名未被表达式修改，则不会重命名。
 如果命令行中未提供文件名，则将通过标准输入读取文件名。
 
+`perlepxr`三种模式，匹配,替换,转化，分别是:`m,s,tr`
+
 例如，要重命名所有匹配`* .bak`的文件，以去除扩展名，可以用
 
 ```bash
@@ -318,8 +320,10 @@ fc-list :lang=zh
 + 从网络上下载字体或者直接从其他计算机（windows）上拷贝
 + 建立`/usr/share/fonts/myfonts` 目录
 + `cd /usr/share/fonts/`
+  
+在`/etc/fonts/conf.d`目录下，有字体配置文件的符号链接
 
-如果fonts/目录不存在，则创建
+如果`fonts/`目录不存在，则创建
 
 ```bash
 mkdir fonts
@@ -418,6 +422,10 @@ dpkg -L pkg
 list is somewhat similar to `dpkg-query --list` in that it can display a list of packages satisfying certain criteria. 
 
 It supports glob(7) patterns for matching package names as well as options to list installed (`--installed`), upgradeable (`--upgradeable`) or all available (`--all-versions`) versions.
+
+另外也可以用`whereis`
+
+`whereis` - locate the binary, source, and manual page files for a command
 
 ### grep 过滤输出
 

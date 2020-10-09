@@ -1270,23 +1270,13 @@ Most importantly, add /home/tom/texlive/2020/bin/x86_64-linux
 to your PATH for current and future sessions.
 ```
 
-我用的是`zsh`，不过下面的命令也会添加到`bashrc`中，其中的`/home/tom/texlive/2020`改称你安装时的路径
-命令末尾要加上`:`
+我用的是`zsh`，如果用的是`bash`则修改`~/.bashrc`，其中的`/home/tom/texlive/2020`改称你安装时的路径
+直接把下面的语句添加到`.zshrc`文件末尾。
 
 ```bash
-if [[ $SHELL == "/bin/zsh" ]] ;then
-echo -e '\n# add texlive paths' >> ~/.zshrc
-echo 'export MANPATH=/home/tom/texlive/2020/texmf-dist/doc/man:${MANPATH}' >> ~/.zshrc
-echo 'export INFOPATH=/home/tom/texlive/2020/texmf-dist/doc/info:${INFOPATH}' >> ~/.zshrc
-echo 'export PATH=/home/tom/texlive/2020/bin/x86_64-linux:${PATH}' >> ~/.zshrc
-source ~/.zshrc # 令 zshrc 生效
-elif [[ $SHELL == "/bin/bash" ]] ;then
-echo -e '\n# add texlive paths' >> ~/.bashrc
-echo 'export MANPATH=/home/tom/texlive/2020/texmf-dist/doc/man:${MANPATH}' >> ~/.bashrc
-echo 'export INFOPATH=/home/tom/texlive/2020/texmf-dist/doc/info:${INFOPATH}' >> ~/.bashrc
-echo 'export PATH=/home/tom/texlive/2020/bin/x86_64-linux:${PATH}' >> ~/.bashrc
-source ~/.bashrc # 令 bashrc 生效
-fi
+export MANPATH=/home/tom/texlive/2020/texmf-dist/doc/man:${MANPATH}
+export INFOPATH=/home/tom/texlive/2020/texmf-dist/doc/info:${INFOPATH}
+export PATH=/home/tom/texlive/2020/bin/x86_64-linux:/home/tom/bin:/home/tom/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 ```
 
 ***

@@ -1738,10 +1738,7 @@ Latex下 字体大小命令 比较
 + `mathcal`：calligraphy（美术字）
 + `mathrm`：math roman
 + `mathbf`：math boldface
-
-`\usepackage{bbm}`
-
-+ `\mathbbm`: 黑板粗体字母
++ `\mathbbm`: `\usepackage{bbm}`，黑板粗体字母，`\mathbbm{1}`
 
 花体`\mathcal`：`L,F,D,N`
 
