@@ -14,7 +14,7 @@ cd  /home/tom/Downloads
 ```
 
 ***
-[root@test01 ~]# whoami 
+[root@test01 ~]# whoami
 
 ## 常用功能
 
@@ -44,6 +44,12 @@ cd  /home/tom/Downloads
 + `less ` 浏览文件内容
 + `basename file suffix` 用来去掉文件后缀名
 
+`echo`输出的时候，可以考虑改变颜色增加辨认度,
+
+```bash
+echo  -e "\033[1;47m\033[1;32m Testing output... "
+```
+
 ***
 简单命令
 
@@ -60,7 +66,7 @@ cd  /home/tom/Downloads
 + `ln file link` 创建硬链接
 + `ln -s item link` 创建符号链接, `item`可以是一个文件或目录,`gnome`中，按住`ctrl+shift`拖动会创建链接.
 + `df -h`，让你以 `MB` 或 `G` 为单位查看磁盘的空间。
-  
+
 ### shell 模式切换
 
 1. 查看系统支持的shell模式及位置
@@ -199,7 +205,7 @@ rename [ -h|-m|-V ] [ -v ] [ -n ] [ -f ] [ -e|-E perlexpr]*|perlexpr [ files ]
 
 DESCRIPTION
 
-`rename`根据指定为第一个参数的规则重命名提供的文件名。 
+`rename`根据指定为第一个参数的规则重命名提供的文件名。
 `perlexpr`参数是一个`Perl`表达式，它可以`$ _`中的字符串。
 如果给定的文件名未被表达式修改，则不会重命名。
 如果命令行中未提供文件名，则将通过标准输入读取文件名。
@@ -226,7 +232,7 @@ rename 'y/A-Z/a-z/' *
 + `tar -cvf a.tar /etc`
 + `gzip foo.txt`
 + `gzip -fvr foo.txt `: force,verbose,recursive
-+ `zip -r foo.zip a b c ...` 
++ `zip -r foo.zip a b c ...`
 
 同时用`gunzip`压缩
 
@@ -252,7 +258,7 @@ rename 'y/A-Z/a-z/' *
 
 支持的格式
 
-LZMA2, XZ, ZIP, Zip64, CAB, RAR (if the non-free p7zip-rar package is installed), 
+LZMA2, XZ, ZIP, Zip64, CAB, RAR (if the non-free p7zip-rar package is installed),
 ARJ,  GZIP, BZIP2, TAR, CPIO, RPM, ISO
 
 usage: `7z <command> [<switches>...] <archive_name> [<file_names>...] [<@listfiles...>]`
@@ -320,7 +326,7 @@ fc-list :lang=zh
 + 从网络上下载字体或者直接从其他计算机（windows）上拷贝
 + 建立`/usr/share/fonts/myfonts` 目录
 + `cd /usr/share/fonts/`
-  
+
 在`/etc/fonts/conf.d`目录下，有字体配置文件的符号链接
 
 如果`fonts/`目录不存在，则创建
@@ -419,7 +425,7 @@ dpkg -L pkg
 
 `apt list `(work-in-progress) 半成品
 
-list is somewhat similar to `dpkg-query --list` in that it can display a list of packages satisfying certain criteria. 
+list is somewhat similar to `dpkg-query --list` in that it can display a list of packages satisfying certain criteria.
 
 It supports glob(7) patterns for matching package names as well as options to list installed (`--installed`), upgradeable (`--upgradeable`) or all available (`--all-versions`) versions.
 
@@ -439,13 +445,13 @@ It supports glob(7) patterns for matching package names as well as options to li
 + `-i` `--ignore-case` 忽略大小写
 + `-m NUM`, `--max-count=NUM` 输出的最大行
 
-Stop  reading  a  file after `NUM` matching lines.  
+Stop  reading  a  file after `NUM` matching lines.
 
-If the input is standard input from a regular file, and `NUM` matching lines are output, 
-grep ensures that the standard input is positioned to just after the last matching line before exiting, regardless of the presence of trailing(后面的) context lines.  
-This  enables a  calling process to resume a search.  When grep stops after `NUM` matching lines, it outputs any trailing context lines.  
+If the input is standard input from a regular file, and `NUM` matching lines are output,
+grep ensures that the standard input is positioned to just after the last matching line before exiting, regardless of the presence of trailing(后面的) context lines.
+This  enables a  calling process to resume a search.  When grep stops after `NUM` matching lines, it outputs any trailing context lines.
 
-When the `-c` or `--count` option is also used, grep does not output a count greater than `NUM`.  
+When the `-c` or `--count` option is also used, grep does not output a count greater than `NUM`.
 When the `-v` or `--invert-match` option is also used, grep stops after outputting `NUM` non-matching lines.
 
 example:
@@ -454,10 +460,10 @@ example:
 grep -n --color -P -B 1 -A 6 "(?:tex:\d+:|warning:)" ./temp $tex_file".log"
 ```
 
-`-e PATTERNS`, `--regexp=PATTERNS`: 使用`PATTERNS`作为模式。 
+`-e PATTERNS`, `--regexp=PATTERNS`: 使用`PATTERNS`作为模式。
 此选项可以多次使用或与`-f`（`--file`）选项结合使用，搜索给定的所有模式。 此选项可用于保护以`-`开头的模式。
 
-`f FILE`, `--file=FILE`：从`FILE`中获取模式，每行一个。 
+`f FILE`, `--file=FILE`：从`FILE`中获取模式，每行一个。
 如果此选项多次使用或与`-e`（`--regexp`）选项结合使用，则搜索给定的所有模式。 空文件包含零个模式，因此不匹配。
 
 ### 图片格式转换
@@ -1177,7 +1183,7 @@ str='this is a string'
 your_name='runoob'
 str="Hello, I know you are \"$your_name\"! \n"
 echo -e $str
-out: Hello, I know you are "runoob"! 
+out: Hello, I know you are "runoob"!
 ```
 
 双引号的优点：
@@ -1319,7 +1325,7 @@ lengthn=${#array_name[n]}
 #
 #
 # 这里可以添加脚本描述信息
-# 
+#
 #
 ##### 用户配置区 结束  #####
 ```
@@ -1785,6 +1791,16 @@ A=1; echo $A; { A=2 }; echo $A
 A=1; echo $A; (A=2); echo $A
 ```
 
+另外，`{}`可以用来做花括号展开，开头称为报头，结尾称为附言，中间包含由逗号分开的字符串列表或整数列表，不能包含空白。
+还可以使用范围。可以嵌套
+
+```bash
+echo Front-{A,B,C}-Back
+echo Number_{1..5}
+echo {Z..A}
+echo aa{A{1,2},B{3,4}}bb
+```
+
 ### $(( )) 与 $( ) ${ }
 
 ***
@@ -1840,7 +1856,7 @@ bash 的组数替换方法可参考如下方法：
 按位操作运算符
 
 + `<<`: 左移
-+ `>>`: 右移 
++ `>>`: 右移
 + `&`: 按位与
 + `|`: 按位或
 + `~`: 按位非
@@ -1982,7 +1998,7 @@ fi
 + `[[ -n $str1 ]]`   如果 `str1` 是非`null`字符串，则返回真
 
 使用逻辑运算符 `&&` 和 `||` 可以轻松地将多个条件组合起来, 比如：
- 
+
 ```bash
 str1="Not empty"
 str2=""
@@ -2336,7 +2352,7 @@ wolframscript -print "all" -file ./f.figure.series-full.rencon3.strange.baryons-
 
 `glob()`, glob： 一滴 一团
 
-`glob()`函数根据`shell`使用的规则搜索所有与模式匹配的路径名 (请参阅`glob(7)`) 
+`glob()`函数根据`shell`使用的规则搜索所有与模式匹配的路径名 (请参阅`glob(7)`)
 没有`tilde expansion`或`parameter substitution`； 如果需要这些，请使用`wordexp(3)`.
 
 `globfree()`函数释放先前调用`glob()`时，动态分配的存储空间 。
@@ -2382,28 +2398,28 @@ Shell 中可以使用的通配符如下：
 
 [Shell_Linux Shell 中实现字符串切割的几种方法]: https://blog.csdn.net/u010003835/article/details/80750003
 [refs1]: https://blog.csdn.net/u010003835/article/details/80749220
-[refs2]: https://blog.csdn.net/whuslei/article/details/7187639  
+[refs2]: https://blog.csdn.net/whuslei/article/details/7187639
 
 ***
 shell 的 `for` 参数可以是一个连续的字符串，用`IFS`分割
 
 ```bash
 #!/bin/bash
-string="hello shell split test"  ; for var in ${string[@]}; do    echo -e "$var EOF" ;done 
+string="hello shell split test"  ; for var in ${string[@]}; do    echo -e "$var EOF" ;done
 ####
 echo test2
-string="hello shell split test"  
+string="hello shell split test"
 for var in ${string}
 do
    echo -e "$var EOF"
-done 
+done
 ```
 
 ***
 我们在shell 脚本编程中，经常需要用到字符串切割，即将字符串切割为一个数组，
 类似 `java` 中的`split`函数，下面对几种常见的方式做一个总结。
 
-+ 利用shell 中 变量 的字符串替换   
++ 利用shell 中 变量 的字符串替换
 + 设置分隔符，通过 `IFS` 变量
 + 利用`tr` 指令实现字符替换  （！只能针对单个分隔符）
 
@@ -2415,12 +2431,12 @@ done
 ```bash
 #!/bin/bash
 string="hello,shell,split,test"
-array=(${string//,/ })  
- 
+array=(${string//,/ })
+
 for var in ${array[@]}
 do
    echo -e "$var \n"
-done 
+done
 ```
 
 ***
@@ -2445,11 +2461,11 @@ IFS 介绍
 查看变量 `IFS` 的值。
 
 ```bash
-$ echo $IFS  
+$ echo $IFS
 
-$ echo "$IFS" | od -b  
-0000000 040 011 012 012  
-0000004  
+$ echo "$IFS" | od -b
+0000000 040 011 012 012
+0000004
 ```
 
 直接输出IFS是看不到的，把它转化为二进制就可以看到了，
@@ -2460,15 +2476,15 @@ $ echo "$IFS" | od -b
 
 ```bash
 #!/bin/bash
- 
-string="hello,shell,split,test"  
- 
+
+string="hello,shell,split,test"
+
 #对IFS变量 进行替换处理
 OLD_IFS="$IFS"
 IFS=","
 array=($string)
 IFS="$OLD_IFS"
- 
+
 for var in ${array[@]}
 do
    echo -e $var\n
@@ -2501,12 +2517,12 @@ done
 
 ```bash
 #!/bin/bash
- 
-string="hello,shell,split,test"  
-array=(`echo $string | tr ',' ' '` )  
- 
+
+string="hello,shell,split,test"
+array=(`echo $string | tr ',' ' '` )
+
 for var in ${array[@]}
 do
    echo -e $var
-done 
+done
 ```
