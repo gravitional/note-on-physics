@@ -40,6 +40,7 @@
 %\DeclareMathOperator{\re}{Re}
 %\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\disc}{Disc} % discontinuity
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\cola}[1]{{\color{blue}{#1}}}
 \end_preamble
@@ -96,8 +97,8 @@
 \shortcut idx
 \color #008000
 \end_index
-\secnumdepth 3
-\tocdepth 3
+\secnumdepth 2
+\tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
 \is_math_indent 0
@@ -105,7 +106,7 @@
 \quotes_style english
 \dynamic_quotes 0
 \papercolumns 1
-\papersides 1
+\papersides 2
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
@@ -387,6 +388,10 @@ Cutting rules
 \end_layout
 
 \begin_layout Standard
+为了检查振幅虚部的来源，来观察传播子的虚部：
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \Im\frac{1}{p^{2}-m^{2}+i\varepsilon}=\frac{1}{2i}\left(\frac{1}{p^{2}-m^{2}+i\varepsilon}-\frac{1}{p^{2}-m^{2}-i\varepsilon}\right)=\frac{-\varepsilon}{(p^{2}-m^{2})^{2}+\varepsilon^{2}}
@@ -398,7 +403,7 @@ Cutting rules
 \begin_inset Formula $p^{2}=m^{2}$
 \end_inset
 
-附近，当
+附近发散，当
 \begin_inset Formula $\varepsilon\to0$
 \end_inset
 
@@ -409,7 +414,7 @@ Cutting rules
 积分，我们发现
 \begin_inset Formula 
 \[
-\int_{0}^{\infty}\dif p^{2}\frac{-\varepsilon}{(p^{2}-m^{2})^{2}+\varepsilon^{2}}=-\pi
+\int_{0}^{\infty}\dif p^{2}\frac{-\varepsilon}{(p^{2}-m^{2})^{2}+\varepsilon^{2}}=-\left.\arctan\left(\frac{p^{2}-m^{2}}{\varepsilon}\right)\right\vert_{0}^{\infty}=-\pi
 \]
 
 \end_inset
@@ -428,6 +433,584 @@ Cutting rules
 \begin_layout Standard
 圈积分振幅的虚数部分来自于在壳的中间粒子（Imaginary parts of loop amplitudes come from intermediate
  particles going on-shell ）。
+\end_layout
+
+\begin_layout Standard
+类似地，
+\begin_inset Formula 
+\begin{align*}
+ & \frac{1}{k^{0}-\omega_{k}+i\varepsilon}-\frac{1}{k^{0}-\omega_{k}-i\varepsilon}=\frac{-2i\varepsilon}{\left(k^{0}-\omega_{k}\right)^{2}+\varepsilon^{2}}\\
+ & \int_{0}^{\infty}\dif k_{0}\frac{-2i\varepsilon}{\left(k^{0}-\omega_{k}\right)^{2}+\varepsilon^{2}}=-2i\left.\arctan\left(\frac{k^{0}-\omega_{k}}{\varepsilon}\right)\right\vert _{0}^{\infty}=-2i\pi\\
+ & \frac{1}{k^{0}-\omega_{k}+i\varepsilon}-\frac{1}{k^{0}-\omega_{k}-i\varepsilon}=-2\pi i\delta\left(k^{0}-\omega_{k}\right)
+\end{align*}
+
+\end_inset
+
+wher 
+\begin_inset Formula $\omega_{k}=+\sqrt{\vec{k}^{2}+m^{2}}$
+\end_inset
+
+。这里积分上下限并不重要，只要包括了
+\begin_inset Formula $k^{0}=\omega_{k}$
+\end_inset
+
+的发散点，然后我们求积分的柯西主值。我们可以利用这个式子把费曼传播子写成
+\begin_inset Formula 
+\begin{align*}
+\Pi_{F}(k) & =\frac{i}{k^{2}-m^{2}+i\varepsilon}=\frac{i}{2\omega_{k}}\left[\frac{1}{k^{0}-\omega_{k}+i\varepsilon}-\frac{1}{k^{0}+\omega_{k}-i\varepsilon}\right]\\
+ & =\frac{i}{2\omega_{k}}\left[\frac{1}{k^{0}-\omega_{k}+i\varepsilon}-\frac{1}{k^{0}-\omega_{k}-i\varepsilon}+\frac{1}{k^{0}-\omega_{k}-i\varepsilon}-\frac{1}{k^{0}+\omega_{k}-i\varepsilon}\right]\\
+\Pi_{F}(k) & =\frac{\pi}{\omega_{k}}\delta(k^{0}-\omega_{k})+\Pi_{R}(k)
+\end{align*}
+
+\end_inset
+
+where the retarded propagator is 
+\begin_inset Formula 
+\[
+\Pi_{R}(k)=\frac{i}{2\omega_{k}}\left[\frac{1}{k^{0}-\omega_{k}-i\varepsilon}-\frac{1}{k^{0}+\omega_{k}-i\varepsilon}\right]
+\]
+
+\end_inset
+
+重要的点是，
+\begin_inset Formula $\Pi_{F}(k)$
+\end_inset
+
+的 poles 
+\begin_inset Formula $k^{0}=\pm\omega_{k}\mp i\varepsilon$
+\end_inset
+
+，在二四象限，而
+\begin_inset Formula $\Pi_{R}(k)$
+\end_inset
+
+的 poles 都在实轴上方，一二象限，at 
+\begin_inset Formula $k^{0}=\pm\omega_{k}+i\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+考虑圈积分，例如：
+\begin_inset Formula 
+\begin{align*}
+ & i\mathcal{M}_{\text{loop}}(p^{2})=\text{标量粒子单圈图}\\
+ & =\frac{(i\lambda)^{2}}{2}\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{i}{(k-p)^{2}-m^{2}+i\varepsilon}\frac{i}{k^{2}-m^{2}+i\varepsilon}\\
+ & =-\frac{\lambda^{2}}{2}\int\frac{\dif^{4}k}{(2\pi)^{4}}\left[\Pi_{R}(k-p)+\frac{\pi}{\omega_{k-p}}\delta(k^{0}-p^{0}-\omega_{k-p})\right]\left[\Pi_{R}(k)+\frac{\pi}{\omega_{k}}\delta(k^{0}-\omega_{k})\right]
+\end{align*}
+
+\end_inset
+
+由于
+\begin_inset Formula $\Pi_{R}(k-p)\Pi_{R}(k)$
+\end_inset
+
+的极点都在实轴上方，可以从下面闭合
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $k^{0}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+的积分回路，这一项给出零。另外，两个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数的项没法同时满足。在静止系中最容易看出，
+\begin_inset Formula $\vec{p}=0$
+\end_inset
+
+ so that 
+\begin_inset Formula $p^{0}=M$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{k-p}=\omega_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $k^{0}=M+\omega_{k}\,\&\&\,k^{0}=\omega_{k}$
+\end_inset
+
+无法同时满足。丢掉这些为零的项，得到：
+\begin_inset Formula 
+\[
+i\mathcal{M}_{\text{loop}}(p^{2})=-\frac{\lambda^{2}}{2}\int\frac{\dif^{4}k}{(2\pi)^{4}}\left[\Pi_{F}(k-p)\frac{\pi}{\omega_{k}}\delta(k^{0}-\omega_{k})+\Pi_{F}(k)\frac{\pi}{\omega_{k-p}}\delta(k^{0}-p^{0}-\omega_{k-p})\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\delta$
+\end_inset
+
+函数为实数，所以虚部之可能来自于费曼传播子。因此，计算
+\begin_inset Formula $\Im\mathcal{M}_{\text{loop}}(p^{2})$
+\end_inset
+
+ 相当于
+\begin_inset Formula 
+\begin{align*}
+\Im\mathcal{M}_{\text{loop}}(p^{2}) & =-\frac{\lambda^{2}}{2}\int\frac{\dif^{4}k}{(2\pi)^{4}}\Bigg[\pi\delta\left((k-p)^{2}-m^{2}\right)\frac{\pi}{\omega_{k}}\delta(k^{0}-\omega_{k})\\
+ & +\pi\delta\left(k^{2}-m^{2}\right)\frac{\pi}{\omega_{k-p}}\delta(k^{0}-p^{0}-\omega_{k-p})\Bigg]
+\end{align*}
+
+\end_inset
+
+第二行的两个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数仍然没法同时满足，所以为零。所以我们使用
+\begin_inset Formula 
+\[
+\frac{1}{2\omega_{k}}\delta(k^{0}-\omega_{k})=\delta(k^{2}-m^{2})-\frac{1}{2\omega_{k}}\delta(k^{0}+\omega_{k})
+\]
+
+\end_inset
+
+并由于
+\begin_inset Formula $\int\dif k^{0}\delta\left((p-k)^{2}-m^{2}\right)\delta(k^{0}+\omega_{k})=0$
+\end_inset
+
+，最终写成一个简单的形式
+\begin_inset Formula 
+\begin{equation}
+2\Im\mathcal{M}_{\text{loop}}(p^{2})=-\frac{\lambda^{2}}{2}\int\frac{\dif^{4}k}{(2\pi)^{4}}\left(-2\pi i\right)\delta\left((k-p)^{2}-m^{2}\right)\left(-2\pi i\right)\delta\left(k^{2}-m^{2}\right)\label{eq:24.33}
+\end{equation}
+
+\end_inset
+
+这个方程表明,通过让中间粒子在壳，可以计算出振幅的虚部。从这里更容易看出为什么可以作替换。在静止系中，
+\begin_inset Formula $\vec{p}=0$
+\end_inset
+
+ so that 
+\begin_inset Formula $p^{0}=M$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{k-p}=\omega_{k}$
+\end_inset
+
+, 两个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数共有四个零点，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k^{0}=M\pm\sqrt{\omega_{k}},\quad k^{0}=\pm\sqrt{\omega_{k}}
+\]
+
+\end_inset
+
+考虑到
+\begin_inset Formula $M>0$
+\end_inset
+
+，在四种组合中
+\begin_inset Formula 
+\begin{align*}
+M+\sqrt{\omega_{k}} & =\sqrt{\omega_{k}},\quad M+\sqrt{\omega_{k}}=-\sqrt{\omega_{k}},\\
+M-\sqrt{\omega_{k}} & =\sqrt{\omega_{k}},\quad M-\sqrt{\omega_{k}}=-\sqrt{\omega_{k}},
+\end{align*}
+
+\end_inset
+
+只有
+\begin_inset Formula $k^{0}=M-\sqrt{\omega_{k}}\quad\&\quad k^{0}=\sqrt{\omega_{k}}$
+\end_inset
+
+是有可能实现的，也就是
+\begin_inset Formula $2\sqrt{\omega_{k}}=M$
+\end_inset
+
+。也就是创造两个
+\begin_inset Formula $\pi$
+\end_inset
+
+粒子的阈值。容易看出，也就是要求粒子的能量为正数。
+\end_layout
+
+\begin_layout Standard
+可以证明，上面的操作可以对任意振幅进行。eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:24.33"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的推广是一种计算圈振幅的快捷方法，被称为 
+\series bold
+cutting rules。
+\series default
+这些规则如下：
+\end_layout
+
+\begin_layout Enumerate
+进行所有可能的切割，让被切断的传播子在壳，并且不违背动量守恒。
+\end_layout
+
+\begin_layout Enumerate
+对每一个cut，作替换
+\begin_inset Formula $\frac{1}{p^{2}-m^{2}+i\varepsilon}\to-2i\pi\delta(p^{2}-m^{2})\theta(p^{0})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+对所有 cuts 求和。
+\end_layout
+
+\begin_layout Enumerate
+结果就是图的 discontinuity，where 
+\begin_inset Formula $\disc\left(i\mathcal{M}\right)=-2\Im\mathcal{M}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+省略一个例子。。。
+\begin_inset Formula 
+\begin{equation}
+\int\frac{\dif^{4}q}{(2\pi)^{4}}2\pi\delta(q^{2}-m^{2})\theta(q_{0})=\int\frac{\dif^{3}q}{(2\pi)^{3}}\frac{1}{2\omega_{q}}\label{eq:24.35}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+振幅作为动量的复变函数，它的不连续可以由 cutting rules 得到 [Cutkosky,1960]。考虑到
+\begin_inset Formula 
+\[
+\frac{1}{k^{0}-\omega_{k}+i\varepsilon}-\frac{1}{k^{0}-\omega_{k}-i\varepsilon}=-2\pi i\delta\left(k^{0}-\omega_{k}\right)
+\]
+
+\end_inset
+
+振幅的不连续意味着，当粒子能量被赋予一个很小的正虚部或负虚部时，振幅的变化。也就是
+\begin_inset Formula 
+\[
+\disc i\mathcal{M}(p^{0})=i\mathcal{M}(p^{0}+i\varepsilon)-i\mathcal{M}(p^{0}-i\varepsilon)=-2\Im\mathcal{M}(p^{0})
+\]
+
+\end_inset
+
+顺便，你可能注意到
+\begin_inset Formula 
+\[
+i\mathcal{M}_{\text{loop}}(p^{2})=-\frac{\lambda^{2}}{2}\int\frac{\dif^{4}k}{(2\pi)^{4}}\left[\Pi_{F}(k-p)\frac{\pi}{\omega_{k}}\delta(k^{0}-\omega_{k})+\Pi_{F}(k)\frac{\pi}{\omega_{k-p}}\delta(k^{0}-p^{0}-\omega_{k-p})\right]
+\]
+
+\end_inset
+
+完整的圈振幅由一些含有
+\begin_inset Formula $\delta$
+\end_inset
+
+函数的项求和得到，而不仅仅是它的虚部。实际上，对任意的圈振幅，都可以做类似的替换，对所有传播子
+\begin_inset Formula $\Pi_{F}=\Pi_{R}+\delta$
+\end_inset
+
+，然后丢掉所有只含有
+\begin_inset Formula $\Pi_{R}$
+\end_inset
+
+的项。对于剩下的项，可以再代换回去
+\begin_inset Formula $\Pi_{R}=\Pi_{F}-\delta$
+\end_inset
+
+，来产生带有费曼传播子的项的集合。每一项中至少有一个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数。用这种方法，圈可以化简到树振幅。这总能做到，被称为 Feynman tree theorem [Feynman 1972]。本质上，费曼树定理将洛伦兹协变
+的，时间依赖的微扰理论化简到 old-fashioned perturbation theory (see chapter4)，后者从一开始就用在壳中间态构建。
+实际上，对一个给定的理论，证明光学定理，也就是证明理论幺正的最简单的方法之一，就是使用 old-fashioned perturbation theory
+ (Sterman 1993, section 9.6)
+\end_layout
+
+\begin_layout Subsection
+传播子和极化求和
+\end_layout
+
+\begin_layout Standard
+光学定理和 cutting rule 对于任意自旋的粒子都成立。对于带自旋的粒子，求衰变率的时候，必须对末态极化求和。而圈图振幅中包含传播子的分子。所以光学定理
+把传播子和极化求和连接了起来。也可以参见 A.Zee。例如，Yukawa theory with Lagrangian
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{1}{2}\phi(\square+M^{2})\phi+\bar{\psi}\left(i\slashed{\partial}-m\right)\psi+\lambda\phi\bar{\psi}\psi
+\]
+
+\end_inset
+
+对于衰变
+\begin_inset Formula $\phi$
+\end_inset
+
+ into 
+\begin_inset Formula $\bar{\psi}\psi$
+\end_inset
+
+，我们发现
+\begin_inset Formula 
+\[
+\Gamma\left(\phi\to\bar{\psi}\psi\right)=\sum_{s,s^{\prime}}\frac{\lambda^{2}}{2M}\int\frac{\dif^{3}q_{1}}{(2\pi)^{3}2\omega_{q_{1}}}\int\frac{\dif^{3}q_{2}}{(2\pi)^{3}2\omega_{q_{2}}}\bar{v}_{s^{\prime}}(q_{1})u_{s}(q_{2})\bar{u}_{s}(q_{2})v_{s^{\prime}}(q_{1})
+\]
+
+\end_inset
+
+使用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:24.35"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int\frac{\dif^{4}q}{(2\pi)^{4}}2\pi\delta(q^{2}-m^{2})\theta(q_{0})=\int\frac{\dif^{3}q}{(2\pi)^{3}}\frac{1}{2\omega_{q}}
+\]
+
+\end_inset
+
+得到：
+\begin_inset Formula 
+\begin{align*}
+\Gamma & =\frac{\lambda^{2}}{2M}\int\frac{\dif^{4}q_{2}}{(2\pi)^{4}}\int\frac{\dif^{4}q_{1}}{(2\pi)^{4}}(2\pi)^{4}\delta^{4}(p-q_{1}-q_{2})\\
+ & \times2\pi\delta\left(q_{1}^{2}-m^{2}\right)2\pi\delta\left(q_{2}^{2}-m^{2}\right)\tr\left[\left(\slashed{q}_{2}+m\right)\left(\slashed{q}_{1}-m\right)\right]
+\end{align*}
+
+\end_inset
+
+圈图是
+\begin_inset Formula 
+\begin{align*}
+i\mathcal{M}_{\text{loop}} & =\text{单圈Yukawa}\\
+ & =\lambda^{2}\int\frac{\dif^{4}q_{2}}{(2\pi)^{4}}\int\frac{\dif^{4}q_{1}}{(2\pi)^{4}}\frac{\tr\left[\left(\slashed{q}_{2}+m\right)\left(\slashed{q}_{1}-m\right)\right]}{\left[q_{1}^{2}-m^{2}+i\varepsilon\right]\left[q_{2}^{2}-m^{2}+i\varepsilon\right]}(2\pi)^{4}\delta^{4}(p-q_{1}-q_{2})
+\end{align*}
+
+\end_inset
+
+对于
+\begin_inset Formula $\mathcal{M}_{\text{loop}}$
+\end_inset
+
+的虚部，令中间态粒子在壳。把每个传播子用
+\begin_inset Formula $-2\pi\delta(q^{2}-m^{2})$
+\end_inset
+
+替代，如同之前标量场的粒子。分子不受影响，仍然是
+\begin_inset Formula $\tr\left[\left(\slashed{q}_{2}+m\right)\left(\slashed{q}_{1}-m\right)\right]$
+\end_inset
+
+。最后得到，cut loop amplitude 等于 
+\begin_inset Formula $2M$
+\end_inset
+
+ 乘上衰变率，它是虚部的两倍，如同期待的那样。
+\end_layout
+
+\begin_layout Standard
+然而注意，衰变率中的
+\begin_inset Formula $\tr\left[\left(\slashed{q}_{2}+m\right)\left(\slashed{q}_{1}-m\right)\right]$
+\end_inset
+
+来自于对物理在壳的末态求和，而 loop 中这个因子来自于传播子的分子。所以，光学定理的成立要求：
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+传播子的分子等于对物理的自旋状态求和。
+\end_layout
+
+\begin_layout Standard
+这是幺正性的后果。
+\end_layout
+
+\begin_layout Standard
+对于带质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+检查。自旋求和为（see problem 8.5）
+\begin_inset Formula 
+\[
+\sum_{i=1}^{3}\epsilon_{\mu}^{i}\epsilon_{\nu}^{i*}=-g_{\mu\nu}+\frac{p^{\mu}p^{\nu}}{m^{2}}
+\]
+
+\end_inset
+
+传播子是
+\begin_inset Formula 
+\[
+i\Pi_{\mu\nu}(p^{2})=-i\frac{g_{\mu\nu}-\frac{p^{\mu}p^{\nu}}{m^{2}}}{p^{2}-m^{2}+i\varepsilon}
+\]
+
+\end_inset
+
+所以传播子的分母等于物理的自旋状态求和，光学定理成立。
+\end_layout
+
+\begin_layout Standard
+对于无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+场呢？它只含有横向极化分量。因此没法写出洛伦兹不变的形式，但是可以写成
+\begin_inset Formula 
+\[
+\sum_{i=1}^{3}\epsilon_{\mu}^{i}\epsilon_{\nu}^{i*}=-g_{\mu\nu}+\frac{1}{2E^{2}}\left(p^{\mu}\bar{p}^{\nu}+\bar{p}^{\nu}p^{\mu}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\bar{p}=(E,-\vec{p})$
+\end_inset
+
+(see section 13.5.1)。光子传播子是
+\begin_inset Formula 
+\[
+i\Pi^{\mu\nu}(p^{2})=-i\frac{g_{\mu\nu}-(1-\xi)\frac{p^{\mu}p^{\nu}}{p^{2}}}{p^{2}+i\varepsilon}
+\]
+
+\end_inset
+
+所以传播子的分子不等于物理极化的求和。但是，由于规范不变性（对于传播子），Ward identity (对于衰变率)，所有这些
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+项都会从物理的结果中被去掉。因此我们看到规范不变性和 the Ward identity 联系紧密，并且，对于保证无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+粒子理论的幺正性都是必要的。也就是：
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+无质量自旋–
+\begin_inset Formula $1$
+\end_inset
+
+场的幺正性需要规范不变性。
+\end_layout
+
+\begin_layout Standard
+类似的分析也可以对带质量或无质量自旋–
+\begin_inset Formula $2$
+\end_inset
+
+场进行，尽管没有非常令人启发。结果是，对于任意自旋粒子的传播子，我们都可以写成下面的形式
+\begin_inset Formula 
+\[
+\Pi_{s}(p)=\frac{\sum_{j}\epsilon_{j}\epsilon_{j}^{*}}{p^{2}-m^{2}+i\varepsilon}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\epsilon_{j}$
+\end_inset
+
+是对于给定自旋的粒子的
+\series bold
+物理
+\series default
+极化。
+\end_layout
+
+\begin_layout Subsection
+不稳定粒子
+\end_layout
+
+\begin_layout Standard
+在 Chapter 18。我们证明了，在相互作用理论中，对所有 IPI 插入求和之后，全传播子可以写成 (eq.18.37 for a scalar)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+iG(p^{2})=\frac{i}{p^{2}-m_{R}^{2}+\Sigma(p^{2})+i\varepsilon}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $i\Sigma(p)$
+\end_inset
+
+定义为所有 1PI 自能图的求和，
+\begin_inset Formula $m_{R}$
+\end_inset
+
+是出现在 Lagrangian中的某种重整化质量（比如, 
+\begin_inset Formula $M_{R}$
+\end_inset
+
+是
+\begin_inset Formula $\text{\ensuremath{\overline{\text{MS}}}}$
+\end_inset
+
+质量）。pole 质量 
+\begin_inset Formula $m_{P}$
+\end_inset
+
+定义为
+\begin_inset Formula $G(p^{2})$
+\end_inset
+
+的pole，at 
+\begin_inset Formula $p^{2}=m_{P}^{2}$
+\end_inset
+
+，也就是说
+\begin_inset Formula $m_{P}^{2}-m_{R}^{2}+\sum(m_{P}^{2})=0$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
