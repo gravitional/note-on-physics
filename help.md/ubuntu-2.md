@@ -1274,9 +1274,9 @@ to your PATH for current and future sessions.
 直接把下面的语句添加到`.zshrc`文件末尾.
 
 ```bash
-export MANPATH=/home/tom/texlive/2020/texmf-dist/doc/man:${MANPATH}
-export INFOPATH=/home/tom/texlive/2020/texmf-dist/doc/info:${INFOPATH}
-export PATH=/home/tom/texlive/2020/bin/x86_64-linux:/home/tom/bin:/home/tom/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+export MANPATH=${MANPATH}:/home/tom/texlive/2020/texmf-dist/doc/man
+export INFOPATH=${INFOPATH}:/home/tom/texlive/2020/texmf-dist/doc/info
+export PATH=${PATH}:/home/tom/texlive/2020/bin/x86_64-linux
 ```
 
 ***
@@ -1438,6 +1438,8 @@ entry时间戳
 + `yyyy.MM.dd HH:mm gives 2005.09.14 17:45`
 
 ### lyx 报错
+
+使用命令行打开`lyx`就没有问题。
 
 ***
 有时安装好了texlive,也安装好了lyx,却仍然报错,这个时候一般是因为路径(`$PATH`)没有配置好,
