@@ -959,5 +959,381 @@ SyntaxError: invalid syntax
 
 创建元组（固定不变的数组）
 
-小括号不带逗号：表示对括号内的单一表达式求值。
-小括号可以用来把一个式子分成多行。
+小括号不带逗号：表示对括号内的单一表达式求值. 
+小括号可以用来把一个式子分成多行. 
+
+## python 邮件
+
+[解放双手,用Python实现自动发送邮件](https://zhuanlan.zhihu.com/p/89868804)
+
+Python有两个内置库：`smtplib`和`email`,能够实现邮件功能,`smtplib`库负责发送邮件,`email`库负责构造邮件格式和内容. 
+
+邮件发送需要遵守`SMTP`协议,Python内置对`SMTP`的支持,可以发送纯文本邮件、`HTML`邮件以及带附件的邮件. 
+
+脚本如下：
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# 先导入相关的库和方法
+import sys # 命令行调用参数
+from pathlib import Path# 处理文件路径和文件名
+import smtplib,email# 邮件发送和构造
+from email.mime.text import MIMEText # 负责构造文本
+from email.mime.image import MIMEImage # 负责构造图片
+from email.mime.multipart import MIMEMultipart # 负责将多个对象集合起来
+from email.header import Header
+
+# 定义一个彩色的打印函数
+def echo2(x):
+    print(f'+++++++++++++++++++++++\n\033[1;47m\033[1;32m{str(x)}\033[0;0m\n++++++++++++++++++++ ')
+
+# 命令行参数，第二个参数，即 sys.argv[1]，是要发送的附件的位置，支持 ~user
+attach_file=(Path(str(sys.argv[1]))).expanduser()
+echo2(attach_file) #打印出文件的路径
+attach_name=attach_file.name
+echo2(attach_name) # 打印出文件的名字
+
+## 设置邮箱域名、发件人邮箱、邮箱授权码、收件人邮箱
+# SMTP服务器,
+mail_host = 'smtp.qq.com'
+# 发件人邮箱
+mail_sender ='xxx@qq.com'
+# 邮箱授权码,注意这里不是邮箱密码,如何获取邮箱授权码,请看本文最后教程
+mail_license = 'xxx'
+# 收件人邮箱，可以为多个收件人
+mail_receivers = ['xxx@qq.com',]
+
+# 构建MIMEMultipart对象代表邮件本身，可以往里面添加文本、图片、附件等
+mm = MIMEMultipart('related')
+
+## 设置邮件头部内容
+# 邮件主题
+subject_content = """Python邮件测试"""
+# 设置发送者,注意严格遵守格式,里面邮箱为发件人邮箱
+mm["From"] = "tom<xxx@qq.com>"
+# 设置接受者,注意严格遵守格式,里面邮箱为接受者邮箱
+mm["To"] = "xxx<xxx@qq.com>"
+# 设置邮件主题
+mm["Subject"] = Header(subject_content,'utf-8')
+
+## 添加正文文本
+# 邮件正文内容
+body_content = """你好，这是一个测试邮件！"""
+# 构造文本,参数1：正文内容，参数2：文本格式，参数3：编码方式
+message_text = MIMEText(body_content,"plain","utf-8")
+# 向MIMEMultipart对象中添加文本对象
+mm.attach(message_text)
+
+# 添加图片
+# # 二进制读取图片
+# image_data = open('a.jpg','rb')
+# # 设置读取获取的二进制数据
+# message_image = MIMEImage(image_data.read())
+# # 关闭刚才打开的文件
+# image_data.close()
+# # 添加图片文件到邮件信息当中去
+# mm.attach(message_image)
+
+## 如果存在的话，就添加附件，并发送邮件
+if attach_file.exists():
+    atta = MIMEText(open(str(attach_file), 'rb').read(), 'base64', 'utf-8') # 构造附件
+    atta["Content-Disposition"] = f'attachment; filename={str(attach_name)}'# 设置附件信息
+    mm.attach(atta)# 添加附件到邮件信息当中去
+    ## 发送邮件# 创建SMTP对象
+    stp = smtplib.SMTP()
+    stp.connect(mail_host, 587)  # 设置发件人邮箱的域名和端口，端口地址为465
+    stp.set_debuglevel(1)# set_debuglevel(1)可以打印出和SMTP服务器交互的所有信息
+    stp.login(mail_sender,mail_license)# 登录邮箱，传递参数1：邮箱地址，参数2：邮箱授权码
+    # 发送邮件，传递参数1：发件人邮箱地址，参数2：收件人邮箱地址，参数3：把邮件内容格式改为str
+    stp.sendmail(mail_sender, mail_receivers, mm.as_string())
+    echo2("邮件发送成功")
+    stp.quit()# 关闭SMTP对象
+else:
+    echo2(f'there is no such file {str(attach_name)}')
+```
+
+保存成`mail_attach.py`，移动到`~/bin/`目录，再用一个`bash`脚本`tomyself.sh`调用这个模块。
+
+```python
+cp ~/private/backup/tomyself.sh ~/private/backup/mail_attach.py  ~/bin
+(cd ~/bin; chmod +x tomyself.sh mail_attach.py)
+source ~/.zshrc
+```
+
+```bash
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# 将命令行传入的第一个参数当成附件的路径，展开后传入 py 脚本
+python3 ~/bin/mail_attach.py $(realpath -e $1)
+```
+
+## 接受命令行参数
+
+[2.1.1. 传入参数](https://docs.python.org/zh-cn/3/tutorial/interpreter.html#argument-passing)
+
+如果可能的话,解释器会读取命令行参数,转化为字符串列表存入 `sys` 模块中的 `argv` 变量中. 
+执行命令 `import sys` 你可以导入这个模块并访问这个列表. 
+这个列表最少也会有一个元素；如果没有给定输入参数,`sys.argv[0]` 就是个空字符串. 
+如果脚本名是标准输入,`sys.argv[0]` 就是 `-`. 使用 `-c command` 时,`sys.argv[0]` 就会是 `-c`. 
+如果使用选项 `-m module`,`sys.argv[0]` 就是模块的包含目录的全名. 
+在 `-c command` 或 `-m module` 之后的选项不会被解释器处理,而会直接留在 `sys.argv` 中给命令或模块来处理. 
+
+### import 模块
+
+倒入模块的时候,有几种不同的语法
+
++ `import fibo` 
+把`fibo`模块(`fibo.py`文件)中的定义导入当前模块,用 `fibo.fib2`等方式访问. 
+
++ `from fibo import fib, fib2` 把`fibo`模块内的函数等等直接导入本模块的符号表
++ 
++ `from fibo import *` 导入`fibo`模块内定义的所有名称,
+这会调入所有非以下划线（`_`）开头的名称.  在多数情况下,Python程序员都不会使用这个功能,
+因为它在解释器中引入了一组未知的名称,而它们很可能会覆盖一些你已经定义过的东西. 
+不过,在交互式编译器中为了节省打字可以这么用. 
+
++ 可以用`as`将名称绑定到欲导入的模块,方便使用
+
+```python
+import fibo as fib
+from fibo import fib as fibonacci
+```
+
+## 文件系统路径pathlib
+
+[pathlib --- 面向对象的文件系统路径](https://docs.python.org/zh-cn/3/library/pathlib.html#pathlib.PurePath.name)
+
+路径类被分为提供纯计算操作而没有 I/O 的 纯路径,以及从纯路径继承而来但提供 I/O 操作的 具体路径. 
+
+如果你以前从未使用过此模块或者不确定在项目中使用哪一个类是正确的,则 Path 总是你需要的. 
+它在运行代码的平台上实例化为一个具体路径. 
+
+在一些用例中纯路径很有用,例如：
+
++ 如果你想要在 Unix 设备上操作 `Windows` 路径（或者相反）. 
+你不应在 `Unix` 上实例化一个 WindowsPath,但是你可以实例化 `PureWindowsPath`. 
++ 你只想操作路径但不想实际访问操作系统. 在这种情况下,实例化一个纯路径是有用的,因为它们没有任何访问操作系统的操作. 
+
+实例化：也就是建立属于一个类的对象. 
+
+### 基础使用
+
+导入主类:`from pathlib import Path`
+导入纯粹路名操作类：`from pathlib import PurePath`
+
++ `PurePath.name`:一个表示最后路径组件的字符串,排除了驱动器与根目录,如果存在的话:
+
+```python
+PurePosixPath('my/library/setup.py').name
+out:'setup.py'
+# UNC 驱动器名不被考虑:
+PureWindowsPath('//some/share/setup.py').name
+out: 'setup.py'
+PureWindowsPath('//some/share').name
+out: ''
+```
+
+要获得路径的字符串形式,直接`str`,`Path`类中有`'__str__'`内部调用方法,比如
+`str(PurePosixPath('my/library/setup.py'))`
+
+### 对应的os模块的工具
+
+可以参考[os 与 PurePath/Path 对应相同的函数的表](https://docs.python.org/zh-cn/3/library/pathlib.html#correspondence-to-tools-in-the-os-module)
+
+os 和 os.path, pathlib
+
+常用的操作有
+
++ `Path.resolve()` :将路径绝对化,解析任何符号链接.`..` 组件也将被消除（只有这一种方法这么做）:
+
+```python
+>>> p = Path('docs/../setup.py')
+>>> p.resolve()
+PosixPath('/home/antoine/pathlib/setup.py')
+```
+
++ `Path.chmod()` : 改变文件的模式和权限,和 `os.chmod()` 一样:
++ `Path.mkdir(mode=0o777, parents=False, exist_ok=False)`: 新建给定路径的目录. 如果给出了 `mode` ,它将与当前进程的 `umask` 值合并来决定文件模式和访问标志. 
++ `Path.rename(target)`将文件或目录重命名为给定的 `target`,并返回一个新的指向 `target` 的 `Path` 实例
++ `Path.rmdir()`: 移除此目录. 此目录必须为空的. 
++ `Path.unlink()`:移除此文件或符号链接. 如果路径指向目录,则用 `Path.rmdir()` 代替. 
++ `Path.cwd()`: 返回一个新的表示当前目录的路径对象（和 `os.getcwd()` 返回的相同）:
++ `Path.exists()`:此路径是否指向一个已存在的文件或目录:
++ `Path.expanduser()`:返回展开了包含 `~` 和 `~user` 的构造,就和 `os.path.expanduser()` 一样:
++ `Path.home()`:返回一个表示当前用户家目录的新路径对象
++ `Path.iterdir()`:当路径指向一个目录时,产生该路径下的对象的路径:
++ ` PurePath.joinpath(*other)`: 将每个 `other` 参数中的项目连接在一起,如`PurePosixPath('/etc').joinpath('init.d', 'apache2')`
++ `PurePath.name`: 一个表示最后路径组件的字符串,排除了驱动器与根目录,如果存在的话:
++ `PurePath.parent`:此路径的逻辑父路径, 这是一个单纯的 lexical operation
++ `Path.samefile(other_path)`: 返回此目录是否指向与可能是字符串或者另一个路径对象的 other_path 相同的文件
++ `PurePath.suffix`:最后一个组件的文件扩展名,如果存在:
++ `PurePath.suffixes` : 路径的文件扩展名列表,如`PurePosixPath('my/library.tar.gar').suffixes`
+
+## pypi 镜像
+
+### 清华大学pypi镜像使用帮助
+
+[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
+
+pypi 镜像每 5 分钟同步一次. 
+
+临时使用
+
+```bash
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+```
+
+注意,`simple` 不能少, 是 `https` 而不是 `http`
+
+***
+设为默认
+
+升级 `pip` 到最新的版本 (>=10.0.0) 后进行配置：
+
+```bash
+pip3 install pip -U
+pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+如果您到 pip 默认源的网络连接较差,临时使用本镜像站来升级 `pip3`：
+
+```bash
+pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
+```
+
+### 手动修改配置文件
+
+[PyPI使用国内源](https://www.cnblogs.com/sunnydou/p/5801760.html)
+
+如果想配置成默认的源,方法如下：
+
+需要创建或修改配置文件（一般都是创建）,
+
+`linux`的文件在`~/.pip/pip.conf`,
+
+`windows`在`%HOMEPATH%\pip\pip.ini`）,
+
+修改内容为：
+
+```bash
+[global]
+index-url = http://pypi.douban.com/simple
+[install]
+trusted-host=pypi.douban.com
+```
+
+这样在使用`pip`来安装时,会默认调用该镜像. 
+
+## 类的特殊属性
+
+[Difference between _, __ and __xx__ in Python](http://igorsobreira.com/2010/09/16/difference-between-one-underline-and-two-underlines-in-python.html)
+
+### 单下划线
+
+Python没有真正的私有方法,因此在方法或属性开头加下划线表示您不应访问此方法,因为它不是API的一部分.  
+使用属性时很常见：
+
+```python
+class BaseForm(StrAndUnicode):
+    ...
+
+    def _get_errors(self):
+        "Returns an ErrorDict for the data provided for the form"
+        if self._errors is None:
+            self.full_clean()
+        return self._errors
+
+    errors = property(_get_errors)
+```
+
+此摘录摘自django源代码 (`django/forms/forms.py`). 
+这意味着`errors`是一个属性,并且是`API`的一部分,但是此属性调用的方法` _get_errors`是“私有”的,因此您不应访问它. 
+
+### __xxx
+
+开头有两个下划线,这个约定引起很多混乱. 它不是用来标记私有方法,而是用来避免方法被子类覆盖. 让我们来看一个例子：
+
+```python
+class A(object):
+    def __method(self):
+        print "I'm a method in A"
+
+    def method(self):
+        self.__method()
+
+a = A()
+a.method()
+# The output here is
+# I'm a method in A
+# 符合我们的预期. 现在让我们继承A类并自定义__method
+
+class B(A):
+    def __method(self):
+        print "I'm a method in B"
+
+b = B()
+b.method()
+# and now the output is...
+#I'm a method in A
+```
+
+如你所见,`A.method()`没有像我们期望的那样调用`B.__method()`. 
+实际上,这是`__`的正确行为. 因此,当您创建以`__`开头的方法时,表示你想避免它被重写,你想让这个方法只在这个类内部被访问. 
+
+`python`是怎么做的？很简单,它只是重命名方法. 看一看：
+
+```python
+a = A()
+a._A__method()  # never use this!! please!
+# I'm a method in A
+```
+
+如果您尝试访问`a.__method()`,那么它也不起作用,就像我说的那样,`__method`只能在类本身内部访问. 
+注意,私有变量,也就是一个下划线的`_method2()`,是可以从外部访问到的. 
+
+### 前后双下划线
+
+带有前后双下划线`__twounderlines__`的方法是提供给python调用的,而不是让用户显式调用的. 
+当你看到类似`__this__`这种方法,规则很简单,不要使用它. 
+它可以用来重新定义一些运算符. 
+
+```python
+name = "igor"
+print(name.__len__())
+print(len(name))
+# 结果都是4
+number = 10
+number.__add__(20)
+number + 20
+# 结果都是30
+## 比如 重新定义加减
+class CrazyNumber(object):
+    def __init__(self, n):
+        self.n = n
+    def __add__(self, other):
+        return self.n - other
+    def __sub__(self, other):
+        return self.n + other
+    def __str__(self):
+        return str(self.n)
+        
+num = CrazyNumber(10)
+print (num)           # 10
+print (num + 5)       # 5
+print (num - 20)      # 30
+```
+
+使用`_xxx`单个下划线,来表示该方法或属性是私有的,不属于API；
+使用`__xx`两个下划线来创建像是`native python objects`的对象,或者你想自定义一些行为. 
+一般不需要使用`__xx__`,除非你想避免方法在继承之后,被子类被重写. 
+
+## 判断类型
+
+`isinstance(object, classinfo)`
+
+如果参数 `object` 是参数 `classinfo` 的实例或者是其 (直接、间接或 虚拟) 子类则返回 `True`.  
+如果 `object` 不是给定类型的对象,函数将总是返回 `False` .  
+如果 `classinfo` 是类型对象元组（或由其他此类元组递归组成的元组）,那么如果 `object` 是其中任何一个类型的实例就返回 `True` .  
+如果 `classinfo` 既不是类型,也不是类型元组或类型元组的元组,则将引发 `TypeError` 异常. 
