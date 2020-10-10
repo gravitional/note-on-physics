@@ -563,7 +563,7 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 3: invalid 
 
 ### 字符串和编码小结
 
-`Python 3`的字符串使用`Unicode`，直接支持多语言。
+`Python3`的字符串使用`Unicode`，直接支持多语言。
 
 当`str`和`bytes`互相转换时，需要指定编码。最常用的编码是`UTF-8`。`Python`当然也支持其他编码方式，比如把`Unicode`编码成`GB2312`：
 
@@ -577,10 +577,10 @@ b'\xd6\xd0\xce\xc4'
 
 ### 使用list和tuple
 
-#### list
+#### list 列表
 
-Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。
-比如，列出班里所有同学的名字，就可以用一个list表示：
+Python内置的一种数据类型是列表：`list`。`list`是一种有序的集合，可以随时添加和删除其中的元素。
+比如，列出班里所有同学的名字，就可以用一个`list`表示：
 
 ```python
 >>> classmates = ['Michael', 'Bob', 'Tracy']
@@ -626,7 +626,7 @@ IndexError: list index out of range
 
 当然，倒数第4个就越界了。
 
-list是一个可变的有序表，所以，可以往list中追加元素到末尾：
+`list`是一个可变的有序表，所以，可以往`list`中追加元素到末尾：
 
 ```python
 >>> classmates.append('Adam')
@@ -691,7 +691,7 @@ list是一个可变的有序表，所以，可以往list中追加元素到末尾
 
 要拿到`'php'`可以写`p[1]`或者`s[2][1]`，因此`s`可以看成是一个二维数组，类似的还有三维、四维……数组，不过很少用到。
 
-如果一个list中一个元素也没有，就是一个`空的`list，它的长度为`0`：
+如果一个`list`中一个元素也没有，就是一个`空的``list`，它的长度为`0`：
 
 ```python
 >>> L = []
@@ -699,7 +699,7 @@ list是一个可变的有序表，所以，可以往list中追加元素到末尾
 0
 ```
 
-#### tuple
+#### tuple 元组
 
 另一种有序列表叫元组：`tuple`。tuple和list非常类似，但是tuple一旦初始化就不能修改，比如同样是列出同学的名字：
 
