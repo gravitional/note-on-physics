@@ -82,11 +82,16 @@ echo  -e "\033[1;47m\033[1;32m Testing output... "
 
 `ls -d */`
 
-`-d`= 选项指定只列出目录，`glob`模式当前目录下`*/`表示所有的子目录
-`-S` 按文件大小排序，大的优先
-`--sort=WORD` =  按`WORD`排序，而不是`name`: none (-U), size (-S), time (-t), version (-v), extension (-X)
-`--time=WORD`= 和 `-l`一起使用，使用`WORD`代替默认的修改时间：atime or access or use (-u); ctime or status (-c); also use specified time as sort key if  `--sort=time` (newest first)
-`-X` = 按拓展名的字母顺序排列
++ `-d`= 选项指定只列出目录，`glob`模式当前目录下`*/`表示所有的子目录
++ `-S` 按文件大小排序，大的优先
++ `--sort=WORD` =  按`WORD`排序，而不是`name`: none (-U), size (-S), time (-t), version (-v), extension (-X)
++ `--time=WORD`= 和 `-l`一起使用，使用`WORD`代替默认的修改时间：atime or access or use (-u); ctime or status (-c); also use specified time as sort key if  `--sort=time` (newest first)
++ `-X` = 按拓展名的字母顺序排列
++ `-m`用逗号分隔的条目列表填充宽度
++ `-x` 按行而不是按列输出条目
++ `-b, --escape` 打印非图形字符的`C`样式转义符
++ `-q, --hide-control-chars` 打印`?`而不是非图形字符
++ `--format=WORD` 横跨`-x`，逗号`-m`，水平`-x`，长`-l`，单列`-1`，verbose`-l`，垂直`-C`
 
 ### 别名(alias)
 
@@ -157,13 +162,7 @@ zsh 别名
 
 + `grep`='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-### ls
 
-+ `-m` fill width with a comma separated list of entries
-+ `-x` list entries by lines instead of by columns
-+ `-b, --escape` print C-style escapes for nongraphic characters
-+ `-q, --hide-control-chars` print ? instead of nongraphic characters
-+ `--format=WORD` across `-x`, commas `-m`, horizontal `-x`, long `-l`, single-column `-1`, verbose `-l`, vertical `-C`
 
 ### 复制移动删除
 
@@ -230,6 +229,28 @@ rename 'y/A-Z/a-z/' *
 + `$&`: 匹配的字符串
 + `$'`: 还没有匹配的剩余字符串
 + `$1`: 反向引用的第一个字符串
+
+### 获取绝对路径
+
+`realpath` - `print the resolved path`(打印已解析的路径)
+
+SYNOPSIS
+`realpath [OPTION]... FILE...`
+
+DESCRIPTION
+打印解析的绝对文件名； 除最后一个组件外的所有组件都必须存在
+
+`-e`, `--canonicalize-existing`: 路径的所有组成部分必须存在
+`-m`，`--canonicalize-missing`:路径组件不需要存在，也不必是目录
+`-L`, `--logical`:解析符号链接前的`..`组件
+`-P`, `--physical`:解析遇到的符号链接（默认）
+`-q`, `--quiet`:禁止显示大多数错误消息
+`--relative-to=DIR`:打印相对于`DIR`的解析路径
+`--relative-base=DIR`:只打印`DIR`后面的绝对路径路径
+`-s`, `--strip, --no-symlinks`:不扩展符号链接
+`-z`,` --zero`:用NUL而不是换行符结束每个输出行
+
+canonical order: 在排序中，指一种标准的顺序，比如字母顺序。
 
 ### tar压缩
 
@@ -1387,7 +1408,9 @@ EOF 也可以使用其他符号:
 
 [shell中的数组作为参数传递]: https://blog.csdn.net/brouse8079/article/details/6417836
 
-`./test.sh  "${atest[@]}"` 简而言之，需要把数组参数用引号括起来
+`./test.sh  "${atest[@]}"` 简而言之，需要把数组参数用引号括起来.
+
+其中 `$0` 为执行的文件名（包含文件路径）
 
 ```bash
 #!/bin/bash

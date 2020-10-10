@@ -22,7 +22,6 @@ with open(file, 'w', encoding='utf-8') as f:
         \begin{document}
         ''')
 
-
 #  定义图像的尺寸
 with open(file, 'a', encoding='utf-8') as f:
     f.write(fr'''

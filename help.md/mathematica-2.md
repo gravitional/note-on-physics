@@ -89,7 +89,7 @@ git`root`dir=StringCases[ExpandFileName[file`name],StartOfString~~((WordCharacte
 
 in total,
 
-windows: 建立后缀名为`.wl`的文件，然后按正常的方法去写mma笔记本，
+windows: 建立后缀名为`.wl`的文件，然后按正常的方法去写`mma`笔记本，
 运行的时候用`wolframscript.exe`
 用`-print all` 指定输出所有没被`;` 抑制输出的表达式。
 用`para1 para2 ...` 传递参数。
@@ -105,7 +105,7 @@ wolframscript.exe -print all -file .\test.wl para1 para2
 ```
 
 ***
-unix: 通过加上`#!/usr/bin/env wolframscript -print all`，
+`unix`: 通过加上`#!/usr/bin/env wolframscript -print all`，
 运行的时候，不用输入`wolframscript`，
 传递参数的方法不变
 
