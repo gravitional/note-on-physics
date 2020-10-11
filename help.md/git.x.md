@@ -556,6 +556,8 @@ You can omit any one of `<commit>`, which has the same effect as using HEAD inst
 然而，`diff`比较的是两个 endpoints，而不是一个范围。
 所以 `<commit>..<commit>`and `<commit>...<commit>`在这里指的不是范围。
 
+## 文件管理
+
 ### checkout 还原文件
 
 ```bash
@@ -571,6 +573,52 @@ git checkout [<tree-ish>] [--] <pathspec>…​
 The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`.
 
 With `-m`, changes made to the working tree file can be discarded to re-create the original conflicted merge result.
+
+### rebase 删除某次提交
+
+[git删除中间某次提交](https://www.cnblogs.com/qiqi715/p/11540999.html)
+
+首先用`git log` or `gitk --all`获取`commit`信息
+比如:
+
+```git
+commit 58211e7a5da5e74171e90d8b90b2f00881a48d3a
+...
+
+commit 0fb295fe0e0276f0c81df61c4fd853b7a000bb5c
+...
+
+commit 7753f40d892a8e0d14176a42f6e12ae0179a3210
+...
+```
+
+假如要删除备注为 `commit` 为`0fb295fe0e0276f0c81df61c4fd853b7a000bb5c`的这次提交
+
++ 首先找到此次提交之前的一次提交的 `commit` `7753f40d892a8e0d14176a42f6e12ae0179a3210`
++ 执行如下命令
+
+```bash
+git rebase -i 7753f40
+```
+
+解释：
+`git rebase -i  commit-id`
+commit-id 为要删除的 `commit` 的前一次`commit`号
+`-i` `--interactive`
+
+将弹出一个编辑界面
+
++ 根据提示编辑文件，将要删除的`commit`之前的单词改为`drop` ，然后按照提示保存退出
+
++ 这样就删除了指定的`commit`，可以使用`git log`查看下。
+`git push  –f` 然后推送到远程仓库。此时 `commit 0fb295fe0e`就被干掉了，不影响后面的提交
+
+说明：
+`-f`, `--force`
+
+通常，`git push`拒绝更新不是本地引用的祖先的远程引用，从而避免覆盖它。 
+另外，当使用`--force-with-lease`选项时，`git push`将拒绝更新其与当前值不匹配的远程引用。
+`-f`将禁用这些检查，并可能导致远程存储库丢失提交。 小心使用。
 
 ## zsh 定义的 git别名
 
