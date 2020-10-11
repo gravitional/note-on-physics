@@ -49,6 +49,9 @@ jupyter notebook --no-browser
 jupyter notebook --help
 ```
 
+`--notebook-dir=<Unicode>`
+The directory to use for notebooks and kernels.
+
 ## 快捷键
 
 `Jupyter`笔记本电脑有两种不同的键盘输入模式。 

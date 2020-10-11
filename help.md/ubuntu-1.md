@@ -14,7 +14,18 @@ cd  /home/tom/Downloads
 ```
 
 ***
-[root@test01 ~]# whoami
+`whoami`会输出用户的名称
+
+***
+bash -c `command` arg1 arg2 ...
+
+这种调用形式，会读取 `-c`后面的`command_string`并执行命令，然后退出
+如果在`command_string`之后有参数，则第一个参数分配给`$0`，其余所有参数分配给`位置参数`。 
+`$0`的赋值设置`shell`的名称，该名称用于`warning`和`error`消息。如
+
+```bash
+bash -c 'ls;echo;uptime'
+```
 
 ## 常用功能
 
@@ -327,7 +338,7 @@ usage: `7z <command> [<switches>...] <archive_name> [<file_names>...] [<@listfil
 + `-y` : assume Yes on all queries
 + `-t{Type}` Set type of archive
 
-### 查看所有可用的字体
+### 查看字体
 
 fc-list: list available fonts
 
@@ -421,7 +432,7 @@ fc-cache -fv
 
 `--install-suggests`
 
-Consider suggested packages as a dependency for installing. Configuration Item: APT::Install-Suggests.
+将建议的软件包视为安装的依赖项。 配置项：`APT::Install-Suggests`。
 
 ### dpkg 安装应用
 

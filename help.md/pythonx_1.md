@@ -42,6 +42,41 @@ lc_letter ::=  "a"..."z"
 
 ### subprocess --- 子进程管理
 
+[subprocess --- 子进程管理](https://docs.python.org/zh-cn/3/library/subprocess.html#subprocess.run)
+
+```python
+subprocess.run(args, *, stdin=None, input=None, stdout=None, stderr=None, capture_output=False, shell=False, cwd=None, timeout=None, check=False, encoding=None, errors=None, text=None, env=None, universal_newlines=None, **other_popen_kwargs)
+```
+
+常用参数
+
+`args` 被所有调用需要，应当为一个字符串，或者一个参数序列（比如列表`[a,b,c]`）。
+提供一个参数序列通常更好，它可以使模组处理需要转义或者quote的字符（例如允许文件名中的空格）。
+如果传递单个字符串，则要么 `shell` 参数必须为 `True` （见下文），要么该字符串指定的程序不需要参数。
+
+`stdin`， `stdout` 和 `stderr` 分别指定了执行的程序的标准输入、输出和标准错误`file handles`。
+合法的值有 `PIPE` 、 `DEVNULL` 、 一个现存的文件描述符（一个正整数）、一个现存的文件对象以及 `None`。 
+`PIPE` 表示应该新建一个对子进程的管道。 `DEVNULL` 表示使用特殊的文件 `os.devnull`。
+当使用默认设置 `None` 时，将不会进行重定向，子进程的`file handles`将继承自父进程。
+另外， `stderr` 可以是 `STDOUT`，表示来自于子进程的` stderr data`应该被捕获到与 `stdout` 相同的` file handle`。
+
+如果 `encoding` 或 `errors` 被指定，或者 `text` （也名为 `universal_newlines` ）为`True`，则文件 objects `stdin` 、 `stdout` 与 `stderr` 将会使用在此次调用中指定的 `encoding` 和 `errors` 以文本模式打开。
+未制定则使用默认的 `io.TextIOWrapper`。
+
+对于 `stdin` ， 输入的换行符`\n` 将被转换为默认的换行符 `os.linesep`。
+对于 `stdout` 和 `stderr` ， 所有输出的换行符都被转换为`\n`。
+更多的信息可以参考`io.TextIOWrapper`的文档，当它的构造函数中的`newline`参数被设置为`None`时。
+
+如果未使用文本模式， `stdin` ， `stdout` 和 `stderr` 将会以二进制流模式打开。则不会发生编码和换行符(`line ending`)的转换。
+
+注意：
+file objects `Popen.stdin` 、 `Popen.stdout` 和 `Popen.stderr` 的换行符属性不会被 `Popen.communicate()` 方法更新。
+
+如果 `shell` 设为 `True`,，则使用指定的`shell` 执行指定的指令。
+这样可以方便的使用一些`shell`的特性，比如 shell 管道、文件名`wildcards`、环境变量展开以及 `~` (展开到用户家目录).
+注意 Python 自己也实现了许多类似 shell 的特性（例如 `glob`, `fnmatch`, `os.walk()`, `os.path.expandvars()`, 
+`os.path.expanduser()` 和 `shutil` ）。
+
 示例
 
 ```python
@@ -57,6 +92,23 @@ subprocess.CalledProcessError: Command 'exit 1' returned non-zero exit status 1
 CompletedProcess(args=['ls', '-l', '/dev/null'], returncode=0,
 stdout=b'crw-rw-rw- 1 root root 1, 3 Jan 23 16:23 /dev/null\n', stderr=b'')
 ```
+
+`subprocess.run` 返回的结果可能包含`\n`后缀，这个时候可以使用字符串的`.removesuffix('\n')`方法去掉换行符。
+
+### popen
+
+[Popen 构造函数](https://docs.python.org/zh-cn/3/library/subprocess.html#subprocess.Popen)
+
+`subprocess`模块中，在底层上，进程的创建与管理由 `Popen` 类处理。
+它提供了很大的灵活性，开发者能够处理没有被便利函数覆盖的情况。
+
+```python
+class subprocess.Popen(args, bufsize=-1, executable=None, stdin=None, stdout=None, stderr=None, preexec_fn=None, close_fds=True, shell=False, cwd=None, env=None, universal_newlines=None, startupinfo=None, creationflags=0, restore_signals=True, start_new_session=False, pass_fds=(), *, group=None, extra_groups=None, user=None, umask=-1, encoding=None, errors=None, text=None)
+```
+
+在一个新的进程中执行子程序。
+在 `POSIX`平台，此`class`使用类似于 `os.execvp()` 的行为来执行子程序。
+在 `Windows`平台，此`class`使用了 `Windows CreateProcess()` 函数。
 
 ### os.system运行外部程序
 
@@ -733,6 +785,104 @@ def write_result(str):
 左边是位置，右边是字典。
 何处是分隔，`*`号来体现。
 
+### 特殊参数
+
+[4.7.3.1. 位置或关键字参数](https://docs.python.org/zh-cn/3/tutorial/controlflow.html#positional-or-keyword-arguments)
+
+默认情况下，函数的参数传递形式可以是位置参数或是显式的关键字参数。 
+为了确保可读性和运行效率，限制允许的参数传递形式是有意义的，
+这样开发者只需查看函数定义即可确定参数项是仅按位置、按位置也按关键字，还是仅按关键字传递。
+
+函数的定义看起来可以像是这样：
+
+```python
+def f(pos1, pos2, #只能是位置参数 (Positional only)
+/, pos_or_kwd, #位置或关键字参数 (Positional or keyword)
+*, kwd1, kwd2): # 只能是关键字参数(Keyword)
+```
+
+在这里 `/` 和 `*` 是可选的。 
+如果使用这些符号则表明可以通过何种形参将参数值传递给函数：仅限位置、位置或关键字，以及仅限关键字。 
+关键字形参也被称为命名形参。
+
+如果函数定义中未使用 `/` 和 `*`，则参数可以按`位置`或按`关键字`传递给函数
+
+如果是 `positional-only` 的形参，则其位置是重要的，并且该形参不能作为关键字传入。 
+`positional-only`形参要放在 `/` (正斜杠) 之前。 这个 `/` 被用来从逻辑上分隔`positional-only`形参和其它形参。 
+如果函数定义中没有 `/`，则表示没有`positional-only`形参。
+在 `/` 之后的形参可以为 位置或关键字 或 仅限关键字。
+
+要将形参标记为 `keyword-only` ，即指明该形参必须以关键字参数的形式传入，
+应在参数列表的第一个 `keyword-only ` 形参之前放置一个 `*`。
+
+函数举例：
+
+请考虑以下示例函数定义并特别注意 `/` 和 `*` 标记:
+
+```python
+>>> def standard_arg(arg):
+...     print(arg)
+...
+>>> def pos_only_arg(arg, /):
+...     print(arg)
+...
+>>> def kwd_only_arg(*, arg):
+...     print(arg)
+...
+>>> def combined_example(pos_only, /, standard, *, kwd_only):
+...     print(pos_only, standard, kwd_only)
+```
+
+第一个函数定义 `standard_arg` 是最常见的形式，对调用方式没有任何限制，参数可以按位置也可以按关键字传入:
+
+```python
+>>> standard_arg(2)
+2
+>>> standard_arg(arg=2)
+2
+```
+
+第二个函数 `pos_only_arg` 在函数定义中带有 `/`，限制仅使用位置形参:
+
+```python
+>>> pos_only_arg(1)
+1
+>>> pos_only_arg(arg=1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: pos_only_arg() got an unexpected keyword argument 'arg'
+```
+
+最后，请考虑这个函数定义，它的位置参数 `name`  和 `**kwds` 之间可能产生潜在冲突，
+由于关键字名称可能也是 `name` :
+
+```python
+def foo(name, **kwds):
+    return 'name' in kwds
+```
+
+任何调用都不可能让它返回 `True` ，因为关键字 `name` 将总是绑定到第一个形参。 例如:
+
+```python
+>>> foo(1, **{'name': 2})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: foo() got multiple values for argument 'name'
+>>>
+```
+
+但使用 `/` (仅限位置参数) 就可以避免这个问题，因为它可以区分开作为位置参数的 `name` ，
+以及作为关键字参数名称的 `'name'` :
+
+```python
+def foo(name, /, **kwds):
+    return 'name' in kwds
+>>> foo(1, **{'name': 2})
+True
+```
+
+换句话说，限制形参为仅限位置，可以防止它在 `**kwds` 中使用产生的歧义。也就是最好写成`(name, /, **kwds)`这样的形式
+
 装饰器
 
 map reduce
@@ -1248,7 +1398,83 @@ trusted-host=pypi.douban.com
 
 这样在使用`pip`来安装时,会默认调用该镜像. 
 
-## 类的特殊属性
+## class 类型
+
+### 查看内置类型
+
+[内置类型](https://docs.python.org/zh-cn/3/library/stdtypes.html#built-in-types)
+
+#### 字符串类型
+
+` str.format(*args, **kwargs)`
+
+执行字符串格式化操作。 
+调用此方法的字符串的组成部分，可以是`literal text`，也可以是替换域，用花括号 `{}` 括起来。 
+替换域中可以是一个位置参数的数字索引，或者是一个关键字参数的名称。
+返回的字符串副本中，每个替换域都会变成相应的值。
+
+```python
+>>>"The sum of 1 + 2 is {0},while 4+6 is {1}".format(1+2,4+6)
+'The sum of 1 + 2 is 3,while 4+6 is 10'
+```
+
+字符串方法：
+
++ `str.removesuffix(suffix, /)`
+如果字符串以 `suffix` 字符串结尾，并且 `suffix` 非空，返回 `string[:-len(suffix)]` 。否则，返回原始字符串的副本：
++ `str.replace(old, new[, count])`
+返回字符串的副本，其中出现的所有子字符串 `old` 都将被替换为 `new` 。 如果给出了可选参数 `count`，则只替换前 `count` 个。
++ `str.lstrip([chars])`
+  返回原字符串的副本，移除其中的前导字符。 `chars` 参数为指定要移除字符的字符串。 
+  如果省略或为 `None` ，则 `chars` 参数默认移除空格符。 实际上 `chars` 参数并非指定单个前缀；而是会移除参数值的所有组合:
+
+```python
+>>> '   spacious   '.lstrip()
+'spacious   '
+>>> 'www.example.com'.lstrip('cmowz.')
+'example.com'
+```
+
+`str.removeprefix(prefix, /)`
+如果字符串以 `prefix` 字符串开头，返回 `string[len(prefix):]` 。否则，返回原始字符串的副本：
+
+```python
+>>> 'TestHook'.removeprefix('Test')
+'Hook'
+>>> 'BaseTestCase'.removeprefix('Test')
+'BaseTestCase'
+```
+
+`str.rsplit(sep=None, maxsplit=-1)`
+
+返回一个由字符串内单词组成的列表，使用 `sep` 作为分隔字符串。 
+如果给出了 `maxsplit` ，则最多进行 `maxsplit` 次拆分，从 最右边 开始。
+如果 `sep` 未指定或为 `None` ，任何空白字符串都会被作为分隔符。
+除了从右边开始拆分，`rsplit()` 的其他行为都类似于下文所述的 `split()`。
+
+`str.rstrip([chars])`
+返回原字符串的副本，移除其中的末尾字符。 `chars` 参数为指定要移除字符的字符串。 
+如果省略或为 `None` ，则 `chars` 参数默认移除空格符。 实际上 `chars` 参数并非指定单个后缀；而是会移除参数值的所有组合:
+
+```python
+>>> '   spacious   '.rstrip()
+'   spacious'
+>>> 'mississippi'.rstrip('ipz')
+'mississ'
+```
+
+`str.removesuffix(suffix, /)`
+如果字符串以 `suffix` 字符串结尾，并且 `suffix` 非空，返回 `string[:-len(suffix)]` 。
+否则，返回原始字符串的副本：
+
+```python
+>>> 'MiscTests'.removesuffix('Tests')
+'Misc'
+>>> 'TmpDirMixin'.removesuffix('Tests')
+'TmpDirMixin'
+```
+
+### 类的特殊属性
 
 [Difference between _, __ and __xx__ in Python](http://igorsobreira.com/2010/09/16/difference-between-one-underline-and-two-underlines-in-python.html)
 
