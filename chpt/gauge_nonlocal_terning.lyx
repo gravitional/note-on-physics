@@ -11,29 +11,36 @@
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
 %%%%%%%%%%%%%%%%%+++++++++++
 \usepackage{eso-pic} 
-\usepackage{xcolor}
+% This package makes it easy to add some picture commands to every page at ab-solute positions
+\usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
+\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+
+\usepackage{amsmath,amssymb,amsfonts} % 数学字体
+\usepackage{mathrsfs} % 提供了mathscr 命令
 % Required for specifying colors by name 
-\definecolor{ocre}{RGB}{243,102,25} 
 \usepackage{enumerate} 
 
-\usepackage{amsfonts} 
-\usepackage{hep} 
-\usepackage{bm} 
-\usepackage{graphicx,graphics,color} 
+\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm,bbm} 
+%\bm which makes its argument bold
+%Blackboard variants of Computer Modern fonts. \mathbbm{}
 \usepackage{simplewick} 
-\usepackage{latexsym} 
-\usepackage{amssymb} 
+% a simple means of drawing Wick contractions above and below expressions. 
 \usepackage{makeidx} 
-\usepackage{amsmath} 
-\usepackage{multirow} 
-\usepackage{slashed} 
+% Standard package for creating indexes
+\usepackage{multirow}
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
 %%++++++++++++++++++++ 
-\DeclareMathOperator{\tr}{Tr} 
-\DeclareMathOperator{\re}{Re} 
-\DeclareMathOperator{\im}{Im} 
-\DeclareMathOperator{\res}{Res} 
+\DeclareMathOperator{\tr}{Tr}
+%\DeclareMathOperator{\re}{Re}
+%\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\disc}{Disc} % discontinuity
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\cola}[1]{{\color{blue}{#1}}}
 \end_preamble
@@ -1264,8 +1271,251 @@ L(\delta)\equiv\partial_{y}^{\mu}\delta(x-y)-2ip^{\mu}\delta(x-y)
 即得到了动量空间的费曼规则，对于确定动量的反应过程的振幅。
 \end_layout
 
+\begin_layout Section
+双光子的情形
+\end_layout
+
+\begin_layout Standard
+令
+\begin_inset Formula 
+\[
+I(x_{i},x,P)=\int_{x}^{x_{i}}\dif z_{\mu}A^{\mu}(z)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $x_{i}$
+\end_inset
+
+为路径的末端（endpoint）。根据路径依赖无关的约定有
+\begin_inset Formula 
+\[
+\partial_{x_{i},\mu}I(x_{i},x,P)=A_{\mu}(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+以下把
+\begin_inset Formula $I(x_{i},x,P)$
+\end_inset
+
+简记成
+\begin_inset Formula $I_{x}$
+\end_inset
+
+，其中
+\begin_inset Formula $x$
+\end_inset
+
+是路径的末端，单光子情形下具有公式
+\begin_inset Formula 
+\begin{align*}
+D_{x,\mu}I_{x} & =\left(\partial_{x,\mu}+ip_{\mu}\right)I_{x}=A_{\mu}(x)+ip_{\mu}I_{x}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+D_{x}^{2}=D_{x}^{\phantom{x}\mu}D_{x,\mu}I_{x} & =D_{x}^{\phantom{x}\mu}\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)=\left(\partial_{x}^{\phantom{x}\mu}+ip^{\mu}\right)\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)\\
+ & =\partial\cdot A+ip\cdot A+ip\cdot A-p^{2}I_{x}\\
+ & =\partial\cdot A+2ip\cdot A-p^{2}I_{x}\\
+{\color{red}D_{x}^{2}} & {\color{red}I_{x}=L(A)-p^{2}I_{x}}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $L(A)=\partial\cdot A+2ip\cdot A$
+\end_inset
+
+，
+\begin_inset Formula $L(A)$
+\end_inset
+
+与
+\begin_inset Formula $I_{x}$
+\end_inset
+
+无关。
+\end_layout
+
+\begin_layout Standard
+现在考虑双光子
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{x,\mu}I_{x}I_{x}=2I_{x}\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & D_{x}^{\phantom{x}\mu}D_{x,\mu}I_{x}I_{x}=D_{x}^{\phantom{x}\mu}\left(2I_{x}\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)\right)\\
+\Rightarrow & {\color{blue}\left(D_{x}^{\phantom{x}\mu}2I_{x}\right)\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)}+{\color{brown}2I_{x}D_{x}^{\phantom{x}\mu}\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)}\\
+\Rightarrow & {\color{blue}2\left(A^{\mu}(x)+ip^{\mu}I_{x}\right)\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)}+{\color{brown}2I_{x}\left(\partial\cdot A+ip\cdot A+ip_{\mu}\left(A^{\mu}(x)+ip^{\mu}I_{x}\right)\right)}\\
+\Rightarrow & 2A^{2}+4ip\cdot AI_{x}-2p^{2}I_{x}^{2}+2I_{x}\left(\partial\cdot A+ip\cdot A+ip\cdot A\right)-2p^{2}I_{x}^{2}\\
+\Rightarrow & 2A^{2}+2I_{x}\left(\partial\cdot A+4ip\cdot A\right)-4p^{2}I_{x}^{2}\\
+{\color{red}\Rightarrow D_{x}^{2}I_{x}^{2}} & {\color{red}=2A^{2}+\left(L(A)+2ip\cdot A\right)I_{x}+\left(2ip\right)^{2}I_{x}^{2}}
+\end{align*}
+
+\end_inset
+
+总结一下，
+\begin_inset Formula 
+\begin{align*}
+{\color{red}D_{x}^{2}I_{x}} & {\color{red}=L(A)-p^{2}I_{x},}\\
+{\color{red}D_{x}^{2}I_{x}^{2}} & {\color{red}=2A^{2}+M(A)I_{x}-4p^{2}I_{x}^{2},}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{align*}
+L(A) & =\partial\cdot A+2ip\cdot A\\
+M(A) & =L(A)+2ip\cdot A
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left(D_{x}^{2}\right)^{2}I_{x}^{2}={\color{blue}D_{x}^{2}2A^{2}}+{\color{cyan}D_{x}^{2}M(A)I_{x}}+{\color{brown}D_{x}^{2}\left(-4p^{2}\right)I_{x}^{2}}\\
+= & {\color{blue}D_{x}^{2}\left(2A^{2}\right)}+{\color{cyan}D_{x}^{2}M(A)+M(A)D_{x}^{2}I_{x}}+{\color{brown}\left(-4p^{2}\right)D_{x}^{2}I_{x}^{2}}\\
+= & {\color{blue}D_{x}^{2}\left(2A^{2}\right)}{\color{cyan}+D_{x}^{2}M(A)+M(A)\left(L(A)-p^{2}I_{x}\right)}+{\color{brown}\left(-4p^{2}\right)\left(2A^{2}-4p^{2}I_{x}^{2}+M(A)I_{x}\right)}\\
+= & \left({\color{blue}D_{x}^{2}2A^{2}}+{\color{cyan}L(A)M(A)}+{\color{cyan}D_{x}^{2}M(A)}+{\color{brown}2A^{2}(-4p^{2})}\right)\\
++ & \left(+{\color{cyan}\left(-p^{2}\right)M(A)}+{\color{brown}M(A)\left(-4p^{2}\right)}\right)I_{x}\\
++ & {\color{brown}\left(-4p^{2}\right)^{2}I_{x}^{2}}
+\end{align*}
+
+\end_inset
+
+下面把它们写成矩阵的形式
+\end_layout
+
 \begin_layout Subsection
-补充
+矩阵形式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{x}^{2}\mathbbm{1}f=\mathbbm{1}*D_{x}^{2}f+0*I_{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{x}^{2}I_{x}=L(A)*\mathbbm{1}-p^{2}*I_{x}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(D_{x}^{2}\right)^{2}I_{x} & =D_{x}^{2}L(A)-p^{2}\left(L(A)-p^{2}I_{x}\right)\\
+ & =D_{x}^{2}L(A)-p^{2}L(A)+\left(-p^{2}\right)^{2}I_{x}
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula $D_{x}^{2}$
+\end_inset
+
+在
+\begin_inset Formula $\left\{ \mathbbm{1},I_{x}\right\} $
+\end_inset
+
+下的矩阵形式是：
+\begin_inset Formula 
+\begin{align*}
+D_{x}^{2} & =\left[\begin{array}{cc}
+D_{x}^{2} & L(A)\\
+0 & -p^{2}
+\end{array}\right]\\
+\left(D_{x}^{2}\right)^{2} & =\left[\begin{array}{cc}
+D_{x}^{2} & L(A)\\
+0 & -p^{2}
+\end{array}\right].\left[\begin{array}{cc}
+D_{x}^{2} & L(A)\\
+0 & -p^{2}
+\end{array}\right]=\left[\begin{array}{cc}
+\left(D_{x}^{2}\right)^{2} & \left(D_{x}^{2}-p^{2}\right)L(A)\\
+0 & \left(-p^{2}\right)^{2}
+\end{array}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(D_{x}^{2}\right)^{n} & =\left[\begin{array}{cc}
+\left(D_{x}^{2}\right)^{n} & n\int_{0}^{1}\dif t\left[D_{x}^{2}t-p^{2}(1-t)\right]^{n-1}L(A)\\
+0 & \left(-p^{2}\right)^{n}
+\end{array}\right]\\
+ & \int_{0}^{1}\dif t
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+类似地,
+\begin_inset Formula $D_{x}^{2}$
+\end_inset
+
+在
+\begin_inset Formula $\left\{ 1,I_{x},I_{x}^{2}\right\} $
+\end_inset
+
+下的形式是：
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\[
+D_{x}^{2}=\left[\begin{array}{ccc}
+D_{x}^{2} & L(A) & {\color{blue}D_{x}^{2}2A^{2}}+{\color{cyan}L(A)M(A)}+{\color{cyan}D_{x}^{2}M(A)}+{\color{brown}2A^{2}(-4p^{2})}\\
+0 & -p^{2} & {\color{cyan}\left(-p^{2}\right)M(A)}+{\color{brown}M(A)\left(-4p^{2}\right)}\\
+0 & 0 & \left(-4p^{2}\right)^{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Appdix
+\end_layout
+
+\begin_layout Subsection
+求导数
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:补充"
@@ -1340,146 +1590,81 @@ name "subsec:补充"
 
 \end_layout
 
-\begin_layout Section
-Appdix
-\end_layout
-
-\begin_layout Standard
-之前用到的假设；when
-\begin_inset Formula 
-\begin{equation}
-ie\Gamma_{\text{NL},n}^{\mu}(p,q,p+q)=-eQ\frac{1}{n!}\sum^{n}(0)(2p+q)^{\mu}f_{n}\label{eq:22}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-f_{0} & =0,f_{1}=1\\
-f_{2} & =(q+p)^{2}+p^{2}\\
-f_{3} & =(p+p)^{4}+(q+p)^{2}p^{2}+p^{4}
-\end{align*}
-
-\end_inset
-
-一般来说，对于
-\begin_inset Formula $n\ge0$
-\end_inset
-
-，
-\begin_inset Formula 
-\[
-f_{0}=0,f_{n+1}=f_{n}(q+p)^{2}+p^{2n}
-\]
-
-\end_inset
-
-我们需要完成
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:22"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-中的级数求和
-\end_layout
-
 \begin_layout Subsection
-方法一
+多项式公式
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-f_{n+1}=f_{n}(q+p)^{2}+p^{2n}
-\]
-
-\end_inset
-
-相当于
-\begin_inset Formula 
-\[
-f_{n+1}=ff_{n}+g_{n}
+A^{n}-B^{n}=(A-B)\sum_{j+k=n-1}A^{j}B^{k}
 \]
 
 \end_inset
 
 其中
-\begin_inset Formula $f=(q+p)^{2},g_{n}=p^{2n},g_{n+1}=gg_{n},g=p^{2}$
+\begin_inset Formula $0\leq j\leq n,0\leq k\leq n$
 \end_inset
 
-，我们试图构造一个新的数列
-\begin_inset Formula $t_{n}=f_{n}+yg_{n}$
+，为所有满足
+\begin_inset Formula $j+k=n-1$
 \end_inset
 
-，满足
-\begin_inset Formula 
-\begin{align*}
- & f_{n+1}+yg_{n+1}=f(f_{n}+yg_{n})
-\end{align*}
+的不重复组合，大概是阶梯展开的样子。
+\end_layout
 
+\begin_layout Standard
+证明：设
+\begin_inset Formula $T(n)$
 \end_inset
 
-代入上面
-\begin_inset Formula $f_{n+1}$
+是幂次为
+\begin_inset Formula $n$
 \end_inset
 
-的递推公式得
-\begin_inset Formula 
-\begin{align*}
-ff_{n}+g_{n}+ygg_{n} & =ff_{n}+fyg_{n}\\
-yg+1 & =fy\\
-y & =\frac{1}{f-g}
-\end{align*}
-
-\end_inset
-
-所以
+的阶梯展开，
 \begin_inset Formula 
 \[
-f_{n+1}+\frac{1}{f-g}g_{n+1}=f(f_{n}+\frac{1}{f-g}g_{n})
+T(n)=\sum_{j+k=n}A^{j}B^{k}
 \]
 
 \end_inset
 
-所以新的数列是一个等比数列，我们有
-\begin_inset Formula $t_{n+1}=ft_{n}$
+考察 
+\begin_inset Formula $AT(n)$
 \end_inset
 
-，所以
-\begin_inset Formula $t_{n+1}=f^{n}t_{1}$
+和
+\begin_inset Formula $BT(n)$
 \end_inset
 
-
-\begin_inset Formula 
-\begin{align*}
-t_{1} & =f_{1}+\frac{1}{f-g}g_{1}=1+\frac{1}{f-g}p^{2}\\
-t_{n+1} & =f^{n}\left(1+\frac{1}{f-g}p^{2}\right)
-\end{align*}
-
+,用
+\begin_inset Formula $\left(i,j\right)$
 \end_inset
 
-所以
+表示
+\begin_inset Formula $A^{i}B^{j}$
+\end_inset
+
+，则：
 \begin_inset Formula 
 \[
-f_{n+1}=t_{n+1}-yg_{n+1}=f^{n}\left(1+\frac{1}{f-g}p^{2}\right)-\frac{1}{f-g}p^{2(n+1)}
+\begin{array}{ccccccccc}
+T(n)= &  & (0,n) & (1,n-1) & (2,n-2) & \cdots & (n-1,1) & (n,0)\\
+AT(n)= &  &  & (1,n) & (2,n-1) & \cdots & (n-1,2) & (n,1) & {\color{blue}(n+1,0)}\\
+BT(n)= &  & {\color{red}(0,n+1)} & (1,n) & (2,n-1) & \cdots & (n-1,2) & (n,1)
+\end{array}
 \]
 
 \end_inset
 
-代入
-\begin_inset Formula $f=(q+p)^{2},g=p^{2}$
-\end_inset
-
-，得到
+可以知道，
 \begin_inset Formula 
 \begin{align*}
-f_{n+1} & =(p+q)^{2n}\frac{(p+q)^{2}}{q^{2}+2p.q}-\frac{p^{2(n+1)}}{q^{2}+2p.q}\\
- & =\frac{(p+q)^{2(n+1)}-p^{2(n+1)}}{q^{2}+2p.q}
+ & AT(n)-A^{n+1}=BT(n)-B^{n+1}\\
+\Rightarrow & A^{n+1}-B^{n+1}=AT(n)-BT(n)\\
+\Rightarrow & A^{n+1}-B^{n+1}=\left(A-B\right)T(n)\\
+\Rightarrow & T(n)=\frac{A^{n+1}-B^{n+1}}{A-B}
 \end{align*}
 
 \end_inset
@@ -1488,104 +1673,6 @@ f_{n+1} & =(p+q)^{2n}\frac{(p+q)^{2}}{q^{2}+2p.q}-\frac{p^{2(n+1)}}{q^{2}+2p.q}\
 \end_layout
 
 \begin_layout Subsection
-方法二–文献中的：
-\end_layout
-
-\begin_layout Standard
-考虑到
-\begin_inset Formula $f_{0}=0,f_{n+1}=f_{n}(q+p)^{2}+p^{2n}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-考虑
-\begin_inset Formula ${\color{red}(q+p)^{2(n+1)}-p^{2(n+1)}}$
-\end_inset
-
-,
-\begin_inset Formula 
-\begin{align*}
- & {\color{red}(q+p)^{2(n+1)}-p^{2(n+1)}}\\
- & =(q^{2}+p^{2}+2q.p)(q+p)^{2n}-p^{2(n+1)}\\
- & =(q^{2}+2p.q)(q+p)^{2n}+p^{2}\left({\color{red}(q+p)^{2n}-p^{2n}}\right)
-\end{align*}
-
-\end_inset
-
-令
-\begin_inset Formula ${\color{red}(q+p)^{2n}-p^{2n}}=(q^{2}+2p.q)g_{n},g_{1}=1$
-\end_inset
-
-,上式可以写成，
-\begin_inset Formula 
-\begin{align*}
-(q^{2}+2p.q)g_{n+1} & =(q^{2}+2p.q)\left((q+p)^{2n}+p^{2}g_{n}\right)\\
-g_{n+1} & =(q+p)^{2n}+p^{2}g_{n}
-\end{align*}
-
-\end_inset
-
-比较两个递推公式，
-\begin_inset Formula 
-\begin{align*}
- & f_{n+1}=f_{n}(q+p)^{2}+p^{2n}\\
- & g_{n+1}=g_{n}p^{\prime2}+(q^{\prime}+p^{\prime})^{2n}
-\end{align*}
-
-\end_inset
-
-求解方程组
-\begin_inset Formula 
-\[
-\begin{array}{c}
-p^{\prime}=q+p\\
-q^{\prime}+p^{\prime}=p
-\end{array}\to\begin{array}{c}
-q^{\prime}=-q\\
-p^{\prime}=q+p
-\end{array}
-\]
-
-\end_inset
-
-在
-\begin_inset Formula $g_{n+1}=g_{n}p^{2}+(q+p)^{2n}$
-\end_inset
-
-中作代换
-\begin_inset Formula 
-\[
-\begin{cases}
-q^{\prime}=-q\\
-p^{\prime}=p+q
-\end{cases}
-\]
-
-\end_inset
-
-得到
-\begin_inset Formula $g_{n+1}=g_{n}\left(p+q\right)^{2}+p{}^{2n}$
-\end_inset
-
-，也就是说
-\begin_inset Formula $f_{n+1}$
-\end_inset
-
-和
-\begin_inset Formula $g_{n+1}$
-\end_inset
-
-的递推关系在线性变换下是等价的。
-\begin_inset Formula 
-\begin{align*}
-f_{n}\left(q^{2}-2(p+q).q\right) & =p^{2n}-(p+q)^{2n}\\
-f_{n} & =\frac{(p+q)^{2n}-p^{2n}}{q^{2}+2q.p}
-\end{align*}
-
-\end_inset
-
 
 \end_layout
 

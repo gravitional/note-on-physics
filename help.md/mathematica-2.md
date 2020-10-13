@@ -1831,3 +1831,116 @@ specifies the size of the inset in the coordinate system of the enclosing graphi
 mathematica 求数列公式有个函数
 
 FindSequenceFunction
+
+## Messages 消息系统
+
+mathematica 的消息系统，可以用来输出错误和警告：
+tutorial/Messages
+
+## mma package 包
+
+tutorial/SettingUpWolframLanguagePackages
+
+mma 中写包的大概结构：
+
++ `` BeginPackage["Package`"] ``   设置 Package` 为当前上下文，并且把 System` 放进 `$ContextPath`
++ `` f::usage="text", ... ``   介绍打算要导出的对象（不包括其他对象）
++ `` Begin["`Private`"] ``   设置当前上下文为 `` Package`Private` ``
++ `` f[args]=value, ... ``    给出包中定义的主要内容
++ `` End[] ``  恢复到之前的上下文（此处为`` package` ``）
++ `` EndPackage[] ``   结束包，把`` Package` ``放到上下文搜索路径的**开头**
+
+此外：
+
+`$Packages` :提供与当前 `Wolfram` 系统会话中已加载的所有软件包相对应的上下文列表。
+`` Needs ["context`"] ``:如果指定的上下文尚未在 `$Packages` 中，则加载适当的文件。它会自动调用`Get[]`
+
+mma 的环境变量一共有两部分，分别叫做`$ContextPath` and `$Context`，
+前者类似 Linux 的 `$PATH`，后者是当前的上下文，搜索名称的时候，先搜索`$ContextPath`, 再搜索`$Context`。
+
+***
+`BeginPackage[]` and `Begin[]` 都要配合相应的`EndPackage[]` and `End[]` 使用，它们的效果不同：
+
+``BeginPackage["abc`"] `` 默认会同时设置 `$Context` and `$ContextPath`，让会话中只剩下`` abc` `` and `` System` ``两个上下文，
+当然，它也有`` BeginPackage["context`",{"need1`","need2`",... ``这种语法。
+
+而`` Begin["abc`"] `` 不会更改 `$ContextPath`，它只更改`$Context` 为 `` "abc`" ``。
+
+此外，调用`` EndPackage[] `` (不需要参数) 结束包时，会将这个包，比如`` "abc`" ``添加到`$ContextPath`的前面。
+而`` End[] `` 不会更改`$ContextPath`。
+
+## 函数 function
+
+### 默认值与可选值
+
++ `x_:v`   如果没有提供，默认值是`v`
++ `x_ h:v` 头部是`h`，默认值是`v`
++ `x_.`  一个表达式，带有内置的默认值, 内置默认值用`Default`设置, `Default[f,i]` 设定第`i`个默认值。
++ `p|PatternSequence[]`	可选模式`p`，不带默认值,`PatternSequence[]` 表示长度为零的模式。
+
+一个位置参数的比较完整的形式是：`name:parttern_head`
+
+```mathematica
+x : _Integer
+```
+
+一个默认参数的比较完整的形式是：`name:parttern_head:default`
+
+```mathematica
+x:_ h:v
+```
+
+## 计算流程
+
+### 各种 Hold
+
+`Hold` 相关的分成两类，一类是函数 `Hold`，另一类是 属性 `Attribute`中的 `Hold`
+
+#### 函数类
+
+`Hold`
+属性： `HoldAll`
+解封： `ReleaseHold`
+
+使用 `UpValue`
+展开`Sequence`
+内部`Evaluate`有效
+不移除`Unevaluated`
+内部`Replace`有效
+
+***
+`HoldComplete`
+属性： `HoldAllComplete`
+解封： `ReleaseHold`
+
+不使用 `UpValue`
+不展开`Sequence`
+内部`Evaluate`无效
+不移除`Unevaluated`
+内部`Replace`有效
+
+***
+`Evaluate`可以强行计算带有`HoldAll`，`HoldFirst`,`HoldRest`属性的参数，
+`Unevaluated`保持表达式不计算，然后外层函数计算这个raw形式。
+
+***
+`HoldPattern[expr]`
+用于模式匹配的时候，等价于`expr`，但是保持`expr`不计算
+属性： `HoldAll`
+
+还有一个更强的函数
+
+`Verbatim`，不翻译模式比如`_`，只匹配字面值
+
+`HoldForm`
+输出形式的函数
+属性： `HoldAll`
+解封： `ReleaseHold`
+
+#### 属性
+
++ `HoldFirst`：保持第一个参数不计算
++ `HoldRest`：保持第一个后面的参数不计算
++ `HoldAll`：保持所有参数不计算，但是展平 `Sequence`，使用`upvalue`
++ `HoldAllComplete`: 不得以任何方式修改或查看函数的所有参数。
+不展开`Sequence`，不移除`Unevaluated`，不使用`UpValue`，内部`Evaluate`无效
