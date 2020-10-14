@@ -1335,8 +1335,6 @@ ubuntu 仓库的texlive
 
 `tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
 
-如果要使用 2019 版本的 repository，
-
 [texlive home page](https://tug.org/texlive/) 
 
 [texlive installation and updates](https://tug.org/texlive/pkginstall.html) texlive 安装和更新
@@ -1344,10 +1342,6 @@ ubuntu 仓库的texlive
 [archive of tlnet ](https://www.texlive.info/tlnet-archive/) ：各个年份的 tex 更新，可以选择用来更新的 repository 的版本
 
 [texlive.info](https://texlive.info/) 查看各种关于 texlive 的信息
-
-```bash
-tlmgr option repository https://www.texlive.info/tlnet-archive/2019/12/31/tlnet/
-```
 
 告诉`tlmgr`使用附近的CTAN镜像进行将来的更新； 如果您从DVD映像安装了TeX Live,并且想要持续更新,则很有用.
 这两个命令是等效的. `ctan`只是给定URL的别名. 
@@ -1361,14 +1355,26 @@ tlmgr option repository https://www.texlive.info/tlnet-archive/2019/12/31/tlnet/
 
 [tlmgr: unexpected return value from verify_checksum: -5](https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5)
 
-+ `tlmgr key list`列出所有的`keys`
+出现这个错误是由于某个`repository`的`signing key`过期了，
+首先可以使用`tlmgr repository list`列出所有的库，使用`tlmgr key list`列出所有的`keys`
+
+首先把`repository`更换到对应`debian`发行版的仓库，比如使用 `2019` 版本的 `repository` ，
+`tlmgr option repository https://www.texlive.info/tlnet-archive/2019/12/31/tlnet/`
+
+然后把[tug](https://www.tug.org/texlive/)的 `GPG` key 加入到 `tlmgr` 的key 列表中
+
+```bash
+curl -fsSL https://www.tug.org/texlive/files/texlive.asc | tlmgr key add -
+```
+
+这样就不会出现`erify_checksum: -5`错误了。
+
+总结：
+
++ `tlmgr key list`列出所有的`key`
 + `tlmgr repository list`列出使用的仓库
-+ `curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -`添加新的gpg key
++ `curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -`为`contrib`仓库添加新的gpg key
 + `tlmgr install  --verify-repo=none pkg` 免去验证
-
-出现这个错误是由于某个`repository`的`signing key`过期了，首先可以使用`tlmgr repository list`列出所有的库，使用
-`tlmgr key list`列出所有的`keys`
-
 
 curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -
 
