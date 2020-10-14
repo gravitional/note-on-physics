@@ -1335,6 +1335,19 @@ ubuntu 仓库的texlive
 
 `tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
 
+如果要使用 2019 版本的 repository，
+
+[texlive home page](https://tug.org/texlive/) 
+
+[texlive installation and updates](https://tug.org/texlive/pkginstall.html) texlive 安装和更新
+
+[archive of tlnet ](https://www.texlive.info/tlnet-archive/) ：各个年份的 tex 更新，可以选择用来更新的 repository 的版本
+
+[texlive.info](https://texlive.info/) 查看各种关于 texlive 的信息
+
+```bash
+tlmgr option repository https://www.texlive.info/tlnet-archive/2019/12/31/tlnet/
+```
 
 告诉`tlmgr`使用附近的CTAN镜像进行将来的更新； 如果您从DVD映像安装了TeX Live,并且想要持续更新,则很有用.
 这两个命令是等效的. `ctan`只是给定URL的别名. 
@@ -1355,8 +1368,6 @@ ubuntu 仓库的texlive
 
 出现这个错误是由于某个`repository`的`signing key`过期了，首先可以使用`tlmgr repository list`列出所有的库，使用
 `tlmgr key list`列出所有的`keys`
-
-
 
 
 curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -
