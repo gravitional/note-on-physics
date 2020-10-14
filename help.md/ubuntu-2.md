@@ -1350,7 +1350,7 @@ ubuntu 仓库的texlive
 + `tlmgr key list`列出所有的`keys`
 + `tlmgr repository list`列出使用的仓库
 + `curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -`添加新的gpg key
-+ `tlmgr install lm-math --verify-repo=none` 免去验证
++ `tlmgr install  --verify-repo=none pkg` 免去验证
 
 ### tlmgr 命令
 
