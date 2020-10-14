@@ -1335,6 +1335,7 @@ ubuntu 仓库的texlive
 
 `tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
 
+
 告诉`tlmgr`使用附近的CTAN镜像进行将来的更新； 如果您从DVD映像安装了TeX Live,并且想要持续更新,则很有用.
 这两个命令是等效的. `ctan`只是给定URL的别名. 
 注意：`mirror.ctan.org`解析为许多不同的主机,它们并没有完全同步. 我们建议仅（最多）每天更新一次,而不要更频繁.
@@ -1351,6 +1352,14 @@ ubuntu 仓库的texlive
 + `tlmgr repository list`列出使用的仓库
 + `curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -`添加新的gpg key
 + `tlmgr install  --verify-repo=none pkg` 免去验证
+
+出现这个错误是由于某个`repository`的`signing key`过期了，首先可以使用`tlmgr repository list`列出所有的库，使用
+`tlmgr key list`列出所有的`keys`
+
+
+
+
+curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -
 
 ### tlmgr 命令
 
