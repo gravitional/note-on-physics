@@ -1335,6 +1335,20 @@ ubuntu 仓库的texlive
 
 `tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
 
+如果要使用 2019 版本的 repository，
+
+[texlive home page](https://tug.org/texlive/) 
+
+[texlive installation and updates](https://tug.org/texlive/pkginstall.html) texlive 安装和更新
+
+[archive of tlnet ](https://www.texlive.info/tlnet-archive/) ：各个年份的 tex 更新，可以选择用来更新的 repository 的版本
+
+[texlive.info](https://texlive.info/) 查看各种关于 texlive 的信息
+
+```bash
+tlmgr option repository https://www.texlive.info/tlnet-archive/2019/12/31/tlnet/
+```
+
 告诉`tlmgr`使用附近的CTAN镜像进行将来的更新； 如果您从DVD映像安装了TeX Live,并且想要持续更新,则很有用.
 这两个命令是等效的. `ctan`只是给定URL的别名. 
 注意：`mirror.ctan.org`解析为许多不同的主机,它们并没有完全同步. 我们建议仅（最多）每天更新一次,而不要更频繁.

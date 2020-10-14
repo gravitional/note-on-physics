@@ -63,7 +63,7 @@
 \use_microtype false
 \use_dash_ligatures false
 \graphics default
-\default_output_format default
+\default_output_format pdf4
 \output_sync 0
 \bibtex_command default
 \index_command default
@@ -134,6 +134,351 @@ LatexCommand href
 name "为什么实对称矩阵一定能对角化"
 target "https://www.zhihu.com/question/38801697"
 literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+方法一
+\end_layout
+
+\begin_layout Standard
+更加 general 的定理是，如果
+\begin_inset Formula $A\in R^{n\times n}$
+\end_inset
+
+,且
+\begin_inset Formula $A$
+\end_inset
+
+的特征值都是实数，则
+\begin_inset Formula $A$
+\end_inset
+
+正交相似于对角矩阵的充要条件为 
+\begin_inset Formula $A$
+\end_inset
+
+是正规矩阵，即
+\begin_inset Formula $A^{T}A=AA^{T}$
+\end_inset
+
+。特殊情况是，矩阵
+\begin_inset Formula $A$
+\end_inset
+
+为实对称矩阵。
+\end_layout
+
+\begin_layout Standard
+前置定理–舒尔定理：
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset Formula $A\in R^{n\times n}$
+\end_inset
+
+,且
+\begin_inset Formula $A$
+\end_inset
+
+的特征值都是实数，则存在正交矩阵
+\begin_inset Formula $P$
+\end_inset
+
+，使
+\begin_inset Formula $P^{-1}AP$
+\end_inset
+
+为上三角矩阵。
+\end_layout
+
+\begin_layout Standard
+必要性：
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset Formula $P$
+\end_inset
+
+为一正交矩阵，可以将
+\begin_inset Formula $A$
+\end_inset
+
+对角化，则
+\begin_inset Formula 
+\begin{align*}
+\Lambda & =P^{-1}AP,\qquad A=P\Lambda P^{T}\\
+A^{T} & =P\Lambda^{T}P^{T}=P\Lambda P^{T}
+\end{align*}
+
+\end_inset
+
+则，
+\begin_inset Formula 
+\[
+A^{T}A=AA^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+充分性证明：
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset Formula $P$
+\end_inset
+
+为一正交矩阵，可以将
+\begin_inset Formula $A$
+\end_inset
+
+上三角化为矩阵
+\begin_inset Formula $B$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+P^{T}AP=B
+\]
+
+\end_inset
+
+又根据
+\begin_inset Formula $A$
+\end_inset
+
+为正规矩阵的性质有
+\begin_inset Formula 
+\[
+B^{T}B=P^{T}A^{T}PP^{T}AP=P^{T}A^{T}AP=P^{T}AA^{T}P=BB^{T}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $B$
+\end_inset
+
+是一个上三角矩阵，这样的矩阵很特殊，
+\begin_inset Formula $B^{T}B$
+\end_inset
+
+结果的对角线元素是一个正定形式
+\begin_inset Formula $\sum a_{i}^{2}$
+\end_inset
+
+，求和进行到对角线。比较
+\begin_inset Formula $B^{T}B$
+\end_inset
+
+ and 
+\begin_inset Formula $BB^{T}$
+\end_inset
+
+的对角线元素，就会发现矩阵
+\begin_inset Formula $B$
+\end_inset
+
+是个对角矩阵。因为正定形式为零，只可能求和中的每一项为零。
+\end_layout
+
+\begin_layout Subsection
+方法二
+\end_layout
+
+\begin_layout Standard
+结合 Jordan 标准型，任何
+\begin_inset Formula $n$
+\end_inset
+
+阶矩阵一定可以化成若而当标准形，若而当标准型由若而当块构成，若而当块
+\begin_inset Formula $J_{i}$
+\end_inset
+
+具有形式：
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccccc}
+\lambda_{i} & 1\\
+ & \lambda_{i} & \ddots\\
+ &  & \ddots & 1\\
+ &  &  & \ddots & 1\\
+ &  &  &  & \lambda_{i}
+\end{array}\right]
+\]
+
+\end_inset
+
+即每个若而当块，
+\color blue
+主对角线具有相同的特征值
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+
+\color inherit
+，
+\color red
+上方的次对角线元素全是
+\begin_inset Formula $1$
+\end_inset
+
+
+\color inherit
+，其他元素都是
+\begin_inset Formula $0$
+\end_inset
+
+。所有若而当块的阶数相加等于原矩阵的阶。
+\end_layout
+
+\begin_layout Standard
+任意一个
+\begin_inset Formula $n$
+\end_inset
+
+阶复数矩阵
+\begin_inset Formula $A$
+\end_inset
+
+都与一个若而当矩阵
+\begin_inset Formula $J$
+\end_inset
+
+相似，如果不考虑其中若而当块
+\begin_inset Formula $J_{i}$
+\end_inset
+
+的排列次序，
+\begin_inset Formula $J$
+\end_inset
+
+是唯一的。
+\end_layout
+
+\begin_layout Standard
+若而当矩阵具有良好的性质，比如求特征值，
+\begin_inset Formula $\det\left[J-\lambda E\right]=\left(\lambda_{i}-\lambda\right)^{r}=0$
+\end_inset
+
+，每个若而当块具有相同的本征值。
+\end_layout
+
+\begin_layout Standard
+再来求特征向量，考虑矩阵
+\begin_inset Formula $J$
+\end_inset
+
+对应的矩阵
+\begin_inset Formula $J-\lambda E$
+\end_inset
+
+，它具有如下形式：
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccccc}
+0 & 1\\
+ & 0 & \ddots\\
+ &  & \ddots & 1\\
+ &  &  & \ddots & 1\\
+ &  &  &  & 0
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+若而当块的特征向量只有一个，也就是几何重数为
+\begin_inset Formula $1$
+\end_inset
+
+，代数重数是若而当块的维数，也就是
+\begin_inset Formula $r_{i}$
+\end_inset
+
+，几何重数小于代数重数，表现为若而当块不是
+\begin_inset Formula $1\times1$
+\end_inset
+
+的。矩阵可对角化的充要条件是几何重数等于代数重数。
+\end_layout
+
+\begin_layout Standard
+代数重数是本征值
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+出现的重复次数。几何重数是对应于
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+的本征矢量的个数，也就是子空间（零空间）的维数。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $AX=0$
+\end_inset
+
+有非零解的唯一可能性是
+\begin_inset Formula $A$
+\end_inset
+
+是降维的线性变换，在变换过程中，压缩了某些维度。或者从代数角度说，行列式子
+\begin_inset Formula $\det[A]=0$
+\end_inset
+
+，矩阵不是满秩的。
+\end_layout
+
+\begin_layout Standard
+求解本征值问题可以和非齐次矩阵方程有非零解联系起来。通过简单的线性组合
+\begin_inset Formula 
+\[
+A\leftrightarrow A-\lambda E
+\]
+
+\end_inset
+
+
+\begin_inset Formula $A$
+\end_inset
+
+具有本征值对应于
+\begin_inset Formula $A-\lambda E$
+\end_inset
+
+有非零解。
+\begin_inset Formula $A$
+\end_inset
+
+的本征矢量，在
+\begin_inset Formula $A$
+\end_inset
+
+代表的线性变换下，只进行伸缩变换，而不改变方向。落在原矢量张成（spanned）的子空间内。
+\end_layout
+
+\begin_layout Standard
+参考视频：
+\begin_inset CommandInset href
+LatexCommand href
+name "1Brown3Blue lecture on eigen"
+target "https://www.bilibili.com/video/BV1ys411472E?p=15&t=11"
+literal "true"
 
 \end_inset
 
