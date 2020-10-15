@@ -173,9 +173,7 @@ zsh 别名
 
 + `grep`='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-
-
-### 复制移动删除
+### 复制移动删除 cp rm mv
 
 复制移动的时候，可以加上 `-i` 参数，防止覆盖
 
@@ -198,6 +196,13 @@ zsh 别名
 
 ```
 temp_a=$(find . -mindepth 1 -maxdepth 1 -type f   \( -not -name  "*.pdf" \)  \( -not -name  "*.tex" \) \( -not -name  "*.bib" \) -print0); if [[ ${temp_a} != '' ]]; then  echo -n ${temp_a} |  xargs --null rm; fi
+```
+
+可以多用花括号展开，指定多个文件名，例如：
+
+```bash
+ls ~/draft/draft.2008{03,04,05}.nb
+/home/tom/draft/draft.200803.nb  /home/tom/draft/draft.200804.nb  /home/tom/draft/draft.200805.nb
 ```
 
 ### 重命名 rename
