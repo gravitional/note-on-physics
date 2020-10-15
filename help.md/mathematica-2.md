@@ -1892,12 +1892,14 @@ tutorial/SettingUpWolframLanguagePackages
 
 mma 中写包的大概结构：
 
-+ `` BeginPackage["Package`"] ``   设置 Package` 为当前上下文，并且把 System` 放进 `$ContextPath`
-+ `` f::usage="text", ... ``   介绍打算要导出的对象（不包括其他对象）
-+ `` Begin["`Private`"] ``   设置当前上下文为 `` Package`Private` ``
-+ `` f[args]=value, ... ``    给出包中定义的主要内容
-+ `` End[] ``  恢复到之前的上下文（此处为`` package` ``）
-+ `` EndPackage[] ``   结束包，把`` Package` ``放到上下文搜索路径的**开头**
+```mathematica
+BeginPackage["Package`"]    设置 Package` 为当前上下文，并且把 System` 放进 $ContextPath
+f::usage="text", ...    介绍打算要导出的对象（不包括其他对象）,函数在这里使用后，它的上下文会是Package`，可以被外部使用
+Begin["`Private`"]    设置当前上下文为  Package`Private`
+f[args]=value, ...     给出包中定义的主要内容
+End[]   恢复到之前的上下文（此处为 Package`）
+EndPackage[]    结束包，把Package`放到上下文搜索路径中
+```
 
 此外：
 
@@ -1905,7 +1907,7 @@ mma 中写包的大概结构：
 `` Needs ["context`"] ``:如果指定的上下文尚未在 `$Packages` 中，则加载适当的文件。它会自动调用`Get[]`
 
 mma 的环境变量一共有两部分，分别叫做`$ContextPath` and `$Context`，
-前者类似 Linux 的 `$PATH`，后者是当前的上下文，搜索名称的时候，先搜索`$ContextPath`, 再搜索`$Context`。
+前者类似 Linux 的 `$PATH`，后者是当前的上下文，搜索名称的时候，**先搜索`$ContextPath`, 再搜索`$Context`**。
 
 ***
 `BeginPackage[]` and `Begin[]` 都要配合相应的`EndPackage[]` and `End[]` 使用，它们的效果不同：
@@ -1939,15 +1941,49 @@ x : _Integer
 x:_h:v
 ```
 
+### key-value 键值对
+
+`key-value`类型的参数，在 mma 中，通过选项实现，`Option`
+
+`OptionsPattern[]` 匹配
+
++ `OptionsPattern`匹配由`->`或`:>`指定的的任何替换规则序列，或规则的嵌套列表。
++ 在`OptionsPattern [{spec1,spec2，...}]`中，`speci`可以是 `Head fi`，或显式的规则`opti->vali`. 对于每个`Head fi`，使用`Options[fi]`获得规则列表。
++ `OptionsPattern[]`使用`nearest enclosing function`的默认选项。
++ 使用`OptionsPattern[{}]`表示不包含默认选项。
+  
+使用`OptionValue[f, {Frame, PlotPoints}]`获取选项的`value`
+
+使用`FilterRules[rules,patt] `挑选规则列表，例如：
+
+```mathematica
+FilterRules[{a->1,b->2,c->3},{b,a}]
+{a -> 1, b -> 2}
+```
+
+### 函数的属性
+
+tutorial/Attributes
+
+```mathematica
+Attributes[f]   给出 f 的属性
+Attributes[f]={attr1,attr2,...}  设置 f 的属性
+Attributes[f]={}   令 f 没有属性
+SetAttributes[f,attr]   为f 添加属性attr
+ClearAttributes[f,attr]   从 f 中清除 attr 属性
+```
+
 ### message 系统
 
 tutorial/Messages
 
-$MessageList   a list of the messages produced during a particular computation
+能够为自定义函数提供报错信息
+
+`$MessageList`   a list of the messages produced during a particular computation
 MessageList[n]   a list of the messages produced during the processing of the n\[Null]^th input line in a Wolfram Language session
 
 Check[expr,failexpr]   if no messages are generated during the evaluation of expr, then return expr; otherwise return failexpr
-Check[expr,failexpr,Subscript[s, 1]::Subscript[t, 1],Subscript[s, 2]::Subscript[t, 2],\[Ellipsis]]   check only for the messages Subscript[s, i]::Subscript[t, i]
+Check[expr,failexpr,Subscript[s, 1]::Subscript[t, 1],Subscript[s, 2]::Subscript[t, 2],...]   check only for the messages Subscript[s, i]::Subscript[t, i]
 
 ### 流程控制
 
@@ -2041,3 +2077,43 @@ Catch[a = 2; Throw[a]; a = 5]
 + `EndOfLine`   行的结束
 + `WordBoundary`   boundary between word characters and others 
 + `Except[WordBoundary]`   anywhere except a word boundary 
+
+## 张量
+
+tutorial/SymmetrizedArrays
+
+mma 可以处理张量对称性，使用以下函数
+
+例如：
+
+```mathematica
+SymmetrizedArray[{{1, 2} -> a, {2, 3} -> b}, {3, 3},  Antisymmetric[{1, 2}]]
+Symmetric[{1, 2, 3}]
+Antisymmetric[{1, 2}]
+Symmetrize[{{a, b}, {c, d}}, Antisymmetric[{1, 2}]]
+```
+
+TensorSymmetry : 给出张量在 slots 的置换下的对称性
+
+`Symmetric[All]`表示对所有指标对称，`Symmetric[{}]`表示没有对称性。
+
+### 张量运算
+
+内积:`Dot`
+
+对于两个一般的张量 $T[i_1,i_2,\cdots ,i_n]$ and $U[j_1,j_2,\cdots,j_m]$，应用`Dot[T,U]`将得到张量
+$$
+\sum_k T[i_1,i_2,\cdots ,i_{n-1},k] * U[k,j_2,\cdots,j_m].
+$$
+
+当然，这要求$T$的最后一个指标$i_n$和$U$的第一个指标$j_1$相等，`Dot`运算始终可以理解为缩并这两个指标。
+结果是一个$m+n-2$阶张量。
+
+**
+张量缩并:TensorContract
+
+```mathematica
+TensorContract[T, {{2, 3},{1,4}}]
+```
+
+分别缩并张量`T`的`2,3`，`1,4`指标.
