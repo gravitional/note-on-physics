@@ -13,8 +13,11 @@
 \usepackage{eso-pic} 
 % This package makes it easy to add some picture commands to every page at ab-solute positions
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
-\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
-
+%\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+% xcolor package starts from the basic facilities of the 
+% color package, and provides easy driver-independent access
+%to several kinds of color tints, shades, tones, 
+%and mixes of arbitrary colors
 \usepackage{amsmath,amssymb,amsfonts} % 数学字体
 \usepackage{mathrsfs} % 提供了mathscr 命令
 % Required for specifying colors by name 
@@ -40,9 +43,41 @@
 %\DeclareMathOperator{\re}{Re}
 %\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\res}{Res}
-\DeclareMathOperator{\disc}{Disc} % discontinuity
+\DeclareMathOperator{\disc}{Disc}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\cola}[1]{{\color{blue}{#1}}}
+%%%+++++++++++++++++++++++++++++++
+\usepackage{listings}
+% 在LaTex中添加代码高亮
+\usepackage{framed}
+% 在对象周围添加方框，阴影等等，允许跨页
+% 定义阴影的颜色
+\definecolor{shadecolor}{rgb}{0.9412,1,1}
+%定义代码高亮的各种颜色
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{〈style name〉}{〈key=value list〉}
+%stores the key=value list
+\lstdefinestyle{codestyle1}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names
 \use_default_options true
@@ -215,13 +250,69 @@ S=\mathbbm{1}+i\mathcal{T}
 
 \begin_layout Standard
 广义光学定理：
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{shaded}
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mathcal{M}(i\to f)-\mathcal{M}^{*}(f\to i)=i\sum_{X}\int\dif\Pi_{x}(2\pi)^{4}\delta^{4}(p_{i}-p_{X})\mathcal{M}(i\to X)\mathcal{M}^{*}(f\to X)
-\]
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mathcal{M}(i
+\backslash
+to f)-
+\backslash
+mathcal{M}^{*}(f
+\backslash
+to i)=i
+\backslash
+sum_{X}
+\backslash
+int
+\backslash
+dif
+\backslash
+Pi_{x}(2
+\backslash
+pi)^{4}
+\backslash
+delta^{4}(p_{i}-p_{X})
+\backslash
+mathcal{M}(i
+\backslash
+to X)
+\backslash
+mathcal{M}^{*}(f
+\backslash
+to X)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{shaded}
+\end_layout
 
 \end_inset
 
@@ -295,10 +386,59 @@ S=\mathbbm{1}+i\mathcal{T}
 \end_inset
 
 所以
-\begin_inset Formula 
-\[
-\Im\mathcal{M}(A\to A)=2E_{\text{CM}}\abs*{\vec{p}_{i}}\sum_{X}\sigma(A\to X)
-\]
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{shaded}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Im
+\backslash
+mathcal{M}(A
+\backslash
+to A)=2E_{
+\backslash
+text{CM}}
+\backslash
+abs*{
+\backslash
+vec{p}_{i}}
+\backslash
+sum_{X}
+\backslash
+sigma(A
+\backslash
+to X)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{shaded}
+\end_layout
 
 \end_inset
 
@@ -420,10 +560,51 @@ Cutting rules
 \end_inset
 
 暗示了
-\begin_inset Formula 
-\[
-\Im\frac{1}{p^{2}-m^{2}+i\varepsilon}=-\pi\delta(p^{2}-m^{2})
-\]
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{shaded}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Im
+\backslash
+frac{1}{p^{2}-m^{2}+i
+\backslash
+varepsilon}=-
+\backslash
+pi
+\backslash
+delta(p^{2}-m^{2})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{shaded}
+\end_layout
 
 \end_inset
 

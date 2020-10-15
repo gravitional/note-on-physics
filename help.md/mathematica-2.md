@@ -1307,6 +1307,52 @@ Out[2]//DisplayForm=  a+b
 + `TagBox[boxes,tag]`  用 `tag` 引导 `boxes` 的解释
 + `ErrorBox[boxes]`  指出错误并不再对 `boxes` 进行解释
 
+## 无内置定义的算符
+
+tutorial/OperatorsWithoutBuiltInMeanings
+
+有几百个记号没有内部（`built-in`）定义，也就是没有和函数绑定。
+可以用来构建自己的记号。如：
+
+```bash
+CirclePlus[x,y]
+TildeTilde[x,y]
+Therefore[x,y]
+LeftRightArrow[x,y]
+Del[x]
+Square[x]
+AngleBracket[x,y,...]
+Subscript[x,y]
+Superscript[x, y]
+UnderBar[x]
+SubPlus[x]
+SubMinus[x]
+SubStar[x]
+SuperPlus[x]
+SuperMinus[x]
+SuperStar[x]
+SuperDagger[x]
+Overscript[x,y]
+Underscript[x,y]
+OverBar[x]
+OverVector[x]
+OverTilde[x]
+OverHat[x]
+OverDot[x]
+UnderBar[x]
+```
+
+`Wolfram` 语言遵循一般约定，对于某个算符，和其有关的函数和这个算符的名字相同，例如：
+
+函数是 `Congruent[x,y,...] `
+符号的名字是：`\[Congruent]`
+
+一般有对应关系如下：
+
++ `x \[name]  y` ->  `name[x, y]`
++ `\[name] x` -> `name[x]`
++ `\[Leftname] x,y,...` -> `\[Rightname]  name[x, y, ...]`
+
 ## 格式化输出
 
 tutorial/FormattedOutput
@@ -1742,11 +1788,11 @@ ExportString[{1, "text", 2, 3},
 
 ## 关联
 
-传递的变量最好用Association 形式，
+传递的变量最好用 `Association` 形式，
 
 ### level
 
-在结构相关的函数中，关联被算作**一个** level，而不是两个.
+在结构相关的函数中，关联被算作**一个**  `level` ，而不是两个.
 
 ```bash
 Level[<|a -> x, b -> y|>, {1}]
@@ -1755,9 +1801,12 @@ out: {x,y}
 
 ### 关联的部分
 
-关联可以使用`assoc[Key["key"]]`语法提取值，`"key"`为字符串时，可以直接用`assoc["key"]`
+关联可以使用`assoc["key"]`的方法提取值，也就是像函数一样。
+当关联为多层嵌套的时候，可以用`assoc["key1", "key2"]`这样的语法直接提取深层次关联的值。
 
-也可以用`Part`函数，像数组一样访问
+关联也可以也可以用`Part`函数，像数组一样访问，
+即用`assoc[[ Key["key"] ]]`语法提取值，`"key"`为字符串时，可以直接用`assoc[[ "key" ]]`
+`assoc[[ {"key1","key2"} ]]` 返回一个子关联，
 
 ```bash
 <|"a" -> 5, "b" -> 6, 2 -> b, 1 -> a|>[[1 ;; 3]]
@@ -1876,18 +1925,43 @@ mma 的环境变量一共有两部分，分别叫做`$ContextPath` and `$Context
 + `x_:v`   如果没有提供，默认值是`v`
 + `x_ h:v` 头部是`h`，默认值是`v`
 + `x_.`  一个表达式，带有内置的默认值, 内置默认值用`Default`设置, `Default[f,i]` 设定第`i`个默认值。
-+ `p|PatternSequence[]`	可选模式`p`，不带默认值,`PatternSequence[]` 表示长度为零的模式。
++ `p|PatternSequence[]`  可选模式`p`，不带默认值,`PatternSequence[]` 表示长度为零的模式。
 
-一个位置参数的比较完整的形式是：`name:parttern_head`
+一个位置参数的比较完整的形式是：`name:_head`
 
 ```mathematica
 x : _Integer
 ```
 
-一个默认参数的比较完整的形式是：`name:parttern_head:default`
+一个默认参数的比较完整的形式是：`name:_head:default`
 
 ```mathematica
-x:_ h:v
+x:_h:v
+```
+
+### message 系统
+
+tutorial/Messages
+
+$MessageList   a list of the messages produced during a particular computation
+MessageList[n]   a list of the messages produced during the processing of the n\[Null]^th input line in a Wolfram Language session
+
+Check[expr,failexpr]   if no messages are generated during the evaluation of expr, then return expr; otherwise return failexpr
+Check[expr,failexpr,Subscript[s, 1]::Subscript[t, 1],Subscript[s, 2]::Subscript[t, 2],\[Ellipsis]]   check only for the messages Subscript[s, i]::Subscript[t, i]
+
+### 流程控制
+
+语句组：
+`CompoundExpression[exp1,exp2,...]`
+例如:`Print[x]; Print[y]`，按顺序执行。
+
+返回值可以由`Return[expr]`控制，
+
+通过使用`Throw`,`Catch`也可以立即返回
+
+```mathematica
+Catch[a = 2; Throw[a]; a = 5]
+2
 ```
 
 ## 计算流程
@@ -1944,3 +2018,26 @@ x:_ h:v
 + `HoldAll`：保持所有参数不计算，但是展平 `Sequence`，使用`upvalue`
 + `HoldAllComplete`: 不得以任何方式修改或查看函数的所有参数。
 不展开`Sequence`，不移除`Unevaluated`，不使用`UpValue`，内部`Evaluate`无效
+
+## mma 字符串处理
+
+### 忽略大小写
+
+比较字符串时忽略大小写，这个功能在`StringMatchQ`的选项中：
+
+`StringMatchQ["acggtATTCaagc", __ ~~ "aT" ~~ __, IgnoreCase -> True]`
+
+### 字符串模式
+
+参考 tutorial/WorkingWithStringPatterns
+
+在字符串匹配中，`x_`只匹配单个字符，`characters`,`StringExpression[pattern...]`可以用来表示模式序列，有各种各样对应正则表达式功能的函数。
+
+比如
+
++ `StartOfString`   字符串开头
++ `EndOfString`   字符串结尾
++ `StartOfLine`   行的开始
++ `EndOfLine`   行的结束
++ `WordBoundary`   boundary between word characters and others 
++ `Except[WordBoundary]`   anywhere except a word boundary 

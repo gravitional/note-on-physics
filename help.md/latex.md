@@ -2258,3 +2258,90 @@ And this is the best squash, \verb+literally!+
 可选参数`inner-pos`控制内容在`parbox`中的位置.它的默认值是`position`的值.
 其可能的值为：`t`将内容放置在框的顶部,`c`将其放置在框的垂直中心,`b`将其放置在框的底部,
 `s`将其垂直拉伸（为此,文本必须包含垂直可拉伸的空间）.
+
+## 代码环境
+
+[LaTex：插入代码的listings包和lstlisting环境](https://blog.csdn.net/quantumpo/article/details/26854289)
+
+[TheListingsPackage](https://mirrors.aliyun.com/CTAN/macros/latex/contrib/listings/listings.pdf)
+
+```latex
+% LaTex中插入高亮显示的代码需以下设定
+ % 注意，代码中不能含有中文，否则为无法编译。
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+% The package allows the user to select font encodings, 
+% and for each encoding provides an interface to 'font-encoding-specific' commands for each font
+\usepackage{listings}
+% 在LaTex中添加代码高亮
+\usepackage{color}
+%定义各种颜色
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{〈style name〉}{〈key=value list〉}
+%stores the key=value list
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+例子
+\begin{oframed}
+\begin{lstlisting}[language=C++,style=mystyle]
+#include <iostream>
+using namespace std;
+int main(){
+    cout << "Hello world!" << endl;
+}
+\end{lstlisting}
+\end{oframed}
+```
+
+如果遇到因为中文字符报错的问题，可以尝试添加`framed`环境。
+
+```latex
+\begin{framed}
+ \begin{lstlisting}  %or \lstinputlisting{...} 
+ \end{lstlisting}
+ \end{framed}
+```
+
+[package framed](https://www.ctan.org/pkg/framed)
+
+该软件包创建了三个环境：
+
+`framed`，用普通方框围绕该区域，通常的 frame box (`\fbox`)，`edge`在`margin`（页边）
+`oframed`，在分页处，方框的顶部和底部是开放的
+`shaded`，阴影区域，`\colorbox`
+leftbar，在左侧放置一条线。 环境允许在开始时有一个中断（`\FrameCommand`允许创建标题附加到该环境）;
+`framed/shaded`环境中也允许有`breaks`。
+
+还有一个命令`\MakeFramed`可以创建自己的框架式环境。
+
+创建可以跨页的`边框`，`阴影`或其他高亮区域。 定义的环境有
+`framed` 通常的 frame box (`\fbox`)，`edge`在`margin`（页边）
+`oframed` 在分页符处带有开放的 顶/底框
+`shaded` 背景阴影(\colorbox)，阴影边界渗入页边
+`shaded*` 背景阴影，阴影边界在页边
+`snugshade` 阴影紧密贴合文本（特别是列表中的阴影）
+`snugshade*` like snugshade with shading edge at margin
+`leftbar` 左边缘的粗垂直线
+`titled-frame` 带有标题栏的框
+
+实际上，`shaded`环境只是将`\FrameCommand`重新定义为`\colorbox{shadecolor}`
+（所以你需要定义颜色`shadecolor`:`\definecolor{shadecolor}...`）。

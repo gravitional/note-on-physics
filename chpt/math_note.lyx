@@ -13,8 +13,11 @@
 \usepackage{eso-pic} 
 % This package makes it easy to add some picture commands to every page at ab-solute positions
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
-\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
-
+%\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+% xcolor package starts from the basic facilities of the 
+% color package, and provides easy driver-independent access
+%to several kinds of color tints, shades, tones, 
+%and mixes of arbitrary colors
 \usepackage{amsmath,amssymb,amsfonts} % 数学字体
 \usepackage{mathrsfs} % 提供了mathscr 命令
 % Required for specifying colors by name 
@@ -40,8 +43,41 @@
 %\DeclareMathOperator{\re}{Re}
 %\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\disc}{Disc}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\cola}[1]{{\color{blue}{#1}}}
+%%%+++++++++++++++++++++++++++++++
+\usepackage{listings}
+% 在LaTex中添加代码高亮
+\usepackage{framed}
+% 在对象周围添加方框，阴影等等，允许跨页
+% 定义阴影的颜色
+\definecolor{shadecolor}{rgb}{0.9412,1,1}
+%定义代码高亮的各种颜色
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{〈style name〉}{〈key=value list〉}
+%stores the key=value list
+\lstdefinestyle{codestyle1}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names
 \use_default_options true
@@ -479,6 +515,457 @@ LatexCommand href
 name "1Brown3Blue lecture on eigen"
 target "https://www.bilibili.com/video/BV1ys411472E?p=15&t=11"
 literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+各种内积
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "机器学习中几种常见的乘积(product)"
+target "https://blog.csdn.net/oldlybaby/article/details/108307712"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Frobenius inner product （矩阵内积） 
+\end_layout
+
+\begin_layout Standard
+对于两个相同大小的矩阵：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\left[\begin{array}{cccc}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{array}\right]\quad B=\left[\begin{array}{cccc}
+b_{11} & b_{12} & \cdots & b_{1n}\\
+b_{21} & b_{22} & \cdots & b_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+b_{m1} & b_{m2} & \cdots & b_{mn}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+则
+\begin_inset Formula 
+\[
+\langle A,B\rangle_{F}=\sum_{ij}a_{ij}b_{ij}
+\]
+
+\end_inset
+
+例如
+\begin_inset Formula 
+\[
+A=\left[\begin{array}{ccc}
+2 & 0 & 6\\
+1 & -2 & 2
+\end{array}\right],\qquad B=\left[\begin{array}{ccc}
+8 & -3 & 2\\
+4 & 1 & -5
+\end{array}\right]
+\]
+
+\end_inset
+
+则，
+\begin_inset Formula 
+\begin{align*}
+\langle A,B\rangle_{F} & =2\cdot8+0\cdot(-3)+\cdots2\cdot(-5)\\
+ & =21
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+dot product (点积) 
+\end_layout
+
+\begin_layout Standard
+矩阵内积退化成向量形式就是点积，也可以称作 矢量内积。
+\end_layout
+
+\begin_layout Standard
+符号表示
+\begin_inset Formula $\vec{a}\cdot\vec{b}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于两矢量 
+\begin_inset Formula $\vec{a}=[a_{1},\cdots,a_{n}]$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{b}=\left[b_{1},\cdots,b_{n}\right]$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\vec{a}\cdot\vec{b}=\sum_{i=1}^{n}a_{i}b_{i}=a_{1}b_{1}+\cdots+a_{n}b_{n}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Kronecker Products（克罗内克积） 
+\end_layout
+
+\begin_layout Standard
+对于任意两个矩阵，
+\end_layout
+
+\begin_layout Standard
+符号表示
+\begin_inset Formula $A\otimes B$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+A\otimes B=\left[\begin{array}{ccc}
+a_{11}B & \cdots & a_{1n}B\\
+\vdots & \ddots & \vdots\\
+a_{m1}B & \cdots & a_{mn}B
+\end{array}\right]
+\]
+
+\end_inset
+
+例如
+\begin_inset Formula 
+\[
+\left[\begin{array}{cc}
+1 & 2\\
+3 & 4
+\end{array}\right]\otimes\left[\begin{array}{cc}
+0 & 5\\
+6 & 7
+\end{array}\right]=\left[\begin{array}{cc}
+1\left[\begin{array}{cc}
+0 & 5\\
+6 & 7
+\end{array}\right] & 2\left[\begin{array}{cc}
+0 & 5\\
+6 & 7
+\end{array}\right]\\
+3\left[\begin{array}{cc}
+0 & 5\\
+6 & 7
+\end{array}\right] & 4\left[\begin{array}{cc}
+0 & 5\\
+6 & 7
+\end{array}\right]
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+outer product (外积) 
+\end_layout
+
+\begin_layout Standard
+对于两个任意大小的向量，
+\end_layout
+
+\begin_layout Standard
+符号表示：
+\begin_inset Formula $A\otimes B$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Standard
+对于向量
+\begin_inset Formula $\vec{a}=\left(a_{1},a_{2},\cdots,a_{m}\right),\vec{b}=\left(b_{1},b_{2},\cdots,b_{n}\right)$
+\end_inset
+
+，则
+\begin_inset Formula $\vec{a}\otimes\vec{b}$
+\end_inset
+
+是一个大小为
+\begin_inset Formula $m\otimes n$
+\end_inset
+
+的矩阵
+\begin_inset Formula 
+\[
+\vec{a}\otimes\vec{b}=\left[\begin{array}{cccc}
+a_{1}b_{1} & a_{1}b_{2} & \cdots & a_{1}b_{n}\\
+a_{2}b_{1} & a_{2}b_{2} & \cdots & a_{2}b_{n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m}b_{1} & a_{m}b_{2} & \cdots & a_{m}b_{n}
+\end{array}\right]
+\]
+
+\end_inset
+
+外积是 克罗内克积 退化成矢量的特殊形式，两者操作相同，结果的元素相同，仅形式不同。例如
+\begin_inset Formula 
+\[
+\vec{u}=\left[\begin{array}{c}
+1\\
+2\\
+3
+\end{array}\right],\quad\vec{v}=\left[\begin{array}{c}
+4\\
+5
+\end{array}\right]
+\]
+
+\end_inset
+
+则
+\begin_inset Formula 
+\[
+\vec{u}\otimes_{\text{Kron}}\vec{v}=\left[\begin{array}{c}
+4\\
+5\\
+8\\
+10\\
+12\\
+15
+\end{array}\right]\quad\vec{u}\otimes_{\text{outer}}\vec{v}=\left[\begin{array}{cc}
+4 & 5\\
+8 & 10\\
+12 & 15
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Hadamard product (哈达玛积)
+\end_layout
+
+\begin_layout Standard
+适用于两个相同大小的矩阵，
+\end_layout
+
+\begin_layout Standard
+符号表示为
+\begin_inset Formula $A\circ B$
+\end_inset
+
+ or 
+\begin_inset Formula $A\odot B$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\left(A\circ B\right)_{ij}=A_{ij}B_{ij}
+\]
+
+\end_inset
+
+例如：
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccc}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}\\
+a_{31} & a_{32} & a_{33}
+\end{array}\right]\circ\left[\begin{array}{ccc}
+b_{11} & b_{12} & b_{13}\\
+b_{21} & b_{22} & b_{23}\\
+b_{31} & b_{32} & b_{33}
+\end{array}\right]=\left[\begin{array}{ccc}
+a_{11}b_{11} & a_{12}b_{12} & a_{13}b_{13}\\
+a_{21}b_{21} & a_{22}b_{22} & a_{23}b_{23}\\
+a_{31}b_{31} & a_{32}b_{32} & a_{33}b_{33}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Frobenius 方程
+\end_layout
+
+\begin_layout Standard
+Frobenius 方程具有以下形式 :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a_{1}x_{1}+\cdots a_{n}x_{n}=m
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $a_{1},\cdots a_{n}$
+\end_inset
+
+都是正整数，
+\begin_inset Formula $m$
+\end_inset
+
+是整数。方程的解–坐标
+\begin_inset Formula $x_{1},x_{2},\cdots,x_{n}$
+\end_inset
+
+需要是非负整数。Frobenius 数是令方程无解的整数集中最大的整数
+\begin_inset Formula $m$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Section
+SU(N)生成元
+\end_layout
+
+\begin_layout Standard
+参考
+\begin_inset CommandInset href
+LatexCommand href
+name "calculate-representations-of-sun-generators"
+target "https://mathematica.stackexchange.com/questions/159014/calculate-representations-of-sun-generators"
+literal "true"
+
+\end_inset
+
+，计算SU(
+\begin_inset Formula $3$
+\end_inset
+
+)群的生成元在
+\begin_inset Formula $d$
+\end_inset
+
+维的表示
+\end_layout
+
+\begin_layout Standard
+实际上，结构常数的思想不是先规定好它们的取值，再找到合适的基。 这个过程是反过来的：通常先规定基满足一些良好的性质，再根据这些基计算结构常数。一般是要求这些矩阵
+是稀疏矩阵，并且对于某种内积正交。
+\end_layout
+
+\begin_layout Standard
+在 Mathematica 中，可以通过 SparseArray 设置稀疏矩阵。 下面的代码构造了SU(3)生成元的
+\begin_inset Formula $3$
+\end_inset
+
+–维基，它们对于 Frobenius 内积是正交的。 当然，该方法可以推广到任意维度。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{oframed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=mathematica,style=codestyle1]
+\end_layout
+
+\begin_layout Plain Layout
+
+n=3; 
+\end_layout
+
+\begin_layout Plain Layout
+
+a=1/Sqrt[2] Flatten[Table[
+\end_layout
+
+\begin_layout Plain Layout
+
+SparseArray[{{i,j}->I,{j,i}->I},{n,n}],{i,1,n},{j,i+1,n}],1]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+b=1/Sqrt[2] Flatten[Table[
+\end_layout
+
+\begin_layout Plain Layout
+
+SparseArray[{{i,j}->-1,{j,i}->1},{n,n}],{i,1,n},{j,i+1,n}],1]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+c=DiagonalMatrix@*SparseArray/@Orthogonalize[Table[SparseArray[{{i}->I,{i+1}->-I
+},{n}],{i,1,n-1}]]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+basis=Join[a,b,c]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+MatrixForm/@basis
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{oframed}
+\end_layout
 
 \end_inset
 
