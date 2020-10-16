@@ -329,7 +329,7 @@ ssh -T git@gitee.com
 
 ```bash
 # 添加第一个仓库
-git remote add github git@xxxx1
+git remote add origin git@xxxx1
 # 再添加另一个远程仓库
 git remote add gitee git@xxxx2
 # 查看远程仓库状态
@@ -337,23 +337,29 @@ git remote -v
 ```
 
 查看远程仓库的情况，可以看到已经有两个远程仓库了。
-然后再使用相应的命令 push 到对应的仓库就行了。这种方法的缺点是每次要 `push` 两次。
+然后再使用相应的命令 `push` 到对应的仓库就行了。这种方法的缺点是每次要 `push` 两次。
 
 ```bash
-git  push github master:master
+git  push origin master:master
 git  push gitee master:master
 ```
 
 #### git remote set-url 命令
 
+另一种方法是使用 git remote set-url 添加多个仓库地址
+
 ```bash
 #删除方法一的 gitee 远程仓库。
 git  remote rm gitee
 #使用如下命令添加远程仓库。
-git remote set-url --add  github git@xxxx2
+git remote set-url --add  origin git@xxxx2
 ```
 
-查看远程仓库情况。可以看到 github 远程仓库有两个 push 地址。这种方法的好处是每次只需要 push 一次就行了。
+```zsh
+grset --add  origin git@xxxx2
+```
+
+查看远程仓库情况。可以看到 `origin` 远程仓库有两个 `push` 地址。这种方法的好处是每次只需要 `push` 一次就行了。
 
 ```bash
 git remote -v
@@ -363,7 +369,7 @@ git push origin master:master
 另外手动更改本地仓库`/.git/config`文件也是可以的，改成如下格式
 
 ```bash
-[remote "github"]
+[remote "origin"]
    url = git@github.com:xxx
    url = git@gitee.com:xxx
    fetch = +refs/heads/*:refs/remotes/github/*
@@ -574,6 +580,15 @@ The contents from a specific side of the merge can be checked out of the `index`
 
 With `-m`, changes made to the working tree file can be discarded to re-create the original conflicted merge result.
 
+### detached
+
+如果用`git checkout <commit>`切换到某次提交，那么 `HEAD`不是指在某个指针(如`master`,`dev`)上的，所以是游离的--`detached`，
+
+如果这个时候进行更改，并提交，相当于创建了匿名分支，所作的提交日后无法再索引到。它们将被git的默认回收机制所回收。
+解决方法是创建新分支:
+
+`git checkout -b new`
+
 ### rebase 删除某次提交
 
 [git删除中间某次提交](https://www.cnblogs.com/qiqi715/p/11540999.html)
@@ -592,9 +607,9 @@ commit 7753f40d892a8e0d14176a42f6e12ae0179a3210
 ...
 ```
 
-假如要删除备注为 `commit` 为`0fb295fe0e0276f0c81df61c4fd853b7a000bb5c`的这次提交
+假如要删除备注为 `commit` 为`0fb295fe0e0`的这次提交
 
-+ 首先找到此次提交之前的一次提交的 `commit` `7753f40d892a8e0d14176a42f6e12ae0179a3210`
++ 首先找到此次提交之前的一次提交的 `commit` `7753f40d89`
 + 执行如下命令
 
 ```bash
@@ -729,7 +744,7 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 `--abort`: 取消操作，回复到pre-sequence 状态。
 `--continue`: 继续操作，利用`.git/sequencer.`中的信息。可以在`cherry-pick` or `revert`失败，解决冲突之后使用。
 
-### gitk log
+### gitk & log
 
 ***
 
@@ -746,8 +761,8 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 2. `gk`='\gitk --all --branches'
 3. `gke`='\gitk --all $(git log -g --pretty=%h)'
 
-`--all`:假装`refs/`下的所有条目，包括`HEAD`都被列出 as `<commit>`
-`--branches[=<pattern>]`：类似`--all`，但是要匹配shell `glob`模式，`?`, `*`, or `[`, `/*`
+`--all`:把`refs/`下的所有条目，包括`HEAD`都用 `<commit>`的形式列出
+`--branches[=<pattern>]`：类似`--all`，但是要匹配`shell glob`模式，`?`, `*`, or `[`, `/*`
 `--tags[=<pattern>]`：类似`--branches`
 
 `gitk`可以查看单个文件的提交历史，使用`gitk filepath`
