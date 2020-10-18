@@ -1,5 +1,14 @@
 # tikz
 
+用来替换`pdf` 粘贴过程额外`h..i`的正则表达式
+
+```regex
+\bh([. ]+?)i\b
+<$1>
+```
+
+## texstudio教程
+
 [TiKZ入门教程 ][]
 
 [TiKZ入门教程 ]: https://www.latexstudio.net/archives/9774.html
@@ -219,7 +228,7 @@ TikZ提供了图的支持,通过类似于`dot`语言的方式来生成图关系
 \subsection*{使用 \texttt{baseline} 选项}
 \verb|\tikz[baseline=(current bounding box.center)]| \sep
   \valignWithTikz{baseline=(current bounding box.center)}
-调整纵向偏移，\verb|\tikz[baseline={([yshift=-.5ex]current bounding box.center)}]| \sep
+调整纵向偏移,\verb|\tikz[baseline={([yshift=-.5ex]current bounding box.center)}]| \sep
   \valignWithTikz{baseline={([yshift=-.5ex]current bounding box.center)}}
 
 \subsection*{使用 \texttt{\char`\\adjustbox} 命令的 \texttt{valign} 选项}
@@ -250,3 +259,95 @@ c -- [photon, momentum=\(p\)] d,
 \end{aligned}
 \end{equation}
 ```
+
+## tikz 设计原则
+
+page 124
+
+TikZ遵循以下基本设计原则：
+
+1. 用于指定`points`的特殊语法。
+2. 指定`path`的特殊语法。
+3. Actions on paths。
+4. 图形参数的`Key–value`语法。
+5. `nodes`的特殊语法。
+6. `trees`的特殊语法。
+7. `graphs`的特殊语法。
+8. 对图形的参数分组。
+9. 坐标转换系统。
+
+### 指定 points
+
++ 基本使用:`(1cm,2pt)`
++ 极坐标:`(30:1cm)`
++ `PGF-xy` 坐标系统, unit in cm :  `(2,1)`
++ `PDF-xyz` 坐标系统:`(1,1,1)`
++ 也可以使用利用之前定义的形状作为锚点,如:`(first node.south)`
++ 连续相对坐标:`++(1cm,0pt)`,`(1,0) ++(1,0) ++(0,1)`给出`(1,0), (2,0),(2,1)`
++ 同源相对坐标:`+(1,0) +(1,0) +(0,1)` 给出 `(1,0), (2,0), (1,1)`.
+
+## 指定路径
+
+路径是一些直线和曲线的组合。
+部分使用`metapost`的语法,例如,一条三角形路径
+
+```latex
+(5pt,0pt) -- (0pt,0pt) -- (0pt,5pt) -- cycle
+```
+
+### 对路径的action
+
+路径只是一系列直线和曲线的组合,但你尚未指定如何处理它。 
+可以绘制一条路径,填充一条路径,为其着色,对其进行裁剪或进行这些操作的任意组合。
+
+`draw`,`fill`,`shade`,`clip`
+
+例如
+
+```latex
+\path[draw] (0,0) rectangle (2ex,1ex)
+```
+
+`\path[draw]`: `\draw`
+`\path[fill]` :`\filldraw`
+`\path[shade]`:`\shade` and `\shadedraw`
+`\path[clip]`:
+`\draw[clip]` or `\path[draw,clip]`: `\clip`
+
+所有这些命令只能在`{tikzpicture}`环境中使用。
+TikZ 允许您使用不同的颜色进行填充和描边。
+
+### node 指定
+
+基本语法：
+
+```latex
+\path ... node <foreach statements>  [<options>] (<name>) at(<coordinate>) : <animation attribute>
+={<options>} {<node contents>} ...;
+```
+
+各部分规范的顺序。 在`node`和`{<node contents>}`之间的所有内容都是可选的。
+如果有`<foreach>`语句,它必须首先出现,紧接在`node`之后。
+除此之外,节点规范的所有其他元素（ `<options>` ,`name`,`coordinate` 和 `animation attribute` ）的顺序都是任意的,
+实际上,这些元素中的任何一个都可能多次出现（尽管对于`name`和`coordinate`,这没有意义）。
+例如
+
+```latex
+\vertex (a2) at (0,0){2};
+```
+
+### node位置的相对指定
+
+```latex
+/tikz/below=<specification>
+/tikz/left=<specification>
+/tikz/right=<specification>
+/tikz/below left=<specification>
+/tikz/below right=<specification>
+/tikz/above left=<specification>
+```
+
+`/tikz/above left=<specification>`类似`above`,但是`<shifting parti>`的指定更加复杂。
+
+1. 当`<shifting part>`形式为`<number or dimension> and <number or dimension>`的时候(注意中间有个`and`)，先向左移动，再向右移动（通常这令人满意，除非你使用了`x` and `y`选项，修改了`xy`--坐标系的单位矢量。）
+2. 当`<shifting part>`形式为`<number or dimension> `时，也就是只给出一个参数，向对角线方向(135度方向)移动$\frac{1}{2}\sqrt{2}cm$。按照数学的说法，就是按照$l_{2}-norm$理解，相当于极坐标中的半径。而`<number or dimension> and <number or dimension>`是按照$l_{1}-norm$理解。
