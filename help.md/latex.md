@@ -430,7 +430,25 @@ What does --shell-escape do?
 
 [对齐@CSDN]: https://blog.csdn.net/yanxiangtianji/article/details/54767265
 
-## Token not allowed
+## pdf 书签
+
+[在 LaTeX 中使用含有中文的 PDF 书签避免乱码的正确姿势 ](https://liam.page/2014/11/22/latex-pdf-cjk-bookmarks/)
+
+[hyperref – Extensive support for hypertext in LaTeX](https://www.ctan.org/pkg/hyperref)
+
+LaTeX 的 `hyperref` 宏包可以处理交叉引用命令，在 PDF 文件中产生超文本链接，或者是 PDF 书签，
+
+最好的办法是将中文支持和版式处理都交给 `ctex` 宏包/文档类，只需要开启 `hyperref` 选项即可。
+
+```latex
+\documentclass[hyperref, UTF8]{ctexart}
+\begin{document}
+\section{中文书签不会乱码}
+UTF-8 编码，Xe\LaTeX{}/pdf\LaTeX{}/\LaTeX{} - DVIPDFMx 编译。
+\end{document}
+```
+
+### Token not allowed
 
 `Hyperref - Token not allowed [duplicate]`
 
