@@ -1183,14 +1183,96 @@ Legended[
  ]
 ```
 
-## 脚本中的原始字符格式
+## Boxes
 
-mathematica 的 层次结构
+像Wolfram语言中的所有其他内容一样，笔记本最终是符号表达式。 `mma` 的高维结构是用 "Box" 来实现的。
+
+参考：
 
 guide/LowLevelNotebookStructure
+tutorial/RepresentingTextualFormsByBoxes
 
+### 转换与自定义
+
+`Box`有自己的语法，可以查看一个排版过的表达式对应的`Box`表达式，也可以对后者再次排版。
+也就是说笔记本中排版过的二维格式,与 low-level 的 `Box` 之间，可以进行转换，基本的转换有：
+
++ `DisplayForm[expr]`:将`expr`中的 `low-level` 框符表示成显式的二维格式。
++ `ToBoxes[expr,form]`: 给出对应于特定`form`的`Box`。
+
+`ToBoxes` 会计算`expr`，而`MakeBoxes`不计算`expr`
+
+### 自定义输出格式
+
+一般很少需要修改这些规则。
+主要原因是Wolfram语言已经为许多`operators`的输入和输出建立了内置规则，而该`operators`本身并未为其分配特定的含义。
+也就是预置了很多可以用，但没有数学规则，只有排版规则的`operators`。
+
+可以用来自定义输出的函数有：
+`MakeBoxes`: 底层版本
+`Format`: 上层版本
+
+mma 在输出计算结果的时候，会使用`MakeBoxes`从表达式构建二维结构(`Box`).
+`MakeBoxes`是Wolfram系统会话(`sessions`)中用于将表达式转换为`boxes`的`low-level`函数。
+所以可以通过定义表达式的`MakeBoxes`上值来自定义输出。
+
+另一方面，`MakeBoxes`也会使用通过`Format`添加的排版规则：
+
+***
+利用`MakeBoxes` 自定义输出格式:
+
+```mathematica
+gplus /: MakeBoxes[gplus[x_, y_, n_], StandardForm] :=  RowBox[{MakeBoxes[x, StandardForm], 
+SubscriptBox["\[CirclePlus]", MakeBoxes[n, StandardForm]], 
+MakeBoxes[y, StandardForm]}]
+gplus[a, b, m + n]
+```
+
+***
+利用`Format`自定义输出格式:
+
+`Format[f[...]]:=rhs` 定义`f`的输出格式像是`rhs`.
+`Format[expr,form]`:对特定`form`如`StandardForm`指定自定义格式。
+
+```mathematica
+Format[f[x_, y_, z__]] := f[x, ...]
+```
+
+`Format`的下值将被优先使用，然后才使用跟`MakeBoxes`相关的上值。
+`MakeBoxes`可以理解成是`Format`的底层版本。
+不过一个重要的区别是`MakeBoxes`不会计算它的参数，所以你可以只定义排版规则，而不必担心这些表达式将会被如何计算。
+
+此外，`Format`会自动在计算结果上再次调用`Format`，而`MakeBoxes`不会。
+所以你需要在需要排版的子表达式上,手动再次调用`MakeBoxes`。
+
+当排版的时候，
+
+`RawBoxes[boxes]`直接插入`boxes`到已有的`Box`结构中，不检查错误，由前端直接渲染。
+
+### 辅助信息
+
+在不同排版格式之间转换的时候，参数信息可能会丢失。
+此时可以使用`TagBox`,`TagBox`提供了一种在 Wolfram 语言`input`和`output`中存储隐藏信息的方法。
+`TagBox[bbb,tag]`构建的`Box`和`bbb`一样，但可以包含额外信息`tag`。一般是函数的头部。
+
+比如：
+
+```mathematica
+ToBoxes[InverseFunction[f], StandardForm]
+out: TagBox[SuperscriptBox["f",   RowBox[{"(", RowBox[{"-", "1"}], ")"}]], InverseFunction,  Editable -> False]
+```
+
+此外，`InterpretationBox`提供了一种在Wolfram语言`output`中存储隐藏信息的方法。
+
+`InterpretationBox[boxes,expr]`
+是一个底层`box`构建，显示和`boxes`一样，但如果在输入中，被理解成`expr`
+
+### 脚本中的原始字符格式
+
+mathematica 的层次结构
+
+guide/LowLevelNotebookStructure
 tutorial/StringRepresentationOfBoxes
-
 tutorial/RepresentingTextualFormsByBoxes
 
 内核--前端

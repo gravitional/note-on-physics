@@ -89,6 +89,11 @@ echo  -e "\033[1;47m\033[1;32m Testing output... "
 
 `# chsh -s /bin/sh`
 
+### 录制屏幕
+
+如果是`Gnome3`系用户,可以按`ctrl + shift + alt + r`,屏幕右下角有红点出现,则开始录屏,
+要结束的话再按一次`ctrl + shift + alt + r`,录好的视频在`~/video`下
+
 ### ls 选项
 
 `ls -d */`
