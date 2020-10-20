@@ -2258,3 +2258,24 @@ MonomialList[(x + 1)^5, x, Modulus -> 2]
 
 "Lexicographic", "DegreeLexicographic", "DegreeReverseLexicographic", "NegativeLexicographic", "NegativeDegreeLexicographic", "NegativeDegreeReverseLexicographic", or an explicit weight matrix
 
+## 李群生成元
+
+参考[stackexchange](https://mathematica.stackexchange.com/questions/159014/calculate-representations-of-sun-generators||calculate-representations-of-sun-generators)，计算`SU(3)`群的生成元在`d`维的表示.
+
+实际上，结构常数的思想不是先规定好它们的取值，再找到合适的基。 
+这个过程是反过来的：通常先规定基满足一些良好的性质，再根据这些基计算结构常数。
+一般是要求这些矩阵是稀疏矩阵，并且对于某种内积正交。
+
+在 Mathematica 中，可以通过 `SparseArray` 设置稀疏矩阵。 
+下面的代码构造了`SU(3)`生成元的3–维基，它们对于 `Frobenius` 内积是正交的。 当然，该方法可以推广到任意维度。
+
+```bash
+n=3; 
+a=1/Sqrt[2] Flatten[Table[
+SparseArray[{{i,j}->I,{j,i}->I},{n,n}],{i,1,n},{j,i+1,n}],1]; 
+b=1/Sqrt[2] Flatten[Table[
+SparseArray[{{i,j}->-1,{j,i}->1},{n,n}],{i,1,n},{j,i+1,n}],1]; 
+c=DiagonalMatrix@*SparseArray/@Orthogonalize[Table[SparseArray[{{i}->I,{i+1}->-I},{n}],{i,1,n-1}]]; 
+basis=Join[a,b,c]; 
+MatrixForm/@basis
+```
