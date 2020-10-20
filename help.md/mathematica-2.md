@@ -2081,28 +2081,40 @@ tutorial/Messages
 
 能够为自定义函数提供报错信息
 
-`$MessageList`   a list of the messages produced during a particular computation
-MessageList[n]   a list of the messages produced during the processing of the n\[Null]^th input line in a Wolfram Language session
+`$MessageList`   
+当前输入行计算产生的消息列表。
 
-Check[expr,failexpr]   if no messages are generated during the evaluation of expr, then return expr; otherwise return failexpr
-Check[expr,failexpr,Subscript[s, 1]::Subscript[t, 1],Subscript[s, 2]::Subscript[t, 2],...]   check only for the messages Subscript[s, i]::Subscript[t, i]
+`Check[expr,failexpr]`
+如果计算成功，返回`expr`，如果计算期间产生消息（一般是因为错误），就返回`failexpr`
 
-### 流程控制
+## 过程式编程
+
+guide/ProceduralProgramming
+guide/FlowControl
+
+普通的流程控制可以使用`Return[expr]`，复杂的可以使用`Throw`,`Catch`
 
 语句组：
 `CompoundExpression[exp1,exp2,...]`
 例如:`Print[x]; Print[y]`，按顺序执行。
 
-返回值可以由`Return[expr]`控制，
+返回值可以由`Return[expr]`控制，但是需要有一个外层函数结构。
 
-通过使用`Throw`,`Catch`也可以立即返回
+***
+也可以使用`Throw`,`Catch`控制过程。
+他们是成对使用的, `Throw[value,tag]`负责跳出过程，返回当前`value`, 对应的`Catch`可以接住`value`，
+可以用`tag`指定`Throw` and `Catch`如何匹配。
+如:
 
 ```mathematica
-Catch[a = 2; Throw[a]; a = 5]
-2
+Module[{u},
+ Catch[
+  Throw[a, u],
+  u]
+ ]
 ```
 
-## 计算流程
+## 控制表达式计算流程
 
 ### 各种 Hold
 
@@ -2219,3 +2231,30 @@ TensorContract[T, {{2, 3},{1,4}}]
 ```
 
 分别缩并张量`T`的`2,3`，`1,4`指标.
+
+## 多项式
+
+tutorial/FindingTheStructureOfAPolynomial
+
+找到某一个变量的最高次幂:
+
+```mathematica
+Exponent[1 + x^2 + a x^3, x]
+```
+
+提取多项式的系数:
+
+```mathematica
+CoefficientList[1 + 6 x - x^4, x]
+```
+
+给出一个多项式中的单项式:
+
+```mathematica
+MonomialList[(x + 1)^5, x, Modulus -> 2]
+```
+
+还可以为结果指定顺序，可以指定的顺序有：
+
+"Lexicographic", "DegreeLexicographic", "DegreeReverseLexicographic", "NegativeLexicographic", "NegativeDegreeLexicographic", "NegativeDegreeReverseLexicographic", or an explicit weight matrix
+
