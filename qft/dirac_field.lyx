@@ -3520,11 +3520,163 @@ C\bar{\psi}(x)C & =\psi^{T}\left(i\gamma^{2}\gamma^{0}\right)=\left(\left(-i\gam
 \end_layout
 
 \begin_layout Subsection
+标量场和矢量场
+\end_layout
+
+\begin_layout Standard
+这里一并总结标量场和矢量场在 
+\begin_inset Formula $CPT$
+\end_inset
+
+ 下的变换形式：
+\begin_inset Formula 
+\begin{align*}
+\varphi(x) & =\int\frac{\dif^{3}p}{(2\pi)^{3}\sqrt{2E_{p}}}\left(a(p)e^{-ip\cdot x}+b(p)^{\dagger}e^{+ip\cdot x}\right)\\
+A_{\mu}(x) & =\int\frac{\dif^{3}p}{(2\pi)^{3}\sqrt{2E_{p}}}\sum_{\lambda=0}^{3}\left(a(\lambda,p)\varepsilon(\lambda)_{\mu}e^{-ip\cdot x}+a(\lambda,p)^{\dagger}\varepsilon(\lambda)_{\mu}^{\star}e^{+ip\cdot x}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+宇称变换
+\end_layout
+
+\begin_layout Standard
+除了同样要考虑矢量从
+\begin_inset Formula $v\to\tilde{v}$
+\end_inset
+
+之外，
+\begin_inset Formula $\varphi(x)$
+\end_inset
+
+在宇称变换下，分成标量场和赝标量场，赝标量场在宇称变换下多个负号，比如：
+\begin_inset Formula 
+\begin{align*}
+\hat{P}a(p)\hat{P}^{-1} & =-a(\tilde{p})\\
+\hat{P}\varphi(x)\hat{P}^{-1} & =-\varphi(\tilde{x})
+\end{align*}
+
+\end_inset
+
+其他类似。
+\end_layout
+
+\begin_layout Standard
+矢量场
+\begin_inset Formula $A_{\mu}(x)$
+\end_inset
+
+则是：
+\begin_inset Formula 
+\begin{align*}
+\hat{P}a(\lambda,p)\hat{P}^{-1} & =a(\lambda,\tilde{p})\\
+\hat{P}A_{\mu}(x)\hat{P}^{-1} & =\tilde{A_{\mu}}(\tilde{x})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+电荷共轭
+\end_layout
+
+\begin_layout Standard
+电荷共轭对动量没有影响，对于标量场：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\hat{C}a(p)\hat{C}^{-1}=b(p) &  & \hat{C}b(p)\hat{C}^{-1}=a(p)\\
+\hat{C}\varphi(x)\hat{C}^{-1}=\varphi^{\dagger}(x) &  & \hat{C}\varphi^{\dagger}(x)\hat{C}^{-1}=\varphi(x)^{\dagger}
+\end{align*}
+
+\end_inset
+
+对于矢量场，由于在电荷共轭变换下，
+\begin_inset Formula $\psi\gamma^{\mu}\psi\to-\psi\gamma^{\mu}\psi$
+\end_inset
+
+，为了 QED 拉氏量不变，有：
+\begin_inset Formula 
+\begin{align*}
+\hat{C}a(\lambda,p)\hat{C}^{-1}=-a(\lambda,p) &  & \hat{C}a^{\dagger}(\lambda,p)\hat{C}^{-1}=-a^{\dagger}(\lambda,p)\\
+\hat{C}A_{\mu}(x)\hat{C}^{-1}=-A_{\mu}(x)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+时间反演
+\end_layout
+
+\begin_layout Standard
+时间反演对动量，极化都有影响。由于会改变动量，所以标量场和赝标量场应该是不一样的。
+\begin_inset Formula 
+\begin{align*}
+\hat{T}a(p)\hat{T}^{-1}=\pm a(\tilde{p}) &  & \hat{T}a^{\dagger}(p)\hat{T}^{-1}=\pm a^{\dagger}(\tilde{p})\\
+\hat{P}\varphi(x)\hat{P}^{-1}=\pm\varphi(-\tilde{x}) &  & \hat{T}=\hat{U}\hat{K}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\hat{K}$
+\end_inset
+
+是复共轭运算（反线性反幺正）。
+\end_layout
+
+\begin_layout Standard
+对于矢量场
+\begin_inset Formula $A_{\mu}(x)$
+\end_inset
+
+，同样参考
+\begin_inset Formula $\psi\gamma^{\mu}\psi$
+\end_inset
+
+在
+\begin_inset Formula $\hat{T}$
+\end_inset
+
+变换下的符号，可以知道：
+\begin_inset Formula 
+\begin{align*}
+\hat{T}a(\lambda,p)\hat{T}^{-1} & =a(\lambda,\tilde{p}) &  & \hat{T}a^{\dagger}(\lambda,p)\hat{T}^{-1}=a^{\dagger}(\lambda,\tilde{p})\\
+\hat{T}A_{\mu}(x)\hat{T}^{-1} & =\tilde{A_{\mu}}(-\tilde{x})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 CPT表格
 \end_layout
 
 \begin_layout Standard
-下面的表格给出了
+下面的 Tab.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，给出了
 \begin_inset Formula $CPT$
 \end_inset
 
@@ -4817,148 +4969,6 @@ noprefix "false"
 \end_inset
 
  来补偿。
-\end_layout
-
-\begin_layout Subsection
-标量场和矢量场
-\end_layout
-
-\begin_layout Standard
-这里一并总结标量场和矢量场在 
-\begin_inset Formula $CPT$
-\end_inset
-
- 下的变换形式：
-\begin_inset Formula 
-\begin{align*}
-\varphi(x) & =\int\frac{\dif^{3}p}{(2\pi)^{3}\sqrt{2E_{p}}}\left(a(p)e^{-ip\cdot x}+b(p)^{\dagger}e^{+ip\cdot x}\right)\\
-A_{\mu}(x) & =\int\frac{\dif^{3}p}{(2\pi)^{3}\sqrt{2E_{p}}}\sum_{\lambda=0}^{3}\left(a(\lambda,p)\varepsilon(\lambda)_{\mu}e^{-ip\cdot x}+a(\lambda,p)^{\dagger}\varepsilon(\lambda)_{\mu}^{\star}e^{+ip\cdot x}\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-宇称变换
-\end_layout
-
-\begin_layout Standard
-除了同样要考虑矢量从
-\begin_inset Formula $v\to\tilde{v}$
-\end_inset
-
-之外，
-\begin_inset Formula $\varphi(x)$
-\end_inset
-
-在宇称变换下，分成标量场和赝标量场，赝标量场在宇称变换下多个负号，比如：
-\begin_inset Formula 
-\begin{align*}
-\hat{P}a(p)\hat{P}^{-1} & =-a(\tilde{p})\\
-\hat{P}\varphi(x)\hat{P}^{-1} & =-\varphi(\tilde{x})
-\end{align*}
-
-\end_inset
-
-其他类似。
-\end_layout
-
-\begin_layout Standard
-矢量场
-\begin_inset Formula $A_{\mu}(x)$
-\end_inset
-
-则是：
-\begin_inset Formula 
-\begin{align*}
-\hat{P}a(\lambda,p)\hat{P}^{-1} & =a(\lambda,\tilde{p})\\
-\hat{P}A_{\mu}(x)\hat{P}^{-1} & =\tilde{A_{\mu}}(\tilde{x})
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-电荷共轭
-\end_layout
-
-\begin_layout Standard
-电荷共轭对动量没有影响，对于标量场：
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\hat{C}a(p)\hat{C}^{-1}=b(p) &  & \hat{C}b(p)\hat{C}^{-1}=a(p)\\
-\hat{C}\varphi(x)\hat{C}^{-1}=\varphi^{\dagger}(x) &  & \hat{C}\varphi^{\dagger}(x)\hat{C}^{-1}=\varphi(x)^{\dagger}
-\end{align*}
-
-\end_inset
-
-对于矢量场，由于在电荷共轭变换下，
-\begin_inset Formula $\psi\gamma^{\mu}\psi\to-\psi\gamma^{\mu}\psi$
-\end_inset
-
-，为了 QED 拉氏量不变，有：
-\begin_inset Formula 
-\begin{align*}
-\hat{C}a(\lambda,p)\hat{C}^{-1}=-a(\lambda,p) &  & \hat{C}a^{\dagger}(\lambda,p)\hat{C}^{-1}=-a^{\dagger}(\lambda,p)\\
-\hat{C}A_{\mu}(x)\hat{C}^{-1}=-A_{\mu}(x)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-时间反演
-\end_layout
-
-\begin_layout Standard
-时间反演对动量，极化都有影响。由于会改变动量，所以标量场和赝标量场应该是不一样的。
-\begin_inset Formula 
-\begin{align*}
-\hat{T}a(p)\hat{T}^{-1}=\pm a(\tilde{p}) &  & \hat{T}a^{\dagger}(p)\hat{T}^{-1}=\pm a^{\dagger}(\tilde{p})\\
-\hat{P}\varphi(x)\hat{P}^{-1}=\pm\varphi(-\tilde{x}) &  & \hat{T}=\hat{U}\hat{K}
-\end{align*}
-
-\end_inset
-
-其中
-\begin_inset Formula $\hat{K}$
-\end_inset
-
-是复共轭运算（反线性反幺正）。
-\end_layout
-
-\begin_layout Standard
-对于矢量场
-\begin_inset Formula $A_{\mu}(x)$
-\end_inset
-
-，同样参考
-\begin_inset Formula $\psi\gamma^{\mu}\psi$
-\end_inset
-
-在
-\begin_inset Formula $\hat{T}$
-\end_inset
-
-变换下的符号，可以知道：
-\begin_inset Formula 
-\begin{align*}
-\hat{T}a(\lambda,p)\hat{T}^{-1} & =a(\lambda,\tilde{p}) &  & \hat{T}a^{\dagger}(\lambda,p)\hat{T}^{-1}=a^{\dagger}(\lambda,\tilde{p})\\
-\hat{T}A_{\mu}(x)\hat{T}^{-1} & =\tilde{A_{\mu}}(-\tilde{x})
-\end{align*}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
