@@ -1112,6 +1112,23 @@ C\gamma_{\mu}^{T}C=\gamma_{\mu},\quad C\gamma_{5}^{T}C=-\gamma_{5},\quad C\left(
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\gamma^{0}\gamma^{\mu}\gamma^{0} & =\gamma^{\mu\dagger}\\
+\gamma^{0}\gamma^{\mu}\gamma^{\nu}\gamma^{0} & =\gamma^{\mu\dagger}\gamma^{\nu\dagger}=\left(\gamma^{\nu}\gamma^{\mu}\right)^{\dagger}\\
+\gamma^{0}\sigma^{\mu\nu}\gamma^{0} & =\left(\frac{-i}{2}\left(\gamma^{\nu}\gamma^{\mu}-\gamma^{\mu}\gamma^{\nu}\right)\right)^{\dagger}=\sigma^{\mu\nu\dagger}
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula $\left(\bar{\psi}\sigma^{\mu\nu}\psi\right)^{\dagger}=\psi^{\dagger}\gamma^{0}\gamma^{0}\sigma^{\mu\nu\dagger}\gamma^{0}\psi=\bar{\psi}\sigma^{\mu\nu}\psi$
+\end_inset
+
+是厄米的项。
+\end_layout
+
 \begin_layout Section
 \begin_inset Formula $\gamma$
 \end_inset
@@ -4775,7 +4792,7 @@ status open
 \begin_layout Plain Layout
 
 \size small
-\begin_inset Formula $\left(\bar{\psi}(-x)\gamma^{2}\gamma^{0}\gamma^{3}\gamma^{1}\gamma^{0}O(-x)^{\dagger}\gamma^{0}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{2}\psi(-x)\right)^{T}$
+\begin_inset Formula $\bar{\psi}(-x)\gamma^{2}\gamma^{0}\gamma^{0}\gamma^{3}\gamma^{1}O(-x)^{\dagger}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{0}\gamma^{2}\psi(-x)$
 \end_inset
 
 
@@ -4789,7 +4806,7 @@ status open
 \begin_layout Plain Layout
 
 \size small
-\begin_inset Formula $\left(\bar{u}(-p)\gamma^{2}\gamma^{0}\gamma^{3}\gamma^{1}\gamma^{0}O(-p)^{\dagger}\gamma^{0}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{2}u(-p)\right)^{T}$
+\begin_inset Formula $\bar{u}(-p)\gamma^{2}\gamma^{0}\gamma^{0}\gamma^{3}\gamma^{1}O(-p)^{\dagger}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{0}\gamma^{2}u(-p)$
 \end_inset
 
 
@@ -4820,7 +4837,7 @@ status open
 \begin_layout Plain Layout
 
 \color red
-\begin_inset Formula $\left(\bar{\psi}(x)\gamma^{5}O(-x)\gamma^{5}\psi(x)\right)^{T}$
+\begin_inset Formula $\bar{\psi}(x)\gamma^{5}O(x)\gamma^{5}\psi(x)$
 \end_inset
 
 
@@ -4835,7 +4852,7 @@ status open
 
 \size small
 \color red
-\begin_inset Formula $\left(\bar{u}(p)\gamma^{5}O(-p)\gamma^{5}u(p)\right)^{T}$
+\begin_inset Formula $\bar{u}(p)\gamma^{5}O(p)\gamma^{5}u(p)$
 \end_inset
 
 
@@ -4917,27 +4934,47 @@ u_{\lambda}(p)=\left(\begin{array}{c}
 
 \end_inset
 
-旋量中
+由于作用量
+\begin_inset Formula $S=\int\dif^{4}x\mathcal{L}\left(x\right)$
+\end_inset
+
+，积分完后作用量中已经不含有
+\begin_inset Formula $x$
+\end_inset
+
+，所以
+\begin_inset Formula $x$
+\end_inset
+
+符号的改变没有影响。不过即使考虑拉氏量密度，
 \begin_inset Formula $p\to-p$
 \end_inset
 
-时，会出现一个
+，
+\begin_inset Formula $u_{\lambda}(p)$
+\end_inset
+
+ 和 
+\begin_inset Formula $v_{\eta}(p)$
+\end_inset
+
+会多出一个
 \begin_inset Formula $i$
 \end_inset
 
-,经过
-\begin_inset Formula $CPT$
-\end_inset
-
-，多了一个
+，两个就是
 \begin_inset Formula $i^{2}=-1$
 \end_inset
 
-。化简过程是
+
+\end_layout
+
+\begin_layout Standard
+化简过程是:
 \begin_inset Formula 
 \begin{align*}
-\left(\bar{\psi}(-x)i\gamma^{5}\gamma^{0}O(-x)^{\dagger}i\gamma^{0}\gamma^{5}\psi(-x)\right)^{T} & =\left(\bar{\psi}(x)\gamma^{5}O(-x)\gamma^{5}\psi(x)\right)^{T}\\
-\left(\bar{u}(-p)i\gamma^{5}\gamma^{0}O(-p)^{\dagger}i\gamma^{0}\gamma^{5}u(-p)\right)^{T} & =\left(\bar{u}(p)\gamma^{5}O(-p)\gamma^{5}u(p)\right)^{T}
+\bar{\psi}(-x)(-i)\gamma^{0}\gamma^{5}O(-x)^{\dagger}(-i)\gamma^{5}\gamma^{0}\psi(-x) & =i^{4}\bar{\psi}(x)\gamma^{5}O(-x)\gamma^{5}\psi(x)\\
+\bar{u}(-p)(-i)\gamma^{0}\gamma^{5}O(-p)^{\dagger}(-i)\gamma^{5}\gamma^{0}u(-p) & =i^{4}\bar{u}(p)\gamma^{5}O(-p)\gamma^{5}u(p)
 \end{align*}
 
 \end_inset

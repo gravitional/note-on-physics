@@ -492,6 +492,207 @@ U(t,t_{0}) & =1+(-i)\int_{t_{0}}^{t}\dif t_{1}H_{I}(t_{1})+\frac{(-i)^{2}}{2!}\i
 cancel掉。这个重复计数最终体现在传播子里面，也就是使用费曼传播子完成了这一对称化操作。
 \end_layout
 
+\begin_layout Section
+chpt 拉氏量展开
+\end_layout
+
+\begin_layout Standard
+chpt 中有一项比较复杂的拉氏量，
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\varepsilon^{ijk}\bar{T}_{\mu}^{ilm}\Theta^{\mu\nu}u_{\nu}^{lj}B^{mk}+h.c.\right]
+\]
+
+\end_inset
+
+这一项比较复杂，求和在三个层次上进行，
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+SU
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $(3)$
+\end_inset
+
+味道空间，洛伦兹指标空间，Spinor 旋量分量。他们是相互独立的。SU
+\begin_inset Formula $(3)$
+\end_inset
+
+味道空间 是高维矩阵相乘和指标收缩，洛伦兹空间是张量收缩，spinor 部分是二次型，最后变成一维表达式。我们计算中取
+\begin_inset Formula 
+\begin{align*}
+\Theta^{\mu\nu} & =g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}=I*\sigma^{\mu\nu}\\
+\gamma^{0}\Theta^{\mu\nu}\gamma^{0} & =\gamma^{0}I*\sigma^{\mu\nu}\gamma^{0}=I\sigma^{\mu\nu\dagger}=-\Theta^{\mu\nu\dagger}\\
+\gamma^{0}\Theta^{\mu\nu\dagger}\gamma^{0} & =-\Theta^{\mu\nu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由于求和结果显然是个
+\begin_inset Formula $1\times1$
+\end_inset
+
+的数字，所以复共轭等于厄米共轭
+\begin_inset Formula $\star=\dagger$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+对于多维矩阵求厄米共轭，可以作如下思考，不管有多少层指标，总可以进行任意的分组，或者两个一组（对应矩阵），或者单独一个一组（对应矢量），大于三个指标的，总能通过
+分块矩阵的不停嵌套（套娃），把张量写成任意深层次的套娃分块矩阵的形式。大概是下面这种感觉。也就是说，不失一般性的，高维矩阵总能通过嵌套，写成低维矩阵的形式。高维
+矩阵之间复杂的指标缩并，如果具有良好的结构，也就是说，几组指标之间是相互独立进行运算的，那么可以一层一层的将运算递归进行。两个一组的指标转置就是交换次序，一个指
+标一组的在厄米共轭下不变。
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccc}
+\left[\begin{array}{ccc}
+a & \cdots & \left[\begin{array}{ccc}
+j & \cdots & i\\
+\cdots & \cdots & \cdots\\
+g & \cdots & h
+\end{array}\right]\\
+e & \cdots & \cdots
+\end{array}\right] & \cdots & d\\
+a & \cdots & b
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\varepsilon^{ijk}\bar{T}_{\mu}^{ilm}\Theta^{\mu\nu}u_{\nu}^{lj}B^{mk} & =\varepsilon^{jk;i}\bar{T}_{\mu}^{i;ml}\Theta^{\mu\nu}u_{\nu}^{lj}B^{mk}
+\end{align*}
+
+\end_inset
+
+求复共轭，注意到有些指标其实和求复共轭没有关系，比如
+\begin_inset Formula $ijkml$
+\end_inset
+
+ 味道指标。有关系的是旋量分量指标（这里省略了），和洛伦兹指标
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\bar{B}^{km}u_{\mu}^{jl}\gamma^{0}\Theta^{\dagger\nu\mu}\gamma^{0}T_{\nu}^{lmi}\varepsilon^{ikj}
+\]
+
+\end_inset
+
+注意不要忘了对
+\begin_inset Formula $\Theta^{\dagger\nu\mu}$
+\end_inset
+
+转置，二次型的复共轭，其系数矩阵要作厄米共轭。另外还利用了
+\begin_inset Formula $u^{\dagger}=u$
+\end_inset
+
+，这里的
+\begin_inset Formula $\varepsilon^{ikj}$
+\end_inset
+
+会出来一个负号。
+\end_layout
+
+\begin_layout Standard
+也可以从展开结果中，拿出一项进行具体分析，比如
+\begin_inset Formula $\varepsilon^{jki}\bar{T}_{\mu}^{iml}\Theta^{\mu\nu}u_{\nu}^{lj}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对它进行厄米共轭。
+\begin_inset Formula 
+\begin{align*}
+ & \varepsilon[k]^{ji}\bar{T}[\mu,m]^{il}\Theta^{\mu\nu}u[\nu]^{lj}B^{mk}\\
+= & B^{km*}u[\nu]^{jl*}\Theta^{\nu\mu+}\bar{T}[\mu,m]^{li}\varepsilon[k]^{ij}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+展开后，可以得到比如
+\begin_inset Formula 
+\[
+\frac{\mathcal{C}}{\sqrt{6}f}\bar{p}\Theta^{\mu\nu}\Delta_{\mu}^{0}\partial_{\nu}\pi^{+}
+\]
+
+\end_inset
+
+这样的项，忽略无关的耦合常数，它的复共轭（厄米共轭）为：
+\begin_inset Formula 
+\begin{align*}
+ & \left(\bar{p}\Delta_{\mu}^{0}\Theta^{\mu\nu}\partial_{\nu}\pi^{+}\right)^{\dagger}\\
+\Rightarrow & \partial_{\nu}\pi^{-}\Delta_{\mu}^{0\dagger}\Theta^{\nu\mu\dagger}\gamma^{0}p\\
+= & \partial_{\nu}\pi^{-}\Delta_{\mu}^{0\dagger}\gamma^{0}\gamma^{0}\Theta^{\nu\mu\dagger}\gamma^{0}p\\
+= & \bar{\Delta}_{\mu}^{0}\Theta^{\mu\nu}p\partial_{\nu}\pi^{-}
+\end{align*}
+
+\end_inset
+
+注意，除了求第
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+个矩阵
+\begin_inset Formula $\Theta^{\mu\nu}$
+\end_inset
+
+本身的厄米共轭，还要翻转上层指标变成
+\begin_inset Formula $\Theta^{\nu\mu}$
+\end_inset
+
+。这又是一个套娃（分块矩阵）。这次翻转跟
+\begin_inset Formula $\gamma^{0}\Theta^{\mu\nu}\gamma^{0}$
+\end_inset
+
+带来的翻转抵消，保持
+\begin_inset Formula $\Theta^{\mu\nu}$
+\end_inset
+
+不变。
+\end_layout
+
+\begin_layout Standard
+所以最后得到的两个表达式是不差相对负号的。
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout
