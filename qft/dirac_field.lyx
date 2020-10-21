@@ -294,6 +294,68 @@ Clifford 代数的表示
 \end_layout
 
 \begin_layout Subsection
+gamma 链
+\end_layout
+
+\begin_layout Standard
+对于互不相等的 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ 矩阵的链条（
+\begin_inset Formula $4$
+\end_inset
+
+维情形最多为
+\begin_inset Formula $4$
+\end_inset
+
+个），
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}\gamma^{\beta}$
+\end_inset
+
+，它天生可以用置换群来描述。
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵互相不同时，
+\begin_inset Formula $\left\{ \gamma^{\mu},\gamma^{\nu}\right\} =0$
+\end_inset
+
+。所以任意两个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵交换位置，出一个负号，这个论断可以这么证明。通过子序列的适当轮换，总可以把要交换的两个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵放到一起，比如
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}$
+\end_inset
+
+，然后交换它们的位置，出一个负号，再轮换回去，不管轮换的过程出正号还是负号，两次轮换，符号的平方总是
+\begin_inset Formula $+1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+所以，
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}\gamma^{\beta}$
+\end_inset
+
+的行为类似于
+\begin_inset Formula $\varepsilon^{\mu\nu\alpha\beta}$
+\end_inset
+
+。对于任意一个置换，可以分解成互相无关的轮换的乘积，它的长度等于所有轮换长度的和。它的正负号由它是奇置换还是偶置换决定，
+\series bold
+长度为偶数的是奇置换，长度为奇数的是偶置换。
+\end_layout
+
+\begin_layout Subsection
 Weyl 表示
 \end_layout
 
@@ -1972,12 +2034,12 @@ u_{\lambda}(p) & =\left(\begin{array}{c}
 
 \end_inset
 
-
-\begin_inset Formula $b=\sqrt{\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)/m}=\sqrt{p.\sigma/m}$
+其中
+\begin_inset Formula $\sqrt{p.\sigma}=\sqrt{\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)}$
 \end_inset
 
-，
-\begin_inset Formula $b$
+，它本身并不是标量。
+\begin_inset Formula $\sqrt{p.\sigma}$
 \end_inset
 
 
@@ -1994,7 +2056,7 @@ u_{\lambda}(p) & =\left(\begin{array}{c}
 \noun off
 \color none
 在静止系为
-\begin_inset Formula $1$
+\begin_inset Formula $\sqrt{m}$
 \end_inset
 
 。
@@ -2010,27 +2072,11 @@ u_{\lambda}(p) & =\left(\begin{array}{c}
 \uwave default
 \noun default
 \color inherit
-
-\begin_inset Formula $b$
-\end_inset
-
-为
-\begin_inset Formula $\sigma^{\mu}$
-\end_inset
-
-在动量方向的投影的根，简称为
-\begin_inset Formula $\sigma$
-\end_inset
-
-投影根。 
-\end_layout
-
-\begin_layout Standard
-顺便一提，
+然而，
 \begin_inset Formula $\left(p\cdot\sigma\right)\left(p\cdot\bar{\sigma}\right)=p^{2}=m^{2}$
 \end_inset
 
-，且
+，是个标量。且
 \begin_inset Formula $p\cdot\bar{\sigma}=\bar{p}\cdot\sigma$
 \end_inset
 
@@ -2047,7 +2093,7 @@ u_{\lambda}(p) & =\left(\begin{array}{c}
 u_{\lambda}(p)=\left(\begin{array}{c}
 \sqrt{p\cdot\sigma}w_{\lambda}\\
 \sqrt{p\cdot\bar{\sigma}}w_{\lambda}
-\end{array}\right)\label{eq:solution_u}
+\end{array}\right)\label{eq:spinor_u}
 \end{equation}
 
 \end_inset
@@ -2088,45 +2134,7 @@ u_{\lambda}^{\dagger}(p)u_{\lambda^{\prime}}(p) & =2E_{p}\delta_{\lambda\lambda^
 \begin_inset Formula $m$
 \end_inset
 
-来自于外面的
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-系数
-\begin_inset Formula $\sqrt{m}$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-，内部的
-\begin_inset Formula $b,b^{-1}$
-\end_inset
-
-来自于
-\begin_inset Formula $\gamma^{0}$
-\end_inset
-
-作用后，归一化 cancel 的要求。
+来自于系数的乘积在静止系的值。
 \end_layout
 
 \begin_layout Standard
@@ -2146,38 +2154,47 @@ u_{\lambda}^{\dagger}(p)u_{\lambda^{\prime}}(p) & =2E_{p}\delta_{\lambda\lambda^
 
 \end_inset
 
-可以看到，相当于求解过程中的
+可以看到，相当于求解过程中
+\begin_inset Formula $u_{\lambda}(p)=\left(\begin{array}{c}
+\frac{m}{\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}}w_{\lambda}\\
+\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}w_{\lambda}
+\end{array}\right)$
+\end_inset
+
+这一步中的
 \begin_inset Formula $m$
 \end_inset
 
 多了一个负号，所以上半部分和下半部分的旋量会差一个负号。我们选择负号在下半部分，得到：
 \begin_inset Formula 
+\begin{equation}
+v_{\eta}(p)=\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}q_{\eta}\\
+-\sqrt{p\cdot\bar{\sigma}}q_{\eta}
+\end{array}\right)\label{eq:spinor_v}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+总结：
+\begin_inset Formula 
 \[
-v_{\eta}(p)=\sqrt{m}\left(\begin{array}{c}
-bq_{\eta}\\
--b^{-1}q_{\eta}
+u_{\lambda}(p)=\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}w_{\lambda}\\
+\sqrt{p\cdot\bar{\sigma}}w_{\lambda}
+\end{array}\right),\qquad v_{\eta}(p)=\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}q_{\eta}\\
+-\sqrt{p\cdot\bar{\sigma}}q_{\eta}
 \end{array}\right)
 \]
 
 \end_inset
 
-同样，
-\begin_inset Formula $b=\sqrt{p.\sigma/m}$
-\end_inset
 
-，
-\begin_inset Formula $b$
-\end_inset
-
-为
-\begin_inset Formula $\sigma^{\mu}$
-\end_inset
-
-在动量方向的投影的根，简称为
-\begin_inset Formula $\sigma$
-\end_inset
-
-投影根。 
 \end_layout
 
 \begin_layout Section
@@ -2587,23 +2604,27 @@ P\bar{\psi}(x)P=\left(P\psi(x)P\right)^{\dagger}\gamma^{0}=\bar{\psi}(\tilde{x})
 \end_layout
 
 \begin_layout Standard
-对于一个费米子链，时间反演相当于
-\begin_inset Formula $\bar{\psi}O(p)\psi\to\bar{\psi}(\tilde{x})\gamma^{0}O(\tilde{p})\gamma^{0}\psi(\tilde{x})$
+对于一个费米子链，宇称变换相当于
+\begin_inset Formula 
+\[
+\bar{\psi}O(p)\psi\to\bar{\psi}(\tilde{x})\gamma^{0}O(\tilde{p})\gamma^{0}\psi(\tilde{x})
+\]
+
 \end_inset
 
-，
+
 \begin_inset Formula $O(p)$
 \end_inset
 
-是一串伽马矩阵的乘积。
-\end_layout
+是一串伽马矩阵的乘积。对应的旋量的变换是
+\begin_inset Formula 
+\[
+\bar{u}(p)O(p)u(p)\to\bar{u}(\tilde{p})\gamma^{0}O(\tilde{p})\gamma^{0}u(\tilde{p})
+\]
 
-\begin_layout Standard
-对应的旋量的变换是
-\begin_inset Formula $\bar{u}(p)O(p)u(p)\to\bar{u}(\tilde{p})\gamma^{0}O(\tilde{p})\gamma^{0}u(\tilde{p})=\bar{u}(p)O(\tilde{p})u(p)$
 \end_inset
 
-，最后一个等号利用了旋量的性质。
+最后一个等号利用了旋量的性质。
 \end_layout
 
 \begin_layout Standard
@@ -3115,22 +3136,26 @@ T\bar{\psi}(x)T=\left(T\psi(x)T\right)^{\dagger}\gamma^{0}=\psi^{\dagger}(-t,\ve
 
 \begin_layout Standard
 对于一个费米子链，时间反演相当于
-\begin_inset Formula $\bar{\psi}O(p)\psi\to\bar{\psi}(-t,\vec{x})\left(\gamma^{3}\gamma^{1}\right)O^{*}\left(\gamma^{1}\gamma^{3}\right)\psi\left(-t,\vec{x}\right)$
+\begin_inset Formula 
+\[
+\bar{\psi}O(p)\psi\to\bar{\psi}(-t,\vec{x})\left(\gamma^{3}\gamma^{1}\right)O^{*}\left(\gamma^{1}\gamma^{3}\right)\psi\left(-t,\vec{x}\right)
+\]
+
 \end_inset
 
-，
+
 \begin_inset Formula $O$
 \end_inset
 
-是一串伽马矩阵的乘积。
-\end_layout
+是一串伽马矩阵的乘积。对应的旋量的变换是
+\begin_inset Formula 
+\[
+\bar{u}(p)O(p)u(p)\to\bar{u}(\tilde{p})\gamma^{3}\gamma^{1}O^{*}(\tilde{p})\gamma^{1}\gamma^{3}u(\tilde{p})=\bar{u}(p)\gamma^{0}\gamma^{3}\gamma^{1}O^{*}(\tilde{p})\gamma^{1}\gamma^{3}\gamma^{0}u(p)
+\]
 
-\begin_layout Standard
-对应的旋量的变换是
-\begin_inset Formula $\bar{u}(p)O(p)u(p)\to\bar{u}(\tilde{p})\gamma^{3}\gamma^{1}O^{*}(\tilde{p})\gamma^{1}\gamma^{3}u(\tilde{p})=\bar{u}(p)\gamma^{0}\gamma^{3}\gamma^{1}O^{*}(\tilde{p})\gamma^{1}\gamma^{3}\gamma^{0}u(p)$
 \end_inset
 
-，最后一个等号利用了旋量的性质。
+最后一个等号利用了旋量的性质。
 \end_layout
 
 \begin_layout Standard
@@ -3249,19 +3274,23 @@ C\bar{\psi}(x)C=C\psi(x)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=(
 \end_inset
 
 对于一个费米子链，电荷共轭相当于
-\begin_inset Formula $\bar{\psi}O\psi\to(\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi)^{T}=\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi$
+\begin_inset Formula 
+\[
+\bar{\psi}O\psi\to(\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi)^{T}=\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi
+\]
+
 \end_inset
 
-，
+
 \begin_inset Formula $O$
 \end_inset
 
-是一串伽马矩阵的乘积。
-\end_layout
+是一串伽马矩阵的乘积。对应的旋量的变换是
+\begin_inset Formula 
+\[
+\bar{u}(p)O(p)u(p)\to\bar{u}(p)\gamma^{2}\gamma^{0}O^{T}(p)\gamma^{0}\gamma^{2}u(p)
+\]
 
-\begin_layout Standard
-对应的旋量的变换是
-\begin_inset Formula $\bar{u}(p)O(p)u(p)\to\bar{u}(p)\gamma^{2}\gamma^{0}O^{T}(p)\gamma^{0}\gamma^{2}u(p)$
 \end_inset
 
 
@@ -3516,7 +3545,6 @@ CPT表格
 
 \begin_layout Standard
 \begin_inset Float table
-placement h
 wide false
 sideways false
 status open
@@ -3979,7 +4007,9 @@ g(\mu)=-1, & \text{for }\mu=1,2,3
 \end_inset
 
 
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab1"
 
 \end_inset
 
@@ -3989,6 +4019,420 @@ g(\mu)=-1, & \text{for }\mu=1,2,3
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+下面给出费米子链的详细变换：
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+分立变换
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+原二次型:
+\begin_inset Formula $\bar{\psi}O(p)\psi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+原旋量:
+\begin_inset Formula $\bar{u}(p)O(p)u(p)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\bar{\psi}(\tilde{x})\gamma^{0}O(\tilde{x})\gamma^{0}\psi(\tilde{x})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\bar{u}(\tilde{p})\gamma^{0}O(\tilde{p})\gamma^{0}u(\tilde{p})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $T$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\bar{\psi}(-\tilde{x})\left(\gamma^{3}\gamma^{1}\right)O(-\tilde{x})^{*}\left(\gamma^{1}\gamma^{3}\right)\psi\left(-\tilde{x}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\bar{u}(-\tilde{p})\gamma^{3}\gamma^{1}O^{*}(-\tilde{p})\gamma^{1}\gamma^{3}u(-\tilde{p})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\left(\bar{\psi}(x)\gamma^{2}\gamma^{0}O(x)^{T}\gamma^{0}\gamma^{2}\psi(x)\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\left(\bar{u}(p)\gamma^{2}\gamma^{0}O(p)^{T}\gamma^{0}\gamma^{2}u(p)\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $CPT$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\left(\bar{\psi}(-x)\gamma^{2}\gamma^{0}\gamma^{3}\gamma^{1}\gamma^{0}O(-x)^{\dagger}\gamma^{0}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{2}\psi(-x)\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\left(\bar{u}(-p)\gamma^{2}\gamma^{0}\gamma^{3}\gamma^{1}\gamma^{0}O(-p)^{\dagger}\gamma^{0}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{2}u(-p)\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\color red
+\begin_inset Formula $CPT$
+\end_inset
+
+化简后
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color red
+\begin_inset Formula $\left(\bar{\psi}(x)\gamma^{5}O(-x)\gamma^{5}\psi(x)\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\color red
+\begin_inset Formula $\left(\bar{u}(p)\gamma^{5}O(-p)\gamma^{5}u(p)\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+任意双线性型的变换, 其中
+\begin_inset Formula $O(p)$
+\end_inset
+
+可能是
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵,动量
+\begin_inset Formula $p$
+\end_inset
+
+,以及
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+的任意组合, 
+\begin_inset Formula $\tilde{p}^{\mu}=\left(p^{0},-p^{\mu}\right)$
+\end_inset
+
+，即动量的空间部分反射。
+\begin_inset CommandInset label
+LatexCommand label
+name "tab2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们在 Weyl 基下考虑。回忆起
+\begin_inset Formula $\gamma^{0}O^{\dagger}\gamma^{0}=O$
+\end_inset
+
+，
+\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
+\end_inset
+
+以及
+\begin_inset Formula 
+\[
+u_{\lambda}(p)=\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}w_{\lambda}\\
+\sqrt{p\cdot\bar{\sigma}}w_{\lambda}
+\end{array}\right),\qquad v_{\eta}(p)=\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}q_{\eta}\\
+-\sqrt{p\cdot\bar{\sigma}}q_{\eta}
+\end{array}\right)
+\]
+
+\end_inset
+
+旋量中
+\begin_inset Formula $p\to-p$
+\end_inset
+
+时，会出现一个
+\begin_inset Formula $i$
+\end_inset
+
+,经过
+\begin_inset Formula $CPT$
+\end_inset
+
+，多了一个
+\begin_inset Formula $i^{2}=-1$
+\end_inset
+
+。化简过程是
+\begin_inset Formula 
+\begin{align*}
+\left(\bar{\psi}(-x)i\gamma^{5}\gamma^{0}O(-x)^{\dagger}i\gamma^{0}\gamma^{5}\psi(-x)\right)^{T} & =\left(\bar{\psi}(x)\gamma^{5}O(-x)\gamma^{5}\psi(x)\right)^{T}\\
+\left(\bar{u}(-p)i\gamma^{5}\gamma^{0}O(-p)^{\dagger}i\gamma^{0}\gamma^{5}u(-p)\right)^{T} & =\left(\bar{u}(p)\gamma^{5}O(-p)\gamma^{5}u(p)\right)^{T}
+\end{align*}
+
+\end_inset
+
+这跟 tab.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中正负号的结果是一致的。
+\end_layout
+
+\begin_layout Standard
+拉氏量在 
+\begin_inset Formula $CPT$
+\end_inset
+
+ 变换下应该是不变的，所以这些正负号会由 标量场，矢量场，以及 
+\begin_inset Formula $\partial$
+\end_inset
+
+ 来补偿。
 \end_layout
 
 \begin_layout Section
