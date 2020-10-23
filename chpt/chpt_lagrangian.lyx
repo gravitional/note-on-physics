@@ -1,0 +1,956 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-book
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+% This package makes it easy to add some picture commands to every page at ab-solute positions
+\usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
+%\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+% xcolor package starts from the basic facilities of the 
+% color package, and provides easy driver-independent access
+%to several kinds of color tints, shades, tones, 
+%and mixes of arbitrary colors
+\usepackage{amsmath,amssymb,amsfonts} % 数学字体
+\usepackage{mathrsfs} % 提供了mathscr 命令
+% Required for specifying colors by name 
+\usepackage{enumerate} 
+
+\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm,bbm} 
+%\bm which makes its argument bold
+%Blackboard variants of Computer Modern fonts.
+\usepackage{simplewick} 
+% a simple means of drawing Wick contractions above and below expressions. 
+\usepackage{makeidx} 
+% Standard package for creating indexes
+\usepackage{multirow}
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr}
+%\DeclareMathOperator{\re}{Re}
+%\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\disc}{Disc}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\cola}[1]{{\color{blue}{#1}}}
+%%%+++++++++++++++++++++++++++++++
+\usepackage{listings}
+% 在LaTex中添加代码高亮
+\usepackage{framed}
+% 在对象周围添加方框，阴影等等，允许跨页
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+%定义各种颜色
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{〈style name〉}{〈key=value list〉}
+%stores the key=value list
+\lstdefinestyle{codestyle1}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names,hyperref
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+chpt 拉氏量
+\end_layout
+
+\begin_layout Author
+Thomas Young
+\end_layout
+
+\begin_layout Section
+反常磁矩项
+\end_layout
+
+\begin_layout Standard
+我们使用的 Lagrangian, 参考这篇文章比较多： 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://arxiv.org/pdf/hep-ph/9212226.pdf"
+target "https://arxiv.org/pdf/hep-ph/9212226.pdf"
+literal "true"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+下面使用了依赖于某四速度
+\begin_inset Formula $v$
+\end_inset
+
+的场，
+\begin_inset Formula $v$
+\end_inset
+
+写在场的右下角。
+\end_layout
+
+\begin_layout Standard
+最低阶的包含 octet and decuplet 的拉氏量为
+\begin_inset Formula 
+\begin{align}
+L_{v}^{0} & =i\tr\bar{B}_{v}\left(v\cdot\mathcal{D}\right)B_{v}+2D\tr\bar{B}_{v}S_{v}^{\mu}\left\{ A_{\mu},B_{v}\right\} +2F\tr\bar{B}_{v}S_{v}^{\mu}\left[A_{\mu},B_{v}\right]\nonumber \\
+ & -i\bar{T}_{v}^{\mu}\left(v\cdot\mathcal{D}\right)T_{v\mu}+\mathcal{C}\left(\bar{T}_{v}^{\mu}A_{\mu}B_{v}+\bar{B}_{v}A_{\mu}T_{v}^{\mu}\right)+2\mathcal{H}\bar{T}_{v}^{\mu}S_{v\nu}A^{\nu}T_{v\mu}\label{eq:8}\\
+ & +\delta\bar{T}_{v}^{\mu}T_{v\mu}+\frac{f^{2}}{4}\tr\partial_{\mu}\Sigma\partial^{\mu}\Sigma\nonumber 
+\end{align}
+
+\end_inset
+
+参考 chpt_primer, 其中 spin matrix 
+\begin_inset Formula 
+\[
+S_{v}^{\mu}\equiv\frac{i}{2}\gamma_{5}\sigma^{\mu\nu}v_{\nu}=-\frac{1}{2}\gamma_{5}\left(\gamma^{\mu}\slashed{v}-v^{\mu}\right),\quad S_{v}^{\mu\dagger}=\gamma_{0}S_{v}^{\mu}\gamma_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{\mathcal{N}}_{v}\Gamma\mathcal{N}_{v}$
+\end_inset
+
+，
+\begin_inset Formula $\Gamma\in\left[\mathbbm{1},\gamma^{\mu},\gamma^{5},\gamma^{\mu}\gamma^{5},\sigma^{\mu\nu}\right]$
+\end_inset
+
+。其中
+\begin_inset Formula 
+\begin{align*}
+\mathcal{N}_{v} & =e^{+imv\cdot x}P_{v+}\Psi,\quad P_{v\pm}\equiv\frac{1}{2}\left(\mathbbm{1}\pm\slashed{v}\right)\\
+\Psi(x) & =e^{-imv\cdot x}\left[\mathcal{N}_{v}(x)+\mathcal{H}_{v}(x)\right]
+\end{align*}
+
+\end_inset
+
+利用
+\begin_inset Formula $S_{v}^{\mu}$
+\end_inset
+
+，可以重写16个双线性型，
+\begin_inset Formula 
+\begin{align}
+\bar{\mathcal{N}}_{v}\mathbbm{1}\mathcal{N}_{v} & =\bar{\mathcal{N}}_{v}\mathbbm{1}\mathcal{N}_{v}\nonumber \\
+\bar{\mathcal{N}}_{v}\gamma_{5}\mathcal{N}_{v} & =0\nonumber \\
+\bar{\mathcal{N}}_{v}\gamma^{\mu}\mathcal{N}_{v} & =v^{\mu}\bar{\mathcal{N}}_{v}\mathcal{N}_{v}\nonumber \\
+\bar{\mathcal{N}}_{v}\gamma^{\mu}\gamma_{5}\mathcal{N}_{v} & =2\bar{\mathcal{N}}_{v}S_{v}^{\mu}\mathcal{N}_{v}\nonumber \\
+\bar{\mathcal{N}}_{v}\sigma^{\mu\nu}\mathcal{N}_{v} & =2\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}v_{\rho}\bar{\mathcal{N}}_{v}S_{v}^{\sigma}\mathcal{N}_{v}\nonumber \\
+\bar{\mathcal{N}}_{v}\sigma^{\mu\nu}\gamma_{5}\mathcal{N}_{v} & =2i\bar{\mathcal{N}}_{v}\left(v^{\mu}S_{v}^{\nu}-v^{\nu}S_{v}^{\mu}\right)\mathcal{N}_{v}\label{eq:4.112}
+\end{align}
+
+\end_inset
+
+所以上面拉氏量
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:8"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的 
+\begin_inset Formula $2F\tr\bar{B}_{v}S_{v}^{\mu}\left[A_{\mu},B_{v}\right]$
+\end_inset
+
+ 在相对论情形是 
+\begin_inset Formula $F\tr\bar{B}\gamma^{\mu}\gamma_{5}\left[A_{\mu},B\right]$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+在 
+\begin_inset Formula $\overline{10}\otimes10\otimes8$
+\end_inset
+
+的张量直乘中，只有一项是 SU
+\begin_inset Formula $(3)$
+\end_inset
+
+不变的，可以选择正比于电荷，所以十重态磁矩算符可以写成
+\begin_inset Formula 
+\[
+\mathcal{L}=-i\frac{e}{m_{N}}\mu_{C}q_{i}\bar{T}_{vi}^{\mu}T_{vi}^{\nu}F_{\mu\nu}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $q_{i}$
+\end_inset
+
+是第
+\begin_inset Formula $i$
+\end_inset
+
+个 decuplet 的电荷，这个算符被归一化为，第
+\begin_inset Formula $i$
+\end_inset
+
+个态的磁矩是
+\begin_inset Formula $q_{i}\mu_{C}$
+\end_inset
+
+倍的 nuclear magnetons.
+ 实验中测得的 
+\begin_inset Formula $\Omega^{-}$
+\end_inset
+
+的磁矩决定
+\begin_inset Formula $\mu_{C}=1.94\pm0.22$
+\end_inset
+
+。 对应的相对论形式为
+\begin_inset Formula 
+\[
+\mathcal{L}=-i\frac{e}{m_{N}}\mu_{C}\bar{T}^{\mu,abc}Q_{cd}T^{\nu,abd}F_{\mu\nu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+octet-decuplet transition magnetic moment operator 的形式为：
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=i\frac{e}{2m_{N}}\mu_{T}F_{\mu\nu}\left(\varepsilon^{ijk}Q^{il}\bar{B}_{v}^{jm}S_{v}^{\mu}T_{v}^{\nu,klm}+\varepsilon^{ijk}Q^{li}\bar{T}_{v}^{\mu,klm}S_{v}^{\nu}B_{v}^{mj}\right)\label{eq:15}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $i,j,k,l$
+\end_inset
+
+ 都是 SU
+\begin_inset Formula $(3)$
+\end_inset
+
+味道指标。 按照上面提到的对应规则，其相对论性形式为
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{ie}{4m_{N}}\mu_{T}F_{\mu\nu}\left(\varepsilon^{ijk}Q^{il}\bar{B}^{jm}\gamma^{\mu}\gamma_{5}T^{\nu,klm}+\varepsilon^{ijk}Q^{li}\bar{T}^{\mu,klm}\gamma^{\nu}\gamma_{5}B^{mj}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+octet-decuplet transition electric quadrupole moment operator 有一个额外偏导数，因此位于
+ chiral 展开的更高阶。eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:15"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 意味着 
+\begin_inset Formula $\Delta\to N\gamma$
+\end_inset
+
+ 螺旋度振幅 
+\begin_inset Formula $A_{3/2}:A_{1/2}=\sqrt{3}:1$
+\end_inset
+
+，与实验的值比较接近。测量得到的螺旋度振幅的数值决定了 
+\begin_inset Formula $\mu_{T}=-7.7\pm0.5$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+除了 电磁耦合，计算磁矩还需要引入 SU
+\begin_inset Formula $(3)$
+\end_inset
+
+ breaking，通过夸克质量矩阵
+\begin_inset Formula $\mathcal{M}=\text{diag \left(m_{u},m_{d},m_{s}\right)}$
+\end_inset
+
+。在夸克质量矩阵展开的领头阶，赝标量 Goldstone bosons 得到非零质量，且 SU
+\begin_inset Formula $(3)$
+\end_inset
+
+重子多重态不再简并。
+\end_layout
+
+\begin_layout Section
+自旋半整数粒子
+\end_layout
+
+\begin_layout Standard
+参考文献： 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://journals.aps.org/pr/abstract/10.1103/PhysRev.60.61"
+target "https://journals.aps.org/pr/abstract/10.1103/PhysRev.60.61"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RS"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+以及
+\begin_inset CommandInset href
+LatexCommand href
+name "http://cds.cern.ch/record/368086/files/9810103.pdf"
+target "http://cds.cern.ch/record/368086/files/9810103.pdf"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}=\bar{\psi}\left(i\gamma.\partial-m\right)\psi=\frac{1}{2}\bar{\psi}\left(i\gamma.\overleftrightarrow{\partial}-m\right)\psi
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(i\gamma.\partial-m\right)\psi=0 &  & \bar{\psi}\left(-i\gamma.\partial-m\right)=0\\
+\left(\gamma.p-m\right)\psi=0 &  & \bar{\psi}\left(\gamma.p-m\right)=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+用
+\begin_inset Formula $\Psi_{\mu1\cdots\mu k}$
+\end_inset
+
+来描述一个自旋半整数的粒子。它混合了 Dirac 旋量和 
+\begin_inset Formula $k$
+\end_inset
+
+阶全对称张量的性质（这里省略了狄拉克指标）。描述
+\begin_inset Formula $k+\frac{1}{2}$
+\end_inset
+
+自旋粒子的方程式：
+\begin_inset Formula 
+\[
+\left(i\gamma^{\tau}\partial_{\tau}-m\right)\Psi_{\mu1\cdots\mu k}=0,\qquad\gamma_{\alpha}\Psi_{\alpha\mu2\cdots\mu k}=0
+\]
+
+\end_inset
+
+即每一个分量都满足 Dirac 方程。同时四个分量不是独立的，要满足
+\begin_inset Formula $\gamma_{\alpha}\Psi_{\alpha\mu2\cdots\mu k}=0$
+\end_inset
+
+ ，它投影掉了那些自旋
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+的分量。因为
+\begin_inset Formula $\gamma.p\psi=m\psi$
+\end_inset
+
+，可以理解为
+\begin_inset Formula 
+\[
+\gamma^{\mu}.\left(p_{\mu}\psi\right)=m\psi
+\]
+
+\end_inset
+
+结果不是零。
+\end_layout
+
+\begin_layout Standard
+整数情形的 supplementary conditions 也可以看成这些方程的结果：
+\begin_inset Formula 
+\[
+\partial_{\alpha}\Psi_{\alpha\mu_{2}\cdots\mu k}=0,\qquad\Psi_{\alpha\alpha\mu_{3}\cdots\mu k}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+要证明这些波函数确实描述
+\begin_inset Formula $k+\frac{1}{2}$
+\end_inset
+
+粒子。有两种方法：
+\end_layout
+
+\begin_layout Enumerate
+证明自由度相等，证明对于确定动量和能量，平面波解有
+\begin_inset Formula $2(k+\frac{1}{2})+1$
+\end_inset
+
+个。
+\end_layout
+
+\begin_layout Enumerate
+或者证明在静止系中，本征角动量的平方为
+\begin_inset Formula $\left(k+\frac{1}{2}\right)\left(k+\frac{3}{2}\right)$
+\end_inset
+
+（在任意参考系中不一定是这个值）。
+\end_layout
+
+\begin_layout Standard
+在静止系统中， spin multiplicity 是不变的，容易计算。由于每个
+\begin_inset Formula $\Psi$
+\end_inset
+
+都满足 Dirac 方程，小分量消失，大分量共有（计算
+\begin_inset Formula $4^{k}$
+\end_inset
+
+阶全对称张量不可约表示的维数）
+\begin_inset Formula 
+\[
+2\frac{(k+3)!}{k!3!}
+\]
+
+\end_inset
+
+个。第二个方程
+\begin_inset Formula $\gamma_{\alpha}\Psi_{\alpha\mu2\cdots\mu k}=0$
+\end_inset
+
+在静止系下，相当于
+\begin_inset Formula $\Psi_{0\mu2\cdots\mu k}=0$
+\end_inset
+
+,方程数目为
+\begin_inset Formula 
+\[
+2\frac{(k+2)!}{\left(k-1\right)!3!}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\sigma_{i}\Psi_{i\mu2\cdots\mu k}=0\left(\mu_{s}\neq4\right)$
+\end_inset
+
+提供了
+\begin_inset Formula 
+\[
+2\frac{(k+1)!}{\left(k-1\right)!2!}
+\]
+
+\end_inset
+
+个关系。所以最后剩下的独立分量个数为
+\begin_inset Formula 
+\[
+2\frac{(k+3)!}{k!3!}-2\frac{(k+2)!}{\left(k-1\right)!3!}-2\frac{(k+1)!}{\left(k-1\right)!2!}=2\left(k+1\right)
+\]
+
+\end_inset
+
+个，和期望中的一样。
+\end_layout
+
+\begin_layout Standard
+一个可能的拉氏量为
+\begin_inset Formula 
+\begin{align}
+\mathcal{L} & =\bar{\Psi}_{\mu}\left(i\gamma^{\tau}\partial_{\tau}-\kappa\right)\Psi_{\mu}-\frac{1}{3}\bar{\Psi}_{\mu}\left(\gamma_{\mu}\partial_{\nu}+\gamma_{\nu}\partial_{\mu}\right)\Psi_{\nu}\label{eq:3}\\
+ & +\frac{1}{3}\bar{\Psi}_{\mu}\gamma_{\mu}\left(i\gamma^{\tau}\partial_{\tau}+\kappa\right)\gamma_{\nu}\Psi_{\nu}\nonumber 
+\end{align}
+
+\end_inset
+
+在缺少外场的时候，拉氏量不是唯一的。运动方程为：
+\begin_inset Formula 
+\[
+\left(i\gamma^{\tau}\partial_{\tau}-\kappa\right)\Psi_{\mu}-\frac{1}{3}\left(\gamma_{\mu}\partial_{\nu}+\gamma_{\nu}\partial_{\mu}\right)\Psi_{\nu}+\frac{1}{3}\gamma_{\mu}\left(i\gamma^{\tau}\partial_{\tau}+\kappa\right)\gamma^{\nu}\Psi_{\nu}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+但是
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+可以让运动方程保持相对简单的形式。电荷和流的四矢量为
+\begin_inset Formula 
+\begin{align*}
+J_{\nu} & =\bar{\Psi}_{\mu}\gamma_{\nu}\Psi_{\mu}-\frac{1}{3}\left(\bar{\Psi}_{\mu}\gamma_{\mu}\right)\Psi_{\nu}-\frac{1}{3}\bar{\Psi}_{\nu}\left(\gamma_{\mu}\Psi_{\mu}\right)\\
+ & +\frac{1}{3}\left(\bar{\Psi}_{\sigma}\gamma_{\sigma}\right)\gamma_{\nu}\left(\gamma_{\tau}\Psi_{\tau}\right)\\
+ & =\bar{\Psi}_{\mu}\gamma_{\nu}\Psi_{\mu}
+\end{align*}
+
+\end_inset
+
+如果静止质量为零，则存在规范不变性
+\begin_inset Formula 
+\[
+\Psi_{\mu}^{\prime}=\Psi_{\mu}+\partial_{\mu}\varphi,\qquad\gamma_{\tau}\partial_{\tau}\varphi=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+自旋3/2 的粒子
+\end_layout
+
+\begin_layout Standard
+自旋
+\begin_inset Formula $\frac{3}{2}$
+\end_inset
+
+粒子的自由拉氏量为：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L} & =\bar{T}_{\mu}\left(i\gamma^{\mu\nu\rho}\partial_{\rho}-m\gamma^{\mu\nu}\right)T_{\nu}\\
+ & \left(i\gamma^{\mu\nu\rho}\partial_{\rho}-m\gamma^{\mu\nu}\right)T_{\nu}=0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma^{\mu\nu}=\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=-i\sigma^{\mu\nu},\qquad\gamma^{\mu\nu\rho}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\rho}\right\} =-\frac{i}{2}\left\{ \sigma^{\mu\nu},\gamma^{\rho}\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(i\gamma^{\mu\nu\rho}\partial_{\rho}-m\gamma^{\mu\nu}\right)T_{\nu} & =0\\
+\left(i\left(-\frac{i}{2}\right)\left\{ \sigma^{\mu\nu},\gamma^{\rho}\right\} \partial_{\rho}-m\left(-i\sigma^{\mu\nu}\right)\right)T_{\nu} & =0\\
+\left(\frac{1}{2}\left\{ \sigma^{\mu\nu},\gamma^{\rho}\right\} \partial_{\rho}+im\sigma^{\mu\nu}\right)T_{\nu} & =0
+\end{align*}
+
+\end_inset
+
+求
+\begin_inset Formula $T_{\nu}$
+\end_inset
+
+的平面波解，设
+\begin_inset Formula $T_{\nu}=u_{\nu}\exp\left(-ip\cdot x\right)$
+\end_inset
+
+，则
+\begin_inset Formula $\partial_{\rho}T_{\nu}=-ip_{\rho}u_{\nu}$
+\end_inset
+
+，代入得到：
+\begin_inset Formula 
+\begin{align*}
+\frac{-i}{2}\left\{ \sigma^{\mu\nu},\gamma^{\rho}\right\} p_{\rho}u_{\nu}+imu_{\nu} & =0
+\end{align*}
+
+\end_inset
+
+使用 FeynCalc 化简得到：
+\begin_inset Formula 
+\begin{align}
+\left(g^{\mu\nu}\left(m-\gamma.p\right)-\gamma^{\mu}\gamma^{\nu}(m-\gamma.p)+\gamma^{\nu}p^{\mu}-\gamma^{\mu}p^{\nu}\right)u_{\nu} & =0\label{eq:11}
+\end{align}
+
+\end_inset
+
+也就是，
+\begin_inset Formula 
+\begin{equation}
+\left(g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}\right)\left(m-\gamma.p\right)u_{\nu}=\left(\gamma^{\mu}p^{\nu}-\gamma^{\nu}p^{\mu}\right)u_{\nu}\label{eq:a}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:a"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+左乘
+\begin_inset Formula $\gamma_{\mu}$
+\end_inset
+
+得到：
+\begin_inset Formula 
+\begin{align}
+\left(\gamma^{\nu}-4\gamma^{\nu}\right)\left(m-\gamma.p\right)u_{\nu} & =\left(4p^{\nu}-\gamma^{\nu}\gamma.p\right)u_{\nu}\nonumber \\
+\left(-3\gamma^{\nu}\right)\left(m-\gamma.p\right)u_{\nu} & =\left(4p^{\nu}-\gamma^{\nu}\gamma.p\right)u_{\nu}\nonumber \\
+\left(-3m\gamma^{\nu}+2\gamma^{\nu}\gamma.p-2p^{\nu}\right)u_{\nu} & =0\label{eq:bb}
+\end{align}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:a"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+左乘
+\begin_inset Formula $p_{\mu}$
+\end_inset
+
+得到：
+\begin_inset Formula 
+\begin{align}
+\left(p^{\nu}-\gamma.p\gamma^{\nu}\right)\left(m-\gamma.p\right)u_{\nu} & =\left(\gamma.pp^{\nu}-p^{2}\gamma^{\nu}\right)u_{\nu}\nonumber \\
+\left(m\gamma^{\nu}\gamma.p-mp^{\nu}\right)u_{\nu} & =0\nonumber \\
+\left(\gamma^{\nu}\gamma.p-p^{\nu}\right)u_{\nu} & =0\nonumber \\
+\left(p^{\nu}-\gamma.p\gamma^{\nu}\right)u_{\nu} & =0\label{eq:cc}
+\end{align}
+
+\end_inset
+
+ 代入
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:bb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+得到：
+\begin_inset Formula 
+\begin{align*}
+\left(-3m\gamma^{\nu}+2\gamma^{\nu}\gamma.p-2\gamma^{\nu}\gamma.p\right)u_{\nu} & =0\\
+\left(-3m\gamma^{\nu}\right)u_{\nu} & =0\\
+\gamma^{\nu}u_{\nu} & =0
+\end{align*}
+
+\end_inset
+
+代入到
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:cc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\left(p^{\nu}-\gamma.p\gamma^{\nu}\right)u_{\nu}=0$
+\end_inset
+
+ 得到
+\begin_inset Formula 
+\[
+p^{\nu}u_{\nu}=0
+\]
+
+\end_inset
+
+再代回到 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:a"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\left(g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}\right)\left(m-\gamma.p\right)u_{\nu}=\left(\gamma^{\mu}p^{\nu}-\gamma^{\nu}p^{\mu}\right)u_{\nu}$
+\end_inset
+
+可知
+\begin_inset Formula 
+\[
+\left(m-\gamma.p\right)u^{\mu}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+总结：如果把
+\begin_inset Formula $u^{\mu}$
+\end_inset
+
+看作四矢量，它的每一个分量都满足 Dirac 方程，并且四矢量整体满足
+\begin_inset Formula $p^{\nu}u_{\nu}=0$
+\end_inset
+
+，也就是
+\begin_inset Formula $u_{\nu}$
+\end_inset
+
+只有三个极化矢量，类似有质量光子，Proca 拉氏量。此外四个分量还满足
+\begin_inset Formula $\gamma^{\nu}u_{\nu}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+拉氏量的构造
+\end_layout
+
+\begin_layout Standard
+我们可以反过来，思考拉氏量的构造，也就是如何构造一个拉氏量，它导出的运动方程能够满足
+\begin_inset Formula 
+\begin{align*}
+\left(m-\gamma.p\right)u^{\mu} & =0\\
+\gamma^{\nu}u_{\nu} & =0\\
+p^{\nu}u_{\nu} & =0
+\end{align*}
+
+\end_inset
+
+拉格朗日方程为：
+\begin_inset Formula 
+\[
+\frac{\partial\mathcal{L}}{\partial\bar{\psi}}=\partial_{\mu}\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\bar{\psi}\right)}
+\]
+
+\end_inset
+
+如果拉氏量中不含有
+\begin_inset Formula $\partial_{\mu}\bar{\psi}$
+\end_inset
+
+，则简化为
+\begin_inset Formula $\frac{\partial\mathcal{L}}{\partial\bar{\psi}}=0$
+\end_inset
+
+。能否使用类似拉格朗日乘子的方法，得到约束极值：
+\begin_inset Formula 
+\[
+\left(m-\gamma.p\right)\psi^{\mu},p^{\nu}\psi_{\nu},\gamma^{\nu}\psi_{\nu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bar{\psi}_{\mu}\left(A^{\mu\nu}\left(m-\gamma.p\right)+B^{\mu}p^{\nu}+C^{\mu}\gamma^{\nu}\right)\psi_{\nu}
+\]
+
+\end_inset
+
+如果要求
+\begin_inset Formula $A^{\mu\nu}$
+\end_inset
+
+ and 
+\begin_inset Formula $B^{\mu}p^{\nu}+C^{\mu}\gamma^{\nu}$
+\end_inset
+
+ 都是反对称的，参考
+\begin_inset Formula $F_{\mu\nu}$
+\end_inset
+
+，立即得到
+\begin_inset Formula 
+\[
+B^{\mu}p^{\nu}+C^{\mu}\gamma^{\nu}=\gamma^{\mu}p^{\nu}-p^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+二维张量
+\begin_inset Formula $A^{\mu\nu}=A*\sigma^{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Standard
+end of file
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "RS"
+literal "true"
+
+\end_inset
+
+William Rarita and Julian Schwinger,Phys.
+ Rev.
+ 60, 61,1 July 1941
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Generalized Rarita-Schwinger Equations
+\end_layout
+
+\end_body
+\end_document

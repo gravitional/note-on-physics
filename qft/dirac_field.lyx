@@ -1130,10 +1130,7 @@ C\gamma_{\mu}^{T}C=\gamma_{\mu},\quad C\gamma_{5}^{T}C=-\gamma_{5},\quad C\left(
 \end_layout
 
 \begin_layout Section
-\begin_inset Formula $\gamma$
-\end_inset
-
-矩阵公式
+gamma矩阵公式
 \end_layout
 
 \begin_layout Standard
@@ -1629,11 +1626,79 @@ S_{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]
 \end_layout
 
 \begin_layout Section
-gamma求迹公式
+gamma公式总结
 \end_layout
 
 \begin_layout Standard
-peskin page134，总结求迹公式：
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+定义：
+\begin_inset Formula 
+\[
+\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}=\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)
+\]
+
+\end_inset
+
+Schouten 恒等式：
+\begin_inset Formula 
+\[
+g^{\alpha\beta}\varepsilon^{\mu\nu\rho\sigma}-g^{\alpha\mu}\varepsilon^{\beta\nu\rho\sigma}+g^{\alpha\nu}\varepsilon^{\beta\mu\rho\sigma}-g^{\alpha\rho}\varepsilon^{\beta\mu\nu\sigma}+g^{\alpha\sigma}\varepsilon^{\beta\mu\nu\rho}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\gamma^{5}\sigma^{\rho\sigma}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}
+\]
+
+\end_inset
+
+三阶收缩 Chisholm 公式
+\begin_inset Formula 
+\begin{equation}
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\rho\mu}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果求迹内部出现
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵收缩，首先要化简收缩： 
+\begin_inset Formula 
+\begin{align*}
+\gamma^{\mu}\gamma^{\nu}\gamma_{\mu} & =-2\gamma^{\nu}\\
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma_{\mu} & =4g^{\nu\rho}\\
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\gamma_{\mu} & =-2\gamma^{\sigma}\gamma^{\rho}\gamma^{\nu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+peskin page134，求迹公式：
 \end_layout
 
 \begin_layout Standard
@@ -1709,24 +1774,6 @@ peskin page134，总结求迹公式：
 \end_inset
 
  （电荷共轭）证明。
-\end_layout
-
-\begin_layout Standard
-如果求迹内部出现
-\begin_inset Formula $\gamma$
-\end_inset
-
-矩阵收缩，首先要化简收缩：
-\begin_inset Formula 
-\begin{align*}
-\gamma^{\mu}\gamma^{\nu}\gamma_{\mu} & =-2\gamma^{\nu}\\
-\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma_{\mu} & =4g^{\nu\rho}\\
-\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\gamma_{\mu} & =-2\gamma^{\sigma}\gamma^{\rho}\gamma^{\nu}
-\end{align*}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

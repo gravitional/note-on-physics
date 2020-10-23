@@ -879,7 +879,11 @@ In numerical mode,the results are different.
 + `elide` 合并参考文献后,去掉重复的共同要素,例如作者或年份；
 + `mcite`识别（并忽略）合并语法
 
-### input与include
+### lyx中使用
+
+菜单栏`Insert/List_Toc/Bibtex`添加 `bib`库文件，即可使用。
+
+## input与include
 
 [Latex导入文件/input和/include方式][]
 
