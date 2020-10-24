@@ -734,6 +734,10 @@ Q_{a}(t) & =-i\int\dif^{3}x\Pi_{i}(x)t_{a,ij}\Phi_{j}(x)
 是结构常数。
 \end_layout
 
+\begin_layout Subsection
+求解守恒流
+\end_layout
+
 \begin_layout Standard
 求守恒流动可以用 Gell-Mann and Levy 方法，如果令
 \begin_inset Formula 
@@ -755,7 +759,7 @@ Q_{a}(t) & =-i\int\dif^{3}x\Pi_{i}(x)t_{a,ij}\Phi_{j}(x)
 \begin_inset Formula $IBP$
 \end_inset
 
-，就是按照变分规则，直接求出来的形式。
+，因为外面没有积分符号。
 \begin_inset Formula 
 \[
 J_{a}^{\mu}=\frac{\partial\delta\mathcal{L}}{\partial\partial_{\mu}\varepsilon_{a}},\qquad\partial_{\mu}J_{a}^{\mu}=\frac{\partial\delta\mathcal{L}}{\partial\varepsilon_{a}}
@@ -776,6 +780,708 @@ J_{a}^{\mu}=\frac{\partial\delta\mathcal{L}}{\partial\partial_{\mu}\varepsilon_{
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Section
+QCD 拉氏量的偶然全局对称性
+\end_layout
+
+\begin_layout Section
+格林函数和 Ward 恒等式
+\end_layout
+
+\begin_layout Subsection
+Ward 恒等式的例子
+\end_layout
+
+\begin_layout Standard
+对称性限制了格林函数之间的关系，比如 QED 的U(1) 对称性告诉我们
+\begin_inset Formula 
+\[
+\Gamma^{\mu}\left(p,p\right)=-\frac{\partial}{\partial p_{\mu}}\Sigma\left(p\right)
+\]
+
+\end_inset
+
+它联系了电子在零动量转移时的电磁顶点和，电子的自能
+\begin_inset Formula $\Sigma(p)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+使用泛函积分的表示，生成泛函，由生成泛函在对称变换下不变，可以得到 Ward 恒等式：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[j(x)\frac{\delta}{\delta j(x)}-j^{*}(x)\frac{\delta}{\delta j^{*}(x)}-i\partial_{x,\mu}\frac{\delta}{\delta j_{\mu}(x)}\right]W\left[j,j^{*},j_{\mu}\right]=0
+\]
+
+\end_inset
+
+利用这个式子和生成泛函的定义，可以把格林函数的散度，变成低阶泛函偏导的求和。类似于
+\begin_inset Formula 
+\[
+\partial_{x,\mu}G^{\mu}\left(x,y,z\right)=\left[\delta^{4}\left(y-x\right)-\delta^{4}\left(y-z\right)\right]\bra{0}T\left[\Phi(x)\Phi^{\dagger}(z)\right]\ket{0}
+\]
+
+\end_inset
+
+也就是说，理论底层的对称性，不仅会决定格林函数在对称群下的变换（也就是散射截面的变换），还能将含有守恒流的
+\begin_inset Formula $n$
+\end_inset
+
+点格林函数和
+\begin_inset Formula $n-1$
+\end_inset
+
+点格林函数联系起来。
+\end_layout
+
+\begin_layout Subsection
+手征格林函数
+\end_layout
+
+\begin_layout Standard
+我们关注那些 色中性，厄米的轻夸克场的二次型，它们在 QCD 真空中求值。根据 LSZ 公式，这些格林函数应该和包含介子的物理过程联系起来，也可以包括
+ 标准模型中的 电弱规范场。
+\color cyan
+结果的翻译取决于这些二次型的变换性质和量子数，来决定它们作为那个介子的插入场 (interpolating field)。
+\end_layout
+
+\begin_layout Standard
+比如，下列求真空期望值的格林函数
+\begin_inset Formula 
+\begin{align*}
+ & \bra{0}T\left[A_{a}^{\mu}\left(x\right)P_{b}\left(x\right)\right]\ket{0}\\
+ & \bra{0}T\left[P_{a}\left(x\right)J^{\mu}\left(y\right)P_{b}\left(z\right)\right]\ket{0}\\
+ & \bra{0}T\left[P_{a}\left(w\right)P_{b}\left(x\right)P_{c}\left(y\right)P_{d}\left(z\right)\right]\ket{0}
+\end{align*}
+
+\end_inset
+
+分别可以和 介子衰变，介子电磁形状因子（
+\begin_inset Formula $J^{\mu}$
+\end_inset
+
+是夸克电磁流），pion-pion 散射 联系起来。其中
+\begin_inset Formula 
+\[
+S_{a}\left(x\right)=\bar{q}\left(x\right)\lambda_{a}q\left(x\right),\qquad P_{a}\left(x\right)=i\bar{q}\gamma_{5}\lambda_{a}q\left(x\right),a=0,\cdots,8
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+此外，也可以单个核子态之间的编时乘积（可以认为是半个场算符作用到真空上）。可以用来讨论核子的性质，或是只包含一个核子的动力学过程
+\begin_inset Formula 
+\begin{align*}
+ & \bra{N}T\left[J^{\mu}\left(x\right)\right]\ket{N}\text{核子的电磁形状因子}\\
+ & \bra{N}T\left[A_{a}^{\mu}\left(x\right)\right]\ket{N}\text{axial 形状因子+ induced pseudoscalar 形状因子}\\
+ & \bra{N}T\left[J^{\mu}\left(x\right)J^{\nu}\left(y\right)\right]\ket{N}\text{康普顿散射}\\
+ & \bra{N}T\left[J^{\mu}\left(x\right)P_{a}\left(y\right)\right]\ket{N}\text{pion photo- and electroproduction}
+\end{align*}
+
+\end_inset
+
+一般来说，手征 Ward 恒等式把包含至少一个 
+\begin_inset Formula $V_{a}^{\mu}$
+\end_inset
+
+ or 
+\begin_inset Formula $A_{a}^{\mu}$
+\end_inset
+
+ 的格林函数的散度，和其他格林函数的线性组合联系起来。比如：
+\begin_inset Formula 
+\begin{align*}
+G_{APab}^{\mu}\left(x,y\right) & =\bra{0}T\left[A_{a}^{\mu}\left(x\right)P_{b}\left(y\right)\right]\ket{0}\\
+ & =\Theta\left(x^{0}-y^{0}\right)\bra{0}\left[A_{a}^{\mu}\left(x\right)P_{b}\left(y\right)\right]\ket{0}+\Theta\left(y^{0}-x^{0}\right)\bra{0}\left[P_{b}\left(y\right)A_{a}^{\mu}\left(x\right)\right]\ket{0}
+\end{align*}
+
+\end_inset
+
+通过使用
+\begin_inset Formula 
+\[
+\partial^{x,\mu}\Theta\left(x^{0}-y^{0}\right)=\delta\left(x^{0}-y^{0}\right)g^{0\mu}=-\partial^{x,\mu}\Theta\left(y^{0}-x^{0}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{x,\mu}G_{APab}^{\mu}\left(x,y\right)=\delta\left(x^{0}-y^{0}\right)\bra{0}\left[A_{a}^{0}\left(x\right)P_{b}\left(y\right)\right]\ket{0}+\bra{0}T\left[\partial_{x,\mu}A_{a}^{\mu}\left(x\right)P_{b}\left(y\right)\right]\ket{0}
+\]
+
+\end_inset
+
+它展示了一种结构，就是 守恒荷密度
+\begin_inset Formula $A_{a}^{0}$
+\end_inset
+
+和剩余二次型 
+\begin_inset Formula $P_{b}\left(y\right)$
+\end_inset
+
+的对易关系。这个对易子的结果反映了理论的地层对称性。第二项中是问题中流算符的散度。如果对称性是精确的，那么这一项为零。如果对称性是近似的，这一项可以看成微扰。一
+般的包含守恒流的 Ward 恒等式中会包含 
+\begin_inset Formula $n$
+\end_inset
+
+ 个类似 
+\begin_inset Formula $\delta\left(x^{0}-x_{n}^{0}\right)$
+\end_inset
+
+ 的函数。
+\end_layout
+
+\begin_layout Subsection
+流代数
+\end_layout
+
+\begin_layout Standard
+上面的例子中，包含守恒流和夸克二次型的对易子。这样的关系不能 naive 应用 Eq.103，对易子展开公式。比如QED的例子
+\begin_inset Formula 
+\begin{align*}
+\left[J_{0}\left(t,\vec{x}\right),J_{i}\left(t,\vec{y}\right)\right] & =0\\
+\left[\Psi^{\dagger}\Psi\left(t,\vec{x}\right),\Psi^{\dagger}\gamma_{0}\gamma_{i}\Psi\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)\Psi^{\dagger}\left(t,\vec{x}\right)\left[\mathbbm{1},\gamma_{0}\gamma_{i}\right]\Psi\left(t,\vec{x}\right)=0
+\end{align*}
+
+\end_inset
+
+这样的关系显然不对，因为它意味着
+\begin_inset Formula 
+\[
+\left[J_{0}\left(t,\vec{x}\right),\vec{\nabla}_{y}\vec{J}\left(t,\vec{y}\right)\right]=-\left[J_{0}\left(t,\vec{x}\right),\partial_{t}J_{0}\left(t,\vec{y}\right)\right]=0
+\]
+
+\end_inset
+
+如果我们令
+\begin_inset Formula $\vec{x}=\vec{y}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+ & \left[J_{0}\left(t,\vec{x}\right),\partial_{t}J_{0}\left(t,\vec{x}\right)\right]\\
+ & =\sum_{n}\bra{0}J_{0}\left(t,\vec{x}\right)\ket{n}\bra{n}\partial_{t}J_{0}\left(t,\vec{x}\right)\ket{0}-\bra{0}\partial_{t}J_{0}\left(t,\vec{x}\right)\ket{n}\bra{n}J_{0}\left(t,\vec{x}\right)\ket{0}\\
+ & =2i\sum_{n}\left(E_{n}-E_{0}\right)\abs*{\bra{0}J_{0}\left(t,\vec{x}\right)\ket{n}}^{2}
+\end{align*}
+
+\end_inset
+
+其中使用了
+\begin_inset Formula $\partial_{t}J_{0}\left(t,\vec{y}\right)=i\left[H,J_{0}\left(t,\vec{x}\right)\right]$
+\end_inset
+
+。对于任意中间态，
+\begin_inset Formula $\bra{0}J_{0}\left(t,\vec{x}\right)\ket{n}$
+\end_inset
+
+ 为零。这是非物理的，因为这意味着，用电荷密度
+\begin_inset Formula $J_{0}$
+\end_inset
+
+对真空作用，不能产生
+\begin_inset Formula $e^{+}e^{-}$
+\end_inset
+
+电子对，所以
+\begin_inset Formula $\left[J_{0}\left(t,\vec{x}\right),J_{i}\left(t,\vec{y}\right)\right]=0$
+\end_inset
+
+这个公式是有问题的。正确的公式中，需要加上一项 
+\begin_inset Formula $\delta$
+\end_inset
+
+ 函数的导数项，称为 Schwinger term。
+\end_layout
+
+\begin_layout Standard
+一般地，通过计算 能–动量张量 
+\begin_inset Formula $\Theta^{00}$
+\end_inset
+
+ 的对易关系，可以证明，荷密度和流密度的等时对易关系中会包含一个 
+\begin_inset Formula $\delta$
+\end_inset
+
+ 函数的导数。
+\begin_inset Formula 
+\[
+\left[J_{a}^{0}\left(0,\vec{x}\right),J_{b}^{i}\left(0,\vec{y}\right)\right]=iC_{abc}J_{c}^{i}\left(0,\vec{x}\right)\delta^{3}\left(\vec{x}-\vec{y}\right)+S_{ab}^{ij}\left(0,\vec{y}\right)\partial_{j}\delta^{3}\left(\vec{x}-\vec{y}\right)
+\]
+
+\end_inset
+
+其中 Schwinger term 是对称的
+\begin_inset Formula 
+\[
+S_{ab}^{ij}\left(0,\vec{y}\right)=S_{ba}^{ji}\left(0,\vec{y}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $C_{abc}$
+\end_inset
+
+是理论对称群的结构常数。
+\end_layout
+
+\begin_layout Standard
+然而，在之前推导 Chiral Ward 恒等式的时候，我们使用了 Naive time-ordered product (
+\begin_inset Formula $T$
+\end_inset
+
+) ，而不是协变的编时乘积
+\begin_inset Formula $T^{*}$
+\end_inset
+
+。那里也会差一个非协变项，通常称为 a seagull 海鸥。
+\begin_inset Formula 
+\[
+\partial_{x,\mu}G_{APab}^{\mu}\left(x,y\right)=\delta\left(x^{0}-y^{0}\right)\bra{0}\left[A_{a}^{0}\left(x\right)P_{b}\left(y\right)\right]\ket{0}+\bra{0}T\left[\partial_{x,\mu}A_{a}^{\mu}\left(x\right)P_{b}\left(y\right)\right]\ket{0}
+\]
+
+\end_inset
+
+费曼's conjucture 猜想，施温格项和海鸥项会相互抵消，所以你可以用 naive 的 
+\begin_inset Formula $T$
+\end_inset
+
+编时乘积，同时忽略施温格项。（最后使用协变的
+\begin_inset Formula $T^{*}$
+\end_inset
+
+编时乘积）。虽然这个想法一般来说不对，但是一个充分的条件是，full 理论的 time component algebra 和用通常方法推导出的相同，并且不包含
+施温格项。
+\end_layout
+
+\begin_layout Standard
+所以忽略施温格项的等时对易关系为
+\begin_inset Formula 
+\begin{align}
+\left[V_{a}^{0}\left(t,\vec{x}\right),V_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}V_{c}^{\mu}\left(t,\vec{x}\right)\label{eq:1.149}\\
+\left[V_{a}^{0}\left(t,\vec{x}\right),V^{\mu}\left(t,\vec{y}\right)\right] & =0\nonumber \\
+\left[V_{a}^{0}\left(t,\vec{x}\right),A_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}A_{c}^{\mu}\left(t,\vec{x}\right)\nonumber 
+\end{align}
+
+\end_inset
+
+等等。
+\end_layout
+
+\begin_layout Subsection
+存在外场时QCD 的生成泛函
+\end_layout
+
+\begin_layout Standard
+我们想考虑上面的对易关系
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.149"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 对 QCD 格林函数的影响。为了方便，使用生成泛函的语法。所有的手征 Ward 恒等式被 编码进 生成泛函的不变性。背后的思想是，如果不考虑反常，格林函数的w
+ard恒等式等价于，生成泛函在local 变换下的不变性，存在外场的情况下。使用 Local 变换让我们可以考虑格林函数的散度（通过一个 IBP）。此外，定域的
+对称性，一定要由外场作补偿变换，才能满足，所以必须考虑外场耦合。
+\end_layout
+
+\begin_layout Standard
+标准做法来自 Gasse and leutwyler，引入九个矢量流和八个轴矢流，还有标量和赝标量夸克密度
+\begin_inset Formula $18$
+\end_inset
+
+个，耦合到外部
+\begin_inset Formula $c$
+\end_inset
+
+数场
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=\ensuremath{\mathcal{L}_{\text{QCD}}^{0}}+\mathcal{L}_{\text{ext}}\label{eq:1.150}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{\text{ext}} & =\sum_{a=1}^{8}v_{a}^{\mu}\bar{q}\gamma_{\mu}\frac{\lambda_{a}}{2}q+\frac{1}{3}v_{(s)}^{\mu}\bar{q}\gamma_{\mu}\mathbbm{1}q+\sum_{a=1}^{8}a_{a}^{\mu}\bar{q}\gamma_{\mu}\gamma_{5}\frac{\lambda_{a}}{2}q\\
+ & -\sum_{a=1}^{8}S_{a}\bar{q}\lambda_{a}q+\sum_{a=1}^{8}p_{a}i\bar{q}\gamma_{5}\lambda_{a}q\\
+= & \bar{q}\gamma_{\mu}\left(v^{\mu}+\frac{1}{3}v_{(s)}^{\mu}+\gamma_{5}a^{\mu}\right)q-\bar{q}\left(s-i\gamma_{5}p\right)q
+\end{align*}
+
+\end_inset
+
+一共有
+\begin_inset Formula $35$
+\end_inset
+
+个 real functions ，记作
+\begin_inset Formula $\left[v,a,s,p\right]$
+\end_inset
+
+。回到普通的QCD 可以令 
+\begin_inset Formula $s=\text{diag}\left(m_{u},m_{d},m_{s}\right)$
+\end_inset
+
+。真空 sector 的格林函数可以被结合进 生成泛函中（bubble 图
+\begin_inset Formula $\bra{0}T\exp\left[i\int\dif^{4}x\mathcal{L}_{\text{free}}\right]\ket{0}_{0}$
+\end_inset
+
+都被约掉了）
+\begin_inset Formula 
+\[
+W\left[v,a,s,p\right]=\exp\left(iZ\left[v,a,s,p\right]\right)=\bra{0}T\exp\left[i\int\dif^{4}x\mathcal{L}_{\text{ext}}\right]\ket{0}_{0}
+\]
+
+\end_inset
+
+注意
+\begin_inset Formula $\mathcal{L}_{\text{ext}}$
+\end_inset
+
+中的夸克场
+\begin_inset Formula $q$
+\end_inset
+
+和基态
+\begin_inset Formula $\ket{0}_{0}$
+\end_inset
+
+指的都是手征极限下的对象。夸克场是 Heisenberg picture 中的对象，满足运动方程和正则对易关系。生成泛函和存在外场时的真空 to
+ 真空跃迁振幅联系
+\begin_inset Formula 
+\[
+\exp\left(iZ\left[v,a,s,p\right]\right)=\bra{0,\text{out}}\ket{0,\text{in}}_{v,a,s,p}
+\]
+
+\end_inset
+
+特定的生成函数可以通过对外场求泛函偏导得到。例如我们要求手征极限下的夸克凝聚，
+\begin_inset Formula $\bra{0}\bar{u}u\ket{0}_{0}$
+\end_inset
+
+，我们把
+\begin_inset Formula $\bar{u}u$
+\end_inset
+
+展开为
+\begin_inset Formula 
+\[
+\bar{u}u=\frac{1}{2}\sqrt{\frac{2}{3}}\bar{q}\lambda_{0}q+\frac{1}{2}\bar{q}\lambda_{3}q+\frac{1}{2}\frac{1}{\sqrt{3}}\bar{q}\lambda_{8}q
+\]
+
+\end_inset
+
+然后得到
+\begin_inset Formula 
+\[
+\bra{0}\bar{u}u\ket{0}_{0}=\left.\frac{i}{2}\left[\sqrt{\frac{2}{3}}\frac{\delta}{\delta s_{0}\left(x\right)}+\frac{\delta}{\delta s_{3}\left(x\right)}+\frac{1}{\sqrt{3}}\frac{\delta}{\delta s_{8}\left(x\right)}\right]\exp\left(iZ\left[v,a,s,p\right]\right)\right\rvert_{\{v,a,s,p\}=0}
+\]
+
+\end_inset
+
+我们甚至可以得到真实世界下的格林函数，其中夸克场和基态具有确定的质量。比如两个“真实世界”的轴矢流的两点函数，对于
+\begin_inset Formula $s=\text{diag}\left(m_{u},m_{d},m_{s}\right)$
+\end_inset
+
+和“真正的真空”
+\begin_inset Formula $\ket{0}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\bra{0}T\left[A_{a}^{\mu}\left(x\right)A_{b}^{\nu}\left(0\right)\right]\ket{0}_{0} & =\left(-i\right)^{2}\frac{\delta^{2}}{\delta a_{a\mu}\left(x\right)\delta a_{b\nu}\left(y\right)}\exp\left(iZ\left[v,a,s,p\right]\right)\\
+ & @\{v,a,p\}=0,s=\text{diag}\left(m_{u},m_{d},m_{s}\right)
+\end{align*}
+
+\end_inset
+
+注意左边的夸克场和基态都是真实世界的，右边生成泛函中的夸克场和基态都是手征极限（质量为零）下的。生成泛函在给定外场
+\begin_inset Formula $v,a,s,p$
+\end_inset
+
+配置下的实际取值，反映了 QCD Lagrangian 的动力学。这样，Ward 恒等式被编码到 生成泛函的不变性中。我们必须引入外场，才能把不变性提升到定域的
+，才能考虑生成泛函的散度(
+\begin_inset Formula $\partial_{\mu}G^{\mu}$
+\end_inset
+
+)。我们需要 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.150"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的拉氏量是厄米的，洛伦兹不变的，包括离散的 CPT 和连续的变换。由于 CPT 定理，实际上只用考虑 PC 就可以了。
+\end_layout
+
+\begin_layout Standard
+宇称变换
+\begin_inset Formula 
+\[
+q_{f}\left(t,\vec{x}\right)\stackrel{P}{\mapsto}\gamma_{0}q_{f}\left(t,-\vec{x}\right)
+\]
+
+\end_inset
+
+电荷共轭
+\begin_inset Formula 
+\[
+q_{\alpha,f}\stackrel{C}{\mapsto}C_{\alpha\beta}\bar{q}_{\beta,f},\qquad\bar{q}_{\alpha,f}\stackrel{C}{\mapsto}-q_{\beta,f}C_{\beta\alpha}^{-1}=q_{\beta,f}C_{\beta\alpha}
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ 是狄拉克指标，
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $C$
+\end_inset
+
+是电荷共轭矩阵，
+\begin_inset Formula $f$
+\end_inset
+
+是味道指标。
+\begin_inset Formula 
+\[
+C=i\gamma^{2}\gamma^{0}=-C^{-1}=-C^{\dagger}=-C^{T}=\left(\begin{array}{cccc}
+0 & 0 & 0 & -1\\
+0 & 0 & 1 & 0\\
+0 & -1 & 0 & 0\\
+1 & 0 & 0 & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+考虑到费米统计，可以得到
+\begin_inset Formula 
+\[
+\bar{q}\Gamma Fq\stackrel{C}{\mapsto}-\bar{q}C\Gamma^{T}CF^{T}q
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $F$
+\end_inset
+
+是味道空间的矩阵。所以在电荷共轭变换下
+\begin_inset Formula 
+\[
+\begin{array}{cccccc}
+\Gamma & \mathbbm{1} & \gamma^{\mu} & \sigma^{\mu\nu} & \gamma_{5} & \gamma^{\mu}\gamma_{5}\\
+C\Gamma^{T}C & \mathbbm{1} & -\gamma^{\mu} & -\sigma^{\mu\nu} & \gamma_{5} & \gamma^{\mu}\gamma_{5}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+最后，还要讨论在 local 
+\begin_inset Formula $SU(3)_{L}\times SU(3)_{R}\times U(1)_{V}$
+\end_inset
+
+ 下外场的变换性质。首先把它们写成左右手的形式。定义
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r_{\mu}=v_{\mu}+a_{\mu},\qquad l_{\mu}=v_{\mu}-a_{\mu}
+\]
+
+\end_inset
+
+可以把拉氏量重新写成
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L} & =\mathcal{L}_{\text{QCD}}^{0}+\bar{q}_{L}\gamma^{\mu}\left(l_{\mu}+\frac{1}{3}v_{\mu(s)}\right)q_{L}+\bar{q}_{R}\gamma^{\mu}\left(r_{\mu}+\frac{1}{3}v_{\mu(s)}\right)q_{R}\\
+ & -\bar{q}_{R}\left(s+ip\right)q_{L}-\bar{q}_{L}\left(s-ip\right)q_{R}
+\end{align*}
+
+\end_inset
+
+它在定域规范变换下不变
+\begin_inset Formula 
+\begin{align*}
+q_{R} & \mapsto\exp\left(-i\frac{\Theta\left(x\right)}{3}\right)V_{R}\left(x\right)q_{R}\\
+q_{L} & \mapsto\exp\left(-i\frac{\Theta\left(x\right)}{3}\right)V_{L}\left(x\right)q_{L}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $V_{R}\left(x\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $V_{L}\left(x\right)$
+\end_inset
+
+ 是独立的 时空依赖的 
+\begin_inset Formula $SU(3)$
+\end_inset
+
+ 矩阵（以后用
+\begin_inset Formula $L$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+ 表示全局变换），同时外场要满足
+\begin_inset Formula 
+\begin{align}
+r_{\mu} & \mapsto V_{R}r_{\mu}V_{R}^{\dagger}+iV_{R}\partial_{\mu}V_{R}^{\dagger}\nonumber \\
+l_{\mu} & \mapsto V_{L}l_{\mu}V_{L}^{\dagger}+iV_{L}\partial_{\mu}V_{L}^{\dagger}\nonumber \\
+v_{\mu}^{(s)} & \mapsto v_{\mu}^{(s)}-\partial_{\mu}\Theta\left(x\right)\nonumber \\
+s+ip & \mapsto V_{R}\left(s+ip\right)V_{L}^{\dagger}\nonumber \\
+s-ip & \mapsto V_{L}\left(s-ip\right)V_{R}^{\dagger}\label{eq:1.163}
+\end{align}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.163"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的导数，和规范理论中的导数类似，用来补偿夸克拉氏量中动能导数带来的额外项。
+\end_layout
+
+\begin_layout Standard
+把不变性定域化有另一个好处，也就是利用迁移到之后的有效场论中。比如，把点状的基本粒子耦合到电磁场，来自于把 U(1) 群规范化。这里U(1) 群被理解为定域
+ 
+\begin_inset Formula $SU(3)_{L}\times SU(3)_{R}$
+\end_inset
+
+ 的子群。另一个例子是处理轻夸克和弱相互作用中带电流和中性流的耦合。
+\end_layout
+
+\begin_layout Standard
+比如夸克和电磁场四矢量势
+\begin_inset Formula $\mathcal{A}_{\mu}$
+\end_inset
+
+的耦合为
+\begin_inset Formula 
+\[
+r_{\mu}=l_{\mu}=-e\mathcal{A}_{\mu}Q
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $Q=\text{diag}\left(\frac{2}{3},-\frac{1}{3},-\frac{1}{3}\right)$
+\end_inset
+
+是夸克电荷矩阵，其中
+\begin_inset Formula $e>0$
+\end_inset
+
+是单位电荷
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{\text{ext}} & =-e\mathcal{A}_{\mu}\left(\bar{q}_{L}Q\gamma^{\mu}q_{L}+\bar{q}_{R}Q\gamma^{\mu}q_{R}\right)=-e\mathcal{A}_{\mu}\bar{q}Q\gamma^{\mu}q\\
+ & =-e\mathcal{A}_{\mu}\left(\frac{2}{3}\bar{u}\gamma^{\mu}u-\frac{1}{3}\bar{d}\gamma^{\mu}d-\frac{1}{3}\bar{s}\gamma^{\mu}s\right)=ie\mathcal{A}_{\mu}J^{\mu}
+\end{align*}
+
+\end_inset
+
+如果考虑两位夸克的模型，则需要使用
+\begin_inset Formula 
+\[
+r_{\mu}=l_{\mu}=-e\mathcal{A}_{\mu}\frac{\tau_{3}}{2},\qquad v_{\mu}^{(s)}=-\frac{e}{2}\mathcal{A}_{\mu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+-\left[\begin{array}{cc}
+\frac{1}{2} & 0\\
+0 & -\frac{1}{2}
+\end{array}\right]-\left[\begin{array}{cc}
+\frac{1}{6} & 0\\
+0 & \frac{1}{6}
+\end{array}\right]=-\left[\begin{array}{cc}
+\frac{2}{3} & 0\\
+0 & -\frac{1}{3}
+\end{array}\right]
+\]
+
+\end_inset
+
+也就是把 U(1) 表示的直和直接投影到 
+\begin_inset Formula $SU(3)_{L}\times SU(3)_{R}$
+\end_inset
+
+ 表示 和 
+\begin_inset Formula $v_{\mu}^{(s)}$
+\end_inset
+
+ 的基上。以后直接对应到低能介子场和重子场。
 \end_layout
 
 \begin_layout Chapter
@@ -939,7 +1645,7 @@ f_{n}(\vec{y},\vec{p})=\bra{u}\mathscr{H}(\vec{y},0)\ket{n,\vec{p}}\bra{n,\vec{p
 
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Section
 全局，连续，非阿贝尔对称性的自发破缺
 \end_layout
 
@@ -1166,6 +1872,10 @@ noprefix "false"
 \end_layout
 
 \begin_layout Chapter
+介子的手征微扰理论
+\end_layout
+
+\begin_layout Section
 Goldstone 玻色子的变换性质
 \end_layout
 
@@ -2011,97 +2721,98 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-补充：关于平移对称性
+有效拉氏量和数幂次方案
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-U(x)\phi(0)U^{-1}(x)=\phi(x)
+\tr\left(\partial_{\mu}U,U^{\dagger}\right)=0
 \]
 
 \end_inset
 
-
-\begin_inset Formula $U(x)$
-\end_inset
-
-是 Hilbert 空间上的幺正算符。
-\begin_inset Formula $U(x)=\exp\left(iP^{\mu}x_{\mu}\right),P^{\mu}=(H,\vec{P})$
-\end_inset
-
-，
-\begin_inset Formula $H,\vec{P}$
-\end_inset
-
-分别是系统的总哈密顿和总动量（积分之后的）。
-\end_layout
-
-\begin_layout Standard
-一般来说，一个光滑函数
+因为
 \begin_inset Formula 
 \[
-f(a)=\sum_{n=0}^{\infty}f^{(n)}(0)\frac{a^{n}}{n!}=\exp(a*\partial_{x=0})\cdot f(x)
+U(x)=\exp\left(\frac{i\phi}{F_{0}}\right)
 \]
 
 \end_inset
 
-所以平移算符
-\begin_inset Formula $Q_{a}f(x)=f(x+a)$
-\end_inset
 
-可以写成上面的形式
-\begin_inset Formula $\exp(a*\partial_{x=0})\cdot f(x)$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $U(x)\phi(0)U^{-1}(x)=\phi(x)$
-\end_inset
-
-也就是一种平移操作。
-\begin_inset Formula $S=\int\dif^{4}x\mathcal{L}(x)$
-\end_inset
-
-，拉氏量具有时间平移不变性和空间平移不变性。
-\begin_inset Formula $H$
-\end_inset
-
-是时间平移不变性的守恒荷，
-\begin_inset Formula $\vec{P}$
-\end_inset
-
-是空间平移不变性的守恒荷。即使在量子理论中，诺特定理也成立，经典层次的守恒荷在量子层次仍然是守恒的（对于时空平移不变性，转动不变性这种基本的对称性）。
-\end_layout
-
-\begin_layout Standard
-由场论的基本对易关系
-\begin_inset Formula $\left[\phi_{a}(x),\pi_{b}(x)\right]=2\pi\,\delta^{(3)}(x-y)\delta_{ab}$
-\end_inset
-
-可以推导出，守恒荷是场论体系对称变换的生成元，
 \begin_inset Formula 
 \[
-\left[Q_{\alpha},\phi_{a}\right]=\frac{\delta\phi_{a}}{\delta\alpha}
+\tr\left(\partial_{\mu}U,U^{\dagger}\right)=\tr\left(\frac{i}{F_{0}}U\partial_{\mu}\phi,U^{\dagger}\right)=\tr\left(\frac{i}{F_{0}}U^{\dagger}U\partial_{\mu}\phi\right)=\tr\left(\frac{i}{F_{0}}\partial_{\mu}\phi\right)=0
 \]
 
 \end_inset
 
-所以
-\begin_inset Formula $H$
+
+\end_layout
+
+\begin_layout Subsection
+构建有效拉氏量
+\end_layout
+
+\begin_layout Standard
+对于按照
+\begin_inset Formula $A\mapsto V_{R}AV_{L}^{\dagger}$
 \end_inset
 
-生成时间平移变换，
-\begin_inset Formula $\vec{P}$
+变换的对象
+\begin_inset Formula $A$
 \end_inset
 
-生成空间平移变换。所以有
-\begin_inset Formula $U(x)\phi(0)U^{-1}(x)=\phi(x)$
+，定义协变导数
+\begin_inset Formula $A$
 \end_inset
 
-。不仅对于自由场论，对于相互作用场论，这个结论也成立，因为场论体系的拉氏量一般必须满足庞加莱不变性。所以这个等式是群论的必然要求。跟理论的量子化细节无关。
+为
+\begin_inset Formula 
+\begin{align*}
+D_{\mu}A & \equiv\partial_{\mu}A-ir_{\mu}A+iAl_{\mu}\\
+D_{\mu}A & \mapsto V_{R}\left(D_{\mu}A\right)V_{L}^{\dagger}
+\end{align*}
+
+\end_inset
+
+由于有效拉矢量可能包含任意高阶的导数，所以还需要场强张量
+\begin_inset Formula $f_{L\mu\nu}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{R\mu\nu}$
+\end_inset
+
+ ，对应与外场 
+\begin_inset Formula $r_{\mu}$
+\end_inset
+
+and 
+\begin_inset Formula $l_{\mu}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f_{R\mu\nu} & \equiv\partial_{\mu}r_{\nu}-\partial_{\nu}r_{\mu}-i\left[r_{\mu},r_{\nu}\right]\\
+f_{L\mu\nu} & \equiv\partial_{\mu}l_{\nu}-\partial_{\nu}l_{\mu}-i\left[l_{\mu},l_{\nu}\right]\\
+\tr\left(f_{R\mu\nu}\right) & =\tr\left(f_{L\mu\nu}\right)=0
+\end{align*}
+
+\end_inset
+
+另外一半还使用
+\begin_inset Formula 
+\begin{align*}
+x & \equiv2B_{0}\left(s+ip\right)\\
+3F_{0}^{2}B_{0} & =-\langle\bar{q}q\rangle_{0}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

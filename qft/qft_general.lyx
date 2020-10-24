@@ -693,6 +693,100 @@ a & \cdots & b
 所以最后得到的两个表达式是不差相对负号的。
 \end_layout
 
+\begin_layout Section
+关于平移对称性
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U(x)\phi(0)U^{-1}(x)=\phi(x)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $U(x)$
+\end_inset
+
+是 Hilbert 空间上的幺正算符。
+\begin_inset Formula $U(x)=\exp\left(iP^{\mu}x_{\mu}\right),P^{\mu}=(H,\vec{P})$
+\end_inset
+
+，
+\begin_inset Formula $H,\vec{P}$
+\end_inset
+
+分别是系统的总哈密顿和总动量（积分之后的）。
+\end_layout
+
+\begin_layout Standard
+一般来说，一个光滑函数
+\begin_inset Formula 
+\[
+f(a)=\sum_{n=0}^{\infty}f^{(n)}(0)\frac{a^{n}}{n!}=\exp(a*\partial_{x=0})\cdot f(x)
+\]
+
+\end_inset
+
+所以平移算符
+\begin_inset Formula $Q_{a}f(x)=f(x+a)$
+\end_inset
+
+可以写成上面的形式
+\begin_inset Formula $\exp(a*\partial_{x=0})\cdot f(x)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U(x)\phi(0)U^{-1}(x)=\phi(x)$
+\end_inset
+
+也就是一种平移操作。
+\begin_inset Formula $S=\int\dif^{4}x\mathcal{L}(x)$
+\end_inset
+
+，拉氏量具有时间平移不变性和空间平移不变性。
+\begin_inset Formula $H$
+\end_inset
+
+是时间平移不变性的守恒荷，
+\begin_inset Formula $\vec{P}$
+\end_inset
+
+是空间平移不变性的守恒荷。即使在量子理论中，诺特定理也成立，经典层次的守恒荷在量子层次仍然是守恒的（对于时空平移不变性，转动不变性这种基本的对称性）。
+\end_layout
+
+\begin_layout Standard
+由场论的基本对易关系
+\begin_inset Formula $\left[\phi_{a}(x),\pi_{b}(x)\right]=2\pi\delta^{(3)}(x-y)\delta_{ab}$
+\end_inset
+
+可以推导出，守恒荷是场论体系对称变换的生成元，
+\begin_inset Formula 
+\[
+\left[Q_{\alpha},\phi_{a}\right]=\frac{\delta\phi_{a}}{\delta\alpha}
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula $H$
+\end_inset
+
+生成时间平移变换，
+\begin_inset Formula $\vec{P}$
+\end_inset
+
+生成空间平移变换。所以有
+\begin_inset Formula $U(x)\phi(0)U^{-1}(x)=\phi(x)$
+\end_inset
+
+。不仅对于自由场论，对于相互作用场论，这个结论也成立，因为场论体系的拉氏量一般必须满足庞加莱不变性。所以这个等式是群论的必然要求。跟理论的量子化细节无关。
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout
