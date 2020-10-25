@@ -786,6 +786,105 @@ J_{a}^{\mu}=\frac{\partial\delta\mathcal{L}}{\partial\partial_{\mu}\varepsilon_{
 QCD 拉氏量的偶然全局对称性
 \end_layout
 
+\begin_layout Subsection
+夸克质量破坏手征对称性
+\end_layout
+
+\begin_layout Standard
+现在，我们可以总结强相互作用的各种（近似）对称性，以及相应的守恒流和它们的散度。
+\end_layout
+
+\begin_layout Enumerate
+在零质量夸克的极限下，16个流
+\begin_inset Formula $L_{a}^{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{a}^{\mu}$
+\end_inset
+
+ 或者说 
+\begin_inset Formula $V_{a}^{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{a}^{\mu}$
+\end_inset
+
+ 是守恒的。单态
+\begin_inset Formula $V^{\mu}$
+\end_inset
+
+也是守恒的，但是由于反常，单态轴矢流
+\begin_inset Formula $A^{\mu}$
+\end_inset
+
+不守恒。
+\end_layout
+
+\begin_layout Enumerate
+对于任意夸克质量，单个味道的流
+\begin_inset Formula $\bar{u}\gamma^{\mu}u,\bar{d}\gamma^{\mu}d$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{s}\gamma^{\mu}s$
+\end_inset
+
+在强相互作用中总是守恒的，反映了强相互作用的味道无关性和味道矩阵的对角性质。当然，单态矢量流
+\begin_inset Formula $A^{\mu}$
+\end_inset
+
+，作为三个味道流的和，也总是守恒的。
+\end_layout
+
+\begin_layout Enumerate
+除了反常之外，单态轴矢流的散度中有一项明显来自夸克质量。
+\end_layout
+
+\begin_layout Enumerate
+对于相等的夸克质量，
+\begin_inset Formula $m_{u}=m_{d}=m_{s}$
+\end_inset
+
+，八个矢量流
+\begin_inset Formula $V_{a}^{\mu}$
+\end_inset
+
+是守恒的，由于
+\begin_inset Formula $\left[\lambda_{a},\mathbbm{1}\right]=0$
+\end_inset
+
+。这样的物理图像正是 Gell-Mann and NE'eman 提出 SU(3) 对称性的起源。八个轴矢流
+\begin_inset Formula $A_{a}^{\mu}$
+\end_inset
+
+不是守恒的。octet axial-vector 的散度正比于赝标量二次型。这可以被理解为 PCAC （partially conseved axial-vec
+tor current）关系的微观起源。它表示，轴矢流的散度正比于重正化的场算符，这些算符代表了底层的赝标量 octet.
+\end_layout
+
+\begin_layout Enumerate
+取
+\begin_inset Formula $m_{u}=m_{d}\neq m_{s}$
+\end_inset
+
+将 SU(3) 味对称性降到 同位旋对称性。
+\end_layout
+
+\begin_layout Enumerate
+取
+\begin_inset Formula $m_{u}\neq m_{d}$
+\end_inset
+
+导致同位旋对称性破坏。
+\end_layout
+
+\begin_layout Enumerate
+更多关于对称性破缺模式的讨论见于 Pagels, H.: Phys.
+ Rep.
+ 16, 219 (1975) 
+\end_layout
+
 \begin_layout Section
 格林函数和 Ward 恒等式
 \end_layout
@@ -811,13 +910,58 @@ Ward 恒等式的例子
 \end_layout
 
 \begin_layout Standard
-使用泛函积分的表示，生成泛函，由生成泛函在对称变换下不变，可以得到 Ward 恒等式：
+利用泛函积分
+\begin_inset Formula 
+\begin{align*}
+ & Z\left[j,j^{\dagger},j^{\mu}\right]=\exp\left[iW\left[j,j^{\dagger},j^{\mu}\right]\right]\\
+ & =\bra{0}T\left(\exp\left\{ i\int\dif^{4}x\left[j\left(x\right)\Phi^{\dagger}\left(x\right)+j^{\dagger}\left(x\right)\Phi\left(x\right)+j_{\mu}\left(x\right)J^{\mu}\left(x\right)\right]\right\} \right)\ket{0}
+\end{align*}
+
+\end_inset
+
+格林函数可以表示成生成泛函的系数
+\begin_inset Formula 
+\[
+G^{\mu}\left(x,y,z\right)=\left(-i\right)^{3}\frac{\delta^{3}Z\left[j,j^{\dagger},j^{\mu}\right]}{\delta j^{\dagger}\left(x\right)\delta j_{\mu}\left(y\right)\delta j\left(z\right)}
+\]
+
+\end_inset
+
+生成泛函可以理解成存在外场情况下的真空跃迁振幅
+\begin_inset Formula 
+\[
+Z\left[j,j^{\dagger},j^{\mu}\right]=\bra{0,\text{out}}\ket{0,\text{in}}_{j,j^{\dagger},j_{\mu}}
+\]
+
+\end_inset
+
+它具有路径积分表示
+\begin_inset Formula 
+\[
+Z\left[j,j^{\dagger},j^{\mu}\right]=\int\left[\dif\Phi_{1}\right]\left[\dif\Phi_{2}\right]\exp\left[iS\left[\Phi,\Phi^{\dagger},j,j^{\dagger},j_{\mu}\right]\right]
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+S\left[\Phi,\Phi^{\dagger},j,j^{\dagger},j_{\mu}\right]=S\left[\Phi,\Phi^{\dagger}\right]+\int\dif^{4}x\left[\Phi\left(x\right)j^{\dagger}\left(x\right)+\Phi^{\dagger}\left(x\right)j\left(x\right)+J^{\mu}\left(x\right)j_{\mu}\left(x\right)\right]
+\]
+
+\end_inset
+
+作用量加上外源耦合项。使用路径积分表示，用处理泛函积分代替处理线性算符。
+\end_layout
+
+\begin_layout Standard
+使用生成泛函的路径积分表示，由生成泛函在对称变换下不变，可以得到 Ward 恒等式：
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left[j(x)\frac{\delta}{\delta j(x)}-j^{*}(x)\frac{\delta}{\delta j^{*}(x)}-i\partial_{x,\mu}\frac{\delta}{\delta j_{\mu}(x)}\right]W\left[j,j^{*},j_{\mu}\right]=0
+\left[j(x)\frac{\delta}{\delta j(x)}-j^{*}(x)\frac{\delta}{\delta j^{*}(x)}-i\partial_{x,\mu}\frac{\delta}{\delta j_{\mu}(x)}\right]Z\left[j,j^{*},j_{\mu}\right]=0
 \]
 
 \end_inset
@@ -1096,21 +1240,29 @@ noprefix "false"
 
 \end_inset
 
- 对 QCD 格林函数的影响。为了方便，使用生成泛函的语法。所有的手征 Ward 恒等式被 编码进 生成泛函的不变性。背后的思想是，如果不考虑反常，格林函数的w
-ard恒等式等价于，生成泛函在local 变换下的不变性，存在外场的情况下。使用 Local 变换让我们可以考虑格林函数的散度（通过一个 IBP）。此外，定域的
+ 对 QCD 格林函数的影响。为了方便，使用生成泛函的语法。所有的手征 Ward 恒等式被 编码进 生成泛函的不变性。背后的思想是，如果不考虑反常，在有外场的情
+况下，格林函数的ward恒等式等价于，生成泛函在local 变换下的不变性。使用 Local 变换让我们可以考虑格林函数的散度（通过一个 IBP）。此外，定域的
 对称性，一定要由外场作补偿变换，才能满足，所以必须考虑外场耦合。
 \end_layout
 
 \begin_layout Standard
-标准做法来自 Gasse and leutwyler，引入九个矢量流和八个轴矢流，还有标量和赝标量夸克密度
+标准做法来自 Gasse and leutwyler，引入
+\begin_inset Formula $9$
+\end_inset
+
+个矢量流和
+\begin_inset Formula $8$
+\end_inset
+
+个轴矢流；还有
 \begin_inset Formula $18$
 \end_inset
 
-个，耦合到外部
+个用来耦合到外部
 \begin_inset Formula $c$
 \end_inset
 
-数场
+数场的，标量和赝标量夸克密度，
 \begin_inset Formula 
 \begin{equation}
 \mathcal{L}=\ensuremath{\mathcal{L}_{\text{QCD}}^{0}}+\mathcal{L}_{\text{ext}}\label{eq:1.150}
@@ -1147,7 +1299,7 @@ ard恒等式等价于，生成泛函在local 变换下的不变性，存在外�
 都被约掉了）
 \begin_inset Formula 
 \[
-W\left[v,a,s,p\right]=\exp\left(iZ\left[v,a,s,p\right]\right)=\bra{0}T\exp\left[i\int\dif^{4}x\mathcal{L}_{\text{ext}}\right]\ket{0}_{0}
+Z\left[v,a,s,p\right]=\exp\left(iW\left[v,a,s,p\right]\right)=\bra{0}T\exp\left[i\int\dif^{4}x\mathcal{L}_{\text{ext}}\right]\ket{0}_{0}
 \]
 
 \end_inset
@@ -1168,7 +1320,7 @@ W\left[v,a,s,p\right]=\exp\left(iZ\left[v,a,s,p\right]\right)=\bra{0}T\exp\left[
  真空跃迁振幅联系
 \begin_inset Formula 
 \[
-\exp\left(iZ\left[v,a,s,p\right]\right)=\bra{0,\text{out}}\ket{0,\text{in}}_{v,a,s,p}
+\exp\left(iW\left[v,a,s,p\right]\right)=\bra{0,\text{out}}\ket{0,\text{in}}_{v,a,s,p}
 \]
 
 \end_inset
@@ -1208,7 +1360,7 @@ W\left[v,a,s,p\right]=\exp\left(iZ\left[v,a,s,p\right]\right)=\bra{0}T\exp\left[
 ，
 \begin_inset Formula 
 \begin{align*}
-\bra{0}T\left[A_{a}^{\mu}\left(x\right)A_{b}^{\nu}\left(0\right)\right]\ket{0}_{0} & =\left(-i\right)^{2}\frac{\delta^{2}}{\delta a_{a\mu}\left(x\right)\delta a_{b\nu}\left(y\right)}\exp\left(iZ\left[v,a,s,p\right]\right)\\
+\bra{0}T\left[A_{a}^{\mu}\left(x\right)A_{b}^{\nu}\left(0\right)\right]\ket{0}_{0} & =\left(-i\right)^{2}\frac{\delta^{2}}{\delta a_{a\mu}\left(x\right)\delta a_{b\nu}\left(y\right)}\exp\left(iW\left[v,a,s,p\right]\right)\\
  & @\{v,a,p\}=0,s=\text{diag}\left(m_{u},m_{d},m_{s}\right)
 \end{align*}
 
@@ -1871,6 +2023,443 @@ noprefix "false"
 李代数中的一个元素，跟我们的假设相矛盾。
 \end_layout
 
+\begin_layout Section
+Goldstone 定理
+\end_layout
+
+\begin_layout Standard
+以 SO(3) 为例。如果哈密顿算符具有 global 
+\begin_inset Formula $G=SO(3)$
+\end_inset
+
+ 对称性，让
+\begin_inset Formula $\vec{\Phi}\left(x\right)=\left(\Phi_{1}(x),\Phi_{2}(x),\Phi_{3}(x)\right)$
+\end_inset
+
+ 表示了一个 triplet of local Hermitian operators，在群 
+\begin_inset Formula $G$
+\end_inset
+
+作用下按照矢量变换：
+\begin_inset Formula 
+\begin{align*}
+g & \in G:\vec{\Phi}\mapsto\vec{\Phi}^{\prime}\left(x\right)=\exp\left(i\sum_{k=1}^{3}\alpha_{k}Q_{k}\right)\vec{\Phi}\left(x\right)\exp\left(-i\sum_{l=1}^{3}\alpha_{l}Q_{l}\right)\\
+ & =\exp\left(-i\sum_{l=1}^{3}\alpha_{k}T_{k}\right)\vec{\Phi}\left(x\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+是 Hilbert 空间上 SO(3) 变换的生成元，
+\begin_inset Formula $\left[Q_{i},Q_{j}\right]=i\varepsilon_{ijk}Q_{k}$
+\end_inset
+
+。而
+\begin_inset Formula $T_{i}=t_{i,jk}$
+\end_inset
+
+是SO(3) 群的三维矩阵表示。满足
+\begin_inset Formula $t_{i,jk}=-i\varepsilon_{ijk}$
+\end_inset
+
+。我们假设
+\begin_inset Formula $\vec{\Phi}\left(x\right)$
+\end_inset
+
+多重态中有一个分量获得了非零的真空期望值：
+\begin_inset Formula 
+\begin{equation}
+\bra{0}\Phi_{1}\left(x\right)\ket{0}=\bra{0}\Phi_{2}\left(x\right)\ket{0}=0,\quad\bra{0}\Phi_{3}\left(x\right)\ket{0}=v\neq0\label{eq:2.29}
+\end{equation}
+
+\end_inset
+
+那么 Hilbert 空间上的生成元 
+\begin_inset Formula $Q_{1}$
+\end_inset
+
+and 
+\begin_inset Formula $Q_{2}$
+\end_inset
+
+ 将不会湮灭基态（ground state ），每一个这样的生成元对应一个无质量的 Goldstone boson。利用对易关系
+\begin_inset Formula 
+\[
+i\left[Q_{k},\Phi_{l}\right]=-\varepsilon_{klm}\Phi_{m}
+\]
+
+\end_inset
+
+也就是场按照矢量变换。利用
+\begin_inset Formula $\varepsilon_{klm}\varepsilon_{kln}=2\delta_{mn}$
+\end_inset
+
+，我们发现
+\begin_inset Formula 
+\[
+-\frac{i}{2}\varepsilon_{kln}\left[Q_{k},\Phi_{l}\right]=\delta_{mn}\Phi_{m}=\Phi_{n}
+\]
+
+\end_inset
+
+特别的，
+\begin_inset Formula 
+\begin{equation}
+\Phi_{3}=-\frac{i}{2}\left(\left[Q_{1},\Phi_{2}\right]-\left[Q_{2},\Phi_{1}\right]\right)\label{eq:2.30}
+\end{equation}
+
+\end_inset
+
+考虑
+\begin_inset Formula $\exp\left(i\sum_{k=1}^{3}\alpha_{k}Q_{k}\right)\vec{\Phi}\left(x\right)\exp\left(-i\sum_{l=1}^{3}\alpha_{l}Q_{l}\right)=\exp\left(-i\sum_{l=1}^{3}\alpha_{k}T_{k}\right)\vec{\Phi}\left(x\right)$
+\end_inset
+
+ 中令
+\begin_inset Formula $\vec{\alpha}=\left(0,\pi/2,0\right)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\exp\left(-i\frac{\pi}{2}T_{2}\right)\vec{\Phi} & =\left(\begin{array}{ccc}
+\cos\left(\frac{\pi}{2}\right) & 0 & \sin\left(\frac{\pi}{2}\right)\\
+0 & 1 & 0\\
+-\sin\left(\frac{\pi}{2}\right) & 0 & \cos\left(\frac{\pi}{2}\right)
+\end{array}\right)\left(\begin{array}{c}
+\Phi_{1}\\
+\Phi_{2}\\
+\Phi_{3}
+\end{array}\right)=\left(\begin{array}{c}
+\Phi_{3}\\
+\Phi_{2}\\
+-\Phi_{1}
+\end{array}\right)\\
+ & =\exp\left(i\frac{\pi}{2}Q_{2}\right)\left(\begin{array}{c}
+\Phi_{1}\\
+\Phi_{2}\\
+\Phi_{3}
+\end{array}\right)\exp\left(-i\frac{\pi}{2}Q_{2}\right)
+\end{align*}
+
+\end_inset
+
+从第一行中，我们得到
+\begin_inset Formula 
+\begin{equation}
+\Phi_{3}=\exp\left(i\frac{\pi}{2}Q_{2}\right)\Phi_{1}\exp\left(-i\frac{\pi}{2}Q_{2}\right)
+\end{equation}
+
+\end_inset
+
+求真空期望值我们得到
+\begin_inset Formula 
+\[
+\nu=\bra{0}\exp\left(i\frac{\pi}{2}Q_{2}\right)\Phi_{1}\exp\left(-i\frac{\pi}{2}Q_{2}\right)\ket{0}
+\]
+
+\end_inset
+
+由 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.29"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\bra{0}\Phi_{1}\left(x\right)\ket{0}=\bra{0}\Phi_{2}\left(x\right)\ket{0}=0,\quad\bra{0}\Phi_{3}\left(x\right)\ket{0}=v\neq0$
+\end_inset
+
+知道
+\begin_inset Formula 
+\[
+Q_{2}\ket{0}\neq0
+\]
+
+\end_inset
+
+否则幺正算符
+\begin_inset Formula $\exp\left(-i\frac{\pi}{2}Q_{2}\right)$
+\end_inset
+
+可以被替换成
+\begin_inset Formula $1$
+\end_inset
+
+，那么式子右边等于零。类似地，
+\begin_inset Formula $Q_{1}\ket{0}\neq0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+附注：
+\end_layout
+
+\begin_layout Enumerate
+状态 
+\begin_inset Formula $Q_{1(2)}\ket{0}$
+\end_inset
+
+不能被归一化。在严格推导中，使用
+\begin_inset Formula 
+\[
+\int\dif^{3}x\bra{0}\left[J_{k}^{0}\left(t,\vec{x},\Phi_{l}\left(0\right)\right)\right]\ket{0}
+\]
+
+\end_inset
+
+并且首先求出对易子，再进行积分。
+\end_layout
+
+\begin_layout Enumerate
+有些 Goldstone 定理的推导从 
+\begin_inset Formula $Q_{1(2)}\ket{0}\neq0$
+\end_inset
+
+ 开始。然而，为了讨论 QCD 背景下的对称性自发破缺，建立起非零真空期望值和 Goldstone 玻色子的联系比较好。
+\end_layout
+
+\begin_layout Standard
+现在证明 Goldstone 玻色子的存在。取 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.30"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\Phi_{3}=-\frac{i}{2}\left(\left[Q_{1},\Phi_{2}\right]-\left[Q_{2},\Phi_{1}\right]\right)$
+\end_inset
+
+ 的真空期望值，
+\begin_inset Formula 
+\[
+0\neq v=\bra{0}\Phi_{3}\ket{0}=\Phi_{3}=-\frac{i}{2}\bra{0}\left(\left[Q_{1},\Phi_{2}\right]-\left[Q_{2},\Phi_{1}\right]\right)\ket{0}=\frac{i}{2}\left(A-B\right)
+\]
+
+\end_inset
+
+利用
+\begin_inset Formula 
+\[
+\exp\left(-i\frac{\pi}{2}T_{3}\right)\vec{\Phi}=\left(\begin{array}{c}
+-\Phi_{2}\\
+\Phi_{1}\\
+\Phi_{3}
+\end{array}\right)=\exp\left(i\frac{\pi}{2}Q_{3}\right)\left(\begin{array}{c}
+\Phi_{1}\\
+\Phi_{2}\\
+\Phi_{3}
+\end{array}\right)\exp\left(-i\frac{\pi}{2}Q_{3}\right)
+\]
+
+\end_inset
+
+对于 charge operators 也有
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+-Q_{2}\\
+Q_{1}\\
+Q_{3}
+\end{array}\right)=\exp\left(i\frac{\pi}{2}Q_{3}\right)\left(\begin{array}{c}
+Q_{1}\\
+Q_{2}\\
+Q_{3}
+\end{array}\right)\exp\left(-i\frac{\pi}{2}Q_{3}\right)
+\]
+
+\end_inset
+
+可以得到
+\begin_inset Formula 
+\begin{align*}
+B & =\bra{0}\left[Q_{2},\Phi_{1}\right]\ket{0}\\
+ & =\bra{0}\exp\left(i\frac{\pi}{2}Q_{3}\right)\left(-Q_{1}\right)\exp\left(-i\frac{\pi}{2}Q_{3}\right)\exp\left(i\frac{\pi}{2}Q_{3}\right)\Phi_{2}\left(0\right)\exp\left(-i\frac{\pi}{2}Q_{3}\right)\ket{0}\\
+ & -\bra{0}\exp\left(i\frac{\pi}{2}Q_{3}\right)\Phi_{2}\left(0\right)\exp\left(-i\frac{\pi}{2}Q_{3}\right)\exp\left(i\frac{\pi}{2}Q_{3}\right)\left(-Q_{1}\right)\exp\left(-i\frac{\pi}{2}Q_{3}\right)\ket{0}\\
+ & =-\bra{0}\left[Q_{1},\Phi_{2}\left[0\right]\right]\ket{0}=-A
+\end{align*}
+
+\end_inset
+
+其中使用了
+\begin_inset Formula $Q_{3}\ket{0}=0$
+\end_inset
+
+。也就是，真空在第三轴的转动下不变。所以非零真空期望值
+\begin_inset Formula $v$
+\end_inset
+
+可以写成
+\begin_inset Formula 
+\begin{align*}
+0\neq v & =\bra{0}\Phi_{3}\left(0\right)\ket{0}=-i\bra{0}\left[Q_{1},\Phi_{2}\left(0\right)\right]\ket{0}\\
+ & =-i\int\dif^{3}x\bra{0}\left[J_{1}^{0}\left(t,\vec{x}\right),\Phi_{2}\left(0\right)\right]\ket{0}
+\end{align*}
+
+\end_inset
+
+插入一个完备集分解
+\begin_inset Formula $1=\sum_{n}\int\ket{n}\bra{n}$
+\end_inset
+
+得到：
+\begin_inset Formula 
+\begin{equation}
+v=-i\sum_{n}\int\dif^{3}x\left(\bra{0}J_{1}^{0}\left(t,\vec{x}\right)\ket{n}\bra{n}\Phi_{2}\left(0\right)\ket{0}-\bra{0}\Phi_{2}\left(0\right)\ket{n}\bra{n}J_{1}^{0}\left(t,\vec{x}\right)\ket{0}\right)\label{eq:2.31}
+\end{equation}
+
+\end_inset
+
+并使用平移不变性
+\begin_inset Formula 
+\begin{align*}
+ & =-i\sum_{n}\int\dif^{3}x\left(e^{-iP_{n}\cdot x}\bra{0}J_{1}^{0}\left(t,\vec{x}\right)\ket{n}\bra{n}\Phi_{2}\left(0\right)\ket{0}-e^{iP_{n}\cdot x}\bra{0}\Phi_{2}\left(0\right)\ket{n}\bra{n}J_{1}^{0}\left(t,\vec{x}\right)\ket{0}\right)\\
+ & =-i\sum_{n}\int\dif^{3}x\delta^{3}\left(\vec{P}_{n}\right)e^{-iE_{n}\cdot x}\bra{0}J_{1}^{0}\left(t,\vec{x}\right)\ket{n}\bra{n}\Phi_{2}\left(0\right)\ket{0}\\
+ & \phantom{=}-i\sum_{n}\int\dif^{3}x\delta^{3}\left(\vec{P}_{n}\right)e^{iE_{n}\cdot x}\bra{0}\Phi_{2}\left(0\right)\ket{n}\bra{n}J_{1}^{0}\left(t,\vec{x}\right)\ket{0}
+\end{align*}
+
+\end_inset
+
+对动量积分，可以得到
+\begin_inset Formula 
+\[
+=-i\left(2\pi\right)^{3}\sum_{n}\left(e^{-iE_{n}[p=0]\cdot x}\cdots-e^{iE_{n}[p=0]\cdot x}\cdots\right)
+\]
+
+\end_inset
+
+只有
+\begin_inset Formula $\vec{p}=0$
+\end_inset
+
+ 的那些态有贡献。由于守恒流算符
+\begin_inset Formula $J_{k}^{\mu}$
+\end_inset
+
+和场
+\begin_inset Formula $\Phi_{l}$
+\end_inset
+
+都是厄米的，所以
+\begin_inset Formula 
+\[
+c_{n}\equiv\bra{0}J_{1}^{0}\left(t,\vec{x}\right)\ket{n}\bra{n}\Phi_{2}\left(0\right)\ket{0}=\bra{0}J_{1}^{0}\left(t,\vec{x}\right)\ket{n}^{*}\bra{n}\Phi_{2}\left(0\right)\ket{0}^{*}
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\begin{equation}
+v=-i\left(2\pi\right)^{3}\sum_{n}\left(c_{n}\exp\left(-iE_{n}[p=0]t\right)-c_{n}^{*}\exp\left(iE_{n}[p=0]t\right)\right)\label{eq:2.32}
+\end{equation}
+
+\end_inset
+
+从
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.32"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 可以得到下列结论：
+\end_layout
+
+\begin_layout Enumerate
+由于我们假设了真空期望值
+\begin_inset Formula $v$
+\end_inset
+
+不等于零，所以必须存在一些态
+\begin_inset Formula $\ket{n}$
+\end_inset
+
+，对于它们
+\begin_inset Formula $\bra{0}J_{1(2)}^{0}\left(t,\vec{x}\right)\ket{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bra{n}\Phi_{1(2)}\left(0\right)\ket{0}$
+\end_inset
+
+不等于零。真空自己不对 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.32"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 贡献，由于 
+\begin_inset Formula $\bra{0}\Phi_{1(2)}\left(0\right)\ket{0}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $E>0$
+\end_inset
+
+的态对求和的贡献为，令
+\begin_inset Formula $\varphi_{n}$
+\end_inset
+
+为
+\begin_inset Formula $c_{n}$
+\end_inset
+
+的相位
+\begin_inset Formula 
+\[
+\frac{1}{i}\left(c_{n}e^{-iE_{n}t}-c_{n}^{*}e^{iE_{n}t}\right)=\frac{1}{i}\abs*{c_{n}}\left(e^{i\varphi_{n}}e^{-iE_{n}t}-e^{-i\varphi_{n}}e^{iE_{n}t}\right)=2\abs*{c_{n}}\sin\left(\varphi_{n}-E_{n}t\right)
+\]
+
+\end_inset
+
+但是，
+\begin_inset Formula $v$
+\end_inset
+
+跟时间无关，所以
+\begin_inset Formula $\left(E,\vec{p}\right)=\left(E_{n}>0,\vec{0}\right)$
+\end_inset
+
+的状态对求和的贡献必须为零。
+\end_layout
+
+\begin_layout Enumerate
+所以 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.32"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的右手边只能包括 零动量和零能量的态的贡献。这些状态就是 Goldstone 玻色子。
+\end_layout
+
 \begin_layout Chapter
 介子的手征微扰理论
 \end_layout
@@ -2167,6 +2756,830 @@ name "fig:Goldstone-bosons-跟陪集的同态关系"
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+强子谱
+\end_layout
+
+\begin_layout Subsection
+标量单态夸克凝聚
+\end_layout
+
+\begin_layout Standard
+这一节中所有的量，比如基态，夸克算符，等等都是在手征极限下考虑的。我们来证明，夸克算符 
+\begin_inset Formula $\bar{q}q$
+\end_inset
+
+的真空期望值不为零，是零温度 QCD 对称性自发破缺的充分条件（不是必要的）。随着温度的增加，会引起相变，导致手征对称性的恢复，也就是不再破缺。术语
+ scalar singlet quark condensate 来自于 
+\begin_inset Formula $\bar{q}q$
+\end_inset
+
+ 在洛伦兹群下按照标量变换，在 
+\begin_inset Formula $SU(3)_{V}$
+\end_inset
+
+ 群下按照单态变换。 
+\begin_inset Quotes eld
+\end_inset
+
+condensation
+\begin_inset Quotes erd
+\end_inset
+
+是 QCD 基态的非微扰效应，is driven by the formation of quark-antiquark pairs。下面的讨论和
+ sect.2.3 中 toy model 的讨论平行，只需要把 场
+\begin_inset Formula $\Phi_{i}$
+\end_inset
+
+换成适当的厄米复合 QCD算符。
+\end_layout
+
+\begin_layout Standard
+任意两个夸克算符
+\begin_inset Formula $A_{i}\left(x\right)=q^{\dagger}\left(x\right)\hat{A}_{i}q\left(x\right)$
+\end_inset
+
+的等时对易关系如下，其中
+\begin_inset Formula $\hat{A}_{i}$
+\end_inset
+
+为
+\begin_inset Formula $\Gamma$
+\end_inset
+
+矩阵和一些味道矩阵的直乘。即使对称性破缺，这些等时对易关系也成立。
+\begin_inset Formula 
+\[
+\left[A_{1}\left(t,\vec{x}\right),A_{2}\left(t,\vec{y}\right)\right]=\delta^{3}\left(\vec{x}-\vec{y}\right)q^{\dagger}\left(x\right)\left[\hat{A}_{1},\hat{A}_{2}\right]q\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+而守恒荷为
+\begin_inset Formula 
+\[
+Q_{Va}\left(t\right)=\int\dif^{3}xq^{\dagger}\left(t,\vec{x}\right)\frac{\lambda_{a}}{2}q\left(t,\vec{x}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+利用
+\begin_inset Formula 
+\begin{align*}
+\left[Q_{Va}\left(t\right),S_{0}\left(y\right)\right] & =0,\qquad a=1,\cdots,8\\
+\left[Q_{Va}\left(t\right),S_{b}\left(y\right)\right] & =i\sum_{c=1}^{8}f_{abc}S_{c}\left(y\right),\qquad a=1,\cdots,8
+\end{align*}
+
+\end_inset
+
+SU(3) 结构常数满足
+\begin_inset Formula 
+\[
+\sum_{a,b=1}^{8}f_{abc}f_{abd}=3\delta_{cd}
+\]
+
+\end_inset
+
+可以把 scalar quark densities 的 octet 分量表示成
+\begin_inset Formula 
+\[
+S_{b}\left(y\right)=-\frac{i}{3}\sum_{b,c=1}^{8}f_{abc}\left[Q_{Vb}\left(t\right),S_{c}\left(y\right)\right]
+\]
+
+\end_inset
+
+类似于 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.30"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 。
+\end_layout
+
+\begin_layout Standard
+在手征极限下，基态对于
+\begin_inset Formula $SU(3)_{V}$
+\end_inset
+
+是不变的，也就是说，
+\begin_inset Formula $Q_{Va}\left(t\right)\ket{0}=0$
+\end_inset
+
+，所以我们得到
+\begin_inset Formula 
+\begin{equation}
+\bra{0}S_{a}\left(y\right)\ket{0}=\bra{0}S_{a}\left(0\right)\ket{0}\equiv\langle S_{a}\rangle=0,\qquad a=1,\cdots,8\label{eq:3.25}
+\end{equation}
+
+\end_inset
+
+其中利用了基态的平移不变性。也就是说，scalar quark condensate 的八重态成分在手征极限下必须为零。在
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.25"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+取 
+\begin_inset Formula $a=3$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\[
+\langle\bar{u}u\rangle-\langle\bar{d}d\rangle=0
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula $\langle\bar{u}u\rangle=\langle\bar{d}d\rangle$
+\end_inset
+
+。对于
+\begin_inset Formula $a=8$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\langle\bar{u}u\rangle+\langle\bar{d}d\rangle-2\langle\bar{s}s\rangle=0
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\[
+\langle\bar{u}u\rangle=\langle\bar{d}d\rangle=\langle\bar{s}s\rangle
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由于
+\begin_inset Formula $\left[Q_{Va}\left(t\right),S_{0}\left(y\right)\right]=0,\qquad a=1,\cdots,8$
+\end_inset
+
+，所以对于 singlet condensate ，不能按以上套路。但是如果我们假设在手征极限下，scalar singlet quark condensate
+ 不为零，利用
+\begin_inset Formula $\langle\bar{u}u\rangle=\langle\bar{d}d\rangle=\langle\bar{s}s\rangle$
+\end_inset
+
+，可以得到：
+\begin_inset Formula 
+\begin{equation}
+0\neq\langle\bar{u}u\rangle=\langle\bar{u}u+\bar{d}d+\bar{s}s\rangle=3\langle\bar{u}u\rangle=3\langle\bar{d}d\rangle=3\langle\bar{s}s\rangle\label{eq:3.26}
+\end{equation}
+
+\end_inset
+
+对于
+\begin_inset Formula $P_{a}\left(y\right)$
+\end_inset
+
+，可以得到
+\begin_inset Formula 
+\begin{equation}
+i\left[Q_{Aa}\left(t\right),P_{a}\left(y\right)\right]=\begin{cases}
+\bar{u}u+\bar{d}d, & a=1,2,3\\
+\bar{u}u+\bar{s}s, & a=4,5\\
+\bar{d}d+\bar{s}s, & a=6,7\\
+\frac{1}{3}\left(\bar{u}u+\bar{d}d+4\bar{s}s\right) & a=8
+\end{cases}\label{eq:3.27}
+\end{equation}
+
+\end_inset
+
+右边省略了对
+\begin_inset Formula $y$
+\end_inset
+
+的依赖。如果将 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.27"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 对真空求期望（真空对于
+\begin_inset Formula $SU(3)_{V}$
+\end_inset
+
+不变），假设一个不为零的 singlet scalar quark condensate，
+\begin_inset Formula 
+\begin{equation}
+\bra{0}i\left[Q_{Aa}\left(t\right),P_{a}\left(y\right)\right]\ket{0}=\frac{2}{3}\langle\bar{q}q\rangle,a=1,\cdots,8\label{eq:3.28}
+\end{equation}
+
+\end_inset
+
+由于平移不变性，右边和
+\begin_inset Formula $y$
+\end_inset
+
+无关。用类似 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.31"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的推导可以知道，both 赝标量密度
+\begin_inset Formula $P_{a}\left(y\right)$
+\end_inset
+
+ 和轴矢流荷算符 
+\begin_inset Formula $Q_{Aa}$
+\end_inset
+
+都必须有非零的期望值，在真空和无质量单粒子态
+\begin_inset Formula $\ket{\phi_{b}}$
+\end_inset
+
+之间。特别地，由于洛伦兹协变性，轴矢荷在真空和这些无质量态之间的矩阵元，在适当归一化之后，应该是
+\begin_inset Formula 
+\begin{equation}
+\bra{0}A_{a}^{\mu}\left(0\right)\ket{\phi_{b}\left(p\right)}=ip^{\mu}F_{0}\delta_{ab}\label{eq:3.29}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $F_{0}$
+\end_inset
+
+是手征极限下（
+\begin_inset Formula $m_{u}=m_{d}=m_{s}=0$
+\end_inset
+
+）的 Goldstone 玻色子衰变常数。由 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.29"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 我们知道，
+\begin_inset Formula $F_{0}$
+\end_inset
+
+ 取非零值是手征对称性自发破缺的充分且必须条件。另一方面，由 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.28"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 可知，非零的 scalar singlet quark condensate 
+\begin_inset Formula $\langle\bar{q}q\rangle$
+\end_inset
+
+ 是 QCD 对称性自发破缺的充分（但不必要）条件。表格 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "tab:对称性自"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+总结了对称性自发破缺的模式。 sect 2.2 的推广是所谓的 
+\begin_inset Formula $O(N)$
+\end_inset
+
+ 线性 sigma 模型和 QCD。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+section 2.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $O(N)$
+\end_inset
+
+sigma model
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+QCD
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Lagrangian 的对称群
+\begin_inset Formula $G$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $O(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $O(N)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $SU(3)_{L}\times SU(3)_{R}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+生成元的个数
+\begin_inset Formula $n_{G}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $N\left(N-1\right)/2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+基态的对称群
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $O(2)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $O(N-1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $SU(3)_{V}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+生成元的个数
+\begin_inset Formula $n_{H}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\left(N-1\right)\left(N-2\right)/2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Goldstone 玻色子的个数
+\begin_inset Formula $n_{G}-n_{H}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $N-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Goldstone 多重态
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\left(\Phi_{1}\left(x\right),\Phi_{2}\left(x\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $\left(\Phi_{1}\left(x\right),,\cdots,\Phi_{N-1}\left(x\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $i\bar{q}(x)\gamma_{5}\lambda_{a}q(x)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+真空期望值
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $v=\langle\Phi_{3}\rangle$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $v=\langle\Phi_{N}\rangle$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $v=\langle\bar{q}q\rangle$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+对称性自发破缺模式的比较
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:对称性自"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2724,6 +4137,478 @@ noprefix "false"
 有效拉氏量和数幂次方案
 \end_layout
 
+\begin_layout Subsection
+最低阶有效拉氏量
+\end_layout
+
+\begin_layout Standard
+在手征极限下，我们想让有效拉氏量在
+\begin_inset Formula $SU(3)_{L}\times SU(3)_{R}\times U(1)_{V}$
+\end_inset
+
+不变。如果考虑对称性自发破缺，则基态只在
+\begin_inset Formula $SU(3)_{V}\times U(1)_{V}$
+\end_inset
+
+下不变。
+\end_layout
+
+\begin_layout Standard
+最低阶的有效拉氏量为
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{eff}}=\frac{F_{0}^{2}}{4}\tr\left(\partial_{\mu}U,\partial^{\mu}U^{\dagger}\right)
+\]
+
+\end_inset
+
+可以求出相应的守恒流为
+\begin_inset Formula 
+\[
+J_{Aa}^{\mu}=-i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}\left\{ \mathbbm{1}+\cdots,-i\frac{\partial_{\mu}\phi_{b}\lambda_{b}}{F_{0}}+\cdots\right\} \right)=-F_{0}\partial^{\mu}\phi_{a}+\cdots
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\begin{align}
+\bra{0}J_{Aa}^{\mu}\left(x\right)\ket{\phi_{b}\left(p\right)} & =\bra{0}-F_{0}\partial^{\mu}\phi_{a}\ket{\phi_{b}\left(p\right)}=-F_{0}\partial^{\mu}\exp\left(-ip\cdot x\right)\delta_{ab}\nonumber \\
+ & =ip^{\mu}F^{0}\exp\left(-ip\cdot x\right)\delta_{ab}\label{eq:3.52}
+\end{align}
+
+\end_inset
+
+eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.52"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 是 eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.29"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\bra{0}A_{a}^{\mu}\left(0\right)\ket{\phi_{b}\left(p\right)}=ip^{\mu}F_{0}\delta_{ab}$
+\end_inset
+
+ 的显式化，在有效场论的最低阶。
+\end_layout
+
+\begin_layout Subsection
+夸克质量带来的对称性破坏
+\end_layout
+
+\begin_layout Standard
+在 sect.2.4 中我们看到，显式的对称性破坏会给 Goldstone bosons 带来有限的质量。如同在 sect.1.3.6 中讨论的，QCD
+ 中的夸克质量会带来明显的对称性破坏，
+\begin_inset Formula 
+\[
+\mathcal{L}_{M}=-\bar{q}_{R}\mathcal{M}q_{L}-\bar{q}_{L}\mathcal{M}^{\dagger}q_{R},\quad\mathcal{M}=\left(\begin{array}{ccc}
+m_{u} & 0 & 0\\
+0 & m_{d} & 0\\
+0 & 0 & m_{s}
+\end{array}\right)
+\]
+
+\end_inset
+
+为了能够把
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+引入有效理论中，我们假装它按照下面的形式变换
+\begin_inset Formula 
+\[
+\mathcal{M}\mapsto R\mathcal{M}L^{\dagger}
+\]
+
+\end_inset
+
+然后可以构造最一般的 Lagrangian 
+\begin_inset Formula $\mathcal{L}\left(U,\mathcal{M}\right)$
+\end_inset
+
+在
+\begin_inset Formula 
+\[
+U\mapsto R\mathcal{M}L^{\dagger},\quad\mathcal{M}\mapsto R\mathcal{M}L^{\dagger}
+\]
+
+\end_inset
+
+下不变。然后按照
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+的幂次展开。最低阶为
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}_{\text{sb}}=\frac{F_{0}^{2}B_{0}}{2}\tr\left(\mathcal{M}U^{\dagger}+U\mathcal{M}^{\dagger}\right)\label{eq:3.55}
+\end{equation}
+
+\end_inset
+
+为了理解
+\begin_inset Formula $B_{0}$
+\end_inset
+
+的物理意义，我们考虑
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{eff}}=\frac{F_{0}^{2}}{4}\tr\left(\partial_{\mu}U,\partial^{\mu}U^{\dagger}\right)+\frac{F_{0}^{2}B_{0}}{2}\tr\left(\mathcal{M}U^{\dagger}+U\mathcal{M}^{\dagger}\right)
+\]
+
+\end_inset
+
+这个拉氏量是偶宇称的，展开式中包含偶数个 Goldstone bosons.
+\end_layout
+
+\begin_layout Standard
+它对应的哈密顿密度为，
+\begin_inset Formula 
+\begin{align*}
+\mathcal{H}_{\text{eff}} & =\frac{F_{0}^{2}}{4}\tr\left(\dot{U}\dot{U}^{\dagger}\right)+\frac{F_{0}^{2}}{4}\tr\left(\vec{\nabla}U\cdot\vec{\nabla}U^{\dagger}\right)-\mathcal{L}_{\text{sb}}\\
+ & =\frac{F_{0}^{2}}{4}\tr\left(\dot{U}\dot{U}^{\dagger}\right)+\frac{F_{0}^{2}}{4}\tr\left(\vec{\nabla}U\cdot\vec{\nabla}U^{\dagger}\right)-\frac{F_{0}^{2}B_{0}}{2}\tr\left(\mathcal{M}U^{\dagger}+U\mathcal{M}^{\dagger}\right)
+\end{align*}
+
+\end_inset
+
+由于前两项总是大于等于零的，所以
+\begin_inset Formula $\mathcal{H}_{\text{eff}}$
+\end_inset
+
+取极小值的时候，
+\begin_inset Formula $\phi$
+\end_inset
+
+是 constant and uniform。假设
+\begin_inset Formula $\mathcal{H}_{\text{eff}}$
+\end_inset
+
+取最小的时候，场可以按
+\begin_inset Formula $\frac{1}{F_{0}^{2}}$
+\end_inset
+
+的幂次展开为
+\begin_inset Formula 
+\[
+\phi=\phi_{0}+\frac{1}{F_{0}^{2}}\phi_{2}+\frac{1}{F_{0}^{4}}\phi_{4}+\cdots
+\]
+
+\end_inset
+
+one finds 
+\begin_inset Formula $\phi=0$
+\end_inset
+
+ as the classical solution even in the presence of quark-mass terms.
+\end_layout
+
+\begin_layout Standard
+现在考虑基态的能量密度（
+\begin_inset Formula $U_{\text{min}}=U_{0}=1$
+\end_inset
+
+）
+\begin_inset Formula 
+\begin{equation}
+\langle\mathcal{H}_{\text{eff}}\rangle_{\text{min}}=-F_{0}^{2}B_{0}\left(m_{u}+m_{d}+m_{s}\right)\label{eq:3.56}
+\end{equation}
+
+\end_inset
+
+和 QCD 中相应的量比较，同时对某一个轻夸克的质量
+\begin_inset Formula $m_{q}$
+\end_inset
+
+求导，得到
+\begin_inset Formula 
+\[
+\left.\frac{\partial\bra{0}\mathcal{H}_{\text{QCD}}\ket{0}}{\partial m_{q}}\right|_{m_{u}=m_{d}=m_{s}=0}=\frac{1}{3}\partial\bra{0}\bar{q}q\ket{0}=\frac{1}{3}\langle\bar{q}q\rangle_{0}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\langle\bar{q}q\rangle_{0}$
+\end_inset
+
+ 是 scalar singlet quark condensate of eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.26"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $0\neq\langle\bar{u}u\rangle=\langle\bar{u}u+\bar{d}d+\bar{s}s\rangle=3\langle\bar{u}u\rangle=3\langle\bar{d}d\rangle=3\langle\bar{s}s\rangle$
+\end_inset
+
+。在最低阶有效拉氏量框架下，常数
+\begin_inset Formula $B_{0}$
+\end_inset
+
+和 scalar singlet quark condensate 联系到一起
+\begin_inset Formula 
+\[
+3F_{0}^{2}B_{0}=-\langle\bar{q}q\rangle_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+让我们添加一些附注：
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\tr\left(\mathcal{M}\right)$
+\end_inset
+
+单个不是不变的。
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\tr\left(\mathcal{M}U^{\dagger}-U\mathcal{M}^{\dagger}\right)$
+\end_inset
+
+在宇称变换
+\begin_inset Formula $\phi\left(t,\vec{x}\right)\mapsto-\phi\left(t,-\vec{x}\right)$
+\end_inset
+
+下的行为不对，因为
+\begin_inset Formula 
+\begin{align*}
+\tr\left(\mathcal{M}U^{\dagger}\left(t,\vec{x}\right)-U\left(t,\vec{x}\right)\mathcal{M}^{\dagger}\right) & \stackrel{P}{\mapsto}\tr\left(\mathcal{M}U\left(t,-\vec{x}\right)-U^{\dagger}\left(t,-\vec{x}\right)\mathcal{M}^{\dagger}\right)\\
+ & \stackrel{\mathcal{M}=\mathcal{M}^{\dagger}}{=}-\tr\left(\mathcal{M}U^{\dagger}\left(t,\vec{x}\right)-U\left(t,\vec{x}\right)\mathcal{M}^{\dagger}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+因为
+\begin_inset Formula $\mathcal{M}=\mathcal{M}^{\dagger}$
+\end_inset
+
+，
+\begin_inset Formula $\mathcal{L}_{\text{sb}}$
+\end_inset
+
+只包含偶数个
+\begin_inset Formula $\phi$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+为了决定 Goldstone bosons 的质量，我们需要考虑到
+\begin_inset Formula $\mathcal{L}_{\text{sb}}$
+\end_inset
+
+ 的第二阶
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{sb}}=-\frac{B_{0}}{2}\tr\left(\phi^{2}\mathcal{M}\right)+\cdots
+\]
+
+\end_inset
+
+展开到第二阶我们发现，
+\begin_inset Formula 
+\begin{align*}
+\tr\left(\phi^{2}\mathcal{M}\right) & =2\left(m_{u}+m_{d}\right)\pi^{+}\pi^{-}+2\left(m_{u}+m_{s}\right)K^{+}K^{-}+2\left(m_{d}+m_{s}\right)K^{0}\bar{K}^{0}\\
+ & +\left(m_{u}+m_{d}\right)\pi^{0}\pi^{0}+\frac{2}{\sqrt{3}}\left(m_{u}-m_{d}\right)\pi^{0}\eta+\frac{m_{u}+m_{d}+4m_{s}}{3}\eta^{2}
+\end{align*}
+
+\end_inset
+
+为了简化，考虑同位旋极限
+\begin_inset Formula $m_{u}=m_{d}=\hat{m}$
+\end_inset
+
+，则
+\begin_inset Formula $\pi^{0}\eta$
+\end_inset
+
+混合消失。我们得到
+\begin_inset Formula 
+\begin{align}
+M_{\pi}^{2} & =2B_{0}\hat{m}\nonumber \\
+M_{K}^{2} & =B_{0}\left(\hat{m}+m_{s}\right)\nonumber \\
+M_{\eta}^{2} & =\frac{2}{3}B_{0}\left(\hat{m}+2m_{s}\right)\label{eq:3.59}
+\end{align}
+
+\end_inset
+
+结合
+\begin_inset Formula $B_{0}=-\langle\bar{q}q\rangle_{0}/\left(3F_{0}^{2}\right)$
+\end_inset
+
+,得到 Gell-Mann-Okubo 关系
+\begin_inset Formula 
+\[
+4M_{K}^{2}=4B_{0}\left(\hat{m}+2m_{s}\right)=2B_{0}\left(\hat{m}+2m_{s}\right)+2B_{0}\hat{m}=3M_{\eta}^{2}+M_{\pi}^{2}
+\]
+
+\end_inset
+
+独立于
+\begin_inset Formula $B_{0}$
+\end_inset
+
+的值。如果不提供
+\begin_inset Formula $B_{0}$
+\end_inset
+
+的数值，并不能使用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.59"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 抽取出夸克的质量
+\begin_inset Formula $\hat{m},m_{s}$
+\end_inset
+
+，因为这些公式对于
+\begin_inset Formula $B_{0}\to\lambda B_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{q}\to m_{q}/\lambda$
+\end_inset
+
+是不变的。
+\end_layout
+
+\begin_layout Standard
+让我们总结本节，评论一下
+\begin_inset Formula $\langle\bar{q}q\rangle_{0}$
+\end_inset
+
+。A nonvanishing quark condensate in the chiral limit is a sufficient but
+ not necessary condition for spontaneous chiral symmetry breaking.
+ eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.55"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathcal{L}_{\text{sb}}=\frac{F_{0}^{2}B_{0}}{2}\tr\left(\mathcal{M}U^{\dagger}+U\mathcal{M}^{\dagger}\right)$
+\end_inset
+
+不仅导致真空能量的改变，同时也导致了 Goldstone bosons 的有限质量，两种效果都正比于参数
+\begin_inset Formula $B_{0}$
+\end_inset
+
+。在
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+的领头阶，是由于对称性排除了
+\begin_inset Formula $\tr\left(\mathcal{M}\right)$
+\end_inset
+
+这样的项，它将使真空能的改变和 Goldstone bosons 质量的关系退耦。
+\begin_inset Formula $\mathcal{L}_{\text{sb}}$
+\end_inset
+
+底层的物理场景类似于 Heisenberg ferromagnet ，展现了一种自发磁化
+\begin_inset Formula $\langle\vec{M}\rangle$
+\end_inset
+
+，破坏了 Heisenberg Hamiltonian 的原有对称性 O(3) 到 O(2)。在目前的情况中，序参数
+\begin_inset Formula $\langle\vec{M}\rangle$
+\end_inset
+
+对应
+\begin_inset Formula $\langle\bar{q}q\rangle_{0}$
+\end_inset
+
+。在 ferromagnet 的情形中，与外部磁场
+\begin_inset Formula $\vec{H}$
+\end_inset
+
+的相互作用为 
+\begin_inset Formula $-\langle\vec{M}\rangle\cdot\vec{H}$
+\end_inset
+
+，对应于 eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.56"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\langle\mathcal{H}_{\text{eff}}\rangle_{\text{min}}=-F_{0}^{2}B_{0}\left(m_{u}+m_{d}+m_{s}\right)$
+\end_inset
+
+，夸克质量扮演了外场
+\begin_inset Formula $\vec{H}$
+\end_inset
+
+的角色。然而，理论上，有可能
+\begin_inset Formula $B_{0}$
+\end_inset
+
+非常小甚至为零。这种情况下，Goldstone bosons 的 quadratic massed 将会由夸克质量的非线性项决定，也就是
+\begin_inset Formula $\mathcal{L}\left(U,\mathcal{M}\right)$
+\end_inset
+
+更高阶展开中的项。这样的物理背景就是 generalized chiral perturbation 的起源。它的类比是 一个 antiferromagnet
+ 表现出自发对称性破缺，但是
+\begin_inset Formula $\langle\vec{M}\rangle=0$
+\end_inset
+
+ 。
+\begin_inset Formula $s$
+\end_inset
+
+–波
+\begin_inset Formula $\pi\pi$
+\end_inset
+
+散射长度的分析支持夸克凝聚确实是领头阶手征对称性自发破缺序参数的推测。
+\end_layout
+
+\begin_layout Standard
+补充：
+\end_layout
+
 \begin_layout Standard
 \begin_inset Formula 
 \[
@@ -2777,7 +4662,7 @@ D_{\mu}A & \mapsto V_{R}\left(D_{\mu}A\right)V_{L}^{\dagger}
 
 \end_inset
 
-由于有效拉矢量可能包含任意高阶的导数，所以还需要场强张量
+由于有效拉氏量可能包含任意高阶的导数，所以还需要场强张量
 \begin_inset Formula $f_{L\mu\nu}$
 \end_inset
 
@@ -2803,7 +4688,7 @@ f_{L\mu\nu} & \equiv\partial_{\mu}l_{\nu}-\partial_{\nu}l_{\mu}-i\left[l_{\mu},l
 
 \end_inset
 
-另外一半还使用
+另外一般还使用
 \begin_inset Formula 
 \begin{align*}
 x & \equiv2B_{0}\left(s+ip\right)\\
@@ -2812,7 +4697,1203 @@ x & \equiv2B_{0}\left(s+ip\right)\\
 
 \end_inset
 
+表 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "tab:在对称群"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+ 给出了一些基本单元的变换性质。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Element
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $G$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $U$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{R}UV_{L}^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $U^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $U^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $D_{\lambda1\cdots\lambda n}U$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{R}D_{\lambda1\cdots\lambda n}UV_{L}^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(D_{\lambda1\cdots\lambda n}U\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(D_{\lambda1\cdots\lambda n}U\right)^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\chi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{R}\chi V_{L}^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\chi^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\chi^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $D_{\lambda1\cdots\lambda n}\chi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{R}D_{\lambda1\cdots\lambda n}\chi V_{L}^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(D_{\lambda1\cdots\lambda n}\chi\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(D_{\lambda1\cdots\lambda n}\chi\right)^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{R}r_{\mu}V_{R}^{\dagger}+iV_{R}\partial_{\mu}V_{R}^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-l_{\mu}\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $l_{\mu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $l_{\mu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{L}l_{\mu}V_{L}^{\dagger}+iV_{L}\partial_{\mu}V_{L}^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-r_{\mu}\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{R\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{R}f_{R\mu\nu}V_{R}^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-f_{L\mu\nu}\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{L\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{L\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{L}f_{L\mu\nu}V_{L}^{\dagger}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-f_{R\mu\nu}\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{R\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+在对称群
+\begin_inset Formula $G$
+\end_inset
+
+，和
+\begin_inset Formula $CP$
+\end_inset
+
+变换下的变换性质。共轭矩阵的变换性质就是在结果上作厄米共轭。对于宇称变换，参数变成
+\begin_inset Formula $\left(t,-\vec{x}\right)$
+\end_inset
+
+，
+\begin_inset Formula $\partial_{\mu}$
+\end_inset
+
+作用在
+\begin_inset Formula $x$
+\end_inset
+
+上，而不是作用到参数位置上，所以会出现一个负号。
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:在对称群"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们的目标是用序列
+\begin_inset Formula $W_{\text{eff}}^{(2)}\left[v,a,s,p\right]+W_{\text{eff}}^{(4)}\left[v,a,s,p\right]+\cdots$
+\end_inset
+
+逼近真实的生成泛函
+\begin_inset Formula $W_{\text{QCD}}\left[v,a,s,p\right]$
+\end_inset
+
+。其中有效生成泛函由有效场论得到。因此需要把全局对称性提升到定域对称性，并引入和 QCD 中
+\color red
+相同的
+\color inherit
+外场
+\begin_inset Formula $v,a,s,p$
+\end_inset
+
+的耦合。
+\end_layout
+
+\begin_layout Chapter
+Baryons 的手征微扰理论
+\end_layout
+
+\begin_layout Standard
+这一章讨论初末态具有单个 Baryon 的矩阵元。技术上讲，我们对存在外场情况下的 baryon-to-baryon 跃迁振幅感兴趣
+\begin_inset Formula 
+\[
+\mathcal{F}\left(\vec{p}^{\prime},\vec{p};v,a,s,p\right)=\bra{\vec{p}^{\prime},\text{out}}\ket{\vec{p},\text{in}}_{v,a,s,p}^{c},\vec{p}\neq\vec{p}^{\prime}
+\]
+
+\end_inset
+
+它由拉氏量
+\begin_inset Formula 
+\[
+\mathcal{L}=\mathcal{L}_{\text{QCD}}^{0}+\mathcal{L}_{\text{ext }}=\mathcal{L}_{\text{QCD}}^{0}+\bar{q}\gamma^{\mu}\left(v^{\mu}+\frac{1}{3}v_{(s)}^{\mu}+\gamma^{5}a^{\mu}\right)q-\bar{q}\left(s-i\gamma_{5}p\right)q
+\]
+
+\end_inset
+
+决定。其中
+\begin_inset Formula $\ket{\vec{p},\text{in}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bra{\vec{p}^{\prime},\text{out}}$
+\end_inset
+
+ 是 asymptotic one-baryon in– and out–state，它们在久远的过去和遥远的未来表现的像具有动量
+\begin_inset Formula $\vec{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{p}^{\prime}$
+\end_inset
+
+的单粒子态。生成泛函
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+只包含连通图（上标
+\begin_inset Formula $c$
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Section
+场的变换性质
+\end_layout
+
+\begin_layout Standard
+进入 Lagrangian 的场被假设为按照子群
+\begin_inset Formula $H$
+\end_inset
+
+的不可约表示变化，
+\begin_inset Formula $H$
+\end_inset
+
+保持真空不变。而 Hamiltonian or Lagrangian 的对称群
+\begin_inset Formula $G$
+\end_inset
+
+是非线性实现的。（比如 Sect.3.3）。
+\end_layout
+
+\begin_layout Standard
+我们想要描述在低能区域，重子和 Goldstone bosons 的相互作用，也包括和外场的。为此我们需要明确进入 Lagrangian 的动力学场的变换性质。
+比如
+\begin_inset Formula $\frac{1}{2}^{+}$
+\end_inset
+
+重子。我们把 octet 的每个成员和一个复数的，四分量 Dirac 场联系起来，收集到一个
+\begin_inset Formula $3\times3$
+\end_inset
+
+ 矩阵 
+\begin_inset Formula $B$
+\end_inset
+
+ 中
+\begin_inset Formula 
+\[
+B=\sum_{a=1}^{8}\frac{B_{a}\lambda_{a}}{\sqrt{2}}=\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}}\Sigma^{0}+\frac{1}{\sqrt{6}}\Lambda & \Sigma^{+} & p\\
+\Sigma^{-} & -\frac{1}{\sqrt{2}}\Sigma^{0}+\frac{1}{\sqrt{6}}\Lambda & n\\
+\Xi^{-} & \Xi^{0} & \frac{2}{\sqrt{6}}\Lambda
+\end{array}\right)
+\]
+
+\end_inset
+
+其中我们省略了对坐标
+\begin_inset Formula $x$
+\end_inset
+
+的依赖。
+\end_layout
+
+\begin_layout Standard
+定义集合
+\begin_inset Formula 
+\[
+M\equiv\left\{ B(x)|B(x)\text{ complex, traceless }3\times3\text{ matrix}\right\} 
+\]
+
+\end_inset
+
+它在矩阵加法下是一个复的线性空间。下面的同态是抽象群
+\begin_inset Formula $H=SU(3)_{V}$
+\end_inset
+
+在矢量空间
+\begin_inset Formula $M$
+\end_inset
+
+上的一个表示，
+\begin_inset Formula 
+\begin{align*}
+\varphi & :H\to\varphi(H),\quad V\mapsto\varphi(V)\quad\text{where }\varphi(V):M\to M\\
+ & B(x)\mapsto B^{\prime}(x)=\varphi(V)B(x)\equiv VB(x)V^{\dagger}
+\end{align*}
+
+\end_inset
+
+即共轭表示（adjoint representation）.
+\end_layout
+
+\begin_layout Standard
+现在让我们康康对称群
+\begin_inset Formula $SU(3)_{L}\times SU(3)_{R}$
+\end_inset
+
+各种各样的实现（realization）。更多的例子可以参考
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Georgi"
+literal "false"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+比如我们可以定义：
+\begin_inset Formula 
+\[
+\left(B_{L},B_{R}\right)\mapsto\left(B_{L}^{\prime},B_{R}^{\prime}\right)\equiv\left(LB_{L}L^{\dagger},RB_{R}R^{\dagger}\right)
+\]
+
+\end_inset
+
+或者是：
+\begin_inset Formula 
+\[
+B_{2}\mapsto B_{2}^{\prime}\equiv LB_{2}L^{\dagger}
+\]
+
+\end_inset
+
+也就是说，变换性质独立于
+\begin_inset Formula $R$
+\end_inset
+
+。这个映射是群
+\begin_inset Formula $G=SU(3)_{L}\times SU(3)_{R}$
+\end_inset
+
+的表示。虽然变换性质和第一个戏剧性的不同。关键是，两个映射有一个共同点，
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{shaded}
+\end_layout
+
+\begin_layout Plain Layout
+
+在$G$的子群$H=
+\backslash
+{(V,V)|V
+\backslash
+in 
+\backslash
+text{SU}(3)
+\backslash
+}$作用下，两种场$B_i$都按照八重态变换：
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+
+B_{1}&{}=B_{L}+B_{R}
+\backslash
+stackrel{H}{
+\backslash
+mapsto}VB_{L}V^{
+\backslash
+dagger}+VB_{R}V^{
+\backslash
+dagger}=VB_{1}V^{
+\backslash
+dagger}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& B_{2}
+\backslash
+mapsto VB_{2}V^{
+\backslash
+dagger}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{shaded}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+各种各样的定义可以通过场的重定义联系起来，因为我们的理论中包含了 Goldstone bosons。比如在
+\begin_inset Formula $B_{2}$
+\end_inset
+
+的定义下：
+\begin_inset Formula 
+\[
+B_{2}\mapsto LB_{2}L^{\dagger},\quad U\mapsto RUL^{\dagger}
+\]
+
+\end_inset
+
+我们定义新的重子场为
+\begin_inset Formula 
+\[
+\tilde{B}\equiv UB_{2}-\frac{1}{3}\tr\left(UB_{2}\right)
+\]
+
+\end_inset
+
+所以新的对
+\begin_inset Formula $\left(\tilde{B},U\right)$
+\end_inset
+
+变换形式为
+\begin_inset Formula 
+\[
+\tilde{B}\mapsto RUB_{2}L^{\dagger}-\frac{1}{3}\tr\left(RUB_{2}L^{\dagger}\right),\quad U\mapsto RUL^{\dagger}
+\]
+
+\end_inset
+
+注意特别的，现在
+\begin_inset Formula $\tilde{B}$
+\end_inset
+
+在子群
+\begin_inset Formula $H=SU(3)_{V}$
+\end_inset
+
+下仍然按照 octet 变换。
+\end_layout
+
+\begin_layout Standard
+我们可以选择一种最方便使用的。比如在SU(2)下，我们令
+\begin_inset Formula $u$
+\end_inset
+
+表示 unitary square root of 
+\begin_inset Formula $U$
+\end_inset
+
+，
+\begin_inset Formula $u^{2}(x)=U(x)$
+\end_inset
+
+，定义 SU(2) 矩阵
+\begin_inset Formula $K\left(L,R,U\right)$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+u(x)\mapsto u^{\prime}(x)=\sqrt{RUL^{\dagger}}\equiv RuK^{-1}\left(L,R,U\right)
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\[
+K\left(L,R,U\right)=u^{\prime-1}Ru=\sqrt{RUL^{\dagger}}^{-1}R\sqrt{U}
+\]
+
+\end_inset
+
+下面的同态定义了 
+\begin_inset Formula $G$
+\end_inset
+
+ 在集合 
+\begin_inset Formula $\left\{ \left(U,\Psi\right)\right\} $
+\end_inset
+
+上的操作
+\begin_inset Formula 
+\[
+\varphi\left(g\right):\left(\begin{array}{c}
+U\\
+\Psi
+\end{array}\right)\mapsto\left(\begin{array}{c}
+U^{\prime}\\
+\Psi^{\prime}
+\end{array}\right)=\left(\begin{array}{c}
+RUL^{\dagger}\\
+K\left(L,R,U\right)\Psi
+\end{array}\right)
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $R=L=V$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+ & U^{\prime}=u^{\prime2}=VuV^{\dagger}VuV^{\dagger}=Vu^{2}V^{\dagger}=VUV^{\dagger}\\
+ & u^{\prime}=VuV^{\dagger}
+\end{align*}
+
+\end_inset
+
+则
+\begin_inset Formula 
+\[
+K^{-1}\left(V,V,U\right)=V^{\dagger},\quad K\left(V,V,U\right)=V
+\]
+
+\end_inset
+
+也其就是说，
+\begin_inset Formula $\Psi$
+\end_inset
+
+在子群
+\begin_inset Formula $H=SU(2)_{V}$
+\end_inset
+
+下按照同位旋二重态变换。一个普遍的性质是，在保持真空不变的子群的变换下，变换形式应该与
+\begin_inset Formula $U$
+\end_inset
+
+无关。此外，Goldstone bosons 场
+\begin_inset Formula $\phi$
+\end_inset
+
+，应该按照
+\begin_inset Formula $SU(2)_{V}$
+\end_inset
+
+的伴随表示变换，也就是 isospin triplet。
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $G=SU(3)_{L}\times SU(3)_{R}$
+\end_inset
+
+的情形，使用 realization
+\begin_inset Formula 
+\[
+\varphi\left(g\right):\left(\begin{array}{c}
+U\\
+B
+\end{array}\right)\mapsto\left(\begin{array}{c}
+U^{\prime}\\
+B^{\prime}
+\end{array}\right)=\left(\begin{array}{c}
+RUL^{\dagger}\\
+K\left(L,R,U\right)BK^{\dagger}\left(L,R,U\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+K=u^{\prime\dagger}V_{R}u=\underbrace{u^{\prime}u^{\prime\dagger}}_{=1}u^{\prime\dagger}V_{R}u=u^{\prime}U^{\prime\dagger}V_{R}u=u^{\prime}V_{L}\underbrace{U^{\dagger}}_{=u^{\dagger}u^{\dagger}}\underbrace{V_{R}^{\dagger}V_{R}}_{=1}u=u^{\prime}V_{L}u^{\dagger}
+\]
+
+\end_inset
+
+十重态 decuplet 按照下式子变换：
+\begin_inset Formula 
+\[
+T_{abc}\mapsto K_{ai}K_{bj}K_{ck}T_{ijk}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+附录B
+\end_layout
+
+\begin_layout Standard
+一般比如
+\begin_inset Formula 
+\[
+F\left[j\right]=\int\dif^{n}xg\left(j(x)\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $g$
+\end_inset
+
+是一个可以积分的函数。也可以让
+\begin_inset Formula $j$
+\end_inset
+
+依赖于两组变量 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+。这样用
+\begin_inset Formula $F\left[j\left(y\right)\right]$
+\end_inset
+
+标记一个泛函，它依赖于
+\begin_inset Formula $j(x)$
+\end_inset
+
+的所有取值，而固定
+\begin_inset Formula $y$
+\end_inset
+
+不变。
+\end_layout
+
+\begin_layout Standard
+使用 Dirac delta 函数，可以定义泛函导数
+\begin_inset Formula 
+\[
+\delta_{y}:\begin{cases}
+\mathbb{R}^{n} & \to\mathbb{R}\\
+x & \mapsto\delta_{y}(x)=\delta^{n}\left(x-y\right)
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\delta F\left[f\right]}{\delta f\left(y\right)}\equiv\lim_{\varepsilon\to0}\frac{F\left[f+\varepsilon\delta_{y}\right]-F\left[f\right]}{\varepsilon}
+\]
+
+\end_inset
+
+一个重要的例子是 local functional derivative of a function
+\begin_inset Formula 
+\[
+\frac{\delta f\left(y\right)}{\delta f\left(x\right)}=\delta^{n}\left(y-x\right)
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula 
+\[
+f\left(y\right)=F_{y}\left[y\right]=\int\dif^{n}z\delta^{n}\left(y-z\right)f\left(z\right)
+\]
+
+\end_inset
+
+类似地有
+\begin_inset Formula 
+\[
+\frac{\delta g\left(f\left(y\right)\right)}{\delta f\left(x\right)}=\delta^{n}\left(y-x\right)g^{\prime}\left(f\left(y\right)\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\delta^{k}g\left(f\left(y\right)\right)}{\delta f\left(x_{k}\right)\cdots\delta f\left(x_{1}\right)}=\delta^{n}\left(y-x_{k}\right)\cdots\delta^{n}\left(y-x_{1}\right)g^{\left(k\right)}\left(f\left(y\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+泛函偏导的一个重要应用就是格林函数的生成泛函。让我们考虑下面的格林函数：
+\begin_inset Formula 
+\[
+G_{n}\left(x_{1},\cdots x_{n}\right)=\bra{0}T\left[\phi\left(x_{1}\right)\cdots\phi\left(x_{n}\right)\right]\ket{0}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\phi$
+\end_inset
+
+是一个相互作用理论的场算符，它的动力学由 Lagrangian 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ 决定。这跟由生成函数得到数列类似，
+\begin_inset Formula 
+\[
+f\left(x\right)=a_{0}+a_{1}x+\frac{1}{2}a_{2}x^{2}+\frac{1}{3!}x^{3}+\cdots
+\]
+
+\end_inset
+
+计算导数
+\begin_inset Formula 
+\[
+\frac{\dif f}{\dif x^{n}}\left(x=0\right)=a_{n}
+\]
+
+\end_inset
+
+格林函数
+\begin_inset Formula $G_{n}$
+\end_inset
+
+的生成泛函由
+\begin_inset Formula $Z[j]$
+\end_inset
+
+给出
+\begin_inset Formula 
+\begin{align*}
+Z[j]=\exp\left(iW[j]\right) & =\bra{0}T\exp\left[i\int\dif^{4}x\mathcal{L}_{\text{ext}}\left(x\right)\right]\ket{0}=\bra{0}T\exp\left[iS_{\text{ext}}\right]\ket{0}\\
+ & =1+i\int\dif^{4}xj\left(x\right)\bra{0}\phi\left(x\right)\ket{0}\\
+ & +\sum_{k=2}^{\infty}\frac{i^{k}}{k!}\int\dif^{4}x_{1}\cdots\int\dif^{4}x_{k}\,j\left(x_{1}\right)\cdots j\left(x_{k}\right)*\bra{0}T\left[\phi\left(x_{1}\right)\cdots\phi\left(x_{k}\right)\right]\ket{0}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{ext}}\left(x\right)=j\left(x\right)\phi\left(x\right)
+\]
+
+\end_inset
+
+这很合理，外源的真空期望值，可以表示成系统的响应函数（格林函数）对于外源的积分。
+\end_layout
+
+\begin_layout Standard
+附注：
+\end_layout
+
+\begin_layout Enumerate
+在 chpt primer 这本书中，使用 Gasser and Leutwyler 记号，用
+\begin_inset Formula $\exp\left(iZ[j]\right)$
+\end_inset
+
+ 表示
+\begin_inset Formula $Z[j]$
+\end_inset
+
+ ，使用
+\begin_inset Formula $Z[j]$
+\end_inset
+
+表示
+\begin_inset Formula $W[j]$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $j$
+\end_inset
+
+表示一个函数，所以可以被提到矩阵元外面 
+\begin_inset Formula 
+\[
+\bra{0}T\left[j\left(x_{1}\right)\phi\left(x_{1}\right)j\left(x_{2}\right)\phi\left(x_{2}\right)\right]\ket{0}=j\left(x_{1}\right)j\left(x_{2}\right)\bra{0}T\left[\phi\left(x_{1}\right)\phi\left(x_{2}\right)\right]\ket{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+基态和格林函数（系数）都依赖于运动方程表述的动力学，它们反映了底层的动力学。
 \end_layout
 
 \begin_layout Standard
@@ -2826,12 +5907,13 @@ end of file
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "ref61"
+key "Georgi"
 literal "true"
 
 \end_inset
 
-xxxxx
+, H.: Weak Interactions and Modern Particle Theory.
+ Benjamin/Cummings, Menlo Park (1984) 
 \end_layout
 
 \end_body
