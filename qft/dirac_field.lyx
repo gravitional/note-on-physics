@@ -3316,7 +3316,7 @@ u^{s}(p)=-i\gamma^{2}v^{s}(p)^{\ast},\quad v^{s}(p)=-i\gamma^{2}u^{s}(p)^{\ast}
 \begin_inset Formula 
 \begin{align*}
 C\psi(x)C & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}\left(-i\gamma^{2}b^{s}(p)v^{s}(p)\right)^{\ast}e^{-ipx}-i\gamma^{2}a^{s\dagger}(p)\left(u^{s}(p)\right)^{\ast}\exp\left(+ip.x\right)\\
- & =-i\gamma^{2}\psi^{\ast}(x)=-i\gamma^{2}\left(\psi^{\dagger}\right)^{T}=-i\left(\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}=i\gamma^{2}\gamma^{0}\bar{\psi}^{T}
+ & =-i\gamma^{2}\psi^{\ast}(x)=-i\gamma^{2}\left(\psi^{\dagger}\right)^{T}=-i\left(\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}
 \end{align*}
 
 \end_inset
@@ -3332,27 +3332,31 @@ C\psi(x)C & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{
 同样的，查看双线性型的变化：
 \begin_inset Formula 
 \[
-C\bar{\psi}(x)C=C\psi(x)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=(-i\gamma^{0}\gamma^{2}\psi)^{T}=i\psi^{T}\gamma^{2}\gamma^{0}
+C\bar{\psi}(x)C=C\psi(x)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=(-i\gamma^{0}\gamma^{2}\psi)^{T}
 \]
 
 \end_inset
 
+可以看到，电荷共轭相当于正反费米子交换了位置，所以再次转置，交换位置的时候会有一个额外的负号。
+\end_layout
+
+\begin_layout Standard
 对于一个费米子链，电荷共轭相当于
 \begin_inset Formula 
 \[
-\bar{\psi}O\psi\to(\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi)^{T}=\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi
+\bar{\psi}O\psi\to(\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi)^{T}=-\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi
 \]
 
 \end_inset
 
-
+这个负号跟费米子反对易有关。
 \begin_inset Formula $O$
 \end_inset
 
 是一串伽马矩阵的乘积。对应的旋量的变换是
 \begin_inset Formula 
 \[
-\bar{u}(p)O(p)u(p)\to\bar{u}(p)\gamma^{2}\gamma^{0}O^{T}(p)\gamma^{0}\gamma^{2}u(p)
+\bar{u}(p)O(p)u(p)\to-\bar{u}(p)\gamma^{2}\gamma^{0}O^{T}(p)\gamma^{0}\gamma^{2}u(p)
 \]
 
 \end_inset
@@ -4423,40 +4427,52 @@ name "tab1"
 
 \end_inset
 
-注意由于
+
+\end_layout
+
+\begin_layout Standard
+注意
+\end_layout
+
+\begin_layout Enumerate
+
+\color cyan
+电荷共轭变换那里的负号，跟费米子的反对易关系有关
+\color inherit
+。直观上，
+\begin_inset Formula $J^{\mu}=\bar{\psi}\gamma^{\mu}\psi$
+\end_inset
+
+在电荷共轭下，正负电子交换位置，由于是费米子，要出一个负号。
+\end_layout
+
+\begin_layout Enumerate
+由于
 \begin_inset Formula $\partial$
 \end_inset
 
-和场的坐标
+理解为求偏导数之后的场，坐标参量多一个负号。也就是
+\begin_inset Formula $\partial$
+\end_inset
+
+作用在
 \begin_inset Formula $x$
 \end_inset
 
-在
-\begin_inset Formula $CPT$
+上，而不是作用在参数位置，比如
+\begin_inset Formula $\#1$
 \end_inset
 
-下都增加一个负号，所以相当于
-\begin_inset Formula $+1$
-\end_inset
+上。
+\end_layout
 
-。也就是在考虑
-\begin_inset Formula $CPT$
-\end_inset
-
-的时候，不用考虑
-\begin_inset Formula $\partial_{\mu},x$
-\end_inset
-
-变号的影响。对于不含有
-\begin_inset Formula $\partial$
-\end_inset
-
-的项，如质量项
-\begin_inset Formula $m\bar{\psi}(x)\psi(x)$
-\end_inset
-
-，由于作用量
+\begin_layout Standard
+由于作用量
 \begin_inset Formula $S=\int\dif^{4}x\mathcal{L}\left(x\right)$
+\end_inset
+
+，如质量项
+\begin_inset Formula $m\bar{\psi}(x)\psi(x)$
 \end_inset
 
 ，积分完后作用量中中已经不含有
@@ -4795,7 +4811,7 @@ status open
 \begin_layout Plain Layout
 
 \size small
-\begin_inset Formula $\left(\bar{\psi}(x)\gamma^{2}\gamma^{0}O(x)^{T}\gamma^{0}\gamma^{2}\psi(x)\right)^{T}$
+\begin_inset Formula $-\bar{\psi}(x)\gamma^{2}\gamma^{0}O(x)^{T}\gamma^{0}\gamma^{2}\psi(x)$
 \end_inset
 
 
@@ -4809,7 +4825,7 @@ status open
 \begin_layout Plain Layout
 
 \size small
-\begin_inset Formula $\left(\bar{u}(p)\gamma^{2}\gamma^{0}O(p)^{T}\gamma^{0}\gamma^{2}u(p)\right)^{T}$
+\begin_inset Formula $-\bar{u}(p)\gamma^{2}\gamma^{0}O(p)^{T}\gamma^{0}\gamma^{2}u(p)$
 \end_inset
 
 
@@ -4839,7 +4855,7 @@ status open
 \begin_layout Plain Layout
 
 \size small
-\begin_inset Formula $\bar{\psi}(-x)\gamma^{2}\gamma^{0}\gamma^{0}\gamma^{3}\gamma^{1}O(-x)^{\dagger}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{0}\gamma^{2}\psi(-x)$
+\begin_inset Formula $\bar{-\psi}(-x)\gamma^{2}\gamma^{0}\gamma^{0}\gamma^{3}\gamma^{1}O(-x)^{\dagger}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{0}\gamma^{2}\psi(-x)$
 \end_inset
 
 
@@ -4853,7 +4869,7 @@ status open
 \begin_layout Plain Layout
 
 \size small
-\begin_inset Formula $\bar{u}(-p)\gamma^{2}\gamma^{0}\gamma^{0}\gamma^{3}\gamma^{1}O(-p)^{\dagger}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{0}\gamma^{2}u(-p)$
+\begin_inset Formula $-\bar{u}(-p)\gamma^{2}\gamma^{0}\gamma^{0}\gamma^{3}\gamma^{1}O(-p)^{\dagger}\gamma^{1}\gamma^{3}\gamma^{0}\gamma^{0}\gamma^{2}u(-p)$
 \end_inset
 
 
@@ -4884,7 +4900,7 @@ status open
 \begin_layout Plain Layout
 
 \color red
-\begin_inset Formula $\bar{\psi}(x)\gamma^{5}O(x)\gamma^{5}\psi(x)$
+\begin_inset Formula $-\bar{\psi}(-x)\gamma^{5}O(-x)\gamma^{5}\psi(-x)$
 \end_inset
 
 
@@ -4899,7 +4915,7 @@ status open
 
 \size small
 \color red
-\begin_inset Formula $\bar{u}(p)\gamma^{5}O(p)\gamma^{5}u(p)$
+\begin_inset Formula $-\bar{u}(p)\gamma^{5}O(-p)\gamma^{5}u(p)$
 \end_inset
 
 
@@ -4956,6 +4972,14 @@ name "tab2"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula $C$
+\end_inset
+
+变换
 \end_layout
 
 \begin_layout Standard
