@@ -895,3 +895,4 @@ starting with a `+/-/` character at the beginning of the line and extending to t
 
 + `grm`='git rm'
 + `grmc`='git rm --cached'
++ `git-gc` Cleanup unnecessary files and optimize the local repository
