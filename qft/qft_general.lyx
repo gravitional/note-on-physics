@@ -787,6 +787,152 @@ f(a)=\sum_{n=0}^{\infty}f^{(n)}(0)\frac{a^{n}}{n!}=\exp(a*\partial_{x=0})\cdot f
 。不仅对于自由场论，对于相互作用场论，这个结论也成立，因为场论体系的拉氏量一般必须满足庞加莱不变性。所以这个等式是群论的必然要求。跟理论的量子化细节无关。
 \end_layout
 
+\begin_layout Section
+庞加莱对称性对应的守恒流
+\end_layout
+
+\begin_layout Standard
+平移对称性对应的守恒流是能量动量张量，洛伦兹对称性对应的是广义角动量张量：
+\begin_inset Formula 
+\[
+j_{a}^{\mu}=-\left[\mathcal{L}g_{\phantom{\mu}\rho}^{\mu}-\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\Phi\right)}\partial_{\rho}\Phi\right]\frac{\delta x^{\rho}}{\delta\omega^{a}}-\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\Phi\right)}\frac{\delta\Phi^{\rho}}{\delta\omega^{a}}
+\]
+
+\end_inset
+
+定义前面的负号是为了保证能量密度
+\begin_inset Formula $>0$
+\end_inset
+
+。其中
+\begin_inset Formula $a$
+\end_inset
+
+指标表示一种广义的对称变换的生成元分量，它一方面引起积分测度的变换，一方面引起场的变换。
+\begin_inset Formula 
+\[
+\partial_{\mu}j_{a}^{\mu}=0
+\]
+
+\end_inset
+
+对于时空平移
+\begin_inset Formula 
+\begin{align*}
+\delta x^{\mu} & =\varepsilon^{\mu}=g_{\phantom{\mu}\rho}^{\mu}\varepsilon^{\rho}\\
+\frac{\delta x^{\mu}}{\delta\omega^{\rho}} & =g_{\phantom{\mu}\rho}^{\mu}
+\end{align*}
+
+\end_inset
+
+变换参数可以理解成
+\begin_inset Formula $a=\rho,\delta\omega^{a}\equiv\delta\omega^{\rho}=\varepsilon^{\rho}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于LT
+\begin_inset Formula 
+\[
+\delta x^{\mu}=\varepsilon^{\mu\rho}x_{\rho}=\varepsilon^{\nu\rho}g_{\phantom{\mu}\nu}^{\mu}x_{\rho}=\varepsilon^{\nu\rho}\frac{1}{2}\left(g_{\phantom{\mu}\nu}^{\mu}x_{\rho}-g_{\phantom{\mu}\rho}^{\mu}x_{\nu}\right)
+\]
+
+\end_inset
+
+变换参数可以理解成
+\begin_inset Formula $a=\nu\rho,\delta\omega^{a}\equiv\delta\omega^{\nu\rho}=\varepsilon^{\nu\rho}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\delta x^{\mu}}{\delta\omega^{\nu\rho}}=\frac{1}{2}\left(g_{\phantom{\mu}\nu}^{\mu}x_{\rho}-g_{\phantom{\mu}\rho}^{\mu}x_{\nu}\right)
+\]
+
+\end_inset
+
+这里的理解是，
+\begin_inset Formula $j_{a}^{\mu}=\cdots\frac{\delta x^{\rho}}{\delta\omega^{a}}\cdots$
+\end_inset
+
+中有两套指标，
+\begin_inset Formula $\delta x^{\rho}$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta\omega^{a}$
+\end_inset
+
+，分别是洛伦兹指标和对称变换的指标，而对称变换的指标也可能是洛伦兹指标，或者是规范群指标。当它是洛仑兹指标的时候，一个矢量的系数矩阵应该是矩阵（一阶张量的系数是
+二届张量），同理，二届张量的系数矩阵是三阶张量。
+\end_layout
+
+\begin_layout Standard
+狄拉克场自由拉氏量的能量–动量张量密度是
+\begin_inset Formula 
+\[
+\Theta_{\mu,\nu}=i\bar{\psi}\gamma_{\mu}\partial_{\nu}\psi
+\]
+
+\end_inset
+
+守恒荷为场的四动量
+\begin_inset Formula 
+\[
+P_{\nu}=\int\dif^{3}x\Theta_{0\nu}=i\int\dif^{3}x\psi^{\dagger}\partial_{\nu}\psi
+\]
+
+\end_inset
+
+而广义角动量密度为
+\begin_inset Formula 
+\[
+J_{\mu,\nu\rho}=x_{\nu}\Theta_{\mu\rho}-x_{\rho}\Theta_{\mu\nu}+\bar{\psi}\gamma_{\mu}\frac{\sigma_{\nu\rho}}{2}\psi
+\]
+
+\end_inset
+
+守恒荷是广义的角动量
+\begin_inset Formula 
+\[
+M_{\nu\rho}=\int\dif^{3}x\Theta_{0,\nu\rho}=i\int\dif^{3}\left[x_{\nu}\Theta_{0\rho}-x_{\rho}\Theta_{0\nu}+\bar{\psi}\gamma_{0}\frac{\sigma_{\nu\rho}}{2}\psi\right]
+\]
+
+\end_inset
+
+量子化之后的广义角动量算符为
+\begin_inset Formula 
+\[
+M^{\mu\nu}=\int\dif^{3}xJ^{0,\mu\nu}=i\int\dif^{3}\psi^{\dagger}\left(x\right)\left[i\left(x^{\mu}\partial^{\nu}-x^{\nu}\partial^{\mu}\right)+\frac{1}{2}\sigma^{\mu\nu}\right]\psi\left(x\right)
+\]
+
+\end_inset
+
+三维情况下角动量算符为
+\begin_inset Formula 
+\[
+\vec{J}=i\int\dif^{3}\psi^{\dagger}\left(x\right)\left[\vec{x}\times\left(-i\vec{\nabla}\right)+\frac{1}{2}\vec{\Sigma}\right]\psi\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula 
+\[
+\Sigma^{k}=S^{ij}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout
