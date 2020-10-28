@@ -1219,6 +1219,120 @@ F_{\mu\nu}^{\dagger} & =-\frac{1}{2}\left(u^{\dagger}F_{\mu\nu}u+uF_{\mu\nu}u^{\
 \end_layout
 
 \begin_layout Standard
+拉氏量必须是实数，因为
+\begin_inset Formula $\mathcal{H}=\sum_{\phi}\Pi\dot{\phi}-\mathcal{L}$
+\end_inset
+
+，而能量是可观测量，是实数。物理中总是认为大多数运算可以直接“透过”指标到下一层次，也就是认为大多数运算，跟矩阵分块不矛盾。比如旋量指标
+\begin_inset Formula $xyz$
+\end_inset
+
+，洛伦兹指标
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+，味道指标
+\begin_inset Formula $abc$
+\end_inset
+
+，认为这些指标之间是独立运算的。
+\end_layout
+
+\begin_layout Standard
+对于二次型，如果
+\begin_inset Formula $x=\left(\begin{array}{c}
+x_{1}\\
+x_{2}\\
+\vdots
+\end{array}\right)$
+\end_inset
+
+是场的集合，我们认为
+\begin_inset Formula $\dagger$
+\end_inset
+
+能透过场的指标，
+\begin_inset Formula $x^{\dagger}=\left(x_{1}^{\dagger},x_{2}^{\dagger},\cdots\right)$
+\end_inset
+
+（外层没有其他复数的时候，厄米共轭中只有转置发挥作用）。以下中重复指标代表求和：
+\begin_inset Formula 
+\begin{align*}
+x^{\dagger}Ay & =x_{i}^{\dagger}A_{ij}y_{j}\\
+\left(x^{\dagger}Ay\right)^{\dagger} & =y^{\dagger}A^{\dagger}x=y_{i}^{\dagger}A_{ij}^{\dagger}x_{j}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $A$
+\end_inset
+
+是厄米的，
+\begin_inset Formula $A^{\dagger}=A$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+x^{\dagger}Ay & =x_{i}^{\dagger}A_{ij}y_{j}\\
+\left(x^{\dagger}Ay\right)^{\dagger} & =y_{i}^{\dagger}A_{ij}^{\dagger}x_{j}=y_{i}^{\dagger}A_{ij}x_{j}
+\end{align*}
+
+\end_inset
+
+可以看到，作厄米共轭相当于交换
+\begin_inset Formula $x,y$
+\end_inset
+
+的位置（指标，厄米共轭），并把
+\begin_inset Formula $A$
+\end_inset
+
+换成
+\begin_inset Formula $A$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+同理，如果
+\begin_inset Formula $A$
+\end_inset
+
+是反厄米的，
+\begin_inset Formula $A^{\dagger}=-A$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\left(x^{\dagger}Ay\right)^{\dagger} & =y_{i}^{\dagger}A_{ij}^{\dagger}x_{j}=-y_{i}^{\dagger}A_{ij}x_{j}
+\end{align*}
+
+\end_inset
+
+相当于交换交换
+\begin_inset Formula $x,y$
+\end_inset
+
+的位置，，并把
+\begin_inset Formula $A$
+\end_inset
+
+换成
+\begin_inset Formula $-A$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
 对于大部分拉氏量，都已经写成了矩阵运算的形式，可以直接在 mma 中进行处理。对于含有
 \begin_inset Formula $T^{abc}$
 \end_inset
@@ -1227,6 +1341,7 @@ F_{\mu\nu}^{\dagger} & =-\frac{1}{2}\left(u^{\dagger}F_{\mu\nu}u+uF_{\mu\nu}u^{\
 \end_layout
 
 \begin_layout Standard
+十重态反常磁矩：
 \begin_inset Formula 
 \begin{align*}
  & -\frac{iF_{2}^{T}}{4m_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\left(F_{\alpha\beta}\right)^{ce}T^{\mu,eba}\\
@@ -1247,33 +1362,96 @@ F_{\mu\nu}^{\dagger} & =-\frac{1}{2}\left(u^{\dagger}F_{\mu\nu}u+uF_{\mu\nu}u^{\
 \end_layout
 
 \begin_layout Standard
+转移磁矩：
 \begin_inset Formula 
 \begin{align*}
- & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{ijk}\bar{T}^{\mu,ilm}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\left(-1\right)\varepsilon^{ijk}\bar{B}^{km}\left(-F_{\nu\mu}\right)^{jl}\gamma^{5}\gamma^{\nu}T^{\mu,ilm}\right)\\
- & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{ijk}\bar{T}^{\mu,ilm}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\varepsilon^{ijk}\bar{B}^{km}\left(F_{\nu\mu}\right)^{jl}\gamma^{5}\gamma^{\nu}T^{\mu,ilm}\right)\\
- & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{jki}\bar{T}^{\mu,iml}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\bar{B}^{km}\left(-F_{\mu\nu}\right)^{jl}\gamma^{\mu}\gamma^{5}T^{\nu,lmi}\left(-\varepsilon^{ikj}\right)\right)\\
- & +\frac{ie}{4m_{N}}c_{4}\left(\tr\left(\left(\varepsilon.\bar{T}^{\mu}.F_{\mu\nu}\right)^{\{1,4\}}.\gamma^{\nu}\gamma^{5}.B\right)+\tr\left(\bar{B}.\gamma^{\mu}\gamma^{5}.\left(F_{\mu\nu}.T^{\nu}.\varepsilon\right)^{\{1,4\}}\right)\right)
+ & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{ijk}\bar{T}^{\mu,ilm}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\varepsilon^{ijk}\bar{B}^{km}\left(-F_{\mu\nu}\right)^{jl}\gamma^{5}\gamma^{\mu}T^{\nu,ilm}\right)\\
+ & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{jki}\bar{T}^{\mu,iml}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\bar{B}^{km}\left(-F_{\mu\nu}\right)^{jl}\left(-\gamma^{\mu}\gamma^{5}\right)T^{\nu,lmi}\left(-\varepsilon^{ikj}\right)\right)\\
+ & +\frac{ie}{4m_{N}}c_{4}\left(\tr\left(\left(\varepsilon.\bar{T}^{\mu}.F_{\mu\nu}\right)^{\{1,4\}}.\gamma^{\nu}\gamma^{5}.B\right)+\tr\left(\bar{B}.\gamma^{\mu}\gamma^{5}.\left(F_{\mu\nu}.T^{\nu}.\left(-\varepsilon\right)\right)^{\{1,4\}}\right)\right)
 \end{align*}
 
 \end_inset
 
-这里不要忘了对
+注意：
+\end_layout
+
+\begin_layout Standard
+比如其中的
+\begin_inset Formula $\left(F_{\mu\nu}\right)^{lj}$
+\end_inset
+
+作厄米共轭时，如果令场的味道指标不变，那么相对的
+\begin_inset Formula $\left(F_{\mu\nu}\right)^{lj}$
+\end_inset
+
+要变成
+\begin_inset Formula $\left(F_{\mu\nu}\right)^{jl}$
+\end_inset
+
+，由于
+\begin_inset Formula $\lambda^{a}$
+\end_inset
+
+都是厄米的，所以没有额外的负号。也要处理洛伦兹指标
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+，即对
+\begin_inset Formula $\bar{T}^{\mu}F_{\mu\nu}\gamma^{\nu}\gamma^{5}$
+\end_inset
+
+这个二次型作厄米共轭，
 \begin_inset Formula $F_{\mu\nu}$
 \end_inset
 
-作复共轭，
-\begin_inset Formula $F_{\mu\nu}^{*}=F_{\mu\nu}^{\dagger T}=-F_{\nu\mu}$
+最外层是反对易式
+\begin_inset Formula $A^{\mu}B^{\nu}-B^{\mu}A^{\nu}$
 \end_inset
 
-，另外，旋量空间的转置，会交换
+，且没有额外的复数，所以对于外层的洛伦兹指标，
+\begin_inset Formula $F_{\mu\nu}^{\dagger}=-F_{\mu\nu}$
+\end_inset
+
+，对于内层的味道指标，
+\begin_inset Formula $\lambda^{a}$
+\end_inset
+
+矩阵都是厄米的，没有变化。
+\end_layout
+
+\begin_layout Standard
+另外还要考虑
 \begin_inset Formula $\gamma^{5}\gamma^{\nu}$
 \end_inset
 
-的位置到
+在厄米共轭下会交换次序变成
 \begin_inset Formula $\gamma^{\nu}\gamma^{5}$
 \end_inset
 
-。还要考虑费米子交换位置出负号。
+，所以会出额外的负号。
+\end_layout
+
+\begin_layout Standard
+这里不需要考虑费米子交换位置出负号，因为矩阵
+\begin_inset Formula $\left(AB\right)^{\dagger}=B^{\dagger}A^{\dagger}$
+\end_inset
+
+是更加基本的运算法则，对易或者反对易都是这个法则之下的特殊代数。
+\end_layout
+
+\begin_layout Standard
+MBD低能强子耦合项：
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\text{h.c.}\right]\\
+= & \mathcal{C}\left[\varepsilon^{jki}\overline{T}_{\mu}^{iml}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\bar{B}^{km}\left(-\Theta^{\dagger\mu\nu}\right)T_{\nu}^{ilm}(u_{\mu})^{jl}\varepsilon^{ijk}\right]\\
+= & \mathcal{C}\left[\varepsilon^{jki}\overline{T}_{\mu}^{iml}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\bar{B}^{km}(u_{\mu})^{jl}\Theta^{\mu\nu}T_{\nu}^{lmi}\left(-\varepsilon^{ikj}\right)\right]\\
+= & \mathcal{C}\left[\tr\left(\left(\varepsilon.\overline{T}_{\mu}.u_{\nu}\right)^{\left\{ 1,4\right\} }.\Theta^{\mu\nu}.B\right)+\tr\left(\bar{B}.\Theta^{\mu\nu}.\left(u_{\mu}.T_{\nu}.\left(-\varepsilon\right)\right)^{\{1,4\}}\right)\right]
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

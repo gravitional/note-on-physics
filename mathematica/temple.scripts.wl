@@ -151,59 +151,35 @@ export`vars=<||>
 
 
 (*\:8f93\:51fa\:76ee\:5f55*)
-export`dir=FileNameJoin[{git`local`name,"/expression-results/"}]
+echo[exportdir=FileNameJoin[{gitlocalname,"/expression-results/"}]];
+(*\:5bfc\:51fa\:5230\:786c\:76d8\:65f6\:7684\:6587\:4ef6\:540d\:79f0*)
+exportnamelist=<|
+"aaa"->FileNameJoin[{exportdir,"aaa"<>".pdf"}],
+"aaa"->FileNameJoin[{exportdir,"aaa"<>".pdf"}]
+|>;
 
 
-echo["the output name list"]
-
-
-(*\:5bfc\:51fa\:5230\:786c\:76d8\:7684\:6587\:4ef6\:540d\:79f0*)
-export`name`list=<|
-"ge_charge"->FileNameJoin[{export`dir,
-"fig.baryons.ge.charge.L-"<>
-parameter`lambda0`string<>
-".ci-"<>
-parameter`ci`string<>
-".pdf"
-}],
-
-"ge_neutral"->FileNameJoin[{export`dir,
-"fig.baryons.ge.neutral.L-"<>
-parameter`lambda0`string<>
-".ci-"<>
-parameter`ci`string<>
-".pdf"
-}],
-
-"gm_charge"->FileNameJoin[{export`dir,
-"fig.baryons.gm.charge.L-"<>
-parameter`lambda0`string<>
-".ci-"<>
-parameter`ci`string<>
-".pdf"
-}],
-
-"gm_neutral"->FileNameJoin[{export`dir,
-"fig.baryons.gm.neutral.L-"<>
-parameter`lambda0`string<>
-".ci-"<>
-parameter`ci`string<>
-".pdf"
-}]
-|>
-
-
-Print["----------------------------","\n","output status","\n","----------------------------"];
-
-
-(*\:5185\:5b58\:4e2d\:4fdd\:5b58\:6570\:636e\:7684\:5173\:8054*)
-export`vars//Keys
-
-
-Block[{namelists},
-namelists=Keys[export`vars];
+echo["the output name list"];
+echo[exportvars//Keys];
+echo["output status"];
+(*\:5185\:5b58\:4e2d\:4fdd\:5b58\:6570\:636e\:7684\:5173\:8054,\:5c06\:8981\:8f93\:51fa\:7684\:540d\:5b57*)
+Module[{namelists},
+namelists=Keys[exportvars];
+(*\:5bf9\:5bfc\:51fa\:5217\:8868\:8fdb\:884c\:5faa\:73af*)
 Do[
-Export[export`name`list[name],export`vars[name]]
-,{name,namelists}
+Export[exportnamelist[name],exportvars[name]];
+(*\:5982\:679c\:8fdb\:884c\:5230\:6700\:540e\:4e00\:4e2a,\:5c31\:6253\:5370\:8f93\:51fa\:5b8c\:6210*)
+If[SameQ[name,Last[namelists]],
+echo["Done"]
 ]
+,{name,namelists} (*\:5bf9\:5bfc\:51fa\:5217\:8868\:4e2d\:7684\:6bcf\:4e00\:4e2a\:53d8\:91cf\:8fdb\:884c\:5bfc\:51fa*)
 ]
+];
+
+
+(*\:7ed3\:675f\:6b64\:5305*)
+EndPackage[]
+
+
+(*\:5982\:679c\:5728\:524d\:7aef\:7b14\:8bb0\:672c\:4e2d\:6267\:884c,\:6e05\:9664\:6240\:6709\:8f93\:51fa\:7ed3\:679c,\:51cf\:5c0f\:6587\:4ef6\:4f53\:79ef*)
+If[Not[booleincmd],FrontEndExecute[FrontEndToken["DeleteGeneratedCells"]]]
