@@ -1344,7 +1344,7 @@ Z\left[v,a,s,p\right]=\exp\left(iW\left[v,a,s,p\right]\right)=\bra{0}T\exp\left[
 然后得到
 \begin_inset Formula 
 \[
-\bra{0}\bar{u}u\ket{0}_{0}=\left.\frac{i}{2}\left[\sqrt{\frac{2}{3}}\frac{\delta}{\delta s_{0}\left(x\right)}+\frac{\delta}{\delta s_{3}\left(x\right)}+\frac{1}{\sqrt{3}}\frac{\delta}{\delta s_{8}\left(x\right)}\right]\exp\left(iZ\left[v,a,s,p\right]\right)\right\rvert_{\{v,a,s,p\}=0}
+\bra{0}\bar{u}u\ket{0}_{0}=\left.\frac{i}{2}\left[\sqrt{\frac{2}{3}}\frac{\delta}{\delta s_{0}\left(x\right)}+\frac{\delta}{\delta s_{3}\left(x\right)}+\frac{1}{\sqrt{3}}\frac{\delta}{\delta s_{8}\left(x\right)}\right]\exp\left(iZ\left[v,a,s,p\right]\right)\right\rvert _{\{v,a,s,p\}=0}
 \]
 
 \end_inset
@@ -5692,7 +5692,85 @@ T_{abc}\mapsto K_{ai}K_{bj}K_{ck}T_{ijk}
 
 \end_layout
 
-\begin_layout Chapter*
+\begin_layout Standard
+由于
+\begin_inset Formula $K$
+\end_inset
+
+不仅依赖于
+\begin_inset Formula $V_{L}$
+\end_inset
+
+and 
+\begin_inset Formula $V_{R}$
+\end_inset
+
+，还依赖于
+\begin_inset Formula $U$
+\end_inset
+
+，协变导数除了包含 
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\begin_inset Formula $u^{\dagger}$
+\end_inset
+
+，还可能包含它们的导数
+\begin_inset Formula 
+\[
+\Gamma^{\mu}=\frac{1}{2}\left[u^{\dagger}\left(\partial_{\mu}-ir_{\mu}\right)u+u\left(\partial_{\mu}-il_{\mu}\right)u^{\dagger}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & D_{\mu}\Psi-\left(\partial_{\mu}+\Gamma_{\mu}-iv_{\mu}^{(s)}\right)\Psi
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+D_{\mu}^{\prime}\Psi^{\prime} & =\left[\partial_{\mu}+\Gamma_{\mu}^{\prime}-i\left(v_{\mu}^{(s)}-\partial_{\mu}\Theta\right)\right]\exp\left(-i\Theta\right)K\Psi\\
+ & =\exp\left(-i\Theta\right)K\left(\partial_{\mu}+\Gamma_{\mu}-iv_{\mu}^{(s)}\right)\Psi
+\end{align*}
+
+\end_inset
+
+还有另一个厄米的构成模块，成为 Chiral vielbein
+\begin_inset Formula 
+\begin{align*}
+u_{\mu} & \equiv i\left[u^{\dagger}\left(\partial_{\mu}-ir_{\mu}\right)u-u\left(\partial_{\mu}-il_{\mu}\right)u^{\dagger}\right]\\
+u_{\mu} & \stackrel{P}{\mapsto}i\left[u\left(\partial_{\mu}-ir_{\mu}\right)u^{\dagger}-u^{\dagger}\left(\partial_{\mu}-il_{\mu}\right)u\right]=-u^{\mu}
+\end{align*}
+
+\end_inset
+
+利用
+\begin_inset Formula 
+\[
+u^{\prime}=V_{R}uk^{\dagger}=KuV_{L}^{\dagger}
+\]
+
+\end_inset
+
+可以证明
+\begin_inset Formula 
+\[
+u_{\mu}\stackrel{P}{\mapsto}Ku_{\mu}K^{\dagger}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
 附录B
 \end_layout
 

@@ -4459,35 +4459,23 @@ name "tab1"
 \begin_inset Formula $x$
 \end_inset
 
-上，而不是作用在参数位置，比如
-\begin_inset Formula $\#1$
+上，而不是作用在参数位置，比如 
+\begin_inset Formula $\text{Slot}[1]$
 \end_inset
 
 上。
 \end_layout
 
 \begin_layout Standard
-由于作用量
-\begin_inset Formula $S=\int\dif^{4}x\mathcal{L}\left(x\right)$
+以费米子自由拉氏量举例，自由 Dirac Lagrangian 
+\begin_inset Formula $\mathcal{L}=\bar{\psi}\left(i\slashed{\partial}-m\right)\psi$
 \end_inset
 
-，如质量项
-\begin_inset Formula $m\bar{\psi}(x)\psi(x)$
+ 在 
+\begin_inset Formula $CPT$
 \end_inset
 
-，积分完后作用量中中已经不含有
-\begin_inset Formula $x$
-\end_inset
-
-，所以
-\begin_inset Formula $x$
-\end_inset
-
-的符号改变没有影响。
-\end_layout
-
-\begin_layout Standard
-以费米子自由拉氏量举例：
+ 各自变换下都是不变的。
 \begin_inset Formula 
 \[
 \mathcal{L}=\bar{\psi}\left(i\slashed{\partial}-m\right)\psi=i\bar{\psi}\gamma.\partial\psi-m\bar{\psi}\psi
@@ -4495,8 +4483,8 @@ name "tab1"
 
 \end_inset
 
-后一项
-\begin_inset Formula $m\bar{\psi}\psi$
+后一项，
+\begin_inset Formula $\left(m\bar{\psi}\psi\right)^{\dagger}=m\psi^{\dagger}\gamma^{0\dagger}\psi=m\bar{\psi}\psi$
 \end_inset
 
 是厄米的，所以是实数（因为拉氏量密度是能量密度的一部分），并且查表容易知道，在
@@ -4508,18 +4496,82 @@ name "tab1"
 
 \begin_layout Standard
 而前一项，
-\begin_inset Formula $i\bar{\psi}\gamma.\partial\psi\to\left(-i\right)\left(-\bar{\psi}\gamma.\partial\psi\right)$
-\end_inset
-
-在
-\begin_inset Formula $CPT$
-\end_inset
-
-变换下不变。另一方面，
 \begin_inset Formula $\left(i\bar{\psi}\gamma.\partial\psi\right)^{\dagger}=-i\partial\bar{\psi}.\gamma.\psi=i\bar{\psi}\gamma.\partial\psi$
 \end_inset
 
 ，所以是厄米的。
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $C$
+\end_inset
+
+变换：
+\begin_inset Formula 
+\[
+\bar{\psi}\left(i\slashed{\partial}\psi\right)\to-i\left(\slashed{\partial}\bar{\psi}\right)\psi\to\bar{\psi}\left(i\slashed{\partial}\psi\right)
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $T$
+\end_inset
+
+变换：
+\begin_inset Formula 
+\[
+\bar{\psi}\left(i\slashed{\partial}\psi\right)\to\bar{\psi}\left(\left(-i\right)\left(-g(\mu)\right)\left(g(\mu)\right)\slashed{\partial}\psi\right)\to\bar{\psi}\left(i\slashed{\partial}\psi\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $P$
+\end_inset
+
+变换：
+\begin_inset Formula 
+\[
+\bar{\psi}\left(i\slashed{\partial}\psi\right)\to\bar{\psi}\left(\left(i\right)\left(g(\mu)\right)\left(g(\mu)\right)\slashed{\partial}\psi\right)\to\bar{\psi}\left(i\slashed{\partial}\psi\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+注意，
+\end_layout
+
+\begin_layout Enumerate
+对于
+\begin_inset Formula $T$
+\end_inset
+
+变换，要考虑对所有数字取复共轭，
+\begin_inset Formula $Tc=c^{*}T$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+对于
+\begin_inset Formula $C$
+\end_inset
+
+变换，两个费米子场实际上交换了位置，同时还要考虑费米子交换位置出负号。
+\end_layout
+
+\begin_layout Enumerate
+还要考虑偏导数的变化。
 \end_layout
 
 \begin_layout Standard

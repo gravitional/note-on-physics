@@ -921,6 +921,361 @@ B^{\mu}p^{\nu}+C^{\mu}\gamma^{\nu}=\gamma^{\mu}p^{\nu}-p^{\mu}\gamma^{\nu}
 
 \end_layout
 
+\begin_layout Section
+Lagrangian 约定
+\end_layout
+
+\begin_layout Standard
+参考
+\begin_inset CommandInset href
+LatexCommand href
+name "https://arxiv.org/pdf/1806.07551.pdf"
+target "https://arxiv.org/pdf/1806.07551.pdf"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L} & ={\rm Tr}\big[\bar{B}(i\slashed{D}-M_{B})B\big]+D{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma_{5}\left[u_{\mu},B\right]\right]\\
+ & +\overline{T}_{\mu}^{ijk}(i\gamma^{\mu\nu\alpha}D_{\alpha}-M_{T}\gamma^{\mu\nu})T_{\nu}^{ijk}+\mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\text{h.c.}\right]\\
+ & -\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}(u_{\alpha})^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\big]
+\end{align*}
+
+\end_inset
+
+以及高阶拉氏量
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L} & =\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]\\
+ & +\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]
+\end{align*}
+
+\end_inset
+
+这里的
+\begin_inset Formula $u_{v}$
+\end_inset
+
+只需要取强子部分
+\begin_inset Formula 
+\[
+u_{\mu}=\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}u\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $b_{9},b_{10},b_{11}$
+\end_inset
+
+的值为
+\begin_inset Formula $b_{9}=1.36\GeV,b_{10}=1.24\GeV,b_{11}=0.46\GeV$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula 
+\[
+\Theta^{\mu\nu}=g^{\mu\nu}-Z\gamma^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $Z$
+\end_inset
+
+代表十重态离壳参数。当
+\begin_inset Formula $Z=1$
+\end_inset
+
+的时候，
+\begin_inset Formula $\Theta^{\mu\nu}=g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}=\frac{1}{2}\left(\gamma^{\nu}\gamma^{\mu}-\gamma^{\mu}\gamma^{\nu}\right)=i\sigma^{\mu\nu}$
+\end_inset
+
+，此时
+\begin_inset Formula $\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}$
+\end_inset
+
+是厄米的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f$
+\end_inset
+
+是介子衰变常数，
+\begin_inset Formula $f\approx93\MeV$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\gamma^{\mu\nu}=\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=-i\sigma^{\mu\nu},\gamma^{\mu\nu\alpha}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\alpha}\right\} =-i\left\{ \sigma^{\mu\nu},\gamma^{\alpha}\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula $B$
+\end_inset
+
+是八重态重子矩阵，
+\begin_inset Formula 
+\[
+B=\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}}\Sigma^{0}+\frac{1}{\sqrt{6}}\Lambda & \Sigma^{+} & p\\
+\Sigma^{-} & -\frac{1}{\sqrt{2}}\Sigma^{0}+\frac{1}{\sqrt{6}}\Lambda & n\\
+%\Xi^{-}
+ & \Xi^{0} & -\frac{2}{\sqrt{6}}\Lambda
+\end{array}\right)
+\]
+
+\end_inset
+
+十重态用一个全对称张量
+\begin_inset Formula $T^{ijk}$
+\end_inset
+
+描述
+\begin_inset Formula 
+\begin{align*}
+ & T^{111}=\Delta^{++},T^{112}=\frac{1}{\sqrt{3}}\Delta^{+},T^{122}=\frac{1}{\sqrt{3}}\Delta^{0},T^{222}=\Delta^{-},\\
+ & T^{113}=\frac{1}{\sqrt{3}}\Sigma^{*+},T^{123}=\frac{1}{\sqrt{6}}\Sigma^{*0},T^{223}=\frac{1}{\sqrt{6}}\Sigma^{*-},\\
+ & T^{133}=\frac{1}{\sqrt{3}}\Xi^{*0},T^{233}=\frac{1}{\sqrt{3}}\Xi^{*-}\\
+ & T^{333}=\Omega^{-}
+\end{align*}
+
+\end_inset
+
+介子被收集在
+\begin_inset Formula $U$
+\end_inset
+
+矩阵中，
+\begin_inset Formula $\phi$
+\end_inset
+
+是介子矩阵
+\begin_inset Formula 
+\[
+u=\exp\left(i\frac{\phi}{\sqrt{2}f}\right)\quad U=u^{2}=\exp\left(i\sqrt{2}\frac{\phi}{f}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\phi=\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}}\pi^{0}+\frac{1}{\sqrt{6}}\eta & \pi^{+} & K^{+}\\
+\pi^{-} & -\frac{1}{\sqrt{2}}\pi^{0}+\frac{1}{\sqrt{6}}\eta & K^{0}\\
+K^{-} & \bar{K}^{0} & -\frac{2}{\sqrt{6}}\eta
+\end{array}\right)
+\]
+
+\end_inset
+
+赝标介子组成矢量流和轴矢量流(Chiral connection and Chiral veilbein)
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{\mu} & =\frac{1}{2}\left(u\partial_{\mu}u^{\dagger}+u^{\dagger}\partial_{\mu}u\right)-\frac{i}{2}\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)v_{\mu}^{a}\\
+u_{\mu} & =\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}u\right)+\frac{1}{2}\left(u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u\right)v_{\mu}^{a}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $v_{\mu}^{a}$
+\end_inset
+
+代表与chpt系统进行耦合的矢量外场，
+\begin_inset Formula $\lambda^{a}$
+\end_inset
+
+是 Gell-Mann 矩阵，
+\begin_inset Formula $\lambda^{a}/2$
+\end_inset
+
+是 SU(3) 生成元。协变导数的定义为
+\begin_inset Formula 
+\begin{align*}
+D_{\mu}B & =\partial_{\mu}B+\left[\Gamma_{\mu},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
+D_{\mu}T_{\nu}^{ijk} & =\partial_{\mu}T_{\nu}^{ijk}+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}-i\langle\lambda^{0}\rangle v_{\mu}^{0}T_{\nu}^{ijk}\\
+D_{\mu}U & =\partial_{\mu}U-i\left[v_{\mu}^{a}\lambda^{a},U\right]=\partial_{\mu}U+i\left(U\lambda^{a}-\lambda^{a}U\right)v_{\mu}^{a}\\
+\left(D_{\mu}U\right) & ^{\dagger}=\partial_{\mu}U^{\dagger}-i\left[v_{\mu}^{a}\lambda^{a},U^{\dagger}\right]=D_{\mu}\left(U^{\dagger}\right)
+\end{align*}
+
+\end_inset
+
+在最低阶，只关注外场,
+\begin_inset Formula 
+\begin{align*}
+D_{\mu}B & =\partial_{\mu}B+\left[-i\lambda^{a}v_{\mu}^{a},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
+ & {\color{cyan}\lambda^{a}v_{\mu}^{a}\Longleftrightarrow\langle\lambda^{0}\rangle v_{\mu}^{0}=3v_{\mu}^{0}}
+\end{align*}
+
+\end_inset
+
+这个系数的选取方式，可以通过将展开结果和夸克流的量子数如电荷,进行匹配得到。
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula $v_{\mu}^{0}$
+\end_inset
+
+是单态外场，对应 和QCD 中的 
+\begin_inset Formula $\bar{q}\mathbbm{1}\gamma^{\mu}q$
+\end_inset
+
+耦合的外场。
+\begin_inset Formula $\lambda^{0}$
+\end_inset
+
+是味道空间的单位矩阵（
+\begin_inset Formula $3\times3$
+\end_inset
+
+）。
+\begin_inset Formula $\langle\lambda^{0}\rangle$
+\end_inset
+
+表示求迹，也就是
+\begin_inset Formula $\langle\lambda^{0}\rangle=3$
+\end_inset
+
+ 。十重态定义中的
+\begin_inset Formula $\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}$
+\end_inset
+
+为
+\begin_inset Formula 
+\[
+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}=\Gamma_{\mu}^{il}T_{\nu}^{ljk}+\Gamma_{\mu}^{jl}T_{\nu}^{ilk}+\Gamma_{\mu}^{kl}T_{\nu}^{ijl}
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\[
+\left(\Gamma_{\mu},T_{\nu}\right)=\Gamma_{\mu}.T_{\nu}+\left(\Gamma_{\mu}.T_{\nu}\right)^{(123)}+\left(\Gamma_{\mu}.T_{\nu}\right)^{(132)}
+\]
+
+\end_inset
+
+上标的
+\begin_inset Formula $(123)$
+\end_inset
+
+表示将置换群元素
+\begin_inset Formula $\left(\begin{array}{ccc}
+1 & 2 & 3\\
+2 & 3 & 1
+\end{array}\right)$
+\end_inset
+
+作用到内积
+\begin_inset Formula $\Gamma_{\mu}.T_{\nu}$
+\end_inset
+
+的结果。
+\end_layout
+
+\begin_layout Standard
+此外还有跟反常磁矩相关的拉氏量
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}^{\text{mag}} & =\frac{1}{4m_{N}}\left(c_{1}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ F_{\mu\nu}^{\dagger},B\right\} \right]+c_{2}\tr\left[\bar{B}\sigma^{\mu\nu}\left[F_{\mu\nu}^{\dagger},B\right]\right]+c_{3}\langle\lambda^{0}\rangle\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\tr\left[F_{\mu\nu}^{0}\right]\right)\\
+ & -\frac{iF_{2}^{T}}{4m_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\left(F_{\alpha\beta}\right)^{ce}T^{\mu,eba}\\
+ & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{ijk}\bar{B}^{jm}\left(F_{\mu\nu}\right)^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\left(F_{\mu\nu}\right)^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\begin{align*}
+F_{\mu\nu} & =F_{\mu\nu}^{a}\lambda^{a}\quad F_{\mu\nu}^{a}=\partial_{\mu}v_{\nu}^{a}-\partial_{\nu}v_{\mu}^{a}\\
+F_{\mu\nu}^{\dagger} & =-\frac{1}{2}\left(u^{\dagger}F_{\mu\nu}u+uF_{\mu\nu}u^{\dagger}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+指标求和式的处理
+\end_layout
+
+\begin_layout Standard
+对于大部分拉氏量，都已经写成了矩阵运算的形式，可以直接在 mma 中进行处理。对于含有
+\begin_inset Formula $T^{abc}$
+\end_inset
+
+的式子，需要先表示成张量运算的形式，方便处理。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & -\frac{iF_{2}^{T}}{4m_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\left(F_{\alpha\beta}\right)^{ce}T^{\mu,eba}\\
+ & -\frac{iF_{2}^{T}}{4m_{T}}\left(\bar{T}_{\mu}.F_{\alpha\beta}.\left(\sigma^{\alpha\beta}.T^{\mu}\right)\right)^{\left\{ \left\{ 1,4\right\} ,\left\{ 2,3\right\} \right\} }
+\end{align*}
+
+\end_inset
+
+式子中的点乘都是在味道空间进行的，相当于结果中的指标进行
+\begin_inset Formula $\left\{ \left\{ 1,3\right\} ,\left\{ 2,4\right\} \right\} $
+\end_inset
+
+ or 
+\begin_inset Formula $\left\{ \left\{ 1,4\right\} ,\left\{ 2,3\right\} \right\} $
+\end_inset
+
+ 收缩。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{ijk}\bar{T}^{\mu,ilm}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\left(-1\right)\varepsilon^{ijk}\bar{B}^{km}\left(-F_{\nu\mu}\right)^{jl}\gamma^{5}\gamma^{\nu}T^{\mu,ilm}\right)\\
+ & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{ijk}\bar{T}^{\mu,ilm}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\varepsilon^{ijk}\bar{B}^{km}\left(F_{\nu\mu}\right)^{jl}\gamma^{5}\gamma^{\nu}T^{\mu,ilm}\right)\\
+ & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{jki}\bar{T}^{\mu,iml}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\bar{B}^{km}\left(-F_{\mu\nu}\right)^{jl}\gamma^{\mu}\gamma^{5}T^{\nu,lmi}\left(-\varepsilon^{ikj}\right)\right)\\
+ & +\frac{ie}{4m_{N}}c_{4}\left(\tr\left(\left(\varepsilon.\bar{T}^{\mu}.F_{\mu\nu}\right)^{\{1,4\}}.\gamma^{\nu}\gamma^{5}.B\right)+\tr\left(\bar{B}.\gamma^{\mu}\gamma^{5}.\left(F_{\mu\nu}.T^{\nu}.\varepsilon\right)^{\{1,4\}}\right)\right)
+\end{align*}
+
+\end_inset
+
+这里不要忘了对
+\begin_inset Formula $F_{\mu\nu}$
+\end_inset
+
+作复共轭，
+\begin_inset Formula $F_{\mu\nu}^{*}=F_{\mu\nu}^{\dagger T}=-F_{\nu\mu}$
+\end_inset
+
+，另外，旋量空间的转置，会交换
+\begin_inset Formula $\gamma^{5}\gamma^{\nu}$
+\end_inset
+
+的位置到
+\begin_inset Formula $\gamma^{\nu}\gamma^{5}$
+\end_inset
+
+。还要考虑费米子交换位置出负号。
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout
