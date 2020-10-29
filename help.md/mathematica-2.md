@@ -2297,3 +2297,46 @@ $ParentProcessID   调用Wolfram语言内核的进程的ID
 $Username   运行Wolfram语言内核的用户的登录名
 Environment["var"]   操作系统定义的变量的值
 ```
+
+## 模式
+
+tutorial/PatternsAndTransformationRules
+
+## 对模式施加限制
+
+tutorial/PuttingConstraintsOnPatterns
+
+```mathematica
+f[x_] := Condition[ppp[x], x > 0]
+```
+
+当`x > 0`为真的时候，才进行函数的定义
+
+判断对象是数值。
+
+```mathematica
+NumericQ[Sin[Sqrt[2]]]
+```
+
+### 带有默认参数的匹配
+
+tutorial/OptionalAndDefaultArguments
+
+有些函数，比如`Plus`，具有`Flat`性质，在模式匹配中可以匹配任意多的数目的参数，因为`Plus[1,2,3]=Plus[1,Plus[2,3]]`。
+但是它不能匹配单个`a`。
+这时候可以使用`x_+y_.`这样的写法，对应的函数是`x+Optional[y_]`，就可以匹配到`a+0`了，
+由于`Plus`具有全局默认参数,`0`。
+
+使用`x_.`可以匹配那些在数学上相等，但是在结构上不相等的式子。`x_.`会自动选取外层函数的全局默认值。
+
+```mathematica
+{g[a^2], g[a + b]} /. g[x_^n_] -> p[x, n]
+{p[a, 2], g[a + b]}
+```
+
+有时候需要分配一个没有默认值的可选参数，可以使用`2 | PatternSequence[]`，如
+
+```mathematica
+{g[1], g[1, 1], g[1, 2]} /. g[x_, 2 | PatternSequence[]] :> p[x]
+{p[1], g[1, 1], p[1]}
+```

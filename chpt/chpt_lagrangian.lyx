@@ -1366,8 +1366,8 @@ x^{\dagger}Ay & =x_{i}^{\dagger}A_{ij}y_{j}\\
 \begin_inset Formula 
 \begin{align*}
  & +\frac{iec_{4}}{4m_{N}}\left(\varepsilon^{ijk}\bar{T}^{\mu,ilm}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\varepsilon^{ijk}\bar{B}^{km}\left(-F_{\mu\nu}\right)^{jl}\gamma^{5}\gamma^{\mu}T^{\nu,ilm}\right)\\
- & +\frac{iec_{4}}{4m_{N}}\left(\varepsilon^{jki}\bar{T}^{\mu,iml}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\bar{B}^{km}\left(-F_{\mu\nu}\right)^{jl}\left(-\gamma^{\mu}\gamma^{5}\right)T^{\nu,lmi}\left(-\varepsilon^{ikj}\right)\right)\\
- & +\frac{iec_{4}}{4m_{N}}\left(\tr\left(\left(\varepsilon.\bar{T}^{\mu}.F_{\mu\nu}\right)^{\{1,4\}}.\gamma^{\nu}\gamma^{5}.B\right)+\tr\left(\bar{B}.\gamma^{\mu}\gamma^{5}.\left(F_{\mu\nu}.T^{\nu}.\left(-\varepsilon\right)\right)^{\{1,4\}}\right)\right)
+ & +\frac{iec_{4}}{4m_{N}}\left(\varepsilon^{jki}\bar{T}^{\mu,iml}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\bar{B}^{km}\left(-F_{\mu\nu}\right)^{jl}\left(\gamma^{\mu}\gamma^{5}\right)T^{\nu,lmi}\left(-\varepsilon^{ikj}\right)\right)\\
+ & +\frac{iec_{4}}{4m_{N}}\left(\tr\left(\left(\varepsilon.\bar{T}^{\mu}.F_{\mu\nu}\right)^{\{1,4\}}.\gamma^{\nu}\gamma^{5}.B\right)+\tr\left(\bar{B}.\gamma^{\mu}\gamma^{5}.\left(F_{\mu\nu}.T^{\nu}.\left(\varepsilon\right)\right)^{\{1,4\}}\right)\right)
 \end{align*}
 
 \end_inset
@@ -1421,17 +1421,44 @@ x^{\dagger}Ay & =x_{i}^{\dagger}A_{ij}y_{j}\\
 
 \begin_layout Standard
 另外还要考虑
-\begin_inset Formula $\gamma^{5}\gamma^{\nu}$
-\end_inset
-
-在厄米共轭下会交换次序变成
 \begin_inset Formula $\gamma^{\nu}\gamma^{5}$
 \end_inset
 
-，所以会出额外的负号。
+。
+\begin_inset Formula 
+\begin{align*}
+\bar{\psi}\gamma^{\nu}\gamma^{5}\psi & \stackrel{\text{\ensuremath{\dagger}}}{\mapsto}\psi^{\dagger}\gamma^{5}\gamma^{\nu\dagger}\gamma^{0}\psi=\psi^{\dagger}\gamma^{0}\gamma^{0}\gamma^{5}\gamma^{\nu\dagger}\gamma^{0}\psi=\bar{\psi}\gamma^{0}\gamma^{5}\gamma^{\nu\dagger}\gamma^{0}\psi\\
+ & =-\bar{\psi}\gamma^{5}\gamma^{0}\gamma^{\nu\dagger}\gamma^{0}\psi=-\bar{\psi}\gamma^{5}\gamma^{\nu}\psi=\bar{\psi}\gamma^{\nu}\gamma^{5}\psi
+\end{align*}
+
+\end_inset
+
+也求实说
+\begin_inset Formula $\bar{\psi}\gamma^{\nu}\gamma^{5}\psi$
+\end_inset
+
+是厄米的，
+\begin_inset Formula $\bar{\psi}\gamma^{5}\gamma^{\nu}\psi=-\bar{\psi}\gamma^{\nu}\gamma^{5}\psi$
+\end_inset
+
+也是厄米的，不用考虑在厄米共轭下额外的负号。
 \end_layout
 
 \begin_layout Standard
+注意：
+\begin_inset Formula $\gamma^{0}\gamma^{5}\gamma^{0}\neq\gamma^{5\dagger}$
+\end_inset
+
+，厄米的双线性型为
+\begin_inset Formula 
+\[
+\bar{\psi}\psi,\quad\bar{\psi}\gamma^{\mu}\psi,\quad\bar{\psi}i\left[\gamma^{\mu},\gamma^{\nu}\right]\psi,\quad\bar{\psi}\gamma^{\mu}\gamma^{5}\psi,\quad\bar{\psi}i\gamma^{5}\psi
+\]
+
+\end_inset
+
+
+\color cyan
 这里不需要考虑费米子交换位置出负号，因为矩阵
 \begin_inset Formula $\left(AB\right)^{\dagger}=B^{\dagger}A^{\dagger}$
 \end_inset
