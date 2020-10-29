@@ -351,3 +351,27 @@ TikZ 允许您使用不同的颜色进行填充和描边。
 
 1. 当`<shifting part>`形式为`<number or dimension> and <number or dimension>`的时候(注意中间有个`and`)，先向左移动，再向右移动（通常这令人满意，除非你使用了`x` and `y`选项，修改了`xy`--坐标系的单位矢量。）
 2. 当`<shifting part>`形式为`<number or dimension> `时，也就是只给出一个参数，向对角线方向(135度方向)移动$\frac{1}{2}\sqrt{2}cm$。按照数学的说法，就是按照$l_{2}-norm$理解，相当于极坐标中的半径。而`<number or dimension> and <number or dimension>`是按照$l_{1}-norm$理解。
+
+### 自定义 style
+
+```latex
+\begin{tikzpicture}[abcde/.style={
+  double distance=10pt,
+  postaction={
+  decorate,
+  decoration={
+      markings,
+      mark=at position .5 with {\arrow[blue,line width=1mm]{>}},
+    }
+  }
+  }]
+
+  \begin{feynman}
+  ...
+  \end{feynman}
+
+  \draw [help lines] grid (3,2);
+  \draw[abcde]  (a1) -- (b1);
+
+\end{tikzpicture}
+```
