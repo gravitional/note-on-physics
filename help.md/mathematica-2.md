@@ -1913,6 +1913,14 @@ out: <|a -> 1, b -> 2, c -> 3|>
 
 这跟`Part`的一般行为一致，当`Part`的参数是`{i,j,k,...}`的形式时，结果也会带有原先的头部.
 
+### 关联的匹配
+
+使用`KeyValuePattern[{p1,p2,p3}]`确保匹配到每个模式`p1,p2,p3`，与实际出现的顺序无关。
+
+```mathematica
+MatchQ[<|a -> 1, b -> 2, c -> 3|>, KeyValuePattern[{b -> 2}]]
+```
+
 ## 变量局部化
 
 ### Block and Module 的区别
@@ -2318,6 +2326,12 @@ f[x_] := Condition[ppp[x], x > 0]
 NumericQ[Sin[Sqrt[2]]]
 ```
 
+### 无序模式
+
+```mathematica
+MatchQ[{2, 1}, {OrderlessPatternSequence[1, 2]}]
+```
+
 ### 带有默认参数的匹配
 
 tutorial/OptionalAndDefaultArguments
@@ -2340,3 +2354,10 @@ tutorial/OptionalAndDefaultArguments
 {g[1], g[1, 1], g[1, 2]} /. g[x_, 2 | PatternSequence[]] :> p[x]
 {p[1], g[1, 1], p[1]}
 ```
+
+## 前段令牌
+
+guide/FrontEndTokens
+
+Wolfram语言允许通过发送适当的前端令牌，从内核以脚本的方式执行任何前端命令。如`保存`,`打开`文件等等。 
+除了所有标准菜单命令，还包括默认前端菜单配置无法直接访问的`tokens`。
