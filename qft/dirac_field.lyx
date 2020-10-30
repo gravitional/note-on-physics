@@ -1854,7 +1854,7 @@ peskin page134，求迹公式：
 \end_inset
 
 这个关系可以通过使用
-\begin_inset Formula $C\equiv\gamma^{0}\gamma^{2}$
+\begin_inset Formula $C\equiv-i\gamma^{0}\gamma^{2}$
 \end_inset
 
  （电荷共轭）证明。
@@ -2343,6 +2343,325 @@ u_{\lambda}(p)=\left(\begin{array}{c}
 \end_inset
 
 
+\begin_inset Formula 
+\begin{align*}
+v\left(\lambda,-\vec{p}\right)^{\dagger} & =\left(\begin{array}{cc}
+\sqrt{p\cdot\bar{\sigma}}q_{\eta} & -\sqrt{p\cdot\sigma}q_{\eta}\end{array}\right)=-v^{\dagger}\gamma^{0}=-\bar{v}\\
+\bar{u}\left(r,p\right)v\left(s,p\right) & =\sqrt{p\cdot\bar{\sigma}}w_{r}^{\dagger}\sqrt{p\cdot\sigma}q_{s}-\sqrt{p\cdot\sigma}w_{r}^{\dagger}\sqrt{p\cdot\bar{\sigma}}q_{s}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+归一化为：
+\begin_inset Formula 
+\begin{align*}
+ & \bar{u}\left(r,p\right)u\left(s,p\right)=2m\delta^{rs},\qquad u^{r+}\left(p\right)u^{s}\left(p\right)=2E_{p}\delta^{rs}\\
+ & \bar{v}\left(r,p\right)v\left(s,p\right)=-2m\delta^{rs}\qquad v^{r+}\left(p\right)v^{s}\left(p\right)=+2E_{p}\delta^{rs}
+\end{align*}
+
+\end_inset
+
+正交化为：
+\begin_inset Formula 
+\begin{align*}
+ & u\left(r,p\right)^{\dagger}v\left(s,p\right)\neq0,\qquad v\left(r,p\right)^{\dagger}u\left(s,p\right)\neq0\\
+ & \bar{u}\left(r,p\right)v\left(s,p\right)=0\qquad\bar{v}\left(r,p\right)u\left(s,p\right)=0\\
+ & u\left(r,\vec{p}\right)^{\dagger}v\left(s,-\vec{p}\right)=0,\qquad v\left(r,-\vec{p}\right)^{\dagger}u\left(s,\vec{p}\right)=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+拉氏量和量子化
+\end_layout
+
+\begin_layout Standard
+自由拉氏量为
+\begin_inset Formula 
+\[
+\mathcal{L}=\bar{\psi}\left(i\gamma.\partial-m\right)\psi=\bar{\psi}\left(i\gamma^{\mu}\partial_{\mu}-m\right)\psi
+\]
+
+\end_inset
+
+共轭动量为
+\begin_inset Formula 
+\begin{align*}
+\pi_{\psi} & =\frac{\partial\mathcal{L}}{\partial\partial_{0}\psi}=\bar{\psi}i\gamma^{0}=i\psi^{\dagger}\\
+\pi_{\bar{\psi}} & =\frac{\partial\mathcal{L}}{\partial\partial_{0}\bar{\psi}}=0
+\end{align*}
+
+\end_inset
+
+所以 Hamiltonian is 
+\begin_inset Formula 
+\begin{align*}
+H & =\int\dif^{3}x\pi\partial_{0}\psi-\mathcal{L}=\int\dif^{3}xi\psi^{\dagger}\partial_{0}\psi-\bar{\psi}\left(i\gamma^{\mu}\partial_{\mu}-m\right)\psi\\
+ & =\int\dif^{3}xi\psi^{\dagger}\partial_{0}\psi-i\psi^{\dagger}\partial_{0}\psi-i\bar{\psi}\vec{\gamma}\cdot\vec{\nabla}\psi+m\bar{\psi}\psi\\
+ & =\int\dif^{3}x\bar{\psi}\left(-i\vec{\gamma}\cdot\vec{\nabla}+m\right)\psi=\int\dif^{3}x\psi^{\dagger}\left(-i\gamma^{0}\vec{\gamma}\cdot\vec{\nabla}+m\gamma^{0}\right)\psi
+\end{align*}
+
+\end_inset
+
+这里
+\begin_inset Formula $\vec{\gamma}\cdot\vec{\nabla}=\gamma^{1}\partial_{1}+\gamma^{2}\partial_{2}+\gamma^{3}\partial_{3}$
+\end_inset
+
+，注意保留了负号。
+\end_layout
+
+\begin_layout Standard
+由于平面波解满足
+\begin_inset Formula $\left(i\gamma^{0}\partial_{0}+i\vec{\gamma}\cdot\vec{\nabla}-m\right)u\left(s,p\right)e^{-ip.x}=0$
+\end_inset
+
+ 所以，
+\begin_inset Formula 
+\begin{align*}
+ & \left(i\partial_{0}+i\gamma^{0}\vec{\gamma}\cdot\vec{\nabla}-m\gamma^{0}\right)u\left(s,p\right)e^{-ip.x}=0\\
+\Rightarrow & p_{0}u\left(s,p\right)e^{-ip.x}=\left(-i\gamma^{0}\vec{\gamma}\cdot\vec{\nabla}+m\gamma^{0}\right)u\left(s,p\right)e^{-ip.x}\\
+\Rightarrow & p_{0}u\left(s,p\right)=\left(-i\gamma^{0}\vec{\gamma}\cdot\vec{\nabla}+m\gamma^{0}\right)u\left(s,p\right)
+\end{align*}
+
+\end_inset
+
+说明
+\begin_inset Formula $u\left(s,p\right)$
+\end_inset
+
+是哈密顿的本征矢量，本征值是
+\begin_inset Formula $p_{0}$
+\end_inset
+
+，同样
+\begin_inset Formula $v\left(s,p\right)$
+\end_inset
+
+也是本征矢量，本征值是
+\begin_inset Formula $-p_{0}$
+\end_inset
+
+。对于任意
+\begin_inset Formula $\vec{p}$
+\end_inset
+
+，有两个
+\begin_inset Formula $u$
+\end_inset
+
+ and 两个
+\begin_inset Formula $v$
+\end_inset
+
+，哈密顿是厄米的，这四个
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\begin_inset Formula $v$
+\end_inset
+
+构成了一组完备基，所以
+\begin_inset Formula $H$
+\end_inset
+
+在这组基下一定可以对角化。
+\end_layout
+
+\begin_layout Subsection
+必须用反对易
+\end_layout
+
+\begin_layout Standard
+如果费米子采用对易式量子化，即
+\begin_inset Formula 
+\[
+\left[\psi_{a}\left(\vec{x}\right),\psi_{b}^{\dagger}\left(\vec{y}\right)\right]=\delta^{(3)}\left(\vec{x}-\vec{y}\right)\delta_{ab}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+得到的能量表达式为
+\begin_inset Formula 
+\[
+H=\int\frac{\dif^{3}}{\left(2\pi\right)^{3}}\sum_{s}E_{p}a_{p}^{s\dagger}a_{p}^{s}-E_{p}b_{p}^{s\dagger}b_{p}^{s}
+\]
+
+\end_inset
+
+这样非常不妙，只要有足够多的
+\begin_inset Formula $b$
+\end_inset
+
+例子，能量是没有下限的（bounded from below），这样的系统是不稳定的。如果令
+\begin_inset Formula $b_{p}^{s\dagger}=\tilde{b}_{p}$
+\end_inset
+
+的话，会破坏对易关系
+\begin_inset Formula $\left[\psi_{a}\left(\vec{x}\right),\psi_{b}^{\dagger}\left(\vec{y}\right)\right]=\delta^{(3)}\left(\vec{x}-\vec{y}\right)\delta_{ab}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+此外，查看对易子：
+\begin_inset Formula 
+\begin{align*}
+\psi\left(x\right) & =\int\frac{\dif^{3}}{\left(2\pi\right)^{3}}\frac{1}{\sqrt{2E_{p}}}\sum_{s}\left(a_{p}^{s}u^{s}\left(p\right)e^{-ip\cdot x}+b_{p}^{s}v^{s}\left(p\right)e^{+ip\cdot x}\right)\\
+\bar{\psi}\left(x\right) & =\int\frac{\dif^{3}}{\left(2\pi\right)^{3}}\frac{1}{\sqrt{2E_{p}}}\sum_{s}\left(a_{p}^{s\dagger}u^{s}\left(p\right)e^{+ip\cdot x}+b_{p}^{s\dagger}v^{s}\left(p\right)e^{-ip\cdot x}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left[\psi_{a}\left(x\right),\bar{\psi}_{b}\left(y\right)\right] & =\int\frac{\dif^{3}}{\left(2\pi\right)^{3}}\frac{1}{\sqrt{2E_{p}}}\sum_{s}\left(u_{a}^{s}\left(p\right)\bar{u}_{b}^{s}\left(p\right)e^{-ip\cdot\left(x-y\right)}+v_{a}^{s}\left(p\right)\bar{v}_{b}^{s}\left(p\right)e^{+ip\cdot\left(x-y\right)}\right)\\
+ & =\left(i\slashed{\partial}_{x}+m\right)_{ab}\int\frac{\dif^{3}}{\left(2\pi\right)^{3}}\frac{1}{2E_{p}}\left(e^{-ip\cdot\left(x-y\right)}-e^{+ip\cdot\left(x-y\right)}\right)\\
+ & =\left(i\slashed{\partial}_{x}+m\right)_{ab}\left[\phi\left(x\right),\phi\left(y\right)\right]
+\end{align*}
+
+\end_inset
+
+尽管在类空间隔下，
+\begin_inset Formula $\left[\phi\left(x\right),\phi\left(y\right)\right]$
+\end_inset
+
+(克莱因–高登传播子)为零。但是如果假设算符满足对易关系，仍然会有奇怪的地方。因为
+\begin_inset Formula 
+\begin{align*}
+\left[\psi_{a}\left(x\right),\bar{\psi}_{b}\left(y\right)\right] & =\bra{0}\left[\psi_{a}\left(x\right),\bar{\psi}_{b}\left(y\right)\right]\ket{0}\\
+ & \bra{0}\psi_{a}\left(x\right)\bar{\psi}_{b}\left(y\right)\ket{0}-\bra{0}\bar{\psi}_{b}\left(y\right)\psi_{a}\left(x\right)\ket{0}
+\end{align*}
+
+\end_inset
+
+在克莱因–高登场的情形下，其中每一项都有贡献。在光锥外，从 
+\begin_inset Formula $y$
+\end_inset
+
+ to 
+\begin_inset Formula $x$
+\end_inset
+
+ 的粒子 propagation 被从 
+\begin_inset Formula $x$
+\end_inset
+
+ to 
+\begin_inset Formula $y$
+\end_inset
+
+的反粒子 propagation 抵消掉了。保持结果为零。但是在这里，第二项的贡献为零，正能量的粒子和负能量的粒子的传播互相抵消，它们都从
+\begin_inset Formula $y$
+\end_inset
+
+传播到
+\begin_inset Formula $x$
+\end_inset
+
+。这有些不够相对论，因为我们知道，当观察者的速度足够快，应该能看到（带质量）粒子的传播改变方向。
+\end_layout
+
+\begin_layout Standard
+通过分析，
+\begin_inset Formula $\bra{0}\psi_{a}\left(x\right)\bar{\psi}_{b}\left(y\right)\ket{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bra{0}\bar{\psi}_{b}\left(y\right)\psi_{a}\left(x\right)\ket{0}$
+\end_inset
+
+会差一个负号，
+\begin_inset Formula 
+\begin{align*}
+\bra{0}\psi_{a}\left(x\right)\bar{\psi}_{b}\left(y\right)\ket{0} & =\left(i\slashed{\partial}_{x}+m\right)_{ab}\int\frac{\dif^{3}}{\left(2\pi\right)^{3}}\frac{1}{2E_{p}}e^{-ip\cdot\left(x-y\right)}A\\
+\bra{0}\bar{\psi}_{b}\left(y\right)\psi_{a}\left(x\right)\ket{0} & =-\left(i\slashed{\partial}_{x}+m\right)_{ab}\int\frac{\dif^{3}}{\left(2\pi\right)^{3}}\frac{1}{2E_{p}}e^{+ip\cdot\left(x-y\right)}A
+\end{align*}
+
+\end_inset
+
+由于希尔伯特空间态矢量模为正数的要求，
+\begin_inset Formula $A$
+\end_inset
+
+是某个整数，并且是洛伦兹标量。相对负号来自于求和关系
+\begin_inset Formula $\sum\bar{u}u,\sum\bar{v}v$
+\end_inset
+
+以及指数因子
+\begin_inset Formula $\exp\left(\pm ipx\right)$
+\end_inset
+
+。所以我们需要假设费米子满足反对易关系
+\begin_inset Formula 
+\begin{align*}
+\left\{ \psi_{a}\left(\vec{x}\right),\psi_{b}^{\dagger}\left(\vec{y}\right)\right\}  & =\delta^{(3)}\left(\vec{x}-\vec{y}\right)\delta_{ab}\\
+\left\{ \psi_{a}\left(\vec{x}\right),\psi_{b}\left(\vec{y}\right)\right\}  & =\left\{ \psi_{a}^{\dagger}\left(\vec{x}\right),\psi_{b}^{\dagger}\left(\vec{y}\right)\right\} =0\\
+\left\{ a_{p}^{r},a_{p}^{s\dagger}\right\} =\left\{ b_{p}^{r},b_{p}^{s\dagger}\right\}  & =\left(2\pi\right)^{3}\delta^{\left(3\right)}\left(\vec{p}-\vec{q}\right)\delta^{rs}
+\end{align*}
+
+\end_inset
+
+在反对易关系下，哈密顿为
+\begin_inset Formula 
+\[
+H=\int\frac{\dif^{3}}{\left(2\pi\right)^{3}}\sum_{s}E_{p}a_{p}^{s\dagger}a_{p}^{s}-E_{p}b_{p}^{s\dagger}b_{p}^{s}
+\]
+
+\end_inset
+
+看起来形式一样，但是现在不成问题。因为反对易关系是对称的，所以可以通过重新定义，
+\begin_inset Formula 
+\[
+\tilde{b}_{p}^{s}\equiv b_{p}^{s\dagger},\qquad\tilde{b}_{p}^{s\dagger}\equiv b_{p}^{s}
+\]
+
+\end_inset
+
+重写为
+\begin_inset Formula 
+\[
+-E_{p}b_{p}^{s\dagger}b_{p}^{s}=+E_{p}b_{p}^{s\dagger}\tilde{b}_{p}^{s\dagger}-\left(\text{const}\right)
+\]
+
+\end_inset
+
+忽略掉这个无关的常数。
+\end_layout
+
+\begin_layout Standard
+通过一般的论证，如果要求传播子洛伦兹不变，哈密顿是半正定的，希尔伯特空间的态矢量具有正的模，同时保证因果性，可以证明，整数粒子必须遵守 Bose-Einstei
+n 统计，半整数自旋的粒子必须遵守 Fermi-Dirac 统计。
+\end_layout
+
+\begin_layout Standard
+所以费米的费曼传播子定义为
+\begin_inset Formula 
+\begin{align*}
+S_{F}\left(x-y\right) & =\int\frac{\dif^{4}p}{\left(2\pi\right)^{4}}\frac{i\left(\slashed{p}+m\right)}{p^{2}-m^{2}+i\epsilon}\exp\left(-ip\cdot\left(x-y\right)\right)\\
+ & =\begin{cases}
+\bra{0}\psi\left(x\right)\bar{\psi}\left(y\right)\ket{0} & \text{for }x^{0}>y^{0},\text{close contour below}\\
+-\bra{0}\bar{\psi}\left(y\right)\psi\left(x\right)\ket{0} & \text{for }x^{0}<y^{0},\text{close contour above}
+\end{cases}\\
+ & \equiv\bra{0}T\left(\psi\left(x\right)\bar{\psi}\left(y\right)\right)\ket{0}
+\end{align*}
+
+\end_inset
+
+要注意编时乘积中的负号。
 \end_layout
 
 \begin_layout Section
