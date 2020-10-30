@@ -1626,7 +1626,89 @@ S_{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]
 \end_layout
 
 \begin_layout Section
-gamma公式总结
+gamma公式总结：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+基本性质:
+\begin_inset Formula 
+\begin{align*}
+ & \sigma=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\left(\begin{array}{cc}
+0 & -i\\
+i & 0
+\end{array}\right),\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)\\
+ & \gamma^{\mu}=\left(\begin{array}{cc}
+0 & \sigma\\
+\bar{\sigma} & 0
+\end{array}\right)=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\left(\begin{array}{cc}
+0 & \sigma\\
+-\sigma & 0
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2g^{\mu\nu}\mathbbm{1}\\
+ & \gamma^{0\dagger}=\gamma^{0},\gamma^{i\dagger}=-\gamma^{i}\\
+ & \gamma^{2,*}=-\gamma^{2},\gamma^{\left\{ 0,1,3\right\} *}=\gamma^{\left\{ 0,1,3\right\} }\\
+ & \gamma^{\{0,2\},T}=\gamma^{\{0,2\}},\gamma^{\left\{ 1,3\right\} T}=-\gamma^{\left\{ 1,3\right\} }
+\end{align*}
+
+\end_inset
+
+结合这些性质有：
+\begin_inset Formula 
+\begin{align*}
+ & \gamma^{0}\gamma^{\mu}\gamma^{0}=\gamma^{\mu,\dagger}, &  & \gamma^{0}\gamma^{\mu\dagger}\gamma^{0}=\gamma^{\mu}\\
+ & \gamma^{2}\gamma^{\mu}\gamma^{2}=\gamma^{\mu,*}, &  & \gamma^{2}\gamma^{\mu*}\gamma^{2}=\gamma^{\mu}\\
+ & \gamma^{2}\gamma^{0}\gamma^{\mu}\gamma^{0}\gamma^{2}=\gamma^{\mu,T}, &  & \gamma^{2}\gamma^{0}\gamma^{\mu,T}\gamma^{0}\gamma^{2}=\gamma^{\mu}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\gamma^{0}$
+\end_inset
+
+用来求厄米，
+\begin_inset Formula $\gamma^{2}$
+\end_inset
+
+用来求复共轭。电荷共轭矩阵
+\begin_inset Formula $C=-i\gamma^{0}\gamma^{2}$
+\end_inset
+
+相当于把矩阵转置。
+\begin_inset Formula $C^{2}=-\gamma^{0}\gamma^{2}\gamma^{0}\gamma^{2}=-1,C^{\dagger}=i\left(-\gamma^{2}\right)\gamma^{0}=-C$
+\end_inset
+
+。它的表象无关系性质为：
+\begin_inset Formula 
+\[
+C^{T}=C^{-1}=-C,\quad C^{2}=-1,\quad C\gamma^{\mu}C^{-1}=-(\gamma^{\mu})^{T}\quad C\gamma^{\mu T}C^{-1}=-\gamma^{\mu}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1635,12 +1717,14 @@ gamma公式总结
 
 定义：
 \begin_inset Formula 
-\[
-\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}=\left(\begin{array}{cc}
+\begin{align*}
+ & \gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}=\left(\begin{array}{cc}
 1 & 0\\
 0 & -1
-\end{array}\right)
-\]
+\end{array}\right)\\
+ & \left\{ \gamma^{5},\gamma^{\mu}\right\} =0\\
+ & \left(\gamma^{5}\right)^{2}=\mathbbm{1}
+\end{align*}
 
 \end_inset
 
@@ -3316,7 +3400,7 @@ u^{s}(p)=-i\gamma^{2}v^{s}(p)^{\ast},\quad v^{s}(p)=-i\gamma^{2}u^{s}(p)^{\ast}
 \begin_inset Formula 
 \begin{align*}
 C\psi(x)C & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}\left(-i\gamma^{2}b^{s}(p)v^{s}(p)\right)^{\ast}e^{-ipx}-i\gamma^{2}a^{s\dagger}(p)\left(u^{s}(p)\right)^{\ast}\exp\left(+ip.x\right)\\
- & =-i\gamma^{2}\psi^{\ast}(x)=-i\gamma^{2}\left(\psi^{\dagger}\right)^{T}=-i\left(\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}
+ & =-i\gamma^{2}\psi^{\ast}(x)=-i\gamma^{2}\left(\psi^{\dagger}\right)^{T}=\left(-i\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}
 \end{align*}
 
 \end_inset
@@ -3329,26 +3413,72 @@ C\psi(x)C & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{
 \end_layout
 
 \begin_layout Standard
-同样的，查看双线性型的变化：
+同样的，查看
+\begin_inset Formula $\bar{\psi}(x)$
+\end_inset
+
+的变化：
 \begin_inset Formula 
 \[
-C\bar{\psi}(x)C=C\psi(x)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=(-i\gamma^{0}\gamma^{2}\psi)^{T}
+C\bar{\psi}(x)C=C\psi(x)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=\left(-i\gamma^{0}\gamma^{2}\psi\right)^{T}
 \]
 
 \end_inset
 
-可以看到，电荷共轭相当于正反费米子交换了位置，所以再次转置，交换位置的时候会有一个额外的负号。
+可以看到，电荷共轭相当于正反费米子交换了位置。
 \end_layout
 
 \begin_layout Standard
-对于一个费米子链，电荷共轭相当于
+对于一个费米子链
+\begin_inset Formula $\bar{\psi}O\psi=\bar{\psi}_{1k}O_{kl}\psi_{l}$
+\end_inset
+
+，电荷共轭相当于(这里为了看清楚，需要把指标写出来)
 \begin_inset Formula 
-\[
-\bar{\psi}O\psi\to(\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi)^{T}=-\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi
-\]
+\begin{align*}
+\bar{\psi}O\psi & \stackrel{C}{\mapsto}\left(-i\gamma^{0}\gamma^{2}\psi\right)^{T}O\left(-i\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}={\color{red}\left(-1\right)\gamma_{kb}^{0}\gamma_{bc}^{2}\psi_{c1}O_{kl}\bar{\psi}_{1d}\gamma_{de}^{0}\gamma_{el}^{2}}\\
+ & =\left(--1\right)\bar{\psi}_{1d}\gamma_{de}^{0}\gamma_{el}^{2}O_{kl}\gamma_{kb}^{0}\gamma_{bc}^{2}\psi_{c1}=\bar{\psi}\gamma^{0}\gamma^{2}O^{T}\gamma^{0}\gamma^{2}\psi\\
+ & =-\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi
+\end{align*}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Enumerate
+如果
+\begin_inset Formula $O=\mathbbm{1}$
+\end_inset
+
+，则
+\begin_inset Formula $\bar{\psi}\mathbbm{1}\psi\stackrel{C}{\mapsto}-\bar{\psi}\gamma^{2}\gamma^{2}\psi=\bar{\psi}\psi$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Enumerate
+如果是
+\begin_inset Formula $O=\gamma^{\mu}$
+\end_inset
+
+ ，则
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\psi\stackrel{C}{\mapsto}-\bar{\psi}\gamma^{2}\gamma^{0}\gamma^{\mu\dagger*}\gamma^{0}\gamma^{2}\psi=-\bar{\psi}\gamma^{2}\gamma^{\mu*}\gamma^{2}\psi=-\bar{\psi}\gamma^{\mu}\psi$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Standard
+注意这里的指标，关键是
+\begin_inset Formula ${\color{red}\gamma_{kb}^{0}\cdots O_{kl}\cdots\gamma_{el}^{2}}$
+\end_inset
+
+这样的收缩关系，跟等号左边表示的矩阵乘法是一致的。
+\end_layout
+
+\begin_layout Standard
 这个负号跟费米子反对易有关。
 \begin_inset Formula $O$
 \end_inset
@@ -4959,7 +5089,7 @@ status open
 \begin_layout Plain Layout
 
 \color red
-\begin_inset Formula $-\bar{\psi}(-x)\gamma^{5}O(-x)\gamma^{5}\psi(-x)$
+\begin_inset Formula $\bar{\psi}\left(-x\right)\gamma^{5}\gamma^{0}O\left(-x\right)^{\dagger}\gamma^{0}\gamma^{5}\psi\left(-x\right)$
 \end_inset
 
 
@@ -4974,7 +5104,7 @@ status open
 
 \size small
 \color red
-\begin_inset Formula $-\bar{u}(p)\gamma^{5}O(-p)\gamma^{5}u(p)$
+\begin_inset Formula $\bar{u}\left(p\right)\gamma^{5}\gamma^{0}O\left(-p\right)^{\dagger}\gamma^{0}\gamma^{5}u\left(p\right)$
 \end_inset
 
 
@@ -5034,16 +5164,8 @@ name "tab2"
 \end_layout
 
 \begin_layout Standard
-其中
-\begin_inset Formula $C$
-\end_inset
-
-变换
-\end_layout
-
-\begin_layout Standard
 我们在 Weyl 基下考虑。回忆起
-\begin_inset Formula $\gamma^{0}O^{\dagger}\gamma^{0}=O$
+\begin_inset Formula $\gamma^{0}\gamma^{\mu\dagger}\gamma^{0}=O$
 \end_inset
 
 ，
@@ -5064,62 +5186,7 @@ u_{\lambda}(p)=\left(\begin{array}{c}
 
 \end_inset
 
-由于作用量
-\begin_inset Formula $S=\int\dif^{4}x\mathcal{L}\left(x\right)$
-\end_inset
 
-，积分完后作用量中已经不含有
-\begin_inset Formula $x$
-\end_inset
-
-，所以
-\begin_inset Formula $x$
-\end_inset
-
-符号的改变没有影响。不过即使考虑拉氏量密度，
-\begin_inset Formula $p\to-p$
-\end_inset
-
-，
-\begin_inset Formula $u_{\lambda}(p)$
-\end_inset
-
- 和 
-\begin_inset Formula $v_{\eta}(p)$
-\end_inset
-
-会多出一个
-\begin_inset Formula $i$
-\end_inset
-
-，两个就是
-\begin_inset Formula $i^{2}=-1$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-化简过程是:
-\begin_inset Formula 
-\begin{align*}
-\bar{\psi}(-x)(-i)\gamma^{0}\gamma^{5}O(-x)^{\dagger}(-i)\gamma^{5}\gamma^{0}\psi(-x) & =i^{4}\bar{\psi}(x)\gamma^{5}O(-x)\gamma^{5}\psi(x)\\
-\bar{u}(-p)(-i)\gamma^{0}\gamma^{5}O(-p)^{\dagger}(-i)\gamma^{5}\gamma^{0}u(-p) & =i^{4}\bar{u}(p)\gamma^{5}O(-p)\gamma^{5}u(p)
-\end{align*}
-
-\end_inset
-
-这跟 tab.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 中正负号的结果是一致的。
 \end_layout
 
 \begin_layout Standard
