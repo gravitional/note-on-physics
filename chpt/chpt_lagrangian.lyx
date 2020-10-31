@@ -1481,6 +1481,113 @@ MBD低能强子耦合项：
 
 \end_layout
 
+\begin_layout Section
+非定域化
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L} & ={\rm Tr}\big[\bar{B}(i\slashed{D}-M_{B})B\big]+D{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma_{5}\left[u_{\mu},B\right]\right]\\
+ & +\overline{T}_{\mu}^{ijk}(i\gamma^{\mu\nu\alpha}D_{\alpha}-M_{T}\gamma^{\mu\nu})T_{\nu}^{ijk}+\mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\text{h.c.}\right]\\
+ & -\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}(u_{\alpha})^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\big]
+\end{align*}
+
+\end_inset
+
+从上面的定域化版本，通过最小替换引入电磁场
+\begin_inset Formula $\mathcal{A}_{\mu}$
+\end_inset
+
+（其实是选取合适的
+\begin_inset Formula $v_{\mu}^{a}$
+\end_inset
+
+），定域拉氏量可以更清楚地写成，
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}^{\text{local}} & =\bar{B}\left(x\right)\left(i\gamma^{\mu}\mathcal{D}_{\mu,x}-M_{B}\right)B\left(x\right)+\bar{T}_{\mu}\left(x\right)\left(i\gamma^{\mu\nu\alpha}\mathcal{D}_{\alpha,x}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}\left(x\right)\\
+ & +\frac{C_{B\phi}}{f}\left[\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)\mathcal{D}_{\mu,x}\phi\left(x\right)+\text{H.c.}\right]\\
+ & +\frac{C_{T\phi}}{f}\left[\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\mathcal{D}_{\mu,x}\phi\left(x\right)+\text{H.c.}\right]\\
+ & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\left[\phi\left(x\right)\mathcal{D}_{\mu,x}\phi\left(x\right)^{\dagger}-\mathcal{D}_{\mu,x}\phi\left(x\right);\phi^{\dagger}\left(x\right)\right]\\
+ & +\mathcal{D}_{\mu,x}\phi\left(x\right);\mathcal{D}_{\mu,x}\phi\left(x\right)^{\dagger}+\cdots
+\end{align*}
+
+\end_inset
+
+其中，协变导数显式地标出了求导对象，
+\begin_inset Formula 
+\begin{align*}
+\mathcal{D}_{\mu,x}B\left(x\right) & =\left[\partial_{\mu}-ie_{B}^{q}\mathcal{A}_{\mu}\left(x\right)\right]B\left(x\right)\\
+\mathcal{D}_{\mu,x}T^{\nu}\left(x\right) & =\left[\partial_{\mu}-ie_{T}^{q}\mathcal{A}_{\mu}\left(x\right)\right]T^{\nu}\left(x\right)\\
+\mathcal{D}_{\mu,x}\phi\left(x\right) & =\left[\partial_{\mu}-ie_{\phi}^{q}\mathcal{A}_{\mu}\left(x\right)\right]\phi\left(x\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $e_{B}^{q},e_{T}^{q},e_{\phi}^{q}$
+\end_inset
+
+是在 
+\begin_inset Formula $q$
+\end_inset
+
+ flavor 中 某个重子或介子的电荷。比如对于质子，
+\begin_inset Formula $e_{p}^{u}=e_{p}^{d}=2,e_{p}^{s}=0$
+\end_inset
+
+。对于
+\begin_inset Formula $\pi^{+}$
+\end_inset
+
+介子，
+\begin_inset Formula $e_{\pi^{+}}^{u}=1,e_{\pi^{+}}^{d}=-1$
+\end_inset
+
+，但对于所有
+\begin_inset Formula $q$
+\end_inset
+
+，
+\begin_inset Formula $e_{\pi^{0}}^{q}=0$
+\end_inset
+
+。
+\begin_inset Formula $e_{K^{+}}^{u}=1,e_{K^{+}}^{s}=-1,e_{K^{+}}^{d}=0$
+\end_inset
+
+。对于电荷共轭态是类似的。flavor charge 可以从守恒流中读取出来。强相互作用耦合系数
+\begin_inset Formula $C_{B\phi}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{T\phi}$
+\end_inset
+
+ 依赖于
+\begin_inset Formula $D,F,\mathcal{C}$
+\end_inset
+
+ 。在表格中给出。
+\end_layout
+
+\begin_layout Standard
+从定域相互作用，衍生出的非定域形式为
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}^{\text{local}} & =\bar{B}\left(x\right)\left(i\gamma^{\mu}\mathcal{D}_{\mu,x}-M_{B}\right)B\left(x\right)+\bar{T}_{\mu}\left(x\right)\left(i\gamma^{\mu\nu\alpha}\mathcal{D}_{\alpha,x}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}\left(x\right)\\
+ & +\frac{C_{B\phi}}{f}\left[\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right){\color{red}\int\dif^{4}aF\left(a\right)\mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x}\phi\left(x+a\right)}+\text{H.c.}\right]\\
+ & +\frac{C_{T\phi}}{f}\left[\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right){\color{red}\int\dif^{4}aF\left(a\right)\mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x}\phi\left(x+a\right)}+\text{H.c.}\right]\\
+ & +\frac{iC_{\phi\phi^{+}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right){\color{red}\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\mathcal{G}_{\phi}^{q}\left(x+b,x+a\right)}\\
+ & {\color{red}\left[\phi\left(x+a\right)\mathcal{D}_{\mu,x+b}\phi\left(x+b\right)^{\dagger}-\mathcal{D}_{\mu,x+a}\phi\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout
