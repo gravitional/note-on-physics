@@ -151,43 +151,275 @@ The hostname (like `products`) is the text that *precedes* the `domain` name (fo
 
 Executing `hostname` from the Command Prompt is the easiest way to show the hostname of a computer.
 
-## linux查看设备信息和驱动安装信息
+## 用 Linux 命令显示硬件信息 
 
-[linux查看设备信息和驱动安装信息]
+[用 Linux 命令显示硬件信息 ](https://linux.cn/article-11422-1.html)
 
-[linux查看设备信息和驱动安装信息]: https://blog.csdn.net/m1223853767/article/details/79615011
+最简单的方法是使用标准的 Linux GUI 程序之一:
 
-`lspci`是列出所有的硬件信息,包括已经安装了驱动还是没有安装驱动的硬件设备,因为根据`pci`规范,只要改设备在`pci`总线上挂着,就可以读到其`Vendor ID`和`Device ID`等一系列信息,就能知道这个设备是什么设备.
++ `i-nex` 收集硬件信息，并且类似于 Windows 下流行的 `CPU-Z` 的显示。
++ `HardInfo` 显示硬件具体信息，甚至包括一组八个的流行的性能基准程序，你可以用它们评估你的系统性能。
++ `KInfoCenter` 和 `Lshw` 也能够显示硬件的详细信息，并且可以从许多软件仓库中获取。
 
-如果要确认有没有安装驱动,就需要通过`lsmod`命令来看,当然`lsmod`命令只能显示编译`linux`内核时选中为``M``的驱动程序,最靠谱的还是`dmesg`来查看该设备的驱动有没有安装,`dmesg`信息太多,需要grep来过滤一下.
+### 硬件概述
 
-工作中的时候总结的一些经验
+`inxi` 命令能够列出包括 CPU、图形、音频、网络、驱动、分区、传感器等详细信息。
+当论坛里的人尝试帮助其他人解决问题的时候，他们常常询问此命令的输出。
 
-1. 确定需要安装驱动的硬件型号,可以在`/etc/sysconfig/hwconf`中找到,里面列出了所有硬件的型号和生产商等信息,其中`vendorId`指的是硬件的生产商编号,`deviceId`是指该设备的编号,一般生产商和设备编号都是四位的（ `debian`系的没有`sysconfig`都在`/etc/init.d/`里面）
-2. `lspci`命令可以查看当前系统中所有PCI的设备的信息,`lspci -n|grep 02:00` 可以查看`02:00`设备对应的生产商和设备编号信息,这些信息也可以在`hwconf`中找到
-3. 找到了设备编号可以到`http://pci-ids.ucw.cz/iii/`查找与该设备相关的信息,可以找到设备的名字
-4. 通过设备名字和型号查找设备驱动
-5. 编译模块/驱动
-6. `lsmod`命令可以列出当前系统中所有已经加载了的模块/驱动
-7. `modinfo`命令可以单看指定的模块/驱动的信息,其中`alias`指的是这个模块/驱动所支持的硬件的型号
-8. 使用`modprobe`或者`insmod`命令可以加载驱动,使用`rmmod`可以删除一个模块/驱动
+```bash
+inxi -Fxz
+```
 
-在LINUX环境开发驱动程序,首先要探测到新硬件,接下来就是开发驱动程序.
+`-F` 参数意味着你将得到完整的输出，`x` 增加细节信息，`z` 参数隐藏像 `MAC` 和 `IP` 等私人身份信息。
 
-常用命令整理如下:
+`hwinfo` 和 `lshw` 命令以不同的格式显示大量相同的信息：
 
-+ 用硬件检测程序`kuduz`探测新硬件:`service kudzu start ( or restart)`
-+ 查看CPU信息:`cat /proc/cpuinfo`
-+ 查看板卡信息:`cat /proc/pci`
-+ 查看PCI信息:`lspci` (相比`cat /proc/pci`更直观）
-+ 查看内存信息:`cat /proc/meminfo`
-+ 查看USB设备:`cat /proc/bus/usb/devices`
-+ 查看键盘和鼠标:`cat /proc/bus/input/devices`
-+ 查看系统硬盘信息和使用情况:`fdisk & disk - l & df`
-+ 查看各设备的中断请求(IRQ):`cat /proc/interrupts`
-+ 查看系统体系结构:`uname -a`
-+ `dmidecode` 查看硬件信息,包括bios、cpu、内存等信息
-+ `dmesg | less` 查看硬件信息
+`hwinfo --short` 或 `lshw -short`
+
+这两条命令的长格式输出非常详细，但也有点难以阅读：
+
+`hwinfo` 或`lshw`
+
+### CPU 详细信息
+
+通过命令你可以了解关于你的 CPU 的任何信息。使用 `lscpu` 命令或与它相近的 `lshw` 命令查看 `CPU` 的详细信息：
+
+`lscpu`  或 `lshw -C cpu`
+
+在这两个例子中，输出的最后几行都列出了所有 `CPU` 的功能。你可以查看你的处理器是否支持特定的功能。
+
+使用这些命令的时候，你可以使用 `grep` 过滤信息。例如，只查看 CPU 品牌和型号:
+
+```bash
+lshw -C cpu | grep -i product
+```
+
+仅查看 `CPU` 的速度（兆赫兹）:
+
+```bash
+lscpu | grep -i mhz
+```
+
+或其 `BogoMips` 额定功率:
+
+```bash
+lscpu | grep -i bogo
+```
+
+`grep` 命令的 `-i`参数代表搜索结果忽略大小写。
+
+### 内存
+
+`Linux` 命令行使你能够收集关于你的计算机内存的所有可能的详细信息。
+你甚至可以不拆开计算机机箱就能确定是否可以为计算机添加额外的内存条。
+
+使用 `dmidecode` 命令列出每根内存条和其容量：
+
+```bash
+dmidecode -t memory | grep -i size
+```
+
+使用以下命令获取系统内存更多的信息，包括类型、容量、速度和电压：
+
+```bash
+lshw -short -C memory
+```
+
+你肯定想知道的一件事是你的计算机可以安装的最大内存：
+
+```bash
+dmidecode -t memory | grep -i max
+```
+
+现在检查一下计算机是否有空闲的插槽可以插入额外的内存条。你可以通过使用命令在不打开计算机机箱的情况下就做到：
+
+```bash
+lshw -short -C memory | grep -i empty
+```
+
+输出为空则意味着所有的插槽都在使用中。
+
+确定你的计算机拥有多少显卡内存需要下面的命令。首先使用 `lspci` 列出所有设备信息然后过滤出你想要的显卡设备信息:
+
+```bash
+lspci | grep -i vga
+```
+
+视频控制器的设备号输出信息通常如下：
+
+```bash
+00:02.0 VGA compatible controller: Intel Corporation 82Q35 Express Integrated Graphics Controller (rev 02)
+```
+
+现在再加上视频设备号重新运行 `lspci` 命令：
+
+```bash
+lspci -v -s 00:02.0
+```
+
+输出信息中 `prefetchable` 那一行显示了系统中的显卡内存大小:
+
+最后使用下面的命令展示当前内存使用量（兆字节）：
+
+```bash
+free -m
+```
+
+这条命令告诉你多少内存是空闲的，多少命令正在使用中以及交换内存的大小和是否正在使用。例如，输出信息如下：
+`top` 命令为你提供内存使用更加详细的信息。
+它显示了当前全部内存和 CPU 使用情况并按照进程 ID、用户 ID 及正在运行的命令细分。同时这条命令也是全屏输出:
+
+```bash
+top
+```
+
+### 磁盘文件系统和设备
+
+你可以轻松确定有关磁盘、分区、文件系统和其他设备信息。
+
+显示每个磁盘设备的描述信息：
+
+```bash
+lshw -short -C disk
+```
+
+通过以下命令获取任何指定的 `SATA` 磁盘详细信息，例如其型号、序列号以及支持的模式和扇区数量等：
+
+```bash
+hdparm -i /dev/sda
+```
+
+当然，如果需要的话你应该将 `sda` 替换成 `sdb` 或者其他设备号。
+
+列出所有磁盘及其分区和大小：
+
+```bash
+lsblk
+```
+
+使用以下命令获取更多有关扇区数量、大小、文件系统 ID 和 类型以及分区开始和结束扇区：
+
+```bash
+fdisk -l
+```
+
+要启动 Linux，你需要确定 `GRUB` 引导程序的可挂载分区。你可以使用 `blkid` 命令找到此信息。它列出了每个分区的唯一标识符（UUID）及其文件系统类型（例如 ext3 或 ext4）：
+
+```bash
+blkid
+```
+
+使用以下命令列出已挂载的文件系统和它们的挂载点，以及已用的空间和可用的空间（兆字节为单位）：
+
+```bash
+df -m
+```
+
+最后，你可以列出所有的 USB 和 PCI 总线以及其他设备的详细信息：
+
+```bash
+lsusb
+```
+
+或
+
+```bash
+lspci
+```
+
+### 网络
+
+Linux 提供大量的网络相关命令，下面只是几个例子。
+
+查看你的网卡硬件详细信息:
+
+```bash
+lshw -C network
+```
+
+`ifconfig` 是显示网络接口的传统命令：
+
+```bash
+ifconfig -a
+```
+
+但是现在很多人们使用：
+
+```bash
+ip link show
+```
+
+或
+
+```bash
+netstat -i
+```
+
+在阅读输出时，了解常见的网络缩写十分有用：
+
+缩写    含义
+
++ `lo`    回环接口
++ `eth0` 或 `enp*`    以太网接口
++ `wlan0`    无线网接口
++ `ppp0`    点对点协议接口（由拨号调制解调器、PPTP VPN 连接或者 USB 调制解调器使用）
++ `vboxnet0` 或 `vmnet*`    虚拟机网络接口
+
+表中的星号是通配符，代表不同系统的任意字符。
+
+使用以下命令显示默认网关和路由表：
+
+```bash
+ip route | column -t
+```
+
+或
+
+```bash
+netstat -r
+```
+
+### 软件
+
+让我们以显示最底层软件详细信息的两条命令来结束。
+例如，如果你想知道是否安装了最新的固件该怎么办？这条命令显示了 `UEFI` 或 `BIOS` 的日期和版本:
+
+```bash
+dmidecode -t bios
+```
+
+内核版本是多少，以及它是 64 位的吗？网络主机名是什么？使用下面的命令查出结果：
+
+```bash
+uname -a
+```
+
+### 快速查询表
+
+用途   命令
+
++ 显示所有硬件信息   `inxi -Fxz` 或 `hwinfo --short` 或 `lshw  -short`
++ `CPU` 信息   `lscpu` 或 `lshw -C cpu`
++ 显示 `CPU` 功能（例如 PAE、SSE2）  `lshw -C cpu | grep -i capabilities`
++ 报告 `CPU` 位数   `lshw -C cpu | grep -i width`
++ 显示当前内存大小和配置   `dmidecode -t memory | grep -i size` 或 `lshw -short -C memory`
++ 显示硬件支持的最大内存   `dmidecode -t memory | grep -i max`
++ 确定是否有空闲内存插槽   `lshw -short -C memory | grep -i empty`（输出为空表示没有可用插槽）
++ 确定显卡内存数量   `lspci | grep -i vga` 然后指定设备号再次使用；例如：`lspci -v -s 00:02.0` 
+显卡内存数量就是  `prefetchable` 的值
++ 显示当前内存使用情况  `free -m` 或 `top`
++ 列出磁盘驱动器   `lshw -short -C disk`
++ 显示指定磁盘驱动器的详细信息   `hdparm -i /dev/sda`（需要的话替换掉 `sda` ）
++ 列出磁盘和分区信息   `lsblk`（简单） 或 `fdisk -l`（详细）
++ 列出分区 ID（UUID）   `blkid`
++ 列出已挂载文件系统挂载点以及已用和可用空间   d`f -m`
++ 列出 USB 设备   `lsusb`
++ 列出 PCI 设备   `lspci`
++ 显示网卡详细信息  ` lshw -C network`
++ 显示网络接口   `ifconfig -a` 或 `ip link show` 或 `netstat -i`
++ 显示路由表   `ip route | column -t` 或 `netstat -r`
++ 显示 UEFI/BIOS 信息   `dmidecode -t bios`
++ 显示内核版本网络主机名等   `uname -a`
 
 [Linux下/proc目录简介][]
 
