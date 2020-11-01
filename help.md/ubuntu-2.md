@@ -239,6 +239,8 @@ lshw -short -C memory | grep -i empty
 
 输出为空则意味着所有的插槽都在使用中。
 
+### 显卡
+
 确定你的计算机拥有多少显卡内存需要下面的命令。首先使用 `lspci` 列出所有设备信息然后过滤出你想要的显卡设备信息:
 
 ```bash
@@ -272,6 +274,11 @@ free -m
 ```bash
 top
 ```
+
+使用`xrandr` 可以设置屏幕输出的大小，方向或反射。 它还可以设置屏幕尺寸.
+
+Dell optiplex 7060 AMD Radeon R5 430
+Intel HD 530
 
 ### 磁盘文件系统和设备
 
