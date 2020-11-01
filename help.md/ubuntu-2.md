@@ -2297,3 +2297,11 @@ chmod +x xxx.sh
 ```
 
 根据要求选择`ubuntu-logo`或者其他之前使用的主题。
+
+## 备份
+
+设备 挂载点 原始uuid 分区格式 新uuid
+
+`/boot/efi` 2EEE-149A `FAT (32-bit version)`
+`none` 3278e9ef-8c04-4eaa-bfde-af2313f36545 `Swap`
+`/`  7aba3e2f-f94d-454c-9ad6-9098d658401a `Ext4`
