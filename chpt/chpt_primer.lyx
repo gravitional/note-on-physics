@@ -6434,7 +6434,11 @@ F\left[j\right]=\int\dif^{n}xg\left(j(x)\right)
 \begin_inset Formula $g$
 \end_inset
 
-是一个可以积分的函数。也可以让
+是一个可以积分的函数。
+\end_layout
+
+\begin_layout Standard
+也可以让
 \begin_inset Formula $j$
 \end_inset
 
@@ -6476,12 +6480,16 @@ x & \mapsto\delta_{y}(x)=\delta^{n}\left(x-y\right)
 
 \begin_inset Formula 
 \[
-\frac{\delta F\left[f\right]}{\delta f\left(y\right)}\equiv\lim_{\varepsilon\to0}\frac{F\left[f+\varepsilon\delta_{y}\right]-F\left[f\right]}{\varepsilon}
+\frac{\delta F\left[f\left(\#\right)\right]}{\delta f\left(y\right)}\equiv\lim_{\varepsilon\to0}\frac{F\left[f\left(\#\right)+\varepsilon\delta\left(\#-y\right)\right]-F\left[f\left(\#\right)\right]}{\varepsilon}
 \]
 
 \end_inset
 
-一个重要的例子是 local functional derivative of a function
+其中
+\begin_inset Formula $\#$
+\end_inset
+
+是匿名变量（会被积分掉，所以名称不重要）。一个重要的例子是 local functional derivative of a function
 \begin_inset Formula 
 \[
 \frac{\delta f\left(y\right)}{\delta f\left(x\right)}=\delta^{n}\left(y-x\right)
@@ -6491,9 +6499,11 @@ x & \mapsto\delta_{y}(x)=\delta^{n}\left(x-y\right)
 
 由于
 \begin_inset Formula 
-\[
-f\left(y\right)=F_{y}\left[y\right]=\int\dif^{n}z\delta^{n}\left(y-z\right)f\left(z\right)
-\]
+\begin{align*}
+ & f\left(y\right)=F_{y}\left[y\right]=\int\dif^{n}z\delta^{n}\left(y-z\right)f\left(z\right)\\
+\Rightarrow & \frac{\delta f\left(y\right)}{\delta f\left(x\right)}=\lim_{\varepsilon\to0}\int\dif^{n}z\frac{\delta^{n}\left(y-z\right)\left(f\left(z\right)+\varepsilon\delta^{n}\left(z-x\right)\right)-\delta^{n}\left(y-z\right)f\left(z\right)}{\varepsilon}\\
+ & \int\dif^{n}z\delta^{n}\left(y-z\right)\delta^{n}\left(z-x\right)=\delta^{n}\left(y-x\right)
+\end{align*}
 
 \end_inset
 
