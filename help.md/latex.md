@@ -1332,7 +1332,16 @@ c
 $\limsup\limits_{x\rightarrow0}$ vs $\lim\sup\limits_{x\rightarrow0}$
 ```
 
-So you will want to use \limsup.
+So you will want to use `\limsup`.
+
+[如何公式实现左下标？](https://wenda.latexstudio.net/q-2075.html)
+
+如果要使用左侧下标，使用 `amsmath` 提供的`\sideset`。例如
+
+```bash
+%\usepackage{amsmath}
+\[\sideset{_h}{_h}{\mathop{\langle\psi|Q_h|\psi\rangle}}\]
+```
 
 [氢化脱苄苯甲醇-上下标][]
 

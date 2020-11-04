@@ -13,8 +13,11 @@
 \usepackage{eso-pic} 
 % This package makes it easy to add some picture commands to every page at ab-solute positions
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
-\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
-
+%\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+% xcolor package starts from the basic facilities of the 
+% color package, and provides easy driver-independent access
+%to several kinds of color tints, shades, tones, 
+%and mixes of arbitrary colors
 \usepackage{amsmath,amssymb,amsfonts} % 数学字体
 \usepackage{mathrsfs} % 提供了mathscr 命令
 % Required for specifying colors by name 
@@ -24,8 +27,12 @@
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
 \usepackage{bm,bbm} 
+%\bm which makes its argument bold
+%Blackboard variants of Computer Modern fonts.
 \usepackage{simplewick} 
+% a simple means of drawing Wick contractions above and below expressions. 
 \usepackage{makeidx} 
+% Standard package for creating indexes
 \usepackage{multirow}
 \usepackage{mathtools}% 定义配对的数学符号
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
@@ -36,8 +43,40 @@
 %\DeclareMathOperator{\re}{Re}
 %\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\disc}{Disc}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\cola}[1]{{\color{blue}{#1}}}
+%%%+++++++++++++++++++++++++++++++
+\usepackage{listings}
+% 在LaTex中添加代码高亮
+\usepackage{framed}
+% 在对象周围添加方框，阴影等等，允许跨页
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+%定义各种颜色
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{〈style name〉}{〈key=value list〉}
+%stores the key=value list
+\lstdefinestyle{codestyle1}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names
 \use_default_options true
@@ -490,6 +529,411 @@ U(t,t_{0}) & =1+(-i)\int_{t_{0}}^{t}\dif t_{1}H_{I}(t_{1})+\frac{(-i)^{2}}{2!}\i
 \end_inset
 
 cancel掉。这个重复计数最终体现在传播子里面，也就是使用费曼传播子完成了这一对称化操作。
+\end_layout
+
+\begin_layout Subsection
+相互作用绘景
+\end_layout
+
+\begin_layout Standard
+对于 full 理论的格林函数
+\begin_inset Formula 
+\[
+\bra{\Omega}T\phi\left(x\right)\phi\left(y\right)\ket{\Omega}
+\]
+
+\end_inset
+
+为了计算它，引入相互作用绘景，相互作用绘景中场的表达式通过幺正的演化算符和海森堡绘景中的场联系起来：
+\begin_inset Formula 
+\[
+\phi_{\text{Heis}}\left(t,\vec{x}\right)=\exp\left(iH\left(t-t_{0}\right)\right)\exp\left(-iH_{0}\left(t-t_{0}\right)\right)\phi_{\text{I}}\left(t,\vec{x}\right)\exp\left(iH_{0}\left(t-t_{0}\right)\right)\exp\left(-iH\left(t-t_{0}\right)\right)
+\]
+
+\end_inset
+
+这里
+\begin_inset Formula $H=H_{0}+H_{\text{int}}$
+\end_inset
+
+，先演化回原点，再按海森堡绘景演化。
+\begin_inset Formula $\ket{t}=\exp\left(iHt\right)\ket{0}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U\left(t,t_{0}\right)=\exp\left(iH_{0}\left(t-t_{0}\right)\right)\exp\left(-iH\left(t-t_{0}\right)\right)
+\]
+
+\end_inset
+
+这个表达式里面
+\begin_inset Formula $H_{0}$
+\end_inset
+
+,
+\begin_inset Formula $H$
+\end_inset
+
+用的都是海森堡绘景下的算符
+\end_layout
+
+\begin_layout Standard
+可以完全用相互作用表象下的场表示出
+\begin_inset Formula $U\left(t,t_{0}\right)$
+\end_inset
+
+，通过解相互作用表象下的微分方程
+\begin_inset Formula 
+\[
+i\frac{\partial}{\partial t}U\left(t,t_{0}\right)=H_{I}\left(t\right)U\left(t,t_{0}\right)
+\]
+
+\end_inset
+
+如果把其中的
+\begin_inset Formula $H_{I}\left(t\right)$
+\end_inset
+
+写成：
+\begin_inset Formula 
+\[
+H_{I}\left(t\right)=\exp\left(iH_{0}\left(t-t_{0}\right)\right)H_{\text{int}}\exp\left(-iH_{0}\left(t-t_{0}\right)\right)\stackrel{\text{for example}}{\longrightarrow}\int\dif^{3}x\frac{\lambda}{4!}\phi_{I}^{4}
+\]
+
+\end_inset
+
+它叫做 相互作用绘景下 的相互作用哈密顿量（有些绕口）。这个微分方程的解可以通过编时乘积表示
+\begin_inset Formula 
+\begin{align*}
+U(t,t_{0}) & =T\left\{ \exp\left[-i\int_{t_{0}}^{t}\dif t^{\prime}H_{I}(t^{\prime})\right]\right\} 
+\end{align*}
+
+\end_inset
+
+通过这个算符，加上能谱假设，即假设
+\begin_inset Formula $H_{0}$
+\end_inset
+
+的基态，
+\begin_inset Formula $H_{0}\ket{0}=0$
+\end_inset
+
+,与完全理论的基态
+\begin_inset Formula $\ket{\Omega}$
+\end_inset
+
+有重合：
+\begin_inset Formula 
+\begin{align*}
+ & \exp\left(-iHT\right)\ket{0}=\exp\left(-iE_{0}T\right)\ket{\Omega}\bra{\Omega}\ket{0}+\sum_{n\neq0}\exp\left(-iE_{n}t\right)\ket{n}\bra{n}\ket{0}\\
+ & \ket{\Omega}=\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\exp\left(-iE_{0}T\right)\bra{\Omega}\ket{0}\right)^{-1}\exp\left(-iHT\right)\ket{0}\\
+ & \ket{\Omega}=\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\exp\left(-iE_{0}\left(T+t_{0}\right)\right)\bra{\Omega}\ket{0}\right)^{-1}\exp\left(-iH\left(T+t_{0}\right)\right)\exp\left(-iH_{0}\left(T+t_{0}\right)\right)\ket{0}\\
+ & \ket{\Omega}=\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\exp\left(-iE_{0}\left(t_{0}-\left(-T\right)\right)\right)\bra{\Omega}\ket{0}\right)^{-1}U\left(t_{0},-T\right)\ket{0}
+\end{align*}
+
+\end_inset
+
+第三步利用了
+\begin_inset Formula $H_{0}\ket{0}=0$
+\end_inset
+
+。也就是当你用
+\begin_inset Formula $U\left(t_{0},-T\right)$
+\end_inset
+
+把状态
+\begin_inset Formula $\ket{0}$
+\end_inset
+
+从
+\begin_inset Formula $-T$
+\end_inset
+
+ 演化到
+\begin_inset Formula $t_{0}$
+\end_inset
+
+的时候，它和
+\begin_inset Formula $\ket{\Omega}$
+\end_inset
+
+只差了一个常数因子
+\begin_inset Formula $\left(\exp\left(-iE_{0}\left(t_{0}-\left(-T\right)\right)\right)\bra{\Omega}\ket{0}\right)^{-1}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+把格林函数中的场替换成相互作用绘景中的场，就可以得到 Gell-mann–Low 公式：
+\begin_inset Formula 
+\[
+\bra{\Omega}T\left\{ \phi\left(x\right)\phi\left(y\right)\right\} \ket{\Omega}=\lim_{T\to\infty\left(1-i\varepsilon\right)}\frac{\bra{0}T\left\{ \phi_{I}\left(x\right)\phi_{I}\left(y\right)\exp\left(-i\int_{-T}^{T}\dif H_{I}\left(t\right)\right)\right\} \ket{0}}{\bra{0}T\left\{ \exp\left(-i\int_{-T}^{T}\dif H_{I}\left(t\right)\right)\right\} \ket{0}}
+\]
+
+\end_inset
+
+考虑编时乘积的好处在于，它允许我们把所有的东西写在一个大括号里，形式会比较简单。类似的公式对于任意数目的场都是成立的。这个公式的好处在于，右边的场，包括
+\begin_inset Formula $H_{I}\left(t\right)$
+\end_inset
+
+中的，都是相互作用绘景下的场，它们满足自由场的运动方程，所以传播子的形式是知道的，你甚至可以把场的展开式写出来，它们的产生湮灭算符都是不随时间变化的，
+\begin_inset Formula $H_{I}$
+\end_inset
+
+部分的变化被隐藏在散射的态中了。
+\end_layout
+
+\begin_layout Section
+散射截面
+\end_layout
+
+\begin_layout Standard
+在散射过程中，可以定义 in states and out states，asymptotically，随着时间区域无穷，这些状态逐渐趋于自由平面波粒子态（渐近
+态，逐渐接近自由的态）。散射矩阵元为
+\begin_inset Formula 
+\[
+\bra{\boldsymbol{p_{1}p_{2}}\cdots}_{\text{out}}\ket{\boldsymbol{k_{A}k_{B}}}_{\text{in}}=\lim_{T\to\infty}\bra{\boldsymbol{p_{1}p_{2}}\cdots}_{\text{out}}\exp\left(-iH*2T\right)\ket{\boldsymbol{k_{A}k_{B}}}_{\text{in}}
+\]
+
+\end_inset
+
+在
+\begin_inset Formula $T\to\infty$
+\end_inset
+
+时候，上面的状态可以定义在任何普通参考系中。所以，in states and out states 可以同嗯一系列幺正算符的极限联系起来。这个极限被称为
+ 
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵：
+\begin_inset Formula 
+\[
+\bra{\boldsymbol{p_{1}p_{2}}\cdots}_{\text{out}}\ket{\boldsymbol{k_{A}k_{B}}}_{\text{in}}=\bra{\boldsymbol{p_{1}p_{2}}\cdots}S\ket{\boldsymbol{k_{A}k_{B}}}
+\]
+
+\end_inset
+
+式子右边中的状态，是在任意参考系中，遥远的过去和将来时的状态，这时候态已接近自由单粒子态。可以令
+\begin_inset Formula 
+\[
+S=\mathbbm{1}+iT
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+LSZ 公式
+\end_layout
+
+\begin_layout Standard
+LSZ (Lehmann–Symanzik–Zimmermann) reduction formula
+\begin_inset Formula 
+\begin{align*}
+\bra{f}S\ket{i} & =i\int\dif^{4}x_{1}\exp\left(-ip_{1}\cdot x_{1}\right)\left(\square_{1}+m^{2}\right)\cdots i\int\dif^{4}x_{n}\exp\left(+ip_{n}\cdot x_{n}\right)\left(\square_{n}+m^{2}\right)\times\\
+ & \bra{\Omega}T\left\{ \phi\left(x_{1}\right)\phi\left(x_{2}\right)\cdots\phi\left(x_{n}\right)\right\} \ket{\Omega}
+\end{align*}
+
+\end_inset
+
+它把关于
+\begin_inset Formula $n$
+\end_inset
+
+个 asymptotic momentum eigenstates 的
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元
+\begin_inset Formula $\bra{f}S\ket{i}$
+\end_inset
+
+和格林函数联系起来。对于初态是
+\begin_inset Formula $-i$
+\end_inset
+
+，末态是
+\begin_inset Formula $+i$
+\end_inset
+
+。
+\begin_inset Formula $\bra{\Omega}$
+\end_inset
+
+是相互作用理论的真空，一般和自由理论的真空不同（会差个常数）。
+\end_layout
+
+\begin_layout Standard
+上面公式里的编时乘积可以非常复杂,并且除了 
+\begin_inset Formula $S$
+\end_inset
+
+-matrix 之外，还编码了许多其他信息（一个场论体系的所有性质完全由它的格林函数决定）。而 
+\begin_inset Formula $\square+m^{2}$
+\end_inset
+
+ 因子投影出了
+\begin_inset Formula $S$
+\end_inset
+
+-matrix: 
+\begin_inset Formula $\square+m^{2}$
+\end_inset
+
+在傅里叶空间变成
+\begin_inset Formula $-p^{2}+m^{2}$
+\end_inset
+
+, 对于渐进态
+\begin_inset Formula $-p^{2}+m^{2}=0$
+\end_inset
+
+。 除了那些包含
+\begin_inset Formula $\frac{1}{p^{2}-m^{2}}$
+\end_inset
+
+ pole 的项之外（对应 on-shell 粒子的传播子）,编时乘积中所有别的项都会被这些因子去掉。最后只有包含
+\begin_inset Formula $\frac{1}{p^{2}-m^{2}}$
+\end_inset
+
+ pole 的项会存活，
+\begin_inset Formula $S$
+\end_inset
+
+-matrix 将由这些 pole 的留数给出。 当然，考虑场强重整化的话，会多出一些
+\begin_inset Formula $\sqrt{Z_{i}}$
+\end_inset
+
+因子（每种粒子有自己的重整化因子）。指数因子
+\begin_inset Formula $\exp\left(\pm ip_{1}\cdot x_{1}\right)$
+\end_inset
+
+一方面作为傅立叶变换因子，把坐标空间的量变换到动量空间，另一方面，它们会给出动量守恒函数
+\begin_inset Formula $2\pi\delta\left(\sum\boldsymbol{p_{i}-p_{f}}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+因此,LSZ公式的物理内容是：
+\begin_inset Formula $S$
+\end_inset
+
+–matrix 从场的编时乘积中投影出单粒子渐近态( one -particle asymptotic states)。延续这种思想，通过构造合适的电子自旋投影
+算符，光子极化投影算符等等，还可以从格林函数中得到对应特定自旋或者光子极化的散射振幅。
+\end_layout
+
+\begin_layout Subsection
+正则量子化中计算散射振幅
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi(x)=\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{p}}}\left(a_{p}e^{-ipx}+b_{p}^{\dagger}e^{+ipx}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+上面已经说明了，可以从格林函数中提取散射截面。在正则量子化中，格林函数是通过 Gell-mann-Low 公式计算的，
+\begin_inset Formula 
+\[
+\bra{\Omega}T\left\{ \phi\left(x\right)\phi\left(y\right)\right\} \ket{\Omega}=\lim_{T\to\infty\left(1-i\varepsilon\right)}\frac{\bra{0}T\left\{ \phi_{I}\left(x\right)\phi_{I}\left(y\right)\exp\left(-i\int_{-T}^{T}\dif H_{I}\left(t\right)\right)\right\} \ket{0}}{\bra{0}T\left\{ \exp\left(-i\int_{-T}^{T}\dif H_{I}\left(t\right)\right)\right\} \ket{0}}
+\]
+
+\end_inset
+
+而 LSZ 公式为：
+\begin_inset Formula 
+\begin{align*}
+\bra{f}S\ket{i} & =\int\dif^{4}x_{1}\exp\left(-ip_{1}\cdot x_{1}\right)i\left(\square_{1}+m^{2}\right)\cdots i\int\dif^{4}x_{n}\exp\left(+ip_{n}\cdot x_{n}\right)\left(\square_{n}+m^{2}\right)\times\\
+ & \bra{\Omega}T\left\{ \phi\left(x_{1}\right)\phi\left(x_{2}\right)\cdots\phi\left(x_{n}\right)\right\} \ket{\Omega}
+\end{align*}
+
+\end_inset
+
+对于空间中任何一个位置（顶点）
+\begin_inset Formula $x$
+\end_inset
+
+，进入（湮灭）对应
+\begin_inset Formula $a_{p}e^{-ipx}$
+\end_inset
+
+，出射（产生）对应
+\begin_inset Formula $b_{p}^{\dagger}e^{+ipx}$
+\end_inset
+
+。这样，不管一个点上有多少出入，
+\begin_inset Formula $\exp\left(ix\left(\sum p_{f}-\sum p_{i}\right)\right)$
+\end_inset
+
+积分后，总能保证
+\begin_inset Formula $\delta\left(\sum p_{f}-\sum p_{i}\right)$
+\end_inset
+
+，也就是动量守恒，每个顶点都是如此。而传播子为
+\begin_inset Formula 
+\begin{align*}
+D_{F}\left(x-y\right) & =\int\frac{\dif^{4}p}{\left(2\pi\right)^{4}}\frac{i}{p^{2}-m^{2}}\exp\left(-ip\cdot\left(x-y\right)\right)\\
+ & =\int\frac{\dif^{4}p}{\left(2\pi\right)^{4}}\frac{i}{p^{2}-m^{2}}\exp\left(-ip\cdot x+ip\cdot y\right)
+\end{align*}
+
+\end_inset
+
+传播子对应为从
+\begin_inset Formula $x$
+\end_inset
+
+点出发，进入
+\begin_inset Formula $y$
+\end_inset
+
+点，对应的因子是
+\begin_inset Formula $\exp\left(-ip\cdot x+ip\cdot y\right)$
+\end_inset
+
+，传播子的符号约定跟顶点的符号约定是相反的。因为粒子必须先在顶点产生，再去传播，例如QED 相互作用项展开,
+\begin_inset Formula $\bra{0}A_{\mu}\bar{\psi}\gamma^{\mu}\psi\left(x\right);A_{\nu}\bar{\psi}\gamma^{\nu}\psi\left(y\right)\ket{0}$
+\end_inset
+
+，结合 Wick 收缩，能够明白，顶点和传播子相位因子的符号约定是相反的，这样整体上才是匹配的。
+\end_layout
+
+\begin_layout Standard
+从 LSZ 公式的证明过程，能够推导出 LSZ 公式更简化的应用形式：
+\end_layout
+
+\begin_layout Standard
+peskin
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \bra{\boldsymbol{p_{1}\cdots p_{n}}}i\mathcal{T}\ket{\boldsymbol{p_{A}p_{B}}}\\
+ & \Rightarrow\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\bra{\boldsymbol{p_{1}\cdots p_{n}}}_{0}\hat{T}\left\{ \exp\left(\int_{-T}^{T}\left(-i\right)H_{\text{int }}\left(t\right)\right)\right\} \ket{\boldsymbol{p_{A}p_{B}}}_{0}\right)_{\text{连通，截腿}}\\
+ & =\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\bra{\boldsymbol{p_{1}\cdots p_{n}}}_{0}\hat{T}\left\{ \exp\left(\int_{-T}^{T}iL_{\text{int}}\left(t\right)\right)\right\} \ket{\boldsymbol{p_{A}p_{B}}}_{0}\right)_{\text{连通，截腿}}\\
+ & =\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\bra{\boldsymbol{p_{1}\cdots p_{n}}}_{0}\hat{T}\left\{ \exp\left(\int\dif^{4}x\,i\mathcal{L}_{\text{int}}\left(x\right)\right)\right\} \ket{\boldsymbol{p_{A}p_{B}}}_{0}\right)_{\text{连通，截腿}}\\
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

@@ -1734,7 +1734,7 @@ and
 还有从规范链接得到的额外项
 \begin_inset Formula 
 \begin{align*}
- & J_{q,\text{link}}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\\
+ & \delta J_{q}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\\
  & =\int_{0}^{1}\dif t\int\dif^{4}aF\left(a\right)\left(-ie_{\phi}^{q}\right)\bar{p}\left(x-at\right)\times\\
  & \left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x-at\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x-at\right)\right]a^{\mu}\partial_{\rho}\phi\left(x+a\left(1-t\right)\right)+\text{H.c}\\
  & +\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\int_{0}^{1}\dif t\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\left(a-b\right)^{\mu}\bar{p}\left(x-at-b\left(1-t\right)\right)\gamma^{\rho}p\left(x-at-b\left(1-t\right)\right)\\
@@ -1743,7 +1743,71 @@ and
 
 \end_inset
 
+与定域的 拉氏量密度和守恒流相比，其中多了正规子函数
+\begin_inset Formula $F\left(a\right)$
+\end_inset
 
+。如果取
+\begin_inset Formula $F\left(a\right)\to\delta^{\left(4\right)}\left(a\right)$
+\end_inset
+
+，则回到 local limit，对应于把动量空间的形状因子取成
+\begin_inset Formula $\tilde{F}\left(p\right)=1$
+\end_inset
+
+(unity)。
+\begin_inset Formula $\frac{1}{\left(2\pi\right)^{3}}\int\delta\left(x\right)e^{-ipx}=\frac{1}{\left(2\pi\right)^{3}}$
+\end_inset
+
+。传统的手征微扰理论使用维数正规化，与它们的 power counting scheme 相比，非定域理论中引入了正规子函数
+\begin_inset Formula $F\left(a\right)$
+\end_inset
+
+，导致出现
+\begin_inset Formula $m_{\phi}$
+\end_inset
+
+更高阶的项，其系数一般依赖于正规子质量，比如大动量 cutoff parameter 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+。这跟标准手征微扰理论中的 resummation 类似，超出了通常的 power counting scheme，代价是在计算中引入了模型依赖性。这种
+ resummed approach 的好处是，在通常 power counting scheme 失效的区域，(resummed 方法)对
+\begin_inset Formula $m_{\phi}$
+\end_inset
+
+的收敛性会更好。
+\end_layout
+
+\begin_layout Section
+分裂函数
+\end_layout
+
+\begin_layout Standard
+使用上面推导的非定域相互作用和流，可以计算描述质子（dressed by the pseudoscalar fields）和外源场相互作用的分裂函数。外源探针和
+ proton dressed by pseudoscalar meson 的相互作用由 Fig.1 给出。1a-c,e,f,h-j 对应于 local
+ effective theory 中的图，而 figs.1d,g, and k 来自于非定域理论中的 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:25"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:27"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。最后结果中的振幅是特定的 meson-baryon 分裂函数 convoluted with corresponding PDFs in the
+ bare or undressed mesons and baryons 。这些图将被用于计算介子圈对核子中 PDFs 的贡献。
 \end_layout
 
 \begin_layout Standard
