@@ -690,6 +690,64 @@ S–矩阵元和编时乘积
 \end_layout
 
 \begin_layout Standard
+如同 chapter 5 中讨论的，散射实验在研究自然界中存在的粒子，以及它们的相互作用方面成果显著。在一个典型的碰撞实验中，两个粒子，在
+\begin_inset Formula $t=-\infty$
+\end_inset
+
+时，近似处于动量本征态（
+\begin_inset Formula $a_{p}^{\dagger}$
+\end_inset
+
+），然后它们进行散射，我们测量在
+\begin_inset Formula $t\to\infty$
+\end_inset
+
+时找到某特定动量本征态的概率。我们感兴趣的所有跟相互作用有关的物理，都隐藏在初态和末态间的跃迁概率中，也就是在
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵中。
+\end_layout
+
+\begin_layout Standard
+在散射过程的计算中，一个 Working 的假设是，所有的相互作用发生在有限的时间内
+\begin_inset Formula $-T<t<T$
+\end_inset
+
+。这在真实的碰撞实验中当然是成立的。不过更重要的是，它使得我们的问题是 well defined。如果一直存在相互作用，就不容易在
+\begin_inset Formula $t=-\infty$
+\end_inset
+
+ 制备初态，也不容易在
+\begin_inset Formula $t=+\infty$
+\end_inset
+
+ 寻找到末态。在渐近时刻(asymptotic time)，由于不存在相互作用，我们散射的态可以被定义成 在给定动量的在壳单粒子态，被称为渐近态（asympto
+tic states）。在本章中，仅仅利用系统在渐近时间是自由的，我们将推导
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元的一个表达式。
+\end_layout
+
+\begin_layout Standard
+本章的一个主要结果是 LSZ (Lehmann-Symanzik-Zimmermann )约化公式，它把
+\begin_inset Formula $n$
+\end_inset
+
+个渐近动量本征态的
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元
+\begin_inset Formula $\bra{f}S\ket{i}$
+\end_inset
+
+ 和一个关于量子场
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+的表达式联系在一起：
 \begin_inset Formula 
 \begin{align*}
 \bra{f}S\ket{i} & =\left(i\int\dif^{4}x_{1}\exp(-ip_{1}\cdot x_{1})\left(\square+m^{2}\right)\right)\cdots\left(i\int\dif^{4}x_{n}\exp(+ip_{n}\cdot x_{n})\left(\square+m^{2}\right)\right)\\
@@ -698,15 +756,15 @@ S–矩阵元和编时乘积
 
 \end_inset
 
-
+其中
 \begin_inset Formula $-i$
 \end_inset
 
-对应initial state, 
+对应初态, 
 \begin_inset Formula $+i$
 \end_inset
 
-对应final state，负进正出。 
+对应末态，负进正出。 
 \begin_inset Formula $T$
 \end_inset
 
@@ -715,6 +773,67 @@ S–矩阵元和编时乘积
 \end_inset
 
 是相互作用理论的基态或称作真空，一般来说跟自由理论的真空不同。
+\end_layout
+
+\begin_layout Standard
+上面公式里的编时乘积可以非常复杂,并且除了 
+\begin_inset Formula $S$
+\end_inset
+
+-matrix 之外，还编码了许多其他信息（一个场论体系的所有性质完全由它的格林函数决定）。而 
+\begin_inset Formula $\square+m^{2}$
+\end_inset
+
+ 因子投影出了
+\begin_inset Formula $S$
+\end_inset
+
+-matrix: 
+\begin_inset Formula $\square+m^{2}$
+\end_inset
+
+在傅里叶空间变成
+\begin_inset Formula $-p^{2}+m^{2}$
+\end_inset
+
+, 对于渐进态
+\begin_inset Formula $-p^{2}+m^{2}=0$
+\end_inset
+
+。 除了那些包含
+\begin_inset Formula $\frac{1}{p^{2}-m^{2}}$
+\end_inset
+
+ pole 的项之外（对应 on-shell 粒子的传播子）,编时乘积中所有别的项都会被这些因子去掉。最后只有包含
+\begin_inset Formula $\frac{1}{p^{2}-m^{2}}$
+\end_inset
+
+ pole 的项会存活，
+\begin_inset Formula $S$
+\end_inset
+
+-matrix 将由这些 pole 的留数给出。 当然，考虑场强重整化的话，会多出一些
+\begin_inset Formula $\sqrt{Z_{i}}$
+\end_inset
+
+因子（每种粒子有自己的重整化因子）。指数因子
+\begin_inset Formula $\exp\left(\pm ip_{1}\cdot x_{1}\right)$
+\end_inset
+
+一方面作为傅立叶变换因子，把坐标空间的量变换到动量空间，另一方面，它们会给出动量守恒函数
+\begin_inset Formula $2\pi\delta\left(\sum\boldsymbol{p_{i}-p_{f}}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+因此,LSZ公式的物理内容是：
+\begin_inset Formula $S$
+\end_inset
+
+–matrix 从场的编时乘积中投影出单粒子渐近态( one -particle asymptotic states)。延续这种思想，通过构造合适的电子自旋投影
+算符，光子极化投影算符等等，还可以从格林函数中得到对应特定自旋或者光子极化的散射振幅。
 \end_layout
 
 \begin_layout Standard
@@ -743,6 +862,359 @@ S–矩阵元和编时乘积
 
 \begin_layout Section
 LSZ 约化公式
+\end_layout
+
+\begin_layout Standard
+in chapter 5,我们推导了渐近态
+\begin_inset Formula $2\to n$
+\end_inset
+
+散射过程的微分散射截面，
+\begin_inset Formula 
+\[
+\dif\sigma=\frac{1}{2E_{1}2E_{2}\abs{\vec{v}_{1}-\vec{v}_{2}}}\abs{\mathcal{M}}^{2}\dif\Pi_{\text{LIPS}}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\dif\Pi_{\text{LIPS}}$
+\end_inset
+
+是洛伦兹不变相空间，
+\begin_inset Formula $\abs*{\mathcal{M}}^{2}=\abs*{\bra{f}\mathcal{M}\ket{i}}^{2}$
+\end_inset
+
+，是
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元分离出一个整体动量守恒
+\begin_inset Formula $\delta$
+\end_inset
+
+函数之后，剩下的部分：
+\begin_inset Formula 
+\[
+\bra{f}S-\mathbbm{1}\ket{i}=i\left(2\pi\right)^{4}\delta^{4}\left(\sum p\right)\mathcal{M}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\ket{i}$
+\end_inset
+
+是
+\begin_inset Formula $t=-\infty$
+\end_inset
+
+时的初态，
+\begin_inset Formula $\bra{f}$
+\end_inset
+
+是
+\begin_inset Formula $t=+\infty$
+\end_inset
+
+时的末态。可以使用
+\begin_inset Formula $a_{p}^{\dagger}\left(t\right)$
+\end_inset
+
+更精确的表示为：
+\begin_inset Formula 
+\[
+\ket{i}=\sqrt{2\omega_{1}}\sqrt{2\omega_{2}}a_{p_{1}}^{\dagger}\left(-\infty\right)a_{p_{2}}^{\dagger}\left(-\infty\right)\ket{\Omega}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\ket{\Omega}$
+\end_inset
+
+是基态，基态中没有粒子。and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ket{f}=\sqrt{2\omega_{3}}\cdots\sqrt{2\omega_{n}}a_{p_{3}}^{\dagger}\left(\infty\right)\cdots a_{p_{n}}^{\dagger}\left(\infty\right)\ket{\Omega}
+\]
+
+\end_inset
+
+一般我们感兴趣的都是散射实际发生的过程，所以让我们假设
+\begin_inset Formula $\ket{f}\neq\ket{i}$
+\end_inset
+
+，在这种情况下
+\begin_inset Formula $\mathbbm{1}$
+\end_inset
+
+不贡献。这样
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元是
+\begin_inset Formula 
+\[
+\bra{f}S\ket{i}=2^{n/2}\sqrt{\omega_{1}\omega_{2}\cdots\omega_{n}}\bra{\Omega}a_{p_{3}}\left(\infty\right)\cdots a_{p_{n}}\left(\infty\right)a_{p_{1}}^{\dagger}\left(-\infty\right)a_{p_{2}}^{\dagger}\left(-\infty\right)\ket{\Omega}
+\]
+
+\end_inset
+
+这个表达式并不能说十分有用，我们想把它跟能用来计算的，洛伦兹不变的对象
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+联系起来。
+\end_layout
+
+\begin_layout Standard
+回忆起来我们定义场是产生和湮灭算符的求和：
+\begin_inset Formula 
+\[
+\phi\left(x\right)=\phi\left(\vec{x},t\right)=\int\frac{\dif^{3}p}{\left(2\pi\right)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\left[a_{p}\left(t\right)e^{-ipx}+a_{p}^{\dagger}\left(t\right)e^{+ipx}\right]
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\omega_{p}=\sqrt{\vec{p}^{2}+m^{2}}$
+\end_inset
+
+。
+\begin_inset Formula $x=\left(t,\vec{x}\right)$
+\end_inset
+
+。它们是海森堡绘景中的算符（Heisenberg），在特定的时间
+\begin_inset Formula $t$
+\end_inset
+
+创造量子态。然而，一般来说，
+\begin_inset Formula $t$
+\end_inset
+
+时刻的产生湮灭算符和
+\begin_inset Formula $t^{\prime}$
+\end_inset
+
+算符是不同的。相互作用的 Hamiltonian 会转动产生湮灭算符组成的basis，这编码了我们感兴趣的所有动力学。比如，如果
+\begin_inset Formula $H$
+\end_inset
+
+不显式依赖时间，
+\begin_inset Formula $a_{p}\left(t\right)=e^{iH\left(t-t_{0}\right)}a_{p}\left(t_{0}\right)e^{-iH\left(t-t_{0}\right)}$
+\end_inset
+
+，正如同
+\begin_inset Formula $\phi\left(x\right)=e^{iH\left(t-t_{0}\right)}\phi\left(t_{0},\vec{x}\right)e^{-iH\left(t-t_{0}\right)}$
+\end_inset
+
+。其中
+\begin_inset Formula $t_{0}$
+\end_inset
+
+是一个任意参考时刻，在
+\begin_inset Formula $t_{0}$
+\end_inset
+
+我们把相互作用场匹配到自由场中。我们在证明中不需要用到
+\begin_inset Formula $a_{p}\left(t\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\left(t,\vec{x}\right)$
+\end_inset
+
+的细节形式，除了在渐进时间，这些算符具有湮灭场的能力
+\begin_inset Formula $\bra{\Omega}\phi\left(t=\pm\infty,\vec{x}\right)\ket{p}=Ce^{i\vec{x}\vec{p}}$
+\end_inset
+
+对于某些常数
+\begin_inset Formula $C$
+\end_inset
+
+，类似于自由场的情形 eq.2.76
+\begin_inset Newline newline
+\end_inset
+
+证明 LSZ 公式的关键是代数关系
+\begin_inset Formula 
+\begin{equation}
+i\int\dif^{4}xe^{ipx}\left(\square+m^{2}\right)\phi\left(x\right)=\sqrt{2\omega_{p}}\left\{ a_{p}\left(\infty\right)-a_{p}\left(-\infty\right)\right\} \label{eq:6.8}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $p^{\mu}=\left(\omega_{p},\vec{p}\right)$
+\end_inset
+
+。为了推导出这个关系，只需要假设我们感兴趣的所有相互作用发生在有限的时间间隔内
+\begin_inset Formula $-T<t<T$
+\end_inset
+
+，理论在
+\begin_inset Formula $t=\pm\infty$
+\end_inset
+
+的时候是自由的。不需要提供相互作用期间的作用形式的细节。
+\end_layout
+
+\begin_layout Standard
+为了证明 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.8"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，我们显然要仔细处理
+\begin_inset Formula $t=\pm\infty$
+\end_inset
+
+时的边界条件。然而，我们可以安全的假设场在
+\begin_inset Formula $\vec{x}=\pm\infty$
+\end_inset
+
+的时候消失，从而允许我们对
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+进行分部积分。则有
+\begin_inset Formula 
+\begin{align*}
+i\int\dif^{4}xe^{ipx}\left(\square+m^{2}\right)\phi\left(x\right) & =i\int\dif^{4}xe^{ipx}\left(\partial_{t}^{2}-\vec{\partial}_{x}^{2}+m^{2}\right)\phi\left(x\right)\\
+ & =i\int\dif^{4}xe^{ipx}\left(\partial_{t}^{2}+\vec{p}^{2}+m^{2}\right)\phi\left(x\right)\\
+ & =i\int\dif^{4}xe^{ipx}\left(\partial_{t}^{2}+\omega_{p}^{2}\right)\phi\left(x\right)\\
+i\int\dif^{4}xe^{\pm ipx}\left(\square+m^{2}\right)\phi\left(x\right) & =i\int\dif^{4}xe^{\pm ipx}\left(\partial_{t}^{2}+\omega_{p}^{2}\right)\phi\left(x\right)
+\end{align*}
+
+\end_inset
+
+注意这对任意类型的场
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+都成立，不管它是经典场还是算符。Also，
+\begin_inset Formula 
+\begin{align*}
+\partial_{t}\left[e^{ipx}\left(i\partial_{t}+\omega_{p}\right)\phi\left(x\right)\right] & =\left[i\omega_{p}e^{ipx}\left(i\partial_{t}+\omega_{p}\right)+e^{ipx}\left(i\partial_{t}^{2}+\omega_{p}\partial_{t}\right)\right]\phi\left(x\right)\\
+ & =\left[e^{ipx}\left(-\omega_{p}\partial_{t}+i\omega_{p}^{2}\right)+e^{ipx}\left(i\partial_{t}^{2}+\omega_{p}\partial_{t}\right)\right]\phi\left(x\right)\\
+ & =ie^{ipx}\left(\partial_{t}^{2}+\omega_{p}^{2}\right)\phi\left(x\right)
+\end{align*}
+
+\end_inset
+
+类似地
+\begin_inset Formula 
+\begin{align*}
+\partial_{t}\left[e^{-ipx}\left(-i\partial_{t}+\omega_{p}\right)\phi\left(x\right)\right] & =\left[-i\omega_{p}e^{-ipx}\left(-i\partial_{t}+\omega_{p}\right)+e^{-ipx}\left(-i\partial_{t}^{2}+\omega_{p}\partial_{t}\right)\right]\phi\left(x\right)\\
+ & =\left[e^{-ipx}\left(-\omega_{p}\partial_{t}-i\omega_{p}^{2}\right)+e^{-ipx}\left(-i\partial_{t}^{2}+\omega_{p}\partial_{t}\right)\right]\phi\left(x\right)\\
+ & =-ie^{ipx}\left(\partial_{t}^{2}+\omega_{p}^{2}\right)\phi\left(x\right)
+\end{align*}
+
+\end_inset
+
+这个等式与边界条件无关。所以
+\begin_inset Formula 
+\begin{align}
+i\int\dif^{4}xe^{ipx}\left(\square+m^{2}\right)\phi\left(x\right) & =\int\dif^{4}x\partial_{t}\left[e^{ipx}\left(i\partial_{t}+\omega_{p}\right)\phi\left(x\right)\right]\nonumber \\
+ & =\int\dif t\partial_{t}\left[e^{i\omega_{p}t}\int\dif^{3}xe^{-i\vec{p}\vec{x}}\left(i\partial_{t}+\omega_{p}\right)\phi\left(x\right)\right]\label{eq:6.11}
+\end{align}
+
+\end_inset
+
+again,不管场
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+的相互作用如何疯狂它都成立。
+\end_layout
+
+\begin_layout Standard
+被积式是关于时间的全导数，所以它只依赖于边界上
+\begin_inset Formula $t=\pm\infty$
+\end_inset
+
+时的场。By construction，我们的
+\begin_inset Formula $a_{p}\left(p\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{p}^{\dagger}\left(t\right)$
+\end_inset
+
+算符在非常早和非常晚的时候，是不依赖于时间的。对于
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+是量子场的特殊情况，我们可以完成
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+的积分：
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif^{3}xe^{-i\vec{p}\vec{x}}\left(i\partial_{t}+\omega_{p}\right)\phi\left(x\right)\\
+ & \int\dif^{3}xe^{-i\vec{p}\vec{x}}\left(i\partial_{t}+\omega_{p}\right)\int\frac{\dif^{3}k}{\left(2\pi\right)^{3}}\frac{1}{\sqrt{2\omega_{k}}}\left(a_{k}\left(t\right)e^{-ikx}+a_{k}^{\dagger}\left(t\right)e^{ikx}\right)\\
+ & \int\frac{\dif^{3}k}{\left(2\pi\right)^{3}}\int\dif^{3}x\left[\left(\frac{\omega_{k}+\omega_{p}}{\sqrt{2\omega_{k}}}\right)a_{k}\left(t\right)e^{-ikx}e^{-\vec{p}\vec{x}}+\left(\frac{-\omega_{k}+\omega_{p}}{\sqrt{2\omega_{k}}}\right)a_{k}^{\dagger}\left(t\right)e^{ikx}e^{-\vec{p}\vec{x}}\right]
+\end{align*}
+
+\end_inset
+
+其中我们使用了
+\begin_inset Formula $\partial_{t}a_{k}\left(t\right)=0$
+\end_inset
+
+ ，一般来说不成立，但是在
+\begin_inset Formula $t=\pm\infty$
+\end_inset
+
+时场是自由的，它是 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.11"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中唯一相关的区域。对于
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+的积分，在第一项中会给出
+\begin_inset Formula $\delta^{3}\left(\vec{p}-\vec{k}\right)$
+\end_inset
+
+，在第二项中会给出
+\begin_inset Formula $\delta^{3}\left(\vec{p}+\vec{k}\right)$
+\end_inset
+
+。改不管那种情况，它迫使
+\begin_inset Formula $\omega_{k}=\omega_{p}$
+\end_inset
+
+，所以我们得到
+\begin_inset Formula 
+\[
+\int\dif^{3}xe^{-i\vec{p}\vec{x}}\left(i\partial_{t}+\omega_{p}\right)\phi\left(x\right)=\sqrt{2\omega_{p}}a_{p}\left(t\right)e^{-i\omega_{p}t}
+\]
+
+\end_inset
+
+第二项由于
+\begin_inset Formula $\left(\frac{-\omega_{k}+\omega_{p}}{\sqrt{2\omega_{k}}}\right)$
+\end_inset
+
+消失。
 \end_layout
 
 \begin_layout Standard
