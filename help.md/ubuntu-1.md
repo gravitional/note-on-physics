@@ -774,6 +774,15 @@ gpg --fingerprint
 
 用户需要见到`指纹`来确认某人说的身份是真的。 这个命令将会产生一列相对较小的数字。
 
+### 查看ip地址
+
+使用`ip`命令
+
+```bash
+ip addr show
+ip link show #查看 MAC 地址
+```
+
 ## 创建链接
 
 `ln` — 创建链接
