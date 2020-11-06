@@ -865,7 +865,7 @@ LSZ 约化公式
 \end_layout
 
 \begin_layout Standard
-in chapter 5,我们推导了渐近态
+in chapter 5，我们推导了渐近态
 \begin_inset Formula $2\to n$
 \end_inset
 
@@ -1036,10 +1036,10 @@ in chapter 5,我们推导了渐近态
 \begin_inset Formula $C$
 \end_inset
 
-，类似于自由场的情形 eq.2.76
-\begin_inset Newline newline
-\end_inset
+，类似于自由场的情形 eq.2.76。
+\end_layout
 
+\begin_layout Standard
 证明 LSZ 公式的关键是代数关系
 \begin_inset Formula 
 \begin{equation}
@@ -1584,6 +1584,47 @@ noprefix "false"
  non-relativistic 散射，万事大吉。这是一个泛用且有效的技巧，一般被称为 有效场论，在本书中扮演重要角色。因此，量子场论是很灵活的：即使你的场并
 不对应基本粒子也能工作（有效场论），或者你散射的粒子没有场对应（比如束缚态）。甚至对于不稳定的复合粒子，它也可以提供预测，比如中子，中子既不对应基本场也没有合适
 的渐近态。
+\end_layout
+
+\begin_layout Subsection
+note
+\end_layout
+
+\begin_layout Standard
+但是实际使用中，一般也不会从头，先写下场的编时乘积的真空期望值，然后用 Gell-mann low 公式加上 Wick 定理去计算收缩，拿到表达式，再使用
+ LSZ 公式将
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元投影出来。注意 LSZ 公式的作用，不管从原理上，还是实际效果上，都相当于强迫外线粒子 on-shell，并且指定入射和出射粒子的动量
+ 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+and 
+\begin_inset Formula $p_{f}$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{equation}
+i\int\dif^{4}xe^{ipx}\left(\square+m^{2}\right)\phi\left(x\right)=\sqrt{2\omega_{p}}\left\{ a_{p}\left(\infty\right)-a_{p}\left(-\infty\right)\right\} 
+\end{equation}
+
+\end_inset
+
+所以可以从一开始，直接把
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元写成编时乘积的形式，两边不使用真空，而使用单粒子态，
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
