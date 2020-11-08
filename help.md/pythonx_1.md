@@ -657,7 +657,7 @@ from mymodule import *
 
 警告：要记住你应该避免使用 `import`的这种形式,即 `from mymodule import `. 
 
->Python 的一大指导原则是“明了胜过晦涩,你可以通过在 Python 中运行 `import this` 来了解更多内容. 
+>Python 的一大指导原则是''明了胜过晦涩,你可以通过在 Python 中运行 `import this` 来了解更多内容. 
 
 ### 作用域
 
@@ -669,7 +669,7 @@ from mymodule import *
 
 类似`_xxx`和`__xxx`这样的函数或变量就是非公开的（private）,不应该被直接引用,比如`_abc`,`__abc`等；
 
-之所以我们说,private函数和变量“不应该”被直接引用,而不是“不能”被直接引用,是因为Python并没有一种方法可以完全限制访问private函数或变量,但是,从编程习惯上不应该引用private函数或变量. 
+之所以我们说,private函数和变量''不应该''被直接引用,而不是''不能''被直接引用,是因为Python并没有一种方法可以完全限制访问private函数或变量,但是,从编程习惯上不应该引用private函数或变量. 
 
 private函数或变量不应该被别人引用,那它们有什么用呢？请看例子：
 
@@ -1497,7 +1497,7 @@ class BaseForm(StrAndUnicode):
 ```
 
 此摘录摘自django源代码 (`django/forms/forms.py`). 
-这意味着`errors`是一个属性,并且是`API`的一部分,但是此属性调用的方法` _get_errors`是“私有”的,因此您不应访问它. 
+这意味着`errors`是一个属性,并且是`API`的一部分,但是此属性调用的方法` _get_errors`是''私有''的,因此您不应访问它. 
 
 ### __xxx
 
@@ -1585,3 +1585,60 @@ print (num - 20)      # 30
 如果 `object` 不是给定类型的对象,函数将总是返回 `False` .  
 如果 `classinfo` 是类型对象元组（或由其他此类元组递归组成的元组）,那么如果 `object` 是其中任何一个类型的实例就返回 `True` .  
 如果 `classinfo` 既不是类型,也不是类型元组或类型元组的元组,则将引发 `TypeError` 异常. 
+
+## 模块
+
+['编译过的'Python文件](https://docs.python.org/zh-cn/3/tutorial/modules.html#the-module-search-path)
+
+为了加速模块载入，Python在 `__pycache__` 目录里缓存了每个模块的编译后版本，名称为 `module.version.pyc` ，其中名称中的版本字段对编译文件的格式进行编码； 
+它一般使用Python版本号。例如，在CPython版本3.3中，`spam.py`的编译版本将被缓存为 `__pycache__/spam.cpython-33.pyc`。
+此命名约定允许来自不同发行版和不同版本的Python的已编译模块共存。
+
+Python根据编译版本检查源的修改日期，以查看它是否已过期并需要重新编译。这是一个完全自动化的过程。此外，编译的模块与平台无关，因此可以在具有不同体系结构的系统之间共享相同的库。
+
+一个从 `.pyc` 文件读出的程序并不会比它从 `.py` 读出时运行的更快，`.pyc `文件唯一快的地方在于载入速度。
+
+### 包
+
+包是一种通过用''带点号的模块名''来构造 Python 模块命名空间的方法。
+例如，模块名 `A.B` 表示 `A` 包中名为 `B` 的子模块。
+正如模块的使用使得不同模块的作者不必担心彼此的全局变量名称一样，使用加点的模块名可以使得 `NumPy` 或 `Pillow` 等多模块软件包的作者不必担心彼此的模块名称一样。
+
+包结构的例子
+
+```python
+ sound/                          Top-level package
+      __init__.py               Initialize the sound package
+      formats/                  Subpackage for file format conversions
+              __init__.py
+              wavread.py
+              wavwrite.py
+              aiffread.py
+              aiffwrite.py
+              auread.py
+              auwrite.py
+              ...
+      effects/                  Subpackage for sound effects
+              __init__.py
+              echo.py
+              surround.py
+              reverse.py
+              ...
+      filters/                  Subpackage for filters
+              __init__.py
+              equalizer.py
+              vocoder.py
+              karaoke.py
+              ...
+```
+
+当导入这个包时，Python搜索 sys.path 里的目录，查找包的子目录。
+
+必须要有 `__init__.py` 文件才能让 Python 将包含该文件的目录当作包。 这样可以防止例如叫做`string`这样常见名称的目录中的模块无法被搜索到。
+在最简单的情况下，`__init__.py` 可以只是一个空文件，但它也可以执行包的初始化代码或设置 `__all__` 变量，具体将在后文介绍。
+
+可以按照下面的语法调用
+
+```python
+from sound.effects.echo import echofilter
+```
