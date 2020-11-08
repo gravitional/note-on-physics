@@ -122,7 +122,7 @@ Thomas Young
 \end_layout
 
 \begin_layout Chapter
-Abstract
+单举与遍举
 \end_layout
 
 \begin_layout Standard
@@ -268,7 +268,7 @@ In particular my dissertation(专题论文;学位论文) project was on
  of the target proton.
 \end_layout
 
-\begin_layout Part
+\begin_layout Chapter
 Belitsky
 \end_layout
 
@@ -285,7 +285,7 @@ literal "true"
 
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Section
 揭开物质的层次：从原子到 partons
 \end_layout
 
@@ -2396,8 +2396,301 @@ D_{B}(p-k) & =(p-k)^{2}-m_{B}^{2}+i\epsilon=(p-k)^{+}(p-k)^{-}-k_{\perp}^{2}-m_{
 
 \end_layout
 
-\begin_layout Part
+\begin_layout Chapter
 Diehl
+\end_layout
+
+\begin_layout Section
+In a nutshell
+\end_layout
+
+\begin_layout Standard
+介绍 GPDs 的一个方便出发点是，对深度非弹性散射(DIS)过程的描述，
+\begin_inset Formula $ep\to eX$
+\end_inset
+
+。在 Bjorken极限下，也就是当虚光子
+\begin_inset Formula $Q^{2}=-q^{2}$
+\end_inset
+
+ and the squared hadronic c.m.
+ energy 
+\begin_inset Formula $\left(p+q\right)^{2}$
+\end_inset
+
+都变得很大，而比例
+\begin_inset Formula $X_{B}=Q^{2}/\left(2p\cdot q\right)$
+\end_inset
+
+保持不变，动力学可以被分解成一个 Hard 部分子 subprocess，可以使用微扰论计算，和一个部分子分布，它代表在靶子中找到特定动量分数为
+\begin_inset Formula $x$
+\end_inset
+
+的部分子的概率。使用光学定理，可以把 inclusive 
+\begin_inset Formula $\gamma^{*}p$
+\end_inset
+
+ 散射截面和 forward Compton 振幅 
+\begin_inset Formula $\gamma^{*}p\to\gamma^{*}p$
+\end_inset
+
+的虚部联系起来，在强相互耦合的领头阶，相关的费曼图画在 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。注意部分子密度在散射截面中是线性出现的。它可以被理解成靶子 fluctuating into 带有动量分数
+\begin_inset Formula $x$
+\end_inset
+
+的部分子和任何剩余系统的 squared amplitudes–这给出了它们在经典层次上的概率解释，至少计算到
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+的领头阶对数是成立的。
+\end_layout
+
+\begin_layout Standard
+把动力学简单地分成长程和短程部分不仅仅对于向前康普顿振幅是成立的，对于更一般的过程，只要向靶子的动量转移有限，且photon virtualities
+ 中至少有一个很大，也是成立的。一个特殊的情况是末态光子在壳，所以它可以出现在物理态中。说的更准确些，取极限初态 photon virtuality
+ 
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+ 很大，而 Bjorken 变量（
+\begin_inset Formula $X_{B}=Q^{2}/\left(2p\cdot q\right)$
+\end_inset
+
+ ）和不变动量转移
+\begin_inset Formula $t=\left(p^{\prime}-p\right)^{2}$
+\end_inset
+
+保持不变。这个过程称为深度虚康普顿散射（DVCS），再一次遇到 Handbag diagrams as shown in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+b，可以藉由
+\begin_inset Formula $ep\to e\gamma p$
+\end_inset
+
+研究。长程的部分，由下面的blob代表，现在称为 generalized parton distribution (GPD)。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted6.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Handbag diagram 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+存在 GPDs 的一个重要的其他过程是，产生的是轻介子而非
+\begin_inset Formula $\gamma$
+\end_inset
+
+的过程。如果介子的量子数被允许，胶子的 GPDs 会进入
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+的相同阶，as those for quarks，see 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。这些过程存在的第二个非微扰的量是，介子的 distribution amplitude，它描述了介子和硬散射过程中产生的
+\begin_inset Formula $q\bar{q}$
+\end_inset
+
+ or gluon 的耦合。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted7.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+meson production
+\begin_inset CommandInset label
+LatexCommand label
+name "fig2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+从虚光子转变到实光子or介子需要 纵向动量的 finite transfer ，其中“longitudinal
+\begin_inset Quotes erd
+\end_inset
+
+指的是在一个
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $p^{\prime}$
+\end_inset
+
+的移动速度都很快的坐标系中，初态质子动量的方向（比如
+\begin_inset Formula $\gamma^{*}p$
+\end_inset
+
+ 对撞的质心系）。容易发现，质子的动量损失的分数由
+\begin_inset Formula $x_{B}$
+\end_inset
+
+决定。如果使用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.b 中的对称参数化，in Bjorken极限下可得到，
+\begin_inset Formula 
+\[
+\xi\approx\frac{x_{B}}{2-x_{B}}
+\]
+
+\end_inset
+
+现在，图的左右手边，质子和部分子的动量不一样了。所以 GPD 不再代表一个 squared amplitude（因此也不代表概率），而是代表 描述核子不同量子数
+fluctuations 的振幅之间的干涉（interference）。当时用光锥波函数表示 GPDs 的时候，容易看明白这一点。（section
+ 3.11）。
+\end_layout
+
+\begin_layout Itemize
+除了纵向动量，入射和出射强子态的各种自由度都可以不同，每一个都描写了强子结构的特定方面：
+\end_layout
+
+\begin_layout Itemize
+动量转移可以有一个横向分量（必须很小才能满足
+\begin_inset Formula $t=\left(p^{\prime}-p\right)^{2}$
+\end_inset
+
+不能很大的条件）。这带来了关于靶子横向结构的信息，除了 probing 著份子的纵向动量之外。使用 impact parameter 表示（section
+ 3.10）可以得到一个 intuitive 的物理图像，其中 GPDs 描述了夸克和胶子在垂直于快速强子动量方向上的空间分布。协同纵向的部分子动量信息，我们最终
+能得到一个强子结构的完全的三维描述。
+\end_layout
+
+\begin_layout Itemize
+除了动量，靶子的极化在散射中也可能改变，给GPDs带来了丰富的自旋结构。在 section 3.6 中我们会看到，它如何提供了研究核子自旋的方法，而用其他方法很难
+实现，特别是部分子携带的轨道角动量。
+\end_layout
+
+\begin_layout Itemize
+由于有限的动量转移，手袋图允许第二个运动学区域，shown in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+c。部分子不再由目标发射再吸收，取而代之的是放出 夸克–反夸克（或胶子）对。在这个区域，which has no conterpart in the
+ usual parton densities， GPDs 探测强子波函数中的 
+\begin_inset Formula $q\bar{q}$
+\end_inset
+
+ and 胶子对，因此对海夸克和介子自由度相关的物理比较敏感。
+\end_layout
+
+\begin_layout Itemize
+最后，质子可以非弹性地散射到一个不同的重子，或者多粒子态。只要末态的不变质量跟虚光子
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+相比很小，上面讨论的因子化就仍然适用。 如此，可以得到作为靶子无法触及的强子部分子结构，比如核子共振态，the 
+\begin_inset Formula $\Delta$
+\end_inset
+
+, or hyperons (see section 3.14)
+\end_layout
+
+\begin_layout Section
+记号和约定
 \end_layout
 
 \begin_layout Standard
@@ -2411,6 +2704,366 @@ literal "true"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+这个文献所使用的记号：在光锥坐标系下，对于任何四速度–
+\begin_inset Formula $v$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+v^{\pm}=\frac{1}{\sqrt{2}}\left(v^{0}\pm v^{3}\right),\quad\boldsymbol{v}=\left(v^{1},v^{2}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+v^{+}\\
+v^{-}\\
+v^{1}\\
+v^{2}
+\end{array}\right)=\left[\begin{array}{cccc}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 & 0\\
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}\right]\left(\begin{array}{c}
+v^{0}\\
+v^{3}\\
+v^{1}\\
+v^{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+其中用粗体来代表
+\begin_inset Formula $v^{\perp}$
+\end_inset
+
+。通常使用两个特殊的类光矢量，
+\begin_inset Formula $n_{+}=\left(1,0,0,1\right)/\sqrt{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{-}=\left(1,0,0,-1\right)/\sqrt{2}$
+\end_inset
+
+，使用它们可以写出光锥坐标：
+\begin_inset Formula 
+\[
+v^{\mu}=v^{+}n_{+}^{\mu}+v^{-}n_{-}^{\mu}+v_{T}^{\mu}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $v^{+}=vn_{-},v^{-}=vn^{+}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{T}=\left(0,\boldsymbol{v},0\right)$
+\end_inset
+
+。两个四矢量的不变乘积为：
+\begin_inset Formula $vw=v^{+}w^{-}+v^{-}w^{+}-\boldsymbol{vw}$
+\end_inset
+
+，不变积分测度为
+\begin_inset Formula $\dif^{4}z=\dif z^{+}\dif z^{-}\dif^{2}\boldsymbol{z}$
+\end_inset
+
+。沿着光锥方向的导数为
+\begin_inset Formula 
+\[
+\partial^{+}=\frac{\partial}{\partial z^{-}},\quad\partial^{-}=\frac{\partial}{\partial z^{+}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+部分子模型的物理图像在强子和部分子速度都很快的坐标系中成立。在
+\begin_inset Formula $p^{3}\to+\infty$
+\end_inset
+
+的无穷动量坐标系中，光锥动量
+\begin_inset Formula $p^{+}$
+\end_inset
+
+正比于粒子的动量（能量），但是也可以在任何一个方便的坐标系下计算（包括强子静止系）。为了简单，我们经常用“动量分数”指代 plus–动量分数。
+\end_layout
+
+\begin_layout Standard
+对于 GPDs 以及它们出现的过程，我们使用记号：
+\begin_inset Formula 
+\[
+P=\frac{p+p^{\prime}}{2},\quad\Delta=p^{\prime}-p=q,\quad t=\Delta^{2}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $p$
+\end_inset
+
+是 incoming 动量，
+\begin_inset Formula $p^{\prime}$
+\end_inset
+
+是 outcoming 动量，
+\begin_inset Formula $m$
+\end_inset
+
+是靶质量。对于
+\begin_inset Formula $\gamma^{*}p$
+\end_inset
+
+对撞，我们使用标准变量：
+\begin_inset Formula 
+\[
+Q^{2}=-q^{2}=-\left(p^{\prime}-p\right)^{2},\quad W^{2}=\left(p+q\right)^{2}=p^{\prime2},\quad x_{B}=\frac{Q^{2}}{2p\cdot q}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $q$
+\end_inset
+
+是事件光子
+\begin_inset Formula $\gamma^{*}$
+\end_inset
+
+的动量。文献中至少有两种常用的GPD的动量分数的参数化方法，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:动量分数的参数化方法"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted5.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+动量分数的参数化方法
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:动量分数的参数化方法"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+它们的关系是：
+\begin_inset Formula 
+\[
+X=\frac{x+\xi}{1+\xi},\quad\zeta=\frac{2\xi}{1+\xi}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $Xp^{+}$
+\end_inset
+
+是部分子的动量，所以
+\begin_inset Formula $X$
+\end_inset
+
+是动量分数，
+\begin_inset Formula $\left(X-\xi\right)p^{+}$
+\end_inset
+
+是反应后部分子的动量，所以
+\begin_inset Formula $\zeta$
+\end_inset
+
+是动量损失分数。变量 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $\zeta$
+\end_inset
+
+ 和 forward kinematics 中使用的变量接近，在 Bjorken 极限下的 DVCS and 轻介子产生中，
+\begin_inset Formula $\zeta=x_{B}$
+\end_inset
+
+。而使用 
+\begin_inset Formula $x,\xi$
+\end_inset
+
+ （
+\begin_inset Formula $x$
+\end_inset
+
+不是
+\begin_inset Formula $x_{B}$
+\end_inset
+
+）的参数化更能反映出初末态的对称性，下面会使用这种参数化。在大多数文献中，
+\begin_inset Formula $\xi$
+\end_inset
+
+ 的定义为：
+\begin_inset Formula 
+\[
+\xi=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}},
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\begin{align*}
+\left(1+\xi\right)P^{+}=\left(\frac{2p^{+}}{p^{+}+p^{\prime+}}\right)\frac{p^{+}+p^{\prime+}}{2}=p^{+}, &  & \left(1-\xi\right)P^{+}=\left(\frac{2p^{+\prime}}{p^{+}+p^{\prime+}}\right)\frac{p^{+}+p^{\prime+}}{2}=p^{+\prime}\\
+\left(x+\xi\right)P^{+}=\frac{\left(x+\xi\right)}{1+\xi}p^{+}=Xp^{+}, &  & \left(x-\xi\right)P^{+}=\frac{\left(x-\xi\right)}{1+\xi}p^{+}=\left(X-\zeta\right)p^{+}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+下面给出了此 Review 中使用的其他约定。For the momentum fractions of distribution amplitudes，我们经
+常使用“bar”记号：
+\begin_inset Formula 
+\[
+\bar{z}=1-z
+\]
+
+\end_inset
+
+flavor 为
+\begin_inset Formula $q$
+\end_inset
+
+的夸克，带的电荷为
+\begin_inset Formula $e_{q}$
+\end_inset
+
+，单位是正电荷的电量
+\begin_inset Formula $e$
+\end_inset
+
+。对于希尔波特空间的态矢量使用通常的相对论归一化
+\begin_inset Formula $\bra{p}\ket{q}=2E_{p}\delta^{3}\left(p-q\right)$
+\end_inset
+
+。我们对全反对称张量的约定是
+\begin_inset Formula 
+\[
+\varepsilon_{0123}=1
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
+\end_inset
+
+。我们也使用横向张量
+\begin_inset Formula 
+\[
+g_{T}^{\alpha\beta}=g^{\alpha\beta}-n_{+}^{\alpha}n_{1}^{\beta}-n_{-}^{\alpha}n_{+}^{\beta},\quad\varepsilon_{T}^{\alpha\beta}=\varepsilon^{\alpha\beta\mu\nu}n_{-\mu}n_{+\nu}
+\]
+
+\end_inset
+
+他们的非零元为
+\begin_inset Formula $g_{T}^{11}=g_{T}^{22}=-1$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon_{T}^{12}=-\varepsilon_{T}^{21}=1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+夸克场使用
+\begin_inset Formula $q\left(x\right)$
+\end_inset
+
+标记，胶子场使用
+\begin_inset Formula $A^{\mu}\left(x\right)$
+\end_inset
+
+标记，胶子场强使用
+\begin_inset Formula $G^{\mu\nu}\left(x\right)$
+\end_inset
+
+，对偶场强为
+\begin_inset Formula 
+\[
+\tilde{G}^{\alpha\beta}\left(x\right)=\frac{1}{2}\varepsilon^{\alpha\beta\mu\nu}G_{\mu\nu}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+最后，我们还使用缩写
+\begin_inset Formula 
+\[
+\overset{\leftrightarrow}{\partial^{\mu}}=\frac{1}{2}\left(\overset{\rightarrow}{\partial_{\mu}}-\overset{\leftarrow}{\partial_{\mu}}\right),\qquad\overset{\leftrightarrow}{D^{\mu}}=\frac{1}{2}\left(\overset{\rightarrow}{D_{\mu}}-\overset{\leftarrow}{D_{\mu}}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $D^{\mu}=\partial_{\mu}-igA^{\mu}$
+\end_inset
+
+是协变导数。
+\end_layout
+
+\begin_layout Section
+GPDs 的定义
 \end_layout
 
 \begin_layout Standard
