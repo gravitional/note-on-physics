@@ -1363,3 +1363,7 @@ YNDMB-2QCFC-HTFBP-JF9HC-FX849
 软件查看
 
 一些软件也可以查看产品密钥，比如硬件检测软件`AIDA64`和专门用来看密钥的`produkey`
+
+### 查看内存硬件信息
+
+`pwsh` 中输入`wmic memorychip`.
