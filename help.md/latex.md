@@ -1285,6 +1285,12 @@ $(\lambda)=(\lambda_1,\lambda_2,\cdots \lambda_m)$
 \end{aligned}\end{equation}
 ```
 
+### 公式编号
+
+数学公式的环境中，除了 `split` 环境，每个方程环境都有带`*`和不带`*`号的版本，不带星号的版本将会自动编号，在一行结束之前，使用`\notag`可以抑制编号。为了避免弄乱编号，`\notag`应该只在`display`类型的环境内使用。可以使用`\tag{<lable>}`使用自定义编号，tag 可以引用 a different tagged display，通过使用`\tag{\ref{<label>}<modifier>}`，其中`<modifier>`是可选的。如果你使用了`hyperref`，可以使用`\ref*`，避免创建包含内置链接的reference.
+
+还有一个`\tag*`命令，可以原义输出文本，不加括号。`\tag` and `\tag*`也可以在`amsmath`包的无编号环境中使用。
+
 ## 杨表 tableaux  模板
 
 ```latex
