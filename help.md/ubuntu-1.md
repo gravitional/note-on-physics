@@ -430,7 +430,7 @@ fc-cache -fv
 
 [Linux中apt与apt-get命令的区别与解释]: https://www.sysgeek.cn/apt-vs-apt-get/
 
-如果你已阅读过我们的 apt-get 命令指南，可能已经遇到过许多类似的命令，如apt-cache、apt-config 等。如你所见，这些命令都比较低级又包含众多功能，普通的 Linux 用户也许永远都不会使用到。换种说法来说，就是最常用的 Linux 包管理命令都被分散在了 apt-get、apt-cache 和 apt-config 这三条命令当中。
+如果你已阅读过我们的 apt-get 命令指南，可能已经遇到过许多类似的命令，如apt-cache,apt-config 等。如你所见，这些命令都比较低级又包含众多功能，普通的 Linux 用户也许永远都不会使用到。换种说法来说，就是最常用的 Linux 包管理命令都被分散在了 apt-get,apt-cache 和 apt-config 这三条命令当中。
 
 `apt` 命令的引入就是为了解决命令过于分散的问题，它包括了 apt-get 命令出现以来使用最广泛的功能选项，以及 apt-cache 和 apt-config 命令中很少用到的功能。
 
@@ -546,7 +546,7 @@ gnome-screenshot -a --file=(~"/Desktop/$(date +%s).png")
 
 `date +%s`给出 UTC 时间
 
-在 Ubuntu（18.04、16.04）或 Debian（Jessie 和更新版本）中安装 `GPaste`
+在 Ubuntu（18.04,16.04）或 Debian（Jessie 和更新版本）中安装 `GPaste`
 
 对于 Debian，GPaste 可用于 Jessie 和更新版本，而对于 Ubuntu，GPaste 在 16.04 及更新版本的仓库中（因此可在 Ubuntu 18.04 Bionic Beaver 中使用）。
 
@@ -782,6 +782,33 @@ gpg --fingerprint
 ip addr show
 ip link show #查看 MAC 地址
 ```
+
+### 安装额外解码器
+
+如果你刚刚安装了 Ubuntu 或其他 Ubuntu 特色版本 如 Kubuntu,Lubuntu 等，你会注意到系统无法播放某些音频或视频文件。
+
+对于视频文件，你可以在 Ubuntu 上安装 `VLC`。`VLC` 是 Linux 上的最佳视频播放器之一，它几乎可以播放任何视频文件格式。但你仍然会遇到无法播放音频和 `flash` 的麻烦。
+
+好消息是 Ubuntu 提供了一个软件包来安装所有基本的媒体编解码器：`ubuntu-restricted-extras`。
+
+ubuntu-restricted-extras 是一个包含各种基本软件，如 `Flash` 插件,`unrar` ,`gstreamer`,`mp4`,`Ubuntu` 中的 `Chromium` 浏览器的编解码器等的软件包。
+
+由于这些软件不是开源软件，并且其中一些涉及软件专利，因此 Ubuntu 默认情况下不会安装它们。你必须使用 `multiverse` 仓库，它是 Ubuntu 专门为用户提供非开源软件而创建的仓库。
+
+由于 `ubuntu-restrcited-extras` 软件包在 `multiverse` 仓库中，因此你应验证系统上已启用 `multiverse` 仓库：
+
+```bash
+sudo add-apt-repository multiverse
+```
+
+然后你可以使用以下命令安装：
+
+```bash
+sudo apt install ubuntu-restricted-extras
+```
+
+[What are Ubuntu Repositories](https://itsfoss.com/ubuntu-repositories/)
+[一条命令在 Ubuntu 中安装所有基本的媒体编解码器 ](https://linux.cn/article-11906-1.html)
 
 ## 创建链接
 
@@ -1069,7 +1096,7 @@ terminal 快捷键
 | `ALT-~`  | 把标志点前的文本当成用户名并试图进行补全。`[CTRL-X,~]`列出可以作为用户名补全标志点前的条目。     |
 | `ALT-$`  | 把标志点前的文本当成Shell变量并试图进行补全。`[CTRL-X,$]`列出可以作为变量补全标志点前的条目。    |
 | `ALT-@`  | 把标志点前的文本当成主机名并试图进行补全。`[CTRL-X,@]`列出可以作为主机补全标志点前的条目。       |
-| `ALT-!`  | 把标志点前的文本当成命令名并试图进行补全。进行命令名补全时会依次使用别名、保留字、Shell函数、shell内部命令，最后是可执行文件名。`[CTRL-X,!]`把标志点前的文本当成命令名并列出可补全的条目。          |
+| `ALT-!`  | 把标志点前的文本当成命令名并试图进行补全。进行命令名补全时会依次使用别名,保留字,Shell函数,shell内部命令，最后是可执行文件名。`[CTRL-X,!]`把标志点前的文本当成命令名并列出可补全的条目。          |
 | `ALT-TAB`       | 把标志点前的文本与历史记录中的文本进行比较以寻找匹配的并试图进行补全。|
 | `ALT-{`  | 进行文件名补全，把可以补全的条目列表放在大括号之间，让shell可以使用。 |
 
@@ -1094,9 +1121,9 @@ exit 0
 
 ## shell 变量
 
-[Shell变量：Shell变量的定义、赋值和删除][]
+[Shell变量：Shell变量的定义,赋值和删除][]
 
-[Shell变量：Shell变量的定义、赋值和删除]: http://c.biancheng.net/view/743.html
+[Shell变量：Shell变量的定义,赋值和删除]: http://c.biancheng.net/view/743.html
 
 脚本语言在定义变量时通常不需要指明类型，直接赋值就可以，`Shell` 变量也遵循这个规则。
 
@@ -1104,7 +1131,7 @@ exit 0
 
 这意味着，`Bash shell` 在默认情况下不会区分变量类型，即使你将整数和小数赋值给变量，它们也会被视为字符串，这一点和大部分的编程语言不同。
 
-例如在C语言或者 C++ 中，变量分为整数、小数、字符串、布尔等多种类型。
+例如在C语言或者 C++ 中，变量分为整数,小数,字符串,布尔等多种类型。
 
 当然，如果有必要，你也可以使用 `Shell declare` 关键字显式定义变量的类型，但在一般情况下没有这个需求，Shell 开发者在编写代码时自行注意值的类型即可。
 
@@ -1118,14 +1145,14 @@ variable='value'
 variable="value"
 ```
 
-`variable` 是变量名，`value` 是赋给变量的值。如果 `value` 不包含任何空白符（例如空格、`Tab` 缩进等），那么可以不使用引号；
+`variable` 是变量名，`value` 是赋给变量的值。如果 `value` 不包含任何空白符（例如空格,`Tab` 缩进等），那么可以不使用引号；
 如果 `value` 包含了空白符，那么就必须使用引号包围起来。使用单引号和使用双引号也是有区别的，稍后我们会详细说明。
 
 注意，赋值号`=`的周围不能有空格，这可能和你熟悉的大部分编程语言都不一样。
 
 `Shell` 变量的命名规范和大部分编程语言都一样：
 
-+ 变量名由数字、字母、下划线组成；
++ 变量名由数字,字母,下划线组成；
 + 必须以字母或者下划线开头；
 + 不能使用 `Shell` 里的关键字（通过 `help` 命令可以查看保留关键字）。
 
@@ -1193,7 +1220,7 @@ C语言中文网：http://c.biancheng.net
 ```
 
 以单引号`' '`包围变量的值时，单引号里面是什么就输出什么，即使内容中有变量和命令（命令需要`反引`起来）也会把它们原样输出。
-这种方式比较适合定义显示纯字符串的情况，即不希望解析变量、命令等的场景。
+这种方式比较适合定义显示纯字符串的情况，即不希望解析变量,命令等的场景。
 
 以双引号`" "`包围变量的值时，输出时会先解析里面的变量和命令，而不是把双引号中的变量名和命令原样输出。
 这种方式比较适合字符串中附带有变量和命令并且想将其解析后再输出的变量定义。
@@ -1608,10 +1635,10 @@ Dash to Panel 是 Gnome Shell 的一个高度可配置面板，是 Ubuntu Dock �
 
 ## 挂载命令mount
 
-[linux挂载命令mount及U盘、移动硬盘的挂载][]
+[linux挂载命令mount及U盘,移动硬盘的挂载][]
 [gpt格式的移动硬盘在Linux系统下挂载方法][]
 
-[linux挂载命令mount及U盘、移动硬盘的挂载]: https://www.cnblogs.com/sunshine-cat/p/7922193.html
+[linux挂载命令mount及U盘,移动硬盘的挂载]: https://www.cnblogs.com/sunshine-cat/p/7922193.html
 
 [gpt格式的移动硬盘在Linux系统下挂载方法]: https://blog.csdn.net/zhang_can/article/details/79714012?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
 
@@ -1784,7 +1811,7 @@ vi /etc/profile //编辑profile文件
 
 在 bash 中，`$(( ))` 的整数运算符号大致有这些：
 
-+ `+ - * /` ：分别为 "加、减、乘、除"。
++ `+ - * /` ：分别为 "加,减,乘,除"。
 + `%` ：余数运算
 + `& | ^ !`：分别为 "`AND`,`OR`,`XOR`,`NOT`" 运算。
 
@@ -1960,7 +1987,7 @@ bash 的组数替换方法可参考如下方法：
 在 bash 中，`$(( ))` 的整数运算符号大致有这些：
 括号`(())`和`==`等操作符周围都不需要空格，但是为了统一，也可以加上
 
-+ `+ - * /` ：分别为 "加、减、乘、除"。
++ `+ - * /` ：分别为 "加,减,乘,除"。
 + `%` ：余数运算
 + `& | ^ !`：分别为 "`AND`,`OR`,`XOR`,`NOT`" 运算。
 
@@ -1988,7 +2015,7 @@ $ echo $(( (a*b)%c))
 ```
 
 在 `$(( ))` 中的变量名称，可于其前面加 `$` 符号来替换，也可以不用，如：`$(( $a + $b * $c))` 也可得到 `19` 的结果
-此外，`$(( ))` 还可作不同进位(如二进制、八进位、十六进制)作运算，只是，输出结果皆为十进制：
+此外，`$(( ))` 还可作不同进位(如二进制,八进位,十六进制)作运算，只是，输出结果皆为十进制：
 
 ```bash
 echo $((16#2a)) 结果为 42 (16进位转十进制)
@@ -2083,11 +2110,11 @@ fi
 ```
 
 [Shell 中的中括号用法总结][]
-[linux shell 中判断文件、目录是否存在][]
+[linux shell 中判断文件,目录是否存在][]
 
 [Shell 中的中括号用法总结]: https://www.runoob.com/w3cnote/shell-summary-brackets.html
 
-[linux shell 中判断文件、目录是否存在]: https://blog.csdn.net/yifeng4321/article/details/70232436
+[linux shell 中判断文件,目录是否存在]: https://blog.csdn.net/yifeng4321/article/details/70232436
 
 ### [[ ]]字符串比较
 
@@ -2609,7 +2636,7 @@ done
 
 原理: 由于只是对单个字符进行的替换，则可以用  `echo args |   tr "oldSpilt" "newSpilt"`  的方式实现。
 
-`tr` 指令讲解: `tr`命令可以对来自标准输入的字符进行替换、压缩和删除。
+`tr` 指令讲解: `tr`命令可以对来自标准输入的字符进行替换,压缩和删除。
 
 语法:`tr(选项)(参数)`
 
