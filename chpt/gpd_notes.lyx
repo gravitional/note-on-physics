@@ -11,33 +11,73 @@
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
 %%%%%%%%%%%%%%%%%+++++++++++
 \usepackage{eso-pic} 
-\usepackage{xcolor}
-\usepackage{amsmath} 
-\usepackage{amssymb} 
-\usepackage{amsfonts} 
-\usepackage{latexsym} 
+% This package makes it easy to add some picture commands to every page at ab-solute positions
+\usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
+%\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+% xcolor package starts from the basic facilities of the 
+% color package, and provides easy driver-independent access
+%to several kinds of color tints, shades, tones, 
+%and mixes of arbitrary colors
+\usepackage{amsmath,amssymb,amsfonts} % 数学字体
+\usepackage{mathrsfs} % 提供了mathscr 命令
 % Required for specifying colors by name 
-\definecolor{ocre}{RGB}{243,102,25} 
 \usepackage{enumerate} 
 
-%\usepackage{hepunits} % hep units
+\usepackage{hepunits} % hep units
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
-\usepackage{bm} 
-\usepackage{graphicx,graphics,color} 
+\usepackage{bm,bbm} 
+%\bm which makes its argument bold
+%Blackboard variants of Computer Modern fonts.
 \usepackage{simplewick} 
+% a simple means of drawing Wick contractions above and below expressions. 
 \usepackage{makeidx} 
-\usepackage{multirow} 
-\usepackage{bbm} 
+% Standard package for creating indexes
+\usepackage{multirow}
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
 %%++++++++++++++++++++ 
-\DeclareMathOperator{\tr}{Tr} 
-\DeclareMathOperator{\re}{Re} 
-\DeclareMathOperator{\im}{Im} 
-\DeclareMathOperator{\res}{Res} 
+\DeclareMathOperator{\tr}{Tr}
+%\DeclareMathOperator{\re}{Re}
+%\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\disc}{Disc}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\cola}[1]{{\color{blue}{#1}}}
+%%%+++++++++++++++++++++++++++++++
+\usepackage{listings}
+% 在LaTex中添加代码高亮
+\usepackage{framed}
+% 在对象周围添加方框，阴影等等，允许跨页
+% 定义阴影的颜色
+\definecolor{shadecolor}{rgb}{0.9412,1,1}
+%定义代码高亮的各种颜色
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{〈style name〉}{〈key=value list〉}
+%stores the key=value list
+\lstdefinestyle{codestyle1}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names
 \use_default_options true
@@ -268,12 +308,12 @@ In particular my dissertation(专题论文;学位论文) project was on
  of the target proton.
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Part
 Belitsky
 \end_layout
 
 \begin_layout Standard
-Unraveling hadron structure with generalized parton distributions:
+ref:
 \begin_inset CommandInset href
 LatexCommand href
 name "https://arxiv.org/pdf/hep-ph/0504030.pdf"
@@ -283,6 +323,10 @@ literal "true"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Chapter
+aaaa
 \end_layout
 
 \begin_layout Section
@@ -2396,7 +2440,7 @@ D_{B}(p-k) & =(p-k)^{2}-m_{B}^{2}+i\epsilon=(p-k)^{+}(p-k)^{-}-k_{\perp}^{2}-m_{
 
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Part
 Diehl
 \end_layout
 
@@ -2855,7 +2899,7 @@ name "fig:fig3"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 GPDs and GDAs 的性质
 \end_layout
 
@@ -2865,7 +2909,7 @@ s 的性质，并提供它们的物理诠释需要的工具。Throughtout 我们
  twist in general)的讨论会在 section 6.1 中给出。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 记号和约定
 \end_layout
 
@@ -3287,7 +3331,7 @@ literal "false"
 F^{q} & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\left. e^{ixP^{+}z^{-}}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}q\left(\frac{1}{2}z\right)\ket{p}\right|_{z^{+}=0,\boldsymbol{z}=0}\nonumber \\
  & =\frac{1}{2P^{+}}\left[H^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}u\left(p\right)+E^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{i\sigma^{+\alpha}\Delta_{\alpha}}{2m}u\left(p\right)\right]\nonumber \\
 \tilde{F}^{q} & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\left.e^{ixP^{+}z^{-}}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}\gamma^{5}q\left(\frac{1}{2}z\right)\ket{p}\right|_{z^{+}=0,\boldsymbol{z}=0}\nonumber \\
- & =\frac{1}{2P^{+}}\left[\tilde{H}^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}\gamma^{5}u\left(p\right)+\tilde{E}^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{\gamma^{5}\Delta_{\alpha}}{2m}u\left(p\right)\right]
+ & =\frac{1}{2P^{+}}\left[\tilde{H}^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}\gamma^{5}u\left(p\right)+\tilde{E}^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{\gamma^{5}\Delta_{\alpha}}{2m}u\left(p\right)\right]\label{eq:14}
 \end{align}
 
 \end_inset
@@ -3569,11 +3613,461 @@ name "fig:fig5"
 \end_layout
 
 \begin_layout Standard
+第一个和第三个过程通常称为 DGLAP 区域，第二个过程通常称为 ERBL 区域，根据因子化scale 的演化模式（section 3.8）。Why
+ the support of GPDs is restricted to 
+\begin_inset Formula $\abs{x}\leq1$
+\end_inset
+
+ 将在 section 3.4 中讨论。
+\end_layout
+
+\begin_layout Standard
+在光锥量子化的框架中，上面的诠释会更加清晰。如同我们将在 section 3.4 看到的，可以将
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:14"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的 场算符 
+\begin_inset Formula $\bar{q}$
+\end_inset
+
+ and 
+\begin_inset Formula $q$
+\end_inset
+
+分解成，夸克的产生湮灭算符
+\begin_inset Formula $b,b^{\dagger}$
+\end_inset
+
+，和反夸克的产生湮灭算符
+\begin_inset Formula $d,d^{\dagger}$
+\end_inset
+
+。with 部分子必须有正的 plus-momentum 的限制，以上三种情况分别选择了
+\begin_inset Formula $b^{\dagger}b,db$
+\end_inset
+
+ and 
+\begin_inset Formula $dd^{\dagger}$
+\end_inset
+
+组合。
+\end_layout
+
+\begin_layout Standard
+对于胶子我们定义
+\begin_inset Formula 
+\begin{align}
+F^{g} & =\frac{1}{P^{+}}\int\frac{\dif z^{-}}{2\pi}\left. e^{ixP^{+}z^{-}}\bra{p^{\prime}}G^{+\mu}\left(-\frac{1}{2}z\right)G_{\mu}^{+}\left(\frac{1}{2}z\right)\ket{p}\right|_{z^{+}=0,\boldsymbol{z}=0}\nonumber \\
+ & =\frac{1}{2P^{+}}\left[H^{g}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}u\left(p\right)+E^{g}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{i\sigma^{+\alpha}\Delta_{\alpha}}{2m}u\left(p\right)\right]\nonumber \\
+\tilde{F}^{g} & =-\frac{i}{P^{+}}\int\frac{\dif z^{-}}{2\pi}\left.e^{ixP^{+}z^{-}}\bra{p^{\prime}}G^{+\mu}\left(-\frac{1}{2}z\right)\tilde{G}_{\mu}^{+}\left(\frac{1}{2}z\right)\ket{p}\right|_{z^{+}=0,\boldsymbol{z}=0}\nonumber \\
+ & =\frac{1}{2P^{+}}\left[\tilde{H}^{g}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}\gamma^{5}u\left(p\right)+\tilde{E}^{g}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{\gamma^{5}\Delta^{+}}{2m}u\left(p\right)\right]\label{eq:18}
+\end{align}
+
+\end_inset
+
+与 Ji 
+\begin_inset CommandInset href
+LatexCommand href
+name "ref35"
+target "https://arxiv.org/abs/hep-ph/9807358"
+literal "true"
+
+\end_inset
+
+ 中的差了因子
+\begin_inset Formula $2x$
+\end_inset
+
+，and 与 Goeke et al.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "ref42"
+target "https://arxiv.org/abs/hep-ph/0106012"
+literal "true"
+
+\end_inset
+
+ 中的差了因子
+\begin_inset Formula $2$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+2xH^{g}\left(x\right)_{\text{Ji}}=2H^{g}\left(x\right)_{\text{Goeke}}=H^{g}\left(x\right)_{\text{here}}
+\]
+
+\end_inset
+
+其他
+\begin_inset Formula $E^{g},\tilde{H}^{g},\tilde{E}^{g}$
+\end_inset
+
+类似。从这里的 GPDs 拿出一个
+\begin_inset Formula $x$
+\end_inset
+
+因子，在 forward limit 中能得到和 usual gloun densities 的一个更直接的关系（see Section 3.3.1）。但是
+ As remarked in 
+\begin_inset CommandInset href
+LatexCommand href
+name "ref39"
+target "https://arxiv.org/abs/hep-ph/9704207"
+literal "true"
+
+\end_inset
+
+，拿出
+\begin_inset Formula $x$
+\end_inset
+
+将导致 GPDs 在
+\begin_inset Formula $x=0$
+\end_inset
+
+ 处有一个额外的奇点（在这一点，放出的两个胶子有相同的 plus-momentum），由于在这一点
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:18"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的矩阵元通常是有限的但不为零。在物理过程中，实际上 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:18"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+定义的 distributions 将出现振幅中，没有
+\begin_inset Formula $1/x$
+\end_inset
+
+因子。
+\end_layout
+
+\begin_layout Standard
+对于自旋零的重子，比如 pions 或者自旋零 nuclei ，GPDs 的数目会小一些。理论研究中经常考虑 pion 以避免自旋的复杂性（but
+ may also be accessible experimentally, see Section 9.1.6）。可以定义；
+\begin_inset Formula 
+\begin{align*}
+H_{\pi}^{q}\left(x,\xi,t\right) & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\left.e^{ixP^{+}z^{-}}\bra{\pi^{+}\left(p^{\prime}\right)}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}q\left(\frac{1}{2}z\right)\ket{\pi^{+}\left(p\right)}\right|_{z^{+}=0,\boldsymbol{z}=0}\\
+H_{\pi}^{g}\left(x,\xi,t\right) & =\frac{1}{P^{+}}\int\frac{\dif z^{-}}{2\pi}\left.e^{ixP^{+}z^{-}}\bra{\pi^{+}\left(p^{\prime}\right)}G^{+\mu}\left(-\frac{1}{2}z\right)G_{\mu}^{+}\left(\frac{1}{2}z\right)\ket{\pi^{+}\left(p\right)}\right|_{z^{+}=0,\boldsymbol{z}=0}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\tilde{H}^{q}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{H}^{g}$
+\end_inset
+
+的类似量在这里为零，由于宇称不变性。靶子为自旋
+\begin_inset Formula $1$
+\end_inset
+
+的情况将在 section 3.15 中讨论。
+\end_layout
+
+\begin_layout Standard
+GPDs 也被引入到标量部分子中，为了方便一些理论课题的研究。相关的算符为
+\begin_inset Formula $\phi^{\dagger}\left(-\frac{1}{2}z\right)\phi\left(\frac{1}{2}z\right)$
+\end_inset
+
+ instead of 
+\begin_inset Formula $\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}q\left(\frac{1}{2}z\right)$
+\end_inset
+
+ ，其中
+\begin_inset Formula $\phi$
+\end_inset
+
+是代表部分子的标量场，定义可查看
+\begin_inset CommandInset href
+LatexCommand href
+name "ref39"
+target "https://arxiv.org/abs/hep-ph/9704207"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset href
+LatexCommand href
+name "ref 43"
+target "https://arxiv.org/abs/hep-ph/0210150"
+literal "false"
+
+\end_inset
+
+。也可以用算符
+\begin_inset Formula $\phi^{\dagger}\left(-\frac{1}{2}z\right)i\overset{\leftrightarrow}{\partial^{+}}\phi\left(\frac{1}{2}z\right)$
+\end_inset
+
+，它的向前矩阵元给出部分子的数密度。
+\end_layout
+
+\begin_layout Standard
+GPDs 的其他参数化：
+\begin_inset Formula $\tilde{\mathcal{F}}_{\zeta}^{q}\left(X\right)$
+\end_inset
+
+ given by Radyushkin 
+\begin_inset CommandInset href
+LatexCommand href
+name "ref39"
+target "https://arxiv.org/abs/hep-ph/9704207"
+literal "false"
+
+\end_inset
+
+, and 
+\begin_inset Formula $f_{q/p}\left(x_{1},x_{2}\right),f_{g/p}\left(x_{1},x_{2}\right)$
+\end_inset
+
+ by Collins et al.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "ref 24"
+target "https://arxiv.org/abs/hep-ph/9611433"
+literal "false"
+
+\end_inset
+
+。除了动量分数的不同的参数化之外，它们和这里给出的 distributions 可以通过归一化因子联系起来，见 
+\begin_inset CommandInset href
+LatexCommand href
+name "ref39"
+target "https://arxiv.org/abs/hep-ph/9704207"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset href
+LatexCommand href
+name "ref35"
+target "https://arxiv.org/abs/hep-ph/9807358"
+literal "false"
+
+\end_inset
+
+。 Golec-Biernat and Martin 引入了独立的 distributions 
+\begin_inset CommandInset href
+LatexCommand href
+name "ref40"
+target "https://arxiv.org/abs/hep-ph/9807497"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\hat{\mathcal{F}}_{q}\left(X,\zeta\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\mathcal{F}}_{\bar{q}}\left(X,\zeta\right)$
+\end_inset
+
+，分别对应于在区间
+\begin_inset Formula $x\in\left[-\xi,1\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in\left[-1,\xi\right]$
+\end_inset
+
+ 的Ji's distributions 。另一个分离出“夸克”和“反夸克”GPDs 
+\begin_inset Formula $\hat{\mathcal{F}}_{\zeta}^{q}\left(X\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\mathcal{F}}_{\zeta}^{\bar{q}}\left(X\right)$
+\end_inset
+
+ 的方案由 Radyushkin 提出，on the basis of double distributions，将在 section 3.9 中简要解释。不同参
+数化的联系在 
+\begin_inset CommandInset href
+LatexCommand href
+name "ref40"
+target "https://arxiv.org/abs/hep-ph/9807497"
+literal "true"
+
+\end_inset
+
+中详细讨论。最后我们提一下，出于历史进程，generalized parton dissertations 有时也被称为``off diagonal'',
+ ``off–forward'', ``nondiagonal'', ``nonforward'', or ``skewed'' parton
+ dissertations。
+\end_layout
+
+\begin_layout Section
+基本性质
+\end_layout
+
+\begin_layout Subsection
+foward limit
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+F^{q} & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\left. e^{ixP^{+}z^{-}}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}q\left(\frac{1}{2}z\right)\ket{p}\right|_{z^{+}=0,\boldsymbol{z}=0}\nonumber \\
+ & =\frac{1}{2P^{+}}\left[H^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}u\left(p\right)+E^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{i\sigma^{+\alpha}\Delta_{\alpha}}{2m}u\left(p\right)\right]\nonumber \\
+\tilde{F}^{q} & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\left.e^{ixP^{+}z^{-}}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}\gamma^{5}q\left(\frac{1}{2}z\right)\ket{p}\right|_{z^{+}=0,\boldsymbol{z}=0}\nonumber \\
+ & =\frac{1}{2P^{+}}\left[\tilde{H}^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}\gamma^{5}u\left(p\right)+\tilde{E}^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{\gamma^{5}\Delta_{\alpha}}{2m}u\left(p\right)\right]
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $p=p^{\prime}$
+\end_inset
+
+ and 初末态的螺旋度相同，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:14"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:18"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的矩阵元化简到通常的自旋无关或自旋依赖的密度
+\begin_inset Formula $q\left(x\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta q\left(x\right)$
+\end_inset
+
+ for quark, 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta g\left(x\right)$
+\end_inset
+
+ for gluons。可以得到化简公式，
+\begin_inset Formula 
+\begin{align}
+H^{q}\left(x,0,0\right) & =q\left(x\right), &  & \tilde{H}^{q}\left(x,0,0\right)=\Delta q\left(x\right), &  & \text{for }x>0\nonumber \\
+H^{q}\left(x,0,0\right) & =-\bar{q}\left(-x\right), &  & \tilde{H}^{q}\left(x,0,0\right)=\Delta\bar{q}\left(-x\right), &  & \text{for }x<0\label{eq:21}
+\end{align}
+
+\end_inset
+
+in the quark sector.
+ 对于胶子有
+\begin_inset Formula 
+\begin{equation}
+H^{g}\left(x,0,0\right)=xg\left(x\right),\qquad\tilde{H}^{g}\left(x,0,0\right)=x\Delta g\left(x\right),\qquad,\text{for }x>0\label{eq:22}
+\end{equation}
+
+\end_inset
+
+和对应
+\begin_inset Formula $x<0$
+\end_inset
+
+ 的关系。（see section 3.3.2）。pion 向前极限的
+\begin_inset Formula $H_{\pi}^{q}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{\pi}^{g}$
+\end_inset
+
+ 类似于 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:21"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:22"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+in the nucleon, 对于 quark or gluon distribution 
+\begin_inset Formula $E$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{E}$
+\end_inset
+
+，没有对应的关系：因为它们的定义中，乘上了一个正比于
+\begin_inset Formula $\Delta$
+\end_inset
+
+的因子，所以在向前极限下脱耦。
+\end_layout
+
+\begin_layout Standard
 end of file
 \end_layout
 
 \begin_layout Standard
 end of file
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+p
 \end_layout
 
 \begin_layout Bibliography

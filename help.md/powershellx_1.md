@@ -8,13 +8,27 @@ $PSVersionTable.PSVersion
 
 ## 通用语法
 
+### 命令行语法关键字
+
+[命令行语法关键字](https://docs.microsoft.com/zh-cn/windows-server/administration/windows-commands/command-line-syntax-key)
+
+命令行语法关键字
+表示法  说明
+
++ 不含方括号或大括号的文本  必须按如下所示键入项。
++ `<尖括号中的文字>`  必须为其提供值的占位符。
++ `[方括号中的文字]`  可选项。
++ `{大括号中的文字}`  所需项的集合。 您必须选择一个。
++ 竖线 `(|)`  互斥项的分隔符。 您必须选择一个。
++ 省略 `(…)`  可以重复并多次使用的项。
+
 ### 语法表 sytax diagrams
 
 ```powershell
-<command-name> -<Required Parameter Name> <Required Parameter Value> # 必选键值对 
-[-<Optional Parameter Name> <Optional Parameter Value>] # 可选键值对
-[-<Optional Switch Parameters>] # 可选开关
-[-<Optional Parameter Name>] <Required Parameter Value> # 可匿名键值对
+<command-name> -<Required Parameter Name> <Required Parameter Value> # 命令名，必选键值对 
+[-<Optional Parameter Name> <Optional Parameter Value>] # 可选的键值对
+[-<Optional Switch Parameters>] # 可选的开关
+[-<Optional Parameter Name>] <Required Parameter Value> # 可匿名的键值对
 ```
 
 ***
@@ -71,7 +85,6 @@ PowerShell providers 是一些特定的`.NET`程序，用来提供对特性data 
 你也可以使用自定义的 `cmdlet`
 
 有时`provider`也会给`built-in cmdlets`提供动态参数。只有`cmdlets`作用在这些`provider`上面时，参数才是可用的。
-
 
 ## examples
 
@@ -1256,3 +1269,97 @@ while ($i -le 1000)
 ```powershell
 fc-list :lang=zh-cn
 ```
+
+## windos 系统维护
+
+### 启用组策略gpedit.msc
+
+转自大佬:[Win10家庭版启用组策略gpedit.msc](https://blog.csdn.net/u013642500/article/details/80138799)
+
+大家都认为，Windows 10家庭版中并不包含组策略，其实不然，它是有相关文件的，只是不让你使用而已。那么我们让系统允许你使用就好了。
+制作一个`bat`脚本，安装组策略包。
+
+1、首先你需要在桌面上新建一个txt文本文档。然后将以下代码复制到这个新建的txt文本文档中。
+
+```cmd
+@echo off
+pushd "%~dp0"
+dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum >List.txt
+dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum >>List.txt
+for /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"C:\Windows\servicing\Packages\%%i"
+pause
+```
+
+把上面的命令保存到一个名为`xxx.cmd`的文件中，右键单击，选择以管理员身份运行，运行完毕，你的电脑就可以使用组策略`gpedit.msc`了.
+
+### 解释
+
+`@echo off`
+
+`@` 前缀字符.表示执行时本行在`cmd`里面不显示。如果想要每行都不显示，在文件开头添加`echo off`命令。
+`@echo off`不打印命令，包括`echo off`本身，只输出执行结果。
+
+`pushd`: `push directory`
+
+存储当前目录给 `popd` 命令使用，然后更改为指定的目录。
+
+每次使用 pushd 命令时，将存储一个目录供你使用。 但是，可以多次使用 pushd 命令来存储多个目录。 目录按顺序存储在虚拟堆栈中，因此，如果你使用 pushd 命令一次，则使用命令的目录将放置在堆栈的底部。 如果再次使用该命令，第二个目录将置于第一个目录的顶部。 每次使用 pushd 命令时都会重复此过程。
+如果使用 `popd` 命令，则会删除堆栈顶部的目录，并将当前目录更改为该目录
+
+`dir /b`  展示目录和文件，不显示额外信息。
+
+***
+
+```powershell
+for /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"C:\Windows\servicing\Packages\%%i"
+for /f [<parsingkeywords>] {%%|%}<variable> in ('<command>') do <command> [<commandlinepptions>]
+```
+
+`for`的迭代和文件分析：
+ 使用文件分析处理命令输出、字符串和文件内容。 使用迭代变量定义要检查的内容或字符串，并使用各种 `parsingkeywords` 选项进一步修改分析。 
+ 使用 `parsingkeywords` 标记选项可指定哪些标记应作为迭代变量传递。 请注意，当不使用令牌选项时， `/f` 将仅检查第一个令牌。
+
+文件分析包括读取输出、字符串或文件内容，然后将其分解为单独的文本行，并将每一行分析为零个或多个标记。 然后，将调用 for 循环，并将迭代变量值设置为标记。 默认情况下， /f 从每个文件的每一行传递第一个空格分隔标记。 将跳过空白行。
+
+***
+`'findstr /i . List.txt 2^>nul`
+正则表达式搜索文本，忽略大小写,`^`是转义符号， `2^>`的意思是把标准错误重定向到`nul`
+
+***
+`dism /online /norestart /add-package:"C:\Windows\servicing\Packages\%%i"`
+
+***
+`dism` 
+
+Deployment Image Servicing and Management (部署映像服务和管理,DISM)工具是用于修改 Windows 映像的命令行工具。 
+您可以使用DISM直接从命令提示符下启用或禁用Windows功能，或通过将应答文件应用于图像。
+
+`/Online` 指定操作在当前正在运行的操作系统上执行。
+`/NoRestart` 取消重新启动。 如果不需要重新启动，则此命令不起作用。
+`/Add-Package` 将指定的`.cab` 或`.msu` 包安装在映像中。 仅当目标映像处于脱机状态，装载或应用时，才支持`.msu` 包。
+
+### 查看激活密钥
+
+[查看 Windows 系统正版产品密钥的 3 种方法，重装必备！](https://zhuanlan.zhihu.com/p/115403525)
+
+***
+执行下面的命令，就能看到自己的原始产品密钥。
+
+```powershell
+wmic path softwarelicensingservice get OA3xOriginalProductKey 
+```
+
+***
+注册表 查看
+
+即便没有`原始产品密钥`，还有一个`备份产品密钥`，需要在注册表中查看。`Win+R` 运行 `Regedit` 打开注册表编辑器找到：
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform`
+右侧的 `BackupProductKeyDefault` 值就是你的`备份产品密钥`
+
+YNDMB-2QCFC-HTFBP-JF9HC-FX849
+
+***
+软件查看
+
+一些软件也可以查看产品密钥，比如硬件检测软件`AIDA64`和专门用来看密钥的`produkey`
