@@ -493,7 +493,7 @@ Who kept all of his cash in a bucket.
 
 `PHP`的正则表达式有一些内置的通用字符簇，列表如下：
 
-字符簇 : 描述
+字符簇  描述
 
 + `[[:alpha:]]` :  任何字母
 + `[[:digit:]]` :  任何数字

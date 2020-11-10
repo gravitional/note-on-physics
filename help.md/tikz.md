@@ -2,12 +2,12 @@
 
 用来替换`pdf` 粘贴过程额外`h..i`的正则表达式
 
-```regex
-\bh([. ]+?)i\b
+```bash
+\bh([\. ]+?)i\b # vscode 里面的正则，元字符 . 需要转义成 \.
 <$1>
 ```
 
-## texstudio教程
+## tikz 示例教程
 
 [TiKZ入门教程 ][]
 
@@ -47,7 +47,7 @@
 
 `node`经常用于加入一些标注,这一点我们在后面将会看到。
 
-## 一些复杂的形状
+### 一些复杂的形状
 
 在TikZ中,除了画线段之外,还支持各种复杂的形状,下面一个例子给出了一些常见的形状：
 
@@ -200,7 +200,38 @@ TikZ提供了图的支持,通过类似于`dot`语言的方式来生成图关系
 \draw (a)|- (b);
 ```
 
-## tikz 对齐
+## tikz 设计原则
+
+page 124
+
+TikZ遵循以下基本设计原则：
+
+1. 用于指定`points`的特殊语法。
+2. 指定`path`的特殊语法。
+3. Actions on paths。
+4. 图形参数的`Key–value`语法。
+5. `nodes`的特殊语法。
+6. `trees`的特殊语法。
+7. `graphs`的特殊语法。
+8. 对图形的参数分组。
+9. 坐标转换系统。
+
+## scope 作用范围
+
+131 Using Scopes to Structure a Picture
+
+命令 `\path` 用于创建一个路径 (path),此命令可以带有图形选项 (graphic options),这些选项只对本路径有效。使用简写形式的 scope 可以在路径内部插入一个 `scope`:
+
+```latex
+\tikz \draw (0,0) -- (1,1)
+{[rounded corners, red] -- (2,0) -- (3,1)}
+-- (3,0) -- (2,1);
+```
+
+上面例子中,选项 `rounded corners` 的作用范围受到花括号的限制,并且颜色选项 red 没有起到作用,这是因为 `\draw` 的默认颜色是 `draw=black`,颜色 `black` 把 `red` 覆盖了。
+还要注意开启 scope 的符号组合`{[...]`要放在坐标点之后、`--`之前。
+
+## tikz 图形对齐
 
 [LaTeX中tikz画的图放在公式环境中如何和公式对齐](https://www.zhihu.com/question/381314763/answer/1096658439)
 
@@ -242,7 +273,7 @@ TikZ提供了图的支持,通过类似于`dot`语言的方式来生成图关系
 \end{document}
 ```
 
-## 例子
+### 例子
 
 ```latex
 \begin{equation}
@@ -260,23 +291,20 @@ c -- [photon, momentum=\(p\)] d,
 \end{equation}
 ```
 
-## tikz 设计原则
+## 指定坐标点
 
-page 124
+136 Specifying Coordinates
 
-TikZ遵循以下基本设计原则：
+坐标总是放在圆括号内，一般的语法是 `([hoptionsi]<coordinate specification>)`。有两种指定坐标的方法：
 
-1. 用于指定`points`的特殊语法。
-2. 指定`path`的特殊语法。
-3. Actions on paths。
-4. 图形参数的`Key–value`语法。
-5. `nodes`的特殊语法。
-6. `trees`的特殊语法。
-7. `graphs`的特殊语法。
-8. 对图形的参数分组。
-9. 坐标转换系统。
+明确指定坐标系统和参数，使用`xxx cs:`这种语法
 
-### 指定 points
+```latex
+\draw (canvas cs:x=0cm,y=2mm)
+-- (canvas polar cs:radius=2cm,angle=30);
+```
+
+或者可以隐式地指定，tikz 会根据格式自动判断坐标系统。例如 `(0,0)` 对应笛卡尔坐标,`(30:2)` 对应极坐标 (其中 `30` 代表角度)。
 
 + 基本使用:`(1cm,2pt)`
 + 极坐标:`(30:1cm)`
@@ -322,7 +350,7 @@ TikZ 允许您使用不同的颜色进行填充和描边。
 基本语法：
 
 ```latex
-\path ... node <foreach statements>  [<options>] (<name>) at(<coordinate>) : <animation attribute>
+\path ... node <foreach statements>  [<options>] (<name>) at (<coordinate>) : <animation attribute>
 ={<options>} {<node contents>} ...;
 ```
 
@@ -336,7 +364,19 @@ TikZ 允许您使用不同的颜色进行填充和描边。
 \vertex (a2) at (0,0){2};
 ```
 
+***
+`at` p158
+
+```latex
+\path ... circle[<options>] ...;
+/tikz/at=<coordinate>
+```
+
+如果在`<options>`内部显式设置了此选项（或通过`every circle`样式间接设置），则`<coordinate>`将用作圆的中心而不是当前点。 在一个封闭范围内给某个值设置`at`无效。
+
 ### node位置的相对指定
+
+240
 
 ```latex
 /tikz/below=<specification>
@@ -375,3 +415,47 @@ TikZ 允许您使用不同的颜色进行填充和描边。
 
 \end{tikzpicture}
 ```
+
+## 指定线型
+
+173 Graphic Parameters: Line Width, Line Cap, and Line Join
+
+`/tikz/dash pattern=<dash pattern>`
+`/tikz/dashed` ： 指定虚线模式的简写
+Shorthand for setting a dashed dash pattern.
+
+## 曲线绘画
+
+### To 自由曲线
+
+164 The To Path Operation
+838 To Path Library
+
+可以使用 `To`来绘制直线，也可以用来绘制曲线。
+
+```latex
+\path ... to[<options>] <nodes> <coordinate or cycle> ...;
+```
+
+例如`(a) to [out=135,in=45] (b)`
+
+各种选项
+
+```latex
+/tikz/out=<angle>
+/tikz/in=<angle>
+...
+```
+
+### arc 弧线
+
+159 The Arc Operation
+
+`\path ... arc[<options>] ...;`
+
+从当前点开始画弧线，可以用`x radius` and `y radius`指定半径，用`start angle`, `end angle`, and `delta angle`指定角度.
+
+也有一个较简捷的句法来指定圆弧:
+`arc(<start angle>:<end angle>:<radius>)`
+或者
+`arc(<start angle>:<end angle>:<x radius> and <y radius>)`

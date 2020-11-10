@@ -2382,3 +2382,18 @@ leftbar，在左侧放置一条线。 环境允许在开始时有一个中断（
 
 实际上，`shaded`环境只是将`\FrameCommand`重新定义为`\colorbox{shadecolor}`
 （所以你需要定义颜色`shadecolor`:`\definecolor{shadecolor}...`）。
+
+## 画费曼图
+
+画费曼图有许多包：
+
+现在了解到的有
+
+[ GkAntonius:feynman ](https://github.com/GkAntonius/feynman):Sharp-looking Feynman diagrams in python 
+
+[ JP-Ellis /tikz-feynman ](https://github.com/JP-Ellis/tikz-feynman):Feynman Diagrams with TikZ 
+
+[Asymptote: The Vector Graphics Language](https://asymptote.sourceforge.io/): 其中有个叫做`feynman`的模组
+
+
+
