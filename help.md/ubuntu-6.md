@@ -398,14 +398,15 @@ Last login: Mon Sep 08 13:23:11 2008
 
 这个 `OpenSSH` 软件包也包含两个程序,它们可以利用 `SSH` 加密通道在网络间复制文件.
 第一个:`scp`(安全复制)被用来复制文件,与熟悉的 `cp` 程序非常相似.
-最显著的区别就是源或者目标路径名要以远端主机的名字,后跟一个**冒号**字符开头.
-
-例如,如果我们想要 从远端系统`remote-sys`的家目录下复制文档`document.txt`,到我们本地系统的当前工作目录下, 可以这样操作:
+最显著的区别就是源或者目标路径名要以远端主机的名字`remote-sys`开头,后跟一个**冒号**字符开头. 这里的`remote-sys`可以写在 `ssh` 的配置文件中，后面会讲如何配置 `~/.ssh/config`.
+比如复制远程服务器`dell`下的`~/Desktop/draft.lyx`这个文件到当前目录`.`，下面的方法都是可以的
 
 ```bash
-$ scp remote-sys:document.txt .
-me@remote-sys's password:
-...
+scp tom@192.168.218.191:~/Desktop/draft.lyx .
+scp tom@dell:~/Desktop/draft.lyx .
+scp dell:~/Desktop/draft.lyx .
+scp dell:document.txt . #不写明路径则默认是家目录下
+
 ```
 
 和 `ssh` 命令一样,如果你所期望的远端主机帐户与你本地系统中的不一致, 则可以把用户名添加到远端主机名的开头.
@@ -477,9 +478,7 @@ Wikipedia 上包含了许多网络方面的优秀文章.这里有一些基础的
 
 ### 连接服务器
 
-[Linux (一) SSH 使用][]
-
-[Linux (一) SSH 使用]: https://www.jianshu.com/p/e6d308e9162f
+[Linux (一) SSH 使用](https://www.jianshu.com/p/e6d308e9162f)
 
 确认安装好`ssh`并启动后,我们在windows、mac上或者其他linux服务器上通过以下命令便可以连接到这台主机
 
@@ -502,11 +501,11 @@ ssh root@192.168.0.105
 + `User` 用户名
 + `IdentityFile` 密钥文件的路径
 
-这个config的路径在服务的位置是 `~/.ssh/config` 如果没有找到这个文件,就在`>~/.ssh/config`
+这个`config`的路径在服务的位置是 `~/.ssh/config` 如果没有找到这个文件,就在`>~/.ssh/config`
 
 那么说到这个文件我们怎么用呢？
 实际上在平时的运维管理中,我们可能管理多台机器,可能是几台、十几台甚至几十上百台.
-我们将这些服务器配置在config中,方便我们去连接和管理.
+我们将这些服务器配置在`config`中,方便我们去连接和管理.
 
 例如:(IdentityFile可以暂时不配置,ssh默认端口为22)
 
@@ -515,7 +514,7 @@ host "KatoUyi"
     HostName 192.168.0.105
     User root
     Port 22
-    IdentityFile  ~/.ssh.id_rsa
+    IdentityFile  ~/.ssh/id_rsa
     IdentitiesOnly  yes
 
 host "NagaSiren"
@@ -533,7 +532,7 @@ host "NagaSiren"
 
 [Linux 配置SSH免密登录`ssh-keygen`]: https://www.jb51.net/article/163093.htm
 
-为了在不同平台/网络主机之间的通信安全, 很多时候我们都要通过ssh进行认证. ssh认证方式主要有2种:
+为了在不同平台/网络主机之间的通信安全, 很多时候我们都要通过`ssh`进行认证. `ssh`认证方式主要有2种:
 
 + 基于口令的安全认证: 每次登录的时候都要输入用户名和密码, 由于要在网络上传输密码, 可能存在中间人攻击的风险;
 + 基于密钥的安全认证: 配置完成后就可以实现免密登录, 这种方式更加安全 -- 不需要在网络上传递口令, 只需要传输一次公钥.
@@ -554,7 +553,7 @@ host "NagaSiren"
 ***
 `ssh-keygen`创建公钥-私钥对
 
-(1) 在指定目录下生成rsa密钥, 并指定注释为`xxx`, 实现示例:
+(1) 在指定目录下生成`rsa`密钥, 并指定注释为`xxx`, 实现示例:
 
 ```bash
 $ ssh-keygen -t rsa -f ~/.ssh/id_rsa -C "xxxxx"
@@ -683,9 +682,6 @@ $ cat authorized_keys
 当然也可以通过其他方式例如`git bash`中用`linux`指令生成,在这里不详细描述了.
 
 那么我们怎么使用这个生成好的`ssh key`呢.
-在`Xshell`中,我们之前连接服务器,在用户认证窗口使用的是`password`密码的方式去连接,现在我们切换成`Public Key`的方式
-
-实际上,在这个时候连接还少了很重要的一步,会出现"所选的用户密钥未在远程主机上注册.请再试一次"的错误提示.
 为了达到免密码的登录过程,我们需要将公钥放置在`authorized_keys`这个文件中.
 
 我们需要先进入linux服务器,将我们选择的这个 `id_rsa_2048.pub` 的内容放置到linux服务器的`authorized_keys`文件中.
@@ -2003,4 +1999,3 @@ $ rsync -av -delete rsync://rsync.gtlib.gatech.edu/fedora-linux-core/development
 可以在下面链接处找到:[http://www.gnu.org/software/tar/manual/index.html][]
 
 [http://www.gnu.org/software/tar/manual/index.html]: http://www.gnu.org/software/tar/manual/index.html
-

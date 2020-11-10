@@ -2378,6 +2378,101 @@ v\left(\lambda,-\vec{p}\right)^{\dagger} & =\left(\begin{array}{cc}
 
 \end_layout
 
+\begin_layout Subsection
+Gordon恒等式
+\end_layout
+
+\begin_layout Standard
+Gordon 恒等式 (来自于Dirac 方程)
+\begin_inset Formula 
+\[
+\bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu\nu}\Delta_{\mu}}{2m}u\left(p_{1}\right)=\bar{u}\left(p_{2}\right)\frac{i\sigma^{\nu\mu}q_{\mu}}{2m}u\left(p_{1}\right)=\bar{u}\left(p_{2}\right)\left(\gamma^{\nu}-\frac{\left(p_{1}+p_{2}\right)^{\nu}}{2m}\right)u\left(p_{1}\right)
+\]
+
+\end_inset
+
+在本文中，
+\begin_inset Formula $\vec{p}_{1}=-\vec{p}_{2}=\vec{\Delta}/2$
+\end_inset
+
+。所以
+\begin_inset Formula $\vec{p}_{1}+\vec{p}_{2}=\vec{0}$
+\end_inset
+
+。注意
+\begin_inset Formula $\bar{u}\left(p_{2}\right)u\left(p_{1}\right)=\bar{u}\left(p\right)u\left(-p\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+使用这个等式，可以算出
+\begin_inset Formula $\bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu\nu}\Delta_{\mu}}{2m}u\left(p_{1}\right)$
+\end_inset
+
+的值。
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset Formula $u(p)$
+\end_inset
+
+是Dirac 方程
+\begin_inset Formula $\left(\slashed{p}-m\right)u(p)=0$
+\end_inset
+
+的解，则现有一任意矢量
+\begin_inset Formula $k$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\slashed{k}u(p) & =\frac{1}{m}\slashed{k}\slashed{p}u(p)\\
+ & =\frac{1}{m}\left(k_{\mu}p_{\nu}\gamma^{\mu}\gamma^{\nu}\right)u(p)\\
+ & =\frac{1}{m}k_{\mu}p_{\nu}\left(g^{\mu\nu}-i\sigma^{\mu\nu}\right)u(p)\\
+ & =\frac{1}{m}\left(k\cdot p\right)u(p)-i\frac{1}{m}\sigma^{\mu\nu}k_{\mu}p_{\nu}u(p)
+\end{align*}
+
+\end_inset
+
+其中后一项
+\begin_inset Formula $\sigma^{\mu\nu}k_{\mu}p_{\nu}u(p)$
+\end_inset
+
+，我们一般用到双线性型，和左边的
+\begin_inset Formula $\bar{u}(p)$
+\end_inset
+
+结合起来，并利用 Dirac 方程。
+\begin_inset Formula 
+\[
+\bar{u}(p)\sigma^{\mu\nu}p_{\nu}u(p)=\bar{u}(p)\frac{i}{2}\left(\gamma^{\mu}m-m\gamma^{\mu}\right)u(p)=0
+\]
+
+\end_inset
+
+所以最后只剩下对称的一项：
+\begin_inset Formula 
+\[
+\slashed{k}u(p)=\frac{k\cdot p}{m}u(p)
+\]
+
+\end_inset
+
+由此也可以看出，
+\begin_inset Formula $\bar{u}(p)\slashed{k}u(p)=0$
+\end_inset
+
+, 如果
+\begin_inset Formula $k\cdot p=0$
+\end_inset
+
+。
+\end_layout
+
 \begin_layout Section
 拉氏量和量子化
 \end_layout
