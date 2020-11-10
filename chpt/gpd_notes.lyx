@@ -2939,7 +2939,77 @@ v^{\pm}=\frac{1}{\sqrt{2}}\left(v^{0}\pm v^{3}\right),\quad\boldsymbol{v}=\left(
 
 \end_inset
 
+其中用粗体来代表
+\begin_inset Formula $v^{\perp}$
+\end_inset
 
+。通常使用两个特殊的类光矢量，
+\begin_inset Formula $n_{+}=\left(1,0,0,1\right)/\sqrt{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{-}=\left(1,0,0,-1\right)/\sqrt{2}$
+\end_inset
+
+它们满足
+\begin_inset Formula 
+\[
+n_{+}\cdot n_{-}=1,\quad n_{+}\cdot n_{+}=0,\quad n_{-}\cdot n_{-}=0
+\]
+
+\end_inset
+
+可使用它们对矢量重新分解
+\begin_inset Formula 
+\[
+v^{\mu}=v^{+}n_{+}^{\mu}+v^{-}n_{-}^{\mu}+v_{T}n_{T}^{\mu}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $v^{+}=vn_{-},v^{-}=vn^{+}$
+\end_inset
+
+，
+\begin_inset Formula $n_{T}^{\mu}$
+\end_inset
+
+为横截面上的单位矢量，
+\begin_inset Formula $n_{T}^{\mu}n_{T\mu}=-1$
+\end_inset
+
+， 
+\begin_inset Formula $v_{T}=\left(0,\boldsymbol{v},0\right)$
+\end_inset
+
+相当于原来的
+\begin_inset Formula $\left(v_{1},v_{2}\right)$
+\end_inset
+
+部分。两个四矢量的不变乘积为：
+\begin_inset Formula 
+\begin{align*}
+vw= & \left(v^{+}n_{+}^{\mu}+v^{-}n_{-}^{\mu}+v_{T}n_{T}^{\mu}\right).\left(w^{+}n_{+}^{\mu}+w^{-}n_{-}^{\mu}+w_{T}n_{T}^{\mu}\right)\\
+= & v^{+}w^{-}+v^{-}w^{+}-v_{T}w_{T}\\
+= & v^{+}w^{-}+v^{-}w^{+}-\boldsymbol{vw}
+\end{align*}
+
+\end_inset
+
+，不变积分测度为
+\begin_inset Formula $\dif^{4}z=\dif z^{+}\dif z^{-}\dif^{2}\boldsymbol{z}$
+\end_inset
+
+。沿着光锥方向的导数为
+\begin_inset Formula 
+\[
+\partial^{+}=\frac{\partial}{\partial z^{-}},\quad\partial^{-}=\frac{\partial}{\partial z^{+}}
+\]
+
+\end_inset
+
+为了方便，对于一个洛伦兹变换下的矢量，可以重新安排分量的次序：
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
@@ -2958,50 +3028,6 @@ v^{3}\\
 v^{1}\\
 v^{2}
 \end{array}\right)
-\]
-
-\end_inset
-
-其中用粗体来代表
-\begin_inset Formula $v^{\perp}$
-\end_inset
-
-。通常使用两个特殊的类光矢量，
-\begin_inset Formula $n_{+}=\left(1,0,0,1\right)/\sqrt{2}$
-\end_inset
-
- and 
-\begin_inset Formula $n_{-}=\left(1,0,0,-1\right)/\sqrt{2}$
-\end_inset
-
-，使用它们可以写出光锥坐标：
-\begin_inset Formula 
-\[
-v^{\mu}=v^{+}n_{+}^{\mu}+v^{-}n_{-}^{\mu}+v_{T}^{\mu}
-\]
-
-\end_inset
-
-其中
-\begin_inset Formula $v^{+}=vn_{-},v^{-}=vn^{+}$
-\end_inset
-
- and 
-\begin_inset Formula $v_{T}=\left(0,\boldsymbol{v},0\right)$
-\end_inset
-
-。两个四矢量的不变乘积为：
-\begin_inset Formula $vw=v^{+}w^{-}+v^{-}w^{+}-\boldsymbol{vw}$
-\end_inset
-
-，不变积分测度为
-\begin_inset Formula $\dif^{4}z=\dif z^{+}\dif z^{-}\dif^{2}\boldsymbol{z}$
-\end_inset
-
-。沿着光锥方向的导数为
-\begin_inset Formula 
-\[
-\partial^{+}=\frac{\partial}{\partial z^{-}},\quad\partial^{-}=\frac{\partial}{\partial z^{+}}
 \]
 
 \end_inset
@@ -3382,7 +3408,7 @@ F^{q} & =\frac{1}{2}\int\frac{\dif\lambda}{2\pi}\left. e^{ix\left(Pz\right)}\bra
 \end_inset
 
 的洛伦兹不变的乘积，可以选择为
-\begin_inset Formula $\Delta n_{-},Pn_{-},$
+\begin_inset Formula $\Delta\cdot n_{-},P\cdot n_{-},$
 \end_inset
 
  and 
@@ -3434,7 +3460,7 @@ fraction
 ，而不能依赖于单独的 plus-momentum，单独的 plus-momentum 在 boosts 下相当于 rescaled.
 \begin_inset Formula 
 \[
-\xi=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}=\frac{-\Delta^{+}}{2P^{+}}=\frac{-\Delta n_{-}}{2Pn_{-}}
+\xi=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}=\frac{-\Delta^{+}}{2P^{+}}=\frac{-\Delta\cdot n_{-}}{2P\cdot n_{-}}
 \]
 
 \end_inset
@@ -4106,6 +4132,10 @@ and
 hefangcheng
 \end_layout
 
+\begin_layout Section
+约定
+\end_layout
+
 \begin_layout Standard
 各种文献里关于 Breit 参考系的约定：
 \end_layout
@@ -4131,6 +4161,14 @@ literal "true"
 
 
 \noun default
+。 这里的
+\begin_inset Formula $\vec{p}_{1},\vec{p}_{2}$
+\end_inset
+
+是指入射到顶点的两个对象，对应到下面是
+\begin_inset Formula $\gamma^{*},p$
+\end_inset
+
 。
 \end_layout
 
@@ -4151,11 +4189,19 @@ q^{\mu}=(0,0,0,Q)\qquad P^{\mu}=(Q,0,0,-Q)
 
 \end_inset
 
-由于
+它们满足
+\begin_inset Formula $\left(0,0,0,Q\right)+\left(Q,0,0,-Q\right)=\left(Q,\vec{0}\right)$
+\end_inset
+
+，与上面的定义一致。由于
 \begin_inset Formula $q_{\mu}=k_{\mu}-k_{\mu}^{\prime}$
 \end_inset
 
-，入射和出射电子的动量为
+，入射和出射电子的动量
+\begin_inset Formula $k_{\mu},k_{\mu}^{\prime}$
+\end_inset
+
+分别为
 \begin_inset Formula 
 \[
 k=\left(\frac{Q}{2},0,0,\frac{Q}{2}\right)\qquad k^{\prime}=\left(\frac{Q}{2},0,0,-\frac{Q}{2}\right)
@@ -4176,7 +4222,62 @@ p^{\prime}=P+\frac{\Delta}{2},p=P-\frac{\Delta}{2}
 
 \end_inset
 
+所以
+\begin_inset Formula $p+p^{\prime}=2P$
+\end_inset
 
+，这个分解总能做到，与坐标系无关。GPDs 
+\begin_inset Formula $H^{q}$
+\end_inset
+
+ and 
+\begin_inset Formula $E^{q}$
+\end_inset
+
+ 依赖于（平均）夸克纵向动量分数
+\begin_inset Formula $x$
+\end_inset
+
+，转移动量的平方
+\begin_inset Formula $t$
+\end_inset
+
+ and skewness 参数 
+\begin_inset Formula $\xi$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+x=\frac{k^{+}}{P^{+}},\quad t=-\Delta^{2}=-\left(p^{\prime}-p\right)^{2},\quad\xi=-\frac{\Delta^{+}}{2P^{+}}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}
+\]
+
+\end_inset
+
+在计算中，取
+\begin_inset Formula $\xi=0$
+\end_inset
+
+，我们在 Drell-Yan frame 中计算 GPDs
+\begin_inset Formula 
+\begin{align*}
+\Delta & =\left(0,0,\boldsymbol{\Delta}_{\perp}\right)\\
+p & =\left(P^{+},P^{-},-\frac{\boldsymbol{\Delta}_{\perp}}{2}\right)\\
+p^{\prime} & =\left(P^{+},P^{-},\frac{\boldsymbol{\Delta}_{\perp}}{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & v\cdot w=v^{+}w^{-}+w^{+}v^{-}-\boldsymbol{v}\cdot\boldsymbol{w}\\
+ & x=\frac{k^{+}}{P^{+}},\quad t=-\left(p^{\prime}-p\right)^{2}=\boldsymbol{\Delta}_{\perp}^{2},\quad\xi=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}=0
+\end{align*}
+
+\end_inset
+
+在EFT中，首先计算分裂函数，使用在之前章节里得到的强子流算出矩阵元。计算分裂函数使用的图画在
 \end_layout
 
 \begin_layout Standard
