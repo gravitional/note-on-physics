@@ -5,7 +5,7 @@
 \begin{document}
 
 \begin{tikzpicture}
-  \begin{feynman}
+	\begin{feynman}
 		%% fig a
 		\vertex (a1) at (0,0);
 		\vertex[right =1cm  of a1] (a2);
@@ -41,7 +41,7 @@
 		\vertex[right =2cm  of e1] (e3);
 		\vertex[right =3cm  of e1] (e4);
 		\vertex[right =4cm  of e1] (e5);
-    \node[above =0.5cm of e5] {$e$};
+		\node[above =0.5cm of e5] {$e$};
 		%% fig f
 		\vertex[below right =0 cm and 5 cm of e1] (f1);
 		\vertex[right =1cm  of f1, dot,anchor=center] (f2){};
@@ -70,30 +70,29 @@
 		\vertex[right =3cm  of i1] (i4);
 		\vertex[right =4cm  of i1] (i5);
 		\node[above =0.5cm  of i5] {$i$};
-    %% fig j
-    \newcommand{\bubbleradius}{1.4cm}
+		%% fig j
 		\vertex[below right =0.5 cm and 5 cm of i1] (j1);
 		\vertex[right =1cm  of j1] (j2);
 		\vertex[right =2cm  of j1] (j3);
 		\vertex[right =3cm  of j1] (j4);
-    \vertex[right =4cm  of j1] (j5);
-    \vertex[above =\bubbleradius  of j3, crossed dot,anchor=center] (j6){};
-    \node[above =1cm  of j5] {$j$};
-    %% fig k
+		\vertex[right =4cm  of j1] (j5);
+		\vertex[above =1.4cm  of j3, crossed dot,anchor=center] (j6){};
+		\node[above =1cm  of j5] {$j$};
+		%% fig k
 		\vertex[below right =0 cm and 10 cm of i1] (k1);
 		\vertex[right =1cm  of k1] (k2);
 		\vertex[right =2cm  of k1, square  dot,anchor=center] (k3){};
 		\vertex[right =3cm  of k1] (k4);
-    \vertex[right =4cm  of k1] (k5);
-    \node[above =0.5cm  of k5] {$k$};
-    %% fig l
+		\vertex[right =4cm  of k1] (k5);
+		\node[above =0.5cm  of k5] {$k$};
+		%% fig l
 		\vertex[below right =0.5 cm and 15 cm of i1] (l1);
 		\vertex[right =1cm  of l1] (l2);
 		\vertex[right =2cm  of l1, square dot, anchor=center] (l3){};
 		\vertex[right =3cm  of l1] (l4);
-    \vertex[right =4cm  of l1] (l5);
-    \vertex[above =1.4cm  of l3, crossed dot, anchor=center] (l6){};
-    \node[above =1cm  of l5] {$l$};
+		\vertex[right =4cm  of l1] (l5);
+		\vertex[above =1.4cm  of l3, crossed dot, anchor=center] (l6){};
+		\node[above =1cm  of l5] {$l$};
 		% 对各个顶点连线
 		\diagram*{
 			{ [edge=fermion]
@@ -106,9 +105,9 @@
 					(g2) --  (g4),
 					(h1) --  (h3)--(h5),
 					(i1) --  (i3)--(i5),
-          (j1) --  (j3)--(j5),
-          (k1) --  (k3)--(k5),
-          (l1) --  (l3)--(l5),
+					(j1) --  (j3)--(j5),
+					(k1) --  (k3)--(k5),
+					(l1) --  (l3)--(l5),
 				},
 			{ [edge=plain]
 					(b1) --  (b2), (b4)-- (b5),
@@ -129,11 +128,11 @@
 		\draw[anti charged scalar] (g2) arc [radius=1cm,start angle=180, end angle=360];
 		\draw[ charged scalar] (h3) arc [radius=0.7cm,start angle=90, end angle=-270];
 		\draw[ charged scalar] (i3) arc [radius=0.7cm,start angle=90, end angle=-270];
-    \draw[ charged scalar] (j3) arc [radius=0.7cm,start angle=-90, end angle=90];
-    \draw[ anti charged scalar] (j3) arc [radius=0.7cm,start angle=-90, end angle=-270];
-    \draw[ charged scalar] (k3) arc [radius=0.7cm,start angle=90, end angle=-270];
-    \draw[ charged scalar] (l3) arc [radius=0.7cm,start angle=-90, end angle=90];
-    \draw[ anti charged scalar] (l3) arc [radius=0.7cm,start angle=-90, end angle=-270];
+		\draw[ charged scalar] (j3) arc [radius=0.7cm,start angle=-90, end angle=90];
+		\draw[ anti charged scalar] (j3) arc [radius=0.7cm,start angle=-90, end angle=-270];
+		\draw[ charged scalar] (k3) arc [radius=0.7cm,start angle=90, end angle=-270];
+		\draw[ charged scalar] (l3) arc [radius=0.7cm,start angle=-90, end angle=90];
+		\draw[ anti charged scalar] (l3) arc [radius=0.7cm,start angle=-90, end angle=-270];
 	\end{feynman}
 \end{tikzpicture}
 \end{document}
