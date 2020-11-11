@@ -392,6 +392,8 @@ TikZ 允许您使用不同的颜色进行填充和描边。
 1. 当`<shifting part>`形式为`<number or dimension> and <number or dimension>`的时候(注意中间有个`and`)，先向左移动，再向右移动（通常这令人满意，除非你使用了`x` and `y`选项，修改了`xy`--坐标系的单位矢量。）
 2. 当`<shifting part>`形式为`<number or dimension> `时，也就是只给出一个参数，向对角线方向(135度方向)移动$\frac{1}{2}\sqrt{2}cm$。按照数学的说法，就是按照$l_{2}-norm$理解，相当于极坐标中的半径。而`<number or dimension> and <number or dimension>`是按照$l_{1}-norm$理解。
 
+## 自定义形状
+
 ### 自定义 style
 
 ```latex
@@ -416,13 +418,26 @@ TikZ 允许您使用不同的颜色进行填充和描边。
 \end{tikzpicture}
 ```
 
-## 指定线型
+### 指定线型
 
 173 Graphic Parameters: Line Width, Line Cap, and Line Join
 
 `/tikz/dash pattern=<dash pattern>`
 `/tikz/dashed` ： 指定虚线模式的简写
 Shorthand for setting a dashed dash pattern.
+
+### 指定 node 节点的形状
+
+224 Nodes and Their Shapes
+
+比如
+
+```tikz
+\begin{tikzpicture}
+\draw (0,0) node[minimum size=2cm,draw] {square};
+\draw (0,-2) node[minimum size=2cm,draw,circle] {circle};
+\end{tikzpicture}
+```
 
 ## 曲线绘画
 
