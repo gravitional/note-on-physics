@@ -54,7 +54,7 @@ bash -c 'ls;echo;uptime'
 + 许多可执行程序支持一个` --help` 选项,这个选项是显示命令所支持的语法和选项说明。例如:
 + `less ` 浏览文件内容
 + `basename file suffix` 用来去掉文件后缀名
-
++ `/bin/kill -L` : 查看linux `kill` 的数字对应的短语
 `echo`输出的时候，可以考虑改变颜色增加辨认度,
 
 ```bash
