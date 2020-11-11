@@ -2944,14 +2944,15 @@ v^{\pm}=\frac{1}{\sqrt{2}}\left(v^{0}\pm v^{3}\right),\quad\boldsymbol{v}=\left(
 \end_inset
 
 。通常使用两个特殊的类光矢量，
-\begin_inset Formula $n_{+}=\left(1,0,0,1\right)/\sqrt{2}$
+\begin_inset Formula 
+\begin{align*}
+n_{+}=\left(1,0,0,1\right)/\sqrt{2}, &  & n^{+}=\left(1,0,0,-1\right)/\sqrt{2}\\
+n_{-}=\left(1,0,0,-1\right)/\sqrt{2} &  & n^{-}=\left(1,0,0,1\right)/\sqrt{2}
+\end{align*}
+
 \end_inset
 
- and 
-\begin_inset Formula $n_{-}=\left(1,0,0,-1\right)/\sqrt{2}$
-\end_inset
-
-它们满足
+ 它们满足
 \begin_inset Formula 
 \[
 n_{+}\cdot n_{-}=1,\quad n_{+}\cdot n_{+}=0,\quad n_{-}\cdot n_{-}=0
@@ -2968,7 +2969,12 @@ v^{\mu}=v^{+}n_{+}^{\mu}+v^{-}n_{-}^{\mu}+v_{T}n_{T}^{\mu}
 \end_inset
 
 其中
-\begin_inset Formula $v^{+}=vn_{-},v^{-}=vn^{+}$
+\begin_inset Formula 
+\begin{align*}
+v^{+}=vn_{-} & =\left(v^{0},v^{1},v^{2},v^{3}\right).\left(1,0,0,-1\right)/\sqrt{2}=\frac{1}{\sqrt{2}}\left(v^{0}+v^{3}\right)\\
+v^{-}=vn^{+} & =\left(v^{0},v^{1},v^{2},v^{3}\right).\left(1,0,0,1\right)/\sqrt{2}=\frac{1}{\sqrt{2}}\left(v^{0}-v^{3}\right)
+\end{align*}
+
 \end_inset
 
 ，
@@ -3386,6 +3392,8 @@ F^{q} & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\left. e^{ixP^{+}z^{-}}\bra{p^{\p
 \begin_inset Formula 
 \begin{align}
 F^{q} & =\frac{1}{2}\int\frac{\dif\lambda}{2\pi}\left. e^{ix\left(Pz\right)}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\slashed{n}_{-}q\left(\frac{1}{2}z\right)\ket{p}\right|_{z=\lambda n_{-}}\nonumber \\
+ & =\frac{1}{2}\int\frac{\dif z}{2\pi}e^{ix\left(Pz\right)}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}q\left(\frac{1}{2}z\right)\ket{p}\\
+ & =\frac{1}{2}\int\frac{\dif\lambda}{2\pi}e^{ix\left(\lambda P^{+}\right)}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}\lambda n_{-}\right)\slashed{n}_{-}q\left(\frac{1}{2}\lambda n_{-}\right)\ket{p}\nonumber \\
  & =\frac{1}{2\left(Pn_{-}\right)}\left[H^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\slashed{n}_{-}u\left(p\right)+E^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{i\sigma^{\alpha\beta}n_{-\alpha}\Delta_{\beta}}{2m}u\left(\beta\right)\right];\label{eq:diel15}
 \end{align}
 
@@ -3430,7 +3438,7 @@ and
 的变换为
 \begin_inset Formula 
 \[
-n_{-}\to\alpha n_{-},\qquad n_{+}\to\alpha^{-1}n_{+}
+n_{-}\to\alpha n_{-},\qquad n_{+}\to\alpha^{-1}n_{+},\quad P^{+}\to\alpha^{-1}P^{+}
 \]
 
 \end_inset
@@ -3445,7 +3453,11 @@ noprefix "false"
 
 \end_inset
 
- 可以看出，GPDs 独立于这个boost。因此它们只能依赖于
+ 可以看出，积分对于
+\begin_inset Formula $\lambda\to\alpha^{-1}\lambda$
+\end_inset
+
+是不变的。GPDs 独立于这个boost。因此它们只能依赖于
 \begin_inset Formula $\Delta n_{-},Pn_{-}$
 \end_inset
 
@@ -4137,6 +4149,25 @@ hefangcheng
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\[
+f_{q}\left(x\right)=\frac{1}{2}\int_{-\infty}^{\infty}\frac{\dif\lambda}{2\pi}e^{-i\lambda x\left(n_{-}\cdot P\right)}\bra{P^{\prime}}\bar{q}\left(\frac{\lambda}{2}n_{-}\right)\slashed{n}_{-}q\left(-\frac{\lambda}{2}n_{-}\right)\ket{P}
+\]
+
+\end_inset
+
+相当于
+\begin_inset Formula 
+\[
+xP^{+}=\frac{P^{+}-P^{\prime+}}{2}
+\]
+
+\end_inset
+
+部分子动量是初末态动量变化的一半。
+\end_layout
+
+\begin_layout Standard
 各种文献里关于 Breit 参考系的约定：
 \end_layout
 
@@ -4277,7 +4308,33 @@ p^{\prime} & =\left(P^{+},P^{-},\frac{\boldsymbol{\Delta}_{\perp}}{2}\right)
 
 \end_inset
 
-在EFT中，首先计算分裂函数，使用在之前章节里得到的强子流算出矩阵元。计算分裂函数使用的图画在
+
+\end_layout
+
+\begin_layout Standard
+在EFT中，首先计算分裂函数，使用在之前章节里得到的强子流算出矩阵元。计算分裂函数使用的图画在 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig: 1loop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中 。
+\begin_inset Formula 
+\begin{align}
+\mathcal{L} & =\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]\label{eq:eq17}\\
+ & +\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]\nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -4285,8 +4342,8 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename gpd_notes_inset1.pdf
-	scale 60
+	filename inset1.pdf
+	scale 55
 
 \end_inset
 
@@ -4298,7 +4355,24 @@ status open
 
 \begin_layout Plain Layout
 重子八重态对质子分裂函数的单圈贡献。实线表示重子，虚线表示赝标量介子。叉形圆圈表示跟外源的相互作用，黑色圆点表示外部矢量场相互作用带来的额外贡献。黑色方块表示磁
-相互作用。空心
+相互作用。空心方块表示
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:eq17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的相互作用。
+\begin_inset CommandInset label
+LatexCommand label
+name "fig: 1loop"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4312,24 +4386,35 @@ status open
 \end_layout
 
 \begin_layout Standard
+这里给出对于中间是八重态重子的结果。对于 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig: 1loop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+a, 光子耦合到介子，它对分裂函数的贡献为，
+\begin_inset Formula 
+\begin{align*}
+I_{a}^{+} & =\bar{u}\left(p^{\prime}\right)C_{\phi B}\int\frac{\dif^{4}a}{\left(2\pi\right)^{4}}\left(\slashed{k}+\frac{\slashed{q}}{2}\right)\gamma^{5}F\left(\frac{q}{2}+k\right)\frac{1}{D_{\phi}\left(k+\frac{q}{2}\right)}\left(k^{+}+\frac{q^{+}}{2}+k^{+}-\frac{q^{+}}{2}\right)\\
+ & \frac{1}{D_{\phi}\left(k-\frac{q}{2}\right)}\frac{1}{\slashed{p}-\left(\slashed{k}-\frac{\slashed{q}}{2}\right)-m}\left(-1\right)\left(\slashed{k}-\frac{\slashed{q}}{2}\right)\gamma^{5}F\left(k-\frac{q}{2}\right)\delta\left(y-\frac{k^{+}}{p^{+}}\right)u\left(p\right)\\
+ & =\bar{u}\left(p^{\prime}\right)\left\{ \gamma^{+}f_{\phi B}\left(y,Q^{2}\right)+\frac{i\sigma^{+\nu}q_{\nu}}{2m_{N}}g_{\phi B}\left(y,Q^{2}\right)\right\} u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 end of file
 \end_layout
 
 \begin_layout Standard
 end of file
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-p
 \end_layout
 
 \begin_layout Bibliography

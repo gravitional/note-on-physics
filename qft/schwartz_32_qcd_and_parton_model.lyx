@@ -3872,9 +3872,11 @@ DIS PDF scheme.
 
 的混淆）。我们知道在量子力学（或者量子场论）中概率是什么：它们是矩阵元的平方。因此，我们应该能这么写
 \begin_inset Formula 
-\begin{equation}
-f(\xi)=\sum_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi P^{\mu}-p^{\mu}\right)=\bra{X}\psi^{\dagger}\psi\ket{P}\delta(\xi P^{\mu}-p^{\mu})\label{eq:32.108}
-\end{equation}
+\begin{align}
+f(\xi) & =\sum_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi P^{\mu}-p^{\mu}\right)\label{eq:32.108}\\
+ & =\sum_{X}\bra{P}\psi^{\dagger}\ket{X}\bra{X}\psi\ket{P}\delta\left(\xi P^{\mu}-p^{\mu}\right)\\
+ & =\bra{P}\psi^{\dagger}\psi\ket{P}\delta(\xi P^{\mu}-p^{\mu})
+\end{align}
 
 \end_inset
 
@@ -3890,7 +3892,7 @@ f(\xi)=\sum_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi P^{\mu}-p^{\mu}\right
 \begin_inset Formula $J^{\mu}=\bar{\psi}\gamma^{\mu}\psi$
 \end_inset
 
-的零分量）。然而，it is not quite right, 由于部分子的动量不必和质子动量精确一样，动量在横向上可以由一个小小的涨落。也就是说，我们希望
+的零分量）。然而，it is not quite right, 由于部分子的动量不必和质子动量精确一样，动量在横向上可以有一个小的涨落。也就是说，我们希望
 \begin_inset Formula $p^{\mu}$
 \end_inset
 
@@ -3960,12 +3962,12 @@ k=\left(\frac{Q}{2},0,0,\frac{Q}{2}\right)\qquad k^{\prime}=\left(\frac{Q}{2},0,
 \begin_inset Formula $p^{\mu}$
 \end_inset
 
-的部分子。它们的动量应该和质子的动量 collinear, 
-\begin_inset Formula $p^{\mu}=\xi P^{\mu}$
+的部分子。横向分量相差
+\begin_inset Formula $p_{T}$
 \end_inset
 
-，up to some 横向分量
-\begin_inset Formula $p_{T}$
+之外，它们的动量应该和质子的动量共线 
+\begin_inset Formula $p^{\mu}=\xi P^{\mu}$
 \end_inset
 
 。当我们从质子静止系boost到 the Breit frame 中时， 
@@ -3976,11 +3978,11 @@ k=\left(\frac{Q}{2},0,0,\frac{Q}{2}\right)\qquad k^{\prime}=\left(\frac{Q}{2},0,
 \begin_inset Formula $p_{T}\sim m_{p}\ll Q$
 \end_inset
 
-。考虑大
+。当
 \begin_inset Formula $Q$
 \end_inset
 
-时，哪些动量分量较小的一种干净方法是使用 lightcone coordinates。让
+很大的时候，一种可以整洁地将小动量分量区分出来的方法是 lightcone coordinates（光锥坐标系）。让
 \begin_inset Formula $n^{\mu}$
 \end_inset
 
@@ -4013,7 +4015,7 @@ k=\left(\frac{Q}{2},0,0,\frac{Q}{2}\right)\qquad k^{\prime}=\left(\frac{Q}{2},0,
 \end_inset
 
 。For DIS in the Breit frame, 
-\begin_inset Formula $\bar{n}^{\mu}=(1,0,0,-1)$
+\begin_inset Formula $\bar{n}^{\mu}=\left(1,0,0,-1\right)$
 \end_inset
 
 是质子的方向。In general, 任何 
@@ -4048,7 +4050,7 @@ with
 \begin_inset Formula $y$
 \end_inset
 
-）的部分。者可以通过与
+）的部分。这可以通过与
 \begin_inset Formula $n^{\mu}$
 \end_inset
 
@@ -4059,7 +4061,7 @@ with
  收缩检验。我们也发现
 \begin_inset Formula 
 \[
-k^{2}=(n\cdot k)(\bar{n}\cdot k)+k_{T}^{2}
+k^{2}=(n\cdot k)(\bar{n}\cdot k)+k_{T}^{2}=k^{+}k_{-}+k_{T}^{2}\left(\text{这里没有把度规明显写出来}\right)
 \]
 
 \end_inset
@@ -4076,23 +4078,27 @@ k^{2}=(n\cdot k)(\bar{n}\cdot k)+k_{T}^{2}
 \begin_inset Formula $n\cdot p=\xi(n\cdot P)$
 \end_inset
 
-。部分子的 
+, or 
+\begin_inset Formula $p^{+}=\xi P^{+}$
+\end_inset
+
+。而部分子的 
 \begin_inset Formula $\bar{n}\cdot p$
 \end_inset
 
- and 
+ 和 
 \begin_inset Formula $p_{T}$
 \end_inset
 
  分量很小，也就是
-\begin_inset Formula $\slashed{n}\psi\approx0$
+\begin_inset Formula $\slashed{\bar{n}}\psi=\frac{1}{m}\slashed{\bar{n}}\cdot\slashed{p}\psi=\frac{1}{m}\left(\bar{n}\cdot p\right)\psi\approx0$
 \end_inset
 
 。
 \end_layout
 
 \begin_layout Standard
-现在我们处于质子能量很高的坐标系中，我们可以让 Eq.
+现在我们处于质子能量很高的坐标系中，我们可以认为 Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.108"
@@ -4104,13 +4110,18 @@ noprefix "false"
 
 精确成立。我们得到
 \begin_inset Formula 
-\[
-f(\xi)=\sum_{X}\int\dif\Pi_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi n\cdot P-n\cdot p\right)
-\]
+\begin{align*}
+f(\xi) & =\sum_{X}\int\dif\Pi_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi n\cdot P-n\cdot p\right)\\
+ & =\sum_{X}\int\dif\Pi_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi P^{+}-p^{+}\right)
+\end{align*}
 
 \end_inset
 
-这就是在质子中找到一个给定动量分数的夸克的概率。要明确的是，在该方程式中没有散射。相反，它描述了质子动量如何分裂成
+这就是在质子中找到一个给定动量分数
+\begin_inset Formula $\xi$
+\end_inset
+
+的夸克的概率。要明确的是，在该方程式中没有散射。相反，它描述了质子动量如何分裂成
 \begin_inset Formula $P^{\mu}=p^{\mu}+p_{X}^{\mu}$
 \end_inset
 
@@ -4123,34 +4134,46 @@ f(\xi)=\sum_{X}\int\dif\Pi_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi n\cdot
 \end_inset
 
  是质子中任何其他东西的动量。插入一个
-\begin_inset Formula $\int\dif^{4}p\delta^{4}(P-p-p_{X})$
+\begin_inset Formula $\int\dif^{4}p\,\delta^{4}\left(P-p-p_{X}\right)$
 \end_inset
 
-因子我们得到
+因子我们得到（
+\begin_inset Formula $\bra{p,s}\psi\left(x\right)\ket{0}=u\left(s,p\right)e^{ipx}$
+\end_inset
+
+,由于平移对称性，考察
+\begin_inset Formula $\abs{\bra{X}\psi\left(0\right)\ket{P}}^{2}$
+\end_inset
+
+即可）
 \begin_inset Formula 
 \begin{align*}
-f(\xi) & =\int\frac{\dif^{4}p_{i}}{(2\pi)^{4}}\sum_{X}\int\dif\Pi_{X}(2\pi)^{4}\delta(P^{\mu}-p^{\mu}-p_{X}^{\mu})\delta(\xi n\cdot P-n\cdot p)\abs{\bra{X}\psi(0)\ket{P}}^{2}\\
- & =\sum_{X}\dif\Pi_{X}\delta\left(n\cdot\left(\xi P+p_{X}-P\right)\right)\abs{\bra{X}\psi(0)\ket{P}}^{2}\\
- & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}\sum_{X}\int\dif\Pi_{X}e^{-itn\cdot(\xi P-P+p_{X})}\abs{\bra{X}\psi(0)\ket{P}}^{2}\\
- & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}\sum_{X}\int\dif\Pi_{X}e^{-i\xi tn\cdot P}\bra{P}e^{i(n\hat{\mathcal{P}})t}\psi^{\dagger}(0)e^{-i(n\cdot\hat{\mathcal{P}})t}\ket{X}\bra{X}\psi(0)\ket{P}\\
- & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}e^{-it\xi(n\cdot P)}\bra{P}\bar{\psi}(tn^{\mu})\gamma^{0}\psi(0)\ket{P}
+f(\xi) & =\int\dif^{4}p_{i}\sum_{X}\int\dif\Pi_{X}\delta^{4}\left(P^{\mu}-p^{\mu}-p_{X}^{\mu}\right)\delta\left(\xi n\cdot P-n\cdot p\right)\abs{\bra{X}\psi(0)\ket{P}}^{2}\\
+ & =\sum_{X}\dif\Pi_{X}\delta\left(n\cdot\left(\xi P-\left(P-p_{X}\right)\right)\right)\abs{\bra{X}\psi\left(0\right)\ket{P}}^{2}\text{ 对\ensuremath{\delta^{4}(\cdots)}函数积分}\\
+ & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}\sum_{X}\int\dif\Pi_{X}e^{-itn\cdot\left(\xi P-P+p_{X}\right)}\abs{\bra{X}\psi\left(0\right)\ket{P}}^{2}\text{ 重新写成积分形式}\\
+ & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}\sum_{X}\int\dif\Pi_{X}e^{-i\xi tn\cdot P}\bra{P}e^{i\left(n\hat{\mathcal{P}}\right)t}\psi^{\dagger}(0)e^{-i\left(n\hat{\mathcal{P}}\right)t}\ket{X}\bra{X}\psi\left(0\right)\ket{P}\text{ 利用平移对称性}\\
+ & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}e^{-it\xi\left(n\cdot P\right)}\bra{P}\bar{\psi}\left(tn^{\mu}\right)\gamma^{0}\psi\left(0\right)\ket{P}
 \end{align*}
 
 \end_inset
 
 我们可以进一步简化这个式子，注意到夸克主要是在
-\begin_inset Formula $\bar{u}^{\mu}$
+\begin_inset Formula $\bar{n}^{\mu}=\left(1,0,0,-1\right)$
 \end_inset
 
-方向前进，
+方向（我们选取的前进方向，所以
+\begin_inset Formula $P^{+}=n\cdot P$
+\end_inset
+
+）前进，
 \begin_inset Formula $\slashed{\bar{n}}\psi\approx0$
 \end_inset
 
-。这暗示了
+。这意味着了
 \begin_inset Formula $\gamma^{0}\psi=-(\vec{n}\cdot\vec{\gamma})\psi$
 \end_inset
 
- and so 
+（这里没有显式写出度规的负号） 。所以 
 \begin_inset Formula $2\gamma^{0}\psi=\slashed{n}\psi$
 \end_inset
 
@@ -4181,17 +4204,13 @@ W_{n}=P\exp\left\{ ig_{s}n_{\nu}\int_{0}^{t}\dif sA^{\nu}(sn^{\mu})\right\}
 
 最后， 我们得到
 \begin_inset Formula 
-\begin{equation}
-f_{q}(\xi)=\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}e^{-it\xi(n\cdot P)}\bra{P}\bar{\psi}_{q}(tn^{\mu})\frac{\slashed{n}}{2}W_{n}\psi_{q}(0)\ket{P}\label{eq:32.117}
-\end{equation}
+\begin{align}
+f_{q}\left(\xi\right) & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}e^{-it\xi\left(n\cdot P\right)}\bra{P}\bar{\psi}_{q}\left(tn^{\mu}\right)\frac{\slashed{n}}{2}W_{n}\psi_{q}\left(0\right)\ket{P}\label{eq:32.117}
+\end{align}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-需要明确的是，
+明确地说，
 \begin_inset Formula $n^{\mu}=(1,\vec{n})$
 \end_inset
 
@@ -4199,8 +4218,11 @@ f_{q}(\xi)=\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}e^{-it\xi(n\cdot P)}\bra{P}
 \begin_inset Formula $4$
 \end_inset
 
-–矢量指向质子动量的相反方向。你可以在 Problem 32.11 中检查按这个定义，moments of the PDFs 能够回到 Section
- 32.4.4 中 twist-
+–矢量，指向质子动量的
+\series bold
+相反
+\series default
+方向。你可以在 Problem 32.11 中检查，按这个定义，moments of the PDFs 能够回到 Section 32.4.4 中 twist-
 \begin_inset Formula $2$
 \end_inset
 
@@ -4218,8 +4240,8 @@ noprefix "false"
 
 \end_inset
 
- 的好处在于，它广泛的出现在质子为 ultra-relativistic 的高能过程中，比如 hadron-hadron 碰撞的实验室系。所以对其他过程可以有类
-似的分析，比如 Drell-Yan,直接光子产生（
+ 的好处在于，在质子计算相对论的高能过程中，它广泛的出现，比如 hadron-hadron 碰撞的实验室系。对其他过程可以作类似的分析，比如 Drell-Yan
+,直接光子产生（
 \begin_inset Formula $pp\to\gamma+X$
 \end_inset
 
@@ -4231,7 +4253,7 @@ noprefix "false"
 \begin_inset Formula $Q\gg m_{p}$
 \end_inset
 
-时，通过考虑 相关的 momenta 如何 scale with 
+时，by considering how the relevant momenta scale with 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -4247,9 +4269,55 @@ noprefix "false"
 \begin_inset Formula $q^{\mu}$
 \end_inset
 
- for DIS)，人们经常可以使用lightcone PDFs 写下截面的因子化公式。If one is content with scaling
- arguments as a proof of these factorization fomulas, then it is possible
- to have a tremendous amount of predictive power without an OPE。
+ for DIS)，人们经常可以使用光锥 PDFs 写下截面的因子化公式。If one is content with scaling arguments
+ as a proof of these factorization fomulas, then it is possible to have
+ a tremendous amount of predictive power without an OPE。
+\end_layout
+
+\begin_layout Standard
+对于广义部分子分布函数，也就是初末态质子的动量不相等，也会有类似的分析，将符号做一些替换有：
+\begin_inset Formula 
+\begin{align*}
+F^{q}\left(x\right) & =\frac{1}{2}\int\frac{\dif\lambda}{2\pi}e^{ix\left(\lambda P^{+}\right)}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}\lambda n_{-}\right)\slashed{n}_{-}q\left(\frac{1}{2}\lambda n_{-}\right)\ket{p}\\
+ & =\frac{1}{2}\int\frac{\dif\lambda}{2\pi}e^{-ix\left(\lambda P^{+}\right)}\bra{p^{\prime}}\bar{q}\left(\frac{1}{2}\lambda n_{-}\right)\slashed{n}_{-}q\left(-\frac{1}{2}\lambda n_{-}\right)\ket{p}
+\end{align*}
+
+\end_inset
+
+其中 
+\begin_inset Formula $n_{-}=\left(1,0,0,-1\right)/\sqrt{2}$
+\end_inset
+
+是能投影出 plus 动量的光锥投影单位矢量，一般来说，就是跟质子运动方向相反的单位矢量。
+\begin_inset Formula 
+\[
+e^{+iPx}\phi\left(0\right)e^{-iPx}=\phi\left(x\right)\qquad e^{+iPx}\phi\left(0\right)^{\dagger}e^{-iPx}=\phi\left(x\right)^{\dagger}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f_{q}\left(x\right) & =\frac{1}{2}\int_{-\infty}^{\infty}\frac{\dif\lambda}{2\pi}e^{-i\lambda x\left(n_{-}\cdot P\right)}\bra{P^{\prime}}\bar{q}\left(\frac{\lambda}{2}n_{-}\right)\slashed{n}_{-}q\left(-\frac{\lambda}{2}n_{-}\right)\ket{P}\\
+ & =\frac{1}{2}*2\int_{-\infty}^{\infty}\frac{\dif\lambda}{2\pi}e^{-i\lambda x\left(n_{-}\cdot P\right)}\bra{P^{\prime}}\bar{q}\left(\frac{\lambda}{2}n_{-}\right)\gamma^{0}q\left(-\frac{\lambda}{2}n_{-}\right)\ket{P}\\
+ & =\int_{-\infty}^{\infty}\frac{\dif\lambda}{2\pi}e^{-i\lambda x\left(n_{-}\cdot P\right)}\bra{P^{\prime}}q^{\dagger}\left(\frac{\lambda}{2}n_{-}\right)q\left(-\frac{\lambda}{2}n_{-}\right)\ket{P}\\
+ & =\int_{-\infty}^{\infty}\frac{\dif\lambda}{2\pi}e^{-i\lambda x\left(n_{-}\cdot P\right)}\exp\left(-in_{-}\frac{\lambda}{2}\left(P^{\prime}-p\right)\right)\bra{P^{\prime}}q^{\dagger}\left(0\right)q\left(0\right)\ket{P}\\
+ & =\int_{-\infty}^{\infty}\frac{\dif\lambda}{2\pi}\exp\left(-in_{-}\lambda\left(xP+\frac{P^{\prime}-P}{2}\right)\right)\bra{P^{\prime}}q^{\dagger}\left(0\right)q\left(0\right)\ket{P}\\
+ & =\bra{P^{\prime}}\bar{q}\left(0\right)\gamma^{0}q\left(0\right)\ket{P}\delta\left(xP^{+}+\frac{P^{\prime+}-P^{+}}{2}\right)
+\end{align*}
+
+\end_inset
+
+相当于
+\begin_inset Formula 
+\[
+xP^{+}=\frac{P^{+}-P^{\prime+}}{2}
+\]
+
+\end_inset
+
+部分子动量是初末态动量变化的一半。
 \end_layout
 
 \begin_layout Chapter
