@@ -1784,6 +1784,19 @@ and
 \end_layout
 
 \begin_layout Standard
+ref: 
+\begin_inset CommandInset href
+LatexCommand href
+name "salamu doc"
+target "https://arxiv.org/pdf/1806.07551.pdf"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 使用上面推导的非定域相互作用和流，可以计算描述质子（dressed by the pseudoscalar fields）和外源场相互作用的分裂函数。外源探针和
  proton dressed by pseudoscalar meson 的相互作用由 Fig.1 给出。1a-c,e,f,h-j 对应于 local
  effective theory 中的图，而 figs.1d,g, and k 来自于非定域理论中的 
@@ -1808,6 +1821,134 @@ noprefix "false"
 
 。最后结果中的振幅是特定的 meson-baryon 分裂函数 convoluted with corresponding PDFs in the
  bare or undressed mesons and baryons 。这些图将被用于计算介子圈对核子中 PDFs 的贡献。
+\end_layout
+
+\begin_layout Standard
+介子彩虹图 Fig.1a，非定域理论的顶角函数可以写成
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{\phi B}^{\mu} & =\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p\right)=\bra{p^{\prime}}i^{2}\int\dif^{4}x\dif^{4}y\dif^{4}z\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right)J_{q,\text{em}}^{\mu}\left(y\right)\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\\
+ & =\frac{i^{2}C_{B\phi}^{2}}{f^{2}}\bra{p^{\prime}}\int\dif^{4}x\dif^{4}y\dif^{4}z\dif^{4}a\dif^{4}bF\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\\
+ & \times\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\right)\ket{p}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}$
+\end_inset
+
+是强子非定域拉氏量
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:25"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中依赖于八重态重子场
+\begin_inset Formula $B$
+\end_inset
+
+的部分（注意这里定义的顶点不包括 quark flavor charge 
+\begin_inset Formula $e_{\phi}^{q}$
+\end_inset
+
+，
+\begin_inset Formula $e_{\phi}^{q}$
+\end_inset
+
+被显式地包括在后面的 bare meson and baryon PDFs 中。）对时空坐标
+\begin_inset Formula $x^{\mu},y^{\mu},z^{\mu}$
+\end_inset
+
+积分之后，得到
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\times\\
+ & \phantom{=}\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}}\left(\gamma^{5}\slashed{k}\right)\frac{i}{D_{\phi}}2k^{\mu}\frac{i}{D_{\phi}}u\left(p\right)e^{-ik\cdot\left(a-b\right)}
+\end{align*}
+
+\end_inset
+
+其中 Dirac 旋量
+\begin_inset Formula $u$
+\end_inset
+
+被归一化为
+\begin_inset Formula $\bar{u}u=1$
+\end_inset
+
+，
+\begin_inset Formula $D_{\phi}$
+\end_inset
+
+ and 
+\begin_inset Formula $D_{B}$
+\end_inset
+
+分别是中间重子和介子的传播子，
+\begin_inset Formula 
+\begin{align*}
+D_{\phi} & =k^{2}-m_{\phi}^{2}+i\varepsilon\\
+D_{B} & =\left(p-k\right)^{2}-M_{\phi}^{2}+i\varepsilon
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $m_{\phi}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{B}$
+\end_inset
+
+ 是介子和八重态重子的质量。定义正规子的傅里叶变换和反变换为
+\begin_inset Formula 
+\begin{align*}
+\tilde{F}\left(k\right) & \equiv\int\dif^{4}a\exp\left[-ia\cdot k\right]F\left(a\right)\\
+F\left(x\right) & =\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik\cdot x\right)\tilde{F}\left(k\right)
+\end{align*}
+
+\end_inset
+
+the vertex operator 变成
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\slashed{k}\gamma^{5}\right)\tilde{F}\left(k\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}}\frac{i}{D_{\phi}}2k^{\mu}\frac{i}{D_{\phi}}\left(\gamma^{5}\slashed{k}\right)\tilde{F}\left(-k\right)u\left(p\right)\\
+ & =\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}
+\end{align*}
+
+\end_inset
+
+选取被积函数
+\begin_inset Formula $\tilde{\Gamma}_{\phi B}^{\mu}$
+\end_inset
+
+的
+\begin_inset Formula $\mu=+$
+\end_inset
+
+分量，我们用
+\begin_inset Formula $\tilde{\Gamma}_{\phi B}^{\mu}$
+\end_inset
+
+的光锥投影定义分裂函数
+\begin_inset Formula $f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{M}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}\delta\left(y-\frac{k^{+}}{p^{+}}\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
