@@ -3182,6 +3182,8 @@ scalar QED的费曼规则
 
 \end_inset
 
+
+\series bold
 每一项中总是有一个
 \begin_inset Formula $\phi$
 \end_inset
@@ -3190,7 +3192,9 @@ scalar QED的费曼规则
 \begin_inset Formula $\phi^{*}$
 \end_inset
 
-，这是为了保证电荷守恒。每个动量
+，
+\series default
+这是为了保证电荷守恒。每个动量
 \begin_inset Formula $p^{\mu}$
 \end_inset
 
@@ -3222,19 +3226,36 @@ scalar QED的费曼规则
 \begin_inset Formula $-A_{\mu}\left(\partial_{\mu}\phi^{*}\right)\phi$
 \end_inset
 
- 对应的顶点形式和场的类型是一样的，只不过动量会来自于粒子或者反粒子。顶点大概是
+ 都会从指数相位中拉下来一个动量，所以都是
+\begin_inset Formula $-iep_{\mu}$
+\end_inset
+
+的形式，只不过粒子的状态可能是进入顶点，也可以能是从顶点发射，可能是粒子，也可能是反粒子，一共有四种情况。当这个顶点的四个场跟别的顶点的场收缩，形成传播子之后，
+剩下的系数大概是
 \begin_inset Formula $-ie\left(\pm p_{\mu}^{1}\pm p_{\mu}^{2}\right)$
 \end_inset
 
-，考虑粒子/反粒子
-\begin_inset Formula $+$
-\end_inset
-
-进入/发出，一共有四种情况。
+的样子。
 \begin_inset Formula $-ie$
 \end_inset
 
-来自于约定，我们总是显式地写出单位电荷的负号。
+来自于约定，我们显式地写出单位电荷的负号。
+\end_layout
+
+\begin_layout Standard
+场的收缩就是费曼传播子，对于传播子，就是从
+\begin_inset Formula $x$
+\end_inset
+
+点到
+\begin_inset Formula $y$
+\end_inset
+
+点，或者反过来，因为传播子同时传播粒子和反粒子，它们的动量方向相反。对于传播子某一段的顶点，总可以选择一种特定的情况去讨论 粒子/反粒子
+\begin_inset Formula $\otimes$
+\end_inset
+
+进入/出射，
 \end_layout
 
 \begin_layout Standard
@@ -3268,6 +3289,13 @@ scalar QED的费曼规则
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\[
+-ieA_{\mu}\left[\phi^{*}\left(\partial_{\mu}\phi\right)-\left(\partial_{\mu}\phi^{*}\right)\phi\right]
+\]
+
+\end_inset
+
 对进入顶点的电荷流箭头进行分析，如果动量和电荷方向相同，对应粒子进入，即
 \begin_inset Formula $\partial_{\mu}\phi$
 \end_inset
@@ -3288,7 +3316,9 @@ scalar QED的费曼规则
 \begin_inset Formula $\partial_{\mu}\phi^{*}$
 \end_inset
 
-。知道了相对负号，考虑一种情况下的正确符号。所以标量QED的顶点费曼规则是，
+，也会差一个相对负号。也就是说，动量和电流的相对方向决定了符号，考虑一种情况下的正确符号。
+\series bold
+所以标量QED的顶点费曼规则是，
 \begin_inset Formula $-ie\left(\pm p_{\mu}^{1}\pm p_{\mu}^{2}\right)$
 \end_inset
 

@@ -1723,7 +1723,7 @@ and
 \begin_inset Formula 
 \begin{align*}
  & J_{q,\text{em}}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{em}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\\
- & =e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)+ie_{\phi}^{q}\left[\partial^{\mu}\phi\left(x\right)\phi^{\dagger}\left(x\right)-\phi\left(x\right)\partial_{\mu}\phi\left(x\right)^{\dagger}\right]\\
+ & =e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)+ie_{\phi}^{q}\left[\partial^{\mu}\phi\left(x\right)\phi^{\dagger}\left(x\right)-\phi\left(x\right)\partial^{\mu}\phi\left(x\right)^{\dagger}\right]\\
  & -ie_{\phi}^{q}\int\dif^{4}aF\left(a\right)\bar{p}\left(x-a\right)\left[\frac{C_{B\phi}}{f}\gamma^{\mu}\gamma^{5}B\left(x-a\right)+\frac{C_{T\phi}}{f}\Theta^{\mu\nu}T_{\nu}\left(x-a\right)\right]\phi\left(x\right)+\text{H.c}\\
  & -\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\times\\
  & \bar{p}\left(x-a\right)\gamma^{\mu}p\left(x-a\right)\phi\left(x\right)\phi^{\dagger}\left(x-a+b\right)+\bar{p}\left(x-b\right)\gamma^{\mu}p\left(x-b\right)\phi\left(x+a-b\right)\phi^{\dagger}\left(x\right)
@@ -1826,10 +1826,24 @@ noprefix "false"
 \begin_layout Standard
 介子彩虹图 Fig.1a，非定域理论的顶角函数可以写成
 \begin_inset Formula 
+\begin{align}
+ & \Gamma_{\phi B}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}i^{2}\int\dif^{4}x\dif^{4}y\dif^{4}z\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right)J_{q,\text{em}}^{\mu}\left(y\right)\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\nonumber \\
+ & =\frac{i^{2}C_{B\phi}^{2}}{f^{2}}\bra{p^{\prime}}\int\dif^{4}\left\{ xyzab\right\} F\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\nonumber \\
+ & \times\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\right)\ket{p}\label{eq:yu30}
+\end{align}
+
+\end_inset
+
+这里是把
+\begin_inset Formula $\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right)J_{q,\text{em}}^{\mu}\left(y\right)\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)$
+\end_inset
+
+中对应于Fig.1a的特殊部分挑出来了，也就是
+\begin_inset Formula 
 \begin{align*}
-\Gamma_{\phi B}^{\mu} & =\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p\right)=\bra{p^{\prime}}i^{2}\int\dif^{4}x\dif^{4}y\dif^{4}z\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right)J_{q,\text{em}}^{\mu}\left(y\right)\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\\
- & =\frac{i^{2}C_{B\phi}^{2}}{f^{2}}\bra{p^{\prime}}\int\dif^{4}x\dif^{4}y\dif^{4}z\dif^{4}a\dif^{4}bF\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\\
- & \times\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\right)\ket{p}
+ & \bar{p}\left(x\right)\frac{C_{B\phi}}{f}\gamma^{\nu}\gamma^{5}B\left(x\right)\int\dif^{4}aF\left(a\right)\partial_{\nu}\phi\left(x+a\right)\\
+ & +ie_{\phi}^{q}\left[\partial^{\mu}\phi\left(y\right)\phi^{\dagger}\left(y\right)-\phi\left(y\right)\partial^{\mu}\phi\left(y\right)^{\dagger}\right]\text{ 和外源的耦合项,e_{\phi}^{q}后面单独考虑}\\
+ & \bar{B}\left(z\right)\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}p\left(z\right)\int\dif^{4}bF\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\text{ 厄米共轭}
 \end{align*}
 
 \end_inset
@@ -1860,15 +1874,183 @@ noprefix "false"
 \begin_inset Formula $e_{\phi}^{q}$
 \end_inset
 
-被显式地包括在后面的 bare meson and baryon PDFs 中。）对时空坐标
-\begin_inset Formula $x^{\mu},y^{\mu},z^{\mu}$
+被显式地包括在后面的 bare meson and baryon PDFs 中）。
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula $\partial_{\nu}\phi\left(x+a\right)\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]\partial_{\rho}\phi^{\dagger}\left(z+b\right)\right)$
 \end_inset
 
-积分之后，得到
+这四个介子场形成两个介子传播子。由于
+\begin_inset Formula $\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)$
+\end_inset
+
+的
+\begin_inset Formula $C$
+\end_inset
+
+宇称为正，强相互作用
+\begin_inset Formula $C$
+\end_inset
+
+宇称守恒，
+\begin_inset Formula $\partial_{\nu}\phi\left(x+a\right)\to\partial_{\rho}\phi^{\dagger}\left(z+b\right)$
+\end_inset
+
+也没有负号，所以
+\begin_inset Formula $\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)$
+\end_inset
+
+ 和 
+\begin_inset Formula $\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)$
+\end_inset
+
+ 这两项之间没有相对负号。在费曼图上，两个顶点一出一进，负进正出，所以总会有一个负号，加上两个
+\begin_inset Formula $ip^{\mu}$
+\end_inset
+
+的
+\begin_inset Formula $i^{2}=-1$
+\end_inset
+
+，最后不贡献负号。
+\begin_inset Formula $-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]$
+\end_inset
+
+这一项与前面求出来的守恒流只相差了
+\begin_inset Formula $e_{\phi}^{q}$
+\end_inset
+
+，没有相对负号。
+\end_layout
+
+\begin_layout Standard
+介子与光子的耦合顶点，电荷流箭头和动量流箭头总是连续经过的，两者方向要么相同，要么相反，所以要么是正号，要么是负号。但是介子和重子组成了一个圈，重子传播子对于动
+量是一次方，
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\times\\
- & \phantom{=}\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}}\left(\gamma^{5}\slashed{k}\right)\frac{i}{D_{\phi}}2k^{\mu}\frac{i}{D_{\phi}}u\left(p\right)e^{-ik\cdot\left(a-b\right)}
+ & \int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-m_{\phi}^{2}}\left(k+k+q\right)^{\mu}\frac{i}{\left(k+q\right)^{2}-m_{\phi}^{2}}\frac{i}{\left(\slashed{p}-\slashed{k}\right)-M_{B}}\\
+ & \int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{\left(k-q\right)^{2}-m_{\phi}^{2}}\left(-k-\left(k-q\right)\right)^{\mu}\frac{i}{\left(k\right)^{2}-m_{\phi}^{2}}\frac{i}{\left(\slashed{p}+\slashed{k}\right)-M_{B}}
+\end{align*}
+
+\end_inset
+
+第二项在
+\begin_inset Formula $k\to-k$
+\end_inset
+
+变换下刚好等于第一项，也就是说介子光子顶点中，
+\begin_inset Formula $C$
+\end_inset
+
+宇称带来的负号，被费米子传播子的效果抵消掉了，这是不意外的，因为介子与光子
+\begin_inset Formula $C$
+\end_inset
+
+变换下的负号，对应于
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\gamma$
+\end_inset
+
+的
+\begin_inset Formula $C$
+\end_inset
+
+宇称为负，最后剩下的只是
+\begin_inset Formula $e_{\phi}^{q}$
+\end_inset
+
+–耦合强度也就是电荷。
+\series bold
+所以一个QED圈的符号不依赖于圈动量方向的选择
+\series default
+，这是电荷守恒要求的。所以我们画费曼图的时候，可以只参考动量往右边进入进入介子–光子作用顶点的正粒子，在顶点处，产生此介子
+\begin_inset Formula $k^{\mu}$
+\end_inset
+
+的项是
+\begin_inset Formula $-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right){\color{red}\partial^{\mu}\phi\left(y\right)}\right]$
+\end_inset
+
+中的
+\begin_inset Formula $\partial^{\mu}\phi\left(y\right)$
+\end_inset
+
+，它对应的符号是
+\begin_inset Formula $+i$
+\end_inset
+
+，所以这个顶点贡献一个
+\begin_inset Formula $\left(+i\right)i\left(k+k+q\right)^{\mu}=-\left(k+k+q\right)^{\mu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+另外，拉氏量展开到第二阶，贡献了
+\begin_inset Formula $i^{2}=-1$
+\end_inset
+
+，所以总的符号是
+\begin_inset Formula $\left(-1\right)\left(-1\right)\left(k+k+q\right)^{\mu}=\left(k+k+q\right)^{\mu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+由于在每个顶点动量守恒，一圈图只有一个自由动量
+\begin_inset Formula $k$
+\end_inset
+
+。按照我们选取的参考费曼图–介子的正粒子向有进入顶点发生相互作用，
+\begin_inset Formula $\partial_{\nu}\phi\left(x+a\right)$
+\end_inset
+
+对应末态湮灭，所以指数因子是
+\begin_inset Formula $\exp\left(-i\left(k+q\right)\left(x+a\right)\right)$
+\end_inset
+
+，
+\begin_inset Formula $\partial_{\rho}\phi^{\dagger}\left(z+b\right)$
+\end_inset
+
+对应初态产生，指数因子是
+\begin_inset Formula $\exp\left(+ik\left(z+b\right)\right)$
+\end_inset
+
+。
+\begin_inset Formula $x,y,z$
+\end_inset
+
+都被积分掉了。剩下的就是
+\begin_inset Formula 
+\[
+\exp\left(-i\left(k+q\right)a+ikb\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以最终
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:yu30"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 可以化简到
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\times\\
+ & \phantom{=}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\frac{i}{D_{\phi}\left(k+q\right)}\left(2k+q\right)^{\mu}\frac{i}{D_{\phi}\left(k\right)}u\left(p\right)e^{\left(-i\left(k+q\right)a+ikb\right)}
 \end{align*}
 
 \end_inset
@@ -1892,13 +2074,13 @@ noprefix "false"
 分别是中间重子和介子的传播子，
 \begin_inset Formula 
 \begin{align*}
-D_{\phi} & =k^{2}-m_{\phi}^{2}+i\varepsilon\\
-D_{B} & =\left(p-k\right)^{2}-M_{\phi}^{2}+i\varepsilon
+D_{\phi} & \left(\ell\right)=\ell^{2}-m_{\phi}^{2}+i\varepsilon\\
+D_{B} & \left(\ell\right)=\ell^{2}-M_{\phi}^{2}+i\varepsilon
 \end{align*}
 
 \end_inset
 
-其中
+
 \begin_inset Formula $m_{\phi}$
 \end_inset
 
@@ -1906,20 +2088,20 @@ D_{B} & =\left(p-k\right)^{2}-M_{\phi}^{2}+i\varepsilon
 \begin_inset Formula $M_{B}$
 \end_inset
 
- 是介子和八重态重子的质量。定义正规子的傅里叶变换和反变换为
+ 是介子和八重态重子的质量。定义正规子的傅里叶变换和逆变换为
 \begin_inset Formula 
 \begin{align*}
 \tilde{F}\left(k\right) & \equiv\int\dif^{4}a\exp\left[-ia\cdot k\right]F\left(a\right)\\
-F\left(x\right) & =\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik\cdot x\right)\tilde{F}\left(k\right)
+F\left(x\right) & \equiv\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik\cdot x\right)\tilde{F}\left(k\right)
 \end{align*}
 
 \end_inset
 
-the vertex operator 变成
+顶角算符变成
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\slashed{k}\gamma^{5}\right)\tilde{F}\left(k\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}}\frac{i}{D_{\phi}}2k^{\mu}\frac{i}{D_{\phi}}\left(\gamma^{5}\slashed{k}\right)\tilde{F}\left(-k\right)u\left(p\right)\\
- & =\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}
+\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\tilde{F}\left(k+q\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\\
+ & \times\frac{i}{D_{\phi}\left(k+q\right)}\left(2k+q\right)^{\mu}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(-k\right)u\left(p\right)=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}
 \end{align*}
 
 \end_inset
@@ -1948,7 +2130,19 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{M}{P^{+}}\int\frac{\dif
 
 \end_inset
 
+其中
+\begin_inset Formula $k^{+}=k^{0}+k^{z}$
+\end_inset
 
+ and 
+\begin_inset Formula $M$
+\end_inset
+
+ 是核子质量。
+\end_layout
+
+\begin_layout Standard
+由 
 \end_layout
 
 \begin_layout Standard
