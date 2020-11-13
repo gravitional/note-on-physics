@@ -2099,10 +2099,10 @@ F\left(x\right) & \equiv\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik
 
 顶角算符变成
 \begin_inset Formula 
-\begin{align*}
-\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\tilde{F}\left(k+q\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\\
- & \times\frac{i}{D_{\phi}\left(k+q\right)}\left(2k+q\right)^{\mu}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(-k\right)u\left(p\right)=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}
-\end{align*}
+\begin{align}
+\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\tilde{F}\left(k+q\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\nonumber \\
+ & \times\frac{i}{D_{\phi}\left(k+q\right)}\left(2k+q\right)^{\mu}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(-k\right)u\left(p\right)=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}\label{eq: yu34}
+\end{align}
 
 \end_inset
 
@@ -2124,9 +2124,9 @@ F\left(x\right) & \equiv\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik
 
 
 \begin_inset Formula 
-\[
-f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{M}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}\delta\left(y-\frac{k^{+}}{p^{+}}\right)
-\]
+\begin{equation}
+f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{M}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\label{eq:yu35}
+\end{equation}
 
 \end_inset
 
@@ -2143,6 +2143,47 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{M}{P^{+}}\int\frac{\dif
 
 \begin_layout Standard
 由 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: yu34"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，fig.1(a) 介子 rainbow 图的分裂函数是
+\begin_inset Formula 
+\begin{align}
+f_{\phi B}^{\left(\text{mrbw}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\nonumber \\
+ & \times\tilde{F}\left(k+q\right)\tilde{F}\left(-k\right)\frac{i}{D_{\phi}\left(k+q\right)}\left(2k+q\right)^{\mu}\frac{i}{D_{\phi}\left(k\right)}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)u\left(p\right)\label{eq:yu36}
+\end{align}
+
+\end_inset
+
+类似地，fig.1(b) 中的重子 rainbow 图（光子耦合到重子上）的分裂函数为
+\begin_inset Formula 
+\begin{align*}
+f_{\phi B}^{\left(\text{Brbw}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{+}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\\
+ & \times\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k\right)\tilde{F}\left(-k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+fig.1(c) Kroll -Ruderman (KR)图的贡献为
+\begin_inset Formula 
+\begin{align*}
+f_{\phi B}^{\left(\text{KR}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k\right)\tilde{F}\left(-k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & \times\left\{ \left(i\gamma^{+}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\gamma^{5}\slashed{k}\right)+\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\gamma^{5}\gamma^{+}\right)\right\} u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
