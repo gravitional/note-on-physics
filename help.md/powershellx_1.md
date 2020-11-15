@@ -1367,3 +1367,16 @@ YNDMB-2QCFC-HTFBP-JF9HC-FX849
 ### 查看内存硬件信息
 
 `pwsh` 中输入`wmic memorychip`.
+
+## Win10电脑遇到DistributedCOM错误10016
+
+在计算机上右键--管理--事件查看器--windows日志--系统中
+找到错误事件的日志，查看详细信息（XML）视图
+
+可以看到相关的注册表项目的ID，以及`processID`，在任务管理器中可以看到对应的进程名称。
+这个问题是由于缺少权限导致的。
+
+`win+R`--`regedit`打开注册表编辑器，
+在`HKEY_LOCAL_MACHEINE\SYSTEM\controlSet001\Services\EventLog\System\DCOM`
+`HKEY_LOCAL_MACHEINE\SYSTEM\controlSet001\Services\EventLog\System\Microsoft-Windows-DistributedDCOM`
+找到上面注册表`ID `的项目，右键--权限--添加，添加自己的账户，然后勾选上所有的权限，点击确定。

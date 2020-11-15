@@ -37,7 +37,8 @@
 \usepackage{mathtools}% 定义配对的数学符号
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
-%% \usepackage{axodraw2} 
+\usepackage{tikz-feynman}  % 画费曼图用
+\usepackage{tikz}
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
 %\DeclareMathOperator{\re}{Re}
@@ -1823,13 +1824,156 @@ noprefix "false"
  bare or undressed mesons and baryons 。这些图将被用于计算介子圈对核子中 PDFs 的贡献。
 \end_layout
 
+\begin_layout Subsection
+a
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[right =1cm  of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[right =2cm  of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[right =3cm  of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[right =4cm  of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above =1cm of a3,crossed dot] (a6){};
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+node[above =1.5cm  of a5] {$a$};
+\end_layout
+
+\begin_layout Plain Layout
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		{ [edge=anti fermion]
+\end_layout
+
+\begin_layout Plain Layout
+		(a1) --[momentum'={
+\backslash
+scriptsize 
+\backslash
+(p-k
+\backslash
+)}]  (a5),
+\end_layout
+
+\begin_layout Plain Layout
+		},
+\end_layout
+
+\begin_layout Plain Layout
+		% 介子连线
+\end_layout
+
+\begin_layout Plain Layout
+		{ [edge= charged scalar]
+\end_layout
+
+\begin_layout Plain Layout
+		(a2) --[quarter left, momentum={
+\backslash
+scriptsize 
+\backslash
+(k
+\backslash
+)}](a6)--[quarter left,momentum={
+\backslash
+scriptsize 
+\backslash
+(k+q
+\backslash
+)}](a4),
+\end_layout
+
+\begin_layout Plain Layout
+		}
+\end_layout
+
+\begin_layout Plain Layout
+		};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 介子彩虹图 Fig.1a，非定域理论的顶角函数可以写成
 \begin_inset Formula 
 \begin{align}
  & \Gamma_{\phi B}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}i^{2}\int\dif^{4}x\dif^{4}y\dif^{4}z\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right)J_{q,\text{em}}^{\mu}\left(y\right)\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\nonumber \\
  & =\frac{i^{2}C_{B\phi}^{2}}{f^{2}}\bra{p^{\prime}}\int\dif^{4}\left\{ xyzab\right\} F\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\nonumber \\
- & \times\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\right)\ket{p}\label{eq:yu30}
+ & \times{\color{red}\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]\right)}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\label{eq:yu30}
 \end{align}
 
 \end_inset
@@ -1879,7 +2023,7 @@ noprefix "false"
 
 \begin_layout Standard
 其中
-\begin_inset Formula $\partial_{\nu}\phi\left(x+a\right)\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]\partial_{\rho}\phi^{\dagger}\left(z+b\right)\right)$
+\begin_inset Formula ${\color{red}\partial_{\nu}\phi\left(x+a\right)}\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]{\color{red}\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\right)$
 \end_inset
 
 这四个介子场形成两个介子传播子。由于
@@ -1895,10 +2039,10 @@ noprefix "false"
 \end_inset
 
 宇称守恒，
-\begin_inset Formula $\partial_{\nu}\phi\left(x+a\right)\to\partial_{\rho}\phi^{\dagger}\left(z+b\right)$
+\begin_inset Formula ${\color{red}\partial_{\nu}\phi\left(x+a\right)}\to{\color{red}\partial_{\rho}\phi^{\dagger}\left(z+b\right)}$
 \end_inset
 
-也没有负号，所以
+之间没有相对负号，即
 \begin_inset Formula $\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)$
 \end_inset
 
@@ -1906,7 +2050,7 @@ noprefix "false"
 \begin_inset Formula $\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)$
 \end_inset
 
- 这两项之间没有相对负号。在费曼图上，两个顶点一出一进，负进正出，所以总会有一个负号，加上两个
+ 之间没有相对负号。在费曼图上，两个顶点一出一进，负进正出，所以总会有一个负号，加上两个
 \begin_inset Formula $ip^{\mu}$
 \end_inset
 
@@ -1914,20 +2058,243 @@ noprefix "false"
 \begin_inset Formula $i^{2}=-1$
 \end_inset
 
-，最后不贡献负号。
-\begin_inset Formula $-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]$
-\end_inset
-
-这一项与前面求出来的守恒流只相差了
-\begin_inset Formula $e_{\phi}^{q}$
-\end_inset
-
-，没有相对负号。
+，最后负负得正，不贡献负号。所以总的来说，
 \end_layout
 
 \begin_layout Standard
-介子与光子的耦合顶点，电荷流箭头和动量流箭头总是连续经过的，两者方向要么相同，要么相反，所以要么是正号，要么是负号。但是介子和重子组成了一个圈，重子传播子对于动
-量是一次方，
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =1cm  of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =2cm  of a1,dot,anchor=center] (a3){};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =3cm  of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =4cm  of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+vertex[above =1cm of a2] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+vertex[above =1cm of a4] (a7);
+\end_layout
+
+\begin_layout Plain Layout
+
+		%
+\backslash
+node[above =1.5cm  of a5] {$a$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ [edge=anti fermion]
+\end_layout
+
+\begin_layout Plain Layout
+
+                (a1) --[momentum'={
+\backslash
+scriptsize 
+\backslash
+(p
+\backslash
+)}]  (a2),
+\end_layout
+
+\begin_layout Plain Layout
+
+                (a4) --[momentum'={
+\backslash
+scriptsize 
+\backslash
+(p^{
+\backslash
+prime}
+\backslash
+)}]  (a5),
+\end_layout
+
+\begin_layout Plain Layout
+
+		    },
+\end_layout
+
+\begin_layout Plain Layout
+
+            % 介子连线
+\end_layout
+
+\begin_layout Plain Layout
+
+        { [edge= charged scalar]
+\end_layout
+
+\begin_layout Plain Layout
+
+        (a2) --[momentum={
+\backslash
+scriptsize 
+\backslash
+(k
+\backslash
+)}](a6), 
+\end_layout
+
+\begin_layout Plain Layout
+
+        (a4) --[reversed momentum={
+\backslash
+scriptsize 
+\backslash
+(k^{
+\backslash
+prime}
+\backslash
+)}](a7), 
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a2) --  (a4),
+\end_layout
+
+\begin_layout Plain Layout
+
+        };
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+slashed{k}^{
+\backslash
+prime}
+\backslash
+gamma^{5}
+\backslash
+cdots
+\backslash
+gamma^{5}
+\backslash
+slashed{k} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+而
+\begin_inset Formula $-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]$
+\end_inset
+
+这一项与上文中的守恒流
+\begin_inset Formula $J_{q,\text{em}}^{\mu}\left(y\right)$
+\end_inset
+
+中的对应部分只相差了
+\begin_inset Formula $e_{\phi}^{q}$
+\end_inset
+
+因子，没有相对负号。它是介子与光子的耦合顶点，电荷流箭头和动量流箭头总是连续经过的，箭头方向要么相同，要么相反，所以要么都是正号，要么都是负号。但是介子和重子组
+成了一个圈，重子传播子对于动量是一次方，
 \begin_inset Formula 
 \begin{align*}
  & \int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-m_{\phi}^{2}}\left(k+k+q\right)^{\mu}\frac{i}{\left(k+q\right)^{2}-m_{\phi}^{2}}\frac{i}{\left(\slashed{p}-\slashed{k}\right)-M_{B}}\\
@@ -1985,6 +2352,206 @@ noprefix "false"
 \end_inset
 
 。
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[baseline]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+            %% fig a
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[right =1cm  of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[right =2cm  of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[right =3cm  of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[right =4cm  of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[above =1cm of a2] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[above =1cm of a4] (a7);
+\end_layout
+
+\begin_layout Plain Layout
+
+            %
+\backslash
+node[above =1.5cm  of a5] {$a$};
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+
+            { [edge = charged scalar ]
+\end_layout
+
+\begin_layout Plain Layout
+
+                    (a1) --[momentum'={
+\backslash
+scriptsize 
+\backslash
+(k
+\backslash
+)}]  (a2),
+\end_layout
+
+\begin_layout Plain Layout
+
+                    (a2) -- [momentum'={
+\backslash
+scriptsize 
+\backslash
+(k+q
+\backslash
+)}] (a3),
+\end_layout
+
+\begin_layout Plain Layout
+
+            },
+\end_layout
+
+\begin_layout Plain Layout
+
+             % 介子连线
+\end_layout
+
+\begin_layout Plain Layout
+
+            { [ edge= photon]
+\end_layout
+
+\begin_layout Plain Layout
+
+            (a2) --[reversed momentum = {
+\backslash
+scriptsize 
+\backslash
+(q
+\backslash
+)}](a6), 
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+            };
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+    =
+\backslash
+left(+i
+\backslash
+right)i
+\backslash
+left(k+k+q
+\backslash
+right)^{
+\backslash
+mu}=-
+\backslash
+left(k+k+q
+\backslash
+right)^{
+\backslash
+mu}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2161,10 +2728,213 @@ f_{\phi B}^{\left(\text{mrbw}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2
 
 \end_inset
 
-类似地，fig.1(b) 中的重子 rainbow 图（光子耦合到重子上）的分裂函数为
+
+\end_layout
+
+\begin_layout Subsection
+b
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig b
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right =1cm and 5cm of a1] (b1);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[right =1cm  of b1] (b2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[right =2cm  of b1,crossed dot,anchor=center] (b3){};
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[right =3cm  of b1] (b4);
+\end_layout
+
+\begin_layout Plain Layout
+        
+\backslash
+vertex[right =4cm  of b1] (b5);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+node[above =0.5 of b5] {$b$};
+\end_layout
+
+\begin_layout Plain Layout
+        % 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		{ [edge=anti fermion]
+\end_layout
+
+\begin_layout Plain Layout
+				(b2) --[momentum={
+\backslash
+scriptsize 
+\backslash
+(p-k
+\backslash
+)}]  (b3)-- [momentum={
+\backslash
+scriptsize 
+\backslash
+(p^{
+\backslash
+prime}-k
+\backslash
+)}] (b4),
+\end_layout
+
+\begin_layout Plain Layout
+		    },
+\end_layout
+
+\begin_layout Plain Layout
+		{ [edge=plain]
+\end_layout
+
+\begin_layout Plain Layout
+				(b1) --  (b2), (b4)-- (b5),
+\end_layout
+
+\begin_layout Plain Layout
+            },
+\end_layout
+
+\begin_layout Plain Layout
+            % 介子连线
+\end_layout
+
+\begin_layout Plain Layout
+        { [edge= charged scalar]
+\end_layout
+
+\begin_layout Plain Layout
+        %(a2) --[quarter left, momentum={
+\backslash
+scriptsize 
+\backslash
+(k
+\backslash
+)}](a6)--[quarter left,momentum={
+\backslash
+scriptsize 
+\backslash
+(k+q
+\backslash
+)}](a4), 
+\end_layout
+
+\begin_layout Plain Layout
+        (b2) --[half right, momentum'={
+\backslash
+scriptsize 
+\backslash
+(k
+\backslash
+)} ](b4),
+\end_layout
+
+\begin_layout Plain Layout
+		}
+\end_layout
+
+\begin_layout Plain Layout
+        };
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+类似地，fig.1(b) 中的重子 rainbow 图（光子耦合到重子上）的分裂函数为,
+\begin_inset Formula 
+\begin{align}
+ & \Gamma_{b}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}{\color{red}i^{2}}\int\dif^{4}x\dif^{4}y\dif^{4}z\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right)J_{q,\text{em}}^{\mu}\left(y\right)\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\nonumber \\
+ & =\frac{{\color{red}i^{2}}C_{B\phi}^{2}}{f^{2}}\bra{p^{\prime}}\int\dif^{4}\left\{ xyzab\right\} F\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\nonumber \\
+ & \times{\color{red}\left(e_{B}^{q}\bar{B}\left(y\right)\gamma^{\mu}B\left(y\right)\right)}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}
+\end{align}
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{align*}
-f_{\phi B}^{\left(\text{Brbw}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{+}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\\
+\Gamma_{b}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\left(i\right)^{2}\times\\
+ & \phantom{=}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(i\gamma^{\mu}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\frac{i}{D_{\phi}\left(k\right)}u\left(p\right)e^{\left(-i\left(k+q\right)a+ikb\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+f_{b}^{\mu}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{+}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\\
  & \times\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k\right)\tilde{F}\left(-k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)u\left(p\right)
 \end{align*}
 
@@ -2174,12 +2944,419 @@ f_{\phi B}^{\left(\text{Brbw}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2
 \end_layout
 
 \begin_layout Standard
-fig.1(c) Kroll -Ruderman (KR)图的贡献为
+fig.1(c) Kroll–Ruderman (KR)图的贡献为
 \begin_inset Formula 
 \begin{align*}
 f_{\phi B}^{\left(\text{KR}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k\right)\tilde{F}\left(-k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
  & \times\left\{ \left(i\gamma^{+}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\gamma^{5}\slashed{k}\right)+\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\gamma^{5}\gamma^{+}\right)\right\} u\left(p\right)
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+费曼规则
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align}
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\backslash
+begin{tikzpicture}[baseline]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =1cm  of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =2cm  of a1,dot,anchor=center] (a3){};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =3cm  of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =4cm  of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+vertex[above =1cm of a2] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+vertex[above =1cm of a4] (a7);
+\end_layout
+
+\begin_layout Plain Layout
+
+		%
+\backslash
+node[above =1.5cm  of a5] {$a$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ [edge=anti fermion]
+\end_layout
+
+\begin_layout Plain Layout
+
+                (a1) --[momentum'={
+\backslash
+scriptsize 
+\backslash
+(p
+\backslash
+)}]  (a2),
+\end_layout
+
+\begin_layout Plain Layout
+
+                (a4) --[momentum'={
+\backslash
+scriptsize 
+\backslash
+(p^{
+\backslash
+prime}
+\backslash
+)}]  (a5),
+\end_layout
+
+\begin_layout Plain Layout
+
+		    },
+\end_layout
+
+\begin_layout Plain Layout
+
+            % 介子连线
+\end_layout
+
+\begin_layout Plain Layout
+
+        { [edge= charged scalar]
+\end_layout
+
+\begin_layout Plain Layout
+
+        (a2) --[momentum={
+\backslash
+scriptsize 
+\backslash
+(k
+\backslash
+)}](a6), 
+\end_layout
+
+\begin_layout Plain Layout
+
+        (a4) --[reversed momentum={
+\backslash
+scriptsize 
+\backslash
+(k^{
+\backslash
+prime}
+\backslash
+)}](a7), 
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a2) --  (a4),
+\end_layout
+
+\begin_layout Plain Layout
+
+        };
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+slashed{k}^{
+\backslash
+prime}
+\backslash
+gamma^{5}
+\backslash
+cdots
+\backslash
+gamma^{5}
+\backslash
+slashed{k} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\backslash
+begin{tikzpicture}[baseline]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+            %% fig a
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[right =1cm  of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[right =2cm  of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[right =3cm  of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[right =4cm  of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[above =1cm of a2] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+vertex[above =1cm of a4] (a7);
+\end_layout
+
+\begin_layout Plain Layout
+
+            %
+\backslash
+node[above =1.5cm  of a5] {$a$};
+\end_layout
+
+\begin_layout Plain Layout
+
+            
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+
+            { [edge = charged scalar ]
+\end_layout
+
+\begin_layout Plain Layout
+
+                    (a1) --[momentum'={
+\backslash
+scriptsize 
+\backslash
+(k
+\backslash
+)}]  (a2),
+\end_layout
+
+\begin_layout Plain Layout
+
+                    (a2) -- [momentum'={
+\backslash
+scriptsize 
+\backslash
+(k+q
+\backslash
+)}] (a3),
+\end_layout
+
+\begin_layout Plain Layout
+
+            },
+\end_layout
+
+\begin_layout Plain Layout
+
+             % 介子连线
+\end_layout
+
+\begin_layout Plain Layout
+
+            { [ edge= photon]
+\end_layout
+
+\begin_layout Plain Layout
+
+            (a2) --[reversed momentum = {
+\backslash
+scriptsize 
+\backslash
+(q
+\backslash
+)}](a6), 
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+            };
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+left(+i
+\backslash
+right)i
+\backslash
+left(k+k+q
+\backslash
+right)^{
+\backslash
+mu}=-
+\backslash
+left(k+k+q
+\backslash
+right)^{
+\backslash
+mu}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align}
+\end_layout
 
 \end_inset
 

@@ -99,10 +99,10 @@
         % 对各个顶点连线
 		\diagram*{
 		{ [edge=anti fermion]
-				(a1) --[momentum={\(p-k\)}]  (a5),
-				(b2) --  (b3)--  (b4),
+				(a1) --[momentum'={\scriptsize \(p-k\)}]  (a5),
+				(b2) --[momentum={\scriptsize \(p-k\)}]  (b3)-- [momentum={\scriptsize \(p^{\prime}-k\)}] (b4),
 				(c2) --  (c3)--  (c4),
-				(d2) --  (d4),
+				(d2) -- [momentum={\scriptsize \(p-k\)}] (d4),
 				(e2) --  (e4),
 				(f2) --  (f4),
 				(g2) --  (g4),
@@ -121,15 +121,15 @@
 				(g1) --  (g2), (g4)-- (g5),
             },
             % 介子连线
-		{ [edge= charged scalar]
-        (a2) --[quarter left, momentum={\(k\)}](a6)--[quarter left,momentum={\(k+q\)}](a4),
-        (b2) --[half right](b4),
+        { [edge= charged scalar]
+        (a2) --[quarter left, momentum={\scriptsize \(k\)}](a6)--[quarter left,momentum={\scriptsize \(k+q\)}](a4), 
+        (b2) --[half right, momentum'={\scriptsize \(k\)} ](b4),
         (c2) --[half right](c4),
-        (d2) --[half right](d4),
+        (d2) --[half right, momentum'={\scriptsize \(k\)} ,](d4),
         (e2) --[half right](e4),
         (f2) --[half right](f4),
         (g2) --[half right](g4),
-        (h3) --[half left](h6)--[half left](h3),
+        (h3) --[half left, reversed momentum={\scriptsize \(k\)}  ](h6)--[half left](h3),
         (i3) --[half left](i6)--[half left](i3),
         (j3) --[half left](j6)--[half left](j3),
         (k3) --[half left](k6)--[half left](k3),
@@ -138,4 +138,6 @@
         };
 	\end{feynman}
 \end{tikzpicture}
+
+
 \end{document}
