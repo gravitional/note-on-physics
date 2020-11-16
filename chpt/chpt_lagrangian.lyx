@@ -1834,77 +1834,91 @@ status open
 
 \begin_layout Plain Layout
 
+
 \backslash
 begin{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[right =1cm  of a1] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[right =2cm  of a1] (a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[right =3cm  of a1] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[right =4cm  of a1] (a5);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above =1cm of a3,crossed dot] (a6){};
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 node[above =1.5cm  of a5] {$a$};
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
-		{ [edge=anti fermion]
+
+		{ [edge=fermion]
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a1) --[momentum'={
 \backslash
 scriptsize 
@@ -1915,18 +1929,22 @@ scriptsize
 \end_layout
 
 \begin_layout Plain Layout
+
 		},
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 介子连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		{ [edge= charged scalar]
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a2) --[quarter left, momentum={
 \backslash
 scriptsize 
@@ -1943,20 +1961,24 @@ scriptsize
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 
 \backslash
 end{tikzpicture}
@@ -2293,12 +2315,344 @@ end{equation}
 \begin_inset Formula $e_{\phi}^{q}$
 \end_inset
 
-因子，没有相对负号。它是介子与光子的耦合顶点，电荷流箭头和动量流箭头总是连续经过的，箭头方向要么相同，要么相反，所以要么都是正号，要么都是负号。但是介子和重子组
-成了一个圈，重子传播子对于动量是一次方，
+因子，没有差相对负号。它是介子与光子的耦合顶点，电荷流箭头和动量流箭头总是连续经过的，箭头方向要么相同，要么相反，所以动量的符号要么都为正，要么都为负。但是介子
+和重子组成了一个圈，重子传播子对于动量是一次方，对于某个介子和它的反粒子，比如
+\begin_inset Formula $\pi^{+}$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi^{-}$
+\end_inset
+
+。由于介子和重子是不同种类的粒子，它们的粒子流箭头没有必然联系。
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =1cm  of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =2cm  of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =3cm  of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =4cm  of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above =1cm of a3,crossed dot] (a6){};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node[above =1.5cm  of a5] {$a$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ [edge=fermion]
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a1) --[momentum'={
+\backslash
+scriptsize 
+\backslash
+(p-k
+\backslash
+)}]  (a5),
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		% 介子连线
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ [edge= charged scalar]
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a2) --[quarter left, momentum={
+\backslash
+scriptsize 
+\backslash
+(k
+\backslash
+)}](a6)--[quarter left,momentum={
+\backslash
+scriptsize 
+\backslash
+(k+q
+\backslash
+)}](a4),
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} &{}&{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =1cm  of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =2cm  of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =3cm  of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[right =4cm  of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above =1cm of a3,crossed dot] (a6){};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node[above =1.5cm  of a5] {$a$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ [edge=fermion]
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a1) --[momentum'={
+\backslash
+scriptsize 
+\backslash
+(p+k
+\backslash
+)}]  (a5),
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		% 介子连线
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ [edge= charged scalar]
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a2) --[quarter left,reversed momentum={
+\backslash
+scriptsize 
+\backslash
+(k
+\backslash
+)}](a6)--[quarter left,reversed momentum={
+\backslash
+scriptsize 
+\backslash
+(k-q
+\backslash
+)}](a4),
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{align*}
- & \int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-m_{\phi}^{2}}\left(k+k+q\right)^{\mu}\frac{i}{\left(k+q\right)^{2}-m_{\phi}^{2}}\frac{i}{\left(\slashed{p}-\slashed{k}\right)-M_{B}}\\
- & \int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{\left(k-q\right)^{2}-m_{\phi}^{2}}\left(-k-\left(k-q\right)\right)^{\mu}\frac{i}{\left(k\right)^{2}-m_{\phi}^{2}}\frac{i}{\left(\slashed{p}+\slashed{k}\right)-M_{B}}
+ & \int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-m_{\phi}^{2}}\left(-k-\left(k-q\right)\right)^{\mu}\frac{i}{\left(k+q\right)^{2}-m_{\phi}^{2}}\frac{i}{\left(\slashed{p}-\slashed{k}\right)-M_{B}}\\
+ & \int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{\left(k-q\right)^{2}-m_{\phi}^{2}}\left(k+k+q\right)^{\mu}\frac{i}{\left(k\right)^{2}-m_{\phi}^{2}}\frac{i}{\left(\slashed{p}+\slashed{k}\right)-M_{B}}
 \end{align*}
 
 \end_inset
@@ -2331,31 +2685,87 @@ end{equation}
 \series bold
 所以一个QED圈的符号不依赖于圈动量方向的选择
 \series default
-，这是电荷守恒要求的。所以我们画费曼图的时候，可以只参考动量往右边进入进入介子–光子作用顶点的正粒子，在顶点处，产生此介子
-\begin_inset Formula $k^{\mu}$
+，这是电荷守恒要求的。
+\end_layout
+
+\begin_layout Standard
+所以我们画费曼图的时候，可以只参考动量往右边的
+\begin_inset Formula $\phi$
 \end_inset
 
-的项是
+，进入介子–光子作用顶点。对于图a，对应的项是
 \begin_inset Formula $-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right){\color{red}\partial^{\mu}\phi\left(y\right)}\right]$
 \end_inset
 
 中的
-\begin_inset Formula $\partial^{\mu}\phi\left(y\right)$
+\begin_inset Formula $i\partial^{\mu}\phi\left(y\right)$
 \end_inset
 
-，它对应的拉氏量中的符号是
-\begin_inset Formula $+i$
+，
+\begin_inset Formula $\phi$
 \end_inset
 
-，加上动量带来的
-\begin_inset Formula $i$
+粒子进入
+\begin_inset Formula $y$
 \end_inset
 
-，这个顶点贡献一个
-\begin_inset Formula $\left(+i\right)i\left(k+k+q\right)^{\mu}=-\left(k+k+q\right)^{\mu}$
+点，它产生一个
+\begin_inset Formula $i\left(-i\right)\left(k+k+q\right)^{\mu}=\left(k+k+q\right)^{\mu}$
 \end_inset
 
 。
+\color blue
+当然，
+\begin_inset Formula $i/\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)$
+\end_inset
+
+同时传播
+\begin_inset Formula $\phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi^{\dagger}$
+\end_inset
+
+，也就是正反粒子，它们是无法区分的。
+\color inherit
+
+\begin_inset Formula $\phi$
+\end_inset
+
+的电荷可以放到以后再考虑，要求是保证顶点处电荷守恒。比如这个具体情况中，
+\color blue
+
+\begin_inset Formula $\bar{B}\left(x\right)\frac{C_{B\phi}}{f}\gamma^{\nu}\gamma^{5}p\left(x\right)\int\dif^{4}aF\left(a\right)\partial_{\nu}\phi^{\dagger}\left(x+a\right)$
+\end_inset
+
+决定了顶点
+\begin_inset Formula $x$
+\end_inset
+
+处，对应：
+\begin_inset Formula $p\left(x\right)$
+\end_inset
+
+–进入，
+\begin_inset Formula $\bar{B}\left(x\right)$
+\end_inset
+
+–产生，
+\begin_inset Formula $\phi^{\dagger}$
+\end_inset
+
+–正粒子产生（出射）。所以介子
+\begin_inset Formula $\phi$
+\end_inset
+
+粒子流箭头向右，动量也向右，顶点动量为
+\begin_inset Formula $\left(k+k+q\right)^{\mu}$
+\end_inset
+
+。
+\color inherit
+
 \begin_inset ERT
 status open
 
@@ -2527,17 +2937,17 @@ end{tikzpicture}
 
 \begin_layout Plain Layout
 
-    =
+    =i
 \backslash
-left(+i
+left(-i
 \backslash
-right)i
+right)
 \backslash
 left(k+k+q
 \backslash
 right)^{
 \backslash
-mu}=-
+mu}=
 \backslash
 left(k+k+q
 \backslash
@@ -2561,10 +2971,6 @@ end{equation}
 \begin_layout Standard
 另外，拉氏量展开到第二阶，贡献了
 \begin_inset Formula $i^{2}=-1$
-\end_inset
-
-，所以总的符号是
-\begin_inset Formula $\left(-1\right)\left(-1\right)\left(k+k+q\right)^{\mu}=\left(k+k+q\right)^{\mu}$
 \end_inset
 
 。
@@ -2596,11 +3002,7 @@ end{equation}
 \end_inset
 
 都被积分掉了。剩下的就是
-\begin_inset Formula 
-\[
-\exp\left(-i\left(k+q\right)a+ikb\right)
-\]
-
+\begin_inset Formula $\exp\left(-i\left(k+q\right)a+ikb\right)$
 \end_inset
 
 
@@ -2741,85 +3143,100 @@ b
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
+
 
 \backslash
 begin{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig b
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right =1cm and 5cm of a1] (b1);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[right =1cm  of b1] (b2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[right =2cm  of b1,crossed dot,anchor=center] (b3){};
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[right =3cm  of b1] (b4);
 \end_layout
 
 \begin_layout Plain Layout
+
         
 \backslash
 vertex[right =4cm  of b1] (b5);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 node[above =0.5 of b5] {$b$};
 \end_layout
 
 \begin_layout Plain Layout
+
         % 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
-		{ [edge=anti fermion]
+
+		{ [edge= fermion]
 \end_layout
 
 \begin_layout Plain Layout
+
 				(b2) --[momentum={
 \backslash
 scriptsize 
@@ -2838,30 +3255,37 @@ prime}-k
 \end_layout
 
 \begin_layout Plain Layout
+
 		    },
 \end_layout
 
 \begin_layout Plain Layout
+
 		{ [edge=plain]
 \end_layout
 
 \begin_layout Plain Layout
+
 				(b1) --  (b2), (b4)-- (b5),
 \end_layout
 
 \begin_layout Plain Layout
+
             },
 \end_layout
 
 \begin_layout Plain Layout
+
             % 介子连线
 \end_layout
 
 \begin_layout Plain Layout
-        { [edge= charged scalar]
+
+        { [edge= anti charged scalar]
 \end_layout
 
 \begin_layout Plain Layout
+
         %(a2) --[quarter left, momentum={
 \backslash
 scriptsize 
@@ -2878,6 +3302,7 @@ scriptsize
 \end_layout
 
 \begin_layout Plain Layout
+
         (b2) --[half right, momentum'={
 \backslash
 scriptsize 
@@ -2888,20 +3313,24 @@ scriptsize
 \end_layout
 
 \begin_layout Plain Layout
+
 		}
 \end_layout
 
 \begin_layout Plain Layout
+
         };
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 
 \backslash
 end{tikzpicture}
