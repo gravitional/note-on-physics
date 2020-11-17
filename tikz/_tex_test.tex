@@ -1,4 +1,4 @@
-\documentclass[tikz,border=10pt]{ctexart}
+\documentclass[tikz,border=10pt]{standalone}
 % 如果没有这一句命令，XeTeX会出错，原因参见
 % http://bbs.ctex.org/viewthread.php?tid=60547
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
@@ -74,34 +74,29 @@
 
 \begin{document}
 
-\begin{align}
     \begin{tikzpicture}[baseline]
-        \begin{feynman}[small]
-            %% fig a
-            \vertex (a1) at (0,0);
-            \vertex[right =4cm  of a1,blob] (a5){};
-            % 对各个顶点连线
-            \diagram*{
-            { [edge=photon]
-            (a1) --[momentum'={\scriptsize \(p\)}]  (a5),
-            },
-            };
-        \end{feynman}
-    \end{tikzpicture} &= \epsilon_\mu\left(p\right) \left(\text{入射}\right) \\
-    \begin{tikzpicture}[baseline]
-        \begin{feynman}[small]
-            %% fig a
-            \vertex [blob](a1) at (0,0) {};
-            \vertex[right =4cm  of a1] (a5);
-            % 对各个顶点连线
-            \diagram*{
-            { [edge=photon]
-            (a1) --[reversed momentum'={\scriptsize \(p\)}]  (a5),
-            },
-            };
-        \end{feynman}
-    \end{tikzpicture}&= \epsilon_{\mu}^{*}\left(p\right) \left(\text{出射}\right)
-\end{align}
-
+        \begin{feynman}
+                %% fig a
+                \vertex (a1) at (0,0);
+                \vertex[right =1cm  of a1] (a2);
+                \vertex[right =2cm  of a1] (a3);
+                \vertex[right =3cm  of a1] (a4);
+                \vertex[above =1cm of a2] (a6);
+                \vertex[above =1cm of a4] (a7);
+                \vertex[right =.1cm of a3] (a7){\(=i\left(-i\right)\left(k+k+q\right)^{\mu}=\left(k+k+q\right)^{\mu}\)};
+                %\node[above =1.5cm  of a5] {$a$};
+                \diagram*{
+                { [edge = charged scalar ]
+                        (a1) --[momentum'={\scriptsize \(k\)}]  (a2),
+                        (a2) -- [momentum'={\scriptsize \(k+q\)}] (a3),
+                },
+                 % 介子连线
+                { [ edge= photon]
+                (a2) --[reversed momentum = {\scriptsize \(q\)}](a6), 
+                }
+                };
+            \end{feynman}
+        \end{tikzpicture}
+        
 
 \end{document}

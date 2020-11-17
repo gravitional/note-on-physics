@@ -37,7 +37,8 @@
 \usepackage{mathtools}% 定义配对的数学符号
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
-%% \usepackage{axodraw2} 
+\usepackage{tikz-feynman}  % 画费曼图用
+\usepackage{tikz}
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
 %\DeclareMathOperator{\re}{Re}
@@ -51,9 +52,8 @@
 % 在LaTex中添加代码高亮
 \usepackage{framed}
 % 在对象周围添加方框，阴影等等，允许跨页
-% 定义阴影的颜色
-\definecolor{shadecolor}{rgb}{0.9412,1,1}
-%定义代码高亮的各种颜色
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+%定义各种颜色
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}

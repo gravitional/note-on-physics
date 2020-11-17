@@ -4,29 +4,30 @@
 \usepackage{tikz-feynman}
 \begin{document}
 
-\begin{tikzpicture}
-	\begin{feynman}
+\begin{tikzpicture}[baseline,scale=.5]
+    % 参考线\draw[step=.5cm,gray,very thin] (0,0) grid (5,-5);
+    \begin{feynman}
 		%% fig a
 		\vertex (a1) at (0,0);
-		\vertex[right =1cm  of a1] (a2);
-		\vertex[right =2cm  of a1] (a3);
-		\vertex[right =3cm  of a1] (a4);
-		\vertex[right =4cm  of a1] (a5);
-		\vertex[above =1cm of a3,crossed dot] (a6){};
-		\node[above =1.5cm  of a5] {$a$};
+		\vertex[right =1  of a1] (a2);
+		\vertex[right =2  of a1] (a3);
+		\vertex[right =3  of a1] (a4);
+		\vertex[right =4  of a1] (a5);
+		\vertex[above =1 of a3,crossed dot] (a6){};
+		\node[above =1.5  of a5] {$a$};
 		%% fig b
-		\vertex[above right =1cm and 5cm of a1] (b1);
-		\vertex[right =1cm  of b1] (b2);
-		\vertex[right =2cm  of b1,crossed dot,anchor=center] (b3){};
-		\vertex[right =3cm  of b1] (b4);
-        \vertex[right =4cm  of b1] (b5);
+		\vertex[above right =1 and 5 of a1] (b1);
+		\vertex[right =1  of b1] (b2);
+		\vertex[right =2  of b1,crossed dot,anchor=center] (b3){};
+		\vertex[right =3  of b1] (b4);
+        \vertex[right =4  of b1] (b5);
 		\node[above =0.5 of b5] {$b$};
 		%% fig c
-		\vertex[above right =1cm and 10cm of a1] (c1);
-		\vertex[right =1cm  of c1] (c2);
-		\vertex[right =2cm  of c1,square dot,anchor=center] (c3){};
-		\vertex[right =3cm  of c1] (c4);
-		\vertex[right =4cm  of c1] (c5);
+		\vertex[above right =1 and 10 of a1] (c1);
+		\vertex[right =1  of c1] (c2);
+		\vertex[right =2  of c1,square dot,anchor=center] (c3){};
+		\vertex[right =3  of c1] (c4);
+		\vertex[right =4  of c1] (c5);
 		\node[above =0.5 of c5] {$c$};
 		%% fig d
 		\vertex[above right =1cm and 15cm of a1] (d1);
@@ -79,7 +80,7 @@
 		\vertex[right =3cm  of j1] (j4);
 		\vertex[right =4cm  of j1] (j5);
 		\vertex[above =1.4 cm  of j3, crossed dot,anchor=center] (j6){};
-		\node[above =1.9 cm  of j5] {$j$};
+		\node[above =1.8 cm  of j5] {$j$};
 		%% fig k
 		\vertex[below right =0 cm and 10 cm of i1] (k1);
 		\vertex[right =1cm  of k1] (k2);
@@ -87,7 +88,7 @@
 		\vertex[right =3cm  of k1] (k4);
         \vertex[right =4cm  of k1] (k5);
         \vertex[above =-1.4cm  of k3] (k6);
-		\node[above =0.5 cm  of k5] {$k$};
+		\node[above =0.4 cm  of k5] {$k$};
 		%% fig l
 		\vertex[below right =1.4 cm and 15 cm of i1] (l1);
 		\vertex[right =1cm  of l1] (l2);
@@ -99,10 +100,10 @@
         % 对各个顶点连线
 		\diagram*{
 		{ [edge= fermion]
-				(a1) --[momentum'={\scriptsize \(p-k\)}]  (a5),
-				(b2) --[momentum={\scriptsize \(p-k\)}]  (b3)-- [momentum={\scriptsize \(p^{\prime}-k\)}] (b4),
+				(a1) --  (a5),
+				(b2) --(b3)-- (b4),
 				(c2) --  (c3)--  (c4),
-				(d2) -- [momentum={\scriptsize \(p-k\)}] (d4),
+				(d2) --  (d4),
 				(e2) --  (e4),
 				(f2) --  (f4),
 				(g2) --  (g4),
@@ -122,10 +123,10 @@
             },
             % 介子连线
         { [edge= charged scalar]
-        (a2) --[quarter left, momentum={\scriptsize \(k\)}](a6)--[quarter left,momentum={\scriptsize \(k+q\)}](a4), 
-        (b2) --[half right, momentum'={\scriptsize \(k\)} ](b4),
+        (a2) --[quarter left](a6)--[quarter left](a4), 
+        (b2) --[half right ](b4),
         (c2) --[half right](c4),
-        (d2) --[half right, momentum'={\scriptsize \(k\)} ,](d4),
+        (d2) --[half right](d4),
         (e2) --[half right](e4),
         (f2) --[half right](f4),
         (g2) --[half right](g4),

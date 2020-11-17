@@ -1734,13 +1734,13 @@ and
 
 还有从规范链接得到的额外项
 \begin_inset Formula 
-\begin{align*}
- & \delta J_{q}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\\
- & =\int_{0}^{1}\dif t\int\dif^{4}aF\left(a\right)\left(-ie_{\phi}^{q}\right)\bar{p}\left(x-at\right)\times\\
- & \left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x-at\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x-at\right)\right]a^{\mu}\partial_{\rho}\phi\left(x+a\left(1-t\right)\right)+\text{H.c}\\
- & +\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\int_{0}^{1}\dif t\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\left(a-b\right)^{\mu}\bar{p}\left(x-at-b\left(1-t\right)\right)\gamma^{\rho}p\left(x-at-b\left(1-t\right)\right)\\
- & \left[\phi\left(x+\left(a-b\right)\left(1-t\right)\right)\partial_{\rho}\phi^{\dagger}\left(x-\left(a-b\right)t\right)-\partial_{\rho}\phi\left(x+\left(a-b\right)\left(1-t\right)\right);\phi\left(x-\left(a-b\right)t\right)^{\dagger}\right]
-\end{align*}
+\begin{align}
+ & \delta J_{q}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\nonumber \\
+ & =\int_{0}^{1}\dif t\int\dif^{4}aF\left(a\right)\left(-ie_{\phi}^{q}\right)\bar{p}\left(x-at\right)\times\nonumber \\
+ & \left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x-at\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x-at\right)\right]a^{\mu}\partial_{\rho}\phi\left(x+a\left(1-t\right)\right)+\text{H.c}\nonumber \\
+ & +\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\int_{0}^{1}\dif t\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\left(a-b\right)^{\mu}\bar{p}\left(x-at-b\left(1-t\right)\right)\gamma^{\rho}p\left(x-at-b\left(1-t\right)\right)\label{eq:yu29}\\
+ & \left[\phi\left(x+\left(a-b\right)\left(1-t\right)\right)\partial_{\rho}\phi^{\dagger}\left(x-\left(a-b\right)t\right)-\partial_{\rho}\phi\left(x+\left(a-b\right)\left(1-t\right)\right);\phi\left(x-\left(a-b\right)t\right)^{\dagger}\right]\nonumber 
+\end{align}
 
 \end_inset
 
@@ -1824,164 +1824,56 @@ noprefix "false"
  bare or undressed mesons and baryons 。这些图将被用于计算介子圈对核子中 PDFs 的贡献。
 \end_layout
 
+\begin_layout Standard
+圈积分的积分测度，
+\begin_inset Formula $\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}$
+\end_inset
+
+对于
+\begin_inset Formula $k\to-k$
+\end_inset
+
+是不变的，所以如果被积式为奇函数，积分等于零。所以下面积分式中可以差任意
+\begin_inset Formula $k$
+\end_inset
+
+的奇次方项。
+\end_layout
+
 \begin_layout Subsection
 a
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename inset_yu_a.pdf
+
+\end_inset
 
 
-\backslash
-begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-	
-\backslash
-begin{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-		%% fig a
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex (a1) at (0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =1cm  of a1] (a2);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =2cm  of a1] (a3);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =3cm  of a1] (a4);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =4cm  of a1] (a5);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[above =1cm of a3,crossed dot] (a6){};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-node[above =1.5cm  of a5] {$a$};
-\end_layout
-
-\begin_layout Plain Layout
-
-		% 对各个顶点连线
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-diagram*{
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge=fermion]
-\end_layout
-
-\begin_layout Plain Layout
-
-		(a1) --[momentum'={
-\backslash
-scriptsize 
-\backslash
-(p-k
-\backslash
-)}]  (a5),
-\end_layout
-
-\begin_layout Plain Layout
-
-		},
-\end_layout
-
-\begin_layout Plain Layout
-
-		% 介子连线
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge= charged scalar]
-\end_layout
-
-\begin_layout Plain Layout
-
-		(a2) --[quarter left, momentum={
-\backslash
-scriptsize 
-\backslash
-(k
-\backslash
-)}](a6)--[quarter left,momentum={
-\backslash
-scriptsize 
-\backslash
-(k+q
-\backslash
-)}](a4),
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-		};
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-end{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzpicture}
 \end_layout
 
 \end_inset
@@ -1994,8 +1886,8 @@ end{tikzpicture}
 \begin_inset Formula 
 \begin{align}
  & \Gamma_{\phi B}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}i^{2}\int\dif^{4}x\dif^{4}y\dif^{4}z\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right)J_{q,\text{em}}^{\mu}\left(y\right)\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\nonumber \\
- & =\frac{i^{2}C_{B\phi}^{2}}{f^{2}}\bra{p^{\prime}}\int\dif^{4}\left\{ xyzab\right\} F\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\nonumber \\
- & \times{\color{red}\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]\right)}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\label{eq:yu30}
+ & =\left\{ \int xyzab\right\} \frac{i^{2}C_{B\phi}^{2}}{f^{2}}F\left(a\right)F\left(b\right)\bra{p^{\prime}}\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\nonumber \\
+ & \times{\color{red}\left(-ie_{\phi}^{q}\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]\right)}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\label{eq:yu30}
 \end{align}
 
 \end_inset
@@ -2045,7 +1937,7 @@ noprefix "false"
 
 \begin_layout Standard
 其中
-\begin_inset Formula ${\color{red}\partial_{\nu}\phi\left(x+a\right)}\left(-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]{\color{red}\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\right)$
+\begin_inset Formula ${\color{red}\partial_{\nu}\phi\left(x+a\right)}\left(-ie_{\phi}^{q}\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]{\color{red}\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\right)$
 \end_inset
 
 这四个介子场形成两个介子传播子。由于
@@ -2084,217 +1976,36 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename inset_yu_fr1.pdf
+	scale 120
+
+\end_inset
 
 
-\backslash
-begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+费曼规则
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-begin{tikzpicture}[baseline]
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-begin{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-		%% fig a
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex (a1) at (0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =1cm  of a1] (a2);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =2cm  of a1,dot,anchor=center] (a3){};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =3cm  of a1] (a4);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =4cm  of a1] (a5);
-\end_layout
-
-\begin_layout Plain Layout
-
-        
-\backslash
-vertex[above =1cm of a2] (a6);
-\end_layout
-
-\begin_layout Plain Layout
-
-        
-\backslash
-vertex[above =1cm of a4] (a7);
-\end_layout
-
-\begin_layout Plain Layout
-
-		%
-\backslash
-node[above =1.5cm  of a5] {$a$};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-diagram*{
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge=anti fermion]
-\end_layout
-
-\begin_layout Plain Layout
-
-                (a1) --[momentum'={
-\backslash
-scriptsize 
-\backslash
-(p
-\backslash
-)}]  (a2),
-\end_layout
-
-\begin_layout Plain Layout
-
-                (a4) --[momentum'={
-\backslash
-scriptsize 
-\backslash
-(p^{
-\backslash
-prime}
-\backslash
-)}]  (a5),
-\end_layout
-
-\begin_layout Plain Layout
-
-		    },
-\end_layout
-
-\begin_layout Plain Layout
-
-            % 介子连线
-\end_layout
-
-\begin_layout Plain Layout
-
-        { [edge= charged scalar]
-\end_layout
-
-\begin_layout Plain Layout
-
-        (a2) --[momentum={
-\backslash
-scriptsize 
-\backslash
-(k
-\backslash
-)}](a6), 
-\end_layout
-
-\begin_layout Plain Layout
-
-        (a4) --[reversed momentum={
-\backslash
-scriptsize 
-\backslash
-(k^{
-\backslash
-prime}
-\backslash
-)}](a7), 
-\end_layout
-
-\begin_layout Plain Layout
-
-		},
-\end_layout
-
-\begin_layout Plain Layout
-
-		(a2) --  (a4),
-\end_layout
-
-\begin_layout Plain Layout
-
-        };
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-end{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzpicture}
-\end_layout
-
-\begin_layout Plain Layout
-
-=
-\backslash
-slashed{k}^{
-\backslash
-prime}
-\backslash
-gamma^{5}
-\backslash
-cdots
-\backslash
-gamma^{5}
-\backslash
-slashed{k} 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{equation}
 \end_layout
 
 \end_inset
@@ -2304,7 +2015,7 @@ end{equation}
 
 \begin_layout Standard
 而
-\begin_inset Formula $-i\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]$
+\begin_inset Formula $-ie_{\phi}^{q}\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]$
 \end_inset
 
 这一项与上文中的守恒流
@@ -2325,325 +2036,38 @@ end{equation}
 \end_inset
 
 。由于介子和重子是不同种类的粒子，它们的粒子流箭头没有必然联系。
-\begin_inset ERT
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename inset_yu_loopk.pdf
+
+\end_inset
 
 
-\backslash
-begin{align}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+不同圈动量的选择
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-begin{tikzpicture}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-begin{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-		%% fig a
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex (a1) at (0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =1cm  of a1] (a2);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =2cm  of a1] (a3);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =3cm  of a1] (a4);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =4cm  of a1] (a5);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[above =1cm of a3,crossed dot] (a6){};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-node[above =1.5cm  of a5] {$a$};
-\end_layout
-
-\begin_layout Plain Layout
-
-		% 对各个顶点连线
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-diagram*{
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge=fermion]
-\end_layout
-
-\begin_layout Plain Layout
-
-		(a1) --[momentum'={
-\backslash
-scriptsize 
-\backslash
-(p-k
-\backslash
-)}]  (a5),
-\end_layout
-
-\begin_layout Plain Layout
-
-		},
-\end_layout
-
-\begin_layout Plain Layout
-
-		% 介子连线
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge= charged scalar]
-\end_layout
-
-\begin_layout Plain Layout
-
-		(a2) --[quarter left, momentum={
-\backslash
-scriptsize 
-\backslash
-(k
-\backslash
-)}](a6)--[quarter left,momentum={
-\backslash
-scriptsize 
-\backslash
-(k+q
-\backslash
-)}](a4),
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-		};
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-end{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzpicture} &{}&{}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tikzpicture}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-begin{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-		%% fig a
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex (a1) at (0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =1cm  of a1] (a2);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =2cm  of a1] (a3);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =3cm  of a1] (a4);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =4cm  of a1] (a5);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[above =1cm of a3,crossed dot] (a6){};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-node[above =1.5cm  of a5] {$a$};
-\end_layout
-
-\begin_layout Plain Layout
-
-		% 对各个顶点连线
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-diagram*{
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge=fermion]
-\end_layout
-
-\begin_layout Plain Layout
-
-		(a1) --[momentum'={
-\backslash
-scriptsize 
-\backslash
-(p+k
-\backslash
-)}]  (a5),
-\end_layout
-
-\begin_layout Plain Layout
-
-		},
-\end_layout
-
-\begin_layout Plain Layout
-
-		% 介子连线
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge= charged scalar]
-\end_layout
-
-\begin_layout Plain Layout
-
-		(a2) --[quarter left,reversed momentum={
-\backslash
-scriptsize 
-\backslash
-(k
-\backslash
-)}](a6)--[quarter left,reversed momentum={
-\backslash
-scriptsize 
-\backslash
-(k-q
-\backslash
-)}](a4),
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-		};
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-end{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzpicture}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{align}
 \end_layout
 
 \end_inset
@@ -2764,203 +2188,34 @@ end{align}
 \end_inset
 
 。
-\color inherit
+\end_layout
 
-\begin_inset ERT
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename inset_yu_fr2.pdf
+
+\end_inset
 
 
-\backslash
-begin{equation}
 \end_layout
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{tikzpicture}[baseline]
-\end_layout
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-	
-\backslash
-begin{feynman}
+费曼规则2
 \end_layout
 
-\begin_layout Plain Layout
-
-            %% fig a
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex (a1) at (0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[right =1cm  of a1] (a2);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[right =2cm  of a1] (a3);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[right =3cm  of a1] (a4);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[right =4cm  of a1] (a5);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[above =1cm of a2] (a6);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[above =1cm of a4] (a7);
-\end_layout
-
-\begin_layout Plain Layout
-
-            %
-\backslash
-node[above =1.5cm  of a5] {$a$};
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-diagram*{
-\end_layout
-
-\begin_layout Plain Layout
-
-            { [edge = charged scalar ]
-\end_layout
-
-\begin_layout Plain Layout
-
-                    (a1) --[momentum'={
-\backslash
-scriptsize 
-\backslash
-(k
-\backslash
-)}]  (a2),
-\end_layout
-
-\begin_layout Plain Layout
-
-                    (a2) -- [momentum'={
-\backslash
-scriptsize 
-\backslash
-(k+q
-\backslash
-)}] (a3),
-\end_layout
-
-\begin_layout Plain Layout
-
-            },
-\end_layout
-
-\begin_layout Plain Layout
-
-             % 介子连线
-\end_layout
-
-\begin_layout Plain Layout
-
-            { [ edge= photon]
-\end_layout
-
-\begin_layout Plain Layout
-
-            (a2) --[reversed momentum = {
-\backslash
-scriptsize 
-\backslash
-(q
-\backslash
-)}](a6), 
-\end_layout
-
-\begin_layout Plain Layout
-
-            }
-\end_layout
-
-\begin_layout Plain Layout
-
-            };
-\end_layout
-
-\begin_layout Plain Layout
-
-        
-\backslash
-end{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\backslash
-end{tikzpicture}
-\end_layout
-
-\begin_layout Plain Layout
-
-    =i
-\backslash
-left(-i
-\backslash
-right)
-\backslash
-left(k+k+q
-\backslash
-right)^{
-\backslash
-mu}=
-\backslash
-left(k+k+q
-\backslash
-right)^{
-\backslash
-mu}
-\end_layout
-
-\begin_layout Plain Layout
+\end_inset
 
 
-\backslash
-end{equation}
 \end_layout
 
 \end_inset
@@ -2973,7 +2228,21 @@ end{equation}
 \begin_inset Formula $i^{2}=-1$
 \end_inset
 
-。
+。注意到最后的表达式中，
+\begin_inset Formula $\left(\slashed{k}+\slashed{q}\right)\gamma^{5}$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma^{5}\slashed{k}$
+\end_inset
+
+，
+\color red
+后一个顶点中的
+\begin_inset Formula $\gamma^{\rho}\gamma^{5}$
+\end_inset
+
+交换了位置，也就是展开到二阶的负号在这里被考虑。
 \end_layout
 
 \begin_layout Standard
@@ -3022,8 +2291,8 @@ noprefix "false"
  可以化简到
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\times\\
- & \phantom{=}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\frac{i}{D_{\phi}\left(k+q\right)}\left(2k+q\right)^{\mu}\frac{i}{D_{\phi}\left(k\right)}u\left(p\right)e^{\left(-i\left(k+q\right)a+ikb\right)}
+\Gamma_{\phi B}^{\mu} & =e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\iiint\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k+q\right)}{\color{red}\left(2k+q\right)^{\mu}}\frac{i}{D_{\phi}\left(k\right)}e^{\left(-i\left(k+q\right)a+ikb\right)}\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
@@ -3073,8 +2342,9 @@ F\left(x\right) & \equiv\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik
 顶角算符变成
 \begin_inset Formula 
 \begin{align}
-\Gamma_{\phi B}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\tilde{F}\left(k+q\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\nonumber \\
- & \times\frac{i}{D_{\phi}\left(k+q\right)}\left(2k+q\right)^{\mu}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(-k\right)u\left(p\right)=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}\label{eq: yu34}
+\Gamma_{\phi B}^{\mu} & =e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{F}\left(k+q\right)\tilde{F}\left(-k\right)\frac{i}{D_{\phi}\left(k+q\right)}{\color{red}\left(2k+q\right)^{\mu}}\frac{i}{D_{\phi}\left(k\right)}\nonumber \\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)u\left(p\right)\nonumber \\
+ & =\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{\Gamma}_{\phi B}^{\mu}\label{eq: yu34}
 \end{align}
 
 \end_inset
@@ -3115,7 +2385,23 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{M}{P^{+}}\int\frac{\dif
 \end_layout
 
 \begin_layout Standard
-由 
+稍后会看到，我们选择的
+\begin_inset Formula $\tilde{F}\left(k\right)$
+\end_inset
+
+只依赖于
+\begin_inset Formula $k^{2}$
+\end_inset
+
+而不是
+\begin_inset Formula $k^{\mu}$
+\end_inset
+
+，即
+\begin_inset Formula $\tilde{F}\left(k\right)=\tilde{F}\left(-k\right)$
+\end_inset
+
+。由 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq: yu34"
@@ -3128,8 +2414,8 @@ noprefix "false"
 ，fig.1(a) 介子 rainbow 图的分裂函数是
 \begin_inset Formula 
 \begin{align}
-f_{\phi B}^{\left(\text{mrbw}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\nonumber \\
- & \times\tilde{F}\left(k+q\right)\tilde{F}\left(-k\right)\frac{i}{D_{\phi}\left(k+q\right)}\left(2k+q\right)^{\mu}\frac{i}{D_{\phi}\left(k\right)}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)u\left(p\right)\label{eq:yu36}
+f_{a}^{+}\left(y\right) & =e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\frac{i}{D_{\phi}\left(k+q\right)}{\color{red}\left(2k+q\right)^{+}}\frac{i}{D_{\phi}\left(k\right)}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\nonumber \\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)u\left(p\right)\label{eq:yu36}
 \end{align}
 
 \end_inset
@@ -3142,198 +2428,35 @@ b
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename inset_yu_b.pdf
+
+\end_inset
 
 
-\backslash
-begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-	
-\backslash
-begin{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-		%% fig a
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex (a1) at (0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		%% fig b
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[above right =1cm and 5cm of a1] (b1);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =1cm  of b1] (b2);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =2cm  of b1,crossed dot,anchor=center] (b3){};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =3cm  of b1] (b4);
-\end_layout
-
-\begin_layout Plain Layout
-
-        
-\backslash
-vertex[right =4cm  of b1] (b5);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-node[above =0.5 of b5] {$b$};
-\end_layout
-
-\begin_layout Plain Layout
-
-        % 对各个顶点连线
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-diagram*{
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge= fermion]
-\end_layout
-
-\begin_layout Plain Layout
-
-				(b2) --[momentum={
-\backslash
-scriptsize 
-\backslash
-(p-k
-\backslash
-)}]  (b3)-- [momentum={
-\backslash
-scriptsize 
-\backslash
-(p^{
-\backslash
-prime}-k
-\backslash
-)}] (b4),
-\end_layout
-
-\begin_layout Plain Layout
-
-		    },
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge=plain]
-\end_layout
-
-\begin_layout Plain Layout
-
-				(b1) --  (b2), (b4)-- (b5),
-\end_layout
-
-\begin_layout Plain Layout
-
-            },
-\end_layout
-
-\begin_layout Plain Layout
-
-            % 介子连线
-\end_layout
-
-\begin_layout Plain Layout
-
-        { [edge= anti charged scalar]
-\end_layout
-
-\begin_layout Plain Layout
-
-        %(a2) --[quarter left, momentum={
-\backslash
-scriptsize 
-\backslash
-(k
-\backslash
-)}](a6)--[quarter left,momentum={
-\backslash
-scriptsize 
-\backslash
-(k+q
-\backslash
-)}](a4), 
-\end_layout
-
-\begin_layout Plain Layout
-
-        (b2) --[half right, momentum'={
-\backslash
-scriptsize 
-\backslash
-(k
-\backslash
-)} ](b4),
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-        };
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-end{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzpicture}
 \end_layout
 
 \end_inset
@@ -3346,42 +2469,43 @@ end{tikzpicture}
 \begin_inset Formula 
 \begin{align}
  & \Gamma_{b}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}{\color{red}i^{2}}\int\dif^{4}x\dif^{4}y\dif^{4}z\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right)J_{q,\text{em}}^{\mu}\left(y\right)\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\nonumber \\
- & =\frac{{\color{red}i^{2}}C_{B\phi}^{2}}{f^{2}}\bra{p^{\prime}}\int\dif^{4}\left\{ xyzab\right\} F\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\nonumber \\
- & \times{\color{red}\left(e_{B}^{q}\bar{B}\left(y\right)\gamma^{\mu}B\left(y\right)\right)}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}
+ & ={\color{red}i^{2}}\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \int xyzab\right\} \bra{p^{\prime}}F\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\nonumber \\
+ & \times\left(e_{B}^{q}\bar{B}\left(y\right){\color{red}\gamma^{\mu}}B\left(y\right)\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}
 \end{align}
 
 \end_inset
 
 
+\color blue
+跟 fig.a 一样，这里的
+\begin_inset Formula $i^{2}$
+\end_inset
+
+考虑在
+\begin_inset Formula $\gamma^{5}\slashed{k}=-\slashed{k}\gamma^{5}$
+\end_inset
+
+中
+\color inherit
+。相位是
+\begin_inset Formula $e^{\left(-ika+ikb\right)}$
+\end_inset
+
+
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{b}^{\mu} & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\left(i\right)^{2}\times\\
- & \phantom{=}\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\gamma^{\mu}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\frac{i}{D_{\phi}\left(k\right)}u\left(p\right)e^{\left(-i\left(k+q\right)a+ikb\right)}
+\Gamma_{b}^{\mu} & =e_{B}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\iiint\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\dif^{4}bF\left(b\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}{\color{red}\gamma^{\mu}}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)u\left(p\right)\\
+ & \times\frac{i}{D_{\phi}\left(k\right)}e^{\left(-ika+ikb\right)}
 \end{align*}
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-f_{b}^{\mu}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{+}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)\\
- & \times\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k\right)\tilde{F}\left(-k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)u\left(p\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-fig.1(c) Kroll–Ruderman (KR)图的贡献为
-\begin_inset Formula 
-\begin{align*}
-f_{\phi B}^{\left(\text{KR}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}\bar{u}\left(p^{\prime}\right)\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k\right)\tilde{F}\left(-k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
- & \times\left\{ \left(i\gamma^{+}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\gamma^{5}\slashed{k}\right)+\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\gamma^{5}\gamma^{+}\right)\right\} u\left(p\right)
+f_{b}^{\mu}\left(y\right) & =e_{B}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{F}\left(k\right)^{2}\frac{i}{D_{\phi}\left(k\right)}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}{\color{red}\gamma^{+}}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\gamma^{5}\slashed{k}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
@@ -3390,6 +2514,221 @@ f_{\phi B}^{\left(\text{KR}\right)}\left(y\right) & =\frac{C_{B\phi}^{2}}{f^{2}}
 \end_layout
 
 \begin_layout Subsection
+c
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename inset_yu_c.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+c
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+fig.1(c) Kroll–Ruderman (KR)图的贡献:
+\begin_inset Formula 
+\begin{align}
+ & \Gamma_{c}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}\int\dif^{4}y\dif^{4}zJ_{q,\text{em}}^{\mu}\left(y\right){\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\nonumber \\
+ & +\bra{p^{\prime}}\int\dif^{4}y\dif^{4}z{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right)J_{q,\text{em}}^{\mu}\left(z\right)\ket{p}\\
+ & ={\color{red}\left(i\right)}\left\{ \int yzab\right\} \bra{p^{\prime}}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{p}\left(x-a\right)\gamma^{\mu}\gamma^{5}B\left(x-a\right)\phi\left(x\right)\nonumber \\
+ & \times\frac{C_{B\phi}}{f}F\left(b\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\\
+ & +{\color{red}\left(i\right)}\left\{ \int yzab\right\} \bra{p^{\prime}}\frac{C_{B\phi}}{f}F\left(b\right)\bar{p}\left(z\right)\gamma^{\rho}\gamma^{5}B\left(z\right)\partial_{\rho}\phi\left(z+b\right)\\
+ & \times\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{B}\left(x-a\right)\gamma^{\mu}\gamma^{5}p\left(x-a\right)\phi^{\dagger}\left(x\right)\ket{p}
+\end{align}
+
+\end_inset
+
+正规子相位：
+\begin_inset Formula 
+\begin{align*}
+e^{\left(+ip^{\prime}\left(-a\right)-i\left(p-k\right)\left(-a\right)+ikb\right)} & =e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\\
+e^{\left(-ip\left(-a\right)+i\left(p^{\prime}-k\right)\left(-a\right)-ikb\right)} & =e^{\left(i\left(q-k\right)\left(-a\right)-ikb\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{c}^{\mu} & ={\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k\right)}e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\\
+ & \times\bar{u}\left(p^{\prime}\right)\gamma^{\mu}\gamma^{5}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & +{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k\right)}e^{\left(i\left(q-k\right)\left(-a\right)-ikb\right)}\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(-i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f_{c}^{\mu}\left(y\right) & =e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\gamma^{\mu}\gamma^{5}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & +e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\color blue
+这里与salamu的结果差一个负号。
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+f_{\phi B}^{\left(\text{KR}\right)}\left(y\right) & ={\color{blue}\left(-1\right)}e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)i\left(\gamma^{+}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & {\color{blue}+\left(-1\right)}e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+d
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename inset_yu_d.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+d
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如同在 sec.3 中讨论的，规范链接产生的流
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:yu29"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+产生额外图 d,g,k.
+ 其中d图–Kroll Ruderman 额外图的振幅为，
+\begin_inset Formula 
+\begin{align}
+ & \Gamma_{d}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}\int\dif^{4}y\dif^{4}zJ_{q,\text{em}}^{\mu}\left(y\right){\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\nonumber \\
+ & +\bra{p^{\prime}}\int\dif^{4}y\dif^{4}z{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right)J_{q,\text{em}}^{\mu}\left(z\right)\ket{p}\\
+ & ={\color{red}\left(i\right)}\left\{ \int yzab\right\} \bra{p^{\prime}}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{p}\left(x-a\right)\gamma^{\mu}\gamma^{5}B\left(x-a\right)\phi\left(x\right)\nonumber \\
+ & \times\frac{C_{B\phi}}{f}F\left(b\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\\
+ & +{\color{red}\left(i\right)}\left\{ \int yzab\right\} \bra{p^{\prime}}\frac{C_{B\phi}}{f}F\left(b\right)\bar{p}\left(z\right)\gamma^{\rho}\gamma^{5}B\left(z\right)\partial_{\rho}\phi\left(z+b\right)\\
+ & \times\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{B}\left(x-a\right)\gamma^{\mu}\gamma^{5}p\left(x-a\right)\phi^{\dagger}\left(x\right)\ket{p}
+\end{align}
+
+\end_inset
+
+正规子相位：
+\begin_inset Formula 
+\begin{align*}
+e^{\left(+ip^{\prime}\left(-a\right)-i\left(p-k\right)\left(-a\right)+ikb\right)} & =e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\\
+e^{\left(-ip\left(-a\right)+i\left(p^{\prime}-k\right)\left(-a\right)-ikb\right)} & =e^{\left(i\left(q-k\right)\left(-a\right)-ikb\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{c}^{\mu} & ={\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k\right)}e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\\
+ & \times\bar{u}\left(p^{\prime}\right)\gamma^{\mu}\gamma^{5}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & +{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k\right)}e^{\left(i\left(q-k\right)\left(-a\right)-ikb\right)}\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(-i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f_{c}^{\mu}\left(y\right) & =e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\gamma^{\mu}\gamma^{5}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & +e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\color blue
+这里与salamu的结果差一个负号。
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+f_{\phi B}^{\left(\text{KR}\right)}\left(y\right) & ={\color{blue}\left(-1\right)}e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)i\left(\gamma^{+}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & {\color{blue}+\left(-1\right)}e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 费曼规则
 \end_layout
 
