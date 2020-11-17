@@ -1840,6 +1840,37 @@ noprefix "false"
 的奇次方项。
 \end_layout
 
+\begin_layout Standard
+另外，根据IBP，在
+\begin_inset Formula $q\to0$
+\end_inset
+
+的时候，对于某个特定的介子
+\begin_inset Formula $\phi$
+\end_inset
+
+，这几个圈图的和相当于自能修正的全导数，由此可以看出相对相位。
+\begin_inset Formula 
+\[
+\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\partial_{k}^{\mu}\Gamma_{\text{self}}=e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\tilde{F}\left(k\right)^{2}\frac{i}{k^{2}-m_{\phi}^{2}}\bar{u}\left(p\right)\left(\slashed{k}\gamma^{5}\right)\frac{i}{\left(\slashed{p}-\slashed{k}\right)-M_{B}}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\partial_{k}^{\mu}\frac{i}{k^{2}-m_{\phi}^{2}} & =\frac{i}{k^{2}-m_{\phi}^{2}}2ik^{\mu}\frac{i}{k^{2}-m_{\phi}^{2}}{\color{red}\Rightarrow i}\\
+\partial_{k}^{\mu}\frac{i}{\left(\slashed{p}-\slashed{k}\right)-M_{B}} & =\frac{i}{\left(\slashed{p}-\slashed{k}\right)-M_{B}}i\gamma^{\mu}\frac{i}{\left(\slashed{p}-\slashed{k}\right)-M_{B}}{\color{red}\Rightarrow i}\\
+\partial_{k}^{\mu}\slashed{k}\gamma^{5} & =\gamma^{\mu}\gamma^{5}{\color{red}\Rightarrow1}\\
+\partial_{k}^{\mu}\slashed{k}\tilde{F}\left(k\right)^{2} & =2\tilde{F}\left(k\right)\partial_{k}^{\mu}\tilde{F}\left(k\right){\color{red}\Rightarrow1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 a
 \end_layout
@@ -1996,7 +2027,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-费曼规则
+费曼规则1
 \end_layout
 
 \end_inset
@@ -2580,7 +2611,7 @@ e^{\left(-ip\left(-a\right)+i\left(p^{\prime}-k\right)\left(-a\right)-ikb\right)
 
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{c}^{\mu} & ={\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k\right)}e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\\
+\Gamma_{c}^{\mu} & ={\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\iiint\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k\right)}e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\\
  & \times\bar{u}\left(p^{\prime}\right)\gamma^{\mu}\gamma^{5}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
  & +{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k\right)}e^{\left(i\left(q-k\right)\left(-a\right)-ikb\right)}\\
  & \times\bar{u}\left(p^{\prime}\right)\left(-i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
@@ -2668,22 +2699,25 @@ noprefix "false"
 产生额外图 d,g,k.
  其中d图–Kroll Ruderman 额外图的振幅为，
 \begin_inset Formula 
-\begin{align}
- & \Gamma_{d}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}\int\dif^{4}y\dif^{4}zJ_{q,\text{em}}^{\mu}\left(y\right){\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\nonumber \\
- & +\bra{p^{\prime}}\int\dif^{4}y\dif^{4}z{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right)J_{q,\text{em}}^{\mu}\left(z\right)\ket{p}\\
- & ={\color{red}\left(i\right)}\left\{ \int yzab\right\} \bra{p^{\prime}}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{p}\left(x-a\right)\gamma^{\mu}\gamma^{5}B\left(x-a\right)\phi\left(x\right)\nonumber \\
- & \times\frac{C_{B\phi}}{f}F\left(b\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\\
- & +{\color{red}\left(i\right)}\left\{ \int yzab\right\} \bra{p^{\prime}}\frac{C_{B\phi}}{f}F\left(b\right)\bar{p}\left(z\right)\gamma^{\rho}\gamma^{5}B\left(z\right)\partial_{\rho}\phi\left(z+b\right)\\
- & \times\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{B}\left(x-a\right)\gamma^{\mu}\gamma^{5}p\left(x-a\right)\phi^{\dagger}\left(x\right)\ket{p}
-\end{align}
+\begin{align*}
+ & \Gamma_{d}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}\int\dif^{4}y\dif^{4}z{\color{blue}\delta J_{q}^{\mu}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}\delta J_{q}^{\mu}\left(z\right)}\ket{p}\\
+ & ={\color{red}\left(i\right)}\left\{ \int yzabt\right\} \times F\left(a\right)F\left(b\right)\left(-ia^{\mu}e_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{p}\left(y-at\right)\gamma^{\nu}\gamma^{5}B\left(y-at\right)\partial_{\nu}\phi\left(y+a\left(1-t\right)\right)\\
+ & \times\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\\
+ & +{\color{red}\left(i\right)}\left\{ \int yzabt\right\} \times F\left(a\right)F\left(b\right)\bra{p^{\prime}}\frac{C_{B\phi}}{f}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)\partial_{\nu}\phi\left(y+a\right)\\
+ & \left(+ib^{\mu}e_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{B}\left(z-bt\right)\gamma^{\rho}\gamma^{5}p\left(z-bt\right)\partial_{\rho}\phi^{\dagger}\left(z+b\left(1-t\right)\right)\ket{p}
+\end{align*}
 
 \end_inset
 
+这里和salamu差个负号。
+\end_layout
+
+\begin_layout Standard
 正规子相位：
 \begin_inset Formula 
 \begin{align*}
-e^{\left(+ip^{\prime}\left(-a\right)-i\left(p-k\right)\left(-a\right)+ikb\right)} & =e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\\
-e^{\left(-ip\left(-a\right)+i\left(p^{\prime}-k\right)\left(-a\right)-ikb\right)} & =e^{\left(i\left(q-k\right)\left(-a\right)-ikb\right)}
+e^{\left(+ip^{\prime}\left(-at\right)-i\left(p-k\right)\left(-at\right)-ik\left(a\left(1-t\right)\right)+ikb\right)} & =e^{\left(-itaq-ika+ikb\right)}\\
+e^{\left(-ip\left(-bt\right)+i\left(p^{\prime}-k\right)\left(-bt\right)+ik\left(b\left(1-t\right)\right)-ika\right)} & =e^{\left(-itbq-ika+ikb\right)}
 \end{align*}
 
 \end_inset
@@ -2691,12 +2725,35 @@ e^{\left(-ip\left(-a\right)+i\left(p^{\prime}-k\right)\left(-a\right)-ikb\right)
 
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{c}^{\mu} & ={\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k\right)}e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\\
- & \times\bar{u}\left(p^{\prime}\right)\gamma^{\mu}\gamma^{5}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
- & +{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\dif^{4}aF\left(a\right)\int\dif^{4}bF\left(b\right)\frac{i}{D_{\phi}\left(k\right)}e^{\left(i\left(q-k\right)\left(-a\right)-ikb\right)}\\
- & \times\bar{u}\left(p^{\prime}\right)\left(-i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
+\Gamma_{d}^{\mu} & ={\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kabt\right\} F\left(a\right)F\left(b\right){\color{blue}\left(-ia^{\mu}\right)}\frac{i}{D_{\phi}\left(k\right)}e^{\left(-itaq-ika+ikb\right)}\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & +{\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kabt\right\} F\left(a\right)F\left(b\right){\color{blue}\left(ib^{\mu}\right)}\frac{i}{D_{\phi}\left(k\right)}e^{\left(-itbq-ika+ikb\right)}\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
+\end_inset
+
+可以对
+\begin_inset Formula $t$
+\end_inset
+
+进行积分，积分区域是
+\begin_inset Formula $[0,1]$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{d}^{\mu} & ={\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kab\right\} F\left(a\right)F\left(b\right)\frac{i}{D_{\phi}\left(k\right)}{\color{blue}\left(-ia^{\mu}\right)}\left(\frac{e^{-iqa-ika+ikb}-e^{\left(-ika+ikb\right)}}{qa}\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & +{\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kabt\right\} F\left(a\right)F\left(b\right)\frac{i}{D_{\phi}\left(k\right)}{\color{blue}\left(ib^{\mu}\right)}\left(\frac{e^{-iqb+ikb-ika}-e^{\left(-ika+ikb\right)}}{qb}\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
+\end{align*}
+
+\end_inset
+
+然后利用IBP，作算符替换
+\begin_inset Formula $ia^{\mu}=-\partial_{k}^{\mu}e^{-ika}\text{ or }\partial_{k}^{\mu}e^{ika}$
 \end_inset
 
 
