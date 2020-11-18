@@ -200,7 +200,7 @@ TikZ提供了图的支持,通过类似于`dot`语言的方式来生成图关系
 \draw (a)|- (b);
 ```
 
-## tikz tutorial
+## tikz 教程
 
 32
 tikz中，路径就是一连串的坐标，在路径的开头可以选择 
@@ -212,6 +212,96 @@ tikz中，路径就是一连串的坐标，在路径的开头可以选择
 
 对路径的操作。用分号表示一条路径的结束。每一条路径会有初始点，当前点等等特殊坐标。
 如`current subpath start`
+
+路径构建命令和绘画命令相分离，与路径构建的选项，都在路径命令中指定；
+与实际描绘相关的选项，都在`\draw`,`\fill`等命令的选项中指定。
+
+曲线 33
+`\draw (0,0) .. controls (1,1) and (2,1) .. (2,0);`
+
+圆形
+`(1,1) circle [radius=2pt]`
+`ellipse [x radius=20pt, y radius=10pt]`
+
+方形
+`\draw (0,0) rectangle (0.5,0.5);`
+`\draw[step=.5cm] (-1.4,-1.4) grid (1.4,1.4);`
+
+自定义格式 35
+
+```latex
+help lines/.style={color=blue!50,very thin} %在环境内部任意地方定义格式
+\tikzset{help lines/.style=very thin} %在文档开头，定义全局格式
+\tikzset{Karl's grid/.style={help lines,color=blue!50}} %格式可以嵌套
+```
+
+绘制选项 36
+
+```latex
+%颜色
+color=<color>
+draw=<color>
+%%线型
+ultra thin
+very thin
+thin
+semithick
+thick
+very thick
+ultra thick
+%% 虚线
+dashed
+loosely dashed
+densely dashed
+dotted
+loosely dotted
+densely dotted
+dash pattern
+```
+
+剪切出图形的某一部分
+
+```latex
+\draw[clip] (0.5,0.5) circle (.6cm);
+\draw[step=.5cm,gray,very thin] (-1.4,-1.4) grid (1.4,1.4);
+...
+```
+
+抛物线 38
+
+```latex
+\tikz \draw (0,0) rectangle (1,1)(0,0) parabola (1,1);
+\tikz \draw[x=1pt,y=1pt] (0,0) parabola bend (4,16) (6,12);
+```
+
+填充封闭区域，使用`cycle`进行封闭 39
+
+```latex
+\begin{tikzpicture}[scale=3]
+\clip (-0.1,-0.2) rectangle (1.1,0.75);
+\draw[step=.5cm,gray,very thin] (-1.4,-1.4) grid (1.4,1.4);
+\draw (-1.5,0) -- (1.5,0);
+\draw (0,-1.5) -- (0,1.5);
+\draw (0,0) circle [radius=1cm];
+\filldraw[fill=green!20!white, draw=green!50!black] (0,0) -- (3mm,0mm)
+arc [start angle=0, end angle=30, radius=3mm] -- cycle;
+\end{tikzpicture}
+```
+
+过渡颜色 39
+
+```latex
+\shadedraw[left color=gray,right color=green, draw=green!50!black](0,0) -- (3mm,0mm)
+```
+
+定义命令，相对坐标指定
+
+```latex
+(30:1cm |- 0,0) % 垂直线与水平线的交点
+\def\rectanglepath{-- ++(1cm,0cm) -- ++(0cm,1cm) -- ++(-1cm,0cm) -- cycle} %%连续相对坐标
+\def\rectanglepath{-- +(1cm,0cm) -- +(1cm,1cm) -- +(0cm,1cm) -- cycle} %% 同源相对坐标
+```
+
 
 ## tikz 设计原则
 

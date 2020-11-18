@@ -74,17 +74,11 @@
 
 \begin{document}
 
-\begin{tikzpicture}
-	\filldraw [gray] (0,0) circle [radius=2pt]
-	(1,1) circle [radius=2pt]
-	(2,1) circle [radius=2pt]
-	(2,0) circle [radius=2pt];
-	\draw (0,0) .. controls (1,1)  and (2,1) .. (2,0);
-\end{tikzpicture}
-
-
-
-
-
-
+\begin{tikzpicture}[even odd rule,rounded corners=2pt,x=10pt,y=10pt]
+    \filldraw[fill=yellow!80!black] (0,0) rectangle (1,1)
+    [xshift=5pt,yshift=5pt]    (0,0)  rectangle (1,1)
+    [rotate=30]     (-1,-1)   rectangle (2,2);
+    \end{tikzpicture}
+    
+    
 \end{document}
