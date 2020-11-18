@@ -1869,15 +1869,15 @@ $ unzip -p ls-etc.zip | less
 唤醒`rsync`：
 
 ```bash
-$ rsync options source destination
+$ rsync options 源 目标
 ```
 
-这里 `source` 和 `destination` 是下列选项之一:
+这里 `源` 和 `目标` 是下列选项之一:
 
 + 一个本地文件或目录一个远端文件或目录,以 `[user@]host:path` 的形式存在
 + 一个远端 `rsync` 服务器,由 `rsync://[user@]host[:port]/path` 指定
 
-注意 `source` 和 `destination` 两者之一必须是本地文件,`rsync` 不支持远端到远端的复制.
+注意 `源` 和 `目标` 两者之一必须是本地文件,`rsync` 不支持远端到远端的复制.
 
 让我们试着对一些本地文件使用 `rsync` 命令.首先,清空我们的 `foo` 目录:
 
@@ -1891,13 +1891,14 @@ $ rm -rf foo/*
 $ rsync -av playground foo
 ```
 
-我们使用了`-a` 选项(递归和保护文件属性)和 `-v` 选项(冗余输出), 来在 `foo` 目录中制作一个 `playground` 目录的镜像.
+我们使用了`-a` 选项(`递归`和`保护文件属性`)和 `-v` 选项(冗余输出), 以把`playground` 目录的内容同步到 `foo` 目录.
 当这个命令执行的时候, 我们将会看到一系列的文件和目录被复制.
 在最后,我们将看到一条像这样的总结信息:
 
 ```bash
 sent 135759 bytes received 57870 bytes 387258.00 bytes/sec
 total size is 3230 speedup is 0.02
+...
 ```
 
 它说明了复制的数量.
@@ -1912,7 +1913,7 @@ total size is 3230 speedup is 0.14
 45310.00 bytes/sec
 ```
 
-注意到没有文件列表.
+注意到这一次的输出没有文件列表.
 这是因为 `rsync` 程序检测到目录`~/playground` 和 `~/foo/playground` 之间不存在差异,因此它不需要复制任何数据.
 如果我们在 `playground` 目录中修改一个文件,然后 再次运行 `rsync` 命令:
 
@@ -1935,10 +1936,10 @@ $ mkdir /media/BigDisk/backup
 $ sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup
 ```
 
-在这个例子里,我们把`/etc`,`/home`,和`/usr/local` 目录从我们的系统中复制到外部硬盘上.
+在这个例子里,我们把`/etc`,`/home`,和`/usr/local` 目录从我们的系统中复制到外部硬盘的`/media/BigDisk/backup`目录上.
 
 我们使用了`--delete` 这个选项,来删除可能在备份设备中已经存在但却不再存在于源设备中的文件, 
-(这与我们第一次创建备份无关,但是会在随后的复制操作中发挥作用0.
+(这与我们第一次创建备份无关,但是会在随后的复制操作中发挥作用).
 
 挂载外部驱动器,运行 `rsync` 命令,不断重复这个过程,是一个不错的系统(虽然不理想)备份方式.
 当然,别名会对这个操作更有帮助些.我们创建一个别名,并把它添加到`.bashrc` 文件中, 来提供这个特性:

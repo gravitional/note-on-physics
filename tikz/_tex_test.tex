@@ -74,29 +74,17 @@
 
 \begin{document}
 
-    \begin{tikzpicture}[baseline]
-        \begin{feynman}
-                %% fig a
-                \vertex (a1) at (0,0);
-                \vertex[right =1cm  of a1] (a2);
-                \vertex[right =2cm  of a1] (a3);
-                \vertex[right =3cm  of a1] (a4);
-                \vertex[above =1cm of a2] (a6);
-                \vertex[above =1cm of a4] (a7);
-                \vertex[right =.1cm of a3] (a7){\(=i\left(-i\right)\left(k+k+q\right)^{\mu}=\left(k+k+q\right)^{\mu}\)};
-                %\node[above =1.5cm  of a5] {$a$};
-                \diagram*{
-                { [edge = charged scalar ]
-                        (a1) --[momentum'={\scriptsize \(k\)}]  (a2),
-                        (a2) -- [momentum'={\scriptsize \(k+q\)}] (a3),
-                },
-                 % 介子连线
-                { [ edge= photon]
-                (a2) --[reversed momentum = {\scriptsize \(q\)}](a6), 
-                }
-                };
-            \end{feynman}
-        \end{tikzpicture}
-        
+\begin{tikzpicture}
+	\filldraw [gray] (0,0) circle [radius=2pt]
+	(1,1) circle [radius=2pt]
+	(2,1) circle [radius=2pt]
+	(2,0) circle [radius=2pt];
+	\draw (0,0) .. controls (1,1)  and (2,1) .. (2,0);
+\end{tikzpicture}
+
+
+
+
+
 
 \end{document}
