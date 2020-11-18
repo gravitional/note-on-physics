@@ -2744,32 +2744,36 @@ e^{\left(-ip\left(-bt\right)+i\left(p^{\prime}-k\right)\left(-bt\right)+ik\left(
 
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{d}^{\mu} & ={\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kab\right\} F\left(a\right)F\left(b\right)\frac{i}{D_{\phi}\left(k\right)}{\color{blue}\left(-ia^{\mu}\right)}\left(\frac{e^{-iqa-ika+ikb}-e^{\left(-ika+ikb\right)}}{qa}\right)\\
+\Gamma_{d}^{\mu} & ={\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kab\right\} F\left(a\right)F\left(b\right)\frac{i}{D_{\phi}\left(k\right)}{\color{blue}\left(-ia^{\mu}\right)}\left(\frac{e^{-iqa-ika+ikb}-e^{\left(-ika+ikb\right)}}{-iqa}\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
- & +{\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kabt\right\} F\left(a\right)F\left(b\right)\frac{i}{D_{\phi}\left(k\right)}{\color{blue}\left(ib^{\mu}\right)}\left(\frac{e^{-iqb+ikb-ika}-e^{\left(-ika+ikb\right)}}{qb}\right)\\
+ & +{\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kab\right\} F\left(a\right)F\left(b\right)\frac{i}{D_{\phi}\left(k\right)}{\color{blue}\left(ib^{\mu}\right)}\left(\frac{e^{-iqb+ikb-ika}-e^{\left(-ika+ikb\right)}}{-iqb}\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
 
-然后利用IBP，作算符替换
+然后认为可以较求导与积分次序，作算符替换
 \begin_inset Formula $ia^{\mu}=-\partial_{k}^{\mu}e^{-ika}\text{ or }\partial_{k}^{\mu}e^{ika}$
 \end_inset
 
+，对
+\begin_inset Formula $a,b$
+\end_inset
 
+进行积分：
 \begin_inset Formula 
 \begin{align*}
-f_{c}^{\mu}\left(y\right) & =e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\\
- & \times\bar{u}\left(p^{\prime}\right)\gamma^{\mu}\gamma^{5}\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
- & +e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\\
- & \times\bar{u}\left(p^{\prime}\right)\left(i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
+\Gamma_{d}^{\mu} & ={\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}{\color{blue}\frac{\partial_{k}^{\mu}}{q\cdot\partial_{k}}}\left(F\left(q+k\right)-F\left(k\right)\right);F\left(-k\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & +{\color{red}\left(i\right)}\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}{\color{blue}\frac{\partial_{k}^{\mu}}{-q\cdot\partial_{k}}}\left(F\left(q-k\right)-F\left(-k\right)\right);F\left(k\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
 
 
 \color blue
-这里与salamu的结果差一个负号。
+这两项之间没有相对负号。但是和 salamu 的结果差一个整体负号。
 \color inherit
 
 \begin_inset Formula 
