@@ -94,6 +94,8 @@ You need to  maybe `reconfigure`  and restart LyX.
 
 ### 字体
 
+`Edit`--`Text Style`  or `Alt-E-S-C`
+
 Family: The “overall look” of the font. The possible options are,
 
 + Roman This is the Roman font family. Normally a serif font. It's also the default family. (key binding `Alt+C R`)
@@ -117,3 +119,11 @@ Shape: As the name implies. Options are:
 ### 插入latex code
 
 `ctrl+L` or `Insert->Tex code`
+
+## 插入各种特殊格式
+
+`lyx note`: Insert--Note-Lyx Note
+
+`Institute mark`: (Insert->Custom Insets->InstituteMark)
+
+还可以插入 `Short Author`, `Short Date`，但要在相应的`Author` or `Date`环境中，`Insert`菜单中才有相应条目

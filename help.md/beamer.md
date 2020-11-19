@@ -8,9 +8,27 @@
 
 [beamer class]: https://mirrors.ustc.edu.cn/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf
 
-## 5 Guidelines for Creating Presentations 创造一个演示的参考
+## lyx
 
-### Structuring a Frame 组织一个frame
+使用 xelatex 进行编译，可以设置`Document Settings`--`Fonts`--`LaTeX font encoding: None fontenc`
+在同一个页面，如果勾选`Use non-Tex fonts`，即可选择系统自带的字体，即可显示中文
+
+对应 `latex`设置为
+
+```latex
+\setmainfont[Mapping=tex-text]{Times New Roman}
+\setsansfont[Mapping=tex-text]{Noto Sans CJK SC}
+\setmonofont{Noto Sans Mono CJK SC}
+```
+
+另外，`Document Settings`--`Language`中可设置语言，以及`xeTeX,utf-8`编码。
+
+可以在`Insert`菜单栏中插入`beamer`特有的格式。
+
+
+## 5 创造一个演示的参考Guidelines for Creating Presentations 
+
+### 组织一个frameStructuring a Frame 
 
 + 使用块环境，例如 `block`, `theorem`, `proof`, `example` 等。
 + 优先使用`enumerations` and `itemize` 而不是纯文本环境。
@@ -42,12 +60,12 @@
 + 除较长的书目外，请勿使用选项`allowframebreaks`。
 + 请勿使用较长的参考书目。
 
-## 9 creating overlays 创建覆盖 
+## 创建覆盖 9 creating overlays  
 
-### Incremental Specifications 递增指定
+### 递增指定 Incremental Specifications 
 
-`+-` 会被替换成一个变量`beamerpauses`的值，它在每张`frame`上重置为`1`，每个overlay specification 使它增加`1`。
-`alert` 表示强调
+`+-` 会被替换成一个变量`beamerpauses`的值，它在每张`frame`上重置为`1`，每个`overlay specification` 使它增加`1`。这样可以方便的实现递增 uncover 效果。
+另外，`alert` 表示强调
 
 ```latex
 \begin{itemize}
