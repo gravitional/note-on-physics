@@ -1,4 +1,4 @@
-# learn.tikz.md
+# tikz_feynman
 
 文档原地址：[tikz-feynman][], 版权归原作者所有，转载请注明
 
