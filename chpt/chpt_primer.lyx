@@ -642,12 +642,20 @@ D_{\mu}q_{f}=\left(\partial_{\mu}+ig\mathcal{A}_{\mu}\right)q_{f}
  & +{\color{blue}\left(\partial_{\mu}U\right)\mathcal{A}_{\nu}U^{\dagger}-\left(\partial_{\nu}U\right)\mathcal{A}_{\mu}U^{\dagger}+U\mathcal{A}_{\nu}\left(\partial_{\mu}U^{\dagger}\right)-U\mathcal{A}_{\mu}\left(\partial_{\nu}U^{\dagger}\right)}\\
  & {\color{red}-\frac{i}{g}\left(\partial_{\mu}\left(U\partial_{\nu}U^{\dagger}\right)-\partial_{\nu}\left(U\partial_{\mu}U^{\dagger}\right)\right)}\\
  & {\color{red}=-\frac{i}{g}\left(\left(\partial_{\mu}U\right)\left(\partial_{\nu}U^{\dagger}\right)-\left(\partial_{\nu}U\right)\left(\partial_{\mu}U^{\dagger}\right)+U\partial_{\mu}\partial_{\nu}U^{\dagger}-U\partial_{\nu}\partial_{\mu}U^{\dagger}\right)=0}\\
- & \text{note:}\left(\partial_{\mu}U\right)\left(\partial_{\nu}U^{\dagger}\right)-\left(\partial_{\nu}U\right)\left(\partial_{\mu}U^{\dagger}\right)=\partial_{\mu}k\partial_{\nu}k-\partial_{\nu}k\partial_{\mu}k=0\\
+\\
  & {\color{blue}+\left[U\mathcal{A}_{\mu}U^{\dagger},U\partial_{\nu}U^{\dagger}\right]+\left[U\partial_{\mu}U^{\dagger},U\mathcal{A}_{\nu}U^{\dagger}\right]={\color{blue}UA_{\mu}\partial_{\nu}U^{\dagger}-UA_{\nu}\partial_{\mu}U^{\dagger}+\partial_{\nu}UA_{\mu}U^{\dagger}-\partial_{\mu}UA_{\nu}U^{\dagger}}}
 \end{align*}
 
 \end_inset
 
+注意，其中
+\begin_inset Formula $\left(\partial_{\mu}U\right)\left(\partial_{\nu}U^{\dagger}\right)-\left(\partial_{\nu}U\right)\left(\partial_{\mu}U^{\dagger}\right)=\partial_{\mu}k\partial_{\nu}k-\partial_{\nu}k\partial_{\mu}k=0,U=\exp\left(\mathbbm{1}+k\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
 在
 \begin_inset Formula $\frac{\lambda_{a}^{c}}{2}$
 \end_inset
@@ -739,7 +747,7 @@ Q_{a}(t) & =-i\int\dif^{3}x\Pi_{i}(x)t_{a,ij}\Phi_{j}(x)
 \end_layout
 
 \begin_layout Standard
-求守恒流动可以用 Gell-Mann and Levy 方法，如果令
+求解守恒流可以用 Gell-Mann and Levy 方法，如果令
 \begin_inset Formula 
 \[
 \Phi_{i}(x)\mapsto\Phi_{i}^{\prime}(x)=\Phi_{i}(x)-i\varepsilon_{a}(x)F_{ai}\left[\Phi(x)\right]
@@ -787,7 +795,576 @@ QCD 拉氏量的偶然全局对称性
 \end_layout
 
 \begin_layout Subsection
+轻夸克和重夸克
+\end_layout
+
+\begin_layout Standard
+六种味道的夸克通常可以分为三味轻夸克
+\begin_inset Formula $u,d,s$
+\end_inset
+
+，以及三味重夸克
+\begin_inset Formula $c,b,t$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+m_{u}=\left(1.7-3.3\right)\MeV\\
+m_{d}=\left(4.1-5.8\right)\MeV\\
+m_{s}=\left(80-130\right)\MeV
+\end{array}\right)\ll1\GeV\le\left(\begin{array}{c}
+m_{c}=1.27_{-0.09}^{+0.07}\GeV\\
+m_{d}=4.19_{-0.06}^{+0.18}\GeV\\
+m_{s}=\left(172.0\pm0.9\pm1.3\right)\GeV
+\end{array}\right)
+\]
+
+\end_inset
+
+而
+\begin_inset Formula $1\GeV$
+\end_inset
+
+与包含轻夸克的最轻的强子的质量有关，也就是，
+\begin_inset Formula $m_{\rho}=770\MeV$
+\end_inset
+
+，它不是来自于真空对称性自发破缺的 Goldstone 玻色子。与对称性自发破缺有关的能标，
+\begin_inset Formula $4\pi F_{\pi}\approx1170\MeV$
+\end_inset
+
+，数量级大致相同。pion 衰变常数不为零是手征对称性自发破缺的充分必要判据。
+\end_layout
+
+\begin_layout Standard
+两个上夸克和一个下夸克的流夸克质量相加，与质子质量
+\begin_inset Formula $m_{p}=938\MeV$
+\end_inset
+
+相比
+\begin_inset Formula 
+\begin{equation}
+m_{p}\gg2m_{u}+m_{d}\label{eq:1.31}
+\end{equation}
+
+\end_inset
+
+说明用流夸克质量参数去诠释质子质量的机制，一定跟氢原子那种情形很不一样。氢原子的质量主要来自于电子加上质子质量，结合能有一个小的修正。在这个语境中，必须区分开流
+夸克质量和非相对论模型中的组分夸克质量，一般是
+\begin_inset Formula $350\MeV$
+\end_inset
+
+。特别地，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.31"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+表明，手征极限
+\begin_inset Formula $m_{u},m_{d},m_{s}\to0$
+\end_inset
+
+情形下，只包含轻夸克的拉氏量
+\begin_inset Formula $\mathcal{L}_{\text{QCD}}^{0}$
+\end_inset
+
+也许是讨论低能QCD的一个很好的开端。
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{\text{QCD}}^{0} & =\sum_{l=u,d,s}\bar{q}_{l}i\slashed{D}q_{l}-\frac{1}{4}\mathcal{G}_{a,\mu\nu}\mathcal{G}_{a}^{\mu\nu}\\
+D_{\mu}q_{f} & \equiv\left(\partial_{\mu}+ig\mathcal{A}_{\mu}\right)q_{f}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+左手和右手夸克场
+\end_layout
+
+\begin_layout Standard
+一个手征（场）变量在宇称变换下，即不变成它自己，也不是它的负数。在宇称变换下，夸克场变成它的宇称共轭，
+\begin_inset Formula 
+\[
+P:q\left(t,\vec{x}\right)\mapsto\gamma^{0}q\left(t,-\vec{x}\right)
+\]
+
+\end_inset
+
+因此
+\begin_inset Formula 
+\[
+q_{R}\left(t,\vec{x}\right)=P_{R}q\left(t,\vec{x}\right)\mapsto P_{R}\gamma^{0}q\left(t,-\vec{x}\right)=\gamma^{0}q_{L}\left(t,-\vec{x}\right)\neq\pm q_{R}\left(t,-\vec{x}\right)
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $q_{L}$
+\end_inset
+
+也是类似的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{q}_{L}$
+\end_inset
+
+实际上的意思是
+\begin_inset Formula $\overline{q_{L}}=\bar{q}P_{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{R}=\frac{1}{2}\left(\mathbbm{1}+\gamma^{5}\right)=p_{R}^{\dagger},\qquad P_{L}=\frac{1}{2}\left(\mathbbm{1}-\gamma^{5}\right)=P_{L}^{\dagger}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\bar{q}\Gamma q=\begin{cases}
+\bar{q}_{R}\Gamma q_{R}+\bar{q}_{L}\Gamma q_{L} & \text{for }\Gamma\in\left\{ \gamma^{\mu},\gamma^{\mu}\gamma^{5}\right\} \\
+\bar{q}_{R}\Gamma q_{L}+\bar{q}_{L}\Gamma q_{R} & \text{for }\Gamma\in\left\{ \mathbbm{1},\gamma^{5},\sigma^{\mu\nu}\right\} 
+\end{cases}\label{eq:1.38}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\begin{align*}
+\bar{q}_{R} & =q_{R}^{\dagger}\gamma^{0}=q^{\dagger}P_{R}^{\dagger}\gamma^{0}=q^{\dagger}P_{R}\gamma^{0}=q^{\dagger}\gamma^{0}P_{L}=\bar{q}p_{L}\\
+\bar{q}_{L} & =\bar{q}P_{R}
+\end{align*}
+
+\end_inset
+
+手征极限下的 QCD Lagrangian 为
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{QCD}}^{0}=\sum_{f=u,d,s}\left(\bar{q}_{R,f}i\slashed{D}q_{R,f}+\bar{q}_{L,f}i\slashed{D}q_{L,f}\right)-\frac{1}{4}\mathcal{G}_{a,\mu\nu}\mathcal{G}_{a}^{\mu\nu}
+\]
+
+\end_inset
+
+由于协变导数的味道无关性，
+\begin_inset Formula $\mathcal{L}_{\text{QCD}}^{0}$
+\end_inset
+
+在下面的变换下是不变的
+\begin_inset Formula 
+\begin{align*}
+\left(\begin{array}{c}
+u_{L}\\
+d_{L}\\
+s_{L}
+\end{array}\right) & \mapsto U_{L}\left(\begin{array}{c}
+u_{L}\\
+d_{L}\\
+s_{L}
+\end{array}\right)=\exp\left(-i\sum_{a=1}^{8}\Theta_{La}\frac{\lambda_{a}}{2}\right)e^{-i\Theta_{L}}\left(\begin{array}{c}
+u_{L}\\
+d_{L}\\
+s_{L}
+\end{array}\right)\\
+\left(\begin{array}{c}
+u_{R}\\
+d_{R}\\
+s_{R}
+\end{array}\right) & \mapsto U_{R}\left(\begin{array}{c}
+u_{R}\\
+d_{R}\\
+s_{R}
+\end{array}\right)=\exp\left(-i\sum_{a=1}^{8}\Theta_{Ra}\frac{\lambda_{a}}{2}\right)e^{-i\Theta_{R}}\left(\begin{array}{c}
+u_{R}\\
+d_{R}\\
+s_{R}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+将
+\begin_inset Formula $U\left(3\right)\times U\left(3\right)$
+\end_inset
+
+变换分解到SU(3)
+\begin_inset Formula $\times$
+\end_inset
+
+SU(3)
+\begin_inset Formula $\times$
+\end_inset
+
+U(1)
+\begin_inset Formula $\times$
+\end_inset
+
+U(1)变换。味道对称性作用在味道空间。我们把
+\begin_inset Formula $\mathcal{L}_{\text{QCD}}^{0}$
+\end_inset
+
+在
+\begin_inset Formula $\text{SU(N)}_{L}\times\text{SU(N)}_{R}$
+\end_inset
+
+（
+\begin_inset Formula $N=2$
+\end_inset
+
+ or 
+\begin_inset Formula $3$
+\end_inset
+
+）下的对称性叫做手征对称性。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{L}_{\text{QCD}}^{0}$
+\end_inset
+
+被称为存在经典的全局
+\begin_inset Formula $\text{U(3)}_{L}\times\text{U(3)}_{R}$
+\end_inset
+
+对称性。应用诺特定理，从这样一个不变性中，我们期待会有总共
+\begin_inset Formula $2\times\left(8+1\right)=18$
+\end_inset
+
+个守恒流。
+\end_layout
+
+\begin_layout Subsection
+诺特定理
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta\mathcal{L}=\varepsilon_{a}\left(\partial_{\mu}J_{a}^{\mu}\right)+\left(\partial_{\mu}\varepsilon_{a}\right)J_{a}^{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+量子场的守恒荷 charge operator 
+\begin_inset Formula $Q_{a}\left(t\right)$
+\end_inset
+
+ 组成一个李代数（非结合代数）
+\begin_inset Formula 
+\[
+\left[Q_{a}\left(t\right),Q_{b}\left(t\right)\right]=-iC_{abc}Q_{c}\left(t\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $C_{abc}$
+\end_inset
+
+是结构常数。对于玻色子场和费米子场都成立。
+\end_layout
+
+\begin_layout Standard
+用一个比较紧凑的形式
+\begin_inset Formula 
+\begin{align}
+ & \left[\Psi^{\dagger}\left(t,\vec{x}\right)\Gamma_{1}F_{1}\Psi\left(t,\vec{x}\right),\Psi^{\dagger}\left(t,\vec{y}\right)\Gamma_{2}F_{2}\Psi\left(t,\vec{y}\right)\right]\nonumber \\
+= & \delta^{3}\left(\vec{x}-\vec{y}\right)\left[\Psi^{\dagger}\left(t,\vec{x}\right)\Gamma_{1}\Gamma_{2}F_{1}F_{2}\Psi\left(t,\vec{y}\right)-\Psi^{\dagger}\left(t,\vec{y}\right)\Gamma_{2}\Gamma_{1}F_{2}F_{1}\Psi\left(t,\vec{x}\right)\right]\label{eq:1.87}
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula $\Gamma_{i}$
+\end_inset
+
+是16个旋量矩阵，
+\begin_inset Formula 
+\[
+\mathbbm{1},\gamma^{\mu},\gamma^{5},\gamma^{\mu}\gamma^{5},\sigma^{\mu\nu}=\frac{i}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula $F_{a}$
+\end_inset
+
+是味道矩阵，
+\begin_inset Formula 
+\[
+\mathbbm{1},\frac{\lambda_{a}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+轻夸克的全局对称性流
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta\mathcal{L}_{\text{QCD}}^{0}=\bar{q}_{R}\left(\sum_{a=1}^{8}\partial_{\mu}\varepsilon_{Ra}\frac{\lambda_{a}}{2}+\partial_{\mu}\varepsilon_{R}\right)\gamma^{\mu}q_{R}+\bar{q}_{L}\left(\sum_{a=1}^{8}\partial_{\mu}\varepsilon_{La}\frac{\lambda_{a}}{2}+\partial_{\mu}\varepsilon_{L}\right)\gamma^{\mu}q_{L}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+L_{a}^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{QCD}}^{0}}{\partial\partial_{\mu}\varepsilon_{La}}=\bar{q}_{L}\gamma^{\mu}\frac{\lambda_{a}}{2}q_{L} & \partial_{\mu}L_{a}^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{QCD}}^{0}}{\partial\varepsilon_{La}}=0\\
+R_{a}^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{QCD}}^{0}}{\partial\partial_{\mu}\varepsilon_{Ra}}=\bar{q}_{R}\gamma^{\mu}\frac{\lambda_{a}}{2}q_{R} & \partial_{\mu}R_{a}^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{QCD}}^{0}}{\partial\varepsilon_{Ra}}=0\\
+L^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{QCD}}^{0}}{\partial\partial_{\mu}\varepsilon_{L}}=\bar{q}_{L}\gamma^{\mu}q_{L} & \partial_{\mu}L^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{QCD}}^{0}}{\partial\varepsilon_{L}}=0\\
+R^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{QCD}}^{0}}{\partial\partial_{\mu}\varepsilon_{Ra}}=\bar{q}_{R}\gamma^{\mu}q_{R} & \partial_{\mu}R^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{QCD}}^{0}}{\partial\varepsilon_{R}}=0
+\end{align*}
+
+\end_inset
+
+其中暗含了对色指标的求和。八个
+\begin_inset Formula $L_{a}^{\mu}$
+\end_inset
+
+流在
+\begin_inset Formula $\text{SU(3)}_{L}\times\text{SU(3)}_{R}$
+\end_inset
+
+变换下按照
+\begin_inset Formula $\left(8,1\right)$
+\end_inset
+
+ 多重态变换，即在在手场变换下 as octet，在右手场变换下 as singlet。右手流类似。
+\end_layout
+
+\begin_layout Standard
+我们经常使用的是它们的线性组合，
+\begin_inset Formula 
+\begin{align*}
+V_{a}^{\mu} & =R_{a}^{\mu}+L_{a}^{\mu}=\bar{q}\gamma^{\mu}\frac{\lambda_{a}}{2}q\\
+A_{a}^{\mu} & =R_{a}^{\mu}-L_{a}^{\mu}=\bar{q}\gamma^{\mu}\gamma^{5}\frac{\lambda_{a}}{2}q
+\end{align*}
+
+\end_inset
+
+在宇称变换下，按照矢量和轴矢量变换
+\begin_inset Formula 
+\begin{align*}
+P: & V_{a}^{\mu}\left(t,\vec{x}\right)\mapsto V_{a\mu}\left(t,-\vec{x}\right)\\
+P: & A_{a}^{\mu}\left(t,\vec{x}\right)\mapsto-A_{a\mu}\left(t,-\vec{x}\right)
+\end{align*}
+
+\end_inset
+
+以及
+\begin_inset Formula 
+\begin{align*}
+V^{\mu} & =R^{\mu}+L^{\mu}=\bar{q}\gamma^{\mu}q\\
+A^{\mu} & =R^{\mu}-L^{\mu}=\bar{q}\gamma^{\mu}\gamma^{5}q
+\end{align*}
+
+\end_inset
+
+由于反常，味道单态矢量流不再守恒
+\begin_inset Formula 
+\[
+\partial_{\mu}A^{\mu}=\frac{3g_{3}^{2}}{32\pi^{2}}\varepsilon_{\mu\nu\rho\sigma}\mathcal{G}_{a}^{\mu\nu}\mathcal{G}_{a}^{\rho\sigma},\quad\varepsilon_{0123}=1
+\]
+
+\end_inset
+
+
+\begin_inset Formula $g_{3}$
+\end_inset
+
+是
+\begin_inset Formula $3$
+\end_inset
+
+味夸克时的耦合常数。
+\end_layout
+
+\begin_layout Subsection
+流代数
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta\mathcal{L}_{\text{QCD}}^{0}$
+\end_inset
+
+在全局
+\begin_inset Formula $\text{SU(3)}_{L}\times\text{SU(3)}_{R}\times\text{U}\left(1\right)_{V}$
+\end_inset
+
+变换下不变，暗示了 QCD 在手征极限下的哈密顿算符 
+\begin_inset Formula $H_{\text{QCD}}^{0}$
+\end_inset
+
+，也展现了一个全局的
+\begin_inset Formula $\text{SU(3)}_{L}\times\text{SU(3)}_{R}\times\text{U}\left(1\right)_{V}$
+\end_inset
+
+对称性。守恒荷算符，定义为守恒流对全空间的积分。
+\begin_inset Formula 
+\begin{align*}
+Q_{La}\left(t\right) & =\int\dif^{3}xq_{L}^{\dagger}\left(t,\vec{x}\right)\frac{\lambda_{a}}{2}q_{L}\left(t,\vec{x}\right)=\int\dif^{3}xq^{\dagger}\left(t,\vec{x}\right)P_{L}\frac{\lambda_{a}}{2}q\left(t,\vec{x}\right)\\
+Q_{Ra}\left(t\right) & =\int\dif^{3}xq_{R}^{\dagger}\left(t,\vec{x}\right)\frac{\lambda_{a}}{2}q_{R}\left(t,\vec{x}\right)=\int\dif^{3}xq^{\dagger}\left(t,\vec{x}\right)P_{R}\frac{\lambda_{a}}{2}q\left(t,\vec{x}\right)\\
+Q_{V}\left(t\right) & =\int\dif^{3}x\left[q_{L}^{\dagger}\left(t,\vec{x}\right)q_{L}\left(t,\vec{x}\right)+q_{R}^{\dagger}\left(t,\vec{x}\right)q_{R}\left(t,\vec{x}\right)\right]=\int\dif^{3}xq^{\dagger}\left(t,\vec{x}\right)q\left(t,\vec{x}\right)
+\end{align*}
+
+\end_inset
+
+对于守恒流，三个算符是时间无关的，也就是与哈密顿对易，
+\begin_inset Formula 
+\[
+\left[Q_{La},H_{\text{QCD}}^{0}\right]=\left[Q_{Ra},H_{\text{QCD}}^{0}\right]=\left[Q_{V},H_{\text{QCD}}^{0}\right]=0
+\]
+
+\end_inset
+
+将
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.87"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 应用到夸克场
+\begin_inset Formula 
+\begin{align*}
+ & \left[q^{\dagger}\left(t,\vec{x}\right)\Gamma_{1}F_{1}q\left(t,\vec{x}\right),q^{\dagger}\left(t,\vec{y}\right)\Gamma_{2}F_{2}q\left(t,\vec{y}\right)\right]\\
+= & \delta^{3}\left(\vec{x}-\vec{y}\right)\left[q^{\dagger}\left(t,\vec{x}\right)\Gamma_{1}\Gamma_{2}F_{1}F_{2}q\left(t,\vec{y}\right)-q^{\dagger}\left(t,\vec{y}\right)\Gamma_{2}\Gamma_{1}F_{2}F_{1}q\left(t,\vec{x}\right)\right]
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\Gamma_{i}$
+\end_inset
+
+是
+\begin_inset Formula $4\times4$
+\end_inset
+
+ gamma 矩阵，
+\begin_inset Formula $F_{i}$
+\end_inset
+
+是
+\begin_inset Formula $3\times3$
+\end_inset
+
+味道矩阵。可以得到，这些守恒荷满足
+\begin_inset Formula $\text{SU(3)}_{L}\times\text{SU(3)}_{R}\times\text{U}\left(1\right)_{V}$
+\end_inset
+
+的李代数，
+\begin_inset Formula 
+\begin{align*}
+\left[Q_{La},Q_{Lb}\right] & =if_{abc}Q_{Lc}\\
+\left[Q_{Ra},Q_{Rb}\right] & =if_{abc}Q_{Rc}\\
+\left[Q_{La},Q_{Rb}\right] & =0,\\
+\left[Q_{La},Q_{V}\right] & =\left[Q_{Ra},Q_{V}\right]=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+应该被强调的是，即使无法接触夸克场的运动方程。从等时对易关系，和 Lagrangian 遵守的对称性，我们就可以知道这些守恒荷满足上面的对易关系。它们是
+ 
+\begin_inset Formula $H_{\text{QCD}}^{0}$
+\end_inset
+
+的希尔伯特空间上，无穷小变换的生成元。此外，它们和一个给定算符
+\begin_inset Formula $\hat{Q}$
+\end_inset
+
+的对易关系，指明了
+\begin_inset Formula $\hat{Q}$
+\end_inset
+
+在
+\begin_inset Formula $\text{SU(3)}_{L}\times\text{SU(3)}_{R}\times\text{U}\left(1\right)_{V}$
+\end_inset
+
+下的变换行为。
+\end_layout
+
+\begin_layout Subsection
 夸克质量破坏手征对称性
+\end_layout
+
+\begin_layout Standard
+from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.38"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\partial_{\mu}V_{a}^{\mu}=i\bar{q}\left[\mathcal{M},\frac{\lambda_{a}}{2}\right]q
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{\mu}A_{a}^{\mu}=i\bar{q}\gamma_{5}\left\{ \frac{\lambda_{a}}{2},\mathcal{M}\right\} q
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{\mu}V^{\mu}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\partial_{\mu}A^{\mu}=2i\bar{q}\gamma^{5}\mathcal{M}q+\frac{3g_{3}^{2}}{32\pi^{2}}\varepsilon_{\mu\nu\rho\sigma}\mathcal{G}_{a}^{\mu\nu}\mathcal{G}_{a}^{\rho\sigma},\quad\varepsilon_{0123}=1\label{eq:1.112}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -951,7 +1528,7 @@ S\left[\Phi,\Phi^{\dagger},j,j^{\dagger},j_{\mu}\right]=S\left[\Phi,\Phi^{\dagge
 
 \end_inset
 
-作用量加上外源耦合项。使用路径积分表示，用处理泛函积分代替处理线性算符。
+作用量加上外源耦合项。在路径积分表示中，我们处理泛函积分，来代替处理线性算符。
 \end_layout
 
 \begin_layout Standard
@@ -990,10 +1567,10 @@ S\left[\Phi,\Phi^{\dagger},j,j^{\dagger},j_{\mu}\right]=S\left[\Phi,\Phi^{\dagge
 \end_layout
 
 \begin_layout Standard
-我们关注那些 色中性，厄米的轻夸克场的二次型，它们在 QCD 真空中求值。根据 LSZ 公式，这些格林函数应该和包含介子的物理过程联系起来，也可以包括
+我们关注那些色中性，厄米的轻夸克场的二次型，它们在 QCD 真空中求值。根据 LSZ 公式，这些格林函数应该和包含介子的物理过程联系起来，也可以包括
  标准模型中的 电弱规范场。
 \color cyan
-结果的翻译取决于这些二次型的变换性质和量子数，来决定它们作为那个介子的插入场 (interpolating field)。
+结果的翻译取决于这些二次型的变换性质和量子数，来决定它们作为哪个介子的插入场 (interpolating field)。
 \end_layout
 
 \begin_layout Standard
@@ -1075,7 +1652,7 @@ G_{APab}^{\mu}\left(x,y\right) & =\bra{0}T\left[A_{a}^{\mu}\left(x\right)P_{b}\l
 \begin_inset Formula $P_{b}\left(y\right)$
 \end_inset
 
-的对易关系。这个对易子的结果反映了理论的地层对称性。第二项中是问题中流算符的散度。如果对称性是精确的，那么这一项为零。如果对称性是近似的，这一项可以看成微扰。一
+的对易关系。这个对易子的结果反映了理论的底层对称性。第二项中是问题中流算符的散度。如果对称性是精确的，那么这一项为零。如果对称性是近似的，这一项可以看成微扰。一
 般的包含守恒流的 Ward 恒等式中会包含 
 \begin_inset Formula $n$
 \end_inset
@@ -1212,17 +1789,56 @@ S_{ab}^{ij}\left(0,\vec{y}\right)=S_{ba}^{ji}\left(0,\vec{y}\right)
 \end_layout
 
 \begin_layout Standard
-所以忽略施温格项的等时对易关系为
+所以忽略施温格项的等时对易关系为（并使用协变的
+\begin_inset Formula $T^{*}$
+\end_inset
+
+编时乘积）
 \begin_inset Formula 
 \begin{align}
 \left[V_{a}^{0}\left(t,\vec{x}\right),V_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}V_{c}^{\mu}\left(t,\vec{x}\right)\label{eq:1.149}\\
 \left[V_{a}^{0}\left(t,\vec{x}\right),V^{\mu}\left(t,\vec{y}\right)\right] & =0\nonumber \\
-\left[V_{a}^{0}\left(t,\vec{x}\right),A_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}A_{c}^{\mu}\left(t,\vec{x}\right)\nonumber 
+\left[V_{a}^{0}\left(t,\vec{x}\right),A_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}A_{c}^{\mu}\left(t,\vec{x}\right)\nonumber \\
+\left[V_{a}^{0}\left(t,\vec{x}\right),S_{b}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}S_{c}\left(t,\vec{x}\right),\quad b=1,\cdots,8\nonumber \\
+\left[V_{a}^{0}\left(t,\vec{x}\right),S_{0}\left(t,\vec{y}\right)\right] & =0\nonumber \\
+\left[V_{a}^{0}\left(t,\vec{x}\right),P_{b}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}P_{c}\left(t,\vec{x}\right),\quad b=1,\cdots,8\nonumber \\
+\left[V_{a}^{0}\left(t,\vec{x}\right),P_{0}\left(t,\vec{y}\right)\right] & =0\nonumber 
 \end{align}
 
 \end_inset
 
+
+\begin_inset Formula 
+\begin{align*}
+\left[A_{a}^{0}\left(t,\vec{x}\right),V_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}A_{c}^{\mu}\left(t,\vec{x}\right)\\
+\left[A_{a}^{0}\left(t,\vec{x}\right),V^{\mu}\left(t,\vec{y}\right)\right] & =0\\
+\left[A_{a}^{0}\left(t,\vec{x}\right),A_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}V_{c}^{\mu}\left(t,\vec{x}\right)\\
+\left[A_{a}^{0}\left(t,\vec{x}\right),S_{b}\left(t,\vec{y}\right)\right] & =i\delta^{3}\left(\vec{x}-\vec{y}\right)\left[\sqrt{\frac{2}{3}}\delta_{ab}P_{0}\left(t,\vec{x}\right)+d_{abc}P_{c}\left(t,\vec{x}\right)\right]\quad b=1,\cdots,8\\
+\left[A_{a}^{0}\left(t,\vec{x}\right),S_{0}\left(t,\vec{y}\right)\right] & =i\delta^{3}\left(\vec{x}-\vec{y}\right)\sqrt{\frac{2}{3}}P_{a}\left(t,\vec{x}\right)\\
+\left[A_{a}^{0}\left(t,\vec{x}\right),P_{b}\left(t,\vec{y}\right)\right] & =-i\delta^{3}\left(\vec{x}-\vec{y}\right)\left[\sqrt{\frac{2}{3}}\delta_{ab}S_{0}\left(t,\vec{x}\right)+d_{abc}S_{c}\left(t,\vec{x}\right)\right],\quad b=1,\cdots,8\\
+\left[A_{a}^{0}\left(t,\vec{x}\right),P_{0}\left(t,\vec{y}\right)\right] & =-i\delta^{3}\left(\vec{x}-\vec{y}\right)\sqrt{\frac{2}{3}}S_{a}\left(t,\vec{x}\right)
+\end{align*}
+
+\end_inset
+
 等等。
+\end_layout
+
+\begin_layout Standard
+比如，
+\backslash
+d
+\begin_inset Formula 
+\begin{align*}
+ & \left[V_{a}^{0}\left(t,\vec{x}\right),V_{b}^{\mu}\left(t,\vec{y}\right)\right]\\
+= & \left[q^{\dagger}\left(t,\vec{x}\right)\mathbbm{1}\frac{\lambda_{a}}{2}q\left(t,\vec{x}\right),q^{\dagger}\left(t,\vec{y}\right)\gamma^{0}\gamma^{\mu}\frac{\lambda_{b}}{2}q\left(t,\vec{y}\right)\right]\\
+= & \delta^{3}\left(\vec{x}-\vec{y}\right)\left[q^{\dagger}\left(t,\vec{x}\right)\gamma^{0}\gamma^{\mu}\frac{\lambda_{a}}{2}\frac{\lambda_{b}}{2}q\left(t,\vec{y}\right)-q^{\dagger}\left(t,\vec{y}\right)\gamma^{0}\gamma^{\mu}\frac{\lambda_{b}}{2}\frac{\lambda_{a}}{2}q\left(t,\vec{x}\right)\right]\\
+= & \delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}V_{c}^{\mu}\left(t,\vec{x}\right)
+\end{align*}
+
+\end_inset
+
+其他的关系类似。
 \end_layout
 
 \begin_layout Subsection
@@ -1274,7 +1890,7 @@ noprefix "false"
 \begin_inset Formula 
 \begin{align*}
 \mathcal{L}_{\text{ext}} & =\sum_{a=1}^{8}v_{a}^{\mu}\bar{q}\gamma_{\mu}\frac{\lambda_{a}}{2}q+\frac{1}{3}v_{(s)}^{\mu}\bar{q}\gamma_{\mu}\mathbbm{1}q+\sum_{a=1}^{8}a_{a}^{\mu}\bar{q}\gamma_{\mu}\gamma_{5}\frac{\lambda_{a}}{2}q\\
- & -\sum_{a=1}^{8}S_{a}\bar{q}\lambda_{a}q+\sum_{a=1}^{8}p_{a}i\bar{q}\gamma_{5}\lambda_{a}q\\
+ & -\sum_{a=0}^{8}s_{a}\bar{q}\lambda_{a}q+\sum_{a=0}^{8}p_{a}i\bar{q}\gamma_{5}\lambda_{a}q\\
 = & \bar{q}\gamma_{\mu}\left(v^{\mu}+\frac{1}{3}v_{(s)}^{\mu}+\gamma_{5}a^{\mu}\right)q-\bar{q}\left(s-i\gamma_{5}p\right)q
 \end{align*}
 
@@ -1500,10 +2116,10 @@ r_{\mu}=v_{\mu}+a_{\mu},\qquad l_{\mu}=v_{\mu}-a_{\mu}
 
 可以把拉氏量重新写成
 \begin_inset Formula 
-\begin{align*}
-\mathcal{L} & =\mathcal{L}_{\text{QCD}}^{0}+\bar{q}_{L}\gamma^{\mu}\left(l_{\mu}+\frac{1}{3}v_{\mu(s)}\right)q_{L}+\bar{q}_{R}\gamma^{\mu}\left(r_{\mu}+\frac{1}{3}v_{\mu(s)}\right)q_{R}\\
- & -\bar{q}_{R}\left(s+ip\right)q_{L}-\bar{q}_{L}\left(s-ip\right)q_{R}
-\end{align*}
+\begin{align}
+\mathcal{L} & =\mathcal{L}_{\text{QCD}}^{0}+\bar{q}_{L}\gamma^{\mu}\left(l_{\mu}+\frac{1}{3}v_{\mu(s)}\right)q_{L}+\bar{q}_{R}\gamma^{\mu}\left(r_{\mu}+\frac{1}{3}v_{\mu(s)}\right)q_{R}\label{eq:1.161}\\
+ & -\bar{q}_{R}\left(s+ip\right)q_{L}-\bar{q}_{L}\left(s-ip\right)q_{R}\nonumber 
+\end{align}
 
 \end_inset
 
@@ -1562,7 +2178,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-把不变性定域化有另一个好处，也就是利用迁移到之后的有效场论中。比如，把点状的基本粒子耦合到电磁场，来自于把 U(1) 群规范化。这里U(1) 群被理解为定域
+把不变性定域化有另一个好处，也就是利于迁移到之后的有效场论中。比如，把点状的基本粒子耦合到电磁场，来自于把 U(1) 群规范化。这里U(1) 群被理解为定域
  
 \begin_inset Formula $SU(3)_{L}\times SU(3)_{R}$
 \end_inset
@@ -1636,12 +2252,660 @@ r_{\mu}=l_{\mu}=-e\mathcal{A}_{\mu}\frac{\tau_{3}}{2},\qquad v_{\mu}^{(s)}=-\fra
  的基上。以后直接对应到低能介子场和重子场。
 \end_layout
 
+\begin_layout Standard
+在描述半轻子相互作用，比如
+\begin_inset Formula $\pi^{-}\to\mu^{-}\bar{\nu}_{\mu},\quad\pi^{-}\to\pi^{0}e^{-}\bar{\nu}_{e}$
+\end_inset
+
+时，或者重子衰变
+\begin_inset Formula $n\to pe^{-}\bar{\nu}_{e}$
+\end_inset
+
+，将会需要夸克和带质量带电玻色子
+\begin_inset Formula $\mathcal{W}_{\mu}^{\pm}=\left(\mathcal{W}_{1\mu}\mp i\mathcal{W}_{2\mu}\right)/\sqrt{2}$
+\end_inset
+
+的相互作用,
+\begin_inset Formula 
+\begin{equation}
+r_{\mu}=0,\qquad l_{\mu}=-\frac{g}{\sqrt{2}}\left(\mathcal{W}_{\mu}^{+}T_{+}+\text{H.c.}\right)\label{eq:1.166}
+\end{equation}
+
+\end_inset
+
+这里的
+\begin_inset Formula $\text{H.c.}$
+\end_inset
+
+表示厄米共轭，and 
+\begin_inset Formula 
+\[
+T_{+}=\left(\begin{array}{ccc}
+0 & V_{ud} & V_{us}\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+这里，
+\begin_inset Formula $V_{ij}$
+\end_inset
+
+表示 Cabibbo-Kobayashi-Maskawa 夸克混合矩阵，描述QCD质量本征态和弱相互作用本征态之间的变换
+\begin_inset Formula 
+\[
+\abs{V_{ud}}=0.97425\pm0.00022,\quad\abs{V_{us}}=0.2252\pm0.0009
+\]
+
+\end_inset
+
+在微扰理论的最低阶，Fermi 常数可以和规范耦合常数
+\begin_inset Formula $g$
+\end_inset
+
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+ 质量联系起来，
+\begin_inset Formula 
+\[
+G_{F}=\sqrt{2}\frac{g^{2}}{8M_{W}^{2}}=1.16637\left(1\right)\times10^{-5}\GeV^{-2}
+\]
+
+\end_inset
+
+利用
+\begin_inset Formula 
+\begin{align*}
+\bar{q}_{L}\gamma^{\mu}{\color{red}\mathcal{W}_{\mu}^{+}T_{+}}q_{L} & =\mathcal{W}_{\mu}^{+}\left(\begin{array}{ccc}
+\bar{u} & \bar{d} & \bar{s}\end{array}\right)P_{R}\gamma^{\mu}\left(\begin{array}{ccc}
+0 & V_{ud} & V_{us}\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}\right)P_{L}\left(\begin{array}{c}
+u\\
+d\\
+s
+\end{array}\right)\\
+ & =\mathcal{W}_{\mu}^{+}\left(\begin{array}{ccc}
+\bar{u} & \bar{d} & \bar{s}\end{array}\right)\gamma^{\mu}\frac{1}{2}\left(\mathbbm{1}-\gamma^{5}\right)\left(\begin{array}{c}
+V_{ud}d+V_{us}s\\
+0\\
+0
+\end{array}\right)\\
+ & =\frac{1}{2}\mathcal{W}_{\mu}^{+}\left[V_{ud}\bar{u}\gamma^{\mu}\left(\mathbbm{1}-\gamma^{5}\right)d+V_{us}\bar{u}\gamma^{\mu}\left(\mathbbm{1}-\gamma^{5}\right)s\right]
+\end{align*}
+
+\end_inset
+
+我们看到把
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.166"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 插入到 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.161"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中，就得到了标准的轻夸克部分的带电流弱相互作用，
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{ext}}=-\frac{g}{2\sqrt{2}}\left\{ \mathcal{W}_{\mu}^{+}\left[V_{ud}\bar{u}\gamma^{\mu}\left(\mathbbm{1}-\gamma^{5}\right)d+V_{us}\bar{u}\gamma^{\mu}\left(\mathbbm{1}-\gamma^{5}\right)s\right]+\text{H.c.}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于中性弱相互作用的情形，情况稍微不同。这里，三种味道的版本，需要
+\begin_inset Formula $Z$
+\end_inset
+
+玻色子和单态轴矢流的耦合，而由于
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.112"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\partial_{\mu}A^{\mu}=2i\bar{q}\gamma^{5}\mathcal{M}q+\frac{3g_{3}^{2}}{32\pi^{2}}\varepsilon_{\mu\nu\rho\sigma}\mathcal{G}_{a}^{\mu\nu}\mathcal{G}_{a}^{\rho\sigma},\quad\varepsilon_{0123}=1
+\]
+
+\end_inset
+
+带来的反常，我们之前的讨论中不包括单态轴矢量。另一方面，在两味轻夸克的版本，axial-vector current 是无迹的，所以我们有
+\begin_inset Formula 
+\begin{align*}
+r_{\mu} & =e\tan\left(\theta_{w}\right)\mathcal{Z}_{\mu}\frac{\tau_{3}}{2}\\
+l_{\mu} & =-\frac{g}{\cos\left(\theta_{w}\right)}\mathcal{Z}_{\mu}\frac{\tau_{3}}{2}+e\tan\left(\theta_{w}\right)\mathcal{Z}_{\mu}\frac{\tau_{3}}{2}\\
+v_{\mu}^{\left(s\right)} & =\frac{e\tan\left(\theta_{w}\right)}{2}\mathcal{Z}_{\mu}
+\end{align*}
+
+\end_inset
+
+这里
+\begin_inset Formula $\theta_{w}$
+\end_inset
+
+是 weak angle。使用这些外场，我们得到标准的 weak neutral-current 相互作用
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{\text{ext}} & =-\frac{g}{2\cos\left(\theta_{w}\right)}\mathcal{Z}_{\mu}\Big(\bar{u}\gamma^{\mu}\left\{ \frac{1}{2}-\frac{4}{3}\sin^{2}\left(\theta_{w}\right)\mathbbm{1}-\frac{1}{2}\gamma^{5}\right\} u\\
+ & +\bar{d}\gamma^{\mu}\left\{ \left[-\frac{1}{2}+\frac{2}{3}\sin^{2}\left(\theta_{w}\right)\right]\mathbbm{1}+\frac{1}{2}\gamma^{5}\right\} d\Big)
+\end{align*}
+
+\end_inset
+
+其中使用了
+\begin_inset Formula $e=g\sin\left(\theta_{w}\right)$
+\end_inset
+
+。
+\end_layout
+
 \begin_layout Chapter
 对称性自发破缺和哥德斯通定理
 \end_layout
 
 \begin_layout Section
 简并的真空态
+\end_layout
+
+\begin_layout Standard
+在考虑连续对称性之前，我们先考虑一个离散的内部对称性。这能够使我们区分两种可能，一个基态唯一动力学系统和一个具有简并的不同的真空态的系统。特别的，我们会看到，对
+于第二种情形，一个无穷小的扰动，将会选择一个特定的真空。
+\end_layout
+
+\begin_layout Standard
+为达到这个目标，我们选择一个 real scalar filed 
+\begin_inset Formula $\Phi\left(x\right)$
+\end_inset
+
+的 Lagrangian
+\begin_inset Formula 
+\[
+\mathcal{L}\left(\Phi,\partial_{\mu}\Phi\right)=\frac{1}{2}\partial_{\mu}\Phi\partial^{\mu}\Phi-\frac{m^{2}}{2}\Phi^{2}-\frac{\lambda}{4}\Phi^{4}
+\]
+
+\end_inset
+
+在离散变换：
+\begin_inset Formula $R:\Phi\mapsto-\Phi$
+\end_inset
+
+下是不变的。对应的经典能量密度是
+\begin_inset Formula 
+\[
+\mathcal{H}=\Pi\dot{\Phi}-\mathcal{L}=\frac{1}{2}\dot{\Phi}^{2}+\frac{1}{2}\left(\vec{\nabla}\Phi\right)^{2}+\underbrace{\frac{m^{2}}{2}\Phi^{2}+\frac{\lambda}{4}\Phi^{4}}_{\equiv\mathcal{V}\left(\Phi\right)}
+\]
+
+\end_inset
+
+其中我们选择了
+\begin_inset Formula $\lambda>0$
+\end_inset
+
+，所以
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+是有下界的。场的极值点一定是常数（constant and uniform），这样前两项为零，同时必须使后一项取极小值，即
+\begin_inset Formula 
+\[
+\mathcal{V}^{\prime}\left(\Phi\right)=\Phi\left(m^{2}+\lambda\Phi^{2}\right)=0
+\]
+
+\end_inset
+
+现在需要分类讨论：
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $m^{2}>0$
+\end_inset
+
+, see 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:2.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:在这种情况下，势能
+\begin_inset Formula $\mathcal{V}\left(\Phi\right)$
+\end_inset
+
+的极小值在
+\begin_inset Formula $\Phi=0$
+\end_inset
+
+。在量子化之后的理论中，基态
+\begin_inset Formula $\ket{0}$
+\end_inset
+
+是唯一的。在之后连续对称性的情形中，这种情况被称为对称性的 Wigner-Weyl 实现。
+\end_layout
+
+\begin_layout Enumerate
+如果
+\begin_inset Formula $m^{2}<0$
+\end_inset
+
+ see 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:2.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:现在势能有两个极小值点，在连续情形下，这种情况被称为对称性的 Nambu-Goldstone 实现。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted10.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wigner-Weyl mode
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:2.1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted11.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Nambu-Goldstone mode 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:2.2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们将集中注意力在第二种情况上，因为我们想把它推广到连续情形，最终导致 Goldstone-boson 的产生。在第二情况中，两个极小值为
+\begin_inset Formula 
+\[
+\Phi_{\pm}=\pm\sqrt{\frac{-m^{2}}{\lambda}}\equiv\pm\Phi_{0}
+\]
+
+\end_inset
+
+量子化之后，会出现两个能量简并的真空态，它们是通过
+\begin_inset Formula $\Phi\left(x\right)$
+\end_inset
+
+的真空期望值来区分的：
+\begin_inset Formula 
+\begin{align}
+\bra{0,+}\Phi\left(x\right)\ket{0,+} & =\bra{0,+}e^{iP\cdot x}\Phi\left(0\right)e^{-iP\cdot x}\ket{0,+}=\bra{0,+}\Phi\left(0\right)\ket{0,+}\equiv\Phi_{0}\nonumber \\
+\bra{0,-}\Phi\left(x\right)\ket{0,-} & =-\Phi_{0}\label{eq:2.4}
+\end{align}
+
+\end_inset
+
+其中使用了平移不变性：
+\begin_inset Formula $\Phi\left(x\right)=e^{iP\cdot x}\Phi\left(0\right)e^{-iP\cdot x}$
+\end_inset
+
+，以及基态是能动量的本征态。我们把变换
+\begin_inset Formula $R:\Phi\mapsto-\Phi$
+\end_inset
+
+和此模型的希尔伯特空间上的幺正算符
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+联系起来
+\begin_inset Formula 
+\[
+\mathcal{R}^{2}=I,\quad\mathcal{R}=\mathcal{R}^{-1}=\mathcal{R}^{\dagger}
+\]
+
+\end_inset
+
+与
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 一致，
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+对真空的作用为
+\begin_inset Formula 
+\[
+\mathcal{R}\ket{0,\pm}=\ket{0,\mp}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们可以选择一个特定的真空，将 了Lagrangian对它展开：
+\begin_inset Formula 
+\begin{align*}
+\Phi & =\pm\Phi_{0}+\Phi^{\prime}\\
+\partial_{\mu}\Phi & =\partial_{\mu}\Phi^{\prime}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{L}^{\prime}\left(\Phi^{\prime},\partial_{\mu}\Phi^{\prime}\right)=\frac{1}{2}\partial_{\mu}\Phi^{\prime}\partial^{\mu}\Phi^{\prime}-\frac{1}{2}\left(-2m^{2}\right)\Phi^{\prime2}\mp\lambda\Phi_{0}\Phi^{\prime3}-\frac{\lambda}{4}\Phi^{\prime4}+\frac{\lambda}{4}\Phi_{0}^{4}
+\]
+
+\end_inset
+
+使用新动力学变量
+\begin_inset Formula $\Phi^{\prime}$
+\end_inset
+
+，对称性
+\begin_inset Formula $R$
+\end_inset
+
+不在明显，也就是说，它被隐藏起来了。选择一个特定的基态将导致对称性自发破缺，这总是与真空简并联系到一起的。
+\end_layout
+
+\begin_layout Standard
+现在还不清楚，量子系统的真空会是其中哪一个，或者干脆是两个的叠加
+\begin_inset Formula 
+\[
+\frac{1}{\sqrt{2}}\left(\ket{0,+}+\ket{0,-}\right)
+\]
+
+\end_inset
+
+在
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+变换下是不变的。但是这样简并的真空对于任何无穷小的外部扰动是不稳定的，如果扰动对于
+\begin_inset Formula $\Phi$
+\end_inset
+
+是奇数的
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:2.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{R}\varepsilon H^{\prime}\mathcal{R}^{\dagger}=-\varepsilon H^{\prime}
+\]
+
+\end_inset
+
+任何这样的扰动将会把基态驱动到
+\begin_inset Formula $\ket{0,+}$
+\end_inset
+
+ or 
+\begin_inset Formula $\ket{0,-}$
+\end_inset
+
+ 之一，而不会是
+\begin_inset Formula $\frac{1}{\sqrt{2}}\left(\ket{0,+}\pm\ket{0,-}\right)$
+\end_inset
+
+。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted12.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+奇次方扰动
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:2.3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+通过简并态的微扰框架，很容易看到。考虑：
+\begin_inset Formula 
+\[
+\ket{1}=\frac{1}{\sqrt{2}}\left(\ket{0,+}+\ket{0,-}\right),\quad\ket{2}=\frac{1}{\sqrt{2}}\left(\ket{0,+}-\ket{0,-}\right)
+\]
+
+\end_inset
+
+则
+\begin_inset Formula 
+\[
+\mathcal{R}\ket{1}=\ket{1},\quad\mathcal{R}\ket{2}=-\ket{2}
+\]
+
+\end_inset
+
+基态的能量展开
+\begin_inset Formula $E=E^{\left(0\right)}+E^{\left(1\right)}+\cdots$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\det\left(\begin{array}{cc}
+\bra{1}H^{\prime}\ket{1}-E^{\left(1\right)} & \bra{1}H^{\prime}\ket{2}\\
+\bra{2}H^{\prime}\ket{1} & \bra{2}H^{\prime}\ket{2}-E^{\left(1\right)}
+\end{array}\right)=0
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula $\mathcal{R}\ket{0,\pm}=\ket{0,\mp}$
+\end_inset
+
+，可以知道
+\begin_inset Formula 
+\[
+\bra{1}H^{\prime}\ket{1}=\bra{1}\mathcal{R}^{-1}\mathcal{R}H^{\prime}\mathcal{R}^{-1}\mathcal{R}\ket{1}=\bra{1}-H^{\prime}\ket{1}=0
+\]
+
+\end_inset
+
+类似地
+\begin_inset Formula $\bra{2}H^{\prime}\ket{2}=0$
+\end_inset
+
+。令
+\begin_inset Formula $\bra{1}H^{\prime}\ket{2}=a>0$
+\end_inset
+
+，总能通过乘上适当的相位做到，则
+\begin_inset Formula 
+\[
+\bra{2}H^{\prime}\ket{1}\stackrel{H^{\prime}=H^{\prime\dagger}}{=}\bra{1}H^{\prime}\ket{2}^{*}=a^{*}=a=\bra{1}H^{\prime}\ket{2}
+\]
+
+\end_inset
+
+导致
+\begin_inset Formula 
+\[
+\det\left(\begin{array}{cc}
+-E^{\left(1\right)} & a\\
+a & -E^{\left(1\right)}
+\end{array}\right)=E^{\left(1\right)2}-a^{2}=0\qquad\Rightarrow E^{\left(1\right)}=\pm a
+\]
+
+\end_inset
+
+换句话说，简并被分开了，我们得到了能量本征值
+\begin_inset Formula 
+\[
+E=E^{\left(0\right)}\pm\varepsilon a+\cdots
+\]
+
+\end_inset
+
+在
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+阶，对应的本征态分别是
+\begin_inset Formula $\ket{0,+},\ket{0,-}$
+\end_inset
+
+。因此我们总结到，任意无穷小的奇次方扰动，将把基态推向
+\begin_inset Formula $\ket{0,+}$
+\end_inset
+
+ or 
+\begin_inset Formula $\ket{0,-}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+在上面的讨论中，我们默认了在真空态中，
+\begin_inset Formula $\Phi\left(x\right)$
+\end_inset
+
+可以和哈密顿同时对角化，也就是说
+\begin_inset Formula $\bra{0,+}\ket{0,-}=0$
+\end_inset
+
+。下面来证明这一点。
 \end_layout
 
 \begin_layout Standard
@@ -4142,6 +5406,17 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U\left(x\right)=\exp\left(i\frac{\phi\left(x\right)}{F_{0}}\right)\label{eq:3.41}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 在手征极限下，我们想让有效拉氏量在
 \begin_inset Formula $SU(3)_{L}\times SU(3)_{R}\times U(1)_{V}$
 \end_inset
@@ -4164,9 +5439,27 @@ noprefix "false"
 
 可以求出相应的守恒流为
 \begin_inset Formula 
-\[
-J_{Aa}^{\mu}=-i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}\left\{ \mathbbm{1}+\cdots,-i\frac{\partial_{\mu}\phi_{b}\lambda_{b}}{F_{0}}+\cdots\right\} \right)=-F_{0}\partial^{\mu}\phi_{a}+\cdots
-\]
+\begin{align}
+J_{La}^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{eff}}}{\partial\partial_{\mu}\varepsilon_{La}}=i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}\partial^{\mu}U^{\dagger}U\right)\nonumber \\
+J_{Ra}^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{eff}}}{\partial\partial_{\mu}\varepsilon_{Ra}}=-i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}U\partial^{\mu}U^{\dagger}\right)\label{eq:3.48}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+J_{Va}^{\mu} & =J_{Ra}^{\mu}+J_{La}^{\mu}=-i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}\left[U,\partial^{\mu}U^{\dagger}\right]\right)\\
+J_{Aa}^{\mu} & =J_{Ra}^{\mu}-J_{La}^{\mu}=-i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}\left\{ U,\partial^{\mu}U^{\dagger}\right\} \right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+J_{Aa}^{\mu} & =-i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}\left\{ \mathbbm{1}+\cdots,-i\frac{\partial_{\mu}\phi_{b}\lambda_{b}}{F_{0}}+\cdots\right\} \right)=-F_{0}\partial^{\mu}\phi_{a}+\cdots
+\end{align*}
 
 \end_inset
 
@@ -4363,7 +5656,7 @@ noprefix "false"
 \begin_inset Formula $B_{0}$
 \end_inset
 
-和 scalar singlet quark condensate 联系到一起
+和 标量单态夸克凝聚 联系到一起
 \begin_inset Formula 
 \[
 3F_{0}^{2}B_{0}=-\langle\bar{q}q\rangle_{0}
@@ -4691,7 +5984,7 @@ f_{L\mu\nu} & \equiv\partial_{\mu}l_{\nu}-\partial_{\nu}l_{\mu}-i\left[l_{\mu},l
 另外一般还使用
 \begin_inset Formula 
 \begin{align*}
-x & \equiv2B_{0}\left(s+ip\right)\\
+\chi & \equiv2B_{0}\left(s+ip\right)\\
 3F_{0}^{2}B_{0} & =-\langle\bar{q}q\rangle_{0}
 \end{align*}
 
@@ -5242,6 +6535,2069 @@ name "tab:在对称群"
 的耦合。
 \end_layout
 
+\begin_layout Standard
+在手征微扰理论的 counting scheme 下，这些构成单元 count as,
+\begin_inset Formula 
+\begin{equation}
+U=\mathcal{O}\left(q^{0}=1\right),\quad D_{\mu}U=\mathcal{O}\left(q\right),\quad r_{\mu},l_{\mu}=\mathcal{O}\left(q\right),\quad f_{L/R_{\mu\nu}}=\mathcal{O}\left(q^{2}\right),\quad\chi=\mathcal{O}\left(q^{2}\right)\label{eq:3.69}
+\end{equation}
+
+\end_inset
+
+外场
+\begin_inset Formula $r_{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $l_{\mu}$
+\end_inset
+
+ 记成
+\begin_inset Formula $\mathcal{O}\left(q\right)$
+\end_inset
+
+是为了匹配
+\begin_inset Formula $\partial_{\mu}A$
+\end_inset
+
+（协变偏导），
+\begin_inset Formula $\chi=2B_{0}\left(s+ip\right)$
+\end_inset
+
+记成
+\begin_inset Formula $\mathcal{O}\left(q^{2}\right)$
+\end_inset
+
+是因为
+\begin_inset Formula 
+\begin{align*}
+M_{\pi}^{2} & =2B_{0}\hat{m}\\
+M_{K}^{2} & =B_{0}\left(\hat{m}+m_{s}\right)\\
+M_{\eta}^{2} & =\frac{2}{3}B_{0}\left(\hat{m}+2m_{s}\right)
+\end{align*}
+
+\end_inset
+
+把
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.69"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的模块中作适当组合，求迹，就得到了有效拉氏量，当然，也考虑洛伦兹不变性，CP宇称。
+\end_layout
+
+\begin_layout Standard
+在最低阶，可能的三项是：
+\begin_inset Formula 
+\begin{align*}
+ & \tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]\\
+ & \tr\left[\chi U^{\dagger}\pm U\chi^{\dagger}\right]
+\end{align*}
+
+\end_inset
+
+在宇称变换下，
+\begin_inset Formula $\chi\stackrel{P}{\to}\chi^{\dagger},U\stackrel{P}{\to}U^{\dagger}$
+\end_inset
+
+，所以第二项中减号的宇称不对。最终，在最低阶，最一般的 locally invariant, effective Lagrangian 是
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}_{2}=\frac{F_{0}^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]+\frac{F_{0}^{2}}{4}\tr\left[\chi U^{\dagger}\pm U\chi^{\dagger}\right]\label{eq:3.77}
+\end{equation}
+
+\end_inset
+
+在
+\begin_inset Formula $\mathcal{O}\left(q^{2}\right)$
+\end_inset
+
+它包含两个低能常数：SU(3) 手征极限下的 Goldstone-boson 衰变常数
+\begin_inset Formula $F_{0}$
+\end_inset
+
+，以及
+\begin_inset Formula $B_{0}=-\bra{0}\bar{q}q\ket{0}_{0}/\left(3F_{0}^{2}\right)$
+\end_inset
+
+（隐藏在
+\begin_inset Formula $\chi$
+\end_inset
+
+的定义中）。
+\end_layout
+
+\begin_layout Standard
+运动方程
+\begin_inset Formula 
+\[
+\mathcal{O}_{\text{EOM}}^{\left(2\right)}\left(U\right)\equiv D^{2}UU^{\dagger}-U\left(D^{2}U\right)^{\dagger}-\chi U^{\dagger}+U\chi^{\dagger}+\frac{1}{3}\tr\left(\chi U^{\dagger}-U\chi^{\dagger}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+最低阶的应用：Pion Decay
+\end_layout
+
+\begin_layout Standard
+如果能确定
+\begin_inset Formula $F_{0}$
+\end_inset
+
+，那么Lagrangian 
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.77"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 将具有预言能力。这个 LEC 可以通过 pion 的若衰变确定下来，
+\begin_inset Formula $\pi^{+}\to\mu^{+}\nu_{\mu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+用标准模型的自由度说，组成
+\begin_inset Formula $\pi^{+}$
+\end_inset
+
+的
+\begin_inset Formula $u$
+\end_inset
+
+,
+\begin_inset Formula $\bar{d}$
+\end_inset
+
+夸克，湮灭到一个
+\begin_inset Formula $W^{+}$
+\end_inset
+
+玻色子，然后传播，再在末态产生轻子
+\begin_inset Formula $\nu_{\mu}$
+\end_inset
+
+ and 反轻子 
+\begin_inset Formula $\mu^{+}$
+\end_inset
+
+。
+\begin_inset Formula $W$
+\end_inset
+
+玻色子和轻子和耦合是
+\begin_inset Formula 
+\[
+\mathcal{L}=-\frac{g}{2\sqrt{2}}\left[\mathcal{W}_{\rho}^{+}\bar{\nu}_{\mu}\gamma^{\rho}\left(\mathbbm{1}-\gamma^{5}\right)\mu+\mathcal{W}_{\rho}^{-}\bar{u}\gamma^{\rho}\left(\mathbbm{1}-\gamma^{5}\right)\nu_{\mu}\right]
+\]
+
+\end_inset
+
+它们与夸克组成的 Goldstone-boson 的相互作用，可以通过将
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.166"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $r_{\mu}=0,\qquad l_{\mu}=-\frac{g}{\sqrt{2}}\left(\mathcal{W}_{\mu}^{+}T_{+}+\text{H.c.}\right)$
+\end_inset
+
+插入到 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.77"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{L}_{2}=\frac{F_{0}^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]+\frac{F_{0}^{2}}{4}\tr\left[\chi U^{\dagger}\pm U\chi^{\dagger}\right]
+\]
+
+\end_inset
+
+中得到。让我们考虑
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.77"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的第一项，并令
+\begin_inset Formula $r_{\mu}=0$
+\end_inset
+
+ ，暂不代入
+\begin_inset Formula $l_{\mu}$
+\end_inset
+
+的具体形式。
+\end_layout
+
+\begin_layout Standard
+使用
+\begin_inset Formula $D_{\mu}U=\partial_{\mu}U+iUl_{\mu}$
+\end_inset
+
+，得到线性项为
+\begin_inset Formula 
+\[
+\frac{F_{0}^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]=i\frac{F_{0}^{2}}{2}\tr\left(l_{\mu}\partial^{\mu}U^{\dagger}U\right)+\cdots
+\]
+
+\end_inset
+
+如果参数化
+\begin_inset Formula 
+\[
+l_{\mu}=\sum_{a=1}^{8}l_{\mu a}\frac{\lambda_{a}}{2}
+\]
+
+\end_inset
+
+线性依赖于
+\begin_inset Formula $l_{\mu}$
+\end_inset
+
+的相互作用项为
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{int}}=\sum_{a=1}^{8}l_{\mu a}\left[i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}\partial^{\mu}U^{\dagger}U\right)\right]=\sum_{a=1}^{8}l_{\mu a}J_{La}^{\mu}
+\]
+
+\end_inset
+
+其中使用了 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.48"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.41"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+J_{La}^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{eff}}}{\partial\partial_{\mu}\varepsilon_{La}}=i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}\partial^{\mu}U^{\dagger}U\right)\\
+J_{Ra}^{\mu} & =\frac{\partial\delta\mathcal{L}_{\text{eff}}}{\partial\partial_{\mu}\varepsilon_{Ra}}=-i\frac{F_{0}^{2}}{4}\tr\left(\lambda_{a}U\partial^{\mu}U^{\dagger}\right)\\
+U\left(x\right) & =\exp\left(i\frac{\phi\left(x\right)}{F_{0}}\right)
+\end{align*}
+
+\end_inset
+
+展开到
+\begin_inset Formula $\phi$
+\end_inset
+
+的第一阶得到
+\begin_inset Formula 
+\[
+J_{La}^{\mu}=\frac{F_{0}}{2}\partial^{\mu}\phi_{a}+\mathcal{O}\left(\phi^{2}\right)
+\]
+
+\end_inset
+
+所以我们能得到矩阵元为
+\begin_inset Formula 
+\[
+\bra{0}J_{La}^{\mu}\left(0\right)\ket{\phi_{b}\left(p\right)}=\frac{F_{0}}{2}\bra{0}\partial^{\mu}\phi_{a}\left(0\right)\ket{\phi_{b}\left(p\right)}=-ip^{\mu}\frac{F_{0}}{2}\delta_{ab}
+\]
+
+\end_inset
+
+代入
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.166"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $r_{\mu}=0,\qquad l_{\mu}=-\frac{g}{\sqrt{2}}\left(\mathcal{W}_{\mu}^{+}T_{+}+\text{H.c.}\right)$
+\end_inset
+
+，我们发现单个 Goldstone-boson 和
+\begin_inset Formula $W$
+\end_inset
+
+的相互作用为
+\begin_inset Formula 
+\[
+\mathcal{L}_{W\phi}=\frac{F_{0}}{2}\tr\left(l_{\mu}\partial^{\mu}\phi\right)=-\frac{g}{\sqrt{2}}\frac{F_{0}}{2}\tr\left[\left(\mathcal{W}_{\mu}^{+}T_{+}+\mathcal{W}_{\mu}^{-}T_{-}\right)\partial^{\mu}\phi\right]
+\]
+
+\end_inset
+
+因此，我们需要计算
+\begin_inset Formula 
+\begin{align*}
+\tr\left[T_{+}\partial^{\mu}\phi\right] & =\tr\left[\left(\begin{array}{ccc}
+0 & V_{ud} & V_{us}\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}\right)\partial^{\mu}\left(\begin{array}{ccc}
+\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{+} & \sqrt{2}K^{+}\\
+\sqrt{2}\pi^{-} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
+\sqrt{2}K^{-} & \sqrt{2}\bar{K}^{0} & -\frac{2}{\sqrt{3}}\eta
+\end{array}\right)\right]\\
+ & =V_{ud}\sqrt{2}\partial^{\mu}\pi^{-}+V_{us}\sqrt{2}\partial^{\mu}K^{-}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\tr\left[T_{-}\partial^{\mu}\phi\right] & =\tr\left[\left(\begin{array}{ccc}
+0 & 0 & 0\\
+V_{ud} & 0 & 0\\
+V_{us} & 0 & 0
+\end{array}\right)\partial^{\mu}\left(\begin{array}{ccc}
+\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{+} & \sqrt{2}K^{+}\\
+\sqrt{2}\pi^{-} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
+\sqrt{2}K^{-} & \sqrt{2}\bar{K}^{0} & -\frac{2}{\sqrt{3}}\eta
+\end{array}\right)\right]\\
+ & =V_{ud}\sqrt{2}\partial^{\mu}\pi^{+}+V_{us}\sqrt{2}\partial^{\mu}K^{+}
+\end{align*}
+
+\end_inset
+
+其中，CMK矩阵元都是实数。所以我们得到相互作用项为，
+\begin_inset Formula 
+\[
+\mathcal{L}_{W\phi}=-g\frac{F_{0}}{2}\left[\mathcal{W}_{\mu}^{+}\left(V_{ud}\partial^{\mu}\pi^{-}+V_{us}\partial^{\mu}K^{-}\right)+\mathcal{W}_{\mu}^{-}\left(V_{ud}\partial^{\mu}\pi^{+}+V_{us}\partial^{\mu}K^{+}\right)\right]
+\]
+
+\end_inset
+
+展开郎道规范下的
+\begin_inset Formula $W$
+\end_inset
+
+玻色子传播子
+\begin_inset Formula 
+\[
+\frac{-g_{\mu\nu}+\frac{k_{\mu}k_{\nu}}{M_{W}^{2}}}{k^{2}-M_{W}^{2}}=\frac{g_{\mu\nu}}{M_{W}^{2}}+O\left(\frac{k_{\rho}k_{\sigma}}{M_{W}^{4}}\right)
+\]
+
+\end_inset
+
+忽略
+\begin_inset Formula $\left(\text{动量}/M_{W}\right){}^{2}$
+\end_inset
+
+的高阶项，weak pion decay 的洛伦兹不变的振幅，其形式为
+\begin_inset Formula 
+\begin{align*}
+\mathcal{M} & =i\left[-\frac{g}{2\sqrt{2}}\bar{u}\left(\nu_{\mu}\right)\gamma^{\rho}\left(\mathbbm{1}-\gamma^{5}\right)\nu\left(\mu^{+}\right)\right]\frac{ig_{\rho\sigma}}{M_{W}^{2}}i\left[-g\frac{F_{0}}{2}V_{ud}\left(-ip^{\sigma}\right)\right]\\
+ & =-G_{F}V_{ud}F_{0}\bar{u}\left(\nu_{\mu}\right)\slashed{p}\left(\mathbbm{1}-\gamma^{5}\right)\nu\left(\mu^{+}\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $p$
+\end_inset
+
+是 pion 的四动量，
+\begin_inset Formula $G_{F}$
+\end_inset
+
+是费米常数。对应的衰变率是
+\begin_inset Formula 
+\[
+\Gamma=\frac{1}{\tau}=\frac{G_{F}^{2}V_{ud}^{2}}{4\pi}F_{0}^{2}M_{\pi}m_{\mu}^{2}\left(1-\frac{m_{\mu}^{2}}{M_{\pi}^{2}}\right)^{2}
+\]
+
+\end_inset
+
+常数
+\begin_inset Formula $F_{0}$
+\end_inset
+
+被称为三味手征极限下的 pion-decay constant。它度量轴矢流算符在真空和 Goldstone-boson 单粒子态之间的矩阵元的强度。
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.29"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bra{0}A_{a}^{\mu}\ket{\phi_{b}}=ip^{\mu}F_{0}\delta_{ab}
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula $W$
+\end_inset
+
+玻色子和夸克的作用是
+\begin_inset Formula $V-A$
+\end_inset
+
+型，矢量流算符对真空和单个 pion态的矩阵元不贡献，所以 pion 完全是由矢量流决定的。在 next to leading order, 
+\begin_inset Formula $\mathcal{O}\left(q^{4}\right)$
+\end_inset
+
+，单个衰变常数
+\begin_inset Formula $F_{0}$
+\end_inset
+
+的简并被去除。实验（empirical）数据是
+\begin_inset Formula $F_{\pi}=92.4\MeV,F_{K}=113\MeV$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+最低阶应用：pion-pion 散射
+\end_layout
+
+\begin_layout Standard
+既然 LEC 
+\begin_inset Formula $F_{0}$
+\end_inset
+
+ 被确认是手征极限下的 pion-decay 常数，我们现在展示最低阶拉氏量如何预言 Goldstone-bosons 反应的 protorype，也就是
+ 
+\begin_inset Formula $\pi\pi$
+\end_inset
+
+ 散射。
+\end_layout
+
+\begin_layout Standard
+考虑
+\begin_inset Formula $\text{SU}\left(2\right)_{L}\times\text{SU}\left(2\right)_{R}$
+\end_inset
+
+sector with 
+\begin_inset Formula $r_{\mu}=l_{\mu}=0$
+\end_inset
+
+ 时的 Lagrangian 
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{L}_{2}=\frac{F_{0}^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]+\frac{F_{0}^{2}}{4}\tr\left[\chi U^{\dagger}+U\chi^{\dagger}\right]
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+\chi=2B\mathcal{M}=2B\left(\begin{array}{cc}
+\hat{m} & 0\\
+0 & \hat{m}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+U=\exp\left(i\frac{\phi}{F}\right),\quad\phi=\sum_{i=1}^{3}\phi_{i}\tau_{i}\equiv\left(\begin{array}{cc}
+\pi^{0} & \sqrt{2}\pi^{+}\\
+\sqrt{2}\pi^{-} & -\pi^{0}
+\end{array}\right)
+\]
+
+\end_inset
+
+in 
+\begin_inset Formula $\text{SU}\left(2\right)_{L}\times\text{SU}\left(2\right)_{R}$
+\end_inset
+
+sector ，通常不带下标表示手征极限下的量，即
+\begin_inset Formula $F$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+。它的意思是
+\begin_inset Formula $m_{u}=m_{d}=0$
+\end_inset
+
+，而
+\begin_inset Formula $m_{s}$
+\end_inset
+
+取它的物理质量。在
+\begin_inset Formula $\text{SU}\left(3\right)_{L}\times\text{SU}\left(3\right)_{R}$
+\end_inset
+
+sector，
+\begin_inset Formula $F_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{0}$
+\end_inset
+
+ 表示 
+\begin_inset Formula $m_{u}=m_{d}=m_{s}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+使用
+\begin_inset Formula $U\leftrightarrow U^{\dagger}$
+\end_inset
+
+，可以证明
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+只包含
+\begin_inset Formula $\phi$
+\end_inset
+
+的偶数此方。
+\begin_inset Formula 
+\[
+\mathcal{L}_{2}=\mathcal{L}_{2}^{2\phi}=\mathcal{L}_{2}^{4\phi}+\cdots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+由于不包含三个 Goldstone-boson 顶点，所以两个 Goldstone-boson 的散射使用 四–Goldstone-boson
+ 接触相互作用描述，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:3.6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{L}_{2}^{4\phi}=\frac{1}{48F^{2}}\left[\tr\left(\left[\phi,\partial_{\mu}\phi\right]\left[\phi,\partial^{\mu}\phi\right]\right)+2B\tr\left(\mathcal{M}\phi^{4}\right)\right]
+\]
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted13.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+fig 3.6,
+\begin_inset Formula $\pi\pi$
+\end_inset
+
+散射的最低阶费曼图。顶点处的
+\begin_inset Formula $2$
+\end_inset
+
+表示顶点是从
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+中推导出来的。
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:3.6"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+使用展开
+\begin_inset Formula 
+\[
+U=\mathbbm{1}+i\frac{\phi}{F}-\frac{1}{2}\frac{\phi^{2}}{F^{2}}-\frac{1}{6}\frac{\phi^{3}}{F^{3}}+\frac{1}{24}\frac{\phi^{4}}{F^{4}}+\cdots
+\]
+
+\end_inset
+
+只要作替换
+\begin_inset Formula $F\to F_{0},B\to B_{0}$
+\end_inset
+
+，以及相关的
+\begin_inset Formula $\phi$
+\end_inset
+
+ and夸克质量矩阵
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+，
+\begin_inset Formula $\text{SU}\left(3\right)_{L}\times\text{SU}\left(3\right)_{R}$
+\end_inset
+
+情形下的表达式是相同的。
+\end_layout
+
+\begin_layout Enumerate
+插入
+\begin_inset Formula $\phi=\phi_{i}\tau_{i}$
+\end_inset
+
+，计算 trace，相互作用拉氏量为
+\begin_inset Formula 
+\[
+\mathcal{L}_{2}^{4\phi}=\frac{1}{6F^{2}}\left(\phi_{i}\partial^{\mu}\phi_{i};\partial_{\mu}\phi_{j};\phi_{j}-\phi_{i}\phi_{i}\partial_{\mu}\phi_{j};\partial^{\mu}\phi_{j}\right)+\frac{M^{2}}{24F^{2}}\phi_{i}\phi_{i}\phi_{j}\phi_{j}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $M^{2}=2B\hat{m}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+从
+\begin_inset Formula $\mathcal{L}_{2}^{4\phi}$
+\end_inset
+
+，推导出对于 Cartesian 同位旋坐标，入射pions 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+，出射 pions 
+\begin_inset Formula $c$
+\end_inset
+
+ and 
+\begin_inset Formula $d$
+\end_inset
+
+，费曼规则为
+\begin_inset Formula 
+\begin{align}
+\mathcal{M} & =i\left[\delta_{ab}\delta_{cd}\frac{s-M^{2}}{F^{2}}+\delta_{ac}\delta_{bd}\frac{t-M^{2}}{F^{2}}+\delta_{ad}\delta_{bc}\frac{u-M^{2}}{F^{2}}\right]\nonumber \\
+ & -\frac{i}{3F^{2}}\left(\delta_{ab}\delta_{cd}+\delta_{ac}\delta_{bd}+\delta_{ad}\delta_{bc}\right)\left(\Lambda_{a}+\Lambda_{b}+\Lambda_{c}+\Lambda_{d}\right)\label{eq:3.90}
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula $\Lambda_{k}=p_{k}^{2}-M^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $s,t,u$
+\end_inset
+
+ 是 Mandelstam 变量
+\begin_inset Formula 
+\begin{align*}
+s & =\left(p_{a}+p_{b}\right)^{2},\quad t=\left(p_{a}-p_{c}\right)^{2}\quad u=\left(p_{a}-p_{d}\right)^{2}\\
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Mandelstam 变量满足 
+\begin_inset Formula $s+t+u=p_{a}^{2}+p_{b}^{2}+p_{c}^{2}+p_{d}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中散射过程
+\begin_inset Formula $\pi_{a}\left(p_{a}\right)+\pi_{b}\left(p_{b}\right)\to\pi_{c}\left(p_{c}\right)+\pi_{d}\left(p_{d}\right)$
+\end_inset
+
+的
+\begin_inset Formula $T$
+\end_inset
+
+–矩阵元（
+\begin_inset Formula $\mathcal{M}=iT$
+\end_inset
+
+）可以参数化成
+\begin_inset Formula 
+\begin{equation}
+T_{ab;cd}\left(p_{a},p_{b};p_{c},p_{d}\right)=\delta_{ab}\delta_{cd}A\left(s,t,u\right)+\delta_{ac}\delta_{bd}A\left(t,s,u\right)+\delta_{ad}\delta_{bc}A\left(u,t,s\right)\label{eq:3.91}
+\end{equation}
+
+\end_inset
+
+其中的函数
+\begin_inset Formula $A$
+\end_inset
+
+满足
+\begin_inset Formula $A\left(s,t,u\right)=A\left(s,u,t\right)$
+\end_inset
+
+。由于外线满足在壳条件，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.90"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的第二行等于零，at 
+\begin_inset Formula $\mathcal{O}\left(q^{2}\right)$
+\end_inset
+
+，
+\begin_inset Formula $A$
+\end_inset
+
+的预测为
+\begin_inset Formula 
+\begin{equation}
+A\left(s,t,u\right)=\frac{s-m_{\pi}^{2}}{F_{\pi}^{2}}\label{eq:3.92}
+\end{equation}
+
+\end_inset
+
+in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.92"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，我们替换了
+\begin_inset Formula $F$
+\end_inset
+
+ to 
+\begin_inset Formula $F_{\pi}$
+\end_inset
+
+,
+\begin_inset Formula $M$
+\end_inset
+
+ to 
+\begin_inset Formula $M_{\pi}$
+\end_inset
+
+，因为
+\begin_inset Formula $T$
+\end_inset
+
+的差别在
+\begin_inset Formula $\mathcal{O}\left(q^{4}\right)$
+\end_inset
+
+ 。
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.92"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 说明了 Goldstone-boson 相互作用的一个一般性质。如果我们考虑理论极限：
+\begin_inset Formula $M_{\pi}^{2},s,t,u\to0$
+\end_inset
+
+，
+\begin_inset Formula $T\to$
+\end_inset
+
+0。换句话说，Goldstone-boson 相互作用在零能量和零质量极限下消失。
+\end_layout
+
+\begin_layout Standard
+通常，
+\begin_inset Formula $\pi\pi$
+\end_inset
+
+散射按照它的同位旋分解讨论。由于 pions 组成了同位旋三重态，初末态的两个同位旋矢量可能结合成
+\begin_inset Formula $I=0,1,2$
+\end_inset
+
+。对于
+\begin_inset Formula $m_{u}=m_{d}=\hat{m}$
+\end_inset
+
+，强相互作用在同位旋变换下不变，暗示了散射矩阵元可以分解成
+\begin_inset Formula 
+\[
+\bra{I^{\prime},I_{3}^{\prime}}T\ket{I,I_{3}}=T^{I}\delta_{II^{\prime}}\delta_{I_{3}I_{3}^{\prime}}
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $\pi\pi$
+\end_inset
+
+散射的情形，三个同位旋振幅由
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.91"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的不变振幅 
+\begin_inset Formula $A$
+\end_inset
+
+给出
+\begin_inset Formula 
+\begin{align*}
+T^{I=0} & =3A\left(s,t,u\right)+A\left(t,u,s\right)+A\left(u,s,t\right)\\
+T^{I=1} & =A\left(t,u,s\right)-A\left(u,s,t\right)\\
+T^{I=2} & =A\left(t,u,s\right)+A\left(u,s,t\right)
+\end{align*}
+
+\end_inset
+
+例如，物理的
+\begin_inset Formula $\pi^{+}\pi^{+}$
+\end_inset
+
+散射过程由
+\begin_inset Formula $T^{I=2}$
+\end_inset
+
+描述。其他过程可以通过适当的 Clebsch-Gordan 系数组合得到。
+\end_layout
+
+\begin_layout Standard
+在 threshold 计算
+\begin_inset Formula $T$
+\end_inset
+
+矩阵，得到
+\begin_inset Formula $s$
+\end_inset
+
+–wave 
+\begin_inset Formula $\pi\pi$
+\end_inset
+
+–散射波长
+\begin_inset Formula 
+\[
+\left. T^{I=0}\right|_{\text{thr}}=32\pi a_{0}^{0},\quad\left.T^{I=2}\right|_{\text{thr}}=32\pi a_{0}^{2}
+\]
+
+\end_inset
+
+其中下标
+\begin_inset Formula $0$
+\end_inset
+
+表示
+\begin_inset Formula $s$
+\end_inset
+
+–波散射，上标表示同位旋（由于 Bose 对称性，
+\begin_inset Formula $\left.T^{I=1}\right|_{\text{thr}}=0$
+\end_inset
+
+）。ChPT 中散射波长的约定跟通常有效范围展开中的定义差一个
+\begin_inset Formula $\left(-M_{\pi}\right)$
+\end_inset
+
+因子。流代数的预测和 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.92"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的最低阶结果相同
+\begin_inset Formula 
+\begin{equation}
+a_{0}^{0}=\frac{7M_{\pi}^{2}}{32\pi F_{\pi}^{2}}=0.159,\qquad a_{0}^{2}=-\frac{M_{\pi}^{2}}{16\pi F_{\pi}^{2}}=-0.0454\label{eq:3.96}
+\end{equation}
+
+\end_inset
+
+其中我们使用了数值
+\begin_inset Formula $F_{\pi}=92.4\MeV$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{\pi}=M_{\pi^{+}}=139.57\MeV$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.96"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 代表了手征对称性的确定性预测。一旦
+\begin_inset Formula $F_{\pi}$
+\end_inset
+
+知道了（从 pion decay），散射波长就可以预测。我们还会回到
+\begin_inset Formula $\pi\pi$
+\end_inset
+
+散射，在 sec.3.5.4，考虑高阶修正。
+\end_layout
+
+\begin_layout Standard
+在两味的情形下，有时使用另一种参数化更方便(称为平方根参数化)
+\begin_inset Formula 
+\[
+U\left(x\right)=\frac{1}{F}\left[\sigma\left(x\right)\mathbbm{1}+i\vec{\pi}\left(x\right)\cdot\vec{\tau}\right],\qquad\sigma\left(x\right)=\sqrt{F^{2}-\vec{\pi}^{2}\left(x\right)}
+\]
+
+\end_inset
+
+两种参数化可以非线性的联系起来，
+\begin_inset Formula 
+\[
+\frac{\vec{\pi}}{F}=\hat{\phi}\sin\left(\frac{\abs{\vec{\phi}}}{F}\right)=\frac{\vec{\phi}}{F}\left(1-\frac{1}{6}\frac{\vec{\phi}^{2}}{F^{2}}+\cdots\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exercise 3.17 三种味道的计算类似。在同位旋情形下，
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{2}^{4\phi} & =-\frac{1}{6F^{2}}\left(\phi_{a}\partial_{\mu}\phi_{b}\phi_{c}\partial^{\mu}\phi_{d}f_{abe}f_{cde}\right)+\frac{\left(2\hat{m}+m_{s}\right)B_{0}}{36F_{0}^{2}}\phi_{a}\phi_{a}\phi_{b}\phi_{b}\\
+ & +\frac{\left(\hat{m}-m_{s}\right)B_{0}}{12\sqrt{3}F_{0}^{2}}\left(\frac{2}{3}\phi_{8}\phi_{a}\phi_{b}\phi_{c}d_{abc}+\phi_{a}\phi_{a}\phi_{b}\phi_{c}d_{bc8}\right)
+\end{align*}
+
+\end_inset
+
+Hint:
+\begin_inset Formula 
+\begin{align*}
+ & d_{abe}f_{ecd}+d_{bce}f_{ead}+d_{cae}f_{ebd}=0\\
+ & d_{abe}d_{cde}=\frac{1}{3}\left(\delta_{ac}\delta_{bd}+\delta_{ad}\delta_{bc}-\delta_{ab}\delta_{cd}+f_{ace}f_{bde}+f_{ade}f_{bce}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+最低阶应用：康普顿散射
+\end_layout
+
+\begin_layout Standard
+Exercise 3.18 我们将研究反应 
+\begin_inset Formula $\gamma\left(q\right)+\pi^{+}\left(p\right)\to\gamma\left(q^{\prime}\right)+\pi^{+}\left(p^{\prime}\right)$
+\end_inset
+
+ at lowest order in the momentum expansion 
+\begin_inset Formula $\mathcal{O}\left(q^{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+考虑
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+的第一项
+\begin_inset Formula 
+\[
+\mathcal{L}_{2}=\frac{F_{0}^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]+\frac{F_{0}^{2}}{4}\tr\left[\chi U^{\dagger}\pm U\chi^{\dagger}\right]
+\]
+
+\end_inset
+
+并作替换
+\begin_inset Formula 
+\[
+r_{\mu}=l_{\mu}=-e\mathcal{A}_{\mu}Q,\quad Q=\left(\begin{array}{ccc}
+\frac{2}{3} & 0 & 0\\
+0 & -\frac{1}{3} & 0\\
+0 & 0 & -\frac{1}{3}
+\end{array}\right),\quad e>0,\quad\frac{e^{2}}{4\pi}\approx\frac{1}{137}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{A}_{\mu}$
+\end_inset
+
+是厄米的（外部）电磁四矢量势（see 1.164）
+\begin_inset Formula 
+\[
+r_{\mu}=l_{\mu}=-e\mathcal{A}_{\mu}Q
+\]
+
+\end_inset
+
+then
+\begin_inset Formula 
+\begin{align*}
+D_{\mu}U & =\partial_{\mu}U+ie\mathcal{A}_{\mu}\left[Q,U\right]\\
+\left(D_{\mu}U\right)^{\dagger} & =\partial_{\mu}U^{\dagger}+ie\mathcal{A}_{\mu}\left[Q,U^{\dagger}\right]
+\end{align*}
+
+\end_inset
+
+使用替换
+\begin_inset Formula $U\leftrightarrow U^{\dagger}$
+\end_inset
+
+，可以证明得到的 Lagrangians 只包含偶数个 Goldstone-boson fields.
+\end_layout
+
+\begin_layout Enumerate
+将 1.
+ 中的结果插入到
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+，验证
+\begin_inset Formula 
+\begin{align*}
+\frac{F_{0}^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right] & =\frac{F_{0}^{2}}{4}\tr\left[\partial_{\mu}U\partial^{\mu}U^{\dagger}\right]-ie\mathcal{A}_{\mu}\frac{F_{0}^{2}}{2}\tr\left(Q\left[\partial^{\mu}U,U^{\dagger}\right]\right)\\
+ & -e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\frac{F_{0}^{2}}{4}\tr\left(\left[Q,U\right]\left[Q,U^{\dagger}\right]\right)
+\end{align*}
+
+\end_inset
+
+Hint: 
+\begin_inset Formula $U\partial^{\mu}U^{\dagger}=-\partial^{\mu}UU^{\dagger}$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial^{\mu}U^{\dagger}U=-U^{\dagger}\partial^{\mu}U$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+第二项描述和单个光子的相互作用，第三项描述和两个光子的相互作用
+\end_layout
+
+\begin_layout Enumerate
+使用
+\begin_inset Formula $U=\exp\left(i\phi/F_{0}\right)=\mathbbm{1}+i\phi/F_{0}-\phi^{2}/\left(2F_{0}^{2}\right)+\cdots$
+\end_inset
+
+，提出这些相互作用项中只包含两个 Goldstone-bosons 的部分：
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{2}^{A-2\Phi} & =-e\mathcal{A}_{\mu}\frac{i}{2}\tr\left(Q\left[\partial^{\mu}\phi,\phi\right]\right)\\
+\mathcal{L}_{2}^{2A-2\Phi} & =-\frac{1}{4}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\tr\left(\left[Q,\phi\right]\left[Q,\phi\right]\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+插入
+\begin_inset Formula $\phi$
+\end_inset
+
+ 的物理表示
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.37"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\phi=\sum_{a=1}^{8}\phi_{a}\lambda_{a}\equiv\left(\begin{array}{ccc}
+\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{-} & \sqrt{2}K^{+}\\
+\sqrt{2}\pi^{+} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
+\sqrt{2}K^{-} & \sqrt{2}\bar{K}^{0} & \frac{-2}{\sqrt{3}}\eta
+\end{array}\right)
+\]
+
+\end_inset
+
+验证中间步骤
+\begin_inset Formula 
+\begin{align*}
+\left(\left[\partial^{\mu}\phi,\phi\right]\right)_{11} & =2\left(\partial^{\mu}\pi^{+}\pi^{-}-\pi^{+}\partial^{\mu}\pi^{-}+\partial^{\mu}K^{+}K^{-}-K^{+}\partial^{\mu}K^{-}\right)\\
+\left(\left[\partial^{\mu}\phi,\phi\right]\right)_{22} & =2\left(\partial^{\mu}\pi^{-}\pi^{+}-\pi^{-}\partial^{\mu}\pi^{+}+\partial^{\mu}K^{0}\bar{K}^{0}-K^{0}\partial^{\mu}\bar{K}^{0}\right)\\
+\left(\left[\partial^{\mu}\phi,\phi\right]\right)_{33} & =2\left(\partial^{\mu}K^{-}K^{+}-K^{-}\partial^{\mu}K^{+}+\partial^{\mu}\bar{K}^{0}\bar{K}^{0}-\bar{K}^{0}\partial^{\mu}K^{0}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left[Q,\phi\right] & =\sqrt{2}\left(\begin{array}{ccc}
+0 & \pi^{+} & K^{+}\\
+-\pi^{-} & 0 & 0\\
+-K^{-} & 0 & 0
+\end{array}\right),\\
+\left[Q,\phi\right]\left[Q,\phi\right] & =-2\left(\begin{array}{ccc}
+\pi^{+}\pi^{-}+K^{+}K^{-} & 0 & 0\\
+0 & \pi^{-}\pi^{+} & \pi^{-}K^{+}\\
+0 & K^{-}\pi^{+} & K^{-}K^{+}
+\end{array}\right).
+\end{align*}
+
+\end_inset
+
+现在证明
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{2}^{A-2\Phi} & =-ie\mathcal{A}_{\mu}\left(\partial^{\mu}\pi^{+}\pi^{-}-\pi^{+}\partial^{\mu}\pi^{-}+\partial^{\mu}K^{+}K^{-}-K^{+}\partial^{\mu}K^{-}\right)\\
+\mathcal{L}_{2}^{2A-2\Phi} & =e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\tr\left(\pi^{+}\pi^{-}+K^{+}K^{-}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+对应的费曼规则为
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{2}^{A-2\Phi} & \Rightarrow\text{vertex for }\gamma\left(q,\varepsilon\right)+\pi^{\pm}\left(p\right)\to\pi^{\pm}\left(p^{\prime}\right):\mp ie\varepsilon\cdot\left(p+p^{\prime}\right)\\
+\mathcal{L}_{2}^{2A-2\Phi} & \Rightarrow\text{vertex for }\gamma\left(q,\varepsilon\right)+\pi^{\pm}\left(p\right)\to\gamma\left(q^{\prime},\varepsilon^{\prime}\right)+\pi^{\pm}\left(p^{\prime}\right):2ie^{2}\varepsilon^{\prime*}\cdot\varepsilon
+\end{align*}
+
+\end_inset
+
+对 Kaons 类似。动量为
+\begin_inset Formula $p$
+\end_inset
+
+的内线由传播子
+\begin_inset Formula $i/\left(p^{2}-M^{2}+i0^{+}\right)$
+\end_inset
+
+表示。写出 康普顿散射振幅：
+\begin_inset Formula $\gamma\left(q,\varepsilon\right)+\pi^{+}\left(p\right)\to\gamma\left(q^{\prime},\varepsilon^{\prime}\right)+\pi^{+}\left(p^{\prime}\right)$
+\end_inset
+
+:
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted14.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Compton scattering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+验证规范不变性，通过替换
+\begin_inset Formula $\varepsilon\to q$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+验证矩阵元在
+\begin_inset Formula $\left(q,\varepsilon\right)\leftrightarrow\left(-q^{\prime},\varepsilon^{\prime*}\right)$
+\end_inset
+
+下不变（光子交叉）。
+\end_layout
+
+\begin_layout Subsection
+维数正规化
+\end_layout
+
+\begin_layout Standard
+在 1960s，当发展了唯象（phenomenological Lagrangians）用来作为流代数技术的替代工具时，通常认为这样的 Lagrangians
+ 只能用在树图阶。例如，in Ref,
+\begin_inset CommandInset href
+LatexCommand href
+name "88"
+target "https://doi.org/10.1016/S0375-9474(01)01287-8"
+literal "false"
+
+\end_inset
+
+ Schwinger 指出了重点，“在‘最低阶’使用耦合项是没啥好疑问的，这就是数值的有效拉氏量的本质，它可以直接描述现象。”然而，通过 Weinberg
+ 的开创性工作，
+\begin_inset CommandInset href
+LatexCommand href
+name "100"
+target "https://doi.org/10.1016/0378-4371(79)90223-1"
+literal "false"
+
+\end_inset
+
+，人们甚至可以计算对唯象拉氏量的量子修正。引自 ref.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ref 101"
+literal "false"
+
+\end_inset
+
+:消除紫外线发散并不真正取决于重整化； 只要我们包括了对称性所允许的无限多的相互作用中的每一个，那么所谓的不可重整化理论实际上就和可重整化理论一样可重整。”如果
+我们在树图阶之外使用 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.77"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{L}_{2}=\frac{F_{0}^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]+\frac{F_{0}^{2}}{4}\tr\left[\chi U^{\dagger}\pm U\chi^{\dagger}\right]$
+\end_inset
+
+ ，我们会遇到来自圈积分的紫外发散。对于圈图的正规化我们使用维数正规化，因为它保持格林函数之间的代数关系（Ward identities）。如果
+ sect.3.5.1 讨论的，无穷会被吸收进最一般 Lagrangian 的耦合常数的重整化中。
+\end_layout
+
+\begin_layout Standard
+为了完成，我们简单阐述以下维数正规化的方法，让我们考虑积分
+\begin_inset Formula 
+\begin{equation}
+I=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-M^{2}+i0^{+}}\label{eq:3.98}
+\end{equation}
+
+\end_inset
+
+它出现在一般的费曼图
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:3.7"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中，我们引入
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted16.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+generic 单圈图：黑色盒子表示未确定的顶点结构，但是不影响这里的讨论
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:3.7"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a\equiv\sqrt{\vec{k}^{2}+M^{2}}>0
+\]
+
+\end_inset
+
+则
+\begin_inset Formula 
+\begin{align*}
+k^{2}-M^{2}+i0^{+} & =k_{0}^{2}-\vec{k}^{2}-M^{2}+i0^{+}=k_{0}^{2}-a^{2}+i0^{+}=k_{0}^{2}-\left(a-i0^{+}\right)^{2}\\
+ & =\left[k_{0}+\left(a-i0^{+}\right)\right]\left[k_{0}-\left(a-i0^{+}\right)\right]
+\end{align*}
+
+\end_inset
+
+并定义
+\begin_inset Formula 
+\[
+f\left(k_{0}\right)=\frac{1}{\left[k_{0}+\left(a-i0^{+}\right)\right]\left[k_{0}-\left(a-i0^{+}\right)\right]}
+\]
+
+\end_inset
+
+为了确定
+\begin_inset Formula $\int_{-\infty}^{+\infty}\dif k_{0}f\left(k_{0}\right)$
+\end_inset
+
+，作为计算
+\begin_inset Formula $I$
+\end_inset
+
+中的一部分，我们考虑
+\begin_inset Formula $k_{0}$
+\end_inset
+
+的复平面，使用 Cauchy's 定理
+\begin_inset Formula 
+\begin{equation}
+\oint_{C}\dif zf\left(z\right)=0\label{eq:3.99}
+\end{equation}
+
+\end_inset
+
+对于闭合积分回路
+\begin_inset Formula $C$
+\end_inset
+
+中任何一点都可微的函数。我我们选择 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:3.8"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的积分路径
+\begin_inset Formula 
+\begin{equation}
+0=\sum_{i=1}^{4}\int_{\gamma_{i}}\dif zf\left(z\right)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted17.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $k_{0}$
+\end_inset
+
+复平面的积分路径
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:3.8"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+并使用
+\begin_inset Formula 
+\[
+\int_{\gamma}\dif zf\left(z\right)=\int_{a}^{b}\dif tf\left[\gamma\left(t\right)\right]\gamma^{\prime}\left(t\right)
+\]
+
+\end_inset
+
+来单独求解每部分积分：
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma_{1}\left(t\right)=t,\gamma_{1}^{\prime}\left(t\right)=1,a=-\infty,b=\infty$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\int_{\gamma_{1}}\dif zf\left(z\right)=\int_{-\infty}^{+\infty}\dif tf\left[t\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma_{2}\left(t\right)=Re^{it},\gamma_{2}^{\prime}\left(t\right)=iRe^{it},a=0,b=\frac{\pi}{2}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\int_{\gamma_{2}}\dif zf\left(z\right)=\lim_{R\to\infty}\int_{-0}^{\frac{\pi}{2}}\dif tf\left[Re^{it}\right]iRe^{it}=0,\text{ because }\lim_{R\to\infty}\underbrace{Rf\left(Re^{it}\right)}_{\sim\frac{1}{R}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma_{3}\left(t\right)=it,\gamma_{3}^{\prime}\left(t\right)=i,a=\infty,b=-\infty$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\int_{\gamma_{3}}\dif zf\left(z\right)=i\int_{\infty}^{-\infty}\dif tf\left[if\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma_{4}\left(t\right)=Re^{it},\gamma_{3}^{\prime}\left(t\right)=iRe^{it},a=\frac{3}{2}\pi,b=\pi$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\int_{\gamma_{4}}\dif zf\left(z\right)=0\text{ 类比于\gamma_{2}}
+\]
+
+\end_inset
+
+无穷远处的四分圆并不贡献，因为当
+\begin_inset Formula $\abs{z}\to\infty$
+\end_inset
+
+时，函数
+\begin_inset Formula $f\left(z\right)$
+\end_inset
+
+衰减的够快。结合
+\begin_inset Formula $\oint_{C}\dif zf\left(z\right)=0$
+\end_inset
+
+我们得到 Wick 转动
+\begin_inset Formula 
+\begin{equation}
+\int_{-\infty}^{+\infty}\dif tf\left(t\right)=-i\int_{+\infty}^{-\infty}\dif tf\left(it\right)=i\int_{-\infty}^{+\infty}\dif tf\left(it\right)\label{eq:3.100}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+作为一个中间结果，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.98"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的积分变成
+\begin_inset Formula 
+\begin{align}
+I & =\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-M^{2}+i0^{+}}\nonumber \\
+ & =\frac{1}{\left(2\pi\right)^{4}}i\int_{-\infty}^{+\infty}\dif k_{0}\int\dif^{3}k\frac{i}{\left(ik_{0}\right)^{2}-\vec{k}^{2}-M^{2}+i0^{+}}=\int\frac{\dif^{4}l}{\left(2\pi\right)^{4}}\frac{1}{l^{2}+M^{2}-i0^{+}}\label{eq:3.101}
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula $l^{2}=l_{1}^{2}+l_{2}^{2}+l_{3}^{2}+l_{4}^{2}$
+\end_inset
+
+表示欧几里得空间的表量积。在这个特殊情况，积分没有 pole，我们可以忽略
+\begin_inset Formula $-i0^{+}$
+\end_inset
+
+，它给出原积分与边界条件一致的 poles 的位置。完成四维角度部分的积分（see Exercise 3.20）并对轴向积分引入一个截断
+\begin_inset Formula $\Lambda$
+\end_inset
+
+，积分
+\begin_inset Formula $I$
+\end_inset
+
+对于大的
+\begin_inset Formula $l$
+\end_inset
+
+平方发散（紫外发散）：
+\begin_inset Formula 
+\begin{align*}
+I\left(\Lambda\right) & =\frac{1}{8\pi^{2}}\int_{0}^{\Lambda}\dif l\frac{l^{3}}{l^{2}+M^{2}}=\frac{\Lambda^{2}}{\left(4\pi\right)^{2}}+\frac{M^{2}}{\left(4\pi\right)^{2}}\ln\left(\frac{M^{2}}{\Lambda^{2}+M^{2}}\right)\\
+ & =\frac{M^{2}}{\left(4\pi\right)^{2}}\left[\frac{1}{x^{2}}+\ln\left(x^{2}\right)-\ln\left(1+x^{2}\right)\right]
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $x^{2}=M^{2}/\Lambda^{2}\to0$
+\end_inset
+
+ as 
+\begin_inset Formula $\Lambda\to\infty$
+\end_inset
+
+。发散的程度可以简单通过计数动量的幂次估计。如果积分的渐近性为是
+\begin_inset Formula $\int\dif^{4}l/l^{2},\int\dif^{4}l/l^{3},\int\dif^{4}l/l^{4}$
+\end_inset
+
+，那么分别被称为 平方发散，线性发散，对数发散。
+\end_layout
+
+\begin_layout Standard
+各种各样的方法被设计用于正规化发散的积分。不像
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.101"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中我们使用的截断
+\begin_inset Formula $\Lambda$
+\end_inset
+
+，我们会使用 维数正规化。维数正规化依赖于下面的事实：紫外发散的程度随着维度的降低而降低。这里我们将使用维数正规化，是因为如果底层的对称性不依赖于时空维度，维数
+正规化也保持格林函数间的代数关系（Ward identities）。
+\end_layout
+
+\begin_layout Standard
+在维数正规化中，我们把四维积分推广到
+\begin_inset Formula $n$
+\end_inset
+
+维，并引入极坐标
+\begin_inset Formula 
+\begin{align*}
+l_{1} & =l\cos\left(\theta_{1}\right),\\
+l_{2} & =l\sin\left(\theta_{1}\right)\cos\left(\theta_{2}\right)\\
+l_{3} & =l\sin\left(\theta_{1}\right)\sin\left(\theta_{2}\right)\cos\left(\theta_{3}\right)\\
+ & \vdots\\
+l_{n-1} & =l\sin\left(\theta_{1}\right)\sin\left(\theta_{2}\right)\cdots\cos\left(\theta_{n-1}\right)\\
+l_{n} & =l\sin\left(\theta_{1}\right)\sin\left(\theta_{2}\right)\cdots\sin\left(\theta_{n-1}\right)
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $0\le l,\theta_{i}\in\left[0,\pi\right]\left(i=1,\cdots,n-2\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{n-1}\in\left[0,2\pi\right]$
+\end_inset
+
+。一个一般的积分可以表示为下面的形式
+\begin_inset Formula 
+\[
+\int\dif^{n}l\cdots=\int_{0}^{\infty}\dif l\,l^{n-1}\int_{0}^{2\pi}\dif\theta_{n-1}\int_{0}^{\pi}\dif\theta_{n-2}\sin\left(\theta_{n-2}\right)\cdots\int_{0}^{\pi}\dif\theta_{1}\sin^{n-2}\left(\theta_{1}\right)\cdots
+\]
+
+\end_inset
+
+如果积分式不依赖于角度，那么角度部分可以提出外面。使用公式
+\begin_inset Formula 
+\[
+\int_{0}^{\pi}\dif\theta\sin^{m}\left(\theta\right)=\frac{\sqrt{\pi}\Gamma\left(\frac{m+1}{2}\right)}{\Gamma\left(\frac{m+2}{2}\right)}
+\]
+
+\end_inset
+
+可以通过induction证明(see Exercise 3.21)。对于角度部分我们获得
+\begin_inset Formula 
+\begin{align}
+\int_{0}^{2\pi}\dif\theta_{n-1}\int_{0}^{\pi}\dif\theta_{n-2}\sin\left(\theta_{n-2}\right)\cdots\int_{0}^{\pi}\dif\theta_{1}\sin^{n-2}\left(\theta_{1}\right) & =2\pi\underbrace{\frac{\sqrt{\pi}\Gamma\left(1\right)}{\Gamma\left(\frac{3}{2}\right)}\frac{\sqrt{\pi}\Gamma\left(\frac{3}{2}\right)}{\Gamma\left(2\right)}\cdots\frac{\sqrt{\pi}\Gamma\left(\frac{n-1}{2}\right)}{\Gamma\left(\frac{n}{2}\right)}}_{\left(n-1\right)\text{ factors}}\nonumber \\
+ & =2\pi\frac{\pi^{\frac{n-2}{2}}}{\Gamma\left(\frac{n}{2}\right)}=2\frac{\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}\right)}\label{eq:3.104}
+\end{align}
+
+\end_inset
+
+我们定义
+\begin_inset Formula $n$
+\end_inset
+
+维（
+\begin_inset Formula $n$
+\end_inset
+
+为正数）积分为
+\begin_inset Formula 
+\begin{equation}
+I_{n}\left(M^{2},\mu^{2}\right)=\mu^{4-n}\int\frac{\dif^{n}k}{\left(2\pi\right)^{n}}\frac{i}{k^{2}-M^{2}+i0^{+}}\label{eq:3.105}
+\end{equation}
+
+\end_inset
+
+where 引入了能标 
+\begin_inset Formula $\mu$
+\end_inset
+
+ （'t Hooft 参数，重整化能标），以便于对任意
+\begin_inset Formula $n$
+\end_inset
+
+积分的量纲相同，只有当
+\begin_inset Formula $n=1$
+\end_inset
+
+时
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.105"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+是收敛的。经过
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.100"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的 Wick 收缩之后，以及
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.104"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的角度积分之后，积分变成
+\begin_inset Formula 
+\[
+I_{n}\left(M^{2},\mu^{2}\right)=\mu^{4-n}\frac{\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}\right)}\frac{1}{\left(2\pi\right)^{n}}\int_{0}^{\infty}\dif l\frac{l^{n-1}}{l^{2}+M^{2}}
+\]
+
+\end_inset
+
+为了之后的使用，我们研究更一般的积分
+\begin_inset Formula 
+\[
+\int_{0}^{\infty}\dif l\frac{l^{n-1}}{\left(l^{2}+M^{2}\right)^{\alpha}}=\frac{1}{\left(M^{2}\right)^{\alpha}}\int_{0}^{\infty}\dif l\frac{l^{n-1}}{\left(\frac{l^{2}}{M^{2}}+1\right)^{\alpha}}=\frac{1}{2}\left(M^{2}\right)^{\frac{n}{2}-\alpha}\int_{0}^{\infty}\dif t\frac{t^{\frac{n}{2}-1}}{\left(t+1\right)^{\alpha}}
+\]
+
+\end_inset
+
+我们做了替换
+\begin_inset Formula $t=l^{2}/M^{2}$
+\end_inset
+
+。我们使用 Beta 函数
+\begin_inset Formula 
+\[
+B\left(x,y\right)=\int_{0}^{\infty}\dif t\frac{t^{x-1}}{\left(1+t\right)^{x+y}}=\frac{\Gamma\left(x\right)\Gamma\left(y\right)}{\Gamma\left(x+y\right)}
+\]
+
+\end_inset
+
+其中积分对
+\begin_inset Formula $x>0,y>0$
+\end_inset
+
+收敛，对于
+\begin_inset Formula $x\le0$
+\end_inset
+
+ or 
+\begin_inset Formula $y\le0$
+\end_inset
+
+ 发散。对于
+\begin_inset Formula $x$
+\end_inset
+
+ or 
+\begin_inset Formula $y$
+\end_inset
+
+ 的非正数值我们利用 Gamma 函数作解析延拓来定义 Beta 函数。Gamma 函数
+\begin_inset Formula $\Gamma\left(z\right)$
+\end_inset
+
+在整个复平面单值且解析，除了点
+\begin_inset Formula $z=-n,n=0,1,2,\cdots$
+\end_inset
+
+，在这些点上它有单极点，留数为
+\begin_inset Formula $\left(-1\right)^{n}/n!$
+\end_inset
+
+。取
+\begin_inset Formula $x=n/2,x+y=\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $y=\alpha-n/2$
+\end_inset
+
+ 我们的中间积分变成
+\begin_inset Formula 
+\[
+\int_{0}^{\infty}\dif l\frac{l^{n-1}}{\left(l^{2}+M^{2}\right)^{\alpha}}=\frac{1}{2}\left(M^{2}\right)^{\frac{n}{2}-\alpha}\frac{\Gamma\left(\frac{n}{2}\right)\Gamma\left(\alpha-\frac{n}{2}\right)}{\Gamma\left(\alpha\right)}
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $\alpha=1$
+\end_inset
+
+，产生我们原来的积分
+\begin_inset Formula 
+\begin{align}
+I_{n}\left(M^{2},\mu^{2}\right) & =\mu^{4-n}\underbrace{2\frac{\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}\right)}}_{\text{角度积分}}\frac{1}{\left(2\pi\right)^{n}}\frac{1}{2}\left(M^{2}\right)^{\frac{n}{2}-1}\frac{\Gamma\left(\frac{n}{2}\right)\Gamma\left(1-\frac{n}{2}\right)}{\underbrace{\Gamma\left(1\right)}_{=1}}\label{eq:3.109}\\
+ & =\frac{\mu^{4-n}}{\left(4\pi\right)^{\frac{n}{2}}}\left(M^{2}\right)^{\frac{n}{2}-1}\Gamma\left(1-\frac{n}{2}\right)\nonumber 
+\end{align}
+
+\end_inset
+
+由于
+\begin_inset Formula $\Gamma\left(z\right)$
+\end_inset
+
+除了点
+\begin_inset Formula $0,-1,-2,\cdots$
+\end_inset
+
+之外，在全复平面解析。
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.109"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+右边可以看成复变量
+\begin_inset Formula $n$
+\end_inset
+
+的函数，analytic in 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+，except for poles of first order for 
+\begin_inset Formula $n=2,4,6,\cdots$
+\end_inset
+
+，使用
+\begin_inset Formula 
+\[
+\mu^{4-n}=\left(\mu^{2}\right)^{2-\frac{n}{2}},\quad\left(M^{2}\right){}^{\frac{n}{2}-1}=M^{2}\left(M^{2}\right){}^{\frac{n}{2}-2},\quad\left(4\pi\right){}^{\frac{n}{2}}=\left(4\pi\right){}^{2}\left(4\pi\right){}^{\frac{n}{2}-2}
+\]
+
+\end_inset
+
+对于complex 
+\begin_inset Formula $n$
+\end_inset
+
+我们定义
+\begin_inset Formula 
+\[
+I\left(M^{2},\mu^{2},n\right)=\frac{M^{2}}{\left(4\pi\right)^{2}}\left(\frac{4\pi\mu^{2}}{M^{2}}\right)^{2-\frac{n}{2}}\Gamma\left(1-\frac{n}{2}\right)
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $n\to4$
+\end_inset
+
+ Gamma 函数有一个极点，我们想研究接近这个极点的情况。性质
+\begin_inset Formula $\Gamma\left(z+1\right)=z\Gamma\left(z\right)$
+\end_inset
+
+允许我们写下
+\begin_inset Formula 
+\[
+\Gamma\left(1-\frac{n}{2}\right)=\frac{\Gamma\left(1-\frac{n}{2}+1\right)}{1-\frac{n}{2}}=\frac{\Gamma\left(2-\frac{n}{2}+1\right)}{\left(1-\frac{n}{2}\right)\left(2-\frac{n}{2}\right)}=\frac{\Gamma\left(1+\frac{\varepsilon}{2}\right)}{\left(-1\right)\left(1-\frac{\varepsilon}{2}\right)\frac{\varepsilon}{2}}
+\]
+
+\end_inset
+
+这里我们定义了
+\begin_inset Formula $\varepsilon\equiv4-n$
+\end_inset
+
+。使用
+\begin_inset Formula $a^{x}=\exp\left[\ln\left(a\right)x\right]=1+\ln\left(a\right)x+O\left(x^{2}\right)$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+，我们将积分对于小
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+展开，
+\begin_inset Formula 
+\begin{align*}
+I\left(M^{2},\mu^{2},n\right) & =\frac{M^{2}}{16\pi^{2}}\left[1+\frac{\varepsilon}{2}\ln\left(\frac{4\pi\mu^{2}}{M^{2}}\right)+O\left(\varepsilon^{2}\right)\right]\\
+ & \times\left(-\frac{2}{\varepsilon}\right)\left[1+\frac{\varepsilon}{2}+O\left(\varepsilon^{2}\right)\right]\left[\underbrace{\Gamma\left(1\right)}_{=1}+\frac{\varepsilon}{2}\Gamma^{\prime}\left(1\right)+O\left(\varepsilon^{2}\right)\right]\\
+ & =\frac{M^{2}}{16\pi^{2}}\left[-\frac{2}{\varepsilon}-\Gamma^{\prime}\left(1\right)-1-\ln\left(4\pi\right)+\ln\left(\frac{M^{2}}{\mu^{2}}\right)+O\left(\varepsilon\right)\right]
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $-\Gamma^{\prime}\left(1\right)=\gamma_{E}=0.5772\cdots$
+\end_inset
+
+是 欧拉常数。我们最终得到
+\begin_inset Formula 
+\begin{equation}
+I\left(M^{2},\mu^{2},n\right)=\frac{M^{2}}{16\pi^{2}}\left[R+\ln\left(\frac{4\pi\mu^{2}}{M^{2}}\right)\right]+O\left(n-4\right)\label{eq:3.110}
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+R=\frac{2}{n-4}-\left[\ln\left(4\pi\right)+\Gamma^{\prime}\left(1\right)+1\right]\label{eq:3.111}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.110"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.111"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的对比，阐述了一个普适的观察：在维数正规化中， power-law divergence are analytically continued
+ to zero and logrithmic ultraviolet divergence of one-loop integrals show
+ up as single poles in 
+\begin_inset Formula $\varepsilon=4-n$
+\end_inset
+
+。
+\end_layout
+
 \begin_layout Chapter
 Baryons 的手征微扰理论
 \end_layout
@@ -5719,16 +9075,9 @@ and
 
 ，还可能包含它们的导数
 \begin_inset Formula 
-\[
-\Gamma^{\mu}=\frac{1}{2}\left[u^{\dagger}\left(\partial_{\mu}-ir_{\mu}\right)u+u\left(\partial_{\mu}-il_{\mu}\right)u^{\dagger}\right]
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
 \begin{align*}
- & D_{\mu}\Psi-\left(\partial_{\mu}+\Gamma_{\mu}-iv_{\mu}^{(s)}\right)\Psi
+\Gamma^{\mu} & =\frac{1}{2}\left[u^{\dagger}\left(\partial_{\mu}-ir_{\mu}\right)u+u\left(\partial_{\mu}-il_{\mu}\right)u^{\dagger}\right]\\
+D_{\mu}\Psi & =\left(\partial_{\mu}+\Gamma_{\mu}-iv_{\mu}^{(s)}\right)\Psi
 \end{align*}
 
 \end_inset
@@ -6649,6 +9998,21 @@ literal "true"
 
 , H.: Weak Interactions and Modern Particle Theory.
  Benjamin/Cummings, Menlo Park (1984) 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref 101"
+literal "false"
+
+\end_inset
+
+ Weinberg, S.: The Quantum Theory of Fields.
+ Foundations, vol.
+ I (Chap.
+ 12).
+ Cambridge University Press, Cambridge (1995) 
 \end_layout
 
 \end_body

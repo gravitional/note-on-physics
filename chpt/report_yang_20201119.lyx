@@ -89,13 +89,13 @@
 \font_roman "NotoSerif-TLF" "Noto Sans CJK SC"
 \font_sans "NotoSans-TLF" "Source Han Sans SC"
 \font_typewriter "NotoMono-TLF" "Noto Sans Mono CJK SC"
-\font_math "auto" "auto"
+\font_math "auto" "default"
 \font_default_family default
 \use_non_tex_fonts true
 \font_sc false
 \font_osf false
-\font_sf_scale 100 100
-\font_tt_scale 100 100
+\font_sf_scale 100 70
+\font_tt_scale 100 70
 \use_microtype false
 \use_dash_ligatures false
 \graphics default
@@ -154,7 +154,7 @@
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 This file is a solution template for:
@@ -180,7 +180,7 @@ This file is a solution template for:
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
@@ -269,34 +269,6 @@ InstituteMark
 \end_inset
 
 
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-杨明杨
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
--可选，仅适用于很多作者
-\end_layout
-
-\begin_layout Plain Layout
--如果确实有很多作者，请使用
-\begin_inset Quotes eld
-\end_inset
-
-Author et al.。
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Institute
@@ -304,7 +276,11 @@ Author et al.。
 \end_layout
 
 \begin_layout Date
-Wednesday Theorem Forum 2020年11月19日
+Wednesday Theorem Forum 
+\begin_inset Newline newline
+\end_inset
+
+2020年11月19日
 \begin_inset Note Note
 status collapsed
 
@@ -494,7 +470,7 @@ LatexCommand tableofcontents
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Structuring a talk is a difficult task and the following structure may not
@@ -534,16 +510,16 @@ Structuring a talk is a difficult task and the following structure may not
 
 \end_deeper
 \begin_layout Section
-动机
+基本概念
 \end_layout
 
 \begin_layout Subsection
-我们研究的基本问题
+QCD拉氏量的偶然全局对称性
 \begin_inset Argument 2
 status open
 
 \begin_layout Plain Layout
-基本问题
+QCD 偶然对称性
 \end_layout
 
 \end_inset
@@ -556,7 +532,168 @@ status open
 status open
 
 \begin_layout Plain Layout
-令标题Informative，使用大写字母
+a
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+qcd守恒流，守恒荷，流代数关系
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+偶然对称性
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+1-
+\end_layout
+
+\end_inset
+
+六种味道的夸克通常可以分为三味轻夸克
+\begin_inset Formula $u,d,s$
+\end_inset
+
+，以及三味重夸克
+\begin_inset Formula $c,b,t$
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+m_{u}=\left(1.7-3.3\right)\,\MeV\\
+m_{d}=\left(4.1-5.8\right)\,\MeV\\
+m_{s}=\left(80-130\right)\,\MeV
+\end{array}\right)\ll1\GeV\le\left(\begin{array}{c}
+m_{c}=1.27_{-0.09}^{+0.07}\,\GeV\\
+m_{d}=4.19_{-0.06}^{+0.18}\,\GeV\\
+m_{s}=\left(172.0\pm0.9\pm1.3\right)\,\GeV
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+2-
+\end_layout
+
+\end_inset
+
+质子质量 
+\begin_inset Formula $m_{p}=938\MeV$
+\end_inset
+
+, 
+\begin_inset Formula $m_{p}\gg2m_{u}+m_{d}$
+\end_inset
+
+ , 
+\begin_inset Formula $\mathcal{L}_{\text{QCD}}^{0}$
+\end_inset
+
+也许是一个很好的开端。
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{\text{QCD}}^{0} & =\sum_{f=u,d,s}\bar{q}_{f}i\slashed{D}q_{f}-\frac{1}{4}\mathcal{G}_{a,\mu\nu}\mathcal{G}_{a}^{\mu\nu}\\
+D_{\mu}q_{f} & \equiv\left(\partial_{\mu}+ig\mathcal{A}_{\mu}\right)q_{f}\text{ }
+\end{align*}
+
+\end_inset
+
+
+\family roman
+手征极限
+\begin_inset Formula $m_{u},m_{d},m_{s}\to0$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+生成泛函和Ward恒等式
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+QCD 生成泛函
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+生成泛函
 \end_layout
 
 \end_inset
@@ -566,9 +703,8 @@ status open
 
 \begin_deeper
 \begin_layout FrameSubtitle
-帧的副标题是可选的，使用大写或小写字母.
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 标题应该有总结性并且好理解，让还没看slide的人也能懂
@@ -580,7 +716,17 @@ status open
 \end_layout
 
 \begin_layout Itemize
-多用列表
+比如，一个标量场的格林函数的生成泛函
+\begin_inset Formula 
+\begin{align*}
+Z[j] & =e^{iW[j]}=\bra{0}T\exp\left[i\int\dif^{4}x{\color{red}\mathcal{L}_{\text{ext}}\left(x\right)}\right]\ket{0}\text{ 相互作用的真空\&场}\\
+ & =\bra{0}T\exp\left[i\int\dif^{4}x{\color{blue}j\left(x\right)}{\color{red}\phi\left(x\right)}\right]\ket{0}=1+i\int\dif^{4}x\,{\color{blue}j\left(x\right)}{\color{red}\bra{0}\phi\left(x\right)\ket{0}}\\
+ & +\sum_{k=2}^{\infty}\frac{i^{k}}{k!}\int\dif^{4}x_{1}\cdots\dif^{4}x_{k}\,{\color{blue}j\left(x_{1}\right)\cdots j\left(x_{k}\right)}*{\color{red}\bra{0}T\left[\phi\left(x_{1}\right)\cdots\phi\left(x_{k}\right)\right]}\ket{0}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -590,7 +736,30 @@ status open
 
 \end_deeper
 \begin_layout Itemize
-使用短句或者短语.
+格林函数反映了系统对于外源的响应
+\size footnotesize
+，
+\size default
+例如静电场 
+\begin_inset Formula $\varphi\left(r\right)=-\frac{e}{4\pi r}$
+\end_inset
+
+ 
+\size footnotesize
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+
+\begin_inset Graphics
+	filename green_function.pdf
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -600,7 +769,7 @@ status open
 
 \end_deeper
 \begin_layout Itemize
-这些 overlay 使用 Pause style 创建.
+所有的手征 Ward 恒等式都包含在生成泛函的不变性中.
 \end_layout
 
 \end_deeper
@@ -616,8 +785,444 @@ status open
 status open
 
 \begin_layout Plain Layout
-令标题Informative.
- 
+Ward 恒等式
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+对称性限制了格林函数之间的关系，比如 QED 的U(1) 对称性告诉我们
+\begin_inset Formula 
+\[
+\Gamma^{\mu}\left(p,p\right)=-\frac{\partial}{\partial p_{\mu}}\Sigma\left(p\right)
+\]
+
+\end_inset
+
+它联系了电子在零动量转移时的电磁顶点和，电子的自能
+\begin_inset Formula $\Sigma(p)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Itemize
+生成泛函可以理解成存在外场情况下的真空跃迁振幅
+\begin_inset Formula 
+\[
+Z\left[j,j^{\dagger},j^{\mu}\right]=\bra{0,\text{out}}\ket{0,\text{in}}_{j,j^{\dagger},j_{\mu}}
+\]
+
+\end_inset
+
+它具有路径积分表示
+\begin_inset Formula 
+\[
+Z\left[j,j^{\dagger},j^{\mu}\right]=\int\left[\dif\Phi_{1}\right]\left[\dif\Phi_{2}\right]\exp\left[iS\left[\Phi,\Phi^{\dagger},j,j^{\dagger},j_{\mu}\right]\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+其中
+\begin_inset Formula 
+\[
+S\left[\Phi,\Phi^{\dagger},j,j^{\dagger},j_{\mu}\right]=S\left[\Phi,\Phi^{\dagger}\right]+\int\dif^{4}x\left[\Phi\left(x\right)j^{\dagger}\left(x\right)+\Phi^{\dagger}\left(x\right)j\left(x\right)+J^{\mu}\left(x\right)j_{\mu}\left(x\right)\right]
+\]
+
+\end_inset
+
+作用量加上外源耦合项。由生成泛函在对称变换下不变，可以得到 Ward 恒等式：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[j(x)\frac{\delta}{\delta j(x)}-j^{*}(x)\frac{\delta}{\delta j^{*}(x)}-i\partial_{x,\mu}\frac{\delta}{\delta j_{\mu}(x)}\right]Z\left[j,j^{*},j_{\mu}\right]=0
+\]
+
+\end_inset
+
+利用这个式子和生成泛函的定义，可以把格林函数的散度，变成低阶泛函偏导的求和。类似于
+\begin_inset Formula 
+\[
+\partial_{x,\mu}G^{\mu}\left(x,y,z\right)=\left[\delta^{4}\left(y-x\right)-\delta^{4}\left(y-z\right)\right]\bra{0}T\left[\Phi(x)\Phi^{\dagger}(z)\right]\ket{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+流代数
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+所以忽略施温格项的等时对易关系为
+\begin_inset Formula 
+\begin{align}
+\left[V_{a}^{0}\left(t,\vec{x}\right),V_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}V_{c}^{\mu}\left(t,\vec{x}\right)\label{eq:1.149}\\
+\left[V_{a}^{0}\left(t,\vec{x}\right),V^{\mu}\left(t,\vec{y}\right)\right] & =0\nonumber \\
+\left[V_{a}^{0}\left(t,\vec{x}\right),A_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}A_{c}^{\mu}\left(t,\vec{x}\right)\nonumber 
+\end{align}
+
+\end_inset
+
+等等。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+所以忽略施温格项的等时对易关系为
+\begin_inset Formula 
+\begin{align}
+\left[V_{a}^{0}\left(t,\vec{x}\right),V_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}V_{c}^{\mu}\left(t,\vec{x}\right)\label{eq:1.149-1}\\
+\left[V_{a}^{0}\left(t,\vec{x}\right),V^{\mu}\left(t,\vec{y}\right)\right] & =0\nonumber \\
+\left[V_{a}^{0}\left(t,\vec{x}\right),A_{b}^{\mu}\left(t,\vec{y}\right)\right] & =\delta^{3}\left(\vec{x}-\vec{y}\right)if_{abc}A_{c}^{\mu}\left(t,\vec{x}\right)\nonumber 
+\end{align}
+
+\end_inset
+
+等等。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+标准做法来自 Gasse and leutwyler，引入
+\begin_inset Formula $9$
+\end_inset
+
+个矢量流和
+\begin_inset Formula $8$
+\end_inset
+
+个轴矢流；还有
+\begin_inset Formula $18$
+\end_inset
+
+个用来耦合到外部
+\begin_inset Formula $c$
+\end_inset
+
+数场的，标量和赝标量夸克密度，
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=\ensuremath{\mathcal{L}_{\text{QCD}}^{0}}+\mathcal{L}_{\text{ext}}\label{eq:1.150}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{\text{ext}} & =\sum_{a=1}^{8}{\color{red}v_{a}^{\mu}}\bar{q}\gamma_{\mu}\frac{\lambda_{a}}{2}q+\frac{1}{3}{\color{red}v_{(s)}^{\mu}}\bar{q}\gamma_{\mu}\mathbbm{1}q+\sum_{a=1}^{8}{\color{red}a_{a}^{\mu}}\bar{q}\gamma_{\mu}\gamma_{5}\frac{\lambda_{a}}{2}q\\
+ & -\sum_{a=0}^{8}{\color{red}s_{a}}\bar{q}\lambda_{a}q+\sum_{a=0}^{8}{\color{red}p_{a}}i\bar{q}\gamma_{5}\lambda_{a}q\\
+= & \bar{q}\gamma_{\mu}\left(v^{\mu}+\frac{1}{3}v_{(s)}^{\mu}+\gamma_{5}a^{\mu}\right)q-\bar{q}\left(s-i\gamma_{5}p\right)q
+\end{align*}
+
+\end_inset
+
+一共有
+\begin_inset Formula $35$
+\end_inset
+
+个 real functions ，记作
+\begin_inset Formula $\left[v,a,s,p\right]$
+\end_inset
+
+。回到普通的QCD 可以令 
+\begin_inset Formula $s=\text{diag}\left(m_{u},m_{d},m_{s}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+外场耦合，对称性定域化
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Z\left[v,a,s,p\right]=\exp\left(iW\left[v,a,s,p\right]\right)=\bra{0}T\exp\left[i\int\dif^{4}x\mathcal{L}_{\text{ext}}\right]\ket{0}_{0}
+\]
+
+\end_inset
+
+注意
+\begin_inset Formula $\mathcal{L}_{\text{ext}}$
+\end_inset
+
+中的夸克场
+\begin_inset Formula $q$
+\end_inset
+
+和基态
+\begin_inset Formula $\ket{0}_{0}$
+\end_inset
+
+指的都是手征极限下的对象。夸克场是 Heisenberg picture 中的对象，满足运动方程和正则对易关系。生成泛函和存在外场时的真空 to
+ 真空跃迁振幅联系
+\begin_inset Formula 
+\[
+\exp\left(iW\left[v,a,s,p\right]\right)=\bra{0,\text{out}}\ket{0,\text{in}}_{v,a,s,p}
+\]
+
+\end_inset
+
+特定的生成函数可以通过对外场求泛函偏导得到。
+\end_layout
+
+\begin_layout Frame
+例如我们要求手征极限下的夸克凝聚，
+\begin_inset Formula $\bra{0}\bar{u}u\ket{0}_{0}$
+\end_inset
+
+，我们把
+\begin_inset Formula $\bar{u}u$
+\end_inset
+
+展开为
+\begin_inset Formula 
+\[
+\bar{u}u=\frac{1}{2}\sqrt{\frac{2}{3}}\bar{q}\lambda_{0}q+\frac{1}{2}\bar{q}\lambda_{3}q+\frac{1}{2}\frac{1}{\sqrt{3}}\bar{q}\lambda_{8}q
+\]
+
+\end_inset
+
+然后得到
+\begin_inset Formula 
+\[
+\bra{0}\bar{u}u\ket{0}_{0}=\left.\frac{i}{2}\left[\sqrt{\frac{2}{3}}\frac{\delta}{\delta s_{0}\left(x\right)}+\frac{\delta}{\delta s_{3}\left(x\right)}+\frac{1}{\sqrt{3}}\frac{\delta}{\delta s_{8}\left(x\right)}\right]\exp\left(iZ\left[v,a,s,p\right]\right)\right\rvert _{\{v,a,s,p\}=0}
+\]
+
+\end_inset
+
+比如夸克和电磁场四矢量势
+\begin_inset Formula $\mathcal{A}_{\mu}$
+\end_inset
+
+的耦合为
+\begin_inset Formula 
+\[
+r_{\mu}=l_{\mu}=-e\mathcal{A}_{\mu}Q
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $Q=\text{diag}\left(\frac{2}{3},-\frac{1}{3},-\frac{1}{3}\right)$
+\end_inset
+
+是夸克电荷矩阵，其中
+\begin_inset Formula $e>0$
+\end_inset
+
+是单位电荷
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{\text{ext}} & =-e\mathcal{A}_{\mu}\left(\bar{q}_{L}Q\gamma^{\mu}q_{L}+\bar{q}_{R}Q\gamma^{\mu}q_{R}\right)=-e\mathcal{A}_{\mu}\bar{q}Q\gamma^{\mu}q\\
+ & =-e\mathcal{A}_{\mu}\left(\frac{2}{3}\bar{u}\gamma^{\mu}u-\frac{1}{3}\bar{d}\gamma^{\mu}d-\frac{1}{3}\bar{s}\gamma^{\mu}s\right)=ie\mathcal{A}_{\mu}J^{\mu}
+\end{align*}
+
+\end_inset
+
+如果考虑两位夸克的模型，则需要使用
+\begin_inset Formula 
+\[
+r_{\mu}=l_{\mu}=-e\mathcal{A}_{\mu}\frac{\tau_{3}}{2},\qquad v_{\mu}^{(s)}=-\frac{e}{2}\mathcal{A}_{\mu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+-\left[\begin{array}{cc}
+\frac{1}{2} & 0\\
+0 & -\frac{1}{2}
+\end{array}\right]-\left[\begin{array}{cc}
+\frac{1}{6} & 0\\
+0 & \frac{1}{6}
+\end{array}\right]=-\left[\begin{array}{cc}
+\frac{2}{3} & 0\\
+0 & -\frac{1}{3}
+\end{array}\right]
+\]
+
+\end_inset
+
+也就是把 U(1) 表示的直和直接投影到 
+\begin_inset Formula $SU(3)_{L}\times SU(3)_{R}$
+\end_inset
+
+ 表示 和 
+\begin_inset Formula $v_{\mu}^{(s)}$
+\end_inset
+
+ 的基上。以后直接对应到低能介子场和重子场。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+我们甚至可以得到真实世界下的格林函数，其中夸克场和基态具有确定的质量。比如两个“真实世界”的轴矢流的两点函数，对于
+\begin_inset Formula $s=\text{diag}\left(m_{u},m_{d},m_{s}\right)$
+\end_inset
+
+和“真正的真空”
+\begin_inset Formula $\ket{0}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\bra{0}T\left[A_{a}^{\mu}\left(x\right)A_{b}^{\nu}\left(0\right)\right]\ket{0}_{0} & =\left(-i\right)^{2}\frac{\delta^{2}}{\delta a_{a\mu}\left(x\right)\delta a_{b\nu}\left(y\right)}\exp\left(iW\left[v,a,s,p\right]\right)\\
+ & @\{v,a,p\}=0,s=\text{diag}\left(m_{u},m_{d},m_{s}\right)
+\end{align*}
+
+\end_inset
+
+注意左边的夸克场和基态都是真实世界的，右边生成泛函中的夸克场和基态都是手征极限（质量为零）下的。生成泛函在给定外场
+\begin_inset Formula $v,a,s,p$
+\end_inset
+
+配置下的实际取值，反映了 QCD Lagrangian 的动力学。
+\end_layout
+
+\begin_layout Frame
+这样，Ward 恒等式被编码到 生成泛函的不变性中。我们必须引入外场，才能把不变性提升到定域的，才能考虑生成泛函的散度(
+\begin_inset Formula $\partial_{\mu}G^{\mu}$
+\end_inset
+
+)。
+\end_layout
+
+\begin_layout Frame
+我们需要 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.150"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的拉氏量是厄米的，洛伦兹不变的，包括离散的 CPT 和连续的变换。由于 CPT 定理，实际上只用考虑 PC 就可以了。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+泛函逼近 
 \end_layout
 
 \end_inset
@@ -637,21 +1242,11 @@ status open
 
 \end_inset
 
-也可以使用 overlay specifications 创建覆盖。.
-\end_layout
 
-\begin_layout Itemize
-\begin_inset Argument item:2
-status open
-
-\begin_layout Plain Layout
-
-3-
-\end_layout
-
+\begin_inset Formula $W_{\text{QCD}}\left[v,a,s,p\right]\approx W_{\text{eff}}^{(2)}\left[v,a,s,p\right]+W_{\text{eff}}^{(4)}\left[v,a,s,p\right]+\cdots$
 \end_inset
 
-这样你可以用任意顺序展示条目.
+
 \end_layout
 
 \begin_layout Itemize
@@ -665,7 +1260,151 @@ status open
 
 \end_inset
 
-这个条目展示在第二幕.
+其中有效生成泛函从有效场论得到。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:2
+status open
+
+\begin_layout Plain Layout
+
+3-
+\end_layout
+
+\end_inset
+
+Global symmetry 
+\begin_inset Formula $\to$
+\end_inset
+
+ Local symmetry 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:2
+status open
+
+\begin_layout Plain Layout
+
+4-
+\end_layout
+
+\end_inset
+
+和 QCD 耦合到
+\color red
+相同的
+\color inherit
+外场：
+\begin_inset Formula $v,a,s,p$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+目标
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\bra{0}\text{颜色中性，厄米的轻夸克二次型}\ket{0}_{\text{QCD}}\stackrel{\text{LSZ}}{\longrightarrow}\text{物理结果}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+可以包括标准模型中的电弱规范场
+\end_layout
+
+\begin_layout Itemize
+结果的翻译取决于这些二次型的变换性质和量子数
+\end_layout
+
+\begin_layout Itemize
+比如，下列求真空期望值的格林函数
+\begin_inset Formula 
+\begin{align*}
+ & \bra{0}T\left[A_{a}^{\mu}\left(x\right)P_{b}\left(x\right)\right]\ket{0}\\
+ & \bra{0}T\left[P_{a}\left(x\right)J^{\mu}\left(y\right)P_{b}\left(z\right)\right]\ket{0}\\
+ & \bra{0}T\left[P_{a}\left(w\right)P_{b}\left(x\right)P_{c}\left(y\right)P_{d}\left(z\right)\right]\ket{0}
+\end{align*}
+
+\end_inset
+
+分别可以和介子衰变，介子电磁形状因子（
+\begin_inset Formula $J^{\mu}$
+\end_inset
+
+是夸克电磁流），pion-pion 散射 联系起来。其中
+\begin_inset Formula 
+\[
+S_{a}\left(x\right)=\bar{q}\left(x\right)\lambda_{a}q\left(x\right),\qquad P_{a}\left(x\right)=i\bar{q}\gamma_{5}\lambda_{a}q\left(x\right),a=0,\cdots,8
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+此外，也可以单个核子态之间的编时乘积
+\end_layout
+
+\begin_layout Itemize
+可以用来讨论核子的性质，或是只包含一个核子的动力学过程
+\begin_inset Formula 
+\begin{align*}
+ & \bra{N}T\left[J^{\mu}\left(x\right)\right]\ket{N}\text{核子的电磁形状因子}\\
+ & \bra{N}T\left[A_{a}^{\mu}\left(x\right)\right]\ket{N}\text{轴形状因子+ induced 赝标量形状因子}\\
+ & \bra{N}T\left[J^{\mu}\left(x\right)J^{\nu}\left(y\right)\right]\ket{N}\text{康普顿散射}\\
+ & \bra{N}T\left[J^{\mu}\left(x\right)P_{a}\left(y\right)\right]\ket{N}\text{pion photo- and electroproduction}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -756,7 +1495,7 @@ status open
 \end_deeper
 \end_deeper
 \begin_layout Subsection
-之前的工作
+对称性自发破缺与哥德斯通玻色子
 \end_layout
 
 \begin_layout Frame
@@ -764,28 +1503,12 @@ status open
 status open
 
 \begin_layout Plain Layout
-令标题Informative
+真空简并的概念，期望值不为零，不稳定
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_deeper
-\begin_layout Example
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-1-
-\end_layout
-
-\end_inset
-
-On first slide.
- 
 \end_layout
 
 \begin_layout Standard
@@ -795,27 +1518,24 @@ On first slide.
 
 \end_layout
 
-\begin_layout Example
-\begin_inset Argument 1
+\begin_layout Frame
+\begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-
-2-
+schwartz 隐藏对称性
 \end_layout
 
 \end_inset
 
-On second slide.
+
 \end_layout
 
-\end_deeper
-\begin_layout Section
-我们的结果/贡献
-\end_layout
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
 
-\begin_layout Subsection
-主要结果
+
 \end_layout
 
 \begin_layout Frame
@@ -823,7 +1543,82 @@ On second slide.
 status open
 
 \begin_layout Plain Layout
-令标题Informative
+哥德斯通定理
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+QCD标量单态夸克凝聚
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+介子场的变换性质
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Section
+具体例子
+\end_layout
+
+\begin_layout Subsection
+包含 Mesons 的拉氏量与标量单态夸克凝聚
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Mesons 拉氏量
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+最低阶拉氏量，衰变常数
 \end_layout
 
 \end_inset
@@ -857,7 +1652,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-令标题Informative
+夸克质量
 \end_layout
 
 \end_inset
@@ -913,8 +1708,151 @@ status open
 
 \end_deeper
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+介子质量关系
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+schwartz 系数关系
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-证明/实现 的基本idea
+包含 Baryons 的拉氏量构造
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Baryons 拉氏量
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+重子场变换不唯一
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+构造模块
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+构造原则
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+工作中的拉氏量举例
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+非定域化方法
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -990,7 +1928,7 @@ status open
 
 ，
 \color none
-够了，求求你不要再show了。
+够了，不要再show了。
 \end_layout
 
 \begin_layout Standard
@@ -1028,7 +1966,7 @@ status open
 \begin_layout Section*
 \start_of_appendix
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 下面的都是可选内容，一般不需要
