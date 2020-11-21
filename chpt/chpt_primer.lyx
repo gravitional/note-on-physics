@@ -5934,6 +5934,16 @@ U(x)=\exp\left(\frac{i\phi}{F_{0}}\right)
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec: 3.4.3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 对于按照
 \begin_inset Formula $A\mapsto V_{R}AV_{L}^{\dagger}$
 \end_inset
@@ -6642,6 +6652,10 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+最低阶的应用
 \end_layout
 
 \begin_layout Subsection
@@ -7483,7 +7497,7 @@ T^{I=2} & =A\left(t,u,s\right)+A\left(u,s,t\right)
 –散射波长
 \begin_inset Formula 
 \[
-\left. T^{I=0}\right|_{\text{thr}}=32\pi a_{0}^{0},\quad\left.T^{I=2}\right|_{\text{thr}}=32\pi a_{0}^{2}
+\left.T^{I=0}\right|_{\text{thr}}=32\pi a_{0}^{0},\quad\left.T^{I=2}\right|_{\text{thr}}=32\pi a_{0}^{2}
 \]
 
 \end_inset
@@ -8556,7 +8570,7 @@ where
 是 欧拉常数。我们最终得到
 \begin_inset Formula 
 \begin{equation}
-I\left(M^{2},\mu^{2},n\right)=\frac{M^{2}}{16\pi^{2}}\left[R+\ln\left(\frac{4\pi\mu^{2}}{M^{2}}\right)\right]+O\left(n-4\right)\label{eq:3.110}
+I\left(M^{2},\mu^{2},n\right)=\frac{M^{2}}{16\pi^{2}}\left[R+\ln\left(\frac{M^{2}}{\mu^{2}}\right)\right]+O\left(n-4\right)\label{eq:3.110}
 \end{equation}
 
 \end_inset
@@ -8596,6 +8610,1590 @@ noprefix "false"
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+使用类似地技巧，可以容易地对更一般的积分推导出一个非常有用的表达式(see Exercise 3.22)
+\begin_inset Formula 
+\begin{equation}
+\int\frac{\dif^{n}k}{\left(2\pi\right)^{n}}\frac{\left(k^{2}\right)^{p}}{\left(k^{2}-M^{2}+i0^{+}\right)^{q}}=i\left(-1\right)^{p-q}\frac{1}{\left(4\pi\right)^{\frac{n}{2}}}\left(M^{2}\right)^{p+\frac{n}{2}-q}\frac{\Gamma\left(p+\frac{n}{2}\right)\Gamma\left(q-p-\frac{n}{2}\right)}{\Gamma\left(\frac{n}{2}\right)\Gamma\left(q\right)}\label{eq:3.112}
+\end{equation}
+
+\end_inset
+
+有时候积分包含不止一个传播子，可以把它们结合起来，就会得到
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.112"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+这种形式的积分，其中的
+\begin_inset Formula $M^{2}$
+\end_inset
+
+替换成
+\begin_inset Formula $A-i0^{+}$
+\end_inset
+
+，其中
+\begin_inset Formula $A$
+\end_inset
+
+是一个实数。这种情况下，能够一致地处理边界条件
+\begin_inset Formula $-i0^{+}$
+\end_inset
+
+是很重要的。为了这个目标， 把一个复数
+\begin_inset Formula $z$
+\end_inset
+
+表示成它的极坐标形式
+\begin_inset Formula $z=\abs{z}\exp\left(i\varphi\right)$
+\end_inset
+
+，如果要求
+\begin_inset Formula $\varphi$
+\end_inset
+
+能够唯一确定的话，我们需要要求
+\begin_inset Formula $-\pi\le\varphi<\pi$
+\end_inset
+
+。比如，让我们考虑
+\begin_inset Formula $\ln\left(A-i0^{+}\right)$
+\end_inset
+
+这种类型的，对于
+\begin_inset Formula $A>0$
+\end_inset
+
+，可以简单的化简为
+\begin_inset Formula $\ln\left(A-i0^{+}\right)=\ln\left(A\right)$
+\end_inset
+
+。对于
+\begin_inset Formula $A<0$
+\end_inset
+
+，无穷小的虚部表明
+\begin_inset Formula $-\abs{A}$
+\end_inset
+
+落入第三象限，接近实轴负半轴，所以我们需要令
+\begin_inset Formula $\varphi=-\pi$
+\end_inset
+
+。然后我们使用
+\begin_inset Formula $\ln\left(ab\right)=\ln\left(a\right)+\ln\left(b\right)$
+\end_inset
+
+ and 得到
+\begin_inset Formula 
+\[
+\ln\left(A-i0^{+}\right)=\ln\left(\abs{A}\right)+\ln\left(e^{-i\pi}\right)=\ln\left(\abs{A}\right)-i\pi,\quad A<0
+\]
+
+\end_inset
+
+这两种情形，可以被总结成单个表达式
+\begin_inset Formula 
+\[
+\ln\left(A-i0^{+}\right)=\ln\left(\abs{A}\right)-i\pi\Theta\left(-A\right)\quad\text{for}\quad A\in\mathbb{R}
+\]
+
+\end_inset
+
+这部分讨论对于自洽地决定圈积分的虚部很重要。
+\end_layout
+
+\begin_layout Standard
+让我们对这个普适性的观察作一个总结：在维数正规化中，单圈的紫外发散总是表现为
+\begin_inset Formula $\varepsilon=4-n$
+\end_inset
+
+ 处的 single poles.
+\end_layout
+
+\begin_layout Standard
+下面是五个跟维数正规化相关的练习。
+\end_layout
+
+\begin_layout Standard
+Exercise 3.19 考虑积分
+\begin_inset Formula 
+\[
+I=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-M^{2}+i0^{+}}
+\]
+
+\end_inset
+
+引入
+\begin_inset Formula $a\equiv\sqrt{\vec{k}^{2}+M^{2}}$
+\end_inset
+
+ and 定义
+\begin_inset Formula 
+\[
+f\left(k_{0}\right)=\frac{1}{\left[k_{0}+\left(a-i0^{+}\right)\right]\left[k_{0}-\left(a-i0^{+}\right)\right]}
+\]
+
+\end_inset
+
+为了确定
+\begin_inset Formula $\int_{-\infty}^{+\infty}\dif k_{0}f\left(k_{0}\right)$
+\end_inset
+
+，作为
+\begin_inset Formula $I$
+\end_inset
+
+计算过程的一部分，我们考虑
+\begin_inset Formula $f$
+\end_inset
+
+在
+\begin_inset Formula $k_{0}$
+\end_inset
+
+的复平面上，并选取路径
+\begin_inset Formula 
+\[
+\gamma_{1}\left(t\right)=t,\quad t_{1}=-\infty,\quad t_{2}=\infty,\quad\text{and}\quad\gamma_{2}\left(t\right)=Re^{it},\quad t_{1}=0,\quad t_{2}=\pi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+使用留数定理，说明
+\begin_inset Formula 
+\[
+\oint\dif zf\left(z\right)=\int_{\gamma_{1}}\dif zf\left(z\right)+\lim_{R\to\infty}\int_{\gamma_{2}}\dif zf\left(z\right)=2\pi i\text{Res}\left[f\left(z\right),-\left(a-i0^{+}\right)\right]
+\]
+
+\end_inset
+
+验证
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif k_{0}f\left(k_{0}\right)=\frac{-i\pi}{\sqrt{\vec{k}^{2}+M^{2}}-i0^{+}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+使用1，证明
+\begin_inset Formula 
+\[
+\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-M^{2}+i0^{+}}=\frac{1}{2}\int\frac{\dif^{3}k}{\left(2\pi\right)^{3}}\frac{1}{\sqrt{\vec{k}^{2}+M^{2}}-i0^{+}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+先在考虑从
+\begin_inset Formula $4\to n$
+\end_inset
+
+的推广：
+\begin_inset Formula 
+\[
+\int\frac{\dif^{n-1}k}{\left(2\pi\right)^{n-1}}\frac{1}{\sqrt{\vec{k}^{2}+M^{2}}},\quad\vec{k}^{2}=k_{1}^{2}+k_{2}^{2}+\cdots+k_{n-1}^{2}
+\]
+
+\end_inset
+
+我们可以忽略
+\begin_inset Formula $-i0^{+}$
+\end_inset
+
+，因为被积式已经没有极点。引入
+\begin_inset Formula $n-1$
+\end_inset
+
+维的极坐标，并对角度部分进行积分，得到
+\begin_inset Formula 
+\[
+\int\frac{\dif^{n-1}k}{\left(2\pi\right)^{n-1}}\frac{1}{\sqrt{\vec{k}^{2}+M^{2}}}=\frac{1}{2^{n-2}}\pi^{-\frac{n-1}{2}}\frac{1}{\Gamma\left(\frac{n-1}{2}\right)}\int_{0}^{\infty}\dif r\frac{r^{n-2}}{\sqrt{r^{2}+M^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+使用替换
+\begin_inset Formula $t=r/m$
+\end_inset
+
+ and 
+\begin_inset Formula $r=t^{2}$
+\end_inset
+
+，证明
+\begin_inset Formula 
+\[
+\int_{0}^{\infty}\dif r\frac{r^{n-2}}{\sqrt{r^{2}+M^{2}}}=\frac{1}{2}M^{n-2}\frac{\Gamma\left(\frac{n-1}{2}\right)\Gamma\left(1-\frac{n}{2}\right)}{\underbrace{\Gamma\left(\frac{1}{2}\right)}_{=\sqrt{\pi}}}
+\]
+
+\end_inset
+
+Hint: 使用 Beta 函数
+\begin_inset Formula 
+\[
+B\left(x,y\right)=\int_{0}^{\infty}\dif t\frac{t^{x-1}}{\left(1+t\right)^{x+y}}=\frac{\Gamma\left(x\right)\Gamma\left(y\right)}{\Gamma\left(x+y\right)}
+\]
+
+\end_inset
+
+做一个简单的积分变量替换，可以变成标准形式，
+\begin_inset Formula 
+\begin{align*}
+q & =\frac{1}{1+t},\quad t=\frac{1-q}{q}\\
+\dif q & =\frac{-\dif t}{\left(1+t\right)^{2}},\quad\dif t=-\left(1+t\right)^{2}\dif q\\
+\int_{0}^{\infty}\dif t\frac{t^{x-1}}{\left(1+t\right)^{x+y}} & =-\int_{1}^{0}\dif q\left(1+t\right)^{2}\frac{t^{x-1}}{\left(1+t\right)^{x+y}}=\int_{0}^{1}\dif q\frac{t^{x-1}}{\left(1+t\right)^{x+y-2}}\\
+ & =\int_{0}^{1}\dif q\left(\frac{1-q}{q}\right)^{x-1}q^{x+y-2}=\int_{0}^{1}\dif q\left(1-q\right)^{x-1}q^{y-1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+把上述结果拼接到一起
+\begin_inset Formula 
+\[
+\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-M^{2}+i0^{+}}=\frac{1}{\left(4\pi\right)^{\frac{n}{2}}}M^{n-2}\Gamma\left(1-\frac{n}{2}\right)
+\]
+
+\end_inset
+
+如果考虑了
+\begin_inset Formula $\mu^{4-n}$
+\end_inset
+
+ 因子，结果和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.109"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+就是相同的
+\begin_inset Formula 
+\begin{align*}
+I_{n}\left(M^{2},\mu^{2}\right) & =\mu^{4-n}\frac{1}{\left(2\pi\right)^{n}}\frac{1}{2}\left(M^{2}\right)^{\frac{n}{2}-1}\underbrace{2\frac{\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}\right)}}_{\text{角度积分}}\frac{\Gamma\left(\frac{n}{2}\right)\Gamma\left(1-\frac{n}{2}\right)}{\underbrace{\Gamma\left(1\right)}_{=1}}\\
+ & =\frac{\mu^{4-n}}{\left(4\pi\right)^{\frac{n}{2}}}\left(M^{2}\right)^{\frac{n}{2}-1}\Gamma\left(1-\frac{n}{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exercise 3.20 考虑四维空间极坐标：
+\begin_inset Formula 
+\begin{align*}
+l_{1} & =l\cos\left(\theta_{1}\right)\\
+l_{2} & =l\sin\left(\theta_{1}\right)\cos\left(\theta_{2}\right)\\
+l_{3} & =l\sin\left(\theta_{1}\right)\sin\left(\theta_{2}\right)\cos\left(\theta_{3}\right)\\
+l_{4} & =l\sin\left(\theta_{1}\right)\sin\left(\theta_{2}\right)\sin\left(\theta_{3}\right)
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $l=\sqrt{l_{1}^{2}+l_{2}^{2}+l_{3}^{2}+l_{4}^{2}},\theta_{1}\in\left[0,\pi\right],\theta_{2}\in\left[0,\pi\right],$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{3}\in\left[0,2\pi\right]$
+\end_inset
+
+。从四维 Cartesian 坐标变换到极坐标引入了 Jacobi 行列式或者说泛函矩阵
+\begin_inset Formula 
+\[
+J=\left(\begin{array}{ccc}
+\frac{\partial l_{1}}{\partial l} & \cdots & \frac{\partial l_{1}}{\partial\theta_{3}}\\
+\vdots &  & \vdots\\
+\frac{\partial l_{4}}{\partial l} & \cdots & \frac{\partial l_{4}}{\partial\theta_{3}}
+\end{array}\right)
+\]
+
+\end_inset
+
+证明
+\begin_inset Formula 
+\[
+\det\left(J\right)=l^{3}\sin^{2}\left(\theta_{1}\right)\sin\left(\theta_{2}\right)
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\dif l_{1}\dif l_{2}\dif l_{3}\dif l_{4}=l^{3}\dif l\underbrace{\sin^{2}\left(\theta_{1}\right)\sin\left(\theta_{2}\right)\dif\theta_{1}\dif\theta_{2}\dif\theta_{3}}_{=\dif\Omega}
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula 
+\[
+\int\dif\Omega=2\pi^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exercise 3.21 Show by induction
+\begin_inset Formula 
+\[
+\int_{0}^{\pi}\dif\theta\sin^{m}\left(\theta\right)=\frac{\sqrt{\pi}\Gamma\left(\frac{m+1}{2}\right)}{\Gamma\left(\frac{m+2}{2}\right)}
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $m\ge1$
+\end_inset
+
+。 Hints: 使用分部积分。
+\begin_inset Formula $\Gamma\left(1\right)=1,\Gamma\left(1/2\right)=\sqrt{\pi},x\Gamma\left(x\right)=\Gamma\left(x+1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exercise 3.22 证明在维数正规化中
+\begin_inset Formula 
+\[
+\int\frac{\dif^{n}k}{\left(2\pi\right)^{n}}\frac{\left(k^{2}\right)^{p}}{\left(k^{2}-M^{2}+i0^{+}\right)^{q}}=i\left(-1\right)^{p-q}\frac{1}{\left(4\pi\right)^{\frac{n}{2}}}\left(M^{2}\right)^{p+\frac{n}{2}-q}\frac{\Gamma\left(p+\frac{n}{2}\right)\Gamma\left(q-p-\frac{n}{2}\right)}{\Gamma\left(\frac{n}{2}\right)\Gamma\left(q\right)}
+\]
+
+\end_inset
+
+我们首先假设
+\begin_inset Formula $M^{2}>0,p=0,1,\cdots,q=1,2,\cdots,$
+\end_inset
+
+ and 
+\begin_inset Formula $p<q$
+\end_inset
+
+。最后一个条件是为了保证在 Wick 转动的时候，无穷远处的四分圆对积分没有贡献。
+\end_layout
+
+\begin_layout Enumerate
+证明转到欧几里得度规时，产生
+\begin_inset Formula $i\left(-1\right)^{p-q}$
+\end_inset
+
+因子。
+\end_layout
+
+\begin_layout Enumerate
+进行
+\begin_inset Formula $n$
+\end_inset
+
+维的角度积分。完成剩下的轴向积分，使用
+\begin_inset Formula 
+\[
+\int_{0}^{\infty}\dif l\frac{l^{n-1}}{\left(l^{2}+M^{2}\right)^{\alpha}}=\frac{1}{2}\left(M^{2}\right)^{\frac{n}{2}-\alpha}\frac{\Gamma\left(\frac{n}{2}\right)\Gamma\left(\alpha-\frac{n}{2}\right)}{\Gamma\left(\alpha\right)}
+\]
+
+\end_inset
+
+现在把结果放到一起。右边还使用了解析延拓，来定义在维数正规化中，当
+\begin_inset Formula $q\le p$
+\end_inset
+
+时候的表达式。
+\end_layout
+
+\begin_layout Standard
+Exercise 3.23 考虑复变函数
+\begin_inset Formula 
+\[
+f\left(z\right)=a^{z}=\exp\left(\ln\left(a\right)z\right)\equiv u\left(x,y\right)+iv\left(x,y\right),\quad a\in\mathbb{R},\quad z=x+iy
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+确定
+\begin_inset Formula $u\left(x,y\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $v\left(x,y\right)$
+\end_inset
+
+。注意
+\begin_inset Formula $u,v\in C^{\infty}\left(\mathbb{R}^{2}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+确定
+\begin_inset Formula $\frac{\partial u}{\partial x},\frac{\partial u}{\partial y},\frac{\partial v}{\partial y},\text{and }\frac{\partial v}{\partial y}$
+\end_inset
+
+。证明它们满足Cauchy-Riemann 微分方程
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial u}{\partial x} & =\frac{\partial v}{\partial y}\\
+\frac{\partial u}{\partial y} & =-\frac{\partial v}{\partial x}
+\end{align*}
+
+\end_inset
+
+The complex function 
+\begin_inset Formula $f$
+\end_inset
+
+ is thus holomorphic in 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+。（全纯）当在维数正规化中将
+\begin_inset Formula $I\left(M^{2},\mu^{2},n\right)$
+\end_inset
+
+当作复变量
+\begin_inset Formula $n$
+\end_inset
+
+的函数讨论的时候，我们使用了这个事实。
+\end_layout
+
+\begin_layout Subsection
+抵消项的产生
+\end_layout
+
+\begin_layout Standard
+正规化，比如之前章节提到的维数正规化，是一种系统地把圈积分中的发散和有限贡献分开的方法。我们现在简要地讨论一下重整化（renormalization），也就是，
+如何把发散吸收到 Lagrangian 的参数中。更一般地说，重整化就是用物理可观测量表示 Lagrangian 中的参数的过程，而独立于发散。
+ 为了简化，我们考虑一个玩具模型：两个带质量标量场自由度
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}\left(\partial_{\mu}\phi_{B}\partial^{\mu}\phi_{B}-M_{B}^{2}\phi_{B}^{2}\right)+\frac{1}{2}\left(\partial_{\mu}\varphi_{B}\partial^{\mu}\varphi_{B}-m_{B}^{2}\varphi_{B}^{2}\right)-\frac{\lambda_{B}}{4}\phi_{B}^{2}\varphi_{B}^{2}
+\]
+
+\end_inset
+
+其中下标
+\begin_inset Formula $B$
+\end_inset
+
+表示这是裸参量。（bare parameters）。通过把裸场和裸参数表示成重整化的量，可以产生抵消项，用来吸收所有圈积分中出现的发散。我们首先引入场
+\begin_inset Formula $\phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi$
+\end_inset
+
+的重整化
+\begin_inset Formula 
+\[
+\phi_{B}=\sqrt{Z_{\phi}}\phi,\quad\varphi_{B}=\sqrt{Z_{\varphi}}\varphi
+\]
+
+\end_inset
+
+and then rewrite the field renormalization constants 
+\begin_inset Formula $\sqrt{Z_{\phi}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqrt{Z_{\varphi}}$
+\end_inset
+
+ as well as the remaining bare quantities in terms of renormalized parameters:
+\begin_inset Formula 
+\begin{align*}
+Z_{\phi} & =1+\delta Z_{\phi}\left(M,m,\lambda,v\right)\\
+Z_{\varphi} & =1+\delta Z_{\varphi}\left(M,m,\lambda,v\right)\\
+M_{B}^{2} & =M^{2}\left(v\right)+\delta M^{2}\left(M,m,\lambda,v\right)\\
+m_{B}^{2} & =m^{2}\left(v\right)+\delta m^{2}\left(M,m,\lambda,v\right)\\
+\lambda_{B} & =\lambda\left(v\right)+\delta\lambda\left(M,m,\lambda,v\right)
+\end{align*}
+
+\end_inset
+
+参数
+\begin_inset Formula $v$
+\end_inset
+
+表明了对于重整化方案的依赖。比如，我们可以要求
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
+是
+\begin_inset Formula $\phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ 的物理质量。选择重整化条件的自由度在重子的 ChPT 中很重要。With the subsitutions the Lagrangian 形式变成
+\begin_inset Formula 
+\[
+\mathcal{L}=\mathcal{L}_{\text{basic}}+\mathcal{L}_{\text{ct}}
+\]
+
+\end_inset
+
+分别被称为基本和抵消项 Lagrangians
+\begin_inset Formula 
+\begin{align}
+\mathcal{L}_{\text{basic}} & =\frac{1}{2}\left(\partial_{\mu}\phi\partial^{\mu}\phi-M^{2}\phi^{2}\right)+\frac{1}{2}\left(\partial_{\mu}\varphi\partial^{\mu}\varphi-m^{2}\varphi^{2}\right)-\frac{\lambda}{4}\phi^{2}\varphi^{2}\nonumber \\
+\mathcal{L}_{\text{ct}} & =\frac{1}{2}\delta Z_{\phi}\partial_{\mu}\phi\partial^{\mu}\phi-\frac{1}{2}\delta\left\{ M^{2}\right\} \phi^{2}+\frac{1}{2}\delta Z_{\varphi}\partial_{\mu}\varphi\partial^{\mu}\varphi-\frac{1}{2}\delta\left\{ m^{2}\right\} \varphi^{2}-\frac{\delta\left\{ \lambda\right\} }{4}\phi^{2}\varphi^{2}\label{eq:3.117}
+\end{align}
+
+\end_inset
+
+其中引入了缩写
+\begin_inset Formula 
+\begin{align*}
+\delta\left\{ M^{2}\right\}  & =\delta Z_{\phi}M^{2}+Z_{\phi}\delta M^{2},\\
+\delta\left\{ m^{2}\right\}  & =\delta Z_{\varphi}m^{2}+Z_{\varphi}\delta m^{2},\\
+\delta\left\{ \lambda\right\}  & =\delta\lambda Z_{\phi}Z_{\varphi}+\lambda\left(\delta Z_{\phi}+\delta Z_{\varphi}+\delta Z_{\phi}\delta Z_{\varphi}\right)
+\end{align*}
+
+\end_inset
+
+将
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.117"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的抵消项 Lagrangian 按照重整化的耦合常数展开，会产生无穷级数。通过适当的调节展开系数，每一项负责剪除掉圈图的发散。在下文中，我们所说的重整化的图，
+指的是不仅计算了基本 Lagrangian 的贡献，还加上了抵消项 Lagrangian 的贡献。
+\end_layout
+
+\begin_layout Subsection
+幂次计数方案
+\end_layout
+
+\begin_layout Standard
+power-counting scheme
+\end_layout
+
+\begin_layout Standard
+一个构建有效理论的必要前提是 Weinberg 提出的一个定理：用最一般的 Lagrangian 进行微扰描述，它包含了所有可能的，跟假设的对称性相兼容的项，产
+生最普适的
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元，跟量子场论和假设的对称性原理相一致,
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ref 100"
+literal "false"
+
+\end_inset
+
+。相应的有效 Lagrangian 包含无穷多项和无穷多个自由参数。把 Weinberg 的定理变成实际的工具需要两步：首先需要一个组织有效拉氏量的方法，其次需
+要一个系统的方法，在计算物理的矩阵元时，能评估由不同相互作用项产生的费曼图的重要性。
+\end_layout
+
+\begin_layout Standard
+在介子手征微扰理论的框架中，最一般的描述 Goldstone-bosons 动力学的手征 Lagrangian 按照导数和夸克质量项的出现的次数来组织，
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}_{\text{eff}}=\mathcal{L}_{2}+\mathcal{L}_{4}+\mathcal{L}_{6}+\cdots\label{eq:3.118}
+\end{equation}
+
+\end_inset
+
+其中下标指的是动量和夸克质量展开的阶数。比如说，下标
+\begin_inset Formula $2$
+\end_inset
+
+表示有两个导数，或者一个夸克质量项，see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.77"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{L}_{2}=\frac{F_{0}^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]+\frac{F_{0}^{2}}{4}\tr\left[\chi U^{\dagger}\pm U\chi^{\dagger}\right]$
+\end_inset
+
+.
+ 对应费曼规则的话，导数产生四动量。夸克质量计数成两个动量，由于 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.59"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+， 
+\begin_inset Formula $M^{2}\sim m_{q}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+M_{\pi}^{2} & =2B_{0}\hat{m}\\
+M_{K}^{2} & =B_{0}\left(\hat{m}+m_{s}\right)\\
+M_{\eta}^{2} & =\frac{2}{3}B_{0}\left(\hat{m}+2m_{s}\right)
+\end{align*}
+
+\end_inset
+
+并考虑到在壳条件
+\begin_inset Formula $p^{2}=M^{2}$
+\end_inset
+
+。一般来说，我们将一个小的四动量–或者对应的导数–and Goldstone-boson 质量当成 
+\begin_inset Formula $\mathcal{O}\left(q\right)$
+\end_inset
+
+。
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.118"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的手征 order 都是偶数的
+\begin_inset Formula $\left[\mathcal{O}\left(q^{2k}\right),k\ge1\right]$
+\end_inset
+
+，由于洛伦兹不变性，导数的指标必须被收缩掉，而夸克质量被计为 
+\begin_inset Formula $\mathcal{O}\left(q^{2}\right)$
+\end_inset
+
+ 。
+\end_layout
+
+\begin_layout Standard
+除了最一般 Lagrangian 的信息，对于一个给定的过程，我们需要一个工具，能够评价不同重整化图的贡献大小。为达到这个目标，对于一个给定的图，我们分析它在所
+有 
+\emph on
+外线
+\emph default
+ 动量同时作 scaling 时的行为,
+\begin_inset Formula $p_{i}\mapsto tp_{i}$
+\end_inset
+
+，and the light-quark massed, 
+\begin_inset Formula $m_{q}\mapsto t^{2}m_{q}$
+\end_inset
+
+（对应于
+\begin_inset Formula $M^{2}\mapsto t^{2}M^{2}$
+\end_inset
+
+）。如同下面即将说明的，这将导致对于给定图的振幅
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+的一个整体 scaling
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}\left(tp_{i},t^{2}m_{q}\right)=t^{D}\mathcal{M}\left(p_{i},m_{q}\right)\label{eq:3.119}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.119"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 定义了一个图的手征量纲
+\begin_inset Formula $D$
+\end_inset
+
+（chiral dimension）。手征量纲由下式给出
+\begin_inset Formula 
+\begin{align}
+D & =nN_{L}-2N_{I}+\sum_{k=1}^{\infty}2kN_{2k}\label{eq:3.120}\\
+D & =2+\left(n-2\right)N_{L}+\sum_{k=1}^{\infty}2\left(k-1\right)N_{2k}\nonumber \\
+ & \ge2\text{ in four dimensions}\label{eq:3.121}
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula $n$
+\end_inset
+
+是时空维度，
+\begin_inset Formula $N_{L}$
+\end_inset
+
+是独立圈的个数，
+\begin_inset Formula $N_{I}$
+\end_inset
+
+是 Goldstone-boson 内线的个数，
+\begin_inset Formula $N_{2k}$
+\end_inset
+
+是来自
+\begin_inset Formula $\mathcal{L}_{2k}$
+\end_inset
+
+的顶点的个数。注意独立动量的个数，不是费曼图中内线组成的面或者闭合回路的个数，比如，一个图的拓扑结构是正四面体，它有四个面，但
+\begin_inset Formula $N_{L}=4-\left(4-1\right)=3$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+缩放到较小的动量和质量对应于
+\begin_inset Formula $0<t<1$
+\end_inset
+
+。很明显，对于较小的动量和质量，图的贡献将随着
+\begin_inset Formula $D$
+\end_inset
+
+的增加而被压低，拥有较小
+\begin_inset Formula $D$
+\end_inset
+
+的图的贡献将是主导的，比如
+\begin_inset Formula $D=2$
+\end_inset
+
+ or 
+\begin_inset Formula $D=4$
+\end_inset
+
+。当然，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.119"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的 rescaling 只是一种数学工具。尽管外动量可以任意小，但是夸克质量的 rescaling 只能存在理论上。注意到圈图的贡献总是被
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.121"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中
+\begin_inset Formula $\left(n-2\right)N_{L}$
+\end_inset
+
+这一项压低。当然也可能领头阶–树图的贡献为零，最低阶贡献来自于单圈图。一个例子是
+\begin_inset Formula $\gamma\gamma\to\pi^{0}\pi^{0}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.121"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+建立起动量和圈图展开之间的联系，由于在每一个 chiral order，圈的上限被固定。换句话说，我们有了一个按照外动量和质量比上某个能标
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的微扰方案。由
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.110"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+I\left(M^{2},\mu^{2},n\right)=\frac{M^{2}}{16\pi^{2}}\left[R+\ln\left(\frac{M^{2}}{\mu^{2}}\right)\right]+O\left(n-4\right)
+\]
+
+\end_inset
+
+我们可以估计所谓的 手征对称性破缺能标
+\begin_inset Formula $\Lambda_{\chi}$
+\end_inset
+
+大约是
+\begin_inset Formula $\Lambda_{\chi}=4\pi F_{0}=O\left(1\GeV\right)$
+\end_inset
+
+。在圈图修正中，每一个 Goldstone-boson 内线的端点都会乘上一个
+\begin_inset Formula $1/F_{0}$
+\end_inset
+
+，由于
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.41"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $U\left(x\right)=\exp\left(i\frac{\phi\left(x\right)}{F_{0}}\right)$
+\end_inset
+
+，每个 Goldstone-boson 伴随一个
+\begin_inset Formula $F_{0}$
+\end_inset
+
+。另一方面，外线动量
+\begin_inset Formula $q$
+\end_inset
+
+或者 Goldstone-boson 质量产生
+\begin_inset Formula $q^{2}$
+\end_inset
+
+ or 
+\begin_inset Formula $M^{2}$
+\end_inset
+
+ 因子，即
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.110"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.110"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中经过四维积分剩下的
+\begin_inset Formula $1/\left(16\pi^{2}\right)$
+\end_inset
+
+一起，对每一个单独的圈，它们构成
+\begin_inset Formula $\left[q/\left(4\pi F_{0}\right)\right]^{2}$
+\end_inset
+
+阶的修正。应用 power-counting 的例子展示在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:3.9"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted18.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:3.9"
+
+\end_inset
+
+在
+\begin_inset Formula $4$
+\end_inset
+
+维空间应用 power-counting 公式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.120"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+为了证明 power-counting 公式，我们从计算
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元的费曼规则开始，研究每个模块的行为。内线通过
+\begin_inset Formula $n$
+\end_inset
+
+维空间的传播子描述，在 rescaling 下
+\begin_inset Formula 
+\begin{align}
+\int\frac{\dif^{n}k}{\left(2\pi\right)^{n}}\frac{i}{k^{2}-M^{2}+i0^{+}} & \mapsto\int\frac{\dif^{n}k}{\left(2\pi\right)^{n}}\frac{i}{t^{2}\left(k^{2}/t^{2}-M^{2}+i0^{+}\right)}\nonumber \\
+ & \stackrel{t=tk^{\prime}}{=}t^{n-2}\int\frac{\dif^{n}k^{\prime}}{\left(2\pi\right)^{n}}\frac{i}{k^{\prime2}-M^{2}+i0^{+}}\label{eq:3.122}
+\end{align}
+
+\end_inset
+
+带有
+\begin_inset Formula $2k$
+\end_inset
+
+个顶点或者
+\begin_inset Formula $k$
+\end_inset
+
+个夸克质量的顶点，rescale as
+\begin_inset Formula 
+\[
+\delta^{n}\left(q\right)q^{2k}\mapsto t^{2k-n}\delta^{n}\left(q\right)q^{2k}
+\]
+
+\end_inset
+
+因此，对于外动量，
+\begin_inset Formula $p\mapsto tp$
+\end_inset
+
+，对于内动量， 
+\begin_inset Formula $k=tk^{\prime}$
+\end_inset
+
+。这就是计算
+\begin_inset Formula $S\sim\delta^{n}\left(P\right)\mathcal{M}$
+\end_inset
+
+的规则。我们需要加上
+\begin_inset Formula $n$
+\end_inset
+
+来补偿整体的动量守恒 delta 函数。应用这些规则，对于给定费曼图，其
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+的 scaling 行为是
+\begin_inset Formula 
+\[
+D=n+\left(n-2\right)N_{I}+\sum_{k=1}^{\infty}N_{2k}\left(2k-n\right)
+\]
+
+\end_inset
+
+独立圈的数目，内线的数目，和顶点的总数
+\begin_inset Formula $N_{V}=\sum_{k=1}^{\infty}N_{2k}$
+\end_inset
+
+有
+\begin_inset Formula $N_{L}=N_{I}-\left(N_{V}-1\right)$
+\end_inset
+
+给出（
+\begin_inset Formula $\text{圈}+\text{顶点}=\text{内线}+1$
+\end_inset
+
+）。
+\begin_inset Formula $N_{V}$
+\end_inset
+
+个动量守恒 delta 函数的乘积包含一个整体的动量守恒。所以，对内线动量的限制是
+\begin_inset Formula $N_{V}-1$
+\end_inset
+
+个而不是
+\begin_inset Formula $N_{V}$
+\end_inset
+
+个。应用
+\begin_inset Formula 
+\[
+-n\sum_{k=1}^{\infty}N_{2k}=-nN_{V}=n\left(N_{L}-N_{I}-1\right)
+\]
+
+\end_inset
+
+导致
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.120"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D=nN_{L}-2N_{I}+\sum_{k=1}^{\infty}2kN_{2k}
+\]
+
+\end_inset
+
+另一方面，应用
+\begin_inset Formula 
+\[
+-n\sum_{k=1}^{\infty}N_{2k}=-2\sum_{k=1}^{\infty}N_{2k}+\left(n-2\right)\left(N_{L}-N_{I}-1\right)
+\]
+
+\end_inset
+
+导致方程
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.121"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D=2+\sum_{k=1}^{\infty}2\left(k-1\right)N_{2k}+\left(n-2\right)N_{L}
+\]
+
+\end_inset
+
+在讨论圈积分的时候，我们需要强调它的收敛性。因为
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.122"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的替换
+\begin_inset Formula $tk^{\prime}=k$
+\end_inset
+
+只有对于收敛的积分才是良好定义的。如同之前讨论的，我们对圈积分使用维数正规化。因此我们需要引入一个同时 线性rescale 的重整化能标
+\begin_inset Formula $\mu$
+\end_inset
+
+。然而，在一个给定的 chiral order，所有图的和，by construction，不依赖于重整化能标。
+\end_layout
+
+\begin_layout Standard
+最后，注意，最小的
+\begin_inset Formula $k>0$
+\end_inset
+
+是很重要的。否则，无穷个包含来自
+\begin_inset Formula $\mathcal{L}_{0}$
+\end_inset
+
+顶点的图应该被加起来(see )。在处理 nucleon-nucleon的时候，就是这种情形。 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted19.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+只有当
+\begin_inset Formula $k_{\text{min}}>0$
+\end_inset
+
+的时候，圈图才被压低。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+领头阶之后
+\end_layout
+
+\begin_layout Standard
+早在 1967年，Weinberg 就证明了有效拉氏量可以作为一种方便的工具，通过树图阶的计算重新产生流代数的结果
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ref98"
+literal "false"
+
+\end_inset
+
+。在纯介子 sector，
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+ of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.77"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{L}_{2}=\frac{F_{0}^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]+\frac{F_{0}^{2}}{4}\tr\left[\chi U^{\dagger}\pm U\chi^{\dagger}\right]
+\]
+
+\end_inset
+
+代表了相应的 Lagrangian。Li and Pagels 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ref72"
+literal "false"
+
+\end_inset
+
+ 注意到在 Nambu–Goldstone mode中，围绕对称性实现的微扰理论，一般来讲，导致可观测量是对称性破缺参数的非解析函数（nonanalytic
+ functions），这里就是夸克质量。在 1979 年，Weinberg 发起了树图阶之外的有效场论极化，允许计算对手征极限的修正
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ref 100"
+literal "false"
+
+\end_inset
+
+。当使用来自
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+的顶点，计算一圈图时，会产生紫外发散，在维数正规化的框架中，表现为时空维度
+\begin_inset Formula $n=4$
+\end_inset
+
+时的 poles。可以通过把无穷大的部分吸收进场的重定义和最一般拉氏量的参数中，重整化圈积分。由于
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+在传统的意义上是不能重整化的，无穷大无法吸收到 
+\begin_inset Formula $F_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{0}$
+\end_inset
+
+ 的重整化中。根据 Weinberg's power-counting of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.121"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，来自
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+的单圈图组成的顶点 are of 
+\begin_inset Formula $\mathcal{O}\left(q^{4}\right)$
+\end_inset
+
+。所以，需要构建最一般的 Lagrangian 
+\begin_inset Formula $\mathcal{L}_{4}$
+\end_inset
+
+，并调节（重整化）它的参数，来抵消来自
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+的发散。
+\end_layout
+
+\begin_layout Standard
+除了由
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+描述的量子修正，在次领头阶，我们还会遇到另一个重要的特性，也就是, the effective Wess-Zumino-Witten (WZW)
+ 作用量
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ref 102,ref 103"
+literal "false"
+
+\end_inset
+
+。The WZW 作用量对反常 Ward identities 带来的限制提供了很好的描述。总的来说，如果 Lagrangians 在经典层次的对称性在重整化后
+的量子理论中无法保持，就会发生反常。
+\end_layout
+
+\begin_layout Subsection
+O(4) Lagrangian of Gasser and Leutwyler
+\end_layout
+
+\begin_layout Standard
+应用 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec: 3.4.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中列出的框架，可以在
+\begin_inset Formula $\mathcal{O}\left(q^{4}\right)$
+\end_inset
+
+构建最一般的 
+\begin_inset Formula $\text{SU}\left(3\right)_{L}\times\text{SU}\left(3\right)_{R}$
+\end_inset
+
+–不变的拉氏量。这里我们只引用一下Gasser and Leutwyler的结果：
+\begin_inset Formula 
+\begin{align}
+\mathcal{L}_{4} & =L_{1}\left\{ \tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]\right\} ^{2}+L_{2}\tr\left[D_{\mu}U\left(D_{\nu}U\right)^{\dagger}\right]\tr\left[D^{\mu}U\left(D^{\nu}U\right)^{\dagger}\right]\nonumber \\
+ & +L_{3}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}D_{\nu}U\left(D^{\nu}U\right)^{\dagger}\right]+L_{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]\tr\left(\chi U^{\dagger}+U\chi^{\dagger}\right)\nonumber \\
+ & +L_{5}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\left(\chi U^{\dagger}+U\chi^{\dagger}\right)\right]+L_{6}\left[\tr\left(\chi U^{\dagger}+U\chi^{\dagger}\right)\right]^{2}\nonumber \\
+ & +L_{7}\left[\tr\left(\chi U^{\dagger}-U\chi^{\dagger}\right)\right]^{2}+L_{8}\tr\left(U\chi^{\dagger}U\chi^{\dagger}+\chi U^{\dagger}\chi U^{\dagger}\right)\nonumber \\
+ & -iL_{9}\tr\left[f_{\mu\nu}^{R}D^{\mu}U\left(D^{\nu}U\right)^{\dagger}+f_{\mu\nu}^{L}\left(D^{\mu}U\right)^{\dagger}D^{\nu}U\right]+L_{10}\tr\left(Uf_{\mu\nu}^{L}U^{\dagger}f_{R}^{\mu\nu}\right)\nonumber \\
+ & +H_{1}\tr\left(f_{\mu\nu}^{R}f_{R}^{\mu\nu}+f_{\mu\nu}^{L}f_{L}^{\mu\nu}\right)+H_{2}\tr\left(\chi\chi^{\dagger}\right)\label{eq:3.123}
+\end{align}
+
+\end_inset
+
+低能常数
+\begin_inset Formula $L_{i}$
+\end_inset
+
+的值无法由手征对称性确定。类比于
+\begin_inset Formula $F_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{0}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+，这些参数包含了底层的动力学信息，原则上可以通过 QCD 的剩余参数计算出来，也就是 重夸克质量和 QCD 能标
+\begin_inset Formula $\Lambda_{\text{QCD}}$
+\end_inset
+
+。实际上，它们参数化了我们在 QCD 低能非微扰 regime 的 inability。迄今为止，它们或者被实验数值确定，或者通过 QCD–inspired
+ models 确定， meson-resonance saturation, and lattice QCD。
+\end_layout
+
+\begin_layout Standard
+By construction，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.123"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+代表了在
+\begin_inset Formula $\mathcal{O}\left(q^{4}\right)$
+\end_inset
+
+最一般的 Lagrangian。要此可以把来自
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+单圈的发散吸收进系数
+\begin_inset Formula $L_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{i}$
+\end_inset
+
+ 的适当的重整化中
+\begin_inset Formula 
+\[
+L_{i}=L_{i}^{r}+\frac{\Gamma_{i}}{32\pi^{2}}R\quad\left(i=1,\cdots,10\right),\quad H_{i}=H_{i}^{r}+\frac{\Delta_{i}}{32\pi^{2}}R\quad\left(i=1,2\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $R$
+\end_inset
+
+ 已经在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.111"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中定义
+\begin_inset Formula 
+\[
+R=\frac{2}{n-4}-\left[\ln\left(4\pi\right)+\Gamma^{\prime}\left(1\right)+1\right]
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $n$
+\end_inset
+
+ 是时空维度，
+\begin_inset Formula $\gamma_{E}=-\Gamma^{\prime}\left(1\right)$
+\end_inset
+
+是欧拉常数。常数
+\begin_inset Formula $\Gamma_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta_{i}$
+\end_inset
+
+ 在 中给出。除了
+\begin_inset Formula $L_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $L_{7}$
+\end_inset
+
+，在单圈图的重整化中，需要低能常数
+\begin_inset Formula $L_{i}$
+\end_inset
+
+ and 接触项–也就是纯外场项–
+\begin_inset Formula $H_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{2}$
+\end_inset
+
+ 。由于
+\begin_inset Formula $H_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{2}$
+\end_inset
+
+ 只包含外场，they are of no physical relevance。重整化的思想是，通过调节最一般有效拉氏量抵消项中的参数，来消除（多）圈图中的发
+散。但是，具体操作的时候，还有选择重整化条件的自由度。比如，在最小减除方案（MS）中，通过精确地吸收正比于
+\begin_inset Formula $R$
+\end_inset
+
+中
+\begin_inset Formula $\frac{2}{n-4}$
+\end_inset
+
+的贡献，来确定抵消项 Lagrangian 的参数。而在改进的 ChPT 最小减除方案中(
+\begin_inset Formula $\tilde{\text{MS}}$
+\end_inset
+
+)，还会一并消除方括号中的项
+\begin_inset Formula $\left[\ln\left(4\pi\right)+\Gamma^{\prime}\left(1\right)+1\right]$
+\end_inset
+
+。与标准模型中常用的
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+相比，这里用的
+\begin_inset Formula $\tilde{\text{MS}}$
+\end_inset
+
+剪除一个额外的有限项。确切地说，在
+\begin_inset Formula $\tilde{\text{MS}}$
+\end_inset
+
+中，使用
+\begin_inset Formula $\frac{2}{n-4}-\left[\ln\left(4\pi\right)+\Gamma^{\prime}\left(1\right)+1\right]$
+\end_inset
+
+，在
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+使用
+\begin_inset Formula $\frac{2}{n-4}-\left[\ln\left(4\pi\right)+\Gamma^{\prime}\left(1\right)\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+重整化的系数
+\begin_inset Formula $L_{i}^{r}$
+\end_inset
+
+取决于通过维数正规化引入的能标
+\begin_inset Formula $\mu$
+\end_inset
+
+（see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.105"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）。它们在两个不同的能标
+\begin_inset Formula $\mu_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{2}$
+\end_inset
+
+ 的值由下式联系
+\begin_inset Formula 
+\[
+L_{i}^{r}\left(\mu_{2}\right)=L_{i}^{r}\left(\mu_{1}\right)+\frac{\Gamma_{i}}{16\pi^{2}}\ln\left(\frac{\mu_{1}}{\mu_{2}}\right)
+\]
+
+\end_inset
+
+我们会看到，系数的能标依赖，和圈图有效部分的能标依赖将会彼此弥补，最后使物理观测量是能标无关的。
+\end_layout
+
+\begin_layout Subsection
+O(4)阶哥德斯通玻色子质量
 \end_layout
 
 \begin_layout Chapter
@@ -10003,6 +11601,86 @@ literal "true"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "ref 53"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "ref 53"
+target "https://doi.org/10.1016/0550-3213(85)90492-4"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref72"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "ref72"
+target "https://doi.org/10.1103/PhysRevLett.26.1204"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref98"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "ref98"
+target "https://doi.org/10.1103/PhysRevLett.18.188"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref 100"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "ref 100"
+target "https://doi.org/10.1016/0378-4371(79)90223-1"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "ref 101"
 literal "false"
 
@@ -10013,6 +11691,46 @@ literal "false"
  I (Chap.
  12).
  Cambridge University Press, Cambridge (1995) 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref 102"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "ref102"
+target "https://doi.org/10.1016/0370-2693(71)90582-X"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ref 103"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "ref 103"
+target "https://doi.org/10.1016/0550-3213(83)90063-9"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
