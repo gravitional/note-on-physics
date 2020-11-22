@@ -1471,6 +1471,16 @@ Ward 恒等式的例子
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:1.4.1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 对称性限制了格林函数之间的关系，比如 QED 的U(1) 对称性告诉我们
 \begin_inset Formula 
 \[
@@ -1843,6 +1853,16 @@ d
 
 \begin_layout Subsection
 存在外场时QCD 的生成泛函
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:1.4.4"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5406,6 +5426,16 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:3.4.1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 U\left(x\right)=\exp\left(i\frac{\phi\left(x\right)}{F_{0}}\right)\label{eq:3.41}
@@ -5431,9 +5461,9 @@ U\left(x\right)=\exp\left(i\frac{\phi\left(x\right)}{F_{0}}\right)\label{eq:3.41
 \begin_layout Standard
 最低阶的有效拉氏量为
 \begin_inset Formula 
-\[
-\mathcal{L}_{\text{eff}}=\frac{F_{0}^{2}}{4}\tr\left(\partial_{\mu}U,\partial^{\mu}U^{\dagger}\right)
-\]
+\begin{equation}
+\mathcal{L}_{\text{eff}}=\frac{F_{0}^{2}}{4}\tr\left(\partial_{\mu}U,\partial^{\mu}U^{\dagger}\right)\label{eq:3.42}
+\end{equation}
 
 \end_inset
 
@@ -12341,6 +12371,753 @@ where
 
 \begin_layout Subsection
 Wess-Zumino-Witten 有效作用量
+\end_layout
+
+\begin_layout Standard
+迄今讨论的拉氏量比QCD拥有更大的对称性。比如，如果我们考虑纯QCD，即除了
+\begin_inset Formula $\chi=2B_{0}\mathcal{M}$
+\end_inset
+
+之外没有外场，其中夸克质量矩阵
+\begin_inset Formula $\mathcal{M}=\text{diag}$
+\end_inset
+
+
+\begin_inset Formula $\left(m_{u},m_{d},m_{s}\right)$
+\end_inset
+
+， Lagrangians 
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{L}_{4}$
+\end_inset
+
+ 在
+\begin_inset Formula $\phi\left(x\right)\mapsto-\phi\left(x\right)$
+\end_inset
+
+下是不变的。如同在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:3.4.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中讨论的，它们只包含偶数个 Goldstone-bosons 相互作用的项，i.e they are of even intrinsic parity。换句话说，
+它们不能描述，比如
+\begin_inset Formula $K^{+}K^{-}\to\pi^{+}\pi^{-}\pi^{0}$
+\end_inset
+
+。类似地，耦合到外场的
+\begin_inset Formula $\mathcal{L}_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{L}_{4}$
+\end_inset
+
+也不能描述衰变
+\begin_inset Formula $\pi^{0}\to\gamma\gamma$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+这些观察导致了有效 Wess-Zumino-Witten （WZW）作用量。鉴于普通的 Ward identities 与生成泛函在定域的外场变换下的
+ 
+\emph on
+invariance
+\emph default
+ 有关（see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:1.4.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:1.4.4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）。在重整化微扰理论中首次得到的反常 Ward identities，给出了生成泛函特定形式的 
+\emph on
+variation
+\emph default
+。Wess and Zumino 推导了 anomalous Ward identities 满足的一致性或完备性关系，并清晰地构建了一个包含赝标量八重态的泛函
+，满足 anomalous Ward identities。特别的，Wess and Zumino 强调说，their interaction
+ Lagrangian cannot be obtained as part of a chirally invariant Lagrangian。
+\end_layout
+
+\begin_layout Standard
+Witten 提出，at the Lagrangian level，给最低阶运动方程加上一项最简单的项，打破只有偶数个 Goldstone-bosons。在没有
+耦合到任何外场情形，对于无质量 Goldstone-bosons ，修改的运动方程为
+\begin_inset Formula 
+\begin{equation}
+\partial_{\mu}\left(\frac{F_{0}^{2}}{2}U\partial^{\mu}U^{\dagger}\right)+\lambda\varepsilon^{\mu\nu\rho\sigma}U\partial_{\mu}U^{\dagger};U\partial_{\nu}U^{\dagger};U\partial_{\rho}U^{\dagger};U\partial_{\sigma}U^{\dagger}=0\label{eq:3.146}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\lambda$
+\end_inset
+
+是一个纯虚数常数 and 
+\begin_inset Formula $\varepsilon_{0123}=1$
+\end_inset
+
+。在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.146"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+替换
+\begin_inset Formula $U\leftrightarrow U^{\dagger}$
+\end_inset
+
+（
+\begin_inset Formula $\phi\to-\phi$
+\end_inset
+
+），然后从左边乘上
+\begin_inset Formula $U$
+\end_inset
+
+，从右边乘上
+\begin_inset Formula $U^{\dagger}$
+\end_inset
+
+，我们可以验证，两项的符号变化相反。
+\begin_inset Formula 
+\begin{align*}
+\partial_{\mu}\left(U\partial^{\mu}U^{\dagger}\right) & \to U\partial_{\mu}\left(U^{\dagger}\partial^{\mu}U\right);U^{\dagger}=-\partial_{\mu}U;U^{\dagger}\partial^{\mu}U;U^{\dagger}-UU^{\dagger}\partial^{\mu}U;\partial_{\mu}U^{\dagger}\\
+ & =\partial_{\mu}U;\partial^{\mu}U^{\dagger};UU^{\dagger}-\partial^{\mu}U;\partial_{\mu}U^{\dagger}=\partial_{\mu}U;\partial^{\mu}U^{\dagger}+U\partial^{\mu}\partial_{\mu}U^{\dagger}
+\end{align*}
+
+\end_inset
+
+回忆起，拉氏量里一个 even（odd）的项导致运动方程中一个 even (odd)的项。为了写出一个对应于
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.146"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的作用量，我们需要拓展
+\begin_inset Formula $U$
+\end_inset
+
+的定义到一个假想的五维，
+\begin_inset Formula 
+\[
+U\left(y\right)=\exp\left(i\alpha\frac{\phi\left(x\right)}{F_{0}}\right),\quad y^{i}=\left(x^{\mu},\alpha\right),i=0,\cdots,4,0\le\alpha\le1
+\]
+
+\end_inset
+
+where Minkowski 空间定义在五维空间的表面
+\begin_inset Formula $\alpha=1$
+\end_inset
+
+。让我们引用 Wess–Zumino-Witten (WZW) 有效作用量的结果，在没有外场的情况下（用下标
+\begin_inset Formula $0$
+\end_inset
+
+表示）：
+\begin_inset Formula 
+\begin{equation}
+S_{\text{WZW}}^{0}=-\frac{i}{240\pi^{2}}\int_{0}^{1}\dif\alpha\int\dif^{4}x\varepsilon^{ijklm}\tr\left(\mathcal{U}_{Li}\mathcal{U}_{Lj}\mathcal{U}_{Lk}\mathcal{U}_{Ll}\mathcal{U}_{Lm}\right)\label{eq:3.148}
+\end{equation}
+
+\end_inset
+
+其中指标
+\begin_inset Formula $i,\cdots,m$
+\end_inset
+
+从
+\begin_inset Formula $0$
+\end_inset
+
+到
+\begin_inset Formula $4$
+\end_inset
+
+，
+\begin_inset Formula $y_{4}=y^{4}=\alpha$
+\end_inset
+
+，
+\begin_inset Formula $\varepsilon_{ijklm}$
+\end_inset
+
+是完全反对称张量，with 
+\begin_inset Formula $\varepsilon_{01234}=-\varepsilon^{01234}=1$
+\end_inset
+
+， and 
+\begin_inset Formula $\mathcal{U}_{Li}\equiv U^{\dagger}\frac{\partial U}{\partial y^{i}}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathcal{U}_{L\mu} & =U^{\dagger}\left(y\right)U\left(y\right)i\alpha\frac{\partial_{\mu}\phi\left(x\right)}{F_{0}}=i\alpha\frac{\partial_{\mu}\phi\left(x\right)}{F_{0}},\quad\mu\in\left\{ 0,1,2,3\right\} \\
+\mathcal{U}_{L4} & =U^{\dagger}\left(y\right)U\left(y\right)i\frac{\phi\left(x\right)}{F_{0}}=i\frac{\phi\left(x\right)}{F_{0}}\\
+{\color{blue}\mathcal{U}_{Li}} & {\color{blue}=\frac{i}{F_{0}}\partial_{i}\left(\alpha\phi\left(x\right)\right),\quad\mu\in\left\{ 0,1,2,3,4\right\} \text{ 总的来说，可以写成这样}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exercise 3.27 考虑作用量
+\begin_inset Formula 
+\[
+S=S_{2}+S_{\text{ano}}^{0}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $S_{2}$
+\end_inset
+
+是对应于
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.42"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{L}_{\text{eff}}=\frac{F_{0}^{2}}{4}\tr\left(\partial_{\mu}U,\partial^{\mu}U^{\dagger}\right)$
+\end_inset
+
+的作用量，
+\begin_inset Formula $S_{\text{ano}}^{0}=nS_{\text{WZW}}^{0}$
+\end_inset
+
+是反常拉氏量，其中
+\begin_inset Formula $n$
+\end_inset
+
+是带确定的整数。
+\end_layout
+
+\begin_layout Enumerate
+使用 ansatz
+\begin_inset Formula 
+\[
+U^{\prime}\left(y\right)=\left[\mathbbm{1}+i\alpha\Delta\left(x\right)\right]U\left(y\right),\quad\Delta\left(x\right)=\sum_{a=1}^{8}\Delta_{a}\left(x\right)\lambda_{a}
+\]
+
+\end_inset
+
+验证
+\begin_inset Formula 
+\[
+\delta S_{\text{ano}}^{0}=\frac{n}{48\pi^{2}}\int_{0}^{1}\dif\alpha\int\dif^{4}x\varepsilon^{ijklm}\tr\left(U^{\dagger}\partial_{i}\left(\alpha\Delta\right);U\mathcal{U}_{Lj}\mathcal{U}_{Lk}\mathcal{U}_{Ll}\mathcal{U}_{Lm}\right)
+\]
+
+\end_inset
+
+Hint:使用置换对称性
+\end_layout
+
+\begin_layout Enumerate
+使用分部积分，以及测试函数的边界条件
+\begin_inset Formula $\Delta\left(\vec{x},t_{1}\right)=\Delta\left(\vec{x},t_{2}\right)=0$
+\end_inset
+
+，还有置换对称性，得到
+\begin_inset Formula 
+\[
+\delta S_{\text{ano}}^{0}=\frac{n}{48\pi^{2}}\int\dif^{4}x\varepsilon^{\mu\nu\rho\sigma}\tr\left(\Delta\mathcal{U}_{R\mu}\mathcal{U}_{R\nu}\mathcal{U}_{R\rho}\mathcal{U}_{R\sigma}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{U}_{R\mu}\equiv U\partial_{\mu}U^{\dagger}$
+\end_inset
+
+，结合
+\begin_inset Formula $\delta S_{2}$
+\end_inset
+
+的结果（see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec: 3.4.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+），产生
+\begin_inset Formula 
+\begin{equation}
+\int\dif^{4}x\Delta_{\alpha}\tr\left\{ \lambda_{a}\left[i\frac{F_{0}^{2}}{4}\left(\square U;U^{\dagger}-U\square U^{\dagger}\right)+\frac{n}{46\pi^{2}}\varepsilon^{\mu\nu\rho\sigma}\mathcal{U}_{R\mu}\mathcal{U}_{R\nu}\mathcal{U}_{R\rho}\mathcal{U}_{R\sigma}\right]\right\} =0\label{eq:3.149}
+\end{equation}
+
+\end_inset
+
+对于任意测试函数
+\begin_inset Formula $\Delta_{\alpha}$
+\end_inset
+
+。使用
+\begin_inset Formula $\square U;U^{\dagger}-U\square U^{\dagger}=-2\partial_{\mu}\left(U\partial^{\mu}U^{\dagger}\right)$
+\end_inset
+
+ and 方括号中的表达式是无迹的这一事实，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.146"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+与 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.149"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+等价说明，常数
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+的关系为
+\begin_inset Formula $\lambda=in/\left(48\pi^{2}\right)$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\partial_{\mu}\left(\frac{F_{0}^{2}}{2}U\partial^{\mu}U^{\dagger}\right)+\lambda\varepsilon^{\mu\nu\rho\sigma}U\partial_{\mu}U^{\dagger};U\partial_{\nu}U^{\dagger};U\partial_{\rho}U^{\dagger};U\partial_{\sigma}U^{\dagger}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.148"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的一个非同寻常的性质在于，对应于新项的作用量泛函，无法写成一个用 
+\begin_inset Formula $U$
+\end_inset
+
+ and 它的导数组成的 Lagrangian 的四维积分。将 SU(3) 矩阵
+\begin_inset Formula $U\left(y\right)$
+\end_inset
+
+用 Goldstone-boson 场展开，
+\begin_inset Formula $U\left(y\right)=\mathbbm{1}+i\alpha\phi\left(x\right)/F_{0}+O\left(\phi^{2}\right)$
+\end_inset
+
+，可以得到一个无穷级数，每一项都包含了奇数个 Goldstone-bosons，也就是说， WZW 作用量 is of odd intrinsic
+ parity。对于每个独立的项，可以完成
+\begin_inset Formula $\alpha$
+\end_inset
+
+积分，得到普通的作用量，表示成四维 local Lagrangian 的积分。例如，包含最少 Goldstone-bosons 的一项是
+\begin_inset Formula 
+\begin{align*}
+S_{\text{WZW}}^{5\phi} & =\frac{1}{240\pi^{2}F_{0}^{5}}\int_{0}^{1}\dif\alpha\int\dif^{4}x\varepsilon^{ijklm}\tr\left[\partial_{i}\left(\alpha\phi\right)\partial_{j}\left(\alpha\phi\right)\partial_{k}\left(\alpha\phi\right)\partial_{l}\left(\alpha\phi\right)\partial_{m}\left(\alpha\phi\right)\right]\\
+ & =\frac{1}{240\pi^{2}F_{0}^{5}}\int_{0}^{1}\dif\alpha\int\dif^{4}x\varepsilon^{ijklm}\partial_{i}\tr\left[\left(\alpha\phi\right)\partial_{j}\left(\alpha\phi\right)\partial_{k}\left(\alpha\phi\right)\partial_{l}\left(\alpha\phi\right)\partial_{m}\left(\alpha\phi\right)\right]\\
+ & =\frac{1}{240\pi^{2}F_{0}^{5}}\int\dif^{4}x\varepsilon^{\mu\nu\rho\sigma}\tr\left[\phi\partial_{\mu}\phi\partial_{\nu}\phi\partial_{\rho}\phi\partial_{\sigma}\phi\right]
+\end{align*}
+
+\end_inset
+
+在最后一步中，我们使用了事实：只有一个指标可以取到
+\begin_inset Formula $4$
+\end_inset
+
+。包含
+\begin_inset Formula $i=4$
+\end_inset
+
+的这一项可以对
+\begin_inset Formula $\alpha$
+\end_inset
+
+积分，其他的几项相互抵消了，由于
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+张量在四维空间对于轮换是全反对称的，而求迹对于轮换是对称的。特别地，不包括外场的 WZW 作用量最少有 
+\begin_inset Formula $5$
+\end_inset
+
+ 个 Goldstone-bosons。一旦确定了常数
+\begin_inset Formula $n$
+\end_inset
+
+，就可以描述比如
+\begin_inset Formula $K^{+}k^{-}\to\pi^{+}\pi^{-}\pi^{0}$
+\end_inset
+
+的过程。
+\end_layout
+
+\begin_layout Standard
+使用拓扑论据， Witten 证明了出现在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.148"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的
+\begin_inset Formula $n$
+\end_inset
+
+必定是个整数。然而，在ref 12 中指出，传统的把
+\begin_inset Formula $n$
+\end_inset
+
+和
+\begin_inset Formula $N_{c}$
+\end_inset
+
+联系起来的论据是不完备的。和
+\begin_inset Formula $N_{c}$
+\end_inset
+
+的联系可以如下建立：引入和电磁场的耦合。在存在外场的情况下，反常作用量中将会有一个额外项
+\begin_inset Formula 
+\[
+S_{\text{ano}}=S_{\text{ano}}^{0}+S_{\text{ano}}^{\text{ext}}=n\left(S_{\text{WZW}}^{0}+S_{\text{WZW}}^{\text{ext}}\right)
+\]
+
+\end_inset
+
+由ref18 给出
+\begin_inset Formula 
+\[
+S_{\text{WZW}}^{\text{ext}}=-\frac{i}{48\pi^{2}}\int\dif^{4}x\varepsilon^{\mu\nu\rho\sigma}\tr\left(Z_{\mu\nu\rho\sigma}\right)
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula 
+\begin{align*}
+ & Z_{\mu\nu\rho\sigma}\\
+= & \frac{1}{2}Ul_{\mu}U^{\dagger}r_{\nu}Ul_{\rho}U^{\dagger}r_{\sigma}+Ul_{\mu}l_{\nu}l_{\rho}U^{\dagger}r_{\sigma}-Ur_{\mu}r_{\nu}r_{\rho}U^{\dagger}l_{\sigma}\\
+ & +iU\partial_{\mu}l_{\nu}l_{\rho}U^{\dagger}r_{\sigma}-iU^{\dagger}\partial_{\mu}r_{\nu}r_{\rho}U^{\dagger}l_{\sigma}+\partial_{\mu}r_{\nu}Ul_{\rho}U^{\dagger}r_{\sigma}-i\partial_{\mu}l_{\nu}U^{\dagger}r_{\rho}Ul_{\sigma}\\
+ & -i\mathcal{U}_{L\mu}l_{\nu}U^{\dagger}r_{\rho}Ul_{\sigma}+i\mathcal{U}_{R\mu}r_{\nu}Ul_{\rho}U^{\dagger}r_{\sigma}-i\mathcal{U}_{L\mu}l_{\nu}l_{\rho}l_{\sigma}+i\mathcal{U}_{R\mu}r_{\nu}r_{\rho}r_{\sigma}\\
+ & +\frac{1}{2}\left(\mathcal{U}_{L\mu}U^{\dagger}\partial_{\nu}r_{\rho}Ul_{\sigma}-\mathcal{U}_{R\mu}U\partial_{\nu}l_{\rho}U^{\dagger}r_{\sigma}+\mathcal{U}_{L\mu}U^{\dagger}r_{\nu}U\partial_{\rho}l_{\sigma}-\mathcal{U}_{R\mu}Ul_{\nu}U^{\dagger}\partial_{\rho}r_{\sigma}\right)\\
+ & -\mathcal{U}_{L\mu}\mathcal{U}_{L\nu}U^{\dagger}r_{\rho}Ul_{\sigma}+\mathcal{U}_{R\mu}\mathcal{U}_{R\nu}Ul_{\rho}U^{\dagger}r_{\sigma}+\frac{1}{2}\mathcal{U}_{L\mu}l_{\nu}\mathcal{U}_{L\rho}l_{\sigma}-\frac{1}{2}\mathcal{U}_{R\mu}r_{\nu}\mathcal{U}_{R\rho}r_{\sigma}\\
+ & +\mathcal{U}_{L\mu}l_{\nu}\partial_{\rho}l_{\sigma}-\mathcal{U}_{R\mu}r_{\nu}\partial_{\rho}r_{\sigma}+\mathcal{U}_{L\mu}\partial_{\nu}l_{\rho}l_{\sigma}-\mathcal{U}_{R\mu}\partial_{\nu}r_{\rho}r_{\sigma}\\
+ & -i\mathcal{U}_{L\mu}\mathcal{U}_{L\nu}\mathcal{U}_{L\rho}l_{\sigma}+i\mathcal{U}_{R\mu}\mathcal{U}_{R\nu}\mathcal{U}_{R\rho}r_{\sigma}
+\end{align*}
+
+\end_inset
+
+with 
+\begin_inset Formula $\mathcal{U}_{L\mu}=U^{\dagger}\partial_{\mu}U$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{U}_{L\mu}=U\partial_{\mu}U^{\dagger}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+作为一个特例，让我们考虑耦合到电磁场四矢量势外场上，通过插入
+\begin_inset Formula 
+\[
+r_{\mu}=l_{\mu}=-e\mathcal{A}_{\mu}Q
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $Q$
+\end_inset
+
+ 是夸克电荷矩阵。包含有三个和四个电磁四矢量势的项为零，由于和全反对称张量
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+收缩，因为它们对
+\begin_inset Formula $Z_{\mu\nu\rho\sigma}$
+\end_inset
+
+的贡献至少有两个指标是对称的，我们得到
+\begin_inset Formula 
+\begin{align}
+n\mathcal{L}_{\text{WZW}}^{\text{ext}} & =-en\mathcal{A}_{\mu}J^{\mu}+i\frac{ne^{2}}{48\pi^{2}}\varepsilon^{\mu\nu\rho\sigma}\partial_{\nu}\mathcal{A}_{\rho}\mathcal{A}_{\sigma}\nonumber \\
+ & \times\tr\left[2Q^{2}\left(U\partial_{\mu}U^{\dagger}-U^{\dagger}\partial_{\mu}U\right)-QU^{\dagger}Q\partial_{\mu}U+QUQ\partial_{\mu}U^{\dagger}\right]\label{eq:3.154}
+\end{align}
+
+\end_inset
+
+我们注意到流
+\begin_inset Formula 
+\begin{equation}
+J^{\mu}=\frac{\varepsilon^{\mu\nu\rho\sigma}}{48\pi^{2}}\tr\left(Q\partial_{\nu}U;U^{\dagger}\partial_{\rho}U;U^{\dagger}\partial_{\sigma}U;U^{\dagger}+QU^{\dagger}\partial_{\nu}U;U^{\dagger}\partial_{\rho}U;U^{\dagger}\partial_{\sigma}U\right),\quad\varepsilon_{0123}=1\label{eq:3.155}
+\end{equation}
+
+\end_inset
+
+本身并不是规范不变的，需要
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.154"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的额外项才能保持规范不变。决定
+\begin_inset Formula $n$
+\end_inset
+
+的标准程序是研究和衰变
+\begin_inset Formula $\pi^{0}\to\gamma\gamma$
+\end_inset
+
+相关的相互作用 Lagrangian，通过展开
+\begin_inset Formula $U=\mathbbm{1}+i\text{diag }\left(\pi^{0},-\pi^{0},0\right)/F_{0}+\cdots$
+\end_inset
+
+。然而，如同 Bar 和 Wiese 指出的，当在任意颜色数量下考虑和电磁相互作用时，应该把标准模型中的夸克电荷矩阵替换成
+\begin_inset Formula 
+\[
+Q=\left(\begin{array}{ccc}
+\frac{2}{3} & 0 & 0\\
+0 & -\frac{1}{3} & 0\\
+0 & 0 & -\frac{1}{3}
+\end{array}\right)\to\left(\begin{array}{ccc}
+\frac{2}{2N_{c}}+\frac{1}{2} & 0 & 0\\
+0 & \frac{2}{2N_{c}}-\frac{1}{2} & 0\\
+0 & 0 & \frac{2}{2N_{c}}-\frac{1}{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exercise 3.28 从
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.154"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，推导
+\begin_inset Formula $\pi^{0}\to\gamma\gamma$
+\end_inset
+
+衰变的有效拉氏量，
+\begin_inset Formula 
+\[
+\mathcal{L}_{\pi^{0}\gamma\gamma}=-\frac{n}{N_{c}}\frac{e^{2}}{32\pi^{2}}\varepsilon^{\mu\nu\rho\sigma}\mathcal{F}_{\mu\nu}\mathcal{F}_{\rho\sigma}\frac{\pi^{0}}{F_{0}}
+\]
+
+\end_inset
+
+Hint: 使用分部积分，把 pion 场的导数移动到电磁四矢量势上。
+\end_layout
+
+\begin_layout Standard
+在树图阶相应的不变振幅为
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}=i\frac{n}{N_{c}}\frac{e^{2}}{4\pi^{2}F_{0}}\varepsilon^{\mu\nu\rho\sigma}q_{1\mu}\varepsilon_{1\nu}^{*}q_{2\rho}\varepsilon_{2\sigma}^{*}\label{eq:3.156}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exercise 3.29 对末态光子极化求和，并对相空间积分，得到衰变率（see Exercise 3.13）
+\begin_inset Formula 
+\begin{equation}
+\Gamma_{\pi^{0}\to\gamma\gamma}=\frac{\alpha^{2}M_{\pi^{0}}^{3}}{64\pi^{3}F_{0}^{2}}\frac{n^{2}}{N_{c}^{2}}=7.6\eV\times\left(\frac{n}{N_{c}}\right)^{2}\label{eq:3.157}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha=e^{2}/\left(4\pi\right)$
+\end_inset
+
+ 标志精细结构常数。
+\begin_inset Newline newline
+\end_inset
+
+Hints: 令
+\begin_inset Formula $\varepsilon_{1\mu}\left(\lambda_{1}\right)\varepsilon_{2\nu}\left(\lambda_{2}\right)M^{\mu\nu}$
+\end_inset
+
+ 标志一个包含两个光子的过程的不变振幅。由于电磁流守恒，
+\begin_inset Formula $q_{1\mu}M^{\mu\nu}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $q_{2\nu}M^{\mu\nu}=0$
+\end_inset
+
+，光子的极化求和为
+\begin_inset Formula 
+\[
+\sum_{\lambda_{1},\lambda_{2}=1}^{2}\abs*{\varepsilon_{1\mu}\left(\lambda_{1}\right)\varepsilon_{2\nu}\left(\lambda_{2}\right)M^{\mu\nu}}^{2}=M_{\mu\nu}M^{\mu\nu*}
+\]
+
+\end_inset
+
+最后，使用
+\begin_inset Formula 
+\[
+\varepsilon_{\mu\nu\alpha\beta}\varepsilon^{\mu\nu\rho\sigma}=-2\left(g_{\alpha}^{\rho}g_{\beta}^{\sigma}-g_{\alpha}^{\sigma}g_{\beta}^{\rho}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+方程
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.157"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+和实验值
+\begin_inset Formula $\left(7.7\pm0.6\right)\eV$
+\end_inset
+
+符合的很好，如果
+\begin_inset Formula $n=N_{c}$
+\end_inset
+
+。然而，这个结果并不表明
+\begin_inset Formula $N_{c}=3$
+\end_inset
+
+。 Bar and Wiese 从他们的分析总结到，应该考虑三味的过程，比如
+\begin_inset Formula $\eta\to\pi^{+}\pi^{-}\gamma$
+\end_inset
+
+ or 
+\begin_inset Formula $K\gamma\to K\pi$
+\end_inset
+
+来得到低能反应中期望的
+\begin_inset Formula $N_{c}$
+\end_inset
+
+依赖。比如，和衰变
+\begin_inset Formula $\eta\to\pi^{+}\pi^{-}\gamma$
+\end_inset
+
+ 相关的拉氏量为
+\begin_inset Formula 
+\[
+\mathcal{L}_{\eta\pi^{+}\pi^{-}\gamma}=\frac{ien}{12\sqrt{3}\pi^{2}F_{0}^{3}}\left(Q_{u}-Q_{d}\right)\varepsilon^{\mu\nu\rho\sigma}\mathcal{A}_{\mu}\mathcal{A}_{\nu}\eta\partial_{\rho}\pi^{+}\partial_{\sigma}\pi^{-}
+\]
+
+\end_inset
+
+其中夸克电荷差值
+\begin_inset Formula $Q_{u}-Q_{d}=1$
+\end_inset
+
+，独立于
+\begin_inset Formula $N_{c}$
+\end_inset
+
+。然而，通过在结合
+\begin_inset Formula $1/N_{c}$
+\end_inset
+
+and 手征展开的框架下，研究
+\begin_inset Formula $\eta$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta^{\prime}$
+\end_inset
+
+ 的衰变至次领头阶，Borasoy and Lipartia 总结到，颜色的数目，不能从这些衰变中确定，由于次领头阶项的重要性，需要它们来解释实验的衰变宽度和光
+子谱线。
+\end_layout
+
+\begin_layout Subsection
+O(6)阶手征微扰
 \end_layout
 
 \begin_layout Chapter
