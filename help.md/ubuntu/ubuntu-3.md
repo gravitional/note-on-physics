@@ -821,7 +821,7 @@ rTorrent 是一个非常简洁、优秀、非常轻量的BT客户端. 它使用�
 
 aria2 是 Linux 下一个不错的高速下载工具。由于它具有分段下载引擎，所以支持从多个地址或者从一个地址的多个连接来下载同一个文件。这样自然就大大加快了文件的下载速度。aria2 也具有断点续传功能，这使你随时能够恢复已经中断的文件下载。除了支持一般的 http(s) 和 ftp 协议外，aria2 还支持 BitTorrent 协议。这意味着，你也可以使用 aria2 来下载 torrent 文件。
 
- rtorrent screenshot
+
 ttytter & earthquake
 
 TTYtter 是一个Perl写的命令行上发Twitter的工具，可以进行所有其他平台客户端能进行的事情，当然，支持中文。脚本控、CLI控、终端控、Perl控的最愛。
@@ -848,8 +848,6 @@ cowsay screenshot
 
 最后，再介绍一个命令中linuxlogo，你可以使用 sudo apt-get install linuxlogo来安装，然后，就可以使用linuxlogo -L
 来看一下各种Linux的logo了
-
-（全文完）
 
 ## ssh
 
