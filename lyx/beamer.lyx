@@ -8,6 +8,7 @@
 \begin_preamble
 % We use the "Berkeley" theme with a 3.45em-wide side bar on the left
 \usetheme[left,width=3.45em]{Berkeley}
+\usepackage{xeCJK}% 没有这个会无法实现中文断行
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -936,8 +937,7 @@ Separating frames
 
 \begin_layout Frame
 \noindent
-Consecutive frames have to be separated from each other.
- This is done by means of the 
+连续的 Frame 必须分开。这可以通过插入 
 \begin_inset Flex Structure
 status collapsed
 
@@ -947,8 +947,17 @@ Separator
 
 \end_inset
 
- inset, which can be produced by hitting return in an empty Standard paragraph
- right below the frame (see UserGuide, sec.
+ inset实现 。当你在 frame 下方的 Standard 段落按下 return，就会插入一个 
+\begin_inset Flex Structure
+status collapsed
+
+\begin_layout Plain Layout
+Separator
+\end_layout
+
+\end_inset
+
+ (see UserGuide, sec.
 \begin_inset space ~
 \end_inset
 
@@ -1032,13 +1041,6 @@ status open
 \end_inset
 
 myframe
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
 \end_layout
 
 \begin_layout PlainFrame
@@ -1438,13 +1440,11 @@ What are overlays?
 
 \end_layout
 
-\begin_layout Frame
-Basically, the overlay concept allows to change the slide content dynamically.
- You can uncover things/text piecewise, fade out content, highlight things,
- replace text, images etc.
+\begin_deeper
+\begin_layout Standard
+基本上，overlay 允许动态更改幻灯片内容。 您可以分段显示内容/文本，淡出内容，突出显示内容，替换文本，图像等。
 \end_layout
 
-\begin_deeper
 \begin_layout Pause
 
 \end_layout
@@ -1460,19 +1460,19 @@ status open
 
 \end_inset
 
-Overlays are useful to build up slides as you speak
+当您演讲时，叠加层有助于构建幻灯片。
 \end_layout
 
 \begin_layout Itemize
-They help you to shift your audience's focus on specific things
+它们可以帮助您将观众的注意力转移到特定事物上
 \end_layout
 
 \begin_layout Itemize
-And they help your audience to follow you
+他帮助您的听众跟随您
 \end_layout
 
 \begin_layout Itemize
-So use overlays! 
+因此使用overlays！
 \begin_inset Flex Alert
 status open
 
@@ -1696,50 +1696,8 @@ Action
 \begin_inset Quotes erd
 \end_inset
 
- is a more general concept, which does not only include what we have called
- 
-\begin_inset Quotes eld
-\end_inset
-
-overlays
-\begin_inset Quotes erd
-\end_inset
-
- (
-\begin_inset Quotes eld
-\end_inset
-
-on which sub-slide[s] is this to be shown\SpecialChar breakableslash
-hidden\SpecialChar breakableslash
-highlighted
-\begin_inset Quotes erd
-\end_inset
-
-), but also tasks such as 
-\begin_inset Quotes eld
-\end_inset
-
-only show this in the presentation, not on the handout
-\begin_inset Quotes erd
-\end_inset
-
- or 
-\begin_inset Quotes eld
-\end_inset
-
-show this on the second screen only
-\begin_inset Quotes erd
-\end_inset
-
- (so-called 
-\begin_inset Quotes eld
-\end_inset
-
-modes
-\begin_inset Quotes erd
-\end_inset
-
-).
+是一个更笼统的概念，它不仅包括我们所谓的“overlays”（“在哪个子幻灯片上要显示/隐藏/突出显示”），还包括诸如“仅在演示文稿中显示此内容，而不是在讲义上
+显示此内容”或“仅在第二个屏幕上显示此内容”（所谓的“modes”）。
 \end_layout
 
 \end_deeper
@@ -1763,8 +1721,8 @@ status open
 status open
 
 \begin_layout Plain Layout
-Note to the \SpecialChar LaTeX
- aficionados
+\SpecialChar LaTeX
+ 迷的注意事项
 \end_layout
 
 \end_inset
@@ -1773,8 +1731,8 @@ Note to the \SpecialChar LaTeX
 \end_layout
 
 \begin_layout AlertBlock
-The mentioned overlay/action settings conform to those command/environment
- options embraced by
+上面提到的 overlay/action 设置符合 \SpecialChar LaTeX
+输出格式：
 \begin_inset Flex Alert
 status collapsed
 
@@ -1799,14 +1757,7 @@ status collapsed
 
 \end_inset
 
- in the \SpecialChar LaTeX
- output.
-\end_layout
-
-\begin_layout AlertBlock
-Note that \SpecialChar LyX
- adds those braces on export, so you must not enter them yourself.
- In other words, enter 
+ 中包含对应命令/环境选项。 请注意，LyX在导出时会添加这些大括号，因此您不能自己输入它们。 换句话说，在叠加/动作插图中输入
 \begin_inset Quotes eld
 \end_inset
 
@@ -1822,7 +1773,7 @@ Note that \SpecialChar LyX
 \begin_inset Quotes erd
 \end_inset
 
- to the overlay/action insets, not 
+，而不是
 \begin_inset Quotes eld
 \end_inset
 
@@ -1838,7 +1789,7 @@ Note that \SpecialChar LyX
 \begin_inset Quotes erd
 \end_inset
 
-!
+！
 \end_layout
 
 \end_deeper

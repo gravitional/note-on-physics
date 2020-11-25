@@ -1599,17 +1599,39 @@ Synopsis:
 
 [LaTeX技巧159：如何在文中使用链接]: https://www.latexstudio.net/archives/7741.html
 
-## 字体 font
+## 字体 font 数学符号
 
-ref: [LaTeX —— 特殊符号与数学字体][]
+### 查看所有的字体
 
-[LaTeX —— 特殊符号与数学字体]: https://blog.csdn.net/lanchunhui/article/details/54633576
+[Win10环境下LaTeX中文字体的设置](https://zhuanlan.zhihu.com/p/260989874)
+
+```bash
+fc-list -f "%{family}\n" :lang=zh
+```
+
+所有用逗号 , 隔开的短语，如 `Source Han Serif SC`，`思源宋体`，`Source Han Serif SC Medium`，`思源宋体 Medium`，都可以作为后面调用的代号，
+其中后两者代表`Medium`这个粗细，而前两者实际上代表的是这个字体的默认粗细，即`Regular`，想要调用非默认粗细的话需要注意代号。
+
+***
+出现下面这种报错
+
+```latex
+! Internal error: bad native font flag in `map_char_to_glyph'
+```
+
+可能是数学字体设置有问题。
+
+相关的包
+
+```latex
+\usepackage{unicode-math}
+```
 
 ### latex 字体设置
 
-[latex 字体设置][]
+[LaTeX 特殊符号与数学字体](https://blog.csdn.net/lanchunhui/article/details/54633576)
 
-[latex 字体设置] :https://www.jianshu.com/p/68da21a1501a
+[latex 字体设置](https://www.jianshu.com/p/68da21a1501a)
 
 字体是由一些正交的属性决定的,通常讨论的属性为
 
@@ -1783,6 +1805,14 @@ Latex下 字体大小命令 比较
 + $\mathcal{D}$ 表示样本集
 + $\mathcal{N}$ 常用来表示高斯分布；
 
+[为阿拉伯数字和小写字母实现类似 \mathbb 的效果 ](https://liam.page/2017/01/08/arabic-numbers-or-lowercase-letters-in-blackboard-bold-doublestroke-font/)
+
+需要用到bbm 字体
+
+```latex
+\usepackage{bbm}
+```
+
 ### 其他数学字体
 
 + `\mathsf`
@@ -1827,7 +1857,7 @@ ref-3: [查找任意符号的LaTeX指令][]
 
 [Detexify]: http://detexify.kirelabs.org/classify.html
 
-## 数学符号
+### 数学符号
 
 | `latex` | appearance | 描述 |
 | ----- | ----- |----- |

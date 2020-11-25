@@ -25,7 +25,6 @@
 
 可以在`Insert`菜单栏中插入`beamer`特有的格式。
 
-
 ## 5 创造一个演示的参考Guidelines for Creating Presentations 
 
 ### 组织一个frameStructuring a Frame 
@@ -166,3 +165,131 @@ bibtex 标准 style `plain`,`unsrt`,`alpha`,`abbrv`
 + /bst/upmethodology/upmplainnat.bst
 + /bst/dinat/dinat.bst
 + /bst/din1505/natdin.bst
+
+## beamer中文
+
+[数学字体](https://mirrors.bfsu.edu.cn/CTAN/info/Free_Math_Font_Survey/en/survey.html)
+[xeCJK中文字体包](https://www.ctan.org/pkg/xecjk)
+[如何使用 LaTeX/XeLaTeX 编辑中文？](https://zhuanlan.zhihu.com/p/27739925)
+[全面总结如何在 LaTeX 中使用中文 (2020 最新版)](https://jdhao.github.io/2018/03/29/latex-chinese.zh/)
+
+这里介绍 LaTeX 编辑中文的两种方式。注意，虽说是使用 LaTeX，实际使用的是 XeLaTeX 引擎。具体方法如下：
+
+### 使用xeCJK宏包
+
+***
+[How to get Beamer Math to look like Article Math](https://tex.stackexchange.com/questions/34265/how-to-get-beamer-math-to-look-like-article-math)
+如果你仅仅需要在文档中使用有限的一些中文字符，你可以使用 `xeCJK` 宏包，然后使用 `xelatex` 命令编译源文件。
+
+***
+[Beamer的中文自动换行问题](http://softlab.sdut.edu.cn/blog/subaochen/2018/11/)
+
+在LyX中，标准的Beamer无法实现中文自动换行，观察其tex源文件可以发现，其导入的package为：
+`\usepackage{fontspec}`
+而在导言区使用
+`\usepackage{xeCJK}`
+就可以支持中文自动换行了。
+
+***
+beamer 有个选项，可以更改数学字体的显示方式，`\usefonttheme[onlymath]{serif}`可以使数学字体风格为`serif`
+
+一个简单可运行的例子如下：
+
+```latex
+%!TEX program=xelatex
+% 该文件使用 xelatex 命令可以编译通过
+\documentclass[12pt, a4paper]{article}
+\usepackage{fontspec}
+\usepackage[slantfont, boldfont]{xeCJK}
+
+% 设置英文字体
+\setmainfont{Microsoft YaHei}
+\setsansfont{Comic Sans MS}
+\setmonofont{Courier New}
+
+% 设置中文字体
+\setCJKmainfont[Mapping=tex-text]{Noto Sans CJK SC}
+\setCJKsansfont[Scale=0.7,Mapping=tex-text]{Source Han Sans SC}
+\setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
+
+
+% 中文断行设置
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\title{测试}
+\author{东}
+\date{2016年6月6日}
+\begin{document}
+\maketitle
+\begin{center}
+满纸荒唐言\\
+一把辛酸泪\\
+都云作者痴\\
+谁解其中味\\
+\end{center}
+\begin{verse}
+\texttt{Stray birds of summer come to my window to sing and fly away}. \\
+\textsf{And yellow leaves of autumn, which have no songs}, \\
+\textrm{flutter and fall there with a sign}.\\
+\hfill \emph{RabindranathTagore}
+\end{verse}
+\begin{verse}
+\texttt{夏天的飞鸟}，\textsf{飞到我的窗前唱歌}，\textrm{又飞去了}。\\
+秋天的黄叶，它们没有什么可唱，只叹息一声，飞落在那里。\\
+\hfill \emph{罗宾德拉纳特·泰戈尔}
+\end{verse}
+\end{document}
+```
+
+对于中文来说，`\setCJKmainfont{}` 命令用来设置正文使用的中文字体，同时也是 `\textrm{}` 命令使用的字体。
+`\setCJKmonofont{}` 用来设置 `\texttt{}` 命令中的中文使用的字体。`\setCJKsansfont{}` 用来设置 `\textsf{}` 命令中的中文使用的字体。
+
+那么问题来了，如何找到可用的中文字体呢？如果你已经安装了 TeX Live，那么很容易找到中文字体。在系统的命令行，使用下面的命令：
+
+```bash
+fc-list :lang=zh
+```
+
+此种方式试用于有特定文档类型的情况，如 `beamer` 。
+
+***
+lyx 的设置
+
+```latex
+\batchmode
+\makeatletter
+\def\input@path{{/home/tom/note/chpt/}}
+\makeatother
+\documentclass[utf8,dvipsnames,svgnames,x11names,hyperref]{beamer}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{Noto Sans CJK SC}
+\setsansfont[Scale=0.7,Mapping=tex-text]{Source Han Sans SC}
+\setmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
+\usepackage{mathrsfs}
+
+```
+
+还可以同时用`Scale=0.7`调节大小
+
+### 使用 ctexbeamer 文档类型：
+
+```latex
+%!TEX program=xelatex
+\documentclass{ctexart}
+\begin{document}
+    你好！
+\end{document}
+```
+
+此种方式比较简便，也更适合中文排版要求，建议选用。
+
+## 添加当前位置
+
+texdoc beamer : 101
+
+```latex
+\frame{\tableofcontents[currentsection]}
+```
