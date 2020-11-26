@@ -554,7 +554,7 @@ Cutting rules
 积分，我们发现
 \begin_inset Formula 
 \[
-\int_{0}^{\infty}\dif p^{2}\frac{-\varepsilon}{(p^{2}-m^{2})^{2}+\varepsilon^{2}}=-\left.\arctan\left(\frac{p^{2}-m^{2}}{\varepsilon}\right)\right\vert _{0}^{\infty}=-\pi
+\int_{0}^{\infty}\dif p^{2}\frac{-\varepsilon}{\left(p^{2}-m^{2}\right)^{2}+\varepsilon^{2}}=-\left.\arctan\left(\frac{p^{2}-m^{2}}{\varepsilon}\right)\right\vert _{0}^{\infty}=-\pi
 \]
 
 \end_inset
@@ -1153,9 +1153,9 @@ i\Pi^{\mu\nu}(p^{2})=-i\frac{g_{\mu\nu}-(1-\xi)\frac{p^{\mu}p^{\nu}}{p^{2}}}{p^{
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-iG(p^{2})=\frac{i}{p^{2}-m_{R}^{2}+\Sigma(p^{2})+i\varepsilon}
-\]
+\begin{equation}
+iG(p^{2})=\frac{i}{p^{2}-m_{R}^{2}+\Sigma(p^{2})+i\varepsilon}\label{eq:24.47}
+\end{equation}
 
 \end_inset
 
@@ -1191,7 +1191,797 @@ iG(p^{2})=\frac{i}{p^{2}-m_{R}^{2}+\Sigma(p^{2})+i\varepsilon}
 \begin_inset Formula $m_{P}^{2}-m_{R}^{2}+\sum(m_{P}^{2})=0$
 \end_inset
 
+。
+\end_layout
 
+\begin_layout Standard
+如果粒子是不稳定的，一般来说
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\begin_inset Formula $\left(p^{2}\right)$
+\end_inset
+
+会有一个虚部，pole 质量的定义需要修改。为了看出这一点，由光学定理
+\begin_inset Formula 
+\begin{align}
+\Gamma_{\text{tot}} & =\frac{1}{m_{P}}\Im\left(\text{自能修正}\right)\nonumber \\
+ & =\frac{1}{m_{P}}\Im\left(\text{IPI 几何级数}\right)\nonumber \\
+ & =\frac{1}{m_{P}}\Im\Sigma\left(m_{P}^{2}\right)+\cdots\label{eq:24.48}
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula $\cdots$
+\end_inset
+
+指的是非–IPI的图。如果我们假设
+\begin_inset Formula $\Gamma_{\text{tot}}\ll m_{P}$
+\end_inset
+
+，也就是在耦合很弱的理论中，那么其余项会被耦合常数的额外因子压低，可以被忽略。因此，
+\begin_inset Formula $\Im\Sigma\left(m_{P}^{2}\right)=m_{P}\Gamma_{\text{tot}}$
+\end_inset
+
+，对于不稳定粒子，
+\begin_inset Formula $\Im\Sigma\left(m_{P}^{2}\right)\neq0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+一个自然的方式是保持质量为实数，所以要修改 pole mass 的定义
+\begin_inset Formula 
+\begin{equation}
+m_{P}^{2}-m_{R}^{2}+\Re\sum(m_{P}^{2})=0\label{eq:24.49}
+\end{equation}
+
+\end_inset
+
+这个定义有时被称为 real pole mass or the Breit–Wigner mass。通过
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:24.49"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，在 pole 附近，传播子的形式为
+\begin_inset Formula 
+\[
+iG\left(p^{2}\right)=\frac{i}{p^{2}-m_{P}^{2}+im_{P}\Gamma_{\text{tot}}}
+\]
+
+\end_inset
+
+这个表达式对于
+\begin_inset Formula $\Gamma_{\text{tot}}\ll m_{P}$
+\end_inset
+
+成立。
+\end_layout
+
+\begin_layout Standard
+例如，对于一个
+\begin_inset Formula $s$
+\end_inset
+
+–道的，包含这个修改的传播子的图：
+\begin_inset Formula 
+\[
+\sigma\propto\abs{\text{s道}}^{2}=g^{4}\abs*{\frac{i}{p^{2}-m_{P}^{2}+im_{P}\Gamma_{\text{tot}}}}^{2}=g^{4}\frac{1}{\left(p^{2}-m_{P}^{2}\right)^{2}+\left(m_{P}\Gamma_{\text{tot}}\right)^{2}}
+\]
+
+\end_inset
+
+这被称为 Breit–Wigner 分布。它是共振态的特征形状。例子展示在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:24.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中。Breit–Wigner 分布的半高宽是 
+\begin_inset Formula $2m_{P}\Gamma_{\text{tot}}$
+\end_inset
+
+。这就是为什么我们可以交替使用 width and decay rate。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted20.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Breit–Wigner 分布，从左到右对应
+\begin_inset Formula $\Gamma/m_{P}=50\%,40\%,\text{ and }1\%$
+\end_inset
+
+。
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:24.1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+另外注意到，当
+\begin_inset Formula $\Gamma\ll m_{P}$
+\end_inset
+
+，我们可以合理地把
+\begin_inset Formula $\Sigma\left(p^{2}\right)$
+\end_inset
+
+当成常数，因为散射截面在
+\begin_inset Formula $p^{2}\sim m_{P}^{2}$
+\end_inset
+
+附近才取值。在
+\begin_inset Formula $\Gamma_{\text{tot}}\to0$
+\end_inset
+
+极限，我们可以把散射截面当成一个
+\begin_inset Formula $\delta$
+\end_inset
+
+–函数，它的系数由 Breit–Wigner 分布的积分给出：
+\begin_inset Formula 
+\[
+\int_{0}^{\infty}\dif x\frac{1}{x^{2}+\varepsilon^{2}}=\frac{1}{\varepsilon}\left.\arctan\left(\frac{x}{\varepsilon}\right)\right\vert _{0}^{\infty}=\frac{1}{\varepsilon}\pi
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+g^{4}\abs*{\frac{i}{p^{2}-m_{P}^{2}+im_{P}\Gamma_{\text{tot}}}}^{2} & =g^{4}\frac{1}{\left(p^{2}-m_{P}^{2}\right)^{2}+\left(m_{P}\Gamma_{\text{tot}}\right)^{2}}\\
+ & \approx g^{4}\frac{\pi}{m_{P}\Gamma}\delta\left(p^{2}-m_{P}^{2}\right),\quad\Gamma\ll m_{P}
+\end{align*}
+
+\end_inset
+
+这被称为 narrow-width approximation。它表明在共振附近，我们可以认为共振态粒子是在壳的。在窄宽度近似下，共振态的产生和衰变可以分开对待
+–产生和衰变之间没有干涉，例如
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:24.53"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted21.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+eq:24.53 
+\begin_inset CommandInset label
+LatexCommand label
+name "eq:24.53"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+这容易理解，因为在两个图中的同一个相空间点，共振态不会同时在壳。中间例子在壳的因子化是幺正性的普遍结果，具有另一个重要的暗示，将会在 section
+ 24.3 进一步讨论。
+\end_layout
+
+\begin_layout Standard
+窄宽度近似的另一个结果是，散射截面可以用产生率计算。例如，考虑简化模型中的过程
+\begin_inset Formula $e^{+}e^{-}\to Z\to\bar{\nu}\nu$
+\end_inset
+
+，其中
+\begin_inset Formula $Z$
+\end_inset
+
+是矢量玻色子，质量为
+\begin_inset Formula $m_{Z}$
+\end_inset
+
+，只和电子
+\begin_inset Formula $e^{-}$
+\end_inset
+
+，中微子
+\begin_inset Formula $\nu$
+\end_inset
+
+耦合，强度为
+\begin_inset Formula $g$
+\end_inset
+
+。在质心系能量
+\begin_inset Formula $E_{\text{CM}}\ll m_{Z}$
+\end_inset
+
+，过程的总散射截面正比于
+\begin_inset Formula $g^{4}$
+\end_inset
+
+。然而，当
+\begin_inset Formula $E_{\text{CM}}\sim m_{Z}$
+\end_inset
+
+，会有一个共振增强，
+\begin_inset Formula $\sigma$
+\end_inset
+
+将正比于
+\begin_inset Formula $g^{2}$
+\end_inset
+
+。事实上，总衰变率
+\begin_inset Formula $\Gamma$
+\end_inset
+
+of 
+\begin_inset Formula $Z$
+\end_inset
+
+ 正比于
+\begin_inset Formula $g^{2}$
+\end_inset
+
+，由于
+\begin_inset Formula $\Gamma\sim\Im\left(i\Sigma\right)\sim g^{2}$
+\end_inset
+
+，因此在共振附近，约掉了一个
+\begin_inset Formula $g^{2}$
+\end_inset
+
+，
+\begin_inset Formula $\sigma\sim g^{4}\frac{\pi}{m_{P}\Gamma}\delta\left(p^{2}-m_{P}^{2}\right)\sim\frac{g^{2}}{m}\delta\left(p^{2}-m^{2}\right)$
+\end_inset
+
+。为了研究此共振增强，从 1989 到 1996 the Large Electron–Positron (LEP) at CERN 在 
+\begin_inset Formula $Z$
+\end_inset
+
+–pole （
+\begin_inset Formula $E_{\text{CM}}=91\GeV$
+\end_inset
+
+）对撞电子。在
+\begin_inset Formula $Z$
+\end_inset
+
+ pole 附近对撞，极大地增强了
+\begin_inset Formula $Z$
+\end_inset
+
+的产生率，允许了对标准模型的精确检验。比较 LEP 数据和理论预测，窄宽度近似完美生效，可以完全忽略
+\begin_inset Formula $Z/\gamma$
+\end_inset
+
+干涉。在更高的质心系能量，at which LEP ran from 1998 to 2000，
+\begin_inset Formula $Z/\gamma$
+\end_inset
+
+ 干涉变得重要，必须纳入考虑。
+\end_layout
+
+\begin_layout Standard
+当
+\begin_inset Formula $\Gamma_{\text{tot}}\gtrsim m_{P}$
+\end_inset
+
+，粒子的质量没有自然的定义。例如，在一个相互作用很强的理论中，
+\begin_inset Formula $\Sigma\left(p^{2}\right)$
+\end_inset
+
+的实部和虚部都很大。粒子衰变的非常快，相对于它的质量，不能够可信地把它当成一个粒子。例子包括纯QCD 中的一些束缚态，被称为胶球。它们刚刚形成就衰变掉了，无法形
+成尖锐的共振态。只有当
+\begin_inset Formula $\Gamma_{\text{tot}}<m_{P}$
+\end_inset
+
+时，把共振态称为粒子才是合理的。
+\end_layout
+
+\begin_layout Standard
+有一些 real pole mass 的替代者。较明显的是 complex pole mass，
+\begin_inset Formula $m_{C}$
+\end_inset
+
+，通过 
+\begin_inset Formula $m_{C}^{2}-m_{R}^{2}+\Sigma\left(m_{C}^{2}\right)=0$
+\end_inset
+
+定义。一个更重要的质量定义是
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+质量
+\begin_inset Formula $m_{R}$
+\end_inset
+
+，在 section 18.4 中讨论，
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+质量不是通过任何 pole 定义的，它是一个重整化的量，必须从依赖它的散射过程中抽取。Chapter 18 提到，一个质量定义，等价于 一个减除方案，它是决定抵
+消项中有限部分的处方。对于
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+质量，简单的设置为 抵消项的有限部分为零。
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+质量可以通过
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:24.49"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $m_{P}^{2}-m_{R}^{2}+\Re\sum(m_{P}^{2})=0$
+\end_inset
+
+转换成 pole 质量。对于没有构成渐近态，所以不能被识别为共振态的粒子，例如夸克，
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+质量是非常有用的。例如，没有从某个 Breit–Wigner 分布中提取出 地夸克质量的方法。
+\begin_inset Formula $\overline{\text{MS}}$
+\end_inset
+
+质量对于 precision physics 也是很有用的，我们会在 Chapter 31 看到。
+\end_layout
+
+\begin_layout Subsection
+分波幺正极限
+\end_layout
+
+\begin_layout Standard
+光学定理的另一个结果是散射振幅不能无限大。从概率守恒可以推断，幺正极限必然存在：出来的不应该大于进入的。粗略地说，光学定理表明
+\begin_inset Formula $\Im\mathcal{M}\le\abs{M}^{2}$
+\end_inset
+
+暗示了
+\begin_inset Formula $\abs{M}<1$
+\end_inset
+
+。有多种方法可以表述的更精确。一个重要的例子是 Froissart bound，它表示，在高能的时候，总散射截面不能比
+\begin_inset Formula $\ln^{2}E_{\text{CM}}$
+\end_inset
+
+增长的更快[Froissart 1961]。在这一节中，我们会讨论一个不同的 bound，称为 partial wave unitary bound.
+\end_layout
+
+\begin_layout Standard
+考虑在质心系中两个粒子
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+的
+\begin_inset Formula $2\to2$
+\end_inset
+
+弹性散射过程：
+\begin_inset Formula $A\left(p_{1}\right)+B\left(p_{2}\right)\to A\left(p_{3}\right)+B\left(p_{4}\right)$
+\end_inset
+
+。质心系中此过程的总散射截面是（将 eq.5.32 中的一般公式对 
+\begin_inset Formula $\dif\phi$
+\end_inset
+
+ 积分）
+\begin_inset Formula 
+\begin{equation}
+\sigma_{\text{tot}}\left(AB\to AB\right)=\frac{1}{32\pi E_{\text{CM}}^{2}}\int\dif\cos\theta\abs*{\mathcal{M}\left(\theta\right)}^{2}\label{eq:24.54}
+\end{equation}
+
+\end_inset
+
+为了推导出一个有用的 bound，把振幅按分波分解很有用。我们总能这么写，
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}\left(\theta\right)=16\pi\sum_{j=0}^{\infty}a_{j}\left(2j+1\right)P_{j}\left(\cos\theta\right)\label{eq:24.55}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $P_{j}\left(\cos\theta\right)$
+\end_inset
+
+是 Legendre 多项式，满足
+\begin_inset Formula $P_{j}\left(1\right)=1$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{equation}
+\int_{-1}^{1}P_{j}\left(\cos\theta\right)P_{k}\left(\cos\theta\right)\dif\cos\theta=\frac{2}{2j+1}\delta_{jk}\label{eq:24.56}
+\end{equation}
+
+\end_inset
+
+因此，我们可以完成
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:24.54"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的
+\begin_inset Formula $\cos\theta$
+\end_inset
+
+积分，
+\begin_inset Formula 
+\[
+\sigma_{\text{tot}}=\frac{16\pi}{E_{\text{CM}}^{2}}\sum_{j=0}^{\infty}\left(2j+1\right)\abs*{a_{j}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+现在，光学定理把向前散射振幅的虚部，at 
+\begin_inset Formula $\theta=0$
+\end_inset
+
+，和总截面联系起来：
+\begin_inset Formula 
+\begin{align*}
+\Im\mathcal{M}\left(AB\to AB\text{ at }\theta=0\right) & =2E_{\text{CM}}\abs*{\vec{p}_{i}}\sum_{X}\sigma_{\text{tot}}\left(AB\to X\right)\\
+ & \ge2E_{\text{CM}}\abs*{\vec{p}_{i}}\sigma_{\text{tot}}\left(AB\to AB\right)
+\end{align*}
+
+\end_inset
+
+因为
+\begin_inset Formula $X$
+\end_inset
+
+包括任意可能的末态，所以也包括
+\begin_inset Formula $AB$
+\end_inset
+
+。则
+\begin_inset Formula 
+\begin{equation}
+\sum_{j=0}^{\infty}\left(2j+1\right)\Im\left(a_{j}\right)\ge\frac{2\abs*{\vec{p}_{i}}}{E_{\text{CM}}}\sum_{j=0}^{\infty}\left(2j+1\right)\abs*{a_{j}}^{2}\label{eq:24.59}
+\end{equation}
+
+\end_inset
+
+由于
+\begin_inset Formula $\abs{a_{j}}\ge\Im\left(a_{j}\right)$
+\end_inset
+
+，这个方程表示
+\begin_inset Formula $\abs{a_{j}}$
+\end_inset
+
+不能任意大。这是 partial wave unitary bound 的一个例子。如果考虑角动量本征态而不是平面波的散射，对
+\begin_inset Formula $j$
+\end_inset
+
+的求和实际可以去掉，see [Itzykson and Zuber, 1980, Section 5.3]。
+\begin_inset Formula 
+\[
+\Im\left(a_{j}\right)\ge\frac{2\abs*{\vec{p}_{i}}}{E_{\text{CM}}}\abs*{a_{j}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+为得到一个整洁的 bound，考虑总截面可以被弹性散射很好的近似的情形，也就是说，唯一相关的末态和初态相同。在这种情况下，不等式变成等式。此外，让我们考虑高能极
+限，
+\begin_inset Formula $E_{\text{CM}}\gg m_{A},m_{B}$
+\end_inset
+
+，则可以忽略质量，
+\begin_inset Formula $\abs{\vec{p}_{i}}=\frac{1}{2}E_{\text{CM}}$
+\end_inset
+
+（质心系）。则
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:24.59"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+变成
+\begin_inset Formula 
+\[
+\Im\left(a_{j}\right)=\abs*{a_{j}}^{2}
+\]
+
+\end_inset
+
+这个方程的解是复平面上的圆，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:24.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted22.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Im\left(a_{j}\right)=\abs*{a_{j}}^{2}$
+\end_inset
+
+的Argand 图，对应复平面上的圆。
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:24.2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+它表示对于所有的
+\begin_inset Formula $j$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\abs{a_{j}}\le1,\quad0\le\Im\left(a_{j}\right)\le1,\quad\abs*{a_{j}}\le\frac{1}{2}\label{eq:24.61}
+\end{equation}
+
+\end_inset
+
+这些限制实际上可以更一般地导出，不必假设弹性散射占主导，但是完整的推导更加复杂，需要
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元的角动量守恒，它取决于参与反应的粒子的自旋（see Problem 24.3）。
+\end_layout
+
+\begin_layout Standard
+分波幺正极限对散射振幅的行为提供了很重要的限制。例如，假如我们有一个量纲为
+\begin_inset Formula $5$
+\end_inset
+
+的相互作用，比如
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}\phi\square\phi+\frac{1}{\Lambda}\phi^{2}\square\phi
+\]
+
+\end_inset
+
+
+\begin_inset Formula $S$
+\end_inset
+
+–channel 交换图给出
+\begin_inset Formula 
+\[
+\mathcal{M}\left(\phi\phi\to\phi\phi\right)=\sim\frac{p^{2}}{\Lambda}\frac{1}{p^{2}}\frac{p^{2}}{\Lambda}\sim\frac{s}{\Lambda^{2}}
+\]
+
+\end_inset
+
+它没有角动量依赖，因此
+\begin_inset Formula $\abs{a_{0}}=\frac{s}{16\pi\Lambda^{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{j}=0$
+\end_inset
+
+ for 
+\begin_inset Formula $j>0$
+\end_inset
+
+。因此，当
+\begin_inset Formula $E_{\text{CM}}>\sqrt{16\pi}\Lambda$
+\end_inset
+
+时，这个振幅违反幺正极限（包括
+\begin_inset Formula $t-$
+\end_inset
+
+道和
+\begin_inset Formula $u$
+\end_inset
+
+–道对这个bound的影响不大）。这不意味着这个理论是非幺正的，而是说这个图不能代表
+\begin_inset Formula $E_{\text{CM}}>\sqrt{16\pi}\Lambda$
+\end_inset
+
+时此过程的物理。当然，我们已经知道，因为这是一个不可重整化理论，圈图在能标
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ 
+\emph on
+should
+\emph default
+ 变得很重要，而微扰幺正极限暗示 that loops 
+\emph on
+must
+\emph default
+ be important around the scale 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+一个更加物理的例子，如果没有希格斯玻色子的话，标准模型中纵向
+\begin_inset Formula $W$
+\end_inset
+
+玻色子的散射将会违反微扰幺正极限。由于
+\begin_inset Formula $W$
+\end_inset
+
+玻色子的纵向极化依赖于
+\begin_inset Formula $\frac{E}{m_{W}}$
+\end_inset
+
+，
+\begin_inset Formula $W$
+\end_inset
+
+玻色子散射的振幅在
+\begin_inset Formula $\sim1\TeV$
+\end_inset
+
+的时候将违反幺正极限。而 Higgs 玻色子将恢复微扰幺正性，我们会在 Section 29.2 看到。
+\end_layout
+
+\begin_layout Standard
+重要的一点是，bound 并不意味着在某个 scale 之上能标会被违反。它表明了，unitary 
+\emph on
+would be
+\emph default
+ violated if we could trust perturbation theory, which we cannot。标准的方法是在微扰失效的能标之
+上引入新粒子，或者寻找 UV completion 。
+\end_layout
+
+\begin_layout Section
+谱分解
+\end_layout
+
+\begin_layout Subsection
+两点函数
+\end_layout
+
+\begin_layout Subsection
+裸场的谱分解
+\end_layout
+
+\begin_layout Subsection
+确定极点
+\end_layout
+
+\begin_layout Standard
+Polology
+\end_layout
+
+\begin_layout Section
+定域性
 \end_layout
 
 \begin_layout Standard

@@ -1666,3 +1666,133 @@ Python根据编译版本检查源的修改日期，以查看它是否已过期�
 ```python
 from sound.effects.echo import echofilter
 ```
+
+## 错误和异常
+
+[错误和异常](https://docs.python.org/zh-cn/3/tutorial/errors.html)
+
+至少有两种可区分的错误：*语法错误* 和 *异常*。
+
+### 语法错误
+
+语法错误又称解析错误,如
+
+```python
+>>> while True print('Hello world')
+  File "<stdin>", line 1
+    while True print('Hello world')
+                   ^
+SyntaxError: invalid syntax
+```
+
+这里少了一个`:`号
+
+### 异常
+
+即使语句或表达式在语法上是正确的，但在尝试执行时，它仍可能会引发错误。 在执行时检测到的错误被称为*异常*，`Exception`。
+异常不一定会导致严重后果：你将很快学会如何在Python程序中处理它们。 但是，大多数异常并不会被程序处理，此时会显示如下所示的错误信息:
+
+```python
+>>> 10 * (1/0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ZeroDivisionError: division by zero
+>>> 4 + spam*3
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'spam' is not defined
+>>> '2' + 2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: Can't convert 'int' object to str implicitly
+```
+
+错误信息的最后一行告诉我们程序遇到了什么类型的错误。异常有不同的类型，而其类型名称将会作为错误信息的一部分中打印出来：
+上述示例中的异常类型依次是：`ZeroDivisionError`， `NameError` 和 `TypeError`。作为异常类型打印的字符串是发生的内置异常的名称。
+对于所有内置异常都是如此，但对于用户定义的异常则不一定如此（虽然这是一个有用的规范）。标准的异常类型是`built-in identifiers`（而不是`reserved keywords`）。
+
+错误消息的开头部分以`stack traceback`的形式显示发生异常的上下文。 通常它会列出源代码行的堆栈回溯；但是不会显示从标准输入读取的行。
+
+`Built-in Exceptions` 列出了内置异常和它们的含义。
+
+### 处理异常
+
+`try ... except ... finally`
+
+```python
+>>> try:
+...     raise Exception('spam', 'eggs')
+... except Exception as inst:
+...     print(type(inst))    # the exception instance
+...     print(inst.args)     # arguments stored in .args
+...     print(inst)   
+```
+
+### 抛出异常
+
+`raise` 语句允许程序员强制指定异常
+
+```python
+>>> raise NameError('HiThere')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: HiThere
+```
+
+```python
+raise ValueError  # shorthand for 'raise ValueError()'
+```
+
+### 异常链，可以用来转换异常
+
+```python
+# exc must be exception instance or None.
+raise RuntimeError from exc
+```
+
+```python
+>>> def func():
+...     raise IOError
+...
+>>> try:
+...     func()
+... except IOError as exc:
+...     raise RuntimeError('Failed to open database') from exc
+...
+```
+
+### 定义清理操作
+
+try 语句有另一个可选子句`finally`，它在任何情况下都执行，相当于“清理操作”，例如:
+
+```python
+>>> try:
+...     raise KeyboardInterrupt
+... finally:
+...     print('Goodbye, world!')
+...
+Goodbye, world!
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+```
+
+### 预定义的清理操作
+
+某些对象预定义了标准清理操作，无论使用该对象的操作是成功还是失败，清理操作都会被执行。比如我们尝试打开一个文件并打印到屏幕:
+
+```python
+for line in open("myfile.txt"):
+    print(line, end="")
+```
+
+问题在于，在这部分代码执行完后，会使文件在一段不确定的时间内处于打开状态，对于较大的应用程序来说可能是个问题。
+`with` 语句允许类似文件的对象，能够确保使用后被清理:
+
+```python
+with open("myfile.txt") as f:
+    for line in f:
+        print(line, end="")
+```
+
+执行完语句后，即使在处理行时遇到问题，文件 `f` 也始终会被关闭。和文件一样，提供预定义清理操作的对象将在其文档中说明。
