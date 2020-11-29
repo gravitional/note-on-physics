@@ -929,7 +929,7 @@ literal "false"
 。
 \begin_inset Formula 
 \[
-I\left(x,y,P\right)=\int_{x}^{y}\dif z_{\mu}A^{\mu}(z)
+I\left(x,y,P\right)=\int_{x}^{y}\dif z_{\mu}A^{\mu}\left(z\right)
 \]
 
 \end_inset
@@ -1142,6 +1142,57 @@ F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P) & =\left(\sum_{n=0}^{\infty}(-)^{n}\f
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsection
+总结
+\end_layout
+
+\begin_layout Standard
+如果路径积分的导数只依赖于末端，
+\begin_inset Formula 
+\begin{align*}
+\partial_{\mu,x}\int_{x}^{y}\dif z_{\nu}A^{\nu}\left(z\right) & =A_{\mu}\left(x\right)
+\end{align*}
+
+\end_inset
+
+令
+\begin_inset Formula $z^{\nu}=x^{\nu}+t\left(y-x\right)^{\nu}=x^{\nu}\left(1-t\right)+ty^{\nu}$
+\end_inset
+
+，
+\begin_inset Formula $\dif z^{\nu}=\left(y^{\nu}-x^{\nu}\right)\dif t$
+\end_inset
+
+，
+\begin_inset Formula $t\in\left[0,1\right]$
+\end_inset
+
+，路径积分变成
+\begin_inset Formula 
+\begin{align*}
+\partial_{\mu,x}\int_{0}^{1}\dif t\left(y_{\nu}-x_{\nu}\right)A^{\nu}\left(ty^{\nu}+\left(1-t\right)x^{\nu}\right) & =A_{\mu}\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+则有
+\begin_inset Formula 
+\begin{align*}
+ & \tilde{F}\left(p^{2}\right)e^{-ip\cdot x}I\left(x,y,P\right)=\tilde{F}\left(-\partial_{x}^{2}\right)e^{-ip\cdot x}I\left(x,y,P\right)\\
+ & =e^{-ip\cdot x}\tilde{F}\left[-\left(\partial_{x}-ip\right)^{2}\right]I\left(x,y,P\right)\\
+ & =e^{-ip\cdot x}\int\dif^{4}q\left(q^{\mu}+2p^{\mu}\right)\partial_{\mu,x}I\left(x,y,P\right)\Big\{ e^{-iqx}\int_{0}^{1}\dif t\,\tilde{F}^{\prime}\left((p+q)^{2}t+p^{2}(1-t)\right)\Big\}\\
+ & +e^{-ip\cdot x}\int\dif^{4}q\left(q^{\mu}+2p^{\mu}\right)\partial_{\mu,x}I\left(x,y,P\right)\Big\{\tilde{F}\left(p^{2}\right)\int_{y}^{x}\dif z^{\mu}e^{-iqz}\Big\}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1669,10 +1720,6 @@ BT(n)= &  & {\color{red}(0,n+1)} & (1,n) & (2,n-1) & \cdots & (n-1,2) & (n,1)
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Subsection
 
 \end_layout
 

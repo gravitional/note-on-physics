@@ -1224,6 +1224,733 @@ f_{n} & =\frac{(p+q)^{2n}-p^{2n}}{q^{2}+2q.p}
 
 \end_layout
 
+\begin_layout Section
+广义函数
+\end_layout
+
+\begin_layout Subsection
+柯西主值
+\end_layout
+
+\begin_layout Standard
+ref 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.zhihu.com/question/58152666/answer/1186953767"
+target "https://www.zhihu.com/question/58152666/answer/1186953767"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+定义
+\series bold
+无界区间上的反常积分
+\series default
+柯西主值如下
+\begin_inset Formula 
+\[
+\text{P.V.}\int_{-\infty}^{+\infty}f\left(x\right)\dif x=\lim_{a\to+\infty}\int_{-a}^{+a}f\left(x\right)\dif x
+\]
+
+\end_inset
+
+ 等号理解为若等式右边极限存在则左边取值为右边的极限值。
+\end_layout
+
+\begin_layout Standard
+类似地可以定义
+\series bold
+有界区间上的无界函数
+\series default
+反常积分的柯西主值，总之和反常积分的定义唯一的差别就是要求双侧趋近的“速度”一致。不难看出柯西主值是一种推广。比如
+\begin_inset Formula $\sin\left(x\right)$
+\end_inset
+
+在整个
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+上的反常积分不存在，但是Cauchy主值是
+\begin_inset Formula $0$
+\end_inset
+
+。或者
+\begin_inset Formula $1/x$
+\end_inset
+
+在关于
+\begin_inset Formula $0$
+\end_inset
+
+对称的区间上的瑕积分不存在，但是Cauchy主值是
+\begin_inset Formula $0$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+\lim_{\varepsilon\to0}\frac{1}{x\pm i\varepsilon} & =\text{P.V.}\frac{1}{x}\mp i\pi\delta\left(x\right)\\
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x\pm i\varepsilon} & =\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)}{x}\dif x\mp i\pi f(0)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Heaviside 函数的 fourier 变换
+\begin_inset Formula 
+\begin{align*}
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif x\left(\mp i\Theta\left(\mp x\right)e^{-ikx}\right) & =\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)\\
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif k\frac{1}{k\pm i\varepsilon}e^{ikx} & =\mp2\pi i\Theta\left(\mp x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+1/x
+\end_layout
+
+\begin_layout Standard
+需要在积分意义下理解：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{f(x)}{x\pm i\varepsilon}=\text{P.V.}\frac{f(x)}{x}\mp i\pi f(0)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cauchy principal value(柯西主值)
+\begin_inset Formula 
+\[
+\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x}=\lim_{\delta\to0^{\dagger}}\left\{ \int_{-\infty}^{-\delta}\frac{f(x)}{x}\dif x+\int_{\delta}^{\infty}\frac{f(x)}{x}\dif x\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+狄拉克在《量子力学原理》一书中提出了一个公式
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif x}\ln x=\frac{1}{x}-i\pi\delta(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中定义了
+\begin_inset Formula $\frac{1}{x}$
+\end_inset
+
+满足
+\begin_inset Formula $\int_{-\varepsilon}^{+\varepsilon}\frac{1}{x}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+可以这么考虑，首先我们只关心
+\begin_inset Formula $\frac{1}{x}$
+\end_inset
+
+的主值积分，也就是不考虑
+\begin_inset Formula $x=0$
+\end_inset
+
+时候的奇异性。然后，对于
+\begin_inset Formula $\ln(x)$
+\end_inset
+
+，如果
+\begin_inset Formula $x$
+\end_inset
+
+的取值经过了零，会有一个负号，也就是从
+\begin_inset Formula $x\to-x$
+\end_inset
+
+，那么
+\begin_inset Formula $\ln(-x)=\ln(-1)+\ln(x)=i\pi+\ln(x)$
+\end_inset
+
+，也就是说，会有一个突变
+\begin_inset Formula 
+\[
+\ln(x)\begin{cases}
+\ln(x) & x>0\\
+\ln(-x)+i\pi & x<0
+\end{cases}
+\]
+
+\end_inset
+
+这样的一个行为是
+\begin_inset Formula $\theta(x)$
+\end_inset
+
+函数的特征，它的微分等于
+\begin_inset Formula $\delta(x)$
+\end_inset
+
+。所以，有
+\begin_inset Formula $\frac{\dif}{\dif x}\ln x=\frac{1}{x}-i\pi\delta(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The Sokhotski-Plemelj Formula
+\end_layout
+
+\begin_layout Standard
+haber 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://scipp.ucsc.edu/~haber/"
+target "http://scipp.ucsc.edu/~haber/"
+literal "true"
+
+\end_inset
+
+给出一个现代版本的推导
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\frac{1}{x\pm i\varepsilon}=\text{P.V.}\frac{1}{x}\mp i\pi\delta(x)
+\]
+
+\end_inset
+
+相应地有
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x\pm i\varepsilon}=\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)}{x}\dif x\mp i\pi f(0)
+\]
+
+\end_inset
+
+证明可以考虑如图的积分路径FIG.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:int_path"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../qft/pasted7.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+积分路径
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:int_path"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+有
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{C_{\delta}}\frac{f(x)}{x}\dif x=f(0)\lim_{\varepsilon\to0}\int_{\pi}^{0}\frac{i\delta e^{i\theta}}{\delta e^{i\theta}}\dif\theta=-i\pi f(0)
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\int_{C}\frac{f(x)}{x}\dif x=\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)}{x}-i\pi f(0)
+\]
+
+\end_inset
+
+利用留数定理，可以将积分回路从实轴向上平移一个
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+距离，等价于把变量
+\begin_inset Formula $x$
+\end_inset
+
+变成
+\begin_inset Formula $x+i\varepsilon$
+\end_inset
+
+，所以有
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x+i\varepsilon}=\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)}{x}-i\pi f(0)
+\]
+
+\end_inset
+
+同理有
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x-i\varepsilon}=\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)}{x}+i\pi f(0)
+\]
+
+\end_inset
+
+相当于前式的复共轭。所以总的来说，
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x\pm i\varepsilon}=\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)}{x}\dif x\mp i\pi f(0)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+形式化推导
+\end_layout
+
+\begin_layout Standard
+也可以用比较形式化的方法。定义主值
+\begin_inset Formula $1/x$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{P.V.}\frac{1}{x}=\frac{\dif\ln\abs*{x}}{\dif x}
+\]
+
+\end_inset
+
+而complex logarithm 的主值是这么定义的
+\begin_inset Formula 
+\[
+\ln z=\ln\abs{z}+i\arg z
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\arg z$
+\end_inset
+
+代表了复数
+\begin_inset Formula $z$
+\end_inset
+
+辐角的principal value，一般约定
+\begin_inset Formula $-\pi<\arg z\leq\pi$
+\end_inset
+
+。特别的，对于real 
+\begin_inset Formula $x$
+\end_inset
+
+ and a positive infinitesimal 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\ln(x\pm i\varepsilon)=\ln\abs{x}\pm i\pi\Theta(-x)
+\]
+
+\end_inset
+
+对
+\begin_inset Formula $x$
+\end_inset
+
+求导，立马得到 Sokhotski-Plemelj 公式
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif x}\Theta(-x)=-\frac{\dif}{\dif x}\Theta(x)=-\delta(x)
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\frac{1}{x\pm i\varepsilon}=\text{P.V.}\frac{1}{x}\mp i\pi\delta(x)
+\]
+
+\end_inset
+
+在推导中，使用了 complex 对数主值的公式
+\begin_inset Formula 
+\[
+\frac{\dif\ln z}{\dif z}=\frac{1}{z}
+\]
+
+\end_inset
+
+对于所有不在支割线（实数负半轴）上的复数
+\begin_inset Formula $z$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+阶跃函数
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{e^{ikx}}{x\pm i\varepsilon}\dif x=\mp2\pi i\Theta(\mp k)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif x\left(\mp i\Theta\left(\mp x\right)e^{-ikx}\right) & =\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)\\
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif k\frac{1}{k\pm i\varepsilon}e^{ikx} & =\mp2\pi i\Theta\left(\mp x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+傅里叶变换和 schwartz 空间
+\end_layout
+
+\begin_layout Standard
+ref：
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.zhihu.com/question/428992218/answer/1564052887"
+target "https://www.zhihu.com/question/428992218/answer/1564052887"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+广义函数可以定义成 Schwartz 空间上的线性泛函：广义函数应该将一个 Schwartz 空间中的元素，映射为一个复数, 其中 Schwartz
+ 函数（光滑速降函数）可以看成是一个光滑的，任意阶导数都在无穷远处，以快于多项式的速度趋近于
+\begin_inset Formula $0$
+\end_inset
+
+的函数，即 Schwartz 空间为，
+\begin_inset Formula 
+\[
+\mathcal{S}=\left\{ f\in C^{\infty}\left(\mathbb{R}\right):\lim_{\abs{x}\to\infty}\abs{x}^{m}\abs*{f^{\left(n\right)}\left(x\right)}=0,\quad\forall m,n\in\mathbb{N}\right\} 
+\]
+
+\end_inset
+
+对一个函数
+\begin_inset Formula $f$
+\end_inset
+
+，可以定义它对应的线性泛函
+\begin_inset Formula $\mathcal{F}\left[\phi\right]$
+\end_inset
+
+，它的效果是对于某个 Schwartz 函数
+\begin_inset Formula $\phi\left(x\right)$
+\end_inset
+
+，先乘上
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+，再计算积分，形式为
+\begin_inset Formula 
+\[
+f\Rightarrow\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}\dif xf\left(x\right)\phi\left(x\right)
+\]
+
+\end_inset
+
+如果这样的积分存在，
+\begin_inset Formula $f$
+\end_inset
+
+需要满足一些条件，其中之一是局部可积，而
+\begin_inset Formula $\frac{1}{x^{2}}$
+\end_inset
+
+并不是局部可积函数，在
+\begin_inset Formula $x=0$
+\end_inset
+
+处有奇点。而有时候，非局部可积的函数在主值积分的意义下也可以看成广义函数，比如
+\begin_inset Formula $\text{PV}\left(\frac{1}{x}\right)$
+\end_inset
+
+是由良好定义的，它的含义是，“给我一个 Schwartz 函数，乘上
+\begin_inset Formula $\frac{1}{x}$
+\end_inset
+
+，再计算 Cachy 主值积分”。它的 Fourier 变换是
+\begin_inset Formula $-i\pi\text{sign}k$
+\end_inset
+
+。再比如，
+\begin_inset Formula $\abs{x}$
+\end_inset
+
+也是局部可积的，它对应的线性泛函
+\begin_inset Formula $\int_{-\infty}^{\infty}\dif x\abs{x}\left[\cdots\right]$
+\end_inset
+
+存在。改写一下符号，我们取特殊的 Schwartz 函数
+\begin_inset Formula $e^{ikx}$
+\end_inset
+
+，也就是下面的积分
+\begin_inset Formula 
+\[
+\int_{-\infty}^{\infty}\dif k\abs{k}e^{ikx}
+\]
+
+\end_inset
+
+应该存在，它是
+\begin_inset Formula $\abs{k}$
+\end_inset
+
+的 Fourier 逆变换，最后得到一个关于
+\begin_inset Formula $x$
+\end_inset
+
+的函数，为什么它的结果不是
+\begin_inset Formula $\frac{1}{x^{2}}$
+\end_inset
+
+呢？
+\end_layout
+
+\begin_layout Subsection
+源和像的联系
+\end_layout
+
+\begin_layout Standard
+一个源函数
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+，经过 Fourier 变换之后得到像函数
+\begin_inset Formula $\mathcal{F}\left(k\right)$
+\end_inset
+
+。对源函数
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+求导，相当于对像函数
+\begin_inset Formula $\mathcal{F}\left(k\right)$
+\end_inset
+
+作乘法，
+\begin_inset Formula 
+\begin{align*}
+ & \frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\frac{\dif f\left(x\right)}{\dif x}e^{-ikx}=\left. f\left(x\right)e^{-ikx}\right|_{-\infty}^{+\infty}-\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\frac{\dif e^{-ikx}}{\dif x}f\left(x\right)\\
+ & =\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\,ikf\left(x\right)e^{-ikx}=ik\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\,f\left(x\right)e^{-ikx}=ik\mathcal{F}\left(k\right)
+\end{align*}
+
+\end_inset
+
+如果
+\begin_inset Formula $\left.f\left(x\right)e^{-ikx}\right|_{-\infty}^{+\infty}=0$
+\end_inset
+
+，也就是函数在
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+在
+\begin_inset Formula $\pm\infty$
+\end_inset
+
+收敛，或者能对称的消除掉。
+\end_layout
+
+\begin_layout Standard
+对于积分的情形，交换积分次序
+\begin_inset Formula 
+\begin{align*}
+ & \phantom{={}}\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\,e^{-ikx}\int_{c}^{x}f\left(t\right)\dif t=\frac{1}{2\pi}\int_{c}^{\infty}\dif tf\left(t\right)\int_{t}^{\infty}\dif x\,e^{-ikx}\\
+ & =\frac{1}{2\pi}\frac{1}{-ik}\int_{c}^{\infty}\dif tf\left(t\right)\left(e^{-ik\infty}-e^{-ikt}\right)\\
+ & =\frac{1}{2\pi}\frac{1}{ik}\int_{c}^{\infty}\dif t\left(f\left(t\right)e^{-ikt}-f\left(t\right)e^{-ik\infty}\right)\\
+ & =\frac{1}{2\pi}\frac{1}{ik}\int_{c}^{\infty}\dif tf\left(t\right)e^{-ikt}-\frac{1}{2\pi}\frac{1}{ik}e^{-ik\infty}\int_{c}^{\infty}\dif tf\left(t\right)
+\end{align*}
+
+\end_inset
+
+如果
+\begin_inset Formula $c=-\infty$
+\end_inset
+
+，并且
+\begin_inset Formula $e^{-ik\infty}\int_{-\infty}^{\infty}\dif tf\left(t\right)$
+\end_inset
+
+这一项可以设法忽略掉，比如令
+\begin_inset Formula $k\to k-i\varepsilon,e^{-ik\infty}\to e^{-ik-\varepsilon\infty}\approx0$
+\end_inset
+
+那么，
+\begin_inset Formula 
+\[
+\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\,e^{-ikx}\int_{-\infty}^{\infty}f\left(t\right)\dif t=\frac{1}{2\pi}\frac{1}{ik}\int_{c}^{\infty}\dif tf\left(t\right)e^{-ikt}=\frac{1}{ik}\mathcal{F}\left[k\right]
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{F}\left[k\right]$
+\end_inset
+
+是
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+的傅里叶变换。
+\end_layout
+
+\begin_layout Subsection
+Schwartz 空间的性质
+\end_layout
+
+\begin_layout Standard
+Fourier 变换的乘法法则总是成立的。用线性泛函的话说，线性泛函可以兼容求导，对于 Schwartz 
+\begin_inset Formula $\phi$
+\end_inset
+
+，如果
+\begin_inset Formula $f\Rightarrow\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}\dif xf\left(x\right)\phi\left(x\right)$
+\end_inset
+
+，可以定义
+\begin_inset Formula 
+\begin{align*}
+\frac{\dif}{\dif x}f & \Rightarrow\mathcal{F}^{\prime}\left[\phi\right]=\int_{-\infty}^{\infty}\frac{\dif}{\dif x}f\left(x\right)\phi\left(x\right)=\left.f\left(x\right)\phi\left(x\right)\right|_{-\infty}^{+\infty}-\int_{-\infty}^{\infty}f\left(x\right)\frac{\dif}{\dif x}\phi\left(x\right)\\
+ & =-\int_{-\infty}^{\infty}f\left(x\right)\frac{\dif}{\dif x}\phi\left(x\right)
+\end{align*}
+
+\end_inset
+
+类似地，线性泛函可以兼容多项式乘法，对于多项式
+\begin_inset Formula $p$
+\end_inset
+
+，Schwartz 函数
+\begin_inset Formula $\phi$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+pf\Rightarrow p\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}p\left(x\right)f\left(x\right)\phi\left(x\right)=\int_{-\infty}^{\infty}f\left(x\right)p\left(x\right)\phi\left(x\right)=\mathcal{F}\left[p\phi\right]
+\]
+
+\end_inset
+
+这主要反映了 Schwartz 空间的性质： Schwartz 函数求导还是 Schwartz 函数，Schwartz 函数乘上一个多项式还是
+ Schwartz 函数。
+\end_layout
+
+\begin_layout Standard
+然而如果 Schwartz 函数除以
+\begin_inset Formula $x$
+\end_inset
+
+，或者 Schwartz 函数求不定积分，就不一定是 Schwartz 函数了。也就是积分对除法这一步，对于线性泛函是没有良好定义的。
+\end_layout
+
+\begin_layout Section
+卷积
+\end_layout
+
+\begin_layout Standard
+卷积
+\begin_inset Formula 
+\[
+f\otimes g(T)=\int\dif\tau\,f(\tau)g(T-\tau)
+\]
+
+\end_inset
+
+卷积的物理意义是：具有响应函数
+\begin_inset Formula $g(\tau)$
+\end_inset
+
+的物理系统对连续的作用
+\begin_inset Formula $f(\tau)$
+\end_inset
+
+的响应的叠加，类似于时空中的传播子。
+\begin_inset Formula $g(\tau)$
+\end_inset
+
+只与时间差的绝对值有关。
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout
