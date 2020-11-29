@@ -1662,9 +1662,154 @@ name "fig:int_path"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif x\left(\mp i\Theta\left(\mp x\right)e^{-ikx}\right) & =\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)\\
-\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif k\frac{1}{k\pm i\varepsilon}e^{ikx} & =\mp2\pi i\Theta\left(\mp x\right)
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif x\left(\mp i\Theta\left(\mp x\right)e^{-i\left(k\pm i\varepsilon\right)x}\right) & =\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)\\
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif k\frac{1}{k\pm i\varepsilon}e^{i\left(k\pm i\varepsilon\right)x} & =\mp2\pi i\Theta\left(\mp x\right)
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+可以这么理解证明过程，我们知道
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif x\delta\left(x\right)=1,\quad\int_{-\infty}^{+\infty}\dif ke^{ikx}=2\pi\delta\left(k\right),\quad\int_{-\infty}^{+\infty}\dif k1=2\pi\delta\left(0\right)
+\]
+
+\end_inset
+
+现在我们来求
+\begin_inset Formula $i\Theta\left(x\right)$
+\end_inset
+
+的傅里叶变换
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif x\left(i\Theta\left(x\right)e^{-ikx}\right)
+\]
+
+\end_inset
+
+为了让积分在
+\begin_inset Formula $x=+\infty$
+\end_inset
+
+处积分收敛，我们给傅里叶动量一个小的虚部
+\begin_inset Formula $k\to k-i\varepsilon$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif x\left(i\Theta\left(x\right)e^{-i\left(k-i\varepsilon\right)x}\right)=\lim_{\varepsilon\to0}\frac{1}{k-i\varepsilon}\left.\left(-e^{-ikx}\right)\right|_{x=0}^{x=+\infty}=\lim_{\varepsilon\to0}\frac{1}{k-i\varepsilon}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $k\neq0$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\frac{1}{k-i\varepsilon}=\frac{1}{k}
+\]
+
+\end_inset
+
+也就是如果考虑远离
+\begin_inset Formula $k=0$
+\end_inset
+
+附近的行为，可以直接把
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+拿掉。我们表示成
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\frac{1}{k-i\varepsilon}=\text{P.V.}\frac{1}{k}
+\]
+
+\end_inset
+
+P.V.
+ 是表示 Cauchy principle value。也就是对涉及
+\begin_inset Formula $\frac{1}{k}$
+\end_inset
+
+的积分，要考虑在
+\begin_inset Formula $\frac{1}{0}$
+\end_inset
+
+附近扣除发散。
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $k=0$
+\end_inset
+
+，代入一开始的积分表达式中，得到
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif x\left(i\Theta\left(x\right)e^{-i0x}\right)=\int_{-\infty}^{+\infty}\dif xi\Theta\left(x\right)=\int_{0}^{+\infty}\dif xi=i\pi\delta\left(0\right)
+\]
+
+\end_inset
+
+这里考虑了
+\begin_inset Formula $\int_{-\infty}^{+\infty}\dif x1=2\pi\delta\left(0\right)$
+\end_inset
+
+，半个积分区间就是
+\begin_inset Formula $\pi\delta\left(0\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+把以上两种情况的取值加起来，我们得到（另一种符号的情形是类似的），
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif x\left(\mp i\Theta\left(\mp x\right)e^{-i\left(k\pm i\varepsilon\right)x}\right)=\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)
+\]
+
+\end_inset
+
+记住
+\begin_inset Formula $k=0$
+\end_inset
+
+情形的简单公式，有助于记住符号，
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif x\mp i\Theta\left(\mp x\right)=\mp i\pi\delta\left(\mp0\right)
+\]
+
+\end_inset
+
+分子中的
+\begin_inset Formula $i$
+\end_inset
+
+相当于分母上中
+\begin_inset Formula $-i$
+\end_inset
+
+，所以，
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)
+\]
 
 \end_inset
 
@@ -1746,7 +1891,7 @@ f\Rightarrow\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}\dif xf\left(x\r
 \begin_inset Formula $\frac{1}{x}$
 \end_inset
 
-，再计算 Cachy 主值积分”。它的 Fourier 变换是
+，再计算 Cauchy 主值积分”。它的 Fourier 变换是
 \begin_inset Formula $-i\pi\text{sign}k$
 \end_inset
 
@@ -1921,6 +2066,186 @@ pf\Rightarrow p\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}p\left(x\righ
 \end_inset
 
 ，或者 Schwartz 函数求不定积分，就不一定是 Schwartz 函数了。也就是积分对除法这一步，对于线性泛函是没有良好定义的。
+\end_layout
+
+\begin_layout Standard
+对于一个特定的函数
+\begin_inset Formula $-\pi\abs{k}$
+\end_inset
+
+，它是局部可积的，我们来看看它的 Fourier 逆变换。首先把它写成
+\begin_inset Formula $-k\pi\text{sign}\left(k\right)$
+\end_inset
+
+，然后我们使用乘法法则，先计算
+\begin_inset Formula $i\pi\text{sign}\left(k\right)$
+\end_inset
+
+的 Fourier 逆变换，然后对
+\begin_inset Formula $x$
+\end_inset
+
+求导。
+\begin_inset Formula $i\pi\text{sign}\left(k\right)$
+\end_inset
+
+的逆变换刚好是
+\begin_inset Formula $-\text{P.V.}\frac{1}{x}$
+\end_inset
+
+。
+\begin_inset Formula $\text{sign}\left(k\right)=\Theta\left(k\right)-\Theta\left(-k\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif x\left(\mp i\Theta\left(\mp x\right)e^{-ikx}\right)=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)=\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\begin{align*}
+ & \frac{1}{\left(2\pi\right)}\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif ki\pi\left(\Theta\left(k\right)-\Theta\left(-k\right)\right)e^{ikx}\\
+= & \frac{1}{2}\left(\text{P.V.}\frac{1}{-x}-i\pi\delta\left(x\right)+\text{P.V.}\frac{1}{-x}+i\pi\delta\left(x\right)\right)=\text{P.V.}\frac{-1}{x}
+\end{align*}
+
+\end_inset
+
+感兴趣的同学可以看看 Hilbert 变换。所以，
+\begin_inset Formula $-\pi\abs{k}$
+\end_inset
+
+的 Fourier 逆变换是
+\begin_inset Formula 
+\[
+\frac{1}{\left(2\pi\right)}\int_{-\infty}^{+\infty}\dif k\left(-\pi\abs{k}e^{+ikx}\right)=\frac{\dif}{\dif x}\left(\text{P.V.}\frac{-1}{x}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\frac{\dif}{\dif x}\left(\text{P.V.}\frac{-1}{x}\right)$
+\end_inset
+
+跟
+\begin_inset Formula $\frac{\dif}{\dif x}\left(\frac{-1}{x}\right)=\frac{1}{x^{2}}$
+\end_inset
+
+是不同的，参看之前泛函积分兼容求导部分：
+\begin_inset Formula $\frac{\dif}{\dif x}\left(\text{P.V.}\frac{-1}{x}\right)$
+\end_inset
+
+对应的泛函，其含义是，“给我一个 Schwartz 函数，先求导，再乘上
+\begin_inset Formula $\frac{1}{x}$
+\end_inset
+
+，最后计算 Cauchy 主值积分”，这样可以算出来一个数；而
+\begin_inset Formula $\left(\frac{1}{x^{2}}\right)$
+\end_inset
+
+对应的泛函的含义是“给我一个 Schwartz 函数，乘上
+\begin_inset Formula $\frac{1}{x^{2}}$
+\end_inset
+
+，算积分”，这个积分是不收敛的。
+\end_layout
+
+\begin_layout Standard
+总之，如果想要计算
+\begin_inset Formula $\frac{1}{x^{2}}$
+\end_inset
+
+的 Fourier 变换，需要把
+\begin_inset Formula $\frac{1}{x^{2}}$
+\end_inset
+
+定义成
+\begin_inset Formula 
+\[
+\frac{1}{x^{2}}:=\frac{\dif}{\dif x}\left(-\text{P.V.}\frac{1}{x}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+从奇异积分的角度，给定一个 Schwartz 函数
+\begin_inset Formula $\phi$
+\end_inset
+
+，有
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\dif}{\dif x}\left(-\text{P.V.}\frac{1}{x}\right)\left[\phi\right]=\text{P.V.}\int_{-\infty}^{+\infty}\dif x\frac{1}{x}\frac{\dif}{\dif x}\phi\left(x\right)\\
+ & =\lim_{\varepsilon\to0^{+},R\to+\infty}\left(\int_{-R}^{-\varepsilon}\frac{1}{x}\phi^{\prime}\left(x\right)\dif x+\int_{\varepsilon}^{R}\frac{1}{x}\phi^{\prime}\left(x\right)\dif x\right)\\
+ & =\lim_{\varepsilon\to0^{+},R\to+\infty}\left(\int_{-R}^{-\varepsilon}\frac{1}{x^{2}}\phi\left(x\right)\dif x-\frac{1}{\varepsilon}\phi\left(-\varepsilon\right)+\int_{\varepsilon}^{R}\frac{1}{x^{2}}\phi\left(x\right)\dif x-\frac{1}{\varepsilon}\phi\left(\varepsilon\right)\right)
+\end{align*}
+
+\end_inset
+
+可以看出，如果
+\begin_inset Formula $\phi\left(0\right)=0$
+\end_inset
+
+，那么
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0^{+}}-\frac{1}{\varepsilon}\phi\left(-\varepsilon\right)=\phi^{\prime}\left(0\right),\quad\lim_{\varepsilon\to0^{+}}\frac{1}{\varepsilon}\phi\left(\varepsilon\right)=\phi^{\prime}\left(0\right)
+\]
+
+\end_inset
+
+两项抵消之后，有
+\begin_inset Formula 
+\begin{align*}
+\frac{\dif}{\dif x}\left(-\text{P.V.}\frac{1}{x}\right)\left[\phi\right] & =\lim_{\varepsilon\to0^{+},R\to+\infty}\left(\int_{-R}^{-\varepsilon}\frac{1}{x^{2}}\phi\left(x\right)\dif x+\int_{\varepsilon}^{R}\frac{1}{x^{2}}\phi\left(x\right)\dif x\right)\\
+ & =\text{P.V.}\int_{-\infty}^{+\infty}\dif x\frac{1}{x^{2}}\phi\left(x\right)
+\end{align*}
+
+\end_inset
+
+如果
+\begin_inset Formula $\phi\left(0\right)\neq0$
+\end_inset
+
+，会有
+\begin_inset Formula $-\frac{1}{\varepsilon}\phi\left(-\varepsilon\right)-\frac{1}{\varepsilon}\phi\left(\varepsilon\right)$
+\end_inset
+
+，这个值是无穷大，我们手动把它减除掉。我们定义
+\begin_inset Formula $\tilde{\phi}\left(x\right)=\phi\left(x\right)-\phi\left(0\right)$
+\end_inset
+
+，这不改变它的导数，所以也不改变主值积分的值。所以一般地有
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif x}\left(-\text{P.V.}\frac{1}{x}\right)\left[\phi\right]=\text{P.V.}\int_{-\infty}^{+\infty}\dif x\frac{\phi\left(x\right)-\phi\left(0\right)}{x^{2}}
+\]
+
+\end_inset
+
+所以一个 Well–defined 的
+\begin_inset Formula $\text{P.V.}\frac{1}{x^{2}}$
+\end_inset
+
+泛函应该理解成，“给我一个 Schwartz 函数，先减去它在零处的值，再乘上
+\begin_inset Formula $\frac{1}{x^{2}}$
+\end_inset
+
+，最后算 Cauchy 主值积分”，比如
+\begin_inset Formula 
+\[
+\text{P.V.}\int\frac{\cos x}{x^{2}}\dif x=\text{P.V.}\int\frac{\cos x-\cos0}{x^{2}}\dif x=-\pi
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

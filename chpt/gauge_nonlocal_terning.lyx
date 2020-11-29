@@ -582,7 +582,7 @@ S_{\text{NL}} & =\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\Sigma(x-y)\exp\left(-ieQ\i
 变成
 \begin_inset Formula 
 \[
-S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\Sigma(p)F(k-p,p)
+S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\tilde{\Sigma}\left(p\right)F(k-p,p)
 \]
 
 \end_inset
@@ -600,7 +600,7 @@ S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\Sigma(p)F(
 \begin{align*}
  & \iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\Sigma(x-y)F(x,y)=\\
  & \frac{1}{(2\pi)^{4}}\dif^{4}k_{1}\bar{\psi}(k_{1})\exp(ik_{1}\cdot x)\\
- & \frac{1}{(2\pi)^{4}}\dif^{4}k_{2}\Sigma(k_{2})\exp(-ik_{2}\cdot(x-y))\\
+ & \frac{1}{(2\pi)^{4}}\dif^{4}k_{2}\tilde{\Sigma}(k_{2})\exp(-ik_{2}\cdot(x-y))\\
  & \frac{1}{(2\pi)^{8}}\dif^{4}k_{3}\dif^{4}k_{4}F(k_{3},k_{4})\exp(-ik_{3}\cdot x-ik_{4}.y)
 \end{align*}
 
@@ -657,19 +657,19 @@ S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\Sigma(p)F(
 傅立叶变换中的参数可正可负
 \begin_inset Formula 
 \[
-\frac{1}{(2\pi)^{8}}\dif^{4}k\dif^{4}p\bar{\psi}(-k)\Sigma(p)F(k-p,p)
+\frac{1}{(2\pi)^{8}}\dif^{4}k\dif^{4}p\bar{\psi}(-k)\tilde{\Sigma}\left(p\right)F(k-p,p)
 \]
 
 \end_inset
 
 然后对
-\begin_inset Formula $\Sigma(p)$
+\begin_inset Formula $\tilde{\Sigma}\left(p\right)$
 \end_inset
 
 作泰勒展开，
 \begin_inset Formula 
 \[
-S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)(p^{2})^{n}\right)F(k-p,p)
+S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)(p^{2})^{n}\right)F(k-p,p)
 \]
 
 \end_inset
@@ -678,7 +678,7 @@ S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum
 \begin_inset Formula 
 \begin{align*}
 S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\int\iiiint\dif^{4}x\dif^{4}y\dif^{4}z\dif^{4}k\dif^{4}p\exp\left(iz\cdot(k-p)-ix\cdot k\right)\bar{\psi}(x)\\
- & \times\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(z,y)
+ & \times\left(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(z,y)
 \end{align*}
 
 \end_inset
@@ -687,17 +687,21 @@ S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\int\iiiint\dif^{4}x\dif^{4}y\dif^{4}z\dif^
 \begin_inset Formula $\exp(ip\cdot y)$
 \end_inset
 
-上。进行这个傅立叶过程的原因是，相把
+上。进行这个傅立叶过程的原因是，想把
 \begin_inset Formula $\Sigma(x-y)$
 \end_inset
 
-写成级数求和的形式，方便推导动量空间费曼规则。
+换到傅里叶空间，以使用
+\begin_inset Formula $\frac{\partial}{\partial y_{\mu}}I(x,y;p)=V_{\mu}(y)$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(p^{2}\right)^{n}\right)F(k-p,p)
+S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)\left(p^{2}\right)^{n}\right)F(k-p,p)
 \]
 
 \end_inset
@@ -713,7 +717,7 @@ S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum
 
 \begin_inset Formula 
 \[
-F(k-p,p)=\int\dif^{4}z\dif^{4}yF(z,y)\exp\left(iz\cdot(k-p)\right)\exp\left(ip\cdot y\right)
+\tilde{F}(k-p,p)=\int\dif^{4}z\dif^{4}yF(z,y)\exp\left(iz\cdot(k-p)\right)\exp\left(ip\cdot y\right)
 \]
 
 \end_inset
@@ -721,7 +725,7 @@ F(k-p,p)=\int\dif^{4}z\dif^{4}yF(z,y)\exp\left(iz\cdot(k-p)\right)\exp\left(ip\c
 
 \begin_inset Formula 
 \[
-\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*(p^{2})^{n}\to\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(ip\cdot y\right)
+\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)*(p^{2})^{n}\to\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(ip\cdot y\right)
 \]
 
 \end_inset
@@ -730,7 +734,16 @@ F(k-p,p)=\int\dif^{4}z\dif^{4}yF(z,y)\exp\left(iz\cdot(k-p)\right)\exp\left(ip\c
 \begin_inset Formula 
 \begin{align*}
 S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\iint\dif^{4}x\dif^{4}y\delta(x-y)\bar{\psi}(x)\\
- & \times\left(\Big(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(-ieQ\int_{x}^{y}V^{\nu}(\omega)\dif\omega_{\nu}\right)\psi(y)\Big)\right)
+ & \times\left(\Big(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(-ieQ\int_{x}^{y}V^{\nu}(\omega)\dif\omega_{\nu}\right)\psi(y)\Big)\right)
+\end{align*}
+
+\end_inset
+
+即
+\begin_inset Formula 
+\begin{align*}
+S_{\text{NL}} & =\iint\dif^{4}x\dif^{4}y\bar{\psi}\left(x\right){\color{cyan}\Sigma\left(x-y\right)e^{-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}\left(\omega\right)}\psi\left(y\right)}\\
+ & =\iint\dif^{4}x\dif^{4}y\bar{\psi}\left(x\right){\color{cyan}\delta\left(x-y\right)\tilde{\Sigma}\left(-\partial_{y}^{2}\right)e^{-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}\left(\omega\right)}\psi\left(y\right)}
 \end{align*}
 
 \end_inset
@@ -1151,43 +1164,18 @@ F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P) & =\left(\sum_{n=0}^{\infty}(-)^{n}\f
 \begin_layout Standard
 如果路径积分的导数只依赖于末端，
 \begin_inset Formula 
-\begin{align*}
-\partial_{\mu,x}\int_{x}^{y}\dif z_{\nu}A^{\nu}\left(z\right) & =A_{\mu}\left(x\right)
-\end{align*}
+\[
+I\left(x,y,P\right)=\int_{x}^{y}\dif z_{\nu}A^{\nu}\left(z\right),\quad\partial_{\mu,x}I\left(x,y,P\right)=A_{\mu}\left(x\right),\quad A_{\mu}(x)=\int\dif^{4}qe^{-iqx}A_{\mu}(q)
+\]
 
 \end_inset
 
-令
-\begin_inset Formula $z^{\nu}=x^{\nu}+t\left(y-x\right)^{\nu}=x^{\nu}\left(1-t\right)+ty^{\nu}$
-\end_inset
-
-，
-\begin_inset Formula $\dif z^{\nu}=\left(y^{\nu}-x^{\nu}\right)\dif t$
-\end_inset
-
-，
-\begin_inset Formula $t\in\left[0,1\right]$
-\end_inset
-
-，路径积分变成
-\begin_inset Formula 
-\begin{align*}
-\partial_{\mu,x}\int_{0}^{1}\dif t\left(y_{\nu}-x_{\nu}\right)A^{\nu}\left(ty^{\nu}+\left(1-t\right)x^{\nu}\right) & =A_{\mu}\left(x\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 则有
 \begin_inset Formula 
 \begin{align*}
- & \tilde{F}\left(p^{2}\right)e^{-ip\cdot x}I\left(x,y,P\right)=\tilde{F}\left(-\partial_{x}^{2}\right)e^{-ip\cdot x}I\left(x,y,P\right)\\
- & =e^{-ip\cdot x}\tilde{F}\left[-\left(\partial_{x}-ip\right)^{2}\right]I\left(x,y,P\right)\\
- & =e^{-ip\cdot x}\int\dif^{4}q\left(q^{\mu}+2p^{\mu}\right)\partial_{\mu,x}I\left(x,y,P\right)\Big\{ e^{-iqx}\int_{0}^{1}\dif t\,\tilde{F}^{\prime}\left((p+q)^{2}t+p^{2}(1-t)\right)\Big\}\\
- & +e^{-ip\cdot x}\int\dif^{4}q\left(q^{\mu}+2p^{\mu}\right)\partial_{\mu,x}I\left(x,y,P\right)\Big\{\tilde{F}\left(p^{2}\right)\int_{y}^{x}\dif z^{\mu}e^{-iqz}\Big\}
+ & \tilde{F}\left(p^{2}\right)e^{-ip\cdot x}I\left(x,y,P\right)=\tilde{F}\left(-\partial_{x}^{2}\right)e^{-ip\cdot x}I\left(x,y,P\right)=e^{-ip\cdot x}\tilde{F}\left[-\left(\partial_{x}-ip\right)^{2}\right]I\left(x,y,P\right)\\
+ & =e^{-ipx-iqx}\int\dif^{4}qA_{\mu}\left(x\right)\left(q^{\mu}+2p^{\mu}\right)\int_{0}^{1}\dif t\,\tilde{F}^{\prime}\left(\left(p+q\right)^{2}t+p^{2}\left(1-t\right)\right)\\
+ & +e^{-ipx-iqx}\int\dif^{4}qA_{\mu}\left(x\right)\left(q^{\mu}+2p^{\mu}\right)\tilde{F}\left(p^{2}\right)\int_{y}^{x}\dif z^{\mu}e^{-iqz}
 \end{align*}
 
 \end_inset
