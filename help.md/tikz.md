@@ -548,12 +548,14 @@ Shorthand for setting a dashed dash pattern.
 
 ## 曲线绘画
 
-### To 自由曲线
+### To 自由曲线 
 
 164 The To Path Operation
 838 To Path Library
 
 可以使用 `To`来绘制直线，也可以用来绘制曲线。
+
+绘制任意曲线，`loop`，单点圈图的曲线。
 
 ```latex
 \path ... to[<options>] <nodes> <coordinate or cycle> ...;

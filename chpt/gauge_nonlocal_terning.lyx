@@ -126,7 +126,7 @@ Thomas Young
 \end_layout
 
 \begin_layout Section
-PATH EXPONENTIALS
+路径指数化
 \end_layout
 
 \begin_layout Subsection
@@ -428,7 +428,7 @@ S[g]=\iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\delta(x-y)\gamma^{\mu}(\partial_{\mu}-
 \end_layout
 
 \begin_layout Section
-The gauged nonlocal mass
+规范的非定域质量
 \end_layout
 
 \begin_layout Standard
@@ -919,7 +919,7 @@ f_{0}=0,f_{n+1}=f_{n}(q+p)^{2}+p^{2n}
 \end_layout
 
 \begin_layout Section
-求解积分的方法–Ivanov
+Ivanov方法
 \end_layout
 
 \begin_layout Standard
@@ -1060,7 +1060,7 @@ F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P)=\sum_{n=0}^{\infty}(-)^{n}\frac{F^{(n
 \end_inset
 
 其中
-\begin_inset Formula $L(A)\equiv\partial_{x}A(x)-2ipA(x)$
+\begin_inset Formula $L(A)\equiv\partial_{x}A\left(x\right)-2ipA\left(x\right)$
 \end_inset
 
 ，然后迭代
@@ -1165,7 +1165,7 @@ F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P) & =\left(\sum_{n=0}^{\infty}(-)^{n}\f
 如果路径积分的导数只依赖于末端，
 \begin_inset Formula 
 \[
-I\left(x,y,P\right)=\int_{x}^{y}\dif z_{\nu}A^{\nu}\left(z\right),\quad\partial_{\mu,x}I\left(x,y,P\right)=A_{\mu}\left(x\right),\quad A_{\mu}(x)=\int\dif^{4}qe^{-iqx}A_{\mu}(q)
+I\left(x,y,P\right)=\int_{x}^{y}\dif z_{\nu}A^{\nu}\left(z\right),\quad\partial_{\mu,x}I\left(x,y,P\right)=A_{\mu}\left(x\right),\quad A_{\mu}(x)=\int\dif^{4}qe^{-iqx}A_{\mu}\left(q\right)
 \]
 
 \end_inset
@@ -1311,36 +1311,32 @@ L(\delta)\equiv\partial_{y}^{\mu}\delta(x-y)-2ip^{\mu}\delta(x-y)
 \end_layout
 
 \begin_layout Section
-双光子的情形
+积分的矩阵形式
 \end_layout
 
 \begin_layout Standard
-令
+写成矩阵的形式，处理起来更统一，下面的约定可能会有一些负号的差别，不过问题不大。令
 \begin_inset Formula 
 \[
-I(x_{i},x,P)=\int_{x}^{x_{i}}\dif z_{\mu}A^{\mu}(z)
+I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
 \]
 
 \end_inset
 
 其中
-\begin_inset Formula $x_{i}$
+\begin_inset Formula $x$
 \end_inset
 
 为路径的末端（endpoint）。根据路径依赖无关的约定有
 \begin_inset Formula 
 \[
-\partial_{x_{i},\mu}I(x_{i},x,P)=A_{\mu}(x)
+\partial_{x,\mu}I\left(x,y,P\right)=A_{\mu}\left(x\right)
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 以下把
-\begin_inset Formula $I(x_{i},x,P)$
+\begin_inset Formula $I\left(x,y,P\right)$
 \end_inset
 
 简记成
@@ -1351,127 +1347,256 @@ I(x_{i},x,P)=\int_{x}^{x_{i}}\dif z_{\mu}A^{\mu}(z)
 \begin_inset Formula $x$
 \end_inset
 
-是路径的末端，单光子情形下具有公式
-\begin_inset Formula 
-\begin{align*}
-D_{x,\mu}I_{x} & =\left(\partial_{x,\mu}+ip_{\mu}\right)I_{x}=A_{\mu}(x)+ip_{\mu}I_{x}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-D_{x}^{2}=D_{x}^{\phantom{x}\mu}D_{x,\mu}I_{x} & =D_{x}^{\phantom{x}\mu}\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)=\left(\partial_{x}^{\phantom{x}\mu}+ip^{\mu}\right)\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)\\
- & =\partial\cdot A+ip\cdot A+ip\cdot A-p^{2}I_{x}\\
- & =\partial\cdot A+2ip\cdot A-p^{2}I_{x}\\
-{\color{red}D_{x}^{2}} & {\color{red}I_{x}=L(A)-p^{2}I_{x}}
-\end{align*}
-
-\end_inset
-
-where 
-\begin_inset Formula $L(A)=\partial\cdot A+2ip\cdot A$
-\end_inset
-
-，
-\begin_inset Formula $L(A)$
-\end_inset
-
-与
-\begin_inset Formula $I_{x}$
-\end_inset
-
-无关。
+是路径的末端。
 \end_layout
 
 \begin_layout Standard
-现在考虑双光子
-\end_layout
-
-\begin_layout Standard
+在我们用的作用量中，会有形如
 \begin_inset Formula 
 \[
-D_{x,\mu}I_{x}I_{x}=2I_{x}\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)
+\int\dif x\int\dif yR\left(y\right)F\left(x-y\right)I\left(x,y,P\right)T\left(x\right)
+\]
+
+\end_inset
+
+的项，也可以通过平移积分变量，改写成
+\begin_inset Formula 
+\[
+\int\dif y\int\dif aR\left(y\right)F\left(a\right)I\left(y+a,y,P\right)T\left(y+a\right)
+\]
+
+\end_inset
+
+首先假设
+\begin_inset Formula $F\left(x-y\right)$
+\end_inset
+
+只依赖于
+\begin_inset Formula $\left(x-y\right)^{2}$
+\end_inset
+
+，等价地在动量空间，只依赖于某个动量
+\begin_inset Formula $p^{2}$
+\end_inset
+
+。经过傅里叶变换，
+\begin_inset Formula $F\left(x-y\right)$
+\end_inset
+
+可以写成
+\begin_inset Formula 
+\[
+\int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{x}^{2}\right)I\left(x,y,P\right)T\left(x\right)
 \]
 
 \end_inset
 
 
 \begin_inset Formula 
-\begin{align*}
- & D_{x}^{\phantom{x}\mu}D_{x,\mu}I_{x}I_{x}=D_{x}^{\phantom{x}\mu}\left(2I_{x}\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)\right)\\
-\Rightarrow & {\color{blue}\left(D_{x}^{\phantom{x}\mu}2I_{x}\right)\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)}+{\color{brown}2I_{x}D_{x}^{\phantom{x}\mu}\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)}\\
-\Rightarrow & {\color{blue}2\left(A^{\mu}(x)+ip^{\mu}I_{x}\right)\left(A_{\mu}(x)+ip_{\mu}I_{x}\right)}+{\color{brown}2I_{x}\left(\partial\cdot A+ip\cdot A+ip_{\mu}\left(A^{\mu}(x)+ip^{\mu}I_{x}\right)\right)}\\
-\Rightarrow & 2A^{2}+4ip\cdot AI_{x}-2p^{2}I_{x}^{2}+2I_{x}\left(\partial\cdot A+ip\cdot A+ip\cdot A\right)-2p^{2}I_{x}^{2}\\
-\Rightarrow & 2A^{2}+2I_{x}\left(\partial\cdot A+4ip\cdot A\right)-4p^{2}I_{x}^{2}\\
-{\color{red}\Rightarrow D_{x}^{2}I_{x}^{2}} & {\color{red}=2A^{2}+\left(L(A)+2ip\cdot A\right)I_{x}+\left(2ip\right)^{2}I_{x}^{2}}
-\end{align*}
+\[
+\tilde{F}\left(-\partial_{x}^{2}\right)=\sum_{n=0}^{\infty}\frac{\tilde{F}^{\left(n\right)}\left(-\partial_{x}^{2}\right)^{n}}{n!}
+\]
 
 \end_inset
 
-总结一下，
+
+\begin_inset Formula $\tilde{F}$
+\end_inset
+
+是
+\begin_inset Formula $F\left(x-y\right)$
+\end_inset
+
+的傅里叶变换，
+\begin_inset Formula $\tilde{F}^{\left(n\right)}$
+\end_inset
+
+是
+\begin_inset Formula $\tilde{F}$
+\end_inset
+
+泰勒级数的第
+\begin_inset Formula $n$
+\end_inset
+
+项系数。
+\begin_inset Formula $\tilde{F}\left(-\partial_{x}^{2}\right)$
+\end_inset
+
+的意思是，把傅里叶变换
+\begin_inset Formula $\tilde{F}\left(p^{2}\right)$
+\end_inset
+
+的变量替换成微分算子
+\begin_inset Formula $\tilde{F}\left(p^{2}\right)\to\tilde{F}\left(-\partial_{x}^{2}\right)$
+\end_inset
+
+。它相当于作用在后面函数上的一个泛函。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta\left(x-y\right)$
+\end_inset
+
+的来自于傅里叶逆变换，它的出现是必须的。我们考虑
+\begin_inset Formula $I\left(x,y,P\right)=1$
+\end_inset
+
+的情况，
 \begin_inset Formula 
 \begin{align*}
-{\color{red}D_{x}^{2}I_{x}} & {\color{red}=L(A)-p^{2}I_{x},}\\
-{\color{red}D_{x}^{2}I_{x}^{2}} & {\color{red}=2A^{2}+M(A)I_{x}-4p^{2}I_{x}^{2},}
+ & \int\dif x\int\dif yR\left(y\right)F\left(x-y\right)T\left(x\right)\\
+\Rightarrow & \int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{x}^{2}\right)T\left(x\right)
 \end{align*}
 
 \end_inset
 
-where 
-\begin_inset Formula 
-\begin{align*}
-L(A) & =\partial\cdot A+2ip\cdot A\\
-M(A) & =L(A)+2ip\cdot A
-\end{align*}
-
+如果没有
+\begin_inset Formula $\delta\left(x-y\right)$
 \end_inset
 
-
-\begin_inset Formula 
-\begin{align*}
- & \left(D_{x}^{2}\right)^{2}I_{x}^{2}={\color{blue}D_{x}^{2}2A^{2}}+{\color{cyan}D_{x}^{2}M(A)I_{x}}+{\color{brown}D_{x}^{2}\left(-4p^{2}\right)I_{x}^{2}}\\
-= & {\color{blue}D_{x}^{2}\left(2A^{2}\right)}+{\color{cyan}D_{x}^{2}M(A)+M(A)D_{x}^{2}I_{x}}+{\color{brown}\left(-4p^{2}\right)D_{x}^{2}I_{x}^{2}}\\
-= & {\color{blue}D_{x}^{2}\left(2A^{2}\right)}{\color{cyan}+D_{x}^{2}M(A)+M(A)\left(L(A)-p^{2}I_{x}\right)}+{\color{brown}\left(-4p^{2}\right)\left(2A^{2}-4p^{2}I_{x}^{2}+M(A)I_{x}\right)}\\
-= & \left({\color{blue}D_{x}^{2}2A^{2}}+{\color{cyan}L(A)M(A)}+{\color{cyan}D_{x}^{2}M(A)}+{\color{brown}2A^{2}(-4p^{2})}\right)\\
-+ & \left(+{\color{cyan}\left(-p^{2}\right)M(A)}+{\color{brown}M(A)\left(-4p^{2}\right)}\right)I_{x}\\
-+ & {\color{brown}\left(-4p^{2}\right)^{2}I_{x}^{2}}
-\end{align*}
-
+，第二项变成对
+\begin_inset Formula $x,y$
 \end_inset
 
-下面把它们写成矩阵的形式
+的单独积分，将不会有相互作用。
 \end_layout
 
 \begin_layout Subsection
-矩阵形式
+一般形式
 \end_layout
 
 \begin_layout Standard
+作 Wick 收缩时，假设 
+\begin_inset Formula $T\left(x\right)$
+\end_inset
+
+点产生的指数因子是
+\begin_inset Formula $\exp\left(-ipx\right)$
+\end_inset
+
+，即
+\begin_inset Formula $T\left(x\right)$
+\end_inset
+
+粒子进入
+\begin_inset Formula $x$
+\end_inset
+
+点，下列讨论可以无障碍地推广到
+\begin_inset Formula $\exp\left(+ipx\right)$
+\end_inset
+
+的情形，唯一的变化是动量反号。也就是说，我们需要处理的对象是
 \begin_inset Formula 
-\[
-D_{x}^{2}\mathbbm{1}f=\mathbbm{1}*D_{x}^{2}f+0*I_{x}
-\]
+\begin{align*}
+ & \int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{x}^{2}\right)I\left(x,y,P\right)e^{-ipx}\\
+= & \int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{x}^{2}\right)e^{-ipx}I\left(x,y,P\right)
+\end{align*}
 
 \end_inset
 
+先考虑
+\begin_inset Formula $\partial_{x}$
+\end_inset
 
+的作用
+\begin_inset Formula 
+\begin{align*}
+\partial_{x}^{\mu}e^{-ipx}I\left(x,y,P\right) & =e^{-ipx}\left(\partial_{x}^{\mu}-ip^{\mu}\right)I\left(x,y,P\right)\equiv e^{-ipx}D_{x}^{\mu}I\left(x,y,P\right)\\
+\partial_{x}^{2}e^{-ipx}I\left(x,y,P\right)= & e^{-ipx}\left(\partial_{x}-ip\right)^{2}I\left(x,y,P\right)\equiv e^{-ipx}D_{x}^{2}I\left(x,y,P\right)
+\end{align*}
+
+\end_inset
+
+其中我们定义了
+\begin_inset Formula $D_{x}^{\mu}=\partial_{x}^{\mu}-ip^{\mu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+单光子情形
 \end_layout
 
 \begin_layout Standard
+单光子情形，即考虑规范链接展开的第一阶，只有一个
+\begin_inset Formula $I_{x}$
+\end_inset
+
+时，
 \begin_inset Formula 
-\[
-D_{x}^{2}I_{x}=L(A)*\mathbbm{1}-p^{2}*I_{x}
-\]
+\begin{align*}
+D_{x,\mu}I_{x} & =\left(\partial_{x,\mu}-ip_{\mu}\right)I_{x}=A_{\mu}\left(x\right)-ip_{\mu}I_{x}
+\end{align*}
 
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
-\left(D_{x}^{2}\right)^{2}I_{x} & =D_{x}^{2}L(A)-p^{2}\left(L(A)-p^{2}I_{x}\right)\\
- & =D_{x}^{2}L(A)-p^{2}L(A)+\left(-p^{2}\right)^{2}I_{x}
+D_{x}^{2}=D_{x}^{\phantom{x}\mu}D_{x,\mu}I_{x} & =D_{x}^{\phantom{x}\mu}\left(A_{\mu}\left(x\right)-ip_{\mu}I_{x}\right)=\left(\partial_{x}^{\phantom{x}\mu}-ip^{\mu}\right)\left(A_{\mu}\left(x\right)-ip_{\mu}I_{x}\right)\\
+ & =\partial\cdot A-ip\cdot A-ip\cdot A-p^{2}I_{x}\\
+ & =\partial\cdot A-2ip\cdot A-p^{2}I_{x}
+\end{align*}
+
+\end_inset
+
+所以得到
+\begin_inset Formula 
+\begin{align*}
+D_{x}^{2}I_{x} & =L\left(A\right)-p^{2}I_{x}\\
+L\left(A\right)= & \partial\cdot A-2ip\cdot A
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $L\left(A\right)$
+\end_inset
+
+是
+\begin_inset Formula $A$
+\end_inset
+
+的函数，但不包含
+\begin_inset Formula $I_{x}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+当
+\begin_inset Formula $D_{x}^{2}$
+\end_inset
+
+不停地作用到
+\begin_inset Formula $I_{x}$
+\end_inset
+
+上面的时候，
+\begin_inset Formula $I_{x}$
+\end_inset
+
+的幂次并不会升高，也就是说这个函数空间只有
+\begin_inset Formula $I_{x}^{0}=1,I_{x}^{1}$
+\end_inset
+
+组成。当然，
+\begin_inset Formula $D_{x}^{2}$
+\end_inset
+
+也可以作用到
+\begin_inset Formula $L\left(A\right)$
+\end_inset
+
+上，所以我们考虑
+\begin_inset Formula 
+\begin{align*}
+D_{x}^{2}L\left(A\right) & =D_{x}^{2}L\left(A\right)+0*I_{x}\\
+D_{x}^{2}I_{x} & =L\left(A\right)-p^{2}*I_{x}
 \end{align*}
 
 \end_inset
@@ -1481,38 +1606,32 @@ D_{x}^{2}I_{x}=L(A)*\mathbbm{1}-p^{2}*I_{x}
 \end_inset
 
 在
-\begin_inset Formula $\left\{ \mathbbm{1},I_{x}\right\} $
+\begin_inset Formula $\left\{ 1,I_{x}\right\} $
 \end_inset
 
-下的矩阵形式是：
+下的矩阵形式是：第一列
+\begin_inset Formula $1$
+\end_inset
+
+的系数是
+\begin_inset Formula $\left(D_{x}^{2},0\right)$
+\end_inset
+
+，第二列
+\begin_inset Formula $I_{x}$
+\end_inset
+
+的系数是
+\begin_inset Formula $\left(L\left(A\right),-p^{2}\right)$
+\end_inset
+
+
 \begin_inset Formula 
 \begin{align*}
 D_{x}^{2} & =\left[\begin{array}{cc}
-D_{x}^{2} & L(A)\\
+D_{x}^{2} & L\left(A\right)\\
 0 & -p^{2}
-\end{array}\right]\\
-\left(D_{x}^{2}\right)^{2} & =\left[\begin{array}{cc}
-D_{x}^{2} & L(A)\\
-0 & -p^{2}
-\end{array}\right].\left[\begin{array}{cc}
-D_{x}^{2} & L(A)\\
-0 & -p^{2}
-\end{array}\right]=\left[\begin{array}{cc}
-\left(D_{x}^{2}\right)^{2} & \left(D_{x}^{2}-p^{2}\right)L(A)\\
-0 & \left(-p^{2}\right)^{2}
 \end{array}\right]
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\left(D_{x}^{2}\right)^{n} & =\left[\begin{array}{cc}
-\left(D_{x}^{2}\right)^{n} & n\int_{0}^{1}\dif t\left[D_{x}^{2}t-p^{2}(1-t)\right]^{n-1}L(A)\\
-0 & \left(-p^{2}\right)^{n}
-\end{array}\right]\\
- & \int_{0}^{1}\dif t
 \end{align*}
 
 \end_inset
@@ -1521,7 +1640,204 @@ D_{x}^{2} & L(A)\\
 \end_layout
 
 \begin_layout Standard
-类似地,
+可以先验证一下，矩阵平方为
+\begin_inset Formula 
+\[
+\left(D_{x}^{2}\right)^{2}=\left[\begin{array}{cc}
+D_{x}^{2} & L\left(A\right)\\
+0 & -p^{2}
+\end{array}\right].\left[\begin{array}{cc}
+D_{x}^{2} & L\left(A\right)\\
+0 & -p^{2}
+\end{array}\right]=\left[\begin{array}{cc}
+\left(D_{x}^{2}\right)^{2} & \left(D_{x}^{2}-p^{2}\right)L\left(A\right)\\
+0 & \left(-p^{2}\right)^{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\left(D_{x}^{2}-p^{2}\right)L\left(A\right)$
+\end_inset
+
+应该理解为，
+\begin_inset Formula $\left(D_{x}^{2}-p^{2}\right)$
+\end_inset
+
+作用在
+\begin_inset Formula $L\left(A\right)$
+\end_inset
+
+上面。所以
+\begin_inset Formula 
+\[
+\left(D_{x}^{2}\right)^{2}I_{x}=\left(D_{x}^{2}\right)^{2}\left[\begin{array}{c}
+1\\
+0
+\end{array}\right]=\left(D_{x}^{2}-p^{2}\right)L\left(A\right)+\left(-p^{2}\right)^{2}I_{x}
+\]
+
+\end_inset
+
+直接计算
+\begin_inset Formula $\left(D_{x}^{2}\right)^{2}I_{x}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\left(D_{x}^{2}\right)^{2}I_{x} & =D_{x}^{2}\left(L\left(A\right)-p^{2}I_{x}\right)=D_{x}^{2}L\left(A\right)-p^{2}\left(L\left(A\right)-p^{2}I_{x}\right)\\
+ & =\left(D_{x}^{2}-p^{2}\right)L\left(A\right)+\left(-p^{2}\right)^{2}I_{x}
+\end{align*}
+
+\end_inset
+
+结果是相同的。
+\end_layout
+
+\begin_layout Standard
+一般的，对形如
+\begin_inset Formula $m=\left[\begin{array}{cc}
+a & b\\
+0 & c
+\end{array}\right]$
+\end_inset
+
+的矩阵求幂，
+\begin_inset Formula 
+\[
+m^{n}=\left[\begin{array}{cc}
+a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
+0 & c^{n}
+\end{array}\right]
+\]
+
+\end_inset
+
+所以有
+\begin_inset Formula 
+\begin{align*}
+\left(D_{x}^{2}\right)^{n} & =\left[\begin{array}{cc}
+\left(D_{x}^{2}\right)^{n} & \frac{\left(D_{x}^{2}\right)^{n}-\left(-p^{2}\right)^{n}}{D_{x}^{2}+p^{2}}L\left(A\right)\\
+0 & \left(-p^{2}\right)^{n}
+\end{array}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(D_{x}^{2}\right)^{n}I_{x}=\frac{\left(D_{x}^{2}\right)^{n}-\left(-p^{2}\right)^{n}}{D_{x}^{2}+p^{2}}L\left(A\right)+\left(-p^{2}\right)^{n}I_{x}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $D_{x}^{2n}$
+\end_inset
+
+应该理解成作用在
+\begin_inset Formula $L\left(A\right)$
+\end_inset
+
+上面。代入
+\begin_inset Formula $L\left(A\right)=\partial\cdot A-2ip\cdot A$
+\end_inset
+
+，则
+\begin_inset Formula 
+\[
+\left(D_{x}^{2}\right)^{n}I_{x}=\frac{\left(D_{x}^{2}\right)^{n}-\left(-p^{2}\right)^{n}}{D_{x}^{2}+p^{2}}\left(\partial\cdot A-2ip\cdot A\right)+\left(-p^{2}\right)^{n}I_{x}
+\]
+
+\end_inset
+
+我们用的拉氏量中包含一项
+\begin_inset Formula $\delta\left(x-y\right)$
+\end_inset
+
+，后一项
+\begin_inset Formula $\left(-p^{2}\right)^{n}I_{x}$
+\end_inset
+
+不贡献，由于积分路径收缩成一个点。前一项中，假设光子进入顶点
+\begin_inset Formula $x$
+\end_inset
+
+，对应
+\begin_inset Formula $\exp\left(-iqx\right)$
+\end_inset
+
+，
+\begin_inset Formula $\partial\cdot A=-iq^{\mu}A_{\mu}$
+\end_inset
+
+，而前置的
+\begin_inset Formula $D_{x}^{2}=\left(\partial_{x,\mu}-ip_{\mu}\right)\left(\partial_{x}^{\mu}-ip^{\mu}\right)\Rightarrow\left(-iq-ip\right)^{2}=-\left(q+p\right)^{2}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\frac{\left(D_{x}^{2}\right)^{n}-\left(-p^{2}\right)^{n}}{D_{x}^{2}+p^{2}}\left(\partial\cdot A-2ip\cdot A\right) & \Rightarrow\frac{\left(-1\right)^{n}\left[\left(q+p\right)^{2n}-\left(p^{2}\right)^{n}\right]}{\left[-\left(q+p\right)^{2}+p^{2}\right]}\left(-iq^{\mu}-2ip^{\mu}\right)A_{\mu}\\
+ & =\left(-1\right)^{n}\frac{\left[\left(q+p\right)^{2n}-p^{2n}\right]}{\left[\left(q+p\right)^{2}-p^{2}\right]}i\left(q^{\mu}+2p^{\mu}\right)A_{\mu}
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\begin{align*}
+F\left(-\partial_{x}^{2}\right)e^{-ipx}I(x,y,P) & =e^{-ipx}\sum_{n=0}^{\infty}\frac{F^{\left(n\right)}\left(0\right)}{n!}\left(-\mathcal{D}_{x}^{2}\right)^{n}I(x,y,P)\\
+ & =e^{-ipx}\sum_{n=0}^{\infty}\frac{F^{\left(n\right)}\left(0\right)}{n!}\frac{\left[\left(q+p\right)^{2n}-p^{2n}\right]i\left(q^{\mu}+2p^{\mu}\right)}{\left[\left(q+p\right)^{2}-p^{2}\right]}A_{\mu}\\
+ & =e^{-ipx}\frac{i\left(q^{\mu}+2p^{\mu}\right)\left(F\left[p+q\right]-F\left[p\right]\right)}{\left[\left(p+q\right)^{2}-p^{2}\right]}A_{\mu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+双光子情形
+\end_layout
+
+\begin_layout Standard
+现在考虑双光子
+\begin_inset Formula 
+\[
+D_{x,\mu}I_{x}I_{x}=\left(\partial_{x,\mu}-ip_{\mu}\right)I_{x}I_{x}=2I_{x}A_{\mu}\left(x\right)-ip_{\mu}I_{x}I_{x}=I_{x}\left(2A_{\mu}\left(x\right)-ip_{\mu}I_{x}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & D_{x}^{\phantom{x}\mu}D_{x,\mu}I_{x}I_{x}=D_{x}^{\phantom{x}\mu}\left(I_{x}\left(2A_{\mu}\left(x\right)-ip_{\mu}I_{x}\right)\right)\\
+\Rightarrow & {\color{blue}\left(D_{x}^{\phantom{x}\mu}I_{x}\right)\left(2A_{\mu}\left(x\right)-ip_{\mu}I_{x}\right)}+{\color{brown}I_{x}\partial_{x}^{\phantom{x}\mu}\left(2A_{\mu}\left(x\right)-ip_{\mu}I_{x}\right)}\\
+\Rightarrow & {\color{blue}\left(A_{\mu}\left(x\right)-ip^{\mu}I_{x}\right)\left(2A_{\mu}\left(x\right)-ip_{\mu}I_{x}\right)}+{\color{brown}I_{x}\left(2\partial\cdot A-ip\cdot A\right)}\\
+\Rightarrow & 2A^{2}-3ip\cdot AI_{x}-p^{2}I_{x}^{2}+2I_{x}\partial\cdot A-ip\cdot AI_{x}\\
+\Rightarrow & 2A^{2}-p^{2}I_{x}^{2}+2I_{x}\partial\cdot A-4I_{x}ip\cdot A\\
+= & 2A^{2}+2L\left(A\right)I_{x}-p^{2}I_{x}^{2}
+\end{align*}
+
+\end_inset
+
+总结一下，
+\begin_inset Formula 
+\begin{align*}
+D_{x}^{2}L\left(A\right) & =D_{x}^{2}L\left(A\right)+0*I_{x}\\
+D_{x}^{2}I_{x} & =L\left(A\right)-p^{2}I_{x}\\
+D_{x}^{2}I_{x}^{2} & =2A^{2}+2L\left(A\right)I_{x}-p^{2}I_{x}^{2}\\
+L\left(A\right) & =\partial\cdot A-2ip\cdot A
+\end{align*}
+
+\end_inset
+
+where 所以
 \begin_inset Formula $D_{x}^{2}$
 \end_inset
 
@@ -1538,11 +1854,113 @@ D_{x}^{2} & L(A)\\
 \begin_inset Formula 
 \[
 D_{x}^{2}=\left[\begin{array}{ccc}
-D_{x}^{2} & L(A) & {\color{blue}D_{x}^{2}2A^{2}}+{\color{cyan}L(A)M(A)}+{\color{cyan}D_{x}^{2}M(A)}+{\color{brown}2A^{2}(-4p^{2})}\\
-0 & -p^{2} & {\color{cyan}\left(-p^{2}\right)M(A)}+{\color{brown}M(A)\left(-4p^{2}\right)}\\
-0 & 0 & \left(-4p^{2}\right)^{2}
+D_{x}^{2} & L\left(A\right) & 2A^{2}\\
+0 & -p^{2} & 2L\left(A\right)\\
+0 & 0 & -p^{2}
 \end{array}\right]
 \]
+
+\end_inset
+
+三阶矩阵
+\begin_inset Formula 
+\[
+m=\left[\begin{array}{ccc}
+a & b & c\\
+0 & d & e\\
+0 & 0 & f
+\end{array}\right]
+\]
+
+\end_inset
+
+的幂等于
+\begin_inset Formula 
+\[
+m^{n}=\left(\begin{array}{ccc}
+a^{n} & \frac{b\left(a^{n}-d^{n}\right)}{a-d} & \frac{a^{n}(d-f)(ac+be-cd)-(a-d)f^{n}(c(d-f)-be)-be(a-f)d^{n}}{(a-d)(a-f)(d-f)}\\
+0 & d^{n} & \frac{e\left(d^{n}-f^{n}\right)}{d-f}\\
+0 & 0 & f^{n}
+\end{array}\right)
+\]
+
+\end_inset
+
+这里
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccc}
+a & b & c\\
+0 & d & 2b\\
+0 & 0 & d
+\end{array}\right)^{n}=\left(\begin{array}{ccc}
+a^{n} & \frac{b\left(a^{n}-d^{n}\right)}{a-d} & \frac{cda^{n+1}+da^{n}\left(2b^{2}-cd\right)-ad^{n}\left(2b^{2}n+cd\right)+d^{n+1}\left(2b^{2}(n-1)+cd\right)}{d(a-d)^{2}}\\
+0 & d^{n} & 2bnd^{n-1}\\
+0 & 0 & d^{n}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(D_{x}^{2}\right)^{n}=\left(\begin{array}{ccc}
+\left(D_{x}^{2}\right)^{n} & \frac{\left(D_{x}^{2}\right)^{n}-\left(-p^{2}\right)^{n}}{D_{x}^{2}+p^{2}}L\left(A\right) & \frac{C_{21}}{\left(-p^{2}\right)(D_{x}^{2}+p^{2})^{2}}\\
+0 & \left(-p^{2}\right)^{n} & 2nL\left(A\right)\left(-p^{2}\right)^{n-1}\\
+0 & 0 & \left(-p^{2}\right)^{n}
+\end{array}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\begin{align*}
+C_{21} & =2A^{2}\left(-p^{2}\right)\left(D_{x}^{2}\right)^{n+1}+\left(-p^{2}\right)\left(D_{x}^{2}\right)^{n}\left(2L\left(A\right)^{2}-2A^{2}\left(-p^{2}\right)\right)\\
+ & -D_{x}^{2}\left(-p^{2}\right)^{n}\left(2L\left(A\right)^{2}n+2A^{2}\left(-p^{2}\right)\right)+\left(-p^{2}\right)^{n+1}\left(2L\left(A\right)^{2}(n-1)+2A^{2}\left(-p^{2}\right)\right)
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\left(D_{x}^{2}\right)^{n}I_{x}^{2}=\frac{C_{21}}{\left(-p^{2}\right)(D_{x}^{2}+p^{2})^{2}}+2nL\left(A\right)\left(-p^{2}\right)^{n-1}I_{x}+\left(-p^{2}\right)^{n}I_{x}^{2}
+\]
+
+\end_inset
+
+后两项含有
+\begin_inset Formula $I_{x}^{2}$
+\end_inset
+
+由于
+\begin_inset Formula $\delta\left(x-y\right)$
+\end_inset
+
+ 消失。我们只用考虑第一项
+\begin_inset Formula 
+\[
+\left(D_{x}^{2}\right)^{n}I_{x}^{2}=\frac{C_{21}}{\left(-p^{2}\right)(D_{x}^{2}+p^{2})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+直接计算。。。
+\begin_inset Formula 
+\begin{align*}
+ & \left(D_{x}^{2}\right)^{2}I_{x}^{2}={\color{blue}D_{x}^{2}2A^{2}}+{\color{cyan}D_{x}^{2}M(A)I_{x}}+{\color{brown}D_{x}^{2}\left(-4p^{2}\right)I_{x}^{2}}\\
+= & {\color{blue}D_{x}^{2}\left(2A^{2}\right)}+{\color{cyan}D_{x}^{2}M(A)+M(A)D_{x}^{2}I_{x}}+{\color{brown}\left(-4p^{2}\right)D_{x}^{2}I_{x}^{2}}\\
+= & {\color{blue}D_{x}^{2}\left(2A^{2}\right)}{\color{cyan}+D_{x}^{2}M(A)+M(A)\left(L(A)-p^{2}I_{x}\right)}+{\color{brown}\left(-4p^{2}\right)\left(2A^{2}-4p^{2}I_{x}^{2}+M(A)I_{x}\right)}\\
+= & \left({\color{blue}D_{x}^{2}2A^{2}}+{\color{cyan}L(A)M(A)}+{\color{cyan}D_{x}^{2}M(A)}+{\color{brown}2A^{2}(-4p^{2})}\right)\\
++ & \left(+{\color{cyan}\left(-p^{2}\right)M(A)}+{\color{brown}M(A)\left(-4p^{2}\right)}\right)I_{x}\\
++ & {\color{brown}\left(-4p^{2}\right)^{2}I_{x}^{2}}
+\end{align*}
 
 \end_inset
 
