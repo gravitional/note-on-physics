@@ -1157,32 +1157,6 @@ F\left(-\mathcal{D}_{x}^{2}\right)I(x,y,P) & =\left(\sum_{n=0}^{\infty}(-)^{n}\f
 .
 \end_layout
 
-\begin_layout Subsection
-总结
-\end_layout
-
-\begin_layout Standard
-如果路径积分的导数只依赖于末端，
-\begin_inset Formula 
-\[
-I\left(x,y,P\right)=\int_{x}^{y}\dif z_{\nu}A^{\nu}\left(z\right),\quad\partial_{\mu,x}I\left(x,y,P\right)=A_{\mu}\left(x\right),\quad A_{\mu}(x)=\int\dif^{4}qe^{-iqx}A_{\mu}\left(q\right)
-\]
-
-\end_inset
-
-则有
-\begin_inset Formula 
-\begin{align*}
- & \tilde{F}\left(p^{2}\right)e^{-ip\cdot x}I\left(x,y,P\right)=\tilde{F}\left(-\partial_{x}^{2}\right)e^{-ip\cdot x}I\left(x,y,P\right)=e^{-ip\cdot x}\tilde{F}\left[-\left(\partial_{x}-ip\right)^{2}\right]I\left(x,y,P\right)\\
- & =e^{-ipx-iqx}\int\dif^{4}qA_{\mu}\left(x\right)\left(q^{\mu}+2p^{\mu}\right)\int_{0}^{1}\dif t\,\tilde{F}^{\prime}\left(\left(p+q\right)^{2}t+p^{2}\left(1-t\right)\right)\\
- & +e^{-ipx-iqx}\int\dif^{4}qA_{\mu}\left(x\right)\left(q^{\mu}+2p^{\mu}\right)\tilde{F}\left(p^{2}\right)\int_{y}^{x}\dif z^{\mu}e^{-iqz}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 积分求解
 \end_layout
@@ -1318,43 +1292,52 @@ L(\delta)\equiv\partial_{y}^{\mu}\delta(x-y)-2ip^{\mu}\delta(x-y)
 写成矩阵的形式，处理起来更统一，下面的约定可能会有一些负号的差别，不过问题不大。令
 \begin_inset Formula 
 \[
-I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
+I\left(x,y,P\right)=\int_{x}^{y}\dif w_{\mu}A^{\mu}\left(w\right)
 \]
 
 \end_inset
 
 其中
-\begin_inset Formula $x$
+\begin_inset Formula $x,y$
 \end_inset
 
-为路径的末端（endpoint）。根据路径依赖无关的约定有
+为路径的端点。根据路径依赖无关的约定有
 \begin_inset Formula 
-\[
-\partial_{x,\mu}I\left(x,y,P\right)=A_{\mu}\left(x\right)
-\]
+\begin{align*}
+\partial_{y,\mu}I\left(x,y,P\right) & =A_{\mu}\left(y\right)\\
+\partial_{x,\mu}I\left(x,y,P\right) & =-A_{\mu}\left(x\right)
+\end{align*}
 
 \end_inset
 
-以下把
+末端点对应
+\begin_inset Formula $+$
+\end_inset
+
+，出发点对应
+\begin_inset Formula $-$
+\end_inset
+
+，下面以
+\begin_inset Formula $\partial_{y,\mu}I\left(x,y,P\right)=A_{\mu}\left(y\right)$
+\end_inset
+
+为例，把
 \begin_inset Formula $I\left(x,y,P\right)$
 \end_inset
 
 简记成
-\begin_inset Formula $I_{x}$
+\begin_inset Formula $I_{y}$
 \end_inset
 
-，其中
-\begin_inset Formula $x$
-\end_inset
-
-是路径的末端。
+。
 \end_layout
 
 \begin_layout Standard
 在我们用的作用量中，会有形如
 \begin_inset Formula 
 \[
-\int\dif x\int\dif yR\left(y\right)F\left(x-y\right)I\left(x,y,P\right)T\left(x\right)
+\int\dif x\int\dif yR\left(x\right)F\left(x-y\right)I\left(x,y,P\right)T\left(y\right)
 \]
 
 \end_inset
@@ -1362,7 +1345,7 @@ I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
 的项，也可以通过平移积分变量，改写成
 \begin_inset Formula 
 \[
-\int\dif y\int\dif aR\left(y\right)F\left(a\right)I\left(y+a,y,P\right)T\left(y+a\right)
+\int\dif x\int\dif aR\left(x\right)F\left(a\right)I\left(x,x+a,P\right)T\left(x+a\right)
 \]
 
 \end_inset
@@ -1376,7 +1359,7 @@ I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
 \end_inset
 
 ，等价地在动量空间，只依赖于某个动量
-\begin_inset Formula $p^{2}$
+\begin_inset Formula $k^{2}$
 \end_inset
 
 。经过傅里叶变换，
@@ -1386,7 +1369,7 @@ I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
 可以写成
 \begin_inset Formula 
 \[
-\int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{x}^{2}\right)I\left(x,y,P\right)T\left(x\right)
+\int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)T\left(y\right)
 \]
 
 \end_inset
@@ -1394,7 +1377,7 @@ I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
 
 \begin_inset Formula 
 \[
-\tilde{F}\left(-\partial_{x}^{2}\right)=\sum_{n=0}^{\infty}\frac{\tilde{F}^{\left(n\right)}\left(-\partial_{x}^{2}\right)^{n}}{n!}
+\tilde{F}\left(-\partial_{y}^{2}\right)=\sum_{n=0}^{\infty}\frac{\tilde{F}^{\left(n\right)}\left(-\partial_{y}^{2}\right)^{n}}{n!}
 \]
 
 \end_inset
@@ -1420,15 +1403,15 @@ I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
 \end_inset
 
 项系数。
-\begin_inset Formula $\tilde{F}\left(-\partial_{x}^{2}\right)$
+\begin_inset Formula $\tilde{F}\left(-\partial_{y}^{2}\right)$
 \end_inset
 
 的意思是，把傅里叶变换
-\begin_inset Formula $\tilde{F}\left(p^{2}\right)$
+\begin_inset Formula $\tilde{F}\left(k^{2}\right)$
 \end_inset
 
 的变量替换成微分算子
-\begin_inset Formula $\tilde{F}\left(p^{2}\right)\to\tilde{F}\left(-\partial_{x}^{2}\right)$
+\begin_inset Formula $\tilde{F}\left(k^{2}\right)\to\tilde{F}\left(-\partial_{y}^{2}\right)$
 \end_inset
 
 。它相当于作用在后面函数上的一个泛函。
@@ -1439,14 +1422,14 @@ I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
 \end_inset
 
 的来自于傅里叶逆变换，它的出现是必须的。我们考虑
-\begin_inset Formula $I\left(x,y,P\right)=1$
+\begin_inset Formula $I\left(y,x,P\right)=1$
 \end_inset
 
 的情况，
 \begin_inset Formula 
 \begin{align*}
- & \int\dif x\int\dif yR\left(y\right)F\left(x-y\right)T\left(x\right)\\
-\Rightarrow & \int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{x}^{2}\right)T\left(x\right)
+ & \int\dif x\int\dif yR\left(x\right)F\left(x-y\right)T\left(y\right)\\
+\Rightarrow & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)T\left(y\right)
 \end{align*}
 
 \end_inset
@@ -1468,49 +1451,49 @@ I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
 
 \begin_layout Standard
 作 Wick 收缩时，假设 
-\begin_inset Formula $T\left(x\right)$
+\begin_inset Formula $T\left(y\right)$
 \end_inset
 
 点产生的指数因子是
-\begin_inset Formula $\exp\left(-ipx\right)$
+\begin_inset Formula $\exp\left(-iky\right)$
 \end_inset
 
 ，即
-\begin_inset Formula $T\left(x\right)$
+\begin_inset Formula $T\left(y\right)$
 \end_inset
 
 粒子进入
-\begin_inset Formula $x$
+\begin_inset Formula $y$
 \end_inset
 
 点，下列讨论可以无障碍地推广到
-\begin_inset Formula $\exp\left(+ipx\right)$
+\begin_inset Formula $\exp\left(+iky\right)$
 \end_inset
 
 的情形，唯一的变化是动量反号。也就是说，我们需要处理的对象是
 \begin_inset Formula 
 \begin{align*}
- & \int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{x}^{2}\right)I\left(x,y,P\right)e^{-ipx}\\
-= & \int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{x}^{2}\right)e^{-ipx}I\left(x,y,P\right)
+ & \int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\\
+= & \int\dif x\int\dif yR\left(y\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)e^{-iky}I\left(x,y,P\right)
 \end{align*}
 
 \end_inset
 
 先考虑
-\begin_inset Formula $\partial_{x}$
+\begin_inset Formula $\partial_{y}$
 \end_inset
 
 的作用
 \begin_inset Formula 
 \begin{align*}
-\partial_{x}^{\mu}e^{-ipx}I\left(x,y,P\right) & =e^{-ipx}\left(\partial_{x}^{\mu}-ip^{\mu}\right)I\left(x,y,P\right)\equiv e^{-ipx}D_{x}^{\mu}I\left(x,y,P\right)\\
-\partial_{x}^{2}e^{-ipx}I\left(x,y,P\right)= & e^{-ipx}\left(\partial_{x}-ip\right)^{2}I\left(x,y,P\right)\equiv e^{-ipx}D_{x}^{2}I\left(x,y,P\right)
+\partial_{y}^{\mu}e^{-iky}I\left(x,y,P\right) & =e^{-iky}\left(\partial_{y}^{\mu}-ik^{\mu}\right)I\left(x,y,P\right)\equiv e^{-iky}D_{y}^{\mu}I\left(x,y,P\right)\\
+\partial_{y}^{2}e^{-ipy}I\left(x,y,P\right)= & e^{-iky}\left(\partial_{y}-ik\right)^{2}I\left(x,y,P\right)\equiv e^{-iky}D_{y}^{2}I\left(x,y,P\right)
 \end{align*}
 
 \end_inset
 
 其中我们定义了
-\begin_inset Formula $D_{x}^{\mu}=\partial_{x}^{\mu}-ip^{\mu}$
+\begin_inset Formula $D_{y}^{\mu}=\partial_{y}^{\mu}-ik^{\mu}$
 \end_inset
 
 。
@@ -1522,23 +1505,43 @@ I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}A^{\mu}\left(w\right)
 
 \begin_layout Standard
 单光子情形，即考虑规范链接展开的第一阶，只有一个
-\begin_inset Formula $I_{x}$
+\begin_inset Formula $I_{y}$
 \end_inset
 
 时，
 \begin_inset Formula 
 \begin{align*}
-D_{x,\mu}I_{x} & =\left(\partial_{x,\mu}-ip_{\mu}\right)I_{x}=A_{\mu}\left(x\right)-ip_{\mu}I_{x}
+D_{\mu,y}I_{y} & =\left(\partial_{\mu,y}-ik_{\mu}\right)I_{y}=A_{\mu}\left(y\right)-ik_{\mu}I_{y}
 \end{align*}
 
 \end_inset
 
+路径积分为
+\begin_inset Formula $I\left(x,y,P\right)=\int_{x}^{y}\dif w_{\mu}A^{\mu}\left(w\right)$
+\end_inset
 
+，
+\begin_inset Formula $y$
+\end_inset
+
+是路径终点，对应
+\begin_inset Formula $+A_{\mu}\left(y\right)$
+\end_inset
+
+，如果是初始点，对应
+\begin_inset Formula $-A_{\mu}\left(x\right)$
+\end_inset
+
+，下面以
+\begin_inset Formula $+A_{\mu}\left(y\right)$
+\end_inset
+
+为例。
 \begin_inset Formula 
 \begin{align*}
-D_{x}^{2}=D_{x}^{\phantom{x}\mu}D_{x,\mu}I_{x} & =D_{x}^{\phantom{x}\mu}\left(A_{\mu}\left(x\right)-ip_{\mu}I_{x}\right)=\left(\partial_{x}^{\phantom{x}\mu}-ip^{\mu}\right)\left(A_{\mu}\left(x\right)-ip_{\mu}I_{x}\right)\\
- & =\partial\cdot A-ip\cdot A-ip\cdot A-p^{2}I_{x}\\
- & =\partial\cdot A-2ip\cdot A-p^{2}I_{x}
+D_{y}^{2}=D_{y}^{\phantom{x}\mu}D_{y,\mu}I_{y} & =D_{y}^{\phantom{x}\mu}\left(A_{\mu}\left(y\right)-ik_{\mu}I_{y}\right)=\left(\partial_{y}^{\phantom{x}\mu}-ik^{\mu}\right)\left(A_{\mu}\left(y\right)-ik_{\mu}I_{y}\right)\\
+ & =\partial\cdot A-ik\cdot A-ik\cdot A-k^{2}I_{y}\\
+ & =\partial\cdot A-2ik\cdot A-k^{2}I_{y}
 \end{align*}
 
 \end_inset
@@ -1546,8 +1549,8 @@ D_{x}^{2}=D_{x}^{\phantom{x}\mu}D_{x,\mu}I_{x} & =D_{x}^{\phantom{x}\mu}\left(A_
 所以得到
 \begin_inset Formula 
 \begin{align*}
-D_{x}^{2}I_{x} & =L\left(A\right)-p^{2}I_{x}\\
-L\left(A\right)= & \partial\cdot A-2ip\cdot A
+D_{y}^{2}I_{y} & =L\left(A\left(y\right)\right)-k^{2}I_{y}\\
+L\left(A\right)= & \partial_{y}\cdot A-2ik\cdot A\left(y\right)
 \end{align*}
 
 \end_inset
@@ -1561,7 +1564,7 @@ L\left(A\right)= & \partial\cdot A-2ip\cdot A
 \end_inset
 
 的函数，但不包含
-\begin_inset Formula $I_{x}$
+\begin_inset Formula $I_{y}$
 \end_inset
 
 。
@@ -1569,23 +1572,23 @@ L\left(A\right)= & \partial\cdot A-2ip\cdot A
 
 \begin_layout Standard
 当
-\begin_inset Formula $D_{x}^{2}$
+\begin_inset Formula $D_{y}^{2}$
 \end_inset
 
 不停地作用到
-\begin_inset Formula $I_{x}$
+\begin_inset Formula $I_{y}$
 \end_inset
 
 上面的时候，
-\begin_inset Formula $I_{x}$
+\begin_inset Formula $I_{y}$
 \end_inset
 
 的幂次并不会升高，也就是说这个函数空间只有
-\begin_inset Formula $I_{x}^{0}=1,I_{x}^{1}$
+\begin_inset Formula $I_{y}^{0}=1,I_{y}^{1}$
 \end_inset
 
 组成。当然，
-\begin_inset Formula $D_{x}^{2}$
+\begin_inset Formula $D_{y}^{2}$
 \end_inset
 
 也可以作用到
@@ -1595,18 +1598,18 @@ L\left(A\right)= & \partial\cdot A-2ip\cdot A
 上，所以我们考虑
 \begin_inset Formula 
 \begin{align*}
-D_{x}^{2}L\left(A\right) & =D_{x}^{2}L\left(A\right)+0*I_{x}\\
-D_{x}^{2}I_{x} & =L\left(A\right)-p^{2}*I_{x}
+D_{y}^{2}L\left(A\right) & =D_{y}^{2}L\left(A\right)+0*I_{y}\\
+D_{y}^{2}I_{y} & =L\left(A\right)-k^{2}*I_{y}
 \end{align*}
 
 \end_inset
 
 所以
-\begin_inset Formula $D_{x}^{2}$
+\begin_inset Formula $D_{y}^{2}$
 \end_inset
 
 在
-\begin_inset Formula $\left\{ 1,I_{x}\right\} $
+\begin_inset Formula $\left\{ 1,I_{y}\right\} $
 \end_inset
 
 下的矩阵形式是：第一列
@@ -1614,23 +1617,23 @@ D_{x}^{2}I_{x} & =L\left(A\right)-p^{2}*I_{x}
 \end_inset
 
 的系数是
-\begin_inset Formula $\left(D_{x}^{2},0\right)$
+\begin_inset Formula $\left(D_{y}^{2},0\right)$
 \end_inset
 
 ，第二列
-\begin_inset Formula $I_{x}$
+\begin_inset Formula $I_{y}$
 \end_inset
 
 的系数是
-\begin_inset Formula $\left(L\left(A\right),-p^{2}\right)$
+\begin_inset Formula $\left(L\left(A\right),-k^{2}\right)$
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
-D_{x}^{2} & =\left[\begin{array}{cc}
-D_{x}^{2} & L\left(A\right)\\
-0 & -p^{2}
+D_{y}^{2} & =\left[\begin{array}{cc}
+D_{y}^{2} & L\left(A\right)\\
+0 & -k^{2}
 \end{array}\right]
 \end{align*}
 
@@ -1643,52 +1646,52 @@ D_{x}^{2} & L\left(A\right)\\
 可以先验证一下，矩阵平方为
 \begin_inset Formula 
 \[
-\left(D_{x}^{2}\right)^{2}=\left[\begin{array}{cc}
-D_{x}^{2} & L\left(A\right)\\
-0 & -p^{2}
+\left(D_{y}^{2}\right)^{2}=\left[\begin{array}{cc}
+D_{y}^{2} & L\left(A\right)\\
+0 & -k^{2}
 \end{array}\right].\left[\begin{array}{cc}
-D_{x}^{2} & L\left(A\right)\\
-0 & -p^{2}
+D_{y}^{2} & L\left(A\right)\\
+0 & -k^{2}
 \end{array}\right]=\left[\begin{array}{cc}
-\left(D_{x}^{2}\right)^{2} & \left(D_{x}^{2}-p^{2}\right)L\left(A\right)\\
-0 & \left(-p^{2}\right)^{2}
+\left(D_{y}^{2}\right)^{2} & \left(D_{y}^{2}-k^{2}\right)L\left(A\right)\\
+0 & \left(-k^{2}\right)^{2}
 \end{array}\right]
 \]
 
 \end_inset
 
 
-\begin_inset Formula $\left(D_{x}^{2}-p^{2}\right)L\left(A\right)$
+\begin_inset Formula $\left(D_{y}^{2}-k^{2}\right)L\left(A\right)$
 \end_inset
 
 应该理解为，
-\begin_inset Formula $\left(D_{x}^{2}-p^{2}\right)$
+\begin_inset Formula $\left(D_{y}^{2}-k^{2}\right)$
 \end_inset
 
 作用在
 \begin_inset Formula $L\left(A\right)$
 \end_inset
 
-上面。所以
+上面。我们得到
 \begin_inset Formula 
 \[
-\left(D_{x}^{2}\right)^{2}I_{x}=\left(D_{x}^{2}\right)^{2}\left[\begin{array}{c}
+\left(D_{y}^{2}\right)^{2}I_{y}=\left(D_{y}^{2}\right)^{2}\left[\begin{array}{c}
 1\\
 0
-\end{array}\right]=\left(D_{x}^{2}-p^{2}\right)L\left(A\right)+\left(-p^{2}\right)^{2}I_{x}
+\end{array}\right]=\left(D_{y}^{2}-k^{2}\right)L\left(A\right)+\left(-k^{2}\right)^{2}I_{y}
 \]
 
 \end_inset
 
 直接计算
-\begin_inset Formula $\left(D_{x}^{2}\right)^{2}I_{x}$
+\begin_inset Formula $\left(D_{y}^{2}\right)^{2}I_{y}$
 \end_inset
 
 ，
 \begin_inset Formula 
 \begin{align*}
-\left(D_{x}^{2}\right)^{2}I_{x} & =D_{x}^{2}\left(L\left(A\right)-p^{2}I_{x}\right)=D_{x}^{2}L\left(A\right)-p^{2}\left(L\left(A\right)-p^{2}I_{x}\right)\\
- & =\left(D_{x}^{2}-p^{2}\right)L\left(A\right)+\left(-p^{2}\right)^{2}I_{x}
+\left(D_{y}^{2}\right)^{2}I_{y} & =D_{y}^{2}\left(L\left(A\right)-k^{2}I_{y}\right)=D_{y}^{2}L\left(A\right)-k^{2}\left(L\left(A\right)-k^{2}I_{y}\right)\\
+ & =\left(D_{y}^{2}-k^{2}\right)L\left(A\right)+\left(-k^{2}\right)^{2}I_{y}
 \end{align*}
 
 \end_inset
@@ -1718,9 +1721,9 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 所以有
 \begin_inset Formula 
 \begin{align*}
-\left(D_{x}^{2}\right)^{n} & =\left[\begin{array}{cc}
-\left(D_{x}^{2}\right)^{n} & \frac{\left(D_{x}^{2}\right)^{n}-\left(-p^{2}\right)^{n}}{D_{x}^{2}+p^{2}}L\left(A\right)\\
-0 & \left(-p^{2}\right)^{n}
+\left(D_{y}^{2}\right)^{n} & =\left[\begin{array}{cc}
+\left(D_{y}^{2}\right)^{n} & \frac{\left(D_{y}^{2}\right)^{n}-\left(-k^{2}\right)^{n}}{D_{y}^{2}+k^{2}}L\left(A\right)\\
+0 & \left(-k^{2}\right)^{n}
 \end{array}\right]
 \end{align*}
 
@@ -1729,13 +1732,13 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 
 \begin_inset Formula 
 \[
-\left(D_{x}^{2}\right)^{n}I_{x}=\frac{\left(D_{x}^{2}\right)^{n}-\left(-p^{2}\right)^{n}}{D_{x}^{2}+p^{2}}L\left(A\right)+\left(-p^{2}\right)^{n}I_{x}
+\left(D_{y}^{2}\right)^{n}I_{y}=\frac{\left(D_{y}^{2}\right)^{n}-\left(-k^{2}\right)^{n}}{D_{y}^{2}+k^{2}}L\left(A\right)+\left(-k^{2}\right)^{n}I_{y}
 \]
 
 \end_inset
 
-其中
-\begin_inset Formula $D_{x}^{2n}$
+其中式子右边的
+\begin_inset Formula $D_{y}^{2n}$
 \end_inset
 
 应该理解成作用在
@@ -1743,13 +1746,13 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 \end_inset
 
 上面。代入
-\begin_inset Formula $L\left(A\right)=\partial\cdot A-2ip\cdot A$
+\begin_inset Formula $L\left(A\right)=\partial_{y}\cdot A-2ik\cdot A\left(y\right)$
 \end_inset
 
 ，则
 \begin_inset Formula 
 \[
-\left(D_{x}^{2}\right)^{n}I_{x}=\frac{\left(D_{x}^{2}\right)^{n}-\left(-p^{2}\right)^{n}}{D_{x}^{2}+p^{2}}\left(\partial\cdot A-2ip\cdot A\right)+\left(-p^{2}\right)^{n}I_{x}
+\left(D_{y}^{2}\right)^{n}I_{y}=\frac{\left(D_{y}^{2}\right)^{n}-\left(-k^{2}\right)^{n}}{D_{y}^{2}+k^{2}}\left(\partial_{y}\cdot A-2ik\cdot A\left(y\right)\right)+\left(-k^{2}\right)^{n}I_{y}
 \]
 
 \end_inset
@@ -1759,15 +1762,15 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 \end_inset
 
 ，后一项
-\begin_inset Formula $\left(-p^{2}\right)^{n}I_{x}$
+\begin_inset Formula $\left(-k^{2}\right)^{n}I_{y}$
 \end_inset
 
 不贡献，由于积分路径收缩成一个点。前一项中，假设光子进入顶点
-\begin_inset Formula $x$
+\begin_inset Formula $y$
 \end_inset
 
 ，对应
-\begin_inset Formula $\exp\left(-iqx\right)$
+\begin_inset Formula $\exp\left(-iqy\right)$
 \end_inset
 
 ，
@@ -1775,14 +1778,14 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 \end_inset
 
 ，而前置的
-\begin_inset Formula $D_{x}^{2}=\left(\partial_{x,\mu}-ip_{\mu}\right)\left(\partial_{x}^{\mu}-ip^{\mu}\right)\Rightarrow\left(-iq-ip\right)^{2}=-\left(q+p\right)^{2}$
+\begin_inset Formula $D_{y}^{2}=\left(\partial_{y,\mu}-ik_{\mu}\right)\left(\partial_{y}^{\mu}-ik^{\mu}\right)\Rightarrow\left(-ik-iq\right)^{2}=-\left(k+q\right)^{2}$
 \end_inset
 
 ，
 \begin_inset Formula 
 \begin{align*}
-\frac{\left(D_{x}^{2}\right)^{n}-\left(-p^{2}\right)^{n}}{D_{x}^{2}+p^{2}}\left(\partial\cdot A-2ip\cdot A\right) & \Rightarrow\frac{\left(-1\right)^{n}\left[\left(q+p\right)^{2n}-\left(p^{2}\right)^{n}\right]}{\left[-\left(q+p\right)^{2}+p^{2}\right]}\left(-iq^{\mu}-2ip^{\mu}\right)A_{\mu}\\
- & =\left(-1\right)^{n}\frac{\left[\left(q+p\right)^{2n}-p^{2n}\right]}{\left[\left(q+p\right)^{2}-p^{2}\right]}i\left(q^{\mu}+2p^{\mu}\right)A_{\mu}
+\frac{\left(D_{y}^{2}\right)^{n}-\left(-k^{2}\right)^{n}}{D_{y}^{2}+k^{2}}\left(\partial\cdot A-2ik\cdot A\right) & \Rightarrow\frac{\left(-1\right)^{n}\left[\left(k+q\right)^{2n}-\left(k^{2}\right)^{n}\right]}{\left[-\left(k+q\right)^{2}+k^{2}\right]}\left(-2ik^{\mu}-iq^{\mu}\right)A_{\mu}\\
+ & =\left(-1\right)^{n}\frac{\left[\left(k+q\right)^{2n}-k^{2n}\right]}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}
 \end{align*}
 
 \end_inset
@@ -1790,14 +1793,26 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 所以
 \begin_inset Formula 
 \begin{align*}
-F\left(-\partial_{x}^{2}\right)e^{-ipx}I(x,y,P) & =e^{-ipx}\sum_{n=0}^{\infty}\frac{F^{\left(n\right)}\left(0\right)}{n!}\left(-\mathcal{D}_{x}^{2}\right)^{n}I(x,y,P)\\
- & =e^{-ipx}\sum_{n=0}^{\infty}\frac{F^{\left(n\right)}\left(0\right)}{n!}\frac{\left[\left(q+p\right)^{2n}-p^{2n}\right]i\left(q^{\mu}+2p^{\mu}\right)}{\left[\left(q+p\right)^{2}-p^{2}\right]}A_{\mu}\\
- & =e^{-ipx}\frac{i\left(q^{\mu}+2p^{\mu}\right)\left(F\left[p+q\right]-F\left[p\right]\right)}{\left[\left(p+q\right)^{2}-p^{2}\right]}A_{\mu}
+F\left(-\partial_{y}^{2}\right)e^{-iky}I\left(x,y,P\right) & =e^{-iky}\sum_{n=0}^{\infty}\frac{F^{\left(n\right)}\left(0\right)}{n!}\left(-\mathcal{D}_{y}^{2}\right)^{n}I\left(x,y,P\right)\\
+ & =e^{-iky}\sum_{n=0}^{\infty}\frac{F^{\left(n\right)}\left(0\right)}{n!}\frac{\left[\left(k+q\right)^{2n}-k^{2n}\right]}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}\\
+ & =e^{-iky}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}
 \end{align*}
 
 \end_inset
 
+其中
+\begin_inset Formula $I\left(x,y,P\right)=\int_{x}^{y}\dif w_{\mu}A^{\mu}\left(w\right)$
+\end_inset
 
+，光子
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+进入
+\begin_inset Formula $y$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Subsection
@@ -1965,6 +1980,447 @@ C_{21} & =2A^{2}\left(-p^{2}\right)\left(D_{x}^{2}\right)^{n+1}+\left(-p^{2}\rig
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+公式总结
+\end_layout
+
+\begin_layout Subsection
+规范变换约定
+\end_layout
+
+\begin_layout Standard
+例如，规范不变的定域，以及对应的非定域拉氏量形式如下，
+\begin_inset Formula 
+\begin{align}
+ & \frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)\mathcal{D}_{\mu,x}\phi\left(x\right)+\text{H.c.}\nonumber \\
+ & \frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right){\color{cyan}\int\dif^{4}a\mathcal{G}_{\phi}^{q}\left(x,x+a\right)F\left(a\right)}\mathcal{D}_{\mu,x+a}\phi\left(x+a\right)+\text{H.c.}\label{eq: nonlocal-exp}
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{G}_{\phi}^{q}\left(y,x\right)=\exp\left[ie_{\phi}^{q}\int_{x}^{y}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right]$
+\end_inset
+
+。作一个
+\begin_inset Formula $U\left(1\right)$
+\end_inset
+
+规范变换，相位变化是
+\begin_inset Formula 
+\[
+\exp\left[-ie_{p}^{q}\theta\left(x\right);ie_{B}^{q}\theta\left(x\right);{\color{cyan}i\theta\left(x\right)\left(e_{p}^{q}-e_{B}^{q}\right);-ie_{\phi}^{q}\theta\left(x+a\right)};ie_{\phi}^{q}\theta\left(x+a\right)\right]
+\]
+
+\end_inset
+
+若要求规范链接
+\begin_inset Formula $\mathcal{G}_{\phi}^{q}\left(x,x+a\right)$
+\end_inset
+
+的确能补偿规范变换，则必然有电荷守恒条件
+\begin_inset Formula 
+\begin{equation}
+e_{p}^{q}-e_{B}^{q}=e_{\phi}^{q}\label{eq:charge}
+\end{equation}
+
+\end_inset
+
+比如
+\begin_inset Formula $e_{p}^{u}-e_{n}^{u}=2-1=e_{\pi^{+}}^{u}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+如果只关注
+\begin_inset Formula $U\left(1\right)$
+\end_inset
+
+规范变换部分，省略别的因子，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: nonlocal-exp"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的变换形式为
+\begin_inset Formula 
+\begin{align*}
+\bar{p}\left(x\right)B\left(x\right)\mathcal{G}_{\phi}^{q}\left(x,y\right)\phi\left(y\right) & \to\bar{p}\left(x\right)U_{p}^{\dagger}\left(x\right)B\left(x\right)U_{B}\left(x\right){\color{cyan}U_{\phi}\left(x\right)\mathcal{G}_{\phi}^{q}\left(x,y\right)U_{\phi}^{\dagger}\left(y\right)}U_{\phi}\left(y\right)\phi\left(y\right)\\
+U_{p}^{\dagger}\left(x\right)U_{B}\left(x\right)U_{\phi}\left(x\right)=1 & \Rightarrow e_{p}^{q}-e_{B}^{q}=e_{\phi}^{q}
+\end{align*}
+
+\end_inset
+
+也就是
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:charge"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。我们使用的约定是
+\begin_inset Formula 
+\begin{align*}
+U_{\phi}\left(x\right) & =\exp\left[ie_{\phi}^{q}\theta\left(x\right)\right]\\
+\mathcal{G}_{\phi}^{q}\left(y,x\right) & =\exp\left[ie_{\phi}^{q}\int_{x}^{y}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right]\\
+\mathcal{G}_{\phi}^{q}\left(y,x\right) & \to U_{\phi}\left(y\right)\mathcal{G}_{\phi}^{q}\left(y,x\right)U_{\phi}^{\dagger}\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+规范符号约定
+\end_layout
+
+\begin_layout Standard
+总结规范变换的约定，特别注意其中的正负号是，
+\begin_inset Formula 
+\begin{align*}
+B\left(x\right)\to B^{\prime}\left(x\right) & =\exp\left[+ie_{B}^{q}\theta\left(x\right)\right]B\left(x\right)=U_{B}\left(x\right)B\left(x\right)\\
+T_{\mu}\left(x\right)\to T_{\mu}^{\prime}\left(x\right) & =\exp\left[+ie_{T}^{q}\theta\left(x\right)\right]T_{\mu}\left(x\right)=U_{T}\left(x\right)T\left(x\right)\\
+\phi\left(x\right)\to\phi^{\prime}\left(x\right) & =\exp\left[+ie_{\phi}^{q}\theta\left(x\right)\right]\phi\left(x\right)=U_{\phi}\left(x\right)\phi\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\color cyan
+也就是规范变换的前置符号选取
+\begin_inset Formula $+ie_{\phi}^{q}$
+\end_inset
+
+。
+\color inherit
+
+\begin_inset Formula 
+\[
+U_{\phi}\left(x\right)=\exp\left[+ie_{\phi}^{q}\theta\left(x\right)\right]
+\]
+
+\end_inset
+
+如果令规范链接为
+\begin_inset Formula 
+\[
+\mathcal{G}_{\phi}^{q}\left(x,y\right)=\exp\left[-ie_{\phi}^{q}\int_{x}^{y}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right]
+\]
+
+\end_inset
+
+我们认为路径反向，出一个负号，则
+\begin_inset Formula 
+\begin{align*}
+\mathcal{G}_{\phi}^{q}\left(x,y\right) & =\exp\left[-ie_{\phi}^{q}\int_{x}^{y}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right]=\exp\left[ie_{\phi}^{q}\int_{y}^{x}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right]\\
+\mathcal{G}_{\phi}^{q}\left(x,y\right) & =\exp\left[ie_{\phi}^{q}\int_{y}^{x}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right]
+\end{align*}
+
+\end_inset
+
+
+\color cyan
+这是标准符号，变量
+\begin_inset Formula $1$
+\end_inset
+
+是路径末端点，对应积分上限；变量
+\begin_inset Formula $2$
+\end_inset
+
+是路径初端点，对应积分下限，前置的符号选取为
+\begin_inset Formula $+ie_{\phi}^{q}$
+\end_inset
+
+。下面的讨论使用标准定义。
+\end_layout
+
+\begin_layout Standard
+则根据规范导数的定义
+\begin_inset Formula 
+\begin{align*}
+D_{\mu,x}\phi\left(x\right) & =\frac{\phi\left(x+\varepsilon\right)-\mathcal{G}_{\phi}^{q}\left(x+\varepsilon,x\right)\phi\left(x\right)}{\varepsilon}=\frac{\phi\left(x+\varepsilon\right)-\left(1+ie_{\phi}^{q}\varepsilon\mathcal{A}_{\mu}\left(x\right)\right)\phi\left(x\right)}{\varepsilon}\\
+D_{\mu,x}\phi\left(x\right) & =\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{\mu}\left(x\right)\right]\phi\left(x\right)
+\end{align*}
+
+\end_inset
+
+对应规范场的变化
+\begin_inset Formula 
+\begin{align*}
+\mathcal{G}_{\phi}^{q}\left(x+\varepsilon,x\right) & =1+\varepsilon\mathcal{A}_{\mu}\left(x\right)\\
+\Rightarrow U_{\phi}\left(x+\varepsilon\right)\mathcal{G}_{\phi}^{q}\left(x+\varepsilon,x\right)U_{\phi}\left(x\right)^{\dagger} & =1+U_{\phi}\left(x\right)ie_{\phi}^{q}\varepsilon\mathcal{A}_{\mu}\left(x\right)U_{\phi}\left(x\right)^{\dagger}+\varepsilon\partial_{\mu,x}U_{\phi}\left(x\right);U_{\phi}\left(x\right)^{\dagger}\\
+\Rightarrow\mathcal{A}_{\mu}\to U\mathcal{A}_{\mu}U^{\dagger}+\frac{1}{ie_{\phi}^{q}}\partial_{\mu,x}U_{\phi};U_{\phi}{}^{\dagger} & =U\mathcal{A}_{\mu}U^{\dagger}+\frac{i}{e_{\phi}^{q}}U_{\phi}\partial_{\mu,x}U_{\phi}{}^{\dagger}
+\end{align*}
+
+\end_inset
+
+
+\color cyan
+即对一般非 Abel 群，结果是
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathcal{A}_{\mu}\to U\mathcal{A}_{\mu}U^{\dagger}+\frac{i}{e_{\phi}^{q}}U_{\phi}\partial_{\mu,x}U_{\phi}{}^{\dagger}
+\]
+
+\end_inset
+
+对于 U(1) 变换，
+\begin_inset Formula 
+\[
+\mathcal{A}_{\mu}\to\mathcal{A}_{\mu}+\frac{i}{e_{\phi}^{q}}\left(-ie_{\phi}^{q}\right)\partial_{x,\mu}\theta=\mathcal{A}_{\mu}+\partial_{x,\mu}\theta
+\]
+
+\end_inset
+
+即我们令规范场的变换与电荷无关。
+\end_layout
+
+\begin_layout Standard
+
+\color cyan
+总结就是
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+D_{\mu,x}\phi\left(x\right) & =\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{\mu}\left(x\right)\right]\phi\left(x\right)\\
+\mathcal{A}_{\mu} & \to\mathcal{A}_{\mu}+\partial_{x,\mu}\theta\\
+\mathcal{G}_{\phi}^{q}\left(y,x\right)\to & U_{\phi}\left(y\right)\mathcal{G}_{\phi}^{q}\left(y,x\right)U_{\phi}^{\dagger}\left(x\right)\\
+\mathcal{G}_{\phi}^{q}\left(y,x\right) & =\exp\left[ie_{\phi}^{q}\int_{x}^{y}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right]
+\end{align*}
+
+\end_inset
+
+
+\color cyan
+我们认为
+\begin_inset Formula $\mathcal{G}_{\phi}^{q}\left(y,x\right)=\exp\left[ie_{\phi}^{q}\int_{x}^{y}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right]=\exp\left[-ie_{\phi}^{q}\int_{y}^{x}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right]$
+\end_inset
+
+，其中交换了积分上下限。
+\end_layout
+
+\begin_layout Section
+非定域顶点费曼规则
+\end_layout
+
+\begin_layout Standard
+形式如下的作用量，
+\begin_inset Formula 
+\[
+\int\dif x\int\dif yR\left(x\right)F\left(x-y\right)I\left(x,y,P\right)T\left(y\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+I\left(x,y,P\right)=-ie_{T}\int_{x}^{y}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)=ie_{T}\int_{y}^{x}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)
+\]
+
+\end_inset
+
+通过傅里叶变换，可以写成，
+\begin_inset Formula 
+\[
+S_{\text{nl}}=\int\dif y\int\dif xR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)T\left(y\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $x,y$
+\end_inset
+
+为路径的端点。根据路径依赖无关的约定有
+\begin_inset Formula 
+\begin{align*}
+\partial_{y,\mu}I\left(x,y,P\right) & =\left(-ie_{T}\right)\left(+\mathcal{A}_{\mu}\left(y\right)\right)\\
+\partial_{x,\mu}I\left(x,y,P\right) & =\left(-ie_{T}\right)\left(-\mathcal{A}_{\mu}\left(x\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+作 Wick 收缩时，假设 
+\begin_inset Formula $T\left(y\right)$
+\end_inset
+
+点产生的指数因子是
+\begin_inset Formula $\exp\left(-iky\right)$
+\end_inset
+
+，即
+\begin_inset Formula $T$
+\end_inset
+
+粒子进入
+\begin_inset Formula $y$
+\end_inset
+
+点，下列讨论可以无障碍地推广到
+\begin_inset Formula $\exp\left(+iky\right)$
+\end_inset
+
+的情形，唯一的变化是动量反号。
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\\
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\tilde{F}\left(-D_{y}^{2}\right)I\left(x,y,P\right)\\
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-1\right)\left({\color{cyan}-2ik^{\mu}-iq^{\mu}}\right)\left(-ie_{T}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)\\
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+其中
+\begin_inset Formula $I\left(x,y,P\right)=-ie_{T}\int_{x}^{y}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)=ie_{T}\int_{y}^{x}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $T$
+\end_inset
+
+场进入
+\begin_inset Formula $y$
+\end_inset
+
+点，对应
+\begin_inset Formula ${\color{cyan}-ik^{\mu}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+光子
+\begin_inset Formula $\mathcal{A}^{\mu}$
+\end_inset
+
+进入
+\begin_inset Formula $y$
+\end_inset
+
+，对应动量
+\begin_inset Formula ${\color{cyan}-iq^{\mu}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\partial_{y,\mu}I\left(x,y,P\right)=+\mathcal{A}_{\mu}\left(y\right)$
+\end_inset
+
+，对应
+\begin_inset Formula ${\color{cyan}\left(+\mathcal{A}_{\mu}\left(y\right)\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+规范链接最自然的定义方式是
+\begin_inset Formula 
+\[
+R\left(x\right)\left[\mathcal{G}\left(x,y,P\right)\equiv\exp\left(+ie_{T}\int_{x}^{y}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)\right)\right]T\left(y\right)
+\]
+
+\end_inset
+
+左边的变量为
+\begin_inset Formula $x$
+\end_inset
+
+，积分下限为
+\begin_inset Formula $x$
+\end_inset
+
+；右边变量为
+\begin_inset Formula $y$
+\end_inset
+
+，积分上限为
+\begin_inset Formula $y$
+\end_inset
+
+。标准的约定还包括
+\begin_inset Formula $+ie_{T}$
+\end_inset
+
+，它决定了协变导数的符号，以及
+\begin_inset Formula $\mathcal{A}_{\mu}$
+\end_inset
+
+变换的符号。
+\begin_inset Formula 
+\begin{align*}
+D_{\mu,x}\phi\left(x\right) & =\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{\mu}\left(x\right)\right]\phi\left(x\right)\\
+\mathcal{A}_{\mu} & \to\mathcal{A}_{\mu}+\partial_{x,\mu}\theta
+\end{align*}
+
+\end_inset
+
+而对于路径积分，
+\begin_inset Formula 
+\[
+\int_{x}^{y}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)
+\]
+
+\end_inset
+
+对上限求导，得到
+\begin_inset Formula $\mathcal{A}^{\mu}\left(y\right)$
+\end_inset
+
+，对下限求导，得到
+\begin_inset Formula $-\mathcal{A}^{\mu}\left(x\right)$
+\end_inset
+
+是符合微积分基本原理的定义。综上，在各种标准的记号下，
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\\
+ & =\int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)
+\end{align*}
+
+\end_inset
+
+它的前置符号为
+\begin_inset Formula $\left(-ie_{T}\right)$
+\end_inset
+
+，对应于在标准记号下，
+\begin_inset Formula $\tilde{F}\left(-\partial_{y}^{2}\right)$
+\end_inset
+
+ 对路径积分的下限求导。
 \end_layout
 
 \begin_layout Section
