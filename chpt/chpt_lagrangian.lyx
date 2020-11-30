@@ -1840,7 +1840,15 @@ terning 形式
 
 \end_inset
 
-也就是
+把积分变量换成
+\begin_inset Formula $y$
+\end_inset
+
+or 
+\begin_inset Formula $y,z$
+\end_inset
+
+ 
 \begin_inset Formula 
 \begin{align*}
  & \mathcal{L}_{\text{link}}^{\text{nonloc}}\left(x\right)=\\
@@ -1852,153 +1860,70 @@ terning 形式
 
 \end_inset
 
-then，
+代入 Ivanov 公式，求出非定域顶点， 
 \begin_inset Formula 
 \begin{align*}
  & \mathcal{L}_{\text{link}}^{\text{nonloc}}\left(x\right)=\\
- & \bar{p}\left(x\right)\left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\\
- & \times\int\dif^{4}yF\left[x-y\right]\int_{x}^{y}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\partial_{\rho}\phi\left(y\right)+\text{H.c}\\
- & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\int\dif^{4}y\int\dif^{4}zF\left[x-y\right]F\left[x-z\right]\\
- & \times\left(\int_{z}^{x}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)+\int_{x}^{y}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right)\left[\phi\left(y\right)\partial_{\rho}\phi^{\dagger}\left(z\right)-\partial_{\rho}\phi\left(y\right);\phi\left(z\right)^{\dagger}\right]
+ & \int\dif^{4}y\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\\
+ & \times\delta\left[x-y\right]e^{-iky}\frac{\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]}{\left(k+q\right)^{2}-k^{2}}\left(-ie_{\phi}^{q}\right)\left(2ik^{\mu}+iq^{\mu}\right)A_{\mu}\left(y\right)\partial_{\rho}\phi\left(y\right)+\text{H.c}\\
+ & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\int\dif^{4}y\int\dif^{4}z\\
+ & \times\Bigg\{ F\left[x-y\right]\delta\left(x-z\right)e^{+ikz}\frac{\tilde{F}\left[q-k\right]-\tilde{F}\left[k\right]}{\left(q-k\right)^{2}-k^{2}}\left(ie_{\phi}^{q}\right)\left(-2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(z\right)\\
+ & +F\left[x-z\right]\delta\left(x-y\right)e^{-iky}\frac{\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]}{\left(k+q\right)^{2}-k^{2}}\left(-ie_{\phi}^{q}\right)\left(2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(y\right)\Bigg\}\\
+ & \times\left[\phi\left(y\right)\partial_{\rho}\phi^{\dagger}\left(z\right)-\partial_{\rho}\phi\left(y\right);\phi\left(z\right)^{\dagger}\right]
 \end{align*}
 
 \end_inset
 
+拿掉
+\begin_inset Formula $\mathcal{A}_{\mu}\left(\cdots\right)$
+\end_inset
 
+，介子留下动量
+\begin_inset Formula $\pm ik^{\mu}$
+\end_inset
+
+，或者收缩产生传播子，
 \begin_inset Formula 
 \begin{align*}
- & \delta J_{q}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\\
- & =\int\left\{ y,t\right\} \left[\frac{C_{B\phi}}{f}\bar{p}\left(y\right)\gamma^{\rho}\gamma^{5}B\left(y\right)+\frac{C_{T\phi}}{f}\bar{p}\left(y\right)\Theta^{\rho\nu}T_{\nu}\left(y\right)\right]\\
- & \times F\left[y-t\right]\int_{y}^{t}\dif w^{\mu}\left(-ie_{\phi}^{q}\right)\delta\left(w-x\right)\partial_{\rho}\phi\left(t\right)+\text{H.c}\\
- & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\int\left\{ y,r,s\right\} \,\bar{p}\left(y\right)\gamma^{\rho}p\left(y\right)F\left[y-r\right]F\left[y-s\right]\\
- & \times\left(\int_{s}^{y}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\delta\left(w-x\right)+\int_{y}^{r}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\delta\left(w-x\right)\right)\left[\phi\left(r\right)\partial_{\rho}\phi^{\dagger}\left(s\right)-\partial_{\rho}\phi\left(r\right);\phi\left(s\right)^{\dagger}\right]
+ & \langle\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\rangle=\frac{\delta\langle\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)\rangle}{\delta\mathcal{A}_{\mu}\left(x\right)}=\\
+ & \frac{C_{B\phi}}{f}\bar{u}\left(p^{\prime}\right)\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{u}\left(p^{\prime}\right)\Theta^{\rho\nu}T_{\nu}\left(x\right)\\
+ & \times\frac{\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]}{\left(k+q\right)^{2}-k^{2}}\left(-ie_{\phi}^{q}\right)\left(2ik^{\mu}+iq^{\mu}\right)\left(-ik_{\rho}\right)+\text{H.c}\\
+ & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{u}\left(p^{\prime}\right)\gamma^{\rho}u\left(p\right)\\
+ & \times\Bigg\{\tilde{F}\left[k\right]\frac{\tilde{F}\left[q-k\right]-\tilde{F}\left[k\right]}{\left(q-k\right)^{2}-k^{2}}\left(ie_{\phi}^{q}\right)\left(-2ik^{\mu}+iq^{\mu}\right)\left(+ik_{\rho}\right)\frac{i}{k^{2}-m_{\phi}^{2}}\\
+ & +\tilde{F}\left[k\right]\frac{\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]}{\left(k+q\right)^{2}-k^{2}}\left(-ie_{\phi}^{q}\right)\left(2ik^{\mu}+iq^{\mu}\right)\left(+ik_{\rho}\right)\frac{i}{k^{2}-m_{\phi}^{2}}
 \end{align*}
 
 \end_inset
 
-使用公式
-\begin_inset Formula 
-\begin{align*}
-S_{\text{NL}} & =\iint\dif^{4}x\dif^{4}y\bar{\psi}\left(x\right){\color{cyan}\Sigma\left(x-y\right)e^{-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}\left(\omega\right)}\psi\left(y\right)}\\
- & =\iint\dif^{4}x\dif^{4}y\bar{\psi}\left(x\right){\color{cyan}\delta\left(x-y\right)\tilde{\Sigma}\left(-\partial_{y}^{2}\right)e^{-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}\left(\omega\right)}\psi\left(y\right)}
-\end{align*}
-
+各种动量的
+\begin_inset Formula $\pm i$
 \end_inset
 
-例如
-\begin_inset Formula 
-\[
-\int\dif^{4}y\int\dif^{4}aB\left(y\right)F\left(a\right)\int_{y}^{y+a}\dif z^{\mu}\delta\left(z-x\right)\partial_{\rho}\phi\left(y+a\right)
-\]
-
-\end_inset
-
-重写一下符号
-\begin_inset Formula 
-\begin{align*}
- & \int\dif^{4}y\int\dif^{4}zB^{\rho}\left(y\right)F\left(z-y\right)\int_{y}^{z}\dif w^{\mu}\delta\left(w-x\right)\partial_{\rho}\phi\left(z\right)\\
-= & \int\dif^{4}y\int\dif^{4}zB^{\rho}\left(y\right)\delta\left(y-z\right)\tilde{F}\left(-\partial_{z}^{2}\right)\int_{y}^{z}\dif w^{\mu}\delta\left(w-x\right)\partial_{\rho}\phi\left(z\right)
-\end{align*}
-
-\end_inset
-
-作 Wick 收缩的时候，
-\begin_inset Formula $\phi\left(z\right)$
-\end_inset
-
-湮灭动量为
-\begin_inset Formula $k$
-\end_inset
-
-的
+都来自于标准约定，
 \begin_inset Formula $\phi$
 \end_inset
 
-粒子，将会产生
-\begin_inset Formula $\exp\left(-ikz\right)$
+产生
+\begin_inset Formula $-ik^{\mu}$
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
-使用 Ivanov 公式：如果路径积分的导数只依赖于末端，
-\begin_inset Formula 
-\[
-I\left(x,y,P\right)=\int_{x}^{y}\dif z_{\nu}A^{\nu}\left(z\right),\quad\partial_{\mu,x}I\left(x,y,P\right)=A_{\mu}\left(x\right),\quad A_{\mu}(x)=\int\dif^{4}qe^{-iqx}A_{\mu}(q)
-\]
-
+，
+\begin_inset Formula $\phi^{\dagger}$
 \end_inset
 
-则有
-\begin_inset Formula 
-\begin{align}
- & \tilde{F}\left(p^{2}\right)e^{-ipx}I\left(x,y,P\right)=\tilde{F}\left(-\partial_{x}^{2}\right)e^{-ipx}I\left(x,y,P\right)=e^{-ipx}\tilde{F}\left[-\left(\partial_{x}-ip\right)^{2}\right]I\left(x,y,P\right)\nonumber \\
- & ={\color{cyan}e^{-ipx-iqx}\int\dif^{4}qA_{\mu}\left(x\right)\left(q^{\mu}+2p^{\mu}\right)\int_{0}^{1}\dif t\,\tilde{F}^{\prime}\left(\left(p+q\right)^{2}t+p^{2}\left(1-t\right)\right)}\nonumber \\
- & +e^{-ipx-iqx}\int\dif^{4}qA_{\mu}\left(x\right)\left(q^{\mu}+2p^{\mu}\right)\tilde{F}\left(p^{2}\right)\int_{y}^{x}\dif z^{\mu}e^{-iqz}\label{eq: Ivanov}
-\end{align}
-
+产生
+\begin_inset Formula $+ik^{\mu}$
 \end_inset
 
-这里由于存在
-\begin_inset Formula $\delta\left(y-z\right)$
-\end_inset
-
-，只用考虑
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq: Ivanov"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 中的第一项，
-\begin_inset Formula 
-\begin{align*}
- & \int\dif^{4}y\int\dif^{4}zB^{\rho}\left(y\right)\delta\left(y-z\right)\tilde{F}\left(-\partial_{z}^{2}\right)\int_{y}^{z}\dif w^{\mu}\delta\left(w-x\right)\partial_{\rho}\phi\left(z\right)\\
-= & \int\dif^{4}y\int\dif^{4}zB^{\rho}\left(y\right)\delta\left(y-z\right)e^{-ikz-iqz}\int\dif^{4}q\delta\left(z-x\right)\left(q^{\mu}+2k^{\mu}\right)\int_{0}^{1}\dif t\,\tilde{F}^{\prime}\left(\left(k+q\right)^{2}t+k^{2}\left(1-t\right)\right)\\
-= & B^{\rho}\left(x\right)e^{-ikx-iqx}\int\dif^{4}q\left(q^{\mu}+2k^{\mu}\right)\int_{0}^{1}\dif t\,\tilde{F}^{\prime}\left(\left(k+q\right)^{2}t+k^{2}\left(1-t\right)\right)\\
-= & B^{\rho}\left(x\right)e^{-ikx-iqx}\int\dif^{4}q\left(q^{\mu}+2k^{\mu}\right)\frac{F\left[\left(k+q\right)^{2}\right]-F\left[k^{2}\right]}{\left(k+q\right)^{2}-k^{2}}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-也就是说,
-\begin_inset Formula 
-\[
-B^{\rho}\left(y\right)=\bar{p}\left(y\right)\left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(y\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(y\right)\right]
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & \left(-ie_{\phi}^{q}\right)\int\dif^{4}yB^{\rho}\left(y\right)\int\dif^{4}aF\left(a\right)\int_{y}^{y+a}\dif z^{\mu}\delta\left(z-x\right)\partial_{\rho}\phi\left(y+a\right)\\
-\Rightarrow & \left(-ie_{\phi}^{q}\right)B^{\rho}\left(x\right)\int\dif^{4}qe^{-ikx-iqx}\left(q^{\mu}+2k^{\mu}\right)\frac{F\left[\left(k+q\right)^{2}\right]-F\left[k^{2}\right]}{\left(k+q\right)^{2}-k^{2}}
-\end{align*}
-
-\end_inset
-
-这里
+，
 \begin_inset Formula $k$
 \end_inset
 
-为介子动量，
+为介子动量；
 \begin_inset Formula $q$
 \end_inset
 
-为光子动量，默认都是进入顶点
-\begin_inset Formula $x$
-\end_inset
-
-的。
+为光子动量，默认都是进入顶点的。
 \end_layout
 
 \begin_layout Section

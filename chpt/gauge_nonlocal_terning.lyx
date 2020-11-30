@@ -1793,9 +1793,9 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 所以
 \begin_inset Formula 
 \begin{align*}
-F\left(-\partial_{y}^{2}\right)e^{-iky}I\left(x,y,P\right) & =e^{-iky}\sum_{n=0}^{\infty}\frac{F^{\left(n\right)}\left(0\right)}{n!}\left(-\mathcal{D}_{y}^{2}\right)^{n}I\left(x,y,P\right)\\
- & =e^{-iky}\sum_{n=0}^{\infty}\frac{F^{\left(n\right)}\left(0\right)}{n!}\frac{\left[\left(k+q\right)^{2n}-k^{2n}\right]}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}\\
- & =e^{-iky}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}
+\tilde{F}\left(-\partial_{y}^{2}\right)e^{-iky}I\left(x,y,P\right) & =e^{-iky}\sum_{n=0}^{\infty}\frac{\tilde{F}^{\left(n\right)}\left(0\right)}{n!}\left(-\mathcal{D}_{y}^{2}\right)^{n}I\left(x,y,P\right)\\
+ & =e^{-iky}\sum_{n=0}^{\infty}\frac{\tilde{F}^{\left(n\right)}\left(0\right)}{n!}\frac{\left[\left(k+q\right)^{2n}-k^{2n}\right]}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}\\
+ & =e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}
 \end{align*}
 
 \end_inset
@@ -2277,17 +2277,22 @@ S_{\text{nl}}=\int\dif y\int\dif xR\left(x\right)\delta\left(x-y\right)\tilde{F}
 \begin_inset Formula $y$
 \end_inset
 
-点，下列讨论可以无障碍地推广到
+点，我们忽略掉
+\begin_inset Formula $T\left(y\right)$
+\end_inset
+
+产生的旋量。下列讨论可以无障碍地推广到
 \begin_inset Formula $\exp\left(+iky\right)$
 \end_inset
 
 的情形，唯一的变化是动量反号。
 \begin_inset Formula 
 \begin{align*}
- & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\\
+ & \int\dif x\int\dif yR\left(x\right)F\left(x-y\right)I\left(x,y,P\right)T\left(y\right)\\
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\\
 = & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\tilde{F}\left(-D_{y}^{2}\right)I\left(x,y,P\right)\\
-= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-1\right)\left({\color{cyan}-2ik^{\mu}-iq^{\mu}}\right)\left(-ie_{T}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)\\
-= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-1\right)\left({\color{cyan}-2ik^{\mu}-iq^{\mu}}\right)\left(-ie_{T}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)\\
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left(2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(y\right)
 \end{align*}
 
 \end_inset
@@ -2407,7 +2412,7 @@ D_{\mu,x}\phi\left(x\right) & =\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{
 \begin_inset Formula 
 \begin{align*}
  & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\\
- & =\int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)
+ & =\int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)
 \end{align*}
 
 \end_inset
