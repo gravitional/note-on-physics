@@ -1956,7 +1956,19 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 \begin_inset Formula $\left(-k^{2}\right)^{n}I_{y}$
 \end_inset
 
-不贡献，由于积分路径收缩成一个点。前一项中，假设光子进入顶点
+不贡献，由于积分路径收缩成一个点。前一项中，
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+场总是有傅里叶分量，正能解
+\begin_inset Formula $-iqy$
+\end_inset
+
+，或者负能解
+\begin_inset Formula $+iqy$
+\end_inset
+
+。我们假设光子进入顶点
 \begin_inset Formula $y$
 \end_inset
 
@@ -1975,8 +1987,8 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 ，
 \begin_inset Formula 
 \begin{align*}
-\frac{\left(D_{y}^{2}\right)^{n}-\left(-k^{2}\right)^{n}}{D_{y}^{2}+k^{2}}\left(\partial\cdot A-2ik\cdot A\right) & \Rightarrow\frac{\left(-1\right)^{n}\left[\left(k+q\right)^{2n}-\left(k^{2}\right)^{n}\right]}{\left[-\left(k+q\right)^{2}+k^{2}\right]}\left(-2ik^{\mu}-iq^{\mu}\right)A_{\mu}\\
- & =\left(-1\right)^{n}\frac{\left[\left(k+q\right)^{2n}-k^{2n}\right]}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}
+\frac{\left(D_{y}^{2}\right)^{n}-\left(-k^{2}\right)^{n}}{D_{y}^{2}+k^{2}}\left(\partial\cdot A-2ik\cdot A\right) & \Rightarrow\frac{\left(-1\right)^{n}\left[\left(k+q\right)^{2n}-\left(k^{2}\right)^{n}\right]}{\left[-\left(k+q\right)^{2}+k^{2}\right]}\left(-2ik^{\mu}-iq^{\mu}\right)A_{\mu}\left(y\right)\\
+ & =\left(-1\right)^{n}\frac{\left[\left(k+q\right)^{2n}-k^{2n}\right]}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}\left(y\right)
 \end{align*}
 
 \end_inset
@@ -1985,8 +1997,8 @@ a^{n} & \frac{a^{n}-c^{n}}{a-c}b\\
 \begin_inset Formula 
 \begin{align*}
 \tilde{F}\left(-\partial_{y}^{2}\right)e^{-iky}I\left(x,y,P\right) & =e^{-iky}\sum_{n=0}^{\infty}\frac{\tilde{F}^{\left(n\right)}\left(0\right)}{n!}\left(-\mathcal{D}_{y}^{2}\right)^{n}I\left(x,y,P\right)\\
- & =e^{-iky}\sum_{n=0}^{\infty}\frac{\tilde{F}^{\left(n\right)}\left(0\right)}{n!}\frac{\left[\left(k+q\right)^{2n}-k^{2n}\right]}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}\\
- & =e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}
+ & =e^{-iky}\sum_{n=0}^{\infty}\frac{\tilde{F}^{\left(n\right)}\left(0\right)}{n!}\frac{\left[\left(k+q\right)^{2n}-k^{2n}\right]}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}\left(y\right)\\
+ & =e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}i\left(2k^{\mu}+q^{\mu}\right)A_{\mu}\left(y\right)
 \end{align*}
 
 \end_inset
@@ -2174,10 +2186,6 @@ C_{21} & =2A^{2}\left(-p^{2}\right)\left(D_{x}^{2}\right)^{n+1}+\left(-p^{2}\rig
 \end_layout
 
 \begin_layout Section
-公式总结
-\end_layout
-
-\begin_layout Subsection
 规范变换约定
 \end_layout
 
@@ -2274,7 +2282,7 @@ U_{\phi}\left(x\right) & =\exp\left[ie_{\phi}^{q}\theta\left(x\right)\right]\\
 \end_layout
 
 \begin_layout Subsection
-规范符号约定
+符号约定
 \end_layout
 
 \begin_layout Standard
@@ -2472,7 +2480,23 @@ S_{\text{nl}}=\int\dif y\int\dif xR\left(x\right)\delta\left(x-y\right)\tilde{F}
 \begin_inset Formula $T\left(y\right)$
 \end_inset
 
-产生的旋量。下列讨论可以无障碍地推广到
+产生的旋量。可以理解成，场算符总是有傅里叶变换，要么是正能解
+\begin_inset Formula $-iky$
+\end_inset
+
+，要么是负能解
+\begin_inset Formula $+iky$
+\end_inset
+
+，我们研究一种情况即可，把
+\begin_inset Formula $T\left(y\right)$
+\end_inset
+
+写成
+\begin_inset Formula $e^{-iky}\tilde{T}\left(y\right)$
+\end_inset
+
+，即显式地写出它的正能解指数因子。下列讨论可以无障碍地推广到
 \begin_inset Formula $\exp\left(+iky\right)$
 \end_inset
 
@@ -2480,10 +2504,11 @@ S_{\text{nl}}=\int\dif y\int\dif xR\left(x\right)\delta\left(x-y\right)\tilde{F}
 \begin_inset Formula 
 \begin{align*}
  & \int\dif x\int\dif yR\left(x\right)F\left(x-y\right)I\left(x,y,P\right)T\left(y\right)\\
-= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\\
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\tilde{T}\left(y\right)\\
 = & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\tilde{F}\left(-D_{y}^{2}\right)I\left(x,y,P\right)\\
-= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-1\right)\left({\color{cyan}-2ik^{\mu}-iq^{\mu}}\right)\left(-ie_{T}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)\\
-= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left(2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(y\right)
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)\tilde{T}\left(y\right)\\
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left(2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(y\right)e^{-iky}\tilde{T}\left(y\right)\\
+= & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left(2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(y\right)T\left(y\right)
 \end{align*}
 
 \end_inset
@@ -2606,8 +2631,9 @@ D_{\mu,x}\phi\left(x\right) & =\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{
 综上，在各种标准的记号下，
 \begin_inset Formula 
 \begin{align*}
- & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\\
- & =\int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)e^{-iky}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(y\right)}\right)
+ & \int\dif x\int\dif yR\left(x\right)F\left(x-y\right)I\left(x,y,P\right)T\left(y\right)\\
+ & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\tilde{T}\left(y\right)\\
+= & {\color{cyan}\int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left(2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(y\right)T\left(y\right)}
 \end{align*}
 
 \end_inset
@@ -2616,11 +2642,43 @@ D_{\mu,x}\phi\left(x\right) & =\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{
 \begin_inset Formula $\left(-ie_{T}\right)$
 \end_inset
 
-，对应于在标准记号下，
+，对应于在标准记号
+\begin_inset Formula $I\left(x,y,P\right)=ie_{T}\int_{y}^{x}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)$
+\end_inset
+
+下，
 \begin_inset Formula $\tilde{F}\left(-\partial_{y}^{2}\right)$
 \end_inset
 
- 对路径积分的下限求导。
+ 对路径积分的下限求导；在
+\begin_inset Formula $I\left(x,y,P\right)=-ie_{T}\int_{x}^{y}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)$
+\end_inset
+
+约定下，才对路径积分上限求导。如果
+\begin_inset Formula $\partial_{y,\mu}I\left(x,y,P\right)=O_{\mu}\left(y\right)$
+\end_inset
+
+，即把
+\begin_inset Formula $\mathcal{A}^{\mu}$
+\end_inset
+
+换成其他函数
+\begin_inset Formula $O_{\mu}$
+\end_inset
+
+，推导过程不变，结论是一样的。另外
+\begin_inset Formula $T\left(y\right)$
+\end_inset
+
+如果是类似
+\begin_inset Formula $\partial_{\mu}\phi$
+\end_inset
+
+的形式，也不影响，我们只要求
+\begin_inset Formula $T\left(y\right)$
+\end_inset
+
+具有合适的傅里叶分量。
 \end_layout
 
 \begin_layout Standard
@@ -2631,10 +2689,10 @@ salamu形式做了变量平移
 ：
 \begin_inset Formula 
 \begin{align*}
-S_{\text{NL}} & =\int\dif x\int\dif yR\left(x\right)F\left(x-y\right)I\left(x,y,P\right)T\left(y\right)\\
- & =\iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right)F\left(a\right)\exp\left(ieQ\int_{x+a}^{x}\mathcal{A}^{\mu}\left(w\right)\dif w_{\mu}\right)T\left(x+a\right)\\
- & =\iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right)\delta\left(a\right)\tilde{F}\left(-\partial_{x+a}^{2}\right)\exp\left(ieQ\int_{x+a}^{x}\mathcal{A}^{\mu}\left(w\right)\dif w_{\mu}\right)e^{-ik\left(x+a\right)}\\
- & =\int\dif x\int\dif aR\left(x\right)\delta\left(a\right)e^{-ik\left(x+a\right)}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(x+a\right)}\right)
+ & \int\dif x\int\dif yR\left(x\right)F\left(x-y\right)\exp\left(ieQ\int_{y}^{x}\mathcal{A}^{\mu}\left(w\right)\dif w_{\mu}\right)T\left(y\right)\\
+= & \iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right)F\left(a\right)I\left(x,x+a,P\right)T\left(x+a\right)\\
+= & \iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right)\delta\left(a\right)\tilde{F}\left(-\partial_{x+a}^{2}\right)I\left(x,x+a,P\right)e^{-ik\left(x+a\right)}\tilde{T}\left(x+a\right)\\
+= & \int_{xa}R\left(x\right)\delta\left(a\right)\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(x+a\right)}\right)T\left(x+a\right)
 \end{align*}
 
 \end_inset

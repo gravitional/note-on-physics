@@ -1515,7 +1515,7 @@ salamu 形式
  & +\frac{C_{B\phi}}{f}\left[\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)\mathcal{D}_{\mu,x}\phi\left(x\right)+\text{H.c.}\right]\\
  & +\frac{C_{T\phi}}{f}\left[\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\mathcal{D}_{\mu,x}\phi\left(x\right)+\text{H.c.}\right]\\
  & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\left[\phi\left(x\right)\mathcal{D}_{\mu,x}\phi\left(x\right)^{\dagger}-\mathcal{D}_{\mu,x}\phi\left(x\right);\phi^{\dagger}\left(x\right)\right]\\
- & +\mathcal{D}_{\mu,x}\phi\left(x\right);\mathcal{D}_{\mu,x}\phi\left(x\right)^{\dagger}+\cdots
+ & +\mathcal{D}_{\mu,x}\phi\left(x\right);\left(\mathcal{D}_{\mu,x}\phi\left(x\right)\right)^{\dagger}+\cdots
 \end{align*}
 
 \end_inset
@@ -1579,18 +1579,30 @@ salamu 形式
 
 \begin_layout Standard
 从定域相互作用，衍生出的非定域形式为
+\size small
+
 \begin_inset Formula 
-\begin{align}
-\mathcal{L}^{\text{nonlocal}} & =\bar{B}\left(x\right)\left(i\gamma^{\mu}\mathcal{D}_{\mu,x}-M_{B}\right)B\left(x\right)+\bar{T}_{\mu}\left(x\right)\left(i\gamma^{\mu\nu\alpha}\mathcal{D}_{\alpha,x}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}\left(x\right)\nonumber \\
- & +\frac{C_{B\phi}}{f}\left[\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right){\color{red}\int\dif^{4}aF\left(a\right)\mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x+a}\phi\left(x+a\right)}+\text{H.c.}\right]\nonumber \\
- & +\frac{C_{T\phi}}{f}\left[\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right){\color{red}\int\dif^{4}aF\left(a\right)\mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x+a}\phi\left(x+a\right)}+\text{H.c.}\right]\nonumber \\
- & +\frac{iC_{\phi\phi^{+}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right){\color{red}\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\mathcal{G}_{\phi}^{q}\left(x+b,x+a\right)}\label{eq:20}\\
- & {\color{red}\left[\phi\left(x+a\right)\mathcal{D}_{\mu,x+b}\phi\left(x+b\right)^{\dagger}-\mathcal{D}_{\mu,x+a}\phi\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]}\nonumber \\
- & +\mathcal{D}_{\mu,x}\phi\left(x\right);\mathcal{D}_{\mu,x}\phi\left(x\right)^{\dagger}+\cdots\nonumber 
-\end{align}
+\begin{align*}
+ & \mathcal{L}^{\text{nonlocal}}\\
+= & \bar{B}\left(x\right)\left(i\gamma^{\mu}\mathcal{D}_{\mu,x}-M_{B}\right)B\left(x\right)+\bar{T}_{\mu}\left(x\right)\left(i\gamma^{\mu\nu\alpha}\mathcal{D}_{\alpha,x}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}\left(x\right)+\mathcal{D}_{\mu,x}\phi\left(x\right);\left(\mathcal{D}_{\mu,x}\phi\left(x\right)\right)^{\dagger}\\
++ & \frac{C_{B\phi}}{f}\left[\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right){\color{red}\int_{a}F\left(a\right)\mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x+a}\phi\left(x+a\right)}+\text{H.c.}\right]\\
++ & \frac{C_{T\phi}}{f}\left[\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right){\color{red}\int_{a}F\left(a\right)\mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x+a}\phi\left(x+a\right)}+\text{H.c.}\right]\\
++ & \frac{iC_{\phi\phi^{+}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right){\color{red}\int_{ab}F\left(a\right)F\left(b\right)\mathcal{G}_{\phi}^{q}\left(x+b,x+a\right)}{\color{red}\left[\phi\left(x+a\right)\left(\mathcal{D}_{\mu,x+b}\phi\left(x+b\right)\right)^{\dagger}-\mathcal{D}_{\mu,x+a}\phi\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]}\\
++ & \cdots
+\end{align*}
 
 \end_inset
 
+
+\size default
+协变导数的约定是
+\begin_inset Formula $D_{\mu,x}\phi\left(x\right)=\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{\mu}\left(x\right)\right]\phi\left(x\right)$
+\end_inset
+
+，注意协变导数在复共轭下也改变符号。
+\end_layout
+
+\begin_layout Standard
 其中引入了规范链接
 \begin_inset Formula $\mathcal{G}_{\phi}^{q}\left(x,y\right)=\exp\left[-ie_{\phi}^{q}\int_{x}^{y}\dif z^{\mu}A_{\mu}\left(z\right)\right]$
 \end_inset
@@ -1701,57 +1713,127 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-把以上展开代入拉氏量，
+上面的非定域拉氏量涉及到两种展开形式。第一个是，
 \begin_inset Formula 
 \begin{align*}
  & \mathcal{G}_{\phi}^{q}\left(x,x+a\right)=1+\left(-ie_{\phi}^{q}\right)a^{\mu}\int_{0}^{1}\dif t\mathcal{A}_{\mu}\left(x+at\right)\\
- & \mathcal{D}_{\mu,x+a}\phi\left(x+a\right)=\left[\partial_{\mu,x+a}+\left(-ie_{\phi}^{q}\right)\mathcal{A}_{\mu}\left(x+a\right)\right]\phi\left(x+a\right)\\
- & \mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x}\phi\left(x+a\right)\\
-\Rightarrow & \partial_{\mu,x+a}\phi\left(x+a\right)+\left(-ie_{\phi}^{q}\right)\mathcal{A}_{\mu}\left(x+a\right)\phi\left(x+a\right)+\left(-ie_{\phi}^{q}\right)a^{\mu}\int_{0}^{1}\dif t\mathcal{A}_{\mu}\left(x+at\right)\partial_{\mu,x+a}\phi\left(x+a\right)
+ & \mathcal{D}_{\mu,x+a}\phi\left(x+a\right)=\left[\partial_{\mu,x+a}+\left(-ie_{\phi}^{q}\right)\mathcal{A}_{\mu}\left(x+a\right)\right]\phi\left(x+a\right)
 \end{align*}
 
 \end_inset
 
-类似地
+对应的两种写法是，
 \begin_inset Formula 
 \begin{align*}
- & \mathcal{G}_{\phi}^{q}\left(x+b,x+a\right)\left[\phi\left(x+a\right)\mathcal{D}_{\mu,x+b}\phi\left(x+b\right)^{\dagger}-\mathcal{D}_{\mu,x+a}\phi\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]\\
-\Rightarrow & \int\dif^{4}a\int\dif^{4}b\left[\phi\left(x+a\right)\partial_{\mu,x+b}\phi\left(x+b\right)^{\dagger}-\partial_{\mu,x+a}\phi\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]\\
-+ & \int\dif^{4}a\int\dif^{4}b\left[\phi\left(x+a\right)\left(+ie_{\phi}^{q}\right)\mathcal{A}_{\mu}\left(x+b\right)\phi\left(x+b\right)^{\dagger}-\left(-ie_{\phi}^{q}\right)\mathcal{A}_{\mu}\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]\\
-+ & \left(-ie_{\phi}^{q}\right)\left(a-b\right)^{\mu}\int_{0}^{1}\dif t\mathcal{A}_{\mu}\left(x+at+b\left(1-t\right)\right)\\
- & \left[\phi\left(x+a\right)\partial_{\mu,x+b}\phi\left(x+b\right)^{\dagger}-\partial_{\mu,x+a}\phi\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]
+ & \mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x}\phi\left(x+a\right)\\
+\Rightarrow & \partial_{\mu,x+a}\phi\left(x+a\right)+\left(-ie_{\phi}^{q}\right)\mathcal{A}_{\mu}\left(x+a\right)\phi\left(x+a\right)+\left(-ie_{\phi}^{q}\right)a^{\mu}\int_{0}^{1}\dif t\mathcal{A}_{\mu}\left(x+at\right)\partial_{\mu,x+a}\phi\left(x+a\right)\\
+\Rightarrow & {\color{cyan}\partial_{\mu,x+a}\phi\left(x+a\right)+\left(-ie_{\phi}^{q}\right)\mathcal{A}_{\mu}\left(x+a\right)\phi\left(x+a\right)+\left(-ie_{\phi}^{q}\right)\int_{x}^{x+a}\dif w\mathcal{A}_{\mu}\left(w\right)\partial_{\mu,x+a}\phi\left(x+a\right)}
 \end{align*}
 
 \end_inset
 
-如果带上系数，大概如下
+
+\end_layout
+
+\begin_layout Standard
+类似地，
+\size small
+
 \begin_inset Formula 
-\begin{align}
- & \mathcal{L}_{\text{had}}^{\text{nonloc}}\left(x\right)=\bar{p}\left(x\right)\left[\frac{C_{B\phi}}{f}\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]\int\dif^{4}aF\left(a\right)\partial_{\mu}\phi\left(x+a\right)+\text{H.c.}\nonumber \\
- & +\frac{iC_{\phi\phi^{\dagger}}}{f}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\left[\phi\left(x+a\right)\partial_{\mu}\phi^{\dagger}\left(x+b\right)-\partial_{\mu}\phi\left(x+a\right);\phi^{\dagger}\left(x+b\right)\right]\label{eq:25}
-\end{align}
+\begin{align*}
+ & {\color{magenta}\mathcal{G}_{\phi}^{q}\left(x+b,x+a\right)}\left[\phi\left(x+a\right)\left(\mathcal{D}_{\mu,x+b}\phi\left(x+b\right)\right)^{\dagger}-\mathcal{D}_{\mu,x+a}\phi\left(x+a\right);\phi^{\dagger}\left(x+b\right)\right]\\
+= & \int_{ab}\left[\phi\left(x+a\right)\partial_{\mu,x+b}\phi^{\dagger}\left(x+b\right)-\partial_{\mu,x+a}\phi\left(x+a\right);\phi^{\dagger}\left(x+b\right)\right]\\
++ & \int\dif^{4}a\int\dif^{4}b\left(ie_{\phi}^{q}\right)\left[\mathcal{A}_{\mu}\left(x+b\right)\phi\left(x+a\right)\phi^{\dagger}\left(x+b\right)+\mathcal{A}_{\mu}\left(x+a\right)\phi\left(x+a\right)\phi^{\dagger}\left(x+b\right)\right]\\
++ & {\color{magenta}\left(-ie_{\phi}^{q}\right)\left(a-b\right)^{\mu}\int_{0}^{1}\dif t\mathcal{A}_{\mu}\left(x+at+b\left(1-t\right)\right)}\left[\phi\left(x+a\right)\partial_{\mu,x+b}\phi^{\dagger}\left(x+b\right)-\partial_{\mu,x+a}\phi\left(x+a\right);\phi^{\dagger}\left(x+b\right)\right]
+\end{align*}
 
 \end_inset
 
-and 
+
+\size default
+\color cyan
+或者写成
+\color inherit
+
 \begin_inset Formula 
-\begin{align}
- & \mathcal{L}_{\text{em}}^{\text{nonloc}}\left(x\right)=e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)\mathcal{A}_{\mu}\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)\mathcal{A}_{\alpha}\left(x\right)\nonumber \\
- & +ie_{\phi}^{q}\left[\partial^{\mu}\phi\left(x\right)\phi^{\dagger}\left(x\right)-\phi\left(x\right)\partial_{\mu}\phi\left(x\right)^{\dagger}\right]\mathcal{A}_{\mu}\left(x\right)\nonumber \\
- & -ie_{\phi}^{q}\bar{p}\left(x\right)\left[\frac{C_{B\phi}}{f}\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]\int\dif^{4}aF\left(a\right)\phi\left(x+a\right)A^{\mu}\left(x+a\right)+\text{H.c}\nonumber \\
- & -\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\phi\left(x+a\right)\phi^{\dagger}\left(x+b\right)\left[\mathcal{A}^{\mu}\left(x+a\right)+\mathcal{A}^{\mu}\left(x+b\right)\right]\label{eq:26}
-\end{align}
+\begin{align*}
+ & {\color{magenta}\mathcal{G}_{\phi}^{q}\left(x+b,x+a\right)}\left[\phi\left(x+a\right)\left(\mathcal{D}_{\mu,x+b}\phi\left(x+b\right)\right)^{\dagger}-\mathcal{D}_{\mu,x+a}\phi\left(x+a\right);\phi^{\dagger}\left(x+b\right)\right]\\
+= & \int\dif^{4}a\int\dif^{4}b\left[\phi\left(x+a\right)\partial_{\mu,x+b}\phi^{\dagger}\left(x+b\right)-\partial_{\mu,x+a}\phi\left(x+a\right);\phi^{\dagger}\left(x+b\right)\right]\\
++ & \int\dif^{4}a\int\dif^{4}b\left(ie_{\phi}^{q}\right)\left[\mathcal{A}_{\mu}\left(x+b\right)\phi\left(x+a\right)\phi^{\dagger}\left(x+b\right)+\mathcal{A}_{\mu}\left(x+a\right)\phi\left(x+a\right)\phi^{\dagger}\left(x+b\right)\right]\\
++ & {\color{magenta}\left(-ie_{\phi}^{q}\right)\int_{x+b}^{x+a}\dif w\mathcal{A}_{\mu}\left(w\right)}\left[\phi\left(x+a\right)\partial_{\mu,x+b}\phi^{\dagger}\left(x+b\right)-\partial_{\mu,x+a}\phi\left(x+a\right);\phi^{\dagger}\left(x+b\right)\right]
+\end{align*}
 
 \end_inset
 
-and 
+
+\end_layout
+
+\begin_layout Standard
+代入到之前的非定域拉氏量中
+\size small
+
 \begin_inset Formula 
-\begin{align}
- & \mathcal{L}_{\text{link}}^{\text{nonloc}}\left(x\right)=\nonumber \\
- & -ie_{\phi}^{q}\bar{p}\left(x\right)\left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\int_{0}^{1}\dif t\int\dif^{4}aF\left(a\right)a^{\mu}\partial_{\rho}\phi\left(x+a\right)\mathcal{A}_{\mu}\left(x+at\right)+\text{H.c}\nonumber \\
- & +\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\int_{0}^{1}\dif t\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\left(a-b\right)^{\mu}\nonumber \\
- & \left[\phi\left(x+a\right)\partial_{\rho}\phi^{\dagger}\left(x+b\right)-\partial_{\rho}\phi\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]\mathcal{A}^{\mu}\left(x+at+b\left(1-t\right)\right)\label{eq:27}
-\end{align}
+\begin{align*}
+ & \mathcal{L}^{\text{nonlocal}}\\
+ & ={\color{brown}\bar{B}\left(x\right)\left(i\gamma^{\mu}\mathcal{D}_{\mu,x}-M_{B}\right)B\left(x\right)+\bar{T}_{\mu}\left(x\right)\left(i\gamma^{\mu\nu\alpha}\mathcal{D}_{\alpha,x}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}\left(x\right)+\mathcal{D}_{\mu,x}\phi\left(x\right);\left(\mathcal{D}_{\mu,x}\phi\left(x\right)\right)^{\dagger}}\\
+ & +\frac{C_{B\phi}}{f}\left[\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right){\color{blue}\int_{a}F\left(a\right)\mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x+a}\phi\left(x+a\right)}+\text{H.c.}\right]\\
+ & +\frac{C_{T\phi}}{f}\left[\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right){\color{blue}\int_{a}F\left(a\right)\mathcal{G}_{\phi}^{q}\left(x,x+a\right)\mathcal{D}_{\mu,x+a}\phi\left(x+a\right)}+\text{H.c.}\right]\\
+ & +\frac{iC_{\phi\phi^{+}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right){\color{cyan}\int_{ab}F\left(a\right)F\left(b\right)\mathcal{G}_{\phi}^{q}\left(x+b,x+a\right)\left[\phi\left(x+a\right)\left(\mathcal{D}_{\mu,x+b}\phi\left(x+b\right)\right)^{\dagger}-\mathcal{D}_{\mu,x+a}\phi\left(x+a\right);\phi^{\dagger}\left(x+b\right)\right]}\\
+ & +\cdots
+\end{align*}
+
+\end_inset
+
+
+\size default
+协变导数的约定是
+\begin_inset Formula $D_{\mu,x}\phi\left(x\right)=\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{\mu}\left(x\right)\right]\phi\left(x\right)$
+\end_inset
+
+，结果如下。
+\end_layout
+
+\begin_layout Standard
+纯强子部分
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{L}_{\text{had}}^{\text{nonloc}}\left(x\right)\\
+= & \int_{a}\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]{\color{blue}F\left(a\right)\partial_{\mu}\phi\left(x+a\right)}+\text{H.c.}\\
++ & \int_{ab}\frac{iC_{\phi\phi^{\dagger}}}{f}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)F\left(a\right)F\left(b\right){\color{cyan}\left[\phi\left(x+a\right)\partial_{\mu,x+b}\phi^{\dagger}\left(x+b\right)-\partial_{\mu,x+a}\phi\left(x+a\right);\phi^{\dagger}\left(x+b\right)\right]}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+强子电磁流耦合
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{L}_{\text{em}}^{\text{nonloc}}\left(x\right)\\
+= & {\color{brown}e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)\mathcal{A}_{\mu}\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)\mathcal{A}_{\alpha}\left(x\right)+\left(-ie_{\phi}^{q}\right)\mathcal{A}_{\mu}\left(x\right)\left[\phi\left(x\right)\partial_{\mu}\phi\left(x\right)^{\dagger}-\partial^{\mu}\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}\\
++ & \int_{a}{\color{blue}\left(-ie_{\phi}^{q}\right)\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]F\left(a\right)\phi\left(x+a\right)A^{\mu}\left(x+a\right)}+\text{H.c}\\
++ & \int_{ab}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(ie_{\phi}^{q}\right)\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)F\left(a\right)F\left(b\right)\phi\left(x+a\right)\phi^{\dagger}\left(x+b\right)\left[\mathcal{A}^{\mu}\left(x+a\right)+\mathcal{A}^{\mu}\left(x+b\right)\right]}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+强子规范链接
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{L}_{\text{link}}^{\text{nonloc}}\left(x\right)\\
+= & \int_{a}{\color{blue}\left(-ie_{\phi}^{q}\right)\left[\bar{p}\left(x\right)\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]F\left(a\right)\int_{x}^{x+a}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\partial_{\rho}\phi\left(x+a\right)}+\text{H.c}\\
++ & \int_{a}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)F\left(a\right)F\left(b\right)\int_{x+b}^{x+a}\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\left[\phi\left(x+a\right)\partial_{\rho}\phi^{\dagger}\left(x+b\right)-\partial_{\rho}\phi\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]}
+\end{align*}
 
 \end_inset
 
@@ -1764,29 +1846,144 @@ and
 \end_inset
 
 (通过泛函导数)
+\size small
+
 \begin_inset Formula 
 \begin{align*}
  & J_{q,\text{em}}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{em}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\\
- & =e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)+ie_{\phi}^{q}\left[\partial^{\mu}\phi\left(x\right)\phi^{\dagger}\left(x\right)-\phi\left(x\right)\partial^{\mu}\phi\left(x\right)^{\dagger}\right]\\
- & -ie_{\phi}^{q}\int\dif^{4}aF\left(a\right)\bar{p}\left(x-a\right)\left[\frac{C_{B\phi}}{f}\gamma^{\mu}\gamma^{5}B\left(x-a\right)+\frac{C_{T\phi}}{f}\Theta^{\mu\nu}T_{\nu}\left(x-a\right)\right]\phi\left(x\right)+\text{H.c}\\
- & -\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\times\\
- & \bar{p}\left(x-a\right)\gamma^{\mu}p\left(x-a\right)\phi\left(x\right)\phi^{\dagger}\left(x-a+b\right)+\bar{p}\left(x-b\right)\gamma^{\mu}p\left(x-b\right)\phi\left(x+a-b\right)\phi^{\dagger}\left(x\right)
+= & e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)+\left(-ie_{\phi}^{q}\right)\left[\phi\left(x\right)\partial^{\mu}\phi\left(x\right)^{\dagger}-\partial^{\mu}\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]\\
++ & {\color{blue}\left(-ie_{\phi}^{q}\right)\int_{a}F\left(a\right)\bar{p}\left(x-a\right)\left[\frac{C_{B\phi}}{f}\gamma^{\mu}\gamma^{5}B\left(x-a\right)+\frac{C_{T\phi}}{f}\Theta^{\mu\nu}T_{\nu}\left(x-a\right)\right]\phi\left(x\right)}+\text{H.c}\\
++ & {\color{cyan}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{ab}F\left(a\right)F\left(b\right)\left[\bar{p}\left(x-a\right)\gamma^{\mu}p\left(x-a\right)\phi\left(x\right)\phi^{\dagger}\left(x-a+b\right)+\bar{p}\left(x-b\right)\gamma^{\mu}p\left(x-b\right)\phi\left(x+a-b\right)\phi^{\dagger}\left(x\right)\right]}
 \end{align*}
 
 \end_inset
 
+
+\size default
 还有从规范链接得到的额外项
+\size small
+
 \begin_inset Formula 
-\begin{align}
- & \delta J_{q}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\nonumber \\
- & =\int_{0}^{1}\dif t\int\dif^{4}aF\left(a\right)\left(-ie_{\phi}^{q}\right)\bar{p}\left(x-at\right)\times\nonumber \\
- & \left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x-at\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x-at\right)\right]a^{\mu}\partial_{\rho}\phi\left(x+a\left(1-t\right)\right)+\text{H.c}\nonumber \\
- & +\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\int_{0}^{1}\dif t\int\dif^{4}a\int\dif^{4}bF\left(a\right)F\left(b\right)\left(a-b\right)^{\mu}\bar{p}\left(x-at-b\left(1-t\right)\right)\gamma^{\rho}p\left(x-at-b\left(1-t\right)\right)\label{eq:yu29}\\
- & \left[\phi\left(x+\left(a-b\right)\left(1-t\right)\right)\partial_{\rho}\phi^{\dagger}\left(x-\left(a-b\right)t\right)-\partial_{\rho}\phi\left(x+\left(a-b\right)\left(1-t\right)\right);\phi\left(x-\left(a-b\right)t\right)^{\dagger}\right]\nonumber 
-\end{align}
+\begin{align*}
+ & \delta J_{q}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\\
+= & \int_{ya}{\color{blue}\left(-ie_{\phi}^{q}\right)\left[\bar{p}\left(y\right)\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(y\right)+\frac{C_{T\phi}}{f}\bar{p}\left(y\right)\Theta^{\rho\nu}T_{\nu}\left(y\right)\right]F\left(a\right)\int_{y}^{y+a}\dif w^{\mu}\delta\left(x-w\right)\partial_{\rho}\phi\left(y+a\right)}+\text{H.c}\\
++ & \int_{a}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(y\right)\gamma^{\rho}p\left(y\right)F\left(a\right)F\left(b\right)\int_{y+b}^{y+a}\dif w^{\mu}\delta\left(x-w\right)\left[\phi\left(y+a\right)\partial_{\rho}\phi^{\dagger}\left(y+b\right)-\partial_{\rho}\phi\left(y+a\right);\phi\left(y+b\right)^{\dagger}\right]}
+\end{align*}
 
 \end_inset
 
+
+\size default
+使用 Ivanov 公式
+\begin_inset Formula 
+\begin{align*}
+ & \iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right)F\left(a\right)I\left(x,x+a,P\right)T\left(x+a\right)\\
+= & \int_{xa}R\left(x\right)\delta\left(a\right)\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left(2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(x+a\right)T\left(x+a\right)
+\end{align*}
+
+\end_inset
+
+这里的
+\begin_inset Formula $\left(-ie_{T}\right)$
+\end_inset
+
+已经写成
+\begin_inset Formula $\left(-ie_{\phi}^{q}\right)$
+\end_inset
+
+，并提到了外面。对第二项，考虑拆分，
+\begin_inset Formula 
+\[
+\int_{y+b}^{y+a}\dif w^{\mu}\delta\left(x-w\right)=\int_{y}^{y+a}\dif w^{\mu}\delta\left(x-w\right)+\int_{y+b}^{y}\dif w^{\mu}\delta\left(x-w\right)
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $\int_{y+b}^{y}\dif w^{\mu}\delta\left(x-w\right)$
+\end_inset
+
+，
+\begin_inset Formula $F\left(b\right)$
+\end_inset
+
+作用在积分下限产生一个负号，与
+\begin_inset Formula $-\partial_{\rho}\phi\left(y+a\right);\phi\left(y+b\right)^{\dagger}$
+\end_inset
+
+前置的负号消掉，整体不贡献负号，但要注意，
+\begin_inset Formula $\phi\left(y+b\right)^{\dagger}$
+\end_inset
+
+对应的动量为
+\begin_inset Formula $-k^{\mu}$
+\end_inset
+
+，光子方向不变，都取
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+
+\size small
+。
+\begin_inset Formula 
+\begin{align*}
+ & \delta J_{q}^{\mu}\left(x\right)\\
+= & \int_{ya}{\color{blue}\left(-ie_{\phi}^{q}\right)\left[\bar{p}\left(y\right)\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(y\right)+\frac{C_{T\phi}}{f}\bar{p}\left(y\right)\Theta^{\rho\nu}T_{\nu}\left(y\right)\right]\delta\left(a\right)\mathcal{R}^{\mu}\left(k,q\right)\delta\left(y+a-x\right)\partial_{\rho}\phi\left(y+a\right)}+\text{H.c}\\
++ & \int_{yab}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(y\right)\gamma^{\rho}p\left(y\right)F\left(b\right)\delta\left(a\right)\mathcal{R}^{\mu}\left(k,q\right)\delta\left(y+a-x\right)\phi\left(y+a\right)\partial_{\rho}\phi^{\dagger}\left(y+b\right)}\\
++ & \int_{yab}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(y\right)\gamma^{\rho}p\left(y\right)F\left(a\right)\delta\left(b\right)\mathcal{R}^{\mu}\left(-k,q\right)\delta\left(y+b-x\right)\partial_{\rho}\phi\left(y+a\right);\phi\left(y+b\right)^{\dagger}}
+\end{align*}
+
+\end_inset
+
+完成对
+\begin_inset Formula $\delta$
+\end_inset
+
+函数的积分，得到
+\begin_inset Formula 
+\begin{align*}
+ & \delta J_{q}^{\mu}\left(x\right)\\
+= & {\color{blue}\left(-ie_{\phi}^{q}\right)\left[\bar{p}\left(x\right)\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\mathcal{R}^{\mu}\partial_{\rho}\phi\left(x\right)}+\text{H.c}\\
++ & \int_{b}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)F\left(b\right)\mathcal{R}^{\mu}\left(k,q\right)\phi\left(x\right)\partial_{\rho}\phi^{\dagger}\left(x+b\right)}\\
++ & \int_{a}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)F\left(a\right)\mathcal{R}^{\mu}\left(-k,q\right)\partial_{\rho}\phi\left(x+a\right);\phi\left(y\right)^{\dagger}}
+\end{align*}
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula $\mathcal{R}^{\mu}\left(k,q\right)=\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(2ik^{\mu}+iq^{\mu}\right)$
+\end_inset
+
+ 。还可以进一步对
+\begin_inset Formula $a,b$
+\end_inset
+
+积分，我们使用的
+\begin_inset Formula $F$
+\end_inset
+
+满足
+\begin_inset Formula $F\left(a\right)=F\left(-a\right)$
+\end_inset
+
+，所以动量正负号无所谓，最后可以写成
+\begin_inset Formula 
+\begin{align*}
+ & \delta J_{q}^{\mu}\left(x\right)\\
+= & {\color{blue}\left(-ie_{\phi}^{q}\right)\left[\bar{p}\left(x\right)\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\mathcal{R}^{\mu}\partial_{\rho}\phi\left(x\right)}+\text{H.c}\\
++ & \frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\tilde{F}\left(k\right)\mathcal{R}^{\mu}\left(k,q\right)\phi\left(x\right)\partial_{\rho}\phi^{\dagger}\left(x\right)}\\
++ & \frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\tilde{F}\left(k\right)\mathcal{R}^{\mu}\left(-k,q\right)\partial_{\rho}\phi\left(x\right);\phi\left(y\right)^{\dagger}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 与定域的 拉氏量密度和守恒流相比，其中多了正规子函数
 \begin_inset Formula $F\left(a\right)$
 \end_inset
@@ -1823,12 +2020,51 @@ and
 的收敛性会更好。
 \end_layout
 
+\begin_layout Section
+其他形式
+\end_layout
+
+\begin_layout Subsection
+salamu 形式
+\end_layout
+
+\begin_layout Standard
+规范链接部分的拉氏量，也可以通过平移积分变量写成
+\size scriptsize
+
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{L}_{\text{link}}^{\text{nonloc}}\left(x\right)\\
+= & \int_{0}^{1}\dif t\int_{a}\left(-ie_{\phi}^{q}\right)\bar{p}\left(x\right)\left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]F\left(a\right)a^{\mu}\mathcal{A}_{\mu}\left(x+at\right)\partial_{\rho}\phi\left(x+a\right)+\text{H.c}\\
++ & \int_{0}^{1}\dif t\int_{ab}\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)F\left(a\right)F\left(b\right)\left(a-b\right)^{\mu}\mathcal{A}^{\mu}\left(x+at+b\left(1-t\right)\right)\left[\phi\left(x+a\right)\partial_{\rho}\phi^{\dagger}\left(x+b\right)-\partial_{\rho}\phi\left(x+a\right);\phi\left(x+b\right)^{\dagger}\right]
+\end{align*}
+
+\end_inset
+
+
+\size default
+对应的额外流为
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+ & \delta J_{q}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\\
+= & \int_{0}^{1}\dif t\int_{a}F\left(a\right)\left(-ie_{\phi}^{q}\right)\bar{p}\left(x-at\right)\times\left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x-at\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x-at\right)\right]a^{\mu}\partial_{\rho}\phi\left(x+a\left(1-t\right)\right)+\text{H.c}\\
++ & \int_{0}^{1}\dif t\int_{ab}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(-ie_{\phi}^{q}\right)F\left(a\right)F\left(b\right)\left(a-b\right)^{\mu}\bar{p}\left(x-at-b\left(1-t\right)\right)\gamma^{\rho}p\left(x-at-b\left(1-t\right)\right)\\
+\times & \left[\phi\left(x+\left(a-b\right)\left(1-t\right)\right)\partial_{\rho}\phi^{\dagger}\left(x-\left(a-b\right)t\right)-\partial_{\rho}\phi\left(x+\left(a-b\right)\left(1-t\right)\right);\phi\left(x-\left(a-b\right)t\right)^{\dagger}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 terning 形式
 \end_layout
 
 \begin_layout Standard
-另一种形式：通过积分变量平移，把
+通过积分变量平移，把
 \begin_inset Formula $F\left(a\right)$
 \end_inset
 
@@ -1869,70 +2105,7 @@ terning 形式
 
 \end_inset
 
-代入 Ivanov 公式，可以求出非定域顶点， 
-\begin_inset Formula 
-\begin{align*}
- & \mathcal{L}_{\text{link}}^{\text{nonloc}}\left(x\right)=\\
- & \int\dif^{4}y\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\\
- & \times\delta\left[x-y\right]e^{-iky}\frac{\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]}{\left(k+q\right)^{2}-k^{2}}\left(-ie_{\phi}^{q}\right)\left(2ik^{\mu}+iq^{\mu}\right)A_{\mu}\left(y\right)\partial_{\rho}\phi\left(y\right)+\text{H.c}\\
- & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\int\dif^{4}y\int\dif^{4}z\\
- & \times\Bigg\{ F\left[x-y\right]\delta\left(x-z\right)e^{+ikz}\frac{\tilde{F}\left[q-k\right]-\tilde{F}\left[k\right]}{\left(q-k\right)^{2}-k^{2}}\left(ie_{\phi}^{q}\right)\left(-2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(z\right)\\
- & +F\left[x-z\right]\delta\left(x-y\right)e^{-iky}\frac{\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]}{\left(k+q\right)^{2}-k^{2}}\left(-ie_{\phi}^{q}\right)\left(2ik^{\mu}+iq^{\mu}\right)\mathcal{A}_{\mu}\left(y\right)\Bigg\}\\
- & \times\left[\phi\left(y\right)\partial_{\rho}\phi^{\dagger}\left(z\right)-\partial_{\rho}\phi\left(y\right);\phi\left(z\right)^{\dagger}\right]
-\end{align*}
 
-\end_inset
-
-拿掉
-\begin_inset Formula $\mathcal{A}_{\mu}\left(\cdots\right)$
-\end_inset
-
-，介子留下动量
-\begin_inset Formula $\pm ik^{\mu}$
-\end_inset
-
-，或者收缩产生传播子，
-\begin_inset Formula 
-\begin{align*}
- & \langle\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\rangle=\frac{\delta\langle\int\dif^{4}y\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)\rangle}{\delta\mathcal{A}_{\mu}\left(x\right)}=\\
- & \frac{C_{B\phi}}{f}\bar{u}\left(p^{\prime}\right)\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{u}\left(p^{\prime}\right)\Theta^{\rho\nu}T_{\nu}\left(x\right)\\
- & \times\frac{\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]}{\left(k+q\right)^{2}-k^{2}}\left(-ie_{\phi}^{q}\right)\left(2ik^{\mu}+iq^{\mu}\right)\left(-ik_{\rho}\right)+\text{H.c}\\
- & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{u}\left(p^{\prime}\right)\gamma^{\rho}u\left(p\right)\\
- & \times\Bigg\{\tilde{F}\left[k\right]\frac{\tilde{F}\left[q-k\right]-\tilde{F}\left[k\right]}{\left(q-k\right)^{2}-k^{2}}\left(ie_{\phi}^{q}\right)\left(-2ik^{\mu}+iq^{\mu}\right)\left(+ik_{\rho}\right)\frac{i}{k^{2}-m_{\phi}^{2}}\\
- & +\tilde{F}\left[k\right]\frac{\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]}{\left(k+q\right)^{2}-k^{2}}\left(-ie_{\phi}^{q}\right)\left(2ik^{\mu}+iq^{\mu}\right)\left(+ik_{\rho}\right)\frac{i}{k^{2}-m_{\phi}^{2}}
-\end{align*}
-
-\end_inset
-
-各种动量的
-\begin_inset Formula $\pm i$
-\end_inset
-
-都来自于标准约定，
-\begin_inset Formula $\phi$
-\end_inset
-
-产生
-\begin_inset Formula $-ik^{\mu}$
-\end_inset
-
-，
-\begin_inset Formula $\phi^{\dagger}$
-\end_inset
-
-产生
-\begin_inset Formula $+ik^{\mu}$
-\end_inset
-
-，
-\begin_inset Formula $k$
-\end_inset
-
-为介子动量；
-\begin_inset Formula $q$
-\end_inset
-
-为光子动量，默认都是进入顶点的。
 \end_layout
 
 \begin_layout Section
@@ -2867,6 +3040,34 @@ e
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+meson tadpole diagram 蝌蚪图，
+\begin_inset Formula 
+\begin{align*}
+ & \Gamma_{e}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
+= & \int_{y}\bra{p^{\prime}}{\color{blue}\delta J_{q}^{\mu}\left(y\right)}\ket{p}\\
+= & \int_{y}\bra{p^{\prime}}{\color{blue}\delta J_{q}^{\mu}\left(y\right)}\ket{p}\\
+= & \int_{yzt}\frac{\delta}{\delta\mathcal{A}_{\mu}\left(y\right)}\bra{p^{\prime}}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(t\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}+\int_{yzt}\frac{\delta}{\delta\mathcal{A}_{\mu}\left(z\right)}\bra{p^{\prime}}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(t\right)}}\ket{p}\\
+= & \int_{yz}\bra{p^{\prime}}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(z\right)}}\ket{p}\text{ 提取出\ensuremath{\mathcal{A}_{\mu}}的系数}\\
+= & {\color{red}\left(i\right)}\int_{ya}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{cyan}F\left(a\right)I\left(y+a,y\right)\partial_{\nu}\phi\left(y+a\right)}\\
+\times & \int_{zb}\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{brown}F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\ket{p}\\
++ & {\color{red}\left(i\right)}\int_{ya}\frac{C_{B\phi}}{f}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{brown}F\left(a\right)\partial_{\nu}\phi\left(y+a\right)}\\
+\times & \int_{zb}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{cyan}F\left(b\right)I\left(z+b,z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\ket{p}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+f
+\end_layout
+
+\begin_layout Standard
+meson bubble diagram，真空图
 \end_layout
 
 \begin_layout Section
