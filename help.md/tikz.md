@@ -555,8 +555,6 @@ Shorthand for setting a dashed dash pattern.
 
 可以使用 `To`来绘制直线，也可以用来绘制曲线。
 
-绘制任意曲线，`loop`，单点圈图的曲线。
-
 ```latex
 \path ... to[<options>] <nodes> <coordinate or cycle> ...;
 ```
@@ -569,6 +567,17 @@ Shorthand for setting a dashed dash pattern.
 /tikz/out=<angle>
 /tikz/in=<angle>
 ...
+```
+
+使用 `loop`选项来绘制圈图曲线，例如
+
+```latex
+\begin{tikzpicture}
+  \begin{feynman}
+  \draw  (0,0) edge [anti charged scalar,loop, looseness=30] (h3);
+  \end{feynman}
+\end{tikzpicture}
+
 ```
 
 ### arc 弧线

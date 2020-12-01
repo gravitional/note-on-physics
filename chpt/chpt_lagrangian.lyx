@@ -2031,36 +2031,8 @@ a
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename inset_yu_a.pdf
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-a
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \end_inset
 
@@ -2614,36 +2586,8 @@ b
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename inset_yu_b.pdf
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-b
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \end_inset
 
@@ -2704,36 +2648,8 @@ c
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename inset_yu_c.pdf
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-c
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \end_inset
 
@@ -2808,32 +2724,8 @@ d
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename inset_yu_d.pdf
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-d
-\end_layout
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -2852,19 +2744,39 @@ noprefix "false"
 \end_inset
 
 产生额外图 d,g,k.
- 其中d图–Kroll Ruderman 额外图的振幅为，
+ 其中d图–Kroll Ruderman 额外图的振幅为，其中省略了编时乘积
+\begin_inset Formula $T$
+\end_inset
+
+，
 \begin_inset Formula 
 \begin{align*}
  & \Gamma_{d}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
 = & \int_{yz}\bra{p^{\prime}}{\color{blue}\delta J_{q}^{\mu}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}\delta J_{q}^{\mu}\left(z\right)}\ket{p}\\
 = & \int_{yzt}\frac{\delta}{\delta\mathcal{A}_{\mu}\left(y\right)}\bra{p^{\prime}}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(t\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}+\int_{yzt}\frac{\delta}{\delta\mathcal{A}_{\mu}\left(z\right)}\bra{p^{\prime}}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(t\right)}}\ket{p}\\
 = & \int_{yz}\bra{p^{\prime}}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(z\right)}}\ket{p}\text{ 提取出\ensuremath{\mathcal{A}_{\mu}}的系数}\\
- & ={\color{red}\left(i\right)}\int_{ya}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{cyan}F\left(a\right)I\left(y+a,y\right)\partial_{\nu}\phi\left(y+a\right)}\\
- & \times\int_{zb}\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{brown}F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\ket{p}\\
- & +{\color{red}\left(i\right)}\int_{ya}\bra{p^{\prime}}\frac{C_{B\phi}}{f}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{brown}F\left(a\right)\partial_{\nu}\phi\left(y+a\right)}\\
- & \int_{zb}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{cyan}F\left(b\right)I\left(z+b,z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\ket{p}
+= & {\color{red}\left(i\right)}\int_{ya}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{cyan}F\left(a\right)I\left(y+a,y\right)\partial_{\nu}\phi\left(y+a\right)}\\
+\times & \int_{zb}\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{brown}F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\ket{p}\\
++ & {\color{red}\left(i\right)}\int_{ya}\frac{C_{B\phi}}{f}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{brown}F\left(a\right)\partial_{\nu}\phi\left(y+a\right)}\\
+\times & \int_{zb}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{cyan}F\left(b\right)I\left(z+b,z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\ket{p}
 \end{align*}
 
+\end_inset
+
+把旋量和标量分开，
+\begin_inset Formula 
+\begin{align*}
+ & \Gamma_{d}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
+= & {\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\frac{C_{B\phi}}{f}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\ket{p}\\
+\times & \int_{zb}{\color{brown}F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\int_{ya}{\color{cyan}F\left(a\right)I\left(y+a,y\right)\partial_{\nu}\phi\left(y+a\right)}\\
++ & {\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\frac{C_{B\phi}}{f}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\ket{p}\\
+\times & \int_{ya}{\color{brown}F\left(a\right)\partial_{\nu}\phi\left(y+a\right)}\int_{zb}{\color{cyan}F\left(b\right)I\left(z+b,z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $I\left(x,y,P\right)=\int_{y}^{x}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)=-\int_{x}^{y}\dif w_{\mu}\mathcal{A}^{\mu}\left(w\right)$
 \end_inset
 
 
@@ -2944,407 +2856,26 @@ f_{d}^{+}\left(y\right) & ={\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right
 
 \end_layout
 
+\begin_layout Subsection
+e
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename _tex_salamu_e.pdf
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 费曼规则
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{align}
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\backslash
-begin{tikzpicture}[baseline]
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-begin{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-		%% fig a
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex (a1) at (0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =1cm  of a1] (a2);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =2cm  of a1,dot,anchor=center] (a3){};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =3cm  of a1] (a4);
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-vertex[right =4cm  of a1] (a5);
-\end_layout
-
-\begin_layout Plain Layout
-
-        
-\backslash
-vertex[above =1cm of a2] (a6);
-\end_layout
-
-\begin_layout Plain Layout
-
-        
-\backslash
-vertex[above =1cm of a4] (a7);
-\end_layout
-
-\begin_layout Plain Layout
-
-		%
-\backslash
-node[above =1.5cm  of a5] {$a$};
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-diagram*{
-\end_layout
-
-\begin_layout Plain Layout
-
-		{ [edge=anti fermion]
-\end_layout
-
-\begin_layout Plain Layout
-
-                (a1) --[momentum'={
-\backslash
-scriptsize 
-\backslash
-(p
-\backslash
-)}]  (a2),
-\end_layout
-
-\begin_layout Plain Layout
-
-                (a4) --[momentum'={
-\backslash
-scriptsize 
-\backslash
-(p^{
-\backslash
-prime}
-\backslash
-)}]  (a5),
-\end_layout
-
-\begin_layout Plain Layout
-
-		    },
-\end_layout
-
-\begin_layout Plain Layout
-
-            % 介子连线
-\end_layout
-
-\begin_layout Plain Layout
-
-        { [edge= charged scalar]
-\end_layout
-
-\begin_layout Plain Layout
-
-        (a2) --[momentum={
-\backslash
-scriptsize 
-\backslash
-(k
-\backslash
-)}](a6), 
-\end_layout
-
-\begin_layout Plain Layout
-
-        (a4) --[reversed momentum={
-\backslash
-scriptsize 
-\backslash
-(k^{
-\backslash
-prime}
-\backslash
-)}](a7), 
-\end_layout
-
-\begin_layout Plain Layout
-
-		},
-\end_layout
-
-\begin_layout Plain Layout
-
-		(a2) --  (a4),
-\end_layout
-
-\begin_layout Plain Layout
-
-        };
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-end{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzpicture}
-\end_layout
-
-\begin_layout Plain Layout
-
-=
-\backslash
-slashed{k}^{
-\backslash
-prime}
-\backslash
-gamma^{5}
-\backslash
-cdots
-\backslash
-gamma^{5}
-\backslash
-slashed{k} 
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-&
-\backslash
-begin{tikzpicture}[baseline]
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-begin{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-            %% fig a
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex (a1) at (0,0);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[right =1cm  of a1] (a2);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[right =2cm  of a1] (a3);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[right =3cm  of a1] (a4);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[right =4cm  of a1] (a5);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[above =1cm of a2] (a6);
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-vertex[above =1cm of a4] (a7);
-\end_layout
-
-\begin_layout Plain Layout
-
-            %
-\backslash
-node[above =1.5cm  of a5] {$a$};
-\end_layout
-
-\begin_layout Plain Layout
-
-            
-\backslash
-diagram*{
-\end_layout
-
-\begin_layout Plain Layout
-
-            { [edge = charged scalar ]
-\end_layout
-
-\begin_layout Plain Layout
-
-                    (a1) --[momentum'={
-\backslash
-scriptsize 
-\backslash
-(k
-\backslash
-)}]  (a2),
-\end_layout
-
-\begin_layout Plain Layout
-
-                    (a2) -- [momentum'={
-\backslash
-scriptsize 
-\backslash
-(k+q
-\backslash
-)}] (a3),
-\end_layout
-
-\begin_layout Plain Layout
-
-            },
-\end_layout
-
-\begin_layout Plain Layout
-
-             % 介子连线
-\end_layout
-
-\begin_layout Plain Layout
-
-            { [ edge= photon]
-\end_layout
-
-\begin_layout Plain Layout
-
-            (a2) --[reversed momentum = {
-\backslash
-scriptsize 
-\backslash
-(q
-\backslash
-)}](a6), 
-\end_layout
-
-\begin_layout Plain Layout
-
-            }
-\end_layout
-
-\begin_layout Plain Layout
-
-            };
-\end_layout
-
-\begin_layout Plain Layout
-
-        
-\backslash
-end{feynman}
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\backslash
-end{tikzpicture}
-\end_layout
-
-\begin_layout Plain Layout
-
-=
-\backslash
-left(+i
-\backslash
-right)i
-\backslash
-left(k+k+q
-\backslash
-right)^{
-\backslash
-mu}=-
-\backslash
-left(k+k+q
-\backslash
-right)^{
-\backslash
-mu}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{align}
-\end_layout
+\begin_inset Graphics
+	filename chpt_feynman_rules.pdf
 
 \end_inset
 

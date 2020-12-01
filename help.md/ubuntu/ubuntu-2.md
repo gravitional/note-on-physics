@@ -1860,7 +1860,7 @@ run `latexmk -showextraoptions`给出选项列表,这些选项被直接传递给
 # texhash
 ```
 
-3. `Log off` / `Log in`后,就完成了～
+Log off/Log in 后,就完成了~
 
 ### latex pdf 裁剪
 
