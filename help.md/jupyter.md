@@ -84,3 +84,45 @@ The directory to use for notebooks and kernels.
 + `shift+0`:切换滚动
 + `I,I`打断运行
 + `0,0`:重启内核
+
+## 运行 notebook 服务端
+
+保护 notebook 服务器
+
+您可以使用简单的密码来保护笔记本服务器。从 notebook 5.0 开始，这是自动完成的。
+要手动设置密码，可以在`jupyter_notebook_config.py`中配置 `NotebookApp.password` 设置。
+
+### 前提:笔记本配置文件
+
+检查是否有笔记本配置文件`jupyter_notebook_config.py.`。 该文件的默认位置是位于主目录中的 `Jupyter` 文件夹： 
+
+```path
+Windows: C:\Users\USERNAME\.jupyter\jupyter_notebook_config.py
+OS X: /Users/USERNAME/.jupyter/jupyter_notebook_config.py
+Linux: /home/USERNAME/.jupyter/jupyter_notebook_config.py
+```
+
+如果你还没有 `Jupyter` 文件夹，或者你的 `Jupyter` 文件夹中没有笔记本配置文件，请运行以下命令：
+
+```bash
+$ jupyter notebook --generate-config
+```
+
+如有必要，此命令将创建 `Jupyter` 文件夹，并在此文件夹中创建笔记本配置文件`jupyter_notebook_config.py`。
+
+### 自动密码设置
+
+从 `notebook 5.3` 开始，您首次使用令牌登录时， `notebook` 服务器应该会提示你从用户界面设置密码。
+将会有一个表格，要求输入`current _token_` 以及`_new_ _password_`,输入之后，单击登录就设置了新密码。
+下次您需要登录时，将可以使用新密码代替`_token_`，否则请按照以下步骤在命令行中设置密码。
+
+```bash
+$ jupyter notebook password
+Enter password:  123 #比如设置为 123
+Verify password: 123 
+[NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json
+```
+
+这可以用来重置丢失的密码； 或者如果您认为您的凭据已泄漏并且希望更改密码。 重启服务器后，更改密码将使所有登录的会话无效。
+
+设置`--NotebookApp.allow_password_change=False`可以禁用首次登录时更改密码的功能。

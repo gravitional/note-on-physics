@@ -591,25 +591,25 @@ S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\tilde{\Sig
 \end_layout
 
 \begin_layout Subsection
-推导过程
+partial 傅里叶变换
 \end_layout
 
 \begin_layout Standard
 假设作用量中的各个函数均存在傅立叶变换：
 \begin_inset Formula 
 \begin{align*}
- & \iint\dif^{4}x\dif^{4}y\bar{\psi}(x)\Sigma(x-y)F(x,y)=\\
- & \frac{1}{(2\pi)^{4}}\dif^{4}k_{1}\bar{\psi}(k_{1})\exp(ik_{1}\cdot x)\\
- & \frac{1}{(2\pi)^{4}}\dif^{4}k_{2}\tilde{\Sigma}(k_{2})\exp(-ik_{2}\cdot(x-y))\\
- & \frac{1}{(2\pi)^{8}}\dif^{4}k_{3}\dif^{4}k_{4}F(k_{3},k_{4})\exp(-ik_{3}\cdot x-ik_{4}.y)
+ & \iint\dif^{4}x\dif^{4}y\bar{\psi}\left(x\right)\Sigma\left(x-y\right)F\left(x,y\right)=\\
+ & \frac{1}{\left(2\pi\right)^{4}}\dif^{4}k_{1}\bar{\psi}\left(k_{1}\right)\exp\left({\color{cyan}+}ik_{1}\cdot x\right)\\
+ & \frac{1}{\left(2\pi\right)^{4}}\dif^{4}k_{2}\tilde{\Sigma}\left(k_{2}\right)\exp\left({\color{cyan}-}ik_{2}\left(x-y\right)\right)\\
+ & \frac{1}{\left(2\pi\right)^{8}}\dif^{4}k_{3}\dif^{4}k_{4}F\left(k_{3},k_{4}\right)\exp\left({\color{cyan}-}ik_{3}\cdot x{\color{cyan}-}ik_{4}.y\right)
 \end{align*}
 
 \end_inset
 
 这里傅立叶变换的符号正负，是与下面对应的。
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 先对
 \begin_inset Formula $x$
 \end_inset
@@ -617,7 +617,7 @@ S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\tilde{\Sig
 积分，
 \begin_inset Formula 
 \[
-\frac{1}{(2\pi)^{4}}\int\dif^{4}x\exp\left(ik_{1}x-ik_{2}x-ik_{3}x\right)\to\delta(k_{1}-k_{2}-k_{3})
+\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}x\exp\left(ik_{1}x-ik_{2}x-ik_{3}x\right)\to\delta\left(k_{1}-k_{2}-k_{3}\right)
 \]
 
 \end_inset
@@ -629,35 +629,35 @@ S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\tilde{\Sig
 积分，
 \begin_inset Formula 
 \[
-\frac{1}{(2\pi)^{4}}\int\dif^{4}y\exp\left(ik_{2}y-ik_{4}y\right)\to\delta(k_{2}-k_{4})
+\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}y\exp\left(ik_{2}y-ik_{4}y\right)\to\delta(k_{2}-k_{4})
 \]
 
 \end_inset
 
-最后，对
+最后，使用
+\begin_inset Formula $\delta$
+\end_inset
+
+函数，对
 \begin_inset Formula $k_{3},k_{4}$
 \end_inset
 
 积分，我们得到
 \begin_inset Formula 
 \[
-\frac{1}{(2\pi)^{8}}\dif^{4}k_{1}\dif^{4}k_{2}\bar{\psi}(k_{1})\Sigma(k_{2})F(k_{1}-k_{2},k_{2})
+\frac{1}{\left(2\pi\right)^{8}}\dif^{4}k_{1}\dif^{4}k_{2}\bar{\psi}\left(k_{1}\right)\Sigma\left(k_{2}\right)F\left(k_{1}-k_{2},k_{2}\right)
 \]
 
 \end_inset
 
-改写一下记号，得到
-\begin_inset Formula 
-\[
-\frac{1}{(2\pi)^{8}}\dif^{4}k\dif^{4}p\bar{\psi}(k)\Sigma(p)F(k-p,p)
-\]
-
+改写一下记号
+\begin_inset Formula $k_{1}\to k,k_{2}\to p$
 \end_inset
 
-傅立叶变换中的参数可正可负
+，得到
 \begin_inset Formula 
 \[
-\frac{1}{(2\pi)^{8}}\dif^{4}k\dif^{4}p\bar{\psi}(-k)\tilde{\Sigma}\left(p\right)F(k-p,p)
+\frac{1}{\left(2\pi\right)^{8}}\dif^{4}k\dif^{4}p\bar{\psi}\left(k\right)\Sigma\left(p\right)F\left(k-p,p\right)
 \]
 
 \end_inset
@@ -669,16 +669,197 @@ S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}\dif^{4}y\bar{\psi}(k)\tilde{\Sig
 作泰勒展开，
 \begin_inset Formula 
 \[
-S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)(p^{2})^{n}\right)F(k-p,p)
+S_{\text{NL}}=\frac{1}{\left(2\pi\right)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}\left(k\right)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)\left(p^{2}\right)^{n}\right)F\left(k-p,p\right)
 \]
 
 \end_inset
 
-进行逆向傅立叶变换，变回到位置空间，给出
+使用傅立叶逆变换，回到位置空间，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bar{\psi}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{\Sigma}\left(x-y\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F\left(x,y\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\to$
+\end_inset
+
+动量空间
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+ikx$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-ip\left(x-y\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-i\left(k-p\right)x,-ipy$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\to$
+\end_inset
+
+位置空间
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-ikx$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+ip\left(x-y\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+i\left(k-p\right)z,+ipy$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在这个过程中，留下
+\begin_inset Formula $\tilde{\Sigma}\left(n,0\right)$
+\end_inset
+
+不做变换，
 \begin_inset Formula 
 \begin{align*}
-S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\int\iiiint\dif^{4}x\dif^{4}y\dif^{4}z\dif^{4}k\dif^{4}p\exp\left(iz\cdot(k-p)-ix\cdot k\right)\bar{\psi}(x)\\
- & \times\left(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(z,y)
+S_{\text{NL}} & =\frac{1}{\left(2\pi\right)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}\left(k\right)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)\left(p^{2}\right)^{n}\right)F\left(k-p,p\right)\\
+\bar{\psi}\left(k\right) & =\int\dif^{4}x\bar{\psi}\left(x\right)\exp\left(-ixk\right)\\
+\tilde{F}\left(k-p,p\right) & =\int\dif^{4}z\dif^{4}yF\left(z,y\right)\exp\left(iz\left(k-p\right)\right)\exp\left(ipy\right)\\
+\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)\left(p^{2}\right)^{n} & \Rightarrow\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(ipy\right)=\tilde{\Sigma}\left(-\partial_{y}^{2}\right)\exp\left(ipy\right)
+\end{align*}
+
+\end_inset
+
+得到
+\begin_inset Formula 
+\begin{align*}
+S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\int\iiiint\dif^{4}x\dif^{4}y\dif^{4}z\dif^{4}k\dif^{4}p\\
+ & \times\exp\left(iz\left(k-p\right)-ixk\right)\bar{\psi}(x)\left(\tilde{\Sigma}\left(-\partial_{y}^{2}\right)\exp\left(ipy\right)\right)F\left(z,y\right)
 \end{align*}
 
 \end_inset
@@ -688,62 +869,46 @@ S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\int\iiiint\dif^{4}x\dif^{4}y\dif^{4}z\dif^
 \end_inset
 
 上。进行这个傅立叶过程的原因是，想把
-\begin_inset Formula $\Sigma(x-y)$
+\begin_inset Formula $\Sigma\left(x-y\right)$
 \end_inset
 
-换到傅里叶空间，以使用
-\begin_inset Formula $\frac{\partial}{\partial y_{\mu}}I(x,y;p)=V_{\mu}(y)$
+换到傅里叶空间，再换成偏导数，以使用路径无关假设
+\begin_inset Formula $\frac{\partial}{\partial y_{\mu}}I\left(x,y;P\right)=V^{\mu}\left(y\right)$
 \end_inset
 
 。
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-S_{\text{NL}}=\frac{1}{(2\pi)^{8}}\iint\dif^{4}k\dif^{4}p\bar{\psi}(k)\left(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)\left(p^{2}\right)^{n}\right)F(k-p,p)
-\]
-
+然后，对
+\begin_inset Formula $\tilde{\Sigma}\left(-\partial_{y}^{2}\right)\exp\left(ipy\right)$
 \end_inset
 
-
-\begin_inset Formula 
-\[
-\bar{\psi}(k)=\int\dif^{4}x\bar{\psi}(x)\exp(-ix\cdot k)
-\]
-
+作分部积分，然后对
+\begin_inset Formula $\exp\left(\cdots\right)$
 \end_inset
 
-
-\begin_inset Formula 
-\[
-\tilde{F}(k-p,p)=\int\dif^{4}z\dif^{4}yF(z,y)\exp\left(iz\cdot(k-p)\right)\exp\left(ip\cdot y\right)
-\]
-
+积分得到
+\begin_inset Formula $\delta$
 \end_inset
 
-
-\begin_inset Formula 
-\[
-\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)*(p^{2})^{n}\to\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(ip\cdot y\right)
-\]
-
-\end_inset
-
-然后，分部积分得到：
+函数：
 \begin_inset Formula 
 \begin{align*}
-S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\iint\dif^{4}x\dif^{4}y\delta(x-y)\bar{\psi}(x)\\
- & \times\left(\Big(\sum_{n=0}^{\infty}\frac{1}{n!}\tilde{\Sigma}\left(n,0\right)*\left(-\partial_{y}^{2}\right)^{n}\exp\left(-ieQ\int_{x}^{y}V^{\nu}(\omega)\dif\omega_{\nu}\right)\psi(y)\Big)\right)
+S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\iint\dif^{4}x\dif^{4}y\delta\left(x-y\right)\bar{\psi}\left(x\right)\times\left(\tilde{\Sigma}\left(-\partial_{y}^{2}\right)\exp\left(-ieQ\int_{x}^{y}V^{\mu}\left(w\right)\dif w_{\mu}\right)\psi\left(y\right)\right)
 \end{align*}
 
 \end_inset
 
-即
+
+\end_layout
+
+\begin_layout Standard
+总结就是
 \begin_inset Formula 
 \begin{align*}
-S_{\text{NL}} & =\iint\dif^{4}x\dif^{4}y\bar{\psi}\left(x\right){\color{cyan}\Sigma\left(x-y\right)e^{-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}\left(\omega\right)}\psi\left(y\right)}\\
- & =\iint\dif^{4}x\dif^{4}y\bar{\psi}\left(x\right){\color{cyan}\delta\left(x-y\right)\tilde{\Sigma}\left(-\partial_{y}^{2}\right)e^{-ieQ\int_{x}^{y}\dif\omega^{\nu}V_{\nu}\left(\omega\right)}\psi\left(y\right)}
+S_{\text{NL}} & =\iint\dif^{4}x\dif^{4}y\bar{R}\left(x\right){\color{cyan}\Sigma\left(x-y\right)\exp\left(ieQ\int_{y}^{x}V^{\mu}\left(w\right)\dif w_{\mu}\right)T\left(y\right)}\\
+ & =\iint\dif^{4}x\dif^{4}y\bar{R}\left(x\right){\color{cyan}\delta\left(x-y\right)\tilde{\Sigma}\left(-\partial_{y}^{2}\right)\exp\left(ieQ\int_{y}^{x}V^{\mu}\left(w\right)\dif w_{\mu}\right)T\left(y\right)}
 \end{align*}
 
 \end_inset
@@ -752,7 +917,50 @@ S_{\text{NL}} & =\iint\dif^{4}x\dif^{4}y\bar{\psi}\left(x\right){\color{cyan}\Si
 \end_layout
 
 \begin_layout Subsection
-补充
+salamu 形式
+\end_layout
+
+\begin_layout Standard
+在
+\begin_inset Formula $F\left(x-y\right)$
+\end_inset
+
+形式下，作用量为
+\begin_inset Formula 
+\begin{align*}
+ & \iint\dif^{4}x\dif^{4}y\bar{R}\left(x\right)F\left(y-x\right)I\left(x,y\right)T\left(y\right)\\
+ & I\left(x,y\right)=\exp\left(ieQ\int_{y}^{x}\mathcal{A}_{\mu}\left(w\right)\dif w^{\mu}\right)=\exp\left(-ieQ\int_{x}^{y}\mathcal{A}_{\mu}\left(w\right)\dif w^{\mu}\right)
+\end{align*}
+
+\end_inset
+
+salamu 的形式，相当于对积分变量平移，令
+\begin_inset Formula $y=x+a$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\begin{align*}
+ & \iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right)F\left(a\right)I\left(x,x+a\right)T\left(x+a\right)\\
+ & I\left(x,x+a\right)=\exp\left(ieQ\int_{x+a}^{x}\mathcal{A}_{\mu}\left(w\right)\dif w^{\mu}\right)=\exp\left(-ieQ\int_{x}^{x+a}\mathcal{A}_{\mu}\left(w\right)\dif w^{\mu}\right)
+\end{align*}
+
+\end_inset
+
+对上面讨论的过程，同样进行变量平移，得到
+\begin_inset Formula 
+\begin{align*}
+S_{\text{NL}} & =\iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right){\color{cyan}F\left(a\right)\exp\left(ieQ\int_{x+a}^{x}V^{\mu}\left(w\right)\dif w_{\mu}\right)T\left(x+a\right)}\\
+ & =\iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right){\color{cyan}\delta\left(a\right)\tilde{\Sigma}\left(-\partial_{x+a}^{2}\right)\exp\left(ieQ\int_{x+a}^{x}V^{\mu}\left(w\right)\dif w_{\mu}\right)T\left(x+a\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+场的奇偶性
 \end_layout
 
 \begin_layout Standard
@@ -774,23 +982,6 @@ S_{\text{NL}} & =\iint\dif^{4}x\dif^{4}y\bar{\psi}\left(x\right){\color{cyan}\Si
 \end_inset
 
 场本身并没有明确的对称性。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-S_{\text{NL}} & =\frac{1}{(2\pi)^{8}}\int\iiiint\dif^{4}x\dif^{4}y\dif^{4}z\dif^{4}k\dif^{4}p\exp\left(iz\cdot(k-p)-ix\cdot k\right)\bar{\psi}(x)\\
- & \times\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(z,y)\\
- & \dif^{4}k\Rightarrow\exp\left(iz\cdot(-p)\right)*\delta(z-x)\bar{\psi}(x)*(2\pi)^{4}*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(z,y)\\
- & \dif^{4}z\Rightarrow\exp\left(ix\cdot(-p)\right)\bar{\psi}(x)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}\exp(ip\cdot y)\right)F(x,y)\\
- & \text{分部积分}\\
- & \exp\left(ix\cdot(-p)\right)\bar{\psi}(x)\exp(ip\cdot y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}F(x,y)\right)\\
- & \dif^{4}p\to\bar{\psi}(x)(2\pi)^{4}\delta(x-y)*\left(\sum_{n=0}^{\infty}\frac{1}{n!}\Sigma(n,0)\left(-\partial_{y}^{2}\right)^{n}F(x,y)\right)
-\end{align*}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -2408,7 +2599,11 @@ D_{\mu,x}\phi\left(x\right) & =\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{
 \begin_inset Formula $-\mathcal{A}^{\mu}\left(x\right)$
 \end_inset
 
-是符合微积分基本原理的定义。综上，在各种标准的记号下，
+是符合微积分基本原理的定义。
+\end_layout
+
+\begin_layout Standard
+综上，在各种标准的记号下，
 \begin_inset Formula 
 \begin{align*}
  & \int\dif x\int\dif yR\left(x\right)\delta\left(x-y\right)\tilde{F}\left(-\partial_{y}^{2}\right)I\left(x,y,P\right)e^{-iky}\\
@@ -2426,6 +2621,25 @@ D_{\mu,x}\phi\left(x\right) & =\left[\partial_{\mu,x}-ie_{\phi}^{q}\mathcal{A}_{
 \end_inset
 
  对路径积分的下限求导。
+\end_layout
+
+\begin_layout Standard
+salamu形式做了变量平移
+\begin_inset Formula $y\to x+a$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{align*}
+S_{\text{NL}} & =\int\dif x\int\dif yR\left(x\right)F\left(x-y\right)I\left(x,y,P\right)T\left(y\right)\\
+ & =\iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right)F\left(a\right)\exp\left(ieQ\int_{x+a}^{x}\mathcal{A}^{\mu}\left(w\right)\dif w_{\mu}\right)T\left(x+a\right)\\
+ & =\iint\dif^{4}x\dif^{4}a\bar{R}\left(x\right)\delta\left(a\right)\tilde{F}\left(-\partial_{x+a}^{2}\right)\exp\left(ieQ\int_{x+a}^{x}\mathcal{A}^{\mu}\left(w\right)\dif w_{\mu}\right)e^{-ik\left(x+a\right)}\\
+ & =\int\dif x\int\dif aR\left(x\right)\delta\left(a\right)e^{-ik\left(x+a\right)}\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left[\left(k+q\right)^{2}-k^{2}\right]}\left(-ie_{T}\right)\left({\color{cyan}2ik^{\mu}+iq^{\mu}}\right)\left({\color{cyan}+\mathcal{A}_{\mu}\left(x+a\right)}\right)
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

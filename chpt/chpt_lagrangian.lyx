@@ -1828,31 +1828,40 @@ terning 形式
 \end_layout
 
 \begin_layout Standard
-另一种形式为
-\begin_inset Formula 
-\begin{align*}
- & \mathcal{L}_{\text{link}}^{\text{nonloc}}\left(x\right)=\\
- & \bar{p}\left(x\right)\left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\\
- & \times\int\dif^{4}yF\left[x-y\right]\int_{x}^{y}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\partial_{\rho}\phi\left(y\right)+\text{H.c}\\
- & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\int\dif^{4}y\int\dif^{4}zF\left[x-y\right]F\left[x-z\right]\int_{z}^{y}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\\
- & \times\left[\phi\left(y\right)\partial_{\rho}\phi^{\dagger}\left(z\right)-\partial_{\rho}\phi\left(y\right);\phi\left(z\right)^{\dagger}\right]
-\end{align*}
-
+另一种形式：通过积分变量平移，把
+\begin_inset Formula $F\left(a\right)$
 \end_inset
 
-把积分变量换成
-\begin_inset Formula $y$
-\end_inset
-
-or 
-\begin_inset Formula $y,z$
+写成
+\begin_inset Formula $F\left(x-y\right)$
 \end_inset
 
  
 \begin_inset Formula 
 \begin{align*}
+ & \mathcal{L}_{\text{had}}^{\text{nonloc}}\left(x\right)=\\
+ & \bar{p}\left(x\right)\left[\frac{C_{B\phi}}{f}\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]\int\dif^{4}yF\left(y-x\right)\partial_{\mu}\phi\left(y\right)+\text{H.c.}\\
+ & +\frac{iC_{\phi\phi^{\dagger}}}{f}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\int\dif^{4}y\int\dif^{4}zF\left(y-x\right)F\left(z-x\right)\left[\phi\left(y\right)\partial_{\mu}\phi^{\dagger}\left(z\right)-\partial_{\mu}\phi\left(y\right);\phi^{\dagger}\left(z\right)\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{L}_{\text{em}}^{\text{nonloc}}\left(x\right)=e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)\mathcal{A}_{\mu}\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)\mathcal{A}_{\alpha}\left(x\right)\\
+ & +ie_{\phi}^{q}\left[\partial^{\mu}\phi\left(x\right)\phi^{\dagger}\left(x\right)-\phi\left(x\right)\partial_{\mu}\phi\left(x\right)^{\dagger}\right]\mathcal{A}_{\mu}\left(x\right)\\
+ & -ie_{\phi}^{q}\bar{p}\left(x\right)\left[\frac{C_{B\phi}}{f}\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]\int\dif^{4}yF\left(y-x\right)\phi\left(y\right)A^{\mu}\left(y\right)+\text{H.c}\\
+ & -\frac{e_{\phi}^{q}C_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\int\dif^{4}y\int\dif^{4}z\,F\left(y-x\right)F\left(z-x\right)\phi\left(y\right)\phi^{\dagger}\left(z\right)\left[\mathcal{A}^{\mu}\left(y\right)+\mathcal{A}^{\mu}\left(z\right)\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
  & \mathcal{L}_{\text{link}}^{\text{nonloc}}\left(x\right)=\\
- & \bar{p}\left(x\right)\left[\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\\
+ & \left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\\
  & \times\int\dif^{4}yF\left[x-y\right]\int_{x}^{y}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\partial_{\rho}\phi\left(y\right)+\text{H.c}\\
  & +\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\int\dif^{4}y\int\dif^{4}zF\left[x-y\right]F\left[x-z\right]\\
  & \times\left(\int_{z}^{x}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)+\int_{x}^{y}\left(-ie_{\phi}^{q}\right)\dif w^{\mu}\mathcal{A}_{\mu}\left(w\right)\right)\left[\phi\left(y\right)\partial_{\rho}\phi^{\dagger}\left(z\right)-\partial_{\rho}\phi\left(y\right);\phi\left(z\right)^{\dagger}\right]
@@ -1860,7 +1869,7 @@ or
 
 \end_inset
 
-代入 Ivanov 公式，求出非定域顶点， 
+代入 Ivanov 公式，可以求出非定域顶点， 
 \begin_inset Formula 
 \begin{align*}
  & \mathcal{L}_{\text{link}}^{\text{nonloc}}\left(x\right)=\\
@@ -2846,19 +2855,22 @@ noprefix "false"
  其中d图–Kroll Ruderman 额外图的振幅为，
 \begin_inset Formula 
 \begin{align*}
- & \Gamma_{d}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}\int\dif^{4}y\dif^{4}z{\color{blue}\delta J_{q}^{\mu}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}\delta J_{q}^{\mu}\left(z\right)}\ket{p}\\
- & ={\color{red}\left(i\right)}\left\{ \int yzab\int_{z}^{z+a}w\right\} \times F\left(b\right)\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)\delta\left(w-y\right)F\left(a\right)\partial_{\nu}\phi\left(y+a\right)\\
- & \times\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\\
- & +{\color{red}\left(i\right)}\left\{ \int yzab\int_{y}^{y+b}w\right\} \times F\left(a\right)\bra{p^{\prime}}\frac{C_{B\phi}}{f}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)\partial_{\nu}\phi\left(y+a\right)\\
- & \left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\delta\left(w-z\right)F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}
+ & \Gamma_{d}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
+= & \int_{yz}\bra{p^{\prime}}{\color{blue}\delta J_{q}^{\mu}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}\delta J_{q}^{\mu}\left(z\right)}\ket{p}\\
+= & \int_{yzt}\frac{\delta}{\delta\mathcal{A}_{\mu}\left(y\right)}\bra{p^{\prime}}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(t\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}+\int_{yzt}\frac{\delta}{\delta\mathcal{A}_{\mu}\left(z\right)}\bra{p^{\prime}}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(t\right)}}\ket{p}\\
+= & \int_{yz}\bra{p^{\prime}}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}{\color{blue}\mathcal{L}_{\text{link}}^{\text{nonloc}}\left(z\right)}}\ket{p}\text{ 提取出\ensuremath{\mathcal{A}_{\mu}}的系数}\\
+ & ={\color{red}\left(i\right)}\int_{ya}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{cyan}F\left(a\right)I\left(y+a,y\right)\partial_{\nu}\phi\left(y+a\right)}\\
+ & \times\int_{zb}\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{brown}F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\ket{p}\\
+ & +{\color{red}\left(i\right)}\int_{ya}\bra{p^{\prime}}\frac{C_{B\phi}}{f}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{brown}F\left(a\right)\partial_{\nu}\phi\left(y+a\right)}\\
+ & \int_{zb}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{cyan}F\left(b\right)I\left(z+b,z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\ket{p}
 \end{align*}
 
 \end_inset
 
-这里和salamu差个负号。
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 正规子相位：
 \begin_inset Formula 
 \begin{align*}
@@ -2871,27 +2883,40 @@ noprefix "false"
 
 \end_layout
 
+\begin_layout Enumerate
+介子动量：一进一出正负抵消，
+\begin_inset Formula $\slashed{k}\gamma^{5},\slashed{k}\gamma^{5}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+规范链接
+\begin_inset Formula $-ie_{\phi}^{q}\to+ie_{\phi}^{q}$
+\end_inset
+
+，两项之间具有负号。
+\end_layout
+
+\begin_layout Enumerate
+非定域顶点，只跟随
+\begin_inset Formula $\pm ik$
+\end_inset
+
+变化，
+\begin_inset Formula $\pm ie_{\phi}^{q}$
+\end_inset
+
+已经在上面考虑。
+\end_layout
+
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{d}^{\mu} & ={\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kb\right\} \frac{i}{D_{\phi}\left(k\right)}\frac{\left(q^{\mu}+2k^{\mu}\right)\left(F\left[k+q\right]-F\left[k\right]\right)}{\left(k+q\right)^{2}-k^{2}}F\left(b\right)e^{+ikb}\\
+\Gamma_{d}^{\mu} & ={\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left(k+q\right)^{2}-k^{2}}\left(2ik^{\mu}+iq^{\mu}\right)F\left(-k\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
- & +{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \frac{1}{\left(2\pi\right)^{4}}\int kb\right\} \frac{i}{D_{\phi}\left(k\right)}\frac{\left(q^{\mu}-2k^{\mu}\right)\left(F\left[-k+q\right]-F\left[-k\right]\right)}{\left(-k+q\right)^{2}-k^{2}}F\left(a\right)e^{-ika}\\
- & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
-\end{align*}
-
-\end_inset
-
-对
-\begin_inset Formula $a,b$
-\end_inset
-
-进行积分：
-\begin_inset Formula 
-\begin{align*}
-\Gamma_{d}^{\mu} & =\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\frac{\left(q^{\mu}+2k^{\mu}\right)\left(F\left[k+q\right]-F\left[k\right]\right)}{\left(k+q\right)^{2}-k^{2}}F\left(-k\right)\\
- & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
- & -\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\frac{\left(q^{\mu}-2k^{\mu}\right)\left(F\left[-k+q\right]-F\left[-k\right]\right)}{\left(-k+q\right)^{2}-k^{2}}F\left(k\right)\\
+ & +{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\frac{\left(F\left[-k+q\right]-F\left[-k\right]\right)}{\left(-k+q\right)^{2}-k^{2}}\left(-2ik^{\mu}+iq^{\mu}\right)F\left(k\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
@@ -2908,9 +2933,9 @@ noprefix "false"
 
 \begin_inset Formula 
 \begin{align*}
-f_{d}^{+}\left(y\right) & =\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\frac{\left(q^{+}+2k^{+}\right)\left(F\left[k+q\right]-F\left[k\right]\right)}{\left(k+q\right)^{2}-k^{2}}F\left(-k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+f_{d}^{+}\left(y\right) & ={\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\frac{\left(F\left[k+q\right]-F\left[k\right]\right)}{\left(k+q\right)^{2}-k^{2}}\left(iq^{+}+2ik^{+}\right)F\left(-k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
- & -\left(e_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\frac{\left(q^{+}-2k^{+}\right)\left(F\left[-k+q\right]-F\left[-k\right]\right)}{\left(-k+q\right)^{2}-k^{2}}F\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & +{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\frac{\left(F\left[-k+q\right]-F\left[-k\right]\right)}{\left(-k+q\right)^{2}-k^{2}}\left(iq^{+}-2ik^{+}\right)F\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
