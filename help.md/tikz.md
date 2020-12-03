@@ -577,8 +577,10 @@ Shorthand for setting a dashed dash pattern.
   \draw  (0,0) edge [anti charged scalar,loop, looseness=30] (h3);
   \end{feynman}
 \end{tikzpicture}
-
 ```
+
+`/tikz/looseness=<number>` 设置控制点与初始点和终点的距离，
+还可以用 `/tikz/min distance=<distance>`, `/tikz/out min distance=<distance>` 控制最小距离，避免计算无解。
 
 ### arc 弧线
 

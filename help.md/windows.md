@@ -118,3 +118,8 @@ YNDMB-2QCFC-HTFBP-JF9HC-FX849
 windows 有一个比 `Administrator`还高的权限，叫做`TrustedInstallers`。但是可以通过更改所有者为自己，然后就可以修改权限。
 
 windows 管理工具: `%windir%\system32\control.exe\ /name Microsoft.AdministrativeTools`
+
+## win UWP 应用目录
+
+在`文件管理取`地址栏输入`shell:AppsFolder`，大小写无所谓.
+或者在`Powershell`中输入`explorer shell:appsfolder`，就可以打开UWP 应用的文件夹，可以创建桌面快捷方式。

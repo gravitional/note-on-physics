@@ -857,6 +857,220 @@ a_{1}x_{1}+\cdots a_{n}x_{n}=m
 \end_layout
 
 \begin_layout Section
+SU(N)群
+\end_layout
+
+\begin_layout Subsection
+行列式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\text{Det}\left[\exp\left(\frac{i}{f}\sum_{a=1}^{8}\phi_{a}\lambda_{a}\right)\right] & =\text{Det}\left[\prod_{a=1}^{8}\exp\left(\frac{i}{f}\phi_{a}\lambda_{a}\right)\right]=\prod_{a=1}^{8}\text{Det}\left[\exp\left(\frac{i}{f}\phi_{a}\lambda_{a}\right)\right]\\
+ & =\prod_{a=1}^{8}\text{Det}\left[\exp\left[\sum_{\text{本征值}}\left(\frac{i}{f}\phi_{a}\lambda_{a}\right)\right]\right]
+\end{align*}
+
+\end_inset
+
+所以，只要
+\begin_inset Formula $\sum_{\text{本征值}}\left(\frac{i}{f}\phi_{a}\lambda_{a}\right)$
+\end_inset
+
+适当归一化即可。
+\end_layout
+
+\begin_layout Subsection
+Gell-Mann 矩阵
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U=\exp\left(-i\sum_{a=1}^{8}\omega_{a}T_{a}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & T_{1}=\frac{1}{2}\left[\begin{array}{ccc}
+0 & 1 & 0\\
+1 & 0 & 0\\
+0 & 0 & 0
+\end{array}\right],\quad T_{6}=\frac{1}{2}\left[\begin{array}{ccc}
+0 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{array}\right],\quad T_{4}=\frac{1}{2}\left[\begin{array}{ccc}
+0 & 0 & 1\\
+0 & 0 & 0\\
+1 & 0 & 0
+\end{array}\right]\\
+ & T_{2}=\frac{1}{2}\left[\begin{array}{ccc}
+0 & -i & 0\\
+i & 0 & 0\\
+0 & 0 & 0
+\end{array}\right]\quad T_{4}=\frac{1}{2}\left[\begin{array}{ccc}
+0 & 0 & 0\\
+0 & 0 & -i\\
+0 & i & 0
+\end{array}\right],\quad,T_{5}=\frac{1}{2}\left[\begin{array}{ccc}
+0 & 0 & -i\\
+0 & 0 & 0\\
+i & 0 & 0
+\end{array}\right]\\
+ & T_{3}=\frac{1}{2}\left[\begin{array}{ccc}
+1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 0
+\end{array}\right],\quad T_{8}=\frac{1}{2\sqrt{3}}\left[\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -2
+\end{array}\right]
+\end{align*}
+
+\end_inset
+
+常用的Gell-Mann 矩阵是这组矩阵的
+\begin_inset Formula $2$
+\end_inset
+
+倍，
+\begin_inset Formula $\lambda_{a}=2T_{a}$
+\end_inset
+
+ 。SU(3) 群的阶数为
+\begin_inset Formula $8$
+\end_inset
+
+，秩为
+\begin_inset Formula $2$
+\end_inset
+
+。在李代数中有两个生成元可以对易，它们架设嘉当子代数
+\begin_inset Formula 
+\[
+H_{1}=T_{8},H_{2}=T_{3}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $i\lambda_{a}$
+\end_inset
+
+组成 SU(3) 的李代数 su(3)。它们是无迹，反厄米的。
+\begin_inset Formula 
+\[
+\left[\frac{\lambda_{a}}{2},\frac{\lambda_{b}}{2}\right]=if_{abc}\frac{\lambda_{c}}{2}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $f_{abc}$
+\end_inset
+
+是全反对称结构常数，
+\begin_inset Formula 
+\[
+f_{abc}=\frac{1}{4i}\tr\left(\left[\lambda_{a},\lambda_{b}\right]\lambda_{c}\right)
+\]
+
+\end_inset
+
+介子场
+\begin_inset Formula 
+\[
+U=\exp\left(i*\frac{\phi}{F_{0}}\right)
+\]
+
+\end_inset
+
+对于三味夸克，
+\begin_inset Formula 
+\[
+\phi=\sum_{a=1}^{8}\phi_{a}\lambda_{a}\equiv\left(\begin{array}{ccc}
+\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{-} & \sqrt{2}K^{+}\\
+\sqrt{2}\pi^{+} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
+\sqrt{2}K^{-} & \sqrt{2}\bar{K}^{0} & \frac{-2}{\sqrt{3}}\eta
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\phi_{a}=\frac{1}{2}\tr\left(\lambda_{a}\phi\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+何方成论文中的
+\begin_inset Formula $\xi$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\xi=\exp\left(i\frac{\phi}{2F_{0}}\right)=\frac{1}{2}\left(\begin{array}{ccc}
+\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{-} & \sqrt{2}K^{+}\\
+\sqrt{2}\pi^{+} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
+\sqrt{2}K^{-} & \sqrt{2}\bar{K}^{0} & \frac{-2}{\sqrt{3}}\eta
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+诺特流
+\end_layout
+
+\begin_layout Standard
+Kleinert, H.(Feb 04, 2008).Multivalued Fields : In Condensed Matter, Electromagnet
+ism, and Gravitation.
+\end_layout
+
+\begin_layout Standard
+对于一个规范理论，
+\begin_inset Formula 
+\[
+j^{\mu}=-\frac{\partial\mathcal{L}_{e}}{\partial\partial_{\mu}\Lambda}=-\frac{\partial\mathcal{L}_{e}}{\partial A_{\mu}}
+\]
+
+\end_inset
+
+因为
+\begin_inset Formula $\partial_{\mu}\Lambda$
+\end_inset
+
+总伴随一个
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+。
+\begin_inset Formula $\mathcal{L}_{e}$
+\end_inset
+
+是带电粒子的拉氏量，
+\begin_inset Formula 
+\[
+A_{\mu}\left(x\right)\to A_{\mu}\left(x\right)+\partial_{\mu}\Lambda\left(x\right),\quad\partial^{2}\Lambda\left(x\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 SU(N)生成元
 \end_layout
 
@@ -1954,7 +2168,7 @@ f\Rightarrow\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}\dif xf\left(x\r
 作乘法，
 \begin_inset Formula 
 \begin{align*}
- & \frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\frac{\dif f\left(x\right)}{\dif x}e^{-ikx}=\left. f\left(x\right)e^{-ikx}\right|_{-\infty}^{+\infty}-\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\frac{\dif e^{-ikx}}{\dif x}f\left(x\right)\\
+ & \frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\frac{\dif f\left(x\right)}{\dif x}e^{-ikx}=\left.f\left(x\right)e^{-ikx}\right|_{-\infty}^{+\infty}-\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\frac{\dif e^{-ikx}}{\dif x}f\left(x\right)\\
  & =\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\,ikf\left(x\right)e^{-ikx}=ik\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\,f\left(x\right)e^{-ikx}=ik\mathcal{F}\left(k\right)
 \end{align*}
 
