@@ -203,7 +203,7 @@ TikZ提供了图的支持,通过类似于`dot`语言的方式来生成图关系
 ## tikz 教程
 
 32
-tikz中，路径就是一连串的坐标，在路径的开头可以选择 
+tikz中，路径就是一连串的坐标，在路径的开头可以选择
 
 + `\path` 什么也不做
 + `\draw` 画出路径
@@ -360,7 +360,7 @@ TikZ遵循以下基本设计原则：
 
 \begin{document}
 \subsection*{默认效果}
-绘图底部和文字基线对齐 \sep 
+绘图底部和文字基线对齐 \sep
   \valignWithTikz{}
 
 \subsection*{使用 \texttt{baseline} 选项}
@@ -432,7 +432,7 @@ c -- [photon, momentum=\(p\)] d,
 
 ### 对路径的action
 
-路径只是一系列直线和曲线的组合,但你尚未指定如何处理它。 
+路径只是一系列直线和曲线的组合,但你尚未指定如何处理它。
 可以绘制一条路径,填充一条路径,为其着色,对其进行裁剪或进行这些操作的任意组合。
 
 `draw`,`fill`,`shade`,`clip`
@@ -499,7 +499,7 @@ TikZ 允许您使用不同的颜色进行填充和描边。
 1. 当`<shifting part>`形式为`<number or dimension> and <number or dimension>`的时候(注意中间有个`and`)，先向左移动，再向右移动（通常这令人满意，除非你使用了`x` and `y`选项，修改了`xy`--坐标系的单位矢量。）
 2. 当`<shifting part>`形式为`<number or dimension> `时，也就是只给出一个参数，向对角线方向(135度方向)移动$\frac{1}{2}\sqrt{2}cm$。按照数学的说法，就是按照$l_{2}-norm$理解，相当于极坐标中的半径。而`<number or dimension> and <number or dimension>`是按照$l_{1}-norm$理解。
 
-## 自定义形状
+## 自定义
 
 ### 自定义 style
 
@@ -546,9 +546,52 @@ Shorthand for setting a dashed dash pattern.
 \end{tikzpicture}
 ```
 
+### 添加任意装饰
+
+p191 Arrows 箭头
+p196 指定箭头大小，形状
+p212 Reference: Arrow Tips 与定义箭头形状参考
+
+p365 Decorated Paths 装饰路径
+
+p646 Arbitrary Markings 添加任意装饰
+
+Decoration markings
+
+`marking`可以被认为是"小图片"，或更准确地说是放置的`some scope contents`，放置在路径的某个位置"上"。
+假设`marking`为简单的十字。 可以用以下代码产生：
+
+```latex
+\draw (-2pt,-2pt) -- (2pt,2pt);
+\draw (2pt,-2pt) -- (-2pt,2pt);
+```
+
+如果我们将此代码用作路径上`2cm`处的`marking`，则会发生以下情况：
+`pgf`先确定沿路径2cm的位置。 然后将坐标系平移到此处并旋转它，使`x`轴正向与路径相切。 然后创建一个保护用的`scope`，在内部执行上述代码--最后路径上出现一个叉叉。
+
+`marking`允许在路径上放置一个或多个装饰。除了后面讲的少数情况，`decoration`摧毁路径输入，也就是说，计算完成，作完装饰之后，路径就消失了。一般需要`postaction`来添加装饰。
+`postaction` 表示完成路径绘制之后再进行操作。
+
+```latex
+\begin{tikzpicture}[decoration={
+        markings,% 启用 markings
+        mark=% mark 的形状
+        at position 2cm
+        with
+          {
+            \draw (-2pt,-2pt) -- (2pt,2pt);
+            \draw (2pt,-2pt) -- (-2pt,2pt);
+          }
+      }
+  ]
+  \draw [help lines] grid (3,2);
+  \draw [postaction={decorate}] (0,0) -- (3,1) arc (0:180:1.5 and 1); % postaction 表示画完路径之后再装饰，再摧毁路径。
+\end{tikzpicture}
+```
+
 ## 曲线绘画
 
-### To 自由曲线 
+### To 自由曲线
 
 164 The To Path Operation
 838 To Path Library

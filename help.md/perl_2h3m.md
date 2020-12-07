@@ -663,11 +663,11 @@ my $word = "antidisestablishmentarianism";
 my $strlen = length $word;
 
 if($strlen >= 15) {
-	print "'", $word, "' is a very long word";
+    print "'", $word, "' is a very long word";
 } elsif(10 <= $strlen && $strlen < 15) {
-	print "'", $word, "' is a medium-length word";
+    print "'", $word, "' is a medium-length word";
 } else {
-	print "'", $word, "' is a short word";
+    print "'", $word, "' is a short word";
 }
 ```
 
@@ -685,9 +685,9 @@ my $temperature = 20;
 
 ```perl
 unless($temperature > 30) {
-	print $temperature, " degrees Celsius is not very hot";
+    print $temperature, " degrees Celsius is not very hot";
 } else {
-	print $temperature, " degrees Celsius is actually pretty hot";
+    print $temperature, " degrees Celsius is actually pretty hot";
 }
 ```
 
@@ -737,8 +737,8 @@ Perl有一个常规的`while`循环：
 ```perl
 my $i = 0;
 while($i < scalar @array) {
-	print $i, ": ", $array[$i];
-	$i++;
+    print $i, ": ", $array[$i];
+    $i++;
 }
 ```
 
@@ -747,8 +747,8 @@ Perl还提供了`until`关键字：
 ```perl
 my $i = 0;
 until($i >= scalar @array) {
-	print $i, ": ", $array[$i];
-	$i++;
+    print $i, ": ", $array[$i];
+    $i++;
 }
 ```
 
@@ -757,8 +757,8 @@ until($i >= scalar @array) {
 ```perl
 my $i = 0;
 do {
-	print $i, ": ", $array[$i];
-	$i++;
+    print $i, ": ", $array[$i];
+    $i++;
 } while ($i < scalar @array);
 ```
 
@@ -767,8 +767,8 @@ and
 ```perl
 my $i = 0;
 do {
-	print $i, ": ", $array[$i];
-	$i++;
+    print $i, ": ", $array[$i];
+    $i++;
 } until ($i >= scalar @array);
 ```
 
@@ -776,7 +776,7 @@ do {
 
 ```perl
 for(my $i = 0; $i < scalar @array; $i++) {
-	print $i, ": ", $array[$i];
+    print $i, ": ", $array[$i];
 }
 # $i has ceased to exist here, which is much tidier.
 ```
@@ -786,7 +786,7 @@ for(my $i = 0; $i < scalar @array; $i++) {
 
 ```perl
 foreach my $string ( @array ) {
-	print $string;
+    print $string;
 }
 ```
 
@@ -794,7 +794,7 @@ foreach my $string ( @array ) {
 
 ```perl
 foreach my $i ( 0 .. $#array ) {
-	print $i, ": ", $array[$i];
+    print $i, ": ", $array[$i];
 }
 ```
 
@@ -802,7 +802,7 @@ foreach my $i ( 0 .. $#array ) {
 
 ```perl
 foreach my $key (keys %scientists) {
-	print $key, ": ", $scientists{$key};
+    print $key, ": ", $scientists{$key};
 }
 ```
 
@@ -810,7 +810,7 @@ foreach my $key (keys %scientists) {
 
 ```perl
 foreach my $key (sort keys %scientists) {
-	print $key, ": ", $scientists{$key};
+    print $key, ": ", $scientists{$key};
 }
 ```
 
@@ -818,7 +818,7 @@ foreach my $key (sort keys %scientists) {
 
 ```perl
 foreach ( @array ) {
-	print $_;
+    print $_;
 }
 ```
 
@@ -836,10 +836,10 @@ print $_ foreach @array;
 
 ```perl
 CANDIDATE: for my $candidate ( 2 .. 100 ) {
-	for my $divisor ( 2 .. sqrt $candidate ) {
-		next CANDIDATE if $candidate % $divisor == 0;
-	}
-	print $candidate." is prime\n";
+    for my $divisor ( 2 .. sqrt $candidate ) {
+        next CANDIDATE if $candidate % $divisor == 0;
+    }
+    print $candidate." is prime\n";
 }
 ```
 
@@ -965,8 +965,8 @@ print join ", ", sort { $a <=> $b } @elevations;
 
 ```perl
 sub comparator {
-	# lots of code...
-	# return -1, 0 or 1
+    # lots of code...
+    # return -1, 0 or 1
 }
 
 print join ", ", sort comparator @elevations;
