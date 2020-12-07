@@ -302,7 +302,6 @@ arc [start angle=0, end angle=30, radius=3mm] -- cycle;
 \def\rectanglepath{-- +(1cm,0cm) -- +(1cm,1cm) -- +(0cm,1cm) -- cycle} %% 同源相对坐标
 ```
 
-
 ## tikz 设计原则
 
 page 124
