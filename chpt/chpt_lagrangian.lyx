@@ -2392,7 +2392,7 @@ noprefix "false"
 \begin_inset Formula 
 \begin{align*}
  & J_{q,\text{em}}^{\mu}\left(x\right)\equiv\frac{\delta\int\dif^{4}y\mathcal{L}_{\text{em}}^{\text{nonloc}}\left(y\right)}{\delta\mathcal{A}_{\mu}\left(x\right)}\\
-= & e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)+\left(-ie_{\phi}^{q}\right)\left[\phi\left(x\right)\partial^{\mu}\phi\left(x\right)^{\dagger}-\partial^{\mu}\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]\\
+= & e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\alpha}\left(x\right)\gamma^{\alpha\nu\mu}T_{\nu}\left(x\right)+\left(ie_{\phi}^{q}\right)\left[\partial^{\mu}\phi\left(x\right)\phi^{\dagger}\left(x\right)-\phi\left(x\right)\partial^{\mu}\phi\left(x\right)^{\dagger}\right]\\
 + & {\color{blue}\left(-ie_{\phi}^{q}\right)\int_{a}F\left(a\right)\bar{p}\left(x-a\right)\left[\frac{C_{B\phi}}{f}\gamma^{\mu}\gamma^{5}B\left(x-a\right)+\frac{C_{T\phi}}{f}\Theta^{\mu\nu}T_{\nu}\left(x-a\right)\right]\phi\left(x\right)}+\text{H.c}\\
 + & {\color{cyan}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{ab}F\left(a\right)F\left(b\right)\left[\bar{p}\left(x-a\right)\gamma^{\mu}p\left(x-a\right)\phi\left(x\right)\phi^{\dagger}\left(x-a+b\right)+\bar{p}\left(x-b\right)\gamma^{\mu}p\left(x-b\right)\phi\left(x+a-b\right)\phi^{\dagger}\left(x\right)\right]}
 \end{align*}
@@ -2447,7 +2447,7 @@ noprefix "false"
 \begin_inset Formula 
 \begin{align*}
  & J_{q,\text{em}}^{\mu}\left(x\right)=\\
-= & e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)+\left(-ie_{\phi}^{q}\right)\left(ik^{\mu}\right)2\left[\phi\left(x\right)\phi\left(x\right)^{\dagger}\right]\\
+= & e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\alpha}\left(x\right)\gamma^{\alpha\nu\mu}T_{\nu}\left(x\right)+\left(ie_{\phi}^{q}\right)\left(-ik^{\mu}\right)2\left[\phi\left(x\right)\phi\left(x\right)^{\dagger}\right]\\
 + & {\color{blue}\left(-ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]\phi\left(x\right)}+\text{H.c}\\
 + & {\color{cyan}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}\left[2\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}
 \end{align*}
@@ -2686,13 +2686,17 @@ where
 
 \end_inset
 
+其中
+\begin_inset Formula $k_{\mu}$
+\end_inset
 
+是顶点处介子的动量。
 \size small
 
 \begin_inset Formula 
 \begin{align*}
  & J_{q,\text{em}}^{\mu}\left(x\right)=\\
-= & e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)+\left(-ie_{\phi}^{q}\right)\left(ik^{\mu}\right)2\left[\phi\left(x\right)\phi\left(x\right)^{\dagger}\right]\\
+= & e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\alpha}\left(x\right)\gamma^{\alpha\nu\mu}T_{\nu}\left(x\right)+\left(ie_{\phi}^{q}\right)\left(-ik^{\mu}\right)2\left[\phi\left(x\right)\phi\left(x\right)^{\dagger}\right]\\
 + & {\color{blue}\left(-ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]\phi\left(x\right)}+\text{H.c}\\
 + & {\color{cyan}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}\left[2\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}
 \end{align*}
@@ -2701,7 +2705,7 @@ where
 
 
 \size default
-
+还有规范链接产生的额外流，
 \begin_inset Formula 
 \begin{align*}
  & \delta J_{q}^{\mu}\left(x\right)\\
@@ -4043,18 +4047,22 @@ h
 \begin_inset Formula 
 \begin{align*}
  & \Gamma_{h}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}\int_{xyz}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(T\right)}^{\left(\text{nonloc}\right)}\left(x\right){\color{cyan}J_{q,\text{em}}^{\mu}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(T\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\\
-= & {\color{red}\left(i\right)}^{2}\bra{p^{\prime}}\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\alpha\beta}T_{\beta}\left(x\right)\tilde{F}\left(k+q\right)\left(-i\right)\left(k+q\right)_{\alpha}\phi\left(x\right)\\
-\times & {\color{cyan}\left(-ie_{\phi}^{q}\right)\left[\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)-\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)\right]}\frac{C_{T\phi}}{f}\bar{T}_{\rho}\left(z\right)\Theta^{\rho\sigma}p\left(z\right)\left(+ik_{\sigma}\right)\tilde{F}\left(k\right)\phi^{\dagger}\left(x\right)\ket{p}\\
-= & {\color{red}\left(i\right)^{2}}\frac{C_{T\phi}^{2}}{f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)iD_{\phi}\left(k+q\right){\color{red}\left(-i\right)\left(2k+q\right)^{\mu}}iD_{\phi}\left(k\right)\\
+= & {\color{red}\left(i\right)}^{2}\bra{p^{\prime}}\int_{xyzk}\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\alpha\beta}T_{\beta}\left(x\right)\left[-i\left(k+q\right)_{\alpha}\right]\tilde{F}\left(k+q\right)\phi\left(x\right)\\
+\times & {\color{cyan}\left(ie_{\phi}^{q}\right)\left[\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)-\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)\right]}\frac{C_{T\phi}}{f}\bar{T}_{\rho}\left(z\right)\Theta^{\rho\sigma}p\left(z\right)\left[+ik_{\sigma}\right]\tilde{F}\left(k\right)\phi^{\dagger}\left(x\right)\ket{p}\\
+= & {\color{red}\left(i\right)^{2}}\left(ie_{\phi}^{q}\right)\frac{C_{T\phi}^{2}}{f^{2}}\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)iD_{\phi}\left(k+q\right)iD_{\phi}\left(k\right){\color{red}\left(-i\right)\left(2k+q\right)^{\mu}}\\
 \times & \bar{u}\left(p^{\prime}\right)\left(\left(k+q\right)_{\alpha}\Theta^{\alpha\beta}\right)iD_{T}^{\beta\rho}\left(p-k\right)\left(\Theta^{\rho\sigma}k_{\sigma}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
 
+
+\size default
 then,
+\size small
+
 \begin_inset Formula 
 \begin{align*}
-f_{h}^{+} & ={\color{red}\left(i\right)^{2}}\frac{C_{T\phi}^{2}}{f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)iD_{\phi}\left(k+q\right){\color{red}\left(-i\right)\left(2k+q\right)^{\mu}}iD_{\phi}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+f_{h}^{+} & ={\color{red}\left(i\right)^{2}}\left(ie_{\phi}^{q}\right)\frac{C_{T\phi}^{2}}{f^{2}}\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)iD_{\phi}\left(k+q\right)iD_{\phi}\left(k\right){\color{red}\left(-i\right)\left(2k+q\right)^{\mu}}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left(\left(k+q\right)_{\alpha}\Theta^{\alpha\beta}\right)iD_{T}^{\beta\rho}\left(p-k\right)\left(\Theta^{\rho\sigma}k_{\sigma}\right)u\left(p\right)
 \end{align*}
 
@@ -4093,6 +4101,30 @@ i
 \begin{align*}
 f_{i}^{+} & ={\color{red}\left(i\right)^{2}}\frac{C_{T\phi}^{2}}{f^{2}}\int_{k}\tilde{F}\left(k\right)\tilde{F}\left(k\right)iD_{\phi}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left(k_{\mu}\Theta^{\mu\nu}\right)iD_{T}^{\nu\alpha}\left(p^{\prime}-k\right)\gamma^{\alpha\beta+}iD_{T}^{\beta\rho}\left(p-k\right)\left(\Theta^{\rho\sigma}k_{\sigma}\right)u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{align*}
+ & \Gamma_{i}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}{\color{red}\left(i\right)^{2}}\int_{xyz}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right){\color{blue}J_{q,\text{em}}^{\mu}\left(y\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\\
+= & {\color{red}\left(i\right)^{2}}\int_{xyzk}\bra{p^{\prime}}\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\alpha\beta}T_{\beta}\left(x\right)\tilde{F}\left(k\right)\left(-ik_{\alpha}\right)\phi\left(x\right){\color{blue}e_{T}^{q}\bar{T}_{\theta}\left(x\right)\gamma^{\theta\nu\mu}T_{\nu}\left(x\right)}\frac{C_{T\phi}}{f}\bar{T}_{\rho}\left(z\right)\Theta^{\rho\sigma}p\left(z\right)\tilde{F}\left(k\right)\left(+ik_{\sigma}\right)\phi^{\dagger}\left(z\right)\ket{p}\\
+= & {\color{red}\left(i\right)^{2}}\left(\frac{C_{T\phi}}{f}\right)^{2}{\color{blue}\left(e_{T}^{q}\right)}\int_{k}iD_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\bar{u}\left(p^{\prime}\right)\left[k_{\alpha}\Theta^{\alpha\beta}\right]iD_{T}^{\beta\theta}\left(p^{\prime}-k\right){\color{blue}\gamma^{\theta\nu\mu}}iD_{T}^{\nu\rho}\left(p-k\right)\left[\Theta^{\rho\sigma}k_{\sigma}\right]u\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f_{i}^{+}\left(y\right)= & {\color{red}\left(i\right)^{2}}\left(\frac{C_{T\phi}}{f}\right)^{2}{\color{blue}\left(e_{T}^{q}\right)}\int_{k}iD_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+\times & \bar{u}\left(p^{\prime}\right)\left[k_{\alpha}\Theta^{\alpha\beta}\right]iD_{T}^{\beta\theta}\left(p^{\prime}-k\right){\color{blue}\gamma^{\theta\nu\mu}}iD_{T}^{\nu\rho}\left(p-k\right)\left[\Theta^{\rho\sigma}k_{\sigma}\right]u\left(p\right)
 \end{align*}
 
 \end_inset

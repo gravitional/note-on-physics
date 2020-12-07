@@ -56,6 +56,7 @@ bash -c 'ls;echo;uptime'
 + `basename file suffix` 用来去掉文件后缀名
 + `/bin/kill -L` : 查看linux `kill` 的数字对应的短语
 `echo`输出的时候，可以考虑改变颜色增加辨认度,
++ `ldd`查看依赖信息
 
 ```bash
 echo  -e "\033[1;47m\033[1;32m Testing output... "
@@ -385,7 +386,7 @@ mkdir fonts
 mkdir myfonts
 ```
 
-把下载好的字体拷贝到/usr/share/fonts/myfonts目录下:
+把下载好的字体拷贝到`/usr/share/fonts/myfonts`目录下:
 
 ```bash
 sudo cp ~/myfonts/* /usr/share/fonts/myfonts/
@@ -402,18 +403,18 @@ sudo chmod -R  755 myfonts/
 (5) 建立字体缓存
 
 ```bash
-mkfontscale && mkfontdir && fc-cache -fv
+sudo mkfontscale && mkfontdir && fc-cache -fv
 ```
 
 ```bash
-mkfontscale
+sudo mkfontscale
 # 如果提示 mkfontscale: command not found
 # 在Ubuntu下运行如下命令
 # sudo apt-get install ttf-mscorefonts-installer
 # 在cent os下运行如下命令
 # yum install mkfontscale
-mkfontdir
-fc-cache -fv
+sudo mkfontdir
+sudo fc-cache -fv
 # fc-cache - build font information cache files
 # 如果提示 fc-cache: command not found
 # 在Ubuntu下运行如下命令
