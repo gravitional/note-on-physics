@@ -41,8 +41,7 @@
 \usepackage{tikz}
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
-%\DeclareMathOperator{\re}{Re}
-%\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\res}{Res}
 \DeclareMathOperator{\disc}{Disc}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
@@ -1111,7 +1110,7 @@ u_{\mu} & =\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}
 \begin{align*}
 D_{\mu}B & =\partial_{\mu}B+\left[\Gamma_{\mu},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
 D_{\mu}T_{\nu}^{ijk} & =\partial_{\mu}T_{\nu}^{ijk}+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}-i\langle\lambda^{0}\rangle v_{\mu}^{0}T_{\nu}^{ijk}\\
-D_{\mu}U & =\partial_{\mu}U-i\left[v_{\mu}^{a}\lambda^{a},U\right]=\partial_{\mu}U+i\left(U\lambda^{a}-\lambda^{a}U\right)v_{\mu}^{a}\\
+D_{\mu}U & =\partial_{\mu}U-i\left[v_{\mu},U\right]=\partial_{\mu}U+i\left(U\lambda^{a}-\lambda^{a}U\right)v_{\mu}^{a}\\
 \left(D_{\mu}U\right) & ^{\dagger}=\partial_{\mu}U^{\dagger}-i\left[v_{\mu}^{a}\lambda^{a},U^{\dagger}\right]=D_{\mu}\left(U^{\dagger}\right)
 \end{align*}
 
@@ -1682,8 +1681,8 @@ p83 介子最低阶有效拉矢量为
 \begin_inset Formula 
 \begin{align*}
 \phi & =\sum_{a=1}^{8}\phi_{a}\lambda_{a}\equiv\left(\begin{array}{ccc}
-\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{-} & \sqrt{2}K^{+}\\
-\sqrt{2}\pi^{+} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
+\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{+} & \sqrt{2}K^{+}\\
+\sqrt{2}\pi^{-} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
 \sqrt{2}K^{-} & \sqrt{2}\bar{K}^{0} & \frac{-2}{\sqrt{3}}\eta
 \end{array}\right),\quad U\left(x\right)=\exp\left(\frac{i\phi\left(x\right)}{F_{0}}\right)\\
 B & =\sum_{a=1}^{8}\frac{B_{a}\lambda_{a}}{\sqrt{2}}=\left(\begin{array}{ccc}
@@ -1855,7 +1854,7 @@ D_{\mu}B & =\partial_{\mu}B+\left[-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\frac{1
 。则结果为
 \begin_inset Formula 
 \[
-D_{\mu}B=\partial_{\mu}B-\left[ieQ\mathcal{A}_{\mu},B\right]+\frac{1}{4f^{2}}\left[\phi\left[\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right]\phi,B\right]-i\langle\lambda^{0}\rangle e\mathcal{A}_{\mu}B
+D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\left[\phi\left[\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right]\phi,B\right]-i\langle\lambda^{0}\rangle e\mathcal{A}_{\mu}B
 \]
 
 \end_inset
@@ -1886,9 +1885,9 @@ B_{3}
 \[
 \left[\begin{array}{ccc}
 \bar{B}_{1} & \bar{B}_{2} & \bar{B}_{3}\end{array}\right]\left[\begin{array}{ccc}
-Q_{1}\\
- & Q_{2}\\
- &  & Q_{3}
+u\\
+ & d\\
+ &  & s
 \end{array}\right]\left[\begin{array}{c}
 B_{1}\\
 B_{2}\\
@@ -1962,16 +1961,8 @@ D_{\mu}B=\partial_{\mu}B-\left[ieQ\mathcal{A}_{\mu},B\right]+\frac{1}{4f^{2}}\le
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-U=1+\frac{i}{f}\phi,\quad U^{\dagger}=1-\frac{i}{f}\phi
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
 \begin{align*}
-D_{\mu}U & =\partial_{\mu}U+\left(iU\lambda^{a}-i\lambda^{a}U\right)v_{\mu}^{a}=\partial_{\mu}U+\left(iUv_{\mu}-iv_{\mu}U\right)
+D_{\mu}U & =\partial_{\mu}U+\left(iU\lambda^{a}-i\lambda^{a}U\right)v_{\mu}^{a}=\partial_{\mu}U-i\left[v_{\mu},U\right]
 \end{align*}
 
 \end_inset
@@ -1981,93 +1972,306 @@ D_{\mu}U & =\partial_{\mu}U+\left(iU\lambda^{a}-i\lambda^{a}U\right)v_{\mu}^{a}=
 \end_inset
 
 ，得
+\begin_inset Formula $D_{\mu}U=\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,U\right]$
+\end_inset
+
+，类似于重子
+\begin_inset Formula $D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]$
+\end_inset
+
+。这里的要点是，
+\begin_inset Formula $\phi^{\dagger}=\phi,\mathcal{A}_{\mu}^{\dagger}=\mathcal{A}_{\mu}$
+\end_inset
+
+，但
+\begin_inset Formula $\left[Q,\phi\right]$
+\end_inset
+
+在共轭下改变次序，所以
 \begin_inset Formula 
 \begin{align*}
-D_{\mu}U & =\partial_{\mu}U+ie\mathcal{A}_{\mu}\left(UQ-QU\right)\\
- & =\partial_{\mu}U+ie\mathcal{A}_{\mu}\left[\left(1+\frac{i}{f}\phi\right)Q-Q\left(1+\frac{i}{f}\phi\right)\right]\\
-D_{\mu}U & =\partial_{\mu}U+ie\mathcal{A}_{\mu}\frac{i}{f}\left(\phi Q-Q\phi\right)
+D_{\mu}U & =\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,U\right]\\
+\left(D_{\mu}U\right)^{\dagger} & =\partial_{\mu}U^{\dagger}-ie\mathcal{A}_{\mu}\left[Q,U^{\dagger}\right]
 \end{align*}
 
 \end_inset
 
+代入
+\begin_inset Formula $U=1+\frac{i}{f}\phi,\quad U^{\dagger}=1-\frac{i}{f}\phi$
+\end_inset
 
-\size small
-
+，得到
 \begin_inset Formula 
 \begin{align*}
- & \frac{f^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]=\frac{f^{2}}{4}\tr\left\{ \left[\frac{i}{f}\partial_{\mu}\phi-e\mathcal{A}_{\mu}\frac{1}{f}\left(\phi Q-Q\phi\right)\right]\left[-\frac{i}{f}\partial^{\mu}\phi^{\dagger}-e\mathcal{A}^{\mu}\frac{1}{f}\left(\phi^{\dagger}Q-Q\phi^{\dagger}\right)\right]\right\} \\
-= & \frac{f^{2}}{4}\tr\left[\frac{1}{f^{2}}\partial_{\mu}\phi\partial^{\mu}\phi^{\dagger}+\frac{i}{f^{2}}e\mathcal{A}_{\mu}\left(\phi Q-Q\phi\right)\partial^{\mu}\phi^{\dagger}-\frac{i}{f^{2}}e\mathcal{A}^{\mu}\partial_{\mu}\phi;\left(\phi^{\dagger}Q-Q\phi^{\dagger}\right)+\frac{1}{f^{2}}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\left(\phi Q-Q\phi\right)\left(\phi^{\dagger}Q-Q\phi^{\dagger}\right)\right]\\
-= & \frac{1}{4}\tr\left[\partial_{\mu}\phi\partial^{\mu}\phi^{\dagger}+ie\mathcal{A}_{\mu}\left(\phi Q-Q\phi\right)\partial^{\mu}\phi^{\dagger}-ie\mathcal{A}^{\mu}\partial_{\mu}\phi;\left(\phi^{\dagger}Q-Q\phi^{\dagger}\right)+e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\left(\phi Q-Q\phi\right)\left(\phi^{\dagger}Q-Q\phi^{\dagger}\right)\right]
+D_{\mu}U & =\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,1+\frac{i}{f}\phi\right]=\frac{i}{f}\partial_{\mu}\phi+e\mathcal{A}_{\mu}\frac{1}{f}\left[Q,\phi\right]\\
+\left(D_{\mu}U\right)^{\dagger} & =-\frac{i}{f}\partial_{\mu}\phi-e\mathcal{A}_{\mu}\frac{1}{f}\left[Q,\phi\right]
 \end{align*}
 
 \end_inset
 
-
-\size default
-暂不考虑
-\begin_inset Formula $+e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\left(\phi Q-Q\phi\right)\left(\phi^{\dagger}Q-Q\phi^{\dagger}\right)$
+介子最低阶拉氏量为
+\begin_inset Formula $\frac{f^{2}}{4}\tr\left[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\right]$
 \end_inset
 
-项，
+，展开为
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow & \frac{f^{2}}{4}\tr\left\{ \left[\frac{i}{f}\partial_{\mu}\phi+e\mathcal{A}_{\mu}\frac{1}{f}\left[Q,\phi\right]\right]\left[-\frac{i}{f}\partial^{\mu}\phi-e\mathcal{A}_{\mu}\frac{1}{f}\left[Q,\phi\right]\right]\right\} \\
+= & \frac{f^{2}}{4}\tr\left[\frac{1}{f^{2}}\partial_{\mu}\phi;\partial^{\mu}\phi-\frac{ie\mathcal{A}_{\mu}}{f^{2}}\left(\left[Q,\phi\right]\partial^{\mu}\phi+\partial^{\mu}\phi\left[Q,\phi\right]\right)-\frac{e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}}{f^{2}}\left[Q,\phi\right]\left[Q,\phi\right]\right]\\
+= & \frac{1}{4}\tr\left[\partial_{\mu}\phi\partial^{\mu}\phi-2ie\mathcal{A}_{\mu}\left[Q,\phi\right]\partial^{\mu}\phi-e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\left[Q,\phi\right]\left[Q,\phi\right]\right]\\
+= & \frac{1}{4}\tr\left[\partial_{\mu}\phi;\partial^{\mu}\phi^{\dagger}\right]-\frac{1}{2}ie\mathcal{A}_{\mu}\tr\left(\left[Q,\phi\right]\partial^{\mu}\phi\right)-\frac{1}{4}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\tr\left(\left[Q,\phi\right]\left[Q,\phi\right]\right)
+\end{align*}
+
+\end_inset
+
+由
+\begin_inset Formula $\tr$
+\end_inset
+
+的轮换不变性，也可以写成
 \begin_inset Formula 
 \[
-\frac{1}{4}\tr\left[\partial_{\mu}\phi\partial^{\mu}\phi^{\dagger}\right]+\frac{1}{4}ie\mathcal{A}_{\mu}\tr\left[\left(\phi Q-Q\phi\right)\partial^{\mu}\phi^{\dagger}-\partial^{\mu}\phi;\left(\phi^{\dagger}Q-Q\phi^{\dagger}\right)\right]
+=\frac{1}{4}\tr\left[\partial_{\mu}\phi;\partial^{\mu}\phi^{\dagger}\right]-\frac{1}{2}ie\mathcal{A}_{\mu}\tr\left(Q\left[\phi,\partial^{\mu}\phi\right]\right)-\frac{1}{4}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\tr\left(\left[Q,\phi\right]\left[Q,\phi\right]\right)
 \]
 
 \end_inset
 
 
-\begin_inset Formula 
-\begin{align*}
-\tr\left(\lambda_{a}\lambda_{b}\right) & =2\delta_{ab}\\
-\left[\lambda_{a},\lambda_{b}\right] & =if_{abc}2\lambda_{c}
-\end{align*}
+\end_layout
 
+\begin_layout Standard
+由
+\begin_inset Formula $\tr\left(\lambda_{a}\lambda_{b}\right)=2\delta_{ab}$
 \end_inset
 
-
-\begin_inset Formula 
-\[
-\frac{1}{2}\partial_{\mu}\phi_{a}\partial^{\mu}\phi_{a}^{\dagger}+ie\mathcal{A}_{\mu}\tr\left[\left(if_{abc}-if_{acb}\right)\partial^{\mu}\phi_{c}^{\dagger}-\partial^{\mu}\phi;\left(\phi^{\dagger}Q-Q\phi^{\dagger}\right)\right]
-\]
-
+，
+\begin_inset Formula $\left[\lambda_{a},\lambda_{b}\right]=if_{abc}2\lambda_{c}$
 \end_inset
 
-
+，
 \begin_inset Formula 
 \[
 \phi=\sum_{a=1}^{8}\phi_{a}\lambda_{a}\equiv\left(\begin{array}{ccc}
-\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{-} & \sqrt{2}K^{+}\\
-\sqrt{2}\pi^{+} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
+\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}\pi^{+} & \sqrt{2}K^{+}\\
+\sqrt{2}\pi^{-} & -\pi^{0}+\frac{1}{\sqrt{3}}\eta & \sqrt{2}K^{0}\\
 \sqrt{2}K^{-} & \sqrt{2}\bar{K}^{0} & \frac{-2}{\sqrt{3}}\eta
 \end{array}\right),\quad U\left(x\right)=\exp\left(\frac{i\phi\left(x\right)}{F_{0}}\right)
 \]
 
 \end_inset
 
+如果取
+\begin_inset Formula $\phi$
+\end_inset
+
+的直角分量，
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow & \frac{1}{2}\partial_{\mu}\phi_{a}\partial^{\mu}\phi_{a}^{\dagger}-2ie\mathcal{A}_{\mu}f_{abc}Q_{a}\phi_{b}\partial^{\mu}\phi_{c}-2e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}f_{abc}f_{dfc}Q_{a}\phi_{b}Q_{d}\phi_{f}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+介子流物理场
+\end_layout
+
+\begin_layout Standard
+
+\color cyan
+两介子部分
+\begin_inset Formula $\mathcal{L}_{2}^{2\phi}$
+\end_inset
+
+:
+\begin_inset Formula $-\frac{1}{2}ie\mathcal{A}_{\mu}\tr\left(Q\left[\phi,\partial^{\mu}\phi\right]\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果取物理场，对角元的对易式为零，
+\begin_inset Formula $\left[\phi_{ii},\partial^{\mu}\phi_{ii}\right]=a\partial^{\mu}a-\partial^{\mu}a;a=0$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\left(\left[\phi,\partial^{\mu}\phi\right]\right)_{11} & =2\left(\pi^{+}\partial^{\mu}\pi^{-}+K^{+}\partial^{\mu}K^{-}-\partial^{\mu}\pi^{+};\pi^{-}-\partial^{\mu}K^{+};K^{-}\right)\\
+\left(\left[\phi,\partial^{\mu}\phi\right]\right)_{22} & =2\left(\pi^{-}\partial^{\mu}\pi^{+}+K^{0}\partial^{\mu}\bar{K}^{0}-\partial^{\mu}\pi^{-};\pi^{+}-\partial^{\mu}K^{0};\bar{K}^{0}\right)\\
+\left(\left[\phi,\partial^{\mu}\phi\right]\right)_{33} & =2\left(K^{-}\partial^{\mu}K^{+}+\bar{K}^{0}\partial^{\mu}K^{0}-\partial^{\mu}K^{-};K^{+}-\partial^{\mu}\bar{K}^{0};K^{0}\right)
+\end{align*}
+
+\end_inset
+
+令
+\begin_inset Formula $Q=\diag\left(u,d,s\right)$
+\end_inset
+
+，使用分部积分交换偏导位置，
+\size small
 
 \begin_inset Formula 
 \begin{align*}
- & \left[\begin{array}{ccc}
-\phi_{1}^{\dagger} & \phi_{2}^{\dagger} & \phi_{3}^{\dagger}\end{array}\right]\left[\begin{array}{ccc}
-Q_{1}\\
- & Q_{2}\\
- &  & Q_{3}
-\end{array}\right]-\left[\begin{array}{ccc}
-Q_{1}\\
- & Q_{2}\\
- &  & Q_{3}
-\end{array}\right]\left[\begin{array}{c}
-\phi_{1}\\
-\phi_{2}\\
-\phi_{3}
+ & \frac{1}{2}\tr\left(Q\left[\phi,\partial^{\mu}\phi\right]\right)\\
+= & u\left(\pi^{+}\partial^{\mu}\pi^{-}+K^{+}\partial^{\mu}K^{-}-\partial^{\mu}\pi^{+};\pi^{-}-\partial^{\mu}K^{+};K^{-}\right)\\
++ & d\left(\pi^{-}\partial^{\mu}\pi^{+}+K^{0}\partial^{\mu}\bar{K}^{0}-\partial^{\mu}\pi^{-};\pi^{+}-\partial^{\mu}K^{0};\bar{K}^{0}\right)\\
++ & s\left(K^{-}\partial^{\mu}K^{+}+\bar{K}^{0}\partial^{\mu}K^{0}-\partial^{\mu}K^{-};K^{+}-\partial^{\mu}\bar{K}^{0};K^{0}\right)\\
+= & \left(u-d\right)\left(\pi^{+}\partial^{\mu}\pi^{-}-\partial^{\mu}\pi^{+};\pi^{-}\right)+\left(u-s\right)\left(K^{+}\partial^{\mu}K^{-}-\partial^{\mu}K^{+};K^{-}\right)+\left(d-s\right)\left(K^{0}\partial^{\mu}\bar{K}^{0}-\partial^{\mu}K^{0};\bar{K}^{0}\right)
+\end{align*}
+
+\end_inset
+
+
+\size default
+所以,
+\begin_inset Formula 
+\begin{align*}
+ & -\frac{1}{2}ie\mathcal{A}_{\mu}\tr\left(Q\left[\phi,\partial^{\mu}\phi\right]\right)\\
+ & =\left(-ie\mathcal{A}_{\mu}\right)\left[\left(u-d\right)\mathcal{H}^{\mu}\left(\pi^{+},\pi^{-}\right)+\left(u-s\right)\mathcal{H}^{\mu}\left(K^{+},K^{-}\right)+\left(d-s\right)\mathcal{H}^{\mu}\left(K^{0},\bar{K}^{0}\right)\right]
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{H}^{\mu}\left(A,B\right)=A\partial^{\mu}B-\partial^{\mu}B;A$
+\end_inset
+
+。如果
+\begin_inset Formula $d=s$
+\end_inset
+
+，进一步简化到
+\begin_inset Formula 
+\begin{align*}
+ & -\frac{1}{2}ie\mathcal{A}_{\mu}\tr\left(Q\left[\phi,\partial^{\mu}\phi\right]\right)\\
+ & =\left(-ie\mathcal{A}_{\mu}\right)\left(u-d\right)\left(\pi^{+}\partial^{\mu}\pi^{-}-\partial^{\mu}\pi^{+};\pi^{-}+K^{+}\partial^{\mu}K^{-}-\partial^{\mu}K^{+};K^{-}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color cyan
+四介子部分
+\begin_inset Formula $\mathcal{L}_{2}^{4\phi}$
+\end_inset
+
+:
+\begin_inset Formula $-\frac{1}{4}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\tr\left(\left[Q,\phi\right]\left[Q,\phi\right]\right)$
+\end_inset
+
+
+\size small
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+\left[Q,\phi\right] & =\left[\begin{array}{lll}
+u\left(\pi^{0}+\frac{1}{\sqrt{3}}\eta\right) & u\sqrt{2}\pi^{+} & u\sqrt{2}K^{+}\\
+d\sqrt{2}\pi^{-} & d\left(-\pi^{0}+\frac{1}{\sqrt{3}}\eta\right) & d\sqrt{2}K^{0}\\
+s\sqrt{2}K^{-} & s\sqrt{2}\bar{K}^{0} & s\left(\frac{-2}{\sqrt{3}}\eta\right)
+\end{array}\right]-\left[\begin{array}{lll}
+u\left(\pi^{0}+\frac{1}{\sqrt{3}}\eta\right) & d\sqrt{2}\pi^{+} & s\sqrt{2}K^{+}\\
+u\sqrt{2}\pi^{-} & d\left(-\pi^{0}+\frac{1}{\sqrt{3}}\eta\right) & s\sqrt{2}K^{0}\\
+u\sqrt{2}K^{-} & d\sqrt{2}\bar{K}^{0} & s\left(\frac{-2}{\sqrt{3}}\eta\right)
 \end{array}\right]\\
-= & \left[\begin{array}{ccc}
-Q_{1}\phi_{1}^{\dagger} & Q_{2}\phi_{2}^{\dagger} & Q_{3}\phi_{3}^{\dagger}\end{array}\right]-\left[\begin{array}{c}
-Q_{1}\phi_{1}\\
-Q_{2}\phi_{2}\\
-Q_{3}\phi_{3}
+ & =\sqrt{2}\left[\begin{array}{lll}
+0 & \left(u-d\right)\pi^{+} & \left(u-s\right)K^{+}\\
+\left(d-u\right)\pi^{-} & 0 & \left(d-s\right)K^{0}\\
+\left(s-u\right)K^{-} & \left(s-d\right)\bar{K}^{0} & 0
 \end{array}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left[Q,\phi\right]\left[Q,\phi\right]\\
+= & 2\left[\begin{array}{lll}
+0 & \left(u-d\right)\pi^{+} & \left(u-s\right)K^{+}\\
+\left(d-u\right)\pi^{-} & 0 & \left(d-s\right)K^{0}\\
+\left(s-u\right)K^{-} & \left(s-d\right)\bar{K}^{0} & 0
+\end{array}\right]\left[\begin{array}{lll}
+0 & \left(u-d\right)\pi^{+} & \left(u-s\right)K^{+}\\
+\left(d-u\right)\pi^{-} & 0 & \left(d-s\right)K^{0}\\
+\left(s-u\right)K^{-} & \left(s-d\right)\bar{K}^{0} & 0
+\end{array}\right]\\
+= & -2\left[\begin{array}{lll}
+\left(u-d\right)^{2}\pi^{+}\pi^{-}+\left(u-s\right)^{2}K^{+}K^{-} & \left(s-u\right)\left(s-d\right)K^{+}\bar{K}^{0} & \left(d-u\right)\left(d-s\right)\pi^{+}K^{0}\\
+\left(s-d\right)\left(s-u\right)K^{0}K^{-} & \left(d-u\right)^{2}\pi^{-}\pi^{+}+\left(d-s\right)^{2}K^{0}\bar{K}^{0} & \left(u-d\right)\left(u-s\right)\pi^{-}K^{+}\\
+\left(d-s\right)\left(d-u\right)\bar{K}^{0}\pi^{-} & \left(u-s\right)\left(u-d\right)K^{-}\pi^{+} & \left(s-u\right)^{2}K^{-}K^{+}+\left(s-d\right)^{2}\bar{K}^{0}K^{0}
+\end{array}\right]
+\end{align*}
+
+\end_inset
+
+
+\size default
+如果
+\begin_inset Formula $d=s$
+\end_inset
+
+，进一步简化到
+\size small
+
+\begin_inset Formula 
+\[
+\left[Q,\phi\right]\left[Q,\phi\right]=-2\left(u-d\right)^{2}\left[\begin{array}{lll}
+\pi^{+}\pi^{-}+K^{+}K^{-} & 0 & 0\\
+0 & \pi^{-}\pi^{+} & \pi^{-}K^{+}\\
+0 & K^{-}\pi^{+} & K^{-}K^{+}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\size default
+这种情况下的拉氏量为
+\begin_inset Formula 
+\begin{align*}
+ & -\frac{1}{4}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\tr\left(\left[Q,\phi\right]\left[Q,\phi\right]\right)\\
+\Rightarrow & \frac{1}{2}\left(u-d\right)^{2}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\left(\pi^{+}\pi^{-}+K^{+}K^{-}+\pi^{-}\pi^{+}+K^{-}K^{+}\right)\\
+= & \left(u-d\right)^{2}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\left(\pi^{+}\pi^{-}+K^{+}K^{-}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+总结：当
+\begin_inset Formula $Q_{d}=Q_{s}$
+\end_inset
+
+时，
+\begin_inset Formula 
+\begin{align*}
+-\frac{1}{2}ie\mathcal{A}_{\mu}\tr\left(Q\left[\phi,\partial^{\mu}\phi\right]\right) & =\left(-ie\mathcal{A}_{\mu}\right)\left(Q_{u}-Q_{d}\right)\left(\pi^{+}\partial^{\mu}\pi^{-}-\partial^{\mu}\pi^{+};\pi^{-}+K^{+}\partial^{\mu}K^{-}-\partial^{\mu}K^{+};K^{-}\right)\\
+-\frac{1}{4}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\tr\left(\left[Q,\phi\right]\left[Q,\phi\right]\right) & =\left(Q_{u}-Q_{d}\right)^{2}e^{2}\mathcal{A}_{\mu}\mathcal{A}^{\mu}\left(\pi^{+}\pi^{-}+K^{+}K^{-}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对应的费曼规则为
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}_{2}^{\mathcal{A},2\phi} & \Rightarrow\gamma\left(q,\varepsilon\right)+\pi^{\pm}\left(p\right)\to\pi^{\pm}\left(p^{\prime}\right):\mp ie\varepsilon\cdot\left(p+p^{\prime}\right)\\
+\mathcal{L}_{2}^{2\mathcal{A},2\phi} & \Rightarrow\gamma\left(q,\varepsilon\right)+\pi^{\pm}\left(p\right)\to\gamma\left(q^{\prime},\varepsilon^{\prime}\right)+\pi^{\pm}\left(p^{\prime}\right):2ie^{2}\varepsilon^{\prime*}\cdot\varepsilon
 \end{align*}
 
 \end_inset
@@ -2089,18 +2293,6 @@ Q_{3}\phi_{3}
 
 \end_inset
 
-
-\size small
-
-\begin_inset Formula 
-\[
-u_{\mu}=-\frac{1}{f}\partial_{\mu}\phi+\frac{i}{f}e\mathcal{A}_{\mu}\left(Q\phi-\phi Q\right)
-\]
-
-\end_inset
-
-
-\size default
 从上面的定域化版本，通过最小替换引入电磁场
 \begin_inset Formula $\mathcal{A}_{\mu}$
 \end_inset
