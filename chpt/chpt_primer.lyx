@@ -38,6 +38,8 @@
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
+\usepackage{ytableau}
+% Many-featured Young tableaux and Young diagrams
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
 %\DeclareMathOperator{\re}{Re}
@@ -388,7 +390,7 @@ i & 0 & 0
 
 \end_inset
 
-还有jacobi 恒等式
+还有 Jacobi 恒等式
 \begin_inset Formula 
 \[
 \left[A,\left[B,C\right]\right]+\left[B,\left[C,A\right]\right]+\left[C,\left[A,B\right]\right]=0
@@ -423,7 +425,31 @@ noprefix "false"
 李群的结构被encoded在盖尔曼矩阵的对易关系中
 \begin_inset Formula 
 \[
-\left[\frac{\lambda_{a}}{2},\frac{\lambda_{b}}{2}\right]=if_{abc}\frac{\lambda_{c}}{2}
+\left[\lambda_{a},\lambda_{b}\right]=if_{abc}2\lambda_{c}
+\]
+
+\end_inset
+
+由对易关系和Jacobi 恒等式得，
+\begin_inset Formula 
+\[
+if_{bcd}if_{dea}4\lambda_{e}+if_{cad}if_{deb}4\lambda_{e}++if_{abd}if_{dec}4\lambda_{e}=0
+\]
+
+\end_inset
+
+即
+\begin_inset Formula 
+\[
+f_{abj}f_{jce}+f_{bcj}f_{jae}+f_{caj}f_{jbe}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{abj}f_{jce}|_{\left\{ abc\right\} }=0
 \]
 
 \end_inset
@@ -573,6 +599,288 @@ name "fig:表格1.2"
 
 \begin_layout Standard
 很明显，盖尔曼矩阵的反对易并不一定是盖尔曼矩阵。因为反厄密矩阵的平方不再反厄米。
+\end_layout
+
+\begin_layout Subsection
+群表示的维数
+\end_layout
+
+\begin_layout Standard
+SU(N) 群的基础表示由一个方格表示
+\begin_inset Formula $\square$
+\end_inset
+
+，表示
+\begin_inset Formula $n$
+\end_inset
+
+，而
+\begin_inset Formula $n-1$
+\end_inset
+
+个方格列为共轭表示
+\begin_inset Formula $n^{*}$
+\end_inset
+
+。SU(N)群的任意一个不可约表示由一个正规杨图表示。第一行的格子数大于等于第二行，等等。
+\end_layout
+
+\begin_layout Standard
+杨图的维数为
+\begin_inset Formula 
+\[
+D=\frac{c\left(n\right)}{H\left(n\right)}=\frac{n^{2}\left(n+1\right)\left(n+2\right)\left(n-1\right)\left(n-2\right)\left(n-3\right)}{6\times4\times3\times2\times1\times1\times1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c\left(n\right)$
+\end_inset
+
+计算如图，向右增加，向下减少。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ytableausetup{mathmode, boxsize=2.5em}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ytableau}
+\end_layout
+
+\begin_layout Plain Layout
+
+n & n+1 & n+2 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+n-1 & n  
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+n-2 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+n-3 %% last line needn't the 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ytableau}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H\left(n\right)$
+\end_inset
+
+是钩形数，是
+\begin_inset Formula $\Gamma$
+\end_inset
+
+形路径经过的格子数。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ytableausetup{mathmode, boxsize=2em}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ytableau}
+\end_layout
+
+\begin_layout Plain Layout
+
+6 & 3 & 1 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+4 & 1  
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+2 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ytableau}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+两个表示直乘的分解
+\end_layout
+
+\begin_layout Standard
+对于两个杨图
+\begin_inset Formula $\left(a\right),\left(b\right)$
+\end_inset
+
+，它们的直乘分解计算如下：
+\end_layout
+
+\begin_layout Enumerate
+在右边的杨图
+\begin_inset Formula $\left(b\right)$
+\end_inset
+
+上，第一行标上
+\begin_inset Formula $1$
+\end_inset
+
+，第二行标上
+\begin_inset Formula $2$
+\end_inset
+
+，第三行
+\begin_inset Formula $3$
+\end_inset
+
+，等等。
+\end_layout
+
+\begin_layout Enumerate
+把右边的
+\begin_inset Formula $1$
+\end_inset
+
+格子添加到左边的杨图
+\begin_inset Formula $a$
+\end_inset
+
+上，再加
+\begin_inset Formula $2$
+\end_inset
+
+格子。
+\end_layout
+
+\begin_layout Enumerate
+同样数字的格子不出现在同一列中。
+\end_layout
+
+\begin_layout Enumerate
+去掉超过
+\begin_inset Formula $n$
+\end_inset
+
+行的杨图，对于 SU(n) 群。
+\end_layout
+
+\begin_layout Enumerate
+保证从右到左，从上到下，即
+\begin_inset Formula $\Gamma$
+\end_inset
+
+方向，
+\begin_inset Formula $1$
+\end_inset
+
+的个数大于
+\begin_inset Formula $2$
+\end_inset
+
+的个数，
+\begin_inset Formula $2$
+\end_inset
+
+的个数大于
+\begin_inset Formula $3$
+\end_inset
+
+的个数。
+\end_layout
+
+\begin_layout Standard
+最后得到的杨图，如果形状和标的数字
+\begin_inset Formula $1,2,\cdots$
+\end_inset
+
+都相同，则认为是同一个杨图。如果形状相同，但是字母不同，则认为是不同的杨图。例如
+\begin_inset Formula 
+\[
+\ydiagram{1}\otimes\ydiagram{2}=\ydiagram{3}+\ydiagram{2,1}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
