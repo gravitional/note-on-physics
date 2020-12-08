@@ -1769,7 +1769,7 @@ u=1+\frac{i}{2f}\phi,\quad u^{\dagger}=1-\frac{i}{2f}\phi
 \begin{align*}
 u_{\mu} & =i\left[\left(1-a\right)\partial_{\mu}\left(1+a\right)-\left(1+a\right)\partial_{\mu}\left(1-a\right)\right]+\left[\left(1-a\right)Q\left(1+a\right)-\left(1+a\right)Q\left(1-a\right)\right]\left(\pm e\mathcal{A}_{\mu}\right)\\
  & =i\left[\left(1-a\right)\partial_{\mu}a+\left(1+a\right)\partial_{\mu}a\right]+\left[Q-aQa-aQ+Qa-\left(Q-aQa+aQ-Qa\right)\right]\left(\pm e\mathcal{A}_{\mu}\right)\\
- & =i\left[2\partial_{\mu}a\right]+2\left[Qa-aQ\right]\left(\pm e\mathcal{A}_{\mu}\right)
+ & =i\left[2\partial_{\mu}a\right]+2\left(Qa-aQ\right)\left(\pm e\mathcal{A}_{\mu}\right)
 \end{align*}
 
 \end_inset
@@ -1781,7 +1781,7 @@ u_{\mu} & =i\left[\left(1-a\right)\partial_{\mu}\left(1+a\right)-\left(1+a\right
 ，所以
 \begin_inset Formula 
 \[
-u_{\mu}=-\frac{1}{f}\partial_{\mu}\phi+\frac{i}{f}\left(Q\phi-\phi Q\right)\left(\pm e\mathcal{A}_{\mu}\right)
+u_{\mu}=-\frac{1}{f}\partial_{\mu}\phi+\frac{i}{f}\left(\pm e\mathcal{A}_{\mu}\right)\left[Q,\phi\right]
 \]
 
 \end_inset
@@ -1825,7 +1825,7 @@ then,
 \begin_inset Formula 
 \begin{align*}
 \Gamma_{\mu} & =-\left(\frac{i}{2f}\right)^{2}\phi\partial_{\mu}\phi-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\left(\frac{i}{2f}\right)^{2}\phi\left(\pm ieQ\mathcal{A}_{\mu}\right)\phi\\
-\Gamma_{\mu} & =-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\frac{1}{4f^{2}}\phi\left[\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right]\phi
+\Gamma_{\mu} & =-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\frac{1}{4f^{2}}\phi\left(\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right)\phi
 \end{align*}
 
 \end_inset
@@ -1837,8 +1837,8 @@ then,
 
 \begin_inset Formula 
 \begin{align*}
-D_{\mu}B & =\partial_{\mu}B+\left[-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\frac{1}{4f^{2}}\phi\left[\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right]\phi,B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
- & =\partial_{\mu}B-\left[\left(\pm ieQ\mathcal{A}_{\mu}\right),B\right]+\frac{1}{4f^{2}}\left[\phi\left[\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right]\phi,B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B
+D_{\mu}B & =\partial_{\mu}B+\left[-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\frac{1}{4f^{2}}\phi\left(\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right)\phi,B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
+ & =\partial_{\mu}B-\left[\left(\pm ieQ\mathcal{A}_{\mu}\right),B\right]+\frac{1}{4f^{2}}\left[\phi\left(\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right)\phi,B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B
 \end{align*}
 
 \end_inset
@@ -1852,70 +1852,109 @@ D_{\mu}B & =\partial_{\mu}B+\left[-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\frac{1
 \end_inset
 
 。则结果为
+\color cyan
+
 \begin_inset Formula 
 \[
-D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\left[\phi\left[\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right]\phi,B\right]-i\langle\lambda^{0}\rangle e\mathcal{A}_{\mu}B
+D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\left[\phi\left(\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right)\phi,B\right]-i\langle\lambda^{0}\rangle e\mathcal{A}_{\mu}B
 \]
 
 \end_inset
 
+
+\color inherit
 前两项即非阿贝尔群，自伴表示协变导数的标准形式，最后一项是味单态矢量流耦合。
 \end_layout
 
 \begin_layout Standard
-假如
-\begin_inset Formula $B=\left[\begin{array}{c}
-B_{1}\\
-B_{2}\\
-B_{3}
-\end{array}\right]$
-\end_inset
-
-，
-\begin_inset Formula $\bar{B}=\left[\begin{array}{ccc}
-\bar{B}_{1} & \bar{B}_{2} & \bar{B}_{3}\end{array}\right]$
-\end_inset
-
-，我们假设
-\begin_inset Formula $Q$
-\end_inset
-
-是对角的，
 \begin_inset Formula 
 \[
-\left[\begin{array}{ccc}
-\bar{B}_{1} & \bar{B}_{2} & \bar{B}_{3}\end{array}\right]\left[\begin{array}{ccc}
-u\\
- & d\\
- &  & s
-\end{array}\right]\left[\begin{array}{c}
-B_{1}\\
-B_{2}\\
-B_{3}
-\end{array}\right]
+\tr\left[\bar{B}i\slashed{D}B\right]=\tr\left[\bar{B}\partial_{\mu}B\right]+e\mathcal{A}_{\mu}\tr\left[\bar{B}\left[Q,B\right]\right]
+\]
+
+\end_inset
+
+由
+\begin_inset Formula $\tr$
+\end_inset
+
+的轮换不变性，以及费米子交换出负号，得
+\begin_inset Formula 
+\[
+\tr\left[\bar{B}\left[Q,B\right]\right]=-\tr\left[\left(B\bar{B}+\bar{B}B\right)Q\right]
+\]
+
+\end_inset
+
+代入
+\begin_inset Formula 
+\[
+B=\sum_{a=1}^{8}\frac{B_{a}\lambda_{a}}{\sqrt{2}}=\left(\begin{array}{ccc}
+\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}} & \Sigma^{+} & p^{+}\\
+\Sigma^{-} & -\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}} & n^{0}\\
+\Xi^{-} & \Xi^{0} & \frac{-2\Lambda}{\sqrt{6}}
+\end{array}\right)
 \]
 
 \end_inset
 
 
 \begin_inset Formula 
+\[
+\bar{B}=\sum_{a=1}^{8}\frac{\bar{B}_{a}\lambda_{a}}{\sqrt{2}}=\left(\begin{array}{ccc}
+\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}} & \bar{\Sigma}^{-} & \bar{\Xi}^{-}\\
+\bar{\Sigma}^{+} & -\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}} & \bar{\Xi}^{0}\\
+\bar{p}^{+} & \bar{n}^{0} & \frac{-2\bar{\Lambda}}{\sqrt{6}}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
 \begin{align*}
-\tr\left[\bar{B}QB\right] & =\sum_{i=1}^{3}Q_{i}\tr\left[\bar{B}_{i}B_{i}\right]=\sum_{i=1}^{3}Q_{i}\tr\left[\bar{B}_{i}B_{i}\right]\\
-\tr\left[\bar{B}BQ\right] & =\sum_{i=1}^{3}\tr\left[\bar{B}_{i}B_{i}\right]\tr\left[Q\right]=\tr\left[\bar{B}B\right]\tr\left[Q\right]
+ & \tr\left[\left(B\bar{B}+\bar{B}B\right)Q\right]\\
+= & u\left[\left(\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}}\right)\left(\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}}\right)+\Sigma^{+}\bar{\Sigma}^{+}+p^{+}\bar{p}^{+}\right]+u\left[\left(\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}}\right)\left(\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}}\right)+\bar{\Sigma}^{-}\Sigma^{-}+\bar{\Xi}^{-}\Xi^{-}\right]\\
++ & d\left[\Sigma^{-}\bar{\Sigma}^{-}+\left(-\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}}\right)\left(-\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}}\right)+n^{0}\bar{n}^{0}\right]+d\left[\bar{\Sigma}^{+}\Sigma^{+}+\left(-\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}}\right)\left(-\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}}\right)+\bar{\Xi}^{0}\Xi^{0}\right]\\
++ & s\left[\Xi^{-}\bar{\Xi}^{-}+\Xi^{0}\bar{\Xi}^{0}+\frac{-2\Lambda}{\sqrt{6}}\frac{-2\bar{\Lambda}}{\sqrt{6}}\right]+s\left[\bar{p}^{+}p^{+}+\bar{n}^{0}n^{0}+\frac{-2\bar{\Lambda}}{\sqrt{6}}\frac{-2\Lambda}{\sqrt{6}}\right]\\
+= & \left(u+d\right)\frac{\bar{\Sigma}^{0}\Sigma^{0}+\Sigma^{0}\bar{\Sigma}^{0}}{2}+\left(u+d+4s\right)\frac{\bar{\Lambda}\Lambda+\Lambda\bar{\Lambda}}{6}+\left(u-d\right)\frac{\left(\bar{\Sigma}^{0}\Lambda+\bar{\Lambda}\Sigma^{0}\right)+\Sigma^{0}\bar{\Lambda}+\Lambda\bar{\Sigma}^{0}}{2\sqrt{3}}\\
++ & u\Sigma^{+}\bar{\Sigma}^{+}+up^{+}\bar{p}^{+}+u\bar{\Sigma}^{-}\Sigma^{-}+u\bar{\Xi}^{-}\Xi^{-}\\
++ & d\Sigma^{-}\bar{\Sigma}^{-}+dn^{0}\bar{n}^{0}+d\bar{\Sigma}^{+}\Sigma^{+}+d\bar{\Xi}^{0}\Xi^{0}\\
++ & s\Xi^{0}\bar{\Xi}^{0}+s\Xi^{-}\bar{\Xi}^{-}+s\bar{p}^{+}p^{+}+s\bar{n}^{0}n^{0}
 \end{align*}
 
 \end_inset
 
-如果进一步假设
-\begin_inset Formula $\tr\left[Q\right]=0$
+
+\size default
+如果认为
+\begin_inset Formula $\bar{\psi}_{1}\psi_{2}+\psi_{2}\bar{\psi}_{1}=0$
 \end_inset
 
 ，则
+\size small
+
 \begin_inset Formula 
 \begin{align*}
- & \tr\left[\bar{B}i\slashed{D}B\right]=\tr\left[\bar{B}\partial_{\mu}B+e\mathcal{A}_{\mu}\bar{B}\left[Q,B\right]\right]\\
-= & \tr\left[\bar{B}\partial_{\mu}B\right]+e\mathcal{A}_{\mu}\sum_{i=1}^{3}Q_{i}\tr\left[\bar{B}_{i}B_{i}\right]
+ & \tr\left[\left(B\bar{B}+\bar{B}B\right)Q\right]\\
+\Rightarrow & \left(u-d\right)\Sigma^{+}\bar{\Sigma}^{+}+\left(u-s\right)p^{+}\bar{p}^{+}+\left(d-u\right)\Sigma^{-}\bar{\Sigma}^{-}+\left(s-u\right)\Xi^{-}\bar{\Xi}^{-}+\left(s-d\right)\Xi^{0}\bar{\Xi}^{0}+\left(d-s\right)n^{0}\bar{n}^{0}
 \end{align*}
+
+\end_inset
+
+
+\size default
+如果
+\begin_inset Formula $d=s$
+\end_inset
+
+，进一步化简为
+\begin_inset Formula 
+\[
+\tr\left[\left(B\bar{B}+\bar{B}B\right)Q\right]=\left(u-d\right)\Sigma^{+}\bar{\Sigma}^{+}+\left(u-d\right)p^{+}\bar{p}^{+}+\left(d-u\right)\Sigma^{-}\bar{\Sigma}^{-}+\left(d-u\right)\Xi^{-}\bar{\Xi}^{-}
+\]
 
 \end_inset
 
@@ -1923,7 +1962,13 @@ B_{3}
 \end_layout
 
 \begin_layout Standard
-总结，强子流的矢量和轴矢量展开分别为，约定插入的流为
+
+\color cyan
+矢量流和轴矢流总结：
+\end_layout
+
+\begin_layout Standard
+约定插入的流为
 \begin_inset Formula $l_{\mu}=r_{\mu}=+eQ\mathcal{A}_{\mu}$
 \end_inset
 
@@ -1935,11 +1980,11 @@ B_{3}
 \begin_inset Formula $e\to-e$
 \end_inset
 
-即可
+即可。强子流的矢量和轴矢量展开分别为，
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{\mu} & =-ieQ\mathcal{A}_{\mu}+\frac{1}{4f^{2}}\phi\left[\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right]\phi\\
-u_{\mu} & =-\frac{1}{f}\partial_{\mu}\phi+\frac{i}{f}\left(Q\phi-\phi Q\right)e\mathcal{A}_{\mu}
+\Gamma_{\mu} & =-ieQ\mathcal{A}_{\mu}+\frac{1}{4f^{2}}\phi\left(\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right)\phi\\
+u_{\mu} & =-\frac{1}{f}\partial_{\mu}\phi+\frac{i}{f}e\mathcal{A}_{\mu}\left[Q,\phi\right]
 \end{align*}
 
 \end_inset
@@ -1947,7 +1992,7 @@ u_{\mu} & =-\frac{1}{f}\partial_{\mu}\phi+\frac{i}{f}\left(Q\phi-\phi Q\right)e\
 对应的协变导数为，
 \begin_inset Formula 
 \[
-D_{\mu}B=\partial_{\mu}B-\left[ieQ\mathcal{A}_{\mu},B\right]+\frac{1}{4f^{2}}\left[\phi\left[\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right]\phi,B\right]-i\langle\lambda^{0}\rangle e\mathcal{A}_{\mu}B
+D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\left[\phi\partial_{\mu}\phi,B\right]-\frac{ie\mathcal{A}_{\mu}}{4f^{2}}\left[\phi Q\phi,B\right]-i\langle\lambda^{0}\rangle e\mathcal{A}_{\mu}B
 \]
 
 \end_inset
@@ -2924,8 +2969,8 @@ where
 ，最后的振幅总是不依赖于任何内动量的。自由度总是守恒的。
 \begin_inset Formula 
 \begin{align*}
-\mathcal{R}^{\mu}\left(k,q\to0\right) & =\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left(k+q+k\right)\left(k+q-k\right)}i\left(k+q+k\right)^{\mu}\to\frac{\partial\tilde{F}\left[k\right]}{\partial k_{\mu}}=\tilde{F}^{\prime}\left(k\right)\\
-\mathcal{R}^{\mu}\left(-k,q\to0\right) & =\frac{\left(\tilde{F}\left[-k+q\right]-\tilde{F}\left[-k\right]\right)}{\left(-k+q-k\right)\left(-k+q+k\right)}i\left(-k+q-k\right)^{\mu}=\frac{\partial\tilde{F}\left[-k\right]}{\partial\left(-k_{\mu}\right)}=-\tilde{F}^{\prime}\left(k\right)
+\mathcal{R}^{\mu}\left(k,q\to0\right) & =\frac{\left(\tilde{F}\left[k+q\right]-\tilde{F}\left[k\right]\right)}{\left(k+q+k\right)\left(k+q-k\right)}i\left(k+q+k\right)^{\mu}\to\frac{\partial\tilde{F}\left[k\right]}{\partial k_{\mu}}=i\tilde{F}^{\prime}\left(k\right)\\
+\mathcal{R}^{\mu}\left(-k,q\to0\right) & =\frac{\left(\tilde{F}\left[-k+q\right]-\tilde{F}\left[-k\right]\right)}{\left(-k+q-k\right)\left(-k+q+k\right)}i\left(-k+q-k\right)^{\mu}=\frac{\partial\tilde{F}\left[-k\right]}{\partial\left(-k_{\mu}\right)}=-i\tilde{F}^{\prime}\left(k\right)
 \end{align*}
 
 \end_inset
@@ -2954,7 +2999,7 @@ where
 \begin_inset Formula 
 \begin{align*}
  & \frac{\partial\tilde{F}\left[k\right]}{\partial k_{\mu}}=-\frac{\partial\tilde{F}\left[-k\right]}{\partial\left(-k_{\mu}\right)}\\
- & \lim_{q\to0}\mathcal{R}^{\mu}\left(k,q\right)+\mathcal{R}^{\mu}\left(-k,q\right)=0,\quad\lim_{q\to0}\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)=2\frac{\partial\tilde{F}\left[k\right]}{\partial k_{\mu}}
+ & \lim_{q\to0}\mathcal{R}^{\mu}\left(k,q\right)+\mathcal{R}^{\mu}\left(-k,q\right)=0,\quad\lim_{q\to0}\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)=2i\frac{\partial\tilde{F}\left[k\right]}{\partial k_{\mu}}
 \end{align*}
 
 \end_inset
@@ -3632,23 +3677,14 @@ status open
 \end_layout
 
 \begin_layout Standard
-所以最终
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:yu30"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 可以化简到
+所以最终可以化简到
 \size small
 
 \begin_inset Formula 
-\[
-\Gamma_{\phi B}^{\mu}={\color{red}\left(i\right)^{2}}\left(ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int_{kab}F\left(b\right)iD_{\phi}\left(k+q\right){\color{red}\left(-i\right)\left(2k+q\right)^{\mu}}iD_{\phi}\left(k\right)e^{\left(-i\left(k+q\right)a+ikb\right)}\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
-\]
+\begin{align*}
+\Gamma_{\phi B}^{\mu} & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{kab}F\left(b\right)iD_{\phi}\left(k+q\right){\color{red}\left(-i\right)\left(2k+q\right)^{\mu}}iD_{\phi}\left(k\right)e^{\left(-i\left(k+q\right)a+ikb\right)}\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
+\end{align*}
 
 \end_inset
 
@@ -3672,10 +3708,9 @@ noprefix "false"
 
 分别是中间重子和介子的传播子，
 \begin_inset Formula 
-\begin{align*}
-iD_{\phi} & \left(\ell\right)=\frac{i}{\ell^{2}-m_{\phi}^{2}+i\varepsilon}\\
-iD_{B} & \left(\ell\right)=\frac{\slashed{l}+M_{B}}{\ell^{2}-M_{B}^{2}+i\varepsilon}
-\end{align*}
+\[
+iD_{\phi}\left(\ell\right)=\frac{i}{\ell^{2}-m_{\phi}^{2}+i\varepsilon}\quad iD_{B}\left(\ell\right)=\frac{\slashed{l}+M_{B}}{\ell^{2}-M_{B}^{2}+i\varepsilon}
+\]
 
 \end_inset
 
@@ -3689,10 +3724,9 @@ iD_{B} & \left(\ell\right)=\frac{\slashed{l}+M_{B}}{\ell^{2}-M_{B}^{2}+i\varepsi
 
  是介子和八重态重子的质量。定义正规子的傅里叶变换和逆变换为
 \begin_inset Formula 
-\begin{align*}
-\tilde{F}\left(k\right) & \equiv\int_{a}\exp\left[-ia\cdot k\right]F\left(a\right)\\
-F\left(x\right) & \equiv\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik\cdot x\right)\tilde{F}\left(k\right)
-\end{align*}
+\[
+\tilde{F}\left(k\right)\equiv\int_{a}\exp\left[-ia\cdot k\right]F\left(a\right),\quad F\left(x\right)\equiv\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik\cdot x\right)\tilde{F}\left(k\right)
+\]
 
 \end_inset
 
@@ -3700,10 +3734,10 @@ F\left(x\right) & \equiv\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik
 \size small
 
 \begin_inset Formula 
-\begin{align}
-\Gamma_{a}^{\mu} & ={\color{red}\left(i\right)^{2}}\left(ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(-k\right)iD_{\phi}\left(k+q\right){\color{red}\left(-i\right)\left(2k+q\right)^{\mu}}iD_{\phi}\left(k\right)\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\nonumber \\
- & =\int_{k}\tilde{\Gamma}_{\phi B}^{\mu}\label{eq: yu34}
-\end{align}
+\begin{align*}
+\Gamma_{a}^{\mu} & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(-k\right)iD_{\phi}\left(k+q\right){\color{red}\left(-i\right)\left(2k+q\right)^{\mu}}iD_{\phi}\left(k\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)=\int_{k}\tilde{\Gamma}_{\phi B}^{\mu}
+\end{align*}
 
 \end_inset
 
@@ -3727,9 +3761,9 @@ F\left(x\right) & \equiv\frac{1}{\left(2\pi\right)^{4}}\int\dif^{4}k\exp\left(ik
 
 
 \begin_inset Formula 
-\begin{equation}
-f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{M}{P^{+}}\int_{k}\tilde{\Gamma}_{\phi B}^{\mu}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\label{eq:yu35}
-\end{equation}
+\[
+f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{M}{P^{+}}\int_{k}\tilde{\Gamma}_{\phi B}^{\mu}\delta\left(y-\frac{k^{+}}{p^{+}}\right)
+\]
 
 \end_inset
 
@@ -3761,28 +3795,20 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{M}{P^{+}}\int_{k}\tilde
 \begin_inset Formula $\tilde{F}\left(k\right)=\tilde{F}\left(-k\right)$
 \end_inset
 
-。由 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq: yu34"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-，fig.1(a) 介子 rainbow 图的分裂函数是
+。所以，fig.1(a) 介子 rainbow 图的分裂函数是
 \size small
 
 \begin_inset Formula 
-\begin{align}
-f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}\left(ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)iD_{\phi}\left(k+q\right){\color{red}\left(-i\right)\left(2k+q\right)^{+}}iD_{\phi}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\nonumber \\
- & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\label{eq:yu36}
-\end{align}
+\begin{align*}
+f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)iD_{\phi}\left(k+q\right){\color{blue}\left(-i\right)\left(2k+q\right)^{+}}iD_{\phi}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
+\end{align*}
 
 \end_inset
 
 
+\size default
+和 salamu 的结果相同。
 \end_layout
 
 \begin_layout Subsection
@@ -3804,8 +3830,8 @@ b
 
 \begin_inset Formula 
 \begin{align*}
- & \Gamma_{b}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}{\color{red}i^{2}}\int_{xyz}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right)J_{q,\text{em}}^{\mu}\left(y\right)\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\\
- & ={\color{red}i^{2}}\frac{C_{B\phi}^{2}}{f^{2}}\left\{ \int xyzab\right\} \bra{p^{\prime}}F\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right)\left(e_{B}^{q}\bar{B}\left(y\right){\color{red}\gamma^{\mu}}B\left(y\right)\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}
+ & \Gamma_{b}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}{\color{red}i^{2}}\int_{xyz}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(x\right){\color{blue}J_{q,\text{em}}^{\mu}\left(y\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)\ket{p}\\
+ & ={\color{red}i^{2}}\left(\frac{C_{B\phi}}{f}\right)^{2}\left\{ \int xyzab\right\} \bra{p^{\prime}}F\left(a\right)F\left(b\right)\bar{p}\left(x\right)\gamma^{\nu}\gamma^{5}B\left(x\right)\partial_{\nu}\phi\left(x+a\right){\color{blue}e_{B}^{q}\bar{B}\left(y\right)\gamma^{\mu}B\left(y\right)}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}
 \end{align*}
 
 \end_inset
@@ -3813,7 +3839,7 @@ b
 
 \size default
 \color blue
-跟 fig.a 一样，这里的
+salamu 结果中的
 \begin_inset Formula $i^{2}$
 \end_inset
 
@@ -3831,21 +3857,27 @@ b
 \size small
 
 \begin_inset Formula 
-\[
-\Gamma_{b}^{\mu}=e_{B}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int_{kab}F\left(a\right)\dif^{4}bF\left(b\right)\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right){\color{red}\gamma^{\mu}}iD_{B}\left(p-k\right)\left(\gamma^{5}\slashed{k}\right)u\left(p\right)iD_{\phi}\left(k\right)e^{\left(-ika+ikb\right)}
-\]
+\begin{align*}
+\Gamma_{b}^{\mu} & =\int_{kab}{\color{red}i^{2}}\left(\frac{C_{B\phi}}{f}\right)^{2}F\left(a\right)\dif^{4}bF\left(b\right)iD_{\phi}\left(k\right)e^{\left(-ika+ikb\right)}\\
+ & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right){\color{blue}e_{B}^{q}\gamma^{\mu}}iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
+\end{align*}
 
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
-f_{b}^{+}\left(y\right) & =e_{B}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int_{k}\tilde{F}\left(k\right)^{2}iD_{\phi}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right){\color{red}\gamma^{+}}iD_{B}\left(p-k\right)\left(\gamma^{5}\slashed{k}\right)u\left(p\right)
+f_{b}^{+}\left(y\right)= & \int_{k}{\color{red}i^{2}}\left(\frac{C_{B\phi}}{f}\right)^{2}\tilde{F}\left(k\right)^{2}iD_{\phi}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+\times & \bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right){\color{blue}e_{B}^{q}\gamma^{+}}iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+和 salamu 的结果相同。
 \end_layout
 
 \begin_layout Subsection
@@ -3862,21 +3894,40 @@ c
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula $\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+的组合是厄米的，
+\begin_inset Formula 
+\[
+\left(\bar{\psi}\gamma^{\mu}\gamma^{5}\psi\right)^{\dagger}=\psi^{\dagger}\gamma^{5\dagger}\gamma^{\mu\dagger}\gamma^{0}\psi=\psi^{\dagger}\gamma^{0}\gamma^{0}\gamma^{5\dagger}\gamma^{\mu\dagger}\gamma^{0}\psi=-\bar{\psi}\gamma^{5}\gamma^{\mu}\psi=\bar{\psi}\gamma^{\mu}\gamma^{5}\psi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Kroll–Ruderman (KR)图的贡献:
 \size small
 
 \begin_inset Formula 
 \begin{align*}
- & \Gamma_{c}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}\int_{yz}J_{q,\text{em}}^{\mu}\left(y\right){\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right)J_{q,\text{em}}^{\mu}\left(z\right)\ket{p}\\
- & ={\color{red}\left(i\right)}\left\{ \int yzab\right\} \bra{p^{\prime}}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{p}\left(x-a\right)\gamma^{\mu}\gamma^{5}B\left(x-a\right)\phi\left(x\right)\frac{C_{B\phi}}{f}F\left(b\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\\
- & +{\color{red}\left(i\right)}\left\{ \int yzab\right\} \bra{p^{\prime}}\frac{C_{B\phi}}{f}F\left(b\right)\bar{p}\left(z\right)\gamma^{\rho}\gamma^{5}B\left(z\right)\partial_{\rho}\phi\left(z+b\right)\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{B}\left(x-a\right)\gamma^{\mu}\gamma^{5}p\left(x-a\right)\phi^{\dagger}\left(x\right)\ket{p}
+ & \Gamma_{c}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}\int_{yz}{\color{blue}J_{q,\text{em}}^{\mu}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}J_{q,\text{em}}^{\mu}\left(z\right)}\ket{p}\\
+ & ={\color{red}\left(i\right)}\int_{yzab}\bra{p^{\prime}}{\color{blue}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{p}\left(x-a\right)\gamma^{\mu}\gamma^{5}B\left(x-a\right)\phi\left(x\right)}\frac{C_{B\phi}}{f}F\left(b\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\\
+ & +{\color{red}\left(i\right)}\int_{yzab}\bra{p^{\prime}}\frac{C_{B\phi}}{f}F\left(b\right)\bar{p}\left(z\right)\gamma^{\rho}\gamma^{5}B\left(z\right)\partial_{\rho}\phi\left(z+b\right){\color{blue}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}F\left(a\right)\bar{B}\left(x-a\right)\gamma^{\mu}\gamma^{5}p\left(x-a\right)\phi^{\dagger}\left(x\right)}\ket{p}
 \end{align*}
 
 \end_inset
 
 
 \size default
-正规子相位：
+正规子相位，决定了
+\begin_inset Formula $\tilde{F}$
+\end_inset
+
+的自变量：
 \begin_inset Formula 
 \begin{align*}
 e^{\left(+ip^{\prime}\left(-a\right)-i\left(p-k\right)\left(-a\right)+ikb\right)} & =e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\\
@@ -3890,8 +3941,8 @@ e^{\left(-ip\left(-a\right)+i\left(p^{\prime}-k\right)\left(-a\right)-ikb\right)
 
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{c}^{\mu}= & {\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int_{kab}F\left(a\right)F\left(b\right)iD_{\phi}\left(k\right)e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\bar{u}\left(p^{\prime}\right)\gamma^{\mu}\gamma^{5}iD_{B}\left(p-k\right)\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
-+ & {\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int_{kab}F\left(a\right)F\left(b\right)iD_{\phi}\left(k\right)e^{\left(i\left(q-k\right)\left(-a\right)-ikb\right)}\bar{u}\left(p^{\prime}\right)\left(-i\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right)\gamma^{\mu}\gamma^{5}u\left(p\right)
+\Gamma_{c}^{\mu}= & \int_{kab}{\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}F\left(a\right)F\left(b\right)iD_{\phi}\left(k\right)e^{\left(i\left(q+k\right)\left(-a\right)+ikb\right)}\bar{u}\left(p^{\prime}\right){\color{blue}\left(\gamma^{\mu}\gamma^{5}\right)}iD_{B}\left(p-k\right)\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
++ & \int_{kab}{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}F\left(a\right)F\left(b\right)iD_{\phi}\left(k\right)e^{\left(i\left(q-k\right)\left(-a\right)-ikb\right)}\bar{u}\left(p^{\prime}\right)\left(-i\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right){\color{blue}\left(\gamma^{\mu}\gamma^{5}\right)}u\left(p\right)
 \end{align*}
 
 \end_inset
@@ -3901,27 +3952,31 @@ e^{\left(-ip\left(-a\right)+i\left(p^{\prime}-k\right)\left(-a\right)-ikb\right)
 
 \begin_inset Formula 
 \begin{align*}
-f_{c}^{\mu}\left(y\right) & =e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int_{k}iD_{\phi}\left(k\right)\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\bar{u}\left(p^{\prime}\right)\gamma^{\mu}\gamma^{5}iD_{B}\left(p-k\right)\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
- & +e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int_{k}iD_{\phi}\left(k\right)\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\bar{u}\left(p^{\prime}\right)\left(i\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right)\gamma^{\mu}\gamma^{5}u\left(p\right)
+\Gamma_{c}^{\mu} & =\int_{k}{\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}iD_{\phi}\left(k\right)\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\bar{u}\left(p^{\prime}\right){\color{blue}\left(\gamma^{\mu}\gamma^{5}\right)}iD_{B}\left(p-k\right)\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & +\int_{k}{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}iD_{\phi}\left(k\right)\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\bar{u}\left(p^{\prime}\right)\left(-i\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right){\color{blue}\left(\gamma^{\mu}\gamma^{5}\right)}u\left(p\right)
 \end{align*}
 
 \end_inset
 
 
-\color blue
-这里与salamu的结果差一个负号。
 \size small
-\color inherit
 
 \begin_inset Formula 
 \begin{align*}
-f_{c}^{+}\left(y\right) & ={\color{blue}\left(-1\right)}e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int_{k}iD_{\phi}\left(k\right)\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)i\left({\color{red}\gamma^{+}\gamma^{5}}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
- & {\color{blue}+\left(-1\right)}e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int_{k}iD_{\phi}\left(k\right)\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)i\left(\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right)\left({\color{red}\gamma^{+}\gamma^{5}}\right)u\left(p\right)
+f_{c}^{+}\left(y\right) & =\int_{k}{\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}iD_{\phi}\left(k\right)\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right){\color{blue}\left(\gamma^{+}\gamma^{5}\right)}iD_{B}\left(p-k\right)\left(i\slashed{k}\gamma^{5}\right)u\left(p\right)\\
+ & +\int_{k}{\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}iD_{\phi}\left(k\right)\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)\left(-i\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right){\color{blue}\left(\gamma^{+}\gamma^{5}\right)}u\left(p\right)
 \end{align*}
 
 \end_inset
 
 
+\size default
+\color blue
+两项之间没有相对负号，结果与 salamu 差一个整体负号，salamu 的结果中，后一个是
+\begin_inset Formula $\gamma^{5}\slashed{k}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Subsection
@@ -3950,22 +4005,22 @@ d
 \begin{align*}
  & \Gamma_{d}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
 = & \int_{yz}\bra{p^{\prime}}{\color{blue}\delta J_{q}^{\mu}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(B\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}\delta J_{q}^{\mu}\left(z\right)}\ket{p}\\
-= & {\color{red}\left(i\right)}\int_{yk}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{cyan}\mathcal{R}^{\mu}\left(k,q\right)\partial_{\rho}\phi\left(x\right)}\int_{zb}\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{brown}F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\ket{p}\\
-+ & {\color{red}\left(i\right)}\int_{ya}\frac{C_{B\phi}}{f}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{brown}F\left(a\right)\partial_{\nu}\phi\left(y+a\right)}\int_{zk}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right){\color{cyan}\mathcal{R}^{\mu}\left(-k,q\right)\partial_{\rho}\phi^{\dagger}\left(z\right)}\ket{p}
+= & {\color{red}\left(i\right)}\int_{xyzkb}\frac{C_{B\phi}}{f}\bra{p^{\prime}}{\color{blue}\left(-ie_{\phi}^{q}\right)\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)\mathcal{R}^{\mu}\left(k,q\right)\partial_{\nu}\phi\left(x\right)}\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)\ket{p}\\
++ & {\color{red}\left(i\right)}\int_{xyzka}\frac{C_{B\phi}}{f}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)F\left(a\right)\partial_{\nu}\phi\left(y+a\right){\color{blue}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}}{f}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\mathcal{R}^{\mu}\left(-k,q\right)\partial_{\rho}\phi^{\dagger}\left(z\right)}\ket{p}
 \end{align*}
 
 \end_inset
 
 
 \size default
-把旋量和标量分开，
+整理旋量和标量，
 \size small
 
 \begin_inset Formula 
 \begin{align*}
  & \Gamma_{d}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
-= & {\color{red}\left(i\right)}\int_{yzbk}\left(-ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\ket{p}{\color{cyan}\mathcal{R}^{\mu}\left(k,q\right)\partial_{\rho}\phi\left(x\right)}{\color{brown}F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\\
-+ & {\color{red}\left(i\right)}\int_{yzak}\left(+ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\ket{p}{\color{cyan}\mathcal{R}^{\mu}\left(-k,q\right)\partial_{\rho}\phi^{\dagger}\left(z\right)}{\color{brown}F\left(a\right)\partial_{\nu}\phi\left(y+a\right)}
+= & {\color{red}\left(i\right)}\int_{yzbk}{\color{blue}\left(-ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\bra{p^{\prime}}{\color{blue}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right)}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)\ket{p}{\color{blue}\mathcal{R}^{\mu}\left(k,q\right)\partial_{\nu}\phi\left(x\right)}{\color{brown}F\left(b\right)\partial_{\rho}\phi^{\dagger}\left(z+b\right)}\\
++ & {\color{red}\left(i\right)}\int_{yzak}{\color{blue}\left(+ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\bra{p^{\prime}}\bar{p}\left(y\right)\gamma^{\nu}\gamma^{5}B\left(y\right){\color{blue}\bar{B}\left(z\right)\gamma^{\rho}\gamma^{5}p\left(z\right)}\ket{p}{\color{blue}\mathcal{R}^{\mu}\left(-k,q\right)\partial_{\rho}\phi^{\dagger}\left(z\right)}F\left(a\right)\partial_{\nu}\phi\left(y+a\right)
 \end{align*}
 
 \end_inset
@@ -4040,13 +4095,14 @@ d
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\Gamma_{d}^{\mu}= & {\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}iD_{\phi}\left(k\right)\mathcal{R}^{\mu}\left(k,q\right)F\left(-k\right)\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
-+ & {\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}iD_{\phi}\left(k\right)\mathcal{R}^{\mu}\left(-k,q\right)F\left(k\right)\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
+\Gamma_{d}^{\mu}= & {\color{red}\left(i\right)}{\color{blue}\left(-ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}iD_{\phi}\left(k\right){\color{blue}\mathcal{R}^{\mu}\left(k,q\right)}F\left(-k\right)\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
++ & {\color{red}\left(i\right)}{\color{blue}\left(+ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}iD_{\phi}\left(k\right){\color{blue}\mathcal{R}^{\mu}\left(-k,q\right)}F\left(k\right)\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
 
 
+\size small
 \color blue
 这两项之间有相对负号，如此第二项在
 \begin_inset Formula $k\to k+q$
@@ -4063,17 +4119,27 @@ iD_{B}\left(p-k\right)\equiv\frac{i\left[\left(\slashed{p}-\slashed{k}\right)+M_
 \end_inset
 
 
-\size small
+\begin_inset Formula 
+\[
+\lim_{q\to0}\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)=2i\frac{\partial\tilde{F}\left[k\right]}{\partial k_{\mu}}
+\]
+
+\end_inset
+
 
 \begin_inset Formula 
 \begin{align*}
-f_{d}^{+}\left(y\right)= & {\color{red}\left(i\right)}\left(-ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int_{k}iD_{\phi}\left(k\right){\color{red}\mathcal{R}^{\mu}\left(k^{+},q^{+}\right)}F\left(-k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
-+ & {\color{red}\left(i\right)}\left(+ie_{\phi}^{q}\right)\frac{C_{B\phi}^{2}}{f^{2}}\int_{k}iD_{\phi}\left(k\right){\color{red}\mathcal{R}^{\mu}\left(-k^{+},q^{+}\right)}F\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
+f_{d}^{+}\left(y\right)= & {\color{red}\left(i\right)}{\color{blue}\left(-ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}iD_{\phi}\left(k\right){\color{blue}\mathcal{R}^{\mu}\left(k^{+},q^{+}\right)}F\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)iD_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)\\
++ & {\color{red}\left(i\right)}{\color{blue}\left(+ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}iD_{\phi}\left(k\right){\color{blue}\mathcal{R}^{\mu}\left(-k^{+},q^{+}\right)}F\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)\left(\slashed{k}\gamma^{5}\right)iD_{B}\left(p^{\prime}-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+和 salamu 的结果差一个负号。
 \end_layout
 
 \begin_layout Subsection
@@ -4097,8 +4163,8 @@ meson tadpole diagram 蝌蚪图，
 \begin{align*}
  & J_{q,\text{em}}^{\mu}\left(x\right)=\\
 = & e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)+\left(-ie_{\phi}^{q}\right)\left(ik^{\mu}\right)2\left[\phi\left(x\right)\phi\left(x\right)^{\dagger}\right]\\
-+ & {\color{blue}\left(-ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]\phi\left(x\right)}+\text{H.c}\\
-+ & {\color{cyan}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}\left[2\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}
++ & {\color{blue}\int_{xk}\left(-ie_{\phi}^{q}\right)\tilde{F}\left(k\right)\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]\phi\left(x\right)}+\text{H.c}\\
++ & {\color{blue}\int_{xk}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\tilde{F}\left(k\right)^{2}\left[2\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}
 \end{align*}
 
 \end_inset
@@ -4107,8 +4173,8 @@ meson tadpole diagram 蝌蚪图，
 \begin_inset Formula 
 \begin{align*}
  & \Gamma_{e}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
-= & \int_{y}\bra{p^{\prime}}{\color{cyan}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}\left[2\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}\ket{p}\\
-= & \frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}2\bar{u}\left(p^{\prime}\right)\gamma^{\mu}u\left(p\right)iD_{\phi}\left(k\right)
+= & \int_{yk}\bra{p^{\prime}}{\color{blue}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}\left[2\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}\ket{p}\\
+= & \int_{k}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\tilde{F}\left(k\right)^{2}iD_{\phi}\left(k\right)2\bar{u}\left(p^{\prime}\right)\gamma^{\mu}u\left(p\right)
 \end{align*}
 
 \end_inset
@@ -4116,12 +4182,14 @@ meson tadpole diagram 蝌蚪图，
 
 \begin_inset Formula 
 \[
-f_{e}^{+}\left(y\right)=\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}2\bar{u}\left(p^{\prime}\right)\gamma^{+}u\left(p\right)iD_{\phi}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)
+f_{e}^{+}\left(y\right)=\int_{k}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)2\tilde{F}\left(k\right)^{2}iD_{\phi}\left(k\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}u\left(p\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)
 \]
 
 \end_inset
 
 
+\size default
+和 salamu 的结果差一个负号。
 \end_layout
 
 \begin_layout Subsection
@@ -4142,35 +4210,14 @@ meson bubble diagram，真空图
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
- & \mathcal{L}_{\text{had}}^{\text{nonloc}}\left(x\right)\\
-= & \int_{k}\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]{\color{blue}\tilde{F}\left(k\right)\left(-ik_{\mu}\right)\phi\left(x\right)}+\text{H.c.}\\
-+ & \int_{k}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\tilde{F}\left(k\right)^{2}{\color{cyan}\left[2\left(ik_{\mu}\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}
-\end{align*}
-
-\end_inset
-
 
 \size small
-
-\begin_inset Formula 
-\begin{align*}
- & J_{q,\text{em}}^{\mu}\left(x\right)=\\
-= & e_{\phi}^{q}\bar{B}\left(x\right)\gamma^{\mu}B\left(x\right)+e_{T}^{q}\bar{T}_{\mu}\left(x\right)\gamma^{\mu\nu\alpha}T_{\nu}\left(x\right)+\left(-ie_{\phi}^{q}\right)\left(ik^{\mu}\right)2\left[\phi\left(x\right)\phi\left(x\right)^{\dagger}\right]\\
-+ & {\color{blue}\left(-ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)\left[\frac{C_{B\phi}}{f}\bar{p}\left(x\right)\gamma^{\mu}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\mu\nu}T_{\nu}\left(x\right)\right]\phi\left(x\right)}+\text{H.c}\\
-+ & {\color{cyan}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}\left[2\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}
-\end{align*}
-
-\end_inset
-
-
 \begin_inset Formula 
 \begin{align*}
  & \Gamma_{f}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
 = & \int_{xy}\bra{p^{\prime}}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}}^{\text{nonloc}}\left(x\right){\color{blue}J_{q,\text{em}}^{\mu}\left(y\right)}\ket{p}\\
-= & \int_{xy}\bra{p^{\prime}}{\color{red}\left(i\right)}\int_{k}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\tilde{F}\left(k\right)^{2}\left(ik_{\rho}\right)2\left[\phi\left(x\right)\phi\left(x\right)^{\dagger}\right]{\color{blue}\left(-ie_{\phi}^{q}\right)\left(ik^{\mu}\right)2\left[\phi\left(x\right)\phi\left(x\right)^{\dagger}\right]}\ket{p}\\
-= & \int_{k}{\color{red}\left(i\right)}4\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(-ie_{\phi}^{q}\right)\tilde{F}\left(k\right)^{2}\bar{u}\left(p^{\prime}\right)\gamma^{\mu}u\left(p\right)iD_{\phi}\left(k\right)iD_{\phi}\left(k+q\right)\left(ik_{\rho}\right)\left(ik^{\mu}\right)
+= & \int_{xy}\bra{p^{\prime}}{\color{red}\left(i\right)}\int_{k}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\bar{p}\left(x\right)\gamma^{\rho}p\left(x\right)\tilde{F}\left(k\right)^{2}\left(ik_{\rho}\right)2\left[\phi\left(x\right)\phi\left(x\right)^{\dagger}\right]{\color{blue}\left(ie_{\phi}^{q}\right)\left[\phi^{\dagger}\left(y\right)\partial^{\mu}\phi\left(y\right)-\phi\left(y\right)\partial^{\mu}\phi^{\dagger}\left(y\right)\right]}\ket{p}\\
+= & \int_{k}{\color{red}\left(i\right)}4\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\tilde{F}\left(k\right)^{2}iD_{\phi}\left(k\right)iD_{\phi}\left(k+q\right)\left(ik_{\rho}\right){\color{blue}\left[-i\left(2k+q\right)^{\mu}\right]}\bar{u}\left(p^{\prime}\right)\gamma^{\rho}u\left(p\right)
 \end{align*}
 
 \end_inset
@@ -4178,12 +4225,14 @@ meson bubble diagram，真空图
 
 \begin_inset Formula 
 \[
-f_{f}^{+}\left(y\right)=\int_{k}{\color{red}\left(i\right)}4\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(-ie_{\phi}^{q}\right)\tilde{F}\left(k\right)^{2}\bar{u}\left(p^{\prime}\right)\gamma^{\mu}u\left(p\right)iD_{\phi}\left(k\right)iD_{\phi}\left(k+q\right)\left(ik_{\rho}\right)\left(ik^{\mu}\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)
+f_{f}^{+}\left(y\right)=\int_{k}{\color{red}\left(i\right)}4\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\tilde{F}\left(k\right)^{2}iD_{\phi}\left(k\right)iD_{\phi}\left(k+q\right)\left(ik_{\rho}\right){\color{blue}\left[-i\left(2k+q\right)^{+}\right]}\bar{u}\left(p^{\prime}\right)\gamma^{\rho}u\left(p\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)
 \]
 
 \end_inset
 
 
+\size default
+和 salamu 的结果相同。
 \end_layout
 
 \begin_layout Subsection
@@ -4203,20 +4252,10 @@ g
 规范链接产生的 meson tadpole diagram 蝌蚪图，
 \begin_inset Formula 
 \begin{align*}
- & \delta J_{q}^{\mu}\left(x\right)\\
-= & {\color{blue}\left(-ie_{\phi}^{q}\right)\left[\bar{p}\left(x\right)\frac{C_{B\phi}}{f}\gamma^{\rho}\gamma^{5}B\left(x\right)+\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\Theta^{\rho\nu}T_{\nu}\left(x\right)\right]\mathcal{R}^{\mu}\left(k,q\right)\partial_{\rho}\phi\left(x\right)}+\text{H.c}\\
-+ & \frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(x\right)\left(i\slashed{k}\right)p\left(x\right)\tilde{F}\left(k\right)\left[\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)\right]\left[2\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
  & \Gamma_{e}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
 = & \int_{y}\bra{p^{\prime}}{\color{blue}\delta J_{q}^{\mu}\left(y\right)}\ket{p}\\
-= & \int_{yk}\bra{p^{\prime}}{\color{blue}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}{\color{cyan}\left(-ie_{\phi}^{q}\right)\bar{p}\left(x\right)\left(i\slashed{k}\right)p\left(x\right)\tilde{F}\left(k\right)\left[\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)\right]\left[2\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}}\ket{p}\\
-= & \int_{k}2\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(-ie_{\phi}^{q}\right)\bar{u}\left(p^{\prime}\right)\left(i\slashed{k}\right)u\left(p\right)\tilde{F}\left(k\right)iD_{\phi}\left(k\right)\left[\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)\right]
+= & \int_{yk}\bra{p^{\prime}}{\color{blue}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(-ie_{\phi}^{q}\right)\bar{p}\left(x\right)\left(i\slashed{k}\right)p\left(x\right)\tilde{F}\left(k\right)\left[\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)\right]\left[2\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}\ket{p}\\
+= & \int_{k}2\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(-ie_{\phi}^{q}\right)\tilde{F}\left(k\right)iD_{\phi}\left(k\right)\left[\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)\right]\bar{u}\left(p^{\prime}\right)\left(i\slashed{k}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
@@ -4224,8 +4263,495 @@ g
 
 \begin_inset Formula 
 \[
-\lim_{q\to0}\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)=2\frac{\partial\tilde{F}\left[k\right]}{\partial k_{\mu}}
+\lim_{q\to0}\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)=2i\frac{\partial\tilde{F}\left[k\right]}{\partial k_{\mu}}
 \]
+
+\end_inset
+
+与 salamu 的结果差一个负号。
+\end_layout
+
+\begin_layout Standard
+总结表格：
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="8">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+term
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+e
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+f
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+g
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+名称
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+介子彩虹图
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+重子彩虹图
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+普通 KR 图
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+链接 KR 图
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+重子 tadpole 图
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+介子真空图
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+链接 tadpole 图
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+耦合
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\phi\mathcal{A}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $B\mathcal{A}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $B\mathcal{A}\phi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $B\mathcal{A}\phi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $B\mathcal{A}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\phi\mathcal{A}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $B\mathcal{A}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+符号
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
