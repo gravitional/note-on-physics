@@ -2,12 +2,12 @@
 
 # 设置格式化相关的部分
 nameis="name is :"
-# 定义一个打印的函数
+# 定义一个打印的函数,并且加上颜色输出
 function echo2()
 {
 	delimiter1="+++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 		delimiter2="-------------------------------------------------------"
-		echo -e "${delimiter1}\n $* \n${delimiter2}"
+		echo -e "${delimiter1}\n\033[1;44m\033[1;37m$*\033[0;0m\n${delimiter2}"
 }
 # 打印当前目录
 echo2 "current directory is " $(pwd)
@@ -56,6 +56,8 @@ echo2 'echo errors 2'
 grep -Pi -m 15 -n --color -B 1 -A 6 -e "\? x"       "${var}.log"
 echo2 'echo errors 3'
 grep -Pi -m 15 -n --color -B 0 -A 6 -e "\.tex:\d+:" "${var}.log"
+#echo2 'echo errors 4'
+#grep -Pi -m 15 -n --color -B 0 -A 6 -e "! Package tikz Error:" "${var}.log"
 # 给出错误的具体位置 l.123
 echo2 'the error line postion'
 grep -Pi -m 15 -n --color -B 1 -A 1 "l\.\d+" "${var}.log"
