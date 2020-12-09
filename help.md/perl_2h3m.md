@@ -992,3 +992,316 @@ print join ", ", sort comparator @elevations;
 + 一般情况下，除非模棱两可的情况，否则通常不需要在参数周围加上方括号
 
 关于内置功能的最佳建议是`know that they exist`。浏览文档以备将来参考。如果您正在执行的任务看起来像是已经完成了很多次的低级通用任务，那么很有可能已经完成了。
+
+## 用户定义的子例程
+
+子例程使用`sub`关键字声明。
+与内置函数相反，用户定义的子例程始终接受相同的输入：标量列表。
+该列表当然可以只有一个元素，也可以是空的。单个标量被当成单个元素的列表。具有`N`个元素的`hash`被视为具有`2N`个元素的列表。
+
+尽管`brackets`是可选的，但子例程应始终使用`bracket`来调用，即使没有参数的时候。这清楚地表明正在调用子例程。
+
+进入子例程后，可通过`built-in array variable @_`使用自变量。例：
+
+```perl
+sub hyphenate {
+
+  # Extract the first argument from the array, ignore everything else
+  my $word = shift @_;
+
+  # An overly clever list comprehension
+  $word = join "-", map { substr $word, $_, 1 } (0 .. (length $word) - 1);
+  return $word;
+}
+
+print hyphenate("exterminate"); # "e-x-t-e-r-m-i-n-a-t-e"
+```
+
+### Perl通过引用进行调用
+
+与几乎所有其他主流编程语言不同，`Perl`通过`reference`进行调用。
+这意味着子例程主体内部可用的变量或值不是`originals`的副本。它们`are the originals`。
+
+```perl
+my $x = 7;
+
+sub reassign {
+  $_[0] = 42;
+}
+
+reassign($x);
+print $x; # "42"
+```
+
+如果您尝试类似
+
+```perl
+reassign(8);
+```
+
+那么就会发生错误并停止执行，因为`reassign()`的第一行等于
+
+```perl
+8 = 42;
+```
+
+这河里吗？
+
+要学习的是，在子例程的主体中，在使用参数之前，应该先对它们进行解包(`unpack`)。
+
+### 解包参数
+
+解压缩`@_`的方式不止一种，但有些方法更好。
+
+下面的示例子例程`left_pad`用指定的填充字符将字符串填充到所需的长度。(`x`函数将一个字符串拓展到n倍)
+(注意：为简便起见，这些子例程都缺少一些基本的错误检查，即确保填充字符长度为`1`，并检查宽度是否大于等于现有字符串的长度，以及检查所有必需的参数是否齐全)
+
+`left_pad`通常按以下方式调用：
+
+```perl
+print left_pad("hello", 10, "+"); # "+++++hello"
+```
+
++ 逐项解包`@_`是有效的，但并不是很漂亮：
+
+```perl
+sub left_pad {
+    my $oldString = $_[0];
+    my $width     = $_[1];
+    my $padChar   = $_[2];
+    my $newString = ($padChar x ($width - length $oldString)) . $oldString;
+    return $newString;
+}
+```
+
++ 对`4`个参数以下的情况，建议使用`shift`(移位)来解包`@_`：
+
+```perl
+sub left_pad {
+	my $oldString = shift @_;
+	my $width     = shift @_;
+	my $padChar   = shift @_;
+	my $newString = ($padChar x ($width - length $oldString)) . $oldString;
+	return $newString;
+}
+```
+
+如果没有为`shift`函数提供数组，则它将隐式对`@_`进行操作。这种方法很常见：
+
+```perl
+sub left_pad {
+	my $oldString = shift;
+	my $width     = shift;
+	my $padChar   = shift;
+	my $newString = ($padChar x ($width - length $oldString)) . $oldString;
+	return $newString;
+}
+```
+
+超过`4`个参数时，很难跟踪萝卜插在哪个坑。
+
+1. 你可以使用多标量赋值，一次性解包`@_`。同样，最好在`4`个参数以下：
+
+```perl
+sub left_pad {
+	my ($oldString, $width, $padChar) = @_;
+	my $newString = ($padChar x ($width - length $oldString)) . $oldString;
+	return $newString;
+}
+```
+
+对于具有大量参数的子例程，或其中某些参数是可选的或不能与其他参数组合使用的子例程，
+最佳做法是要求用户在调用子例程时提供参数的`hash`，然后将`@_`解包为参数的`hash`。
+使用这种方法，我们的子例程调用看起来会有所不同：
+
+```perl
+print left_pad("oldString" => "pod", "width" => 10, "padChar" => "+");
+```
+
+子例程本身看起来像这样：
+
+```perl
+sub left_pad {
+	my %args = @_;
+	my $newString = ($args{"padChar"} x ($args{"width"} - length $args{"oldString"})) . $args{"oldString"};
+	return $newString;
+}
+```
+
+### 返回值
+
+像其他`Perl`表达式一样，子例程调用可以展示上下文行为。
+您可以使用`wantarray`函数（应该叫做`wantlist`，算了别管了）来检测子例程所处的上下文，并返回适合该上下文的结果：
+
+```perl
+sub contextualSubroutine {
+	# Caller wants a list. Return a list
+	return ("Everest", "K2", "Etna", "\n") if wantarray;
+
+	# Caller wants a scalar. Return a scalar
+	return 3 ."\n";
+}
+
+my @array = contextualSubroutine();
+print @array; # "EverestK2Etna"
+
+my $scalar = contextualSubroutine();
+print $scalar; # "3"
+```
+
+## System calls
+
+每次在Windows或Linux系统上完成进程时，它会以一个16位`status word`结束（并且我假设在大多数其他系统上也成立）。
+最高的8位构成一个介于`0`和`255`之间（含`0`和`255`）的`return code`，其中`0`通常表示未验证的运行成功，
+而其他值则表示不同程度的失败。其他`8`的出场频率较低-它们"reflect mode of failure, like signal death and core dump information"(核心转储信息)。
+
+你可以在退出Perl脚本时，使用`exit`选择返回码（`0`到`255`）中。
+
+Perl提供了`More Than One Way To`在调用中生成子进程，然后暂停当前脚本的执行，直到该子进程完成，再恢复对当前脚本的解释。
+无论使用哪种方法, 子进程执行之后，都将立即发现内置标量变量`$?`包含了子进程的`status word`(`16`位)。
+您可以只取这`16`位中的最高`8`位来获取`return code`：`$? >> 8`。
+
+`system`函数可用于，使用给定参数调用其他程序。`system`返回的值与`$? `相同：
+
+```perl
+my $rc = system "perl", "anotherscript.pl", "foo", "bar", "baz";
+$rc >>= 8;
+print $rc; # "37"
+```
+
+或者，您可以使用反引号 ` `` `在命令行上运行实际命令并捕获该命令的标准输出。
+在标量上下文中，整个输出作为单个字符串返回。
+在列表上下文中，整个输出以字符串数组的形式返回，每个字符串代表一行输出。
+
+```perl
+my $text = `perl anotherscript.pl foo bar baz`;
+print $text; # "foobarbaz"
+```
+
+`anotherscript.pl `代码示例：
+
+```perl
+use strict;
+use warnings;
+
+print @ARGV;
+exit 37;
+```
+
+## 文件和文件句柄
+
+除了数字/字符串/引用或undef, 标量变量也可以包含`file handle`(文件句柄)。
+文件句柄本质上是对特定文件中特定位置的引用。
+
+使用`open`将标量变量转换为文件句柄。 `open`必须提供一个`mode`。模式`<`表示我们希望打开文件并读取它：
+
+```perl
+my $f = "text.txt";
+my $result = open my $fh, "<", $f;
+
+if(!$result) {
+	die "Couldn't open '".$f."' for reading because: ".$!;
+}
+```
+
+如果成功，则`open`返回一个真值。
+否则，它返回`false`并将错误消息填充到内置变量`$!`中。如上所示，您应始终检查打开操作是否成功完成。这种检查非常繁琐，一个常见的习惯用法是：
+
+```perl
+open(my $fh, "<", $f) || die "Couldn't open <".$f."> for reading because: ".$!;
+```
+
+请注意，在打开调用的参数周围需要括号`()`。
+
+要从文件句柄读取一行文本，请使用`readline`内置函数。 
+`readline`返回一整行文本，并在其末尾保留换行符（文件的最后一行可能除外），如果到达文件末尾，则为`undef`。
+
+```perl
+while(1) {
+	my $line = readline $fh;
+	last unless defined $line;
+	# process the line...
+}
+```
+
+要截断可能的`trailing`(尾随)换行符，请使用`chomp`(啃)：
+
+```perl
+chomp $line;
+```
+
+Note that chomp acts on `$line` in place。 `$line = chomp $line`可能不是您想要的。
+
+您也可以使用 `eof` 来检测是否已到达文件末尾：
+
+```perl
+while(!eof $fh) {
+	my $line = readline $fh;
+	# process $line...
+}
+```
+
+但是请注意，仅使用`while(my $line = readline $fh)`，因为如果`$line`最终为`0`，则循环将提前终止。
+如果您想编写类似的内容，Perl提供了`<>`运算符，该运算符以一种较为安全的方式包装了`readline`。这是很常见且非常安全的：
+
+```perl
+while(my $line = <$fh>) {
+	# process $line...
+}
+```
+
+乃至：
+
+```perl
+while(<$fh>) {
+	# process $_...
+}
+```
+
+写入文件涉及首先以其他模式打开文件。模式`>`表示我们希望打开文件进行写入。
+`>`将破坏目标文件的内容, 如果目标文件已经存在并且具有内容。要仅附加到现有文件，请使用模式`>>`。然后，只需将 `filehandle` 作为 `print` 函数的第 `0` 个参数即可。
+
+```perl
+open(my $fh2, ">", $f) || die "Couldn't open '".$f."' for writing because: ".$!;
+print $fh2 "The eagles have left the nest";
+```
+
+请注意，`$fh2`和下一个参数之间没有逗号。
+
+实际上，文件句柄超出范围时会自动关闭，否则应该使用：
+
+```perl
+close $fh2;
+close $fh;
+```
+
+存在三个文件句柄作为`global`常量：`STDIN`，`STDOUT`和`STDERR`。这些在脚本启动时自动打开。读取一行用户输入：
+
+```perl
+my $line = <STDIN>;
+```
+
+要仅等待用户按下Enter键：
+
+```perl
+<STDIN>;
+```
+
+没有文件句柄的调用`<>`将从`STDIN`，或调用`Perl`脚本时从参数命名的任何文件中读取数据。
+
+正如您可能已经注意到的，如果未给出文件句柄，则默认情况下`print`打印输出到`STDOUT`。
+
+### 文件测试
+
+函数`-e`是一个内置函数，用于测试文件是否存在。
+
+```perl
+print "what" unless -e "/usr/bin/perl";
+```
+
+函数`-d`是一个内置函数，用于测试文件是否为目录。
+
+函数`-f`是一个内置函数，用于测试命名文件是否为纯文件。
+
+这些只是`-X`形式的一大类函数中的三个，其中`X`是一些小写或大写字母。这些功能称为`file tests`。注意前面的减号。
+在Google查询中，减号表示排除包含该搜索词的结果。这使得Google`file tests` 比较困难。只需搜索`perl file tests`”即可。
