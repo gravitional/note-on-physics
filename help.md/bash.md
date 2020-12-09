@@ -57,12 +57,10 @@
 
 ## alias
 
-[bash alias的使用][]
+[Linux中使用 alias 来简化命令行输入](https://blog.csdn.net/kobejayandy/article/details/38710859)
+[bash alias的使用](https://www.jianshu.com/p/63e91c67e39a)
 
-[bash alias的使用]: https://www.jianshu.com/p/63e91c67e39a
-
-`alias`（别名），顾名思义，其作用大概为命令的别名，那么就可以它的好处就显而易见了。
-可以用来缩短一些又长又难记的命令了。
+`alias`（别名），顾名思义，其作用大概为命令的别名，那么就可以它的好处就显而易见了。可以用来缩短一些又长又难记的命令。
 
 方法一：
 
@@ -77,36 +75,6 @@
 + 删：`unalias` 命令
 + 查：`alias` 命令
 
-以下介绍了10个很实用的 `bash alias`：
-
-+ **ssh 别名** - `alias server_name='ssh -v -l USERNAME IP ADDRESS'`，更改 `server_name`、`USERNAME` 及 `IP` 地址以适应你的需要。对于经常要使用 `ssh` 登录远程 `shell` 的同学来说，这是一个值得收藏的别名。
-+ **ls 别名** - `alias ll='ls -l'`，另一个 `alias la='ls -a'`。意思很明显，在此就不多作解释了。
-+ **rm 别名** - `alias rm='rm -i'`，这个别名让你更加安全地执行删除操作。
-+ **df 别名** - `alias df='df -h'`，让你以 `MB` 或 `G` 为单位查看磁盘的空间。
-+ **Firefox 别名** - `alias ff1='/home/jlwallen/firefox/firefox'` 及 `alias ff2='/home/jlwallen/firefoxb3/firefox'`，适合使用两个 `Firefox` 版本的朋友，如一个稳定版，另一个为测试版。
-+ **书签别名** - `alias fftr='/home/jlwallen/firefox/firefox http://linuxtoy.org'`，用于打开一个指定的网址。
-+ **文件别名** - `alias emenu='aterm nano -e ~/.e16/menus/user_apps'`，如常常需要编辑的配置文件。
-+ **apt-get update 别名** - `alias update='sudo apt-get update'`，使用其他 `Linux` 发行版的同学可以换一下其中的 `sudo apt-get update`。
-+ **rpm 批量安装别名** - `alias brpm='rpm -ivh ~/RPM/*rpm'`，便于同时安装多个 `rpm` 包。
-+ **长路径别名** - `alias astart='cd ~/GNUstep/Library/AfterStep/start'`，对于需要经常访问的路径特别长的目录也可为其定义别名。
-
-[Linux中使用 alias 来简化命令行输入][]
-
-[Linux中使用 alias 来简化命令行输入]: https://blog.csdn.net/kobejayandy/article/details/38710859
-
-## ubuntu常用文件操作
-
-+ `mkidr old` : 创建名为`old`的目录
-+ `mv old new`: 将`old`目录命名为`new`
-+ `rmdir old` : 目录删除分为删除空目录和非空目录，`rmdir`用于删除空目录
-+ `rm -rf old` : 指令删除非空目录
-+ `cp -r old /home` : 将`old`目录复制到`/home`路径下
-+ `touch old` : 创建`old`文件，其他的过程都和目录的操作方法是一样的
-
-[ubuntu创建目录][]
-
-[ubuntu创建目录]: https://jingyan`.baidu``.com`/article/fec7a1e5efb5331191b4e768`.html`
-
 ## 压缩/解压
 
 ### 7z
@@ -120,7 +88,7 @@
 
 解包：`tar xvf FileName.tar`
 打包：`tar cvf FileName.tar DirName`
-（注： `tar` 是打包，不是压缩！）
+(`tar` 仅仅是打包，也有压缩的选项)
 *****
 
 ### `.gz`
@@ -669,7 +637,7 @@ tail [-n number] 文件
 [root@www ~]# tail -n 20 /etc/man.config
 ```
 
-## 安装Windows 字体
+## 安装 Windows 字体
 
 或者，将所有的 `Windows` 字体复制到 /usr/share/fonts 目录下并使用一下命令安装字体：
 
@@ -685,7 +653,7 @@ chmod 755 /usr/share/fonts/WindowsFonts/*
 fc-cache
 ```
 
-### 应用到vscode
+### vscode 调整字体
 
 "editor.fontFamily": "Fira Code, Source Code Pro, Noto Sans CJK SC, monospace"
 
@@ -706,14 +674,201 @@ fc-cache
 
 `makrdown` 的话，还有个`"markdown.preview.fontFamily"`设置。
 
-[refer1][]
-[refer2][]
-[refer3][]
+[refer1](https://zhuanlan.zhihu.com/p/40434062)
+[refer2](https://segmentfault.com/a/1190000004168301)
+[refer3][(https://www.v2ex.com/t/453862)
 
-[refer1]: https://zhuanlan.zhihu.com/p/40434062
+### oh-my-zsh 中定义的别名
 
-[refer2]: https://segmentfault.com/a/1190000004168301
+为了方便使用，oh-my-zsh 定义了许多别名，下面是其中一部分。
 
-[refer3]: https://www.v2ex.com/t/453862
-
-
+```bashrc
+-='cd -'
+...=../..
+....=../../..
+.....=../../../..
+......=../../../../..
+1='cd -'
+2='cd -2'
+3='cd -3'
+4='cd -4'
+5='cd -5'
+6='cd -6'
+7='cd -7'
+8='cd -8'
+9='cd -9'
+_='sudo '
+afind='ack -il'
+diff='diff --color'
+egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+g=git
+ga='git add'
+gaa='git add --all'
+gam='git am'
+gama='git am --abort'
+gamc='git am --continue'
+gams='git am --skip'
+gamscp='git am --show-current-patch'
+gap='git apply'
+gapa='git add --patch'
+gapt='git apply --3way'
+gau='git add --update'
+gav='git add --verbose'
+gb='git branch'
+gbD='git branch -D'
+gba='git branch -a'
+gbd='git branch -d'
+gbda='git branch --no-color --merged | command grep -vE "^(\+|\*|\s*($(git_main_branch)|development|develop|devel|dev)\s*$)" | command xargs -n 1 git branch -d'
+gbl='git blame -b -w'
+gbnm='git branch --no-merged'
+gbr='git branch --remote'
+gbs='git bisect'
+gbsb='git bisect bad'
+gbsg='git bisect good'
+gbsr='git bisect reset'
+gbss='git bisect start'
+gc='git commit -v'
+'gc!'='git commit -v --amend'
+gca='git commit -v -a'
+'gca!'='git commit -v -a --amend'
+gcam='git commit -a -m'
+'gcan!'='git commit -v -a --no-edit --amend'
+'gcans!'='git commit -v -a -s --no-edit --amend'
+gcb='git checkout -b'
+gcd='git checkout develop'
+gcf='git config --list'
+gcl='git clone --recurse-submodules'
+gclean='git clean -id'
+gcm='git checkout $(git_main_branch)'
+gcmsg='git commit -m'
+'gcn!'='git commit -v --no-edit --amend'
+gco='git checkout'
+gcount='git shortlog -sn'
+gcp='git cherry-pick'
+gcpa='git cherry-pick --abort'
+gcpc='git cherry-pick --continue'
+gcs='git commit -S'
+gcsm='git commit -s -m'
+gd='git diff'
+gdca='git diff --cached'
+gdct='git describe --tags $(git rev-list --tags --max-count=1)'
+gdcw='git diff --cached --word-diff'
+gds='git diff --staged'
+gdt='git diff-tree --no-commit-id --name-only -r'
+gdw='git diff --word-diff'
+gf='git fetch'
+gfa='git fetch --all --prune --jobs=10'
+gfg='git ls-files | grep'
+gfo='git fetch origin'
+gg='git gui citool'
+gga='git gui citool --amend'
+ggpull='git pull origin "$(git_current_branch)"'
+ggpur=ggu
+ggpush='git push origin "$(git_current_branch)"'
+ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
+ghh='git help'
+gignore='git update-index --assume-unchanged'
+gignored='git ls-files -v | grep "^[[:lower:]]"'
+git-svn-dcommit-push='git svn dcommit && git push github $(git_main_branch):svntrunk'
+gk='\gitk --all --branches'
+gke='\gitk --all $(git log -g --pretty=%h)'
+gl='git pull'
+glg='git log --stat'
+glgg='git log --graph'
+glgga='git log --graph --decorate --all'
+glgm='git log --graph --max-count=10'
+glgp='git log --stat -p'
+glo='git log --oneline --decorate'
+globurl='noglob urlglobber '
+glod='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'\'
+glods='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'\'' --date=short'
+glog='git log --oneline --decorate --graph'
+gloga='git log --oneline --decorate --graph --all'
+glol='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'
+glola='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
+glols='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --stat'
+glp=_git_log_prettily
+glum='git pull upstream $(git_main_branch)'
+gm='git merge'
+gma='git merge --abort'
+gmom='git merge origin/$(git_main_branch)'
+gmt='git mergetool --no-prompt'
+gmtvim='git mergetool --no-prompt --tool=vimdiff'
+gmum='git merge upstream/$(git_main_branch)'
+gp='git push'
+gpd='git push --dry-run'
+gpf='git push --force-with-lease'
+'gpf!'='git push --force'
+gpoat='git push origin --all && git push origin --tags'
+gpristine='git reset --hard && git clean -dffx'
+gpsup='git push --set-upstream origin $(git_current_branch)'
+gpu='git push upstream'
+gpv='git push -v'
+gr='git remote'
+gra='git remote add'
+grb='git rebase'
+grba='git rebase --abort'
+grbc='git rebase --continue'
+grbd='git rebase develop'
+grbi='git rebase -i'
+grbm='git rebase $(git_main_branch)'
+grbs='git rebase --skip'
+grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+grev='git revert'
+grh='git reset'
+grhh='git reset --hard'
+grm='git rm'
+grmc='git rm --cached'
+grmv='git remote rename'
+groh='git reset origin/$(git_current_branch) --hard'
+grrm='git remote remove'
+grs='git restore'
+grset='git remote set-url'
+grss='git restore --source'
+grt='cd "$(git rev-parse --show-toplevel || echo .)"'
+gru='git reset --'
+grup='git remote update'
+grv='git remote -v'
+gsb='git status -sb'
+gsd='git svn dcommit'
+gsh='git show'
+gsi='git submodule init'
+gsps='git show --pretty=short --show-signature'
+gsr='git svn rebase'
+gss='git status -s'
+gst='git status'
+gsta='git stash push'
+gstaa='git stash apply'
+gstall='git stash --all'
+gstc='git stash clear'
+gstd='git stash drop'
+gstl='git stash list'
+gstp='git stash pop'
+gsts='git stash show --text'
+gstu='git stash --include-untracked'
+gsu='git submodule update'
+gsw='git switch'
+gswc='git switch -c'
+gtl='gtl(){ git tag --sort=-v:refname -n -l "${1}*" }; noglob gtl'
+gts='git tag -s'
+gtv='git tag | sort -V'
+gunignore='git update-index --no-assume-unchanged'
+gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+gup='git pull --rebase'
+gupa='git pull --rebase --autostash'
+gupav='git pull --rebase --autostash -v'
+gupv='git pull --rebase -v'
+gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
+history=omz_history
+l='ls -lah'
+la='ls -lAh'
+ll='ls -lh'
+ls='ls --color=tty'
+lsa='ls -lah'
+md='mkdir -p'
+mma='mathematica -singleLaunch'
+rd=rmdir
+which-command=whence
+```

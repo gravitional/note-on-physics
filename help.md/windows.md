@@ -123,3 +123,20 @@ windows 管理工具: `%windir%\system32\control.exe\ /name Microsoft.Administra
 
 在`文件管理取`地址栏输入`shell:AppsFolder`，大小写无所谓.
 或者在`Powershell`中输入`explorer shell:appsfolder`，就可以打开UWP 应用的文件夹，可以创建桌面快捷方式。
+
+## 在 windows terminal 中添加其他程序
+
+[Adding profiles for third-party tools](https://github.com/microsoft/terminal/blob/main/doc/user-docs/ThirdPartyToolProfiles.md)
+
+Git Bash
+
+假设`Git Bash`安装到了`C:\\Program Files\\Git`:
+
+```json
+{
+    "name": "Git Bash",
+    "commandline": "C:\\Program Files\\Git\\bin\\bash.exe -li",
+    "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+    "startingDirectory": "%USERPROFILE%"
+}
+```

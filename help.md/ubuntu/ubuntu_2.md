@@ -151,6 +151,12 @@ The hostname (like `products`) is the text that *precedes* the `domain` name (fo
 
 Executing `hostname` from the Command Prompt is the easiest way to show the hostname of a computer.
 
+## oh-my-zsh
+
+[Oh My Zsh 插件](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
+
+[Mac/Linux使用ZSH (oh-my-zsh)](https://www.jianshu.com/p/fa6aa9329be6)
+
 ## 用 Linux 命令显示硬件信息 
 
 [用 Linux 命令显示硬件信息 ](https://linux.cn/article-11422-1.html)
