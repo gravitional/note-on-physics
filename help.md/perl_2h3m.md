@@ -1305,3 +1305,4 @@ print "what" unless -e "/usr/bin/perl";
 
 这些只是`-X`形式的一大类函数中的三个，其中`X`是一些小写或大写字母。这些功能称为`file tests`。注意前面的减号。
 在Google查询中，减号表示排除包含该搜索词的结果。这使得Google`file tests` 比较困难。只需搜索`perl file tests`”即可。
+

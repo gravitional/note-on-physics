@@ -214,7 +214,7 @@ ls ~/draft/draft.2008{03,04,05}.nb
 
 ### 重命名 rename
 
-重命名除了使用`move`,也可以使用`rename`,以下是简单的说明:
+重命名除了使用`mv`,也可以使用`rename`,以下是简单的说明:
 
 ***
 rename - renames multiple files
@@ -228,11 +228,15 @@ rename [ -h|-m|-V ] [ -v ] [ -n ] [ -f ] [ -e|-E perlexpr]*|perlexpr [ files ]
 DESCRIPTION
 
 `rename`根据指定为第一个参数的规则重命名提供的文件名.
-`perlexpr`参数是一个`Perl`表达式,它修改Perl中的`$ _`字符串.
+`perlexpr`参数是一个`Perl`表达式,它修改`Perl`中的`$ _`字符串.
 如果给定的文件名未被表达式修改,则不会重命名.
 如果命令行中未提供文件名,则将通过标准输入读取文件名.
 
-`perlepxr`三种模式,匹配,替换,转化,分别是:`m,s,tr`
+`perlepxr`三种模式,分别是:
+
++ 匹配; `m`
++ 替换; `s`
++ 转化; `tr` or `y` ： 相当于一个映射表格，进行批量替换
 
 例如,要重命名所有匹配`* .bak`的文件,以去除扩展名,可以用
 
@@ -246,12 +250,40 @@ rename 's/\e.bak$//' *.bak
 rename 'y/A-Z/a-z/' *
 ```
 
+rename 'y/-/_/' *
+
+***
 后向引用
 
-+ `` $` `` : 匹配部分的前一部分字符串
++ `` $`  `` : 匹配部分的前一部分字符串
 + `$&`: 匹配的字符串
 + `$'`: 还没有匹配的剩余字符串
 + `$1`: 反向引用的第一个字符串
+
+***
+参数
+
+` -v, --verbose`
+Verbose: 打印出重命名成功的文件.
+
+`-0, --null`
+当从`STDIN`读取时，使用`\0`作为分隔符。
+
+`--path, --fullpath`
+Rename full path: 重命名任何路径元素, 默认行为
+
+`-d, --filename, --nopath, --nofullpath`
+
+不重命名文件夹，只重命名文件部分。
+
+`-n, --nono`
+No action: 打印出要重命名的文件，但不执行操作
+
+`-e  Expression`:
+作用到文件名上的代码。可以重复使用`-e expr1 -e expr2 ...`来构建代码，(like `perl -e`). 如果没有`-e`，第一个参数被当成`code`
+
+`-E Statement`:
+类似于`-e`，但需要`;`结束
 
 ### 获取绝对路径
 
