@@ -5652,6 +5652,320 @@ W^{\mu}=-\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}S_{\rho\sigma}\partial_{\nu}
 有关。
 \end_layout
 
+\begin_layout Chapter
+Dirac 矩阵
+\end_layout
+
+\begin_layout Section
+gamma mu
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2g^{\mu\nu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\overset{\rightharpoonup}{\sigma}\equiv\left(\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\left(\begin{array}{cc}
+0 & -i\\
+i & 0
+\end{array}\right),\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)\right)
+\]
+
+\end_inset
+
+在常用的Wyel表象下，
+\begin_inset Formula 
+\[
+\sigma^{\mu}\equiv\left(1,\overset{\rightharpoonup}{\sigma}\right),\sigma^{\mu\dagger}\equiv\sigma^{\mu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\overline{\sigma}^{\mu}\equiv\left(1,-\overset{\rightharpoonup}{\sigma}\right),\overline{\sigma}^{\mu\dagger}\equiv\overline{\sigma}^{\mu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma^{\mu}=\left(\begin{array}{cc}
+0 & \sigma^{\mu}\\
+\bar{\sigma}^{\mu} & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[\frac{\sigma_{i}}{2},\frac{\sigma_{j}}{2}\right]=i\epsilon^{ijk}\frac{\sigma^{k}}{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sigma^{i}\sigma^{j}=\delta^{ij}+i\epsilon^{ijk}\sigma^{k}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\{ \sigma^{i},\sigma^{j}\right\} =2i\epsilon^{ijk}\sigma^{k}+2\delta^{ji}+2i\epsilon^{jik}\sigma^{k}=2\sigma^{ij}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\{ \frac{1}{2}\sigma^{i},\frac{1}{2}\sigma^{j}\right\} =\frac{1}{2}\sigma^{ij}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+厄米共轭公式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma^{0\dagger}=\gamma^{0},\gamma^{i\dagger}=-\gamma^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\gamma^{0}\gamma^{\mu}\gamma^{0} & =\gamma^{\mu\dagger}\\
+\gamma^{0}\gamma^{\mu\dagger}\gamma^{0} & =\gamma^{\mu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+复共轭公式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\begin{cases}
+\left(\gamma^{\mu}\right)^{*}=-\gamma^{\mu} & \text{for}\mu=\{2\}\\
+\left(\gamma^{\mu}\right)^{*}=\gamma^{\mu}, & \text{for}\mu=\{0,1,3\}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+所以有
+\begin_inset Formula 
+\begin{align*}
+\gamma^{2}.\left(\gamma^{\mu}\right)^{*}.\gamma^{2} & =-\gamma^{\mu}\\
+\gamma^{2}.\gamma^{\mu}.\gamma^{2} & =-\left(\gamma^{\mu}\right)^{*}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+转置公式
+\end_layout
+
+\begin_layout Standard
+转置等于先厄米共轭再复共轭，
+\begin_inset Formula $\gamma^{\mu\perp}=\gamma^{\dagger*}$
+\end_inset
+
+所以
+\begin_inset Formula 
+\begin{align*}
+\gamma^{2}\gamma^{\mu\perp}\gamma^{2} & =\gamma^{2}\gamma^{\dagger*}\gamma^{2}=\gamma^{2}\left(\gamma^{0}\gamma^{\mu}\gamma^{0}\right)^{*}\gamma^{2}=\gamma^{0}\gamma^{2}\gamma^{\mu*}\gamma^{2}\gamma^{0}=-\gamma^{0}\gamma^{\mu}\gamma^{0}\\
+i\gamma^{0}\gamma^{2}\gamma^{\mu\perp}i\gamma^{2}\gamma^{0} & =\gamma^{\mu}\\
+\left(i\gamma^{2}\gamma^{0}\right)\gamma^{\mu\perp}\left(i\gamma^{2}\gamma^{0}\right) & =-\gamma^{\mu}\\
+C\gamma^{\mu\perp}C & =-\gamma^{\mu}
+\end{align*}
+
+\end_inset
+
+其中,
+\begin_inset Formula $C=i\gamma^{2}\gamma^{0},C^{*}=-i(-)\gamma^{2}\gamma^{0}=C,C^{\dagger}=-i\gamma^{0}(-\gamma^{2})=-C,C^{\perp}=-C,C^{-1}=-i\gamma^{0}\gamma^{2}=C$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $C^{*}=C,C^{\dagger}=-C,C^{\perp}=-C,C^{-1}=C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+gamma5
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma^{5}=\frac{-i}{4!}\epsilon^{\mu\nu\rho\sigma}\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[\gamma^{5},S_{\mu\nu}\right]=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+与洛伦兹群（旋量表示）的所有生成元对易。所以狄拉克场构造的表示一定是可约表示。
+\end_layout
+
+\begin_layout Standard
+在Wyel表象下，
+\begin_inset Formula 
+\[
+\gamma^{5}=\left(\begin{array}{cc}
+-1 & 0\\
+0 & 1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+L=\frac{1}{2}(1-\gamma^{5}),R=\frac{1}{2}(1+\gamma^{5}),\{\gamma^{5},\gamma^{\mu}\}=0,L^{2}=1,R^{2}=1,\gamma^{0}L^{\dagger}\gamma^{0}=R
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+L=\left(\begin{array}{cc}
+1 & 0\\
+0 & 0
+\end{array}\right),R=\left(\begin{array}{cc}
+0 & 0\\
+0 & 1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+L\gamma^{\mu}=\gamma^{\mu}R,R\gamma^{\mu}=\gamma^{\mu}L
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\bar{\psi}R\gamma^{\mu}L\psi$
+\end_inset
+
+是合理的组合。
+\end_layout
+
+\begin_layout Enumerate
+也就是说
+\begin_inset Formula $\bar{\psi_{L}}=(L\psi)^{\dagger}\gamma^{0}=\psi^{\dagger}L^{\dagger}\gamma^{0}=\psi^{\dagger}\gamma^{0}\gamma^{0}L\gamma^{0}=\bar{\psi}R$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\begin_inset Formula $\psi$
+\end_inset
+
+场的左手分量是
+\begin_inset Formula $L.\psi$
+\end_inset
+
+,右手分量是
+\begin_inset Formula $R.\psi$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\begin_inset Formula $\bar{\psi}$
+\end_inset
+
+场的左手分量是
+\begin_inset Formula $\bar{\psi}.R$
+\end_inset
+
+，右手分量是
+\begin_inset Formula $\bar{\psi}.L$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\begin_inset Formula 
+\[
+\bar{\psi}_{L}=\bar{\psi}.R,\quad\bar{\psi}_{R}=\bar{\psi}.L
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout
