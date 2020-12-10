@@ -4,7 +4,7 @@
 fig_size=( 400 400 )
 background=true
 
-cat>loop_sh.tex<<EOF
+cat>_tex_chpt_1loop.tex<<EOF
 \documentclass[a4paper]{article}
 \usepackage{axodraw2}
 \usepackage{pstricks}
@@ -15,14 +15,14 @@ EOF
 
 #  定义图像的尺寸
 
-cat>>loop_sh.tex<<EOF
+cat>>_tex_chpt_1loop.tex<<EOF
 \begin{center}
     \begin{axopicture}(${fig_size[0]},${fig_size[1]})
 EOF
 
 # 画背景的格子
 if ${background}; then
-    cat >>loop_sh.tex<<EOF
+    cat >>_tex_chpt_1loop.tex<<EOF
         % ++++++++++++++++++++格子   
         \AxoGrid(0,0)(10,10)(52,52){LightGray}{0.5}
         % ++++++++++++++++++++
@@ -72,7 +72,7 @@ arc_x1=$(( mid_x  ))
 arc_y1=$(( fig_y1 ))
 ##++++++++++++++++++++++++++++
 
-cat>>loop_sh.tex<<EOF
+cat>>_tex_chpt_1loop.tex<<EOF
         % +++++++++++++++++++++++++++++ 图 a(0,400),(100,470)
         \Line[${arrow}](${line_x1},${line_y1})(${line_x2},${line_y2})
         % (起点)，(终点)
@@ -129,7 +129,7 @@ arc_x1=$(( mid_x  ))
 arc_y1=$(( pho_y1 ))
 ##++++++++++++++++++++++++++++
 
-cat>>loop_sh.tex<<EOF
+cat>>_tex_chpt_1loop.tex<<EOF
         % +++++++++++++++++++++++++++++ 图 a(0,400),(100,470)
         \Line[${arrow}](${line_x1},${line_y1})(${line_x2},${line_y2})
         % (起点)，(终点)
@@ -145,7 +145,7 @@ EOF
 
 
 
-cat >>loop_sh.tex<<EOF
+cat >>_tex_chpt_1loop.tex<<EOF
 \end{axopicture}
 \end{center}
 \end{document}
