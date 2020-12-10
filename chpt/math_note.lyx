@@ -44,6 +44,7 @@
 %\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\res}{Res}
 \DeclareMathOperator{\disc}{Disc}
+\DeclareMathOperator{\sign}{Sign}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\cola}[1]{{\color{blue}{#1}}}
 %%%+++++++++++++++++++++++++++++++
@@ -1651,17 +1652,10 @@ literal "true"
 
 给出一个现代版本的推导
 \begin_inset Formula 
-\[
-\lim_{\varepsilon\to0}\frac{1}{x\pm i\varepsilon}=\text{P.V.}\frac{1}{x}\mp i\pi\delta(x)
-\]
-
-\end_inset
-
-相应地有
-\begin_inset Formula 
-\[
-\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x\pm i\varepsilon}=\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)}{x}\dif x\mp i\pi f(0)
-\]
+\begin{align*}
+\lim_{\varepsilon\to0}\frac{1}{x\pm i\varepsilon} & =\text{P.V.}\frac{1}{x}\mp i\pi\delta(x)\\
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x\pm i\varepsilon} & =\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)}{x}\dif x\mp i\pi f(0)
+\end{align*}
 
 \end_inset
 
@@ -2495,7 +2489,456 @@ f\otimes g(T)=\int\dif\tau\,f(\tau)g(T-\tau)
 \end_layout
 
 \begin_layout Standard
+在光锥坐标中,动量的各分量定义为:
+\end_layout
 
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+k^{\pm} & =k^{0}\pm k^{3},\quad k_{\perp}^{2}=\left(k^{1}\right)^{2}+\left(k^{2}\right)^{2}\\
+k^{\mu}k_{\mu} & =\left(k^{0}\right)^{2}-\left(k^{1}\right)^{2}-\left(k^{2}\right)^{2}-\left(k^{3}\right)^{2}=k^{+}k^{-}-\left(k^{\perp}\right)^{2}\\
+p^{+}p^{-} & =M^{2},\quad\left(p^{\perp}\right)^{2}=0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $k^{\perp}$
+\end_inset
+
+ 为垂直方向的动量，在垂直面上可以分解成两个方向的投影，把这个矢量记作
+\begin_inset Formula $\vec{k}_{\perp}$
+\end_inset
+
+，其模方为
+\begin_inset Formula $k_{\perp}^{2}$
+\end_inset
+
+。最后一行我们假设了核子在
+\begin_inset Formula $z$
+\end_inset
+
+方向快速运动，因此
+\begin_inset Formula $\left(p^{\perp}\right)^{2}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+光锥动量：介子和重子传播子
+\begin_inset Formula $D_{\phi}\left(k\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $D_{B}\left(k\right)$
+\end_inset
+
+ 定义为：
+\begin_inset Formula 
+\begin{align*}
+D_{\phi}\left(k\right) & =k^{2}-m_{\phi}^{2}+i\varepsilon=k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}+i\varepsilon=k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\\
+D_{B}\left(p-k\right) & =\left(p-k\right)^{+}\left(p-k\right)^{-}-k_{\perp}^{2}-m_{B}^{2}+i\varepsilon=\left(p-k\right)^{+}\left(p-k\right)^{-}-\Omega_{B}+i\varepsilon
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+\Omega_{\phi}=k_{\perp}^{2}+m_{\phi}^{2}\ge0,\quad\Omega_{B}=k_{\perp}^{2}+m_{B}^{2}\ge0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+光锥积分
+\end_layout
+
+\begin_layout Standard
+被积函数化简后，形式为
+\begin_inset Formula $\frac{1}{D_{\phi}^{n}D_{B}^{m}}$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
+是自然数)。此类积分可以通过它们的留数求解：
+\begin_inset Formula 
+\begin{align*}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)} & =\left(-2\pi i\right)\frac{1}{D_{\phi B}p^{+}\bar{y}}\\
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)} & =\frac{\partial}{\partial m_{\phi}^{2}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\left(-2\pi i\right)\frac{1}{D_{\phi B}^{2}p^{+}\bar{y}}\\
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)^{2}} & =\frac{\partial}{\partial M_{B}^{2}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\left(-2\pi i\right)\frac{y}{D_{\phi B}^{2}p^{+}\bar{y}^{2}}
+\end{align*}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{align*}
+D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\left(1-y\right)M^{2}}{1-y}\\
+\bar{y} & =1-y
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+作为一个例子，演示第一个积分的计算过程，
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
+= & \int\dif k^{-}\frac{1}{{\color{blue}\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}{\color{red}\left[\left(p-k\right)^{+}\left(p-k\right)^{-}-\Omega_{B}+i\varepsilon\right]}}\\
+= & \int\dif k^{-}\frac{1}{k^{+}\left(p-k\right)^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)}{\color{red}\left[\left(p-k\right)^{-}-\frac{\Omega_{B}-i\varepsilon}{\left(p-k\right)^{+}}\right]}}
+\end{align*}
+
+\end_inset
+
+由于在分裂函数中包含一个
+\begin_inset Formula $\delta\left(y-\frac{k^{+}}{p^{+}}\right)$
+\end_inset
+
+函数，考虑到
+\begin_inset Formula 
+\[
+\int\dif k^{+}\delta\left(y-\frac{k^{+}}{p^{+}}\right)=\int\dif k^{+}\abs*{p^{+}}\delta\left(k^{+}-yp^{+}\right)
+\]
+
+\end_inset
+
+继续化简，
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif k^{-}\frac{1}{k^{+}\left(p-k\right)^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)}{\color{red}\left[\left(p-k\right)^{-}-\frac{\Omega_{B}-i\varepsilon}{\left(p-k\right)^{+}}\right]}}\\
+\Rightarrow & \int\dif k^{-}\frac{-1}{yp^{+}\left(1-y\right)p^{+}\left({\color{blue}k^{-}-\frac{\Omega_{\phi}}{yp^{+}}+\frac{i\varepsilon}{yp^{+}}}\right)\left[{\color{red}k^{-}-\left(p^{-}-\frac{\Omega_{B}}{\left(1-y\right)p^{+}}\right)-\frac{i\varepsilon}{\left(1-y\right)p^{+}}}\right]}\\
+= & \int\dif k^{-}\frac{-1}{yp^{+}\left(1-y\right)p^{+}\left[{\color{blue}k^{-}-\left(\frac{\Omega_{\phi}}{yp^{+}}-\frac{i\varepsilon}{yp^{+}}\right)}\right]\left[{\color{red}k^{-}-\left(\frac{\left(1-y\right)M^{2}-\Omega_{B}}{\left(1-y\right)p^{+}}+\frac{i\varepsilon}{\left(1-y\right)p^{+}}\right)}\right]}
+\end{align*}
+
+\end_inset
+
+极点为
+\begin_inset Formula $\frac{\Omega_{\phi}}{yp^{+}},\frac{\left(1-y\right)M^{2}-\Omega_{B}}{\left(1-y\right)p^{+}}$
+\end_inset
+
+，两个极点分别位于下半平面和上半平面。第一个极点的表达式更简单一些。
+\end_layout
+
+\begin_layout Standard
+考虑到
+\begin_inset Formula 
+\[
+\Omega_{\phi}=k_{\perp}^{2}+m_{\phi}^{2}\ge0,\quad\Omega_{B}=k_{\perp}^{2}+M_{B}^{2}\ge0,\quad p^{+}p^{-}=M^{2},\quad\left(p^{\perp}\right)^{2}=0
+\]
+
+\end_inset
+
+假设
+\begin_inset Formula $yp^{+}>0,\left(1-y\right)p^{+}>0$
+\end_inset
+
+，根据留数定理：
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\left(-2\pi i\right)\res\left[\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\right]_{\text{顺时针下半平面}}\\
+ & =\lim_{k^{-}\to\Omega_{\phi}/\left(yp^{+}\right)}\left(-2\pi i\right)\frac{\left({\color{blue}k^{-}-\left(\frac{\Omega_{\phi}}{yp^{+}}-\frac{i\varepsilon}{yp^{+}}\right)}\right)\left(-1\right)}{yp^{+}\left(1-y\right)p^{+}\left[{\color{blue}k^{-}-\left(\frac{\Omega_{\phi}}{yp^{+}}-\frac{i\varepsilon}{yp^{+}}\right)}\right]\left[{\color{red}k^{-}-\left(\frac{\left(1-y\right)M^{2}-\Omega_{B}}{\left(1-y\right)p^{+}}+\frac{i\varepsilon}{\left(1-y\right)p^{+}}\right)}\right]}\\
+ & =\left(2\pi i\right)\frac{1}{yp^{+}\left(1-y\right)p^{+}\left[{\color{red}\frac{\Omega_{\phi}}{yp^{+}}-\left(\frac{\left(1-y\right)M^{2}-\Omega_{B}}{\left(1-y\right)p^{+}}\right)}\right]}\\
+ & =\left(2\pi i\right)\frac{1}{\left(1-y\right)p^{+}\Omega_{\phi}-yp^{+}\left(1-y\right)M^{2}+yp^{+}\Omega_{B}}\\
+ & =\frac{\left(2\pi i\right)}{p^{+}}\frac{1}{\left(1-y\right)\left(k_{\perp}^{2}+m_{\phi}^{2}\right)-y\left(1-y\right)M^{2}+y\left(k_{\perp}^{2}+M_{B}^{2}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+正比于 
+\begin_inset Formula $\delta$
+\end_inset
+
+ 的项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)} & =\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}\\
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}} & =\frac{\partial}{\partial\Omega_{\phi}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=\frac{2\pi i}{p^{+}\Omega_{\phi}}\delta\left(y\right)\\
+\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)} & =2\pi i\delta\left(y\right)\frac{\Omega_{\phi}}{p^{+}}\left[\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)-1\right]\\
+\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)^{2}} & =\frac{\partial}{\partial\Omega_{\phi}}\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)}=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
+\end{align*}
+
+\end_inset
+
+上述积分只有一个奇点，以
+\begin_inset Formula $\frac{1}{D_{\phi}\left(k\right)}$
+\end_inset
+
+为例，当
+\begin_inset Formula $k^{+}>0$
+\end_inset
+
+时，极点在
+\begin_inset Formula $\frac{\Omega_{\phi}}{k^{+}}-\frac{i\varepsilon}{k^{+}}$
+\end_inset
+
+，第四象限，
+\begin_inset Formula 
+\begin{align*}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)} & =\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\int\dif k^{-}\frac{1}{k^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)}}\\
+ & =\left(-2\pi i\right)\res\left[\frac{1}{k^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)}}\right]_{\text{下半平面}}-\int_{\text{弧}}\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}\\
+ & =\left(-2\pi i\right)\frac{1}{k^{+}}-\int_{0}^{-\pi}\dif\theta\frac{i}{k^{+}}\frac{Re^{i\theta}}{\left(Re^{i\theta}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)}\\
+ & =\frac{-2\pi i}{k^{+}}+\int_{0}^{\pi}\dif\theta\frac{i}{k^{+}}\frac{1}{\left(1-\frac{\Omega_{\phi}}{k^{+}Re^{i\theta}}\right)}\sim\frac{-2\pi i}{k^{+}}+\frac{i}{k^{+}}\left(\pi+\frac{\Omega_{\phi}}{k^{+}R}\left(-2i\right)\right)\\
+ & =\frac{-\pi i}{k^{+}}\left(1+\frac{\Omega_{\phi}}{k^{+}R\pi}\left(2i\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\color blue
+
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=\frac{-i\pi}{k^{+}}+\frac{2\Omega_{\phi}}{k^{+;2}R}=\frac{-i\pi}{k^{+}-i\varepsilon\Omega_{\phi}},\quad k^{+}>0,\varepsilon>0
+\]
+
+\end_inset
+
+
+\color inherit
+其中在圆弧上，作了变量替换，
+\begin_inset Formula $k^{-}=Re^{i\theta},\dif k^{-}=e^{i\theta}Ri\dif\theta$
+\end_inset
+
+，并利用了
+\begin_inset Formula $R\to+\infty$
+\end_inset
+
+的条件。这个结果和直接使用公式
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{f\left(x\right)\dif x}{x\pm i\varepsilon}=\mathcal{P}\int_{-\infty}^{+\infty}\frac{f\left(x\right)}{x}\dif x\mp i\pi f\left(0\right)
+\]
+
+\end_inset
+
+是一样的。
+\end_layout
+
+\begin_layout Standard
+当 
+\begin_inset Formula $k^{+}=0$
+\end_inset
+
+ 时，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=\int\dif k^{-}\frac{1}{-\Omega_{\phi}+i\varepsilon}=\frac{1}{-\Omega_{\phi}+i\varepsilon}\int\dif k^{-}=0
+\]
+
+\end_inset
+
+无标度奇幂次积分，认为是零。
+\end_layout
+
+\begin_layout Standard
+类似于
+\begin_inset Formula $k^{+}>0$
+\end_inset
+
+，当 
+\begin_inset Formula $k^{+}<0$
+\end_inset
+
+ 时，极点
+\begin_inset Formula $\frac{\Omega_{\phi}}{k^{+}}-\frac{i\varepsilon}{k^{+}}$
+\end_inset
+
+在第二象限，
+\begin_inset Formula 
+\begin{align*}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)} & =\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\int\dif k^{-}\frac{1}{k^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)}}\\
+ & =\left(-2\pi i\right)\res\left[\frac{1}{k^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)}}\right]_{\text{下半平面}}-\int_{\text{弧}}\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}\\
+ & =-\int_{0}^{-\pi}\dif\theta\frac{i}{k^{+}}\frac{Re^{i\theta}}{\left(Re^{i\theta}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)}\\
+ & =\int_{0}^{\pi}\dif\theta\frac{i}{k^{+}}\frac{1}{\left(1-\frac{\Omega_{\phi}}{k^{+}Re^{i\theta}}\right)}\sim\frac{i}{k^{+}}\left(\pi+\frac{\Omega_{\phi}}{k^{+}R}\left(-2i\right)\right)\\
+ & =\frac{\pi i}{k^{+}}\left(1+\frac{\Omega_{\phi}}{k^{+}R\pi}\left(-2i\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\color blue
+
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=\frac{i\pi}{k^{+}-i\varepsilon\Omega_{\phi}},\quad k^{+}<0,\varepsilon>0
+\]
+
+\end_inset
+
+
+\color inherit
+综合三种情况，
+\begin_inset Formula $\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}$
+\end_inset
+
+可以写成
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=\frac{-i\pi\theta\left(k^{+}\right)}{k^{+}-i\varepsilon\Omega_{\phi}}+\frac{i\pi\theta\left(-k^{+}\right)}{k^{+}-i\varepsilon\Omega_{\phi}},\quad\varepsilon\to0^{+}
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=\frac{-i\pi\theta\left(k^{+}\right)}{k^{+}-i\varepsilon\Omega_{\phi}}+\frac{i\pi\theta\left(-k^{+}\right)}{k^{+}-i\varepsilon\Omega_{\phi}}=\frac{-\sign\left(k^{+}\right)i\pi}{k^{+}-i\varepsilon\Omega_{\phi}}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\theta\left(k^{+}\right)$
+\end_inset
+
+是阶跃函数。值得注意的是，
+\begin_inset Formula $1/D_{\phi}\left(k\right)$
+\end_inset
+
+与
+\begin_inset Formula $1/\left(D_{\phi}\left(k\right)^{n}D_{\phi}\left(k\right)^{m}\right)$
+\end_inset
+
+不同，
+\begin_inset Formula $1/D_{\phi}\left(k\right)$
+\end_inset
+
+在大圆弧上的积分值不为零，另一方面圆弧半径不是固定的。在以上计算中，我们忽略了奇点的不稳定性，即
+\begin_inset Formula $k^{-}=\frac{\Omega_{\phi}-i\varepsilon}{k^{+}}$
+\end_inset
+
+中
+\begin_inset Formula $k^{-}$
+\end_inset
+
+ pole 的位置随
+\begin_inset Formula $k^{+}$
+\end_inset
+
+的变化而变化，所以不能用柯西定理求出其积分值。
+\end_layout
+
+\begin_layout Standard
+我们观察以下积分：
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif k^{+}\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}}=\int\dif k^{+}\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)^{2}}=\frac{2\pi i}{\Omega_{\phi}}
+\end{align*}
+
+\end_inset
+
+这个结果可以从维数正规化公式导出，取
+\begin_inset Formula $d=2$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{align*}
+\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{(k^{2}-\Delta+i\epsilon)^{2}} & =\frac{i}{(4\pi)^{d/2}}\frac{1}{\Delta^{2-\frac{d}{2}}}\Gamma\left(\frac{4-d}{2}\right)\\
+\int\frac{\dif^{2}k}{(2\pi)^{2}}\frac{1}{(k^{2}-\Delta+i\epsilon)^{2}} & =\frac{i}{\left(4\pi\right)}\frac{1}{\Delta}\Gamma\left(1\right)=\frac{i}{4\pi\Delta}
+\end{align*}
+
+\end_inset
+
+当
+\begin_inset Formula $d=2$
+\end_inset
+
+时，积分
+\begin_inset Formula $\propto\frac{1}{\Lambda^{2}}$
+\end_inset
+
+，是收敛的，可以交换积分次序或者平移积分变量，（积分在实轴附近的奇点在 wick 转动中被去掉了）
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow & \int\dif k^{0}\int\dif k^{1}\frac{1}{\left(k^{0;2}-k^{1;2}-\Delta+i\epsilon\right)^{2}}=\frac{\pi i}{\Delta}\\
+\Rightarrow & \int_{-\infty}^{+\infty}\dif k^{1}\int_{-\infty}^{+\infty}\dif\left(k^{0}+k^{1}\right)\frac{1}{\left(2k^{0}k^{1}-\Delta+i\epsilon\right)^{2}}=\frac{\pi i}{\Delta}\\
+\Rightarrow & \int_{-\infty}^{+\infty}\dif k^{1}\int_{-\infty}^{+\infty}\frac{1}{2}\dif\left(2k^{0}\right)\frac{1}{\left(2k^{0}k^{1}-\Delta+i\epsilon\right)^{2}}=\frac{\pi i}{\Delta}\\
+\Rightarrow & \int_{-\infty}^{+\infty}\dif k^{1}\int_{-\infty}^{+\infty}\dif\left(k^{0}\right)\frac{1}{\left(k^{0}k^{1}-\Delta+i\epsilon\right)^{2}}=\frac{2\pi i}{\Delta}
+\end{align*}
+
+\end_inset
+
+另一方面，当
+\begin_inset Formula $k^{+}\neq0$
+\end_inset
+
+时，协变积分满足
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}}=\frac{1}{\left(k^{+}\right)^{2}}\int\dif k^{-}\frac{1}{\left(k^{-}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)^{2}}=0
+\]
+
+\end_inset
+
+因为是
+\begin_inset Formula $2$
+\end_inset
+
+阶奇点，且在大圆环上收敛的足够快。
+\end_layout
+
+\begin_layout Standard
+综上
+\begin_inset Formula 
+\begin{align*}
+\int\dif k^{+}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}} & =\frac{2\pi i}{\Omega_{\phi}},\text{for }\forall k^{+}\\
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}} & =0,\text{ for }k^{+}\neq0
+\end{align*}
+
+\end_inset
+
+所以我们推测，
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}}=\frac{2\pi i}{\Omega_{\phi}}\delta\left(k^{+}\right)=\frac{2\pi i}{\Omega_{\phi}}\delta\left(yp^{+}\right)=\frac{2\pi i}{\Omega_{\phi}}\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+根据上式得到
+\begin_inset Formula 
+\begin{align*}
+\int_{-\infty}^{+\infty}\dif k^{-}\frac{1}{D_{\phi}\left(k\right)} & =\int_{-\infty}^{+\infty}\dif k^{-}\int_{\mu^{2}}^{\Omega_{\phi}}\dif\ell\frac{1}{\left(k^{+}k^{-}-\ell+i\varepsilon\right)^{2}}\text{ 交换积分次序}\\
+ & =\int_{\mu^{2}}^{\Omega_{\phi}}\dif\ell\int_{-\infty}^{+\infty}\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\ell+i\varepsilon\right)^{2}}=\int_{\mu^{2}}^{\Omega_{\phi}}\frac{2\pi i}{\Omega_{\phi}}\frac{\delta\left(y\right)}{p^{+}}
+\end{align*}
+
+\end_inset
+
+即
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=2\pi i\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+这个积分是发散的，必须引入正规化因子来表示。这里选取截断
+\begin_inset Formula $\mu^{2}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard

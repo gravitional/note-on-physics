@@ -11081,11 +11081,29 @@ Wick rotations
 
 \end_inset
 
-在
+对费曼传播子的积分，其 pole 通常在
+\begin_inset Formula $k^{0}=\pm\sqrt{\vec{k}^{2}+\Delta}\mp i\varepsilon$
+\end_inset
+
+。在
 \begin_inset Formula $k_{0}$
 \end_inset
 
-复平面上，积分的极点在二四象限，实轴上的积分和虚轴上的积分是大小相等，符号相反的。所以，令
+复平面上，积分的极点在二四象限，实轴上的积分和虚轴上的积分是大小相等，符号相反的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename inset/pasted23.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以，令
 \begin_inset Formula $k^{2}\to-k_{0}^{2}-\vec{k}^{2}=-k_{E}^{2}$
 \end_inset
 
@@ -11105,12 +11123,20 @@ Wick rotations
 。wick转动的最终效果是
 \begin_inset Formula 
 \[
-\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{n}}\to\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{(2\pi)^{4}}\frac{i}{(-k_{E}^{2}-\Delta+i\varepsilon)^{n}}
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{n}}\to{\color{red}i\left(-1\right)^{n}}\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{(2\pi)^{4}}\frac{1}{(k_{E}^{2}+\Delta-i\varepsilon)^{n}}
 \]
 
 \end_inset
 
+wick 转动的好处是，转动之后，离积分轴很近的极点一般已经不存在了，当
+\begin_inset Formula $\Delta\neq0$
+\end_inset
 
+，可以放心的去掉
+\begin_inset Formula $-i\varepsilon$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
@@ -11696,21 +11722,7 @@ gamma函数展开
 \end_layout
 
 \begin_layout Standard
-利用以上这些关系，可以求解欧几里得空间的圈积分：
-\begin_inset Formula 
-\begin{align*}
-\int_{0}^{\infty}\dif k_{E}\frac{k_{E}^{a}}{(k_{E}^{2}+\Delta)^{b}} & =\int_{0}^{\infty}\dif\Delta^{1/2}t\frac{\Delta^{a/2}t^{a}}{\Delta^{b}(t^{2}+1)^{b}}=\Delta^{\frac{a+1}{2}-b}\int_{0}^{\infty}\dif t\frac{t^{a}}{(t^{2}+1)^{b}}\\
- & =\Delta^{\frac{a+1}{2}-b}\int_{0}^{\infty}\dif t\frac{t^{a}}{(t^{2}+1)^{b}}{\color{red}\text{ with }t=\tan kx,\dif t=\dif kx/\cos^{2}kx},k=\frac{\pi}{2}\\
- & =\Delta^{\frac{a+1}{2}-b}\int_{0}^{1}\dif kx(\sin kx)^{a}(\cos kx)^{2b-2-a}\\
- & =\frac{1}{2}\Delta^{\frac{a+1}{2}-b}\int_{0}^{1}\left(\dif\cos(kx)^{2}\right)(\sin kx)^{a-1}(\cos kx)^{2b-3-a}\\
- & =\frac{1}{2}\Delta^{\frac{a+1}{2}-b}\int_{0}^{1}\left(\dif\cos(kx)^{2}\right)\left(1-\cos(kx)^{2}\right)^{(a-1)/2}(\cos kx)^{b-\frac{a+3}{2}}\\
- & =\frac{1}{2}\Delta^{\frac{a+1}{2}-b}\beta(\frac{a+1}{2},b-\frac{a+1}{2})\\
- & =\Delta^{\frac{a+1}{2}-b}\frac{\Gamma(\frac{a+1}{2})\Gamma(b-\frac{a+1}{2})}{2\Gamma(b)}
-\end{align*}
-
-\end_inset
-
-或者用多项式代换
+利用以上这些关系，可以求解欧几里得空间的圈积分。利用 多项式代换：
 \begin_inset Formula 
 \begin{align*}
  & \int_{0}^{\infty}\dif k_{E}\frac{k_{E}^{a}}{(k_{E}^{2}+\Delta)^{b}}=\Delta^{\frac{a+1}{2}-b}\int_{0}^{\infty}\dif t\frac{t^{a}}{(t^{2}+1)^{b}},\\
@@ -11740,6 +11752,8 @@ gamma函数展开
 \end_inset
 
 经常用到的特殊情况如下：
+\color blue
+
 \begin_inset Formula 
 \begin{align*}
 \int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{(k^{2}-\Delta+i\epsilon)^{2}} & =\frac{i}{(4\pi)^{d/2}}\frac{1}{\Delta^{2-\frac{d}{2}}}\Gamma(\frac{4-d}{2})\\
@@ -11750,6 +11764,8 @@ gamma函数展开
 
 \end_inset
 
+
+\color inherit
 最后一个积分对于
 \begin_inset Formula $d=4$
 \end_inset
@@ -11783,6 +11799,27 @@ gamma函数展开
 \end_inset
 
 倍，请检查约定！
+\end_layout
+
+\begin_layout Standard
+附：转换积分形式的时候，也可以用三角代换，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\int_{0}^{\infty}\dif k_{E}\frac{k_{E}^{a}}{(k_{E}^{2}+\Delta)^{b}} & =\int_{0}^{\infty}\dif\Delta^{1/2}t\frac{\Delta^{a/2}t^{a}}{\Delta^{b}(t^{2}+1)^{b}}=\Delta^{\frac{a+1}{2}-b}\int_{0}^{\infty}\dif t\frac{t^{a}}{(t^{2}+1)^{b}}\\
+ & =\Delta^{\frac{a+1}{2}-b}\int_{0}^{\infty}\dif t\frac{t^{a}}{(t^{2}+1)^{b}}{\color{red}\text{ with }t=\tan kx,\dif t=\dif kx/\cos^{2}kx},k=\frac{\pi}{2}\\
+ & =\Delta^{\frac{a+1}{2}-b}\int_{0}^{1}\dif kx(\sin kx)^{a}(\cos kx)^{2b-2-a}\\
+ & =\frac{1}{2}\Delta^{\frac{a+1}{2}-b}\int_{0}^{1}\left(\dif\cos(kx)^{2}\right)(\sin kx)^{a-1}(\cos kx)^{2b-3-a}\\
+ & =\frac{1}{2}\Delta^{\frac{a+1}{2}-b}\int_{0}^{1}\left(\dif\cos(kx)^{2}\right)\left(1-\cos(kx)^{2}\right)^{(a-1)/2}(\cos kx)^{b-\frac{a+3}{2}}\\
+ & =\frac{1}{2}\Delta^{\frac{a+1}{2}-b}\beta(\frac{a+1}{2},b-\frac{a+1}{2})\\
+ & =\Delta^{\frac{a+1}{2}-b}\frac{\Gamma(\frac{a+1}{2})\Gamma(b-\frac{a+1}{2})}{2\Gamma(b)}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
