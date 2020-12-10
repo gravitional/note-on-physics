@@ -80,6 +80,17 @@ echo  -e "\033[1;47m\033[1;32m Testing output... "
 + `ln -s item link` 创建符号链接, `item`可以是一个文件或目录,`gnome`中,按住`ctrl+shift`拖动会创建链接.
 + `df -h`,让你以 `MB` 或 `G` 为单位查看磁盘的空间.
 
+***
+查看系统版本信息
+
+[ubuntu：查看ubuntu系统的版本信息](https://blog.csdn.net/whbing1471/article/details/52074390)
+
+```bash
+cat /proc/version
+uname -a
+sb_release -a
+```
+
 ### shell 模式切换
 
 1. 查看系统支持的shell模式及位置
@@ -250,7 +261,12 @@ rename 's/\e.bak$//' *.bak
 rename 'y/A-Z/a-z/' *
 ```
 
-rename 'y/-/_/' *
+把文件名中的 中划线 改称 下划线
+
+```bash
+rename -n 'y/-/_/' */* # 先使用 -n 查看将被改名的文件，但不执行操作
+rename -v 'y/-/_/' */* # 去掉 -n 选项，执行操作
+```
 
 ***
 后向引用

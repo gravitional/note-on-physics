@@ -293,6 +293,8 @@ Press ENTER or type command to continue
 
 #### 替换
 
+[vim 查找替换](https://www.cnblogs.com/ltang/articles/2034291.html)
+
 - `r<X>` 将当前字符替换为 X，`replace`
 - `gu<X>` 将指定的文本转换为小写，`这个实在不知道是啥的缩写,get u ？？`
 - `gU<X>` 将指定的文本转换为大写
@@ -303,7 +305,7 @@ Press ENTER or type command to continue
 
 ***
 
-vi/vim 中可以使用 `:s` 命令来替换字符串
+`vi/vim` 中可以使用 `:s` 命令来替换字符串
 
 `:s/vivian/sky/` 替换当前行第一个 `vivian` 为 `sky`
 `:s/vivian/sky/g` 替换当前行所有 `vivian` 为 `sky`
@@ -368,10 +370,6 @@ strings A>B
 
 从上述替换命令可以看到：`g` 放在命令末尾，表示对搜索字符串的每次出现进行替换；不加 `g`，表示只对搜索字符串的首次出现进行替换；
 `g` 放在命令开头，表示对正文中所有包含搜索字符串的行进行替换操作。
-
-[vim 查找替换][]
-
-[vim 查找替换]: https://www.cnblogs.com/ltang/articles/2034291.html
 
 #### 撤销、重做
 
