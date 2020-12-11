@@ -2485,6 +2485,53 @@ f\otimes g(T)=\int\dif\tau\,f(\tau)g(T-\tau)
 \end_layout
 
 \begin_layout Section
+发散积分
+\end_layout
+
+\begin_layout Standard
+我们在计算积分的时候，常常用到变量平移，
+\begin_inset Formula $\int_{-\infty}^{+\infty}\dif pf\left(p+a\right)$
+\end_inset
+
+ 和 
+\begin_inset Formula $\int_{-\infty}^{+\infty}\dif pf\left(p\right)$
+\end_inset
+
+的差别为，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif p\left(a\frac{\dif}{\dif p}f\left(p\right)+\cdots\right)=a\left[f\left(+\infty\right)-f\left(-\infty\right)\right]+\cdots
+\]
+
+\end_inset
+
+如果
+\begin_inset Formula $f\left(+\infty\right)-f\left(-\infty\right)$
+\end_inset
+
+是不相等的常数，就不能做变量平移。对于发散的积分，
+\begin_inset Formula $f\left(+\infty\right)-f\left(-\infty\right)$
+\end_inset
+
+ 是 not well-defined。
+\end_layout
+
+\begin_layout Standard
+如果积分收敛，甚至对数发散，都可以进行变量平移。
+\begin_inset Formula 
+\[
+\log\left(a\right)-\log\left(-a\right)=\log\left(a\right)-\left[\log\left(a\right)\pm i\pi\right]=\mp i\pi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 光锥积分
 \end_layout
 
@@ -2559,7 +2606,23 @@ where
 \end_layout
 
 \begin_layout Standard
-被积函数化简后，形式为
+分裂函数中有一个
+\begin_inset Formula $\int\dif k^{+}\delta\left(y-\frac{k^{+}}{p^{+}}\right)$
+\end_inset
+
+，所以始终认为
+\begin_inset Formula $k^{+}=yp^{+}$
+\end_inset
+
+，
+\begin_inset Formula $\delta\left(k^{+}\right)=\delta\left(y\right)/p^{+}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+圈积分的被积函数化简后，形式为
 \begin_inset Formula $\frac{1}{D_{\phi}^{n}D_{B}^{m}}$
 \end_inset
 
@@ -2653,7 +2716,8 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
  & =\lim_{k^{-}\to\Omega_{\phi}/\left(yp^{+}\right)}\left(-2\pi i\right)\frac{\left({\color{blue}k^{-}-\left(\frac{\Omega_{\phi}}{yp^{+}}-\frac{i\varepsilon}{yp^{+}}\right)}\right)\left(-1\right)}{yp^{+}\left(1-y\right)p^{+}\left[{\color{blue}k^{-}-\left(\frac{\Omega_{\phi}}{yp^{+}}-\frac{i\varepsilon}{yp^{+}}\right)}\right]\left[{\color{red}k^{-}-\left(\frac{\left(1-y\right)M^{2}-\Omega_{B}}{\left(1-y\right)p^{+}}+\frac{i\varepsilon}{\left(1-y\right)p^{+}}\right)}\right]}\\
  & =\left(2\pi i\right)\frac{1}{yp^{+}\left(1-y\right)p^{+}\left[{\color{red}\frac{\Omega_{\phi}}{yp^{+}}-\left(\frac{\left(1-y\right)M^{2}-\Omega_{B}}{\left(1-y\right)p^{+}}\right)}\right]}\\
  & =\left(2\pi i\right)\frac{1}{\left(1-y\right)p^{+}\Omega_{\phi}-yp^{+}\left(1-y\right)M^{2}+yp^{+}\Omega_{B}}\\
- & =\frac{\left(2\pi i\right)}{p^{+}}\frac{1}{\left(1-y\right)\left(k_{\perp}^{2}+m_{\phi}^{2}\right)-y\left(1-y\right)M^{2}+y\left(k_{\perp}^{2}+M_{B}^{2}\right)}
+ & =\frac{\left(2\pi i\right)}{p^{+}}\frac{1}{\left(1-y\right)\left(k_{\perp}^{2}+m_{\phi}^{2}\right)-y\left(1-y\right)M^{2}+y\left(k_{\perp}^{2}+M_{B}^{2}\right)}\\
+ & =\frac{\left(2\pi i\right)}{p^{+}}\frac{1}{k_{\perp}^{2}+\left(1-y\right)m_{\phi}^{2}-y\left(1-y\right)M^{2}+yM_{B}^{2}}
 \end{align*}
 
 \end_inset
@@ -2667,16 +2731,177 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)} & =\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}\\
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}} & =\frac{\partial}{\partial\Omega_{\phi}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=\frac{2\pi i}{\Omega_{\phi}}\frac{\delta\left(y\right)}{p^{+}}\\
-\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)} & =2\pi i\delta\left(y\right)\frac{\Omega_{\phi}}{p^{+}}\left[\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)-1\right]\\
-\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)^{2}} & =\frac{\partial}{\partial\Omega_{\phi}}\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)}=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
-\end{align*}
+\begin{align}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)} & =\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-1}\\
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}} & =\frac{2\pi i}{\Omega_{\phi}}\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-2}\\
+\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)} & =2\pi i\left[\Omega_{\phi}\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)-\Omega_{\phi}\right]\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-3}\\
+\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)^{2}} & =\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-4}
+\end{align}
 
 \end_inset
 
-上述积分只有一个奇点，以
+提取出一个
+\begin_inset Formula $\delta\left(y\right)/p^{+}$
+\end_inset
+
+之后，数幂次，它们应该分别是对数发散，收敛，平方发散，对数发散的。发散的积分是 not well-defined。这几个积分的结果是相互关联的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}
+\]
+
+\end_inset
+
+假如我们对
+\begin_inset Formula $k^{+}$
+\end_inset
+
+求偏导，
+\begin_inset Formula 
+\[
+-k^{+}\frac{\partial}{\partial k^{+}}\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\int\dif k^{-}\frac{k^{+}k^{-}}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)^{2}}
+\]
+
+\end_inset
+
+能得到
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu-a5-4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中积分的形式。对应地，对 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu-a5-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 结果求导，并假设可以使用分部积分，
+\begin_inset Formula 
+\[
+-k^{+}\frac{\partial}{\partial k^{+}}\left[\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\delta\left(k^{+}\right)\right]=\left[\frac{\partial}{\partial k^{+}}k^{+}\right]\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\delta\left(k^{+}\right)=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+所以如果要求这几个积分的结果在偏导关系下一致，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu-a5-4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+应该等于
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)^{2}}=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+而
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu-a5-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 和 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu-a5-2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 可以通过对
+\begin_inset Formula $\Omega_{\phi}$
+\end_inset
+
+求偏导联系起来，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}}=\frac{\partial}{\partial\Omega_{\phi}}\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\frac{2\pi i}{\Omega_{\phi}}\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+类似地，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu-a5-3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+对
+\begin_inset Formula $\Omega_{\phi}$
+\end_inset
+
+求偏导应该等于
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu-a5-4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)^{2}}=\frac{\partial}{\partial\Omega_{\phi}}\int\dif k^{-}\frac{k^{+}k^{-}}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+但理论上积分的泛函是不唯一的，这里令
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{k^{+}k^{-}}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=2\pi i\left[\Omega_{\phi}\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)-\Omega_{\phi}\right]\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+使用留数定理的讨论
+\end_layout
+
+\begin_layout Standard
+上述正比于
+\begin_inset Formula $\delta$
+\end_inset
+
+的积分只有一个奇点，以
 \begin_inset Formula $\frac{1}{D_{\phi}\left(k\right)}$
 \end_inset
 
@@ -2685,7 +2910,7 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 \end_inset
 
 时，极点在
-\begin_inset Formula $\frac{\Omega_{\phi}}{k^{+}}-\frac{i\varepsilon}{k^{+}}$
+\begin_inset Formula $\left(\Omega_{\phi}-i\varepsilon\right)/k^{+}$
 \end_inset
 
 ，第四象限，
@@ -2835,6 +3060,10 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 的变化而变化，所以不能用柯西定理求出其积分值。
 \end_layout
 
+\begin_layout Subsection
+维数正规化讨论
+\end_layout
+
 \begin_layout Standard
 我们观察以下积分：
 \begin_inset Formula 
@@ -2930,7 +3159,11 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 
 \end_inset
 
-这个积分是发散的，必须引入正规化因子来表示。这里选取截断
+提取出一个
+\begin_inset Formula $\frac{\delta\left(y\right)}{p^{+}}$
+\end_inset
+
+之后，这个积分是发散的，必须引入正规化因子来表示。这里选取截断
 \begin_inset Formula $\mu^{2}$
 \end_inset
 
@@ -2964,15 +3197,7 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 \color none
 \begin_inset Formula 
 \[
-\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)}=2\pi i\delta\left(y\right)\frac{\Omega_{\phi}}{p^{+}}\left[\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)-1\right]
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)}=2\pi i\Omega_{\phi}\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}-2\pi i\Omega_{\phi}\frac{\delta\left(y\right)}{p^{+}}
+\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)}=\int\dif k^{-}\frac{k^{+}k^{-}}{k^{+}k^{-}-\Omega_{\phi}+i\varepsilon}
 \]
 
 \end_inset
@@ -2990,14 +3215,23 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 \uwave default
 \noun default
 \color inherit
+数一数量纲，这个积分是线性发散的
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+。
+\end_layout
 
-\begin_inset Formula 
-\[
-\int_{-\infty}^{+\infty}\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=2\pi i\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
-\]
-
-\end_inset
-
+\begin_layout Standard
 
 \family roman
 \series medium
@@ -3011,17 +3245,84 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 \uwave off
 \noun off
 \color none
+如果使用维数正规化方案计算，
+\begin_inset Formula 
+\[
+\int\frac{\dif^{d}k}{\left(2\pi\right)^{d}}\frac{k^{2}}{\left(k^{2}-\Delta+i\epsilon\right)^{2}}=-\frac{d}{2}\frac{i}{\left(4\pi\right)^{d/2}}\frac{1}{\Delta^{1-\frac{d}{2}}}\Gamma\left(\frac{2-d}{2}\right)
+\]
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+当
+\begin_inset Formula $d=2-2\varepsilon$
+\end_inset
+
+，这个积分是对数发散的。
+\begin_inset Formula $\Gamma\left(\varepsilon\right)=\frac{1}{\varepsilon}-\gamma_{E}+\mathcal{O}\left(\varepsilon\right)+\cdots$
+\end_inset
+
+，
+\begin_inset Formula $a^{\varepsilon}=e^{\varepsilon\ln a}=1+\varepsilon\ln a$
+\end_inset
+
 
 \begin_inset Formula 
 \begin{align*}
- & \Rightarrow\int\dif k^{-}\frac{k^{+}k^{-}}{k^{+}k^{-}-\Omega_{\phi}+i\varepsilon}=\int\dif k^{-}\frac{k^{+}k^{-}-\Omega_{\phi}+\Omega_{\phi}}{k^{+}k^{-}-\Omega_{\phi}+i\varepsilon}\\
- & =\int\dif k^{-}\frac{k^{+}k^{-}-\Omega_{\phi}}{k^{+}k^{-}-\Omega_{\phi}+i\varepsilon}+\Omega_{\phi}\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}\\
- & =-2\pi i\Omega_{\phi}\delta\left(k^{+}\right)+2\pi i\Omega_{\phi}\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\delta\left(k^{+}\right)\\
+\int\dif^{d}k\frac{k^{2}}{\left(k^{2}-\Delta+i\epsilon\right)^{2}} & =\left(-i\pi\right)\left(1-\varepsilon\right)\left(\pi\right)^{-\varepsilon}\Delta^{-\varepsilon}\Gamma\left(\varepsilon\right)\\
+ & =\left(-i\pi\right)\left(1-\varepsilon\right)\left(1-\varepsilon\ln\pi\right)\left(1-\varepsilon\ln\Delta\right)\left[\frac{1}{\epsilon}-\gamma_{E}+\mathcal{O}\left(\varepsilon\right)\right]\\
+ & =\left(-i\pi\right)\left(-1-\gamma_{E}+\frac{1}{\varepsilon}-\log\pi-\log\Delta\right)\\
+ & =\left(i\pi\right)\left(-\frac{1}{\varepsilon}+\log\pi\Delta e^{1+\gamma_{E}}\right)
 \end{align*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\int\dif^{2}k\frac{k^{2}}{\left(k^{2}-\Delta+i\epsilon\right)^{2}} & =\int\dif k^{0}\int\dif k^{1}\frac{k^{0;2}-k^{1;2}}{\left(k^{0;2}-k^{1;2}-\Delta+i\epsilon\right)^{2}}\\
+ & =\int\dif k^{0}\int\dif k^{1}\frac{2k^{0}k^{1}}{\left(2k^{0}k^{1}-\Delta+i\epsilon\right)^{2}}\\
+ & =\frac{1}{2}\int\dif k^{0}\int\dif k^{1}\frac{k^{0}k^{1}}{\left(k^{0}k^{1}-\Delta+i\epsilon\right)^{2}}
+\end{align*}
+
+\end_inset
+
+所以，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{k^{+}k^{-}}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)^{2}}=\left(2\pi i\right)\left(-\frac{1}{\varepsilon}+\log\Omega_{\phi}\pi e^{1+\gamma_{E}}\right)
+\]
+
+\end_inset
+
+我们看到，积分的有限项
+\begin_inset Formula $\propto\left(2\pi i\right)\log\Omega_{\phi}$
+\end_inset
+
+。前面使用求导关系，得到的结果是，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)^{2}}=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+积分结果的有限部分是对应的。
 \end_layout
 
 \begin_layout Standard

@@ -11089,7 +11089,7 @@ Wick 转动
 \begin_inset Formula $k_{0}$
 \end_inset
 
-复平面上，积分的极点在二四象限，实轴上的积分和虚轴上的积分是大小相等，符号相反的。
+复平面上，积分的极点在二四象限。如下图所示路径积分为零，所以实轴上的积分和虚轴上的积分是大小相等，符号相反的。
 \end_layout
 
 \begin_layout Standard
@@ -11103,7 +11103,11 @@ Wick 转动
 \end_layout
 
 \begin_layout Standard
-所以，令
+令
+\begin_inset Formula $k^{0}\to ik^{0}$
+\end_inset
+
+，则
 \begin_inset Formula $k^{2}\to-k_{0}^{2}-\vec{k}^{2}=-k_{E}^{2}$
 \end_inset
 
@@ -11123,8 +11127,17 @@ Wick 转动
 。wick转动的最终效果是
 \begin_inset Formula 
 \[
-\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{n}}\to{\color{red}i\left(-1\right)^{n}}\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{(2\pi)^{4}}\frac{1}{(k_{E}^{2}+\Delta-i\varepsilon)^{n}}
+\int_{-\infty}^{+\infty}\dif k^{0}f\left(k^{0}\right)\to-\int_{+\infty i}^{-\infty i}\dif k^{0}f\left(k^{0}\right)=-i\int_{+\infty}^{-\infty}\dif\ell f\left(i\ell\right)
 \]
+
+\end_inset
+
+即
+\begin_inset Formula 
+\begin{align*}
+\int_{-\infty}^{+\infty}\dif k^{0}f\left(k^{0}\right) & =i\int_{-\infty}^{+\infty}\dif k^{0}f\left(ik^{0}\right)\\
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{n}} & ={\color{red}i\left(-1\right)^{n}}\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{(2\pi)^{4}}\frac{1}{(k_{E}^{2}+\Delta-i\varepsilon)^{n}}
+\end{align*}
 
 \end_inset
 
@@ -12024,7 +12037,7 @@ noprefix "false"
 \end_inset
 
 ，之前得到
-\begin_inset Formula $\Gamma(\epsilon)=\frac{1}{\epsilon}-\gamma_{E}+\mathcal{O}(\epsilon)+\cdots$
+\begin_inset Formula $\Gamma\left(\varepsilon\right)=\frac{1}{\varepsilon}-\gamma_{E}+\mathcal{O}\left(\varepsilon\right)+\cdots$
 \end_inset
 
 ，
