@@ -11061,7 +11061,7 @@ Schwinger paramerters 用于 Chapter 34 and Chapter 35.
 \end_layout
 
 \begin_layout Section
-Wick rotations
+Wick 转动
 \end_layout
 
 \begin_layout Standard
@@ -11756,10 +11756,10 @@ gamma函数展开
 
 \begin_inset Formula 
 \begin{align*}
-\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{(k^{2}-\Delta+i\epsilon)^{2}} & =\frac{i}{(4\pi)^{d/2}}\frac{1}{\Delta^{2-\frac{d}{2}}}\Gamma(\frac{4-d}{2})\\
-\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{k^{2}}{(k^{2}-\Delta+i\epsilon)^{2}} & =-\frac{d}{2}\frac{i}{(4\pi)^{d/2}}\frac{1}{\Delta^{1-\frac{d}{2}}}\Gamma(\frac{2-d}{2})\\
-\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{k^{2}}{(k^{2}-\Delta+i\epsilon)^{3}} & =\frac{d}{4}\frac{i}{(4\pi)^{d/2}}\frac{1}{\Delta^{2-\frac{d}{2}}}\Gamma(\frac{4-d}{2})\\
-\int\frac{\dif^{d}k}{(2\pi)^{d}}\frac{1}{(k^{2}-\Delta+i\epsilon)^{3}} & =\frac{-i}{2(4\pi)^{d/2}}\frac{1}{\Delta^{3-\frac{d}{2}}}\Gamma(\frac{6-d}{2})
+\int\frac{\dif^{d}k}{\left(2\pi\right)^{d}}\frac{1}{\left(k^{2}-\Delta+i\epsilon\right)^{2}} & =\frac{i}{\left(4\pi\right)^{d/2}}\frac{1}{\Delta^{2-\frac{d}{2}}}\Gamma\left(\frac{4-d}{2}\right)\\
+\int\frac{\dif^{d}k}{\left(2\pi\right)^{d}}\frac{k^{2}}{\left(k^{2}-\Delta+i\epsilon\right)^{2}} & =-\frac{d}{2}\frac{i}{\left(4\pi\right)^{d/2}}\frac{1}{\Delta^{1-\frac{d}{2}}}\Gamma\left(\frac{2-d}{2}\right)\\
+\int\frac{\dif^{d}k}{\left(2\pi\right)^{d}}\frac{k^{2}}{\left(k^{2}-\Delta+i\epsilon\right)^{3}} & =\frac{d}{4}\frac{i}{\left(4\pi\right)^{d/2}}\frac{1}{\Delta^{2-\frac{d}{2}}}\Gamma\left(\frac{4-d}{2}\right)\\
+\int\frac{\dif^{d}k}{\left(2\pi\right)^{d}}\frac{1}{\left(k^{2}-\Delta+i\epsilon\right)^{3}} & =\frac{-i}{2\left(4\pi\right)^{d/2}}\frac{1}{\Delta^{3-\frac{d}{2}}}\Gamma\left(\frac{6-d}{2}\right)
 \end{align*}
 
 \end_inset
@@ -11783,7 +11783,7 @@ gamma函数展开
 \end_inset
 
 有极点。所以，我们经常按
-\begin_inset Formula $d=4-\epsilon$
+\begin_inset Formula $d=4-\varepsilon$
 \end_inset
 
 展开，然后把丢掉 
@@ -11791,7 +11791,7 @@ gamma函数展开
 \end_inset
 
 项。另一个常用的约定是
-\begin_inset Formula $d=4-\epsilon$
+\begin_inset Formula $d=4-2\varepsilon$
 \end_inset
 
 。如果您与其他人的结果相差
@@ -11875,7 +11875,7 @@ g^{\mu\nu}g_{\mu\nu} & =d\\
 
 \end_inset
 
-and also 
+并且耦合常数的量纲： 
 \begin_inset Formula $[e]=\frac{d-2}{4}$
 \end_inset
 
@@ -12038,10 +12038,10 @@ noprefix "false"
 展开得到：
 \begin_inset Formula 
 \begin{align*}
- & \mu^{4-d}\frac{ie^{2}}{(4\pi)^{d/2}}\Gamma(\frac{4-d}{2})(\frac{1}{\Delta})^{2-\frac{d}{2}}\Rightarrow\\
- & \frac{ie^{2}}{16\pi^{2}}(1+\varepsilon\ln\mu)(1+\frac{\varepsilon}{2}\ln4\pi)(\frac{2}{\varepsilon}-\gamma_{E})(1-\frac{\varepsilon}{2}\ln\Delta)\\
- & =\frac{ie^{2}}{16\pi^{2}}\left[\frac{2}{\varepsilon}+(-\gamma_{E}+\ln4\pi+\ln\mu^{2}-\ln\Delta)+\mathcal{O}(\varepsilon)\right]\\
- & =\frac{ie^{2}}{16\pi^{2}}\left[\frac{2}{\varepsilon}+\ln\frac{4\pi e^{-\gamma_{E}}\mu^{2}}{\Delta}+\mathcal{O}(\varepsilon)\right]
+ & \mu^{4-d}\frac{ie^{2}}{\left(4\pi\right)^{d/2}}\Gamma\left(\frac{4-d}{2}\right)\left(\frac{1}{\Delta}\right)^{2-\frac{d}{2}}\Rightarrow\\
+ & \frac{ie^{2}}{16\pi^{2}}\left(1+\varepsilon\ln\mu\right)\left(1+\frac{\varepsilon}{2}\ln4\pi\right)\left(\frac{2}{\varepsilon}-\gamma_{E}\right)\left(1-\frac{\varepsilon}{2}\ln\Delta\right)\\
+ & =\frac{ie^{2}}{16\pi^{2}}\left[\frac{2}{\varepsilon}+\left(-\gamma_{E}+\ln4\pi+\ln\mu^{2}-\ln\Delta\right)+\mathcal{O}\left(\varepsilon\right)\right]\\
+ & =\frac{ie^{2}}{16\pi^{2}}\left[\frac{2}{\varepsilon}+\ln\frac{4\pi e^{-\gamma_{E}}\mu^{2}}{\Delta}+\mathcal{O}\left(\varepsilon\right)\right]
 \end{align*}
 
 \end_inset
