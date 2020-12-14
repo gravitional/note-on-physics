@@ -10699,7 +10699,7 @@ end{align}
 ，
 \begin_inset Formula 
 \[
-\frac{1}{A^{2}}\int_{0}^{1}\dif x\dif y\delta(x+y-1)
+\frac{1}{A^{2}}\int_{0}^{1}\dif x\dif y\delta\left(x+y-1\right)
 \]
 
 \end_inset
@@ -10889,7 +10889,7 @@ peskin书给出了更一般的形式，
 比如，
 \begin_inset Formula 
 \[
-\frac{1}{A^{\alpha}B^{\beta}}=\int_{0}^{1}\dif w\frac{w^{\alpha-1}(1-w)^{\beta-1}}{\left[wA+(1-w)B\right]^{\alpha+\beta}}\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}
+\frac{1}{A^{\alpha}B^{\beta}}=\int_{0}^{1}\dif z\frac{w^{\alpha-1}\left(1-w\right)^{\beta-1}}{\left[wA+\left(1-w\right)B\right]^{\alpha+\beta}}\frac{\Gamma\left(\alpha+\beta\right)}{\Gamma\left(\alpha\right)\Gamma\left(\beta\right)}
 \]
 
 \end_inset
@@ -10911,7 +10911,7 @@ so that
 \end_inset
 
 其中
-\begin_inset Formula $B(\alpha,\beta)$
+\begin_inset Formula $B\left(\alpha,\beta\right)$
 \end_inset
 
  是 beta function.
@@ -11023,8 +11023,8 @@ noprefix "false"
 变成
 \begin_inset Formula 
 \begin{align*}
-\frac{1}{AB} & =-\int_{0}^{\infty}\tau\dif\tau\int_{0}^{1}\dif xe^{i\tau(A+Bx-Ax)}\\
- & =\int_{0}^{1}\dif x\frac{1}{\left[A+(B-A)x\right]^{2}}
+\frac{1}{AB} & =-\int_{0}^{\infty}\tau\dif\tau\int_{0}^{1}\dif xe^{i\tau\left(A+Bx-Ax\right)}\\
+ & =\int_{0}^{1}\dif x\frac{1}{\left[A+\left(B-A\right)x\right]^{2}}
 \end{align*}
 
 \end_inset
@@ -11044,7 +11044,7 @@ noprefix "false"
 另外一些有用的等式为
 \begin_inset Formula 
 \[
-\frac{1}{A^{n}B^{m}}=\frac{\Gamma(n+m)}{\Gamma(n)\Gamma(m)}\int_{0}^{\infty}\dif s\frac{s^{m-1}}{(A+Bs)^{n+m}}
+\frac{1}{A^{n}B^{m}}=\frac{\Gamma\left(n+m\right)}{\Gamma\left(n\right)\Gamma\left(m\right)}\int_{0}^{\infty}\dif s\frac{s^{m-1}}{\left(A+Bs\right)^{n+m}}
 \]
 
 \end_inset
@@ -11052,7 +11052,7 @@ noprefix "false"
 
 \begin_inset Formula 
 \[
-\frac{1}{AB}=\int_{0}^{\infty}\dif s\frac{1}{(A+Bs)^{2}}
+\frac{1}{AB}=\int_{0}^{\infty}\dif s\frac{1}{\left(A+Bs\right)^{2}}
 \]
 
 \end_inset
@@ -11076,7 +11076,7 @@ Wick 转动
 –loop 积分经常是
 \begin_inset Formula 
 \[
-\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{n}}
+\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left(k^{2}-\Delta+i\varepsilon\right)^{n}}
 \]
 
 \end_inset

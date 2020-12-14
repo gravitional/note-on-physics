@@ -5043,7 +5043,7 @@ where
 \end_inset
 
  and 
-\begin_inset Formula $\bar{\Lambda}^{4}\left(m_{\phi}^{2}\right)=\Lambda^{2}-m_{\phi}^{2}$
+\begin_inset Formula $\bar{\Lambda}^{2}=\Lambda^{2}-m_{\phi}^{2}$
 \end_inset
 
 。文献中也使用了其他形式，比如 Guassian, monopole or sharp cutoff。通过选择合适的正规子质量，不同的正规子形式将会给出
@@ -5121,7 +5121,225 @@ noprefix "false"
 
 \end_inset
 
- 的前两项
+ 的前两项（对
+\begin_inset Formula $k^{-}$
+\end_inset
+
+）的 poles 在
+\begin_inset Formula $k^{-}$
+\end_inset
+
+复平面上下两个半平面都有分布，并且大圆上的积分不贡献，所以对
+\begin_inset Formula $k^{-}$
+\end_inset
+
+的积分可以通过 
+\begin_inset Formula $D_{B}$
+\end_inset
+
+ or 
+\begin_inset Formula $D_{\phi}$
+\end_inset
+
+ 的留数完成。对于第三项，正比于
+\begin_inset Formula $1/D_{\phi}^{2}$
+\end_inset
+
+，当
+\begin_inset Formula $k\neq0$
+\end_inset
+
+，
+\begin_inset Formula $D_{\phi}$
+\end_inset
+
+ and 
+\begin_inset Formula $D_{\Lambda}$
+\end_inset
+
+ 的 poles 都在同一平面，
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{D_{\phi}} & =\frac{1}{k^{+}k^{-}-\Omega_{\phi}+i\varepsilon}\Rightarrow\frac{1}{k^{+}\left(k^{-}-\frac{\Omega_{\phi}-i\varepsilon}{k^{+}}\right)}\\
+\frac{1}{D_{\Lambda}} & =\frac{1}{k^{+}k^{-}-\Omega_{\Lambda}+i\varepsilon}\Rightarrow\frac{1}{k^{+}\left(k^{-}-\frac{\Omega_{\Lambda}-i\varepsilon}{k^{+}}\right)}
+\end{align*}
+
+\end_inset
+
+同样大圆上的积分不贡献，选择一条不包括 poles 的积分回路，由留数定理可以知道积分为零。当
+\begin_inset Formula $k^{+}=0$
+\end_inset
+
+ 积分发散。我们可以这么化简，使用费曼参数化公式，并交换积分次序，
+\begin_inset Formula 
+\[
+\frac{1}{A^{\alpha}B^{\beta}}=\int_{0}^{1}\dif z\frac{w^{\alpha-1}\left(1-w\right)^{\beta-1}}{\left[wA+\left(1-w\right)B\right]^{\alpha+\beta}}\frac{\Gamma\left(\alpha+\beta\right)}{\Gamma\left(\alpha\right)\Gamma\left(\beta\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif^{4}k\frac{2yp\cdot k}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{2}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{4}}=\int_{0}^{1}\dif z\dif^{4}k\frac{\left(2yp\cdot k\right)\left(1-z\right)z^{3}}{\left\{ k^{2}-\left[\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2}\right]+i\varepsilon\right\} ^{6}}C\left[6,2\right]\\
+ & =\frac{\partial^{4}}{\partial\Omega^{4}}\int_{0}^{1}\dif z\dif^{4}k\frac{\left(2yp\cdot k\right)\left(1-z\right)z^{3}}{\left[k^{2}-\Omega+i\varepsilon\right]^{2}}\frac{C\left[6,2\right]}{2\times3\times4\times5}\\
+ & =\frac{\partial^{4}}{8\partial\Omega^{4}}\int_{0}^{1}\dif z\dif^{4}k\frac{\left(2k^{+}k^{-}\right)\left(1-z\right)z^{3}}{\left[k^{2}-\Omega+i\varepsilon\right]^{2}}\\
+ & =\frac{\partial^{4}}{8\partial\Omega^{4}}\int_{0}^{1}\dif z\dif^{4}k\frac{\left(1-z\right)z^{3}}{\left[k^{2}-\Omega+i\varepsilon\right]}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Omega\equiv\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2}$
+\end_inset
+
+。
+\begin_inset Formula $\dif^{4}k$
+\end_inset
+
+的积分可以使用分部积分继续化简，
+\begin_inset Formula 
+\[
+\int\dif^{4}k\frac{\left(2k^{+}k^{-}\right)}{\left[k^{2}-\Omega+i\varepsilon\right]^{2}}\text{ 包含有 }\int\dif k^{-}\frac{\left(2k^{+}k^{-}\right)}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\int\dif k^{-}\frac{\left(2k^{+}k^{-}\right)}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]^{2}} & =-2k^{+}\frac{\partial}{\partial k^{+}}\int\dif k^{-}\frac{1}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]}\\
+\text{数幂次的话，这个积分是收敛的，使用分部积分} & =\int\dif k^{-}\frac{2}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]}
+\end{align*}
+
+\end_inset
+
+最终可以化简为
+\begin_inset Formula 
+\[
+\int\dif^{4}k\frac{2yp\cdot k}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{2}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{4}}=\frac{\partial^{4}}{4\partial\Omega^{4}}\int_{0}^{1}\dif z\dif^{4}k\frac{\left(1-z\right)z^{3}}{\left[k^{2}-\Omega+i\varepsilon\right]}
+\]
+
+\end_inset
+
+使用 salamu 博士论文中的公式，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+对
+\begin_inset Formula $k^{-}$
+\end_inset
+
+的积分可以写成
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif k^{-}\frac{1}{k^{2}-\Omega+i\varepsilon}=2\pi i\log\left(\frac{k_{\perp}^{2}+\Omega}{\mu^{2}}\right)\delta\left(k^{+}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mu$
+\end_inset
+
+ 是与动量无关的常数。经过
+\begin_inset Formula $k^{-}$
+\end_inset
+
+积分，介子 rainbow 图的分裂函数可以表示成 on-shell 项 
+\begin_inset Formula $f_{B}^{\left(\text{on}\right)}$
+\end_inset
+
+，和
+\begin_inset Formula $\delta$
+\end_inset
+
+函数项，
+\begin_inset Formula $f_{\phi}^{\left(\delta\right)}$
+\end_inset
+
+and 
+\begin_inset Formula $\delta f_{\phi}^{\left(\delta\right)}$
+\end_inset
+
+，后者由接触相互作用产生，
+\begin_inset Formula 
+\[
+f_{a}^{+}\left(y\right)=\frac{C_{B\phi}^{2}\bar{M}^{2}}{\left(4\pi f\right)^{2}}\left[f_{B}^{\left(\text{on}\right)}\left(y\right)+f_{\phi}^{\left(\delta\right)}\left(y\right)-\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]
+\]
+
+\end_inset
+
+on–shell 函数为
+\begin_inset Formula 
+\[
+f_{B}^{\left(\text{on}\right)}\left(y\right)=\bar{\Lambda}^{8}\int\dif k_{\perp}^{2}\frac{y\left[k_{\perp}^{2}+\left(yM+\Delta\right)^{2}\right]}{\bar{y}^{2}D_{\phi B}^{2}D_{\Lambda B}^{4}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\bar{y}=1-y$
+\end_inset
+
+，我们使用简写
+\begin_inset Formula 
+\[
+D_{\phi B}=-\frac{k_{\perp}^{2}+yM_{B}^{2}-y\bar{y}M^{2}+\bar{y}m_{\phi}^{2}}{\bar{y}},\quad D_{\Lambda B}=-\frac{k_{\perp}^{2}+yM_{B}^{2}-y\bar{y}M^{2}+\bar{y}\Lambda^{2}}{\bar{y}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta$
+\end_inset
+
+函数只在
+\begin_inset Formula $y=0$
+\end_inset
+
+的时候有贡献，来自于定域和非定域的相互作用。定域的
+\begin_inset Formula $\delta$
+\end_inset
+
+函数项是
+\begin_inset Formula 
+\begin{align*}
+f_{\phi}^{\left(\delta\right)}\left(y\right) & =-\frac{\bar{\Lambda}^{8}}{\bar{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{z^{3}}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\delta\left(y\right)\\
+ & =\frac{1}{\bar{M}^{2}}\int\dif k_{\perp}^{2}\left[\log\frac{\Omega_{\phi}}{\Omega_{\Lambda}}+\frac{\bar{\Lambda}^{2}\left(11\Omega_{\Lambda}^{2}-7\Omega_{\Lambda}\Omega_{\phi}+2\Omega_{\phi}^{2}\right)}{6\Omega_{\Lambda}^{3}}\right]\delta\left(y\right)
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+\bar{\Lambda}^{2}=\Lambda^{2}-m_{\phi}^{2},\quad\Omega_{\phi}=k_{\perp}^{2}+m_{\phi}^{2},\quad\Omega_{\Lambda}=k_{\perp}^{2}+\Lambda^{2}
+\]
+
+\end_inset
+
+其中的
+\begin_inset Formula $\log\Omega_{\phi}$
+\end_inset
+
+项给出了 leading nonanalytic contribution，与采用的正规化方法无关，我们使用了不同的方法验证，包括 Pauli-Villars,
+ 维数正规化，or 强子形状因子。在
+\begin_inset Formula $\Lambda\to\infty$
+\end_inset
+
+极限下，第二项
+\begin_inset Formula $\sim\bar{\Lambda}/\Omega_{\Lambda}$
+\end_inset
+
+，为一个常数。在维数正规化中，对常数的积分被定义为零，在这种情况下得到的结果和文献 中的一样，
 \end_layout
 
 \begin_layout Section

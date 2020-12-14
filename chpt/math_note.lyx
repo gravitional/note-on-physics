@@ -34,11 +34,11 @@
 \usepackage{makeidx} 
 % Standard package for creating indexes
 \usepackage{multirow}
-\usepackage{mathtools}% 定义配对的数学符号
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
 %%++++++++++++++++++++ 
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclareMathOperator{\tr}{Tr}
 %\DeclareMathOperator{\re}{Re}
 %\DeclareMathOperator{\im}{Im}
@@ -1028,6 +1028,61 @@ U=\exp\left(i*\frac{\phi}{F_{0}}\right)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Log 函数
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "http://scipp.ucsc.edu/~haber/webpage/oneloopfun4.pdf"
+target "http://scipp.ucsc.edu/~haber/webpage/oneloopfun4.pdf"
+literal "true"
+
+\end_inset
+
+： page 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\log\left(z\right)=\log\abs{z}+i\arg\left(z\right)+i2n\pi
+\]
+
+\end_inset
+
+也就是说复数的 logrithm 有无穷多个取值的分支。一般约定 
+\begin_inset Formula $\log$
+\end_inset
+
+ 的 branch cut 沿着负实轴，也就是选取 
+\begin_inset Formula $\log$
+\end_inset
+
+ 的主值分支为
+\begin_inset Formula $\left[-\pi,\pi\right]$
+\end_inset
+
+。对于任何的实数
+\begin_inset Formula $y$
+\end_inset
+
+和正的无穷小
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\ln\left(y-i\varepsilon\right)=\ln\abs{y}-i\pi\Theta\left(-y\right)
+\]
+
+\end_inset
+
+这可以从坐标图上形象的推理出来。
 \end_layout
 
 \begin_layout Section
@@ -2485,7 +2540,7 @@ f\otimes g(T)=\int\dif\tau\,f(\tau)g(T-\tau)
 \end_layout
 
 \begin_layout Section
-发散积分
+发散积分变量平移
 \end_layout
 
 \begin_layout Standard
@@ -2544,7 +2599,8 @@ f\otimes g(T)=\int\dif\tau\,f(\tau)g(T-\tau)
 \begin{align*}
 k^{\pm} & =k^{0}\pm k^{3},\quad k_{\perp}^{2}=\left(k^{1}\right)^{2}+\left(k^{2}\right)^{2}\\
 k^{\mu}k_{\mu} & =\left(k^{0}\right)^{2}-\left(k^{1}\right)^{2}-\left(k^{2}\right)^{2}-\left(k^{3}\right)^{2}=k^{+}k^{-}-\left(k^{\perp}\right)^{2}\\
-p^{+}p^{-} & =M^{2},\quad\left(p^{\perp}\right)^{2}=0
+p^{+}p^{-} & =M^{2},\quad\left(p^{\perp}\right)^{2}=0\\
+k\cdot p & =k^{+}p^{-}-k_{\perp}p_{\perp}=yp^{+}p^{-}--k_{\perp}p_{\perp}
 \end{align*}
 
 \end_inset
@@ -2657,7 +2713,7 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 \end_layout
 
 \begin_layout Standard
-作为一个例子，演示第一个积分的计算过程，
+以第一个积分为例，演示计算过程，
 \begin_inset Formula 
 \begin{align*}
  & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
@@ -2689,8 +2745,12 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 
 \end_inset
 
-极点为
+极点分别为
 \begin_inset Formula $\frac{\Omega_{\phi}}{yp^{+}},\frac{\left(1-y\right)M^{2}-\Omega_{B}}{\left(1-y\right)p^{+}}$
+\end_inset
+
+，如果
+\begin_inset Formula $yp^{+}>0,\left(1-y\right)p^{+}>0$
 \end_inset
 
 ，两个极点分别位于下半平面和上半平面。第一个极点的表达式更简单一些。
@@ -2725,17 +2785,17 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 正比于 delta 的项
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)} & =\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-1}\\
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}} & =\frac{2\pi i}{\Omega_{\phi}}\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-2}\\
-\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)} & =2\pi i\left[\Omega_{\phi}\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)-\Omega_{\phi}\right]\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-3}\\
-\int\dif k^{-}\frac{k^{+}k^{-}}{D_{\phi}\left(k\right)^{2}} & =\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-4}
+\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)} & =\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-1}\\
+\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)^{2}} & =\frac{2\pi i}{\Omega_{\phi}}\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-2}\\
+\int\dif k^{-}\frac{k^{+}k^{-}}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)} & =2\pi i\left[\Omega_{\phi}\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)-\Omega_{\phi}\right]\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-3}\\
+\int\dif k^{-}\frac{k^{+}k^{-}}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)^{2}} & =\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}\label{eq:yu-a5-4}
 \end{align}
 
 \end_inset
