@@ -2590,6 +2590,10 @@ f\otimes g(T)=\int\dif\tau\,f(\tau)g(T-\tau)
 光锥动量
 \end_layout
 
+\begin_layout Subsection
+部分子分布函数
+\end_layout
+
 \begin_layout Standard
 在光锥坐标中,动量的各分量定义为:
 \begin_inset Formula 
@@ -2654,6 +2658,14 @@ where
 
 \end_layout
 
+\begin_layout Subsection
+广义部分子分布函数
+\end_layout
+
+\begin_layout Standard
+adsfasasfda
+\end_layout
+
 \begin_layout Section
 光锥积分收敛项
 \end_layout
@@ -2690,32 +2702,34 @@ where
 是自然数)。此类积分可以通过它们的留数求解：
 \begin_inset Formula 
 \begin{align*}
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)} & =\left(-2\pi i\right)\frac{1}{D_{\phi B}p^{+}\bar{y}}\\
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)} & =\frac{\partial}{\partial m_{\phi}^{2}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\left(-2\pi i\right)\frac{1}{D_{\phi B}^{2}p^{+}\bar{y}}\\
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)^{2}} & =\frac{\partial}{\partial M_{B}^{2}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\left(-2\pi i\right)\frac{y}{D_{\phi B}^{2}p^{+}\bar{y}^{2}}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)} & =\left(-2\pi i\right)\frac{1}{D_{\phi B}p^{+}\overline{y}}\\
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)} & =\frac{\partial}{\partial m_{\phi}^{2}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\left(-2\pi i\right)\frac{1}{D_{\phi B}^{2}p^{+}\overline{y}}\\
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)^{2}} & =\frac{\partial}{\partial M_{B}^{2}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\left(-2\pi i\right)\frac{y}{D_{\phi B}^{2}p^{+}\overline{y}^{2}}
 \end{align*}
 
 \end_inset
 
 where
 \begin_inset Formula 
-\begin{align*}
-D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\left(1-y\right)M^{2}}{1-y}\\
-\bar{y} & =1-y
-\end{align*}
+\[
+D_{\phi B}=-\frac{k_{\perp}^{2}+yM_{B}^{2}+\overline{y}m_{\phi}^{2}-y\overline{y}M^{2}}{\overline{y}},\quad\overline{y}=1-y
+\]
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Subsection
+salamu
+\end_layout
+
 \begin_layout Standard
 以第一个积分为例，演示计算过程，
 \begin_inset Formula 
 \begin{align*}
- & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
-= & \int\dif k^{-}\frac{1}{{\color{blue}\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}{\color{red}\left[\left(p-k\right)^{+}\left(p-k\right)^{-}-\Omega_{B}+i\varepsilon\right]}}\\
-= & \int\dif k^{-}\frac{1}{k^{+}\left(p-k\right)^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}}{k^{+}}+\frac{i\varepsilon}{k^{+}}\right)}{\color{red}\left[\left(p-k\right)^{-}-\frac{\Omega_{B}-i\varepsilon}{\left(p-k\right)^{+}}\right]}}
+ & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\int\dif k^{-}\frac{1}{{\color{blue}\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}{\color{red}\left[\left(p-k\right)^{+}\left(p-k\right)^{-}-\Omega_{B}+i\varepsilon\right]}}\\
+= & \int\dif k^{-}\frac{1}{k^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}-i\varepsilon}{k^{+}}\right)}\left(p-k\right)^{+}{\color{red}\left[\left(p-k\right)^{-}-\frac{\Omega_{B}-i\varepsilon}{\left(p-k\right)^{+}}\right]}}
 \end{align*}
 
 \end_inset
@@ -2775,6 +2789,239 @@ D_{\phi B} & =-\frac{k_{\perp}^{2}+yM_{B}^{2}+\left(1-y\right)m_{\phi}^{2}-y\lef
  & =\left(2\pi i\right)\frac{1}{\left(1-y\right)p^{+}\Omega_{\phi}-yp^{+}\left(1-y\right)M^{2}+yp^{+}\Omega_{B}}\\
  & =\frac{\left(2\pi i\right)}{p^{+}}\frac{1}{\left(1-y\right)\left(k_{\perp}^{2}+m_{\phi}^{2}\right)-y\left(1-y\right)M^{2}+y\left(k_{\perp}^{2}+M_{B}^{2}\right)}\\
  & =\frac{\left(2\pi i\right)}{p^{+}}\frac{1}{k_{\perp}^{2}+\left(1-y\right)m_{\phi}^{2}-y\left(1-y\right)M^{2}+yM_{B}^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+remark
+\end_layout
+
+\begin_layout Standard
+这里的关键是，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\int\dif k^{-}\frac{1}{{\color{blue}\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}{\color{red}\left[\left(p-k\right)^{+}\left(p-k\right)^{-}-\Omega_{B}+i\varepsilon\right]}}\\
+= & \int\dif k^{-}\frac{1}{k^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}-i\varepsilon}{k^{+}}\right)}\left(p-k\right)^{+}{\color{red}\left[\left(p-k\right)^{-}-\frac{\Omega_{B}-i\varepsilon}{\left(p-k\right)^{+}}\right]}}
+\end{align*}
+
+\end_inset
+
+假设
+\begin_inset Formula $k^{+}>0,\left(p-k\right)^{+}>0$
+\end_inset
+
+，只关注
+\begin_inset Formula $k^{-}$
+\end_inset
+
+ poles 的虚部，结果一定是反号的。因为一个是
+\begin_inset Formula $k^{-}-\frac{\Omega_{\phi}-i\varepsilon}{k^{+}}=0$
+\end_inset
+
+，一个是
+\begin_inset Formula $\left(p-k\right)^{-}-\frac{\Omega_{B}-i\varepsilon}{\left(p-k\right)^{+}}=0$
+\end_inset
+
+，也就是
+\begin_inset Formula $k^{-}$
+\end_inset
+
+前的符号不同。积分回路大圆不贡献，极点分布在实轴两侧，所以根据留数定理，积分不为零。
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif k^{-}\frac{1}{k^{+}{\color{blue}\left(k^{-}-\frac{\Omega_{\phi}-i\varepsilon}{k^{+}}\right)}\left(p-k\right)^{+}{\color{red}\left[\left(p-k\right)^{-}-\frac{\Omega_{B}-i\varepsilon}{\left(p-k\right)^{+}}\right]}}\\
+ & \Rightarrow\int\dif k^{-}\frac{1}{k^{+}\left[\left(p-k\right)^{+}\left(p-k\right)^{-}-\Omega_{B}+i\varepsilon\right]}@\left(k^{-}\to\frac{\Omega_{\phi}-i\varepsilon}{k^{+}},k^{+}\to yp^{+}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left(p-k\right)^{+}\left(p-k\right)^{-}-\Omega_{B}+i\varepsilon=M^{2}+k^{+}k^{-}-p^{+}k^{-}-k^{+}p^{-}-\Omega_{B}+i\varepsilon\\
+ & =M^{2}+k^{+}\frac{\Omega_{\phi}-i\varepsilon}{k^{+}}-p^{+}\frac{\Omega_{\phi}-i\varepsilon}{yp^{+}}-yp^{+}p^{-}-\Omega_{B}=M^{2}+\left(\Omega_{\phi}-i\varepsilon\right)-\frac{\Omega_{\phi}-i\varepsilon}{y}-yM^{2}-\Omega_{B}\\
+ & =M^{2}\left(1-y\right)+\frac{y-1}{y}\Omega_{\phi}-\Omega_{B}=M^{2}\overline{y}-\frac{\overline{y}}{y}\left(k_{\perp}^{2}+m_{\phi}^{2}\right)-k_{\perp}^{2}-M_{B}^{2}\\
+ & =\frac{y\overline{y}^{2}M^{2}-\overline{y}^{2}k_{\perp}^{2}-\overline{y}^{2}m_{\phi}^{2}-\overline{y}yk_{\perp}^{2}-\overline{y}yM_{B}^{2}}{\overline{y}y}\\
+ & =\frac{y\overline{y}^{2}M^{2}-\overline{y}^{2}k_{\perp}^{2}-\overline{y}^{2}m_{\phi}^{2}-\overline{y}yk_{\perp}^{2}-\overline{y}yM_{B}^{2}}{\overline{y}y}\\
+ & =\frac{\overline{y}}{y}\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}}{-\overline{y}}
+\end{align*}
+
+\end_inset
+
+加上前面的
+\begin_inset Formula $k^{+}$
+\end_inset
+
+，即
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\frac{\left(-2\pi i\right)}{k^{+}}\frac{y}{\overline{y}}\frac{-\overline{y}}{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}}=\frac{\left(-2\pi i\right)}{D_{\phi B}p^{+}\overline{y}}
+\]
+
+\end_inset
+
+where,
+\begin_inset Formula 
+\[
+D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}}{-\overline{y}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+三个传播子
+\end_layout
+
+\begin_layout Standard
+对于三个传播子的情况，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $1/D_{\Lambda}\left(k\right)$
+\end_inset
+
+ 的 pole 和 
+\begin_inset Formula $1/D_{\phi}\left(k\right)$
+\end_inset
+
+ 在同一个半平面。所以使用留数定理时，还要考虑
+\begin_inset Formula $1/D_{\Lambda}\left(k\right)$
+\end_inset
+
+的 pole。不过留数的形式相同，只需要替换
+\begin_inset Formula $m_{\phi}^{2}\to\Lambda^{2}$
+\end_inset
+
+即可。
+\end_layout
+
+\begin_layout Standard
+此外，在
+\begin_inset Formula $1/D_{\phi}\left(k\right)$
+\end_inset
+
+的极点处，
+\begin_inset Formula $D_{\Lambda}\left(k\right)$
+\end_inset
+
+化简为
+\begin_inset Formula 
+\begin{align*}
+ & \left[k^{+}k^{-}-\Omega_{\Lambda}+i\varepsilon\right]@\left(k^{-}\to\frac{\Omega_{\phi}-i\varepsilon}{k^{+}},k^{+}\to yp^{+}\right)\\
+ & =k^{+}\frac{\Omega_{\phi}-i\varepsilon}{k^{+}}-k_{\perp}^{2}-\Lambda^{2}+i\varepsilon=k_{\perp}^{2}+m_{\phi}^{2}-k_{\perp}^{2}-\Lambda^{2}=m_{\phi}^{2}-\Lambda^{2}
+\end{align*}
+
+\end_inset
+
+同理，在
+\begin_inset Formula $1/D_{\Lambda}\left(k\right)$
+\end_inset
+
+的极点处，
+\begin_inset Formula $D_{\phi}\left(k\right)$
+\end_inset
+
+化简为
+\begin_inset Formula $\Lambda^{2}-m_{\phi}^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)}\\
+ & =\left(-2\pi i\right)\left[\frac{1}{D_{\phi B}p^{+}\overline{y}\left(m_{\phi}^{2}-\Lambda^{2}\right)}+\frac{1}{D_{\Lambda B}p^{+}\overline{y}\left(\Lambda^{2}-m_{\phi}^{2}\right)}\right]=\frac{\left(-2\pi i\right)}{\left(m_{\phi}^{2}-\Lambda^{2}\right)p^{+}\overline{y}}\left(\frac{1}{D_{\phi B}}-\frac{1}{D_{\Lambda B}}\right)\\
+ & =\frac{\left(-2\pi i\right)}{\left(m_{\phi}^{2}-\Lambda^{2}\right)p^{+}\overline{y}}\frac{D_{\Lambda B}-D_{\phi B}}{D_{\phi B}D_{\Lambda B}}=\frac{\left(-2\pi i\right)}{\left(m_{\phi}^{2}-\Lambda^{2}\right)p^{+}\overline{y}}\frac{m_{\phi}^{2}-\Lambda^{2}}{D_{\phi B}D_{\Lambda B}}
+\end{align*}
+
+\end_inset
+
+i.e.
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)}=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}D_{\Lambda B}}
+\]
+
+\end_inset
+
+where,
+\begin_inset Formula 
+\[
+D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}}{-\overline{y}},\quad D_{\Lambda B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}\Lambda^{2}}{-\overline{y}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于高幂次的情况，比如
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}
+\]
+
+\end_inset
+
+考虑到，
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial\Omega_{\phi}}\frac{1}{D_{\phi}\left(k\right)} & =\frac{\partial}{\partial\Omega_{\phi}}\frac{1}{k^{+}k^{-}-\Omega_{\phi}+i\varepsilon}=\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)^{2}}=\frac{1}{D_{\phi}\left(k\right)^{2}}\\
+\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi}\left(k\right)} & =\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}+i\varepsilon}=\frac{1}{\left(k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}+i\varepsilon\right)^{2}}=\frac{1}{D_{\phi}\left(k\right)^{2}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $1/D_{B}\left(p-k\right)$
+\end_inset
+
+，
+\begin_inset Formula $1/D_{\Lambda}\left(k\right)$
+\end_inset
+
+同理。也就是说，要得到传播子高次幂的结果，对
+\begin_inset Formula $\Omega_{\phi}$
+\end_inset
+
+或者
+\begin_inset Formula $m_{\phi}^{2}$
+\end_inset
+
+求偏导即可。
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi B}}=\frac{\partial}{\partial m_{\phi}^{2}}\frac{\left(-\overline{y}\right)}{\left(k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}\right)}=\frac{\left(-\overline{y}\right)\left(-\overline{y}\right)}{\left(k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}\right)^{2}}=\frac{1!}{\left(D_{\phi B}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}=\frac{1}{2!}\frac{\partial^{2}}{\partial m_{\phi}^{2;1}}\frac{1}{3!}\frac{\partial^{3}}{\partial\Lambda^{2;3}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{4}D_{B}\left(p-k\right)D_{\Lambda}^{2}\left(k\right)}\\
+ & =\frac{\partial^{3}}{\partial m_{\phi}^{2;3}}\frac{\partial}{\partial\Lambda^{2;1}}\left[\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}D_{\Lambda B}}\right]=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}^{2}D_{\Lambda B}^{4}}
 \end{align*}
 
 \end_inset

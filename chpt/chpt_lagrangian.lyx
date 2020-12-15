@@ -4086,13 +4086,16 @@ meson tadpole diagram 蝌蚪图，
 
 \begin_inset Formula 
 \begin{align*}
- & \Gamma_{e}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)\\
-= & \int_{yk}\bra{p^{\prime}}{\color{blue}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}\left[2\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}\ket{p}\\
+\Gamma_{e}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)= & \int_{yk}\bra{p^{\prime}}{\color{blue}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\int_{k}\tilde{F}\left(k\right)^{2}\left[2\bar{p}\left(x\right)\gamma^{\mu}p\left(x\right)\phi\left(x\right)\phi^{\dagger}\left(x\right)\right]}\ket{p}\\
 = & \int_{k}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{\phi}^{q}\right)\tilde{F}\left(k\right)^{2}iD_{\phi}\left(k\right)2\bar{u}\left(p^{\prime}\right)\gamma^{\mu}u\left(p\right)
 \end{align*}
 
 \end_inset
 
+
+\size default
+对应的分裂函数是，
+\size small
 
 \begin_inset Formula 
 \[
@@ -5078,7 +5081,7 @@ v^{2}
 
 \end_inset
 
-这样 Jaccobi 行列式为
+这样 Jacobi 行列式为
 \begin_inset Formula $1$
 \end_inset
 
@@ -5119,7 +5122,7 @@ v^{2}
 
 \end_inset
 
-Jaccobi 行列式为
+Jacobi 行列式为
 \begin_inset Formula $2$
 \end_inset
 
@@ -5141,6 +5144,26 @@ vw & =v^{0}w^{0}-v^{3}w^{3}-v^{1}w^{1}-v^{2}w^{2},\quad v^{+}w^{-}=v^{-}w^{+}\\
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+question
+\end_layout
+
+\begin_layout Enumerate
+在 salamu 光锥坐标约定中，协变形式变换到光锥坐标的 Jacobian 为 
+\begin_inset Formula $1/2$
+\end_inset
+
+。salamu PDF 论文中最后的比例因子为 
+\begin_inset Formula 
+\[
+\underbrace{\left(2\pi\right)^{-4}}_{\text{协变积分}}*\underbrace{\left(\pi\right)}_{\text{未知}}*\underbrace{\frac{1}{2}}_{\text{Jacobian}}*\underbrace{\left(2\pi\right)}_{\text{留数定理}}=\left(4\pi\right)^{-2}
+\]
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -5214,7 +5237,7 @@ noprefix "false"
 
 \end_inset
 
- 的前两项（对
+的前两项（对
 \begin_inset Formula $k^{-}$
 \end_inset
 
@@ -5348,28 +5371,28 @@ where
 也就是说，
 \begin_inset Formula 
 \[
-\int\dif^{4}k\frac{2yp\cdot k}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{2}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{4}}=\frac{\partial^{4}}{6\partial\Omega^{4}}\int_{0}^{1}\dif z\dif^{4}k\frac{\left(1-z\right)z^{3}}{\left[k^{2}-\Omega+i\varepsilon\right]}
+\int\dif^{4}k\frac{2yp\cdot k}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{2}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{4}}=\frac{\partial^{4}}{6\partial\Omega^{4}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\int\dif k^{-}\frac{\left(1-z\right)z^{3}}{\left[k^{2}-\Omega+i\varepsilon\right]}
 \]
 
 \end_inset
 
+with 
+\begin_inset Formula $k^{+}=yp^{+}$
+\end_inset
 
+。
 \end_layout
 
 \begin_layout Standard
 使用 salamu 博士论文中的公式，
-\begin_inset Formula 
-\[
-\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
-\]
-
+\begin_inset Formula $\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}$
 \end_inset
 
-对
+，对
 \begin_inset Formula $k^{-}$
 \end_inset
 
-的积分可以写成
+的积分为
 \begin_inset Formula 
 \[
 \int_{-\infty}^{+\infty}\dif k^{-}\frac{1}{k^{2}-\Omega+i\varepsilon}=2\pi i\log\left(\frac{k_{\perp}^{2}+\Omega}{\mu^{2}}\right)\delta\left(k^{+}\right)
@@ -5381,7 +5404,25 @@ where
 \begin_inset Formula $\mu$
 \end_inset
 
- 是与动量无关的常数。经过
+ 是与动量无关的常数。所以
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif^{4}k\frac{2yp\cdot k}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{2}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{4}}\\
+ & =\frac{1}{6}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\left(2\pi i\right)\frac{\left(1-z\right)z^{3}*1*\left(-1\right)*\left(-2\right)*\left(-3\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\delta\left(k^{+}\right)\\
+ & =\int\dif k_{\perp}^{2}\left(2\pi i\right)\frac{-\left(1-z\right)z^{3}}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\delta\left(k^{+}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+a
+\end_layout
+
+\begin_layout Standard
+经过
 \begin_inset Formula $k^{-}$
 \end_inset
 
@@ -5409,6 +5450,10 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\left(\frac{C_{B\phi}}{f}\rig
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 on–shell 函数为
 \begin_inset Formula 
 \begin{equation}
@@ -5417,14 +5462,40 @@ f_{B}^{\left(\text{on}\right)}\left(y\right)=\overline{\Lambda}^{8}\int\dif k_{\
 
 \end_inset
 
-where 
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & i\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left[\frac{y\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi}^{2}D_{B}D_{\Lambda}^{4}}-\frac{y\overline{M}^{2}}{D_{\phi}D_{B}D_{\Lambda}^{4}}\right]\\
+ & \Rightarrow i\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{4}}\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\left[\frac{y\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi B}^{2}D_{\Lambda B}^{4}}-\frac{y\overline{M}^{2}}{D_{\phi B}D_{\Lambda B}^{4}}\right]p^{+}\\
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{1}{\overline{y}}\left[\frac{y\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)-D_{\phi B}y\overline{M}^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{1}{\overline{y}^{2}}\left[\frac{y\overline{y}\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)+\left(k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}\right)y\overline{M}^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{y\overline{M}^{2}}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\overline{y}\Delta^{2}+yM_{B}^{2}-y\overline{y}M^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{y\overline{M}^{2}}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\overline{y}\Delta^{2}+y\left(\Delta+M\right)^{2}-y\overline{y}M^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{y\overline{M}^{2}}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\Delta^{2}+2y\Delta M+y^{2}M^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
+ & =\left(\frac{C_{B\phi}\overline{M}}{f}\right)^{2}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{\overline{\Lambda}^{8}y}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]
+\end{align*}
+
+\end_inset
+
+其中使用了 
 \begin_inset Formula $\bar{y}=1-y$
 \end_inset
 
-，我们使用简写
+，
+\begin_inset Formula $\overline{M}=M+M_{B}$
+\end_inset
+
+，
+\begin_inset Formula $\Delta=M_{B}-M$
+\end_inset
+
+，以及简写
 \begin_inset Formula 
 \[
-D_{\phi B}=-\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\bar{y}m_{\phi}^{2}}{\overline{y}},\quad D_{\Lambda B}=-\frac{k_{\perp}^{2}+yM_{B}^{2}-y\bar{y}M^{2}+\bar{y}\Lambda^{2}}{\bar{y}}
+D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}}{-\overline{y}},\quad D_{\Lambda B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}\Lambda^{2}}{-\overline{y}}
 \]
 
 \end_inset
