@@ -234,7 +234,7 @@ linux 下 lyx `pdf` 无法预览,可能是由于`Imagemagick`的安全策略引�
 }
 %%%+++++++++++++++++++++++++++++++
 \usepackage{framed} % 在对象周围添加方框，阴影等等，允许跨页
-\definecolor{shadecolor}{rgb}{0.9412,1,1} %定义阴影颜色 shaded环境使用
+\definecolor{shadecolor}{rgb}{0.96,0.96,0.93}  %定义阴影颜色 shaded环境使用
 %%%+++++++++++++++++++++++++++++++
 \usepackage{amsmath,amssymb,amsfonts} % 数学字体
 \usepackage{mathrsfs} % \mathscr 命令，更花的花体

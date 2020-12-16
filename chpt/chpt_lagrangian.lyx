@@ -49,7 +49,7 @@
 }
 %%%+++++++++++++++++++++++++++++++
 \usepackage{framed} % 在对象周围添加方框，阴影等等，允许跨页
-\definecolor{shadecolor}{rgb}{0.9412,1,1} %定义阴影颜色 shaded环境使用
+\definecolor{shadecolor}{rgb}{0.96,0.96,0.93} %定义阴影颜色 shaded环境使用
 %%%+++++++++++++++++++++++++++++++
 \usepackage{amsmath,amssymb,amsfonts} % 数学字体
 \usepackage{mathrsfs} % \mathscr 命令，更花的花体
@@ -5024,7 +5024,7 @@ f_{j}^{+} & =\int_{k}{\color{red}\left(i\right)}\frac{C_{T\phi}^{2}}{f^{2}}\left
 \end_layout
 
 \begin_layout Section
-八重态分裂函数
+重子形状因子
 \end_layout
 
 \begin_layout Subsection
@@ -5165,8 +5165,12 @@ vw & =v^{0}w^{0}-v^{3}w^{3}-v^{1}w^{1}-v^{2}w^{2},\quad v^{+}w^{-}=v^{-}w^{+}\\
 
 \end_layout
 
+\begin_layout Section
+八重态分裂函数化简
+\end_layout
+
 \begin_layout Subsection
-question
+存在的问题
 \end_layout
 
 \begin_layout Enumerate
@@ -5182,11 +5186,11 @@ question
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Subsection
-分裂函数化简
+不同极点的处理
 \end_layout
 
 \begin_layout Standard
@@ -5437,7 +5441,7 @@ where
 \end_layout
 
 \begin_layout Subsection
-a
+有限项
 \end_layout
 
 \begin_layout Standard
@@ -5473,7 +5477,7 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\left(\frac{C_{B\phi}}{f}\rig
 \end_layout
 
 \begin_layout Standard
-on–shell 函数为
+on–shell 部分为
 \begin_inset Formula 
 \begin{equation}
 f_{B}^{\left(\text{on}\right)}\left(y\right)=\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}\frac{y\left[k_{\perp}^{2}+\left(yM+\Delta\right)^{2}\right]}{\overline{y}^{2}D_{\phi B}^{2}D_{\Lambda B}^{4}}\label{eq:yu_63}
@@ -5488,13 +5492,13 @@ f_{B}^{\left(\text{on}\right)}\left(y\right)=\overline{\Lambda}^{8}\int\dif k_{\
 \begin_inset Formula 
 \begin{align*}
  & i\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left[\frac{y\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi}^{2}D_{B}D_{\Lambda}^{4}}-\frac{y\overline{M}^{2}}{D_{\phi}D_{B}D_{\Lambda}^{4}}\right]\\
- & \Rightarrow i\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{4}}\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\left[\frac{y\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi B}^{2}D_{\Lambda B}^{4}}-\frac{y\overline{M}^{2}}{D_{\phi B}D_{\Lambda B}^{4}}\right]p^{+}\\
- & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{1}{\overline{y}}\left[\frac{y\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)-D_{\phi B}y\overline{M}^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
+ & \Rightarrow i\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\frac{1}{2}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{4}}\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\left[\frac{y\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi B}^{2}D_{\Lambda B}^{4}}-\frac{y\overline{M}^{2}}{D_{\phi B}D_{\Lambda B}^{4}}\right]p^{+}\\
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\frac{1}{2}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{1}{\overline{y}}\left[\frac{y\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)-D_{\phi B}y\overline{M}^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
  & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{1}{\overline{y}^{2}}\left[\frac{y\overline{y}\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)+\left(k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}\right)y\overline{M}^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
- & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{y\overline{M}^{2}}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\overline{y}\Delta^{2}+yM_{B}^{2}-y\overline{y}M^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
- & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{y\overline{M}^{2}}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\overline{y}\Delta^{2}+y\left(\Delta+M\right)^{2}-y\overline{y}M^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
- & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{y\overline{M}^{2}}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\Delta^{2}+2y\Delta M+y^{2}M^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
- & =\left(\frac{C_{B\phi}\overline{M}}{f}\right)^{2}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{\overline{\Lambda}^{8}y}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\frac{1}{2}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{y\overline{M}^{2}}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\overline{y}\Delta^{2}+yM_{B}^{2}-y\overline{y}M^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\frac{1}{2}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{y\overline{M}^{2}}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\overline{y}\Delta^{2}+y\left(\Delta+M\right)^{2}-y\overline{y}M^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\frac{1}{2}\int\frac{\dif^{2}k_{\perp}}{\left(2\pi\right)^{3}}\frac{y\overline{M}^{2}}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\Delta^{2}+2y\Delta M+y^{2}M^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]\\
+ & =\left(\frac{C_{B\phi}}{f}\right)^{2}\left(\frac{\overline{M}}{4\pi}\right)^{2}\overline{\Lambda}^{8}{\color{red}\pi}\int\dif^{2}k_{\perp}\frac{y}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]
 \end{align*}
 
 \end_inset
@@ -5523,10 +5527,34 @@ D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\delta$
+这里的系数和 salamu 相差一个
+\begin_inset Formula $\pi$
 \end_inset
 
-函数只在
+，salamu 结果中的系数是 
+\begin_inset Formula $\left(\frac{C_{B\phi}}{f}\right)^{2}\left(\frac{\overline{M}}{4\pi}\right)^{2}\overline{\Lambda}^{8}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+delta 发散项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\left(\frac{C_{B\phi}}{f}\right)^{2}\left(\frac{\overline{M}}{4\pi}\right)^{2}\left[f_{B}^{\left(\text{on}\right)}\left(y\right)+f_{\phi}^{\left(\delta\right)}\left(y\right)-\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\delta\left(y\right)$
+\end_inset
+
+ 只在
 \begin_inset Formula $y=0$
 \end_inset
 
@@ -5584,25 +5612,27 @@ f_{\phi}^{\left(\delta\right)}\left(y\right)\underset{\Lambda\to\infty}{\rightar
 
 \end_layout
 
+\begin_layout Subsection
+非定域 delta 发散项
+\end_layout
+
 \begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:yu_62"
-plural "false"
-caps "false"
-noprefix "false"
+\begin_inset Formula 
+\[
+f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\left(\frac{C_{B\phi}}{f}\right)^{2}\left(\frac{\overline{M}}{4\pi}\right)^{2}\left[f_{B}^{\left(\text{on}\right)}\left(y\right)+f_{\phi}^{\left(\delta\right)}\left(y\right)-\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]
+\]
 
 \end_inset
 
-中的非定域 
+非定域 
 \begin_inset Formula $\delta$
 \end_inset
 
-–函数贡献，
+–函数
 \begin_inset Formula $\delta f_{\phi}^{\left(\delta\right)}$
 \end_inset
 
-为
+的贡献是，
 \begin_inset Formula 
 \begin{align}
 \delta f_{\phi}^{\left(\delta\right)} & =-\frac{\overline{\Lambda}^{8}}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{z^{4}}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\delta\left(y\right)\label{eq:yu_68}\\
@@ -5680,7 +5710,11 @@ literal "false"
 
 \end_inset
 
-中熟悉的 on-shell 形式，
+中熟悉的 on-shell 形式。对于
+\begin_inset Formula $p\to\pi^{+}n$
+\end_inset
+
+分裂，
 \begin_inset Formula 
 \[
 f_{\pi^{+}n}^{\left(\text{on}\right)}\left(y\right)\to\int\dif k_{\perp}^{2}\frac{y\left[k_{\perp}^{2}+y^{2}M^{2}\right]}{\left[k_{\perp}^{2}+y^{2}M^{2}+\overline{y}m_{\pi}^{2}\right]^{2}}
@@ -5688,11 +5722,11 @@ f_{\pi^{+}n}^{\left(\text{on}\right)}\left(y\right)\to\int\dif k_{\perp}^{2}\fra
 
 \end_inset
 
-对于特定的分裂
-\begin_inset Formula $p\to\pi^{+}n$
-\end_inset
 
-。
+\end_layout
+
+\begin_layout Subsection
+b
 \end_layout
 
 \begin_layout Standard
