@@ -91,6 +91,13 @@ uname -a
 sb_release -a
 ```
 
+*** 
+查看主要存储设备的使用情况
+
+```bash
+df -h | sort -hr --key=2
+```
+
 ### shell 模式切换
 
 1. 查看系统支持的shell模式及位置
