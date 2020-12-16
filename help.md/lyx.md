@@ -185,3 +185,79 @@ linux 下 lyx `pdf` 无法预览,可能是由于`Imagemagick`的安全策略引�
 ```
 
 只需把上面这几行放进`<!--` and `-->`中注释掉,然后pdf转换应该就能工作了。
+
+## lyx preamble
+
+下面是我经常使用的 `lyx` 导言，也即 `latex`导言。
+
+```latex
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%%%%%%%%%%%%%%%+++++++++++
+\usepackage{eso-pic} 
+% 添加图片命令或者背景到每一页的绝对位置，
+% 添加一个或者多个用户命令到 latex 的 shipout rou­tine, 可以用来在固定位置放置输出
+\usepackage{hyperref} %处理交叉引用，在生成的文档中插入超链接
+%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+\usepackage{graphicx} %插入图片，基于graphics，给 \includegraphics 命令提供了key-value 形式的接口，比 graphics 更好用
+%%%+++++++++++++++++++++++++++++++
+\usepackage{xcolor} 
+% xcolor 包从 color 包的基本实现开始，提供了独立于驱动的接口，可以设置 color tints, shades, tones, 或者任意颜色的混合
+% 可以用名字指定颜色，颜色可以混合, \color{red!30!green!40!blue}
+%\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色名称
+%\newcommand{\cola}[1]{{\color{blue}{#1}}} %定义一个颜色命令
+%%%+++++++++++++++++++++++++++++++
+\usepackage{listings} % 在LaTex中添加代码高亮
+\definecolor{codegreen}{rgb}{0,0.6,0} %定义各种颜色，给代码着色用
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{<style name>}{<key=value list>}, 存储键值列表
+\lstdefinestyle{codestyle1}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+%%%+++++++++++++++++++++++++++++++
+\usepackage{framed} % 在对象周围添加方框，阴影等等，允许跨页
+\definecolor{shadecolor}{rgb}{0.9412,1,1} %定义阴影颜色 shaded环境使用
+%%%+++++++++++++++++++++++++++++++
+\usepackage{amsmath,amssymb,amsfonts} % 数学字体
+\usepackage{mathrsfs} % \mathscr 命令，更花的花体
+\usepackage{enumitem} % 提供了对三种基本列表环境： enumerate, itemize and description 的用户控制。
+% 取代  enumerate and mdwlist 包，对它们功能有 well-structured 的替代。
+%%%+++++++++++++++++++++++++++++++
+\usepackage{hepunits} % 高能物理单位 \MeV \GeV
+\usepackage{braket} % 狄拉克 bra-ket notation
+\usepackage{slashed} % 费曼 slash 记号 \slashed{k}
+\usepackage{bm,bbm}  %\bm 命令使参数变成粗体
+% Blackboard variants of Computer Modern fonts.
+\usepackage{simplewick} % 在式子上下画 Wick 收缩的包
+\usepackage{makeidx}% 用来创建 indexes 的标准包
+\usepackage{multirow} % 创建具有多行的 tabular
+\usepackage{tikz-feynman}  % 画费曼图用
+\usepackage{tikz} %画矢量图用
+%%++++++++++++++++++++ 
+\usepackage{mathtools}% 基于 amsmath, 提供更多数学符号，这里用来定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} % 定义配对的绝对值命令
+%%  amsmath 子包 amsopn 提供了\DeclareMathOperatorfor 命令，可以用于定义新的算符名称
+\DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
+\DeclareMathOperator{\diag}{diag} %对角矩阵
+\DeclareMathOperator{\res}{Res} %复变函数的留数
+\DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
+```

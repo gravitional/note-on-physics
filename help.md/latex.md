@@ -2386,7 +2386,9 @@ And this is the best squash, \verb+literally!+
     showtabs=false,                  
     tabsize=2
 }
+
 例子
+
 \begin{oframed}
 \begin{lstlisting}[language=C++,style=mystyle]
 #include <iostream>
@@ -2432,6 +2434,16 @@ leftbar，在左侧放置一条线。 环境允许在开始时有一个中断（
 实际上，`shaded`环境只是将`\FrameCommand`重新定义为`\colorbox{shadecolor}`
 （所以你需要定义颜色`shadecolor`:`\definecolor{shadecolor}...`）。
 
+常用颜色指定
+
+```latex
+\definecolor{shadecolor}{rgb}{0.9412,1,1} %靛青色
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9} %灰色
+ \colorbox[rgb]{.87, .9, .83} %  淡青色
+\definecolor{notes}{rgb}{.75, .3, .3}% 橙色
+\definecolor{shadecolor}{rgb}{0.96,0.96,0.93} % 土黄色
+```
+
 ## 画费曼图
 
 画费曼图有许多包：
@@ -2443,6 +2455,3 @@ leftbar，在左侧放置一条线。 环境允许在开始时有一个中断（
 [ JP-Ellis /tikz-feynman ](https://github.com/JP-Ellis/tikz-feynman):Feynman Diagrams with TikZ 
 
 [Asymptote: The Vector Graphics Language](https://asymptote.sourceforge.io/): 其中有个叫做`feynman`的模组
-
-
-
