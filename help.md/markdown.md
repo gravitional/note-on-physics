@@ -35,8 +35,7 @@ And then define the link:
 [original context]: https://www.appinn.com/markdown/#link "original context"
 
 >Markdown 支持两种形式的链接语法： 行内式和参考式两种形式。
-
->不管是哪一种，链接文字都是用 [方括号] 来标记。
+>不管是哪一种，链接文字都是用`[方括号]`来标记。
 
 ### 行内式
 
@@ -97,7 +96,6 @@ This is [an example] [id] reference-style link.
 ```
 
 >请注意：有一个已知的问题是 Markdown.pl 1.0.1 会忽略单引号包起来的链接 title。
-
 >链接网址也可以用方括号包起来：
 
 ```markdown
@@ -112,7 +110,6 @@ This is [an example] [id] reference-style link.
 ```
 
 >**网址定义只有在产生链接的时候用到，并不会直接出现在文件之中。**
-
 >链接辨别标签可以有字母、数字、空白和标点符号，但是并不区分大小写，因此下面两个链接是一样的：
 >
 ```markdown
@@ -120,7 +117,7 @@ This is [an example] [id] reference-style link.
 [link text][A]
 ```
 
-###  隐式链接
+### 隐式链接
 
 隐式链接标记功能让你可以省略指定链接标记，这种情形下，链接标记会视为等同于链接文字，要用隐式链接标记只要在链接文字后面加上一个空的方括号，如果你要让 "Google" 链接到 google.com，你可以简化成：
 
@@ -199,9 +196,6 @@ than from [Yahoo](http://search.yahoo.com/ "Yahoo Search") or
     这是一个代码区块。
 ```
 
-
-
-
 ## 代码区块 详细
 
 [original context] []
@@ -270,7 +264,6 @@ end tell
 
 代码区块中，一般的 Markdown 语法不会被转换，像是星号便只是星号，这表示你可以很容易地以 Markdown 语法撰写 Markdown 语法相关的文件。
 
-
 ## 反斜杠
 
 Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，
@@ -282,18 +275,20 @@ Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符�
 
 Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：
 
-    \   反斜线
-    `   反引号
-    *   星号
-    _   底线
-    {}  花括号
-    []  方括号
-    ()  括弧
-    #   井字号
-    +   加号
-    -   减号
-    .   英文句点
-    !   惊叹号
+```markdown
+\   反斜线
+`   反引号
+*   星号
+_   底线
+{}  花括号
+[]  方括号
+()  括弧
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   惊叹号
+```
 
 ## 行内代码
 
@@ -315,9 +310,13 @@ Use the `printf()` function.
 ``There is a literal backtick (`) here.``
 ```
 
-## markdownlint.config
+## 添加图片
 
-The default rule configuration disables `MD013/line-length` because many files include lines longer than the conventional `8`0 character limit:
+https://www.jianshu.com/p/280c6a6f2594
+
+## markdownlint 语法提示
+
+默认规则配置禁用`MD013/line-length`，因为许多文件包含的行长超过`80`个字符
 
 ```json
 {
@@ -325,17 +324,16 @@ The default rule configuration disables `MD013/line-length` because many files i
 }
 ```
 
-Note: `MD002/first-heading-h1` is disabled by default because it has been deprecated in the markdownlint library.
+注意：默认情况下禁用`MD002/first-heading-h1`，因为markdownlint库中已不推荐使用它。
 
-Rules can be enabled, disabled, and customized by creating a `JSON` file named `.markdownlint.json` (or `.markdownlintrc`) or a `YAML` file named `.markdownlint.yaml` (or `.markdownlint.yml`) in any directory of a project.
-The rules defined by `.markdownlint`{`.json`,`.yaml`,`.yml`,`rc`} apply to Markdown files in the same directory and any sub-directories without their own `.markdownlint`{`.json`,`.yaml`,`.yml`,`rc`}.
+可以在项目的任何目录中, 通过创建名为 `.markdownlint.json` or `.markdownlintrc` 的`JSON`文件，或名为`markdownlint.yaml` or `.markdownlint.yml` 的`YAML`文件来启用，禁用和自定义规则。这些自定义的规则适用于同一目录中的`Markdown`文件以及没有配置规则的任何子目录。
 
-Note: .markdownlint{.json,.yaml,.yml,rc} is used only if a project has been opened.
-When no folder is open or a file is not part of the current project, normal user and workspace settings apply (see below).
-If multiple of these files are present in the same directory, `.markdownlint.json` will be used instead of `.markdownlint`,
-yaml will be used instead of `.markdownlint.yml` will be used instead of `.markdownlintrc`.
+注意：`.markdownlint{.json,.yaml,.yml,rc}`仅在打开项目时使用。
+当没有打开文件夹或文件不属于当前项目时，将应用常规用户和工作区设置（请参见下文）。
+如果同一目录中存在多个这些文件，`.markdownlint.json`优先于`.markdownlint`，
+`.markdownlint.yml`优先于`.markdownlintrc`。
 
-A custom configuration is often defined by a `.markdownlint.json` file in the root of the project:
+自定义配置通常由项目根目录中的`.markdownlint.json`文件定义：
 
 ```json
 {
@@ -346,7 +344,7 @@ A custom configuration is often defined by a `.markdownlint.json` file in the ro
 }
 ```
 
-To extend another configuration file, any configuration file can use the extends property to provide a relative path:
+要从另一个配置文件开始，任何配置文件都可以使用`extends`属性提供相对路径：
 
 ```json
 {
@@ -355,11 +353,9 @@ To extend another configuration file, any configuration file can use the extends
 }
 ```
 
-Files referenced via extends do not need to be part of the current project (but usually are).
+通过扩展引用的文件不必是当前项目的一部分（但通常是）。
 
-Rules can also be configured using Code's support for user and workspace settings.
-
-The earlier configuration might look like the following in Code's user settings:
+也可以使用`VS Code`的用户和工作区`settings`来配置规则, 在`VS Code`的用户设置中设置如下内容：
 
 ```json
 {
@@ -373,14 +369,14 @@ The earlier configuration might look like the following in Code's user settings:
 }
 ```
 
-File paths referenced by extends from user settings are resolved relative to the user's home directory (ex: `%USERPROFILE%` on Windows or `$HOME` on macOS/Linux).
+从`user settings`引用的文件路径是相对于用户的主目录解析的（例如：在`Windows`上为`%USERPROFILE%`，在`macOS/Linux`上为`$HOME`）。
+配置位置具有以下优先级（以降序排列）：
 
-Configuration locations have the following precedence (in decreasing order):
-
-+ `.markdownlint`{.json,.yaml,.yml,rc} file in the same directory
-+ `.markdownlint`{.json,.yaml,.yml,rc} file in a parent directory
-+ `.markdownlint`{.json,.yaml,.yml,rc} file in the root of the project
-+ `Visual Studio` Code user/workspace settings
++ `.markdownlint{.json,.yaml,.yml,rc}` file in the same directory
++ `.markdownlint{.json,.yaml,.yml,rc}` file in a parent directory
++ `.markdownlint{.json,.yaml,.yml,rc}` file in the root of the project
++ `Visual Studio Code` user/workspace settings
 + `Default configuration` (see above)
 
-Once a configuration is found, lower-precedence locations are ignored. Changes saved to any location take effect immediately. Files referenced via extends are not monitored for changes. Only the last two locations apply to files outside a project.
+找到配置后，较低优先级的位置将被忽略。 保存到任何位置的更改将立即生效。 通过扩展引用的文件不会监视更改。
+仅最后两个位置适用于项目外部的文件。
