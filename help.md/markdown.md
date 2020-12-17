@@ -312,7 +312,23 @@ Use the `printf()` function.
 
 ## 添加图片
 
-https://www.jianshu.com/p/280c6a6f2594
+[MarkDown添加图片的三种方式](https://www.jianshu.com/p/280c6a6f2594)
+
+插图最基础的格式就是：
+
+```markdown
+![Alt text](图片链接 "optional title")
+```
+
+`Alt text`：图片的`Alt`标签，用来描述图片的关键词，可以不写。本意是当图片因为某种原因不能被显示时而出现的替代文字，后来又被用于SEO，
+可以方便搜索引擎根据`Alt text`里面的关键词搜索到图片。 
+`图片链接`：可以是图片的本地地址或者是网址。
+`"optional title"`：鼠标悬置于图片上会出现的标题文字，可以不写。
+
+作者：清风Python
+链接：https://www.jianshu.com/p/280c6a6f2594
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ## markdownlint 语法提示
 
