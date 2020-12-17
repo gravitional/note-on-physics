@@ -707,13 +707,9 @@ ref: [3 Ways to Check Linux Kernel Version in Command Line](https://itsfoss.com/
 
 #### uname
 
-`inxi -S`
-
-`uname - print system information`
-
-`uname -r`
-命令的输出应如下所示:
-`5.4.0-48-generic`
+`inxi -S`: 命令行 系统信息脚本 for console and IRC
+`uname` -打印系统信息
+`uname -r`命令的输出为:`5.4.0-48-generic`
 
 这意味着您正在运行Linux内核`5.4.0-48`,或更笼统地说,您正在运行Linux内核版本`5.4`.
 
@@ -777,6 +773,38 @@ dmesg | grep Linux
 ...
 [   12.936690] Intel(R) Wireless WiFi driver for Linux
 ```
+
+### curl
+
+curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -
+
+`-f, --fail`
+（HTTP）服务器错误时静默失败（没有输出）。 这样做主要是为了更好地使脚本等更好地处理失败的尝试。
+在正常情况下，当HTTP服务器无法交付文档时，它将返回HTML文档，说明（通常还会描述原因及更多）。 该`flag`将阻止`curl`输出该错误并返回`error 22`。
+
+此方法不是`fail-safe`的，并且有时会漏入不成功的响应代码，尤其是在涉及验证时（response codes 401 and 407）。
+
+`-s, --silent`
+
+静音或安静模式。 不显示进度表或错误消息。 使`Curl`静音。 仍会输出您要求的数据，甚至到终端/标准输出，除非您将其重定向。
+除此选项外，还可以使用`-S`，`--show-error`禁用进度表，但仍显示错误消息。
+另请参见`-v`, `--verbose` and `--stderr`.       
+
+`-S, --show-error`
+与`-s`, `--silent`一起使用时，如果`curl`失败，它将使`curl`显示一条错误消息。
+
+`-L, --location`
+
+（HTTP）如果服务器报告请求的页面已移动到其他位置（由`Location:  header`  and  a `3XX`响应代码），此选项将使`curl`在新位置上重做请求。
+如果与`-i`，`--include`或`-l`,`--head`一起使用，将显示所有请求页面的`headers`。使用身份验证时，curl仅将其凭据发送到初始主机.
+如果重定向将curl转移到其他主机，它无法截获`user+password`。
+另请参阅`--location-trusted`查看如何修改这项设置。
+您可以使用`--max-redirs`选项来限制要遵循的重定向数量。
+
+当curl跟随重定向并且请求不是简单的`GET`（例如`POST`或`PUT`）时，it will do the following request with a GET:
+如果`HTTP`响应是`301`、`302`或`303`。如果响应代码是任何其他`3xx`代码，curl will resend the following request using the same unmodified method.
+
+您可以通过使用专用的选项`--post301,` `--post302` and `--post303`, 来告诉curl 对于`30x`response, 不要将 `non-GET` request method 更改为`GET`.
 
 ### Gnu 隐私卫士
 

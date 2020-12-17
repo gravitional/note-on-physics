@@ -1065,3 +1065,37 @@ starting with a `+/-/` character at the beginning of the line and extending to t
 + `grm`='git rm'
 + `grmc`='git rm --cached'
 + `git-gc` Cleanup unnecessary files and optimize the local repository
+
+## hosts
+
+```hosts
+127.0.0.1       localhost
+127.0.1.1       OP7050
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+# GitHub Start
+13.250.177.223    github.com
+13.250.177.223       gist.github.com
+192.30.255.116    api.github.com
+185.199.110.153   assets-cdn.github.com
+151.101.76.133    raw.githubusercontent.com
+151.101.76.133    gist.githubusercontent.com
+151.101.76.133    cloud.githubusercontent.com
+151.101.76.133    camo.githubusercontent.com
+151.101.76.133    avatars0.githubusercontent.com
+151.101.76.133    avatars1.githubusercontent.com
+151.101.76.133    avatars2.githubusercontent.com
+151.101.76.133    avatars3.githubusercontent.com
+151.101.76.133    avatars4.githubusercontent.com
+151.101.76.133    avatars5.githubusercontent.com
+151.101.76.133    avatars6.githubusercontent.com
+151.101.76.133    avatars7.githubusercontent.com
+151.101.76.133    avatars8.githubusercontent.com
+# GitHub End
+```
