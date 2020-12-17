@@ -5620,9 +5620,9 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\left(\frac{\overline{M}C_{B\
 \begin_inset Formula 
 \begin{align}
 f_{\phi}^{\left(\delta\right)}\left(y\right) & =\frac{-\overline{\Lambda}^{8}}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{z^{3}}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\delta\left(y\right)\nonumber \\
- & =\frac{-\overline{\Lambda}^{8}}{\overline{M}^{2}}\delta\left(y\right)\int\dif k_{\perp}^{2}\frac{-\overline{\Lambda}^{2}\left(11\overline{\Lambda}^{4}+15\overline{\Lambda}^{2}\Omega_{\phi}+6\Omega_{\phi}^{2}\right)}{6\overline{\Lambda}^{8}\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)^{3}}-\frac{\log\left[\Omega_{\phi}/\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)\right]}{\overline{\Lambda}^{8}}\nonumber \\
- & =\delta\left(y\right)\int\dif k_{\perp}^{2}\frac{1}{\overline{M}^{2}}\log\left[\frac{\Omega_{\phi}}{\left(\Omega_{\phi}+\overline{\Lambda}^{2}\right)}\right]+\frac{\overline{\Lambda}^{2}}{\overline{M}^{2}}\frac{\left(11\overline{\Lambda}^{4}+15\overline{\Lambda}^{2}\Omega_{\phi}+6\Omega_{\phi}^{2}\right)}{6\left(\Omega_{\phi}+\overline{\Lambda}^{2}\right)^{3}}\nonumber \\
- & =\delta\left(y\right)\int\dif k_{\perp}^{2}\frac{1}{\overline{M}^{2}}\log\frac{\Omega_{\phi}}{\Omega_{\Lambda}}+\frac{\overline{\Lambda}^{2}}{\overline{M}^{2}}\frac{\left(11\Omega_{\Lambda}^{2}-7\Omega_{\Lambda}\Omega_{\phi}+2\Omega_{\phi}^{2}\right)}{6\Omega_{\Lambda}^{3}}\delta\left(y\right)\label{eq:yu_65}
+ & =\frac{-\overline{\Lambda}^{8}}{\overline{M}^{2}}\delta\left(y\right)\int\dif k_{\perp}^{2}\left\{ \frac{-\overline{\Lambda}^{2}\left(11\overline{\Lambda}^{4}+15\overline{\Lambda}^{2}\Omega_{\phi}+6\Omega_{\phi}^{2}\right)}{6\overline{\Lambda}^{8}\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)^{3}}-\frac{\log\left[\Omega_{\phi}/\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)\right]}{\overline{\Lambda}^{8}}\right\} \nonumber \\
+ & =\delta\left(y\right)\int\dif k_{\perp}^{2}\left\{ \frac{1}{\overline{M}^{2}}\log\left[\frac{\Omega_{\phi}}{\left(\Omega_{\phi}+\overline{\Lambda}^{2}\right)}\right]+\frac{\overline{\Lambda}^{2}}{\overline{M}^{2}}\frac{\left(11\overline{\Lambda}^{4}+15\overline{\Lambda}^{2}\Omega_{\phi}+6\Omega_{\phi}^{2}\right)}{6\left(\Omega_{\phi}+\overline{\Lambda}^{2}\right)^{3}}\right\} \nonumber \\
+ & =\delta\left(y\right)\int\dif k_{\perp}^{2}\left\{ \frac{1}{\overline{M}^{2}}\log\frac{\Omega_{\phi}}{\Omega_{\Lambda}}+\frac{\overline{\Lambda}^{2}}{\overline{M}^{2}}\frac{\left(11\Omega_{\Lambda}^{2}-7\Omega_{\Lambda}\Omega_{\phi}+2\Omega_{\phi}^{2}\right)}{6\Omega_{\Lambda}^{3}}\right\} \label{eq:yu_65}
 \end{align}
 
 \end_inset
@@ -5633,6 +5633,145 @@ where
  & \Omega\equiv\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2},\quad\overline{\Lambda}^{2}=\Lambda^{2}-m_{\phi}^{2},\quad\overline{M}=M+M_{B},\quad\Delta=M_{B}-M\\
  & \Omega_{\phi}=k_{\perp}^{2}+m_{\phi}^{2},\quad\Omega_{\Lambda}=k_{\perp}^{2}+\Lambda^{2},\quad\Omega_{\Lambda}-\Omega_{\phi}=\overline{\Lambda}^{2}
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+计算
+\begin_inset Formula $\int_{0}^{1}\dif z$
+\end_inset
+
+积分的 Mathematica 代码如下，可以从 \SpecialChar LyX
+ 源文件中粘贴到 Mathematica 中运行。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=Mathematica,style=codestyle1]
+\end_layout
+
+\begin_layout Plain Layout
+
+integrand = 
+\end_layout
+
+\begin_layout Plain Layout
+
+  z^3/(kt^2 + 
+\backslash
+[CapitalOmega])^4 /.
+ {
+\backslash
+[CapitalOmega] -> (1 - 
+\end_layout
+
+\begin_layout Plain Layout
+
+         z) m
+\backslash
+[Phi]^2 + z*
+\backslash
+[CapitalLambda]^2};
+\end_layout
+
+\begin_layout Plain Layout
+
+result = Assuming[{kt^2 > 0, m
+\backslash
+[Phi]^2 > 0, 
+\backslash
+[CapitalLambda]^2 > 0, 
+\end_layout
+
+\begin_layout Plain Layout
+
+    m
+\backslash
+[Phi]^2 != 
+\backslash
+[CapitalLambda]^2}, (-
+\backslash
+[CapitalLambda]b^8)*
+\end_layout
+
+\begin_layout Plain Layout
+
+    Integrate[integrand, {z, 0, 1}]];
+\end_layout
+
+\begin_layout Plain Layout
+
+result /.
+ {m
+\backslash
+[Phi]^
+\end_layout
+
+\begin_layout Plain Layout
+
+     n_.
+ :> (
+\backslash
+[CapitalOmega]
+\backslash
+[Phi] - kt^2)^(n/2), 
+\backslash
+[CapitalLambda]^
+\end_layout
+
+\begin_layout Plain Layout
+
+     n_.
+ :> (
+\backslash
+[CapitalOmega]
+\backslash
+[CapitalLambda] - kt^2)^(n/
+\end_layout
+
+\begin_layout Plain Layout
+
+       2), 
+\backslash
+[CapitalLambda]b^
+\end_layout
+
+\begin_layout Plain Layout
+
+     n_.
+ :> (
+\backslash
+[CapitalOmega]
+\backslash
+[CapitalLambda] - 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[CapitalOmega]
+\backslash
+[Phi])^(n/2)} // FullSimplify
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
 
 \end_inset
 
@@ -5711,11 +5850,39 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\left(\frac{\overline{M}C_{B\
 \begin_inset Formula 
 \begin{align}
 \delta f_{\phi}^{\left(\delta\right)} & =-\frac{\overline{\Lambda}^{8}}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{z^{4}}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\delta\left(y\right)\label{eq:yu_68}\\
- & =\frac{1}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\left[-4\frac{\Omega_{\phi}}{\bar{\Lambda}^{2}}\log\frac{\Omega_{\phi}}{\Omega_{\Lambda}}-\frac{3\Omega_{\Lambda}^{3}+13\Omega_{\Lambda}^{2}\Omega_{\phi}-5\Omega_{\Lambda}\Omega_{\phi}^{2}+\Omega_{\phi}^{3}}{3\Omega_{\Lambda}^{3}}\right]\delta\left(y\right)\nonumber 
+ & =-\frac{\overline{\Lambda}^{8}}{\overline{M}^{2}}\delta\left(y\right)\int\dif k_{\perp}^{2}\left\{ \frac{\overline{\Lambda}^{2}\left(3\overline{\Lambda}^{6}+22\overline{\Lambda}^{4}\Omega_{\phi}+30\overline{\Lambda}^{2}\Omega_{\phi}^{2}+12\Omega_{\phi}^{3}\right)}{3\overline{\Lambda}^{10}\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)^{3}}-\frac{4\Omega_{\phi}\log\left[\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)/\Omega_{\phi}\right]}{\overline{\Lambda}^{10}}\right\} \nonumber \\
+ & =-\frac{1}{\overline{M}^{2}}\delta\left(y\right)\int\dif k_{\perp}^{2}\left\{ \frac{\left(3\overline{\Lambda}^{6}+22\overline{\Lambda}^{4}\Omega_{\phi}+30\overline{\Lambda}^{2}\Omega_{\phi}^{2}+12\Omega_{\phi}^{3}\right)}{3\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)^{3}}-\frac{4\Omega_{\phi}\log\left[\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)/\Omega_{\phi}\right]}{\overline{\Lambda}^{2}}\right\} \nonumber \\
+ & =\frac{1}{\overline{M}^{2}}\delta\left(y\right)\int\dif k_{\perp}^{2}\left\{ \frac{-\left(3\overline{\Lambda}^{6}+22\overline{\Lambda}^{4}\Omega_{\phi}+30\overline{\Lambda}^{2}\Omega_{\phi}^{2}+12\Omega_{\phi}^{3}\right)}{3\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)^{3}}-\frac{4\Omega_{\phi}\log\left[\Omega_{\phi}/\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)\right]}{\overline{\Lambda}^{2}}\right\} \nonumber \\
+ & =\frac{\delta\left(y\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\left[\frac{-4\Omega_{\phi}}{\overline{\Lambda}^{2}}\log\left(\frac{\Omega_{\phi}}{\Omega_{\Lambda}}\right)+\frac{-\left(3\Omega_{\Lambda}^{3}+13\Omega_{\Lambda}^{2}\Omega_{\phi}-5\Omega_{\Lambda}\Omega_{\phi}^{2}+\Omega_{\phi}^{3}\right)}{3\Omega_{\Lambda}^{3}}\right]\nonumber 
 \end{align}
 
 \end_inset
 
+where 
+\begin_inset Formula 
+\begin{align*}
+ & \Omega\equiv\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2},\quad\overline{\Lambda}^{2}=\Lambda^{2}-m_{\phi}^{2},\quad\overline{M}=M+M_{B},\quad\Delta=M_{B}-M\\
+ & \Omega_{\phi}=k_{\perp}^{2}+m_{\phi}^{2},\quad\Omega_{\Lambda}=k_{\perp}^{2}+\Lambda^{2},\quad\Omega_{\Lambda}-\Omega_{\phi}=\overline{\Lambda}^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+计算
+\begin_inset Formula $\int_{0}^{1}\dif z$
+\end_inset
+
+积分的 Mathematica 代码和上一节相同，除了
+\begin_inset Formula $z^{3}\to z^{4}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
 在
 \begin_inset Formula $\Lambda\to\infty$
 \end_inset
