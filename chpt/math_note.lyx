@@ -3629,6 +3629,266 @@ noprefix "false"
 积分结果的有限部分是对应的。
 \end_layout
 
+\begin_layout Section
+Gordon 恒等式
+\end_layout
+
+\begin_layout Standard
+高等恒等式为，
+\begin_inset Formula 
+\[
+\bar{u}\left(p_{2}\right)\gamma^{\mu}u\left(p_{1}\right)=\bar{u}\left(p_{2}\right)\left[\frac{\left(p_{2}+p_{1}\right)^{\mu}}{2m}+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}\right]u\left(p_{1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+自由或相互作用表象中的旋量满足运动方程，
+\begin_inset Formula 
+\[
+\mathcal{L}=\bar{\psi}\left(i\gamma\partial-m\right)\psi
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left(i\gamma\partial-m\right)\psi=0,\quad\bar{\psi}\left(i\gamma\overleftarrow{\partial}-m\right)=\left(-i\partial\bar{\psi}\gamma-m\right)=0\\
+ & \left(\gamma p-m\right)u\left(p\right)=0,\quad\left(-\gamma p-m\right)v\left(p\right)=0\\
+ & \bar{u}\left(p\right)\left(\gamma p-m\right)=0,\quad\bar{v}\left(p\right)\left(-\gamma p-m\right)=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我们需要用到下面的等式，
+\begin_inset Formula 
+\begin{equation}
+\gamma^{\mu}\gamma p=\gamma^{\mu}\gamma^{\nu}p_{\nu}=p_{\nu}\left(2g^{\mu\nu}-\gamma^{\nu}\gamma^{\mu}\right)=2p_{\mu}-\gamma p\gamma^{\mu}\label{eq: 2gamma}
+\end{equation}
+
+\end_inset
+
+考虑式子右边的
+\begin_inset Formula $\sigma^{\mu\nu}q_{\nu}$
+\end_inset
+
+ 项，
+\begin_inset Formula 
+\[
+i\sigma^{\mu\nu}q_{\nu}=i*\frac{i}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]q_{\nu}=\frac{-1}{2}\left[\gamma^{\mu}\gamma\left(p_{2}-p_{1}\right)-\left(p_{2}-p_{1}\right)\gamma\gamma^{\mu}\right]
+\]
+
+\end_inset
+
+使用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: 2gamma"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，以及运动方程，
+\begin_inset Formula 
+\begin{align*}
+ & \frac{-1}{2}\bar{u}\left(p_{2}\right)\left[\gamma^{\mu}\gamma\left(p_{2}-p_{1}\right)-\left(p_{2}-p_{1}\right)\gamma\gamma^{\mu}\right]u\left(p_{1}\right)\\
+= & \frac{-1}{2}\bar{u}\left(p_{2}\right)\left[\left(2p_{2}^{\mu}-\gamma p_{2}\gamma^{\mu}-\gamma^{\mu}\gamma p_{1}\right)-\gamma p_{2}\gamma^{\mu}+\left(2p_{1}^{\mu}-\gamma^{\mu}\gamma p_{1}\right)\right]u\left(p_{1}\right)\\
+= & \frac{-1}{2}\bar{u}\left(p_{2}\right)\left[\left(2p_{2}^{\mu}-m\gamma^{\mu}-\gamma^{\mu}m\right)-m\gamma^{\mu}+\left(2p_{1}^{\mu}-\gamma^{\mu}m\right)\right]u\left(p_{1}\right)\\
+= & \frac{-1}{2}\bar{u}\left(p_{2}\right)\left[2\left(p_{2}+p_{1}\right)^{\mu}-4m\gamma^{\mu}\right]u\left(p_{1}\right)\\
+= & \bar{u}\left(p_{2}\right)\left[-\left(p_{2}+p_{1}\right)^{\mu}+2m\gamma^{\mu}\right]u\left(p_{1}\right)
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}=\frac{-\left(p_{2}+p_{1}\right)^{\mu}}{2m}+\gamma^{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+形状因子投影
+\end_layout
+
+\begin_layout Standard
+对于 
+\begin_inset Formula $e^{-}p\to e^{-}p$
+\end_inset
+
+过程，它的振幅可以表示为
+\begin_inset Formula 
+\[
+\Gamma^{\mu}=\gamma^{\mu}F_{1}\left(Q^{2}\right)+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}F_{2}\left(Q^{2}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $q=p_{2}-p_{1},Q^{2}=-q^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+运动学变量关系为
+\begin_inset Formula 
+\begin{align*}
+ & m^{2}=p_{2}^{2}=\left(p_{1}+q\right)^{2}=m^{2}+q^{2}+2p_{1}q\Rightarrow-q^{2}=2p_{1}q\\
+ & m^{2}=p_{1}^{2}=\left(p_{2}-q\right)^{2}=m^{2}+q^{2}-2p_{2}q\Rightarrow-q^{2}=-2p_{2}q\\
+ & q^{2}=\left(p_{2}-p_{1}\right)^{2}=m^{2}-m^{2}-2p_{1}p_{2}=-2p_{1}p_{2}
+\end{align*}
+
+\end_inset
+
+即
+\begin_inset Formula 
+\[
+Q^{2}=2p_{1}q=-2p_{2}q=2p_{1}p_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+使用 Gordon 恒等式
+\begin_inset Formula 
+\[
+\bar{u}\left(p_{2}\right)\gamma^{\mu}u\left(p_{1}\right)=\bar{u}\left(p_{2}\right)\left[\frac{\left(p_{2}+p_{1}\right)^{\mu}}{2m}+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}\right]u\left(p_{1}\right)
+\]
+
+\end_inset
+
+可以把
+\begin_inset Formula $\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}$
+\end_inset
+
+替换成
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(p_{2}+p_{1}\right)^{\mu}$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\Gamma^{\mu}=\gamma^{\mu}F_{1}\left(Q^{2}\right)+\left(\gamma^{\mu}-\frac{\left(p_{2}+p_{1}\right)^{\mu}}{2m}\right)F_{2}\left(Q^{2}\right)=\gamma^{\mu}\left[F_{1}\left(Q^{2}\right)+F_{2}\left(Q^{2}\right)\right]-\left(p_{2}+p_{1}\right)^{\mu}\frac{F_{2}\left(Q^{2}\right)}{2m}
+\]
+
+\end_inset
+
+这样可以利用
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+,
+\begin_inset Formula $\left(p_{2}+p_{1}\right)^{\mu}$
+\end_inset
+
+把
+\begin_inset Formula $F_{1},F_{2}$
+\end_inset
+
+投影出来。
+\end_layout
+
+\begin_layout Standard
+令
+\begin_inset Formula 
+\begin{align*}
+A & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma_{\mu}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\gamma^{\mu}u\left(p_{2}\right)=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\gamma^{\mu}\left(\gamma p_{2}+m\right)\right]\\
+ & =\tr\left[\left(F_{1}+F_{2}\right)\gamma_{\mu}\left(\gamma p_{1}+m\right)\gamma^{\mu}\left(\gamma p_{2}+m\right)-\frac{F_{2}}{2m}\left(p_{2}+p_{1}\right)^{\mu}\left(\gamma p_{1}+m\right)\gamma^{\mu}\left(\gamma p_{2}+m\right)\right]\\
+ & =\left(F_{1}+F_{2}\right)\left(16m^{2}-8p_{1}p_{2}\right)-\frac{F_{2}}{2m}\left(8mp_{1}p_{2}+4mp_{1}^{2}+4mp_{2}^{2}\right)\\
+ & =F_{1}\left(16m^{2}-8p_{1}p_{2}\right)+F_{2}\left(12m^{2}-12p_{1}p_{2}\right)
+\end{align*}
+
+\end_inset
+
+代入
+\begin_inset Formula $Q^{2}=2p_{1}q=-2p_{2}q=2p_{1}p_{2}$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\[
+A=F_{1}\left(16m^{2}-4Q^{2}\right)+F_{2}\left(12m^{2}-6Q^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+类似地，令
+\begin_inset Formula 
+\begin{align*}
+B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma_{\mu}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\left(p_{2}+p_{1}\right)^{\mu}u\left(p_{2}\right)=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}\right]\\
+ & =\tr\left[\left(F_{1}+F_{2}\right)\gamma_{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}-\frac{F_{2}}{2m}\left(p_{2}+p_{1}\right)^{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}\right]\\
+ & =\left(F_{1}+F_{2}\right)\left(8mp_{1}p_{2}+4mp_{1}^{2}+4mp_{2}^{2}\right)-\frac{F_{2}}{2m}4\left(2p_{1}p_{2}+p_{1}^{2}+p_{2}^{2}\right)\left(p_{1}p_{2}+m^{2}\right)\\
+ & =\left(F_{1}+F_{2}\right)\left(4mQ^{2}+8m^{3}\right)-\frac{F_{2}}{m}\left(Q^{2}+2m^{2}\right)^{2}\\
+ & =F_{1}\left(4mQ^{2}+8m^{3}\right)+F_{2}\left(4mQ^{2}+8m^{3}-4m^{3}-\frac{Q^{4}}{m}-4Q^{2}m\right)\\
+B & =F_{1}\left(4mQ^{2}+8m^{3}\right)+F_{2}\left(4m^{3}-\frac{Q^{4}}{m}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+总结就是
+\begin_inset Formula 
+\begin{align*}
+ & A=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\gamma^{\mu}\left(\gamma p_{2}+m\right)\right]=F_{1}\left(16m^{2}-4Q^{2}\right)+F_{2}\left(12m^{2}-6Q^{2}\right)\\
+ & B=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}\right]=F_{1}\left(4m^{2}Q^{2}+8m^{4}\right)/m+F_{2}\left(4m^{4}-Q^{4}\right)/m
+\end{align*}
+
+\end_inset
+
+把它看成一个关于
+\begin_inset Formula $F_{1},F_{2}$
+\end_inset
+
+的线性方程组，求解得到
+\begin_inset Formula 
+\[
+F_{1}=\frac{A\left(2m^{2}+Q^{2}\right)-6mB}{-4\left(2m^{2}+Q^{2}\right)^{2}},\quad F_{2}=\frac{A\left(-2m^{4}-m^{2}Q^{2}\right)+B\left(4m^{3}-mQ^{2}\right)}{\left(2m^{2}-Q^{2}\right)\left(2m^{2}+Q^{2}\right)^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & F_{1}=\frac{-A}{4\left(2m^{2}+Q^{2}\right)}+\frac{3mB}{2\left(2m^{2}+Q^{2}\right)^{2}},\\
+ & F_{2}=\frac{mB}{\left(2m^{2}+Q^{2}\right)^{2}}+\frac{m^{2}\left[2mB-A\left(2m^{2}+Q^{2}\right)\right]}{\left(2m^{2}-Q^{2}\right)\left(2m^{2}+Q^{2}\right)^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout
