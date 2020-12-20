@@ -140,3 +140,47 @@ Git Bash
     "startingDirectory": "%USERPROFILE%"
 }
 ```
+
+## pwsh 别名配置
+
+[为 Windows PowerShell 设置 User Alias （命令别名）](https://zhuanlan.zhihu.com/p/74881435)
+[给 PowerShell 带来 zsh 的体验](https://zhuanlan.zhihu.com/p/137251716)
+[第 9 章 - 函数](https://docs.microsoft.com/zh-cn/powershell/scripting/learn/ps101/09-functions?view=powershell-7.1#parameter-validation)
+
+```pwsh
+Import-Module posh-git # 引入 posh-git
+Import-Module oh-my-posh # 引入 oh-my-posh
+
+Set-Theme Agnoster # 设置主题为 Agnoster
+
+Set-PSReadLineOption -PredictionSource History # 设置预测文本来源为历史记录
+Set-PSReadlineKeyHandler -Key Tab -Function Complete # 设置 Tab 键补全
+Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function MenuComplete # 设置 Ctrl+d 为菜单补全和 Intellisense
+Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo # 设置 Ctrl+z 为撤销
+Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward # 设置向上键为后向搜索历史记录
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward # 设置向下键为前向搜索历史纪录
+
+Set-Alias edit notepad
+
+function gcam  {
+param (
+        [string]$message
+    )
+git commit -a -m  $message
+}
+function ga  { git add }
+function gaa  { git add --all }
+function gpw  { git push }
+function glw  { git pull }
+function gbr  { git branch --remote }
+function gba  { git branch -a }
+function gcl  { git clone --recurse-submodules }
+function gst  { git status }
+function gd  { git diff }
+function gdca  { git diff --cached }
+function gdcw  { git diff --cached --word-diff }
+function gds  { git diff --staged }
+function gdw  { git diff --word-diff }
+function gf  { git fetch }
+function gk { gitk --all --branches }
+```
