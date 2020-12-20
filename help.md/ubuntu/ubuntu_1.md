@@ -676,7 +676,7 @@ sudo apt-get update
 sudo apt-get install typora
 ```
 
-### 查看挂载的文件系统
+### mount 挂载文件系统
 
 + `mount -l -t type` : `-l` 选项可以显示`label`
 + `findmnt [options] device|mountpoint`: 可以更清晰的显示文件系统

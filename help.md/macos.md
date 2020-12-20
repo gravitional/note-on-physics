@@ -452,8 +452,7 @@ source ~/.bash_profile
 `$ sleep 10 && say "hello"`
 
 ***
-`pbcopy`
-与之对应的是`pbpaste`
+`pbcopy`, 与之对应的是`pbpaste`
 
 把命令行的输出直接复制到粘贴板：
 
