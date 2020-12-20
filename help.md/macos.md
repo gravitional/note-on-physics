@@ -15,8 +15,8 @@
 + 插入多个光标变成`command+option+up`, 可以在`Selection`里面选择鼠标插入的修饰键`alt`or`ctrl`
 + 设置切换全屏的快捷键为`command+enter`: `Enter Full Screen`, `Exit Full Screen`
 
-+ 把`markdown`切换代码环境--`toggle code block`的快捷键设置为`ctrl+k ctrl+b`
-+ 把补全提示--`triggerSugges`的快捷键设置为`ctrl+space`.
++ 把`markdown`切换代码环境--`toggle code block`的快捷键设置为`command+k command+b`
++ 把补全提示--`triggerSugges`的快捷键设置为`command+space`.
 + 跳转到文档开头--`command+up`,跳转到文档末尾--`command+down`
 + 跳转到文档开头--`go last`->`command+end`
 
@@ -441,6 +441,56 @@ alias vscode="你的安装目录/vscode.app/Contents/Resources/app/bin/code"
 ## 然后 :wq 关闭 ~/.zshrc 文件
 source ~/.bash_profile
 ```
+
+## 更多命令工具
+
+[请问有哪些实用的Mac终端命令](https://www.zhihu.com/question/27864961)
+
+***
+`say` 让 mac 读出一段文字
+
+`$ sleep 10 && say "hello"`
+
+***
+`pbcopy`
+与之对应的是`pbpaste`
+
+把命令行的输出直接复制到粘贴板：
+
+```bash
+$ sort -u | pbcopy
+```
+
+把粘贴板内容直接存入一个文件：
+
+```bash
+$ pbpaste > out.txt
+```
+
+用 `Finder` 打开当前目录
+
+```bash
+$ open .
+```
+
+***
+`cdf`
+可以让 `shell` 跳转到`finder`打开的文件夹，不过要提前在`.zshrc`中的`plugin`中加入`osx`
+
+***
+`ccat`
+可以让你的cat文件时候高亮代码
+`brew install ccat`
+
+***
+`archey`
+
+这是一个查看当前`mac`概览的插件，可以用`brew`安装。好处就是，查看自己`ip`的时候不用输入`ifconfig`然后一行一行去看，看`mac`的`关于本机`不用再去点菜单栏了。
+
+`brew install archey`
+
+***
+`mdfind` 命令查找文件，类似 Spotlight 查询效果的命令行
 
 ## mac 中文字体
 
