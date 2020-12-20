@@ -448,31 +448,19 @@ sftp> bye
 这个 `PuTTY` 程序 能够显示一个终端窗口,而且允许Windows 用户在远端主机中打开一个 SSH(或者 telnet)会话.
 这个程序也提供了 `scp` 和 `sftp` 程序的类似物.
 
-[PuTTY链接][]
-
-[PuTTY链接]: http://www.chiark.greenend.org.uk/~sgtatham/putty/
+[PuTTY链接](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 
 拓展阅读
 
 Linux 文档项目提供了 Linux 网络管理指南,可以广泛地(虽然过时了)了解网络管理方面的知识.
 
-[http://tldp.org/LDP/nag2/index.html][]
+[http://tldp.org/LDP/nag2/index.html](http://tldp.org/LDP/nag2/index.html)
 
-[http://tldp.org/LDP/nag2/index.html]: http://tldp.org/LDP/nag2/index.html
+`Wikipedia` 上包含了许多网络方面的优秀文章.这里有一些基础的:
 
-Wikipedia 上包含了许多网络方面的优秀文章.这里有一些基础的:
-
-[http://en.wikipedia.org/wiki/Internet_protocol_address][]
-
-[http://en.wikipedia.org/wiki/Host_name][]
-
-[http://en.wikipedia.org/wiki/Uniform_Resource_Identifier][]
-
-[http://en.wikipedia.org/wiki/Internet_protocol_address]: http://en.wikipedia.org/wiki/Internet_protocol_address
-
-[http://en.wikipedia.org/wiki/Host_name]: http://en.wikipedia.org/wiki/Host_name
-
-[http://en.wikipedia.org/wiki/Uniform_Resource_Identifier]: http://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+[http://en.wikipedia.org/wiki/Internet_protocol_address](http://en.wikipedia.org/wiki/Internet_protocol_address)
+[http://en.wikipedia.org/wiki/Host_name](http://en.wikipedia.org/wiki/Host_name)
+[http://en.wikipedia.org/wiki/Uniform_Resource_Identifier](http://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
 
 ## 补充:ssh的使用
 
@@ -507,7 +495,7 @@ ssh root@192.168.0.105
 实际上在平时的运维管理中,我们可能管理多台机器,可能是几台、十几台甚至几十上百台.
 我们将这些服务器配置在`config`中,方便我们去连接和管理.
 
-例如:(IdentityFile可以暂时不配置,ssh默认端口为22)
+例如:(`IdentityFile`可以暂时不配置,`ssh`默认端口为`22`)
 
 ```bash
 host "KatoUyi"
@@ -610,6 +598,8 @@ root@172.16.22.132's password: # 输入密码后, 将拷贝公钥
 ...
 ```
 
+`-i identity_file`
+
 ***
 在A服务器上免密登录B服务器
 
@@ -641,7 +631,7 @@ ssh-add  ~/.ssh/'私钥文件 '
 上述步骤是通过`ssh-copy-id`工具发送公钥文件的, 当然我们也可以通过其他方式实现:
 
 ***
-将A的公钥文件发给B:
+将`A`的公钥文件发给`B`:
 
 通过`scp`命令将A服务器的公钥文件发送到B服务器的用户目录下, 因为还没有配置成功免密登录,
 所以期间需要输入B服务器对应用户的密码:
