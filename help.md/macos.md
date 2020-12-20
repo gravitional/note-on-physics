@@ -15,8 +15,8 @@
 + 插入多个光标变成`command+option+up`, 可以在`Selection`里面选择鼠标插入的修饰键`alt`or`ctrl`
 + 设置切换全屏的快捷键为`command+enter`: `Enter Full Screen`, `Exit Full Screen`
 
-+ 把`markdown`切换代码环境--`toggle code block`的快捷键设置为`command+k command+b`
-+ 把补全提示--`triggerSugges`的快捷键设置为`command+space`.
++ 把`markdown`切换代码环境--`toggle code block`的快捷键设置为`ctrl+k ctrl+b`
++ 把补全提示--`triggerSugges`的快捷键设置为`ctrl+space`.
 + 跳转到文档开头--`command+up`,跳转到文档末尾--`command+down`
 + 跳转到文档开头--`go last`->`command+end`
 
