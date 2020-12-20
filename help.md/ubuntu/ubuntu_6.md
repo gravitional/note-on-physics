@@ -478,9 +478,9 @@ Wikipedia 上包含了许多网络方面的优秀文章.这里有一些基础的
 
 ### 连接服务器
 
-[Linux (一) SSH 使用](https://www.jianshu.com/p/e6d308e9162f)
+[Linux SSH 使用](https://www.jianshu.com/p/e6d308e9162f)
 
-确认安装好`ssh`并启动后,我们在windows、mac上或者其他linux服务器上通过以下命令便可以连接到这台主机
+确认安装好`ssh`并启动后,我们在`windows`、`mac`上或者其他`linux`服务器上通过以下命令便可以连接到这台主机
 
 ```bash
 ssh root@192.168.0.105
