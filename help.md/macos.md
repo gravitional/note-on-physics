@@ -1,55 +1,156 @@
 # macos
 
-## homebrew
+## mac 快捷键设置
 
-`Homebrew` 是一款 Mac OS 平台下的软件包管理工具，拥有安装, 卸载, 更新, 查看, 搜索等很多实用的功能。
+妙控键盘的控制键顺序是 `contrl`,`option`,`command`,从使用上,与 `linux` or `windows` 功能键的对应大概如下
 
-`Homebrew` 的两个术语：
+`contrl`,`option`,`command`
+`win`,`alt`,`ctrl`
 
-`Formulae` ：软件包，包括了这个软件的依赖, 源码位置及编译方法等；
-`Casks`：已经编译好的应用包，如图形界面程序等。
-`Homebrw`相关的几个文件夹用途：
+所以在 `system preference`中,交换 `ctrl` 和 `command`的映射,用起来稍微顺手些。
 
-`bin` ：用于存放所安装程序的启动链接（相当于快捷方式）
-`etc` ：`brew` 安装程序的配置文件默认存放路径
-`Library`：`Homebrew` 系统自身文件夹
-`Cellar` ：通过 `brew` 安装的程序将以 `[程序名/版本号]` 存放于本目录下
-常用的 `brew` 命令：
++ 把切换输入法改成`ctrl+space`,把`spotlight`的快捷键改成`F2`
++ 对于`vscode`常用的快捷键中,光标多选变成`command+option+up`, 
++ 把`markdown`切换代码环境--`toggle code block`的快捷键设置为`command+k command+b`
++ 把补全提示--`triggerSugges`的快捷键设置为`command+space`.
 
-查看`brew`版本：`brew -v`
-更新`brew`版本：`brew update`
-本地软件库列表：`brew list`
-查看软件库版本：`brew list --versions`
-查找软件包：`brew search xxx` （xxx为要查找软件的关键词）
-安装软件包：`brew install xxx` （xxx为软件包名称）
-卸载软件包：`brew uninstall xxx`
-安装软件：`brew cask install xxx`（xxx为软件名称）
-卸载软件：`brew cask uninstall xxx`
-查找软件安装位置：`which xxx` （xxx为软件名称）
-`Homebrew` 提供了两种安装软件的方式，`brew install` 和 `brew cask install`，下面对两种方式进行一些解释说明。
+```bash
+{
+  "key": "cmd+space",
+  "command": "editor.action.triggerSuggest",
+  "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+}
+```
 
-### brew install
+***
 
-`brew` 是下载源码解压，然后 `./configure && make install` ，同时会包含相关依存库，并自动配置好各种环境变量。
-对于对程序员只需通过简单的指令，就能快速安装和升级本地的各种开发环境，非常快捷方便。
+终端中大部分常用的快捷键,位移,清屏等等与`linux` 相同
 
-### brew cask install
+## homebrew 软件安装
 
-`brew cask` 是针对已经编译好了的应用包（`.dmg/.pkg`）下载解压，然后放在统一的目录中（`Caskroom`），省掉了自己下载, 解压, 安装等步骤。
-这个对一般用户来说会比较方便，包含很多在 `AppStore` 里没有的常用软件。
+[在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)
 
-简单来说，
+`Homebrew` 是一款`Mac OS`平台下的软件包管理工具,拥有安装, 卸载, 更新, 查看, 搜索等很多实用的功能。
 
-`brew install` 用来安装一些不带界面的命令行工具和第三方库。
-`brew cask install` 用来安装一些带界面的应用软件。
+`Homebrew` 的两个术语:
+
+`Formulae` :软件包,包括了这个软件的依赖, 源码位置及编译方法等；
+`Casks`:已经编译好的应用包,如图形界面程序等。
+`Homebrw`相关的几个文件夹用途:
+
+`bin` :用于存放所安装程序的启动链接（相当于快捷方式）
+`etc` :`brew` 安装程序的配置文件默认存放路径
+`Library`:`Homebrew` 系统自身文件夹
+`Cellar` :通过 `brew` 安装的程序将以 `[程序名/版本号]` 存放于本目录下
+
+`X86` 版 `Homebrew` 无法在 `ARM` 环境下安装。为此,需要先启动一个 `X86` 环境的终端。
+网络上传播较广的方法是创建一个 `Terminal.app` 的副本,然后令其在 `Rosetta` 兼容模式下运行,显得有些麻烦。
+
+其实,注意到在任何命令前增加 `arch -x86_64`,就可以以 `X86` 模式运行该命令。因此,运行:
+
+`arch -x86_64 $SHELL`, 就可以启动一个 `X86` 模式终端,使得之后运行的命令都在 X86 模式下运行。
+
+此时,运行 `Homebrew` 的官方安装脚本
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+就可以完成 `X86` 版 `Homebrew` 的安装。
+
+### arhc
+
+`arch` -- 打印 `architecture` type 或者运行指定`architecture`的`universal binary`。
+
+语法
+
+```bash
+arch
+arch [-32] [-64] [[-arch_name | -arch arch_name]...] [-c] [-d envname]... [-e envname=value]... [-h]
+   prog [args ...]
+```
+
+描述
+
+不带参数使用的`arch`命令将显示计算机的`architecture`类型。
+
+arch命令的另一个用途是运行通用二进制文件的选定体系结构。`universal binary`--通用二进制文件包含可以在不同体系结构上运行的代码。
+默认情况下,操作系统将选择与处理器类型最匹配的架构。 如果处理器是`64`位,优先使用`64`位架构,而`32`位架构只能在在32位处理器上运行。
+
+当最自然的架构不可用时,操作系统将尝试选择其他架构。在64位处理器上,尝试使用32位体系结构。否则,将不运行任何体系结构,并且报错。
+`arch`命令可用于更改操作系统的正常选择顺序。最普遍的用来在64位处理器上选择32位架构,即使有现成的`64`位架构版本。
+
+`arch_name`参数必须是当前受支持的架构之一:
+
++ `i386`     32-bit intel
++ `x86_64`   64-bit intel
++ `x86_64h`  64-bit intel (haswell)
++ `arm64`    64-bit arm
++ `arm64e`   64-bit arm (Apple Silicon)
+
+### brew and brew cask 的区别
 
 [brew install 和 brew cask install 的区别](https://zhuanlan.zhihu.com/p/138059447)
+
+`Homebrew` 提供了两种安装软件的方式,`brew install` 和 `brew cask install`,下面对两种方式进行一些解释说明。
+
+`brew` 是下载源码解压,然后 `./configure && make install` ,同时会包含相关依存库,并自动配置好各种环境变量。
+对于对程序员只需通过简单的指令,就能快速安装和升级本地的各种开发环境,非常快捷方便。
+
+`brew cask` 是针对已经编译好了的应用包（`.dmg/.pkg`）下载解压,然后放在统一的目录中（`Caskroom`）,省掉了自己下载, 解压, 安装等步骤。
+这个对一般用户来说会比较方便,包含很多在 `AppStore` 里没有的常用软件。
+
+现在的版本中,`brew cask install` 已经过时了,建议使用`brew install [--cask]`.
+
+简单来说,
+
+`brew install` 用来安装一些不带界面的命令行工具和第三方库。
+`brew install [--cask]` 用来安装一些带界面的应用软件。
+
+### 常用的brew命令
+
+[HomeBrew 管理第三方应用](https://sspai.com/post/43451)
+
++ 查看`brew`版本:`brew -v`
++ 更新`brew`版本:`brew update`
++ 本地软件库列表:`brew list`
++ 查看软件库版本:`brew list --versions`
++ 查找软件包:`brew search xxx` （xxx为要查找软件的关键词）
++ 安装软件包:`brew install xxx` （xxx为软件包名称）
++ 卸载软件包:`brew uninstall xxx`
++ 安装图形界面软件:`brew install [--cask] xxx`（xxx为软件名称）
++ 卸载图形界面:`brew uninstall [--cask] xxx`
++ 查找软件安装位置:`which xxx` （xxx为软件名称）
++ 更新应用和清理旧版: `brew outdated`
++ 更新所有应用: `brew upgrade`
++ 更新特定应用: `brew upgrade 应用名`
++ 删除应用的旧版本和缓存: `brew cleanup`,`brew cleanup -n` 不实际运行,`brew cleanup 应用名` 只清理特定应用的缓存
++ 访问应用官网: `brew home 应用名`
+
+## 命令行批量更新macOS软件
+
+[使用命令行批量更新macOS软件](https://sspai.com/post/41248)
+
+通常我们更新macOS的应用都是通过Mac App Store来更新,但对于不想打开 Store 的人来说 mas 是一个不错的选择,可以通过命令行方便的更新应用。
+安装 `mas` 的前提是拥有 `brew` 的环境,前文已经讲到如何安装 `brew` 。
+
+安装 `mas` :
+
+```bash
+brew install mas
+```
+
+一键更新所有的 `Store` 应用:
+
+```bash
+mas upgrade
+```
 
 ## mac 自带的中文字体
 
 查找 `字体册`, `font Book.app`应用.
 
-`macos` 的字体存放在`/System/Library/Fonts`目录下，`macos` 预装的中文字体为，
+`macos` 的字体存放在`/System/Library/Fonts`目录下,`macos` 预装的中文字体为,
 
 ```bash
 Apple LiGothic Medium
@@ -93,7 +194,7 @@ Yuppy SC Regular
 
 [Mounty for NTFS](https://mounty.app/)
 
-一个微型工具，用于以读写模式在macOS下重新 mount write-protected `NTFS` 。
+一个微型工具,用于以读写模式在macOS下重新 mount write-protected `NTFS` 。
 
  相当于指令
 
@@ -102,20 +203,291 @@ $ sudo umount /Volumes/UNTITLED
 $ sudo mount -t ntfs -o rw,auto,nobrowse /dev/disk3s1 ~/ntfs-volume
 ```
 
+## 系统配置
+
+[5 款小工具,轻松解锁 Mac 隐藏功能](https://sspai.com/post/45668)
+
+TinkerTool 是一款专注于管理系统设置的免费应用。
+借助它,我们可以对 macOS 的访达、程序坞、Launchpad 等不同组件的设置进行更改。你可以在[官网](https://www.bresink.com/osx/TinkerTool.html) 下载 `TinkerTool`。
+
+打开 `TinkerTool` 后可以看到,它分为`Finder`、`Dock`、`Launchpad`等不同的标签页。
+在`Finder`标签页中,勾选`Finder options`中的最后一行,`Show selected path in window title`。
+经过这样的设置,当我们在访达中打开文件时,标题栏会显示我们所处的路径。当文件夹层级较多时,开启这个功能可以帮你更方便地定位自己的文件。
+
+### mac 命令行管理
+
+[简单几条命令,轻松开启 macOS 系统隐藏功能 | 新手问号](https://sspai.com/post/41695)
+
+***
+配置 Launchpad
+
+可以通过终端对Launchpad排列方式进行修改,复制以下代码至终端即可:
+
+```bash
+defaults write com.apple.dock springboard-columns -int 8;
+defaults write com.apple.dock springboard-rows -int 7;
+defaults write com.apple.dock ResetLaunchPad -bool TRUE;
+killall Dock
+```
+
+命令中有两个数字 `8` 和 `7`,它们分别代表的是布局中的列数和行数,如果想更清除的了解该段命令,
+可以参考[《通过终端命令改变 Launchpad 中应用图标的大小》](https://sspai.com/post/33299)。
+
+除了可以对 `Launchpad` 的布局进行更改,还可以根据自己的喜好对背景的模糊程度进行更改,复制以下代码至终端即可:
+
+```bash
+defaults write com.apple.dock springboard-blur-radius -int 100;
+killall Dock
+```
+
+命令中有一个数字 `100` ,它代表的背景模糊的程度,你可以在 `0~255`的范围内选择。 
+
+***
+修改截图属性
+
+`Mac` 上自带的截图非常的还用,可以区域、窗口、延时截图。
+但是截图会默认保存在你的桌面上,时间一长,你的桌面就会被五花八门的截图堆满。
+对此,我们可以新建一个文件夹专门来存放截图,新建一个 `screenshot` 的文件夹在桌面或者任意一个你希望它待在的地方,将下述代码复制进终端即可:
+
+```bash
+mkdir -p ~/Pictures/screenshot
+defaults write com.apple.screencapture location ~/Pictures/screenshot;
+killall SystemUIServer
+```
+
+`~`之后填写你相应的文件夹路径即可.
+
+除此之外,你也可以使用以下命令修改截图保存的类型,例如你想保存 `JPG` 格式的截图:
+
+```bash
+efaults write com.apple.screencapture type jpg && killall SystemUIServe
+```
+
+***
+显示隐藏文件夹
+
+在 `Windows` 上隐藏文件夹大家应该都是老手了, 转到 `Mac` 后,却发现隐藏文件夹和自己想象有那么一些不一样。
+为了更好的把大家的`小秘密`藏到内心最深处的地方,也可以使用两段命令来完成操作。
+跟前文一样,我们需要获取文件夹的路径,然后在终端中输入以下代码:
+
+```bash
+chflags hidden ~/Desktop/Hidden
+```
+
+你也可以使用`nohidden`重新让该文件夹显示。如果你要显示全部文件,推荐大家直接使用快捷键`Shift + Command + .`即可显示全部隐藏文件。
+
+除此之外,如果你觉得自己桌面太乱了,但是这会又有人来看你的电脑,你可以使用一段命令行将桌面的文件全部隐藏起来,让桌面回归清爽,文件也依旧可以通过 Finder 中的桌面中找到:
+
+```bash
+defaults write com.apple.finder CreateDesktop -bool false; killall Finder
+```
+
+如果想重新看到桌面的图标,将 `false` 替换为 `true` 输入终端即可。
+
+***
+Dock 栏属性修改
+
+Mac 中为了获得更大的可视空间,在不使用 `Dock` 时我们可以隐藏它。若要查看隐藏的 `Dock`,可以将指针移到 `Dock` 所在屏幕的边缘。
+但是这个显示速度存在了一定的延迟,为了加速这个过程,我们可以使用一段命令行,让你的隐藏 `Dock` 弹出的时候更加的顺滑流畅:
+
+```bash
+defaults write com.apple.Dock autohide-delay -float 0 && killall Dock
+```
+
+使用后的效果,可以说是非常明显了,再也不会有在`挤牙膏`的感觉。
+
+如果在你的使用下,`Dock` 栏上摆满了各类 App,却发现这不是自己想要的结果。你可以通过终端来重置你的 `Dock` 栏,让它回到最开始的状态:
+
+```bash
+defaults delete com.apple.dock; killall Dock
+```
+
+让屏幕亮的更久
+
+Mac 在运行一段时间后,会自动进入睡眠。如果大家不想 Mac 那么快的进入书面,可以采用一些第三方软件来达到此目的。
+其实与其下载一个软件占用 Mac 上精贵的储存,不如使用一段命令行就可以解决这些问题了。
+下方命令行中的 `3600` 单位是秒,即你希望多长时间内你的 Mac 不会进入睡眠:
+
+```bash
+caffeinate -t 3600
+```
+
+***
+应用安装与更新
+
+`Mac Apple Store` 的连接情况大家也很清楚,况且还有很多应用并不在商店上架,或是非商店版本有更多的功能。
+原来的时候,我们需要查找一个又一个的官网,然后下载安装,其实这么多繁琐操作,在终端里可以更快的完成。你只需要输入:
+
+```bash
+brew cask install App
+```
+
+将 App 替换为你需要安装的软件的名字即可。
+但是使用前,需要你在电脑中安装 Homebrew Cask ,具体可以参考《再谈 Homebrew Cask 在 macOS 上安装应用的轻松感》。
+大多数通过 Cask 安装的软件都自带更新选项,如果没有该选项,用户依旧可以通过终端进行更新,
+在终端中输入`brew tap buo/cask-upgrade`,然后再输入下段命令即可更新全部应用:
+
+```bash
+brew cu
+```
+
+如果你希望安装 MAS 上的应用,也可以绕过原生的商店应用,直接采用终端进行安装。
+你可以先通过刚才安装的 Homebrew 安装一个我们需要的 `mas` ,即在终端输入:
+
+```bash
+brew install mas 
+```
+
+然后,可以在终端中搜索需要的软件,或者直接输入关键字段加上应用的识别码进行安装:
+
+```bash
+mas install AppID
+```
+
+### zsh 配置
+
+*** 
+zsh-syntax-highlighting,语法高亮 
+
+[最漂亮（ iTerm2+oh-my-zsh配色）](https://www.jianshu.com/p/246b844f4449)
+[zsh-syntax-highlighting/INSTALL.md](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
+
+需要使`zsh-syntax-highlighting`是最后被`sourced`的插件.
+
+`Oh-my-zsh` 下的安装
+
+克隆到`oh-my-zsh`的插件仓库:
+
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+在`~/.zshrc`配置文件中激活插件:
+
+```bash
+plugins=( [plugins...] zsh-syntax-highlighting)
+```
+
+重启`zsh`.
+
+***
+zsh-completions,代码补全插件
+[zsh-users/zsh-completions](https://github.com/zsh-users/zsh-completions)
+
+克隆到 Clone the repository inside your oh-my-zsh repo:
+
+```bash
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+```
+
+在 `.zshrc` 中开启:
+
+  plugins=(… zsh-completions)
+  autoload -U compinit && compinit
+
+### 终端配置
+
+[Mac下Alt键配置](https://blog.csdn.net/lzghxjt/article/details/80957474)
+[Bash 行操作](https://wangdoc.com/bash/readline.html)
+
+打开`iTerm2`终端，按快捷键`Command+,`，打开配置界面。
+选择`Profiles`,在左侧选择当前配置，在右侧选择`Keys`选项卡下两个`Esc+`，即可将`option`键作为`alt`键使用。
+
+`Bash` 内置了 `Readline` 库，具有这个库提供的很多`行操作`功能，比如命令的自动补全，可以大大加快操作速度。
+这个库默认采用 `Emacs` 快捷键，也可以改成 `Vi` 快捷键。
+
+```bash
+$ set -o vi
+```
+
+下面的命令可以改回 `Emacs` 快捷键。
+
+```bash
+$ set -o emacs
+```
+
+如果想永久性更改编辑模式（`Emacs/Vi`），可以将命令写在`~/.inputrc`文件，这个文件是 `Readline` 的配置文件。
+
+```bash
+set editing-mode vi
+```
+
+本章介绍的快捷键都属于 `Emacs` 模式。`Vi` 模式的快捷键，读者可以参考 Vi 编辑器的教程。
+
+`Bash` 默认开启这个库，但是允许关闭。
+
+```bash
+$ bash --noediting
+```
+
+上面命令中，`--noediting` 参数关闭了 `Readline` 库，启动的 `Bash` 就不带有行操作功能。
+
+***
+光标移动
+
+`Readline` 提供快速移动光标的快捷键。
+
++ `Ctrl+a`:移到行首。
++ `Ctrl+b`:向行首移动一个字符，与左箭头作用相同。
++ `Ctrl+e`:移到行尾。
++ `Ctrl+f`:向行尾移动一个字符，与右箭头作用相同。
++ `Alt+f`:移动到当前单词的词尾。
++ `Alt+b`:移动到当前单词的词首。
+上面快捷键的 `Alt` 键，也可以用 `ESC` 键代替。
+
+***
+清除屏幕
+
+`Ctrl+l`快捷键可以清除屏幕，即将当前行移到屏幕的第一行，与`clear`命令作用相同。
+
+***
+编辑操作
+
+下面的快捷键可以编辑命令行内容。
+
+`Ctrl+d`:删除光标位置的字符（delete）。
+`Ctrl+w`:删除光标前面的单词。
+`Ctrl+t`:光标位置的字符与它前面一位的字符交换位置（transpose）。
+`Alt+t`:光标位置的词与它前面一位的词交换位置（transpose）。
+`Alt+l`:将光标位置至词尾转为小写（lowercase）。
+`Alt+u`:将光标位置至词尾转为大写（uppercase）。
+使用`Ctrl+d`的时候，如果当前行没有任何字符，会导致退出当前 `Shell` ，所以要小心。
+
+剪切和粘贴快捷键如下。
+
+`Ctrl+k`:剪切光标位置到行尾的文本。
+`Ctrl+u`:剪切光标位置到行首的文本。
+`Alt+d`:剪切光标位置到词尾的文本。
+`Alt+Backspace`:剪切光标位置到词首的文本。
+`Ctrl+y`:在光标位置粘贴文本。
+同样地, `Alt`键可以用`Esc` 键代替。
+
+***
+其他快捷键
+
+`Ctrl+j`：等同于回车键（LINEFEED）。
+`Ctrl+m`：等同于回车键（CARRIAGE RETURN）。
+`Ctrl+o`：等同于回车键，并展示操作历史的下一个命令。
+`Ctrl+v`：将下一个输入的特殊字符变成字面量，比如回车变成^M。
+`Ctrl+[`：等同于 `ESC`。
+`Alt+.`：插入上一个命令的最后一个词。
+`Alt+_`：等同于`Alt+.`。
+上面的`Alt+.`快捷键，对于很长的文件路径，有时会非常方便。因为 Unix 命令的最后一个参数通常是文件路径。
+
 ## diskutil
 
 [MacOS 磁盘管理工具 diskutil 介绍](https://www.jianshu.com/p/6a1f365617ad)
 
-电脑上的操作系统, 应用程序和应用数据一般都需要保存在永久存储器中（通常就是硬盘），这样电脑断电后应用数据等就不会丢失。
-为了更有效地组织磁盘上的数据信息，通常将磁盘预先划分成一个或多个磁盘分区，创建对应的文件系统，以方便计算机对各分区分别进行管理。
-MacOS 系统自带一个图形化的磁盘管理工具（Disk Utility），同时还有一个命令行版本的 diskutil。
-通过该命令的使用，可以很快捷地对本地磁盘进行擦除数据, 调整分区大小, 格式化等操作。
+电脑上的操作系统, 应用程序和应用数据一般都需要保存在永久存储器中（通常就是硬盘）,这样电脑断电后应用数据等就不会丢失。
+为了更有效地组织磁盘上的数据信息,通常将磁盘预先划分成一个或多个磁盘分区,创建对应的文件系统,以方便计算机对各分区分别进行管理。
+MacOS 系统自带一个图形化的磁盘管理工具（Disk Utility）,同时还有一个命令行版本的 diskutil。
+通过该命令的使用,可以很快捷地对本地磁盘进行擦除数据, 调整分区大小, 格式化等操作。
 
-`diskutil` 命令的格式为：`diskutil <verb> <options>`
+`diskutil` 命令的格式为:`diskutil <verb> <options>`
 
 ### verb
 
-不带任何选项的 `diskutil` 命令会列出该命令支持的 `verb` 及其对应的介绍：
+不带任何选项的 `diskutil` 命令会列出该命令支持的 `verb` 及其对应的介绍:
 
 ```bash
  diskutil
@@ -123,16 +495,16 @@ Disk Utility Tool
 Utility to manage local disks and volumes
 ```
 
-列出的 `verb` 主要分为以下几类：
+列出的 `verb` 主要分为以下几类:
 
-+ 获取磁盘和分区信息：如 `list`, `info`, `activity` 等
-+ 挂（卸）载磁盘或卷：如 `mount`, `eject`, `mountDisk` 等
-+ 验证, 修复磁盘分区或文件系统：如 `verifyVolume`, `repairDisk` 等
-+ 分区操作：如 `splitPartitions`, `mergePartitions` 等
-+ 其他：如 `appleRAID`, `apfs` 等
++ 获取磁盘和分区信息:如 `list`, `info`, `activity` 等
++ 挂（卸）载磁盘或卷:如 `mount`, `eject`, `mountDisk` 等
++ 验证, 修复磁盘分区或文件系统:如 `verifyVolume`, `repairDisk` 等
++ 分区操作:如 `splitPartitions`, `mergePartitions` 等
++ 其他:如 `appleRAID`, `apfs` 等
 
-如不清楚某个 `verb` 的具体命令格式，可以直接使用 `diskutil` 命令加上该 `verb` 并且不带任何其他选项，命令行即输出该 `verb` 的使用介绍。
-如 `eraseDisk` 的使用介绍：
+如不清楚某个 `verb` 的具体命令格式,可以直接使用 `diskutil` 命令加上该 `verb` 并且不带任何其他选项,命令行即输出该 `verb` 的使用介绍。
+如 `eraseDisk` 的使用介绍:
 
 ```bash
 $   diskutil eraseDisk
@@ -140,8 +512,8 @@ Usage:  diskutil eraseDisk format name [APM[Format]|MBR[Format]|GPT[Format]]
         MountPoint|DiskIdentifier|DeviceNode
 ```
 
-完全擦除现有的整个磁盘。 清除磁盘上的所有内容， 需要磁盘的所有权。
-`Format`是你擦除之后，重新格式化要得到的格式（`HFS+`等）。例如:
+完全擦除现有的整个磁盘。 清除磁盘上的所有内容, 需要磁盘的所有权。
+`Format`是你擦除之后,重新格式化要得到的格式（`HFS+`等）。例如:
 
 ```bash
 diskutil eraseDisk JHFS+ UntitledUFS disk3
@@ -151,8 +523,8 @@ diskutil eraseDisk JHFS+ UntitledUFS disk3
 
 #### list
 
-可以使用 `list` 选项简要列出 MacOS 系统的磁盘及分区信息，包括分区类型（TYPE）, 分区名（NAME）, 容量大小（SIZE）和标志符（IDENTIFIER）等。
-如此时系统挂载了 `dmg` 映像文件，其信息也会显示在列表中（下表中的 disk3 ）。
+可以使用 `list` 选项简要列出 MacOS 系统的磁盘及分区信息,包括分区类型（TYPE）, 分区名（NAME）, 容量大小（SIZE）和标志符（IDENTIFIER）等。
+如此时系统挂载了 `dmg` 映像文件,其信息也会显示在列表中（下表中的 disk3 ）。
 
 ```bash
 $   diskutil list
@@ -164,12 +536,12 @@ $   diskutil list
    ...
 ```
 
-其中的 `/dev/disk0` 为内置磁盘，`/dev/disk2` 为外置磁盘（U 盘，已在 Windows 系统下格式化为 `FAT32` 格式），`/dev/disk3` 为 `DMG` 映像文件。
+其中的 `/dev/disk0` 为内置磁盘,`/dev/disk2` 为外置磁盘（U 盘,已在 Windows 系统下格式化为 `FAT32` 格式）,`/dev/disk3` 为 `DMG` 映像文件。
 而 `/dev/disk1` 其实就是 `disk0s2` 作为 `APFS` 文件系统容器的具体信息。
 
 #### info
 
-`info` 选项可以列出指定磁盘或分区的详细信息。如查看 `disk2` （即 8 G 优盘）的信息：
+`info` 选项可以列出指定磁盘或分区的详细信息。如查看 `disk2` （即 8 G 优盘）的信息:
 
 ```bash
  diskutil info disk2
@@ -183,7 +555,7 @@ $   diskutil list
 
 输出的信息包括设备标志符（Device Identifier）, 设备节点（Device Node）, 设备名（Device / Media Name）, 容量大小（Disk Size）, 块大小（Block Size）等。
 
-也可以查看某个分区的详细信息：
+也可以查看某个分区的详细信息:
 
 ```bash
  diskutil info disk1s1
@@ -196,7 +568,7 @@ $   diskutil list
 
 ### 擦除磁盘或分区
 
-`eraseDisk` 选项用于擦除整个磁盘并重新格式化。该命令的格式为：
+`eraseDisk` 选项用于擦除整个磁盘并重新格式化。该命令的格式为:
 
 ```bash
 diskutil eraseDisk <format> <name> [APM|MBR|GPT] MountPoint|DiskIdentifier|DeviceNode
@@ -219,9 +591,9 @@ Unmounting disk
 ...
 ```
 
-此时的优盘分区表变为 `GPT` 类型，且多了一个 `EFI` 分区。
+此时的优盘分区表变为 `GPT` 类型,且多了一个 `EFI` 分区。
 
-也可以在擦除磁盘时指定分区表类型：
+也可以在擦除磁盘时指定分区表类型:
 
 ```bash
 $   sudo diskutil eraseDisk ExFAT StarkyDisk MBR disk2
@@ -229,15 +601,15 @@ Password:
 Started erase on disk2
 ```
 
-此时的优盘分区表变为 MBR 类型：
+此时的优盘分区表变为 MBR 类型:
 
-其他擦除命令如 `eraseVolume` （完全擦除整个磁盘或某个磁盘分区，创建新的文件系统）, `zeroDisk` （向整个磁盘或某个分区全部写入`'0'`）
-使用 `zeroDisk` 命令擦除磁盘（该过程会花费很长的时间，我试了）后，该磁盘上的全部信息被抹除，同时也不再包含分区和文件系统信息.
+其他擦除命令如 `eraseVolume` （完全擦除整个磁盘或某个磁盘分区,创建新的文件系统）, `zeroDisk` （向整个磁盘或某个分区全部写入`'0'`）
+使用 `zeroDisk` 命令擦除磁盘（该过程会花费很长的时间,我试了）后,该磁盘上的全部信息被抹除,同时也不再包含分区和文件系统信息.
 则再次插入此优盘会提示你`初始化`或`格式化`该磁盘。
 
 ### 创建磁盘分区
 
-可以通过 `partionDisk` 选项完成对磁盘的分区操作。该命令的格式为：
+可以通过 `partionDisk` 选项完成对磁盘的分区操作。该命令的格式为:
 
 ```bash
 diskutil partitionDisk MountPoint|DiskIdentifier|DeviceNode
@@ -246,10 +618,10 @@ diskutil partitionDisk MountPoint|DiskIdentifier|DeviceNode
          part3Format part3Name part3Size ...]
 ```
 
-命令选项中的 `Size` 用来指定分区的大小（以扇区数计量），合法的值包括带有指定后缀的浮点数。
-其中的后缀有 `B(ytes)`, `S(512-byte-blocks)`, `K(ilobytes)`, `M(egabytes)`, `G(igabytes)`, `T(erabytes),` `P(etabytes)`，
+命令选项中的 `Size` 用来指定分区的大小（以扇区数计量）,合法的值包括带有指定后缀的浮点数。
+其中的后缀有 `B(ytes)`, `S(512-byte-blocks)`, `K(ilobytes)`, `M(egabytes)`, `G(igabytes)`, `T(erabytes),` `P(etabytes)`,
 也可以是 `%` 来表示对整个磁盘的占比。
-最后一个分区会自动扩展到占用整个磁盘的剩余空间，如果想为最后一个分区指定固定的大小，可在其后再创建一个类型为`free space`的分区。
+最后一个分区会自动扩展到占用整个磁盘的剩余空间,如果想为最后一个分区指定固定的大小,可在其后再创建一个类型为`free space`的分区。
 
 ```bash
 $   sudo diskutil partitionDisk disk2 3 MBR MS-DOS F01 3G JHFS+ F02 3G "Free Space" F03 0
@@ -258,13 +630,13 @@ Unmounting disk
 ...
 ```
 
-上面的命令在优盘（`disk2`）上创建了 3 个分区，第一个（F01）格式为 `FAT32`，大小是 `3 Gb`。第二个（F02）格式为 `JHFS+`，大小为 `3 Gb`。
-最后一个是`自由空间`，大小为剩余的容量。所以实际上只是分了两个区，整体的分区表类型为 `MBR` 。
+上面的命令在优盘（`disk2`）上创建了 3 个分区,第一个（F01）格式为 `FAT32`,大小是 `3 Gb`。第二个（F02）格式为 `JHFS+`,大小为 `3 Gb`。
+最后一个是`自由空间`,大小为剩余的容量。所以实际上只是分了两个区,整体的分区表类型为 `MBR` 。
 
 ### 分割/合并磁盘分区
 
-`splitPartition` 选项可以用来将已存在的某个分区再分割成数个更小的分区，注意原分区上的所有数据都会丢失。
-该选项的第一个参数为需要分割的分区的`挂载点`/`标志符`/`设备节点`，其余参数和使用 `partitionDisk` 时相同。
+`splitPartition` 选项可以用来将已存在的某个分区再分割成数个更小的分区,注意原分区上的所有数据都会丢失。
+该选项的第一个参数为需要分割的分区的`挂载点`/`标志符`/`设备节点`,其余参数和使用 `partitionDisk` 时相同。
 
 ```bash
 $   sudo diskutil list | grep disk2
@@ -277,17 +649,17 @@ Started partitioning on disk2s2 starky
 Splitting
 ```
 
-上面的命令将优盘的第二个分区（`disk2s2`）又分割成了两个更小的分区，分别是 `FAT32` 格式的 `F01`（`disk2s2`），和 `JHFS+` 格式的 F02（`disk2s3`）。
-虽然命令中指定了 F02 的大小是 `3G`，因为是最后一个分区，所以自动扩展到占用剩余的磁盘空间。最后它的实际大小是 `4.5G`。
+上面的命令将优盘的第二个分区（`disk2s2`）又分割成了两个更小的分区,分别是 `FAT32` 格式的 `F01`（`disk2s2`）,和 `JHFS+` 格式的 F02（`disk2s3`）。
+虽然命令中指定了 F02 的大小是 `3G`,因为是最后一个分区,所以自动扩展到占用剩余的磁盘空间。最后它的实际大小是 `4.5G`。
 
-`mergePartitions` 选项用来将多个已存在的分区合并为一个大的分区。该选项的格式为：
+`mergePartitions` 选项用来将多个已存在的分区合并为一个大的分区。该选项的格式为:
 
 ```bash
 diskutil mergePartitions [force] format name DiskIdentifier|DeviceNode DiskIdentifier|DeviceNode
 ```
 
-第一个分区参数为起始分区，第二个分区参数为结束分区。这两个分区之间的所有分区都将被合并。
-如果 `force` 选项没有被指定，且合并前的第一个分区是可调整大小的文件系统（如 `JHFS+`），则第一个分区上的数据会保留到合并后的分区。
+第一个分区参数为起始分区,第二个分区参数为结束分区。这两个分区之间的所有分区都将被合并。
+如果 `force` 选项没有被指定,且合并前的第一个分区是可调整大小的文件系统（如 `JHFS+`）,则第一个分区上的数据会保留到合并后的分区。
 
 ```bash
 $   sudo diskutil list | grep disk2
@@ -305,7 +677,7 @@ Merging partitions into a new partition
 
 `resizeVolume` 选项可以无损调整（增加或缩减）分区大小。
 
-将 `disk2s2` 分区缩减为 `4g` 大小，腾出的空间作为`free space`：
+将 `disk2s2` 分区缩减为 `4g` 大小,腾出的空间作为`free space`:
 
 ```bash
 $   diskutil list | grep disk2
@@ -317,7 +689,7 @@ $   sudo diskutil resizeVolume disk2s2 4g
 Resizing to 4000000000 bytes
 ```
 
-将 `disk2s2` 分区扩展，并尽可能占用所有可用的自由空间。
+将 `disk2s2` 分区扩展,并尽可能占用所有可用的自由空间。
 
 ```bash
 $   sudo diskutil resizeVolume disk2s2 R
@@ -328,5 +700,27 @@ Resizing to full size (fit to fill)
    0:      GUID_partition_scheme                        *7.8 GB     disk2
    1:                        EFI EFI                     209.7 MB   disk2s1
    2:                  Apple_HFS F01                     7.5 GB     disk2s2
+```
 
+## code
+
+### mac设置vscode命令行启动
+
+[mac设置vscode命令行启动](https://blog.csdn.net/flitrue/article/details/90906578)
+
+***
+方法一
+在 `VS Code`中打开命令面板 (`shift+cmmand+P`),输入`shell command`,找到: `Install 'code' command in PATH`,点击就可以了.
+以后在命令行中执行`code`就可以打开`VS Code`
+
+***
+方法二
+
+```bash
+vim ~/.zshrc
+# 将下列内容添加到最后
+# 设置vscode启动的简称
+alias vscode="你的安装目录/vscode.app/Contents/Resources/app/bin/code"
+## 然后 :wq 关闭 ~/.zshrc 文件
+source ~/.bash_profile
 ```
