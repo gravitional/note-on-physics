@@ -221,7 +221,7 @@ zsh 别名
 
 + `grep`='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-### 复制移动删除 cp rm mv
+### 文件管理 cp rm mv
 
 复制移动的时候,可以加上 `-i` 参数,防止覆盖
 
@@ -331,7 +331,7 @@ No action: 打印出要重命名的文件，但不执行操作
 `-E Statement`:
 类似于`-e`，但需要`;`结束
 
-### 获取绝对路径
+### 获取绝对路径 realpath
 
 `realpath` - `print the resolved path`(打印已解析的路径)
 
@@ -353,7 +353,7 @@ DESCRIPTION
 
 canonical order: 在排序中,指一种标准的顺序,比如字母顺序.
 
-### tar压缩
+### tar and 7z 压缩
 
 ***
 创建压缩文件
@@ -383,7 +383,8 @@ canonical order: 在排序中,指一种标准的顺序,比如字母顺序.
 + `zcat foo.txt.gz | less`
 + `unzip -l file[.zip] [file(s) ...]`
 
-### 7z解压缩
+***
+7z解压缩
 
 支持的格式
 
@@ -428,9 +429,9 @@ usage: `7z <command> [<switches>...] <archive_name> [<file_names>...] [<@listfil
 + `-y` : assume Yes on all queries
 + `-t{Type}` Set type of archive
 
-### 查看字体
+### 查看和安装字体
 
-fc-list: list available fonts
+`fc-list`: list available fonts
 
 ```
 fc-list [ -vVh ]  [ pattern  [ element... ]   ]
@@ -442,7 +443,8 @@ fc-list :lang=zh
 
 `:lang=zh` 代表匹配模式
 
-### 安装字体
+***
+安装字体
 
 [Ubuntu系统字体命令和字体的安装][]
 
@@ -676,11 +678,76 @@ sudo apt-get update
 sudo apt-get install typora
 ```
 
-### mount 挂载文件系统
+### 挂载命令 mount
+
+[linux挂载命令mount及U盘,移动硬盘的挂载](https://www.cnblogs.com/sunshine-cat/p/7922193.html)
+[gpt格式的移动硬盘在Linux系统下挂载方法](https://blog.csdn.net/zhang_can/article/details/79714012)
 
 + `mount -l -t type` : `-l` 选项可以显示`label`
 + `findmnt [options] device|mountpoint`: 可以更清晰的显示文件系统
 + `umount [-dflnrv] {directory|device}` : 卸载文件系统,应该通过给出文件目录来使用,`-l, --lazy`Lazy  unmount
+
+***
+`fdisk` 查看磁盘列表
+
+```bash
+sudo fdisk -l
+```
+
+显示某个特定设备
+
+```bash
+sudo fdisk -l /dev/sdb
+```
+
+首先查看所有已经 mount 的设备:
+
+```bash
+mount [-l] [-t type]
+```
+
+显示如下信息
+
+```bash
+root@kali:~# fdisk -l
+...
+Device     Boot     Start       End   Sectors   Size Id Type
+/dev/sda1  *  2048 209719295 209717248   100G  7 HPFS/NTFS/exFAT
+/dev/sda2       209719296 976773119 767053824 365.8G  f W95 Ext'd (LBA)
+/dev/sda5       209721344 465575935 255854592   122G  7 HPFS/NTFS/exFAT
+/dev/sda6       465577984 721432575 255854592   122G  7 HPFS/NTFS/exFAT
+/dev/sda7       721434624 976773119 255338496 121.8G  7 HPFS/NTFS/exFAT
+...
+```
+
+`parted /dev/sdb print`  显示 sdb 的分区表
+
+可以知道sdb2(135M to 6001G)为基本数据分区,格式为`NTFS`
+
+mount command 的标准格式:
+
+```bash
+mount -t type device dir
+```
+
+告诉 kernel attach the filesystem found on `device` (which is of type `type`) at the directory `dir`.  The option `-t type` is optional.
+
+挂载到指定目录即可:
+
+```bash
+sudo mount -t ntfs /dev/sda1 /home/6T
+```
+
+The option `-l` adds labels to this listing.
+
+***
+弹出设备
+
+```bash
+umount /dev/sda5
+```
+
+通过`df`可以查看设备挂载点
 
 ### 查看文档首行末行
 
@@ -702,11 +769,10 @@ head -n [-]num
 
 ### 查看使用的桌面环境
 
-[如何找出你所使用的桌面环境 ][]
+[如何找出你所使用的桌面环境 ](https://linux.cn/article-12124-1.html)
 
-[如何找出你所使用的桌面环境 ]: https://linux.cn/article-12124-1.html
-
-#### 检查你使用的是哪个桌面环境
+***
+检查你使用的是哪个桌面环境
 
 你可以在 Linux 中使用 `echo` 命令在终端中显示 `XDG_CURRENT_DESKTOP` 变量的值.
 
@@ -714,7 +780,8 @@ head -n [-]num
 echo $XDG_CURRENT_DESKTOP
 ```
 
-#### 如何获取桌面环境版本
+***
+如何获取桌面环境版本
 
 与获取桌面环境的名称不同.获取其版本号的方法并不直接,因为它没有标准的命令或环境变量可以提供此信息.
 在 Linux 中获取桌面环境信息的一种方法是使用 `Screenfetch` 之类的工具.
@@ -728,7 +795,8 @@ echo $XDG_CURRENT_DESKTOP
 
 ref: [3 Ways to Check Linux Kernel Version in Command Line](https://itsfoss.com/find-which-kernel-version-is-running-in-ubuntu/)
 
-#### uname
+***
+uname
 
 `inxi -S`: 命令行 系统信息脚本 for console and IRC
 `uname` -打印系统信息
@@ -764,7 +832,8 @@ ref: [3 Ways to Check Linux Kernel Version in Command Line](https://itsfoss.com/
 
 让我们看看其他一些命令来查找您的Linux内核版本.
 
-#### 使用 /proc/version file
+***
+使用 /proc/version file
 
 在Linux中,您还可以在文件`/proc/version`中找到内核信息. 只需查看此文件的内容即可:
 
@@ -776,7 +845,8 @@ ref: [3 Ways to Check Linux Kernel Version in Command Line](https://itsfoss.com/
 
 您可以在此处看到内核版本`5.4.0-48-generic`.
 
-#### 使用dmesg
+***
+使用dmesg
 
 [Linux dmesg命令](https://www.runoob.com/linux/linux-comm-dmesg.html)
 
@@ -797,7 +867,7 @@ dmesg | grep Linux
 [   12.936690] Intel(R) Wireless WiFi driver for Linux
 ```
 
-### curl
+### curl wget
 
 curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -
 
@@ -828,59 +898,6 @@ curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -
 如果`HTTP`响应是`301`、`302`或`303`。如果响应代码是任何其他`3xx`代码，curl will resend the following request using the same unmodified method.
 
 您可以通过使用专用的选项`--post301,` `--post302` and `--post303`, 来告诉curl 对于`30x`response, 不要将 `non-GET` request method 更改为`GET`.
-
-### Gnu 隐私卫士
-
-[Gnu 隐私卫士 (GnuPG) 袖珍 HOWTO (中文版)](https://www.gnupg.org/howtos/zh/index.html)
-
-#### 引进钥匙
-
-当你收到一把别人的公钥(或好几把公钥)时,为了能使用它们,你得把它们加进你的钥匙数据库.加进数据库的命令如下:
-
-```bash
-gpg --import [Filename]
-```
-
-如果文件名(`filename`)省略了,数据将从标准输入( `stdin`)读入.
-
-#### 取消钥匙
-
-因为好些原因,你可以想要取消一把已经存在的钥匙,
-例如:密钥被盗了或被不该得到它的人得到,用户身份识别改变了,钥匙不够长了,等等.对上述各种情况,取消钥匙的命令是:
-
-```bash
-gpg --gen-revoke
-```
-
-该命令将产生一份取消钥匙证书.
-要这么做,一定要先有密钥！ 否则任何人都能取消你的钥匙.
-这种方法有一个缺点: 如果我不知道通行句就用不了密钥.但用不了密钥,我就不能取消我的钥匙.
-为解决这个问题,在你产生钥匙对的时候就产生一份取消钥匙证书是一种明智的做法.
-如果你这样做的话,一定要把证书保存好！ 你可以把它放在磁盘上,纸张上,等等.
-一定要保证证书不落入坏人之手！！！ 否则别人就可以发出该证书取消你的钥匙,使你的钥匙作废.
-
-#### 钥匙管理
-
-随系统而来,有一个文件,起到某种数据库的作用.
-所有有关钥匙和钥匙附带信息的数据都存在这个文件里(只有一样例外:主人的信任值.更多的信息见 钥匙签名).用
-
-```bash
-gpg --list-keys
-```
-
-可以显示所有现有的钥匙. 要想同时显示签名,用
-
-```bash
-gpg --list-sigs
-```
-
-(更多的信息见 钥匙签名). 要想见到钥匙的指纹,敲入:
-
-```bash
-gpg --fingerprint
-```
-
-用户需要见到`指纹`来确认某人说的身份是真的. 这个命令将会产生一列相对较小的数字.
 
 ### 查看ip地址
 
@@ -999,7 +1016,8 @@ ln -s /home/me/playground/fun dir1/fun-sym
 
 ### basename
 
-#### 截取文件名和后缀
+***
+截取文件名和后缀
 
 编写Shell脚本的过程中,经常会和文件名和文件路径打交道.
 如果用户输入了一个文件的全名(可能包含绝对路径和文件后缀),如何得到文件的路径名,文件名,文件后缀这些信息呢.
@@ -1018,7 +1036,8 @@ $ echo $dir , $fullname , $filename , $extension
 这里使用`basename`命令可以直接得到包含后缀的文件名,而`dirname`命令可以得到路径名,
 然后就能简单的用`cut`截取文件名和后缀名.
 
-#### 更复杂的情况
+***
+更复杂的情况
 
 如果对付简单应用场景,到这里已经可以打完收工了,但是有时候文件可能不止有一个后缀,比如`*.tar.gz`,怎样得到最后一个后缀呢？
 再`cut`一回？当然可以,但是如果文件名是`mylib.1.0.1a.zip`这样的呢？呃......正则表达式肯定可以.
@@ -1049,7 +1068,8 @@ $ echo $filename, $extension
 mylib.1.0.1a, zip
 ```
 
-#### 使用参数扩展
+***
+使用参数扩展
 
 其实不借助复杂的正则表达式,甚至不调用`basename`, `dirname`, `cut`, `sed`命令,`shel`l脚本一样可以做到所有的操作.
 看下面的实现:
@@ -1085,7 +1105,8 @@ basename -s '.tex' $(ls *.tex) | xargs echo
 
 [Linux的inode的理解](https://www.cnblogs.com/itech/archive/2012/05/15/2502284.html)
 
-#### inode是什么
+***
+inode是什么
 
 理解`inode`,要从文件储存说起.
 文件储存在硬盘上,硬盘的最小存储单位叫做`扇区`(Sector).每个扇区储存`512`Byte(相当于`0.5KB`).
@@ -1095,7 +1116,8 @@ basename -s '.tex' $(ls *.tex) | xargs echo
 文件数据都储存在`块`中,那么很显然,我们还必须找到一个地方储存文件的元信息,比如文件的创建者、文件的创建日期、文件的大小等等.
 这种储存文件元信息的区域就叫做`inode`,中文译名为`索引节点`, `index node`.
 
-#### inode的内容
+***
+inode的内容
 
 `inode`包含文件的元信息,具体来说有以下内容:
 
@@ -1115,7 +1137,8 @@ stat example.txt
 
 总之,除了文件名以外的所有文件信息,都存在`inode`之中.至于为什么没有文件名,下文会有详细解释.
 
-#### inode的大小
+***
+inode的大小
 
 `inode`也会消耗硬盘空间,所以硬盘格式化的时候,操作系统自动将硬盘分成两个区域.一个是数据区,存放文件数据；另一个是`inode`区(`inode table`),存放`inode`所包含的信息.
 每个`inode`节点的大小,一般是`128`字节或`256`字节.
@@ -1136,7 +1159,8 @@ sudo dumpe2fs -h /dev/hda | grep "Inode size"
 
 由于每个文件都必须有一个`inode`,因此有可能发生`inode`已经用光,但是硬盘还未存满的情况.这时,就无法在硬盘上创建新文件.
 
-#### inode号码
+***
+inode号码
 
 每个`inode`都有一个号码,操作系统用`inode`号码来识别不同的文件.
 
@@ -1150,7 +1174,8 @@ sudo dumpe2fs -h /dev/hda | grep "Inode size"
 ls -i example.txt
 ```
 
-#### 目录文件
+***
+目录文件
 
 `Unix/Linux`系统中,目录(directory)也是一种文件.打开目录,实际上就是打开目录文件.
 
@@ -1174,7 +1199,8 @@ ls -i /etc
 ls -l /etc
 ```
 
-#### 硬链接
+***
+硬链接
 
 一般情况下,文件名和`inode`号码是"一一对应"关系,每个`inode`号码对应一个文件名.但是,Unix/Linux系统允许,多个文件名指向同一个`inode`号码.
 这意味着,可以用不同的文件名访问同样的内容；对文件内容进行修改,会影响到所有文件名；但是,删除一个文件名,不影响另一个文件名的访问.这种情况就被称为"硬链接"(`hard link`).
@@ -1189,7 +1215,8 @@ ln 源文件 目标文件
 
 这里顺便说一下目录文件的"链接数".创建目录时,默认会生成两个目录项:"."和"..".前者的`inode`号码就是当前目录的`inode`号码,等同于当前目录的"硬链接"；后者的`inode`号码就是当前目录的父目录的`inode`号码,等同于父目录的"硬链接".所以,任何一个目录的"硬链接"总数,总是等于`2`加上它的子目录总数(含隐藏目录),这里的`2`是父目录对其的"硬链接"和当前目录下的".硬链接".
 
-#### 软链接
+***
+软链接
 
 除了硬链接以外,还有一种特殊情况.文件`A`和文件`B`的`inode`号码虽然不一样,但是文件`A`的内容是文件`B`的路径.
 读取文件`A`时,系统会自动将访问者导向文件`B`.因此,无论打开哪一个文件,最终读取的都是文件`B`.这时,文件`A`就称为文件`B`的"软链接"(soft link)或者"符号链接(symbolic link).
@@ -1203,7 +1230,8 @@ ln 源文件 目标文件
 ln -s 源文文件或目录 目标文件或目录
 ```
 
-### inode的特殊作用
+***
+inode的特殊作用
 
 由于inode号码与文件名分离,这种机制导致了一些`Unix/Linux`系统特有的现象.
 
@@ -1875,77 +1903,7 @@ Dash to Panel 是 Gnome Shell 的一个高度可配置面板,是 Ubuntu Dock 或
 
 [Dash to Panel]: https://extensions.gnome.org/extension/1160/dash-to-panel/
 
-## 挂载命令mount
-
-[linux挂载命令mount及U盘,移动硬盘的挂载][]
-[gpt格式的移动硬盘在Linux系统下挂载方法][]
-
-[linux挂载命令mount及U盘,移动硬盘的挂载]: https://www.cnblogs.com/sunshine-cat/p/7922193.html
-
-[gpt格式的移动硬盘在Linux系统下挂载方法]: https://blog.csdn.net/zhang_can/article/details/79714012?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
-
-查看当前磁盘列表的设备
-
-```bash
-sudo fdisk -l
-```
-
-显示某个特定设备
-
-```bash
-sudo fdisk -l /dev/sdb
-```
-
-首先查看所有已经 mount 的设备:
-
-```bash
-mount [-l] [-t type]
-```
-
-显示如下信息
-
-```bash
-root@kali:~# fdisk -l
-...
-Device     Boot     Start       End   Sectors   Size Id Type
-/dev/sda1  *  2048 209719295 209717248   100G  7 HPFS/NTFS/exFAT
-/dev/sda2       209719296 976773119 767053824 365.8G  f W95 Ext'd (LBA)
-/dev/sda5       209721344 465575935 255854592   122G  7 HPFS/NTFS/exFAT
-/dev/sda6       465577984 721432575 255854592   122G  7 HPFS/NTFS/exFAT
-/dev/sda7       721434624 976773119 255338496 121.8G  7 HPFS/NTFS/exFAT
-...
-```
-
-`parted /dev/sdb print`  显示 sdb 的分区表
-
-可以知道sdb2(135M to 6001G)为基本数据分区,格式为`NTFS`
-
-mount command 的标准格式:
-
-```bash
-mount -t type device dir
-```
-
-告诉 kernel attach the filesystem found on `device` (which is of type `type`) at the directory `dir`.  The option `-t type` is optional.
-
-挂载到指定目录即可:
-
-```bash
-sudo mount -t ntfs /dev/sda1 /home/6T
-```
-
-The option `-l` adds labels to this listing.
-
-***
-弹出设备
-
-```bash
-umount /dev/sda5
-```
-
-通过`df`可以查看设备挂载点
-
-## 环境变量
+## 环境变量 path
 
 [ubuntu 修改环境变量(PATH)][]
 
