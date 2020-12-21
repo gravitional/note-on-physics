@@ -2,26 +2,22 @@
 
 ## mac 快捷键设置
 
-妙控键盘的控制键顺序是 `contrl`,`option`,`command`, 一般认为相比于`windows` or `linux`,`contrl`对应`ctrl`, `option`对应`alt`, `command`对应`win`，
-然而在实际使用中，`cmd`一般对应`ctrl`, `contrl`一般对应`win`, `option` 对应 `alt`,所以在 `system preference`中,交换 `ctrl` 和 `cmd`的映射,用起来稍微顺手些.
-
 [在 Mac 上使用全局键盘快捷键](https://support.apple.com/zh-cn/guide/mac-help/mchlp2262/10.15/mac/10.15)
 您只能为现有菜单命令创建键盘快捷键。您不能为通用任务定义键盘快捷键，例如：打开一个 App 或在 App 之间切换。
 
-***
-系统快捷键
+妙控键盘的控制键顺序是 `contrl`,`option`,`command`, 把键位更改成这个顺序，然后使用默认的快捷键即可. 除了
 
-+ 把切换输入法改成`^+space`
-+ 把`spotlight`的快捷键改成`^+S`
-+ 把`Show launchpad`的快捷键改成`^+A`
-+ 切换全屏的快捷键为`cmd+enter`: `Enter Full Screen`, `Exit Full Screen`
++ 切换输入为`opt+space`
++ `spotlight`的快捷键为`opt+s`
++ `Show launchpad`的快捷键改成`F12`
++ 切换全屏的快捷键为`^+cmd+F`: `Enter Full Screen`, `Exit Full Screen`
 
 ***
 `vscode`常用的快捷键,
 
 + 插入多个光标变成`cmd+option+up`, 可以在`Selection`里面选择鼠标插入的修饰键`alt`or`ctrl`
-+ 把`markdown`切换代码环境--`toggle code block`的快捷键设置为`cmd+k cmd+b`
-+ 把补全提示--`triggerSugges`的快捷键设置为`cmd+space`.
++ 把`markdown`切换代码环境--`toggle code block`的快捷键设置为`^+k ^+b`
++ 把补全提示--`triggerSugges`的快捷键设置为`^+space`.
 + 跳转到文档开头--`go last`->`cmd+end`
 + 跳转到文档开头--`cmd+up`,跳转到文档末尾--`cmd+down`
 
