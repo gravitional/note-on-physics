@@ -29,6 +29,7 @@
 mathematica
 
 查找帮助的快捷键: `Find Selected Function`--`F1`
+清除所有输出的快捷键: `Delete All Output`--`^+L`
 
 ***
 `终端` or `iterm2` 中大部分常用的快捷键,移动,清屏等等与`linux` 相同，是在`readline`库中约定的。
