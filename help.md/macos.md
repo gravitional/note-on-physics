@@ -5,6 +5,9 @@
 妙控键盘的控制键顺序是 `contrl`,`option`,`command`, 一般认为相比于`windows` or `linux`,`contrl`对应`ctrl`, `option`对应`alt`, `command`对应`win`，
 然而在实际使用中，`cmd`一般对应`ctrl`, `contrl`一般对应`win`, `option` 对应 `alt`,所以在 `system preference`中,交换 `ctrl` 和 `cmd`的映射,用起来稍微顺手些.
 
+[在 Mac 上使用全局键盘快捷键](https://support.apple.com/zh-cn/guide/mac-help/mchlp2262/10.15/mac/10.15)
+您只能为现有菜单命令创建键盘快捷键。您不能为通用任务定义键盘快捷键，例如：打开一个 App 或在 App 之间切换。
+
 ***
 系统快捷键
 
