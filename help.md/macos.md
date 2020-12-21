@@ -5,12 +5,13 @@
 [在 Mac 上使用全局键盘快捷键](https://support.apple.com/zh-cn/guide/mac-help/mchlp2262/10.15/mac/10.15)
 您只能为现有菜单命令创建键盘快捷键。您不能为通用任务定义键盘快捷键，例如：打开一个 App 或在 App 之间切换。
 
-妙控键盘的控制键顺序是 `contrl`,`option`,`command`, 把键位更改成这个顺序，然后使用默认的快捷键即可. 除了
+妙控键盘的控制键顺序是 `contrl`,`option`,`command`, 把键位更改成这个顺序，大部分使用默认的快捷键，加上少部分修改：
 
 + 切换输入为`opt+space`
 + `spotlight`的快捷键为`opt+s`
 + `Show launchpad`的快捷键改成`F12`
 + 切换全屏的快捷键为`^+cmd+F`: `Enter Full Screen`, `Exit Full Screen`
++ 锁定屏幕快捷键`^+cmd+Q`
 
 ***
 `vscode`常用的快捷键,
