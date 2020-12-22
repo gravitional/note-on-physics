@@ -121,6 +121,8 @@ df -h | sort -hr --key=2
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:~/bin:$PATH
 ```
 
+`$HOME`:用户目录
+
 ### shell 模式切换
 
 1. 查看系统支持的shell模式及位置

@@ -2,44 +2,81 @@
 
 如果没有特别说明，`C` for `Ctrl`, `A` for `Alt`, `S` for `Shift`。
 
+## 常用设置
+
+[User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings)
+
+***
+字体
+`ctrl+shfit+P` 打开命令面板，输入`settings`，查找到`Open Setting (UI)`
+然后在设置面板查找`editor.fontFamily`这一项。
+在`Editor: Font Family`下面设置字体，注意有`用户设置`和`工作区设置`，也就是可以对特定文件夹设置特定的字体.
+工作区设置会覆盖用户设置.
+
+可以设置三类字体，盲猜应该分别是`Serif`,`Sans`,`mono`，即衬线体，无衬线体，等宽字体.
+
+比如设置为
+
+```bash
+'PingFang SC Bold', 'Courier New', 'monospace' # 例1
+'Noto Serif CJK SC Bold','PingFang SC Bold','Noto Sans Mono CJK SC' # 例2
+'PingFang SC Bold','Noto Sans CJK SC Bold','Noto Sans Mono CJK SC' # 例3
+'Noto Serif CJK SC Bold','Noto Sans CJK SC Bold','Noto Sans Mono CJK SC' # 例4
+```
+
+设置对应一个`json`文件，在`json`中的写法是,
+
+```json
+  "editor.fontFamily": "'PingFang SC Bold','Noto Sans CJK SC Bold','Noto Sans Mono CJK SC'",
+  "terminal.integrated.fontFamily": "Meslo LG M for Powerline"
+```
+
 ## gitlens
 
 文件上方会有小字标示更改`blame`，这个是`gitlen`插件的功能，在`gitlen`设置中关闭即可
 
-## Preview mode --预览模式
+## 常见概念
+
+***
+预览模式
 
 When you `single-click` or select a file in the Explorer, it is shown in a `preview mode` and reuses an existing `Tab`. This is useful if you are quickly browsing files and don't want every visited file to have its own Tab. When you start editing the file or use `double-click` to open the file from the Explorer, a new Tab is dedicated to that file.
 
-**预览模式的文件名是斜体字**
+*预览模式的文件名是斜体字*
 
-## split --分屏
+***
+分屏
 
 Pro Tip:
 If you `press` and hold the `Alt` key while hovering over the **toolbar action** to split an editor, it will offer to split to the **other orientation**. This is a fast way to split either to the right or to the bottom.
 
-## Visual Studio Code Tips and Tricks --小贴士与技巧
+***
+小技巧
 
 official document: [Visual Tricks][]
 
 [Visual Tricks]: https://code.visualstudio.com/docs/getstarted/tips-and-tricks
 
-### Playground --练习场地
+### 练习场地
 
 In the bottom right of the Welcome page, there is a link to the **Interactive playground** where you can interactively try out VS Code's features.
 `Help > Interactive Playground`.
 
-#### multi-cursor editing --多光标编辑
+***
+多光标编辑
 
 1. `C+A+S+ up down left right`, or `S+A+mouse drag`
 2. `C+A+Up`, `C+A+down`
 3. `A+click`
 4. `C+A+L` select all occurrence
 
-#### intelli-sense --智能补全
+***
+智能补全
 
 `C+space`
 
-#### line-actions --行操作
+***
+行操作
 
 Since it's very common to work with the entire text in a line we provide a set of useful shortcuts to help with this.
 
@@ -48,14 +85,16 @@ Since it's very common to work with the entire text in a line we provide a set o
 1. Move an entire line or selection of lines up or down with `A+up` `A+down` respectively.
 1. Delete the entire line with `C+S+k`
 
-#### Rename Refactoring --批量重命名
+***
+批量重命名
 
 It's easy to rename a symbol such as a function name or variable name.  
 press `F2`  
 this will occur across all files in a project.  
 You can also see refactoring in the right-click context menu.
 
-#### Formatting --自动缩进
+***
+自动缩进
 
 Keeping your code looking great is hard without a good formatter.
 
@@ -65,7 +104,8 @@ or for the current selection with `C+K C+F` .
 
 Both of these options are also available through the right-click context menu.
 
-#### Code Folding --代码折叠
+***
+代码折叠
 
 In a large file it can often be useful to collapse sections of code to increase readability.
 
@@ -75,7 +115,8 @@ Folding can also be done with the +/- icons in the left gutter.
 
 To fold all sections use `C+K C+0`  or to unfold all use `C+K C+J`.
 
-#### Errors and Warnings --错误提示
+***
+错误提示
 
 Errors and warnings are highlighted with squiggles as you edit your code .
 
@@ -83,7 +124,8 @@ In the sample below you can see a number of syntax errors.
 
 By pressing `F8` you can navigate across them in sequence and see the detailed error message.
 
-#### Snippets --代码片段生成
+***
+代码片段生成
 
 You can greatly accelerate your editing through the use of snippets.
 
@@ -91,7 +133,8 @@ Simply start typing `try` and select `trycatch` from the suggestion list and pre
 
 Your cursor will be placed on the text `error` for easy editing. If more than one parameter exists then press `tab` to jump to it.
 
-#### Emmet --代码片段生成咒语
+***
+代码片段生成咒语
 
 `Emmet` takes the snippets idea to a whole new level:
 
@@ -101,7 +144,8 @@ Try it by selecting `Emmet: Expand Abbreviation` from the `Edit` menu with the c
 
 `ul>li.item$*5`
 
-#### JavaScript Type Checking --JavaScript类型检查
+***
+JavaScript类型检查
 
 Sometimes type checking your JavaScript code can help you spot mistakes you might have not caught otherwise.  
 You can run the TypeScript type checker against your existing JavaScript code by simply adding a `// @ts-check` comment to the top of your file.
@@ -119,7 +163,8 @@ to your workspace or user settings
 and explicitly ignoring files or lines using `// @ts-nocheck` and `// @ts-ignore`.  
 Check out the docs on JavaScript in VS Code to learn more.
 
-#### others
+***
+其他
 
 Open the Integrated Terminal by pressing `C+`,  
 then see what's possible by reviewing the [terminal documentation][]
@@ -136,18 +181,18 @@ Browse thousands of extensions in our integrated gallery by pressing `C+S+X`.
 
 [documentation]: https://code.visualstudio.com/docs/editor/extension-gallery
 
-### Command Palette --命令板
+### 命令板
 
 Access all available commands based on your current context.
 
 Keyboard Shortcut: `Ctrl+Shift+P`
 
-### Default keyboard shortcuts --默认快捷键
+### 默认快捷键
 
 All of the commands are in the Command Palette with the associated key binding (if it exists).
 If you forget a keyboard shortcut, use the Command Palette to help you out.
 
-### Keyboard reference sheets --快捷键清单
+### 快捷键清单
 
 Download the keyboard shortcut reference sheet for your platform ([macOS Keyboard][], [Windows Keyboard][], [Linux Keyboard][]).
 
@@ -157,22 +202,25 @@ Download the keyboard shortcut reference sheet for your platform ([macOS Keyboar
 
 [Linux Keyboard]: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
 
-### Quick Open --快速打开
+### 快速打开
 
 Quickly open files.
 Keyboard Shortcut: `Ctrl+P`
 
 Tip: Type `?` to view help suggestions.
 
-#### Navigate between recently opened files --最近文件导航
+***
+最近文件导航
 
 Repeat the `Quick Open` keyboard shortcut to cycle quickly between recently opened files.
 
-#### Open multiple files from Quick Open --快开多文件
+***
+快开多文件
 
 You can open multiple files from `Quick Open` by pressing the `Right arrow` key. This will open the currently selected file in the background and you can continue selecting files from `Quick Open`.
 
-#### Command line --命令行
+***
+命令行
 
 VS Code has a powerful command line interface (CLI) which allows you to customize how the editor is launched to support various scenarios.
 
@@ -210,14 +258,15 @@ code --help
 code --disable-extensions .
 ```
 
-### .vscode folder --vscode 配置文件夹
+### vscode 配置文件夹
 
 Workspace specific files are in a `.vscode` folder at the root.
 For example, `tasks.json` for the Task Runner and `launch.json` for the debugger.
 
 ### Status Bar 状态栏
 
-#### Errors and warnings --浏览错误
+***
+浏览错误
 
 Keyboard Shortcut: `Ctrl+Shift+M`
 
@@ -226,13 +275,14 @@ Cycle through errors with `F8` or `Shift+F8`
 
 You can filter problems either by type `('errors', 'warnings')` or text matching.
 
-#### Change language mode --改变语言模式
+***
+改变语言模式
 
 Keyboard Shortcut: `Ctrl+K M`
 
 If you want to persist the new language mode for that file type, you can use the `Configure File Association for` command to associate the current file extension with an installed language.
 
-### Customization --个性化 vscode
+### 个性化 vscode
 
 There are many things you can do to customize VS Code.
 
@@ -243,14 +293,16 @@ There are many things you can do to customize VS Code.
 + Create snippets
 + Install extensions
 
-#### Change your theme --换主题
+***
+换主题
 
 Keyboard Shortcut: `Ctrl+K Ctrl+T`
 You can install more themes from the VS Code extension `Marketplace`.
 
 Additionally, you can install and change your File Icon themes.
 
-#### Keymaps --键盘映射
+***
+键盘映射
 
 Are you used to keyboard shortcuts from another editor?
 You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Go to `Preferences` > `Keymap Extensions` to see the current list on the Marketplace. Some of the more popular ones:
@@ -261,7 +313,8 @@ You can install a Keymap extension that brings the keyboard shortcuts from your 
 + Atom Keymap
 + Eclipse Keymap
 
-#### Customize your keyboard shortcuts --自定义快捷键
+***
+自定义快捷键
 
 Keyboard Shortcut: `Ctrl+K Ctrl+S`
 You can search for shortcuts and add your own keybindings to the `keybindings.json` file.
@@ -270,20 +323,23 @@ See more in [Key Bindings for Visual Studio Code][].
 
 [Key Bindings for Visual Studio Code]: https://code.visualstudio.com/docs/getstarted/keybindings
 
-#### Tune your settings --调教设置
+***
+调教设置
 
 By default VS Code shows the Settings editor, you can find settings listed below in a search bar, but you can still edit the underlying `settings.json` file by using the `Open Settings (JSON)` command or by changing your default settings editor with the `workbench.settings.editor` setting.
 
 Open User Settings `settings.json`
 Keyboard Shortcut: `Ctrl+,`
 
-Format on paste --粘贴时自动格式化
+***
+粘贴时自动格式化
 
 ```json
 "editor.formatOnPaste": true
 ```
 
-Change the font size of various UI elements --改变UI字体样式
+***
+改变UI字体样式
 
 ```json
 // Main editor
@@ -302,6 +358,7 @@ Change the zoom level --调整界面放大倍数
 "window.zoomLevel": 5
 ```
 
+***
 Font ligatures 合字
 
 ```json
@@ -314,7 +371,8 @@ Tip: You will need to have a font installed that supports font ligatures.
 
 [FiraCode]: https://github.com/tonsky/FiraCode
 
-Auto Save 自动保存
+***
+自动保存
 
 ```json
 "files.autoSave": "afterDelay"
@@ -322,33 +380,38 @@ Auto Save 自动保存
 
 You can also toggle Auto Save from the top-level menu with the `File > Auto Save`.
 
-Format on save --保存时自动格式化
+***
+保存时自动格式化
 
 ```json
 "editor.formatOnSave": true
 ```
 
-Change the size of Tab characters --调整`tab`大小
+***
+调整`tab`大小
 
 ```json
 "editor.tabSize": 4
 ```
 
-Spaces or Tabs --用`空格`还是`制表符`
+***
+用`空格`还是`制表符`
 
 ```json
 "editor.insertSpaces": true
 ```
 
-Render whitespace --显示空白字符
+***
+显示空白字符
 
 ```json
 "editor.renderWhitespace": "all"
 ```
 
-Ignore files / folders --忽略文件/文件夹
+***
+忽略文件/文件夹
 
-Removes these files / folders from your editor window. 从编辑窗口中忽略
+从编辑窗口中忽略
 
 ```json
 "files.exclude": {
@@ -357,7 +420,7 @@ Removes these files / folders from your editor window. 从编辑窗口中忽略
 }
 ```
 
-Remove these files / folders from search results. 从搜索结果中忽略
+从搜索结果中忽略
 
 ```json
 "search.exclude": {
@@ -370,7 +433,8 @@ And many, [many other customizations][].
 
 [many other customizations]: https://code.visualstudio.com/docs/getstarted/settings
 
-#### Language specific settings --为特定语言设置
+***
+为特定语言设置
 
 For the settings, which you only want for specific languages, you can scope the settings by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers][] reference.
 
@@ -384,11 +448,11 @@ Tip: You can also create language specific settings with the `Configure Language
 
 [Language Identifiers]: https://code.visualstudio.com/docs/languages/identifiers
 
-#### Add JSON validation --添加JSON验证
+***
+添加JSON验证
 
 Enabled by default for many file types. Create your own schema and validation in `settings.json`
-
-**note:** schemas : 模式，纲要
+schemas : 模式，纲要
 
 ```json
 "json.schemas": [
@@ -443,7 +507,8 @@ See more in the [JSON documentation][] .
 
 Keyboard Shortcut: `Ctrl+Shift+X`
 
-#### Find extensions --寻找拓展
+***
+寻找拓展
 
 + In the [VS Code Marketplace][] .
 + Search inside VS Code in the Extensions view.
@@ -452,15 +517,18 @@ Keyboard Shortcut: `Ctrl+Shift+X`
 
 [VS Code Marketplace]: https://marketplace.visualstudio.com/vscode
 
-#### Install extensions --安装拓展
+***
+安装拓展
 
 In the `Extensions` view, you can search via the search bar or click the `More Actions` (...) button to filter and sort by install count.
 
-#### Extension recommendations --拓展推荐
+***
+拓展推荐
 
 In the `Extensions` view, click `Show Recommended Extensions` in the `More Actions` (...) button menu.
 
-#### Creating my own extension --自建拓展
+***
+自建拓展
 
 Are you interested in creating your own extension?
 You can learn how to do this in the [Extension API documentation][], specifically check out the [documentation on contribution points][].
