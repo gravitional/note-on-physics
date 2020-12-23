@@ -22,6 +22,8 @@
 'Noto Serif CJK SC Bold','PingFang SC Bold','Noto Sans Mono CJK SC' # 例2
 'PingFang SC Bold','Noto Sans CJK SC Bold','Noto Sans Mono CJK SC' # 例3
 'Noto Serif CJK SC Bold','Noto Sans CJK SC Bold','Noto Sans Mono CJK SC' # 例4
+'Noto Sans CJK SC Bold','Noto Sans CJK SC Bold','Noto Sans Mono CJK SC' # 例5
+'Source Han Sans SC','Noto Sans CJK SC Bold','Noto Sans Mono CJK SC' # 例6
 ```
 
 设置对应一个`json`文件，在`json`中的写法是,

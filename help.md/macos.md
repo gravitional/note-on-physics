@@ -238,8 +238,8 @@ $ bash --noediting
 `Ctrl+w`:删除光标前面的单词.
 `Ctrl+t`:光标位置的字符与它前面一位的字符交换位置(transpose).
 `Alt+t`:光标位置的词与它前面一位的词交换位置(transpose).
-`Alt+l`:将光标位置至词尾转为小写(lowercase).
-`Alt+u`:将光标位置至词尾转为大写(uppercase).
+`Alt+l`:将光标位置至词尾转为小写(lowercase), `alt+l`可能被占用，尝试使用`alt+shift+l`.
+`Alt+u`:将光标位置至词尾转为大写(uppercase). `alt+u`可能被占用，尝试使用`alt+shift+U`.
 使用`Ctrl+d`的时候，如果当前行没有任何字符，会导致退出当前 `Shell` ，所以要小心.
 
 剪切和粘贴快捷键如下.

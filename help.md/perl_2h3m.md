@@ -4,12 +4,12 @@
 
 Practical Extraction and Report Language
 
-Perl是一种动态的,动态类型的,高级脚本（解释）语言,类似于PHP和Python。
-Perl的语法在很大程度上归功于古老的Shell脚本,并且因过度使用混乱的符号而闻名,大多数都无法Google 到。
-Perl的shell脚本继承使其非常适合编写 glue 代码：将其他脚本和程序链接在一起的脚本。
-Perl非常适合处理文本数据并生成更多文本数据。
-Perl广泛,流行,高度可移植并且得到了良好的支持。
-Perl的设计理念是 '条条大道通罗马'（TMTOWTDI）（与Python相比,'应该有一种,或者只有一种更好的方法'）。
+`Perl`是一种动态的,动态类型的,高级脚本(解释)语言,类似于PHP和Python。
+`Perl`的语法在很大程度上归功于古老的Shell脚本,并且因过度使用混乱的符号而闻名,大多数都无法Google 到。
+`Perl`的shell脚本继承使其非常适合编写 glue 代码：将其他脚本和程序链接在一起的脚本。
+`Perl`非常适合处理文本数据并生成更多文本数据。
+`Perl`广泛,流行,高度可移植并且得到了良好的支持。
+`Perl`的设计理念是 '条条大道通罗马'(TMTOWTDI)(与Python相比,'应该有一种,或者只有一种更好的方法')。
 
 Perl令人恐惧,但它也具有一些很棒的补偿功能。在这方面,它就像过去创造的所有其他编程语言一样。
 
@@ -61,8 +61,8 @@ Perl变量分为三种类型： `scalar`, `arrays` and `hashes`。
 
 标量变量可以包含：
 
-+ `undef` （对应于Python中的`None`,PHP中的`null`）
-+ 一个数字（`Perl`不区分整数和浮点数）
++ `undef` (对应于Python中的`None`,PHP中的`null`)
++ 一个数字(`Perl`不区分整数和浮点数)
 + 一个字符串
 + 对任何其他变量的引用。
 
@@ -81,7 +81,7 @@ my $string = "world";
 print $string; # "world"
 ```
 
-使用`.`做字符串连接（与`PHP`相同）：
+使用`.`做字符串连接(与`PHP`相同)：
 
 ```perl
 print "Hello ".$string; # "Hello world"
@@ -102,7 +102,7 @@ Perl文档反复声明函数在某些情况下返回`true`或` false`值。
 ### Weak typing
 
 无法确定标量包含`数字`还是`字符串`。更确切地说,永远不需要这样做。
-标量的行为像数字还是字符串取决于使用它的运算符。当用作字符串时,标量的行为类似于字符串。当用作数字时,标量的行为将类似于数字（如果不可能,则发出警告）：
+标量的行为像数字还是字符串取决于使用它的运算符。当用作字符串时,标量的行为类似于字符串。当用作数字时,标量的行为将类似于数字(如果不可能,则发出警告)：
 
 ```perl
 my $str1 = "4G";
@@ -218,7 +218,7 @@ print $scientists{"Dyson"};    # returns undef, prints "" and raises a warning
 
 请注意此处使用的括号。同样,标量`$var`和包含标量条目`$var {foo`}`的哈希`％var`之间没有冲突。
 
-你可以将哈希直接转换为具有两倍条目的数组,元素在键和值之间进行交替（逆过程也很容易）：
+你可以将哈希直接转换为具有两倍条目的数组,元素在键和值之间进行交替(逆过程也很容易)：
 
 `my @scientists = %scientists;`
 
@@ -361,7 +361,7 @@ scalar
 my $scalar = "Mendeleev";
 ```
 
-数组或哈希分配（例如,` my @array =`或`my %hash = `）在列表上下文中求值。
+数组或哈希分配(例如,` my @array =`或`my %hash = `)在列表上下文中求值。
 在此,表达式为`("Alpha", "Beta", "Gamma", "Pie")`或`("Alpha" => "Beta", "Gamma" => "Pie"),`,两者等效：
 
 ```perl
@@ -384,7 +384,7 @@ my $scalar = @array;
 print $scalar; # "4"
 ```
 
-在标量上下文中求值的`list`表达式（`list`与数组不同,还记得吗？）不返回`list`的长度,而是返回`list`中的末位标量：
+在标量上下文中求值的`list`表达式(`list`与数组不同,还记得吗？)不返回`list`的长度,而是返回`list`中的末位标量：
 
 ```perl
 my $scalar = ("Alpha", "Beta", "Gamma", "Pie");
@@ -433,7 +433,7 @@ $outer[3] = @inner;
 print $outer[3]; # "2"
 ```
 
-`$outer [3]`是一个`scalar`,因此它需要一个`scalar`值。当您尝试为其分配一个数组值（`@inner`）时,`@inner`在`scalar`上下文中求值。这与分配`saclar @inner`相同,后者是array `@inner`的长度,即`2`。
+`$outer [3]`是一个`scalar`,因此它需要一个`scalar`值。当您尝试为其分配一个数组值(`@inner`)时,`@inner`在`scalar`上下文中求值。这与分配`saclar @inner`相同,后者是array `@inner`的长度,即`2`。
 
 但是,`scalar`变量可以包含对任何变量的引用,包括`array`变量或哈希变量。这就是在`Perl`中创建更复杂的数据结构的方式。
 
@@ -553,7 +553,7 @@ my %account = (
 );
 ```
 
-或者,简而言之（这是 in-line 声明复杂数据结构时,实际中应该使用的形式）：
+或者,简而言之(这是 in-line 声明复杂数据结构时,实际中应该使用的形式)：
 
 ```perl
 my %account = (
@@ -574,7 +574,7 @@ my %account = (
 
 ### 从数据结构中获取信息
 
-现在,让我们假设您还有`%account`,但是其他所有内容（如果有其他内容）都超出了范围。
+现在,让我们假设您还有`%account`,但是其他所有内容(如果有其他内容)都超出了范围。
 您可以通过在每种情况下相反的步骤来打印信息。同样,这里有四个示例,其中最后一个是最有用的：
 
 ```perl
@@ -636,7 +636,7 @@ my @array1 = (1, 2, 3, 4, 5);
 print @array1; # "12345"
 ```
 
-但是,此数组具有`单个`元素（它是对匿名的五元素数组的引用）：
+但是,此数组具有`单个`元素(它是对匿名的五元素数组的引用)：
 
 ```perl
 my @array2 = [1, 2, 3, 4, 5];
@@ -691,7 +691,7 @@ unless($temperature > 30) {
 }
 ```
 
-最好避免使用`unless`,因为它们会造成混乱。可以通过否定条件（或通过保留条件并交换这些块）来将`"unless [... else]"`微不足道地重构为``if [... else]``块。
+最好避免使用`unless`,因为它们会造成混乱。可以通过否定条件(或通过保留条件并交换这些块)来将`"unless [... else]"`微不足道地重构为``if [... else]``块。
 幸运的是,没有`elsunless`关键字。
 
 相比之下,强烈建议您这样做,因为它很容易阅读：
@@ -752,7 +752,7 @@ until($i >= scalar @array) {
 }
 ```
 
-这些`do`循环与上面的`几乎`等效（如果`@array`为空,则会发出警告）：
+这些`do`循环与上面的`几乎`等效(如果`@array`为空,则会发出警告)：
 
 ```perl
 my $i = 0;
@@ -936,7 +936,7 @@ print scalar grep { $_ eq "Columbus" } @capitals; # "1"
 
 `grep` 和 `map` 可以结合起来形成 `list comprehensions`,这是许多其他编程语言所不具备的非常强大的功能。
 
-默认情况下,`sort`函数返回输入数组,并按词汇（字母顺序）顺序排序：
+默认情况下,`sort`函数返回输入数组,并按词汇(字母顺序)顺序排序：
 
 ```perl
 my @elevations = (19, 1, 2, 100, 3, 98, 100, 1056);
@@ -1078,11 +1078,11 @@ sub left_pad {
 
 ```perl
 sub left_pad {
-	my $oldString = shift @_;
-	my $width     = shift @_;
-	my $padChar   = shift @_;
-	my $newString = ($padChar x ($width - length $oldString)) . $oldString;
-	return $newString;
+    my $oldString = shift @_;
+    my $width     = shift @_;
+    my $padChar   = shift @_;
+    my $newString = ($padChar x ($width - length $oldString)) . $oldString;
+    return $newString;
 }
 ```
 
@@ -1090,11 +1090,11 @@ sub left_pad {
 
 ```perl
 sub left_pad {
-	my $oldString = shift;
-	my $width     = shift;
-	my $padChar   = shift;
-	my $newString = ($padChar x ($width - length $oldString)) . $oldString;
-	return $newString;
+    my $oldString = shift;
+    my $width     = shift;
+    my $padChar   = shift;
+    my $newString = ($padChar x ($width - length $oldString)) . $oldString;
+    return $newString;
 }
 ```
 
@@ -1104,9 +1104,9 @@ sub left_pad {
 
 ```perl
 sub left_pad {
-	my ($oldString, $width, $padChar) = @_;
-	my $newString = ($padChar x ($width - length $oldString)) . $oldString;
-	return $newString;
+    my ($oldString, $width, $padChar) = @_;
+    my $newString = ($padChar x ($width - length $oldString)) . $oldString;
+    return $newString;
 }
 ```
 
@@ -1122,24 +1122,24 @@ print left_pad("oldString" => "pod", "width" => 10, "padChar" => "+");
 
 ```perl
 sub left_pad {
-	my %args = @_;
-	my $newString = ($args{"padChar"} x ($args{"width"} - length $args{"oldString"})) . $args{"oldString"};
-	return $newString;
+    my %args = @_;
+    my $newString = ($args{"padChar"} x ($args{"width"} - length $args{"oldString"})) . $args{"oldString"};
+    return $newString;
 }
 ```
 
 ### 返回值
 
 像其他`Perl`表达式一样，子例程调用可以展示上下文行为。
-您可以使用`wantarray`函数（应该叫做`wantlist`，算了别管了）来检测子例程所处的上下文，并返回适合该上下文的结果：
+您可以使用`wantarray`函数(应该叫做`wantlist`，算了别管了)来检测子例程所处的上下文，并返回适合该上下文的结果：
 
 ```perl
 sub contextualSubroutine {
-	# Caller wants a list. Return a list
-	return ("Everest", "K2", "Etna", "\n") if wantarray;
+    # Caller wants a list. Return a list
+    return ("Everest", "K2", "Etna", "\n") if wantarray;
 
-	# Caller wants a scalar. Return a scalar
-	return 3 ."\n";
+    # Caller wants a scalar. Return a scalar
+    return 3 ."\n";
 }
 
 my @array = contextualSubroutine();
@@ -1151,11 +1151,11 @@ print $scalar; # "3"
 
 ## System calls
 
-每次在Windows或Linux系统上完成进程时，它会以一个16位`status word`结束（并且我假设在大多数其他系统上也成立）。
-最高的8位构成一个介于`0`和`255`之间（含`0`和`255`）的`return code`，其中`0`通常表示未验证的运行成功，
+每次在Windows或Linux系统上完成进程时，它会以一个16位`status word`结束(并且我假设在大多数其他系统上也成立)。
+最高的8位构成一个介于`0`和`255`之间(含`0`和`255`)的`return code`，其中`0`通常表示未验证的运行成功，
 而其他值则表示不同程度的失败。其他`8`的出场频率较低-它们"reflect mode of failure, like signal death and core dump information"(核心转储信息)。
 
-你可以在退出Perl脚本时，使用`exit`选择返回码（`0`到`255`）中。
+你可以在退出Perl脚本时，使用`exit`选择返回码(`0`到`255`)中。
 
 Perl提供了`More Than One Way To`在调用中生成子进程，然后暂停当前脚本的执行，直到该子进程完成，再恢复对当前脚本的解释。
 无论使用哪种方法, 子进程执行之后，都将立即发现内置标量变量`$?`包含了子进程的`status word`(`16`位)。
@@ -1200,7 +1200,7 @@ my $f = "text.txt";
 my $result = open my $fh, "<", $f;
 
 if(!$result) {
-	die "Couldn't open '".$f."' for reading because: ".$!;
+    die "Couldn't open '".$f."' for reading because: ".$!;
 }
 ```
 
@@ -1214,13 +1214,13 @@ open(my $fh, "<", $f) || die "Couldn't open <".$f."> for reading because: ".$!;
 请注意，在打开调用的参数周围需要括号`()`。
 
 要从文件句柄读取一行文本，请使用`readline`内置函数。 
-`readline`返回一整行文本，并在其末尾保留换行符（文件的最后一行可能除外），如果到达文件末尾，则为`undef`。
+`readline`返回一整行文本，并在其末尾保留换行符(文件的最后一行可能除外)，如果到达文件末尾，则为`undef`。
 
 ```perl
 while(1) {
-	my $line = readline $fh;
-	last unless defined $line;
-	# process the line...
+    my $line = readline $fh;
+    last unless defined $line;
+    # process the line...
 }
 ```
 
@@ -1236,8 +1236,8 @@ Note that chomp acts on `$line` in place。 `$line = chomp $line`可能不是您
 
 ```perl
 while(!eof $fh) {
-	my $line = readline $fh;
-	# process $line...
+    my $line = readline $fh;
+    # process $line...
 }
 ```
 
@@ -1246,7 +1246,7 @@ while(!eof $fh) {
 
 ```perl
 while(my $line = <$fh>) {
-	# process $line...
+    # process $line...
 }
 ```
 
@@ -1254,7 +1254,7 @@ while(my $line = <$fh>) {
 
 ```perl
 while(<$fh>) {
-	# process $_...
+    # process $_...
 }
 ```
 
@@ -1305,4 +1305,3 @@ print "what" unless -e "/usr/bin/perl";
 
 这些只是`-X`形式的一大类函数中的三个，其中`X`是一些小写或大写字母。这些功能称为`file tests`。注意前面的减号。
 在Google查询中，减号表示排除包含该搜索词的结果。这使得Google`file tests` 比较困难。只需搜索`perl file tests`”即可。
-

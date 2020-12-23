@@ -3797,6 +3797,38 @@ where
 
 \end_inset
 
+即
+\begin_inset Formula 
+\[
+\Gamma^{\mu}=\gamma^{\mu}\left[F_{1}\left(Q^{2}\right)+F_{2}\left(Q^{2}\right)\right]-\left(p_{2}+p_{1}\right)^{\mu}\frac{F_{2}\left(Q^{2}\right)}{2m}
+\]
+
+\end_inset
+
+考虑到奇数个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵乘积的
+\begin_inset Formula $\tr$
+\end_inset
+
+为零，基
+\begin_inset Formula $\gamma^{\mu},\left(p_{2}+p_{1}\right)^{\mu}$
+\end_inset
+
+在
+\begin_inset Formula $\tr$
+\end_inset
+
+的意义下是正交的，
+\begin_inset Formula 
+\[
+\tr\left[\gamma^{\mu}\gamma_{\mu}\right]=4,\quad\tr\left[\left(p_{2}+p_{1}\right)^{\mu}\left(p_{2}+p_{1}\right)_{\mu}\right]=4\left(p_{1}+p_{2}\right)^{2},\quad\tr\left[\gamma^{\mu}\left(p_{2}+p_{1}\right)_{\mu}\right]=0
+\]
+
+\end_inset
+
 这样可以利用
 \begin_inset Formula $\gamma^{\mu}$
 \end_inset
@@ -3812,8 +3844,60 @@ where
 投影出来。
 \end_layout
 
+\begin_layout Standard
+由此知道，正交系数是
+\begin_inset Formula $F_{1}+F_{2}$
+\end_inset
+
+和
+\begin_inset Formula $F_{2}$
+\end_inset
+
+，对应正交基
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+,
+\begin_inset Formula $\left(p_{2}+p_{1}\right)^{\mu}$
+\end_inset
+
+。由于基
+\begin_inset Formula $\gamma^{\mu},$
+\end_inset
+
+
+\begin_inset Formula $\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}$
+\end_inset
+
+ 并不是正交的，
+\begin_inset Formula $q=0$
+\end_inset
+
+并不意味着
+\begin_inset Formula $\Gamma^{\mu}$
+\end_inset
+
+只有
+\begin_inset Formula $\gamma^{\mu}F_{1}$
+\end_inset
+
+成分，还能通过
+\begin_inset Formula $\left(p_{2}+p_{1}\right)^{\mu}\frac{F_{2}\left(Q^{2}\right)}{2m}$
+\end_inset
+
+通道投影到
+\begin_inset Formula $F_{2}$
+\end_inset
+
+，所以并不意味着
+\begin_inset Formula $F_{2}=0$
+\end_inset
+
+。
+\end_layout
+
 \begin_layout Subsection
-投影1
+投影方法1
 \end_layout
 
 \begin_layout Standard
@@ -3824,19 +3908,7 @@ where
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-考虑到奇数个
-\begin_inset Formula $\gamma$
-\end_inset
-
-矩阵乘积的
-\begin_inset Formula $\tr$
-\end_inset
-
-为零，令
+令
 \begin_inset Formula 
 \begin{align*}
  & A=\tr\left[\Gamma^{\mu}\gamma_{\mu}\right]=4\left[F_{1}\left(Q^{2}\right)+F_{2}\left(Q^{2}\right)\right]-\frac{F_{2}\left(Q^{2}\right)}{2m}\tr\left[\left(p_{2}+p_{1}\right)^{\mu}\gamma_{\mu}\right]\\
@@ -3854,7 +3926,7 @@ where
 \begin{align*}
  & B=\tr\left[\Gamma^{\mu}\left(p_{2}+p_{1}\right)_{\mu}\right]=\tr\left[\gamma\left(p_{2}+p_{1}\right)\left[F_{1}\left(Q^{2}\right)+F_{2}\left(Q^{2}\right)\right]-\left(p_{2}+p_{1}\right)^{2}\frac{F_{2}\left(Q^{2}\right)}{2m}\right]\\
  & B=-4\left(p_{2}+p_{1}\right)^{2}\frac{F_{2}\left(Q^{2}\right)}{2m}=-4\left(2m^{2}+Q^{2}+2m^{2}\right)\frac{F_{2}\left(Q^{2}\right)}{2m}\\
- & B=-4\left(4m^{2}+Q^{2}\right)\frac{F_{2}\left(Q^{2}\right)}{2m}
+ & B=-2\left(4m^{2}+Q^{2}\right)\frac{F_{2}\left(Q^{2}\right)}{m}
 \end{align*}
 
 \end_inset
@@ -3867,7 +3939,7 @@ where
 \begin_inset Formula 
 \begin{align*}
  & A=\tr\left[\Gamma^{\mu}\gamma_{\mu}\right]=4\left[F_{1}\left(Q^{2}\right)+F_{2}\left(Q^{2}\right)\right]\\
- & B=\tr\left[\Gamma^{\mu}\left(p_{2}+p_{1}\right)_{\mu}\right]=-4\left(4m^{2}+Q^{2}\right)\frac{F_{2}\left(Q^{2}\right)}{2m}
+ & B=\tr\left[\Gamma^{\mu}\left(p_{2}+p_{1}\right)_{\mu}\right]=-2\left(4m^{2}+Q^{2}\right)\frac{F_{2}\left(Q^{2}\right)}{m}
 \end{align*}
 
 \end_inset
@@ -3889,7 +3961,7 @@ where
 \end_layout
 
 \begin_layout Subsection
-投影2
+投影方法2
 \end_layout
 
 \begin_layout Standard
