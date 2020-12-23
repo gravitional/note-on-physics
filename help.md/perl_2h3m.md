@@ -1314,23 +1314,23 @@ print "what" unless -e "/usr/bin/perl";
 
 匹配操作使用`=~ m//`进行。在标量上下文中，`=~ m//`成功则返回`true`，失败则返回`false`。
 
-```bash
+```perl
 my $string = "Hello world";
 if($string =~ m/(\w+)\s+(\w+)/) {
-	print "success";
+    print "success";
 }
 ```
 
 括号执行`sub-matches`。执行成功的匹配操作后，子匹配将填充到内置变量`$1`, `$2`, `$3`, ...中：
 
-```bash
+```perl
 print $1; # "Hello"
 print $2; # "world"
 ```
 
 在`list`上下文中，`=~ m//`返回`$1`, `$2`...的列表。
 
-```bash
+```perl
 my $string = "colourless green ideas sleep furiously";
 my @matches = $string =~ m/(\w+)\s+((\w+)\s+(\w+))\s+(\w+)\s+(\w+)/;
 print join ", ", map { "'".$_."'" } @matches;
@@ -1339,7 +1339,7 @@ print join ", ", map { "'".$_."'" } @matches;
 
 替换操作使用`=~ s///`进行。
 
-```bash
+```perl
 my $string = "Good morning world";
 $string =~ s/world/Vietnam/;
 print $string; # "Good morning Vietnam"
@@ -1352,7 +1352,7 @@ print $string; # "Good morning Vietnam"
 在标量上下文中，`=~ m//g`调用将在都在前一个匹配之后寻找后一个匹配，成功则返回`true`，失败则返回`false`。
 之后，您可以按照通常的方式访问`$1`，依此类推。例如：
 
-```bash
+```perl
 my $string = "a tonne of feathers or a tonne of bricks";
 while($string =~ m/(\w+)/g) {
   print "'".$1."'\n";
@@ -1361,14 +1361,14 @@ while($string =~ m/(\w+)/g) {
 
 在`list`上下文中，`=~ m//g`调用一次返回所有匹配项。
 
-```bash
+```perl
 my @matches = $string =~ m/(\w+)/g;
 print join ", ", map { "'".$_."'" } @matches;
 ```
 
 `=~ s///g`调用执行全局搜索/替换并返回匹配的数目。在这里，我们将所有元音都替换为字母`"r"`。
 
-```bash
+```perl
 # 不带 /g 使用.
 $string =~ s/[aeiou]/r/;
 print $string,"\n"; # "r tonne of feathers or a tonne of bricks"
@@ -1386,7 +1386,7 @@ print $string,"\n"; # "r trnnr rf frrthrrs rr r trnnr rf brrcks"
 
 `/x`标志允许您的正则表达式包含空格（例如换行符）和注释。
 
-```bash
+```perl
 "Hello world" =~ m/
   (\w+) # 单个或者更多字母
   [ ]   #单个 literal 空白, 写在一个字符类[]中
