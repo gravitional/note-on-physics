@@ -5214,10 +5214,22 @@ vw & =v^{0}w^{0}-v^{3}w^{3}-v^{1}w^{1}-v^{2}w^{2},\quad v^{+}w^{-}=v^{-}w^{+}\\
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+分类处理
+\end_layout
+
+\begin_layout Standard
+参考 salamu 的博士论文。
+\end_layout
+
+\begin_layout Standard
+第一个图是，
 \begin_inset Formula 
 \begin{align*}
 f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)i\fmp_{\phi}\left(k+q\right){\color{blue}\left(-i\right)\left(2k+q\right)^{+}}i\fmp_{\phi}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
- & \times\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)i\fmp_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
+ & \times\fmp_{B}\left(p-k\right)\bar{u}\left(p^{\prime}\right)\left(\left(\slashed{k}+\slashed{q}\right)\gamma^{5}\right)i\left[\gamma\left(p-k\right)+M_{B}\right]\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
@@ -5229,103 +5241,73 @@ f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_
 ，
 \begin_inset Formula 
 \begin{align*}
-f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k\right)\tilde{F}\left(k\right)i\fmp_{\phi}\left(k\right){\color{blue}\left(-i\right)\left(2k\right)^{+}}i\fmp_{\phi}\left(k\right)\frac{yM}{k^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
- & \times\bar{u}\left(p\right)\left(\slashed{k}\gamma^{5}\right)i\fmp_{B}\left(p-k\right)\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
+f_{a}^{+}\left(y\right) & ={\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k\right)^{2}\fmp_{\phi}\left(k\right)^{2}{\color{blue}\left(2k\right)^{+}}\fmp_{B}\left(p-k\right)\frac{yM}{k^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & \times\bar{u}\left(p\right)\left(\slashed{k}\gamma^{5}\right)\left[\gamma\left(p-k\right)+M_{B}\right]\left(\slashed{k}\gamma^{5}\right)u\left(p\right)
 \end{align*}
 
 \end_inset
 
-继续化简为
-\begin_inset Formula 
-\begin{align*}
-f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k\right)\tilde{F}\left(k\right)i\fmp_{\phi}\left(k\right){\color{blue}\left(-i\right)2}i\fmp_{\phi}\left(k\right)yM\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
- & \times8i\left(k\cdot p\right)^{2}-4iMM_{B}k^{2}-4ik^{2}p^{2}-4ik^{2}\left(k\cdot p\right)
-\end{align*}
-
+使用
+\begin_inset Formula $\bar{u}Qu=\tr\left[\left(\slashed{p}+M\right)Q\right]$
 \end_inset
 
-
-\begin_inset Formula 
-\begin{align*}
-f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k\right)\tilde{F}\left(k\right)i\fmp_{\phi}\left(k\right){\color{blue}\left(-i\right)2}i\fmp_{\phi}\left(k\right)yM\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
- & \times\left[8i\left(k\cdot p\right)^{2}-4ik^{2}\left(MM_{B}+M^{2}\right)-4ik^{2}\left(k\cdot p\right)\right]
-\end{align*}
-
+，将旋量部分求
+\begin_inset Formula $\tr$
 \end_inset
 
-
+，
 \begin_inset Formula 
 \begin{align*}
-f_{a}^{+}\left(y\right) & =M{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k\right)\tilde{F}\left(k\right)\fmp_{\phi}\left(k\right)\fmp_{\phi}\left(k\right)2y\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
- & \times\left[8\left(k\cdot p\right)^{2}-4k^{2}\left(MM_{B}+M^{2}\right)-4k^{2}\left(k\cdot p\right)\right]
+f_{a}^{+}\left(y\right) & ={\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}4yM\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{\left[4\left(k\cdot p\right)^{2}-2MM_{B}k^{2}-2k^{2}p^{2}-2k^{2}\left(kp\right)\right]}{D_{\phi}\left(k\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{B}\left(p-k\right)}\\
+ & \Rightarrow{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int_{k}4yM\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{\left[4\left(kp\right)^{2}-2k^{2}\left(MM_{B}+M^{2}\right)-2k^{2}\left(kp\right)\right]}{D_{\phi}\left(k\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{B}\left(p-k\right)}\\
+ & \Rightarrow{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}{\color{blue}4M}y\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{{\color{blue}4\left(kp\right)^{2}-2k^{2}M\overline{M}-2k^{2}\left(kp\right)}}{D_{\phi}\left(k\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{B}\left(p-k\right)}
 \end{align*}
 
 \end_inset
 
 
-\begin_inset Formula $-2kp=\left(k-p\right)^{2}-M_{B}^{2}+M_{B}^{2}-k^{2}-p^{2}=D_{B}+M_{B}^{2}-k^{2}-M^{2}=D_{B}-k^{2}+\Delta\overline{M}$
+\end_layout
+
+\begin_layout Standard
+而 salamu 化简的结果是
+\size footnotesize
+
+\begin_inset Formula 
+\[
+f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{ie_{\phi}^{q}C_{B\phi}^{2}\overline{\Lambda}^{8}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}y\delta\left(y-\frac{k^{+}}{p^{+}}\right)\left[\frac{\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi}^{2}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}+\frac{-\overline{M}^{2}}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}+\frac{\left(\Delta\overline{M}-2pk\right)}{D_{\phi}^{2}\left(k\right)D_{\Lambda}\left(k\right)^{4}}\right]
+\]
+
 \end_inset
 
 
+\size default
+
+\begin_inset Formula 
+\[
+f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{ie_{\phi}^{q}C_{B\phi}^{2}\overline{\Lambda}^{8}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}y\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)-\overline{M}^{2}D_{\phi}+\left(\Delta\overline{M}-2pk\right)D_{B}\left(p-k\right)}{D_{\phi}^{2}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}
+\]
+
+\end_inset
+
+我们有等式：
 \begin_inset Formula 
 \begin{align*}
- & 2kp=k^{2}-D_{B}-\Delta\overline{M}\\
- & k^{2}=D_{B}+2kp+\Delta\overline{M}\\
+ & -2kp=\left(k-p\right)^{2}-M_{B}^{2}+M_{B}^{2}-k^{2}-p^{2}=D_{B}+M_{B}^{2}-k^{2}-M^{2}=D_{B}-k^{2}+\Delta\overline{M}\\
+ & 2kp=k^{2}-D_{B}-\Delta\overline{M},\quad k^{2}=D_{B}+2kp+\Delta\overline{M}\\
  & M=\left(\overline{M}-\Delta\right)/2,\quad M_{B}=\left(\overline{M}+\Delta\right)/2,\quad MM_{B}=\left(\overline{M}^{2}-\Delta^{2}\right)/4
 \end{align*}
 
 \end_inset
 
-
-\begin_inset Formula 
-\begin{align*}
- & \left[-4\left(k\cdot p\right)\left(D_{B}-k^{2}+\Delta\overline{M}\right)-4k^{2}\left(MM_{B}+M^{2}\right)-4k^{2}\left(k\cdot p\right)\right]\\
-= & \left[-4\left(k\cdot p\right)\left(D_{B}-k^{2}+\Delta\overline{M}+k^{2}\right)-4k^{2}\left(MM_{B}+M^{2}\right)\right]\\
-= & \left[-4\left(k\cdot p\right)\left(D_{B}+\Delta\overline{M}\right)-4\left(D_{B}+2kp+\Delta\overline{M}\right)\left(MM_{B}+M^{2}\right)\right]\\
-= & \left[-4\left(k\cdot p\right)\left(D_{B}+\Delta\overline{M}+2MM_{B}+2M^{2}\right)-4\left(D_{B}+\Delta\overline{M}\right)\left(MM_{B}+M^{2}\right)\right]\\
-= & \left[-4\left(k\cdot p\right)\left(D_{B}+\frac{5}{2}\overline{M}^{2}-\frac{3}{2}\Delta^{2}\right)-4\left(D_{B}+\Delta\overline{M}\right)\left(MM_{B}+M^{2}\right)\right]
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-分类处理
-\end_layout
-
-\begin_layout Standard
-使用 
-\begin_inset Formula $\tilde{F}\left(k\right)=\frac{\overline{\Lambda}^{4}\left(m_{\phi}^{2}\right)}{D_{\Lambda}^{2}}$
-\end_inset
-
-，化简 图a 结果 中的 
-\begin_inset Formula $\gamma$
-\end_inset
-
- 矩阵，图 a 介子彩虹图的分裂函数可以写成
-\begin_inset Formula 
-\begin{align}
- & f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=i\left(\frac{C_{B\phi}}{f}\right)^{2}\overline{\Lambda}^{8}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\label{eq: yu57}\\
-\times & \left[\frac{y\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi}^{2}D_{B}D_{\Lambda}^{4}}-\frac{y\overline{M}^{2}}{D_{\phi}D_{B}D_{\Lambda}^{4}}+\frac{y\left(\overline{M}\Delta-2pk\right)}{D_{\phi}^{2}D_{\Lambda}^{4}}\right]\nonumber 
-\end{align}
-
-\end_inset
-
-
-\color cyan
 其中
 \begin_inset Formula $k^{+}=k^{0}+k^{z}$
 \end_inset
 
- and 
+ , 
 \begin_inset Formula $M$
 \end_inset
 
- 是核子质量。
-\color inherit
-还定义了平均质量 
+ 是核子质量。还定义了平均质量 
 \begin_inset Formula $\bar{M}$
 \end_inset
 
@@ -5341,6 +5323,43 @@ f_{a}^{+}\left(y\right) & =M{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{
 
 \end_inset
 
+
+\begin_inset Formula $f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)$
+\end_inset
+
+的分子
+\begin_inset Formula $\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)-\overline{M}^{2}D_{\phi}+\left(\Delta\overline{M}-2pk\right)D_{B}$
+\end_inset
+
+可以化简为
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow & \overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)-\overline{M}^{2}D_{\phi}+\left(\Delta\overline{M}+D_{B}-k^{2}+\Delta\overline{M}\right)D_{B}\\
+\Rightarrow & \overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}-D_{\phi}\right)+\left(\Delta\overline{M}-2kp\right)D_{B}\\
+\Rightarrow & \overline{M}^{2}\left(\Delta^{2}-k^{2}\right)+\left(\Delta\overline{M}-2kp\right)\left(k^{2}-2kp-\Delta\overline{M}\right)\\
+\Rightarrow & \overline{M}^{2}\left(\Delta^{2}-k^{2}\right)+\Delta\overline{M}k^{2}-\Delta\overline{M}2\left(kp\right)-\Delta^{2}\overline{M}^{2}-2\left(kp\right)k^{2}+4\left(kp\right)^{2}+2\left(kp\right)\Delta\overline{M}\\
+\Rightarrow & k^{2}\left(\Delta\overline{M}-\overline{M}^{2}\right)-2k^{2}\left(kp\right)+4\left(kp\right)^{2}\\
+\Rightarrow & {\color{blue}4\left(kp\right)^{2}-2k^{2}M\overline{M}-2k^{2}\left(kp\right)}
+\end{align*}
+
+\end_inset
+
+和 salamu 的结果差一个
+\begin_inset Formula ${\color{blue}4M}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+salamu 结果中，化简的表达式和之前的量纲对比可以发现，使用的归一化是
+\begin_inset Formula $\bar{u}u=1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
 使用光锥动量
 \begin_inset Formula $k^{\pm}=k^{0}\pm k^{z}$
 \end_inset
@@ -5354,13 +5373,7 @@ f_{a}^{+}\left(y\right) & =M{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{
 \end_inset
 
  积分比较方便。
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq: yu57"
-plural "false"
-caps "false"
-noprefix "false"
-
+\begin_inset Formula $f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)$
 \end_inset
 
 的前两项（对
