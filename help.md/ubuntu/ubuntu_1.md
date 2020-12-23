@@ -390,10 +390,10 @@ canonical order: 在排序中,指一种标准的顺序,比如字母顺序.
 
 支持的格式
 
-LZMA2, XZ, ZIP, Zip64, CAB, RAR (if the non-free p7zip-rar package is installed),
-ARJ,  GZIP, BZIP2, TAR, CPIO, RPM, ISO
+`LZMA2`, `XZ`, `ZIP`, `Zip64`, `CAB`, `RAR` (如果安装了 non-free `p7zip-rar`包),
+`ARJ`,  `GZIP`, `BZIP2`, `TAR`, `CPIO`, `RPM`, `ISO`
 
-usage: `7z <command> [<switches>...] <archive_name> [<file_names>...] [<@listfiles...>]`
+用法: `7z <command> [<switches>...] <archive_name> [<file_names>...] [<@listfiles...>]`
 
 解压缩,输入密码,并保持目录结构:
 
@@ -410,26 +410,26 @@ usage: `7z <command> [<switches>...] <archive_name> [<file_names>...] [<@listfil
 
 `<Commands>`
 
-+ `a` : Add files to archive
++ `a` : 添加文件到归档中
 + `b` : Benchmark
-+ `d` : Delete files from archive
-+ `e` : Extract files from archive (without using directory names)
-+ `h` : Calculate hash values for files
-+ `i` : Show information about supported formats
-+ `l` : List contents of archive
-+ `rn` : Rename files in archive
-+ `t` : Test integrity of archive
-+ `u` : Update files to archive
-+ `x` : eXtract files with full paths
++ `d` : 从归档中删除
++ `e` : 从归档中提取（不使用目录名）
++ `h` : 计算文件的 hash 值
++ `i` : 展示支持的格式
++ `l` : 列出归档的内容
++ `rn` : 重命名归档中的文件
++ `t` : 检查归档的完整性
++ `u` : 把文件更新到归档
++ `x` : 提取文件，使用全路径(也就是保持文件结构)
 
 `<Switches>`
 
 + `--` : Stop switches parsing
-+ `-o{Directory}` : set Output directory
-+ `-p{Password}` : set Password
-+ `-r[-|0]` : Recurse subdirectories
-+ `-y` : assume Yes on all queries
-+ `-t{Type}` Set type of archive
++ `-o{Directory}` : 设置输出目录
++ `-p{Password}` : 设置密码
++ `-r[-|0]` : 递归子目录
++ `-y` : 所有 queries 回答 yes
++ `-t{Type}`设置归档的 type
 
 ### 查看和安装字体
 

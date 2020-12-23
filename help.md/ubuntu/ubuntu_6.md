@@ -1750,8 +1750,7 @@ $ ls Documents
 
 ### zip
 
-`zip` 程序既是压缩工具,也是一个打包工具. 
-它读取和写入 `.zip` 文件, `Windows` 用户比较熟悉这种文件格式.
+`zip` 程序既是压缩工具,也是一个打包工具. 它读取和写入 `.zip` 文件, `Windows` 用户比较熟悉这种文件格式.
 然而,在 Linux 中 `gzip` 是主要的压缩程序, `bzip2`则排第二.
 
 在 `zip` 命令的基本用法为：
@@ -1844,6 +1843,51 @@ $ unzip -p ls-etc.zip | less
 `zip` 和 `unzip` 命令的说明手册都相当不错, 并且包含了有用的实例.
 然而,这些程序的主要用途是为了和 `Windows` 系统交换文件,
 而不是在 `Linux` 系统中执行压缩和打包操作,`tar` 和 `gzip` 程序在Linux 系统中更受欢迎.
+
+### 7z解压缩
+
+支持的格式
+
+`LZMA2`, `XZ`, `ZIP`, `Zip64`, `CAB`, `RAR` (如果安装了 non-free `p7zip-rar`包),
+`ARJ`,  `GZIP`, `BZIP2`, `TAR`, `CPIO`, `RPM`, `ISO`
+
+用法: `7z <command> [<switches>...] <archive_name> [<file_names>...] [<@listfiles...>]`
+
+解压缩,输入密码,并保持目录结构:
+
+`7z x -p1234 filename`
+
+压缩单个文件
+
+`7z a -t7z archive_name filename`
+
+压缩txt中的文件
+
+`7z a -t7z configrc.win.7z @tom.rc_list.win`
+`7z a -t7z configrc.linux.7z @tom.rc_list.linux`
+
+`<Commands>`
+
++ `a` : 添加文件到归档中
++ `b` : Benchmark
++ `d` : 从归档中删除
++ `e` : 从归档中提取（不使用目录名）
++ `h` : 计算文件的 hash 值
++ `i` : 展示支持的格式
++ `l` : 列出归档的内容
++ `rn` : 重命名归档中的文件
++ `t` : 检查归档的完整性
++ `u` : 把文件更新到归档
++ `x` : 提取文件，使用全路径(也就是保持文件结构)
+
+`<Switches>`
+
++ `--` : Stop switches parsing
++ `-o{Directory}` : 设置输出目录
++ `-p{Password}` : 设置密码
++ `-r[-|0]` : 递归子目录
++ `-y` : 所有 queries 回答 yes
++ `-t{Type}`设置归档的 type
 
 ### 同步文件和目录
 
