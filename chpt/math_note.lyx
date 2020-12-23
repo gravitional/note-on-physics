@@ -4043,18 +4043,76 @@ PDF 化简技术
 \end_layout
 
 \begin_layout Standard
-salamu 约定狄拉克旋量
-\begin_inset Formula $\bar{u}u=1$
-\end_inset
-
-，对于任意的矩阵
+对于任意的矩阵
 \begin_inset Formula $Q$
 \end_inset
 
 ，它在旋量之间的矩阵元为
 \begin_inset Formula 
+\begin{align*}
+\bar{u}\left(p\right)Qu\left(p\right) & =\bar{u}\left(p\right)_{i}Q_{ij}u\left(p\right)_{j}=u\left(p\right)_{j}\bar{u}\left(p\right)_{i}Q_{ij}=\tr\left[u\left(p\right)\bar{u}\left(p\right)Q\right]\\
+\bar{u}\left(p\right)Qu\left(p\right) & =\tr\left[\left(\slashed{p}+M\right)Q\right]
+\end{align*}
+
+\end_inset
+
+从而，
+\begin_inset Formula 
 \[
-\bar{u}\left(p\right)Qu\left(p\right)=\bar{u}\left(p\right)_{i}Q_{ij}u\left(p\right)_{j}=u\left(p\right)_{j}\bar{u}\left(p\right)_{i}Q_{ij}=\tr\left[u\left(p\right)\bar{u}\left(p\right)Q\right]
+\bar{u}\left(p\right)\gamma^{\mu}u\left(p\right)=\tr\left[\left(\slashed{p}+M\right)\gamma^{\mu}\right]=4p^{\mu}=\tr\left[\left(\slashed{p}+M\right)\frac{p^{\mu}}{M}\right]
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula $\bar{u}\left(p\right)\gamma^{+}u\left(p\right)$
+\end_inset
+
+相当于
+\begin_inset Formula $\bar{u}\left(p\right)\frac{p^{+}}{M}u\left(p\right)$
+\end_inset
+
+，
+\begin_inset Formula $\gamma^{+}\to\frac{p^{+}}{M}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+通常的归一化为
+\begin_inset Formula 
+\begin{align*}
+ & \bar{u}\left(r,p\right)u\left(s,p\right)=2M\delta^{rs},\qquad u^{r+}\left(p\right)u^{s}\left(p\right)=2E_{p}\delta^{rs}\\
+ & \bar{v}\left(r,p\right)v\left(s,p\right)=-2M\delta^{rs}\qquad v^{r+}\left(p\right)v^{s}\left(p\right)=+2E_{p}\delta^{rs}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+salamu 约定狄拉克旋量
+\begin_inset Formula $\bar{u}\left(p,M\right)u\left(p,M\right)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+光锥坐标中，积分测度与普通协变坐标的关系为
+\begin_inset Formula 
+\[
+\int\dif^{4}k=\frac{1}{2}\int\dif k^{+}\dif k^{-}\dif k_{\perp}^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\delta\left(k^{+}-yp^{+}\right)=\frac{1}{p^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)=\frac{y}{k^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)
 \]
 
 \end_inset
