@@ -1305,3 +1305,92 @@ print "what" unless -e "/usr/bin/perl";
 
 这些只是`-X`形式的一大类函数中的三个，其中`X`是一些小写或大写字母。这些功能称为`file tests`。注意前面的减号。
 在Google查询中，减号表示排除包含该搜索词的结果。这使得Google`file tests` 比较困难。只需搜索`perl file tests`”即可。
+
+## 正则表达式
+
+正则表达式在`Perl`之外的许多语言和工具中都有。 
+`Perl`的核心正则表达式语法与其他地方基本相同，但是`Perl`的完整正则表达式功能极其复杂且难以理解。
+我能给您的最好建议是，尽可能避免这种复杂性。
+
+匹配操作使用`=~ m//`进行。在标量上下文中，`=~ m//`成功则返回`true`，失败则返回`false`。
+
+```bash
+my $string = "Hello world";
+if($string =~ m/(\w+)\s+(\w+)/) {
+	print "success";
+}
+```
+
+括号执行`sub-matches`。执行成功的匹配操作后，子匹配将填充到内置变量`$1`, `$2`, `$3`, ...中：
+
+```bash
+print $1; # "Hello"
+print $2; # "world"
+```
+
+在`list`上下文中，`=~ m//`返回`$1`, `$2`...的列表。
+
+```bash
+my $string = "colourless green ideas sleep furiously";
+my @matches = $string =~ m/(\w+)\s+((\w+)\s+(\w+))\s+(\w+)\s+(\w+)/;
+print join ", ", map { "'".$_."'" } @matches;
+# prints "'colourless', 'green ideas', 'green', 'ideas', 'sleep', 'furiously'"
+```
+
+替换操作使用`=~ s///`进行。
+
+```bash
+my $string = "Good morning world";
+$string =~ s/world/Vietnam/;
+print $string; # "Good morning Vietnam"
+```
+
+注意`$string`的内容如何改变。您必须在`=~ s///`操作的左侧传递一个标量变量。如果传递 literal 字符串，则会出现错误。
+
+`/g` flag 表示"全局匹配"。
+
+在标量上下文中，`=~ m//g`调用将在都在前一个匹配之后寻找后一个匹配，成功则返回`true`，失败则返回`false`。
+之后，您可以按照通常的方式访问`$1`，依此类推。例如：
+
+```bash
+my $string = "a tonne of feathers or a tonne of bricks";
+while($string =~ m/(\w+)/g) {
+  print "'".$1."'\n";
+}
+```
+
+在`list`上下文中，`=~ m//g`调用一次返回所有匹配项。
+
+```bash
+my @matches = $string =~ m/(\w+)/g;
+print join ", ", map { "'".$_."'" } @matches;
+```
+
+`=~ s///g`调用执行全局搜索/替换并返回匹配的数目。在这里，我们将所有元音都替换为字母`"r"`。
+
+```bash
+# 不带 /g 使用.
+$string =~ s/[aeiou]/r/;
+print $string,"\n"; # "r tonne of feathers or a tonne of bricks"
+
+# 再次使用
+$string =~ s/[aeiou]/r/;
+print $string,"\n"; # "r trnne of feathers or a tonne of bricks"
+
+# 使用 /g 处理所有剩余匹配
+$string =~ s/[aeiou]/r/g;
+print $string,"\n"; # "r trnnr rf frrthrrs rr r trnnr rf brrcks"
+```
+
+`/i`标志使匹配和替换不区分大小写。
+
+`/x`标志允许您的正则表达式包含空格（例如换行符）和注释。
+
+```bash
+"Hello world" =~ m/
+  (\w+) # 单个或者更多字母
+  [ ]   #单个 literal 空白, 写在一个字符类[]中
+  world # literal "world"
+/x;
+# 返回true
+```

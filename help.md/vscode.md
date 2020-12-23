@@ -33,7 +33,11 @@
   "terminal.integrated.fontFamily": "Meslo LG M for Powerline"
 ```
 
-## gitlens
+## 各种常用命令
+
+toggle tab key moves focus: 用 tab 控制焦点切换，会影响终端补全。
+
+## gitlens blame 显示
 
 文件上方会有小字标示更改`blame`，这个是`gitlen`插件的功能，在`gitlen`设置中关闭即可
 
