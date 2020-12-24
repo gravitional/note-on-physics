@@ -5190,34 +5190,8 @@ vw & =v^{0}w^{0}-v^{3}w^{3}-v^{1}w^{1}-v^{2}w^{2},\quad v^{+}w^{-}=v^{-}w^{+}\\
 
 \end_layout
 
-\begin_layout Enumerate
-\begin_inset Formula $\delta$
-\end_inset
-
-发散项包含
-\begin_inset Formula $\delta\left(k^{+}\right)=\delta\left(yp^{+}\right)=\delta\left(y\right)/p^{+}$
-\end_inset
-
-。这个
-\begin_inset Formula $p^{+}$
-\end_inset
-
-是如何抵消掉的？
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\delta\left(k^{+}-yp^{+}\right)=\frac{1}{p^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)=\frac{y}{k^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
-分类处理
+旋量结构化简
 \end_layout
 
 \begin_layout Standard
@@ -5225,7 +5199,7 @@ vw & =v^{0}w^{0}-v^{3}w^{3}-v^{1}w^{1}-v^{2}w^{2},\quad v^{+}w^{-}=v^{-}w^{+}\\
 \end_layout
 
 \begin_layout Standard
-第一个图是，
+第一个图的表达式为：
 \begin_inset Formula 
 \begin{align*}
 f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k+q\right)\tilde{F}\left(k\right)i\fmp_{\phi}\left(k+q\right){\color{blue}\left(-i\right)\left(2k+q\right)^{+}}i\fmp_{\phi}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
@@ -5238,7 +5212,7 @@ f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_
 \begin_inset Formula $p=p^{\prime},q=0$
 \end_inset
 
-，
+，简化为，
 \begin_inset Formula 
 \begin{align*}
 f_{a}^{+}\left(y\right) & ={\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C_{B\phi}}{f}\right)^{2}\int_{k}\tilde{F}\left(k\right)^{2}\fmp_{\phi}\left(k\right)^{2}{\color{blue}\left(2k\right)^{+}}\fmp_{B}\left(p-k\right)\frac{yM}{k^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
@@ -5248,7 +5222,7 @@ f_{a}^{+}\left(y\right) & ={\color{blue}\left(ie_{\phi}^{q}\right)}\left(\frac{C
 \end_inset
 
 使用
-\begin_inset Formula $\bar{u}Qu=\tr\left[\left(\slashed{p}+M\right)Q\right]$
+\begin_inset Formula $\bar{u}\left(p\right)Qu\left(p\right)=\tr\left[\left(\slashed{p}+M\right)Q\right]$
 \end_inset
 
 ，将旋量部分求
@@ -5293,7 +5267,7 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{ie_{\phi}^{q}C_{B\phi}^
 \begin_inset Formula 
 \begin{align*}
  & -2kp=\left(k-p\right)^{2}-M_{B}^{2}+M_{B}^{2}-k^{2}-p^{2}=D_{B}+M_{B}^{2}-k^{2}-M^{2}=D_{B}-k^{2}+\Delta\overline{M}\\
- & 2kp=k^{2}-D_{B}-\Delta\overline{M},\quad k^{2}=D_{B}+2kp+\Delta\overline{M}\\
+ & 2kp=k^{2}-D_{B}\left(p-k\right)-\Delta\overline{M},\quad k^{2}=D_{B}\left(p-k\right)+2kp+\Delta\overline{M}\\
  & M=\left(\overline{M}-\Delta\right)/2,\quad M_{B}=\left(\overline{M}+\Delta\right)/2,\quad MM_{B}=\left(\overline{M}^{2}-\Delta^{2}\right)/4
 \end{align*}
 
@@ -5307,31 +5281,19 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{ie_{\phi}^{q}C_{B\phi}^
 \begin_inset Formula $M$
 \end_inset
 
- 是核子质量。还定义了平均质量 
-\begin_inset Formula $\bar{M}$
+ 是核子质量,
+\begin_inset Formula $M_{B}$
 \end_inset
 
- 和质量差 
-\begin_inset Formula $\Delta$
+是中间重子质量
+\begin_inset Formula $\overline{M}=M+M_{B},\quad\Delta=M_{B}-M$
 \end_inset
 
+。
+\end_layout
 
-\begin_inset Formula 
-\[
-\overline{M}=M+M_{B},\quad\Delta=M_{B}-M
-\]
-
-\end_inset
-
-
-\begin_inset Formula $f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)$
-\end_inset
-
-的分子
-\begin_inset Formula $\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)-\overline{M}^{2}D_{\phi}+\left(\Delta\overline{M}-2pk\right)D_{B}$
-\end_inset
-
-可以化简为
+\begin_layout Standard
+salamu 结果中的分子可以化简为，
 \begin_inset Formula 
 \begin{align*}
 \Rightarrow & \overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)-\overline{M}^{2}D_{\phi}+\left(\Delta\overline{M}+D_{B}-k^{2}+\Delta\overline{M}\right)D_{B}\\
@@ -5344,15 +5306,11 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{ie_{\phi}^{q}C_{B\phi}^
 
 \end_inset
 
-和 salamu 的结果差一个
+这里的结果和 salamu 的结果差一个
 \begin_inset Formula ${\color{blue}4M}$
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
-salamu 结果中，化简的表达式和之前的量纲对比可以发现，使用的归一化是
+。通过对比化简前后表达式的量纲可以发现，salamu 使用的归一化是
 \begin_inset Formula $\bar{u}u=1$
 \end_inset
 
@@ -5360,27 +5318,90 @@ salamu 结果中，化简的表达式和之前的量纲对比可以发现，使�
 \end_layout
 
 \begin_layout Standard
-使用光锥动量
+考虑到 Gordon 恒等式,
+\begin_inset Formula 
+\[
+\bar{u}\left(p_{2}\right)\gamma^{\mu}u\left(p_{1}\right)=\bar{u}\left(p_{2}\right)\left[\frac{\left(p_{2}+p_{1}\right)^{\mu}}{2m}+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}\right]u\left(p_{1}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $p_{1}=p_{2}=p$
+\end_inset
+
+时，
+\begin_inset Formula 
+\[
+\bar{u}\left(p\right)\gamma^{\mu}u\left(p\right)=\bar{u}\left(p\right)\frac{p^{\mu}}{m}u\left(p\right)
+\]
+
+\end_inset
+
+相当于振幅中只有
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+这种结构，
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+是一个普通的数。所以
+\begin_inset Formula 
+\[
+u\left(p\right)p^{\mu}\bar{u}\left(p\right)=\tr\left[\left(\slashed{p}+M\right)p^{\mu}\right]={\color{blue}4M}p^{\mu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $4M$
+\end_inset
+
+来自于对
+\begin_inset Formula $MI_{4\times4}$
+\end_inset
+
+求迹。
+\end_layout
+
+\begin_layout Subsection
+on–shell 部分
+\end_layout
+
+\begin_layout Standard
+对于表达式，
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{ie_{\phi}^{q}C_{B\phi}^{2}\overline{\Lambda}^{8}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}y\delta\left(y-\frac{k^{+}}{p^{+}}\right)\left[\frac{\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi}^{2}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}+\frac{-\overline{M}^{2}}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}+\frac{\left(\Delta\overline{M}-2pk\right)}{D_{\phi}^{2}\left(k\right)D_{\Lambda}\left(k\right)^{4}}\right]
+\]
+
+\end_inset
+
+
+\size default
+如果使用光锥动量
 \begin_inset Formula $k^{\pm}=k^{0}\pm k^{z}$
 \end_inset
 
- and 横动量 
+ 和横动量 
 \begin_inset Formula $\boldsymbol{k_{\perp}}$
 \end_inset
 
-求解 
+求解其中的
 \begin_inset Formula $\dif^{4}k$
 \end_inset
 
- 积分比较方便。
-\begin_inset Formula $f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)$
-\end_inset
-
-的前两项（对
+积分。其中的项需要分类讨论：前两项对
 \begin_inset Formula $k^{-}$
 \end_inset
 
-）的 poles 在
+的 poles，在
 \begin_inset Formula $k^{-}$
 \end_inset
 
@@ -5429,10 +5450,6 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\left(\frac{C_{B\phi}}{f}\rig
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-on–shell 部分
 \end_layout
 
 \begin_layout Standard
