@@ -6583,20 +6583,8 @@ f_{b}^{+}\left(y\right)= & \frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{f^{2}}\le
 salamu 的结果是
 \begin_inset Formula 
 \begin{equation}
-f_{B\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}k\left[{\color{blue}\frac{\overline{y}\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}-D_{\phi}\right)}{D_{\phi}D_{B}^{2}D_{\Lambda}^{4}}}+\frac{\left(2-y\right)\overline{M}\Delta}{D_{B}D_{\phi}D_{\Lambda}^{4}}+\frac{1}{D_{\phi}D_{\Lambda}^{4}}\right]\delta\left(y-\frac{k^{+}}{p^{+}}\right)\label{eq:yu_71}
+f_{B\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}k\left[\frac{\overline{y}\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi}D_{B}^{2}D_{\Lambda}^{4}}-\frac{\overline{y}\overline{M}^{2}}{D_{B}^{2}D_{\Lambda}^{4}}+\frac{\left(2-y\right)\overline{M}\Delta}{D_{B}D_{\phi}D_{\Lambda}^{4}}+\frac{1}{D_{\phi}D_{\Lambda}^{4}}\right]\delta\left(y-\frac{k^{+}}{p^{+}}\right)\label{eq:yu_71}
 \end{equation}
-
-\end_inset
-
-对
-\begin_inset Formula $k^{-}$
-\end_inset
-
-积分之后，它可以表示成如下四项之和，
-\begin_inset Formula 
-\[
-f_{B\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\left[f_{B}^{\left(\text{on}\right)}\left(y\right)+f_{\phi}^{\left(\text{off}\right)}\left(y\right)+4\delta f_{B}^{\left(\text{off}\right)}\left(y\right)-\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]
-\]
 
 \end_inset
 
@@ -6608,11 +6596,65 @@ on–shell
 \end_layout
 
 \begin_layout Standard
-在
+使用公式，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)}=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}D_{\Lambda B}}
+\]
+
+\end_inset
+
+对分母是
+\begin_inset Formula $D_{B}^{2}\left(p-k\right)$
+\end_inset
+
+的项，对结果中的
+\begin_inset Formula $M_{B}^{2}$
+\end_inset
+
+求偏导数，会出来两项。由于
+\begin_inset Formula $D_{\phi B},D_{\Lambda B}$
+\end_inset
+
+都含有
+\begin_inset Formula $M_{B}^{2}$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif k^{+}\int\dif k^{-}\frac{\overline{y}\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)D_{B}^{2}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}\\
+= & \frac{\left(-2\pi i\right)\overline{y}\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{\overline{y}}\frac{y}{\overline{y}}\left(\frac{1}{D_{\phi B}^{2}D_{\Lambda B}^{4}}+\frac{4}{D_{\phi B}D_{\Lambda B}^{5}}\right)\\
+= & \frac{\left(-2\pi i\right)y}{\overline{y}}\left(\frac{\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi B}^{2}D_{\Lambda B}^{4}}+\frac{4\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi B}D_{\Lambda B}^{5}}\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+D_{\phi B}=\frac{-k_{\perp}^{2}-yM_{B}^{2}-\overline{y}m_{\phi}^{2}+y\overline{y}M^{2}}{\overline{y}},\quad D_{\Lambda B}=\frac{-k_{\perp}^{2}-yM_{B}^{2}-\overline{y}\Lambda^{2}+y\overline{y}M^{2}}{\overline{y}}
+\]
+
+\end_inset
+
+而第二项对
+\begin_inset Formula $M_{B}^{2}$
+\end_inset
+
+求偏导数只会出来一项，
+\begin_inset Formula 
+\[
+\int\dif k^{+}\int\dif k^{-}\frac{-\overline{y}\overline{M}^{2}\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{B}^{2}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}=\frac{\left(-2\pi i\right)y}{\overline{y}}4\frac{-1}{D_{\Lambda B}^{5}}
+\]
+
+\end_inset
+
+为了能够利用图 
 \begin_inset Formula $a$
 \end_inset
 
-图的推导中，我们得到结果，
+的结果
 \size small
 
 \begin_inset Formula 
@@ -6624,10 +6666,106 @@ e_{\phi}^{q}\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{
 
 
 \size default
+我们可以人工加上一个
+\begin_inset Formula 
+\begin{equation}
+\frac{-y\overline{M}^{2}+y\overline{M}^{2}}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}\label{eq: b_add_one}
+\end{equation}
+
+\end_inset
+
+然后凑出一项和图 
+\begin_inset Formula $a$
+\end_inset
+
+相同的式子
+\begin_inset Formula 
+\[
+{\color{blue}\left(e_{\phi}^{q}\pi\right)}\frac{C_{B\phi}^{2}\overline{M}^{2}\overline{\Lambda}^{8}}{\left(4\pi f\right)^{2}}\int\dif^{2}k_{\perp}\frac{y}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]
+\]
+
+\end_inset
+
+类似地，含有
+\begin_inset Formula $4$
+\end_inset
+
+的两项组合起来
+\begin_inset Formula 
+\begin{equation}
+\frac{4\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi B}D_{\Lambda B}^{5}}+\frac{-4}{D_{\Lambda B}^{5}}\Rightarrow4\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2}}{D_{\phi B}D_{\Lambda B}^{5}}\label{eq:b_non_off}
+\end{equation}
+
+\end_inset
+
+之前
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: b_add_one"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的和第三项结合
+\begin_inset Formula 
+\begin{equation}
+\frac{+y\overline{M}^{2}}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}+\frac{\left(2-y\right)\overline{M}\Delta}{D_{B}D_{\phi}D_{\Lambda}^{4}}\Rightarrow\frac{2\overline{M}\left(\Delta+yM\right)}{D_{B}D_{\phi}D_{\Lambda}^{4}}\label{eq: b_loc_off}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+也就是把对
+\begin_inset Formula $k^{-}$
+\end_inset
+
+积分之后的结果分成四项之和，
+\begin_inset Formula 
+\[
+f_{B\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\left[f_{B}^{\left(\text{on}\right)}\left(y\right)+f_{\phi}^{\left(\text{off}\right)}\left(y\right)+4\delta f_{B}^{\left(\text{off}\right)}\left(y\right)-\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f_{B}^{\left(\text{on}\right)}\left(y\right)$
+\end_inset
+
+和图
+\begin_inset Formula $a$
+\end_inset
+
+中的相同，
+\size small
 
 \begin_inset Formula 
 \[
-D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}}{-\overline{y}},\quad D_{\Lambda B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}\Lambda^{2}}{-\overline{y}}
+e_{\phi}^{q}\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}k\delta\left(y-\frac{k^{+}}{p^{+}}\right){\color{blue}\frac{y\overline{M}^{2}\left[\Delta^{2}-m_{\phi}^{2}-D_{\phi}\left(k\right)\right]}{D_{\phi}^{2}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}}={\color{blue}\left(e_{\phi}^{q}\pi\right)}\frac{C_{B\phi}^{2}\overline{M}^{2}\overline{\Lambda}^{8}}{\left(4\pi f\right)^{2}}\int\dif^{2}k_{\perp}\frac{y}{\overline{y}^{2}}\left[\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2}}{D_{\phi B}^{2}D_{\Lambda B}^{4}}\right]
+\]
+
+\end_inset
+
+
+\size default
+也就是重子和介子的 on-shell 分裂函数相同。
+\end_layout
+
+\begin_layout Subsubsection
+off–shell
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{B\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}k\left[{\color{blue}\frac{\overline{y}\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}-D_{\phi}\right)}{D_{\phi}D_{B}^{2}D_{\Lambda}^{4}}}+\frac{\left(2-y\right)\overline{M}\Delta}{D_{B}D_{\phi}D_{\Lambda}^{4}}+\frac{1}{D_{\phi}D_{\Lambda}^{4}}\right]\delta\left(y-\frac{k^{+}}{p^{+}}\right)
 \]
 
 \end_inset
@@ -6635,40 +6773,96 @@ D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi
 
 \begin_inset Formula 
 \[
-f_{B\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}k\left[{\color{blue}\frac{\overline{y}\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}-D_{\phi}\right)}{D_{\phi}D_{B}^{2}D_{\Lambda}^{4}}}\right]\delta\left(y-\frac{k^{+}}{p^{+}}\right)
+f_{B\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\left[f_{B}^{\left(\text{on}\right)}\left(y\right)+f_{\phi}^{\left(\text{off}\right)}\left(y\right)+4\delta f_{B}^{\left(\text{off}\right)}\left(y\right)-\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]
 \]
 
 \end_inset
 
-分母上的传播子的不同幂次，都可以通过对
-\begin_inset Formula $\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}$
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu_71"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
-求偏导数得到，
+ 中的 off–shell 贡献包括 local and nonlocal 项。定域 off–shell 对应
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: b_loc_off"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $\frac{2\overline{M}\left(\Delta+yM\right)}{D_{B}D_{\phi}D_{\Lambda}^{4}}$
+\end_inset
+
+
 \begin_inset Formula 
-\[
-\frac{1}{D_{\phi}^{2}}=\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi}},\quad\frac{1}{D_{B}^{2}}=\frac{\partial}{\partial M_{B}^{2}}\frac{1}{D_{B}}
-\]
+\begin{equation}
+f_{B}^{\left(\text{off}\right)}\left(y\right)=\frac{\overline{\Lambda}^{8}2\overline{M}}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\frac{\left(yM+\Delta\right)}{\overline{y}D_{\phi B}D_{\Lambda B}^{4}}\label{eq:yu_72}
+\end{equation}
 
 \end_inset
 
-对应到结果中操作
+与 
+\begin_inset CommandInset href
+LatexCommand href
+name "Phys.Rev.D88,076005(2013)"
+target "https://doi.org/10.1103/PhysRevD.88.076005"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset href
+LatexCommand href
+name "Phys.Lett.B762,52(2016)"
+target "https://doi.org/10.1016/j.physletb.2016.09.014"
+literal "false"
+
+\end_inset
+
+ 中的结果类似。
+\end_layout
+
+\begin_layout Standard
+非定域 off–shell 项对应
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b_non_off"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \begin_inset Formula 
-\[
-\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi B}}=\frac{-\overline{y}}{D_{\phi B}^{2}},\quad\frac{\partial}{\partial M_{B}^{2}}\frac{1}{D_{\phi B}}=\frac{-y}{D_{\phi B}^{2}}
-\]
+\begin{align}
+ & \frac{4\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi B}D_{\Lambda B}^{5}}+\frac{-4}{D_{\Lambda B}^{5}}\Rightarrow4\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2}}{D_{\phi B}D_{\Lambda B}^{5}}\label{eq:yu_73}\\
+\Rightarrow & 4\delta f_{B}^{\left(\text{off}\right)}\left(y\right)=4\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}\frac{\left[k_{\perp}^{2}+\left(yM+\Delta\right)^{2}\right]}{\overline{y}^{2}D_{\phi B}D_{\Lambda B}^{5}}
+\end{align}
 
 \end_inset
 
-考虑到
-\begin_inset Formula $a,b$
+在
+\begin_inset Formula $\Lambda\to\infty$
 \end_inset
 
-图中分别自带的
-\begin_inset Formula $y,\overline{y}$
+极限，非定域项表现为 
+\begin_inset Formula $\bar{\Lambda}^{8}/D_{\Lambda B}^{5}\sim1/\Lambda^{2}$
 \end_inset
 
- 因子，这两个 on–shell 项其实是相等的，也就是重子和介子的 on-shell 分裂函数相同。
+，所以正如期望的，这一项消失。
 \end_layout
 
 \begin_layout Subsubsection
@@ -6745,76 +6939,6 @@ noprefix "false"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection
-off–shell
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-f_{B\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}k\left[{\color{blue}\frac{\overline{y}\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}-D_{\phi}\right)}{D_{\phi}D_{B}^{2}D_{\Lambda}^{4}}}+\frac{\left(2-y\right)\overline{M}\Delta}{D_{B}D_{\phi}D_{\Lambda}^{4}}+\frac{1}{D_{\phi}D_{\Lambda}^{4}}\right]\delta\left(y-\frac{k^{+}}{p^{+}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:yu_71"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 中的 off–shell 贡献包括 local and nonlocal 项。定域 off–shell 贡献为，
-\begin_inset Formula 
-\begin{equation}
-f_{B}^{\left(\text{off}\right)}\left(y\right)=\frac{2\overline{\Lambda}^{8}}{\overline{M}}\int\dif k_{\perp}^{2}\frac{\left(yM+\Delta\right)}{\overline{y}D_{\phi B}D_{\Lambda B}^{4}}\label{eq:yu_72}
-\end{equation}
-
-\end_inset
-
-与 
-\begin_inset CommandInset href
-LatexCommand href
-name "Phys.Rev.D88,076005(2013)"
-target "https://doi.org/10.1103/PhysRevD.88.076005"
-literal "false"
-
-\end_inset
-
-,
-\begin_inset CommandInset href
-LatexCommand href
-name "Phys.Lett.B762,52(2016)"
-target "https://doi.org/10.1016/j.physletb.2016.09.014"
-literal "false"
-
-\end_inset
-
- 中的结果类似，nonlocal off-shell 项为
-\begin_inset Formula 
-\begin{equation}
-\delta f_{B}^{\left(\text{off}\right)}\left(y\right)=\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}\frac{\left[k_{\perp}^{2}+\left(yM+\Delta\right)^{2}\right]}{\overline{y}^{2}D_{\phi B}D_{\Lambda B}^{5}}\label{eq:yu_73}
-\end{equation}
-
-\end_inset
-
-在
-\begin_inset Formula $\Lambda\to\infty$
-\end_inset
-
-极限，非定域项表现为 
-\begin_inset Formula $\bar{\Lambda}^{8}/D_{\Lambda B}^{5}\sim1/\Lambda^{2}$
-\end_inset
-
-，所以如同期望的为零。
 \end_layout
 
 \begin_layout Subsection
