@@ -184,3 +184,20 @@ function gdw  { git diff --word-diff }
 function gf  { git fetch }
 function gk { gitk --all --branches }
 ```
+
+## windows api
+
+[如何从Windows命令行打开回收站](https://qastack.cn/superuser/395015/how-to-open-the-recycle-bin-from-the-windows-command-line)
+
+打开回收站：
+在命令行上，键入
+
+```powershell
+start shell:RecycleBinFolder
+```
+
+在`运行`窗口，或者文件管理器窗口输入
+
+```powershell
+shell:recyclebinfolder
+```
