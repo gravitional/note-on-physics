@@ -2709,77 +2709,19 @@ adsfasasfda
 
 \end_inset
 
+
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)D_{\Lambda}^{b}\left(k\right)}=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}^{a}D_{\Lambda B}^{b}}
+\]
+
+\end_inset
+
 where
 \begin_inset Formula 
 \begin{align*}
  & D_{\phi}\left(k\right)=k^{2}-m_{\phi}^{2},\quad D_{B}\left(p-k\right)=\left(p-k\right)^{2}-M_{B}^{2}\\
  & D_{\phi B}=\frac{-k_{\perp}^{2}-yM_{B}^{2}-\overline{y}m_{\phi}^{2}+y\overline{y}M^{2}}{\overline{y}},\quad\overline{y}=1-y
-\end{align*}
-
-\end_inset
-
-高幂次传播子的公式可以通过对
-\begin_inset Formula $\frac{1}{D_{\phi}\left(k\right)}$
-\end_inset
-
-或者
-\begin_inset Formula $\frac{1}{D_{B}\left(p-k\right)}$
-\end_inset
-
-中的
-\begin_inset Formula $m_{\phi}^{2}$
-\end_inset
-
- or 
-\begin_inset Formula $M_{B}^{2}$
-\end_inset
-
-求导得到，对应地在右边对
-\begin_inset Formula $D_{\phi B}$
-\end_inset
-
-求偏导。
-\begin_inset Formula 
-\[
-\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi}\left(k\right)}=\frac{1}{D_{\phi}\left(k\right)^{2}},\quad\frac{\partial}{\partial M_{B}^{2}}\frac{1}{D_{B}\left(p-k\right)}=\frac{1}{D_{B}\left(p-k\right)^{2}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi B}}=\frac{1}{D_{\phi B}^{2}},\quad\frac{\partial}{\partial M_{B}^{2}}\frac{1}{D_{\phi B}}=\frac{y}{D_{\phi B}^{2}\overline{y}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-对于三个传播子的情况，有
-\begin_inset Formula 
-\[
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)}=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}D_{\Lambda B}}
-\]
-
-\end_inset
-
-同样
-\begin_inset Formula 
-\[
-D_{\phi B}=\frac{-k_{\perp}^{2}-yM_{B}^{2}-\overline{y}m_{\phi}^{2}+y\overline{y}M^{2}}{\overline{y}},\quad D_{\Lambda B}=\frac{-k_{\perp}^{2}-yM_{B}^{2}-\overline{y}\Lambda^{2}+y\overline{y}M^{2}}{\overline{y}}
-\]
-
-\end_inset
-
-对于高幂次项，采用相同的疗法，例如
-\begin_inset Formula 
-\begin{align*}
- & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}\\
-= & \frac{1}{2!}\frac{\partial^{2}}{\partial m_{\phi}^{2;1}}\frac{1}{3!}\frac{\partial^{3}}{\partial\Lambda^{2;3}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{4}D_{B}\left(p-k\right)D_{\Lambda}^{2}\left(k\right)}\\
-= & \frac{\partial^{3}}{\partial m_{\phi}^{2;3}}\frac{\partial}{\partial\Lambda^{2}}\left[\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}D_{\Lambda B}}\right]=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}^{2}D_{\Lambda B}^{4}}
 \end{align*}
 
 \end_inset
@@ -3031,7 +2973,7 @@ i.e.
 where,
 \begin_inset Formula 
 \[
-D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}}{-\overline{y}},\quad D_{\Lambda B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}\Lambda^{2}}{-\overline{y}}
+D_{\phi B}=\frac{-k_{\perp}^{2}-yM_{B}^{2}+y\overline{y}M^{2}-\overline{y}m_{\phi}^{2}}{\overline{y}},\quad D_{\Lambda B}=\frac{-k_{\perp}^{2}-yM_{B}^{2}+y\overline{y}M^{2}-\overline{y}\Lambda^{2}}{\overline{y}}
 \]
 
 \end_inset
@@ -3040,60 +2982,43 @@ D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi
 \end_layout
 
 \begin_layout Standard
-对于高幂次的情况，比如
-\begin_inset Formula 
-\[
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}
-\]
-
-\end_inset
-
-考虑到，
-\begin_inset Formula 
-\begin{align*}
-\frac{\partial}{\partial\Omega_{\phi}}\frac{1}{D_{\phi}\left(k\right)} & =\frac{\partial}{\partial\Omega_{\phi}}\frac{1}{k^{+}k^{-}-\Omega_{\phi}+i\varepsilon}=\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)^{2}}=\frac{1}{D_{\phi}\left(k\right)^{2}}\\
-\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi}\left(k\right)} & =\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}+i\varepsilon}=\frac{1}{\left(k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}+i\varepsilon\right)^{2}}=\frac{1}{D_{\phi}\left(k\right)^{2}}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula $1/D_{B}\left(p-k\right)$
-\end_inset
-
-，
-\begin_inset Formula $1/D_{\Lambda}\left(k\right)$
-\end_inset
-
-同理。也就是说，要得到传播子高次幂的结果，对
-\begin_inset Formula $\Omega_{\phi}$
+高幂次传播子的公式可以通过对
+\begin_inset Formula $\frac{1}{D_{\phi}\left(k\right)}$
 \end_inset
 
 或者
+\begin_inset Formula $\frac{1}{D_{B}\left(p-k\right)}$
+\end_inset
+
+中的
 \begin_inset Formula $m_{\phi}^{2}$
 \end_inset
 
-求偏导即可。
+ or 
+\begin_inset Formula $M_{B}^{2}$
+\end_inset
+
+求导得到，对应地在右边对
+\begin_inset Formula $D_{\phi B}$
+\end_inset
+
+求偏导。
 \begin_inset Formula 
 \[
-\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi B}}=\frac{\partial}{\partial m_{\phi}^{2}}\frac{\left(-\overline{y}\right)}{\left(k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}\right)}=\frac{\left(-\overline{y}\right)\left(-\overline{y}\right)}{\left(k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}\right)^{2}}=\frac{1!}{\left(D_{\phi B}\right)^{2}}
+\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi}\left(k\right)}=\frac{1}{D_{\phi}\left(k\right)^{2}},\quad\frac{\partial}{\partial M_{B}^{2}}\frac{1}{D_{B}\left(p-k\right)}=\frac{1}{D_{B}\left(p-k\right)^{2}}
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
- & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}=\frac{1}{2!}\frac{\partial^{2}}{\partial m_{\phi}^{2;1}}\frac{1}{3!}\frac{\partial^{3}}{\partial\Lambda^{2;3}}\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{4}D_{B}\left(p-k\right)D_{\Lambda}^{2}\left(k\right)}\\
- & =\frac{\partial^{3}}{\partial m_{\phi}^{2;3}}\frac{\partial}{\partial\Lambda^{2;1}}\left[\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}D_{\Lambda B}}\right]=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}^{2}D_{\Lambda B}^{4}}
-\end{align*}
+\[
+\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi B}}=\frac{1}{D_{\phi B}^{2}},\quad\frac{\partial}{\partial M_{B}^{2}}\frac{1}{D_{\phi B}}=\frac{y}{\overline{y}}\frac{1}{D_{\phi B}^{2}}
+\]
 
 \end_inset
 
-即，
+所以
 \begin_inset Formula 
 \[
 \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}^{2}D_{\Lambda B}^{4}}
@@ -3102,6 +3027,39 @@ D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+包含
+\begin_inset Formula $D_{B}\left(p-k\right)$
+\end_inset
+
+高次方项的会复杂一些，因为右手边
+\begin_inset Formula $D_{\phi B},D_{\Lambda B}$
+\end_inset
+
+都包含
+\begin_inset Formula $M_{B}^{2}$
+\end_inset
+
+，同时，
+\begin_inset Formula $M_{B}^{2}$
+\end_inset
+
+ 前的系数是
+\begin_inset Formula $y$
+\end_inset
+
+。例如
+\begin_inset Formula 
+\begin{align*}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)^{2}D_{\Lambda}^{b}\left(k\right)}= & \frac{\partial}{\partial M_{B}^{2}}\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}^{a}D_{\Lambda B}^{b}}\\
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)^{2}D_{\Lambda}^{b}\left(k\right)}= & \frac{y}{\overline{y}}\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\left(\frac{a}{D_{\phi B}^{a+1}D_{\Lambda B}^{b}}+\frac{b}{D_{\phi B}^{a}D_{\Lambda B}^{b+1}}\right)
+\end{align*}
+
+\end_inset
+
+更高次幂的结果可以递推得到。
 \end_layout
 
 \begin_layout Section
