@@ -3093,6 +3093,14 @@ D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi
 
 \end_inset
 
+即，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)}=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}^{2}D_{\Lambda B}^{4}}
+\]
+
+\end_inset
+
 
 \end_layout
 
@@ -3256,6 +3264,277 @@ noprefix "false"
 \begin_inset Formula 
 \[
 \int\dif k^{-}\frac{k^{+}k^{-}}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=2\pi i\left[\Omega_{\phi}\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)-\Omega_{\phi}\right]\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+两个传播子
+\end_layout
+
+\begin_layout Subsubsection
+分子为1
+\end_layout
+
+\begin_layout Standard
+对于分母中包含两个传播子
+\begin_inset Formula 
+\[
+\int\dif^{4}k\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}
+\]
+
+\end_inset
+
+的情况，使用费曼参数化公式，
+\begin_inset Formula 
+\[
+\int\dif^{4}k\frac{1}{A^{\alpha}B^{\beta}}=\int\dif^{4}k\int_{0}^{1}\dif z\frac{w^{\alpha-1}\left(1-w\right)^{\beta-1}}{\left[wA+\left(1-w\right)B\right]^{\alpha+\beta}}\frac{\Gamma\left(\alpha+\beta\right)}{\Gamma\left(\alpha\right)\Gamma\left(\beta\right)}
+\]
+
+\end_inset
+
+以及
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)^{2}}=\frac{2\pi i}{\Omega_{\phi}}\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+得到
+\size small
+
+\begin_inset Formula 
+\begin{align}
+ & \int\dif^{4}k\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}\label{eq: delta-feynman}\\
+= & \int_{0}^{1}\dif z\int\dif^{4}k\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)\left(1-z\right)^{a-1}z^{b-1}}{\left\{ k^{2}-\left[\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2}\right]+i\varepsilon\right\} ^{a+b}}\frac{\Gamma\left(a+b\right)}{\Gamma\left(a\right)\Gamma\left(b\right)}\\
+= & \frac{1}{\left(a+b-1\right)!}\frac{\Gamma\left(a+b\right)}{\Gamma\left(a\right)\Gamma\left(b\right)}\frac{\partial^{a+b-2}}{\partial\Omega^{a+b-2}}\int_{0}^{1}\dif z\int\dif^{4}k\frac{\left(1-z\right)^{a-1}z^{b-1}\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{\left[k^{2}-\Omega+i\varepsilon\right]^{2}}\\
+= & \frac{1}{\left(a+b-1\right)!}\frac{\Gamma\left(a+b\right)}{\Gamma\left(a\right)\Gamma\left(b\right)}\frac{\partial^{a+b-2}}{\partial\Omega^{a+b-2}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\int\dif k^{-}\frac{\left(1-z\right)^{a-1}z^{b-1}}{\left[k^{2}-\Omega+i\varepsilon\right]^{2}}p^{+}\\
+= & \frac{1}{\left(a+b-1\right)!}\frac{\Gamma\left(a+b\right)}{\Gamma\left(a\right)\Gamma\left(b\right)}\frac{\partial^{a+b-2}}{\partial\Omega^{a+b-2}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\frac{\left(2\pi i\right)\left(1-z\right)^{a-1}z^{b-1}}{\left(k_{\perp}^{2}+\Omega\right)}\delta\left(y\right)
+\end{align}
+
+\end_inset
+
+即
+\begin_inset Formula 
+\[
+\int\dif^{4}k\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}=\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}{\color{blue}\frac{\left[-\left(a+b-2\right)\right]!}{2\left(a-1\right)!\left(b-1\right)!}}\frac{\left(1-z\right)^{a-1}z^{b-1}\left(2\pi i\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{a+b-1}}
+\]
+
+\end_inset
+
+
+\size default
+where 
+\begin_inset Formula 
+\[
+D_{\phi}\left(k\right)=k^{2}-m_{\phi}^{2},\quad D_{\Lambda}\left(k\right)=k^{2}-\Lambda^{2},\quad\Omega\equiv\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+分子为 ykp
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula 
+\[
+\int\dif^{4}k\frac{2kpy\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{a}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{b}}
+\]
+
+\end_inset
+
+这种类型的，对费曼参数化之后的被积式使用分部积分，
+\begin_inset Formula 
+\[
+\int\dif^{4}k\frac{2k^{+}k^{-}}{\left[k^{2}-\Omega+i\varepsilon\right]^{2}}\text{ 光锥坐标下}\Rightarrow\frac{1}{2}\int\dif k_{\perp}^{2}\int\dif k^{+}\int\dif k^{-}\frac{2k^{+}k^{-}}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]^{2}}
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $1/2$
+\end_inset
+
+是Jacobian 因子
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+，
+\begin_inset Formula $\int\dif k^{-}$
+\end_inset
+
+部分的积分可以写成，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{k^{+}k^{-}}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]^{2}}=-k^{+}\frac{\partial}{\partial k^{+}}\int\dif k^{-}\frac{1}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]}
+\]
+
+\end_inset
+
+注意在光锥坐标下，分母
+\begin_inset Formula $\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]^{2}$
+\end_inset
+
+并不是
+\begin_inset Formula $k^{-}$
+\end_inset
+
+的偶函数，所以这个积分并不 trivally 为零。
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+数幂次的话，这个积分是收敛的，使用分部积分
+\begin_inset Formula 
+\[
+-k^{+}\frac{\partial}{\partial k^{+}}\int\dif k^{-}\frac{1}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]}\Rightarrow\int\dif k^{-}\frac{1}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]}
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\begin{align*}
+\int\dif k^{-}\frac{k^{+}k^{-}}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]^{2}} & =\int\dif k^{-}\frac{1}{\left[k^{+}k^{-}-k_{\perp}^{2}-\Omega+i\varepsilon\right]}\\
+\int\dif k^{-}\frac{ypk}{D_{\phi}\left(k\right)^{2}} & =\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以，
+\begin_inset Formula 
+\[
+\int\dif^{4}k\frac{2ypk\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{2}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{4}}=\frac{\partial^{4}}{6\partial\Omega^{4}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\int\dif k^{-}\frac{\left(1-z\right)z^{3}}{\left[k^{2}-\Omega+i\varepsilon\right]}
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $k^{+}=yp^{+},y\left(p\cdot k\right)=k^{+}k^{-}$
+\end_inset
+
+，
+\begin_inset Formula $2$
+\end_inset
+
+被
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Jacobian 因子
+\begin_inset Formula $1/2$
+\end_inset
+
+约掉。
+\end_layout
+
+\begin_layout Standard
+使用积分公式，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\left(2\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\delta\left(k^{+}\right),\quad\delta\left(k^{+}\right)=\frac{\delta\left(y\right)}{p^{+}}
+\]
+
+\end_inset
+
+进一步化简对
+\begin_inset Formula $k^{-}$
+\end_inset
+
+的积分，
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif k^{-}\frac{1}{k^{2}-\Omega+i\varepsilon}=\left(2\pi i\right)\log\left(\frac{k_{\perp}^{2}+\Omega}{\mu^{2}}\right)\delta\left(k^{+}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mu$
+\end_inset
+
+ 是与动量无关的常数。将上述讨论合在一起，
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow & \int\dif^{4}k\frac{2kpy\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{2}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{4}}\\
+= & {\color{blue}\frac{1}{\left(6-1\right)!}\frac{\Gamma\left(6\right)}{\Gamma\left(2\right)\Gamma\left(4\right)}}\frac{\partial^{4}}{\partial\Omega^{4}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\int\dif k^{-}\frac{\left(1-z\right)z^{3}}{\left[k^{2}-\Omega+i\varepsilon\right]}p^{+}\\
+= & {\color{blue}\frac{1}{\left(6-1\right)!}\frac{\Gamma\left(6\right)}{\Gamma\left(2\right)\Gamma\left(4\right)}}\frac{\partial^{4}}{\partial\Omega^{4}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\log\left(\frac{k_{\perp}^{2}+\Omega}{\mu^{2}}\right)\left(2\pi i\right)\left(1-z\right)z^{3}p^{+}\delta\left(k^{+}\right)\\
+= & {\color{blue}\frac{\left[-\left(6-2-1\right)\right]!}{\left(6-1\right)!}\frac{\Gamma\left(6\right)}{\Gamma\left(2\right)\Gamma\left(4\right)}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\frac{\left(2\pi i\right)\delta\left(y\right)\left(1-z\right)z^{3}}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\\
+= & {\color{blue}\left(-1\right)}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{\left(2\pi i\right)\left(z^{3}-z^{4}\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\left(-3\right)!=\left(-3\right)\left(-2\right)\left(-1\right)=-6$
+\end_inset
+
+，来自于求导。还使用了 
+\begin_inset Formula 
+\[
+\delta\left(y-\frac{k^{+}}{p^{+}}\right)=p^{+}\delta\left(k^{+}-yp^{+}\right),\quad\delta\left(k^{+}\right)p^{+}=\delta\left(yp^{+}\right)p^{+}=\frac{p^{+}}{p^{+}}\delta\left(y\right)=\delta\left(y\right)
+\]
+
+\end_inset
+
+所以一般的，
+\size small
+
+\begin_inset Formula 
+\[
+\int\dif^{4}k\frac{2kpy\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{a}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{b}}={\color{blue}\frac{\left[-\left(a+b-3\right)\right]!}{\left(a-1\right)!\left(b-1\right)!}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\frac{\left(1-z\right)^{a-1}z^{b-1}}{\left(k_{\perp}^{2}+\Omega\right)^{a+b-1}}\left(2\pi i\right)\delta\left(y\right)
 \]
 
 \end_inset
