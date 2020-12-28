@@ -3765,10 +3765,17 @@ f_{a}^{+}\left(y\right) & ={\color{red}\left(i\right)^{2}}{\color{blue}\left(ie_
 \size small
 
 \begin_inset Formula 
-\begin{align*}
-f_{a}^{+}\left(y\right) & =\frac{ie_{\phi}^{q}C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{{\color{blue}\left(2k+q\right)^{+}}}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{2}D_{\phi}\left(k+q\right)D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
- & \times\bar{u}\left(p^{\prime}\right)\left(\left(k+q\right)\gamma\gamma^{5}\right)\left[\gamma\left(p-k\right)+M_{B}\right]\left(k\gamma\gamma^{5}\right)u\left(p\right)
-\end{align*}
+\[
+f_{a}^{+}\left(y\right)=\frac{\left(ie_{\phi}^{q}\right)C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)H^{+}u\left(p\right)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+H^{\mu}=\frac{{\color{blue}\left(2k+q\right)^{+}}\left(k+q\right)\gamma\gamma^{5}\left[\gamma\left(p-k\right)+M_{B}\right]\left(k\gamma\gamma^{5}\right)}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{2}D_{\phi}\left(k+q\right)D_{\phi}\left(k\right)D_{B}\left(p-k\right)}
+\]
 
 \end_inset
 
@@ -3844,11 +3851,22 @@ f_{b}^{+}\left(y\right)= & \frac{{\color{red}i^{2}}e_{B}^{q}C_{B\phi}^{2}}{f^{2}
 
 \begin_layout Standard
 和 salamu 的结果相同。
+\end_layout
+
+\begin_layout Standard
+化简一下系数是
 \begin_inset Formula 
-\begin{align*}
-f_{b}^{+}\left(y\right)= & \frac{ie_{B}^{q}C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{1}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{B}\left(p^{\prime}-k\right)D_{B}\left(p-k\right)}\\
-\times & \bar{u}\left(p^{\prime}\right)\left[\left(k+q\right)\gamma\gamma^{5}\right]\left[\gamma\left(p^{\prime}-k\right)+M_{B}\right]{\color{blue}\gamma^{+}}\left[\gamma\left(p-k\right)+M_{B}\right]\left[k\gamma\gamma^{5}\right]u\left(p\right)
-\end{align*}
+\[
+f_{b}^{+}\left(y\right)=\frac{\left(ie_{B}^{q}\right)C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{\bar{u}\left(p^{\prime}\right)H^{+}u\left(p\right)}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{B}\left(p^{\prime}-k\right)D_{B}\left(p-k\right)}
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+H^{\mu}=\left[\left(k+q\right)\gamma\gamma^{5}\right]\left[\gamma\left(p^{\prime}-k\right)+M_{B}\right]{\color{blue}\gamma^{\mu}}\left[\gamma\left(p-k\right)+M_{B}\right]\left[k\gamma\gamma^{5}\right]
+\]
 
 \end_inset
 
@@ -3956,9 +3974,19 @@ f_{c}^{+}\left(y\right) & =\int_{k}{\color{red}\left(i\right)}\left(-ie_{\phi}^{
 \color inherit
 
 \begin_inset Formula 
+\[
+f_{c}^{+}\left(y\right)=\frac{\left(-ie_{\phi}^{q}\right)C_{B\phi}^{2}}{f^{2}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)\left(H^{1;+}+H^{2;+}\right)u\left(p\right)
+\]
+
+\end_inset
+
+
+\size default
+where
+\begin_inset Formula 
 \begin{align*}
-f_{c}^{+}\left(y\right) & =\frac{\left(-ie_{\phi}^{q}\right)C_{B\phi}^{2}}{f^{2}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{\bar{u}\left(p^{\prime}\right){\color{blue}\left(\gamma^{+}\gamma^{5}\right)}\left[\left(p-k\right)\gamma+M_{B}\right]\left(k\gamma\gamma^{5}\right)u\left(p\right)}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{2}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
- & +\frac{\left(-ie_{\phi}^{q}\right)C_{B\phi}^{2}}{f^{2}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{\bar{u}\left(p^{\prime}\right)\left(k\gamma\gamma^{5}\right)\left[\left(p^{\prime}-k\right)\gamma+M_{B}\right]{\color{blue}\left(\gamma^{+}\gamma^{5}\right)}u\left(p\right)}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{2}D_{\phi}\left(k\right)D_{B}\left(p^{\prime}-k\right)}
+H^{1;\mu} & =\frac{\bar{u}\left(p^{\prime}\right){\color{blue}\left(\gamma^{\mu}\gamma^{5}\right)}\left[\left(p-k\right)\gamma+M_{B}\right]\left(k\gamma\gamma^{5}\right)u\left(p\right)}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{2}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
+H^{2;\mu} & =\frac{\bar{u}\left(p^{\prime}\right)\left(k\gamma\gamma^{5}\right)\left[\left(p^{\prime}-k\right)\gamma+M_{B}\right]{\color{blue}\left(\gamma^{\mu}\gamma^{5}\right)}u\left(p\right)}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{2}D_{\phi}\left(k\right)D_{B}\left(p^{\prime}-k\right)}
 \end{align*}
 
 \end_inset
@@ -4142,15 +4170,21 @@ f_{d}^{+}\left(y\right)= & {\color{red}\left(i\right)}{\color{blue}\left(-ie_{\p
 
 \end_inset
 
-
+得
 \size default
 
 \begin_inset Formula 
 \begin{align*}
-f_{d}^{+}\left(y\right)= & \frac{\left(ie_{\phi}^{q}\right)C_{B\phi}^{2}}{f^{2}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
-\times & \frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]\left(2k^{+}+q^{+}\right)\bar{u}\left(p^{\prime}\right)\left(k\gamma\gamma^{5}\right)\left[\left(p-k\right)\gamma+M_{B}\right]\left(k\gamma\gamma^{5}\right)u\left(p\right)}{D_{\Lambda}\left(k\right)^{4}D_{\Lambda}\left(k+q\right)^{2}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
-+ & \frac{\left(ie_{\phi}^{q}\right)C_{B\phi}^{2}}{f^{2}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
-\times & \frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)\right]\left(2k^{+}-q^{+}\right)\bar{u}\left(p^{\prime}\right)\left(k\gamma\gamma^{5}\right)\left[\left(p^{\prime}-k\right)\gamma+M_{B}\right]\left(k\gamma\gamma^{5}\right)u\left(p\right)}{D_{\Lambda}\left(k\right)^{4}D_{\Lambda}\left(k-q\right)^{2}D_{\phi}\left(k\right)D_{B}\left(p^{\prime}-k\right)}
+f_{d}^{+}\left(y\right)= & \frac{\left(ie_{\phi}^{q}\right)C_{B\phi}^{2}}{f^{2}}\frac{\overline{\Lambda}^{8}M}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)\left(H^{1;+}+H^{2;+}\right)u\left(p\right)
+\end{align*}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{align*}
+H^{1;\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]\left(2k^{\mu}+q^{\mu}\right){\color{blue}\left(k\gamma\gamma^{5}\right)\left[\left(p-k\right)\gamma+M_{B}\right]\left(k\gamma\gamma^{5}\right)}}{D_{\Lambda}\left(k\right)^{4}D_{\Lambda}\left(k+q\right)^{2}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
+H^{2;\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)\right]\left(2k^{\mu}-q^{\mu}\right){\color{blue}\left(k\gamma\gamma^{5}\right)\left[\left(p^{\prime}-k\right)\gamma+M_{B}\right]\left(k\gamma\gamma^{5}\right)}}{D_{\Lambda}\left(k\right)^{4}D_{\Lambda}\left(k-q\right)^{2}D_{\phi}\left(k\right)D_{B}\left(p^{\prime}-k\right)}
 \end{align*}
 
 \end_inset
@@ -4213,7 +4247,7 @@ f_{e}^{+}\left(y\right)=\int_{k}\frac{iC_{\phi\phi^{\dagger}}}{2f^{2}}\left(ie_{
 
 \begin_inset Formula 
 \[
-f_{e}^{+}\left(y\right)=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{\left(-e_{\phi}^{q}\right)C_{\phi\phi^{\dagger}}}{2f^{2}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{2\bar{u}\left(p^{\prime}\right)\gamma^{+}u\left(p\right)}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)}
+f_{e}^{+}\left(y\right)=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{\left(-ie_{\phi}^{q}\right)C_{\phi\phi^{\dagger}}}{f^{2}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{{\color{blue}\bar{u}\left(p^{\prime}\right)\gamma^{+}u\left(p\right)}}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)}
 \]
 
 \end_inset
@@ -4266,7 +4300,7 @@ f_{f}^{+}\left(y\right)=\int_{k}{\color{red}\left(i\right)}4\frac{iC_{\phi\phi^{
 
 \begin_inset Formula 
 \[
-f_{f}^{+}\left(y\right)=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{2{\color{blue}\left(ie_{\phi}^{q}\right)}C_{\phi\phi^{\dagger}}}{f^{2}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{\left(2k+q\right)^{+}\bar{u}\left(p^{\prime}\right)k\gamma u\left(p\right)}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{\phi}\left(k+q\right)}
+f_{f}^{+}\left(y\right)=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{2{\color{blue}\left(ie_{\phi}^{q}\right)}C_{\phi\phi^{\dagger}}}{f^{2}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{{\color{blue}\left(2k+q\right)^{+}\bar{u}\left(p^{\prime}\right)k\gamma u\left(p\right)}}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{\phi}\left(k+q\right)}
 \]
 
 \end_inset
@@ -4311,8 +4345,9 @@ g
 \end_layout
 
 \begin_layout Standard
-
+代入
 \size small
+
 \begin_inset Formula 
 \[
 \mathcal{R}^{\mu}\left(k,q\right)=\overline{\Lambda}^{4}\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{2}}\left[-i\left(2k^{\mu}+q^{\mu}\right)\right]
@@ -4320,12 +4355,12 @@ g
 
 \end_inset
 
-
+得
 \size default
 
 \begin_inset Formula 
 \[
-f_{f}^{\mu}\left(y\right)=\frac{\left(-e_{\phi}^{q}\right)C_{\phi\phi^{\dagger}}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{\mathcal{V}^{\mu}\left(k,q\right)\bar{u}\left(p^{\prime}\right)\left(k\gamma\right)u\left(p\right)}{D_{\phi}\left(k\right)D_{\Lambda}\left(k\right)^{2}}
+f_{f}^{\mu}\left(y\right)=\frac{\left(ie_{\phi}^{q}\right)C_{\phi\phi^{\dagger}}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right){\color{blue}H^{+}\bar{u}\left(p^{\prime}\right)\left(k\gamma\right)u\left(p\right)}
 \]
 
 \end_inset
@@ -4333,7 +4368,7 @@ f_{f}^{\mu}\left(y\right)=\frac{\left(-e_{\phi}^{q}\right)C_{\phi\phi^{\dagger}}
 where 
 \begin_inset Formula 
 \[
-\mathcal{V}^{\mu}\left(k,q\right)=\left[\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{2}}\left[-i\left(2k^{\mu}+q^{\mu}\right)\right]+\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)\right]}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{2}}\left[-i\left(2k^{\mu}-q^{\mu}\right)\right]\right]
+H^{\mu}=\frac{D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)}\left(2k^{\mu}+q^{\mu}\right)+\frac{D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)}\left(2k^{\mu}-q^{\mu}\right)
 \]
 
 \end_inset
@@ -5022,12 +5057,20 @@ i\fmp_{T}^{\alpha\beta}\left(p\right)=\frac{-i\left(\slashed{p}+M_{T}\right)}{p^
 \size small
 \begin_inset Formula 
 \[
-f_{h}^{+}=\left(ie_{\phi}^{q}\right)\frac{C_{T\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{{\color{red}\left(2k+q\right)^{\mu}}\bar{u}\left(p^{\prime}\right)\left(\left(k+q\right)_{\alpha}\Theta^{\alpha\beta}\right)S_{T}^{\beta\rho}\left(p-k\right)\left(\Theta^{\rho\sigma}k_{\sigma}\right)u\left(p\right)}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{2}D_{\phi}\left(k+q\right)D_{\phi}\left(k\right)D_{T}\left(p-k\right)}
+f_{h}^{+}=\left(ie_{\phi}^{q}\right)\frac{C_{T\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)H^{+}u\left(p\right)
 \]
 
 \end_inset
 
 where
+\begin_inset Formula 
+\[
+H^{\mu}=\frac{{\color{red}\left(2k+q\right)^{\mu}}\left(k+q\right)_{\alpha}\Theta^{\alpha\beta}S_{T}^{\beta\rho}\left(p-k\right)\Theta^{\rho\sigma}k_{\sigma}}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{2}D_{\phi}\left(k+q\right)D_{\phi}\left(k\right)D_{T}\left(p-k\right)}
+\]
+
+\end_inset
+
+
 \size default
 
 \begin_inset Formula 
@@ -5037,7 +5080,7 @@ iS_{T}^{\alpha\beta}\left(p\right)=-\left(\gamma p+M_{T}\right)\left(g_{\alpha\b
 
 \end_inset
 
-
+它是十重态传播子的旋量部分。
 \end_layout
 
 \begin_layout Subsection
@@ -5088,10 +5131,18 @@ f_{i}^{+}\left(y\right)= & {\color{red}\left(i\right)^{2}}\left(\frac{C_{T\phi}}
 
 \end_inset
 
-so,
+化简一下系数是,
 \begin_inset Formula 
 \[
-f_{i}^{+}\left(y\right)=\frac{\left(ie_{T}^{q}\right)C_{T\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{\bar{u}\left(p^{\prime}\right)\left[k_{\alpha}\Theta^{\alpha\beta}\right]S_{T}^{\beta\theta}\left(p^{\prime}-k\right){\color{blue}\gamma^{\theta\nu\mu}}S_{T}^{\nu\rho}\left(p-k\right)\left[\Theta^{\rho\sigma}k_{\sigma}\right]u\left(p\right)}{D_{\phi}\left(k\right)D_{\Lambda}^{4}\left(k\right)D_{T}\left(p^{\prime}-k\right)D_{T}\left(p-k\right)}
+f_{i}^{+}\left(y\right)=\frac{\left(ie_{T}^{q}\right)C_{T\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)H^{+}u\left(p\right)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+H^{\mu}=\frac{\left(k_{\alpha}\Theta^{\alpha\beta}\right)S_{T}^{\beta\theta}\left(p^{\prime}-k\right){\color{blue}\gamma^{\theta\nu\mu}}S_{T}^{\nu\rho}\left(p-k\right)\left(\Theta^{\rho\sigma}k_{\sigma}\right)}{D_{\Lambda}^{4}\left(k\right)D_{\phi}\left(k\right)D_{T}\left(p^{\prime}-k\right)D_{T}\left(p-k\right)}
 \]
 
 \end_inset
@@ -5120,8 +5171,8 @@ j
  & \Gamma_{j}^{\mu}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p^{\prime}-p-q\right)=\bra{p^{\prime}}\int_{yz}{\color{blue}J_{q,\text{em}}^{\mu}\left(y\right)}{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(T\right)}^{\left(\text{nonloc}\right)}\left(z\right)+{\color{red}\left(i\right)}\mathcal{L}_{\text{had}\left(T\right)}^{\left(\text{nonloc}\right)}\left(y\right){\color{blue}J_{q,\text{em}}^{\mu}\left(z\right)}\ket{p}\\
 = & {\color{red}\left(i\right)}\int_{yzk}\bra{p^{\prime}}{\color{blue}\left(-ie_{\phi}^{q}\right)\frac{C_{T\phi}}{f}\tilde{F}\left(k\right)\bar{p}\left(y\right)\Theta^{\mu\nu}T_{\nu}\left(y\right)\phi\left(y\right)}\frac{C_{T\phi}}{f}\bar{T}_{\rho}\left(z\right)\left[\Theta^{\rho\sigma}\left(+ik_{\sigma}\right)\right]p\left(z\right)\tilde{F}\left(k\right)\phi^{\dagger}\left(z\right)\ket{p}\\
 + & {\color{red}\left(i\right)}\int_{yzk}\bra{p^{\prime}}\frac{C_{T\phi}}{f}\bar{p}\left(x\right)\left[\left(-ik_{\rho}\right)\Theta^{\rho\sigma}\right]T_{\sigma}\left(y\right)\tilde{F}\left(k\right)\phi\left(y\right){\color{blue}\left(+ie_{\phi}^{q}\right)\frac{C_{T\phi}}{f}\tilde{F}\left(k\right)\bar{T_{\nu}}\left(z\right)\Theta^{\nu\mu}p\left(z\right)\phi^{\dagger}\left(z\right)}\ket{p}\\
-= & {\color{red}\left(i\right)}\int_{k}\bar{u}\left(p^{\prime}\right)\left(-ie_{\phi}^{q}\right)\left(\frac{C_{T\phi}}{f}\right)^{2}i\fmp_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\Theta^{\mu\nu}i\fmp_{T\nu\rho}\left(p-k\right)\left[\Theta^{\rho\sigma}\left(+ik_{\sigma}\right)\right]u\left(p\right)\\
-+ & {\color{red}\left(i\right)}\int_{k}\bar{u}\left(p^{\prime}\right)\left(+ie_{\phi}^{q}\right)\left(\frac{C_{T\phi}}{f}\right)^{2}i\fmp_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\left[\left(-ik_{\rho}\right)\Theta^{\rho\sigma}\right]i\fmp_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\mu}u\left(p\right)
+= & {\color{red}\left(i\right)}\int_{k}\bar{u}\left(p^{\prime}\right)\left(-ie_{\phi}^{q}\right)\frac{C_{T\phi}^{2}}{f^{2}}i\fmp_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\Theta^{\mu\nu}i\fmp_{T\nu\rho}\left(p-k\right)\left[\Theta^{\rho\sigma}\left(+ik_{\sigma}\right)\right]u\left(p\right)\\
++ & {\color{red}\left(i\right)}\int_{k}\bar{u}\left(p^{\prime}\right)\left(+ie_{\phi}^{q}\right)\frac{C_{T\phi}^{2}}{f^{2}}i\fmp_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\left[\left(-ik_{\rho}\right)\Theta^{\rho\sigma}\right]i\fmp_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\mu}u\left(p\right)
 \end{align*}
 
 \end_inset
@@ -5129,18 +5180,25 @@ j
 
 \begin_inset Formula 
 \begin{align*}
-f_{j}^{+} & =\int_{k}{\color{red}\left(i\right)}\frac{C_{T\phi}^{2}}{f^{2}}\left(-ie_{\phi}^{q}\right)\left(\frac{C_{T\phi}}{f}\right)^{2}i\fmp_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
- & \times\bar{u}\left(p^{\prime}\right)\left\{ \Theta^{\mu\nu}i\fmp_{T\nu\rho}\left(p-k\right)\left[\Theta^{\rho\sigma}\left(+ik_{\sigma}\right)\right]+\left[\left(+ik_{\rho}\right)\Theta^{\rho\sigma}\right]i\fmp_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\mu}\right\} u\left(p\right)
+f_{j}^{+} & =\int_{k}{\color{red}\left(i\right)}\frac{C_{T\phi}^{2}}{f^{2}}\left(-ie_{\phi}^{q}\right)i\fmp_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+ & \times\bar{u}\left(p^{\prime}\right)\left\{ \Theta^{\mu\nu}i\fmp_{T\nu\rho}\left(p-k\right)\left(i\Theta^{\rho\sigma}k_{\sigma}\right)+\left(ik_{\rho}\Theta^{\rho\sigma}\right)i\fmp_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\mu}\right\} u\left(p\right)
 \end{align*}
 
 \end_inset
 
-
+化简一下系数是,
 \begin_inset Formula 
-\begin{align*}
-f_{j}^{+} & =\int_{k}\frac{C_{T\phi}^{2}}{f^{2}}\left(-ie_{\phi}^{q}\right)\left(\frac{C_{T\phi}}{f}\right)^{2}\fmp_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
- & \times\bar{u}\left(p^{\prime}\right)\left\{ \Theta^{\mu\nu}\fmp_{T\nu\rho}\left(p-k\right)\left[\Theta^{\rho\sigma}\left(k_{\sigma}\right)\right]+\left[\left(+k_{\rho}\right)\Theta^{\rho\sigma}\right]\fmp_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\mu}\right\} u\left(p\right)
-\end{align*}
+\[
+f_{j}^{+}=\frac{\left(-ie_{\phi}^{q}\right)C_{T\phi}^{2}}{f^{2}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)H^{+}u\left(p\right)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+H^{\mu}=\frac{\Theta^{\mu\nu}S_{T\nu\rho}\left(p-k\right)\left(\Theta^{\rho\sigma}k_{\sigma}\right)}{D_{T}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)D_{\phi}\left(k\right)}+\frac{\left(k_{\rho}\Theta^{\rho\sigma}\right)S_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\mu}}{D_{T}\left(p^{\prime}-k\right)D_{\Lambda}^{4}\left(k\right)D_{\phi}\left(k\right)}
+\]
 
 \end_inset
 
@@ -5177,7 +5235,7 @@ k
 
 \begin_inset Formula 
 \begin{align*}
-f_{j}^{+} & =\int_{k}{\color{red}\left(i\right)}\frac{C_{T\phi}^{2}}{f^{2}}\left(-ie_{\phi}^{q}\right)\left(\frac{C_{T\phi}}{f}\right)^{2}i\fmp_{\phi}\left(k\right)\tilde{F}\left(k\right)^{2}\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
+f_{j}^{+} & =\int_{k}{\color{red}\left(i\right)}\frac{C_{T\phi}^{2}}{f^{2}}\left(-ie_{\phi}^{q}\right)i\fmp_{\phi}\left(k\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left\{ \mathcal{R}^{\mu}\left(k,q\right)\left[-ik_{\rho}\Theta^{\rho\nu}\right]i\fmp_{T\nu\rho}\left(p-k\right)\left[\Theta^{\rho\sigma}ik_{\sigma}\right]-\mathcal{R}^{\mu}\left(-k,q\right)\left[-ik_{\rho}\Theta^{\rho\sigma}\right]i\fmp_{T\sigma\nu}\left(p^{\prime}-k\right)\left[\Theta^{\nu\rho}ik_{\rho}\right]\right\} u\left(p\right)
 \end{align*}
 
@@ -5199,6 +5257,33 @@ f_{j}^{+} & =\int_{k}{\color{red}\left(i\right)}\frac{C_{T\phi}^{2}}{f^{2}}\left
 \[
 \lim_{q\to0}\mathcal{R}^{\mu}\left(k,q\right)-\mathcal{R}^{\mu}\left(-k,q\right)=2\frac{\partial\tilde{F}\left[k\right]}{\partial k_{\mu}}
 \]
+
+\end_inset
+
+
+\size small
+代入
+\begin_inset Formula 
+\[
+\mathcal{R}^{\mu}\left(k,q\right)=\overline{\Lambda}^{4}\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{2}}\left[-i\left(2k^{\mu}+q^{\mu}\right)\right]
+\]
+
+\end_inset
+
+得
+\begin_inset Formula 
+\[
+f_{j}^{+}=\frac{\left(ie_{\phi}^{q}\right)C_{T\phi}^{2}}{f^{2}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)H^{+}u\left(p\right)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{align*}
+H^{\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]\left(2k^{\mu}+q^{\mu}\right)k_{\rho}\Theta^{\rho\nu}S_{T\nu\rho}\left(p-k\right)\Theta^{\rho\sigma}k_{\sigma}}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p-k\right)}\\
+ & +\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)\right]\left(2k^{\mu}-q^{\mu}\right)k_{\rho}\Theta^{\rho\sigma}S_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\rho}k_{\rho}}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p^{\prime}-k\right)}
+\end{align*}
 
 \end_inset
 
