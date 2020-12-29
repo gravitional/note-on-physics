@@ -6103,7 +6103,7 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{\overline{M}^{2}C_{B\ph
 的部分为，
 \begin_inset Formula 
 \begin{align}
-\Rightarrow & {\color{red}\left(\frac{2}{\pi}\right)}\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\frac{\left(-\overline{\Lambda}^{8}\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{\left(z^{3}\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\nonumber \\
+\Rightarrow & f_{\phi}^{\left(\delta\right)}\left(y\right)={\color{red}\left(\frac{2}{\pi}\right)}\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\frac{\left(-\overline{\Lambda}^{8}\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{z^{3}\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\nonumber \\
 = & {\color{red}\left(\frac{2}{\pi}\right)}\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\frac{\delta\left(y\right)}{\overline{M}^{2}}\left(-\overline{\Lambda}^{8}\right)\int\dif k_{\perp}^{2}\left\{ \frac{-\overline{\Lambda}^{2}\left(11\overline{\Lambda}^{4}+15\overline{\Lambda}^{2}\Omega_{\phi}+6\Omega_{\phi}^{2}\right)}{6\overline{\Lambda}^{8}\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)^{3}}-\frac{\log\left[\Omega_{\phi}/\left(\overline{\Lambda}^{2}+\Omega_{\phi}\right)\right]}{\overline{\Lambda}^{8}}\right\} \nonumber \\
 = & {\color{red}\left(\frac{2}{\pi}\right)}\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\frac{\delta\left(y\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\left\{ \log\left[\frac{\Omega_{\phi}}{\left(\Omega_{\phi}+\overline{\Lambda}^{2}\right)}\right]+\frac{\overline{\Lambda}^{2}\left(11\overline{\Lambda}^{4}+15\overline{\Lambda}^{2}\Omega_{\phi}+6\Omega_{\phi}^{2}\right)}{6\left(\Omega_{\phi}+\overline{\Lambda}^{2}\right)^{3}}\right\} \nonumber \\
 = & {\color{red}\left(\frac{2}{\pi}\right)}\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\frac{\delta\left(y\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\left\{ \log\frac{\Omega_{\phi}}{\Omega_{\Lambda}}+\frac{\overline{\Lambda}^{2}\left(11\Omega_{\Lambda}^{2}-7\Omega_{\Lambda}\Omega_{\phi}+2\Omega_{\phi}^{2}\right)}{6\Omega_{\Lambda}^{3}}\right\} \label{eq:yu_65}
@@ -7107,21 +7107,7 @@ H^{1;\mu}+H^{2;\mu}=\frac{{\color{blue}\left(\gamma^{\mu}\gamma^{5}\right)}\left
 
 \end_inset
 
-
-\size small
-
-\begin_inset Formula 
-\begin{align*}
-f_{c}^{+}\left(y\right) & =\frac{\left(-ie_{\phi}^{q}\right)C_{B\phi}^{2}}{\left(2\pi\right)^{4}f^{2}}\frac{\overline{\Lambda}^{8}M}{p^{+}}\frac{1}{2}\int\dif k^{-}\dif k_{\perp}^{2}p^{+}\frac{-8\left[k^{+}\left(M^{2}+MM_{B}\right)+p^{+}\left(k^{2}-2kp\right)\right]}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
- & =\frac{\left(-ie_{\phi}^{q}\right)C_{B\phi}^{2}\overline{\Lambda}^{8}M}{\left(2\pi\right)^{4}f^{2}}\int\dif k^{-}\dif k_{\perp}^{2}p^{+}\frac{-4\left[yM\overline{M}+\left(D_{B}+\Delta\overline{M}\right)\right]}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
-f_{c}^{+}\left(y\right) & =\frac{\left(4ie_{\phi}^{q}\right)C_{B\phi}^{2}\overline{\Lambda}^{8}Mp^{+}}{\left(2\pi\right)^{4}f^{2}}\int\dif k^{-}\dif k_{\perp}^{2}\left[\frac{\left(yM+\Delta\right)\overline{M}}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}+\frac{1}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)}\right]
-\end{align*}
-
-\end_inset
-
-
-\size default
-
+使用
 \begin_inset Formula 
 \begin{align*}
  & k^{2}=D_{\phi}+m_{\phi}^{2}\\
@@ -7131,27 +7117,85 @@ f_{c}^{+}\left(y\right) & =\frac{\left(4ie_{\phi}^{q}\right)C_{B\phi}^{2}\overli
 
 \end_inset
 
-可以化简为
+可以得到
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+f_{c}^{+}\left(y\right) & =\frac{\left(-ie_{\phi}^{q}\right)C_{B\phi}^{2}}{\left(2\pi\right)^{4}f^{2}}\frac{\overline{\Lambda}^{8}M}{p^{+}}\frac{1}{2}\int\dif k^{-}\dif k_{\perp}^{2}p^{+}\frac{-8\left[y\left(M^{2}+MM_{B}\right)+\left(k^{2}-2kp\right)\right]}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
+f_{c}^{+}\left(y\right) & =\frac{\left(-ie_{\phi}^{q}\right)C_{B\phi}^{2}\overline{\Lambda}^{8}M}{\left(2\pi\right)^{4}f^{2}}\int\dif k^{-}\dif k_{\perp}^{2}\frac{-4\left[yM\overline{M}+\left(D_{B}+\Delta\overline{M}\right)\right]}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}
+\end{align*}
+
+\end_inset
+
+即
+\begin_inset Formula 
+\[
+f_{c}^{+}\left(y\right)={\color{blue}\left(-2Me_{\phi}^{q}\right)}\frac{\left(-2i\right)C_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif k^{-}\dif k_{\perp}^{2}\left[\frac{\left(yM+\Delta\right)\overline{M}}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)D_{B}\left(p-k\right)}+\frac{1}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)}\right]
+\]
+
+\end_inset
+
+
+\size default
+salamu 的结果是
 \begin_inset Formula 
 \begin{equation}
-f_{B}^{\left(\text{KR}\right)}=\left(-2i\right)\frac{C_{B\phi}^{2}\overline{\Lambda}^{8}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left[\frac{\left(yM+\Delta\right)\overline{M}}{D_{\phi}D_{B}D_{\Lambda}^{4}}+\frac{1}{D_{\phi}D_{\Lambda}^{4}}\right]\delta\left(y-\frac{k^{+}}{p^{+}}\right)\label{eq:yu_74}
+f_{B}^{\left(\text{KR}\right)}=\frac{\left(-2i\right)C_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}k\left[\frac{\left(yM+\Delta\right)\overline{M}}{D_{\phi}D_{B}D_{\Lambda}^{4}}+\frac{1}{D_{\phi}D_{\Lambda}^{4}}\right]\delta\left(y-\frac{k^{+}}{p^{+}}\right)\label{eq:yu_74}
 \end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+使用
+\begin_inset Formula 
+\[
+\int\dif k^{+}\int\dif k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)D_{\Lambda}^{b}\left(k\right)}=\frac{\left(-2\pi i\right)}{\overline{y}}\frac{1}{D_{\phi B}^{a}D_{\Lambda B}^{b}},\&k^{+}=yp^{+}
+\]
 
 \end_inset
 
 
 \begin_inset Formula 
 \[
-\frac{2\overline{M}\left(\Delta+yM\right)}{D_{B}D_{\phi}D_{\Lambda}^{4}}
+\int\dif k^{+}\int k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}=\int_{0}^{1}\dif z{\color{blue}\frac{\left[-\left(a+b-2\right)\right]!}{\left(a-1\right)!\left(b-1\right)!}}\frac{\left(1-z\right)^{a-1}z^{b-1}\left(2\pi i\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{a+b-1}}
 \]
 
 \end_inset
 
-对
-\begin_inset Formula $k^{-}$
+得到
+\begin_inset Formula 
+\begin{align*}
+f_{c}^{+}\left(y\right) & ={\color{blue}\left(-2Me_{\phi}^{q}\right)}\frac{\left(-2i\right)C_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif k_{\perp}^{2}\left[\frac{\left(-2\pi i\right)}{\overline{y}}\frac{\left(yM+\Delta\right)\overline{M}}{D_{\phi B}^{1}D_{\Lambda B}^{4}}+\int_{0}^{1}\dif z\frac{-z^{3}\left(2\pi i\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\right]\\
+ & ={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\int\dif k_{\perp}^{2}\left[\frac{2\overline{\Lambda}^{8}}{\overline{M}}\frac{\left(yM+\Delta\right)}{\overline{y}D_{\phi B}^{1}D_{\Lambda B}^{4}}+\frac{\overline{\Lambda}^{8}}{\overline{M}^{2}}\int_{0}^{1}\dif z\frac{z^{3}\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}}\right]
+\end{align*}
+
 \end_inset
 
-积分之后，可以写成 off–shell and 
+与之前的结果相比
+\begin_inset Formula 
+\[
+f_{B}^{\left(\text{off}\right)}\left(y\right)={\color{blue}\left(\frac{1}{\pi}\right)}\frac{2\overline{\Lambda}^{8}}{\overline{M}}\int\dif k_{\perp}^{2}\frac{\left(yM+\Delta\right)}{\overline{y}D_{\phi B}D_{\Lambda B}^{4}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{\phi}^{\left(\delta\right)}\left(y\right)={\color{red}\left(\frac{2}{\pi}\right)}\frac{C_{B\phi}^{2}\overline{M}^{2}}{\left(4\pi f\right)^{2}}\frac{\left(-\overline{\Lambda}^{8}\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{z^{3}\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}}
+\]
+
+\end_inset
+
+
+\size default
+可以写成 off–shell and 
 \begin_inset Formula $\delta$
 \end_inset
 

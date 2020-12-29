@@ -2712,7 +2712,7 @@ adsfasasfda
 
 \begin_inset Formula 
 \[
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)D_{\Lambda}^{b}\left(k\right)}=\frac{\left(-2\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}^{a}D_{\Lambda B}^{b}}
+\int\dif k^{+}\int\dif k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)D_{\Lambda}^{b}\left(k\right)}=\frac{\left(-2\pi i\right)}{\overline{y}}\frac{1}{D_{\phi B}^{a}D_{\Lambda B}^{b}},\&k^{+}=yp^{+}
 \]
 
 \end_inset
@@ -3077,6 +3077,42 @@ D_{\phi B}=\frac{-k_{\perp}^{2}-yM_{B}^{2}+y\overline{y}M^{2}-\overline{y}m_{\ph
 
 \end_inset
 
+还有
+\size small
+
+\begin_inset Formula 
+\[
+\int\dif k^{+}\int k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}=\int_{0}^{1}\dif z{\color{blue}\frac{\left[-\left(a+b-2\right)\right]!}{\left(a-1\right)!\left(b-1\right)!}}\frac{\left(1-z\right)^{a-1}z^{b-1}\left(2\pi i\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{a+b-1}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{2}\int\dif k^{+}\dif k^{-}\frac{2kpy\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{a}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{b}}={\color{blue}\frac{\left[-\left(a+b-3\right)\right]!}{\left(a-1\right)!\left(b-1\right)!}}\int_{0}^{1}\dif z\frac{\left(1-z\right)^{a-1}z^{b-1}}{\left(k_{\perp}^{2}+\Omega\right)^{a+b-1}}\left(2\pi i\right)\delta\left(y\right)
+\]
+
+\end_inset
+
+
+\size default
+where
+\begin_inset Formula 
+\[
+D_{\phi}\left(k\right)=k^{2}-m_{\phi}^{2},\quad D_{\Lambda}\left(k\right)=k^{2}-\Lambda^{2},\quad\Omega\equiv\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+分析
+\end_layout
+
+\begin_layout Standard
 提取出一个
 \begin_inset Formula $\delta\left(y\right)/p^{+}$
 \end_inset
@@ -3279,12 +3315,16 @@ noprefix "false"
 即
 \begin_inset Formula 
 \[
-\int\dif^{4}k\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}=\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}{\color{blue}\frac{\left[-\left(a+b-2\right)\right]!}{2\left(a-1\right)!\left(b-1\right)!}}\frac{\left(1-z\right)^{a-1}z^{b-1}\left(2\pi i\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{a+b-1}}
+\int\dif k^{+}\int k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}=\int_{0}^{1}\dif z{\color{blue}\frac{\left[-\left(a+b-2\right)\right]!}{\left(a-1\right)!\left(b-1\right)!}}\frac{\left(1-z\right)^{a-1}z^{b-1}\left(2\pi i\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{a+b-1}}
 \]
 
 \end_inset
 
+这里没有考虑坐标变换的 Jacobian 
+\begin_inset Formula $1/2$
+\end_inset
 
+，
 \size default
 where 
 \begin_inset Formula 
@@ -3492,7 +3532,7 @@ where
 
 \begin_inset Formula 
 \[
-\int\dif^{4}k\frac{2kpy\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{a}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{b}}={\color{blue}\frac{\left[-\left(a+b-3\right)\right]!}{\left(a-1\right)!\left(b-1\right)!}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\frac{\left(1-z\right)^{a-1}z^{b-1}}{\left(k_{\perp}^{2}+\Omega\right)^{a+b-1}}\left(2\pi i\right)\delta\left(y\right)
+\frac{1}{2}\int\dif k^{+}\dif k^{-}\frac{2kpy\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{\left(k^{2}-m_{\phi}^{2}+i\varepsilon\right)^{a}\left(k^{2}-\Lambda^{2}+i\varepsilon\right)^{b}}={\color{blue}\frac{\left[-\left(a+b-3\right)\right]!}{\left(a-1\right)!\left(b-1\right)!}}\int_{0}^{1}\dif z\frac{\left(1-z\right)^{a-1}z^{b-1}}{\left(k_{\perp}^{2}+\Omega\right)^{a+b-1}}\left(2\pi i\right)\delta\left(y\right)
 \]
 
 \end_inset
