@@ -151,11 +151,6 @@ The hostname (like `products`) is the text that *precedes* the `domain` name (fo
 
 Executing `hostname` from the Command Prompt is the easiest way to show the hostname of a computer.
 
-## oh-my-zsh
-
-[Oh My Zsh 插件](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
-
-[Mac/Linux使用ZSH (oh-my-zsh)](https://www.jianshu.com/p/fa6aa9329be6)
 
 ## 用 Linux 命令显示硬件信息 
 
@@ -541,127 +536,12 @@ gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['UTF-8
 
 [iBus拼音输入法导入搜狗词库]: https://blog.csdn.net/betabin/article/details/7798668
 
-## 查看文件、文件夹和磁盘空间的大小
-
-[Ubuntu下查看文件、文件夹和磁盘空间的大小][]
-
-[Ubuntu下查看文件、文件夹和磁盘空间的大小]: https://blog.csdn.net/BigData_Mining/java/article/details/88998472
-
-在实际使用`ubuntu`时候,经常要碰到需要查看文件以及文件夹大小的情况.
-有时候,自己创建压缩文件,可以使用 `ls -hl`查看文件大小.参数`-h` 表示`Human-Readable`,使用`GB`,`MB`等易读的格式方式显示.对于文件夹的大小,`ll -h` 显示只有`4k`.
-
-***
-那么如何来查看文件夹的大小呢？
-
-使用`du`命令查看文件或文件夹的磁盘使用空间,`–max-depth` 用于指定深入目录的层数.
-
-如要查看当前目录已经使用总大小及当前目录下一级文件或文件夹各自使用的总空间大小,
-输入`du -h --max-depth=1`即可.
-
-如要查看当前目录已使用总大小可输入:`du -h --max-depth=0`
-
-***
-
-```bash
-du [OPTION]... [FILE]...
-du [OPTION]... --files0-from=F
-```
-
-+ `-s,` `--summarize`: display only a total for each argument
-+ ` -h`, `--human-readable`: print sizes in human readable format (e.g., 1K 234M 2G)
-+ `-d,` `--max-depth=N`: print the total for a directory (or file, with `--all`) only if it is N or fewer levels below the command line argument;  `--max-depth=0` is the same as `--summarize`
-+ `--si`   like `-h`, but use powers of `1000` not `1024`
-+ `-a,` `--all` :write counts for all files, not just directories
-
-### 查看磁盘空间大小命令
-
-`df`命令是linux系统以磁盘分区为单位查看文件系统,可以加上参数查看磁盘剩余空间信息,命令格式:
-
-`df - report file system disk space usage`
-
-***
-SYNOPSIS
-
-`df [OPTION]... [FILE]...`
-
-+ `-a`, `--all` include pseudo, duplicate, inaccessible file systems
-+ `-l`, `--local` limit listing to local file systems
-+ `-h`, `--human-readable` print sizes in powers of 1024 (e.g., 1023M)
-+ `-T`, `--print-type` print file system type
-
-### 删除日志文件
-
-```bash
-sudo /dev/null > /var/log/**.log
-```
-
-下面这个推荐使用,删除30天之前的旧文件
-
-```bash
-sudo find /var/log/ -type f -mtime +30 -exec rm -f {} \;
-```
-
-***
-`find` - search for files in a directory hierarchy
-
-`find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]`
-
-***
-`expression`
-
-The part of the command line after the list of starting points is the `expression`.  This is a kind of query specification describing how we match files  and  what we do with the files that were matched.
-An expression is composed of a sequence of things: Test, Actions,...
-
-`-exec command ;`
-              Execute  command;  true if 0 status is returned.  All following arguments to find are taken to be arguments to the command until an argument consisting of
-              `;' is encountered.  The string `{}' is replaced by the current file name being processed everywhere it occurs in the arguments to the command,  not  just
-              in  arguments where it is alone, as in some versions of find.  Both of these constructions might need to be escaped (with a `\') or quoted to protect them
-              from expansion by the shell.  See the EXAMPLES section for examples of the use of the -exec option.  The specified command is run once  for  each  matched
-              file.   The  command  is executed in the starting directory.   There are unavoidable security problems surrounding use of the -exec action; you should use
-              the -execdir option instead.
-
-       -exec command {} +
-              This variant of the -exec action runs the specified command on the selected files, but the command line is built by appending each selected file  name  at
-              the  end;  the  total number of invocations of the command will be much less than the number of matched files.  The command line is built in much the same
-              way that xargs builds its command lines.  Only one instance of `{}' is allowed within the command, and (when find is being invoked from a shell) it should
-              be  quoted (for example, '{}') to protect it from interpretation by shells.  The command is executed in the starting directory.  If any invocation returns
-              a non-zero value as exit status, then find returns a non-zero exit status.  If find encounters an error, this can sometimes cause an  immediate  exit,  so
-              some pending commands may not be run at all.  This variant of -exec always returns true.
-
-`-mtime n`
-File's  data  was  last  modified  `n*24` hours ago.
-See the comments for -atime to understand how rounding affects the interpretation of file modificationtimes
-
-`-type c`
-File is of type c:
-
-+ `b`  block (buffered) special
-+ `c`  character (unbuffered) special
-+ `d`  directory
-+ `p`  named pipe (FIFO)
-+ `f`  regular file
-
-### shell 换行
-
-把换行符注释掉,如果同时想插入注释,可以用`$()`或者两个`backtick`包裹注释
-
-```bash
-emcc -o ./dist/test.html `# 目标文件` \
---shell-file ./tmp.html `# 模板文件` \
---source-map-base dist `# source map 根路径` \
--O3 `# 优化级别` \
-```
-
-## shell空白字符
-
-[对C标准中空白字符的理解][]
-[Shell中去掉文件中的换行符简单方法][]
-
-[对C标准中空白字符的理解]: https://blog.csdn.net/boyinnju/article/details/6877087
-
-[Shell中去掉文件中的换行符简单方法]: https://blog.csdn.net/Jerry_1126/java/article/details/85009615
+## shell 语法
 
 ### 空白字符
+
+[对C标准中空白字符的理解](https://blog.csdn.net/boyinnju/article/details/6877087)
+[Shell中去掉文件中的换行符简单方法](https://blog.csdn.net/Jerry_1126/java/article/details/85009615)
 
 `C`标准库里`<ctype.h>`中声明了一个函数:
 
@@ -740,6 +620,17 @@ puts("01\v2345");
 最后我想说明一点,`\t \r, \v \f`也是控制字符,它们会控制字符的输出方式.
 它们在终端输出时会有上面的表现,但如果写入文本文件,一般文本编辑器（vi或记事本）对`\t \r, \v \f`的显示是没有控制效果的.
 
+### shell 换行
+
+把换行符注释掉,如果同时想插入注释,可以用`$()`或者两个`backtick`包裹注释
+
+```bash
+emcc -o ./dist/test.html `# 目标文件` \
+--shell-file ./tmp.html `# 模板文件` \
+--source-map-base dist `# source map 根路径` \
+-O3 `# 优化级别` \
+```
+
 ### 删除换行符
 
 文件中每行都以`\n`结尾,如果要去掉换行符,使用`sed`命令
@@ -764,7 +655,7 @@ cat FileName | xargs | echo -n   # 连文件末尾换行符也去掉
 cat FileName | xargs           # 会保留文件末尾的换行符
  ```
 
-## eval
+### eval
 
 [Shell 中eval的用法][]
 
@@ -878,34 +769,6 @@ read (4), write (2), and execute (1);
 第三位数字设定组中其他用户的权限
 
 第四位数字设定不在组中用户的权限
-
-## Mathematica
-
-### linux mathematica 单个前端
-
-定义一个别名,用`singleLaunch`选项
-
-`alias mma='mathematica -singleLaunch'`
-
-`-singleLaunch [file]`
-
-Allows only one copy of the front end to exist per DISPLAY setting and directs the first instance of the front end to open file.
-
-### 卸载 Mathematica
-
-Linux
-
-如要卸载 Mathematica,需删除下列目录.请备份这些目录下任何需要保存的文件:
-
-+ `/usr/local/Wolfram/Mathematica/`
-+ `/usr/share/Mathematica/`
-+ `~/.Mathematica/`
-+ `~/.Wolfram/`
-+ `~/.cache/Wolfram/`
-
-命令行下运行wolframscript脚本出错,是因为
-
-`~/.config/Wolfram/WolframScript/WolframScript.conf `中的wolfram环境变量影响了 `wolframscript` 的运行,清除失效的路径就可以了
 
 ## formfactor 脚本
 
@@ -1930,6 +1793,65 @@ mount /dev/loop0 /home/groad/disk_test   #将循环设备 mount 到目录 disk_t
 mount -t minix -o loop ./disk.img ./disk_test
 ```
 
+## linux查看当前登录用户
+
+[linux查看当前登录用户][]
+
+[linux查看当前登录用户]: https://blog.csdn.net/wanchaopeng/article/details/88425067
+
+### w命令
+
+`w`:显示目前登入系统的用户信息
+
++ `-f`: 开启或关闭显示用户从何处登入系统.
++ `-h`: 不显示各栏位的标题信息列.
++ `-s`: 使用简洁格式列表,不显示用户登入时间,终端机阶段作业和程序所耗费的CPU时间.
++ `-u`: 忽略执行程序的名称,以及该程序耗费CPU时间的信息.
++ `-V`: 显示版本信息.
+
+输出的结果的含义:
+
++ `USER` 登录的用户名
++ `TTY` 登录终端
++ `FROM` 从哪个IP地址登录
++ `LOGIN`@ 登录时间
++ `IDLE` 用户闲置时间
++ `JCPU` 指的是和该终端连接的所有进程占用的时间,这个时间里并不包括过去的后台作业时间,但却包括当前正在运行的后台作业所占用的时间
++ `PCPU` 当前进程所占用的时间
++ `WHAT` 当前正在运行的命令
+
+### who
+
+显示当前已登录的用户信息,输出的结果有:用户名,登录终端,登录的时间
+
+### last
+
+列出目前与过去登入系统的用户相关信息.
+
++ `-R`: 省略 hostname 的栏位
++ `-n`:指定输出记录的条数.
++ `-f file`:指定用文件`file`作为查询用的`log`文件.
++ `-t time`:显示到指定的时间.
++ `-h `:显示帮助.
++ `-i` or`--ip`:以`数字`and `点`的形式显示`ip`地址.
++ `-x`:显示系统关闭、用户登录和退出的历史.
+
+命令的输出包含:用户名,登录终端,登录IP,登录时间,退出时间（在线时间）
+
+### lastlog
+
+`lastlog` 命令检查某特定用户上次登录的时间
+
++ `-b`, `--before DAYS`: 仅打印早于 DAYS 的最近登录记录
++ `-h`, `--help`: 显示此帮助信息并推出
++ `-R`, `--root CHROOT_DIR` directory to chroot into
++ `-t`, `--time DAYS` : 仅打印比 DAYS 新近的登录记录
++ `-u`, `--user LOGIN` : 打印 LOGIN 用户的最近登录记录
+
+注意:`lastlog`命令默认读取的是`/var/log/wtmp`这个文件的数据,一定注意这个文件不能用`vi`来查看.
+
+命令输出包括:用户名,登录终端,登录`IP`,最后一次登录时
+
 ## X窗口系统
 
 X窗口系统（使GUI工作的底层引擎）内建了一种机制,支持快速拷贝和粘贴技巧.
@@ -2006,157 +1928,7 @@ etc
 gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 3600
 ```
 
-## linux查看当前登录用户
-
-[linux查看当前登录用户][]
-
-[linux查看当前登录用户]: https://blog.csdn.net/wanchaopeng/article/details/88425067
-
-### w命令
-
-`w`:显示目前登入系统的用户信息
-
-+ `-f`: 开启或关闭显示用户从何处登入系统.
-+ `-h`: 不显示各栏位的标题信息列.
-+ `-s`: 使用简洁格式列表,不显示用户登入时间,终端机阶段作业和程序所耗费的CPU时间.
-+ `-u`: 忽略执行程序的名称,以及该程序耗费CPU时间的信息.
-+ `-V`: 显示版本信息.
-
-输出的结果的含义:
-
-+ `USER` 登录的用户名
-+ `TTY` 登录终端
-+ `FROM` 从哪个IP地址登录
-+ `LOGIN`@ 登录时间
-+ `IDLE` 用户闲置时间
-+ `JCPU` 指的是和该终端连接的所有进程占用的时间,这个时间里并不包括过去的后台作业时间,但却包括当前正在运行的后台作业所占用的时间
-+ `PCPU` 当前进程所占用的时间
-+ `WHAT` 当前正在运行的命令
-
-### who
-
-显示当前已登录的用户信息,输出的结果有:用户名,登录终端,登录的时间
-
-### last
-
-列出目前与过去登入系统的用户相关信息.
-
-+ `-R`: 省略 hostname 的栏位
-+ `-n`:指定输出记录的条数.
-+ `-f file`:指定用文件`file`作为查询用的`log`文件.
-+ `-t time`:显示到指定的时间.
-+ `-h `:显示帮助.
-+ `-i` or`--ip`:以`数字`and `点`的形式显示`ip`地址.
-+ `-x`:显示系统关闭、用户登录和退出的历史.
-
-命令的输出包含:用户名,登录终端,登录IP,登录时间,退出时间（在线时间）
-
-### lastlog
-
-`lastlog` 命令检查某特定用户上次登录的时间
-
-+ `-b`, `--before DAYS`: 仅打印早于 DAYS 的最近登录记录
-+ `-h`, `--help`: 显示此帮助信息并推出
-+ `-R`, `--root CHROOT_DIR` directory to chroot into
-+ `-t`, `--time DAYS` : 仅打印比 DAYS 新近的登录记录
-+ `-u`, `--user LOGIN` : 打印 LOGIN 用户的最近登录记录
-
-注意:`lastlog`命令默认读取的是`/var/log/wtmp`这个文件的数据,一定注意这个文件不能用`vi`来查看.
-
-命令输出包括:用户名,登录终端,登录IP,最后一次登录时
-
-## Powerline 状态条
-
-Powerline 是一个极棒的 Vim 编辑器的状态行插件,这个插件是使用 Python 开发的,主要用于显示状态行和提示信息,适用于很多软件,比如 `bash`、`zsh`、`tmux` 等等.
-
-[使用Powerline为VIM和Bash注入强劲动力][]
-
-[使用Powerline为VIM和Bash注入强劲动力]: https://linux.cn/article-8118-1.html
-
-首次安装`pip`,即python包管理器,在 Debian、Ubuntu 和 Linux Mint 中安装 `pip`
-
-```bash
-apt-get install python-pip
-```
-
-然后你可以通过 pip 命令安装 `Powerline`.
-
-```bash
-pip3 install git+git://github.com/powerline/powerline
-```
-
-### 在 Linux 中安装 Powerline 的字体
-
-`Powerline` 使用特殊的符号来为开发者显示特殊的箭头效果和符号内容.因此你的系统中必须要有符号字体或者补丁过的字体.
-
-通过下面的 `wget` 命令下载最新的系统字体及字体配置文件.
-
-```bash
-wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-```
-
-然后你将下载的字体放到字体目录下 `/usr/share/fonts` 或者 `/usr/local/share/fonts`,或者你可以通过 `xset q` 命令找到一个有效的字体目录.
-
-```bash
-mv PowerlineSymbols.otf /usr/share/fonts/
-```
-
-接下来你需要通过如下命令更新你系统的字体缓存.
-
-```bash
-fc-cache -vf /usr/share/fonts/
-```
-
-其次安装字体配置文件.
-
-```bash
-mv 10-powerline-symbols.conf /etc/fonts/conf.d/
-```
-
-### 打开 Bash Shell 中的 Powerline
-
-如果希望在 `bash shell` 中默认打开 `Powerline`,可以在 `~/.bashrc` 中添加如下内容.
-
-首先通过如下命令获取 powerline 的安装位置.
-
-```bash
-pip3 show powerline-status
-...
-Location: XXXXX
-...
-```
-
-一旦找到 `powerline` 的具体位置后,根据你系统的情况替换到下列行中的 `XXXXX` 对应的位置.
-
-```bash
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-source XXXXX/powerline/bindings/bash/powerline.sh
-```
-
-然后退出后重新登录,现在 `powerline` 的状态行应该如下显示了.
-
-### 在 Vim 中打开 Powerline
-
-首先通过如下命令获取 `powerline` 的安装位置.
-
-```bash
-pip3 show powerline-status
-```
-
-在 `~/.vimrc` 中添加如下内容打开该插件（译注：注意同样需要根据你的系统情况修改路径）.
-
-```bash
-set rtp+=/home/tom/.local/lib/python3.6/site-packages/powerline/bindings/vim/
-set laststatus=2
-set t_Co=256
-```
-
-然后你打开 `vim` 后会看到一个新的状态行
-
-## 美化
+### 美化
 
 shell: [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
 themes: [vimix-gtk-themes](https://github.com/vinceliuice/vimix-gtk-themes)
@@ -2166,7 +1938,7 @@ icon: [vimix-icon-theme/](https://github.com/vinceliuice/vimix-icon-theme/)
 
 extensions: `Blyr `,`Dash to panel`,`User themes`,`openweather`
 
-### Plymouth
+#### Plymouth
 
 [Ubuntu 16.04美化——Plymouth(splash screen/开机画面)主题安装](https://blog.csdn.net/mutilcam_prince/article/details/78299628)
 
@@ -2280,7 +2052,7 @@ chmod +x xxx.sh
 
 即可完成安装
 
-### 其他主题安装
+#### 其他主题安装
 
 有的主题也可能自带安装脚本，比如
 

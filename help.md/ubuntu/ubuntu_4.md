@@ -1,4 +1,1438 @@
-# ubuntu-3
+# ubuntu-4
+
+## shell 变量
+
+[Shell变量:Shell变量的定义,赋值和删除][]
+
+[Shell变量:Shell变量的定义,赋值和删除]: http://c.biancheng.net/view/743.html
+
+脚本语言在定义变量时通常不需要指明类型,直接赋值就可以,`Shell` 变量也遵循这个规则.
+
+在 `Bash shell` 中,每一个变量的值都是**字符串**,无论你给变量赋值时有没有使用引号,值都会以字符串的形式存储.
+
+这意味着,`Bash shell` 在默认情况下不会区分变量类型,即使你将整数和小数赋值给变量,它们也会被视为字符串,这一点和大部分的编程语言不同.
+
+例如在C语言或者 C++ 中,变量分为整数,小数,字符串,布尔等多种类型.
+
+当然,如果有必要,你也可以使用 `Shell declare` 关键字显式定义变量的类型,但在一般情况下没有这个需求,Shell 开发者在编写代码时自行注意值的类型即可.
+
+### 定义变量
+
+`Shell` 支持以下三种定义变量的方式:
+
+```bash
+variable=value
+variable='value'
+variable="value"
+```
+
+`variable` 是变量名,`value` 是赋给变量的值.如果 `value` 不包含任何空白符(例如空格,`Tab` 缩进等),那么可以不使用引号；
+如果 `value` 包含了空白符,那么就必须使用引号包围起来.使用单引号和使用双引号也是有区别的,稍后我们会详细说明.
+
+注意,赋值号`=`的周围不能有空格,这可能和你熟悉的大部分编程语言都不一样.
+
+`Shell` 变量的命名规范和大部分编程语言都一样:
+
++ 变量名由数字,字母,下划线组成；
++ 必须以字母或者下划线开头；
++ 不能使用 `Shell` 里的关键字(通过 `help` 命令可以查看保留关键字).
+
+变量定义举例:
+
+```bash
+url=http://c.biancheng.net/shell/
+echo $url
+name='C语言中文网'
+echo $name
+author="严长生"
+echo $author
+```
+
+### 使用变量
+
+使用一个定义过的变量,只要在变量名前面加美元符号`$`即可,如:
+
+```bash
+author="严长生"
+echo $author
+echo ${author}
+```
+
+变量名外面的花括号`{ }`是可选的,加不加都行,
+加花括号是为了帮助解释器识别变量的边界,比如下面这种情况:
+
+```bash
+skill="Java"
+echo "I am good at ${skill}Script"
+```
+
+如果不给 `skill` 变量加花括号,写成`echo "I am good at $skillScript"`,解释器就会把 `$skillScript` 当成一个变量(其值为空),代码执行结果就不是我们期望的样子了.
+
+推荐给所有变量加上花括号`{ }`,这是个良好的编程习惯.
+
+### 修改变量的值
+
+已定义的变量,可以被重新赋值,如:
+
+```bash
+url="http://c.biancheng.net"
+echo ${url}
+url="http://c.biancheng.net/shell/"
+echo ${url}
+```
+
+第二次对变量赋值时不能在变量名前加`$`,只有在使用变量时才能加`$`.
+
+### 单引号和双引号的区别
+
+定义变量时,变量的值可以由单引号`' '`包围,也可以由双引号`" "`包围,
+它们的区别以下面的代码为例来说明:
+
+``` bash
+#!/bin/bash
+url="http://c.biancheng.net"
+website1='C语言中文网:${url}'
+website2="C语言中文网:${url}"
+echo $website1
+echo $website2
+运行结果:
+C语言中文网:${url}
+C语言中文网:http://c.biancheng.net
+```
+
+以单引号`' '`包围变量的值时,单引号里面是什么就输出什么,即使内容中有变量和命令(命令需要`反引`起来)也会把它们原样输出.
+这种方式比较适合定义显示纯字符串的情况,即不希望解析变量,命令等的场景.
+
+以双引号`" "`包围变量的值时,输出时会先解析里面的变量和命令,而不是把双引号中的变量名和命令原样输出.
+这种方式比较适合字符串中附带有变量和命令并且想将其解析后再输出的变量定义.
+
+我的建议:
+如果变量的内容是数字,那么可以不加引号；
+如果真的需要原样输出就加单引号；
+其他没有特别要求的字符串等最好都加上双引号,定义变量时加双引号是最常见的使用场景.
+
+### 将命令的结果赋值给变量
+
+`Shell` 也支持将命令的执行结果赋值给变量,常见的有以下两种方式:
+
+```bash
+variable=`command`
+variable=$(command)
+```
+
+第一种方式把命令用反引号` `(位于 `Esc` 键的下方)包围起来,反引号和单引号非常相似,容易产生混淆,所以不推荐使用这种方式；
+第二种方式把命令用`$()`包围起来,区分更加明显,所以推荐使用这种方式.
+
+例如,我在 `demo` 目录中创建了一个名为 `log.txt` 的文本文件,用来记录我的日常工作.
+下面的代码中,使用 `cat` 命令将 `log.txt` 的内容读取出来,并赋值给一个变量,然后使用 `echo` 命令输出.
+
+```bash
+[mozhiyan@localhost ~]$ cd demo
+[mozhiyan@localhost demo]$ log=$(cat log.txt)
+[mozhiyan@localhost demo]$ echo $log
+严长生正在编写Shell教程,教程地址:http://c.biancheng.net/shell/
+[mozhiyan@localhost demo]$ log=`cat log.txt`
+[mozhiyan@localhost demo]$ echo $log
+严长生正在编写Shell教程,教程地址:http://c.biancheng.net/shell/
+```
+
+### 只读变量
+
+使用 `readonly` 命令可以将变量定义为只读变量,只读变量的值不能被改变.
+
+下面的例子尝试更改只读变量,结果报错:
+
+```bash
+#!/bin/bash
+myUrl="http://c.biancheng.net/shell/"
+readonly myUrl
+myUrl="http://c.biancheng.net/shell/"
+
+运行脚本,结果如下:
+bash: myUrl: This variable is read only.
+```
+
+### 删除变量
+
+使用 `unset` 命令可以删除变量.语法:
+
+```bash
+unset variable_name
+```
+
+变量被删除后不能再次使用；`unset` 命令不能删除只读变量.
+
+举个例子:
+
+```bash
+#!/bin/sh
+myUrl="http://c.biancheng.net/shell/"
+unset myUrl
+echo $myUrl
+```
+
+上面的脚本没有任何输出.
+
+### 变量类型
+
+运行`shell`时,会同时存在三种变量:
+
+1. **局部变量** 局部变量在脚本或命令中定义,仅在当前shell实例中有效,其他shell启动的程序不能访问局部变量.
+2. **环境变量** 所有的程序,包括shell启动的程序,都能访问环境变量,有些程序需要环境变量来保证其正常运行.必要的时候shell脚本也可以定义环境变量.
+3. **shell变量** shell变量是由shell程序设置的特殊变量.shell变量中有一部分是环境变量,有一部分是局部变量,这些变量保证了shell的正常运行
+
+## Shell 字符串
+
+字符串是`shell`编程中最常用最有用的数据类型(除了数字和字符串,也没啥其它类型好用了),字符串可以用单引号,也可以用双引号,也可以不用引号.单双引号的区别跟PHP类似.
+
+### 单引号
+
+```bash
+str='this is a string'
+```
+
+单引号字符串的限制:
+
++ 单引号里的任何字符都会原样输出,单引号字符串中的变量是无效的；
++ 单引号字串中不能出现单独一个的单引号(对单引号使用转义符后也不行),但可成对出现,作为字符串拼接使用.
+
+### 双引号
+
+```bash
+your_name='runoob'
+str="Hello, I know you are \"$your_name\"! \n"
+echo -e $str
+out: Hello, I know you are "runoob"!
+```
+
+双引号的优点:
+
++ 双引号里可以有变量
++ 双引号里可以出现转义字符
+
+### 拼接字符串
+
+```bash
+your_name="runoob"
+# 使用双引号拼接
+greeting="hello, "$your_name" !"
+greeting_1="hello, ${your_name} !"
+echo $greeting  $greeting_1
+out: hello, runoob ! hello, runoob !
+# 使用单引号拼接
+greeting_2='hello, '$your_name' !'
+greeting_3='hello, ${your_name} !'
+echo $greeting_2  $greeting_3
+out: hello, runoob ! hello, ${your_name} !
+```
+
+### 获取字符串长度
+
+```bash
+string="abcd"
+echo ${#string} #输出 4
+```
+
+### 提取子字符串
+
+以下实例从字符串第 `2` 个字符开始截取 `4` 个字符:
+
+```bash
+string="runoob is a great site"
+echo ${string:1:4} # 输出 unoo
+```
+
+注意:第一个字符的索引值为 `0`.
+
+### 查找子字符串
+
+查找字符 `i` 或 `o` 的位置(哪个字母先出现就计算哪个):
+
+```bash
+string="runoob is a great site"
+echo $(expr index "$string" io)  # 输出 4
+```
+
+### Shell 数组
+
+bash支持一维数组(不支持多维数组),并且没有限定数组的大小.
+
+类似于 `C` 语言,数组元素的下标由 `0` 开始编号.
+获取数组中的元素要利用下标,下标可以是整数或算术表达式,其值应大于或等于 `0`.
+定义数组
+
+在 `Shell` 中,用括号来表示数组,数组元素用"空格"符号分割开.定义数组的一般形式为:
+
+```bash
+数组名=(值1 值2 ... 值n)
+```
+
+例如:
+
+```bash
+array_name=(value0 value1 value2 value3)
+```
+
+或者
+
+```bash
+array_name=(
+value0
+value1
+value2
+value3
+)
+```
+
+还可以单独定义数组的各个分量:
+
+```bash
+array_name[0]=value0
+array_name[1]=value1
+array_name[n]=valuen
+```
+
+可以不使用连续的下标,而且下标的范围没有限制.
+
+### 读取数组
+
+读取数组元素值的一般格式是:
+
+```bash
+${数组名[下标]}
+```
+
+例如:
+
+```bash
+valuen=${array_name[n]}
+```
+
+使用 `@` 符号可以获取数组中的所有元素,例如:
+
+```bash
+echo ${array_name[@]}
+```
+
+### 获取数组的长度
+
+获取数组长度的方法与获取字符串长度的方法相同,例如:
+
+```bash
+# 取得数组元素的个数
+length=${#array_name[@]}
+# 或者
+length=${#array_name[*]}
+# 取得数组单个元素的长度
+lengthn=${#array_name[n]}
+```
+
+### Shell 注释
+
+以 `#` 开头的行就是注释,会被解释器忽略.
+
+通过每一行加一个 `#` 号设置多行注释,像这样:
+
+```bash
+#--------------------------------------------
+# 这是一个注释
+# author:菜鸟教程
+# site:www.runoob.com
+# slogan:学的不仅是技术,更是梦想！
+#--------------------------------------------
+##### 用户配置区 开始 #####
+#
+#
+# 这里可以添加脚本描述信息
+#
+#
+##### 用户配置区 结束  #####
+```
+
+如果在开发过程中,遇到大段的代码需要临时注释起来,过一会儿又取消注释,怎么办呢？
+
+每一行加个`#`符号太费力了,可以把这一段要注释的代码用一对花括号括起来,定义成一个函数,
+没有地方调用这个函数,这块代码就不会执行,达到了和注释一样的效果.
+
+### 多行注释
+
+多行注释还可以使用以下格式:
+
+```bash
+:<<EOF
+注释内容...
+注释内容...
+注释内容...
+EOF
+
+EOF 也可以使用其他符号:
+
+:<<'
+注释内容...
+注释内容...
+注释内容...
+'
+
+:<<!
+注释内容...
+注释内容...
+注释内容...
+!
+```
+
+## Shell 传递参数
+
+传入脚本的参数,要用双引号保护起来`"args"`,防止变量的自动分字(word splitting)
+也就是双层引号可以避免分字
+
+与`mathematica`配合的时候,尽量把长参数放到mathematica 脚本中,把短参数放到调用的`shell`中,结构化成一个关联的形式.
+
+### 实例
+
+## Shell 数组
+
+### 实例
+
+### shell中的数组作为参数传递
+
+[shell中的数组作为参数传递][]
+
+[shell中的数组作为参数传递]: https://blog.csdn.net/brouse8079/article/details/6417836
+
+`./test.sh  "${atest[@]}"` 简而言之,需要把数组参数用引号括起来.
+
+其中 `$0` 为执行的文件名(包含文件路径)
+
+```bash
+#!/bin/bash
+
+echo $1
+echo $2
+...
+echo ${10}
+```
+
+***
+构造数组
+
+```bash
+atest=("a" "bb cc" "dd ee ff" "gg hh ii jj")
+```
+
+***
+测试
+
+`atest`为数组.此时若把这个数组的内容作为参数调用另一个shell脚本时,写法很关键.
+
+第一种写法:`./test.sh ${atest[@]}`
+
+执行结果:
+
+```bash
+a
+...
+a0
+```
+
+此时传递的参数为`a bb cc dd ee ff gg hh ii jj`.把数组的内容组成了一个字符串,已经破坏了原来数组的结构.
+
+第二种写法:`./test.sh  "${atest[@]}"`
+
+执行结果:
+
+```bash
+a
+bb cc
+dd ee ff
+gg hh ii jj
+a0
+```
+
+把数组用双引号括起来,此时传递到`test.sh`中的参数仍然为数组的原来结构.
+
+## 环境变量 path
+
+[ubuntu 修改环境变量(PATH)][]
+
+[ubuntu 修改环境变量(PATH)]: https://www.cnblogs.com/crave/p/11818594.html
+
+在Linux中,在执行命令时,系统会按照`PATH`的设置,去每个`PATH`定义的路径下搜索执行文件,先搜索到的文件先执行.
+
+当我们在执行一个指令癿时候,举例来说"ls"好了,系统会依照PATH的设定去每个PATH定义的目录下搜寻文件名为ls 的可执行文件, 如果在PATH定义的目录中含有多个文件名为ls 的可执行文件,那么先搜寻到癿同名指令先被执行！
+
+***
+如何改变PATH
+
+1. 直接修改`$PATH`值:
+
+生效方法:立即生效
+有效期限:临时改变,只能在当前的终端窗口中有效,当前窗口关闭后就会恢复原有的`path`配置
+用户局限:仅对当前用户
+
+`echo $PATH //查看当前PATH的配置路径`
+
+`export PATH=$PATH:/xxx/xxx //将需配置路径加入$PATH  等号两边一定不能有空格`
+
+配置完后可以通过第一句命令查看配置结果.
+
+### 通过修改.bashrc文件
+
+有效期限:永久有效
+用户局限:仅对当前用户
+
+`.bashrc`文件在根目录下
+
+```bash
+vi .bashrc  //编辑.bashrc文件
+//在最后一行添上:
+export PATH=$PATH:/xxx/xxx  ///xxx/xxx位需要加入的环境变量地址 等号两边没空格
+```
+
+生效方法:(有以下两种)
+
++ 关闭当前终端窗口,重新打开一个新终端窗口就能生效
++ 输入`source .bashrc`命令,立即生效
+
+### 通过修改profile文件:(profile文件在/etc目录下)
+
+生效方法:系统重启
+有效期限:永久有效
+用户局限:对所有用户
+
+```bash
+vi /etc/profile //编辑profile文件
+//在最后一行添上:
+export PATH=$PATH:/xxx/xxx
+```
+
+### 通过修改environment文件
+
+生效方法:系统重启
+有效期限:永久有效
+用户局限:对所有用户
+
+environment文件在`/etc`目录下
+
+```bash
+vi /etc/profile //编辑profile文件
+在PATH=/......中加入`:/xxx/xxx`
+```
+
+## && || () {} 用法
+
+[shell 中 && || () {} 用法][]
+[shell中$(( )) 与 $( ) 还有${ }的区别][]
+
+[shell 中 && || () {} 用法]: https://www.jianshu.com/p/617c1ee1e46e
+
+[shell中$(( )) 与 $( ) 还有${ }的区别]: https://www.cnblogs.com/xunbu7/p/6187017.html
+
+### 括号总结
+
+***
+命令成组, 用 `()` 或者 `{  }`
+
+```bash
+> A=1; echo $A; { A=2 }; echo $A
+1
+2
+> A=1; echo $A; (A=2); echo $A
+1
+1
+```
+
+在使用`{  }`时,`{  }`与命令之间必须使用一个`空格`
+
+***
+`$( )`命令替换
+
+`$( )` 与 \`\` (反引号) 都是用来做命令替换
+
+***
+`${ }` 变量替换,各种字符串功能
+
+`${ }` 用来作变量替换,把括号里的变量代入值.
+
+***
+`$(( ))`整数运算
+
+在 bash 中,`$(( ))` 的整数运算符号大致有这些:
+
++ `+ - * /` :分别为 "加,减,乘,除".
++ `%` :余数运算
++ `& | ^ !`:分别为 "`AND`,`OR`,`XOR`,`NOT`" 运算.
+
+### &&运算符
+
+`&&` 运算符:
+***
+格式
+`command1  && command2`
+
+`&&`左边的命令(命令`1`)返回真(即返回`0`,成功被执行)后,`&&`右边的命令(命令`2`)才能够被执行；
+换句话说,`如果这个命令执行成功`&&`那么执行这个命令`.
+
+语法格式如下:
+
+```bash
+command1 && command2 && command3 ...
+```
+
+命令之间使用 `&&` 连接,实现逻辑与的功能.
+只有在 `&&` 左边的命令返回真(命令返回值 `$? == 0`),`&&` 右边的命令才会被执行.
+只要有一个命令返回假(命令返回值 $? == 1),后面的命令就不会被执行.
+
+示例1中,`cp`命令首先从`root`的家目录复制文件文件`anaconda-ks.cfg`到 `/data`目录下；
+执行成功后,使用 `rm` 命令删除源文件；如果删除成功则输出提示信息"`SUCCESS`".
+
+`cp anaconda-ks.cfg /data/ && rm -f anaconda-ks.cfg && echo "SUCCESS"`
+
+### || 运算符
+
+格式
+
+```bash
+command1 || command2
+```
+
+`||`则与`&&`相反.如果`||`左边的命令(command1)未执行成功,那么就执行`||`右边的命令(command2)；
+或者换句话说,`如果这个命令执行失败了`||`那么就执行这个命令.
+
+命令之间使用 `||` 连接,实现逻辑或的功能.
+
+只有在 `||` 左边的命令返回`假`(命令返回值 `$? == 1`),`||` 右边的命令才会被执行.
+这和 `c` 语言中的逻辑或语法功能相同,即实现短路逻辑或操作.
+
+只要有一个命令返回真(命令返回值 `$? == 0`),后面的命令就不会被执行.
+
+如果 dir目录不存在,将输出提示信息 fail .
+
+```bash
+ls dir &>/dev/null || echo "fail"
+```
+
+如果 dir 目录存在,将输出 success 提示信息；否则输出 fail 提示信息.
+
+```bash
+ls dir &>/dev/null && echo "fail" || echo "fail"
+```
+
+***
+`&>` 的意思是重定向标准输出和错误到 同一个地方,如
+
+```bash
+[me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt
+```
+
+利用`/dev/null`处理不需要的输出,这个文件是系统设备,叫做位存储桶,它可以 接受输入,并且对输入不做任何处理.
+
+***
+下面是一个shell脚本中常用的`||`组合示例
+
+```bash
+echo $BASH | grep -q 'bash' || { exec bash "$0" "$@" || exit 1; }
+```
+
+系统调用`exec`是以新的进程去代替原来的进程,但进程的`PID`保持不变.
+
+因此,可以这样认为,`exec`系统调用并没有创建新的进程,只是替换了原来进程上下文的内容.
+原进程的代码段,数据段,堆栈段被新的进程所代替.
+
+### () 运算符
+
+如果希望把几个命令合在一起执行, `shell` 提供了两种方法.既可以在当前shell也可以在子shell中执行一组命令.
+
+格式:
+
+```bash
+(command1;command2;command3....)        多个命令之间用`;`分隔
+```
+
+一条命令需要独占一个物理行,如果需要将多条命令放在同一行,命令之间使用命令分隔符`(;)`分隔.
+执行的效果等同于多个独立的命令单独执行的效果.`()` 表示在子shell 中将多个命令作为一个整体执行.
+需要注意的是,使用 `()` 括起来的命令执行后,不会切换当前的工作目录.
+
+命令组合常和命令执行控制结合起来使用.比如如果目录`dir`不存在,则执行命令组合.
+
+```bash
+ls dir &>/dev/null || (cd /home/; ls -lh; echo "success")
+ls dir &>/dev/null || { cd /home/; ls -lh; echo "success" }
+```
+
+### {} 运算符
+
+如果使用`{}`来代替`()`,那么相应的命令将在当前shell中作为一个整体被执行,
+
+它的一般形式为:
+
+```bash
+{空格command1;command2;command3…空格}
+```
+
+注意:在使用`{}`时,`{}`与命令之间必须使用一个`空格`
+
+使用`{}`则在子`shell`中执行了打印操作
+
+```bash
+A=1; echo $A; { A=2 }; echo $A
+A=1; echo $A; (A=2); echo $A
+```
+
+另外,`{}`可以用来做花括号展开,开头称为报头,结尾称为附言,中间包含由逗号分开的字符串列表或整数列表,不能包含空白.
+还可以使用范围.可以嵌套
+
+```bash
+echo Front-{A,B,C}-Back
+echo Number_{1..5}
+echo {Z..A}
+echo aa{A{1,2},B{3,4}}bb
+```
+
+### $(( )) 与 $( ) ${ }
+
+***
+`$( )` 与 `backtick`
+
+在 bash shell 中,`$( )` 与 \`\` (反引号) 都是用来做命令替换用(`command substitution`)的.
+
+用 `$( )` 的理由:
+
+1. \`\` 很容易与`' '` ( 单引号)搞混乱,尤其对初学者来说.
+2. 在多层次的复合替换中,\`\` 须要额外的跳脱( \` )处理,而 `$( )` 则比较直观.
+
+`$( )` 的不足:
+
+1. \`\` 基本上可用在全部的 `unix shell` 中使用,若写成 `shell script` ,其移植性比较高.
+而 `$( )` 并不见的每一种 `shell` 都能使用,我只能跟你说,若你用 bash2 的话,肯定没问题…   ^_^
+
+***
+`${ }` 用来作变量替换,把括号里的变量代入值.
+
+以上的理解在于, 你一定要分清楚 `unset` 与 `null` 及 `non-null` 这三种赋值状态.
+一般而言, `:` 与 `null` 有关, 若不带 `:` 的话, null 不受影响, 若带 `:` 则连 null 也受影响.
+
+还有哦,`${#var}` 可计算出变量值的长度:
+`${#file}` 可得到 `27` ,因为 `/dir1/dir2/dir3/my.file.txt` 刚好是 `27` 个字节…
+
+***
+接下来,再为大家介稍一下 `bash` 的组数(`array`)处理方法.
+
+一般而言,`A="a b c def"` 这样的变量只是将 `$A` 替换为一个单一的字符串,
+但是改为 `A=(a b c def) `,则是将 `$A` 定义为组数…
+
+bash 的组数替换方法可参考如下方法:
+
++ `${A[@]}` 或 `${A[*]}` 可得到 `a b c def` (全部组数)
++ `${A[0]}` 可得到 `a` (第一个组数),${A[1]} 则为第二个组数…
++ `${#A[@]}` 或 `${#A[*]}` 可得到 `4` (全部组数数量)
++ `${#A[0]}` 可得到 `1` (即第一个组数(`a`)的长度),`${#A[3]}` 可得到 `3` (第四个组数(def)的长度)
++ `A[3]=xyz` 则是将第四个组数重新定义为 `xyz` …
+
+### (())算术比较
+
+好了,最后为大家介绍 `$(( ))` 的用途吧:它是用来作整数运算的.
+在 bash 中,`$(( ))` 的整数运算符号大致有这些:
+括号`(())`和`==`等操作符周围都不需要空格,但是为了统一,也可以加上
+
++ `+ - * /` :分别为 "加,减,乘,除".
++ `%` :余数运算
++ `& | ^ !`:分别为 "`AND`,`OR`,`XOR`,`NOT`" 运算.
+
+`XOR` `exclusive OR`:一样为`0`,不一样为`1`,相当于不考虑进位的加法.
+
+按位操作运算符
+
++ `<<`: 左移
++ `>>`: 右移
++ `&`: 按位与
++ `|`: 按位或
++ `~`: 按位非
++ `^`: 按位异或
+
+例:
+
+```bash
+$ a=5; b=7; c=2
+$ echo $(( a+b*c ))
+19
+$ echo $(( (a+b)/c ))
+6
+$ echo $(( (a*b)%c))
+1
+```
+
+在 `$(( ))` 中的变量名称,可于其前面加 `$` 符号来替换,也可以不用,如:`$(( $a + $b * $c))` 也可得到 `19` 的结果
+此外,`$(( ))` 还可作不同进位(如二进制,八进位,十六进制)作运算,只是,输出结果皆为十进制:
+
+```bash
+echo $((16#2a)) 结果为 42 (16进位转十进制)
+```
+
+以一个实用的例子来看看吧:
+
+假如当前的   `umask` 是 `022` ,那么新建文件的权限即为:
+
+```bash
+$ umask 022
+$ echo "obase=8;$(( 8#666 & (8#777 ^ 8#$(umask)) ))" | bc
+644
+```
+
+事实上,单纯用 `(( ))` 也可重定义变量值,或作 `testing`:
+
++ `a=5; ((a++))` 可将 `$a` 重定义为 `6`
++ `a=5; ((a–))` 则为 `a=4`
++ `a=5; b=7; ((a < b))` 会得到   `0` (`true`) 的返回值.
+
+常见的用于 `(( ))` 的测试符号有如下这些:
+
++ `<`:小于
++ `>`:大于
++ `<=`:小于或等于
++ `>=`:大于或等于
++ `==`:等于
++ `!=`:不等于
+
+### []文件系统属性测试
+
+Shell 里面的中括号(包括单中括号与双中括号)可用于一些条件的测试:
+
++ 算术比较, 比如一个变量是否为`0`, `[ $var -eq 0 ]`.
++ 文件属性测试,比如一个文件是否存在,`[ -e $var ]`, 是否是目录,`[ -d $var ]`.
++ 字符串比较, 比如两个字符串是否相同, `[[ $var1 = $var2 ]]`.
+
+`[]` 常常可以使用 `test` 命令来代替,后面有介绍.
+
+***
+对变量或值进行算术条件判断:
+
++ `[ $var -eq 0 ]`  # 当 `$var` 等于 `0` 时,返回真
++ `[ $var -ne 0 ]`  # 当 `$var` 不等于 `0` 时,返回真
+
+需要注意的是 `[` 与 `]` 与操作数之间一定要有一个空格,否则会报错.比如下面这样就会报错:
+
+`[$var -eq 0 ]`  或 `[ $var -ne 0]`
+
+其他比较操作符:
+
++ `-gt` 大于
++ `-lt` 小于
++ `-ge` 大于或等于
++ `-le` 小于或等于
+
+可以通过 `-a` (and) 或 `-o` (or) 结合多个条件进行测试:
+
+`[ $var1 -ne 0 -a $var2 -gt 2 ]`  # 使用逻辑与 `-a`
+`[ $var1 -ne 0 -o $var2 -gt 2 ]`  # 使用逻辑或 `-o`
+
+***
+使用不同的条件标志测试不同的文件系统属性.
+
++ `[ -f $file_var ]` 变量 `$file_var` 是一个正常的文件路径或文件名 (`file`),则返回真
++ `[ -x $var ]` 变量 `$var` 包含的文件可执行 (`execute`),则返回真
++ `[ -d $var ]` 变量 `$var` 包含的文件是目录 (`directory`),则返回真
++ `[ -e $var ]` 变量 `$var` 包含的文件存在 (`exist`),则返回真
++ `[ -c $var ]` 变量 `$var` 包含的文件是一个字符设备文件的路径 (`character`),则返回真
++ `[ -b $var ]` 变量 `$var` 包含的文件是一个块设备文件的路径 (`block`),则返回真
++ `[ -w $var ]` 变量 `$var` 包含的文件可写(`write`),则返回真
++ `[ -r $var ]` 变量 `$var` 包含的文件可读 (`read`),则返回真
++ `[ -L $var ]` 变量 `$var` 包含是一个符号链接 (`link`),则返回真
+
+Shell 还提供了与`-a` 、或`-o`、非`!`三个逻辑操作符用于将测试条件连接起来，其优先级为： `!` 最高， `-a` 次之， `-o` 最低
+
+例如
+`-e filename` 如果 `filename` 存在,则为真
+
+如果存在某文件,则删除
+
+```bash
+if [ -f trials ]; then rm ${result_path}trials; fi
+```
+
+如果没有文件夹,则创建
+
+```bash
+if [ ! -d $result_name ];then
+      mkdir -p $result_name
+fi
+```
+
+用双引号把变量包起来, 例如：
+
+```bash
+abc="hello xx"
+if test "hello" != "$abc"; then
+    echo "Your word is not 'hello'."
+fi
+```
+
+变量 `abc` 的值为 "hello xx"，在字符串中间有个空格。如果不用引号保护起来，Bash 进行命令解释的时候，上面的 `test` 命令变成：
+
+```bash
+test "hello" != hello xx
+```
+
+这不是一个合法的 `test` 命令，所以脚本执行时就会报错.
+其实不光是空格，包含在 `$IFS `中的其它字符，还有变量为空时，都会造成语法错误。
+所以使用双引号包裹变量是一种保护机制，可以提高脚本的健壮性。
+
+[Shell 中的中括号用法总结][]
+[linux shell 中判断文件,目录是否存在][]
+
+[Shell 中的中括号用法总结]: https://www.runoob.com/w3cnote/shell-summary-brackets.html
+
+[linux shell 中判断文件,目录是否存在]: https://blog.csdn.net/yifeng4321/article/details/70232436
+
+### [[ ]]字符串比较
+
+在进行字符串比较时,最好使用双中括号 `[[ ]]`. 因为单中括号可能会导致一些错误,因此最好避开它们.
+
+检查两个字符串是否相同:
+
+```bash
+[[ $str1 == $str2 ]]
+```
+
+当 `str1` 等于 `str2` 时,返回真.也就是说, `str1` 和 `str2` 包含的文本是一样的.
+其中的双等于号也可以写成单等于号,也就是说,上面的字符串比较等效于 `[[ $str1 = $str2 ]]`.
+注意 `=` 前后有一个`空格`,如果忘记加空格, 就变成了赋值语句,而非比较关系了.
+字符串比较,`[[`,`]]`,`==`周围必须都有空格,中括号比较时,变量必须写成如`$a`的形式.
+
+字符串的其他比较情况:
+
++ `[[ $str1 != $str2 ]]`   如果 `str1` 与 `str2` 不相同,则返回真
++ `[[ -z $str1 ]]`   如果 `str1` 是`null`字符串,则返回真
++ `[[ -n $str1 ]]`   如果 `str1` 是非`null`字符串,则返回真
+
+使用逻辑运算符 `&&` 和 `||` 可以轻松地将多个条件组合起来, 比如:
+
+```bash
+str1="Not empty"
+str2=""
+if [[ -n $str1 ]] && [[ -z $str2 ]];
+then
+  echo str1 is nonempty and str2 is empty string.
+fi
+```
+
+`test` 命令也可以从来执行条件检测,用 `test` 可以避免使用过多的括号,`[]` 中的测试条件同样可以通过 `test` 来完成.
+
+```bash
+if [ $var -eq 0 ]; then echo "True"; fi
+```
+
+等价于:
+
+```bash
+if test $var -eq 0; then echo "True"; fi
+```
+
+## 字符串和数字
+
+commandline chapter 35
+
+在这一章中,我们将查看几个用来操作字符串和数字的 shell 功能.
+shell 提供了各种执行字符串操作的参数展开功能.
+除了算术展开(在第七章中接触过),还有一个常见的命令行程序叫做 `bc`,能执行更高级别的数学运算.
+
+### 字符串总结
+
+parameter 前面可能出现的保留字,`!`, `#`
+parameter 后面可能接的保留字,`:` `#` `%` `/`
+
++ 返回变量名的参数展开
++ `${!prefix*}` :这种展开会返回以 `prefix` 开头的已有变量名
++ `${#parameter}` :展开成由 parameter 所包含的字符串的长度.
++ 空变量的展开
++ `${parameter:-word}` :若 parameter 没有设置(例如,不存在)或者为空,展开结果是 word 的值
++ `${parameter:=word}` :若 parameter 没有设置或为空,展开结果是 word 的值.另外,word 的值会赋值给 parameter.
++ `${parameter:?word}`:若 parameter 没有设置或为空,这种展开导致脚本带有错误退出,并且 word 的内容会发送到标准错误.
++ `${parameter:+word}`:若 parameter 为空,结果为空.若 parameter 不为空, word 的值; parameter 的值不改变.
++ 字符串展开
++ `${parameter:offset}` :从 `parameter` 所包含的字符串中提取一部分字符,到结尾
++ `${parameter:offset:length}` :从 `parameter` 所包含的字符串中提取一部分字符,`length`制定长度
++ 字符串修剪
++ `${parameter#pattern}` :从 `paramter` 所包含的字符串中清除开头的`pattern`
++ `${parameter##pattern}` :## 模式清除最长的匹配结果.
++ `${parameter%pattern}` :清除 `parameter` 末尾所包含的`pattern`
++ `${parameter%%pattern}` :%% 模式清除最长的匹配结果.
++ 字符串查找和替换操作 `parameter`必须是一个变量 `pattern` 和 `string` 可以不加引号
++ `${parameter/pattern/string}` :如果找到了匹配通配符 pattern 的文本, 则用 `string` 的内容替换它.
++ `${parameter//pattern/string}` : `//` 形式下,所有的匹配项都会被替换掉
++ `${parameter/#pattern/string}` :` /# `要求匹配项出现在字符串的开头,
++ `${parameter/%pattern/string}` :`/%` 要求匹配项出现在字符串的末尾
+
+### 参数展开
+
+尽管参数展开在第七章中出现过,但我们并没有详尽地介绍它,因为大多数的参数展开会用在脚本中,而不是命
+令行中. 我们已经使用了一些形式的参数展开;例如,shell 变量.shell 提供了更多方式.
+
+### 基本参数展开
+
+最简单的参数展开形式反映在平常使用的变量上.
+
+在这个例子中,我们试图创建一个文件名,通过把字符串 ``_file`` 附加到变量 `a` 的值的后面.
+
+```bash
+[me@linuxbox ~]$ a="foo"
+[me@linuxbox ~]$ echo "$a_file"
+```
+
+如果我们执行这个序列,没有任何输出结果,因为 `shell` 会试着展开一个称为 `a_file` 的变量,而不是 `a`.通过添加花括号可以解决这个问题:
+
+```bash
+[me@linuxbox ~]$ echo "${a}_file"
+foo_file
+```
+
+我们已经知道通过把数字包裹在花括号中,可以访问大于`9`的位置参数.例如,访问第十一个位置参数,我们可以这样做: `${11}`
+
+### 管理空变量的展开
+
+`null`
+`undefined`
+`defined`
+
+几种用来处理不存在和空变量的参数展开形式.
+这些展开形式对于解决丢失的位置参数和给参数指定默认值的情况很方便.
+
+```bash
+${parameter:-word}
+```
+
+若 parameter 没有设置(例如,不存在)或者为空,展开结果是 `word` 的值.
+若 parameter 不为空,则展开结果是 parameter 的值.
+
+```bash
+foo=
+echo ${foo:-"substitute value if unset"}
+echo $foo
+foo=bar
+echo ${foo:-"substitute value if unset"}
+echo $foo
+```
+
+```bash
+${parameter:=word}
+```
+
+若 parameter 没有设置或为空,展开结果是 word 的值.另外,word 的值会赋值给 parameter.
+若parameter 不为空,展开结果是 parameter 的值.
+
+```bash
+foo=
+echo ${foo:="default value if unset"}
+unset
+echo $foo
+unset
+foo=bar
+echo ${foo:="default value if unset"}
+echo $foo
+```
+
+注意: 位置参数或其它的特殊参数不能以这种方式赋值.
+
+```bash
+${parameter:?word}
+```
+
+若 parameter 没有设置或为空,这种展开导致脚本带有错误退出,并且 word 的内容会发送到标准错误.
+若parameter 不为空, 展开结果是 parameter 的值.
+
+```bash
+foo=
+echo ${foo:?"parameter is empty"
+echo $?
+foo=bar
+echo ${foo:?"parameter is empty"}
+echo $?
+```
+
+```bash
+${parameter:+word}
+```
+
+若 parameter 没有设置或为空,展开结果为空.
+若 parameter 不为空, 展开结果是 word 的值会替换掉parameter 的值;然而,parameter 的值不会改变.
+
+```bash
+foo=
+echo ${foo:+"substitute value if set"}
+foo=bar
+echo ${foo:+"substitute value if set"}
+```
+
+### 返回变量名的参数展开
+
+`shell` 具有返回变量名的能力.这会用在一些相当独特的情况下.
+
+```bash
+${!prefix*}
+${!prefix@}
+```
+
+这种展开会返回以 `prefix` 开头的已有变量名.根据 bash 文档,这两种展开形式的执行结果相同.
+这里,我们列出了所有以 `BASH` 开头的环境变量名:
+
+```bash
+[me@linuxbox ~]$ echo ${!BASH*}
+BASH BASH_ARGC BASH_ARGV BASH_COMMAND BASH_COMPLETION
+...
+```
+
+### 字符串展开
+
+有大量的展开形式可用于操作字符串.其中许多展开形式尤其适用于路径名的展开.
+
+```bash
+${#parameter}
+```
+
+展开成由 `parameter` 所包含的字符串的长度.
+
+通常,`parameter` 是一个字符串;然而,如果 `parameter` 是 `@`或者是 `*` 的话, 则展开结果是位置参数的个数.
+
+```bash
+[me@linuxbox ~]$ foo="This string is long."
+[me@linuxbox ~]$ echo "'$foo' is ${#foo} characters long."
+'This string is long.' is 20 characters long.
+```
+
+***
+
+```bash
+${parameter:offset}
+${parameter:offset:length}
+```
+
+这些展开用来从 `parameter` 所包含的字符串中提取一部分字符.
+提取的字符始于第 `offset` 个字符(从字符串开头算起)直到字符串的末尾,除非指定提取的长度.
+
+```bash
+[me@linuxbox ~]$ foo="This string is long."
+[me@linuxbox ~]$ echo ${foo:5}
+string is long.
+[me@linuxbox ~]$ echo ${foo:5:6}
+string
+```
+
+若 `offset` 的值为负数,则认为 `offset` 值是从字符串的末尾开始算起,而不是从开头.
+注意负数前面必须有一个空格, 为防止与 `${parameter:-word}` 展开形式混淆.`length`,若出现,则必须不能小于零.
+如果 `parameter` 是 `@`,展开结果是 `length` 个位置参数,从第 offset 个位置参数开始.
+
+```bash
+[me@linuxbox ~]$ foo="This string is long."
+[me@linuxbox ~]$ echo ${foo: -5}
+long.
+[me@linuxbox ~]$ echo ${foo: -5:2}
+lo
+```
+
+***
+
+```bash
+${parameter#pattern}
+${parameter##pattern}
+```
+
+这些展开会从 `paramter` 所包含的字符串中清除开头一部分文本,这些字符要匹配定义的 `patten` .
+pattern 是通配符模式,就如那些用在路径名展开中的模式.
+这两种形式的差异之处是该 `#` 形式清除最短的匹配结果, 而该`##` 模式清除最长的匹配结果.
+
+```bash
+[me@linuxbox ~]$ foo=file.txt.zip
+[me@linuxbox ~]$ echo ${foo#*.}
+txt.zip
+[me@linuxbox ~]$ echo ${foo##*.}
+zip
+```
+
+***
+
+```bash
+${parameter%pattern}
+${parameter%%pattern}
+```
+
+这些展开和上面的 `#` 和 `##` 展开一样,除了它们清除的文本从 `parameter` 所包含字符串的末尾开始,而不是开头.
+
+```bash
+[me@linuxbox ~]$ foo=file.txt.zip
+[me@linuxbox ~]$ echo ${foo%.*}
+file.txt
+[me@linuxbox ~]$ echo ${foo%%.*}
+file
+```
+
+***
+
+```bash
+${parameter/pattern/string}
+${parameter//pattern/string}
+${parameter/#pattern/string}
+${parameter/%pattern/string}
+```
+
+这种形式的展开对 `parameter` 的内容执行查找和替换操作.
+
+如果找到了匹配通配符 `pattern` 的文本, 则用 `string` 的内容替换它.
+在正常形式下,只有第一个匹配项会被替换掉.在 `//` 形式下,所有的匹配项都会被替换掉.
+` /# `要求匹配项出现在字符串的开头,而 `/%` 要求匹配项出现在字符串的末尾.
+`/string` 可能会省略掉,这样会导致删除匹配的文本.
+
+```bash
+[me@linuxbox~]$ foo=JPG.JPG
+[me@linuxbox ~]$ echo ${foo/JPG/jpg}
+jpg.JPG
+[me@linuxbox~]$ echo ${foo//JPG/jpg}
+jpg.jpg
+[me@linuxbox~]$ echo ${foo/#JPG/jpg}
+jpg.JPG
+[me@linuxbox~]$ echo ${foo/%JPG/jpg}
+JPG.jpg
+```
+
+知道参数展开是件很好的事情.
+
+字符串操作展开可以用来替换其它常见命令比方说 `sed` 和 `cut`.通过减少使用外部程序,展开提高了脚本的效率.
+
+举例说明,我们将修改在之前章节中讨论的 `longest-word` 程序,
+用参数展开`${#j}` 取代命令 `$(echo $j | wc -c)` 及其`subshell` ,像这样:
+
+`wc`- print newline, word, and byte counts for each file
+
+```bash
+#!/bin/bash
+# longest-word3 : find longest string in a file
+for i; do
+   if [[ -r $i ]]; then
+      max_word=
+      max_len=
+      for j in $(strings $i); do
+  len=${#j}
+  if (( len > max_len )); then
+     max_len=$len
+     max_word=$j
+  fi
+      done
+      echo "$i: '$max_word' ($max_len characters)"
+   fi
+   shift
+done
+```
+
+下一步,我们将使用 `time` 命令来比较这两个脚本版本的效率:
+
+```bash
+[me@linuxbox ~]$ time longest-word2 dirlist-usr-bin.txt
+dirlist-usr-bin.txt: 'scrollkeeper-get-extended-content-list' (38 characters)
+real 0m3.618s
+user 0m1.544s
+sys 0m1.768s
+[me@linuxbox ~]$ time longest-word3 dirlist-usr-bin.txt
+dirlist-usr-bin.txt: 'scrollkeeper-get-extended-content-list' (38 characters)
+real 0m0.060s
+user 0m0.056s
+sys 0m0.008s
+```
+
+原来的脚本扫描整个文本文件需耗时`3.168`秒,而该新版本,使用参数展开,仅仅花费了`0.06`秒 —— 一个非常巨
+大的提高.
+
+### formfactor bash 脚本
+
+```bash
+curveopacity=1
+markers="Bands"
+markopacity=0.1
+expr_marker=3
+expr_opacity=1
+
+wolframscript -print "all" -file ./f.figure.series-full.rencon3.strange.baryons-all.band.wl "full" 0.90 1.50 $curveopacity $markers $markopacity $expr_marker $expr_opacity
+```
+
+### 通配符/Wildcard/glob
+
+[Shell中的通配符][]
+
+[Shell中的通配符]: https://www.jianshu.com/p/25f3d0cd5fdc
+
+`glob()`, glob: 一滴 一团
+
+`glob()`函数根据`shell`使用的规则搜索所有与模式匹配的路径名 (请参阅`glob(7)`)
+没有`tilde expansion`或`parameter substitution`； 如果需要这些,请使用`wordexp(3)`.
+
+`globfree()`函数释放先前调用`glob()`时,动态分配的存储空间 .
+`man 7 glob()` see glob(7)
+
+在 `Shell` 中命令中,通常会使用通配符表达式来匹配一些文件,如以下命令可以查找当前目录下所有后缀为 `.xml` 的文件
+`find . -name "*.xml" `
+
+Shell 中可以使用的通配符如下:
+
+| 通配符| 含义| 实例|
+|--|--|--|
+|`*`|  匹配 `0` 或多个字符   | `a*b`,`a`与`b`之间可以有任意长度的任意字符, 也可以一个也没有, 如 `aabcb`, `axyzb`, `a012b`, `ab`|
+| `?`| 匹配任意单个字符   |`a?b`,`a`与`b`之间有且只有一个字符, 可以是任意字符,如 `aab`, `abb`, `acb`, `a0b`|
+| `[list]`|  匹配 `list` 中的任意单个字符 | `a[xyz]b`,`a`与`b`之间必须也只能有一个字符, 但只能是 `x` 或 `y` 或 `z`, 如 `axb`, `ayb`, `azb`.|
+|`[!list]`|  匹配除 `list` 中的任意单一字符 |  `a[!0-9]b`,`a`与`b`之间必须也只能有一个字符, 但不能是阿拉伯数字, 如 `axb,` `aab`, `a-b`.|
+|`[c1-c2]`| 匹配 `c1-c2` 中的任意单一字符 | `a[0-9]b`,匹配`0`与`9`之间其中一个字符,如 `a0b`, `a1b`... `a9b`|
+| `{s1,s2,...}` | 匹配 `s1` 或 `s2` (或更多)中的一个字符串 |`a{abc,xyz,123}b`,`a`与`b`之间只能是`abc`或`xyz`或`123`这三个字符串之一|
+| `[[:class:]]`| 匹配任意一个属于指定字符类中的字符 | `*[[:lower:]123]`,以小写字母开头,或者以`1`,`2`,`3`结尾的文件 |
+
+常用字符类
+
++ `[:alnum:]` : 匹配任意一个字母或数字
++ `[:alpha:]` :  匹配任意一个字母
++ `[:digit:]` : 匹配任意一个数字
++ `[:lower:]` : 匹配任意一个小写字母
++ `[:upper:]` : 匹配任意一个大写字母
+
+### 转义字符
+
+有的时候,我们匹配的内容里面会存在 `*`,`?`,`[`等通配符中的符号.
+为了表示他们原来的意思,我们需要使用转义字符 `\`,如 `a\[ac\]c` 表示匹配 `a[a]c` 或 `a[c]c`.
+
+`\ `本身用` \\` 表示.
+
+### 字符切割
+
+分字 word splitting
+
+[Shell_Linux Shell 中实现字符串切割的几种方法][]
+[refs1][]
+[refs2][]
+
+[Shell_Linux Shell 中实现字符串切割的几种方法]: https://blog.csdn.net/u010003835/article/details/80750003
+[refs1]: https://blog.csdn.net/u010003835/article/details/80749220
+[refs2]: https://blog.csdn.net/whuslei/article/details/7187639
+
+***
+shell 的 `for` 参数可以是一个连续的字符串,用`IFS`分割
+
+```bash
+#!/bin/bash
+string="hello shell split test"  ; for var in ${string[@]}; do    echo -e "$var EOF" ;done
+####
+echo test2
+string="hello shell split test"
+for var in ${string}
+do
+   echo -e "$var EOF"
+done
+```
+
+***
+我们在shell 脚本编程中,经常需要用到字符串切割,即将字符串切割为一个数组,
+类似 `java` 中的`split`函数,下面对几种常见的方式做一个总结.
+
++ 利用shell 中 变量 的字符串替换
++ 设置分隔符,通过 `IFS` 变量
++ 利用`tr` 指令实现字符替换  (！只能针对单个分隔符)
+
+***
+方法一:利用shell 中 变量的字符串替换
+
+示例:
+
+```bash
+#!/bin/bash
+string="hello,shell,split,test"
+array=(${string//,/ })
+
+for var in ${array[@]}
+do
+   echo -e "$var \n"
+done
+```
+
+***
+方法二: 设置分隔符,通过 `IFS `变量
+
+原理:自定义IFS变量, 改变分隔符, 对字符串进行切分
+
+IFS 介绍
+
+`Shell` 脚本中有个变量叫 `IFS`(Internal Field Seprator) ,**内部域分隔符**.
+
+`Shell` 的环境变量分为 `set`, `env` 两种,其中 `set` 变量可以通过 `export` 工具导入到 `env` 变量中.
+其中,`set` 是显示设置 `shell` 变量,仅在本 `shell` 中有效；`env` 是显示设置用户环境变量 ,仅在当前会话中有效.
+换句话说,`set` 变量里包含了 `env` 变量,但 `set` 变量不一定都是 `env` 变量.
+这两种变量不同之处在于变量的作用域不同.显然,`env` 变量的作用域要大些,它可以在 `subshell` 中使用.
+
+而 `IFS` 是一种 `set` 变量,当 `shell` 处理"命令替换"和"参数替换"时, `shell` 根据 `IFS` 的值,默认是 `space`, `tab`, `newline` 来拆解读入的变量,然后对特殊字符进行处理,最后重新组合赋值给该变量.
+
+***
+`IFS` 简单实例
+
+查看变量 `IFS` 的值.
+
+```bash
+$ echo $IFS
+
+$ echo "$IFS" | od -b
+0000000 040 011 012 012
+0000004
+```
+
+直接输出IFS是看不到的,把它转化为二进制就可以看到了,
+`040`是空格,`011`是Tab,`012`是换行符`\n` .
+最后一个 `012` 是 `echo`输出的(`echo` 默认会换行的).
+
+示例
+
+```bash
+#!/bin/bash
+
+string="hello,shell,split,test"
+
+#对IFS变量 进行替换处理
+OLD_IFS="$IFS"
+IFS=","
+array=($string)
+IFS="$OLD_IFS"
+
+for var in ${array[@]}
+do
+   echo -e $var\n
+done
+```
+
+***
+方法三: 利用`tr`指令实现字符替换
+
+原理: 由于只是对单个字符进行的替换,则可以用  `echo args |   tr "oldSpilt" "newSpilt"`  的方式实现.
+
+`tr` 指令讲解: `tr`命令可以对来自标准输入的字符进行替换,压缩和删除.
+
+语法:`tr(选项)(参数)`
+
+选项
+
++ `-c`或`--complerment`:取代所有不属于第一字符集的字符；
++ `-d`或`--delete`:删除所有属于第一字符集的字符；
++ `-s`或`--squeeze-repeats`:把连续重复的字符以单独一个字符表示；
++ `-t`或`--truncate-set1`:先删除第一字符集较第二字符集多出的字符.
+
+参数
+
++ `字符集1`:指定要转换或删除的原字符集.当执行转换操作时,必须使用参数`字符集2`指定转换的目标字符集.
+但执行删除操作时,不需要参数`字符集2`；
++ `字符集2`:指定要转换成的目标字符集.
+
+示例:
+
+```bash
+#!/bin/bash
+
+string="hello,shell,split,test"
+array=(`echo $string | tr ',' ' '` )
+
+for var in ${array[@]}
+do
+   echo -e $var
+done
+```
 
 cmdline 第七章 重定向
 
@@ -640,1038 +2074,3 @@ history | grep /usr/bin
 ```
 
 可以通过类似`!88`的形式，引用历史命令。
-
-## 权限
-
-Unix 传统中的操作系统不同于那些 MS-DOS 传统中的系统,区别在于它们不仅是多任务系统,而且也是多用户系统。
-这到底意味着什么?它意味着多个用户可以在同一时间使用同一台计算机。
-
-例如,如果一台 计算机连接到一个网络或者因特网,那么远程用户通过`ssh`(安全 shell)可以登录并操纵这台电脑。
-事实上,远程用户也能运行图形界面应用程序,并且图形化的输出结果会出现在远端的显示器上。 
-`X`窗口系统把这个作为基本设计理念的一部分,并支持这种功能。
-
-在这一章中,我们将看看这一系统安全的本质部分,会介绍以下命令:
-
-+ `id` – 显示用户身份号
-+ `chmod` – 更改文件模式
-+ `umask` – 设置默认的文件权限
-+ `su` – 以另一个用户的身份来运行 shell
-+ `sudo` – 以另一个用户的身份来执行命令
-+ `chown` – 更改文件所有者
-+ `chgrp` – 更改文件组所有权
-+ `passwd` – 更改用户密码
-
-### 拥有者,组成员,和其他人
-
-在第四章探究文件系统时,当我们试图查看一个像`/etc/shadow`那样的文件的时候,我们会遇到一个问题。
-
-```bash
-file /etc/shadow
-/etc/shadow: regular file, no read permission
-less /etc/shadow
-/etc/shadow: Permission denied
-```
-
-产生这种错误信息的原因是,作为一个普通用户,我们没有权限来读取这个文件。
-
-在 Unix 安全模型中,一个用户可能拥有文件和目录。
-当一个用户拥有一个文件或目录时, 用户可以设置这个文件或目录的访问权限。
-用户,反过来又属于用户组（由一个或多个用户组成），文件和目录的owner 可以对用户组成员授予对这些文件和目录的访问权限。
-除了对一个用户组授予权限之外,owner 还能给其他人授予一些权限。在 Unix 术语中,每个人 是指整个世界。
-
-可以用 `id` 命令,来找到关于你自己身份的信息:
-
-```bash
-id
-uid=500(me) gid=500(me) groups=500(me)
-```
-
-让我们看一下输出结果。
-当用户创建帐户之后,系统会给用户分配一个号码,叫做用户 `ID` 或者 `uid`,然后,为了符合人类的习惯,这个 `ID` 映射到一个用户名。
-
-系统又会给这个用户分配一个原始的组 `ID` 或者是 `gid`,这个 `gid` 可能属于另外的组。
-
-上面的例子来自于 `Fedora` 系统, 比方说 `Ubuntu` 的输出结果可能看起来有点儿不同:
-
-```bash
-id
-uid=1000(me) gid=1000(me)
-groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(v
-ideo),46(plugdev),108(lpadmin),114(admin),1000(me)
-```
-
-正如我们能看到的,两个系统中用户的 `uid` 和 `gid` 号码是不同的。
-原因很简单,因为 `Fedora` 系统 从500开始进行普通用户帐户的编号,而 `Ubuntu` 从1000开始。
-我们也能看到 `Ubuntu` 的用户属于 更多的用户组。这和`Ubuntu` 管理系统设备和服务权限的方式有关系。
-
-那么这些信息来源于哪里呢?像 `Linux` 系统中的许多东西一样,来自一系列的文本文件。
-
-用户帐户定义在 `/etc/passwd` 文件里面,用户组定义在` /etc/group` 文件里面。
-
-当用户帐户和用户组创建以后, 这些文件随着文件 `/etc/shadow` 的变动而修改,文件 /`etc/shadow` 包含了关于用户密码的信息。 
-
-对于每个用户帐号,文件`/etc/passwd` 定义了用户(登录)名,`uid`,`gid`,帐号的真实姓名,家目录, 和登录 `shell`。如果你查看一下文件`/etc/passwd` 和文件`/etc/group` 的内容,你会注意到除了普通 用户帐号之外,还有超级用户(`uid 0`)帐
-号,和各种各样的系统用户。
-
-在下一章中,当我们讨论进程时,你会知道这些其他的`用户`是谁,实际上,他们相当忙碌。
-
-然而许多像 Unix 的系统会把普通用户分配到一个公共的用户组中,例如`users`,
-现在的 Linux 会创建一个独一无二的,只有一个成员的用户组,这个用户组与用户同名。
-这样使某种类型的 权限分配更容易些。
-
-### 读取,写入,和执行
-
-对于文件和目录的访问权力是根据读访问,写访问,和执行访问来定义的。
-如果我们看一下 `ls` 命令的输出结果,我们能得到一些线索,这是怎样实现的:
-
-```bash
-> foo.txt
-ls -l foo.txt
--rw-rw-r-- 1 me me 0 2008-03-06 14:52 foo.txt
-```
-
-列表的前十个字符是文件的属性。这十个字符的第一个字符表明文件类型。
-下表是你可能经常看到 的文件类型(还有其它的,不常见类型):
-
-***
-属性 文件类型
-
-+ `-` 一个普通文件
-+ `d` 一个目录
-+ `l` 一个符号链接。注意对于符号链接文件,剩余的文件属性总是`rwxrwxrwx`,而且都是 虚拟值。
-真正的文件属性是指符号链接所指向的文件的属性。
-+ `c` 一个字符设备文件。这种文件类型是指按照字节流,来处理数据的设备。 比如说终端机,或者调制解调器
-+ `b` 一个块设备文件。这种文件类型是指按照数据块,来处理数据的设备,例如一个硬盘,或者 CD-ROM 盘。
-  
-剩下的九个字符,叫做文件模式,代表着**文件所有者**,**文件组所有者**,和**其他人**的**读**,**写**,**执行**权限。
-
-### chmod - 更改文件模式
-
-更改文件或目录的模式(权限),可以利用 `chmod` 命令。
-注意只有文件的所有者或者超级用户才能更改文件或目录的模式。
-`chmod` 命令支持两种不同的方法来改变文件模式:八进制数字表示法,或 符号表示法。
-
-首先我们讨论一下八进制数字表示法。
-
-虽然我们能知道二进制的意义(因为计算机只有一个手指),但是八进制和十六进制对什么 好处呢? 
-答案是为了人类的便利。许多时候,在计算机中,一小部分数据以二进制的形式表示。 
-以 RGB 颜色为例来说明。大多数的计算机显示器,每个像素由三种颜色组成:`8`位红色,`8`位绿色, `8`位蓝色。
-这样,一种可爱的中蓝色就由24位数字来表示:`010000110110111111001101`
-
-我不认为你每天都喜欢读写这类数字。另一种数字系统对我们更有帮助。
-每个十六进制 数字代表四个二进制。在八进制中,每个数字代表三个二进制数字。
-那么代表中蓝色的`24`位 二进制能够压缩成`6`位十六进制数:`436FCD`
-
-因为十六进制中的两个数字对应二进制的`8`位数字,我们可以看到`43`代表红色,`6F`代表绿色,`CD`代表蓝色。
-
-现在,十六进制表示法(经常叫做`hex`)比八进制更普遍,但是我们很快会看到,
-用八进制 来表示`3`个二进制数非常有用处...
-
-通过八进制表示法,我们使用八进制数字来设置所期望的权限模式。
-因为每个八进制数字代表了`3`个二进制数字,这种对应关系,正好映射到用来存储文件模式所使用的方案上。
-下表展示了 我们所要表达的意思:
-
-Octal Binary File Mode
-
-+ `0` `000` `---`
-+ `1` `001` `--x`
-+ `2` `010` `-w-`
-+ `3` `011` `-wx`
-+ `4` `100` `r--`
-+ `5` `101` `r-x`
-+ `6` `110` `rw-`
-+ `7` `111` `rwx`
-
-+ `r`:`4`
-+ `w`:`2`
-+ `x`:`1`
-
-通过使用`3`个八进制数字,我们能够设置**文件所有者**,**文件的用户组**,和**其他人**的权限:
-
-```bash
-> foo.txt
-ls -l foo.txt
-chmod 600 foo.txt
-```
-
-通过传递参数 `600`,我们能够设置文件所有者的权限为读写权限,而删除**用户组**和**其他人**的所有权限。
-虽然八进制到二进制的映射看起来不方便,但通常只会用到一些常见的映射关系: 
-
-+ `7`: `rwx`
-+ `6` :`rw-`
-+ `5`: `r-x`
-+ `4`:`r--`
-+ `0`:`---`
-  
-`chmod` 命令支持一种符号表示法,来指定文件模式。
-
-符号表示法分为三部分:更改会影响谁, 要执行哪个操作,要设置哪种权限。
-通过字符 `u`,`g`,`o`,和 `a`的组合来指定 要影响的对象,如下所示:
-
-+ `u` `user`的简写,意思是文件或目录的所有者。
-+ `g` 用户组
-+ `o` `others`的简写,意思是其他所有的人
-+ `a` `all`的简写,是`u`, `g`和`o`三者的联合
-
-如果没有指定字符,则假定使用`all`。
-
-执行的操作可能是一个`+`字符,表示加上一个权限, 
-一个`-`,表示删掉一个权限,
-或者是一个`=`,表示只有指定的权限可用,其它所有的权限被删除。
-权限由 `r`,`w`,和 `x` 来指定。
-
-这里是一些符号表示法的实例:
-
-+ `u+x` 为文件所有者添加可执行权限。
-+ `u-x` 删除文件所有者的可执行权限。
-+ `+x` 为文件所有者,用户组,和其他所有人添加可执行权限。 等价于 `a+x`。
-+ `o-rw` 除了文件所有者和用户组,删除其他人的读权限和写权限。
-+ `go=rw` 给群组的主人和任意文件拥有者的人读写权限。如果群组的主人或全局之前已
-经有了执行的权限,他们将被移除。
-+ `u+x,go=rw` 给文件拥有者执行权限并给组和其他人读和执行的权限。多种设定可以用逗号分开。
-  
-一些人喜欢使用八进制表示法,而另些人真正地喜欢符号表示法。
-符号表示法的优点是, 允许你设置文件模式的单个组成部分的属性,而没有影响其他的部分。
-
-要注意`chmod`的`--recursive`选项: 它可以同时作用于文件和目录,所以它并不是如我们期望的那么有用处,
-因为我们很少希望文件和目录拥有同样的权限。
-
-### umask - 设置默认权限
-
-当创建一个文件时,`umask` 命令控制着文件的默认权限。
-`umask` 命令使用八进制表示法来表达从文件模式属性中删除一个位掩码。大家看下面的例子:
-
-```bash
-rm -f foo.txt
-umask
-:0002
->foo.txt
-ls -l foo.txt
-:-rw-rw-r-- 1 me me 0 2008-03-06 14:53 foo.txt
-```
-
-首先,删除文件`foo.txt`,确保我们从新开始。下一步,运行不带参数的 `umask` 命令, 看一下当前的掩码值。
-`umask`的数值是`0002`(`0022`是另一个常用值),这个数值是掩码的八进制表示形式。
-下一步,我们创建文件`foo.txt`,并且保留它的权限。
-
-我们可以看到文件所有者和用户组都得到读权限和写权限,而其他人只是得到读权限。
-其他人没有得到写权限的原因是由掩码值决定的。重复我们的实验,这次自己设置掩码值:
-
-```bash
-rm foo.txt
-umask 0000
-> foo.txt
-ls -l foo.txt
--rw-rw-rw- me me 0 2008-03-06 14:58 foo.txt
-```
-
-当掩码设置为`0000`(实质上是关掉它)之后,我们看到其他人能够读写文件。
-为了弄明白这是 怎么回事,我们需要看一下掩码的八进制形式。把掩码展开成二进制形式,然后与文件属性相比较,看看有什么区别:
-
-| | |
-|---|---|
-| Original file mode | `--- rw- rw- rw-` |
-| Mask | `000 000 000 010` |
-| Result | `--- rw- rw- r--` |
-
-此刻先忽略掉开头的三个零(我们一会儿再讨论),注意掩码中若出现一个数字`1`,
-则 删除文件模式中和这个`1`在相同位置的属性,在这是指其他人的写权限。这就是掩码要完成的任务。
-掩码的二进制形式中,出现数字`1`的位置,相应地关掉一个文件模式属性。
-
-看一下掩码0022的作用:
-
-| | |
-|---|---|
-| Original file mode | `--- rw- rw- rw-` |
-| Mask| `000 000 010 010`|
-| Result | `--- rw- r-- r--` |
-
-又一次,二进制中数字`1`出现的位置,相对应的属性被删除。
-再试一下其它的掩码值(一些带数字7的) ,习惯于掩码的工作原理。当你实验完成之后,要记得清理现场:
-
-```bash
-rm foo.txt; umask 0002
-```
-
-大多数情况下,你不必修改掩码值,系统提供的默认掩码值就很好了。
-然而,在一些高安全级别下,你要能控制掩码值。
-
-### 一些特殊权限
-
-虽然我们通常看到一个八进制的权限掩码用三位数字来表示,但是从技术层面上来讲, 用四位数字来表示它更确切些。
-为什么呢?因为,除了读取,写入,和执行权限之外,还有其它的,较少用到的权限设置。
-
-其中之一是 `setuid` 位(八进制`4000`)。
-当一个普通用户运行一个程序,这个程序由根用户(`root`) 所有,并且设置了 `setuid` 位,
-那么这个程序运行时就具有超级用户的特权,这样程序就可以访问普通用户禁止访问的文件和目录。
-
-第二个是 `setgid` 位(八进制`2000`),这个类似 `setuid` 位.
-如果设置了一个**目录**的`setgid`位,则目录中新创建的文件的用户组继承自`父目录`。
-
-第三个是 `sticky` 位(八进制`1000`)。这个继承于Unix,在 Unix 中,它可能把一个可执行文件 标志为`不可交换的`。
-在 Linux 中,会忽略文件的 `sticky` 位,但是如果一个目录设置了 `sticky` 位, 那么它能阻止用户删除或重命名文件,
-除非用户是这个目录(文件)的所有者，或是超级用户。这个经常用来控制访问共享目录,比方说`/tmp`。
-
-这里有一些例子,使用`chmod`命令和符号表示法,来设置这些特殊的权限。
-首先, 授予一个程序 `setuid` 权限。
-
-```bash
-chmod u+s program
-```
-
-下一步,授予一个目录 `setgid` 权限:
-
-```bash
-chmod g+s dir
-```
-
-最后,授予一个目录 `sticky` 权限:
-
-```bash
-chmod +t dir
-```
-
-当浏览 `ls` 命令的输出结果时,你可以确认这些特殊权限。
-
-+ 具有 `setuid`属性的程序:`-rwsr-xr-x`
-+ 具有 `setgid`属性的目录:`drwxrwsr-x`
-+ 具有 `sticky` 属性的目录:`drwxrwxrwt`
-
-### 更改身份
-
-在不同的时候,我们会发现很有必要具有另一个用户的身份。
-经常地,我们想要得到超级 用户特权,来执行一些管理任务,但是也有可能变为另一个普通用户,比如说测试一个帐号。
-有三种方式,可以拥有多重身份:
-
-1. 注销系统并以其他用户身份重新登录系统。
-2. 使用 `su` 命令。
-3. 使用 `sudo` 命令。
-   
-我们将跳过第一种方法,因为我们知道怎样使用它,并且它缺乏其它两种方法的方便性。 
-在我们自己的 `shell` 会话中, `su` 命令允许你,
-假定为另一个用户的身份,以这个用户的 `ID` 启动一个新的 `shell` 会话,或者是以这个用户的身份来发布一个命令。
-
-`sudo` 命令允许管理员设置一个叫做`/etc/sudoers`的配置文件,并且定义了一些具体命令,特殊用户可以执行这些命令。
-选择使用哪个命令,很大程度上是由你使用的 `Linux` 发行版来决定的。 
-你的发行版可能这两个命令都包含,但系统配置可能会偏袒其中之一。我们先介绍 `su` 命令。
-
-#### su - 以其他用户身份和组ID运行一个shell
-
-su 命令用来以另一个用户的身份来启动 shell。这个命令语法看起来像这样:
-
-```bash
-su [-[l]] [user]
-```
-
-如果包含`-l`选项,那么会为指定用户启动一个需要登录的 `shell` 。
-这意味着会加载此用户的 `shell` 环境, 并且工作目录会更改到这个用户的家目录。这通常是我们所需要的。
-如果不指定用户,那么就假定是超级用户。
-注意,选项`-l`可以缩写为`-`,这是经常用到的形式。启动超级用户的 shell, 我们可以这样做:
-
-```bash
-su -
-Password:
-[root@linuxbox ~]#
-```
-
-按下回车符之后,`shell` 提示我们输入超级用户的密码。
-如果密码输入正确,出现一个新的 `shell` 提示符, 这表明这个 `shell` 具有超级用户特权(提示符的末尾字符是`#`而不是`$`),
-并且当前工作目录是超级用户的家目录 (通常是`/root`)。
-一旦进入一个新的 `shell`,我们能执行超级用户所使用的命令。当工作完成后, 输入`exit`,则返回到原来的 `shell`:
-
-```bash
-[root@linuxbox ~]# exit
-[me@linuxbox ~]$
-```
-
-以这样的方式使用 `su` 命令,也可以只执行单个命令,而不是启动一个新的可交互的 shell:
-
-```bash
-su -c 'command'
-```
-
-使用这种模式,命令传递到一个新 `shell` 中执行。
-把命令用单引号引起来很重要,因为我们不想命令在我们的 `shell` 中展开,但需要在新 `shell` 中展开。
-
-```bash
-su -c 'ls -l /root/*'
-```
-
-#### sudo - 以另一个用户身份执行命令
-
-`sudo` 命令在很多方面都相似于 `su` 命令,但是 `sudo` 还有一些非常重要的功能。
-
-管理员能够配置 `sudo` 命令,从而允许一个普通用户以不同的身份(通常是超级用户),通过一种非常可控的方式来执行命令。
-尤其是,只有一个用户可以执行一个或多个特殊命令时,(更体现了 `sudo` 命令的方便性)。
-
-另一个重要差异是 `sudo` 命令不要求超级用户的密码。使用 `sudo` 命令时,用户使用他/她自己的密码 来认证。
-比如说,例如,`sudo` 命令经过配置,允许我们运行一个虚构的备份程序,叫做`backup_script`, 这个程序要求超级用户权限。
-通过 `sudo` 命令,这个程序会像这样运行:
-
-```bash
-sudo backup_script
-Password:
-System Backup Starting...
-```
-
-按下回车键之后,`shell` 提示我们输入我们的密码(不是超级用户的)。一旦认证完成,则执行 具体的命令。
-
-`su` 和 `sudo` 之间的一个重要区别是 `sudo` 不会重新启动一个 `shell`,也不会加载另一个 用户的 `shell` 运行环境。
-这意味者命令不必用单引号引起来。注意通过指定各种各样的选项,这 种行为可以被推翻。
-详细信息,阅读 `sudo` 手册页。
-
-想知道 `sudo` 命令可以授予哪些权限,使用`-l`选项,列出所有权限:
-
-```bash
-sudo -l
-User me may run the following commands on this host:
-(ALL) ALL
-```
-
-> Ubuntu 与 sudo
-
-`Unix` 采取的方法是只有在需要的时候,才授予普通用户超级用户权限。这样,普遍会 用到 `su` 和 `sudo` 命令。
-
-几年前,大多数的 Linux 发行版都依赖于 `su` 命令,来达到目的。`su` 命令不需要 `sudo` 命令 所要求的配置, `su` 命令拥有一个 `root` 帐号,是 Unix 中的传统。
-
-但这会引起问题。所有用户会企图以 `root` 用户帐号来操纵系统。
-事实上,一些用户专门以 `root` 用户帐号来操作系统, 因为这样做,的确消除了所有那些讨厌的权限
-被拒绝的消息。相比于 `Windows` 系统安全性而言, 这样做,你就削弱了 `Linux` 系统安全性能。
-
-当引进 `Ubuntu` 的时候,它的创作者们采取了不同的策略。
-默认情况下,`Ubuntu` 不允许用户登录到 `root`帐号(因为不能为 `root` 帐号设置密码),而是使用 `sudo` 命令授予普通用户超级用户权限。 
-
-通过 `sudo` 命令,最初的用户可以拥有超级用户权限,也可以授予随后的用户帐号相似的权力。
-
-### chown - 更改文件所有者和用户组
-
-`chown` 命令被用来更改文件或目录的所有者和用户组。使用这个命令需要超级用户权限。
-`chown` 命令 的语法看起来像这样:
-
-```bash
-chown [owner][:[group]] file...
-```
-
-`chown `命令可以更改文件所有者和/或文件用户组,依据于这个命令的第一个参数。这里有 一些例子:
-
-***
-参数 结果
-
-+ `bob` 把文件所有者从当前属主更改为用户`bob`
-+ `bob:users` 把文件所有者改为用户 `bob`,文件用户组改为用户组 `users`。
-+ `:admins` 把文件用户组改为组 `admins`,文件所有者不变。
-+ `bob:` 文件所有者改为用户 `bob`,文件用户组改为`bob` 登录系统时所属的用户组。
-  
-比方说,我们有两个用户: `janet`(拥有超级用户访问权限),`tony`(没有)。
-
-用户`janet`想要从 她的家目录复制一个文件到用户 `tony` 的家目录。
-因为用户 `janet` 想要 `tony`能够编辑这个文件, `janet` 把这个文件的所有者更改为`tony`:
-
-```bash
-[janet@linuxbox ~]$ sudo cp myfile.txt ~tony
-[janet@linuxbox ~]$ sudo ls -l ~tony/myfile.txt
--rw-r--r-- 1 root root 8031 2008-03-20 14:30 /home/tony/myfile.txt
-[janet@linuxbox ~]$ sudo chown tony: ~tony/myfile.txt
-[janet@linuxbox ~]$ sudo ls -l ~tony/myfile.txt
--rw-r--r-- 1 tony tony 8031 2008-03-20 14:30 /home/tony/myfile.txt
-```
-
-这里,我们看到用户 `janet` 把文件从她的目录复制到 `tony` 的家目录。
-下一步,`janet` 把文件所有者 从 `root`(因为使用了`sudo` 命令)改到 `tony`。
-通过在第一个参数中使用末尾的`:`字符,`janet` 同时把文件用户组改为`tony` 登录系统时所属的用户组(也叫`tony`)。
-
-注意,第一次使用 `sudo` 命令之后,为什么(`shell`)没有提示 `janet` 输入她的密码?
-这是因为在 大多数的配置中,`sudo` 命令会相信你几分钟,直到计时结束。
-
-### chgrp - 更改用户组所有权
-
-在旧版 Unix 系统中,`chown` 命令只能更改文件所有权,而不是用户组所有权。
-为了达到目的, 使用一个独立的命令,`chgrp` 来完成。除了限制多一点之外,`chgrp` 命令与 `chown` 命令使用起来很相似。
-
-### 练习使用权限
-
-我们将展示一个常见问题的解决方案,这个问题是如何设置一个共享目录。
-假想我们有两个用户, 他们分别是 `bill` 和 `karen`。他们都有音乐 CD 收藏品,也愿意设置一个共享目录。
-在这个共享目录中,他们分别以 `Ogg Vorbis` 或 `MP3` 的格式来存储他们的音乐文件。
-通过 `sudo` 命令, 用户 `bill` 具有超级用户访问权限。
-
-我们需要做的第一件事,是创建一个以 `bill` 和 `karen` 为成员的用户组。
-下一步,`bill` 创建了存储音乐文件的目录:`sudo mkdir /usr/local/share/Music`
-
-因为 `bill` 正在他的家目录之外操作文件,所以需要超级用户权限。这个目录创建之后,它具有以下所有权和权限:
-
-```bash
-ls -ld /usr/local/share/Music
-drwxr-xr-x 2 root root 4096 2008-03-21 18:05 /usr/local/share/Music
-```
-
-正如我们所见到的,这个目录由 `root` 用户拥有,并且具有权限`755`。
-为了使这个目录共享,允许(用户 `karen`)写入,`bill` 需要更改目录用户组所有权和权限:
-
-```bash
-[bill@linuxbox ~]$ sudo chown :music /usr/local/share/Music
-[bill@linuxbox ~]$ sudo chmod 775 /usr/local/share/Music
-[bill@linuxbox ~]$ ls -ld /usr/local/share/Music
-drwxrwxr-x 2 root music 4096 2008-03-21 18:05 /usr/local/share/Music
-```
-
-那么这是什么意思呢? 它的意思是,现在我们拥有一个目录,`/usr/local/share/Music`,
-这个目录由 `root` 用户拥有,并且允许用户组 `music` 读取和写入。
-
-用户组 `music` 有两个成员 `bill` 和 `karen`,这样 `bill` 和 `karen` 能够在目录 `/usr/local/share/Music` 中创建文件。其他用户能够列出目录中的内容,但是不能在其中创建文件。
-
-但是我们仍然会遇到问题。
-通过我们目前所拥有的权限,在 `Music` 目录中创建的文件,只具有用户 `bill` 和 `karen` 的普通权限:
-
-```bash
-[bill@linuxbox ~]$ > /usr/local/share/Music/test_file
-[bill@linuxbox ~]$ ls -l /usr/local/share/Music
--rw-r--r-- 1 bill bill 0 2008-03-24 20:03 test_file
-```
-
-实际上,存在两个问题。
-第一个,系统中默认的掩码值是`0022`,这会禁止用户组成员编辑属于同组成员的文件。
-如果共享目录中只包含文件,这就不是个问题,但是因为这个目录将会存储音乐, 通常音乐会按照艺术家和唱片的层次结构来组织分类。
-所以用户组成员需要在同组其他成员创建的目录中创建文件和目录。
-我们将把用户 `bill` 和 `karen` 使用的掩码值改为`0002`。
-
-第二个问题是,`bill`创建的文件（或目录）的用户组会被设置为`bill`,而不是`music`用户组 。 
-通过设置此目录的 `setgid` 位来解决这个问题:
-
-```bash
-[bill@linuxbox ~]$ sudo chmod g+s /usr/local/share/Music
-[bill@linuxbox ~]$ ls -ld /usr/local/share/Music
-drwxrwsr-x 2 root music 4096 2008-03-24 20:03 /usr/local/share/Music
-```
-
-现在测试一下,看看是否新的权限解决了这个问题。
-`bill` 把他的掩码值设为`0002`,删除 先前的测试文件,并创建了一个新的测试文件和目录:
-
-```bash
-[bill@linuxbox ~]$ umask 0002
-[bill@linuxbox ~]$ rm /usr/local/share/Music/test_file
-[bill@linuxbox ~]$ > /usr/local/share/Music/test_file
-[bill@linuxbox ~]$ mkdir /usr/local/share/Music/test_dir
-[bill@linuxbox ~]$ ls -l /usr/local/share/Music
-drwxrwsr-x 2 bill music 4096 2008-03-24 20:24 test_dir
--rw-rw-r-- 1 bill music 0 2008-03-24 20:22 test_file
-```
-
-现在,创建的文件和目录都具有正确的权限,允许用户组 `music` 的所有成员在目录 `Music` 中创建文件和目录。
-
-剩下一个问题是关于 `umask` 命令的。
-`umask` 命令设置的掩码值只能在当前 `shell` 会话中生效,若当前 `shell` 会
-话结束后,则必须重新设置。在这本书的第三部分,我们将看一下,怎样使掩码值永久生效。
-
-### 更改用户密码
-
-这一章最后一个话题,我们将讨论自己帐号的密码(和其他人的密码,如果你具有超级用户权限)。 
-使用 `passwd` 命令,来设置或更改用户密码。命令语法如下所示:
-
-```bash
-passwd [user]
-```
-
-只要输入 `passwd` 命令,就能更改你的密码。`shell` 会提示你输入你的旧密码和你的新密码:
-
-```bash
-passwd
-(current) UNIX password:
-New UNIX password:
-```
-
-passwd 命令将会试着强迫你使用`强`密码。
-这意味着,它会拒绝接受太短的密码,与先前相似的密码, 字典中的单词作为密码,或者是太容易猜到的密码:
-
-如果你具有超级用户权限,你可以指定一个用户名作为 `passwd` 命令的参数,这样可以设置另一个用户的密码。
-
-还有其它的 `passwd` 命令选项对超级用户有效,允许帐号锁定,密码失效,等等。 
-详细内容,参考 passwd 命令的手册页。
-
-## Linux 用户和用户组管理
-
-[Linux 用户和用户组管理][]
-
-[Linux 用户和用户组管理]: https://www.runoob.com/linux/linux-user-manage.html
-
-Linux系统是一个多用户多任务的分时操作系统，任何一个要使用系统资源的用户，
-都必须首先向系统管理员申请一个账号，然后以这个账号的身份进入系统。
-
-用户的账号一方面可以帮助系统管理员对使用系统的用户进行跟踪，并控制他们对系统资源的访问；
-另一方面也可以帮助用户组织文件，并为用户提供安全性保护。
-每个用户账号都拥有一个唯一的用户名和各自的口令。用户在登录时键入正确的用户名和口令后，就能够进入系统和自己的主目录。
-
-实现用户账号的管理，要完成的工作主要有如下几个方面：
-
-+ 用户账号的添加、删除与修改。
-+ 用户口令的管理。
-+ 用户组的管理。 
-
-### Linux系统用户账号的管理
-
-用户账号的管理工作主要涉及到用户账号的添加、修改和删除。
-
-添加用户账号就是在系统中创建一个新账号，然后为新账号分配用户号、用户组、主目录和登录Shell等资源。
-刚添加的账号是被锁定的，无法使用。
-
-***
-添加新的用户账号使用useradd命令，其语法如下：
-
-```bash
-useradd 选项 用户名
-```
-
-选项:
-
-+ `-c comment`  指定一段注释性描述。
-+ `-d 目录`  指定用户主目录，如果此目录不存在，则同时使用`-m`选项，可以创建主目录。
-+ `-g 用户组`  指定用户所属的用户组。
-+ `-G用户组，用户组` 指定用户所属的附加组。
-+ `-s Shell文件`  指定用户的登录Shell。
-+ `-u 用户号`  指定用户的用户号，如果同时有`-o`选项，则可以重复使用其他用户的标识号。
-
-用户名:   指定新账号的登录名。
-
-***
-实例1
-
-```bash
-useradd –d  /home/sam -m sam
-```
-
-此命令创建了一个用户`sam`，其中`-d`和`-m`选项用来为登录名`sam`产生一个主目录 `/home/sam`
-(`/home`为默认的用户主目录所在的父目录)
-
-***
-实例2
-
-```bash
-useradd -s /bin/sh -g group –G adm,root gem
-```
-
-此命令新建了一个用户`gem`，该用户的登录`Shell`是` /bin/sh`，
-它属于`group`用户组，同时又属于`adm`和`root`用户组，其中`group`用户组是其主组。
-
-这里可能新建组：`groupadd group`及`groupadd adm`
-
-增加用户账号就是在`/etc/passwd`文件中为新用户增加一条记录，同时更新其他系统文件如`/etc/shadow`, `/etc/group`等。
-
-Linux提供了集成的系统管理工具`userconf`，它可以用来对用户账号进行统一管理。
-
-### 删除帐号
-
-如果一个用户的账号不再使用，可以从系统中删除。
-删除用户账号就是要将`/etc/passwd`等系统文件中的该用户记录删除，必要时还删除用户的主目录。
-
-删除一个已有的用户账号使用`userdel`命令，其格式如下：
-
-```
-userdel 选项 用户名
-```
-
-常用的选项是 `-r`，它的作用是把用户的主目录一起删除。例如：
-
-```bash
-userdel -r sam
-```
-
-此命令删除用户`sam`在系统文件中（主要是`/etcpasswd/`, `/etc/shadow`, `/etc/group`等）的记录，同时删除用户的主目录。
-
-## 修改帐号
-
-修改用户账号就是根据实际情况更改用户的有关属性，如用户号、主目录、用户组、登录Shell等。
-
-修改已有用户的信息使用`usermod`命令，其格式如下：
-
-```bash
-usermod 选项 用户名
-```
-
-常用的选项包括`-c,` `-d`, `-m`,` -g`,` -G`,` -s`,`-u`以及`-o`等，这些选项的意义与`useradd`命令中的选项一样，可以为用户指定新的资源值。
-
-另外，有些系统可以使用选项：`-l 新用户名`
-这个选项指定一个新的账号，即将原来的用户名改为新的用户名。
-
-例如：
-
-```bash
-usermod -s /bin/ksh -d /home/z –g developer sam
-```
-
-此命令将用户`sam`的登录`Shell`修改为`ksh`，主目录改为`/home/z`，用户组改为`developer`。
-
-### 用户口令的管理
-
-用户管理的一项重要内容是用户口令的管理。
-用户账号刚创建时没有口令，但是被系统锁定，无法使用，必须为其指定口令后才可以使用，即使是指定空口令。
-
-指定和修改用户口令的Shell命令是`passwd`。
-超级用户可以为自己和其他用户指定口令，普通用户只能用它修改自己的口令。命令的格式为：
-
-```bash
-passwd 选项 用户名
-```
-
-可使用的选项：
-
-+ `-l` 锁定口令，即禁用账号。
-+ `-u` 口令解锁。
-+ `-d` 使账号无口令。
-+ `-f` 强迫用户下次登录时修改口令。
-
-如果默认用户名，则修改当前用户的口令。
-
-例如，假设当前用户是`sam`，则下面的命令修改该用户自己的口令：
-
-```bash
-$ passwd 
-Old password:****** 
-New password:******* 
-Re-enter new password:*******
-```
-
-如果是超级用户，可以用下列形式指定任何用户的口令：
-
-```bash
-passwd sam 
-New password:******* 
-Re-enter new password:*******
-```
-
-普通用户修改自己的口令时，`passwd`命令会先询问原口令，验证后再要求用户输入两遍新口令，
-如果两次输入的口令一致，则将这个口令指定给用户；而超级用户为用户指定口令时，就不需要知道原口令。
-
-为了系统安全起见，用户应该选择比较复杂的口令，例如最好使用`8`位长的口令，口令中包含有大写、小写字母和数字，并且应该与姓名、生日等不相同。
-
-为用户指定空口令时，执行下列形式的命令：
-
-```bash
-passwd -d sam
-```
-
-此命令将用户 `sam` 的口令删除，这样用户 `sam` 下一次登录时，系统就不再允许该用户登录了。
-
-`passwd` 命令还可以用 `-l(lock)` 选项锁定某一用户，使其不能登录，例如：
-
-```bash
-passwd -l sam
-```
-
-### Linux系统用户组的管理
-
-每个用户都有一个用户组，系统可以对一个用户组中的所有用户进行集中管理。
-不同Linux 系统对用户组的规定有所不同，如 ubuntu 下的用户属于与它同名的用户组，这个用户组在创建用户时同时创建。
-
-用户组的管理涉及用户组的添加、删除和修改。组的增加、删除和修改实际上就是对`/etc/group`文件的更新。
-
-***
-增加一个新的用户组使用`groupadd`命令。其格式如下：
-
-```bash
-groupadd 选项 用户组
-```
-
-可以使用的选项有：
-
-+ `-g` `GID` 指定新用户组的组标识号（GID）。
-+ `-o` 一般与`-g`选项同时使用，表示新用户组的GID可以与系统已有用户组的GID相同。
-
-***
-实例1：
-
-```bash
-groupadd group1
-```
-
-此命令向系统中增加了一个新组`group1`，新组的组标识号是在当前已有的最大组标识号的基础上加`1`。
-
-实例2：
-
-```bash
-groupadd -g 101 group2
-```
-
-此命令向系统中增加了一个新组`group2`，同时指定新组的组标识号是`101`。
-
-***
-如果要删除一个已有的用户组，使用`groupdel`命令，其格式如下：
-
-```bash
-groupdel 用户组
-```
-
-例如：
-
-```bash
-groupdel group1
-```
-
-此命令从系统中删除组`group1`。
-
-***
-修改用户组的属性使用`groupmod`命令。其语法如下：
-
-```bash
-groupmod 选项 用户组
-```
-
-常用的选项有：
-
-+ `-g GID` 为用户组指定新的组标识号。
-+ `-o`  与`-g`选项同时使用，用户组的新`GID`可以与系统已有用户组的`GID`相同。
-+ `-n 新用户组`  将用户组的名字改为新名字
-
-实例1：
-
-```bash
-groupmod -g 102 group2
-```
-
-此命令将组`group2`的组标识号修改为102。
-
-实例2：
-
-```bash
-groupmod –g 10000 -n group3 group2
-```
-
-此命令将组`group2`的标识号改为`10000`，组名修改为`group3`。
-
-***
-如果一个用户同时属于多个用户组，那么用户可以在用户组之间切换，以便具有其他用户组的权限。
-用户可以在登录后，使用命令`newgrp`切换到其他用户组，这个命令的参数就是目的用户组。例如：
-
-```bash
-$ newgrp root
-```
-
-这条命令将当前用户切换到`root`用户组，前提条件是`root`用户组确实是该用户的主组或附加组。
-类似于用户账号的管理，用户组的管理也可以通过集成的系统管理工具来完成。
-
-### 与用户账号有关的系统文件
-
-完成用户管理的工作有许多种方法，但是每一种方法实际上都是对有关的系统文件进行修改。
-
-与用户和用户组相关的信息都存放在一些系统文件中，这些文件包括`/etc/passwd`, `/etc/shadow`, `/etc/group`等。
-
-下面分别介绍这些文件的内容。
-
-#### /etc/passwd文件
-
-`/etc/passwd`文件是用户管理工作涉及的最重要的一个文件
-
-Linux系统中的每个用户都在`/etc/passwd`文件中有一个对应的记录行，它记录了这个用户的一些基本属性。
-
-这个文件对所有用户都是可读的。它的内容类似下面的例子：
-
-```bash
-＃ cat /etc/passwd
-root:x:0:0:Superuser:/:
-daemon:x:1:1:System daemons:/etc:
-bin:x:2:2:Owner of system commands:/bin:
-sys:x:3:3:Owner of system files:/usr/sys:
-adm:x:4:4:System accounting:/usr/adm:
-uucp:x:5:5:UUCP administrator:/usr/lib/uucp:
-auth:x:7:21:Authentication administrator:/tcb/files/auth:
-cron:x:9:16:Cron daemon:/usr/spool/cron:
-listen:x:37:4:Network daemon:/usr/net/nls:
-lp:x:71:18:Printer administrator:/usr/spool/lp:
-sam:x:200:50:Sam san:/home/sam:/bin/sh
-```
-
-从上面的例子我们可以看到，`/etc/passwd`中一行记录对应着一个用户，
-每行记录又被冒号(`:`)分隔为7个字段，其格式和具体含义如下：
-
-`用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell`
-
-1. `用户名`是代表用户账号的字符串。
-
-通常长度不超过`8`个字符，并且由大小写字母或数字组成。登录名中不能有冒号(`:`)，因为冒号在这里是分隔符。
-为了兼容起见，登录名中最好不要包含点字符(`.`)，并且不使用连字符(`-`)和加号(`+`)打头。
-
-1. `口令`一些系统中，存放着加密后的用户口令字。
-
-虽然这个字段存放的只是用户口令的加密串，不是明文，但是由于`/etc/passwd`文件对所有用户都可读，所以这仍是一个安全隐患。
-因此，现在许多Linux 系统（如`SVR4`）都使用了 `shadow` 技术，把真正的加密后的用户口令字存放到`/etc/shadow`文件中，而在`/etc/passwd`文件的口令字段中只存放一个特殊的字符，例如`x`或者`*`。
-
-3. `用户标识号`是一个整数，系统内部用它来标识用户。
-一般情况下它与用户名是一一对应的。
-如果几个用户名对应的用户标识号是一样的，系统内部将把它们视为同一个用户，但是它们可以有不同的口令、不同的主目录以及不同的登录Shell等。
-
-通常用户标识号的取值范围是`0`~`65 535`。`0`是超级用户`root`的标识号，`1`~`99`由系统保留，作为管理账号，普通用户的标识号从`100`开始。在Linux系统中，这个界限是`500`。
-
-4. `组标识号`字段记录的是用户所属的用户组。
-
-它对应着`/etc/group`文件中的一条记录。
-
-5. `注释性描述`字段记录着用户的一些个人情况。
-
-例如用户的真实姓名、电话、地址等，这个字段并没有什么实际的用途。在不同的Linux 系统中，这个字段的格式并没有统一。
-在许多Linux系统中，这个字段存放的是一段任意的注释性描述文字，用做`finger`命令的输出。
-
-6. `主目录`，也就是用户的起始工作目录。
-
-它是用户在登录到系统之后所处的目录。
-在大多数系统中，各用户的主目录都被组织在同一个特定的目录下，而用户主目录的名称就是该用户的登录名。
-各用户对自己的主目录有读、写、执行（搜索）权限，其他用户对此目录的访问权限则根据具体情况设置。
-
-7. 用户登录后，要启动一个进程，负责将用户的操作传给内核，这个进程是用户登录到系统后运行的命令解释器或某个特定的程序，即`Shell`。
-
-`Shell`是用户与Linux系统之间的接口。Linux的`Shell`有许多种，每种都有不同的特点。
-常用的有`sh`(Bourne Shell), `csh`(C Shell), `ksh`(Korn Shell), `tcsh`(TENEX/TOPS-20 type C Shell), `bash`(Bourne Again Shell)等。
-
-系统管理员可以根据系统情况和用户习惯为用户指定某个`Shell`。
-如果不指定`Shell`，那么系统使用`sh`为默认的登录`Shell`，即这个字段的值为`/bin/sh`。
-
-用户的登录`Shell`也可以指定为某个特定的程序（此程序不是一个命令解释器）。
-利用这一特点，我们可以限制用户只能运行指定的应用程序，在该应用程序运行结束后，用户就自动退出了系统。
-有些`Linux`系统要求只有那些在系统中登记了的程序才能出现在这个字段中。
-
-8. 系统中有一类用户称为伪用户（pseudo users）。
-
-这些用户在`/etc/passwd`文件中也占有一条记录，但是不能登录，因为它们的登录`Shell`为空。
-它们的存在主要是方便系统管理，满足相应的系统进程对文件属主的要求。
-
-常见的伪用户如下所示：
-
-+ `bin`:  拥有可执行的用户命令文件 
-+ `sys`:  拥有系统文件 
-+ `adm`:  拥有帐户文件 
-+ `uucp`:  `UUCP`使用 
-+ `lp`:  `lp`或`lpd`子系统使用 
-+ `nobody`:  `NFS`使用
-
-#### 拥有帐户文件
-
-+ 除了上面列出的伪用户外，还有许多标准的伪用户，例如：`audit`, `cron`, `mail`, `usenet`等，它们也都各自为相关的进程和文件所需要。
-
-由于`/etc/passwd`文件是所有用户都可读的，如果用户的密码太简单或规律比较明显的话，一台普通的计算机就能够很容易地将它破解。
-因此对安全性要求较高的Linux系统都把加密后的口令字分离出来，单独存放在一个文件中，这个文件是`/etc/shadow`文件。 有超级用户才拥有该文件读权限，这就保证了用户密码的安全性。
-
-+ `/etc/shadow`中的记录行与`/etc/passwd`中的一一对应，它由`pwconv`命令根据`/etc/passwd`中的数据自动产生，
-它的文件格式与`/etc/passwd`类似，由若干个字段组成，字段之间用`:`隔开。这些字段是：
-`登录名:加密口令:最后一次修改时间:最小时间间隔:最大时间间隔:警告时间:不活动时间:失效时间:标志`
-
-1. `登录名`是与`/etc/passwd`文件中的登录名相一致的用户账号
-2. `口令`字段存放的是加密后的用户口令字，长度为`13`个字符。如果为空，则对应用户没有口令，登录时不需要口令；
-如果含有不属于集合` { ./0-9A-Za-z }`中的字符，则对应的用户不能登录。
-3. `最后一次修改时间`表示的是从某个时刻起，到用户最后一次修改口令时的天数。时间起点对不同的系统可能不一样。
-例如在`SCO Linux `中，这个时间起点是`1970年1月1日`。
-4. `最小时间间隔`指的是两次修改口令之间所需的最小天数。
-5. `最大时间间隔`指的是口令保持有效的最大天数。
-6. `警告时间`字段表示的是从系统开始警告用户到用户密码正式失效之间的天数。
-7. `不活动时间`表示的是用户没有登录活动但账号仍能保持有效的最大天数。
-8. `失效时间`字段给出的是一个绝对的天数，如果使用了这个字段，那么就给出相应账号的生存期。期满后，该账号就不再是一个合法的账号，也就不能再用来登录了。
-
-下面是`/etc/shadow`的一个例子：
-
-```bash
-＃ cat /etc/shadow
-
-root:Dnakfw28zf38w:8764:0:168:7:::
-daemon:*::0:0::::
-bin:*::0:0::::
-sys:*::0:0::::
-adm:*::0:0::::
-uucp:*::0:0::::
-nuucp:*::0:0::::
-auth:*::0:0::::
-cron:*::0:0::::
-listen:*::0:0::::
-lp:*::0:0::::
-sam:EkdiSECLWPdSa:9740:0:0::::
-```
-
-+ 用户组的所有信息都存放在`/etc/group`文件中。
-
-将用户分组是 Linux 系统中对用户进行管理及控制访问权限的一种手段。
-每个用户都属于某个用户组；一个组中可以有多个用户，一个用户也可以属于不同的组。
-当一个用户同时是多个组中的成员时，在`/etc/passwd`文件中记录的是用户所属的主组，也就是登录时所属的默认组，而其他组称为附加组。
-
-用户要访问属于附加组的文件时，必须首先使用`newgrp`命令使自己成为所要访问的组中的成员。
-用户组的所有信息都存放在`/etc/group`文件中。此文件的格式也类似于`/etc/passwd`文件，由冒号(`:`)隔开若干个字段，这些字段有：
-
-`组名:口令:组标识号:组内用户列表`
-
-+ `组名`是用户组的名称，由字母或数字构成。与`/etc/passwd`中的登录名一样，组名不应重复。
-+ `口令`字段存放的是用户组加密后的口令字。一般Linux 系统的用户组都没有口令，即这个字段一般为`空`，或者是`*`。
-+ `组标识号`与用户标识号类似，也是一个整数，被系统内部用来标识组。
-+ `组内用户列表`是属于这个组的所有用户的列表，不同用户之间用逗号(`,`)分隔。这个用户组可能是用户的主组，也可能是附加组。
-
-`/etc/group`文件的一个例子如下：
-
-```bash
-root::0:root
-bin::2:root,bin
-sys::3:root,uucp
-adm::4:root,adm
-daemon::5:root,daemon
-lp::7:root,lp
-users::20:root,sam
-```
-
-### 添加批量用户
-
-添加和删除用户对每位Linux系统管理员都是轻而易举的事，比较棘手的是如果要添加几十个、上百个甚至上千个用户时，我们不太可能还使用useradd一个一个地添加，必然要找一种简便的创建大量用户的方法。
-Linux系统提供了创建大量用户的工具，可以让您立即创建大量用户，方法如下：
-
-1. 先编辑一个文本用户文件。
-
-每一列按照`/etc/passwd`密码文件的格式书写，要注意每个用户的用户名、`UID`、宿主目录都不可以相同，其中密码栏可以留做空白或输入`x`号。一个范例文件`user.txt`内容如下：
-
-```bash
-user001::600:100:user:/home/user001:/bin/bash
-user002::601:100:user:/home/user002:/bin/bash
-user003::602:100:user:/home/user003:/bin/bash
-...
-```
-
-2. 以root身份执行命令 `/usr/sbin/newusers`，从刚创建的用户文件`user.txt`中导入数据，创建用户：
-
-```bash
-newusers < user.txt
-```
-
-然后可以执行命令 `vipw` 或 `vi /etc/passwd` 检查`/etc/passwd` 文件是否已经出现这些用户的数据，并且用户的宿主目录是否已经创建。
-
-3. 执行命令`/usr/sbin/pwunconv`。
-
-将 `/etc/shadow` 产生的 `shadow` 密码解码，然后回写到` /etc/passwd` 中，并将`/etc/shadow`的`shadow`密码栏删掉。
-这是为了方便下一步的密码转换工作，即先取消 `shadow password` 功能。
-
-```bash
-pwunconv
-```
-
-4. 编辑每个用户的密码对照文件。
-
-格式为：`用户名:密码`
-
-实例文件 `passwd.txt` 内容如下：
-
-```bash
-user001:123456
-user002:123456
-user003:123456
-user004:123456
-user005:123456
-user006:123456
-```
-
-5. 以 `root` 身份执行命令 `/usr/sbin/chpasswd`。
-
-创建用户密码，`chpasswd` 会将经过 `/usr/bin/passwd` 命令编码过的密码写入 `/etc/passwd` 的密码栏。
-
-```bash
-chpasswd < passwd.txt
-```
-
-6. 确定密码经编码写入`/etc/passwd`的密码栏后。
-
-执行命令 `/usr/sbin/pwconv` 将密码编码为 `shadow password`，并将结果写入 `/etc/shadow`。
-
-```bash
-pwconv
-```
-
-这样就完成了大量用户的创建了，之后您可以到`/home`下检查这些用户宿主目录的权限设置是否都正确，并登录验证用户密码是否正确。

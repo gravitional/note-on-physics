@@ -6,6 +6,8 @@
 
 [命令行语法关键字](https://docs.microsoft.com/zh-cn/windows-server/administration/windows-commands/command-line-syntax-key)
 
+[Windows 10 and Windows Server 2016 PowerShell Module Reference](https://docs.microsoft.com/en-us/powershell/module/?view=win10-ps)
+
 命令行语法关键字
 表示法  说明
 
@@ -480,6 +482,12 @@ format fs=ntfs label="卷标" quick
 ***
 使用PowerShell命令格式化磁盘
 
+[Windows Storage Management-specific cmdlets](https://docs.microsoft.com/en-us/powershell/module/storage/?view=win10-ps)
+
+普通磁盘和动态磁盘
+
+[Basic and Dynamic Disks](https://docs.microsoft.com/en-us/windows/win32/fileio/basic-and-dynamic-disks)
+
 + 使用 `Windows+X` 快捷键打开`命令提示符（管理员）`工具：
 + 执行 `Get-Disk` Cmdlet 可以查看到连接到当前 Windows 10 PC 的所有物理磁盘和 `U` 盘。
 + 执行如入命令清理驱动器：
@@ -644,7 +652,7 @@ FileName=config.xml
 
 通过管道可以过滤某些对象和对象的属性,这个功能很实用,因为很多时候我们并不是对所有的结果感兴趣,可能只会对某些结果感兴趣.
 
-`Where-Object`: 过滤一堆对象中的某些
+`Where-Object`: 过滤一堆对象中的某几个
 `Select-Object`：过滤对象的属性
 `ForEach-Object`：自定义过滤效果
 `Get-Uinque`：排除重复对象
@@ -656,7 +664,7 @@ FileName=config.xml
 Get-service | Select-Object -First 1 | Format-List *
 ```
 
-找出`Status`为`Running`的程序
+找出`Status`为`Running`的程序, 这里是 `where-object` 的脚本块用法
 
 ```powershell
 get-service | Where-Object {$_.Status -eq "Running"}
@@ -665,7 +673,7 @@ get-service | Where-Object {$_.Status -eq "Running"}
 ### 比较操作符
 
 ***
--Contains 包含
+`-Contains` 包含
 
 指示如果对象的`property`值中的任何项与指定值完全匹配，则此`cmdlet`将获取对象。例如:
 
@@ -674,7 +682,7 @@ Get-Process | where ProcessName -Contains "Svchost"
 ```
 
 ***
--GE 大于
+`-GE` 大于
 
 ```powershell
 Get-Process | Where-Object -Property Handles -GE -Value 1000
@@ -685,7 +693,7 @@ Get-Process | where Handles -GE 1000
 第二个命令是更常用的格式，使用`where`代替了`Where-Object ` cmdlet，并且省略了所有可选参数名称。
 
 ***
--Like 通配符
+`-Like` 通配符
 
 如果`property`值与包含通配符的值匹配，则此cmdlet将获取对象。
 
@@ -700,7 +708,7 @@ Get-Process | where ProcessName -Like "*.pdf"
 ```
 
 ***
--match 正则表达式
+`-match` 正则表达式
 
 用`Get-ChildItem`显示当前当前文件的时候,会显示所有文件.有时候我们可能仅仅需要搜索或者过滤部分文件.
 

@@ -323,3 +323,53 @@ PS：安装包因版本不同,名字可能会有所出入,建议直接复制当�
 
 1. 通过命令行开启向日葵：`sudo /usr/local/sunlogin/bin/sunloginclient`启动（路径为向日葵默认安装路径）
 2. 登录向日葵：开启程序后的初始状态为未绑定,可见界面左上角的提示`Sunlogin （F12）`为进入菜单选项
+
+## dpkg
+
+### dpkg 应用管理
+
+***
+安装应用 deb pkg
+
+```bash
+dpkg -i pkg
+```
+
+`-i, --install`
+`ldd /bin/ls` : `ldd`查看依赖信息
+`-r, --remove package...|-a|--pending`
+
+删除已安装的程序包。 这会删除除`conffiles`和其他由`postrm`脚本清除的数据以外的所有内容，
+这可能避免在以后重新安装该软件包时重新配置该软件包（`conffiles`是`DEBIAN/conffiles control file`中列出的配置文件）。 
+如果没有`DEBIAN/conffiles `或`DEBIAN/postrm`脚本，则此命令等效于`--purge`。 
+如果给出`-a`或`--pending`而不是软件包名称，则所有在`/var/lib/dpkg/status`标记为删除的，`unpacked`的软件包将被删除。
+卸下软件包包括以下步骤：
+
+1. 运行`prerm`脚本
+1. 删除已安装的文件
+1. 运行`postrm`脚本
+
+`-P, --purge package...|-a|--pending`
+
+清除已安装或已删除的软件包。这将删除所有内容，包括`conffiles`，以及从`postrm`中清除的所有其他内容。
+如果给出`-a`或`--pending`而不是软件包名称，则所有在`/var/lib/dpkg/status`中标记为要清除的软件包，`unpacked` or `removed`，都会被清除
+
+注意：`dpkg`可能不了解某些配置文件，因为它们是通过`configuration scripts`单独创建和处理的。
+在这种情况下，`dpkg`不会自行删除它们，但是软件包的`postrm script`（由`dpkg`调用）在清除过程中必须要小心。
+当然，这仅适用于系统目录中的文件，不适用于个人用户主目录中的配置文件。
+
+清除软件包包括以下步骤：
+
+1. `Remove` the package（如果尚未卸载）。有关如何完成此操作的详细信息，请参见`--remove`。
+2. 运行 `postrm script` .
+
+***
+dpkg-query actions
+
+有关以下操作的更多信息，请参见`dpkg-query(1)`。
+
++ `-l, --list package-name-pattern...`: 列出与给定模式匹配的软件包。
++ `-s, --status package-name...`: 报告指定软件包的状态。
++ `-L, --listfiles package-name...`: 从软件包名称列出安装到系统的文件。
++ `-S, --search filename-search-pattern...` 从已安装的软件包中搜索文件名。
++ `-p, --print-avail package-name...` 显示有关软件包名称的详细信息，存放在`/var/lib/dpkg/available`,基于`APT`的前端的用户应该改用`apt-cache` 显示这个软件的信息

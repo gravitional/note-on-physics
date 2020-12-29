@@ -160,7 +160,7 @@ Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck #P
 > Add-PoshGitToProfile -AllHosts
 ```
 
-或者使用 `notepad $PROFILE` 打开 PowerShell 配置文件,该脚本在每次启动 PowerShell 时运行。在 PowerShell 配置文件中，将以下内容添加到文件的末尾：
+或者使用 `notepad $PROFILE` 打开 PowerShell 配置文件,该脚本在每次启动 PowerShell 时运行。在 `PowerShell` 配置文件中，将以下内容添加到文件的末尾：
 
 ```powershell
 Import-Module posh-git
@@ -169,6 +169,15 @@ Set-Theme Paradox
 ```
 
 现在，每个新实例启动时都会导入 `Posh-Git` 和 `Oh-My-Posh`，然后从 `Oh-My-Posh` 设置 `Paradox` 主题。 `Oh-My-Posh` 附带了若干内置主题。
+
+
+You need to close all powershell instances and then run
+
+```powershell
+<path-to-pwsh-executable> -noprofile -command "Install-Module PSReadLine -Force -SkipPublisherCheck -AllowPrerelease"
+```
+
+Unloading the module doesn't unload the assembly from the PSReadLine module (by design in .NET), hence you need to close all instances.
 
 #### 设置字体
 
