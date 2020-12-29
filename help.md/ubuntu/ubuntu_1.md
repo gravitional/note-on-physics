@@ -528,7 +528,7 @@ sudo fc-cache -fv
 
 将建议的软件包视为安装的依赖项. 配置项:`APT::Install-Suggests`.
 
-### dpkg 安装应用
+### dpkg 应用管理
 
 ```bash
 apt-get -f install pkg
@@ -547,7 +547,56 @@ dpkg -i pkg
 
 `ldd /bin/ls` == `ldd`查看依赖信息
 
-### 查看应用安装信息
+-r, --remove package...|-a|--pending
+              Remove an installed package.  This removes everything except conffiles and other data cleaned up by the postrm  script,  which  may
+              avoid  having  to  reconfigure  the  package  if  it is reinstalled later (conffiles are configuration files that are listed in the
+              DEBIAN/conffiles control file).  If there is no DEBIAN/conffiles control file nor DEBIAN/postrm script, this command is  equivalent
+              to calling --purge.  If -a or --pending is given instead of a package name, then all packages unpacked, but marked to be removed in
+              file /var/lib/dpkg/status, are removed.
+
+              Removing of a package consists of the following steps:
+
+              1. Run prerm script
+
+              2. Remove the installed files
+
+              3. Run postrm script
+
+       -P, --purge package...|-a|--pending
+              Purge an installed or already removed package. This removes everything, including conffiles, and  anything  else  cleaned  up  from
+              postrm.   If  -a or --pending is given instead of a package name, then all packages unpacked or removed, but marked to be purged in
+              file /var/lib/dpkg/status, are purged.
+
+              Note: some configuration files might be unknown to dpkg because they are created and handled separately through  the  configuration
+              scripts.  In  that  case,  dpkg won't remove them by itself, but the package's postrm script (which is called by dpkg), has to take
+              care of their removal during purge. Of course, this only applies to files in system directories, not configuration files written to
+              individual users' home directories.
+
+              Purging of a package consists of the following steps:
+
+              1. Remove the package, if not already removed. See --remove for detailed information about how this is done.
+
+              2. Run postrm script.
+
+dpkg-query actions
+              See dpkg-query(1) for more information about the following actions.
+
+              -l, --list package-name-pattern...
+                  List packages matching given pattern.
+              -s, --status package-name...
+                  Report status of specified package.
+              -L, --listfiles package-name...
+                  List files installed to your system from package-name.
+              -S, --search filename-search-pattern...
+                  Search for a filename from installed packages.
+              -p, --print-avail package-name...
+                  Display details about package-name, as found in
+                  /var/lib/dpkg/available. Users of APT-based frontends
+                  should use apt-cache show package-name instead.
+
+
+***
+查看应用安装信息
 
 ```bash
 dpkg -l pkg
