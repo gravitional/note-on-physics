@@ -403,7 +403,7 @@ canonical order: 在排序中,指一种标准的顺序,比如字母顺序.
 + `tar -xzvf  xxx.tar.gz`
 + `gzip foo.txt`
 + `gzip -tv foo.txt.gz` : test,检验压缩文件完整性
-+ `unzip file[.zip] [file(s) ...]  [-x xfile(s) ...] [-d exdir]`  文件名中可以使用通配符,但要quote起来
++ `unzip file[.zip] [file(s) ...]  [-x xfile(s) ...] [-d exdir]`  文件名中可以使用通配符,但要`quote`起来
 
 查看压缩文件内容,以下命令都可以
 
@@ -412,6 +412,20 @@ canonical order: 在排序中,指一种标准的顺序,比如字母顺序.
 + `gunzip -c foo.txt | less`
 + `zcat foo.txt.gz | less`
 + `unzip -l file[.zip] [file(s) ...]`
+
+支持的解压过滤器如下
+
++ `-a, --auto-compress`  使用存档后缀来确定压缩程序。
++ `-I, --use-compress-program=COMMAND`: 通过COMMAND过滤数据。 它必须接受`-d`选项以进行解压缩。 该参数可以包含命令行选项。
++ `-j, --bzip2`: 通过`bzip2(1)`过滤存档。
++ `-J, --xz`: 通过`xz(1)`过滤存档。
++ `--lzip` :通过`lzip(1)`过滤存档。
++ `--lzma` :通过`lzma(1)`过滤存档。
++ `--lzop`:通过lzop(1)过滤存档。
++ `--no-auto-compress`: 不要使用存档后缀来确定压缩程序。
++ `-z, --gzip, --gunzip, --ungzip`: 通过`gzip(1)`过滤存档。
++ `-Z, --compress, --uncompress`通过`compress(1)`过滤存档。
++ `--zstd`: 通过`zstd(1)`过滤存档。
 
 ***
 7z解压缩
@@ -1407,7 +1421,6 @@ inode的特殊作用
 第`3`点使得软件更新变得简单,可以在不关闭软件的情况下进行更新,不需要重启.
 因为系统通过`inode`号码,识别运行中的文件,不通过文件名.更新的时候,新版文件以同样的文件名,生成一个新的`inode`,不会影响到运行中的文件.
 等到下一次运行这个软件的时候,文件名就自动指向新版文件,旧版文件的`inode`则被回收.
-
 
 ## 常用软件
 

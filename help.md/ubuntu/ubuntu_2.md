@@ -151,7 +151,6 @@ The hostname (like `products`) is the text that *precedes* the `domain` name (fo
 
 Executing `hostname` from the Command Prompt is the easiest way to show the hostname of a computer.
 
-
 ## 用 Linux 命令显示硬件信息 
 
 [用 Linux 命令显示硬件信息 ](https://linux.cn/article-11422-1.html)
@@ -453,7 +452,7 @@ Linux 内核提供了一种通过 `/proc` 文件系统,在运行时访问内核�
 
 目录  含义
 
-+ `/bin`  binary,即用来存放二进制可执行文件,并且比较特殊的是`/bin`里存放的是所有一般用户都能使用的可执行文件,如:`cat`, `chmod`, `chown`, `mv`, `mkdir`, `cd` 等常用指令
++ `/bin`  `binary`,即用来存放二进制可执行文件,并且比较特殊的是`/bin`里存放的是所有一般用户都能使用的可执行文件,如:`cat`, `chmod`, `chown`, `mv`, `mkdir`, `cd` 等常用指令
 + `/boot`  存放开机时用到的引导文件
 + `/dev`  device（并不是`develop`哦）,任何设备都以文件的形式存放在这个目录中
 + `/etc`  `Editable Text Configuration`（早期含义为`etcetera`,但是有争议）,存放系统配置文件,如各种服务的启动配置,账号密码等
@@ -2446,7 +2445,8 @@ cd /
 tar -xvpzf /media/Disk/myDisk/ubuntu_backup@2016-6-6.tar.gz -C /
 ```
 
-注意先创建一个临时目录用于挂载你的`/`根目录分区，`sdaX`代表你的`/`根目录分区，如果不知道就用`fdisk -l`查看一下，另外如果你的移动硬盘没有被自动挂载，你也需要手动创建一个临时目录进行挂载。
+注意先创建一个临时目录用于挂载你的`/`根目录分区，`sdaX`代表你的`/`根目录分区，
+如果不知道就用`fdisk -l`查看一下，另外如果你的移动硬盘没有被自动挂载，你也需要手动创建一个临时目录进行挂载。
 
 Note：
 因为 tar还原是只会覆盖相同的文件，但是这种方法只是恢复备份时的文件，就是说如果某些文件丢失或损坏了，这样可以恢复修复这些文件，但不能删除自备份到恢复前这期间所生成的其它文件.
