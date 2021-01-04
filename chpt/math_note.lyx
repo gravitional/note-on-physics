@@ -4024,7 +4024,7 @@ where
 
 \begin_inset Formula 
 \[
-F\left[a,b,0\right]=\int\dif k^{+}\int k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}=\frac{\frac{\partial^{a+b-2}}{\partial\Omega^{a+b-2}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}}{\left(a-1\right)!\left(b-1\right)!}\frac{\left(2\pi i\right)\left(1-z\right)^{a-1}z^{b-1}}{\left(k_{\perp}^{2}+\Omega\right)}\delta\left(y\right)
+F\left[a,b,0\right]=\int\dif k^{+}\int k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}=\frac{\frac{\partial^{a+b-2}}{\partial\Omega^{a+b-2}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}}{\left(a-1\right)!\left(b-1\right)!}\frac{\left(2\pi i\right)\left(1-z\right)^{a-1}z^{b-1}}{\left(k_{\perp}^{2}+\Omega\right)}\delta\left(y\right),a\ge1,b\ge1
 \]
 
 \end_inset
@@ -4032,7 +4032,7 @@ F\left[a,b,0\right]=\int\dif k^{+}\int k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{
 
 \begin_inset Formula 
 \[
-F\delta\left[a,b,0\right]=\int\dif k^{+}\dif k^{-}\frac{kpy\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}=\frac{\frac{\partial^{a+b-2}}{\partial\Omega^{a+b-2}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}}{\left(a-1\right)!\left(b-1\right)!}\log\left(\frac{k_{\perp}^{2}+\Omega}{\mu^{2}}\right)\left(2\pi i\right)\left(1-z\right)^{a-1}z^{b-1}\delta\left(y\right)
+{\color{blue}G\left[a,b,0\right]}=\int\dif k^{+}\dif k^{-}\frac{kpy\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}\left(k\right)^{b}}=\frac{\frac{\partial^{a+b-2}}{\partial\Omega^{a+b-2}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}}{\left(a-1\right)!\left(b-1\right)!}\log\left(\frac{k_{\perp}^{2}+\Omega}{\mu^{2}}\right)\left(2\pi i\right)\left(1-z\right)^{a-1}z^{b-1}\delta\left(y\right)
 \]
 
 \end_inset
@@ -4074,7 +4074,7 @@ F\left[a,b,c\right]=\int\dif k^{+}\int\dif k^{-}\frac{\delta\left(y-\frac{k^{+}}
 
 \begin_inset Formula 
 \[
-F\left[a,b,-1\right]=F\left[a-1,b,0\right]+F\left[a,b,0\right]*\left(m_{\phi}^{2}-\Delta\overline{M}\right)-\frac{2}{y}F\delta\left[a,b,0\right]
+F\left[a,b,-1\right]=F\left[a-1,b,0\right]+F\left[a,b,0\right]*\left(m_{\phi}^{2}-\Delta\overline{M}\right)-\frac{2}{y}{\color{blue}G\left[a,b,0\right]}
 \]
 
 \end_inset
@@ -4092,16 +4092,35 @@ where
 \begin_inset Formula $m_{\phi}^{2},M_{B}^{2}$
 \end_inset
 
-有关的结构。
+有关的结构。根据上面
+\begin_inset Formula $D_{\phi B}$
+\end_inset
+
+的表达式，
 \begin_inset Formula 
-\begin{align*}
- & D_{\phi B}=-\tilde{m}_{\phi}^{2}-\frac{y}{\overline{y}}\tilde{M}_{B}\\
- & D_{\Lambda B}=-\tilde{\Lambda}-\frac{y}{\overline{y}}\tilde{M}_{B}
-\end{align*}
+\[
+\frac{\partial^{c-1}}{\partial M_{B}^{2;c-1}}\frac{1}{D_{\phi B}^{a}D_{\Lambda B}^{b}}\Rightarrow\left(\frac{\partial^{c-1}}{\partial H^{c-1}}\frac{1}{\left(D_{\phi B}-y/\overline{y}H\right)^{a}\left(D_{\Lambda B}-y/\overline{y}H\right)^{b}}\right)/.H\to0
+\]
 
 \end_inset
 
-and
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100text%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+可能会用到关系：
 \begin_inset Formula 
 \[
 2kp=D_{\phi}+m_{\phi}^{2}-D_{B}-\Delta\overline{M}
@@ -4121,22 +4140,18 @@ D_{\phi B}+m_{\phi}^{2}-\Delta^{2}=\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2
 \end_layout
 
 \begin_layout Standard
-当
+例如当
 \begin_inset Formula $D_{B}\left(p-k\right)$
 \end_inset
 
-具有正的幂次时，
-\begin_inset Formula 
-\[
-\int\dif k^{+}\int\dif k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)^{c}D_{\Lambda}^{b}\left(k\right)}=\frac{\left(-2\pi i\right)}{\overline{y}}\frac{\partial^{c-1}}{\partial M_{B}^{2;c-1}}\frac{1}{D_{\phi B}^{a}D_{\Lambda B}^{b}},\&k^{+}=yp^{+}
-\]
-
+幂次为
+\begin_inset Formula $2$
 \end_inset
 
-例如：
+：
 \begin_inset Formula 
 \[
-\int\dif k^{+}\int\dif k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)^{2}D_{\Lambda}^{b}\left(k\right)}=\frac{y}{\overline{y}}\frac{\left(-2\pi i\right)}{\overline{y}}\left(\frac{a}{D_{\phi B}^{a+1}D_{\Lambda B}^{b}}+\frac{b}{D_{\phi B}^{a}D_{\Lambda B}^{b+1}}\right)
+\int\dif k^{+}\int\dif k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)^{2}D_{\Lambda}^{b}\left(k\right)}=\frac{\left(-2\pi i\right)}{\overline{y}}\frac{y}{\overline{y}}\left(\frac{a}{D_{\phi B}^{a+1}D_{\Lambda B}^{b}}+\frac{y}{\overline{y}}\frac{b}{D_{\phi B}^{a}D_{\Lambda B}^{b+1}}\right)
 \]
 
 \end_inset
@@ -4149,12 +4164,16 @@ D_{\phi B}+m_{\phi}^{2}-\Delta^{2}=\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2
 \begin_inset Formula $D_{B}\left(p-k\right)$
 \end_inset
 
-具有负的幂次时，
+幂次为
+\begin_inset Formula $-1$
+\end_inset
+
+时：
 \begin_inset Formula 
 \begin{align*}
-F_{c}\left[a,b,-1\right]= & \int\dif k^{+}\int\dif k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}^{b}\left(k\right)D_{B}\left(p-k\right)^{-1}}\\
+F\left[a,b,-1\right]= & \int\dif k^{+}\int\dif k^{-}\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{\Lambda}^{b}\left(k\right)D_{B}\left(p-k\right)^{-1}}\\
 = & \int\dif k^{+}\int\dif k^{-}\frac{D_{\phi}+m_{\phi}^{2}-\Delta\overline{M}-2kp}{D_{\phi}\left(k\right)^{a}D_{\Lambda}^{b}\left(k\right)}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
-= & F_{\delta;1}\left[a-1,b\right]+F_{\delta;1}\left[a,b\right]*\left(m_{\phi}^{2}-\Delta\overline{M}\right)-2F_{\delta;2}\left[a,b\right]
+= & F\left[a-1,b,0\right]+\left(m_{\phi}^{2}-\Delta\overline{M}\right)F\left[a,b,0\right]-\frac{2}{y}G\left[a,b,0\right]
 \end{align*}
 
 \end_inset
