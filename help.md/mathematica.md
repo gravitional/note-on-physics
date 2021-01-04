@@ -1,5 +1,39 @@
 # mathematica.md
 
+## 自定义笔记本的字体
+
+```mathematica
+AbsoluteOptions[EvaluationNotebook[], StyleDefinitions];(*笔记本字体设置*)
+style`my = Notebook[{
+    Cell[StyleData[
+      StyleDefinitions -> 
+       FrontEnd`FileName[{"Book"}, "Textbook.nb", 
+        CharacterEncoding -> "UTF-8"]]],
+    Cell[StyleData["Section"], FontFamily -> "Noto Sans CJK SC Bold", 
+     FontSize -> 16, FontWeight -> "Bold", FontSlant -> "Plain", 
+     FontVariations -> {"StrikeThrough" -> False, 
+       "Underline" -> False}],
+    Cell[StyleData["Subsection"], 
+     FontFamily -> "Noto Sans CJK SC Black", FontSize -> 13, 
+     FontWeight -> "Heavy", FontSlant -> "Plain", 
+     FontVariations -> {"StrikeThrough" -> False, 
+       "Underline" -> False}],
+    Cell[StyleData["Subsubsection"], 
+     FontFamily -> "Noto Sans CJK SC Bold", FontSize -> 11, 
+     FontWeight -> "Bold", FontSlant -> "Plain", 
+     FontVariations -> {"StrikeThrough" -> False, 
+       "Underline" -> False}],
+    Cell[StyleData["Text"], FontFamily -> "Noto Sans CJK SC Regular", 
+     FontSize -> 12, FontWeight -> "Plain", FontSlant -> "Plain", 
+     FontVariations -> {"StrikeThrough" -> False, 
+       "Underline" -> False}]
+    },
+   Visible -> False,
+   StyleDefinitions -> "PrivateStylesheetFormatting.nb"
+   ];
+SetOptions[EvaluationNotebook[], StyleDefinitions -> style`my];
+```
+
 ## 快捷键
 
 `Ctrl+Shift+B`，选中配对的括号
@@ -499,7 +533,7 @@ tutorial/GraphicsAndSoundOverview
 
 算子运算，即泛函
 
-## restore the output format changed by FeynCalc
+## 恢复默认输出格式（被 FeynCalc 更改）
 
 SetOptions[EvaluationNotebook[],  CommonDefaultFormatTypes -> {"Output" -> StandardForm}]
 
