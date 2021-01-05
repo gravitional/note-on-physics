@@ -5528,47 +5528,45 @@ f_{a}^{+}\left(y\right) & ={\color{blue}\left(e_{\phi}^{q}\right)}\frac{iC_{B\ph
 
 \end_inset
 
-使用代换，
+化简过程可能选择不同的基，使用代换：
 \begin_inset Formula 
 \begin{align*}
  & k^{2}=D_{\phi}+m_{\phi}^{2}\\
- & 2kp=k^{2}-\left(p-k\right)^{2}+M^{2}=k^{2}-D_{B}\left(p-k\right)-\Delta\overline{M}\\
+ & 2kp=k^{2}-\left(p-k\right)^{2}+M^{2}=D_{\phi}-D_{B}+m_{\phi}^{2}-\Delta\overline{M}\\
  & M=\left(\overline{M}-\Delta\right)/2,\quad M_{B}=\left(\overline{M}+\Delta\right)/2,\quad MM_{B}=\left(\overline{M}^{2}-\Delta^{2}\right)/4
 \end{align*}
 
 \end_inset
 
-化简过程可能选择不同的基，salamu的化简流程是先替换
-\begin_inset Formula $k^{2}=2kp+D_{B}+\Delta\overline{M}$
+从上面看出
+\begin_inset Formula $k^{2},2kp$
 \end_inset
 
-，将产生的
-\begin_inset Formula $\left(kp\right)^{2}$
+会与分母中的传播子抵消，导致幂次降低。结果的结构中，传播子的幂次是关键的指标。比较特定幂次，比如
+\begin_inset Formula $1/D_{\phi}^{2}D_{\Lambda}^{4}D_{B}$
 \end_inset
 
-约掉。然后作
-\begin_inset Formula $2kp=D_{\phi}+m_{\phi}^{2}-D_{B}-\Delta\overline{M}$
+的系数，即可知道这一项的结果是否一致。
+\end_layout
+
+\begin_layout Standard
+salamu 化简的时候，将结果中产生的
+\begin_inset Formula $D_{B}^{-1}$
 \end_inset
 
-的替换。结果中可能产生
-\begin_inset Formula $D_{B}^{2}$
+，也就是分子上净剩余的
+\begin_inset Formula $D_{B}$
 \end_inset
 
-项，为了方便求解，再作
-\begin_inset Formula $D_{B}^{2}=\left(2kp-D_{\phi}-m_{\phi}^{2}+\Delta\overline{M}\right)D_{B}$
+，再作
+\begin_inset Formula $D_{B}=\left(2kp-D_{\phi}-m_{\phi}^{2}+\Delta\overline{M}\right)$
 \end_inset
 
-替换，再 Simplify.
-\begin_inset Formula 
-\begin{align*}
-k^{2} & =2kp+D_{B}+\Delta\overline{M},\\
-2kp & =D_{\phi}+m_{\phi}^{2}-D_{B}-\Delta\overline{M}\\
-D_{B}^{2} & =\left(2kp-D_{\phi}-m_{\phi}^{2}+\Delta\overline{M}\right)D_{B}
-\end{align*}
-
+替换，产生了类似
+\begin_inset Formula $\frac{2pk}{D_{\phi}^{2}\left(k\right)D_{\Lambda}\left(k\right)^{4}}$
 \end_inset
 
-
+这样的项。
 \begin_inset Formula 
 \begin{align*}
  & 4\left(kp\right)^{2}-2k^{2}M\overline{M}-2k^{2}\left(kp\right)\\
@@ -5580,18 +5578,14 @@ D_{B}^{2} & =\left(2kp-D_{\phi}-m_{\phi}^{2}+\Delta\overline{M}\right)D_{B}
 
 \end_inset
 
-而 salamu 化简的结果是
+salamu 化简的结果是
 \begin_inset Formula 
 \[
-f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}ky\delta\left(y-\frac{k^{+}}{p^{+}}\right)\left[\frac{\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi}^{2}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}+\frac{-\overline{M}^{2}}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}+\frac{\left(\Delta\overline{M}-2pk\right)}{D_{\phi}^{2}\left(k\right)D_{\Lambda}\left(k\right)^{4}}\right]
+f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}ky\delta\left(y-\frac{k^{+}}{p^{+}}\right)\left[\frac{\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{\left[4,2,1\right]}+\frac{\left(-\overline{M}^{2}\right)}{\left[4,1,1\right]}+\frac{\left(\Delta\overline{M}-2pk\right)}{\left[4,2\right]}\right]
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 其中
 \begin_inset Formula $k^{+}=k^{0}+k^{z}$
 \end_inset
@@ -5609,6 +5603,14 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{B\phi}^{2}\overline
 \end_inset
 
 。
+\begin_inset Formula $\left[4,2,1\right]$
+\end_inset
+
+表示
+\begin_inset Formula $D_{\Lambda}^{4}D_{\phi}^{2}D_{B}^{1}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
@@ -5620,11 +5622,7 @@ f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{B\phi}^{2}\overline
 \begin_inset Formula $\bar{u}u=1$
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
-考虑到 Gordon 恒等式,
+。考虑到 Gordon 恒等式,
 \begin_inset Formula 
 \[
 \bar{u}\left(p_{2}\right)\gamma^{\mu}u\left(p_{1}\right)=\bar{u}\left(p_{2}\right)\left[\frac{\left(p_{2}+p_{1}\right)^{\mu}}{2m}+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}\right]u\left(p_{1}\right)
@@ -5673,13 +5671,10 @@ u\left(p\right)p^{\mu}\bar{u}\left(p\right)=\tr\left[\left(\slashed{p}+M\right)p
 
 \begin_layout Standard
 总之，
-\size small
-
 \begin_inset Formula 
-\begin{align*}
-f_{a}^{+}\left(y\right) & ={\color{blue}\left({\color{blue}4M}e_{\phi}^{q}\right)}\frac{iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}ky\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
- & \times\left[\frac{\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{D_{\phi}^{2}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}+\frac{-\overline{M}^{2}}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)^{4}}+\frac{\left(\Delta\overline{M}-2pk\right)}{D_{\phi}^{2}\left(k\right)D_{\Lambda}\left(k\right)^{4}}\right]
-\end{align*}
+\[
+f_{a}^{+}\left(y\right)=\frac{{\color{blue}\left({\color{blue}4M}e_{\phi}^{q}\right)}iC_{B\phi}^{2}\overline{\Lambda}^{8}}{\left(2\pi\right)^{4}f^{2}}\int\dif^{4}ky\delta\left(y-\frac{k^{+}}{p^{+}}\right)\left[\frac{\overline{M}^{2}\left(\Delta^{2}-m_{\phi}^{2}\right)}{\left[4,2,1\right]}+\frac{-\overline{M}^{2}}{\left[4,1,1\right]}+\frac{\left(\Delta\overline{M}-2pk\right)}{\left[4,2\right]}\right]
+\]
 
 \end_inset
 
@@ -7946,18 +7941,45 @@ iS_{T}^{\alpha\beta}\left(p\right)=-\left(\gamma p+M_{T}\right)\left(g_{\alpha\b
 PDF 情形化简到
 \begin_inset Formula 
 \[
-H^{\mu}\Rightarrow\frac{2k^{\mu}k_{\alpha}\Theta^{\alpha\beta}S_{T;\beta\rho}\left(p-k\right)\Theta^{\rho\sigma}k_{\sigma}}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)^{2}D_{T}\left(p-k\right)}
+\bar{u}\left(p\right)H^{+}u\left(p\right)=\frac{4k^{+}}{6M_{T}^{2}}\frac{-8\left(M\left(M+M_{T}\right)-kp\right)\left(M^{2}k^{2}-\left(kp\right)^{2}\right)}{D_{\Lambda}\left(k\right)^{4}D_{\phi}\left(k\right)^{2}D_{T}\left(p-k\right)}
 \]
 
 \end_inset
 
+类比八重态部分，有
+\begin_inset Formula 
+\begin{align*}
+ & k^{2}=D_{\phi}+m_{\phi}^{2},\quad2kp=k^{2}-\left(p-k\right)^{2}+M^{2}=D_{\phi}-D_{T}+m_{\phi}^{2}-WE\\
+ & M=\left(W-E\right)/2,\quad M_{T}=\left(W+E\right)/2,\\
+ & W=M+M_{T},\quad E=M_{T}-M
+\end{align*}
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
+丢入 mathemtica 化简，得到
+\begin_inset Formula 
+\begin{align}
+ & \Rightarrow-8\left(M\left(M+M_{T}\right)-kp\right)\left(M^{2}k^{2}-\left(kp\right)^{2}\right)\label{eq: pdf_fh}\\
+ & =\left(W^{2}-m_{\phi}^{2}\right){}^{2}\left(E^{2}-m_{\phi}^{2}\right)\nonumber \\
+ & -D_{\phi}\left(W^{2}-m_{\phi}^{2}\right)\left(2E^{2}+W^{2}-3m_{\phi}^{2}\right)+D_{\phi}^{2}\left(E^{2}+2W^{2}-3m_{\phi}^{2}\right)\nonumber \\
+ & +D_{T}\left(W^{2}-m_{\phi}^{2}\right)\left(E^{2}+2EW-3m_{\phi}^{2}\right)+D_{T}^{2}\left(2EW+W^{2}-3m_{\phi}^{2}\right)\nonumber \\
+ & -D_{T}D_{\phi}\left(E^{2}+2EW+3W^{2}-6m_{\phi}^{2}\right)-3D_{T}^{2}D_{\phi}+3D_{T}D_{\phi}^{2}-D_{\phi}^{3}+D_{T}^{3}\nonumber 
+\end{align}
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
-f_{\phi T}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{T\phi}^{2}\overline{\Lambda}^{8}}{6M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}H\delta\left(y-\frac{k^{+}}{p^{+}}\right)
+f_{h}^{+}={\color{blue}\left(4Me_{\phi}^{q}\right)}\frac{iC_{T\phi}^{2}\overline{\Lambda}^{8}}{6M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}y\delta\left(y-\frac{k^{+}}{p^{+}}\right)\frac{-8\left(M\left(M+M_{T}\right)-kp\right)\left(M^{2}k^{2}-\left(kp\right)^{2}\right)}{D_{\Lambda}^{4}D_{\phi}^{2}D_{T}}
+\]
+
+\end_inset
+
+salamu的结果是
+\begin_inset Formula 
+\[
+f_{\phi T}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{T\phi}^{2}\overline{\Lambda}^{8}}{6M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}y\delta\left(y-\frac{k^{+}}{p^{+}}\right)\#
 \]
 
 \end_inset
@@ -7967,32 +7989,46 @@ f_{\phi T}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{T\phi}^{2}\overline
 
 \begin_inset Formula 
 \begin{align*}
-H & =\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\phi}^{2}D_{T}D_{\Lambda}^{4}}-\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(\overline{M}_{T}^{2}+2\Delta_{T}^{2}-3m_{\phi}^{2}\right)}{D_{\phi}D_{T}D_{\Lambda}^{4}}+\frac{y\left(2\overline{M}_{T}^{2}+\Delta_{T}^{2}-k^{2}-2m_{\phi}^{2}\right)}{D_{T}D_{\Lambda}^{4}}\\
- & +\frac{y}{D_{\phi}^{2}D_{\Lambda}^{4}}\left[4\left(pk\right)^{2}-2\left(\overline{M}_{T}^{2}-k^{2}\right)pk+\left(M_{T}^{2}-k^{2}\right)^{2}+M\left(2M_{T}^{3}-M^{3}-2M^{2}M_{T}\right)-2Mk^{2}\left(2M+M_{T}\right)\right]
+\# & =\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\phi}^{2}D_{T}D_{\Lambda}^{4}}-\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(\overline{M}_{T}^{2}+2\Delta_{T}^{2}-3m_{\phi}^{2}\right)}{D_{\phi}D_{T}D_{\Lambda}^{4}}+\frac{\left(2\overline{M}_{T}^{2}+\Delta_{T}^{2}-k^{2}-2m_{\phi}^{2}\right)}{D_{T}D_{\Lambda}^{4}}\\
+ & +\frac{1}{D_{\phi}^{2}D_{\Lambda}^{4}}\left[4\left(pk\right)^{2}-2\left(\overline{M}_{T}^{2}-k^{2}\right)kp+\left(M_{T}^{2}-k^{2}\right)^{2}+M\left(2M_{T}^{3}-M^{3}-2M^{2}M_{T}\right)-2Mk^{2}\left(2M+M_{T}\right)\right]
 \end{align*}
 
 \end_inset
 
-其中 decuplet 中间态的耦合常数
+
+\size default
+
+\begin_inset Formula $\#$
+\end_inset
+
+和上面的
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: pdf_fh"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 是相同的。
+\size small
+decuplet 的耦合常数
 \begin_inset Formula $C_{T\phi}$
 \end_inset
 
-列在表格I中，质量
-\begin_inset Formula $\overline{M}_{T}$
-\end_inset
-
- and 
-\begin_inset Formula $\Delta_{T}$
-\end_inset
-
- 的定义为
+列在表格I中，salamu 使用的记号为
 \begin_inset Formula 
 \[
-\overline{M}_{T}=M+M_{T},\quad\Delta_{T}=M_{T}-M
+\overline{M}_{T}=M+M_{T},\quad\Delta_{T}=M_{T}-M.
 \]
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 经过
 \begin_inset Formula $k^{-}$
 \end_inset
@@ -8002,6 +8038,8 @@ H & =\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{
 \end_inset
 
 –函数项的和
+\size small
+
 \begin_inset Formula 
 \[
 f_{\phi T}^{\left(\text{rbw}\right)}=\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\left\{ f_{T}^{\left(\text{on}\right)}\left(y\right)+f_{T}^{\left(\text{on end}\right)}\left(y\right)+\frac{-1}{18}f_{T}^{\left(\delta\right)}\left(y\right)+\frac{\overline{M}^{2}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[f_{\phi}^{\left(\delta\right)}\left(y\right)-\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]\right\} 
