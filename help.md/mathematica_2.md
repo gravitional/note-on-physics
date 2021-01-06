@@ -1994,6 +1994,11 @@ FindSequenceFunction
 mathematica 的消息系统，可以用来输出错误和警告：
 tutorial/Messages
 
+Message
+Messages
+Information
+
+
 ## mma package 包
 
 tutorial/SettingUpWolframLanguagePackages
