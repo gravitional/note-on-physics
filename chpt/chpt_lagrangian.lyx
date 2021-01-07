@@ -8684,9 +8684,9 @@ i
 
 –矩阵之后得到
 \begin_inset Formula 
-\[
-f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{T\phi}^{2}\overline{\Lambda}^{8}}{6M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\#
-\]
+\begin{equation}
+f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{T\phi}^{2}\overline{\Lambda}^{8}}{6M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\#\label{eq:yu_100}
+\end{equation}
 
 \end_inset
 
@@ -8989,7 +8989,143 @@ f_{T}^{\left(\text{KR}\right)}\left(y\right)=\frac{C_{T\phi}^{2}\overline{M}_{T}
 
 \end_inset
 
-其中各函数遵循之前的定义。最终
+其中各函数遵循之前的定义。
+\end_layout
+
+\begin_layout Subsection
+k
+\end_layout
+
+\begin_layout Standard
+规范链接引入的 fig.1k，分裂函数为
+\begin_inset Formula 
+\begin{equation}
+\delta f_{T}^{\left(\text{KR}\right)}\left(y\right)=\frac{-2iC_{T\phi}^{2}\overline{\Lambda}^{8}}{3M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}y\delta\left(y-\frac{k^{+}}{p^{+}}\right)\#\label{eq:yu_110}
+\end{equation}
+
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+\# & =\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda}^{5}D_{\phi}D_{T}}+\frac{\left(k^{2}+m_{\phi}^{2}\right)\left(2\overline{M}_{T}^{2}+\Delta_{T}^{2}-m_{\phi}^{2}\right)-\left(\overline{M}_{T}^{2}-2\Delta_{T}^{2}\right)\overline{M}_{T}^{2}-k^{4}}{D_{\Lambda}^{5}D_{T}}\\
+ & +\frac{4\left(kp\right)^{2}+3m_{\phi}^{4}-\left(3k^{2}+3\overline{M}_{T}^{2}+\Delta_{T}^{2}-\overline{M}_{T}\Delta_{T}\right)m_{\phi}^{2}-\left(4k^{2}-6m_{\phi}^{2}+2\overline{M}_{T}^{2}\right)kp+k^{2}\overline{M}_{T}^{2}+\overline{M}_{T}^{3}\Delta_{T}+k^{4}}{D_{\Lambda}^{5}D_{\phi}}\\
+ & +\frac{-\left(3M_{T}^{2}+5M^{2}+4MM_{T}-3m_{\phi}^{2}-6kp\right)}{D_{\Lambda}^{5}}
+\end{align*}
+
+\end_inset
+
+
+\size default
+对
+\begin_inset Formula $k^{-}$
+\end_inset
+
+积分之后， 非定域 KR 规范链接图的分裂函数为
+\begin_inset Formula 
+\begin{equation}
+\delta f_{T}^{\left(\text{KR}\right)}\left(y\right)=\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\left[-4\delta f_{T}^{\left(\text{off}\right)}\left(y\right)+\frac{1}{18}\delta f_{T}^{\left(\delta\right)}\left(y\right)-\frac{\overline{M}^{2}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)}{6M_{T}^{2}\overline{M}_{T}^{2}}\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]\label{eq:yu_111}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+从
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: yu_85"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu_100"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu_109"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu_111"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，可以验证十重态重子的贡献满足
+\begin_inset Formula 
+\[
+f_{\phi T}^{\left(\text{rbw}\right)}\left(y\right)=f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)+f_{T}^{\left(\text{KR}\right)}\left(y\right)+\delta f_{T}^{\left(\text{KR}\right)}\left(y\right).
+\]
+
+\end_inset
+
+它将
+\begin_inset CommandInset href
+LatexCommand href
+name "Phys.Rev.D94,094035(2016)."
+target "https://doi.org/10.1103/PhysRevD.94.094035"
+literal "false"
+
+\end_inset
+
+中的结果推广到非定域情形，in the presence of vertex functions parametrizing the extended
+ nature of the proton.
+\end_layout
+
+\begin_layout Section
+领头阶非解析行为
+\end_layout
+
+\begin_layout Standard
+上一节中讨论了质子分裂成一个赝标量介子和一个 SU(3) octet (
+\begin_inset Formula $B$
+\end_inset
+
+) or decuplet (
+\begin_inset Formula $T$
+\end_inset
+
+)的分裂函数。下面来讨论每个函数的特征，通过数值方法说明它们的相对形状和幅值。全集中一共有
+\begin_inset Formula $8$
+\end_inset
+
+个在定域极限下不为零的基本函数，
+\begin_inset Formula $\left\{ f_{B}^{\left(\text{on}\right)},f_{B}^{\left(\text{off}\right)},f_{T}^{\left(\text{on}\right)},f_{T}^{\left(\text{on end}\right)},f_{T}^{\left(\text{off}\right)},f_{T}^{\left(\text{off end}\right)},f_{T}^{\left(\delta\right)},f_{\phi}^{\left(\delta\right)}\right\} $
+\end_inset
+
+;和
+\begin_inset Formula $4$
+\end_inset
+
+个非定域函数，
+\begin_inset Formula $\left\{ \delta f_{B}^{\left(\text{off}\right)},\delta f_{T}^{\left(\text{off}\right)},\delta f_{T}^{\left(\delta\right)},\delta f_{\phi}^{\left(\delta\right)}\right\} $
+\end_inset
+
+，对点状的粒子为零。Fig1 中各图对应的分裂函数，可以写成这些基本函数的线性组合。
 \end_layout
 
 \begin_layout Section
