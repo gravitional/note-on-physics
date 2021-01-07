@@ -9086,7 +9086,7 @@ f_{\phi T}^{\left(\text{rbw}\right)}\left(y\right)=f_{T\phi}^{\left(\text{rbw}\r
 它将
 \begin_inset CommandInset href
 LatexCommand href
-name "Phys.Rev.D94,094035(2016)."
+name "Phys.Rev.D94,094035(2016)"
 target "https://doi.org/10.1103/PhysRevD.94.094035"
 literal "false"
 
@@ -9126,6 +9126,269 @@ literal "false"
 \end_inset
 
 ，对点状的粒子为零。Fig1 中各图对应的分裂函数，可以写成这些基本函数的线性组合。
+\end_layout
+
+\begin_layout Standard
+在使用协变 dipole 形状因子计算分裂函数的数值结果之前，我们首先来确认一些 basis 函数的基本特征，这不依赖于正规化方法的细节，而完全由手征圈图的红外
+行为决定。也就是，将 basis 分裂函数的最低阶矩
+\begin_inset Formula $\langle f_{i}\rangle$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\langle f_{i}\rangle=\int_{0}^{1}\dif yf_{i}\left(y\right)
+\]
+
+\end_inset
+
+按赝标介子质量
+\begin_inset Formula $m_{\phi}$
+\end_inset
+
+展开，
+\begin_inset Formula $m_{\phi}^{2}$
+\end_inset
+
+非解析项（NA）的系数（either 
+\begin_inset Formula $m_{\phi}$
+\end_inset
+
+ 的奇次幂 or 
+\begin_inset Formula $m_{\phi}$
+\end_inset
+
+ 的对数）由核子的低能性质决定，而与这些函数的紫外行为无关。特别地，在壳和离壳函数，
+\begin_inset Formula $f_{B}^{\left(\text{on}\right)},f_{B}^{\left(\text{off}\right)},f_{T}^{\left(\text{on}\right)},f_{T}^{\left(\text{off}\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta$
+\end_inset
+
+ 项 
+\begin_inset Formula $f_{\phi}^{\left(\delta\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{T}^{\left(\delta\right)}$
+\end_inset
+
+ 都有 NA 贡献；而非定域函数，以及十重态端点贡献
+\begin_inset Formula $f_{T}^{\left(\text{on end}\right)},f_{T}^{\left(\text{off end}\right)}$
+\end_inset
+
+ 是完全解析的。
+\end_layout
+
+\begin_layout Standard
+对于 octet 中间态，on–shell moment 
+\begin_inset Formula $\langle f_{B}^{\left(\text{on}\right)}\rangle$
+\end_inset
+
+为
+\begin_inset Formula 
+\[
+\overline{M}^{2}\left.\langle f_{B}^{\left(\text{on}\right)}\rangle\right|_{\text{NA}}=\begin{cases}
+\left(4m_{\phi}^{2}-6\Delta^{2}\right)\log m_{\phi}^{2}+6R\Delta\log\frac{\Delta-R}{\Delta+R}, & \Delta>m_{\phi},\\
+\left(4m_{\phi}^{2}-6\Delta^{2}\right)\log m_{\phi}^{2}+6\overline{R}\Delta\left(\pi-2\arctan\frac{\Delta}{\overline{R}}\right), & \Delta<m_{\phi},
+\end{cases}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $R=\sqrt{\Delta^{2}-m_{\phi}^{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{R}=\sqrt{m_{\phi}^{2}-\Delta^{2}}$
+\end_inset
+
+。这和
+\begin_inset CommandInset href
+LatexCommand href
+name "Phys.Rev.D94,094035(2016)"
+target "https://doi.org/10.1103/PhysRevD.94.094035"
+literal "false"
+
+\end_inset
+
+中 strange octet 贡献的结果吻合。特别地对于后者
+\begin_inset Formula $\Delta<m_{\phi}$
+\end_inset
+
+，在
+\begin_inset Formula $m_{\phi}\to0$
+\end_inset
+
+的手征极限下，
+\begin_inset Formula $\Delta$
+\end_inset
+
+先趋于零，则 LNA 项形式较为简单，
+\begin_inset Formula $\Rightarrow4m_{\phi}^{2}\log m_{\phi}^{2}$
+\end_inset
+
+，和文献【20-24，27】中的相同。对于
+\begin_inset Formula $\Delta>m_{\phi}$
+\end_inset
+
+的情况，将
+\begin_inset Formula $R$
+\end_inset
+
+展开：
+\begin_inset Formula $R=\Delta-m_{\phi}^{2}/2\Delta+\mathcal{O}\left(m_{\phi}^{4}\right)$
+\end_inset
+
+，可以发现
+\begin_inset Formula $\Delta^{2}\log m_{\phi}^{2}$
+\end_inset
+
+项抵消，余下同样的 LNA 行为
+\begin_inset Formula $\sim m_{\phi}^{2}\log m_{\phi}^{2}$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+\overline{M}^{2}\left.\langle f_{B}^{\left(\text{on}\right)}\rangle\right|_{\text{NA}} & =\left(4m_{\phi}^{2}-6\Delta^{2}\right)\log m_{\phi}^{2}+6\Delta^{2}\log m_{\phi}^{2}-3m_{\phi}^{2}\log m_{\phi}^{2}\\
+ & =m_{\phi}^{2}\log m_{\phi}^{2},\Delta>m_{\phi},
+\end{align*}
+
+\end_inset
+
+但是系数相比于
+\begin_inset Formula $\Delta<m_{\phi}$
+\end_inset
+
+少了一个
+\begin_inset Formula $4$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+对于离壳 moment 
+\begin_inset Formula $f_{B}^{\left(\text{off}\right)}$
+\end_inset
+
+，NA 贡献是
+\begin_inset Formula 
+\[
+\overline{M}^{2}\left.\langle f_{B}^{\left(\text{off}\right)}\rangle\right|_{\text{NA}}=\begin{cases}
+-2m_{\phi}^{2}\log m_{\phi}^{2}-\frac{2R^{3}}{M_{B}}\log\frac{\Delta-R}{\Delta+R}, & \Delta>m_{\phi},\\
+-2m_{\phi}^{2}\log m_{\phi}^{2}+\frac{2\overline{R}^{3}}{M_{B}}\left(\pi-2\arctan\frac{\Delta}{\overline{R}}\right), & \Delta<m_{\phi},
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta$
+\end_inset
+
+项的 moment 的LNA行为是
+\begin_inset Formula 
+\[
+\overline{M}^{2}\left.\langle f_{\phi}^{\left(\delta\right)}\rangle\right|_{\text{LNA}}=-m_{\phi}^{2}\log m_{\phi}^{2}.
+\]
+
+\end_inset
+
+这些结果推广了 
+\begin_inset CommandInset href
+LatexCommand href
+name "Phys.Rev.D94,094035(2016)"
+target "https://doi.org/10.1103/PhysRevD.94.094035"
+literal "false"
+
+\end_inset
+
+中 hyperons and kaons 的 LNA 表达式。
+\end_layout
+
+\begin_layout Standard
+对于重子十重中间态，on–shell moment 
+\begin_inset Formula $f_{T}^{\left(\text{on}\right)}$
+\end_inset
+
+ 的 NA 项是
+\begin_inset Formula 
+\[
+\overline{M}^{2}\left.\langle f_{B}^{\left(\text{off}\right)}\rangle\right|_{\text{NA}}=\begin{cases}
+\frac{2}{3}m_{\phi}^{2}\log m_{\phi}^{2}+\frac{4R_{T}^{3}}{3M_{T}}\log\frac{\Delta_{T}-R_{T}}{\Delta_{T}+R_{T}}, & \Delta_{T}>m_{\phi},\\
+\frac{2}{3}m_{\phi}^{2}\log m_{\phi}^{2}-\frac{4\overline{R}^{3}}{3M_{T}}\left(\pi-2\arctan\frac{\Delta_{T}}{\overline{R}_{T}}\right), & \Delta_{T}<m_{\phi},
+\end{cases}
+\]
+
+\end_inset
+
+decuplet 
+\begin_inset Formula $\delta$
+\end_inset
+
+ 项 moment 没有LNA 项，但是在
+\begin_inset Formula $m_{\pi}$
+\end_inset
+
+的更高阶有贡献
+\begin_inset Formula 
+\[
+\left.\overline{M}_{T}^{2}\langle f_{T}^{\left(\delta\right)}\rangle\right|_{\text{LNA}}=0
+\]
+
+\end_inset
+
+十重态部分总LNA的行为和
+\begin_inset Formula $\pi\Delta$
+\end_inset
+
+ 中间态的结果恰好一致，arising from the 
+\begin_inset Formula $f_{T}^{\left(\text{on}\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{\phi}^{\left(\delta\right)}$
+\end_inset
+
+项 in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: yu_85"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，如果文献中的
+\begin_inset Formula $\pi N\Delta$
+\end_inset
+
+偶合常数
+\begin_inset Formula $g_{\pi N\Delta}$
+\end_inset
+
+和 meson–octet–decuplet 偶合常数 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+由
+\begin_inset Formula $g_{\pi N\Delta}^{2}=\mathcal{C}/\left(2f^{2}\right)$
+\end_inset
+
+联系起来。
+\end_layout
+
+\begin_layout Standard
+我们强调，这些结果是普适的，只取决于赝标量介子圈的红外性质，following directly from 手征拉氏量的对称性。它们与模型依赖的短程贡献无关，因
+此它给我们提供了验证任何模型是否跟手征对称性一致的方法。
 \end_layout
 
 \begin_layout Section
