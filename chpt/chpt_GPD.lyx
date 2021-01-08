@@ -159,13 +159,43 @@ Thomas
 \end_layout
 
 \begin_layout Section
+形状因子投影
+\end_layout
+
+\begin_layout Standard
+总结就是
+\begin_inset Formula 
+\begin{align*}
+ & A=\tr\left[\Gamma^{\mu}\gamma_{\mu}\right]=4\left[F_{1}\left(Q^{2}\right)+F_{2}\left(Q^{2}\right)\right]\\
+ & B=\tr\left[\Gamma^{\mu}\left(p_{2}+p_{1}\right)_{\mu}\right]=-2\left(4m^{2}+Q^{2}\right)\frac{F_{2}\left(Q^{2}\right)}{m}
+\end{align*}
+
+\end_inset
+
+把它看成一个关于
+\begin_inset Formula $F_{1},F_{2}$
+\end_inset
+
+的线性方程组，求解得到
+\begin_inset Formula 
+\begin{align*}
+ & F_{1}=\frac{-A\left(4m^{2}+Q^{2}\right)-2mB}{4\left(4m^{2}+Q^{2}\right)},\quad F_{2}=\frac{-mB}{2\left(4m^{2}+Q^{2}\right)}\\
+ & F_{1}=\frac{-A}{4}+\frac{-mB}{2\left(4m^{2}+Q^{2}\right)},\quad F_{2}=\frac{-mB}{2\left(4m^{2}+Q^{2}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 约定
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-f_{q}\left(x\right)=\frac{1}{2}\int_{-\infty}^{\infty}\frac{\dif\lambda}{2\pi}e^{-i\lambda x\left(n_{-}\cdot P\right)}\bra{P^{\prime}}\bar{q}\left(\frac{\lambda}{2}n_{-}\right)\slashed{n}_{-}q\left(-\frac{\lambda}{2}n_{-}\right)\ket{P}
+f_{q}\left(x\right)=\frac{1}{2}\int_{-\infty}^{\infty}\frac{\dif\lambda}{2\pi}e^{-i\lambda x\left(n_{-}P\right)}\bra{P^{\prime}}\bar{q}\left(\frac{\lambda}{2}n_{-}\right)\slashed{n}_{-}q\left(-\frac{\lambda}{2}n_{-}\right)\ket{P}
 \]
 
 \end_inset
@@ -261,17 +291,22 @@ k=\left(\frac{Q}{2},0,0,\frac{Q}{2}\right)\qquad k^{\prime}=\left(\frac{Q}{2},0,
 \begin_layout Enumerate
 何方成: 在 Breit 参考系，入射和出射质子的动量可以表示成：
 \begin_inset Formula 
+\begin{align*}
+ & p+p^{\prime}=2P,\quad\Delta=p^{\prime}-p,\quad p^{\prime}=P+\frac{\Delta}{2},\quad p=P-\frac{\Delta}{2},\\
+ & y=\frac{k^{+}}{P^{+}},\quad t=-\Delta^{2}=-\left(p^{\prime}-p\right)^{2}=Q^{2},\quad\xi=-\frac{\Delta^{+}}{2P^{+}}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
 \[
-p^{\prime}=P+\frac{\Delta}{2},p=P-\frac{\Delta}{2}
+2p\Delta=Q^{2}-M^{2},\quad2p^{\prime}\Delta=M^{2}-Q^{2},\quad2pp^{\prime}=Q^{2}+2M^{2}
 \]
 
 \end_inset
 
-所以
-\begin_inset Formula $p+p^{\prime}=2P$
-\end_inset
-
-，这个分解总能做到，与坐标系无关。GPDs 
+这个分解总能做到，与坐标系无关。GPDs 
 \begin_inset Formula $H^{q}$
 \end_inset
 
@@ -287,37 +322,28 @@ p^{\prime}=P+\frac{\Delta}{2},p=P-\frac{\Delta}{2}
 \begin_inset Formula $t$
 \end_inset
 
- and skewness 参数 
+ 和 skewness 
 \begin_inset Formula $\xi$
 \end_inset
 
- 
-\begin_inset Formula 
-\[
-x=\frac{k^{+}}{P^{+}},\quad t=-\Delta^{2}=-\left(p^{\prime}-p\right)^{2},\quad\xi=-\frac{\Delta^{+}}{2P^{+}}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}
-\]
-
+ 。
+\begin_inset Newline newline
 \end_inset
 
 在计算中，取
-\begin_inset Formula $\xi=0$
+\begin_inset Formula $\xi=0,\Delta=\left(0,0,\boldsymbol{\Delta}_{\perp}\right)$
 \end_inset
 
-，我们在 Drell-Yan frame 中计算 GPDs
-\begin_inset Formula 
-\begin{align*}
-\Delta & =\left(0,0,\boldsymbol{\Delta}_{\perp}\right)\\
-p & =\left(P^{+},P^{-},-\frac{\boldsymbol{\Delta}_{\perp}}{2}\right)\\
-p^{\prime} & =\left(P^{+},P^{-},\frac{\boldsymbol{\Delta}_{\perp}}{2}\right)
-\end{align*}
-
+，我们在 Drell-Yan 坐标系中计算 GPDs，
+\begin_inset Formula $v\cdot w=v^{+}w^{-}-\boldsymbol{v}\cdot\boldsymbol{w}$
 \end_inset
 
-
+:
 \begin_inset Formula 
 \begin{align*}
- & v\cdot w=v^{+}w^{-}+w^{+}v^{-}-\boldsymbol{v}\cdot\boldsymbol{w}\\
- & x=\frac{k^{+}}{P^{+}},\quad t=-\left(p^{\prime}-p\right)^{2}=Q^{2}=\boldsymbol{\Delta}_{\perp}^{2},\quad\xi=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}=0
+ & \xi=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}=0,\quad Q^{2}=\boldsymbol{\Delta}_{\perp}^{2}\quad,y=\frac{k^{+}}{P^{+}}=\frac{k^{+}}{p^{+}}=\frac{k^{+}}{p^{\prime+}},\\
+ & p=\left(P^{+},P^{-},-\frac{\boldsymbol{\Delta}_{\perp}}{2}\right),\quad p^{\prime}=\left(P^{+},P^{-},\frac{\boldsymbol{\Delta}_{\perp}}{2}\right),\quad2P=\left(P^{+},P^{-},\boldsymbol{0}\right),\\
+ & ykp=k^{+}k^{-}+\frac{y\boldsymbol{\Delta}_{\perp}k_{\perp}}{2},\quad ykp^{\prime}=k^{+}k^{-}-\frac{y\boldsymbol{\Delta}_{\perp}k_{\perp}}{2}
 \end{align*}
 
 \end_inset
@@ -337,15 +363,6 @@ noprefix "false"
 \end_inset
 
  中 。
-\begin_inset Formula 
-\begin{align}
-\mathcal{L} & =\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]\label{eq:eq17}\\
- & +\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]\nonumber 
-\end{align}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -413,8 +430,8 @@ noprefix "false"
 a, 光子耦合到介子，它对分裂函数的贡献为，
 \begin_inset Formula 
 \begin{align*}
-I_{a}^{+} & =\bar{u}\left(p^{\prime}\right)C_{\phi B}\int\frac{\dif^{4}a}{\left(2\pi\right)^{4}}\left(\slashed{k}+\frac{\slashed{q}}{2}\right)\gamma^{5}F\left(\frac{q}{2}+k\right)\frac{1}{D_{\phi}\left(k+\frac{q}{2}\right)}\left(k^{+}+\frac{q^{+}}{2}+k^{+}-\frac{q^{+}}{2}\right)\\
- & \frac{1}{D_{\phi}\left(k-\frac{q}{2}\right)}\frac{1}{\slashed{p}-\left(\slashed{k}-\frac{\slashed{q}}{2}\right)-m}\left(-1\right)\left(\slashed{k}-\frac{\slashed{q}}{2}\right)\gamma^{5}F\left(k-\frac{q}{2}\right)\delta\left(y-\frac{k^{+}}{p^{+}}\right)u\left(p\right)\\
+I_{a}^{+} & =\bar{u}\left(p^{\prime}\right)C_{\phi B}\int\frac{\dif^{4}a}{\left(2\pi\right)^{4}}\left(\slashed{k}+\slashed{\Delta}\right)\gamma^{5}F\left(\Delta+k\right)\frac{1}{D_{\phi}\left(k+\Delta\right)}\left(2k^{+}+\Delta^{+}\right)\\
+ & \frac{1}{D_{\phi}\left(k-\Delta\right)}\frac{1}{\slashed{p}-\left(\slashed{k}-\slashed{\Delta}\right)-m}\left(-1\right)\left(\slashed{k}-\slashed{\Delta}\right)\gamma^{5}F\left(k-\Delta\right)\delta\left(y-\frac{k^{+}}{p^{+}}\right)u\left(p\right)\\
  & =\bar{u}\left(p^{\prime}\right)\left\{ \gamma^{+}f_{\phi B}\left(y,Q^{2}\right)+\frac{i\sigma^{+\nu}q_{\nu}}{2m_{N}}g_{\phi B}\left(y,Q^{2}\right)\right\} u\left(p\right)
 \end{align*}
 
