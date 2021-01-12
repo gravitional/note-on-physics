@@ -8,9 +8,6 @@ Wolfram语言允许通过发送适当的前端令牌，从内核以脚本的方�
 除了所有标准菜单命令，还包括默认前端菜单配置无法直接访问的`tokens`。
 
 ***
-`模式` tutorial/PatternsAndTransformationRules
-
-***
 `模块` tutorial/HowModulesWork
 Wolfram 语言中模块的基本工作方式非常简单. 
 任何模块每一次使用时，就产生一个新符号去代表它的每一个局部变量. 
@@ -19,7 +16,182 @@ Wolfram 语言中模块的基本工作方式非常简单.
 `Module` 中产生形如 `x$nnn` 的符号去代表每个局部变量.
 
 ***
-变量局部化
+`模式` tutorial/PatternsAndTransformationRules
+`常用表达式的模式`  tutorial/PatternsForSomeCommonTypesOfExpression
+`模式与匹配 引言`: tutorial/OptionalAndDefaultArguments
+
+表达式 `F[a,b,c...]`
+
+`_ Blank[]`, 有且只有一个的表达式序列
+
+`__ BlankSequence[]`, 一个或多个表达式序列
+
+```mathematica
+s : _ | __ // FullForm
+Pattern[s,Alternatives[Blank[],BlankSequence[]]]
+```
+
+头部也可以是表达式，
+所以`_ Blank[]`可以指带`f[a,b,c...][x,y,z...]`
+
+```mathematica
+MatchQ[f[a,b,c][x,y,z],x_]
+True
+```
+
+***
+`对模式施加限制` tutorial/PuttingConstraintsOnPatterns
+`限制模式` tutorial/PuttingConstraintsOnPatterns
+
+Wolfram 语言中提供了对模式进行限制的一般方法. 这可以通过在模式后面加 `/;condition` 来实现，此运算符 /; 可读作"斜杠分号"、"每当"或"只要"，其作用是当所指定的 condition 值为 True 时模式才能使用.
+
+***
+`重复模式` tutorial/Introduction-Patterns
+`expr..` 重复一次或多次的模式或表达式
+`expr...` 重复零次或多次的模式或表达式
+
+`规则与模式`: 
+guide/RulesAndPatterns
+guide/Patterns
+
+Wolfram 语言符号编程范式的核心，是任意符号模式转换规则的概念. Wolfram 语言的模式语言方便的描述了一系列各种类型的表达式，让程序变得易读、简洁且高效.
+
+***
+`各种替换`
+
++ `Replace`
++ `ReplaceAll`
++ `ReplaceRepeated`
++ `ReplacePart`
++ `Dispatch`: 可以加速替换.
+
+`mma`中的表达式都可以表示成树. 不同的函数具体的操作流程不同。
+
+`ReplaceAll`大概是：在树的根部，也就是从整个表达式开始，然后第一层，第一个，尝试每个规则，如果可以替换就替换，否则深入到下一层，然后第二个，等等。
+对于某个子表达式，`ReplaceAll`使用可用的第一个规则，然后跳过这个子集, 不再尝试更多的规则. `ReplaceAll` 仅对一个表达式应用特定规则一次.
+也就是`ReplaceAll`替换它可以替换的最大子表达式，然后停止.
+如果替换规则没有嵌套，应该可以保证完全替换. 否则应该使用`ReplaceRepeated`. 
+
+`ReplaceRepeated`重复应用`ReplaceAll`， 直到表达式不再变化为止。
+
+`Replace` with level spec `All` 将会尝试替换每个子表达式 exactly 一次.
+
+`ReplacePart`: 替换某些位置上的子表达式.
+
+***
+`Condition`:条件替换
+`PatternTest`: 模式检测
+
+```mathematica
+f[x_] := Condition[ppp[x], x > 0]
+```
+
+当`x > 0`为真的时候，才进行函数的定义.
+
+判断是否为数值对象:
+
+```mathematica
+NumericQ[Sin[Sqrt[2]]]
+```
+
+***
+`无序模式`
+
+```mathematica
+MatchQ[{2, 1}, {OrderlessPatternSequence[1, 2]}]
+```
+
+***
+带有`默认参数`的匹配: tutorial/OptionalAndDefaultArguments
+
+有些函数，比如`Plus`，具有`Flat`性质，在模式匹配中可以匹配任意多的数目的参数，因为`Plus[1,2,3]=Plus[1,Plus[2,3]]`。但是它不能匹配单个`a`。
+
+这时候可以使用`x_+y_.`这样的写法，对应的函数是`x+Optional[y_]`，就可以匹配到`a+0`了，由于`Plus`具有全局默认参数,`0`。
+
+使用`x_.`可以匹配那些在数学上相等，但是在结构上不相等的式子。`x_.`会自动选取外层函数的全局默认值。
+
+```mathematica
+{g[a^2], g[a + b]} /. g[x_^n_] -> p[x, n]
+{p[a, 2], g[a + b]}
+```
+
+有时候需要分配一个没有默认值的可选参数，可以使用`2 | PatternSequence[]`，如
+
+```mathematica
+{g[1], g[1, 1], g[1, 2]} /. g[x_, 2 | PatternSequence[]] :> p[x]
+{p[1], g[1, 1], p[1]}
+```
+
+***
+`字符串处理`: `字符串模式` tutorial/WorkingWithStringPatterns
+
+LetterQ
+
+比较字符串时忽略大小写，这个功能在`StringMatchQ`的选项中：
+`StringMatchQ["acggtATTCaagc", __ ~~ "aT" ~~ __, IgnoreCase -> True]`
+
+在字符串匹配中，`x_`只匹配单个字符，`characters`,`StringExpression[pattern...]`可以用来表示模式序列，有各种各样对应正则表达式功能的函数。
+
+比如
+
++ `StartOfString`   字符串开头
++ `EndOfString`   字符串结尾
++ `StartOfLine`   行的开始
++ `EndOfLine`   行的结束
++ `WordBoundary`   boundary between word characters and others 
++ `Except[WordBoundary]`   anywhere except a word boundary 
+
+***
+
+`字符串模式`: tutorial/StringPatterns
+`文本标准化` guide/TextNormalization
+`StringDelete`
+`StringReplace`:替换字符串
+`字符串运算`: guide/StringOperations
+`正则表达式`:RegularExpression
+
+***
+字符串导出导入
+
+常用函数
+
++ `Import`
++ `Export`
++ `ImportString`
++ `ExportString`
+
+选项 默认值 含义
+
+`"TextDelimiters"` string or list of strings 给非数字（一般是字符串）分界
+`"FieldSeparators"`  `{" ","\t"}`给columns分界的字符串
+`"LineSeparators"`  `{"\r\n","\n","\r"}`  给rows分界的字符串
+`"Numeric"`  `True` 如果可能的话，是否把数据导入成数字
+
+例子
+
+```mathematica
+ExportString[{1, "text", 2, 3},
+ "Table",
+ "TextDelimiters" -> {"<", ">"},
+ "LineSeparators" -> "\n",
+ "FieldSeparators" -> " "
+ ]
+ ```
+
+`wolframscripts` 结合`shell` 使用时，传递参数最好用字符串，不会改变结构。
+在mma 脚本内部，使用 `ToString` and `ToExpression` 进行转化，为了保险，可以增加`InputForm`选项。
+
+***
+命令行输出的时候，可以用
+
+```
+ExportString[RandomReal[10, {4, 3}], "Table"]
+```
+
+还有`"List"`格式
+
+***
+`变量局部化`
 
 `Block` 居域化变量，但不创建新变量; `Module` 创建新变量。
 
@@ -30,9 +202,7 @@ Module[{x}, Print[x]]
 ```
 
 ***
-表达式的层次
-
-`Level` `Map` `Scan` 等的区别: 
+`表达式的层次`: `Level` `Map` `Scan` 等的区别: 
 
 它们都可以使用标准的层次指定, `Scan` 和 `Map`效果一样，但是`Scan`不会返回结果（不会建立一个新的表达式）. 
 `Scan` 可以用过程化的控制：`Return`, `Throw`, `Catch`
@@ -93,23 +263,6 @@ $ParentProcessID   调用Wolfram语言内核的进程的ID
 $Username   运行Wolfram语言内核的用户的登录名
 Environment["var"]   操作系统定义的变量的值
 ```
-
-***
-`字符串处理`: `字符串模式` tutorial/WorkingWithStringPatterns
-
-比较字符串时忽略大小写，这个功能在`StringMatchQ`的选项中：
-`StringMatchQ["acggtATTCaagc", __ ~~ "aT" ~~ __, IgnoreCase -> True]`
-
-在字符串匹配中，`x_`只匹配单个字符，`characters`,`StringExpression[pattern...]`可以用来表示模式序列，有各种各样对应正则表达式功能的函数。
-
-比如
-
-+ `StartOfString`   字符串开头
-+ `EndOfString`   字符串结尾
-+ `StartOfLine`   行的开始
-+ `EndOfLine`   行的结束
-+ `WordBoundary`   boundary between word characters and others 
-+ `Except[WordBoundary]`   anywhere except a word boundary 
 
 ***
 `张量` tutorial/SymmetrizedArrays
@@ -198,49 +351,6 @@ MatrixForm/@basis
 ```
 
 ***
-`对模式施加限制` tutorial/PuttingConstraintsOnPatterns
-
-```mathematica
-f[x_] := Condition[ppp[x], x > 0]
-```
-
-当`x > 0`为真的时候，才进行函数的定义.
-
-判断是否为数值对象:
-
-```mathematica
-NumericQ[Sin[Sqrt[2]]]
-```
-
-***
-`无序模式`
-
-```mathematica
-MatchQ[{2, 1}, {OrderlessPatternSequence[1, 2]}]
-```
-
-***
-带有`默认参数`的匹配: tutorial/OptionalAndDefaultArguments
-
-有些函数，比如`Plus`，具有`Flat`性质，在模式匹配中可以匹配任意多的数目的参数，因为`Plus[1,2,3]=Plus[1,Plus[2,3]]`。但是它不能匹配单个`a`。
-
-这时候可以使用`x_+y_.`这样的写法，对应的函数是`x+Optional[y_]`，就可以匹配到`a+0`了，由于`Plus`具有全局默认参数,`0`。
-
-使用`x_.`可以匹配那些在数学上相等，但是在结构上不相等的式子。`x_.`会自动选取外层函数的全局默认值。
-
-```mathematica
-{g[a^2], g[a + b]} /. g[x_^n_] -> p[x, n]
-{p[a, 2], g[a + b]}
-```
-
-有时候需要分配一个没有默认值的可选参数，可以使用`2 | PatternSequence[]`，如
-
-```mathematica
-{g[1], g[1, 1], g[1, 2]} /. g[x_, 2 | PatternSequence[]] :> p[x]
-{p[1], g[1, 1], p[1]}
-```
-
-***
 `插图`: `Inset[obj,pos,opos,size]`
 
 把一个图像插入到外层图像的特定位置，并指定插图的大小
@@ -303,11 +413,9 @@ x:_h:v
 ```
 
 ***
-key-value 键值对
+`key-value 键值对`
 
-`key-value`类型的参数，在 mma 中，通过选项实现，`Option`
-
-`OptionsPattern[]` 匹配
+`key-value`类型的参数，在 `mma` 中，通过选项--`Option`实现，, `OptionsPattern[]` 匹配
 
 + `OptionsPattern`匹配由`->`或`:>`指定的的任何替换规则序列，或规则的嵌套列表。
 + 在`OptionsPattern [{spec1,spec2，...}]`中，`speci`可以是 `Head fi`，或显式的规则`opti->vali`. 对于每个`Head fi`，使用`Options[fi]`获得规则列表。
@@ -365,7 +473,21 @@ Module[{u},
 ```
 
 ***
-io文件操作
+`离散数学` guide/DiscreteMathematics
+
+***
+IO 文件操作
+
+目录和目录操作 guide/DirectoriesAndDirectoryOperations
+
+设定目录时候，可以用`NotebookDirectory[]` 输出目标路径，然后采用字符串模式匹配的方法，获取根目录，这样得到的目录可以不依赖文件的子目录位置，例如
+
+```mathematica
+git`root`dir=StringCases[NotebookDirectory[],
+StartOfString~~((WordCharacter|":"|"\\")..)~~"octet.formfactor"][[1]]
+
+Out[136]= "C:\\octet.formfactor"
+```
 
 + `NotebookFileName[]` 笔记本路径详细
 + `NotebookDirectory[]`笔记本父目录
@@ -375,46 +497,6 @@ io文件操作
 + `FileNameSplit[]` 路径分割
 + `ExpandFileName[]` 展开为绝对路径
 + `FileNames[]` 列出指定目录下符合模式的文件
-  
-***
-字符串导出导入
-
-常用函数
-
-+ `Import`
-+ `Export`
-+ `ImportString`
-+ `ExportString`
-
-选项 默认值 含义
-
-`"TextDelimiters"` string or list of strings 给非数字（一般是字符串）分界
-`"FieldSeparators"`  `{" ","\t"}`给columns分界的字符串
-`"LineSeparators"`  `{"\r\n","\n","\r"}`  给rows分界的字符串
-`"Numeric"`  `True` 如果可能的话，是否把数据导入成数字
-
-例子
-
-```mathematica
-ExportString[{1, "text", 2, 3},
- "Table",
- "TextDelimiters" -> {"<", ">"},
- "LineSeparators" -> "\n",
- "FieldSeparators" -> " "
- ]
- ```
-
-`wolframscripts` 结合`shell` 使用时，传递参数最好用字符串，不会改变结构。
-在mma 脚本内部，使用 `ToString` and `ToExpression` 进行转化，为了保险，可以增加`InputForm`选项。
-
-***
-命令行输出的时候，可以用
-
-```
-ExportString[RandomReal[10, {4, 3}], "Table"]
-```
-
-还有`"List"`格式
 
 ***
 `流和文件`:  tutorial/FilesAndStreams
@@ -1050,10 +1132,6 @@ Out[1]= {f[a,x],f[b,y],f[c,z]}
 ```
 
 ***
-目录和目录操作 guide/DirectoriesAndDirectoryOperations
-离散数学 guide/DiscreteMathematics
-
-***
 `上设置延迟` ref/UpSetDelayed
 
 把 `rhs` 赋为 `lhs` 的延迟值，并将这种赋值和在 lhs 中层 1 出现的符号相关联.
@@ -1072,9 +1150,6 @@ Out[1]= {f[a,x],f[b,y],f[c,z]}
 `重画和组合图形` tutorial/RedrawingAndCombiningPlots
 
 `Wolfram` 语言的所有图形都是表达式，其操控方式与其它表达式相同. 这些操控不要求使用 Show.
-
-***
-常用表达式的模式  tutorial/PatternsForSomeCommonTypesOfExpression
 
 ***
 基本几何区域 guide/GeometricSpecialRegions
@@ -1110,13 +1185,6 @@ SetOptions[EvaluationNotebook[], ShowCellLabel -> False];
 `求解线性系统`: tutorial/SolvingLinearSystems
 
 ***
-`字符串模式`: tutorial/StringPatterns
-`文本标准化` guide/TextNormalization
-`StringDelete`
-`StringReplace`:替换字符串
-`字符串运算`: guide/StringOperations
-`正则表达式`:RegularExpression
-***
 `函数的上值和下值` tutorial/AssociatingDefinitionsWithDifferentSymbols
 
 ***
@@ -1132,9 +1200,6 @@ SetOptions[EvaluationNotebook[], ShowCellLabel -> False];
 ref/JoinAcross
 tutorial/LevelsInExpressions
 tutorial/Introduction-Patterns
-
-***
-`模式与匹配 引言`: tutorial/OptionalAndDefaultArguments
 
 ***
 `可选变量与默认变量`:ref/$SummaryBoxDataSizeLimit
@@ -1211,33 +1276,6 @@ Out[1]= a
 ```mathematica
 SetOptions[EvaluationNotebook[],  CommonDefaultFormatTypes -> {"Output" -> StandardForm}]
 ```
-
-***
-`规则与模式`: 
-guide/RulesAndPatterns
-guide/Patterns
-
-Wolfram 语言符号编程范式的核心，是任意符号模式转换规则的概念. Wolfram 语言的模式语言方便的描述了一系列各种类型的表达式，让程序变得易读、简洁且高效.
-
-`常用表达式的模式` tutorial/PatternsForSomeCommonTypesOfExpression
-
-利用在"引言"中描述的对象，你可以设置许多不同类型表达式的模式. 需要注意的是，在所有情况下，模式必须用 Wolfram 语言内部格式（FullForm 显示）来表示表达式的结构.
-
-***
-`重复模式` tutorial/Introduction-Patterns
-
-`expr..` 重复一次或多次的模式或表达式
-`expr...` 重复零次或多次的模式或表达式
-
-***
-`限制模式` tutorial/PuttingConstraintsOnPatterns
-
-Wolfram 语言中提供了对模式进行限制的一般方法. 这可以通过在模式后面加 /;condition 来实现，此运算符 /; 可读作"斜杠分号"、"每当"或"只要"，其作用是当所指定的 condition 值为 True 时模式才能使用.
-
-`ReplaceAll`  查看 `expr` 的每个部分，尝试所有的规则，然后继续 `expr` 的下一部分. 
-使用应用到一个特定部分的第一个规则；在这个部分或它的任何子集没有尝试更多的规则.`ReplaceAll` 仅对一个表达式应用特定规则一次.
-
-LetterQ
 
 ***
 `ctrl+space`跳出子表达式
@@ -1407,28 +1445,6 @@ Show[%, Frame -> True]
 对 `Axes` 等图形选项, Wolfram 语言的前端会自动画出用户需要的坐标轴等对象. 这些对象由选项值表示, 而非被确定的图形基元列表表示. 然而, 用户会需要要找到代表这些对象的图形基元列表. 函数 `FullGraphics` 给出不使用任何选项的情况下, 生成图形的完整的图形基元列表.
 
 ***
-模式
-
-表达式 `F[a,b,c...]`
-
-`_ Blank[]`, 有且只有一个的表达式序列
-
-`__ BlankSequence[]`, 一个或多个表达式序列
-
-```mathematica
-s : _ | __ // FullForm
-Pattern[s,Alternatives[Blank[],BlankSequence[]]]
-```
-
-头部也可以是表达式，
-所以`_ Blank[]`可以指带`f[a,b,c...][x,y,z...]`
-
-```mathematica
-MatchQ[f[a,b,c][x,y,z],x_]
-True
-```
-
-***
 `UpSetDelayed` 
 `:=`
 `=`
@@ -1557,18 +1573,6 @@ Out[1]= {{a,b,c},{d,e,f}}
 图例中的布局函数一定要加一个括号，如果使用匿名函数的话，例如：
 `SwatchLegend[63, Range[5], LegendLayout -> (Multicolumn[***
 , 1] &)]`
-
-***
-`笔记本目录操作`
-
-设定目录时候，可以用`NotebookDirectory[]` 输出目标路径，然后采用字符串模式匹配的方法，获取根目录，这样得到的目录可以不依赖文件的子目录位置，例如
-
-```mathematica
-git`root`dir=StringCases[NotebookDirectory[],
-StartOfString~~((WordCharacter|":"|"\\")..)~~"octet.formfactor"][[1]]
-
-Out[136]= "C:\\octet.formfactor"
-```
 
 ***
 `通过内核操作笔记本` tutorial/ManipulatingNotebooksFromTheKernel

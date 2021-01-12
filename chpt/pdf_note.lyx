@@ -7859,6 +7859,10 @@ noprefix "false"
 列在表格I中。
 \end_layout
 
+\begin_layout Subsubsection
+在壳项
+\end_layout
+
 \begin_layout Standard
 经过
 \begin_inset Formula $k^{-}$
@@ -7896,13 +7900,21 @@ noprefix "false"
 
 \end_inset
 
-第一项是 meson 彩虹图的 on–shell 分裂函数，with a decuplet spectator，
+第一项是 meson 彩虹图的 on–shell 分裂函数，with a decuplet spectator，salamu 的结果是
 \size small
 
 \begin_inset Formula 
 \begin{align}
-f_{T}^{\left(\text{on}\right)}=\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{y}{\overline{y}}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\phi T}^{2}D_{\Lambda T}^{4}}+\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)}{\overline{y}}\frac{-3\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)-4MM_{T}}{D_{\phi T}D_{\Lambda T}^{4}}\right]\label{eq:yu_86}
+f_{T}^{\left(\text{on}\right)}=\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{y}{\overline{y}}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda T}^{4}D_{\phi T}^{2}}+\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)}{\overline{y}}\frac{\left[-3\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)-4MM_{T}\right]}{D_{\phi T}D_{\Lambda T}^{4}}\right]\label{eq:yu_86}
 \end{align}
+
+\end_inset
+
+Mathematica 程序计算出的结果是一样的：
+\begin_inset Formula 
+\[
+{\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{y}{\overline{y}}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda T}^{4}D_{\phi T}^{2}}+\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-\overline{M}_{T}^{2}+3m_{\phi}^{2}-2\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}D_{\phi T}}\right]
+\]
 
 \end_inset
 
@@ -7932,7 +7944,7 @@ D_{\phi T}=\frac{k_{\perp}^{2}+yM_{T}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi
 \begin_inset Formula $\overline{\Lambda}^{8}/D_{\Lambda T}^{4}\to1$
 \end_inset
 
-，decuplet on–shell 函数 
+，decuplet 在壳函数 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_86"
@@ -7952,6 +7964,10 @@ literal "true"
 \end_inset
 
  中点粒子的结果。
+\end_layout
+
+\begin_layout Subsubsection
+在壳端点
 \end_layout
 
 \begin_layout Standard
@@ -7980,6 +7996,23 @@ f_{T}^{\left(\text{on end}\right)}=\frac{\overline{\Lambda}^{8}\int\dif k_{\perp
 
 \end_inset
 
+
+\size small
+Mathematica 程序计算出的结果是：
+\size default
+
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{-y\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}}+\frac{-y}{\overline{y}D_{\Lambda T}^{3}}\right]\\
+\Rightarrow & \frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{y}{\overline{y}^{2}D_{\Lambda T}^{4}}\left[-\overline{y}\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)+\left(k_{\perp}^{2}+yM_{T}^{2}-y\overline{y}M^{2}+\overline{y}\Lambda^{2}\right)\right]
+\end{align*}
+
+\end_inset
+
+转换成同一组变量，结果也是相等的。
+\end_layout
+
+\begin_layout Standard
 在
 \begin_inset Formula $\Lambda\to\infty$
 \end_inset
@@ -8346,12 +8379,16 @@ f_{T}^{\left(\text{on}\right)}+f_{T}^{\left(\text{on end}\right)}=\frac{\overlin
 各自不能保证是正定的，由于它们不对应真实的物理过程。而上式中，求和的结果对于任何质量和动量的组合是正定的。
 \end_layout
 
+\begin_layout Subsubsection
+发散项
+\end_layout
+
 \begin_layout Standard
 类似于八重态一样，十重态有些项正比于
 \begin_inset Formula $\delta\left(y\right)$
 \end_inset
 
-。
+。salamu 把发散项分成
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq: yu_85"
@@ -8361,7 +8398,7 @@ noprefix "false"
 
 \end_inset
 
- 
+： 
 \begin_inset Formula 
 \[
 f_{\phi T}^{\left(\text{rbw}\right)}=\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\left\{ f_{T}^{\left(\text{on}\right)}\left(y\right)+f_{T}^{\left(\text{on end}\right)}\left(y\right)+\frac{-1}{18}f_{T}^{\left(\delta\right)}\left(y\right)+\frac{\overline{M}^{2}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[f_{\phi}^{\left(\delta\right)}\left(y\right)-\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]\right\} 
@@ -8369,7 +8406,7 @@ f_{\phi T}^{\left(\text{rbw}\right)}=\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\l
 
 \end_inset
 
-中
+前面八重态部分
 \begin_inset Formula $f_{\phi}^{\left(\delta\right)}$
 \end_inset
 
@@ -8377,24 +8414,64 @@ f_{\phi T}^{\left(\text{rbw}\right)}=\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\l
 \begin_inset Formula $\delta f_{\phi}^{\left(\delta\right)}$
 \end_inset
 
-的定义和前面八重态部分的相同。
+的定义为
+\begin_inset Formula 
+\[
+f_{a}^{\delta}={\color{blue}\left(\frac{{\color{blue}4M}e_{\phi}^{q}}{\pi}\right)}\frac{\left(-\overline{\Lambda}^{8}\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{\left(z^{3}-z^{4}\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}},
+\]
+
+\end_inset
+
+Mathematica 计算的结果是
+\begin_inset Formula 
+\[
+f_{\phi T}^{\delta}\Rightarrow{\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\overline{\Lambda}^{8}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{\left(z^{4}-z^{3}\right)\delta\left(y\right)}{D_{\phi\Lambda}^{4}}
+\]
+
+\end_inset
+
+结果相同。
+\end_layout
+
+\begin_layout Standard
+salamu 使用的
 \begin_inset Formula $f_{T}^{\left(\delta\right)}\left(y\right)$
 \end_inset
 
 的定义为
 \begin_inset Formula 
 \begin{align}
-f_{T}^{\left(\delta\right)}\left(y\right) & =\frac{\overline{\Lambda}^{8}}{M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{z^{3}}{\left(k_{\perp}^{2}+\Omega\right)^{3}}\delta\left(y\right)\label{eq:yu_97}\\
+\frac{-1}{18}f_{T}^{\left(\delta\right)}\left(y\right) & =\frac{-\overline{\Lambda}^{8}}{18M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{z^{3}}{\left(k_{\perp}^{2}+\Omega\right)^{3}}\delta\left(y\right)\label{eq:yu_97}\\
  & =\frac{1}{M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{1}{2\Omega_{\Lambda}^{2}}\left[6\Omega_{\Lambda}^{2}\Omega_{\phi}\log\frac{\Omega_{\phi}}{\Omega_{\Lambda}}+\left(\Omega_{\phi}-\Omega_{\Lambda}\right)\left(\Omega_{\phi}^{2}-5\Omega_{\Lambda}\Omega_{\phi}-2\Omega_{\Lambda}^{2}\right)\right]\delta\left(y\right)\nonumber 
 \end{align}
 
 \end_inset
 
-where 
-\begin_inset Formula $\Omega_{\Lambda}=k_{\perp}^{2}+\Lambda^{2}\text{，\Omega_{\phi}=k_{\perp}^{2}+m_{\phi}^{2}}$
+Mathematica 计算的结果是相同的：
+\begin_inset Formula 
+\[
+{\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{-z^{3}\delta\left(y\right)}{3D_{\phi\Lambda}^{3}}
+\]
+
 \end_inset
 
-。在定域极限下，被积式只剩下第一项，所以
+where 
+\begin_inset Formula $D_{\phi\Lambda}=k_{\perp}^{2}+\Omega$
+\end_inset
+
+，
+\begin_inset Formula $\Omega=\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2}$
+\end_inset
+
+ 。
+\end_layout
+
+\begin_layout Standard
+在定域极限下，
+\begin_inset Formula $f_{T}^{\left(\delta\right)}\left(y\right)$
+\end_inset
+
+的被积式只剩下第一项，所以
 \begin_inset Formula $f_{T}^{\left(\delta\right)}\left(y\right)$
 \end_inset
 
@@ -8414,28 +8491,7 @@ where 截断参数满足，
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq: yu_85"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-中剩余的
-\begin_inset Formula $\delta$
-\end_inset
-
-函数项
-\begin_inset Formula $f_{\phi}^{\left(\delta\right)}$
-\end_inset
-
-和
-\begin_inset Formula $\delta f_{\phi}^{\left(\delta\right)}$
-\end_inset
-
-定义和之前一样。总结上面的推导，
+总结上面的推导，
 \begin_inset Formula $f_{\phi T}^{\left(\text{rbw}\right)}$
 \end_inset
 
@@ -8517,6 +8573,25 @@ i
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\[
+f_{i}^{+}\left(y\right)=\frac{\left(ie_{T}^{q}\right)C_{T\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)H^{+}u\left(p\right)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+H^{\mu}=\frac{\left(k_{\alpha}\Theta^{\alpha\beta}\right)S_{T}^{\beta\theta}\left(p^{\prime}-k\right){\color{blue}\gamma^{\theta\nu\mu}}S_{T}^{\nu\rho}\left(p-k\right)\left(\Theta^{\rho\sigma}k_{\sigma}\right)}{D_{\Lambda}^{4}\left(k\right)D_{\phi}\left(k\right)D_{T}\left(p^{\prime}-k\right)D_{T}\left(p-k\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 对于 fig.1i 中的重子十重态 rainbow 图，化简
 \begin_inset Formula $\gamma$
 \end_inset
@@ -8535,8 +8610,8 @@ f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{T\phi}^{2}\overline{
 \begin_inset Formula 
 \begin{align*}
 \# & =\frac{\overline{y}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda}^{4}D_{\phi}D_{T}^{2}}+\frac{\overline{y}\left(k^{2}+m_{\phi}^{2}\right)\left(2\overline{M}_{T}^{2}+\Delta_{T}^{2}-m_{\phi}^{2}\right)-\overline{M}_{T}^{4}-2\overline{M}_{T}^{2}\Delta_{T}^{2}-k^{4}}{D_{\Lambda}^{4}D_{T}^{2}}\\
- & +\frac{-\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left[\left(y-2\right)M_{T}^{2}-2yMM_{T}+\left(y+2\right)\left(M^{2}-m_{\phi}^{2}\right)\right]}{D_{\Lambda}^{4}D_{\phi}D_{T}}+\frac{\left(y+2\right)\left(2M^{2}-m_{\phi}^{2}-k^{2}\right)+\left(yM_{T}+2M\right)2M_{T}}{D_{\Lambda}^{4}D_{T}}\\
- & +\frac{\overline{M}_{T}^{2}+2y\overline{M}_{T}M-2ykp+3k^{2}}{D_{\Lambda}^{4}D_{\phi}}
+ & +\frac{-\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left[\left(y-2\right)M_{T}^{2}-2yMM_{T}+\left(y+2\right)\left(M^{2}-m_{\phi}^{2}\right)\right]}{D_{\Lambda}^{4}D_{\phi}D_{T}}\\
+ & +\frac{\left(y+2\right)\left(2M^{2}-m_{\phi}^{2}-k^{2}\right)+\left(yM_{T}+2M\right)2M_{T}}{D_{\Lambda}^{4}D_{T}}+\frac{\overline{M}_{T}^{2}+2y\overline{M}_{T}M-2ykp+3k^{2}}{D_{\Lambda}^{4}D_{\phi}}
 \end{align*}
 
 \end_inset
