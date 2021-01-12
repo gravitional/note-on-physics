@@ -566,14 +566,14 @@ tutorial/RepresentingTextualFormsByBoxes
 `Box` 自定义输出格式
 
 一般很少需要修改这些规则。
-主要原因是Wolfram语言已经为许多`operators`的输入和输出建立了内置规则，而该`operators`本身并未为其分配特定的含义。
+主要原因是 `Wolfram` 语言已经为许多`operators`的输入和输出建立了内置规则，而该`operators`本身并未为其分配特定的含义。
 也就是预置了很多可以用，但没有数学规则，只有排版规则的`operators`。
 
 可以用来自定义输出的函数有：
 `MakeBoxes`: 底层版本
 `Format`: 上层版本
 
-mma 在输出计算结果的时候，会使用`MakeBoxes`从表达式构建二维结构(`Box`).
+`mma` 在输出计算结果的时候，会使用`MakeBoxes`从表达式构建二维结构(`Box`).
 `MakeBoxes`是Wolfram系统会话(`sessions`)中用于将表达式转换为`boxes`的`low-level`函数。
 所以可以通过定义表达式的`MakeBoxes`上值来自定义输出。
 
