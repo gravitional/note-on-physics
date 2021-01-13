@@ -5822,10 +5822,28 @@ D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi
 所以分子可以继续化简为
 \begin_inset Formula 
 \begin{align*}
- & \left(\Delta^{2}-m_{\phi}^{2}\right)-D_{\phi B}\\
-= & \frac{1}{\overline{y}}\left[\overline{y}\left(\Delta^{2}-m_{\phi}^{2}\right)+\left(k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}\right)\right]\\
-= & \frac{1}{\overline{y}}\left[k_{\perp}^{2}+\overline{y}\Delta^{2}+yM_{B}^{2}-y\overline{y}M^{2}\right]=\frac{1}{\overline{y}}\left[k_{\perp}^{2}+\Delta^{2}+2y\Delta M+y^{2}M^{2}\right]\\
-= & \frac{1}{\overline{y}}\left[k_{\perp}^{2}+\left(yM+\Delta\right)^{2}\right]
+ & \Rightarrow\left(\Delta^{2}-m_{\phi}^{2}\right)-D_{\phi B}\\
+ & =\frac{1}{\overline{y}}\left[\overline{y}\left(\Delta^{2}-m_{\phi}^{2}\right)+\left(k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}\right)\right]\\
+ & =\frac{1}{\overline{y}}\left[k_{\perp}^{2}+\overline{y}\Delta^{2}+yM_{B}^{2}-y\overline{y}M^{2}\right]=\frac{1}{\overline{y}}\left[k_{\perp}^{2}+\Delta^{2}+2y\Delta M+y^{2}M^{2}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow\left(\Delta^{2}-m_{\phi}^{2}\right)+D_{\phi B}\\
+ & =\frac{1}{\overline{y}}\left[\overline{y}\left(\overline{M}^{2}-m_{\phi}^{2}\right)-\left(k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M^{2}+\overline{y}m_{\phi}^{2}\right)\right]\\
+ & =\frac{1}{\overline{y}}\left[k_{\perp}^{2}+y^{2}\overline{M}^{2}-yM_{B}^{2}-y\overline{y}M^{2}\right]=\frac{1}{\overline{y}}\left[k_{\perp}^{2}+\overline{M}^{2}-2y\overline{M}M+y^{2}M^{2}\right]
+\end{align*}
+
+\end_inset
+
+在十重态部分也有类似的关系，总结就是
+\begin_inset Formula 
+\begin{align*}
+\left(\Delta^{2}-m_{\phi}^{2}\right)-D_{\phi B} & =\frac{1}{\overline{y}}\left[k_{\perp}^{2}+\left(yM+\Delta\right)^{2}\right]\\
+\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)-D_{\phi T} & =\frac{1}{\overline{y}}\left[k_{\perp}^{2}+\left(yM-\overline{M}_{T}\right)^{2}\right]
 \end{align*}
 
 \end_inset
@@ -8662,7 +8680,7 @@ f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)={\color{blue}\left(\frac{4Me_{
 \end_layout
 
 \begin_layout Subsubsection
-在壳和离壳
+在壳
 \end_layout
 
 \begin_layout Standard
@@ -8681,12 +8699,36 @@ f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)={\color{blue}\left(\frac{4Me_{
 
 \begin_inset Formula 
 \begin{align*}
-\# & =f_{T}^{\left(\text{on}\right)}\left(y\right)+f_{T}^{\left(\text{on end}\right)}\left(y\right)-2\left(f_{T}^{\left(\text{off}\right)}\left(y\right)+f_{T}^{\left(\text{off end}\right)}\left(y\right)-2\delta f_{T}^{\left(\text{off}\right)}\left(y\right)\right)\\
+\# & =f_{T}^{\left(\text{on}\right)}\left(y\right)+f_{T}^{\left(\text{on end}\right)}\left(y\right)+\left(-2f_{T}^{\left(\text{off}\right)}\left(y\right)-2f_{T}^{\left(\text{off end}\right)}\left(y\right)+4\delta f_{T}^{\left(\text{off}\right)}\left(y\right)\right)\\
  & +\frac{1}{18}\left(f_{T}^{\left(\delta\right)}\left(y\right)-3\delta f_{T}^{\left(\delta\right)}\left(y\right)\right)-\frac{\overline{M}^{2}\left(\overline{M}_{T}^{2}+3m_{\phi}^{2}\right)}{6M_{T}^{2}\overline{M}_{T}^{2}}f_{\phi}^{\left(\delta\right)}\left(y\right)
 \end{align*}
 
 \end_inset
 
+Mathematica 化简的结果是
+\begin_inset Formula 
+\[
+{\color{blue}\left(\frac{4Me_{T}^{q}}{\pi}\right)}\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\frac{\overline{\Lambda}^{8}}{6\overline{M}_{T}^{2}M_{T}^{2}}\#
+\]
+
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+ & \#=\frac{y\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right){}^{2}}{\overline{y}D_{\Lambda T}^{4}D_{\phi T}^{2}}+\frac{4y\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right){}^{2}}{\overline{y}D_{\Lambda T}^{5}D_{\phi T}}\\
+ & +\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(2\Delta_{T}\overline{M}_{T}+ym_{\phi}^{2}+2m_{\phi}^{2}-y\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}D_{\phi T}}\\
+ & +\frac{-4y\left(\overline{\Lambda}^{4}+3\overline{\Lambda}^{2}m_{\phi}^{2}-4m_{\phi}^{2}\overline{M}_{T}^{2}+2\Delta_{T}^{2}\overline{M}_{T}^{2}-2\overline{\Lambda}^{2}\overline{M}_{T}^{2}+\overline{M}_{T}^{4}-\overline{\Lambda}^{2}\Delta_{T}^{2}-2m_{\phi}^{2}\Delta_{T}^{2}+3m_{\phi}^{4}\right)}{\overline{y}D_{\Lambda T}^{5}}\\
+ & +\frac{-\left(2\overline{\Lambda}^{2}+2\Delta_{T}\overline{M}_{T}-7y\overline{M}_{T}^{2}-2\overline{M}_{T}^{2}+7y\overline{\Lambda}^{2}+11ym_{\phi}^{2}+4m_{\phi}^{2}-4y\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}}\\
+ & +\frac{z^{3}\delta\left(y\right)\left(\overline{M}_{T}^{2}+3m_{\phi}^{2}\right)}{D_{\phi\Lambda}^{4}}+\frac{-\left(3y+2\right)}{\overline{y}D_{\ensuremath{\Lambda}T}^{3}}+\frac{z^{3}\delta\left(y\right)}{3D_{\phi\Lambda}^{3}}-\frac{\delta\left(y\right)}{\Omega_{\Lambda}^{3}}
+\end{align*}
+
+\end_inset
+
+
+\size default
 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8729,13 +8771,18 @@ f_{T}^{\left(\text{on}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\rig
 
 
 \begin_inset Formula 
-\[
-f_{T}^{\left(\text{end}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{y}{\overline{y}^{2}D_{\Lambda T}^{4}}\frac{1}{4}\left[\left(y^{2}+8\overline{y}\right)\overline{M}_{T}^{2}-2\left(y-2\right)y\Delta_{T}\overline{M}_{T}+4k_{\perp}^{2}-8\overline{y}m_{\phi}^{2}+\left(y-2\right)^{2}\Delta_{T}^{2}\right]
-\]
+\begin{align*}
+ & f_{T}^{\left(\text{on end}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{-y\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}}+\frac{-y}{\overline{y}D_{\Lambda T}^{3}}\right]\\
+ & f_{T}^{\left(\text{on end}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{y}{\overline{y}^{2}D_{\Lambda T}^{4}}\left[-\overline{y}\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)+\left(k_{\perp}^{2}+yM_{T}^{2}-y\overline{y}M^{2}+\overline{y}\Lambda^{2}\right)\right]
+\end{align*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+离壳
 \end_layout
 
 \begin_layout Standard
@@ -8817,7 +8864,7 @@ noprefix "false"
 
 \begin_inset Formula 
 \[
-f_{T}^{\left(\text{off end}\right)}\left(y\right)\underset{\Lambda\to\infty}{\longrightarrow}\frac{1}{6M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{y\left[k_{\perp}^{2}+\overline{y}^{2}M^{2}+\overline{y}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)-M_{T}^{2}\right]}{\overline{y}D_{\Lambda T}^{4}}
+f_{T}^{\left(\text{off end}\right)}\left(y\right)\underset{\Lambda\to\infty}{\longrightarrow}\frac{1}{6M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\left\{ \left[\Omega_{T}-2M_{T}^{2}\right]\log\frac{\Omega_{T}}{\mu^{2}}-\Omega_{T}\right\} \delta\left(\overline{y}\right)
 \]
 
 \end_inset
@@ -8839,7 +8886,24 @@ noprefix "false"
 中八重态的情形，十重态分裂函数也有一项非定域 off–shell 项，
 \begin_inset Formula 
 \[
-\delta f_{T}^{\left(\text{off}\right)}\left(y\right)=\frac{\overline{\Lambda}^{8}}{6M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{y\left[k_{\perp}^{2}+\left(yM-\overline{M}_{T}\right)^{2}\right]^{2}\left[k_{\perp}^{2}+\left(yM+\Delta_{T}\right)^{2}\right]}{\overline{y}^{4}D_{\Lambda T}^{5}D_{\phi T}}
+4\delta f_{T}^{\left(\text{off}\right)}\left(y\right)=\frac{\overline{\Lambda}^{8}}{6M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{4y\left[k_{\perp}^{2}+\left(yM-\overline{M}_{T}\right)^{2}\right]^{2}\left[k_{\perp}^{2}+\left(yM+\Delta_{T}\right)^{2}\right]}{\overline{y}^{4}D_{\Lambda T}^{5}D_{\phi T}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)-D_{\phi T} & =\frac{1}{\overline{y}}\left[k_{\perp}^{2}+\left(yM+\Delta_{T}\right)^{2}\right]\\
+\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)-D_{\phi T} & =\frac{1}{\overline{y}}\left[k_{\perp}^{2}+\left(yM-\overline{M}_{T}\right)^{2}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{4y\left[\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)-D_{\phi T}\right]^{2}\left[\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)-D_{\phi T}\right]}{\overline{y}D_{\Lambda T}^{5}D_{\phi T}}
 \]
 
 \end_inset
