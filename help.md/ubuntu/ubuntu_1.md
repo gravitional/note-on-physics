@@ -757,7 +757,7 @@ Device     Boot     Start       End   Sectors   Size Id Type
 
 可以知道sdb2(135M to 6001G)为基本数据分区,格式为`NTFS`
 
-mount command 的标准格式:
+mount 命令的标准格式:
 
 ```bash
 mount -t type device dir
@@ -781,6 +781,49 @@ umount /dev/sda5
 ```
 
 通过`df`可以查看设备挂载点
+
+### 格式化 exfat
+
+[将 USB 盘格式化为 exFAT](https://linux.cn/article-12294-1.html)
+
+从 `Linux kernel 5.4` 开始，Linux 内核本身中启用了 `exFAT` 文件系统支持。检查正在运行的 `Linux` 内核版本。`uname -r`
+如果是内核 `5.4` 或更高版本，那么应该没问题。
+
+不然，你必须启用 exFAT 支持。在基于 `Ubuntu` 的发行版中，你可以安装以下软件包：
+
+```bash
+sudo apt install exfat-fuse exfat-utils
+```
+
+***
+方法 1：使用 `GNOME 磁盘工具`将磁盘格式化为 `exFAT`
+
+使用`GNOME 磁盘` 格式化驱动器是一项简单的工作。它预装在许多 Linux 发行版中。
+插入外部 `USB` 盘。在菜单中查找 `Disk`，然后打开`GNOME 磁盘` 应用。第一步，选择要格式化的驱动器，要使用 `exFAT`，请选择 `其它`，然后单击`下一步`。
+
+***
+方法 2：在 `Linux` 命令行中将磁盘格式化为 `exFAT`.
+
+插入外部硬盘，然后在终端中输入以下命令：
+
+```bash
+sudo fdisk -l
+```
+
+通过列出的磁盘大小信息找出`USB`的标记，`/dev/sdb1`.
+识别出 USB 盘后，请使用以下命令将它格式化为 `exfat`。将` /dev/sdXn` 替换为你的磁盘 `ID`。`LABEL` 是你要为磁盘命名的名称，例如 `Data`,`MyUSB` 等。
+
+```bash
+sudo mkfs.exfat -n LABEL /dev/sdXn
+```
+
+可选地，运行 `fsck` 检查，以确保格式化正确。
+
+```bash
+sudo fsck.exfat /dev/sdXn
+```
+
+就是这样。享受 `exFAT` 盘吧。
 
 ### 查看文档首行末行
 
@@ -1027,49 +1070,6 @@ SYNOPSIS
 + `-l`, `--local` limit listing to local file systems
 + `-h`, `--human-readable` print sizes in powers of 1024 (e.g., 1023M)
 + `-T`, `--print-type` print file system type
-
-### 格式化 exfat
-
-[将 USB 盘格式化为 exFAT](https://linux.cn/article-12294-1.html)
-
-从 `Linux kernel 5.4` 开始，Linux 内核本身中启用了 `exFAT` 文件系统支持。检查正在运行的 `Linux` 内核版本。`uname -r`
-如果是内核 `5.4` 或更高版本，那么应该没问题。
-
-不然，你必须启用 exFAT 支持。在基于 `Ubuntu` 的发行版中，你可以安装以下软件包：
-
-```bash
-sudo apt install exfat-fuse exfat-utils
-```
-
-***
-方法 1：使用 `GNOME 磁盘工具`将磁盘格式化为 `exFAT`
-
-使用`GNOME 磁盘` 格式化驱动器是一项简单的工作。它预装在许多 Linux 发行版中。
-插入外部 `USB` 盘。在菜单中查找 `Disk`，然后打开`GNOME 磁盘` 应用。第一步，选择要格式化的驱动器，要使用 `exFAT`，请选择 `其它`，然后单击`下一步`。
-
-***
-方法 2：在 `Linux` 命令行中将磁盘格式化为 `exFAT`.
-
-插入外部硬盘，然后在终端中输入以下命令：
-
-```bash
-sudo fdisk -l
-```
-
-通过列出的磁盘大小信息找出`USB`的标记，`/dev/sdb1`.
-识别出 USB 盘后，请使用以下命令将它格式化为 `exfat`。将` /dev/sdXn` 替换为你的磁盘 `ID`。`LABEL` 是你要为磁盘命名的名称，例如 `Data`,`MyUSB` 等。
-
-```bash
-sudo mkfs.exfat -n LABEL /dev/sdXn
-```
-
-可选地，运行 `fsck` 检查，以确保格式化正确。
-
-```bash
-sudo fsck.exfat /dev/sdXn
-```
-
-就是这样。享受 `exFAT` 盘吧。
 
 ### find
 

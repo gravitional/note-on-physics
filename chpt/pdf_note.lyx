@@ -1353,7 +1353,7 @@ end{shaded}
 \end_layout
 
 \begin_layout Standard
-对于大部分拉氏量，都已经写成了矩阵运算的形式，可以直接在 mma 中进行处理。对于含有
+对于大部分拉氏量，都已经写成了矩阵运算的形式，可以直接在 Mathematica 中进行处理。对于含有
 \begin_inset Formula $T^{abc}$
 \end_inset
 
@@ -7913,7 +7913,7 @@ f_{T}^{\left(\text{on}\right)}=\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2
 Mathematica 程序计算出的结果是一样的：
 \begin_inset Formula 
 \[
-{\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{y}{\overline{y}}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda T}^{4}D_{\phi T}^{2}}+\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-\overline{M}_{T}^{2}+3m_{\phi}^{2}-2\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}D_{\phi T}}\right]
+f_{T}^{\left(\text{on}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{y}{\overline{y}}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda T}^{4}D_{\phi T}^{2}}+\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-\overline{M}_{T}^{2}+3m_{\phi}^{2}-2\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}D_{\phi T}}\right]
 \]
 
 \end_inset
@@ -7999,16 +7999,17 @@ f_{T}^{\left(\text{on end}\right)}=\frac{\overline{\Lambda}^{8}\int\dif k_{\perp
 
 \size small
 Mathematica 程序计算出的结果是：
-\size default
-
 \begin_inset Formula 
 \begin{align*}
- & \frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{-y\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}}+\frac{-y}{\overline{y}D_{\Lambda T}^{3}}\right]\\
-\Rightarrow & \frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{y}{\overline{y}^{2}D_{\Lambda T}^{4}}\left[-\overline{y}\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)+\left(k_{\perp}^{2}+yM_{T}^{2}-y\overline{y}M^{2}+\overline{y}\Lambda^{2}\right)\right]
+ & f_{T}^{\left(\text{on end}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{-y\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}}+\frac{-y}{\overline{y}D_{\Lambda T}^{3}}\right]\\
+\Rightarrow & {\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{y}{\overline{y}^{2}D_{\Lambda T}^{4}}\left[-\overline{y}\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)+\left(k_{\perp}^{2}+yM_{T}^{2}-y\overline{y}M^{2}+\overline{y}\Lambda^{2}\right)\right]\\
+\Rightarrow & {\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{y}{\overline{y}^{2}D_{\Lambda T}^{4}}\frac{1}{4}\left[\left(y^{2}+8\overline{y}\right)\overline{M}_{T}^{2}-2\left(y-2\right)y\Delta_{T}\overline{M}_{T}+4k_{\perp}^{2}-8\overline{y}m_{\phi}^{2}+\left(y-2\right)^{2}\Delta_{T}^{2}\right]
 \end{align*}
 
 \end_inset
 
+
+\size default
 转换成同一组变量，结果也是相等的。
 \end_layout
 
@@ -8604,13 +8605,19 @@ H^{\mu}=\frac{\left(k_{\alpha}\Theta^{\alpha\beta}\right)S_{T}^{\beta\theta}\lef
 
 \end_inset
 
+使用运动学关系
+\begin_inset Formula 
+\begin{align*}
+ & \overline{M}_{T}=M+M_{T},\quad\Delta_{T}=M_{T}-M,\quad M=\left(\overline{M}_{T}-\Delta_{T}\right)/2,\quad M_{T}=\left(\overline{M}_{T}+\Delta_{T}\right)/2\\
+ & k^{2}=D_{\phi}+m_{\phi}^{2},\quad2kp=k^{2}-\left(p-k\right)^{2}+M^{2}=D_{\phi}-D_{T}+m_{\phi}^{2}-WE
+\end{align*}
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
+丢入 mathemtica 化简，得到
 \begin_inset Formula 
 \begin{equation}
-f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{T\phi}^{2}\overline{\Lambda}^{8}}{6M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\#\label{eq:yu_100}
+f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)={\color{blue}\left(\frac{4Me_{T}^{q}}{1}\right)}\frac{iC_{T\phi}^{2}\overline{\Lambda}^{8}}{6M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\#\label{eq:yu_100}
 \end{equation}
 
 \end_inset
@@ -8620,8 +8627,26 @@ f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{T\phi}^{2}\overline{
 
 \begin_inset Formula 
 \begin{align*}
-\# & =\frac{\overline{y}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda}^{4}D_{\phi}D_{T}^{2}}+\frac{\overline{y}\left(k^{2}+m_{\phi}^{2}\right)\left(2\overline{M}_{T}^{2}+\Delta_{T}^{2}-m_{\phi}^{2}\right)-\overline{M}_{T}^{4}-2\overline{M}_{T}^{2}\Delta_{T}^{2}-k^{4}}{D_{\Lambda}^{4}D_{T}^{2}}\\
- & +\frac{-\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left[\left(y-2\right)M_{T}^{2}-2yMM_{T}+\left(y+2\right)\left(M^{2}-m_{\phi}^{2}\right)\right]}{D_{\Lambda}^{4}D_{\phi}D_{T}}\\
+\# & ={\color{blue}\frac{\overline{y}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda}^{4}D_{\phi}D_{T}^{2}}}+{\color{blue}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left[2\Delta_{T}\overline{M}_{T}+\left(y+2\right)m_{\phi}^{2}-y\Delta_{T}^{2}\right]}{D_{\Lambda}^{4}D_{\phi}D_{T}}}\\
+ & +\frac{\overline{y}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-\overline{M}_{T}^{2}+3m_{\phi}^{2}-2\Delta_{T}^{2}\right)}{D_{\Lambda}^{4}D_{T}^{2}}+\frac{-\overline{y}D_{\phi}\left(-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{D_{\Lambda}^{4}D_{T}^{2}}\\
+ & +\frac{-\left(2\Delta_{T}\overline{M}_{T}-y\overline{M}_{T}^{2}-2\overline{M}_{T}^{2}+2ym_{\phi}^{2}+4m_{\phi}^{2}-y\Delta_{T}^{2}\right)}{D_{\Lambda}^{4}D_{T}}+\frac{\left(-y\overline{M}_{T}^{2}-\overline{M}_{T}^{2}+ym_{\phi}^{2}-3m_{\phi}^{2}\right)}{D_{\Lambda}^{4}D_{\phi}}\\
+ & +\frac{-\overline{y}D_{\phi}^{2}}{D_{\Lambda}^{4}D_{T}^{2}}+\frac{-\left(y+2\right)D_{\phi}}{D_{\Lambda}^{4}D_{T}}+\frac{yD_{T}}{D_{\Lambda}^{4}D_{\phi}}+\frac{-\left(y-3\right)}{D_{\Lambda}^{4}}
+\end{align*}
+
+\end_inset
+
+
+\size default
+而 salamu 的结果是
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{align*}
+\# & ={\color{blue}\frac{\overline{y}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda}^{4}D_{\phi}D_{T}^{2}}}{\color{blue}+\frac{-\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left[\left(y-2\right)M_{T}^{2}-2yMM_{T}+\left(y+2\right)\left(M^{2}-m_{\phi}^{2}\right)\right]}{D_{\Lambda}^{4}D_{\phi}D_{T}}}\\
+ & +\frac{\overline{y}\left[\left(k^{2}+m_{\phi}^{2}\right)\left(2\overline{M}_{T}^{2}+\Delta_{T}^{2}-m_{\phi}^{2}\right)-\overline{M}_{T}^{4}-2\overline{M}_{T}^{2}\Delta_{T}^{2}-k^{4}\right]}{D_{\Lambda}^{4}D_{T}^{2}}\\
  & +\frac{\left(y+2\right)\left(2M^{2}-m_{\phi}^{2}-k^{2}\right)+\left(yM_{T}+2M\right)2M_{T}}{D_{\Lambda}^{4}D_{T}}+\frac{\overline{M}_{T}^{2}+2y\overline{M}_{T}M-2ykp+3k^{2}}{D_{\Lambda}^{4}D_{\phi}}
 \end{align*}
 
@@ -8629,14 +8654,26 @@ f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{iC_{T\phi}^{2}\overline{
 
 
 \size default
-对
+丢入 Mathematica，把 salamu 的结果转换成标准基，除了
+\begin_inset Formula ${\color{blue}\left(\frac{4Me_{T}^{q}}{1}\right)}$
+\end_inset
+
+之外，两个结果是相等的。
+\end_layout
+
+\begin_layout Subsubsection
+在壳和离壳
+\end_layout
+
+\begin_layout Standard
+将被积式对
 \begin_inset Formula $k^{-}$
 \end_inset
 
 积分之后，结果为
 \begin_inset Formula 
 \begin{equation}
-f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)=\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\#\label{eq:yu_101}
+f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)={\color{blue}\left(\frac{4Me_{T}^{q}}{\pi}\right)}\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\#\label{eq:yu_101}
 \end{equation}
 
 \end_inset
@@ -8681,6 +8718,24 @@ noprefix "false"
 \end_inset
 
 中的相同。
+\size small
+
+\begin_inset Formula 
+\[
+f_{T}^{\left(\text{on}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{y}{\overline{y}}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda T}^{4}D_{\phi T}^{2}}+\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-\overline{M}_{T}^{2}+3m_{\phi}^{2}-2\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}D_{\phi T}}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{T}^{\left(\text{end}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{y}{\overline{y}^{2}D_{\Lambda T}^{4}}\frac{1}{4}\left[\left(y^{2}+8\overline{y}\right)\overline{M}_{T}^{2}-2\left(y-2\right)y\Delta_{T}\overline{M}_{T}+4k_{\perp}^{2}-8\overline{y}m_{\phi}^{2}+\left(y-2\right)^{2}\Delta_{T}^{2}\right]
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -8802,6 +8857,10 @@ noprefix "false"
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Subsubsection
+发散项
 \end_layout
 
 \begin_layout Standard
