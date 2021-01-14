@@ -8672,15 +8672,11 @@ f_{T\phi}^{\left(\text{rbw}\right)}\left(y\right)={\color{blue}\left(\frac{4Me_{
 
 
 \size default
-丢入 Mathematica，把 salamu 的结果转换成标准基，除了
-\begin_inset Formula ${\color{blue}\left(\frac{4Me_{T}^{q}}{1}\right)}$
+转换到同一组基，除了
+\begin_inset Formula ${\color{blue}\left(\frac{4Me_{T}^{q}}{\pi}\right)}$
 \end_inset
 
-之外，两个结果是相等的。
-\end_layout
-
-\begin_layout Subsubsection
-在壳
+因子之外，两个结果是相等的。
 \end_layout
 
 \begin_layout Standard
@@ -8729,7 +8725,18 @@ Mathematica 化简的结果是
 
 
 \size default
+同样，在 Mathematica中验算可知，除了
+\begin_inset Formula ${\color{blue}\left(\frac{4Me_{T}^{q}}{\pi}\right)}$
+\end_inset
 
+因子之外，两个结果是相等的。
+\end_layout
+
+\begin_layout Subsubsection
+在壳
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_101"
@@ -8771,10 +8778,9 @@ f_{T}^{\left(\text{on}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\rig
 
 
 \begin_inset Formula 
-\begin{align*}
- & f_{T}^{\left(\text{on end}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{-y\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}}+\frac{-y}{\overline{y}D_{\Lambda T}^{3}}\right]\\
- & f_{T}^{\left(\text{on end}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\frac{y}{\overline{y}^{2}D_{\Lambda T}^{4}}\left[-\overline{y}\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)+\left(k_{\perp}^{2}+yM_{T}^{2}-y\overline{y}M^{2}+\overline{y}\Lambda^{2}\right)\right]
-\end{align*}
+\[
+f_{T}^{\left(\text{on end}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{\overline{\Lambda}^{8}\int\dif k_{\perp}^{2}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left[\frac{-y\left(\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{\overline{y}D_{\Lambda T}^{4}}+\frac{-y}{\overline{y}D_{\Lambda T}^{3}}\right]
+\]
 
 \end_inset
 
@@ -8801,7 +8807,19 @@ f_{T}^{\left(\text{on}\right)}={\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\rig
 \begin_inset Formula $\delta f_{T}^{\left(\text{off}\right)}\left(y\right)$
 \end_inset
 
-。local 离壳项为
+。
+\begin_inset Formula 
+\[
+\text{off}=-2f_{T}^{\left(\text{off}\right)}\left(y\right)-2f_{T}^{\left(\text{off end}\right)}\left(y\right)+4\delta f_{T}^{\left(\text{off}\right)}\left(y\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+local 离壳项为
 \begin_inset Formula 
 \[
 f_{T}^{\left(\text{off}\right)}\left(y\right)=\frac{\overline{\Lambda}^{8}}{6M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left[\overline{y}\left(M^{2}-m_{\phi}^{2}\right)-\left(1+y\right)M_{T}^{2}\right]}{\overline{y}D_{\Lambda T}^{4}D_{\phi T}}
@@ -8928,7 +8946,18 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-对于
+\begin_inset Formula 
+\[
+\delta=\frac{1}{18}\left(f_{T}^{\left(\delta\right)}\left(y\right)-3\delta f_{T}^{\left(\delta\right)}\left(y\right)\right)-\frac{\overline{M}^{2}\left(\overline{M}_{T}^{2}+3m_{\phi}^{2}\right)}{6M_{T}^{2}\overline{M}_{T}^{2}}f_{\phi}^{\left(\delta\right)}\left(y\right)
+\]
+
+\end_inset
+
+前置因子是
+\begin_inset Formula $\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}$
+\end_inset
+
+。对于
 \begin_inset Formula $\delta\left(y\right)$
 \end_inset
 
@@ -8970,7 +8999,23 @@ noprefix "false"
 
 \end_inset
 
- 中分别给出，而新的非定域
+ 中分别给出，
+\begin_inset Formula 
+\[
+f_{T}^{\left(\delta\right)}\left(y\right)=\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{\overline{\Lambda}^{8}}{M_{T}^{2}\overline{M}_{T}^{2}}\frac{z^{3}\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{3}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{\phi}^{\left(\delta\right)}\left(y\right)=\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{\left(-\overline{\Lambda}^{8}\right)}{\overline{M}^{2}}\frac{z^{3}\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}}
+\]
+
+\end_inset
+
+而新的非定域
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -8986,11 +9031,35 @@ noprefix "false"
 
 \end_inset
 
-如同它的表兄，在
+如同它的兄弟，在
 \begin_inset Formula $\Lambda\to\infty$
 \end_inset
 
 时它会消失。
+\end_layout
+
+\begin_layout Standard
+Mathematica 计算的结果是，
+\begin_inset Formula 
+\[
+\frac{\overline{\Lambda}^{8}}{6M_{T}^{2}\overline{M}_{T}^{2}}\left(\frac{z^{3}\delta\left(y\right)}{3D_{\phi\Lambda}^{3}}+\frac{\left(\overline{M}_{T}^{2}+3m_{\phi}^{2}\right)z^{3}\delta\left(y\right)}{D_{\phi\Lambda}^{4}}-\frac{\delta\left(y\right)}{\Omega_{\Lambda}^{3}}\right).
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $D_{\phi\Lambda}=k_{\perp}^{2}+\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2}$
+\end_inset
+
+，
+\begin_inset Formula $\Omega\equiv\left(1-z\right)m_{\phi}^{2}+z\Lambda^{2}$
+\end_inset
+
+。和 salamu 的结果只差了
+\begin_inset Formula ${\color{blue}\left(\frac{4Me_{\phi}^{q}}{\pi}\right)}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Subsection
@@ -8998,7 +9067,29 @@ j
 \end_layout
 
 \begin_layout Standard
-fig1j，重子十重态的中间态。化简
+分裂函数的表达式为，
+\size small
+化简一下系数是，
+\begin_inset Formula 
+\[
+f_{j}^{+}=\frac{\left(-ie_{\phi}^{q}\right)C_{T\phi}^{2}}{f^{2}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)H^{+}u\left(p\right)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+H^{\mu}=\frac{\Theta^{\mu\nu}S_{T\nu\rho}\left(p-k\right)\left(\Theta^{\rho\sigma}k_{\sigma}\right)}{D_{T}\left(p-k\right)D_{\Lambda}^{4}\left(k\right)D_{\phi}\left(k\right)}+\frac{\left(k_{\rho}\Theta^{\rho\sigma}\right)S_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\mu}}{D_{T}\left(p^{\prime}-k\right)D_{\Lambda}^{4}\left(k\right)D_{\phi}\left(k\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+化简
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -9023,11 +9114,34 @@ f_{T}^{\left(\text{KR}\right)}\left(y\right)=\frac{-iC_{T\phi}^{2}\overline{\Lam
 
 
 \size default
+Mathematica 的结果是
+\begin_inset Formula 
+\[
+f_{T}^{\left(\text{KR}\right)}\left(y\right)={\color{blue}\left(\frac{-4Me_{\phi}^{q}}{\pi}\right)}\frac{-iC_{T\phi}^{2}\overline{\Lambda}^{8}}{3M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\#
+\]
+
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+\# & =-\frac{1}{2}\frac{-2\Delta_{T}\overline{M}_{T}-3y\overline{M}_{T}^{2}-2\overline{M}_{T}^{2}+4ym_{\phi}^{2}-y\Delta_{T}^{2}}{D_{\Lambda}^{4}D_{\phi}D_{T}}+\frac{1}{2}\frac{-2\Delta_{T}\overline{M}_{T}-3y\overline{M}_{T}^{2}+2\overline{M}_{T}^{2}+4ym_{\phi}^{2}-4m_{\phi}^{2}-y\Delta_{T}^{2}}{D_{\Lambda}^{4}D_{T}}\\
+ & -\frac{1}{2}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-2\Delta_{T}\overline{M}_{T}-y\overline{M}_{T}^{2}+2ym_{\phi}^{2}-2m_{\phi}^{2}-y\Delta_{T}^{2}\right)}{D_{\Lambda}^{4}D_{\phi}D_{T}}+\frac{\left(y-1\right)D_{\phi}}{D_{\Lambda}^{4}D_{T}}+\frac{\left(y+1\right)D_{T}}{D_{\Lambda}^{4}D_{\phi}}+\frac{-2y}{D_{\Lambda}^{4}}
+\end{align*}
+
+\end_inset
+
+差一个负号。
+\end_layout
+
+\begin_layout Standard
 对
 \begin_inset Formula $k^{-}$
 \end_inset
 
-积分之后，可以写成
+积分之后，salamu的结果是，
 \size small
 
 \begin_inset Formula 
@@ -9037,7 +9151,65 @@ f_{T}^{\left(\text{KR}\right)}\left(y\right)=\frac{C_{T\phi}^{2}\overline{M}_{T}
 
 \end_inset
 
-其中各函数遵循之前的定义。
+
+\size default
+其中各函数遵循之前的定义,
+\begin_inset Formula 
+\[
+f_{T}^{\left(\text{off}\right)}\left(y\right)=\frac{\overline{\Lambda}^{8}}{6M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left[\overline{y}\left(M^{2}-m_{\phi}^{2}\right)-\left(1+y\right)M_{T}^{2}\right]}{\overline{y}D_{\Lambda T}^{4}D_{\phi T}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{T}^{\left(\text{off end}\right)}\left(y\right)=\frac{-\overline{\Lambda}^{8}}{6M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{\left[k_{\perp}^{2}+\overline{y}^{2}M^{2}+\overline{y}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)-M_{T}^{2}\right]}{\overline{y}D_{\Lambda T}^{4}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{T}^{\left(\delta\right)}\left(y\right)=\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{\overline{\Lambda}^{8}}{M_{T}^{2}\overline{M}_{T}^{2}}\frac{z^{3}\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{3}}\quad\delta f_{T}^{\left(\delta\right)}\left(y\right)=\frac{\overline{\Lambda}^{8}}{M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{1}{\Omega_{\Lambda}^{3}}\delta\left(y\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{\phi}^{\left(\delta\right)}\left(y\right)=\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{\left(-\overline{\Lambda}^{8}\right)}{\overline{M}^{2}}\frac{z^{3}\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mathematica 化简的结果是
+\begin_inset Formula 
+\[
+{\color{blue}\left(-\frac{4Me_{T}^{q}}{\pi}\right)}\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\frac{\overline{\Lambda}^{8}}{\overline{M}_{T}^{2}M_{T}^{2}}\#
+\]
+
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+ & \#=\frac{-2\overline{\Lambda}^{2}-2\Delta_{T}\overline{M}_{T}-3y\overline{M}_{T}^{2}+2\overline{M}_{T}^{2}+2y\overline{\Lambda}^{2}+4ym_{\phi}^{2}-4m_{\phi}^{2}-y\Delta_{T}^{2}}{6\left(y-1\right)D_{\Lambda T}^{4}}\\
+ & +\frac{-\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-2\Delta_{T}\overline{M}_{T}-y\overline{M}_{T}^{2}+2ym_{\phi}^{2}-2m_{\phi}^{2}-y\Delta_{T}^{2}\right)}{6\left(y-1\right)D_{\Lambda T}^{4}D_{\phi T}}+\frac{-\left(\overline{M}_{T}^{2}+m_{\phi}^{2}\right)z^{3}\delta\left(y\right)}{3D_{\phi\Lambda}^{4}}\\
+ & +\frac{1}{D_{\ensuremath{\Lambda}T}^{3}}+\frac{-z^{3}\delta\left(y\right)}{9D_{\phi\Lambda}^{3}}+\frac{\delta\left(y\right)}{9\Omega_{\Lambda}^{3}}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
