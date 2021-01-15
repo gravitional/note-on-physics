@@ -8436,7 +8436,7 @@ f_{\phi T}^{\left(\text{rbw}\right)}=\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\l
 的定义为
 \begin_inset Formula 
 \[
-f_{a}^{\delta}={\color{blue}\left(\frac{{\color{blue}4M}e_{\phi}^{q}}{\pi}\right)}\frac{\left(-\overline{\Lambda}^{8}\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{\left(z^{3}-z^{4}\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}},
+f_{\phi}^{\left(\delta\right)}-\delta f_{\phi}^{\left(\delta\right)}={\color{blue}\left(\frac{{\color{blue}4M}e_{\phi}^{q}}{\pi}\right)}\frac{\left(-\overline{\Lambda}^{8}\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{\left(z^{3}-z^{4}\right)\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}},
 \]
 
 \end_inset
@@ -9192,7 +9192,7 @@ f_{\phi}^{\left(\delta\right)}\left(y\right)=\int\dif k_{\perp}^{2}\int_{0}^{1}\
 Mathematica 化简的结果是
 \begin_inset Formula 
 \[
-{\color{blue}\left(-\frac{4Me_{T}^{q}}{\pi}\right)}\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\frac{\overline{\Lambda}^{8}}{\overline{M}_{T}^{2}M_{T}^{2}}\#
+{\color{blue}\left(-\frac{4Me_{T}^{q}}{\pi}\right)}\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\frac{\overline{\Lambda}^{8}}{6\overline{M}_{T}^{2}M_{T}^{2}}\#
 \]
 
 \end_inset
@@ -9202,14 +9202,20 @@ Mathematica 化简的结果是
 
 \begin_inset Formula 
 \begin{align*}
- & \#=\frac{-2\overline{\Lambda}^{2}-2\Delta_{T}\overline{M}_{T}-3y\overline{M}_{T}^{2}+2\overline{M}_{T}^{2}+2y\overline{\Lambda}^{2}+4ym_{\phi}^{2}-4m_{\phi}^{2}-y\Delta_{T}^{2}}{6\left(y-1\right)D_{\Lambda T}^{4}}\\
- & +\frac{-\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-2\Delta_{T}\overline{M}_{T}-y\overline{M}_{T}^{2}+2ym_{\phi}^{2}-2m_{\phi}^{2}-y\Delta_{T}^{2}\right)}{6\left(y-1\right)D_{\Lambda T}^{4}D_{\phi T}}+\frac{-\left(\overline{M}_{T}^{2}+m_{\phi}^{2}\right)z^{3}\delta\left(y\right)}{3D_{\phi\Lambda}^{4}}\\
- & +\frac{1}{D_{\ensuremath{\Lambda}T}^{3}}+\frac{-z^{3}\delta\left(y\right)}{9D_{\phi\Lambda}^{3}}+\frac{\delta\left(y\right)}{9\Omega_{\Lambda}^{3}}
+ & \#=\frac{-2\overline{\Lambda}^{2}-2\Delta_{T}\overline{M}_{T}-3y\overline{M}_{T}^{2}+2\overline{M}_{T}^{2}+2y\overline{\Lambda}^{2}+4ym_{\phi}^{2}-4m_{\phi}^{2}-y\Delta_{T}^{2}}{\left(y-1\right)D_{\Lambda T}^{4}}\\
+ & +\frac{-\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-2\Delta_{T}\overline{M}_{T}-y\overline{M}_{T}^{2}+2ym_{\phi}^{2}-2m_{\phi}^{2}-y\Delta_{T}^{2}\right)}{\left(y-1\right)D_{\Lambda T}^{4}D_{\phi T}}+\frac{-2\left(\overline{M}_{T}^{2}+m_{\phi}^{2}\right)z^{3}\delta\left(y\right)}{D_{\phi\Lambda}^{4}}\\
+ & +\frac{2}{D_{\ensuremath{\Lambda}T}^{3}}+\frac{-2z^{3}\delta\left(y\right)}{3D_{\phi\Lambda}^{3}}+\frac{2\delta\left(y\right)}{3\Omega_{\Lambda}^{3}}
 \end{align*}
 
 \end_inset
 
 
+\size default
+经过验算，两个结果只相差了
+\begin_inset Formula ${\color{blue}\left(-\frac{4Me_{T}^{q}}{\pi}\right)}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Subsection
@@ -9217,6 +9223,22 @@ k
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\[
+f_{j}^{+}=\frac{\left(ie_{\phi}^{q}\right)C_{T\phi}^{2}}{f^{2}}\frac{M\overline{\Lambda}^{8}}{P^{+}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\bar{u}\left(p^{\prime}\right)H^{+}u\left(p\right)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{align*}
+H^{\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]\left(2k^{\mu}+q^{\mu}\right)k_{\rho}\Theta^{\rho\nu}S_{T\nu\rho}\left(p-k\right)\Theta^{\rho\sigma}k_{\sigma}}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p-k\right)}\\
+ & +\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)\right]\left(2k^{\mu}-q^{\mu}\right)k_{\rho}\Theta^{\rho\sigma}S_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\rho}k_{\rho}}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p^{\prime}-k\right)}
+\end{align*}
+
+\end_inset
+
 规范链接引入的 fig.1k，分裂函数为
 \begin_inset Formula 
 \begin{equation}
@@ -9248,6 +9270,30 @@ k
 \begin{equation}
 \delta f_{T}^{\left(\text{KR}\right)}\left(y\right)=\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\left[-4\delta f_{T}^{\left(\text{off}\right)}\left(y\right)+\frac{1}{18}\delta f_{T}^{\left(\delta\right)}\left(y\right)-\frac{\overline{M}^{2}\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)}{6M_{T}^{2}\overline{M}_{T}^{2}}\delta f_{\phi}^{\left(\delta\right)}\left(y\right)\right]\label{eq:yu_111}
 \end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\delta f_{T}^{\left(\text{off}\right)}\left(y\right)=\frac{\overline{\Lambda}^{8}}{6M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{y\left[k_{\perp}^{2}+\left(yM-\overline{M}_{T}\right)^{2}\right]^{2}\left[k_{\perp}^{2}+\left(yM+\Delta_{T}\right)^{2}\right]}{\overline{y}^{4}D_{\Lambda T}^{5}D_{\phi T}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\delta f_{T}^{\left(\delta\right)}\left(y\right)=\frac{\overline{\Lambda}^{8}}{M_{T}^{2}\overline{M}_{T}^{2}}\int\dif k_{\perp}^{2}\frac{1}{\Omega_{\Lambda}^{3}}\delta\left(y\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\delta f_{\phi}^{\left(\delta\right)}=\frac{\left(-\overline{\Lambda}^{8}\right)}{\overline{M}^{2}}\int\dif k_{\perp}^{2}\int_{0}^{1}\dif z\frac{z^{4}\delta\left(y\right)}{\left(k_{\perp}^{2}+\Omega\right)^{4}},
+\]
 
 \end_inset
 
