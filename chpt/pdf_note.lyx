@@ -5286,8 +5286,8 @@ f_{j}^{+}=\frac{\left(ie_{\phi}^{q}\right)C_{T\phi}^{2}}{f^{2}}\frac{M\overline{
 where
 \begin_inset Formula 
 \begin{align*}
-H^{\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]\left(2k^{\mu}+q^{\mu}\right)k_{\rho}\Theta^{\rho\nu}S_{T\nu\rho}\left(p-k\right)\Theta^{\rho\sigma}k_{\sigma}}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p-k\right)}\\
- & +\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)\right]\left(2k^{\mu}-q^{\mu}\right)k_{\rho}\Theta^{\rho\sigma}S_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\rho}k_{\rho}}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p^{\prime}-k\right)}
+H^{\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]\left(2k^{\mu}+q^{\mu}\right)k_{\rho}\Theta^{\rho\nu}S_{T\nu\rho}\left(p-k\right)\Theta^{\rho\sigma}k_{\sigma}}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p-k\right)D_{\phi}\left(k\right)}\\
+ & +\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)\right]\left(2k^{\mu}-q^{\mu}\right)k_{\rho}\Theta^{\rho\sigma}S_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\rho}k_{\rho}}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p^{\prime}-k\right)D_{\phi}\left(k\right)}
 \end{align*}
 
 \end_inset
@@ -9233,8 +9233,8 @@ f_{j}^{+}=\frac{\left(ie_{\phi}^{q}\right)C_{T\phi}^{2}}{f^{2}}\frac{M\overline{
 where
 \begin_inset Formula 
 \begin{align*}
-H^{\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]\left(2k^{\mu}+q^{\mu}\right)k_{\rho}\Theta^{\rho\nu}S_{T\nu\rho}\left(p-k\right)\Theta^{\rho\sigma}k_{\sigma}}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p-k\right)}\\
- & +\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)\right]\left(2k^{\mu}-q^{\mu}\right)k_{\rho}\Theta^{\rho\sigma}S_{T\sigma\nu}\left(p^{\prime}-k\right)\Theta^{\nu\rho}k_{\rho}}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p^{\prime}-k\right)}
+H^{\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\right]\left(2k^{\mu}+q^{\mu}\right)k_{\rho}\Theta^{\rho\nu}S_{T\nu\alpha}\left(p-k\right)\Theta^{\alpha\beta}k_{\beta}}{D_{\Lambda}\left(k+q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p-k\right)D_{\phi}\left(k\right)}\\
+ & +\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k-q\right)\right]\left(2k^{\mu}-q^{\mu}\right)k_{\rho}\Theta^{\rho\sigma}S_{T\sigma\alpha}\left(p^{\prime}-k\right)\Theta^{\alpha\beta}k_{\beta}}{D_{\Lambda}\left(k-q\right)^{2}D_{\Lambda}\left(k\right)^{4}D_{T}\left(p^{\prime}-k\right)D_{\phi}\left(k\right)}
 \end{align*}
 
 \end_inset
@@ -9297,7 +9297,29 @@ H^{\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\rig
 
 \end_inset
 
+Mathematica 计算的结果是
+\begin_inset Formula 
+\[
+\delta f_{T}^{\left(\text{KR}\right)}\left(y\right)={\color{blue}\left(-\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{C_{T\phi}^{2}\overline{M}_{T}^{2}}{\left(4\pi f\right)^{2}}\frac{\overline{\Lambda}^{8}}{6\overline{M}_{T}^{2}M_{T}^{2}}\#
+\]
 
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \#=\frac{-4y\left(2\overline{\Lambda}^{2}-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{\left(y-1\right)D_{\Lambda T}^{4}}\\
+ & +\frac{-4y\left(\overline{\Lambda}^{4}+3\overline{\Lambda}^{2}m_{\phi}^{2}-4m_{\phi}^{2}\overline{M}_{T}^{2}+2\Delta_{T}^{2}\overline{M}_{T}^{2}-2\overline{\Lambda}^{2}\overline{M}_{T}^{2}+\overline{M}_{T}^{4}-\overline{\Lambda}^{2}\Delta_{T}^{2}-2m_{\phi}^{2}\Delta_{T}^{2}+3m_{\phi}^{4}\right)}{\left(y-1\right)D_{\Lambda T}^{5}}\\
+ & +\frac{4y\left(m_{\phi}^{2}-\Delta_{T}^{2}\right)\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}}{\left(y-1\right)D_{\Lambda T}^{5}D_{\phi T}}+\frac{z^{4}\delta\left(y\right)\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)}{D_{\phi\Lambda}^{4}}+\frac{-4y}{\left(y-1\right)D_{\Lambda T}^{3}}+\frac{\delta\left(y\right)}{3\left(\Omega_{\Lambda}+k_{\perp}^{2}\right)^{3}}
+\end{align*}
+
+\end_inset
+
+两个结果差了
+\begin_inset Formula ${\color{blue}\left(-\frac{4Me_{\phi}^{q}}{\pi}\right)}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
