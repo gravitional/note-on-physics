@@ -9252,9 +9252,44 @@ H^{\mu} & =\frac{\left[D_{\Lambda}\left(k\right)+D_{\Lambda}\left(k+q\right)\rig
 
 \begin_inset Formula 
 \begin{align*}
-\# & =\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda}^{5}D_{\phi}D_{T}}+\frac{\left(k^{2}+m_{\phi}^{2}\right)\left(2\overline{M}_{T}^{2}+\Delta_{T}^{2}-m_{\phi}^{2}\right)-\left(\overline{M}_{T}^{2}-2\Delta_{T}^{2}\right)\overline{M}_{T}^{2}-k^{4}}{D_{\Lambda}^{5}D_{T}}\\
+\# & =\frac{\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)}{D_{\Lambda}^{5}D_{\phi}D_{T}}+\frac{\left(k^{2}+m_{\phi}^{2}\right)\left(2\overline{M}_{T}^{2}+\Delta_{T}^{2}-m_{\phi}^{2}\right)-{\color{red}\left(\overline{M}_{T}^{2}-2\Delta_{T}^{2}\right)}\overline{M}_{T}^{2}-k^{4}}{D_{\Lambda}^{5}D_{T}}\\
  & +\frac{4\left(kp\right)^{2}+3m_{\phi}^{4}-\left(3k^{2}+3\overline{M}_{T}^{2}+\Delta_{T}^{2}-\overline{M}_{T}\Delta_{T}\right)m_{\phi}^{2}-\left(4k^{2}-6m_{\phi}^{2}+2\overline{M}_{T}^{2}\right)kp+k^{2}\overline{M}_{T}^{2}+\overline{M}_{T}^{3}\Delta_{T}+k^{4}}{D_{\Lambda}^{5}D_{\phi}}\\
  & +\frac{-\left(3M_{T}^{2}+5M^{2}+4MM_{T}-3m_{\phi}^{2}-6kp\right)}{D_{\Lambda}^{5}}
+\end{align*}
+
+\end_inset
+
+
+\size default
+
+\begin_inset Formula ${\color{red}\left(\overline{M}_{T}^{2}-2\Delta_{T}^{2}\right)}$
+\end_inset
+
+可能有误，应该是
+\begin_inset Formula $\left(\overline{M}_{T}^{2}+2\Delta_{T}^{2}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+Mathematica 的化简结果是
+\size small
+
+\begin_inset Formula 
+\[
+\Rightarrow{\color{blue}\left(-\frac{4Me_{\phi}^{q}}{\pi}\right)}\frac{-2iC_{T\phi}^{2}\overline{\Lambda}^{8}}{3M_{T}^{2}f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}y\delta\left(y-\frac{k^{+}}{p^{+}}\right)\#
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\# & =\frac{y\left(\Delta_{T}^{2}-m_{\phi}^{2}\right)\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)^{2}}{D_{\Lambda}^{5}D_{\phi}D_{T}}+\frac{-y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-2\Delta_{T}\overline{M}_{T}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{D_{\Lambda}^{5}D_{\phi}}\\
+ & +\frac{y\left(\overline{M}_{T}^{2}-m_{\phi}^{2}\right)\left(-\overline{M}_{T}^{2}+3m_{\phi}^{2}-2\Delta_{T}^{2}\right)}{D_{\Lambda}^{5}D_{T}}+\frac{y\left(-2\Delta_{T}\overline{M}_{T}-3\overline{M}_{T}^{2}+6m_{\phi}^{2}-\Delta_{T}^{2}\right)}{D_{\Lambda}^{5}}\\
+ & +\frac{-yD_{\phi}\left(-2\overline{M}_{T}^{2}+3m_{\phi}^{2}-\Delta_{T}^{2}\right)}{D_{\Lambda}^{5}D_{T}}+\frac{-yD_{T}\left(-2\Delta_{T}\overline{M}_{T}-\overline{M}_{T}^{2}+3m_{\phi}^{2}\right)}{D_{\Lambda}^{5}D_{T}}\\
+ & +\frac{-yD_{\phi}^{2}}{D_{\Lambda}^{5}D_{T}}+\frac{yD_{T}^{2}}{D_{\Lambda}^{5}D_{\phi}}+\frac{-3yD_{T}}{D_{\Lambda}^{5}}+\frac{3yD_{\phi}}{D_{\Lambda}^{5}}
 \end{align*}
 
 \end_inset

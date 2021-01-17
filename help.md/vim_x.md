@@ -1,5 +1,16 @@
 # learn.vim.x.md
 
+## 概念
+
+`buffer`是内存中的文本文件.
+`window`是`buffer`的`viewport`.
+`tab`是`windows`的集合.
+
+***
+Vim 寄存器
+
+[Vim 寄存器](https://www.cnblogs.com/RichardLee/articles/2479376.html)
+
 ## 设置字体
 
 [gvim 字体(font)+风格(style)+ 大小(size)设置][]
@@ -24,11 +35,30 @@ linux风格和字体直接写完整单词, 大小是数字, 写在最后即可.
 
 修正1：由于这：是设置`gui`界面的, 因此这两句放在`if has("gui_running") `后面比较好, 免得在文字界面运行时有一条出错信息. 
 
-## 补全
+## 编辑常用
 
-`Vim` 能自动补全插入的单词. 你键入一个单词的开头部分, 按 `CTRL-P`, `Vim` 就会为你猜
-测余下的部分. 
-往下搜索, 用 `CTRL-N`
+[学习vim命令 :w !sudo tee %](https://www.cnblogs.com/jkmiao/p/5553837.html)
+
+`<c-f>` or `q:` 查看历史命令
+标记书签`m[mark]`，查看书签 `'[mark]`
+`Sexplorer` or `Sex` 打开文件所在的目录.
+`e .`打开当前工作目录
+`sp .` 在新窗口打开 CWD 目录
+`bro ol` `browse old`:浏览之前打开过的文件目录
+`ctrl-W t`：把当前 window 转为 tab
+`terminal`: 进入命令行
+
+***
+`w !sudo tee %`: 用 sudo 权限保存文件.
+
+`:[range]w[rite] !{cmd}  Execute {cmd} with [range] lines as standard input`
+查阅vim的文档(输入`:help :w`)，会提到命令`:w!{cmd}`，让vim执行一个外部命令`{cmd}`，然后把当前缓冲区的内容从`stdin`传入。
+`w !sudo tee %`这条命令的含义是把当前编辑的文件的内容当做标准输入输入到命令`sudo tee 文件名`里去,
+而`%`，是`vim`当中一个只读寄存器的名字，总保存着当前编辑文件的文件路径。
+
+### 补全
+
+`Vim` 能自动补全插入的单词. 你键入一个单词的开头部分, 按 `CTRL-P`, `Vim` 就会为你猜测余下的部分. 往下搜索, 用 `CTRL-N`
 
 ### 补全特定文本
 
@@ -43,9 +73,29 @@ linux风格和字体直接写完整单词, 大小是数字, 写在最后即可.
 - `CTRL-X CTRL-]`           标签
 - `CTRL-X CTRL-V`           `Vim` 命令行
 
-## 替换
+`:r filename` : 插入文件内容
+`:r! shell_command`: 插入命令的标准输出
+
+### 修改
+
+可使用`daw`, `diw`, `di{`, `da[` 等等，删除特定结构的文本. 如`di[`是删除`[]`内的文本
+
+## vim跳转到上/下一个修改的位置
+
+当你编辑一个很大的文件时, 经常在某处进行修改, 然后跳到另外一处. 
+如果你想跳回之前修改的地方, 使用命令：`Ctrl+o`来回到之前修改的地方
+类似的：`Ctrl+i`会回到跳跃之前的位置 
+
+### 文档内查找
 
 [vim 查找替换](https://www.cnblogs.com/ltang/articles/2034291.html)
+
+- `*` 向后查找光标当前所在单词
+- `#` 向前查找光标当前所在单词
+- `/<search>` 向后查找指定字符串
+- `?<search>` 向前查找指定字符串
+- `n` 继续查找下一个 `next`
+- `N` 继续查找上一个
 
 - `r<X>` 将当前字符替换为 `X`, `replace`
 - `gu<X>` 将指定的文本转换为小写, `这个实在不知道是啥的缩写,go to u ？？`
@@ -210,12 +260,6 @@ Run `:PlugClean`. It will detect and remove undeclared plugins.
 - `:+tabc` 关闭下一个标签页
 - `:tabonly` 缩写 `:tabo` 关闭其他标签页
 
-## `vim`跳转到上/下一个修改的位置
-
-当你编辑一个很大的文件时, 经常在某处进行修改, 然后跳到另外一处. 
-如果你想跳回之前修改的地方, 使用命令：`Ctrl+o`来回到之前修改的地方
-类似的：`Ctrl+i`会回退上面的跳动. 
-
 ## Vim 中的宏
 
 按 `qa` 开启宏录制, 前方高能, 连续按 `I<单引号><Esc>A<单引号><逗号><Esc>jq7@a`
@@ -227,15 +271,6 @@ Run `:PlugClean`. It will detect and remove undeclared plugins.
 - `@` 是唤起宏, `a` 是要唤起的宏的名字(存储位置), 前面的 `7` 你应该明白吧, 就是执行 `7` 次. 
 
 **Tips:** `@@` 再次唤起最后一次执行的宏. 
-
-## 文档内查找
-
-- `*` 向后查找光标当前所在单词
-- `#` 向前查找光标当前所在单词
-- `/<search>` 向后查找指定字符串
-- `?<search>` 向前查找指定字符串
-- `n` 继续查找下一个 `next`
-- `N` 继续查找上一个
 
 ## 使用剪贴板
 
