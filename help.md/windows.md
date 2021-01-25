@@ -202,7 +202,7 @@ start shell:RecycleBinFolder
 shell:recyclebinfolder
 ```
 
-## 软件
+## 常用软件
 
 ### scoop 包管理器
 
@@ -718,3 +718,29 @@ Tango Light
 必要性:  可选
 接受:  `"graceful", "always", "never", true, false`
 默认值:  `"graceful"`
+
+### 参考的对象类型不支持尝试的操作
+
+[关于使用WSL2出现'参考的对象类型不支持尝试的操作'的解决方法](https://zhuanlan.zhihu.com/p/151392411)
+
+长期解决的方案（推荐）,下载此软件：[http://www.proxifier.com/tmp/Test20200228/NoLsp.exe](http://www.proxifier.com/tmp/Test20200228/NoLsp.exe)
+
+因需要梯子访问下载，有些朋友不方便，所以我上传到百度云分享在这里：[https://pan.baidu.com/s/1bVZ0OXZPxEt8l1IHYaFK3A](https://pan.baidu.com/s/1bVZ0OXZPxEt8l1IHYaFK3A) ，提取码：`vjge`
+
+然后在管理员身份运行`CMD`输入：
+
+```pwsh
+NoLsp.exe C:\windows\system32\wsl.exe
+```
+
+请自行注意`NoLsp.exe`程序的位置，以及你的`wsl.exe`位置。
+
+***
+产生原因和解决方法分析：
+
+代理软件和`wsl2`的`sock`端口冲突，使用`netsh winsock reset`重置修复。`Proxifer` 开发人员解释如下：
+
+如果`Winsock LSP DLL`被加载到其进程中，则`wsl.exe`将显示此错误。
+最简单的解决方案是对`wsl.exe`使用`WSCSetApplicationCategory WinAPI`调用来防止这种情况。
+在后台，该调用在`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\AppId_Catalog`中为`wsl.exe`创建一个条目。
+这将告诉`Windows`不要将`LSP DLL`加载到`wsl.exe`进程中.
