@@ -1496,7 +1496,7 @@ Dash to Panel 是 Gnome Shell 的一个高度可配置面板,是 Ubuntu Dock 或
 首次安装`pip`,即python包管理器,在 Debian、Ubuntu 和 Linux Mint 中安装 `pip`
 
 ```bash
-apt-get install python-pip
+apt-get install python3-pip
 ```
 
 然后你可以通过 pip 命令安装 `Powerline`.
