@@ -1488,6 +1488,11 @@ Dash to Panel 是 Gnome Shell 的一个高度可配置面板,是 Ubuntu Dock 或
 
 [Mac/Linux使用ZSH (oh-my-zsh)](https://www.jianshu.com/p/fa6aa9329be6)
 
+[oh-my-zsh国内镜像安装和更新方法](https://touka.dev/tech/oh-my-zsh-china-mirror/)
+
+首先需要安装`zsh`，可以直接用`sudo apt install zsh`. 
+然后安装`oh-my-zsh`, `github` 被墙, 可以使用国内镜像安装.
+
 ### Powerline 状态条
 
 `Powerline` 是一个极棒的 `Vim` 编辑器的状态行插件,这个插件是使用 Python 开发的,主要用于显示状态行和提示信息,适用于很多软件,比如 `bash`、`zsh`、`tmux` 等等.
