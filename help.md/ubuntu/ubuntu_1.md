@@ -85,7 +85,8 @@ pip install --user powerline-status
 + `/bin/kill -L` : 查看linux `kill` 的数字对应的短语
 `echo`输出的时候,可以考虑改变颜色增加辨认度,
 + `ldd`查看依赖信息
-+ `sha256sum`: 计算并检查 SHA256 message digest (消息摘要)
++ `sha256sum`: 计算并检查 `SHA256` message digest (消息摘要)
++ `xdg-open`: 可以设置别名为`open`, 使用默认的程序打开文件或者`url`.
 
 ```bash
 echo  -e "\033[1;47m\033[1;32m Testing output... "
