@@ -39,7 +39,7 @@ linux风格和字体直接写完整单词, 大小是数字, 写在最后即可.
 
 [学习vim命令 :w !sudo tee %](https://www.cnblogs.com/jkmiao/p/5553837.html)
 
-`<c-f>` or `q:` 查看历史命令
+`<c-f>` or `q:` 查看历史命令, 注意`:q`是退出.
 标记书签`m[mark]`，查看书签 `'[mark]`
 `Sexplorer` or `Sex` 打开文件所在的目录.
 `e .`打开当前工作目录
