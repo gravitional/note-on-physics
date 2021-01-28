@@ -198,9 +198,9 @@ PS C:\PS> Import-Alias -Force alias.ps1
 
 ### Powershell 通过函数扩展别名
 
-在`Powershell`中设置别名的确方便快捷，但是在设置别名的过程中并设置参数的相关信息。
+在`Powershell`中设置别名的确方便快捷，但是在设置别名的过程中没有参数的相关信息。
 尽管别名会自动识别参数，但是如何把经常使用的参数默认设定在别名里面呢？
-例如`Test-Connection -Count 2 -ComputerName`，让 “`-Count 2`” 固化在别名中。
+例如`Test-Connection -Count 2 -ComputerName`，让 `-Count 2` 固化在别名中。
 
 这时简单的别名无法完成上述需求，可以通过函数来完成它，
 并且一旦把函数拉过来，定义别名会变得更加灵活。
@@ -1855,7 +1855,7 @@ Cmdlet      Out-Printer  Out-Printer [[-Name] ] [-InputObject
 Cmdlet      Out-String   Out-String [-Stream] [-Width ]
 ```
 
-+ `Out-Default` 将输出发送到默认的格式化程序和默认的输出`cmdlet`。
++ `Out-Default` 将输出发送到默���的格式化程序和默认的输出`cmdlet`。
 + `Out-File` 将输出发送到文件。
 + `Out-GridView` 将输出发送到单独窗口中的交互表。
 + `Out-Host` 将输出发送到命令行。
