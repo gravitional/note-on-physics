@@ -1,5 +1,100 @@
 # macos
 
+## 日常
+
+### 命令
+
+[请问有哪些实用的Mac终端命令](https://www.zhihu.com/question/27864961)
+
+***
+`say` 让 mac 读出一段文字
+
+`$ sleep 10 && say "hello"`
+
+***
+`pbcopy`, 与之对应的是`pbpaste`
+
+把命令行的输出直接复制到粘贴板：
+
+```bash
+$ sort -u | pbcopy
+```
+
+把粘贴板内容直接存入一个文件：
+
+```bash
+$ pbpaste > out.txt
+```
+
+用 `Finder` 打开当前目录
+
+```bash
+$ open .
+```
+
+***
+`cdf`
+可以让 `shell` 跳转到`finder`打开的文件夹，不过要提前在`.zshrc`中的`plugin`中加入`osx`
+
+***
+`ccat`
+可以让你的cat文件时候高亮代码
+`brew install ccat`
+
+***
+`archey`
+
+这是一个查看当前`mac`概览的插件，可以用`brew`安装。好处就是，查看自己`ip`的时候不用输入`ifconfig`然后一行一行去看，看`mac`的`关于本机`不用再去点菜单栏了。
+
+`brew install archey`
+
+***
+`mdfind` 命令查找文件，类似 Spotlight 查询效果的命令行
+
+### 中文字体
+
+查找 `字体册`, `font Book.app`应用.
+
+`macos` 的字体存放在`/System/Library/Fonts`目录下,`macos` 预装的中文字体为,
+
+```bash
+Apple LiGothic Medium
+Apple LiSung Light
+Apple SD Gothic Neo Regular
+AppleGothic Regular
+AppleMyungjo Regula
+Baoli SC Regular
+BiauKai Regular
+GB18030 Bitmap Regular
+Hannotate SC Regular
+HanziPen SC Regular
+Hei Regular
+Heiti TC Light
+Hiragino Sans CNS W3
+Hiragino Sans GB W3
+Kai Regular
+Kaiti SC Regular
+Lantinghei SC Extralight
+Libian SC Regular
+LiHei Pro Medium
+LingWai SC Medium
+LiSong Pro Light
+Nanum Gothic Regular
+PCMyungjo Regular
+PingFang SC Regular
+SimSong Regular
+Songti SC Regular
+STFangsong Regular
+STHeiti Light
+STKaiti Regular
+STSong Regular
+Wawati SC Regular
+Weibei SC Bold
+Xingkai SC Light
+Yuanti SC Regular
+Yuppy SC Regular
+```
+
 ## mac 快捷键设置
 
 [在 Mac 上使用全局键盘快捷键](https://support.apple.com/zh-cn/guide/mac-help/mchlp2262/10.15/mac/10.15)
@@ -294,7 +389,7 @@ TinkerTool 是一款专注于管理系统设置的免费应用.
 [简单几条命令,轻松开启 macOS 系统隐藏功能 | 新手问号](https://sspai.com/post/41695)
 
 ***
-配置 Launchpad
+配置 `Launchpad`
 
 可以通过终端对Launchpad排列方式进行修改,复制以下代码至终端即可:
 
@@ -448,99 +543,6 @@ vim ~/.zshrc
 alias vscode="你的安装目录/vscode.app/Contents/Resources/app/bin/code"
 ## 然后 :wq 关闭 ~/.zshrc 文件
 source ~/.bash_profile
-```
-
-## 更多命令工具
-
-[请问有哪些实用的Mac终端命令](https://www.zhihu.com/question/27864961)
-
-***
-`say` 让 mac 读出一段文字
-
-`$ sleep 10 && say "hello"`
-
-***
-`pbcopy`, 与之对应的是`pbpaste`
-
-把命令行的输出直接复制到粘贴板：
-
-```bash
-$ sort -u | pbcopy
-```
-
-把粘贴板内容直接存入一个文件：
-
-```bash
-$ pbpaste > out.txt
-```
-
-用 `Finder` 打开当前目录
-
-```bash
-$ open .
-```
-
-***
-`cdf`
-可以让 `shell` 跳转到`finder`打开的文件夹，不过要提前在`.zshrc`中的`plugin`中加入`osx`
-
-***
-`ccat`
-可以让你的cat文件时候高亮代码
-`brew install ccat`
-
-***
-`archey`
-
-这是一个查看当前`mac`概览的插件，可以用`brew`安装。好处就是，查看自己`ip`的时候不用输入`ifconfig`然后一行一行去看，看`mac`的`关于本机`不用再去点菜单栏了。
-
-`brew install archey`
-
-***
-`mdfind` 命令查找文件，类似 Spotlight 查询效果的命令行
-
-## mac 中文字体
-
-查找 `字体册`, `font Book.app`应用.
-
-`macos` 的字体存放在`/System/Library/Fonts`目录下,`macos` 预装的中文字体为,
-
-```bash
-Apple LiGothic Medium
-Apple LiSung Light
-Apple SD Gothic Neo Regular
-AppleGothic Regular
-AppleMyungjo Regula
-Baoli SC Regular
-BiauKai Regular
-GB18030 Bitmap Regular
-Hannotate SC Regular
-HanziPen SC Regular
-Hei Regular
-Heiti TC Light
-Hiragino Sans CNS W3
-Hiragino Sans GB W3
-Kai Regular
-Kaiti SC Regular
-Lantinghei SC Extralight
-Libian SC Regular
-LiHei Pro Medium
-LingWai SC Medium
-LiSong Pro Light
-Nanum Gothic Regular
-PCMyungjo Regular
-PingFang SC Regular
-SimSong Regular
-Songti SC Regular
-STFangsong Regular
-STHeiti Light
-STKaiti Regular
-STSong Regular
-Wawati SC Regular
-Weibei SC Bold
-Xingkai SC Light
-Yuanti SC Regular
-Yuppy SC Regular
 ```
 
 ## diskutil 磁盘管理
