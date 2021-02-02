@@ -175,7 +175,7 @@ Thomas Young
 
 \begin_layout Standard
 直觉上，在高能质子散射的情况下，微扰QCD应该具有一些预言能力。由于强相互作用在近距离时变弱（Section 26.6）。因此，非常高的能量下，强子间的碰撞，由本
-质上自由的夸克和胶子间的相互作用主导。通过算符乘积展开和有效场论，我们可以把短距离和长距离的物理分开，然后把微扰计算和实验观测量相联系。
+质上自由的夸克和胶子间的相互作用主导。通过算符乘积展开和有效场论，我们可以把短程和长程的物理分开，然后把微扰计算和实验观测量相联系。
 \end_layout
 
 \begin_layout Section
@@ -1088,7 +1088,7 @@ factorization。
 \begin_inset Formula $G_{1}(Q^{2}),G_{2}(Q^{2})$
 \end_inset
 
-这样的形状因子。就像上面式子EQ.
+这样的形状因子。就像上面式子
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:32.7"
@@ -1142,7 +1142,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-所以，使用EQ.
+所以，使用
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:32.19"
@@ -1279,7 +1279,7 @@ W_{1}(x,Q)=\frac{Q^{2}}{4x^{2}}W_{2}(x,Q),\text{ for }Q\gg m_{p}
 
 \end_inset
 
- 也可以从EQ.
+ 也可以从
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:32.24"
@@ -1604,8 +1604,8 @@ noprefix "false"
 \begin_inset Formula $L^{\mu\nu}$
 \end_inset
 
- and 强子流张量
-\begin_inset Formula $W^{\mu\nu}(x,Q^{2})$
+和强子流张量
+\begin_inset Formula $W^{\mu\nu}\left(x,Q^{2}\right)$
 \end_inset
 
 ，强子流张量由
@@ -1895,7 +1895,7 @@ W^{\mu\nu}(x,Q) & =\sum_{i}\int_{0}^{1}\dif z\int_{0}^{1}\dif\xi f_{i}(\xi)\hat{
 \begin_inset Formula $\hat{W}^{\mu\nu}(z,Q)$
 \end_inset
 
-插入到EQ.
+插入到
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:32.31"
@@ -1968,8 +1968,7 @@ parton shower
 \end_layout
 
 \begin_layout Standard
-要想证明因子化，首先要精确定义它。Intuitively, 因子化说，在QCD中，可以把同一个，代表远距离物理的非微扰对象（the PDFs），跟许多近距离计算
-结合起来。粗略地说，
+要想证明因子化，首先要精确定义它。直观地说，因子化表明在QCD中可以始终用同一个表征远程物理的非微扰对象（the PDFs），与许多短程计算相结合。粗略地说，
 \begin_inset Formula $\sigma=f\otimes H$
 \end_inset
 
@@ -2014,35 +2013,39 @@ parton shower
 \end_layout
 
 \begin_layout Standard
-我们的方法是，首先把 DIS cross section 和流的乘积
+我们的方法是，首先把 DIS 的散射截面和流的乘积
 \begin_inset Formula $J^{\mu}(x)J^{\nu}(y)$
 \end_inset
 
-联系起来。然后我们把流的乘积写成 in terms of local operators, 
-\begin_inset Formula $J^{\mu}(x)J^{\nu}(y)=\sum_{n}C_{n}(x-y)\mathcal{O}_{n}(x)$
+联系起来。然后我们把流的乘积用定域算符表示,
+\begin_inset Formula 
+\[
+J^{\mu}\left(x\right)J^{\nu}\left(y\right)=\sum_{n}C_{n}\left(x-y\right)\mathcal{O}_{n}\left(x\right).
+\]
+
 \end_inset
 
-。DIS 极限
-\begin_inset Formula $Q^{2}\to\infty$
-\end_inset
-
- at fixed Bjorken 
+在确定的Bjorken 
 \begin_inset Formula $x$
+\end_inset
+
+，DIS 极限
+\begin_inset Formula $Q^{2}\to\infty$
 \end_inset
 
  对应于
 \begin_inset Formula $x^{\mu}-y^{\mu}\to0$
 \end_inset
 
-，所以我们可以把 Wilson coefficients 
-\begin_inset Formula $C_{n}(x-y)$
-\end_inset
-
- 泰勒展开 around 
+，我们就可以在
 \begin_inset Formula $x^{\mu}=y^{\mu}$
 \end_inset
 
-，只保留领头项。然后，质子中这些算符的矩阵元会给出 PDFs 的定义：
+附近将Wilson 系数
+\begin_inset Formula $C_{n}\left(x-y\right)$
+\end_inset
+
+ 进行泰勒展开，只保留领头项。这些算符在质子态中的矩阵元将会给出 PDFs 的定义：
 \begin_inset Formula $f\sim\bra{P}\mathcal{O}\ket{P}$
 \end_inset
 
@@ -2054,11 +2057,15 @@ parton shower
 \end_layout
 
 \begin_layout Standard
-算符乘积展开是位置空间中的低能展开，用来推导有效拉氏量。有效拉矢量中的算符是 复合算符（composite operators），其中场是在同一点的。比如，回忆
+算符乘积展开是位置空间中的低能展开，用来推导有效拉氏量。有效拉矢量中的算符是
+\series bold
+复合算符
+\series default
+（composite operators），其中场是在同一点的，类似
 \begin_inset Formula $4$
 \end_inset
 
-–费米理论如何近似弱相互作用（see Chapter 22,29 and 31）。如果我们在树图阶把
+–费米理论对弱相互作用的近似（see Chapter 22,29 and 31）。如果我们在树图阶把
 \begin_inset Formula $W$
 \end_inset
 
@@ -2073,7 +2080,7 @@ parton shower
 where
 \begin_inset Formula 
 \[
-D_{\mu\nu}(x,y)=\int\frac{\dif^{4}p}{(2\pi)^{4}}\frac{-g_{\mu\nu}}{p^{2}-m_{W}^{2}}e^{ip(x-y)}=\frac{g^{\mu\nu}}{\square_{x}+m_{W}^{2}}\int\frac{\dif^{4}p}{(2\pi)^{4}}e^{ip(x-y)}
+D_{\mu\nu}(x,y)=\int\frac{\dif^{4}p}{(2\pi)^{4}}\frac{-g_{\mu\nu}}{p^{2}-m_{W}^{2}}e^{ip(x-y)}=\frac{g^{\mu\nu}}{\square_{x}+m_{W}^{2}}\int\frac{\dif^{4}p}{\left(2\pi\right)^{4}}e^{ip\left(x-y\right)}
 \]
 
 \end_inset
@@ -2086,10 +2093,10 @@ D_{\mu\nu}(x,y)=\int\frac{\dif^{4}p}{(2\pi)^{4}}\frac{-g_{\mu\nu}}{p^{2}-m_{W}^{
 \begin_inset Formula $\square\sim p^{2}\ll m_{W}^{2}$
 \end_inset
 
- we expand
+ 我们做展开
 \begin_inset Formula 
 \[
-\frac{g^{\mu\nu}}{\square_{x}+m_{W}^{2}}=G_{F}\left(1-\frac{\square}{m_{W}^{2}}+(\frac{\square}{m_{W}^{2}})^{2}+\cdots\right)
+\frac{g^{2}}{\square_{x}+m_{W}^{2}}=G_{F}\left(1-\frac{\square}{m_{W}^{2}}+(\frac{\square}{m_{W}^{2}})^{2}+\cdots\right)
 \]
 
 \end_inset
@@ -2098,7 +2105,11 @@ with
 \begin_inset Formula $G_{F}\sim\frac{g^{2}}{m_{W}^{2}}$
 \end_inset
 
-，所以
+，结合后面的
+\begin_inset Formula $\delta\left(x-y\right)=\int e^{ip\left(x-y\right)}$
+\end_inset
+
+。所以
 \begin_inset Formula 
 \[
 \mathcal{L}_{W}\sim G_{F}\int\dif^{4}x\left[\bar{\psi}\gamma^{\mu}\psi\bar{\psi}\gamma_{\mu}\psi-\bar{\psi}\gamma^{\mu}\psi\frac{\square}{m_{W}^{2}}\bar{\psi}\gamma_{\mu}\psi+\bar{\psi}\gamma^{\mu}\psi\frac{\square^{2}}{m_{W}^{4}}\bar{\psi}\gamma_{\mu}\psi\right]
@@ -2114,8 +2125,11 @@ with
 \end_layout
 
 \begin_layout Standard
-operator product expansion (OPE) 将在不同点local算符的乘积，在这些点接近彼此的极限下，写成复合local算符的和。把理论中
-所有可能的算符标记为
+
+\series bold
+算符乘积展开 (OPE) 
+\series default
+将位于不同点的定域算符的乘积，在这些点接近彼此的极限下，写成复合定域算符的求和。把理论中所有可能的算符标记为
 \begin_inset Formula $\mathcal{O}_{n}$
 \end_inset
 
@@ -2135,8 +2149,7 @@ operator product expansion (OPE) 将在不同点local算符的乘积，在这些
 \begin_inset Formula $\mathcal{O}_{2}(x)$
 \end_inset
 
-。OPE 这么牛啤的原因在于 because the expansion hold at the level of operators.
- 也就是说，Wilson 系数
+。OPE 厉害的原因在于它是在算符水平成立的。也就是说，Wilson 系数
 \begin_inset Formula $C_{n}$
 \end_inset
 
@@ -2176,16 +2189,16 @@ operator product expansion (OPE) 将在不同点local算符的乘积，在这些
 \begin_inset Formula $4$
 \end_inset
 
-–费米理论，对于给定的精度，只有有限个算符是相关的。在 DIS 的情况下，我们会看到无限数目的算符都是重要的（the twist-
+–费米理论，对于给定的精度，只有有限个算符是相关的。在 DIS 的情况下，我们会看到无限数目的算符都是重要的（下面会定义的twist-
 \begin_inset Formula $2$
 \end_inset
 
- 算符，下面会定义），但是 OPE 仍然会有用。
+ 算符），但是 OPE 仍然会有用。
 \end_layout
 
 \begin_layout Standard
-Intuitively，OPE 的存在非常合理：长距离的物理和短距离的物理应该是独立的。在许多其他领域，这都非常成功：牛顿定律和量子力学是独立的，化学和核物理是
-独立的，等等。也就是说，有效场论能行，OPE 就应该也行：物理学自然地把自己分成多个层次，我们可以把不相关的 scales 取成
+直观地说，OPE 的存在非常合理：长程的物理和短程的物理应该是独立的。在许多其他领域，这都非常成功：牛顿定律和量子力学是独立的，化学和核物理是独立的，等等。也就
+是说，有效场论能行，OPE 就应该也行：物理学自然地把自己分成多个层次，我们可以把不相关的 scales 取成
 \begin_inset Formula $0$
 \end_inset
 
@@ -2205,7 +2218,7 @@ OPE的实用形式是
 
 \end_inset
 
-with the Wilson coefficients 在动量空间中，算符在位置空间中。我们经常通过估计
+其中 Wilson 系数处在动量空间中，算符处在位置空间中。我们经常通过估计
 \begin_inset Formula $C_{n}(q)$
 \end_inset
 
@@ -2217,15 +2230,15 @@ with the Wilson coefficients 在动量空间中，算符在位置空间中。我
 \end_layout
 
 \begin_layout Standard
-为了把 OPE 应用到 DIS 中，首先我们想用从夸克构建的电磁流的矩阵元来表示 
+为了把 OPE 应用到 DIS 中，首先我们想用夸克电磁流的矩阵元来表示 
 \begin_inset Formula $W^{\mu\nu}$
 \end_inset
 
-。为了简化认为夸克电荷为
+。为了简化认为夸克电荷
 \begin_inset Formula $Q=1$
 \end_inset
 
-，对应的流是
+，对应的流为
 \begin_inset Formula $J^{\mu}=\bar{\psi}(x)\gamma^{\mu}\psi(x)$
 \end_inset
 
@@ -2237,11 +2250,19 @@ with the Wilson coefficients 在动量空间中，算符在位置空间中。我
 \begin_inset Formula $S$
 \end_inset
 
-–矩阵元，其中由于LSZ，光子传播子被截断（amputated），等于光子耦合的流
+–矩阵元，
+\begin_inset Formula 
+\[
+\square^{2;\alpha\beta}\square^{1;\mu\nu}\langle A_{\nu}\left(x_{1}\right)\cdots A_{\beta}\left(x_{2}\right)\cdots\rangle=\langle j^{\mu}\left(x_{1}\right)\cdots j_{\alpha}\left(x_{2}\right)\cdots\rangle
+\]
+
+\end_inset
+
+其中由于LSZ，光子传播子被截腿（amputated），等于光子所耦合流
 \begin_inset Formula $J^{\mu}$
 \end_inset
 
-的矩阵元。这个等价关系是必然的，在夸克纯态中 with spinor 
+的矩阵元。这个等价关系是必然的，在纯夸克态中，如果有旋量
 \begin_inset Formula $u_{1}(p)$
 \end_inset
 
@@ -2249,15 +2270,7 @@ with the Wilson coefficients 在动量空间中，算符在位置空间中。我
 \begin_inset Formula $u_{2}(p^{\prime})$
 \end_inset
 
- with 动量 
-\begin_inset Formula $p$
-\end_inset
-
- and 
-\begin_inset Formula $p^{\prime}$
-\end_inset
-
-，流的矩阵元为
+ ，流的矩阵元为
 \begin_inset Formula 
 \[
 \bra{p^{\prime}}J^{\mu}(x)\ket{p}=\bar{u}_{2}(p^{\prime})\gamma^{\mu}u_{1}(p)e^{i(p^{\prime}-p)x}
@@ -2273,31 +2286,19 @@ with the Wilson coefficients 在动量空间中，算符在位置空间中。我
 \begin_inset Formula $\bar{u}_{2}(p^{\prime})\gamma^{\mu}u_{1}(p)$
 \end_inset
 
-的简洁记法，就是流的矩阵元 at 
+的简洁记法，就是
 \begin_inset Formula $x=0$
 \end_inset
 
-： 
+处流的矩阵元 ： 
 \begin_inset Formula $\bra{p^{\prime}}J^{\mu}(0)\ket{p}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Eq.14.152 如下：
-\begin_inset Formula 
-\[
-\square_{2,\alpha\beta}\square_{1,\mu\nu}\langle A^{\nu}(x_{1})\cdots A^{\beta}(x_{2})\cdots\rangle=\langle j_{\mu}(x_{1})\cdots j_{\alpha}(x_{2})\cdots\rangle
-\]
-
-\end_inset
-
-
+。
 \begin_inset Formula $W^{\mu\nu}$
 \end_inset
 
-定义(32.12)：
+定义(32.12)为：
 \begin_inset Formula 
 \[
 e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu}=\frac{1}{2}\sum_{X,\text{spins}}\int\dif\Pi_{X}(2\pi)^{4}\delta^{4}\left(q+P-p_{X}\right)\abs*{\mathcal{M}(\gamma^{\star}p^{+}\to X)}^{2}
@@ -2313,15 +2314,15 @@ e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu}=\frac{1}{2}\sum_{X,\text{spi
 \begin_inset Formula $\gamma^{*}p^{+}\to X$
 \end_inset
 
-，我们需要这个流的矩阵元（因为光子耦合在上面）at 
+，我们需要这个流在 
 \begin_inset Formula $x=0$
 \end_inset
 
- between 初态质子
+的矩阵元（因为光子耦合在上面），初末态分别为质子
 \begin_inset Formula $\ket{P}$
 \end_inset
 
- and 任意一个末态
+ 和任意满足的
 \begin_inset Formula $\bra{X}$
 \end_inset
 
@@ -2340,7 +2341,7 @@ e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu}=\frac{1}{2}\sum_{X,\text{spi
  的定义，我们发现
 \begin_inset Formula 
 \begin{align*}
-W_{\mu\nu}(\omega,Q) & =\sum_{X}\int\dif\Pi_{X}\bra{P}J_{\mu}(0)\ket{X}\bra{X}J_{\nu}(0)\ket{P}(2\pi)^{4}\delta^{4}\left(q^{\mu}+P^{\mu}-p_{X}^{\mu}\right)\\
+W_{\mu\nu}\left(\omega,Q\right) & =\sum_{X}\int\dif\Pi_{X}\left(2\pi\right)^{4}\delta^{4}\left(q^{\mu}+P^{\mu}-p_{X}^{\mu}\right)\bra{P}J_{\mu}(0)\ket{X}\bra{X}J_{\nu}(0)\ket{P}\\
  & =\sum_{x}\int\dif\Pi_{X}\int\dif^{4}xe^{i(q+P-p_{X})x}\bra{P}J_{\mu}(0)\ket{X}\bra{X}J_{\nu}(0)\ket{P}
 \end{align*}
 
@@ -2350,7 +2351,7 @@ W_{\mu\nu}(\omega,Q) & =\sum_{X}\int\dif\Pi_{X}\bra{P}J_{\mu}(0)\ket{X}\bra{X}J_
 \begin_inset Formula $W_{\mu\nu}$
 \end_inset
 
-写成洛伦兹变量
+写成洛伦兹变量的函数：
 \begin_inset Formula $w=\frac{1}{x}=\frac{2P\cdot q}{Q^{2}}>1$
 \end_inset
 
@@ -2366,11 +2367,11 @@ W_{\mu\nu}(\omega,Q) & =\sum_{X}\int\dif\Pi_{X}\bra{P}J_{\mu}(0)\ket{X}\bra{X}J_
 \begin_inset Formula $x$
 \end_inset
 
- 以免和位置弄混）。
+ 以免和位置弄混）。这里的
 \begin_inset Formula $W_{\mu\nu}$
 \end_inset
 
-中有对质子自旋的隐含平均。
+隐含了对质子自旋的平均。
 \end_layout
 
 \begin_layout Standard
@@ -2389,8 +2390,8 @@ W_{\mu\nu}(\omega,Q) & =\sum_{X}\int\dif\Pi_{X}\bra{P}J_{\mu}(0)\ket{X}\bra{X}J_
 是产生平移的动量算符。它给出
 \begin_inset Formula 
 \begin{align*}
-W_{\mu\nu}(\omega,Q) & =\sum_{x}\int\dif\Pi_{X}\int\dif^{4}xe^{iq\cdot x}\bra{P}J_{\mu}(x)\ket{X}\bra{X}J_{\nu}(0)\ket{P}\\
- & =\int\dif^{4}xe^{iq\cdot x}\bra{P}J_{\mu}(x)J_{\nu}(0)\ket{P}
+W_{\mu\nu}\left(\omega,Q\right) & =\sum_{x}\int\dif\Pi_{X}\int\dif^{4}xe^{iq\cdot x}\bra{P}J_{\mu}(x)\ket{X}\bra{X}J_{\nu}(0)\ket{P}\\
+W_{\mu\nu}\left(\omega,Q\right) & =\int\dif^{4}xe^{iq\cdot x}\bra{P}J_{\mu}(x)J_{\nu}(0)\ket{P}
 \end{align*}
 
 \end_inset
@@ -2459,16 +2460,15 @@ W_{\mu\nu}(\omega,Q) & =\sum_{x}\int\dif\Pi_{X}\int\dif^{4}xe^{iq\cdot x}\bra{P}
 \begin_inset Formula $x<1$
 \end_inset
 
-），so a naive large 
+），所以naive的大
 \begin_inset Formula $Q^{2}$
 \end_inset
 
- expansion will take us out the physical region.
- 为了解决这个问题，我们需要重新组织对象，让我们可以在
+ 展开将会把我们带离物理区域。为了解决这个问题，我们需要重新组织对象，让我们可以在
 \begin_inset Formula $\omega=0$
 \end_inset
 
-附近泰勒展开。
+附近作泰勒展开。
 \end_layout
 
 \begin_layout Standard
@@ -2480,7 +2480,16 @@ W_{\mu\nu}(\omega,Q) & =\sum_{x}\int\dif\Pi_{X}\int\dif^{4}xe^{iq\cdot x}\bra{P}
 \begin_inset Formula $\gamma^{*}p^{+}\to\gamma^{*}p^{+}$
 \end_inset
 
-向前散射rate 的虚部给出。使用 Eq.(32.12) and (24.11)，可以写出
+向前散射rate 的虚部给出。使用 Eq.(32.12) and (24.11)，
+\begin_inset Formula 
+\begin{align*}
+2i\Im\mathcal{M}(A & \to A)=i\sum_{X}\int\dif\Pi_{X}(2\pi)^{4}\delta^{4}(p_{A}-p_{X})\abs{\mathcal{M}(A\to X)}^{2}\\
+e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu} & =\frac{1}{2}\sum_{X,\text{spins}}\int\dif\Pi_{X}(2\pi)^{4}\delta^{4}\left(q+P-p_{X}\right)\abs*{\mathcal{M}(\gamma^{\star}p^{+}\to X)}^{2}
+\end{align*}
+
+\end_inset
+
+可得
 \begin_inset Formula 
 \[
 W^{\mu\nu}=2\Im T^{\mu\nu}
@@ -2491,7 +2500,7 @@ W^{\mu\nu}=2\Im T^{\mu\nu}
 其中
 \begin_inset Formula 
 \[
-e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}T^{\mu\nu}(\omega,Q)=\mathcal{M}(\gamma^{*}p^{+}\to\gamma^{*}p^{+})
+e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}T^{\mu\nu}(\omega,Q)=\mathcal{M}\left(\gamma^{*}p^{+}\to\gamma^{*}p^{+}\right)
 \]
 
 \end_inset
@@ -2504,55 +2513,43 @@ e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}T^{\mu\nu}(\omega,Q)=\mathcal{M}(\gamma
 \series bold
 forward Compton amplitude 
 \series default
-）。它是个 forward amplitude 由于（不在壳）光子和质子在初末态具有相同的动量。用流来表示，我们可以把
+）。它是个 forward 振幅，由于（不在壳）光子和质子在初末态具有相同的动量。用流来表示，我们可以把
 \begin_inset Formula $T_{\mu\nu}$
 \end_inset
 
 写成
 \begin_inset Formula 
 \[
-T_{\mu\nu}(\omega,Q)=i\int\dif^{4}xe^{iq\cdot x}\bra{P}T\left\{ J_{\mu}(x)J_{\nu}(0)\right\} \ket{P}
+T_{\mu\nu}\left(\omega,Q\right)=i\int\dif^{4}xe^{iq\cdot x}\bra{P}T\left\{ J_{\mu}(x)J_{\nu}(0)\right\} \ket{P}
 \]
 
 \end_inset
 
-我们把一个矩阵元平方
-\begin_inset Formula $W_{\mu\nu}\sim\abs{\mathcal{M}(\gamma^{*}p^{+}\to X)}^{2}\sim\abs{\langle\{J\}\rangle}^{2}$
-\end_inset
-
-表示成矩阵元
-\begin_inset Formula $T_{\mu\nu}\sim\mathcal{M}(\gamma^{*}p\to\gamma^{*}p)\sim\langle T\{JJ\}\rangle$
-\end_inset
-
-的虚部。
-\end_layout
-
-\begin_layout Standard
-补充:
+我们把一个矩阵元的平方表示成另一个矩阵元的虚部,
 \begin_inset Formula 
 \begin{align*}
-2i\Im\mathcal{M}(A & \to A)=i\sum_{X}\int\dif\Pi_{X}(2\pi)^{4}\delta^{4}(p_{A}-p_{X})\abs{\mathcal{M}(A\to X)}^{2}\text{(24.11)}\\
-e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu} & =\frac{1}{2}\sum_{X,\text{spins}}\int\dif\Pi_{X}(2\pi)^{4}\delta^{4}\left(q+P-p_{X}\right)\abs*{\mathcal{M}(\gamma^{\star}p^{+}\to X)}^{2}\text{(32.12)}
+ & W_{\mu\nu}\sim\abs{\mathcal{M}(\gamma^{*}p^{+}\to X)}^{2}\sim\abs{\langle\{J\}\rangle}^{2}\\
+ & T_{\mu\nu}\sim\mathcal{M}(\gamma^{*}p\to\gamma^{*}p)\sim\langle T\{JJ\}\rangle.
 \end{align*}
 
 \end_inset
 
-通常把
-\begin_inset Formula $T_{\mu\nu}$
-\end_inset
-
-用它的自己结构函数展开，as in (32.13), with 稍微不同的归一化：
-\begin_inset Formula 
-\begin{equation}
-T^{\mu\nu}(\omega,Q)=T_{1}(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}})+\frac{T_{2}}{P\cdot q}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)\label{eq:32.82}
-\end{equation}
-
-\end_inset
-
 
 \end_layout
 
 \begin_layout Standard
+通常把
+\begin_inset Formula $T_{\mu\nu}$
+\end_inset
+
+用它自己的结构函数展开，类似(32.13)，除了归一化稍微不同：
+\begin_inset Formula 
+\begin{equation}
+T^{\mu\nu}(\omega,Q)=T_{1}\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)+\frac{T_{2}}{P\cdot q}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)\label{eq:32.82}
+\end{equation}
+
+\end_inset
+
 DIS 结构函数变成
 \begin_inset Formula $W_{1}=2\Im T_{1}$
 \end_inset
@@ -2593,15 +2590,15 @@ DIS 结构函数变成
 \begin_inset Formula $x^{\mu}\to0$
 \end_inset
 
-，因此我们不能证明 a small 
+，因此我们不能证明
 \begin_inset Formula $x^{\mu}$
 \end_inset
 
- expansion。幸运的是，尽管我们不能一般性地证明 a small 
+展开是收敛的。幸运的是，尽管我们不能一般性地证明
 \begin_inset Formula $x^{\mu}$
 \end_inset
 
- expansion，但可以在某些情况下证明它。特别地，对
+展开是收敛的，但可以在某些情况下证明它。特别地，对
 \begin_inset Formula $\omega$
 \end_inset
 
@@ -2621,7 +2618,7 @@ DIS 结构函数变成
 \begin_inset Formula $\ket{X}$
 \end_inset
 
-(当然也就是，那些对
+(也就是那些对
 \begin_inset Formula $W^{\mu\nu}$
 \end_inset
 
@@ -2633,7 +2630,7 @@ DIS 结构函数变成
 \begin_inset Formula $1$
 \end_inset
 
-，固定
+，我们可以固定
 \begin_inset Formula $Q^{2}$
 \end_inset
 
@@ -2641,7 +2638,7 @@ DIS 结构函数变成
 \begin_inset Formula $\omega$
 \end_inset
 
-解析延拓到复平面上也许不错。At fixed
+解析延拓到复平面上。对于固定的
 \begin_inset Formula $Q^{2}>0$
 \end_inset
 
@@ -2653,15 +2650,23 @@ DIS 结构函数变成
 \begin_inset Formula $\omega$
 \end_inset
 
-的解析函数，除了当
+的解析函数，
+\begin_inset Formula $\omega=2P\cdot q/Q^{2}$
+\end_inset
+
+。除了当
 \begin_inset Formula $\left(P\pm q\right)^{2}=Q^{2}(1\pm\omega)$
 \end_inset
 
-是一个物理 on-shell state 
+是一个物理在壳态
 \begin_inset Formula $\ket{X}$
 \end_inset
 
- 的质量。所以
+ 的质量。
+\begin_inset Newline newline
+\end_inset
+
+所以
 \begin_inset Formula $T^{\mu\nu}(\omega,Q)$
 \end_inset
 
@@ -2673,21 +2678,15 @@ DIS 结构函数变成
 \begin_inset Formula $\omega>1$
 \end_inset
 
-(the physical region ) or 
+：物理区域，或者 
 \begin_inset Formula $\omega<-1$
 \end_inset
 
-(an unphysical region
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-The on-shell state for 
+：非物理区域，对于DIS，
 \begin_inset Formula $-\infty<\omega<1$
 \end_inset
 
- cut are note plysical for DIS.
- 由于
+ 的在壳态是非物理的。 由于
 \begin_inset Formula $\omega\to-\omega$
 \end_inset
 
@@ -2695,15 +2694,10 @@ The on-shell state for
 \begin_inset Formula $P\to-P$
 \end_inset
 
-，这个cut对应电子在反质子上的深度非弹性散射。
-\end_layout
-
-\end_inset
-
- )。然后我们就可以使用套路，具有cut的函数的虚部由穿过cut时的不连续值给出：
+，这个cut对应电子在反质子上的深度非弹性散射。然后我们就可以使用套路，具有cut的函数的虚部由穿过cut时的不连续值给出：
 \begin_inset Formula 
 \begin{equation}
-W_{\mu\nu}(\omega,Q)=2\Im T_{\mu\nu}(\omega,Q)=-iT_{\mu\nu}(\omega+i\varepsilon,Q)+iT_{\mu\nu}(\omega-i\varepsilon,Q)=\text{Disc}(-iT_{\mu\nu})\label{eq:32.83}
+W_{\mu\nu}\left(\omega,Q\right)=2\Im T_{\mu\nu}\left(\omega,Q\right)=-iT_{\mu\nu}\left(\omega+i\varepsilon,Q\right)+iT_{\mu\nu}\left(\omega-i\varepsilon,Q\right)=\text{Disc}\left(-iT_{\mu\nu}\right)\label{eq:32.83}
 \end{equation}
 
 \end_inset
@@ -2724,31 +2718,31 @@ W_{\mu\nu}(\omega,Q)=2\Im T_{\mu\nu}(\omega,Q)=-iT_{\mu\nu}(\omega+i\varepsilon,
 \begin_inset Formula $T_{\mu\nu}$
 \end_inset
 
-的吸收部（ 
+的
 \series bold
-absorptive part
+吸收部（ absorptive part ）
 \series default
- ）。
+。
 \end_layout
 
 \begin_layout Standard
-现在，假设我们对
+现在，假设我们在
 \begin_inset Formula $1\leq\omega\leq\infty$
 \end_inset
 
-积分，对应于 Bjorken 
+上积分，对应于 Bjorken 
 \begin_inset Formula $x$
 \end_inset
 
- from 
+ 从 
 \begin_inset Formula $0$
 \end_inset
 
- to 
+ 到
 \begin_inset Formula $1$
 \end_inset
 
-。这样的一个积分，根据 Eq.
+。根据 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.83"
@@ -2758,7 +2752,7 @@ noprefix "false"
 
 \end_inset
 
-，可以通过在复平面的 cut 上下绕过完成。由于
+，这样的一个积分对应于在复平面的 cut 上下绕过。由于
 \begin_inset Formula $T_{\mu\nu}$
 \end_inset
 
@@ -2781,26 +2775,26 @@ noprefix "false"
 \end_inset
 
 附近的
-\begin_inset Formula $T_{\mu\nu}(\omega,Q)$
+\begin_inset Formula $T_{\mu\nu}\left(\omega,Q\right)$
 \end_inset
 
-，所以我们可以证实 Taylor expanding at small 
+，所以我们可以放心在小
 \begin_inset Formula $\omega$
 \end_inset
 
-。换句话说，我们可以对
-\begin_inset Formula $J^{\mu}(x)J^{\nu}(0)$
-\end_inset
-
-使用 OPE，as 
-\begin_inset Formula $x^{\mu}\to0$
-\end_inset
-
-来推导关于
+附近使用泰勒展开。换句话说，为了得到关于
 \begin_inset Formula $W^{\mu\nu}$
 \end_inset
 
-的结果，只要我们对所有
+的结果，当
+\begin_inset Formula $x^{\mu}\to0$
+\end_inset
+
+时使用
+\begin_inset Formula $J^{\mu}\left(x\right)J^{\nu}\left(0\right)$
+\end_inset
+
+的OPE是可行的，只要我们对所有
 \begin_inset Formula $\omega$
 \end_inset
 
@@ -2851,6 +2845,22 @@ name "fig:fig.32.4"
 
 \end_layout
 
+\begin_layout Standard
+总结就是
+\begin_inset Formula 
+\begin{align*}
+ & e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}T^{\mu\nu}(\omega,Q)=\mathcal{M}\left(\gamma^{*}p^{+}\to\gamma^{*}p^{+}\right)\\
+ & T_{\mu\nu}(\omega,Q)=i\int\dif^{4}xe^{iq\cdot x}\bra{P}T\left\{ J_{\mu}(x)J_{\nu}(0)\right\} \ket{P}\\
+ & W_{\mu\nu}\left(\omega,Q\right)=2\Im T_{\mu\nu}\left(\omega,Q\right)=-iT_{\mu\nu}\left(\omega+i\varepsilon,Q\right)+iT_{\mu\nu}\left(\omega-i\varepsilon,Q\right)=\text{Disc}\left(-iT_{\mu\nu}\right)\\
+ & T^{\mu\nu}(\omega,Q)=T_{1}(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}})+\frac{T_{2}}{P\cdot q}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)\\
+ & W_{1}=2\Im T_{1},\quad W_{2}=4\Im\frac{1}{\omega Q^{2}}T_{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 DIS 中的算符乘积展开
 \end_layout
@@ -2859,25 +2869,21 @@ DIS 中的算符乘积展开
 现在我们把 OPE 应用到 DIS。我们想得到
 \begin_inset Formula 
 \[
-T\left\{ J^{\mu}(x)J^{\nu}(y)\right\} =\sum_{n}C_{n}(x-y)\mathcal{O}_{n}^{\mu\nu}(x)
+T\left\{ J^{\mu}\left(x\right)J^{\nu}\left(y\right)\right\} =\sum_{n}C_{n}\left(x-y\right)\mathcal{O}_{n}^{\mu\nu}\left(x\right)
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 我们要做的是，首先计算外态为夸克的 OPE。然后，由于 OPE 是在算符层次成立的，与外态无关，我们可以把OPE应用到质子外态上，给出 PDFs
  的定义。
 \end_layout
 
 \begin_layout Standard
-在夸克态中的流流矩阵元跟康普顿散射
+夸克态中的流流矩阵元跟康普顿散射
 \begin_inset Formula $\gamma^{*}q\to\gamma^{*}q$
 \end_inset
 
-中的向前散射矩阵元一样，with 光子不在壳，且去掉光子极化。在微扰理论的领头阶，结果是
+中的向前散射矩阵元一样，只需要去掉光子极化并且令光子动量不在壳。在微扰理论的领头阶，结果是
 \begin_inset Formula 
 \begin{align}
  & i\int\dif^{4}xe^{iqx}\bra{p}T\left\{ J^{\mu}(x)J^{\nu}(0)\right\} \ket{p}\nonumber \\
@@ -2898,7 +2904,7 @@ T\left\{ J^{\mu}(x)J^{\nu}(y)\right\} =\sum_{n}C_{n}(x-y)\mathcal{O}_{n}^{\mu\nu
 \begin_inset Formula $Q^{2}\gg p^{2}$
 \end_inset
 
-，我们把 Eq.
+，我们把 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.85"
@@ -2923,58 +2929,49 @@ noprefix "false"
 ）分母的展开给出
 \begin_inset Formula 
 \[
-\frac{1}{(p+q)^{2}}=\frac{2}{-Q^{2}+2q\cdot p+p^{2}}=-\frac{1}{Q^{2}}\sum_{0}^{\infty}\left(\frac{2p\cdot q+p^{2}}{Q^{2}}\right)^{n}
+\frac{1}{(p+q)^{2}}=\frac{1}{-Q^{2}+2q\cdot p+p^{2}}=-\frac{1}{Q^{2}}\frac{1}{1-\frac{2q\cdot p+p^{2}}{Q^{2}}}=-\frac{1}{Q^{2}}\sum_{0}^{\infty}\left(\frac{2p\cdot q+p^{2}}{Q^{2}}\right)^{n}
 \]
 
 \end_inset
 
 所以，
 \begin_inset Formula 
-\begin{equation}
-i\int\dif^{4}xe^{iqx}\bra{p}T\left\{ J^{\mu}(x)J^{\nu}(0)\right\} \ket{p}=\frac{1}{Q^{2}}\bar{u}(p)\gamma^{\mu}(\slashed{p}+\slashed{q})\gamma^{\nu}u(p)\sum_{0}^{\infty}\left(\frac{2p\cdot q+p^{2}}{Q^{2}}\right)^{n}+\cdots\label{eq:32.87}
-\end{equation}
+\begin{align}
+ & i\int\dif^{4}xe^{iqx}\bra{p}T\left\{ J^{\mu}(x)J^{\nu}(0)\right\} \ket{p}=\frac{1}{Q^{2}}\bar{u}(p)\gamma^{\mu}(\slashed{p}+\slashed{q})\gamma^{\nu}u(p)\sum_{0}^{\infty}\left(\frac{2p\cdot q+p^{2}}{Q^{2}}\right)^{n}\nonumber \\
+ & +\frac{-1}{Q^{2}}\bar{u}(p)\gamma^{\nu}(\slashed{p}-\slashed{q})\gamma^{\mu}u(p)\sum_{0}^{\infty}\left(\frac{2p\cdot q+p^{2}}{-Q^{2}}\right)^{n}\label{eq:32.87}
+\end{align}
 
 \end_inset
 
-其中
-\begin_inset Formula $\cdots$
-\end_inset
 
-代表 Eq.
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:32.85"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 中的第二项。
 \end_layout
 
 \begin_layout Standard
-每当我们有这样的动量空间展开时，我们都可以在OPE中读取Wilson系数和算符。为了使 OPE 有意义，所有的
+每当我们在动量空间进行这样的展开时，我们都可以在OPE中读取Wilson系数和算符。为了使 OPE 有意义，所有的
 \begin_inset Formula $p^{\mu}$
 \end_inset
 
-因子都应该来自于在外部态中求值的
+因子都应该来自于作用在外态上的
 \begin_inset Formula $i\partial^{\mu}$
 \end_inset
 
-因子（外部态依赖于
+因子（外态动量为
 \begin_inset Formula $p^{\mu}$
 \end_inset
 
-）。另一方面，所有对于短距离scale 
+）。另一方面，所有对于短程能标
 \begin_inset Formula $q^{\mu}$
 \end_inset
 
-的依赖（and 
+的依赖（以及
 \begin_inset Formula $Q^{2}=-q^{2}$
 \end_inset
 
-）应该在 Wilson coefficients 里。比如，这样的展开中，
+）应该包括在Wilson系数中。
+\begin_inset Newline newline
+\end_inset
+
+例如在上面的展开中，
 \begin_inset Formula $(\frac{p^{2}}{Q^{2}})^{n}$
 \end_inset
 
@@ -2987,7 +2984,7 @@ noprefix "false"
 \end_inset
 
 。项
-\begin_inset Formula $(\frac{2p\cdot q}{Q^{2}})^{n}\frac{p^{2}}{Q^{2}}$
+\begin_inset Formula $(\frac{2p\cdot q}{Q^{2}})^{3}\frac{p^{2}}{Q^{2}}$
 \end_inset
 
 应该来自于
@@ -2998,7 +2995,7 @@ noprefix "false"
 \begin_inset Formula $C_{n}=\frac{1}{Q^{8}}q^{\mu_{1}}q^{\mu_{2}}q^{\mu_{3}}$
 \end_inset
 
-等等。对于 Eq.
+等等。对于 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.87"
@@ -3008,23 +3005,23 @@ noprefix "false"
 
 \end_inset
 
-，Wilson operators 比较混乱，所以在读取 OPE 之前我们先化简。
+，Wilson 算符比较混乱，所以在读取 OPE 之前我们先进行化简。
 \end_layout
 
 \begin_layout Standard
-迄今，我们还没有做过任何近似。我们想计算OPE在外态为质子时的值，使用在夸克外态中计算出的 Wilson 系数和算符。在 DIS 极限中，
-\begin_inset Formula $Q\to\infty$
-\end_inset
-
- at fixed 
+迄今，我们还没有做过任何近似。我们借助在夸克外态中计算出的 Wilson 系数和算符，计算在外态为质子时的值。在 DIS 极限中，
 \begin_inset Formula $\omega$
 \end_inset
 
-，我们可以丢掉算符中贡献正比于
+固定而
+\begin_inset Formula $Q\to\infty$
+\end_inset
+
+ ，我们可以丢掉算符中贡献正比于
 \begin_inset Formula $\frac{\Lambda_{\text{QCD}}}{Q}$
 \end_inset
 
-次幂的项。在质子的情况下，
+的次幂的项。在质子的情况下，
 \begin_inset Formula $p^{\mu}$
 \end_inset
 
@@ -3040,19 +3037,19 @@ noprefix "false"
 \begin_inset Formula $p^{\mu}$
 \end_inset
 
-的精确值，but we do need to know that it has no access to 
+究竟为何，只需要知道它与
 \begin_inset Formula $Q$
 \end_inset
 
-。算符中比如
+无关。算符中类似于
 \begin_inset Formula $\square/Q^{2}$
 \end_inset
 
-的项，给出的
+的项给出的
 \begin_inset Formula $p^{2}/Q^{2}$
 \end_inset
 
-因子是很小的。因此，我们可以在 Eq.
+因子是很小的。因此，在
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.87"
@@ -3062,11 +3059,11 @@ noprefix "false"
 
 \end_inset
 
- 中取
+ 中我们可以令
 \begin_inset Formula $p^{2}/Q^{2}\to0$
 \end_inset
 
-极限，来抽取出简化版的算符。另一方面，算符中比如
+，来提取出简化版的算符。另一方面，算符中类似
 \begin_inset Formula $\partial_{\mu}/Q$
 \end_inset
 
@@ -3074,7 +3071,7 @@ noprefix "false"
 \begin_inset Formula $q\cdot p/Q^{2}\sim\omega$
 \end_inset
 
-因子 that are not small （我们将对
+，它不是小量（我们将对
 \begin_inset Formula $\omega$
 \end_inset
 
@@ -3086,7 +3083,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-我们也可以化简 Eq.
+我们也可以化简 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.87"
@@ -3096,11 +3093,11 @@ noprefix "false"
 
 \end_inset
 
- 中的 Dirac 结构。由于末态对于指标
+ 中的 Dirac 结构。由于最后结果对于指标
 \begin_inset Formula $\mu\leftrightarrow\nu$
 \end_inset
 
-必定是对称的，我们可以对称化，使用关系
+必定是对称的，我们可以使用下列关系对称化，
 \begin_inset Formula 
 \[
 \gamma^{\mu}(\slashed{p}+\slashed{q})\gamma^{\nu}+\gamma^{\nu}(\slashed{p}+\slashed{q})\gamma^{\mu}=2\gamma^{\mu}(p^{\nu}+q^{\nu})+2\gamma^{\nu}(p^{\mu}+q^{\mu})-2g^{\mu\nu}(\slashed{p}+\slashed{q})
@@ -3128,7 +3125,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.85"
@@ -3150,20 +3146,20 @@ noprefix "false"
 \begin_inset Formula $q$
 \end_inset
 
-的偶数次项加倍。因此我们得到
+的偶数次项加倍。因此在质子外态中，忽略 
+\begin_inset Formula $\frac{\Lambda_{\text{QCD}}}{Q}$
+\end_inset
+
+压低的项我们得到
 \begin_inset Formula 
 \begin{align}
  & i\int\dif^{4}xe^{iqx}\bra{p}T\left\{ J^{\mu}(x)J^{\nu}(0)\right\} \ket{p}=\frac{2}{Q^{2}}\bar{u}(p)\left(p^{\mu}\gamma^{\nu}+\gamma^{\mu}p^{\nu}\right)\sum_{n=0,2,\cdots}^{\infty}\left(\frac{2q\cdot p}{Q^{2}}\right)^{n}u(p)\label{eq:32.89}\\
- & +\frac{2}{Q^{2}}\bar{u}(p)\left(\gamma^{\mu}q^{\nu}+q^{\mu}\gamma^{\nu}-g^{\mu\nu}\slashed{q}\right)\sum_{n=1,3,\cdots}^{\infty}\left(\frac{2q\cdot p}{Q^{2}}\right)^{n}u(p)\nonumber 
+ & +\frac{2}{Q^{2}}\bar{u}(p)\left(\gamma^{\mu}q^{\nu}+q^{\mu}\gamma^{\nu}-g^{\mu\nu}\slashed{q}\right)\sum_{n=1,3,\cdots}^{\infty}\left(\frac{2q\cdot p}{Q^{2}}\right)^{n}u(p).\nonumber 
 \end{align}
 
 \end_inset
 
-up to term that give 
-\begin_inset Formula $\frac{\Lambda_{\text{QCD}}}{Q}$
-\end_inset
-
-–suppressed 贡献 in proton external states。注意级数的所有项中都包含一个
+注意级数的所有项中都包含一个
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -3175,11 +3171,11 @@ up to term that give
 \begin_inset Formula $p_{\mu}\to i\partial_{\mu}$
 \end_inset
 
-）and 所有
+），所有
 \begin_inset Formula $q^{\mu}$
 \end_inset
 
-项应该来自 Wilson coefficients。比如，Eq.
+项应该来自 Wilson 系数。比如，
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.89"
@@ -3197,7 +3193,7 @@ noprefix "false"
 
 \end_inset
 
-with Wilson coefficients
+with Wilson 系数
 \begin_inset Formula 
 \[
 C_{n+2}^{\mu_{1}\cdots\mu_{n}}(q)=\frac{2}{Q^{2}}\frac{2^{n}}{Q^{2n}}q^{\mu_{1}}\cdots q^{\mu_{n}}
@@ -3205,7 +3201,7 @@ C_{n+2}^{\mu_{1}\cdots\mu_{n}}(q)=\frac{2}{Q^{2}}\frac{2^{n}}{Q^{2n}}q^{\mu_{1}}
 
 \end_inset
 
-Eq.
+
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.89"
@@ -3223,11 +3219,11 @@ noprefix "false"
 \begin_inset Formula $s$
 \end_inset
 
- 的算符将会是对称的，阶为
+ 的算符是指对称的，阶为
 \begin_inset Formula $s$
 \end_inset
 
-的无迹张量。比如，对于自旋–
+的无迹张量。比如，对于自旋
 \begin_inset Formula $2$
 \end_inset
 
@@ -3240,10 +3236,14 @@ noprefix "false"
 \end_inset
 
 它满足
-\begin_inset Formula $g_{\mu\nu}\hat{\mathcal{O}}_{2,0}^{\mu\nu}=0$
+\begin_inset Formula 
+\[
+g_{\mu\nu}\hat{\mathcal{O}}_{2,0}^{\mu\nu}=2i\gamma\partial-2i\gamma\partial=0.
+\]
+
 \end_inset
 
-。它与 Eq.
+它与 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.90"
@@ -3253,7 +3253,7 @@ noprefix "false"
 
 \end_inset
 
- 的区别在于多了一个表量算符
+ 的区别在于多了一个标量算符
 \begin_inset Formula $\bar{\psi}\slashed{\partial}\psi$
 \end_inset
 
@@ -3276,20 +3276,28 @@ noprefix "false"
 的算符是
 \begin_inset Formula 
 \[
-\hat{\mathcal{O}}_{s,r}^{\mu_{1}\cdots\mu_{s}}=\bar{\psi}\gamma^{\mu_{1}}i\partial^{\mu_{2}}\cdots i\partial^{\mu_{s}}(-\square)^{r}\psi+\text{ symmetrizations of }\mu_{i}-\text{ traces}
+\hat{\mathcal{O}}_{s,r}^{\mu_{1}\cdots\mu_{s}}=\bar{\psi}\gamma^{\mu_{1}}i\partial^{\mu_{2}}\cdots i\partial^{\mu_{s}}(-\square)^{r}\psi+\mu_{i}\text{的对称化}-\text{迹}
 \]
 
 \end_inset
 
-这些算符具有质量量纲
+这些算符的质量量纲为
 \begin_inset Formula $d=2+s+2r$
 \end_inset
 
-（注意偏导数指标从
-\begin_inset Formula $\mu_{2}$
+（
+\begin_inset Formula $\left[\bar{\psi}\gamma^{\mu_{1}}\psi\right]=3$
 \end_inset
 
-开始）。假如知道了量纲和自旋，可以确定
+）。假如知道了量纲
+\begin_inset Formula $d$
+\end_inset
+
+和自旋
+\begin_inset Formula $s$
+\end_inset
+
+，可以确定
 \begin_inset Formula $t\equiv2+2r=d-s$
 \end_inset
 
@@ -3301,8 +3309,16 @@ noprefix "false"
 \series bold
 twist
 \series default
-）。也就是，
-\begin_inset Formula $\text{twist}=\text{dimension}-\text{spin}$
+）。自旋为 
+\begin_inset Formula $s$
+\end_inset
+
+ 的算符是对称的，阶为
+\begin_inset Formula $s$
+\end_inset
+
+的无迹张量。也就是，
+\begin_inset Formula $\text{twist}=\text{量纲}-\text{自旋}$
 \end_inset
 
 。由于具有额外
@@ -3313,7 +3329,7 @@ twist
 \series bold
 OPE 会被具有最低扭度的算符主导。
 \series default
-比如 Eq.
+比如 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.92"
@@ -3327,11 +3343,11 @@ noprefix "false"
 \begin_inset Formula $\hat{\mathcal{O}}_{2,0}^{\mu\nu}$
 \end_inset
 
-，它是量纲
+，量纲为
 \begin_inset Formula $4$
 \end_inset
 
- and 自旋
+，自旋为
 \begin_inset Formula $2$
 \end_inset
 
@@ -3339,23 +3355,23 @@ noprefix "false"
 \begin_inset Formula $2$
 \end_inset
 
-。一般来说，promoting the derivatives to covariant derivatives and 添加夸克味道label，我们定义
+。一般地，将导数改成协变导数，并添加夸克味道标记，我们定义
 \begin_inset Formula 
 \[
-\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}(x)=\bar{\psi}_{q}(x)\gamma^{\mu_{1}}iD^{\mu_{2}}\cdots iD^{\mu_{n}}\psi_{q}(x)+\text{symmetrizations of }\mu_{i}-\text{traces}
+\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\left(x\right)=\bar{\psi}_{q}\left(x\right)\gamma^{\mu_{1}}iD^{\mu_{2}}\cdots iD^{\mu_{n}}\psi_{q}\left(x\right)+\mu_{i}\text{的对称化}-\text{迹}
 \]
 
 \end_inset
 
-这就是规范不变 twist-
+这就是规范不变的扭度–
 \begin_inset Formula $2$
 \end_inset
 
- 夸克算符的正规基(canonical basis)。
+的夸克算符的正规基(canonical basis)。
 \end_layout
 
 \begin_layout Standard
-QCD 中没有twist 小于
+QCD 中没有扭度小于
 \begin_inset Formula $2$
 \end_inset
 
@@ -3363,35 +3379,35 @@ QCD 中没有twist 小于
 \begin_inset Formula $F_{\mu\nu}$
 \end_inset
 
- 。 添加更多的场，量纲会升高，所以 twist 也会升高。不带导数时，两个夸克的量纲为
+ 。 添加更多的场，量纲会升高，
+\begin_inset Formula $t=d-s$
+\end_inset
+
+，所以扭度也会升高。不带导数时，两个夸克的量纲为
 \begin_inset Formula $3$
 \end_inset
 
- and 自旋为 
+，而自旋为
 \begin_inset Formula $0$
 \end_inset
 
- or 
+或者
 \begin_inset Formula $1$
 \end_inset
 
-；因此，夸克算符最少为 twist-
+；因此，夸克算符扭度最少为
 \begin_inset Formula $2$
 \end_inset
 
-。Derivatives 将量纲加
+为。每个导数使量纲增加
 \begin_inset Formula $1$
 \end_inset
 
- and 对自旋
+，而自旋最多加
 \begin_inset Formula $1$
 \end_inset
 
-顶多加
-\begin_inset Formula $1$
-\end_inset
-
-；因此扭度不能低于
+；因此扭度不会低于
 \begin_inset Formula $2$
 \end_inset
 
@@ -3403,7 +3419,7 @@ QCD 中没有twist 小于
 \begin_inset Formula $4$
 \end_inset
 
- and 自旋最多为
+，而自旋最多为
 \begin_inset Formula $2$
 \end_inset
 
@@ -3411,15 +3427,15 @@ QCD 中没有twist 小于
 \begin_inset Formula $t\geq2$
 \end_inset
 
-。明确地说，twist-2 胶子算符是
+。明确地说，twist-2的胶子算符是
 \begin_inset Formula 
 \[
-\hat{\mathcal{O}}_{g}^{\mu_{1}\cdots\mu_{n}}=F^{\mu_{1}\nu}iD^{\mu_{2}}\cdots iD^{\mu_{n-1}}F^{\mu_{n}\nu}+\text{symmetrizations of }\mu_{i}-\text{traces}
+\hat{\mathcal{O}}_{g}^{\mu_{1}\cdots\mu_{n}}=F^{\mu_{1}\nu}iD^{\mu_{2}}\cdots iD^{\mu_{n-1}}F^{\mu_{n}\nu}+\mu_{i}\text{的对称化}-\text{迹}
 \]
 
 \end_inset
 
-在领头阶，这些胶子算符的 Wilson coefficients 为零。
+在领头阶，这些胶子算符的 Wilson 系数为零。
 \end_layout
 
 \begin_layout Standard
@@ -3427,19 +3443,19 @@ QCD 中所有扭度比
 \begin_inset Formula $2$
 \end_inset
 
-高的规范不变算符，一般都叫做 higher twist。经常把 twist-
+高的规范不变算符，一般都叫做高扭度项，higher twist。经常把 twist-
 \begin_inset Formula $2$
 \end_inset
 
- 当成 large
+ 当成大
 \begin_inset Formula $Q^{2}$
 \end_inset
 
-，fixed 
+，固定 
 \begin_inset Formula $x$
 \end_inset
 
- limit 的同义词，and higher twist operators providing power corrections.
+ 极限的同义词，而高扭度算符提供幂次修正。
 \end_layout
 
 \begin_layout Standard
@@ -3450,14 +3466,30 @@ QCD 中所有扭度比
  的算符，
 \begin_inset Formula 
 \begin{align*}
- & i\int\dif^{4}xe^{iq\cdot x}T\left\{ J_{\mu}(x)J_{\nu}(0)\right\} \\
- & =\sum_{q}C_{q}^{2}\Big\{\sum_{n=2,4,\cdots}^{\infty}\frac{(2q^{\mu_{1}})\cdots(2q^{\mu_{n}})}{Q^{2n}}\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\\
- & +4\sum_{n=2,4,\cdots}^{\infty}\frac{(2q^{\mu_{3}})\cdots(2q^{\mu_{n}})}{Q^{2n-2}}\left(g^{\mu\mu_{1}}+\frac{q^{\mu}q^{\mu_{1}}}{q^{2}}\right)\left(g^{\nu\mu_{2}}+\frac{q^{\nu}q^{\mu_{2}}}{q^{2}}\right)\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\Big\}
+ & i\int\dif^{4}xe^{iq\cdot x}T\left\{ J_{\mu}(x)J_{\nu}(0)\right\} =\sum_{q}Q_{q}^{2}\left\{ \#\right\} \\
+\# & =\sum_{n=2,4,\cdots}^{\infty}\frac{(2q^{\mu_{1}})\cdots(2q^{\mu_{n}})}{Q^{2n}}\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\\
+ & +4\sum_{n=2,4,\cdots}^{\infty}\frac{\left(2q^{\mu_{3}}\right)\cdots\left(2q^{\mu_{n}}\right)}{Q^{2n-2}}\left(g^{\mu\mu_{1}}+\frac{q^{\mu}q^{\mu_{1}}}{q^{2}}\right)\left(g^{\nu\mu_{2}}+\frac{q^{\nu}q^{\mu_{2}}}{q^{2}}\right)\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}
 \end{align*}
 
 \end_inset
 
+第二项中从
+\begin_inset Formula $n=4$
+\end_inset
 
+开始才有
+\begin_inset Formula $\left(2q^{\mu_{3}}\right)\left(2q^{\mu_{4}}\right)$
+\end_inset
+
+，
+\begin_inset Formula $n=2$
+\end_inset
+
+时分子为
+\begin_inset Formula $1$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3465,10 +3497,10 @@ QCD 中所有扭度比
 \begin_inset Formula $T^{\mu\nu}$
 \end_inset
 
-，我们需要计算这个OPE在质子态中的矩阵元。通过洛伦兹不变性，对质子自旋求和后，我们得到的是
+，我们需要计算此OPE在质子态中的矩阵元。由于洛伦兹不变性，对质子自旋求和后我们得到，
 \begin_inset Formula 
 \begin{equation}
-\sum_{\text{spin }}\bra{P}\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\ket{P}=\mathcal{A}_{q}^{n}P^{\mu_{1}}\cdots P^{\mu_{n}}-\text{traces}\label{eq:32.98}
+\sum_{\text{spin }}\bra{P}\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\ket{P}=\mathcal{A}_{q}^{n}P^{\mu_{1}}\cdots P^{\mu_{n}}-\text{迹}\label{eq:32.98}
 \end{equation}
 
 \end_inset
@@ -3481,11 +3513,11 @@ QCD 中所有扭度比
 \begin_inset Formula $Q$
 \end_inset
 
-的函数。这个展开式是自动对称的。The traces give factors of 
+的函数，这个展开式自然是对称的。求迹将得到因子
 \begin_inset Formula $P^{2}=m_{p}^{2}\ll Q^{2}$
 \end_inset
 
- which are subleading 与 Wilson coefficients 中
+ ，它是次领头阶的，相比于 Wilson 系数中
 \begin_inset Formula $P^{\mu_{i}}$
 \end_inset
 
@@ -3493,20 +3525,28 @@ QCD 中所有扭度比
 \begin_inset Formula $q^{\mu}$
 \end_inset
 
- 的收缩相比，后者给出
+ 的收缩，
 \begin_inset Formula $q\cdot P=\frac{1}{2}\omega Q^{2}$
 \end_inset
 
- 因子。因此，在 leading power 我们可以丢掉 traces and we find
+ 。因此，在领头阶我们可以丢掉 traces，则
 \begin_inset Formula 
 \begin{align*}
-T^{\mu\nu} & =\sum_{q}C_{q}^{2}\Big\{\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)\sum_{n=2,4,\cdots}^{\infty}\omega^{n}\mathcal{A}_{q}^{n}\\
+T^{\mu\nu} & =\sum_{q}Q_{q}^{2}\Big\{\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)\sum_{n=2,4,\cdots}^{\infty}\omega^{n}\mathcal{A}_{q}^{n}\\
  & +\frac{4}{Q^{2}\omega^{2}}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)\sum_{n=2,4,\cdots}^{\infty}\omega^{n}\mathcal{A}_{q}^{n}
 \end{align*}
 
 \end_inset
 
-相比于 Eq.
+
+\begin_inset Formula $\omega=\frac{2P\cdot q}{Q^{2}}$
+\end_inset
+
+，
+\begin_inset Formula $\frac{4}{Q^{2}\omega^{2}}=\frac{2}{\omega}\frac{1}{P\cdot q}$
+\end_inset
+
+。与
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.82"
@@ -3524,10 +3564,10 @@ T^{\mu\nu}(\omega,Q)=T_{1}(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}})+\frac{T_{2}
 
 \end_inset
 
-我们可以总结出
+比较，我们可以总结出
 \begin_inset Formula 
 \[
-T_{1}=\frac{\omega}{2}T_{2}=\sum_{q}C_{q}^{2}\left[\sum_{n=2,4,\cdots}\omega^{n}\mathcal{A}_{q}^{n}\right]
+T_{1}=\frac{\omega}{2}T_{2}=\sum_{q}Q_{q}^{2}\left[\sum_{n=2,4,\cdots}\omega^{n}\mathcal{A}_{q}^{n}\right]
 \]
 
 \end_inset
@@ -3544,23 +3584,29 @@ T_{1}=\frac{\omega}{2}T_{2}=\sum_{q}C_{q}^{2}\left[\sum_{n=2,4,\cdots}\omega^{n}
 \begin_inset Formula $\mathcal{F}_{1}=\frac{\omega}{2}\mathcal{F}_{2}$
 \end_inset
 
-。更重要的是，由于在部分子模型中
-\begin_inset Formula $\mathcal{F}_{1}=\frac{1}{2}\sum_{q}C_{q}^{2}f_{1}(x)$
+。更重要的是，由部分子模型中
+\begin_inset Formula $\mathcal{F}_{1}=\frac{1}{2}\sum_{q}Q_{q}^{2}f_{1}\left(x\right)$
 \end_inset
 
- ，可知
+ 可知
 \begin_inset Formula 
-\begin{equation}
-f_{q}(x)=\frac{1}{\pi}\sum_{n=2,4,\cdots}x^{-n}\Im\mathcal{A}_{q}^{n}\label{eq:32.101}
-\end{equation}
+\begin{align}
+ & 2\mathcal{F}_{1}=\frac{1}{\pi}\Im T_{1}=\frac{1}{\pi}\Im\sum_{q}Q_{q}^{2}\left[\sum_{n=2,4,\cdots}\omega^{n}\mathcal{A}_{q}^{n}\right]\nonumber \\
+ & 2\mathcal{F}_{1}=\sum_{q}Q_{q}^{2}f_{1}\left(x\right)\nonumber \\
+ & f_{q}(x)=\frac{1}{\pi}\sum_{n=2,4,\cdots}x^{-n}\Im\mathcal{A}_{q}^{n}\label{eq:32.101}
+\end{align}
 
 \end_inset
 
-这给出了QCD 中 PDFs 的算符定义。
+where 
+\begin_inset Formula $x=1/\omega=Q^{2}/2P\cdot q$
+\end_inset
+
+，这给出了QCD 中 PDFs 的算符定义。
 \end_layout
 
 \begin_layout Subsection
-Moments of the PDFs
+PDFs 的矩
 \end_layout
 
 \begin_layout Standard
@@ -3586,9 +3632,9 @@ C_{q}^{m}=\int_{0}^{1}\dif xx^{m-1}f_{q}(x)\label{eq:32.102}
 
 它被称为 
 \series bold
-Mellin moment
+Mellin 矩
 \series default
- 。代入 Eq.
+ 。代入 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.101"
@@ -3661,7 +3707,7 @@ C_{q}^{m}=\sum_{n}\frac{1}{2\pi i}\int\frac{\dif\omega}{\omega^{m-1}}\omega^{n-2
 
 \end_inset
 
-它是夸克的对称版本的，正规(canonical)能量–动量张量，我们在 Eq.12.62 中推导过:
+它是夸克的对称版本的，正规(canonical)能量–动量张量，我们在 12.62 中推导过:
 \begin_inset Formula 
 \[
 \mathcal{T}_{\mu\nu}=i\bar{\psi}\gamma_{\mu}\partial_{\nu}\psi-g_{\mu\nu}\left[\bar{\psi}(i\slashed{\partial}-m)\psi\right]
@@ -3677,7 +3723,7 @@ QCD 中full能量–动量张量是对夸克（和胶子）能–动量张量的
 
 \end_inset
 
-其中求和是对所有部分子（partons）进行的（不止有夸克）。使用 Eq.
+其中求和是对所有部分子（partons）进行的（不止有夸克）。使用 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.102"
@@ -3695,7 +3741,7 @@ noprefix "false"
 \begin_inset Formula $m=2$
 \end_inset
 
- and Eq.
+ and 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.98"
@@ -3754,6 +3800,114 @@ noprefix "false"
 
 \begin_layout Subsection
 总结
+\end_layout
+
+\begin_layout Standard
+把非弹性散的截面写成轻子流张量
+\begin_inset Formula $L^{\mu\nu}$
+\end_inset
+
+和强子流张量
+\begin_inset Formula $W^{\mu\nu}\left(x,Q^{2}\right)$
+\end_inset
+
+的乘积，
+\begin_inset Formula 
+\[
+\left(\frac{\dif\sigma}{\dif\Omega\dif E^{\prime}}\right)_{\text{lab}}=\frac{\alpha_{e}^{2}}{4\pi m_{p}q^{4}}\frac{E^{\prime}}{E}L^{\mu\nu}W^{\mu\nu}\left(x,Q^{2}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W^{\mu\nu}=W_{1}\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)+W_{2}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)
+\]
+
+\end_inset
+
+为了计算
+\begin_inset Formula $W^{\mu\nu}\left(x,Q^{2}\right)$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+e^{2}\epsilon_{\mu}\epsilon_{\nu}^{\star}W^{\mu\nu}=\frac{1}{2}\sum_{X,\text{spins}}\int\dif\Pi_{X}\left(2\pi\right)^{4}\delta^{4}\left(q+P-p_{X}\right)\abs*{\mathcal{M}(\gamma^{\star}p^{+}\to X)}^{2}
+\]
+
+\end_inset
+
+利用光学定理，
+\begin_inset Formula 
+\begin{align*}
+ & W_{\mu\nu}\left(\omega,Q\right)=2\Im T_{\mu\nu}\left(\omega,Q\right)=-iT_{\mu\nu}\left(\omega+i\varepsilon,Q\right)+iT_{\mu\nu}\left(\omega-i\varepsilon,Q\right)=\text{Disc}\left(-iT_{\mu\nu}\right)\\
+ & W_{1}=2\Im T_{1},\quad W_{2}=4\Im\frac{1}{\omega Q^{2}}T_{2}
+\end{align*}
+
+\end_inset
+
+其中编时乘积的流流算符
+\begin_inset Formula 
+\begin{align*}
+T_{\mu\nu}\left(\omega,Q\right) & =i\int\dif^{4}xe^{iq\cdot x}T\left\{ J_{\mu}(x)J_{\nu}(0)\right\} =\sum_{q}Q_{q}^{2}\left\{ \#\right\} \\
+T^{\mu\nu}(\omega,Q) & =T_{1}\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)+\frac{T_{2}}{P\cdot q}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)
+\end{align*}
+
+\end_inset
+
+where，
+\begin_inset Formula 
+\begin{align*}
+\# & =\sum_{n=2,4,\cdots}^{\infty}\frac{(2q^{\mu_{1}})\cdots(2q^{\mu_{n}})}{Q^{2n}}\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\\
+ & +4\sum_{n=2,4,\cdots}^{\infty}\frac{\left(2q^{\mu_{3}}\right)\cdots\left(2q^{\mu_{n}}\right)}{Q^{2n-2}}\left(g^{\mu\mu_{1}}+\frac{q^{\mu}q^{\mu_{1}}}{q^{2}}\right)\left(g^{\nu\mu_{2}}+\frac{q^{\nu}q^{\mu_{2}}}{q^{2}}\right)\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\left(x\right)=\bar{\psi}_{q}\left(x\right)\gamma^{\mu_{1}}iD^{\mu_{2}}\cdots iD^{\mu_{n}}\psi_{q}\left(x\right)+\mu_{i}\text{的对称化}-\text{迹}
+\]
+
+\end_inset
+
+在质子外态中
+\begin_inset Formula 
+\[
+\sum_{\text{spin }}\bra{P}\hat{\mathcal{O}}_{q}^{\mu_{1}\cdots\mu_{n}}\ket{P}=\mathcal{A}_{q}^{n}P^{\mu_{1}}\cdots P^{\mu_{n}}-\text{迹}
+\]
+
+\end_inset
+
+在领头阶我们可以丢掉 traces，得
+\begin_inset Formula 
+\begin{align*}
+T^{\mu\nu}\left(\omega,Q\right) & =\sum_{q}Q_{q}^{2}\Big\{\left(-g^{\mu\nu}+\frac{q^{\mu}q^{\nu}}{q^{2}}\right)\sum_{n=2,4,\cdots}^{\infty}\omega^{n}\mathcal{A}_{q}^{n}\left(Q\right)\\
+ & +\frac{4}{Q^{2}\omega^{2}}\left(P^{\mu}-\frac{P\cdot q}{q^{2}}q^{\mu}\right)\left(P^{\nu}-\frac{P\cdot q}{q^{2}}q^{\nu}\right)\sum_{n=2,4,\cdots}^{\infty}\omega^{n}\mathcal{A}_{q}^{n}\left(Q\right)
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\omega=\frac{2P\cdot q}{Q^{2}}$
+\end_inset
+
+，
+\begin_inset Formula $x=\frac{Q^{2}}{2P\cdot q}$
+\end_inset
+
+。PDFs 的定义为
+\begin_inset Formula 
+\[
+f_{q}\left(x,Q\right)=\frac{1}{\pi}\sum_{n=2,4,\cdots}x^{-n}\Im\mathcal{A}_{q}^{n}\left(Q\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3908,7 +4062,7 @@ f(\xi) & =\sum_{X}\abs{\bra{X}\psi\ket{P}}^{2}\delta\left(\xi P^{\mu}-p^{\mu}\ri
 \begin_inset Formula $e^{-}p^{+}$
 \end_inset
 
-实验），质心系不是实验室系。所以对于DIS，我们首先改变参考系，然后回到 Eq.
+实验），质心系不是实验室系。所以对于DIS，我们首先改变参考系，然后回到 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.108"
@@ -4098,7 +4252,7 @@ k^{2}=(n\cdot k)(\bar{n}\cdot k)+k_{T}^{2}=k^{+}k_{-}+k_{T}^{2}\left(\text{这�
 \end_layout
 
 \begin_layout Standard
-现在我们处于质子能量很高的坐标系中，我们可以认为 Eq.
+现在我们处于质子能量很高的坐标系中，我们可以认为 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.108"
@@ -4230,7 +4384,7 @@ f_{q}\left(\xi\right) & =\int_{-\infty}^{\infty}\frac{\dif t}{2\pi}e^{-it\xi\lef
 \end_layout
 
 \begin_layout Standard
-表达式 Eq.
+表达式 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:32.117"

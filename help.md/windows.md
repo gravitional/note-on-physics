@@ -1,5 +1,28 @@
 # windows
 
+## 常用
+
+[你应该知道的 Windows 环境变量](https://zhuanlan.zhihu.com/p/67726501)
+
++ `ComSpec` 变量：规定 http://CMD.COM 文件的位置。运行 http://cmd.com 可直接打开 “命令提示符” 窗口。
++ `NUMBER_OF_PROCESSORS` 变量：代表用户电脑中处理器的数量。
++ `OS` 变量：表明用户的操作系统。
++ `Path` 变量：规定操作系统在指定的文件路径中查看可执行文件。
++ `PathExt` 变量：规定在 Path 变量中所指定的可执行文件的扩展名有哪些。
++ `PROCESSOR_ARCHITECTURE` 变量：表明用户处理器的架构。
++ `PROCESSOR_IDENTIFIER` 变量：表明用户处理器。
++ `PROCESSOR_LEVEL` 变量：表明用户处理器的等级。
++ `PROCESSOR_REVISION` 变量：表明用户处理器的版本。
++ `TEMP`/`TMP` 变量：规定系统运行或安装程序时用来存储临时文件的目录。
++ `windir` 变量：规定操作系统的系统目录的路径。
+
++ `set` 查看所有环境变量
++ `set xxx` 查看特定环境变量`xxx`的值。
++ `set xxx=yyy` 添加新的环境变量
++ `set xxx=` 删除已经存在的环境变量，不能有空格。
+
+在文件管理器中引用变量，`%xxx%`，比如`%PATH%`
+
 ## windos 系统维护
 
 ### 启用组策略gpedit.msc

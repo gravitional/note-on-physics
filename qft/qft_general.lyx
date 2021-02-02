@@ -37,7 +37,8 @@
 \usepackage{mathtools}% 定义配对的数学符号
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
-%% \usepackage{axodraw2} 
+\usepackage{ytableau}
+% Many-featured Young tableaux and Young diagrams
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
 %\DeclareMathOperator{\re}{Re}
@@ -157,6 +158,1334 @@
 
 \begin_layout Author
 Thomas Young
+\end_layout
+
+\begin_layout Section
+SU(3)群的remarks
+\end_layout
+
+\begin_layout Standard
+SU(3)群在强相互作用中扮演着重要的角色，因为：
+\end_layout
+
+\begin_layout Enumerate
+它是量子色动力学（QCD）的规范群
+\end_layout
+
+\begin_layout Enumerate
+在hadron spectrum中，它基本是一个global的对称性。观察到的（低质量）强子基本上可以填充到SU(3)群的不可约表示中，维数符合，作为简并的多重
+态。
+\end_layout
+
+\begin_layout Enumerate
+对于
+\begin_inset Formula $uds$
+\end_inset
+
+质量为零的极限，
+\begin_inset Formula $\text{SU(3)}_{L}\times\text{SU(3)}_{R}$
+\end_inset
+
+是 QCD 的手征对称性。
+\end_layout
+
+\begin_layout Standard
+因此，先稍微回忆一下，SU(3)群和它的李代数 su(3) 的一些基本性质。
+\end_layout
+
+\begin_layout Standard
+SU(3) 群是所有幺模幺正矩阵群的集合(unitary,unimodular,
+\begin_inset Formula $3\times3$
+\end_inset
+
+矩阵)i.e.
+ 
+\begin_inset Formula $U^{\dagger}U=1$
+\end_inset
+
+,and 
+\begin_inset Formula $\det(U)=1$
+\end_inset
+
+。用数学术语说，SU(3)群是 八–参数，简单连接，紧致的
+\noun on
+Lie
+\noun default
+群。Lie 群的意思群元乘法可以表示成八个解析函数 
+\begin_inset Formula $U(\Phi_{3})=U(\Phi_{1})U(\Phi_{2})$
+\end_inset
+
+，其中
+\begin_inset Formula $\Phi_{3}=\Phi_{3}\left(\Phi_{1},\Phi_{2}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+是它是 simply-connected，每个群元可以通过参数空间中一条连续的路径连接到恒元，紧致性表示它的参数被限制在有限空间内。对于一个紧致李群，任何一个有
+限维表示都等价于一个幺正表示，并且可以被分解成不可约表示的直和（Clebsch-Gordan 系数）
+\end_layout
+
+\begin_layout Standard
+SU(3)群的元素可以表示成指数形式
+\begin_inset Formula 
+\begin{equation}
+U\left(\Theta\right)=\exp\left(-i\sum_{a=1}^{8}\Theta_{a}\frac{\lambda_{a}}{2}\right)=\exp\left(-i\Theta_{a}\frac{\lambda_{a}}{2}\right)\label{eq:1.1}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\Theta_{a}$
+\end_inset
+
+是实参数，八个线性独立的矩阵
+\begin_inset Formula $\lambda_{a}$
+\end_inset
+
+被称作Gell-Mann 矩阵,满足
+\begin_inset Formula 
+\begin{equation}
+\frac{\lambda_{a}}{2}=i\frac{\partial U}{\partial\Theta_{a}}\left(0,\cdots,0\right)\label{eq:1.2}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\lambda_{a}=\lambda_{a}^{\dagger}\label{eq:1.3}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\tr\left(\lambda_{a}\lambda_{b}\right)=2\delta_{ab}\label{eq:1.4}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\tr\left(\lambda_{a}\right)=0\label{eq:1.5}
+\end{equation}
+
+\end_inset
+
+公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+负责
+\begin_inset Formula $U^{\dagger}=U^{-1}$
+\end_inset
+
+。另一方面，由
+\begin_inset Formula $\det\left[\exp(C)\right]=\exp\left[\tr(C)\right]$
+\end_inset
+
+，公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1.5"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+导致
+\begin_inset Formula $\det(U)=1$
+\end_inset
+
+。如果
+\begin_inset Formula $U$
+\end_inset
+
+矩阵是幺正的，那么其实相当于要求指数上的因子是反厄米（skew-hermitian ）的，就是
+\begin_inset Formula $A=-A^{\dagger}$
+\end_inset
+
+。这个负号由虚数单位
+\begin_inset Formula $i$
+\end_inset
+
+来负责，所以盖尔曼矩阵是厄米的。
+\end_layout
+
+\begin_layout Standard
+Gell-Mann 矩阵的一个显式表示为：
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\lambda_{1}=\left(\begin{array}{ccc}
+0 & 1 & 0\\
+1 & 0 & 0\\
+0 & 0 & 0
+\end{array}\right) & \lambda_{2}=\left(\begin{array}{ccc}
+0 & -i & 0\\
+i & 0 & 0\\
+0 & 0 & 0
+\end{array}\right) & \lambda_{3}=\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 0
+\end{array}\right)\\
+\lambda_{4}=\left(\begin{array}{ccc}
+0 & 0 & 1\\
+0 & 0 & 0\\
+1 & 0 & 0
+\end{array}\right) & \lambda_{5}=\left(\begin{array}{ccc}
+0 & 0 & -i\\
+0 & 0 & 0\\
+i & 0 & 0
+\end{array}\right) & \lambda_{6}=\left(\begin{array}{ccc}
+0 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{array}\right)\\
+\lambda_{7}=\left(\begin{array}{ccc}
+0 & 0 & 0\\
+0 & 0 & -i\\
+0 & i & 0
+\end{array}\right) & \lambda_{8}=\sqrt{\frac{1}{3}}\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -2
+\end{array}\right)
+\end{array}
+\]
+
+\end_inset
+
+集合
+\begin_inset Formula $\left\{ i\lambda_{a}\vert a=1,\cdots,8\right\} $
+\end_inset
+
+组成了su(3) 李代数的基，即，所有的复的，无迹的，反厄米的，
+\begin_inset Formula $3\times3$
+\end_inset
+
+矩阵。李乘积定义为两个矩阵的对易子。这样的定义自然满足李的反对易性。
+\begin_inset Formula 
+\[
+\left[A,B\right]=-\left[B,A\right]
+\]
+
+\end_inset
+
+还有 Jacobi 恒等式
+\begin_inset Formula 
+\[
+\left[A,\left[B,C\right]\right]+\left[B,\left[C,A\right]\right]+\left[C,\left[A,B\right]\right]=0
+\]
+
+\end_inset
+
+与式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+兼容。su(3)的元素可以理解为SU(3)恒元附近的切矢量。
+\end_layout
+
+\begin_layout Standard
+李群的结构被encoded在盖尔曼矩阵的对易关系中
+\begin_inset Formula 
+\[
+\left[\lambda_{a},\lambda_{b}\right]=if_{abc}2\lambda_{c}
+\]
+
+\end_inset
+
+由对易关系和Jacobi 恒等式得，
+\begin_inset Formula 
+\[
+if_{bcd}if_{dea}4\lambda_{e}+if_{cad}if_{deb}4\lambda_{e}++if_{abd}if_{dec}4\lambda_{e}=0
+\]
+
+\end_inset
+
+即
+\begin_inset Formula 
+\[
+f_{abj}f_{jce}+f_{bcj}f_{jae}+f_{caj}f_{jbe}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{abj}f_{jce}|_{\left\{ abc\right\} }=0
+\]
+
+\end_inset
+
+全反对称实的结构常数
+\begin_inset Formula $f_{abc}$
+\end_inset
+
+可以从式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1.4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+获取
+\begin_inset Formula 
+\[
+f_{abc}=\frac{1}{4i}\tr\left(\left[\lambda_{a},\lambda_{b}\right]\lambda_{c}\right)
+\]
+
+\end_inset
+
+粗略地说，结构常数表征了SU(3)群不对易的程度。不为零的分量在下面的表格中给出
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="10">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $abc$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $123$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $147$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $156$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $246$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $257$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $345$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $367$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $458$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $678$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{a}bc$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}\sqrt{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}\sqrt{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+盖尔曼矩阵的反对易关系是
+\begin_inset Formula 
+\[
+\left\{ \lambda_{a},\lambda_{b}\right\} =\frac{4}{3}\delta_{ab}\boldsymbol{1}+2d_{abc}\lambda_{c}
+\]
+
+\end_inset
+
+其中全对陈张量
+\begin_inset Formula $d_{abc}$
+\end_inset
+
+由下式给出
+\begin_inset Formula 
+\[
+d_{abc}=\frac{1}{4}\tr\left(\left\{ \lambda_{a},\lambda_{b}\right\} \lambda_{c}\right)
+\]
+
+\end_inset
+
+在下面的表格中给出
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="17">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $abc$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $118$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $146$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $157$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $228$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $247$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $256$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $338$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $344$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $355$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $366$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $377$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $448$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $558$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $668$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $778$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $888$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{a}bc$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{\sqrt{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{\sqrt{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{\sqrt{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{2\sqrt{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{2\sqrt{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{2\sqrt{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{2\sqrt{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\frac{1}{\sqrt{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+很明显，盖尔曼矩阵的反对易并不一定是盖尔曼矩阵。因为反厄密矩阵的平方不再反厄米。
+\end_layout
+
+\begin_layout Subsection
+群表示的维数
+\end_layout
+
+\begin_layout Standard
+SU(N) 群的基础表示由一个方格表示
+\begin_inset Formula $\square$
+\end_inset
+
+，表示
+\begin_inset Formula $n$
+\end_inset
+
+，而
+\begin_inset Formula $n-1$
+\end_inset
+
+个方格列为共轭表示
+\begin_inset Formula $n^{*}$
+\end_inset
+
+。SU(N)群的任意一个不可约表示由一个正规杨图表示。第一行的格子数大于等于第二行，等等。
+\end_layout
+
+\begin_layout Standard
+杨图的维数为
+\begin_inset Formula 
+\[
+D=\frac{c\left(n\right)}{H\left(n\right)}=\frac{n^{2}\left(n+1\right)\left(n+2\right)\left(n-1\right)\left(n-2\right)\left(n-3\right)}{6\times4\times3\times2\times1\times1\times1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c\left(n\right)$
+\end_inset
+
+计算如图，向右增加，向下减少。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ytableausetup{mathmode, boxsize=2.5em}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ytableau}
+\end_layout
+
+\begin_layout Plain Layout
+
+n & n+1 & n+2 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+n-1 & n  
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+n-2 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+n-3 %% last line needn't the 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ytableau}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H\left(n\right)$
+\end_inset
+
+是钩形数，是
+\begin_inset Formula $\Gamma$
+\end_inset
+
+形路径经过的格子数。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ytableausetup{mathmode, boxsize=2em}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ytableau}
+\end_layout
+
+\begin_layout Plain Layout
+
+6 & 3 & 1 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+4 & 1  
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+2 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ytableau}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+两个表示直乘的分解
+\end_layout
+
+\begin_layout Standard
+对于两个杨图
+\begin_inset Formula $\left(a\right),\left(b\right)$
+\end_inset
+
+，它们的直乘分解计算如下：
+\end_layout
+
+\begin_layout Enumerate
+在右边的杨图
+\begin_inset Formula $\left(b\right)$
+\end_inset
+
+上，第一行标上
+\begin_inset Formula $1$
+\end_inset
+
+，第二行标上
+\begin_inset Formula $2$
+\end_inset
+
+，第三行
+\begin_inset Formula $3$
+\end_inset
+
+，等等。
+\end_layout
+
+\begin_layout Enumerate
+把右边的
+\begin_inset Formula $1$
+\end_inset
+
+格子添加到左边的杨图
+\begin_inset Formula $a$
+\end_inset
+
+上，再加
+\begin_inset Formula $2$
+\end_inset
+
+格子。
+\end_layout
+
+\begin_layout Enumerate
+同样数字的格子不出现在同一列中。
+\end_layout
+
+\begin_layout Enumerate
+去掉超过
+\begin_inset Formula $n$
+\end_inset
+
+行的杨图，对于 SU(n) 群。
+\end_layout
+
+\begin_layout Enumerate
+保证从右到左，从上到下，即
+\begin_inset Formula $\Gamma$
+\end_inset
+
+方向，
+\begin_inset Formula $1$
+\end_inset
+
+的个数大于
+\begin_inset Formula $2$
+\end_inset
+
+的个数，
+\begin_inset Formula $2$
+\end_inset
+
+的个数大于
+\begin_inset Formula $3$
+\end_inset
+
+的个数。
+\end_layout
+
+\begin_layout Standard
+最后得到的杨图，如果形状和标的数字
+\begin_inset Formula $1,2,\cdots$
+\end_inset
+
+都相同，则认为是同一个杨图。如果形状相同，但是字母不同，则认为是不同的杨图。例如
+\begin_inset Formula 
+\[
+\ydiagram{1}\otimes\ydiagram{2}=\ydiagram{3}+\ydiagram{2,1}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

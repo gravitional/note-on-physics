@@ -415,7 +415,7 @@ fill=red,
 
 All the keys defined here are made available inside the `{feynman}` environment and inside `\feynmandiagram`; but if you wish to access them outside of this (say, in a regular `{tikzpicture}` environment), you will need to specify the full path with the leading `/tikzfeynman`.
 
-#### Feynman Keys
+#### 费曼图keys
 
 key:
 
@@ -652,7 +652,7 @@ a -- b -- {c -- {c1, c2}, d -- {d1, d2}},
 
 Just like it is possible to change the shape of every vertex or edge in the whole document, it is also possible to change the shape of every vertex or edge in a single diagram by modifying these keys and adding the desired styles.
 
-#### Vertex Keys
+#### 顶点 Keys
 
 ```tikz
 /tikzfeynman/vertex (no value)
@@ -748,7 +748,7 @@ a -- b [blob] -- {c, d}
 };
 ```
 
-#### Edge Keys
+#### 连线 Keys
 
 Just like with the various vertex keys, each edge type has a corresponding every `<edge type>` ; however, due to the existence of very similar keys such as `scalar`, `charged scalar` and `anti charged scalar`, more specific keys
 inherit styles from less specific ones. For example, styles in every `scalar` will apply to `charged scalar` an `anti charged scalar`.
@@ -993,7 +993,7 @@ Specifies additional styles to applying to the lines of the insertion.
 \feynmandiagram [horizontal=a to b] {a -- [insertion={[style=red]0.4}] b};
 ```
 
-#### Momentum Keys
+#### 动量 Keys
 
 ```tikz
 /tikzfeynman/momentum=[ <options> ] <text> (no default)
@@ -1057,7 +1057,7 @@ Define styles to apply to the momentum label node.
 
 Define style to apply to the momentum arrow.
 
-#### Modifier Keys
+#### 修饰 Keys
 
 Modifier keys serve only to slightly modify a small feature of the edge.
 

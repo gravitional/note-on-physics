@@ -322,6 +322,12 @@ TikZ遵循以下基本设计原则：
 
 131 Using Scopes to Structure a Picture
 
+如果不生效的话，可以尝试在导言区添加
+
+```latex
+\usetikzlibrary {scopes}
+```
+
 命令 `\path` 用于创建一个路径 (path),此命令可以带有图形选项 (graphic options),这些选项只对本路径有效。使用简写形式的 scope 可以在路径内部插入一个 `scope`:
 
 ```latex
@@ -401,6 +407,8 @@ c -- [photon, momentum=\(p\)] d,
 
 136 Specifying Coordinates
 
+148 坐标计算
+
 坐标总是放在圆括号内，一般的语法是 `([hoptionsi]<coordinate specification>)`。有两种指定坐标的方法：
 
 明确指定坐标系统和参数，使用`xxx cs:`这种语法
@@ -429,6 +437,8 @@ c -- [photon, momentum=\(p\)] d,
 (5pt,0pt) -- (0pt,0pt) -- (0pt,5pt) -- cycle
 ```
 
+p168 The Let Operation
+
 ### 对路径的action
 
 路径只是一系列直线和曲线的组合,但你尚未指定如何处理它。
@@ -449,9 +459,11 @@ c -- [photon, momentum=\(p\)] d,
 `\draw[clip]` or `\path[draw,clip]`: `\clip`
 
 所有这些命令只能在`{tikzpicture}`环境中使用。
-TikZ 允许您使用不同的颜色进行填充和描边。
+`TikZ` 允许您使用不同的颜色进行填充和描边。
 
 ### node 指定
+
+p224
 
 基本语法：
 
@@ -460,8 +472,7 @@ TikZ 允许您使用不同的颜色进行填充和描边。
 ={<options>} {<node contents>} ...;
 ```
 
-各部分规范的顺序。 在`node`和`{<node contents>}`之间的所有内容都是可选的。
-如果有`<foreach>`语句,它必须首先出现,紧接在`node`之后。
+各部分规范的顺序。 在`node`和`{<node contents>}`之间的所有内容都是可选的。如果有`<foreach>`语句,它必须首先出现,紧接在`node`之后。
 除此之外,节点规范的所有其他元素（ `<options>` ,`name`,`coordinate` 和 `animation attribute` ）的顺序都是任意的,
 实际上,这些元素中的任何一个都可能多次出现（尽管对于`name`和`coordinate`,这没有意义）。
 例如
@@ -548,8 +559,14 @@ Shorthand for setting a dashed dash pattern.
 ### 添加任意装饰
 
 p191 Arrows 箭头
+
 p196 指定箭头大小，形状
+
 p212 Reference: Arrow Tips 与定义箭头形状参考
+
+```tikz
+\usetikzlibrary{arrows.meta}
+```
 
 p365 Decorated Paths 装饰路径
 
@@ -636,3 +653,12 @@ Decoration markings
 `arc(<start angle>:<end angle>:<radius>)`
 或者
 `arc(<start angle>:<end angle>:<x radius> and <y radius>)`
+
+## tikz-feynman
+
+添加动量 key, 连线的 label
+
+```tikz
+(b2) --[half right, momentum'={\scriptsize \(k\)} ](b4),
+(d) -- [boson, bend left, edge label=\(W^{+}\)] (c2)
+```
