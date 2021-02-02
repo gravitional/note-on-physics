@@ -3158,6 +3158,13 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula $\otimes$
+\end_inset
+
+表示算符插入（operator insertion）。
+\end_layout
+
+\begin_layout Standard
 使用上面推导的非定域相互作用和流，可以计算描述质子（dressed by the pseudoscalar fields）和外源场相互作用的分裂函数。外源探针和
  proton dressed by pseudoscalar meson 的相互作用由 Fig.1 给出。1a-c,e,f,h-j 对应于 local
  effective theory 中的图，而 figs.1d,g, and k 来自于非定域理论中的规范链接。最后结果中的振幅是特定的 meson-baryon
@@ -9767,14 +9774,18 @@ Q^{\left(n-1\right)} & =\int_{0}^{1}\dif x\,x^{n-1}\left[q\left(x\right)+\left(-
 \end_inset
 
 算符
-\begin_inset Formula $\mathcal{O}^{\mu_{1}\cdots\mu_{n}}$
+\begin_inset Formula $\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
-在联系起来，
+联系起来，
 \begin_inset Formula $\text{扭度}=\text{量纲}-\text{自旋}$
 \end_inset
 
-。算符在动量为
+。
+\begin_inset Formula $\mathcal{O}^{\mu_{1}\cdots\mu_{n}}$
+\end_inset
+
+在动量为
 \begin_inset Formula $p$
 \end_inset
 
@@ -9786,7 +9797,11 @@ Q^{\left(n-1\right)} & =\int_{0}^{1}\dif x\,x^{n-1}\left[q\left(x\right)+\left(-
 
 \end_inset
 
-其中算符定义为
+
+\begin_inset Formula $\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}$
+\end_inset
+
+的定义为
 \begin_inset Formula 
 \[
 \mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}=\bar{q}\left\{ \gamma^{\mu_{1}}i\overleftrightarrow{D}^{\mu_{2}}\cdots i\overleftrightarrow{D}^{\mu_{n}}\right\} q
@@ -9794,7 +9809,7 @@ Q^{\left(n-1\right)} & =\int_{0}^{1}\dif x\,x^{n-1}\left[q\left(x\right)+\left(-
 
 \end_inset
 
-其中算符
+其中
 \begin_inset Formula $\bar{A}\overleftrightarrow{D}B=\frac{1}{2}\left(\bar{A}\overrightarrow{D}B-\bar{A}\overleftarrow{D}B\right)$
 \end_inset
 
@@ -9826,7 +9841,7 @@ Q^{\left(n-1\right)} & =\int_{0}^{1}\dif x\,x^{n-1}\left[q\left(x\right)+\left(-
 \begin_inset Formula $c_{q/j}^{\left(n\right)}$
 \end_inset
 
-代表夸克分布
+是
 \begin_inset Formula $q_{j}\left(x\right)$
 \end_inset
 
@@ -9835,21 +9850,33 @@ Q^{\left(n-1\right)} & =\int_{0}^{1}\dif x\,x^{n-1}\left[q\left(x\right)+\left(-
 \end_inset
 
 阶 Mellin 矩，
+\begin_inset Formula $q_{j}\left(x\right)$
+\end_inset
+
+是强子
+\begin_inset Formula $j$
+\end_inset
+
+中的夸克分布，
 \begin_inset Formula 
 \[
-c_{q/j}^{\left(n\right)}=\int_{-1}^{1}\dif x\,x^{n-1}q_{j}\left(x\right)\equiv\langle x^{n-1}\rangle_{q/j}
+c_{q/j}^{\left(n\right)}=\int_{-1}^{1}\dif x\,x^{n-1}q_{j}\left(x\right)\equiv Q_{j}^{\left(n-1\right)}
 \]
 
 \end_inset
 
-此外，强子算符的矩阵元
+强子算符
 \begin_inset Formula $\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
-可以参数化为
+的矩阵元可以参数化成分裂函数
+\begin_inset Formula $f_{j}\left(y\right)$
+\end_inset
+
+的矩
 \begin_inset Formula 
 \begin{equation}
-\bra{N\left(p\right)}\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}\ket{N\left(p\right)}=2f_{j}^{\left(n\right)}\left(p\cdots p\right)^{\left\{ \mu_{1}\cdots\mu_{n}\right\} }\label{eq:yu_4.6}
+\bra{N\left(p\right)}\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}\ket{N\left(p\right)}=2f_{j}^{\left(n\right)}p^{\mu_{1}}\cdots p^{\mu_{n}}\label{eq:yu_4.6}
 \end{equation}
 
 \end_inset
@@ -9878,7 +9905,15 @@ f_{j}^{\left(n\right)}=\int_{-1}^{1}\dif y\,y^{n-1}f_{j}\left(y\right)
 \begin_inset Formula $y$
 \end_inset
 
-表示介子动量比例。
+表示强子态
+\begin_inset Formula $j$
+\end_inset
+
+携带的核子动量比例。
+\end_layout
+
+\begin_layout Standard
+关系
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.4"
@@ -9892,16 +9927,16 @@ noprefix "false"
 \begin_inset Formula $\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}=\sum_{j}c_{q/j}^{\left(n\right)}\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
-
+给出了PDFs的卷积关系。
 \begin_inset Formula 
 \begin{align*}
-2\int_{-1}^{1}\dif x\,x^{n-1}q\left(x\right)\left(p\cdots p\right)^{\left\{ \mu_{1}\cdots\mu_{n}\right\} } & =\sum_{j}2\int_{-1}^{1}\dif x\,x^{n-1}q_{j}\left(x\right)\int_{-1}^{1}\dif y\,y^{n-1}f_{j}\left(y\right)\left(p\cdots p\right)^{\left\{ \mu_{1}\cdots\mu_{n}\right\} }\\
+2\int_{-1}^{1}\dif x\,x^{n-1}q\left(x\right)p^{\mu_{1}}\cdots p^{\mu_{n}} & =\sum_{j}2\int_{-1}^{1}\dif x\,x^{n-1}q_{j}\left(x\right)\int_{-1}^{1}\dif y\,y^{n-1}f_{j}\left(y\right)p^{\mu_{1}}\cdots p^{\mu_{n}}\\
 \int_{-1}^{1}\dif x\,x^{n-1}q\left(x\right) & =\sum_{j}\int_{-1}^{1}\dif x\,x^{n-1}q_{j}\left(x\right)\int_{-1}^{1}\dif y\,y^{n-1}f_{j}\left(y\right),\quad n=1,2,\cdots
 \end{align*}
 
 \end_inset
 
-给出下面的卷积关系
+
 \begin_inset Formula 
 \[
 q\left(x\right)=\sum_{j}\left(f_{j}\otimes q_{j}^{v}\right)\left(x\right)\equiv\sum_{j}\int_{0}^{1}\dif y\int_{0}^{1}\dif z\delta\left(x-yz\right)f_{j}\left(y\right)q_{j}^{v}\left(z\right)
@@ -9917,7 +9952,11 @@ q\left(x\right)=\sum_{j}\left(f_{j}\otimes q_{j}^{v}\right)\left(x\right)\equiv\
 \begin_inset Formula $j$
 \end_inset
 
-中的价夸克分布，
+中的
+\begin_inset Formula $q$
+\end_inset
+
+味的价夸克分布，
 \begin_inset Formula $f_{j}\left(y\right)$
 \end_inset
 
@@ -9925,15 +9964,16 @@ q\left(x\right)=\sum_{j}\left(f_{j}\otimes q_{j}^{v}\right)\left(x\right)\equiv\
 \end_layout
 
 \begin_layout Standard
-可以更明确地将卷积关系写出来。比如用八重态介子彩虹图a，介子泡沫图f，以及十重态介子彩虹图h分裂函数与对应的
-\begin_inset Formula $\pi$
+我们假设，bare 重子态是由三个价夸克加上胶子辐射微扰产生的夸克–反夸克对组成的。这种贡献在PDFs的差中总是会抵消，比如
+\begin_inset Formula $\bar{d}-\bar{u}$
 \end_inset
 
-介子价夸克
-\begin_inset Formula $\bar{q}_{\pi}\left(x\right)$
+ 或者
+\begin_inset Formula $s-\bar{s}$
 \end_inset
 
-的卷积部分，来表示出质子反奇异夸克的分布，
+。因此接下来，我们专注于赝标量介子圈对海夸克 PDFs 的非微扰贡献。在这个近似下，反夸克分布只来自于和介子直接耦合的图，如介子彩虹图和bubble
+ 图（a，f，h）。介子圈对于核子中反夸克 PDs 的贡献可以写成卷积，
 \begin_inset Formula 
 \begin{equation}
 \bar{q}\left(x\right)=\sum_{B,T,\phi}\left[f_{\phi B}^{\left(\text{rbw}\right)}\left(y\right)+f_{\phi T}^{\left(\text{rbw}\right)}\left(y\right)+f_{\phi}^{\left(\text{bub}\right)}\left(y\right)\right]\otimes\bar{q}_{\phi}\left(x\right)\label{eq:yu_4.9}
@@ -9969,7 +10009,7 @@ q\left(x\right)=\sum_{j}\left(f_{j}\otimes q_{j}^{v}\right)\left(x\right)\equiv\
 \begin_inset Formula $\bar{q}_{\phi}\left(x\right)$
 \end_inset
 
-是介子价夸克分布。比如，质子反上下夸克分布可以表示为
+是介子的反夸克 PDF。例如，质子反上下夸克分布可以表示为
 \begin_inset Formula 
 \begin{align*}
 \bar{d}\left(x\right) & =\left[f_{\pi^{+}n}\left(y\right)+f_{\text{bub},\pi^{+}}\left(y\right)+f_{\pi^{+}\Delta^{0}}\left(y\right)\right]\otimes\bar{q}_{\pi}\left(x\right),\\
@@ -9982,11 +10022,19 @@ q\left(x\right)=\sum_{j}\left(f_{j}\otimes q_{j}^{v}\right)\left(x\right)\equiv\
 \end_layout
 
 \begin_layout Standard
-同样地，用介子彩虹图，重子彩虹图，Kroll–Ruderman 图，Kroll–Ruderman 规范链接图，蝌蚪图，介子泡沫图以及蝌蚪规范链接图分裂函数，与中
-间态重子夸克分布的卷积，来表示质子夸克分布，
+对夸克 PDFs 的贡献原则上可以来自于介子耦合或者重子耦合。在 valence approximation下，所有的重子耦合图都会对核子中
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\begin_inset Formula $d$
+\end_inset
+
+ 夸克的分布有贡献，包括 bare 核子的贡献以及波函数重整化图，介子彩虹图，重子彩虹图，Kroll–Ruderman 图，Kroll–Ruderman
+ 规范链接图，蝌蚪图，介子泡沫图以及蝌蚪规范链接图。但对于奇异夸克，裸耦合图和波函数重整化图没有贡献。介子圈对核子夸克PDF的非微扰贡献可以写成，
 \begin_inset Formula 
 \begin{equation}
-q\left(x\right)=Zq^{\left(0\right)}\left(x\right)+\sum_{B,T,\phi}\#\label{eq:yu_4.12}
+q\left(x\right)=Z_{2}q^{\left(0\right)}\left(x\right)+\sum_{B,T,\phi}\#\label{eq:yu_4.12}
 \end{equation}
 
 \end_inset
@@ -9994,9 +10042,10 @@ q\left(x\right)=Zq^{\left(0\right)}\left(x\right)+\sum_{B,T,\phi}\#\label{eq:yu_
 
 \begin_inset Formula 
 \begin{align*}
-\# & =\left[\left(f_{\phi B}^{\left(\text{rbw}\right)}+f_{\phi T}^{\left(\text{rbw}\right)}+f_{\phi}^{\left(\text{bub}\right)}\right)\otimes q_{\phi}\right]\left(x\right)+\left[f_{B\phi}^{\left(\text{rbw}\right)}\otimes q_{B}\right]\left(x\right)+\left[f_{B}^{\left(\text{KR}\right)}\otimes q_{B}^{\left(\text{KR}\right)}\right]\left(x\right)\\
- & +\left[\delta f_{B}^{\left(\text{KR}\right)}\otimes q_{B}^{\left(\delta\right)}\right]\left(x\right)+\left[f_{T\phi}^{\left(\text{rbw}\right)}\otimes q_{T}\right]\left(x\right)+\left[f_{T}^{\left(\text{KR}\right)}\otimes q_{T}^{\left(\text{KR}\right)}\right]\left(x\right)+\left[\delta f_{T}^{\left(\text{KR}\right)}\otimes q_{T}^{\left(\delta\right)}\right]\left(x\right)\\
- & +\left[f_{\phi}^{\left(\text{tad}\right)}\otimes q_{\phi}^{\left(\text{tad}\right)}\right]\left(x\right)+\left[\delta f_{\phi}^{\left(\text{tad}\right)}\otimes q_{\phi}^{\left(\delta\right)}\right]\left(x\right)
+\# & =\left[\left(f_{\phi B}^{\left(\text{rbw}\right)}+f_{\phi T}^{\left(\text{rbw}\right)}+f_{\phi}^{\left(\text{bub}\right)}\right)\otimes q_{\phi}\right]\left(x\right)\\
+ & +\left[\bar{f}_{B\phi}^{\left(\text{rbw}\right)}\otimes q_{B}\right]\left(x\right)+\left[\bar{f}_{B}^{\left(\text{KR}\right)}\otimes q_{B}^{\left(\text{KR}\right)}\right]\left(x\right)+\left[\delta\bar{f}_{B}^{\left(\text{KR}\right)}\otimes q_{B}^{\left(\delta\right)}\right]\left(x\right)\\
+ & +\left[\bar{f}_{T\phi}^{\left(\text{rbw}\right)}\otimes q_{T}\right]\left(x\right)+\left[\bar{f}_{T}^{\left(\text{KR}\right)}\otimes q_{T}^{\left(\text{KR}\right)}\right]\left(x\right)+\left[\delta\bar{f}_{T}^{\left(\text{KR}\right)}\otimes q_{T}^{\left(\delta\right)}\right]\left(x\right)\\
+ & +\left[\bar{f}_{\phi}^{\left(\text{tad}\right)}\otimes q_{\phi}^{\left(\text{tad}\right)}\right]\left(x\right)+\left[\delta\bar{f}_{\phi}^{\left(\text{tad}\right)}\otimes q_{\phi}^{\left(\delta\right)}\right]\left(x\right)
 \end{align*}
 
 \end_inset
@@ -10006,10 +10055,14 @@ q\left(x\right)=Zq^{\left(0\right)}\left(x\right)+\sum_{B,T,\phi}\#\label{eq:yu_
 \end_inset
 
 是裸核子夸克分布，
-\begin_inset Formula $Z$
+\begin_inset Formula $Z_{2}$
 \end_inset
 
-是波函数重整化常数，
+来自于对波函数重整化图求和。涉及耦合到重子的图，
+\begin_inset Formula $\bar{f}_{j}\equiv f_{j}\left(1-y\right)$
+\end_inset
+
+。
 \begin_inset Formula $q_{\phi}$
 \end_inset
 
@@ -10058,7 +10111,7 @@ noprefix "false"
 所示
 \begin_inset Formula 
 \[
-\bra{N\left(p\right)}\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}\ket{N\left(p\right)}=2f_{j}^{\left(n\right)}\left(p\cdots p\right)^{\left\{ \mu_{1}\cdots\mu_{n}\right\} },
+\bra{N\left(p\right)}\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}\ket{N\left(p\right)}=2f_{j}^{\left(n\right)}p^{\mu_{1}}\cdots p^{\mu_{n}},
 \]
 
 \end_inset
