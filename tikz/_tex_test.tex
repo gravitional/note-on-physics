@@ -4,7 +4,8 @@
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
 %%%%%%%%%%%%%%%%%+++++++++++
 \usepackage{eso-pic} 
-% This package makes it easy to add some picture commands to every page at ab-solute positions
+% This package makes it easy to add some picture commands to every page at absolute positions
+\usepackage{float}
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
 %\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
 % xcolor package starts from the basic facilities of the 
@@ -88,5 +89,25 @@
 \begin{equation}
 \widehat{\mathbf{K}}(i|i),\qquad i=1,\dots,n.
 \end{equation}
+
+
+\begin{table}[H]
+    \begin{tabular}{|c|c|c|c|}
+    \hline 
+    $\phi$ & $U_{\phi}^{\left(n-1\right)}$ & $D_{\phi}^{\left(n-1\right)}$ & $S_{\phi}^{\left(n-1\right)}$\tabularnewline
+    \hline 
+    \hline 
+    $\pi^{+}$ & $\frac{1}{2}a^{\left(n\right)}$ & $-\frac{1}{2}a^{\left(n\right)}$ & $0$\tabularnewline
+    \hline 
+    $K^{+}$ & $\frac{1}{2}a^{\left(n\right)}$ & $0$ & $-\frac{1}{2}a^{\left(n\right)}$\tabularnewline
+    \hline 
+    $K^{0}$ & $0$ & $\frac{1}{2}a^{\left(n\right)}$ & $-\frac{1}{2}a^{\left(n\right)}$\tabularnewline
+    \hline 
+    \end{tabular}
+    
+    \caption{赝标量介子夸克分布的 Mellin 矩，归一化到$a^{\left(1\right)}=2$.\label{tab:yu_tab_1}}
+    
+    \end{table}
+
 
 \end{document}

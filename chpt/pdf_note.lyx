@@ -10093,12 +10093,48 @@ q\left(x\right)=Z_{2}q^{\left(0\right)}\left(x\right)+\sum_{B,T,\phi}\#\label{eq
 个中间态夸克分布。
 \end_layout
 
-\begin_layout Subsection
-输入部分子分布函数
+\begin_layout Section
+裸重子和介子 PDFs
 \end_layout
 
 \begin_layout Standard
-有效理论中，夸克算符匹配到强子层次上的算符。如
+为了使用卷积形式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu_4.9"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu_4.12"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+计算质子中的夸克和反夸克分布，需要
+\begin_inset Formula $\text{质子}\to\text{重子}+\text{介子}$
+\end_inset
+
+ 分裂函数，以及重子和介子的 PDFs，流耦合在上面。在下面的章节中，使用计算分裂函数时同样的 Chiral 
+\begin_inset Formula $\text{SU}\left(3\right)$
+\end_inset
+
+有效场论推导裸重子和介子的（valence）PDFs。
+\end_layout
+
+\begin_layout Standard
+在有效理论中，夸克算符匹配到强子算符的和，强子算符的矩阵元由分裂函数的
+\begin_inset Formula $n$
+\end_inset
+
+阶 Mellin 矩给出。如
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.6"
@@ -10108,37 +10144,55 @@ noprefix "false"
 
 \end_inset
 
-所示
+所示，
+\begin_inset Formula $j$
+\end_inset
+
+为某个强子态，
+\begin_inset Formula $q_{j}\left(x\right)$
+\end_inset
+
+是
+\begin_inset Formula $j$
+\end_inset
+
+中夸克的分布，
 \begin_inset Formula 
-\[
-\bra{N\left(p\right)}\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}\ket{N\left(p\right)}=2f_{j}^{\left(n\right)}p^{\mu_{1}}\cdots p^{\mu_{n}},
-\]
+\begin{align*}
+ & \mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}=\sum_{j}c_{q/j}^{\left(n\right)}\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}\\
+ & c_{q/j}^{\left(n\right)}=\int_{-1}^{1}\dif xx^{n-1}q_{j}\left(x\right)\equiv Q_{j}^{\left(n-1\right)}\\
+ & \bra{N\left(p\right)}\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}\ket{N\left(p\right)}=2f_{j}^{\left(n\right)}p^{\mu_{1}}\cdots p^{\mu_{n}}.
+\end{align*}
 
 \end_inset
 
-它们的矩阵元
-\begin_inset Formula $\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}=\sum_{j}c_{q/j}^{\left(n\right)}\mathcal{O}_{j}^{\mu_{1}\cdots\mu_{n}}$
+对应于夸克矢量算符
+\begin_inset Formula $\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
-由分裂函数的
-\begin_inset Formula $n$
+，所有按照矢量变换的，可能的八重态和十重态重子中间态构成的表达式为，（这里的矢量/轴矢量指的是在宇称变换下的性质，在宇称变换下，
+\begin_inset Formula $u\leftrightarrow u^{\dagger}$
 \end_inset
 
-阶 Mellin 矩给出。强子层次上的夸克算符，由一切可能的八重态和十重态重子的贡献，且在矢量变换下不变的矢量算符组成，
+）
 \begin_inset Formula 
 \begin{align}
-\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}} & =a^{\left(n\right)}\frac{f_{\phi}^{2}}{4}\left\{ \tr\left[U^{\dagger}\lambda^{q}\partial_{\mu_{1}}\cdots\partial_{\mu_{n}}U\right]+\tr\left[U\lambda^{q}\partial_{\mu_{1}}\cdots\partial_{\mu_{n}}U^{\dagger}\right]\right\} \nonumber \\
+\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}} & =a^{\left(n\right)}i^{n}\frac{f_{\phi}^{2}}{4}\left\{ \tr\left[U^{\dagger}\lambda^{q}\partial_{\mu_{1}}\cdots\partial_{\mu_{n}}U\right]+\tr\left[U\lambda^{q}\partial_{\mu_{1}}\cdots\partial_{\mu_{n}}U^{\dagger}\right]\right\} \nonumber \\
  & +\left[\alpha^{\left(n\right)}\left(\overline{\mathcal{B}}\gamma^{\mu_{1}}\mathcal{B}\lambda_{+}^{q}\right)+\beta^{\left(n\right)}\left(\overline{\mathcal{B}}\gamma^{\mu_{1}}\lambda_{+}^{q}\mathcal{B}\right)+\sigma^{\left(n\right)}\left(\overline{\mathcal{B}}\gamma^{\mu_{1}}\mathcal{B}\right)\tr\left[\lambda_{+}^{q}\right]\right]p^{\mu_{2}}\cdots p^{\mu_{n}}\nonumber \\
  & +\left[\bar{\alpha}^{\left(n\right)}\left(\overline{\mathcal{B}}\gamma^{\mu_{1}}\gamma_{5}\mathcal{B}\lambda_{-}^{q}\right)+\bar{\beta}^{\left(n\right)}\left(\overline{\mathcal{B}}\gamma^{\mu_{1}}\gamma_{5}\lambda_{-}^{q}\mathcal{B}\right)+\bar{\sigma}^{\left(n\right)}\left(\overline{\mathcal{B}}\gamma^{\mu_{1}}\gamma_{5}\mathcal{B}\right)\tr\left[\lambda_{-}^{q}\right]\right]p^{\mu_{2}}\cdots p^{\mu_{n}}\nonumber \\
  & +\left[\theta^{\left(n\right)}\left(\overline{\mathcal{T}}_{\alpha}\gamma^{\alpha\beta\mu_{1}}\lambda_{+}^{q}\mathcal{T}_{\beta}\right)+\rho^{\left(n\right)}\left(\overline{\mathcal{T}}_{\alpha}\gamma^{\alpha\beta\mu_{1}}\mathcal{T}_{\beta}\right)\tr\left[\lambda_{+}^{q}\right]\right]p^{\mu_{2}}\cdots p^{\mu_{n}}\nonumber \\
  & +\left[\bar{\theta}^{\left(n\right)}\left(\overline{\mathcal{T}}_{\alpha}\gamma^{\mu_{1}}\gamma_{5}\lambda_{-}^{q}\mathcal{T}_{\alpha}\right)+\bar{\rho}^{\left(n\right)}\left(\overline{\mathcal{T}}_{\alpha}\gamma^{\mu_{1}}\gamma_{5}\mathcal{T}_{\alpha}\right)\tr\left[\lambda_{-}^{q}\right]\right]p^{\mu_{2}}\cdots p^{\mu_{n}}\nonumber \\
  & -\sqrt{\frac{3}{2}}\bar{\omega}^{\left(n\right)}\left[\left(\overline{\mathcal{B}}\Theta^{\mu_{1}\mu}\lambda_{-}^{q}\mathcal{T}_{\mu}\right)+\left(\overline{\mathcal{T}}_{\mu}\Theta^{\mu\mu_{1}}\lambda_{-}^{q}\mathcal{B}\right)\right]p^{\mu_{2}}\cdots p^{\mu_{n}}\nonumber \\
- & +\text{所有置换}-\tr\label{eq:yu_4.13}
+ & +\text{全置换}-\tr\label{eq:yu_4.13}
 \end{align}
 
 \end_inset
 
-其中“Trace”表示对味道空间求迹。
+其中全置换表示令指标
+\begin_inset Formula $\left\{ \mu_{1}\cdots\mu_{n}\right\} $
+\end_inset
+
+对称，“Trace”表示对味道空间求迹。
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.13"
@@ -10172,11 +10226,7 @@ U=\exp\left(i\frac{\sqrt{2}\phi}{f_{\phi}}\right)
 \begin_inset Formula $a^{\left(n\right)}$
 \end_inset
 
-是赝标量介子夸克分布的
-\begin_inset Formula $n$
-\end_inset
-
-阶 Mellin 矩。味道算符
+联系到赝标量介子中夸克和反夸克分布的矩。味道算符
 \begin_inset Formula $\lambda_{\pm}^{q}$
 \end_inset
 
@@ -10197,6 +10247,17 @@ where
 \end_inset
 
 夸克味道矩阵，
+\begin_inset Formula $\lambda_{+}^{q}$
+\end_inset
+
+是矢量，
+\begin_inset Formula $\lambda_{-}^{q}$
+\end_inset
+
+是轴矢量。
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula $\mathcal{B}$
 \end_inset
 
@@ -10204,15 +10265,7 @@ where
 \begin_inset Formula $\mathcal{T}_{\alpha}$
 \end_inset
 
-分别是八重态和十重态重子算符。应当强调，
-\begin_inset Formula $\mathcal{B}$
-\end_inset
-
-和
-\begin_inset Formula $\mathcal{T}_{\alpha}$
-\end_inset
-
-是 octet and decuplet 的三阶张量表示。狄拉克算符
+分别是八重态和十重态重子场。狄拉克张量
 \begin_inset Formula $\gamma^{\alpha\beta\rho}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\alpha}\right\} $
 \end_inset
 
@@ -10220,7 +10273,7 @@ where
 \begin_inset Formula $\gamma^{\mu\nu}=\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]$
 \end_inset
 
-。
+。系数
 \begin_inset Formula $\left\{ \bar{\alpha}^{\left(n\right)},\bar{\beta}^{\left(n\right)},\bar{\sigma}^{\left(n\right)}\right\} $
 \end_inset
 
@@ -10228,7 +10281,7 @@ where
 \begin_inset Formula $\left\{ \alpha^{\left(n\right)},\beta^{\left(n\right)},\sigma^{\left(n\right)}\right\} $
 \end_inset
 
-，
+，分别联系到八重态重子自旋平均和自旋依赖的PDFs的矩，而
 \begin_inset Formula $\left\{ \theta^{\left(n\right)},\rho^{\left(n\right)}\right\} $
 \end_inset
 
@@ -10236,15 +10289,15 @@ where
 \begin_inset Formula $\left\{ \bar{\theta}^{\left(n\right)},\bar{\rho}^{\left(n\right)}\right\} $
 \end_inset
 
-是一组未知系数，他们的物理含义在下一步分析中明了。
+分别联系到十重态重子的自旋平均和自旋依赖的矩。
 \begin_inset Formula $\bar{\omega}^{\left(n\right)}$
 \end_inset
 
-是另一个系数，
+由自旋依赖的八重态–十重态跃迁 PDFs的矩给出。
 \begin_inset Formula $\Theta^{\mu\nu}$
 \end_inset
 
-是八重态–十重态轴矢量跃迁算符并定义为，
+是八重态–十重态轴矢量跃迁算符，
 \begin_inset Formula 
 \[
 \Theta^{\mu\nu}=g^{\mu\nu}-\left(Z+\frac{1}{2}\right)\gamma^{\mu}\gamma^{\nu}
@@ -10264,7 +10317,7 @@ where
 \begin_inset Formula $Z=1/2$
 \end_inset
 
-，得到
+，以简化十重态传播子
 \begin_inset Formula 
 \[
 \Theta^{\mu\nu}=g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}=-\frac{1}{2}\left(\gamma^{\mu}\gamma^{\nu}-\gamma^{\nu}\gamma^{\mu}\right)=i\sigma^{\mu\nu}
@@ -10272,11 +10325,7 @@ where
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-在费曼图e，f，h，i中，赝标量介子跟光子一起与重子轴矢量算符耦合。强子轴矢量算符对夸克轴矢量算符的贡献可以写成
+对于 Kroll–Ruderman图e，f，h，i，顶点处赝标量粒子的存在，引入了强子轴矢流算符，它对夸克轴矢流算符的贡献可以一般地写成
 \begin_inset Formula 
 \begin{align}
 \mathcal{O}_{\Delta q}^{\mu_{1}\cdots\mu_{n}} & =\left[\bar{\alpha}^{\left(n\right)}\left(\overline{\mathcal{B}}\gamma^{\mu_{1}}\gamma_{5}\mathcal{B}\lambda_{+}^{q}\right)+\bar{\beta}^{\left(n\right)}\left(\overline{\mathcal{B}}\gamma^{\mu_{1}}\gamma_{5}\lambda_{+}^{q}\mathcal{B}\right)+\bar{\sigma}^{\left(n\right)}\left(\overline{\mathcal{B}}\gamma^{\mu_{1}}\gamma_{5}\mathcal{B}\right)\tr\left[\lambda_{+}^{q}\right]\right]p^{\mu_{2}}\cdots p^{\mu_{n}}\nonumber \\
@@ -10289,7 +10338,7 @@ where
 
 \end_inset
 
-由
+从算符
 \begin_inset Formula $\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
@@ -10297,7 +10346,7 @@ where
 \begin_inset Formula $\mathcal{O}_{\Delta q}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
-的宇称变换特性，我们可以看出
+在宇称变换下的性质可以知道，
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.17"
@@ -10315,7 +10364,7 @@ noprefix "false"
 \begin_inset Formula $\left\{ \bar{\alpha}^{\left(n\right)},\bar{\beta}^{\left(n\right)},\bar{\sigma}^{\left(n\right)},\bar{\theta}^{\left(n\right)},\bar{\rho}^{\left(n\right)}\right\} $
 \end_inset
 
-的集合跟
+的跟
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.13"
@@ -10325,11 +10374,58 @@ noprefix "false"
 
 \end_inset
 
-式中的一样。
+式中的相同。
 \end_layout
 
 \begin_layout Standard
-把
+参考
+\begin_inset CommandInset href
+LatexCommand href
+name "Phys.Rev.D94,094035"
+target "https://doi.org/10.1103/PhysRevD.94.094035"
+literal "false"
+
+\end_inset
+
+，
+\begin_inset CommandInset href
+LatexCommand href
+name "Phys.Rev.D54,4595"
+target "https://link.aps.org/doi/10.1103/PhysRevD.54.4595"
+literal "false"
+
+\end_inset
+
+，各种简记为：
+\begin_inset Formula 
+\begin{align*}
+\mathcal{B}_{ijk} & =\frac{1}{\sqrt{6}}\left(\varepsilon_{ij\ell}B^{\ell k}+\varepsilon_{ik\ell}B^{\ell j}\right)\\
+\bar{\mathcal{B}}_{ijk} & =\frac{1}{\sqrt{6}}\left(\varepsilon_{ij\ell}\bar{B}^{\ell k}+\varepsilon_{ik\ell}\bar{B}^{\ell j}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(\overline{\mathcal{B}}\Gamma\mathcal{B}\right) & \equiv\overline{\mathcal{B}}_{kji}^{\alpha}\Gamma_{\alpha}^{\phantom{\alpha}\beta}\mathcal{B}_{ijk,\beta}\\
+\left(\overline{\mathcal{B}}\Gamma A\mathcal{B}\right) & \equiv\overline{\mathcal{B}}_{kji}^{\alpha}\Gamma_{\alpha}^{\phantom{\alpha}\beta}A_{i\ell}\mathcal{B}_{\ell jk,\beta}\\
+\left(\overline{\mathcal{B}}\Gamma\mathcal{B}A\right) & \equiv\overline{\mathcal{B}}_{kji}^{\alpha}\Gamma_{\alpha}^{\phantom{\alpha}\beta}A_{k\ell}\mathcal{B}_{ij\ell,\beta}\times\left(-\right)^{\left(i+j\right)\left(k+\ell\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(\overline{\mathcal{T}}^{\mu}\Gamma\mathcal{T}_{\mu}\right) & \equiv\overline{\mathcal{T}}_{kji,\alpha}^{\mu}\Gamma_{\phantom{\alpha}\beta}^{\alpha}\mathcal{T}_{\mu,ijk}^{\beta}\\
+\left(\overline{\mathcal{T}}^{\mu}\Gamma A^{\nu}\mathcal{T}_{\mu}\right) & \equiv\overline{\mathcal{T}}_{kji,\alpha}^{\mu}\Gamma_{\phantom{\alpha}\beta}^{\alpha}A_{i\ell}^{\nu}\mathcal{T}_{\mu,\ell jk}^{\beta}\\
+\left(\overline{\mathcal{B}}\Gamma A^{\mu}T_{\mu}\right) & \equiv\overline{\mathcal{B}}_{kji}^{\alpha}\Gamma_{\phantom{\alpha}\beta}^{\alpha}A_{i\ell}^{\mu}\mathcal{T}_{\mu,\ell jk}^{\beta}
+\end{align*}
+
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.13"
@@ -10349,7 +10445,7 @@ noprefix "false"
 
 \end_inset
 
-中的长算符
+中的场算符
 \begin_inset Formula $\mathcal{B}$
 \end_inset
 
@@ -10357,7 +10453,7 @@ noprefix "false"
 \begin_inset Formula $\mathcal{T}_{\alpha}$
 \end_inset
 
-转换成普通的
+可以用
 \begin_inset Formula $\text{SU}\left(3\right)$
 \end_inset
 
@@ -10377,7 +10473,7 @@ noprefix "false"
 \begin_inset Formula $\Delta,\Sigma^{*},\Xi^{*},\Omega$
 \end_inset
 
-），关系为：
+）表示。关系为：
 \begin_inset Formula 
 \begin{align}
 \left(\overline{\mathcal{B}}\mathcal{B}\right) & =\tr\left[\overline{B}B\right],\label{eq:yu_4.18}\\
@@ -10391,7 +10487,7 @@ noprefix "false"
 \begin_inset Formula 
 \begin{align}
 \left(\overline{\mathcal{T}}\mathcal{T}\right) & =\overline{T}_{\alpha}^{kji}T_{\beta}^{ijk},\label{eq:yu_4.19}\\
-\left(\overline{\mathcal{T}}_{\alpha}A\overline{\mathcal{T}}_{\beta}\right) & =\overline{\mathcal{T}}_{\alpha}^{kji}A^{il}\overline{\mathcal{T}}_{\beta}^{ljk},\nonumber \\
+\left(\overline{\mathcal{T}}_{\alpha}A\overline{\mathcal{T}}_{\beta}\right) & =\overline{T}_{\alpha}^{kji}A^{il}\overline{T}_{\beta}^{ljk},\nonumber \\
 \left(\overline{\mathcal{T}}_{\alpha}A\mathcal{B}\right) & =-\sqrt{\frac{2}{3}}\overline{T}_{\alpha}^{ijk}A^{il}B^{jm}\varepsilon^{klm},\nonumber 
 \end{align}
 
@@ -10415,7 +10511,7 @@ noprefix "false"
 \begin_inset Formula $\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
-可以写成如下通式的形式，
+可以写成更直观的形式，
 \begin_inset Formula 
 \begin{align}
 \mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}} & =Q_{\phi}^{\left(n-1\right)}\mathcal{O}_{\phi}^{\mu_{1}\cdots\mu_{n}}+Q_{B}^{\left(n-1\right)}\mathcal{O}_{BB^{\prime}}^{\mu_{1}\cdots\mu_{n}}+Q_{T}^{\left(n-1\right)}\mathcal{O}_{TT^{\prime}}^{\mu_{1}\cdots\mu_{n}}\label{eq:yu_4.20}\\
@@ -10424,11 +10520,12 @@ noprefix "false"
 
 \end_inset
 
-上式中，单个矢量算符的定义如下，
+上式中，单个强子矢量算符的定义如下，
 \begin_inset Formula 
 \begin{align*}
 \mathcal{O}_{\phi}^{\mu_{1}\cdots\mu_{n}} & =i^{n}\left(\bar{\phi}\partial^{\mu_{1}}\cdots\partial^{\mu_{n}}\phi-\phi\partial^{\mu_{1}}\cdots\partial^{\mu_{n}}\bar{\phi}\right)\\
 \mathcal{O}_{BB^{\prime}}^{\mu_{1}\cdots\mu_{n}} & =\left(\overline{B}^{\prime}\gamma^{\mu_{1}}B\right)p^{\mu_{2}}\cdots p^{\mu_{n}}\\
+\mathcal{O}_{TT^{\prime}}^{\mu_{1}\cdots\mu_{n}} & =\left(\overline{T}^{\prime}\gamma^{\alpha\beta\mu_{1}}T_{\beta}\right)p^{\mu_{2}}\cdots p^{\mu_{n}}\\
 \mathcal{O}_{B\phi\phi}^{\mu_{1}\cdots\mu_{n}} & =\frac{1}{f_{\phi}^{2}}\left(\overline{B}\gamma^{\mu_{1}}B\bar{\phi}\phi\right)p^{\mu_{2}}\cdots p^{\mu_{n}}\\
 \mathcal{O}_{BB^{\prime}\phi}^{\mu_{1}\cdots\mu_{n}} & =\frac{i}{f_{\phi}}\left(\overline{B}^{\prime}\gamma^{\mu_{1}}\gamma_{5}B\phi-\overline{B}\gamma^{\mu_{1}}\gamma_{5}B^{\prime}\bar{\phi}\right)p^{\mu_{2}}\cdots p^{\mu_{n}}\\
 \mathcal{O}_{BT\phi}^{\mu_{1}\cdots\mu_{n}} & =\frac{i}{f_{\phi}}\left(\overline{B}\Theta^{\mu_{1}\nu}T_{\nu}\bar{\phi}-\overline{T}_{\nu}\Theta^{\nu\mu_{1}}B\phi\right)p^{\mu_{2}}\cdots p^{\mu_{n}}
@@ -10440,11 +10537,11 @@ noprefix "false"
 \begin_inset Formula $Q_{j}^{\left(n-1\right)}$
 \end_inset
 
-由相应中间态重子和介子夸克分布的
+对应相应中间态重子和介子夸克分布的
 \begin_inset Formula $n$
 \end_inset
 
-阶 Mellin 矩给出，即
+阶 Mellin 矩，即
 \begin_inset Formula 
 \begin{align*}
 Q_{\phi}^{\left(n-1\right)} & =\int_{-1}^{1}\dif xx^{n-1}q_{\phi}\left(x\right)\\
@@ -10477,11 +10574,7 @@ noprefix "false"
 
 \end_inset
 
- 中的夸克分布。夸克分布的
-\begin_inset Formula $n$
-\end_inset
-
-阶 Mellin矩 
+ 中的夸克分布。每一个矩 
 \begin_inset Formula $Q_{j}^{\left(n-1\right)}$
 \end_inset
 
@@ -10499,7 +10592,7 @@ noprefix "false"
 \begin_inset Formula $\left\{ a^{\left(n\right)};\alpha^{\left(n\right)},\beta^{\left(n\right)},\sigma^{\left(n\right)};\theta^{\left(n\right)},\rho^{\left(n\right)}\right\} $
 \end_inset
 
-的线性组合的形式。
+的线性组合。
 \end_layout
 
 \begin_layout Standard
@@ -10527,10 +10620,10 @@ noprefix "false"
 \begin_inset Formula $S_{\phi}^{\left(n-1\right)}$
 \end_inset
 
-列在表4.1 
+列在 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:tab4.1"
+reference "tab:yu_tab_1"
 plural "false"
 caps "false"
 noprefix "false"
@@ -10538,14 +10631,13 @@ noprefix "false"
 \end_inset
 
 中：
-\begin_inset Formula 
-\begin{equation}
-a\label{eq:tab4.1}
-\end{equation}
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
 
-\end_inset
-
-
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="4">
 <features tabularvalignment="middle">
@@ -10758,14 +10850,42 @@ a\label{eq:tab4.1}
 \end_inset
 
 
-\begin_inset Newline newline
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+赝标量介子夸克分布的 Mellin 矩，归一化到
+\begin_inset Formula $a^{\left(1\right)}=2$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:yu_tab_1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
 当
 \begin_inset Formula $n=1$
 \end_inset
 
-时，价夸克数守恒给出如下归一条件：
+时，价夸克数目的归一化条件确定了：
 \begin_inset Formula 
 \[
 a^{\left(1\right)}=2.
@@ -10789,11 +10909,7 @@ a^{\left(1\right)}=2.
 \begin_inset Formula $u$
 \end_inset
 
-夸克分布的
-\begin_inset Formula $n$
-\end_inset
-
-阶Mellin矩是相等的，
+夸克矩是相等的，
 \begin_inset Formula $K^{+}$
 \end_inset
 
@@ -10805,7 +10921,7 @@ a^{\left(1\right)}=2.
 \begin_inset Formula $s$
 \end_inset
 
-夸克分布相等，
+夸克矩相等，
 \begin_inset Formula $\pi^{+}$
 \end_inset
 
@@ -10817,7 +10933,7 @@ a^{\left(1\right)}=2.
 \begin_inset Formula $d$
 \end_inset
 
-夸克Mellin矩大小相等，符号相反：
+夸克矩大小相等，符号相反：
 \begin_inset Formula 
 \begin{equation}
 U_{\pi^{+}}^{\left(n-1\right)}=-D_{\pi^{+}}^{\left(n-1\right)}=U_{K^{+}}^{\left(n-1\right)}=-S_{K^{+}}^{\left(n-1\right)}=D_{K^{0}}^{\left(n-1\right)}=-S_{K^{0}}^{\left(n-1\right)}=\frac{1}{2}a^{\left(n\right)}\label{eq:yu_4.24}
@@ -10829,7 +10945,17 @@ U_{\pi^{+}}^{\left(n-1\right)}=-D_{\pi^{+}}^{\left(n-1\right)}=U_{K^{+}}^{\left(
 \begin_inset Formula $\left(\pi^{-},\pi^{0},K^{-},\overline{K}^{0}\right)$
 \end_inset
 
-的夸克分布根据电荷对称性可以从表4.1 中求出。与重子不同，介子中海夸克分布关于味道是对称的。在最简单的价夸克模型中，
+的夸克分布根据电荷对称性可以从
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:yu_tab_1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中求出。与重子不同，介子中海夸克分布关于味道是对称的。在最简单的价夸克模型中，
 \begin_inset Formula $\pi$
 \end_inset
 
@@ -10841,37 +10967,48 @@ U_{\pi^{+}}^{\left(n-1\right)}=-D_{\pi^{+}}^{\left(n-1\right)}=U_{K^{+}}^{\left(
 \end_layout
 
 \begin_layout Standard
-中间态重子夸克分布
-\begin_inset Formula $q=u,d,s$
-\end_inset
-
-的
+中间态重子的夸克分布的
 \begin_inset Formula $n$
 \end_inset
 
-阶Mellin矩可以用
+阶Mellin矩
+\begin_inset Formula $Q_{B}^{\left(n-1\right)}$
+\end_inset
+
+，可以用
 \begin_inset Formula $\left\{ \alpha^{\left(n\right)},\beta^{\left(n\right)},\sigma^{\left(n\right)}\right\} $
 \end_inset
 
-的线性组合来表示，列在表4.2 
+的线性组合来表示，列在
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:tab_4.2"
+reference "tab:yu_tab_2"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-中。
-\begin_inset Formula 
-\begin{equation}
-a\label{eq:tab_4.2}
-\end{equation}
-
+中，包括 
+\begin_inset Formula $\Lambda-\Sigma^{0}$
 \end_inset
 
+干涉项。
+\begin_inset Formula $B=p,n,\Sigma^{\pm,0},\Lambda,\Xi^{-,0}$
+\end_inset
 
+，
+\begin_inset Formula $q=u,d,s$
+\end_inset
+
+。
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="4">
 <features tabularvalignment="middle">
@@ -11384,38 +11521,59 @@ a\label{eq:tab_4.2}
 \end_inset
 
 
-\begin_inset Newline newline
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+八重态重子
+\begin_inset Formula $B$
 \end_inset
 
-由表中可以看出，八重态重子
-\begin_inset Formula $B=p,n,\Sigma^{\pm,0},\Lambda,\Xi^{-,0}$
+中的非极化夸克分布矩
+\begin_inset Formula $Q_{B}^{\left(n-1\right)}$
 \end_inset
 
-以及
-\begin_inset Formula $\Lambda-\Sigma^{0}$
+。可以通过替换
+\begin_inset Formula $\left\{ \alpha^{\left(n\right)}\to\bar{\alpha}^{\left(n\right)},\beta^{\left(n\right)}\to\bar{\beta}^{\left(n\right)},\sigma^{\left(n\right)}\to\bar{\sigma}^{\left(n\right)}\right\} $
 \end_inset
 
-干涉的夸克分布都跟三个系数
-\begin_inset Formula $\left\{ \alpha^{\left(n\right)},\beta^{\left(n\right)},\sigma^{\left(n\right)}\right\} $
+得到自旋依赖的矩
+\begin_inset Formula $\Delta Q_{B}^{\left(n-1\right)}$
 \end_inset
 
-有关。我们假设质子夸克分布的
+。
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:yu_tab_2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+我们假设质子夸克分布的
 \begin_inset Formula $n$
 \end_inset
 
-阶 Mellin 矩已知，可以反推出
+阶 Mellin 矩已知，求解一个方程，可以
+\begin_inset Formula $\left\{ \alpha^{\left(n\right)},\beta^{\left(n\right)},\sigma^{\left(n\right)}\right\} $
+\end_inset
+
+用
 \begin_inset Formula $u,d,s$
 \end_inset
 
-分布的
-\begin_inset Formula $n$
-\end_inset
-
-阶矩和
-\begin_inset Formula $\left\{ \alpha^{\left(n\right)},\beta^{\left(n\right)},\sigma^{\left(n\right)}\right\} $
-\end_inset
-
-的关系，
+分布的矩表示的形式，
 \begin_inset Formula 
 \begin{align}
 \alpha^{\left(n\right)} & =\frac{4}{3}U_{p}^{\left(n-1\right)}-\frac{2}{3}D_{p}^{\left(n-1\right)}-\frac{2}{3}S_{p}^{\left(n-1\right)}\label{eq:yu_4.25}\\
@@ -11425,6 +11583,10 @@ a\label{eq:tab_4.2}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 如果假设质子海中奇异数为零，或者
 \begin_inset Formula $\Sigma^{-}$
 \end_inset
@@ -11445,11 +11607,11 @@ a\label{eq:tab_4.2}
 \end_layout
 
 \begin_layout Standard
-至于十重态
+对于十重态
 \begin_inset Formula $T$
 \end_inset
 
-的夸克分布函数，单个夸克味道
+的夸克 PDFs，
 \begin_inset Formula $u,d,s$
 \end_inset
 
@@ -11477,25 +11639,24 @@ a\label{eq:tab_4.2}
 \begin_inset Formula $n$
 \end_inset
 
-阶Mellin矩被列在表4.3
+阶Mellin矩列在
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:tab_4.3"
+reference "tab:yu_tab_3"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-中
-\begin_inset Formula 
-\begin{equation}
-a\label{eq:tab_4.3}
-\end{equation}
+中。
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
 
-\end_inset
-
-
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="11" columns="4">
 <features tabularvalignment="middle">
@@ -12058,10 +12219,43 @@ a\label{eq:tab_4.3}
 \end_inset
 
 
-\begin_inset Newline newline
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+十重态重子
+\begin_inset Formula $T$
 \end_inset
 
-通过解方程得到十重态系数
+的非极化夸克分布的矩
+\begin_inset Formula $Q_{T}^{\left(n-1\right)}$
+\end_inset
+
+。
+\begin_inset Formula $\Delta Q_{T}^{\left(n-1\right)}$
+\end_inset
+
+的结果可以通过代换
+\begin_inset Formula $\left\{ \theta^{\left(n\right)}\to\bar{\theta}^{\left(n\right)},\rho^{\left(n\right)}\to\bar{\rho}^{\left(n\right)}\right\} $
+\end_inset
+
+得到。
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:yu_tab_3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+求解系数
 \begin_inset Formula $\theta^{\left(n\right)},\rho^{\left(n\right)}$
 \end_inset
 
@@ -12073,7 +12267,7 @@ a\label{eq:tab_4.3}
 \begin_inset Formula $n$
 \end_inset
 
-阶矩之间的关系
+阶矩之间的关系得到，
 \begin_inset Formula 
 \begin{align*}
 \theta^{\left(n\right)} & =3\left(D_{\Delta^{+}}^{\left(n-1\right)}-S_{\Delta^{+}}^{\left(n-1\right)}\right)=\frac{3}{2}\left(U_{\Delta^{+}}^{\left(n-1\right)}-S_{\Delta^{+}}^{\left(n-1\right)}\right)\\
@@ -12106,7 +12300,7 @@ a\label{eq:tab_4.3}
 \begin_inset Formula $S_{\Delta^{+}}^{\left(0\right)}=0$
 \end_inset
 
-，由此得出
+，得到，
 \begin_inset Formula 
 \[
 \theta^{\left(1\right)}=3,\quad\rho^{\left(1\right)}=0
@@ -12118,31 +12312,26 @@ a\label{eq:tab_4.3}
 \end_layout
 
 \begin_layout Standard
-蝌蚪图j对应的夸克分布函数的
-\begin_inset Formula $n$
-\end_inset
-
-阶 Mellin 矩列在表4.5
+蝌蚪图j对应的夸克分布的矩，列在
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:tab_4.5"
+reference "tab:yu_tab_4"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-，
-\begin_inset Formula 
-\begin{equation}
-a\label{eq:tab_4.5}
-\end{equation}
+,
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
 
-\end_inset
-
+\begin_layout Plain Layout
 
 \size footnotesize
-
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="7">
 <features tabularvalignment="middle">
@@ -13140,7 +13329,48 @@ a\label{eq:tab_4.5}
 
 \size default
 
-\begin_inset Newline newline
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+产生自
+\begin_inset Formula $BB\phi\phi$
+\end_inset
+
+ tadpole 顶角的非极化夸克分布的矩。对于所有的重子
+\begin_inset Formula $B$
+\end_inset
+
+，
+\begin_inset Formula $U_{\left(\text{tad}\right)BK^{0}\overline{k^{0}}}^{\left(n-1\right)}$
+\end_inset
+
+，
+\begin_inset Formula $D_{\left(\text{tad}\right)BK^{+}K^{-}}^{\left(n-1\right)}$
+\end_inset
+
+，
+\begin_inset Formula $S_{\left(\text{tad}\right)B\pi^{+}\pi^{-}}^{\left(n-1\right)}$
+\end_inset
+
+为零，所以没有列出。
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:yu_tab_4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
 表中我们列出了八重态重子
@@ -13163,7 +13393,7 @@ a\label{eq:tab_4.5}
 \begin_inset Formula $\left\{ \alpha^{\left(n\right)},\beta^{\left(n\right)},\sigma^{\left(n\right)}\right\} $
 \end_inset
 
-有关，这说明蝌蚪顶角的夸克分布跟质子夸克分布有关。从表中我们可以看出包含
+有关，这说明蝌蚪顶角的夸克分布跟质子夸克分布有关。注意到涉及
 \begin_inset Formula $K^{0}\overline{k^{0}}$
 \end_inset
 
@@ -13194,7 +13424,7 @@ a\label{eq:tab_4.5}
 最终，在表4.6
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:tab_4.6"
+reference "tab:yu_tab_5"
 plural "false"
 caps "false"
 noprefix "false"
@@ -13213,15 +13443,30 @@ noprefix "false"
 \begin_inset Formula $Q_{\left(\text{KR}\right)T}^{\left(n-1\right)}$
 \end_inset
 
-。（对于其他初态重子能得到类似的关系，本文中我们不做这方面的讨论）。
-\begin_inset Formula 
-\begin{equation}
-a\label{eq:tab_4.6}
-\end{equation}
-
+。（对于其他初态重子能得到类似的关系，本文中我们不做这方面的讨论）。注意，跟单圈图中的其他夸克分布不一样，
+\begin_inset Formula $Q_{\left(\text{KR}\right)B}^{\left(n-1\right)}$
 \end_inset
 
+和
+\begin_inset Formula $Q_{\left(\text{KR}\right)T}^{\left(n-1\right)}$
+\end_inset
 
+的系数为
+\begin_inset Formula $\bar{\alpha}^{\left(n\right)},\bar{\beta}^{\left(n\right)},\bar{\omega}^{\left(n\right)}$
+\end_inset
+
+，换句话说它们与
+\series bold
+极化
+\series default
+夸克分布的矩有关。
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="4">
 <features tabularvalignment="middle">
@@ -13736,28 +13981,32 @@ a\label{eq:tab_4.6}
 
 \end_layout
 
-\begin_layout Standard
-应当注意的是，跟一圈图中的夸克分布不一样的是，Kroll–Ruderman 顶角的夸克分布的
-\begin_inset Formula $n$
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Kroll–Ruderman 顶点对非极化夸克分布的矩，初态为质子，中间重子为八重态或十重态。
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:yu_tab_5"
+
 \end_inset
 
-阶 Mellin 矩
-\begin_inset Formula $Q_{\left(\text{KR}\right)B}^{\left(n-1\right)}$
+
+\end_layout
+
 \end_inset
 
-和
-\begin_inset Formula $Q_{\left(\text{KR}\right)T}^{\left(n-1\right)}$
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
-正比于
-\begin_inset Formula $\bar{\alpha}^{\left(n\right)},\bar{\beta}^{\left(n\right)},\bar{\omega}^{\left(n\right)}$
-\end_inset
-
-，换句话说它们与极化夸克分布的
-\begin_inset Formula $n$
-\end_inset
-
-阶Mellin矩有关。对于后者，极化夸克跟
+对于后者，极化夸克的PDFs与
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.17"
@@ -13767,11 +14016,11 @@ noprefix "false"
 
 \end_inset
 
-式中的轴矢量流的矩阵元
+式中轴矢量算符
 \begin_inset Formula $\mathcal{O}_{\Delta q}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
-有关，利用关系式
+的矩阵元有关，利用关系式
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.18"
@@ -13791,15 +14040,15 @@ noprefix "false"
 
 \end_inset
 
-，强子层次上轴矢量流算符可以参数化为相应的极化夸克分布的
-\begin_inset Formula $n$
+，
+\begin_inset Formula $\mathcal{O}_{\Delta q}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
-阶Mellin矩
+对应强子轴矢量算符和极化夸克分布矩
 \begin_inset Formula $\Delta Q_{j}^{\left(n-1\right)}$
 \end_inset
 
-与轴矢量算符之积。跟
+的乘积。类似
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.20"
@@ -13809,15 +14058,15 @@ noprefix "false"
 
 \end_inset
 
- 式一样，将轴矢量算符写成
+ ，将轴矢量算符写成
 \begin_inset Formula 
 \begin{equation}
-\mathcal{O}_{\Delta q}^{\mu_{1}\cdots\mu_{n}}=\Delta Q_{B}^{\left(n-1\right)}\tilde{\mathcal{O}}_{BB^{\prime}}^{\mu_{1}\cdots\mu_{n}}+\Delta Q_{T}^{\left(n-1\right)}\tilde{\mathcal{O}}_{TT^{\prime}}^{\mu_{1}\cdots\mu_{n}}+\Delta Q_{BT}^{\left(n-1\right)}\tilde{\mathcal{O}}_{BT}^{\mu_{1}\cdots\mu_{n}}\label{eq:yu_4.29}
+\mathcal{O}_{\Delta q}^{\mu_{1}\cdots\mu_{n}}=\Delta Q_{B}^{\left(n-1\right)}\tilde{\mathcal{O}}_{BB^{\prime}}^{\mu_{1}\cdots\mu_{n}}+\Delta Q_{T}^{\left(n-1\right)}\tilde{\mathcal{O}}_{TT^{\prime}}^{\mu_{1}\cdots\mu_{n}}+\Delta Q_{BT}^{\left(n-1\right)}\tilde{\mathcal{O}}_{BT}^{\mu_{1}\cdots\mu_{n}}+\cdots\label{eq:yu_4.29}
 \end{equation}
 
 \end_inset
 
-上式中，我们只列出了与本文计算有关的非极化夸克分布。
+我们仅仅列出了与本文计算有关的非极化夸克分布。
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.29"
@@ -13827,7 +14076,7 @@ noprefix "false"
 
 \end_inset
 
-中的轴矢量强子流由下式给出
+中的轴矢量强子算符的具体形式为，
 \begin_inset Formula 
 \begin{align}
 \tilde{\mathcal{O}}_{BB^{\prime}}^{\mu_{1}\cdots\mu_{n}} & =\left(\overline{B}^{\prime}\gamma^{\mu_{1}}\gamma_{5}B\right)p^{\mu_{2}}\cdots p^{\mu_{n}},\label{eq:yu_4.30}\\
@@ -13837,15 +14086,11 @@ noprefix "false"
 
 \end_inset
 
-对应的极化夸克分布的
-\begin_inset Formula $n$
-\end_inset
-
-阶Mellin矩
+对应的极化夸克分布的矩
 \begin_inset Formula $\Delta Q_{j}^{\left(n-1\right)}$
 \end_inset
 
-定义为
+为
 \begin_inset Formula 
 \begin{align}
 \Delta Q_{B}^{\left(n-1\right)} & =\int_{-1}^{1}\dif xx^{n-1}\Delta_{qB}\left(x\right)\label{eq:yu_4.31}\\
@@ -13859,7 +14104,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-为了简单起见，这里我们只讨论
+为了简单起见，在
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.31"
@@ -13869,7 +14114,7 @@ noprefix "false"
 
 \end_inset
 
-中的八重态和十重态对角重子（
+中，我们只讨论对角情形，也就是（
 \begin_inset Formula $B=B^{\prime}$
 \end_inset
 
@@ -13889,74 +14134,68 @@ noprefix "false"
 \begin_inset Formula $\Delta_{qBT}\left(x\right)$
 \end_inset
 
-。特别是，八重态计划夸克分布的
-\begin_inset Formula $n$
-\end_inset
-
-阶Mellin矩
+。特别是，八重态极化夸克分布的矩
 \begin_inset Formula $\Delta Q_{B}^{\left(n-1\right)}$
 \end_inset
 
-直接通过替换
+可以从
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:yu_tab_2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，通过替换
 \begin_inset Formula $\left\{ \alpha^{\left(n\right)}\to\bar{\alpha}^{\left(n\right)},\beta^{\left(n\right)}\to\bar{\beta}^{\left(n\right)},\sigma^{\left(n\right)}\to\bar{\sigma}^{\left(n\right)}\right\} $
 \end_inset
 
-可以从表4.2 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:tab_4.2"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-求得，十重态极化夸克分布的
-\begin_inset Formula $n$
-\end_inset
-
-阶Mellin矩
+，十重态极化夸克分布的矩
 \begin_inset Formula $\Delta Q_{T}^{\left(n-1\right)}$
 \end_inset
 
-也可以通过替换
+也可以通过
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:yu_tab_3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+求得，作替换
 \begin_inset Formula $\left\{ \theta^{\left(n\right)}\to\bar{\theta}^{\left(n\right)},\rho^{\left(n\right)}\to\bar{\rho}^{\left(n\right)}\right\} $
 \end_inset
 
-可以从表4.3 
+。八重态–十重态轴矢跃迁分布的矩
+\begin_inset Formula $\Delta Q_{BT}^{\left(n-1\right)}$
+\end_inset
+
+，系数为
+\begin_inset Formula $\bar{\omega}$
+\end_inset
+
+，列在
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:tab_4.3"
+reference "tab:yu_tab_6"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-中求得。八重态–十重态轴矢量跃迁分布的
-\begin_inset Formula $n$
-\end_inset
+。
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
 
-阶Mellin矩列在表4.4 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:tab_4.4"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- 
-\begin_inset Formula 
-\begin{equation}
-a\label{eq:tab_4.4}
-\end{equation}
-
-\end_inset
-
-
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="4">
 <features tabularvalignment="middle">
@@ -14321,8 +14560,36 @@ a\label{eq:tab_4.4}
 
 \end_layout
 
-\begin_layout Standard
-类似于
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+八重态–十重态跃迁的极化夸克分布的矩
+\begin_inset Formula $\Delta Q_{BT}^{\left(n-1\right)}$
+\end_inset
+
+。
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:yu_tab_6"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+类似
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.25"
@@ -14332,11 +14599,7 @@ noprefix "false"
 
 \end_inset
 
-式，从质子极化夸克的
-\begin_inset Formula $n$
-\end_inset
-
-阶Mellin矩得出以下关系
+式，从质子的极化 PDFs 的矩得出以下关系
 \begin_inset Formula 
 \begin{align}
 \bar{\alpha}^{\left(n\right)} & =\frac{4}{3}\Delta U_{p}^{\left(n-1\right)}-\frac{2}{3}\Delta D_{p}^{\left(n-1\right)}-\frac{2}{3}\Delta S_{p}^{\left(n-1\right)}\label{eq:yu_4.32}\\
@@ -14370,15 +14633,15 @@ noprefix "false"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 同样地，在十重态情况下，用
 \begin_inset Formula $\Delta^{+}$
 \end_inset
 
-重子极化夸克分布的
-\begin_inset Formula $n$
-\end_inset
-
-阶Mellin矩来表示出系数
+重子极化夸克分布的矩来表示出系数
 \begin_inset Formula $\bar{\theta}^{\left(n\right)}$
 \end_inset
 
@@ -14395,31 +14658,55 @@ noprefix "false"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+八重态–十重态轴矢量跃迁算符的矩可以通过
+\begin_inset Formula $\text{SU}\left(3\right)$
+\end_inset
+
+关系联系到八重态重子算符的矩，对于任意
+\begin_inset Formula $n$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{equation}
+\bar{\omega}^{\left(n\right)}=-\frac{1}{2}\bar{\alpha}^{\left(n\right)}+\bar{\beta}^{\left(n\right)}\label{eq:yu_32}
+\end{equation}
+
+\end_inset
+
 当
 \begin_inset Formula $n=1$
 \end_inset
 
-时，八重态–十重态轴矢量跃迁夸克分布的
-\begin_inset Formula $n$
+时，八重态重子的矩的系数使用轴矢荷
+\begin_inset Formula $F$
 \end_inset
 
-阶矩我们无法直接从质子夸克分布表示出来。所以利用跃迁夸克分布与质子极化夸克分布之间的对称性关系。当
-\begin_inset Formula $n=1$
+和
+\begin_inset Formula $D$
 \end_inset
 
-时，根据
+表示的，
+\begin_inset Formula 
+\[
+\bar{\alpha}^{\left(1\right)}=\frac{2}{3}\left(3F+D\right),\quad\bar{\beta}^{\left(1\right)}=\frac{1}{3}\left(3F-5D\right),\quad\bar{\sigma}^{\left(1\right)}=0.
+\]
+
+\end_inset
+
+使用极化的质子 PDFs和
 \begin_inset Formula $\text{SU}\left(3\right)$
 \end_inset
 
-对称性，可以把八重态–十重态跃迁分布的
-\begin_inset Formula $1$
-\end_inset
-
-阶Mellin矩
+关系，
 \begin_inset Formula $\bar{\omega}^{\left(1\right)}$
 \end_inset
 
-关联到质子夸克分布
+表示为
 \begin_inset Formula 
 \[
 \bar{\omega}^{\left(1\right)}=-\Delta U_{p}^{\left(0\right)}+2\Delta D_{p}^{\left(0\right)}-\Delta S_{p}^{\left(0\right)}
@@ -14427,11 +14714,33 @@ noprefix "false"
 
 \end_inset
 
-上式进一步化简后得到
+能复现关系
 \begin_inset Formula $\mathcal{C}=-2D$
 \end_inset
 
-。这一节我们主要讨论了中间态重子和介子夸克分布的
+，
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+是介子–八–十重子耦合系数，
+\begin_inset Formula $D$
+\end_inset
+
+是介子–八重子耦合系数。注意通过
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yu_32"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，h中十重子中间态Kroll–Ruderman图的夸克分布，和质子的极化分布联系到一起。
+\end_layout
+
+\begin_layout Standard
+这一节我们主要讨论了中间态重子和介子夸克分布的
 \begin_inset Formula $n$
 \end_inset
 
@@ -14447,7 +14756,11 @@ noprefix "false"
 \begin_inset Formula $n$
 \end_inset
 
-阶Mellin矩之间的关系，下一节我们利用这些关系是推导出各顶角夸克分布函数。
+阶Mellin矩之间的关系，下一节我们利用这些关系是推导出各顶角的夸克分布函数。
+\end_layout
+
+\begin_layout Section
+重子和介子 PDFs 的 SU(3) 关系
 \end_layout
 
 \begin_layout Section

@@ -32,7 +32,123 @@ OPTIONS
 + `-I`, `--nointeract`使用plain列表,不需要交互
 + `-M`, `--machine` 机器可读的结果
 
-## latex 编译模式
+## latex 编译
+
+### 简单的规则
+
+1. 空格：`Latex` 中空格不起作用. 
+1. 换行：用控制命令``\\``,或``\newline``.
+1. 分段：用控制命令``\par`` 或空出一行. 
+1. 换页：用控制命令``\newpage``或``\clearpage``
+1. 特殊控制字符: `#`,`$`, `%`, `&`, `-` ,`{}`, `^`, `~`
+
+### 报错示例-1
+
+```latex
+./chapter-6.tex:58: Undefined control sequence.
+l.58             \partial_\mu - i \eofphi
+                                           A_\mu(x)
+Output written on temp/main.xdv (21 pages, 329924 bytes).
+SyncTeX written on temp/main.synctex.gz.
+
+Transcript written on temp/main.log.
+```
+
+### 简短版latexmk
+
+```powershell
+$mk_message=(latexmk -f -xelatex); Write-Output ("*" * 90);$mk_message | Where-Object {$_ -like "*tex:*"}
+```
+
+### 详细版latexmk
+
+```powershell
+if ($null -eq $args[0]) {
+    # the default tex compiler, used to compile the '*.tex' files
+    $tex_compiler = "-xelatex";
+}
+else {
+    $tex_compiler = $args[0]
+};
+
+$mk_message = (latexmk -f "$tex_compiler");
+#detect the line number of the error message
+$line_start = ($mk_message | Where-Object { $_ -match '[ ./\w]+tex:\d+:[ \w]+' });
+$line_end = ($mk_message | Where-Object { $_ -match '^Transcript[ \w]*' });
+$length = ($line_start.count - 1)
+## show the erroe message
+Write-Output ("`n" * 2 + "the error message start" + "`n" * 2 );
+for ($i = 0; $i -le $length; $i++) {
+    Write-Output ("*" * 90);
+    $mk_message[$mk_message.IndexOf($line_start[$i])..($mk_message.IndexOf($line_end[$i]))] | Select-Object -First 10
+}
+```
+
+在命令行下运行的时候,选择不同的引擎,关键字为
+
+`-pdf` : `-pdflatex`
+`-xelatex`
+`-lualatex`
+
+### 报错示例-2
+
+ref-2: [LaTeX 如何进行 debug][]
+
+[LaTeX 如何进行 debug]: https://www.zhihu.com/question/28698141/answer/41774879
+
+我们故意构建一段错误的代码看看. 
+
+```latex
+\documentclass{minimal}
+\begin{document}
+\usepackage{amsmath}
+\end{document}
+```
+
+编译运行之后,会提示错误
+
+```latex
+./test.tex:3: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...
+
+l.3 \usepackage
+               {amsmath}
+No pages of output.
+```
+
+`LaTeX` 的错误提示分成四个部分,以这个报错为例. 
+
+以叹号开头的行说明出错原因,示例中提示:
+
+`LaTeX Error: Can be used only in preamble`
+
+中间段落是`LATEX`给出的提示建议. 
+
+以字母`l`开头的那一行给出出错的具体位置. 
+可以看到代码在 `\usepackage` 之后截断分为两行,这说明问题出在截断处. 
+这里是第三行的 `\usepackage` 出错了. 以问号开头的行,表示 `LaTeX` 正在等待用户输入. 这里可以输入 `x` 停止编译,直接按回车忽略该错误,甚至输入 `s` 直接忽略后续一切错误. 
+
+这里表示"第三行的 `\usepackage` 只能放在导言区,不能放在正文部分",
+于是你只需要根据提示调整一下 `\usepackage` 的位置就好了. 
+
+实际使用中遇到的错误多种多样,一些错误的分析和修复可能不这么简单. 
+刘海洋 的《LaTeX 入门》中有名为「从错误中救赎」的章节,
+专门讲解 `LaTeX` 的排错,对 `LaTeX` 的不同报错进行了详细地叙述. 
+
+### 清理latex 辅助文件powershell
+
+```powershell
+remove-item -Path ('.\*.aux','.\*.lof','.\*.log','.\*.lot','.\*.fls','.\*.out','.\*.toc','.\*.fmt','.\*.fot','.\*.cb','.\*.cb2','.\*.ptc','.\*.xdv','.\*.fdb_latexmk','.\*.synctex.gz','.\*.ps1','.\*.bib','.\*.bbl','.\*.blg')
+```
+
+```powershell
+remove-item -Path ($tepath+'*.aux',$tepath+'*.lof',$tepath+'*.log',$tepath+'*.lot',$tepath+'*.fls',$tepath+'*.out',$tepath+'*.toc',$tepath+'*.fmt',$tepath+'*.fot',$tepath+'*.cb',$tepath+'*.cb2',$tepath+'*.ptc',$tepath+'*.xdv',$tepath+'*.fdb_latexmk',$tepath+'*.synctex.gz',$tepath+'*.ps1')
+```
+
+### latex 编译模式
 
 [如何加速 LaTeX 编译][]
 
@@ -41,7 +157,7 @@ OPTIONS
 不同的编译模式也有细微的影响. 
 经过测试,使用批处理模式（`batchmode`）速度要优于默认的模式（不加参数）和其他一些模式（比如 `nonstopmode` 和 `scrollmode`）,这是因为批处理模式在编译和执行阶段是静默的,不输出任何信息,因此要快上一些. 
 
-## 清理辅助文件
+### 清理辅助文件
 
 删除本层目录下除了源文件的`latex`辅助文件,只保留 `*.tex`,`*.pdf`,`*.bib`
 
@@ -71,252 +187,7 @@ temp_a=$(find . -mindepth 1 -maxdepth 1 -type f   \( -not -name  "*.pdf" \)  \( 
 
 与`-c`选项相同,只是增加了`dvi`,`postscript`和`pdf`文件以及`$clean_full_ext`配置变量中指定的文件.
 
-## 浮动体 图形
-
-[liam.page][]
-
-由两个 graphics packages:
-
-`graphics` : The `standard` graphics package.
-`graphicx` :The `extended` or `enhanced`  graphics package
-
-这两个包的区别在于可选参数给出的形式不同. 参数名称和必选参数是相同的. 
-
-插图和表格通常需要占据大块空间,所以在文字处理软件中我们经常需要调整他们的位置. `figure` 和 `table` 环境可以自动完成这样的任务；这种自动调整位置的环境称作浮动体(`float`). 我们以 `figure` 为例. 
-
-```latex
-\begin{figure}[htbp]
-\centering
-\includegraphics{a.jpg}
-\caption{有图有真相}
-\label{fig:myphoto}
-\end{figure}
-```
-
-`htbp` 选项用来指定插图的理想位置,这几个字母分别代表 `here`, `top`, `bottom`, `float page`,也就是就这里、页顶、页尾、浮动页（专门放浮动体的单独页面或分栏）. `\centering` 用来使插图居中；`\caption` 命令设置插图标题,`LaTeX` 会自动给浮动体的标题加上编号. 注意 `\label` 应该放在标题命令之后. 
-
-如果你想了解 `LaTeX` 的浮动体策略算法细节,你可以参考我博客中关于[浮动体的系列文章][]
-
-如果你困惑于"为什么图表会乱跑"或者"怎样让图表不乱跑",请看[我的回答][]. 
-
-[liam.page]: https://liam.page/2014/09/08/latex-introduction/
-
-[浮动体的系列文章]: https://liam.page/series/#LaTeX-%E4%B8%AD%E7%9A%84%E6%B5%AE%E5%8A%A8%E4%BD%93
-
-[我的回答]: https://www.zhihu.com/question/25082703/answer/30038248
-
-## 设置子页面宽度resizebox
-
-[一行代码解决LaTex表格过宽或过窄问题][]
-
-[一行代码解决LaTex表格过宽或过窄问题]: https://blog.csdn.net/Rained_99/article/details/79389189#commentBox
-
-若表格过宽,则
-
-```bash
-\begin{table}[htbp]
-\center
-\caption{ Example}
-\resizebox{\textwidth}{12mm}{ %12可随机设置,调整到适合自己的大小为止
-\begin{tabular}{lll}
-\...
-\end{tabular}
-}%注意这里还有一个半括号
-\end{table}
-```
-
-若表格过窄,则
-
-```bash
-\begin{table}[htbp]
-\center
-\caption{ Example}
-\setlength{\tabcolsep}{7mm}{%7可随机设置,调整到适合自己的大小为止
-\begin{tabular}{lll}
-...
-\end{tabular}
-}%注意这里还有一个半括号
-\end{table}
-```
-
-### 参考
-
-22.3.4 \resizebox
-
-[22.3.4 \resizebox](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005ctabcolsep)
-
-Synopses:
-
-```latex
-\resizebox{horizontal length}{vertical length}{material}
-\resizebox*{horizontal length}{vertical length}{material}
-```
-
-给定一个大小（例如`3`厘米）,请转换`material`使其达到该大小. 
- 如果水平长度或垂直长度是一个感叹号`!` 就进行等比缩放. 
-
-此示例使图形的宽度为半英寸,并按相同的比例垂直缩放图形,以防止图形变形. 
-
-```bash
-\ resizebox {0.5in} {!} {\ includegraphics {lion}}
-```
-
-未加星标形式 `\resizebox` 取垂直长度为`box`的高度,而带星标形式 `\resizebox*` 取其`height+depth`.  
-例如,使用 `\resizebox*{!}{0.25in}{\parbox{1in}{使此框同时具有高度和深度. }}`
-使文本的高度+深度达到四分之一英寸. 
-
-您可以使用 `\depth`,`\height`,`\totalheight`和 `\width`来引用框的原始大小.  
-因此,使用 `\resizebox{2in}{\height}{Two inch}`将文本设置为两英寸宽,但保留原始高度. 
-
-***
-8.23 tabular
-
-[8.23 tabular](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005ctabcolsep)
-
-`\tabcolsep`
-
-长度是列之间间隔的一半.  默认值为`6pt`.  用 `\setlength`更改它. 
-
-## LaTeX对齐
-
-[LaTeX 对齐问题][]
-
-[LaTeX 对齐问题]: https://blog.csdn.net/lvchaoshun/article/details/50518271
-
-[latex23 doc](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005ccentering)
-
-对齐的语法是
-
-`{\centering ... }`
-
-or
-
-```latex
-\begin{group}
-  \centering ...
-\end{group}
-```
-
-它使材料在其范围内（scope）居中.  它最常在诸如图形之类的环境中或在`parbox`中使用. 
-常用来使插图居中：
-
-```latex
-\begin{figure}
-  \centering
-  \includegraphics[width=0.6\textwidth]{ctan_lion.png}
-  \caption{CTAN Lion}  \label{fig:CTANLion}
-\end{figure}
-```
-
-`\centering `的作用范围到`\end{figure}`为止.
-
-与`center`环境不同,`\centering`命令不会在文本上方和下方添加垂直空间.  
-这就是上面示例中的优势——没有多余的空间. 
-
-### 一行文本对齐
-
-+ `\leftline{左对齐}`
-+ `\centerline{居中}`
-+ `\rightline{右对齐}`
-
-### 多行文本或段落对齐
-
-左对齐
-
-```latex
-\begin{flushleft}
-...
-\end{flushleft}
-```
-
-居中
-
-```latex
-\begin{center}
-...
-\end{center}
-```
-
-右对齐
-
-```latex
-\begin{flushright}
-...
-\end{flushright}
-```
-
-### LaTeX公式对齐
-
-默认情况下公式是居中对齐的,但若希望改成左对齐可以
-
-```latex
-\documentclass[a4paper,fleqn]{article}
-```
-
-这对整篇文章都有效. 
-
-对某一行公式进行左对齐
-
-```latex
-\begin{flalign}
-  your equation (1)  
-\end{flalign}
-```
-
-对某一个公式左对齐
-
-```latex
-some text here\\
-yourequationhere
-\\
-and more text here.
-```
-
-对某几行公式
-
-```latex
-\begin{flalign}  
-\begin{split}  
-your equation (1)  
-your equation (2)  
-\end{split}&  
-\end{flalign}
-```
-
-[amsdoc](http://mirrors.ustc.edu.cn/CTAN/macros/latex/required/amsmath/amsldoc.pdf)
-
-ams 数学环境包括：
-
-```latex
-equation     equation*    align          align*
-gather          gather*         alignat      alignat* 
-multline      multline*     flalign        flalign*
-split
-```
-
-`split`环境是一种特殊的从属形式,仅在其他方程环境内部使用.  但是它不能在`multline`中使用. 
-`split`仅支持一个对齐（`＆`）列； 如果需要更多,应使用`aligned`或`alignedat`. 
-`split`结构的宽度是full line width
-
-```latex
-\begin{equation}\label{xx}
-\begin{split}a& =b+c-d\\
-& \quad +e-f\\
-& =g+h\\
-& =i
-\end{split}
-\end{equation}
-```
-
-### 其它方法
-
-左对齐、居中对齐、右对齐的环境分别为`flushleft`、`center`和`flushright`. 
-也可以使用命令`\raggedright`、`\centering`和`\raggedleft`使以后的文本按指定方式对齐.
-
-加载amsmath宏包后,使用选项`fleqn`（就是声明加载宏包时使用`\usepackage[fleqn]{amsmath}`）
-可以使本该居中对齐的行间公式改为左对齐.
-
-## pdftex/xetex --help
+### pdftex/xetex --help
 
 ```bash
 Usage: xetex [OPTION]... [TEXNAME[.tex]] [COMMANDS]
@@ -367,19 +238,635 @@ pdflatex -halt-on-error file.tex 1 > /dev/null
 
 Email bug reports to <xetex@tug.org>.
 
-## latex with powershell
+### latex in  powershell
 
 Invoke-Expression $("lualatex" + " " + "-halt-on-error " + "-output-directory=temp -shell-escape -interaction=nonstopmode " + "test.tikz.tex" ) > ./null
 
-## 简单的规则
+## 语法
 
-1. 空格：`Latex` 中空格不起作用. 
-1. 换行：用控制命令``\\``,或``\newline``.
-1. 分段：用控制命令``\par`` 或空出一行. 
-1. 换页：用控制命令``\newpage``或``\clearpage``
-1. 特殊控制字符: `#`,`$`, `%`, `&`, `-` ,`{}`, `^`, `~`
+### input与include
 
-## 子方程
+[Latex导入文件/input和/include方式][]
+
+[Latex导入文件/input和/include方式]: https://blog.csdn.net/OOFFrankDura/article/details/89644373
+
+`\input`命令可以改为`include`,
+区别在于,`input`可以放在导言区和正文区,包含的内容不另起一页；
+而`include`只能放在正文区,包含的内容另起一页. 
+
+另外`CJK`中还有`CJKinput`和`CJKinclude`命令. 
+
+### texdoc
+
+`man` page 指出这些命令行选项等价于使用the command forms as `\scrollmode`,官方文档是`TeXBook`,或者输入
+
+```powershell
+texdoc texbytopic
+```
+
+自由选择(see chapter 32).
+
+### newcommand 新命令
+
+[LaTeX2e unofficial reference manual (October 2018)][]
+
+[LaTeX2e unofficial reference manual (October 2018)]: http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html
+
+12.1 \newcommand & \renewcommand
+
+语法,使用下面形式中的一个:
+
+```latex
+\newcommand{\cmd}{defn}
+\newcommand{\cmd}[nargs]{defn}
+\newcommand{\cmd}[nargs][optargdefault]{defn}
+\newcommand*{\cmd}{defn}
+\newcommand*{\cmd}[nargs]{defn}
+\newcommand*{\cmd}[nargs][optargdefault]{defn}
+```
+
+or one of these.
+
+```bash
+\renewcommand{\cmd}[nargs]{defn}
+\renewcommand{\cmd}[nargs]{defn}
+\renewcommand{\cmd}[nargs][optargdefault]{defn}
+\renewcommand*{\cmd}{defn}
+\renewcommand*{\cmd}[nargs]{defn}
+\renewcommand*{\cmd}[nargs][optargdefault]{defn}
+```
+
+定义或重定义一个命令. See also the discussion of `\DeclareRobustCommand` in Class and package commands.
+这两个命令的`*`号形式要求参数中不包含多段文字. （用 `plain TeX` 术语说,不能为`\long` ）. 
+
+参数说明:
+
++ `cmd`：必选,命令名称. 用`\`开头. 且不能以`\end`开头,对于`\newcommand`,命令不能定义过. 
+对于`\renewcommand`,命令必须已经定义过. 
++ `nargs`:可选,一个从`0`到`9`的整数. 指定命令接受的参数个数,包括可选参数. 忽略这个参数相当于设定为`0`,
+意味着命令不接受参数. 如果重定义命令,新命令可以和旧命令的参数数目可以不一样. 
++ `optargdefault`：可选. 如果这个参数存在,`\cmd`的第一个参数将是可选参数（可以是空字符串）. 如果这个参数不存在,`\cmd`不使用可选参数. 也就是说,如果用`\cmd[optval]{...}`调用,`#1`将会被设置成`optval`; 如果用`\cmd{...}`调用,`#1`将会被设置成`optargdefault`. 两种情况下,必选参数都从`#2`开始. 
+忽略`[optargdefault]`与使用`[]`是不同的,前一种情况, `#1`被设置为`optargdefault`；后一种情况,`#1`被设置为空字符串. 
++ `defn`: 需要；每次遇到`\cmd`就用`defn`替换. 参数`#1`,`#2`被替换成你提供的值. `Tex`会忽略跟在`\cmd`后面的空白. 如果你想要一个空白,使用`\cmd{}`或者使用显式的控制序列`'\cmd\ '`. 
+一个简单的定义新命令的例子：`\newcommand{\RS}{Robin Smith}`,文中的每个`\RS`会被`Robin Smith`替换. 
+重定义命令是类似的`\renewcommand{\qedsymbol}{{\small QED}}`.
+用`\newcommand`重定义命令,或者用`\renewcommand`定义新命令,都会报错. 
+
+Here the first command definition has no arguments, and the second has one required argument.
+
+```bash
+\newcommand{\student}{Ms~O'Leary}
+\newcommand{\defref}[1]{Definition~\ref{#1}}
+```
+
+使用第一个命令时,建议用`\student{}`(以便于和后面有空格区分开). 
+第二个命令有一个变量,`\defref{def:basis}`将会展开成`Definition~\ref{def:basis}`,最终展开成类似于`Definition~3.14`. 
+
+类似地,两个必选参数：`\newcommand{\nbym}[2]{$#1 \times #2$}`,调用时使用`\nbym{2}{k}`.
+
+可选参数的例子：`\newcommand{\salutation}[1][Sir or Madam]{Dear #1:}`
+`\salutation`给出`Dear Sir or Madam:`,`\salutation[John]`给出`Dear John:`.
+`\salutation[]`给出 `Dear :`
+
+这个例子给出一个可选参数和两个必选参数：
+
+```bash
+\newcommand{\lawyers}[3][company]{#2, #3, and~#1}
+I employ \lawyers[Howe]{Dewey}{Cheatem}.
+```
+
+输出是`I employ Dewey, Cheatem, and Howe`.
+`\lawyers{Dewey}{Cheatem}`将给出`I employ Dewey, Cheatem, and company`
+
+`defn` 周围的大括号并不会定义一个组,也就是说,它并不会限制指令的生效范围. 
+比如,使用`\newcommand{\shipname}[1]{\it #1}`, 
+
+```latex
+The \shipname{Monitor} met the \shipname{Merrimac}.
+```
+
+单词 `met the`也会变成斜体`italics`. 解决方法是在定义中额外加上一对大括号：
+
+```latex
+\newcommand{\shipname}[1]{{\it #1}}
+```
+
+### \RequirePackage \usepackage 区别
+
+[What's the difference between \RequirePackage and \usepackage?][]
+
+[What's the difference between \RequirePackage and \usepackage?]: https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
+
+惯例是在包或者文档类中使用`\RequirePackage`,在文档中使用`\usepackage`
+
+`\RequirePackage`可以用在`\documentclass ....`之前
+
+you can write :
+
+```latex
+\RequirePackage{atbegshi}      
+\documentclass ....
+```
+
+and not
+
+```latex
+\usepackage{atbegshi}      
+\documentclass ...
+```
+
+### 保留字符 Reserved characters
+
+[23.1 Reserved characters][]
+
+[23.1 Reserved characters]: http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005c_007e
+
+LaTeX为特殊目的预留了以下字符.  例如,百分号％用于注释.  它们被称为保留字符或特殊字符. 
+
+`# $ % & { } _ ~ ^ \ `
+
+除了最后三个,都可以用转义实现
+
+如果希望保留的字符以其自身的形式打印在文本正文中,
+则除该列表中的最后三个字符外,对于所有字符,只需在字符前面加上反斜杠`\`. 因此,键入`\$ 1.23`将在输出中产生`$ 1.23`.
+
+最后三个要使用
+`\~{}` ： 本来是用来给后面跟的字符加上波浪线的
+`\^{}`：同理,本是用来加上音调符号的
+`\textbackslash{}`：这个不知道有啥用,就是加个`backslash`
+
+若要使用`typewriter font `,使用`verb!! `语法
+
+```latex
+\begin{center}
+  \# \$ \% \& \{ \} \_ \~{} \^{} \textbackslash \\
+  \verb!# $ % & { } _ ~ ^ \!
+\end{center}
+```
+
+### 原文 verbatim
+
+#### verb 宏
+
+概要：
+
+```latex
+\verb char文字文本char
+\verb * char文字文本char
+```
+
+使用打字机（`\tt`）字体对输入的文字文本进行原样排版,包括特殊字符和空格.
+此示例显示了`\verb`的两种不同调用.
+
+```latex
+This is \verb!literally! the biggest pumpkin ever.
+And this is the best squash, \verb+literally!+
+```
+
+第一个`\verb`的文字文本带有感叹号`！`.第二个取而代之的是使用加号`+`,因为感叹号是文字文本的一部分.
+
+包围文字文本的单字符定界符`char`必须相同.
+`\verb`或`\verb*`与`char`之间,`char`与文字文本之间,或文本与第二个`char`之间不能有空格
+（上面的空格是为了区分不同部分）.分隔符不能出现在后续文本中,文本中不能包含换行符.
+`*`形式的不同之处仅在于,空格以可见的空格字符打印.
+
+#### verbatim 环境
+
+概要：
+
+```latex
+\ begin {verbatim}
+文字文本
+\ end {verbatim}
+```
+
+创建一个段落,对内容原样输出.例如,在文字文本中,反斜杠`\`字符不会启动命令,它会产生一个打印的`\`,
+并按字面意义使用回车符和空格.输出以类似等距打字机的字体（`\tt`）出现.
+文字文本的唯一限制是它不能包含字符串`\end {verbatim}`.
+您不能在宏的参数（例如`\section`的参数）中使用逐字记录环境.（但是cprotect软件包可以帮助您解决此问题.）
+
+`verbatim`的一种常见用法是排版计算机代码.有一些软件包可以改善`verbatim`.
+例如,一种改进是允许逐字包含外部文件或这些文件的一部分,比如`listings`, and `minted`.
+一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`.另一个是`verbatimbox`.
+有关所有相关软件包的列表,请参见CTAN.
+
+## 浮动体 图形
+
+[liam.page][]
+
+由两个 graphics packages:
+
+`graphics` : The `standard` graphics package.
+`graphicx` :The `extended` or `enhanced`  graphics package
+
+这两个包的区别在于可选参数给出的形式不同. 参数名称和必选参数是相同的. 
+
+插图和表格通常需要占据大块空间,所以在文字处理软件中我们经常需要调整他们的位置. `figure` 和 `table` 环境可以自动完成这样的任务；这种自动调整位置的环境称作浮动体(`float`). 我们以 `figure` 为例. 
+
+```latex
+\begin{figure}[htbp]
+\centering
+\includegraphics{a.jpg}
+\caption{有图有真相}
+\label{fig:myphoto}
+\end{figure}
+```
+
+`htbp` 选项用来指定插图的理想位置,这几个字母分别代表 `here`, `top`, `bottom`, `float page`,也就是就这里、页顶、页尾、浮动页（专门放浮动体的单独页面或分栏）. `\centering` 用来使插图居中；`\caption` 命令设置插图标题,`LaTeX` 会自动给浮动体的标题加上编号. 注意 `\label` 应该放在标题命令之后. 
+
+如果你想了解 `LaTeX` 的浮动体策略算法细节,你可以参考我博客中关于[浮动体的系列文章][]
+
+如果你困惑于"为什么图表会乱跑"或者"怎样让图表不乱跑",请看[我的回答][]. 
+
+[liam.page]: https://liam.page/2014/09/08/latex-introduction/
+
+[浮动体的系列文章]: https://liam.page/series/#LaTeX-%E4%B8%AD%E7%9A%84%E6%B5%AE%E5%8A%A8%E4%BD%93
+
+[我的回答]: https://www.zhihu.com/question/25082703/answer/30038248
+
+### 表格
+
+```latex
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|l|l|l|}
+
+\end{tabular}
+\caption{input anything you need}
+\end{table}
+```
+
+### float 包
+
+把浮动体放到确定的位置:
+
+改进了用于定义浮动对象（如图形和表格）的接口。引入了`boxed float`, `ruled float` and the `plaintop float`。 您可以定义自己的`floats`并改善旧`floats`的行为。
+
+该软件包还提供了`H` float修饰符选项,用来替换过时的`here`包。您可以使用`\floatplacement{figure}{H}`将其设置为默认。
+
+### 设置子页面宽度resizebox
+
+[一行代码解决LaTex表格过宽或过窄问题][]
+
+[一行代码解决LaTex表格过宽或过窄问题]: https://blog.csdn.net/Rained_99/article/details/79389189#commentBox
+
+若表格过宽,则
+
+```bash
+\begin{table}[htbp]
+\center
+\caption{ Example}
+\resizebox{\textwidth}{12mm}{ %12可随机设置,调整到适合自己的大小为止
+\begin{tabular}{lll}
+\...
+\end{tabular}
+}%注意这里还有一个半括号
+\end{table}
+```
+
+若表格过窄,则
+
+```bash
+\begin{table}[htbp]
+\center
+\caption{ Example}
+\setlength{\tabcolsep}{7mm}{%7可随机设置,调整到适合自己的大小为止
+\begin{tabular}{lll}
+...
+\end{tabular}
+}%注意这里还有一个半括号
+\end{table}
+```
+
+### resizebox
+
+22.3.4 \resizebox
+
+[22.3.4 \resizebox](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005ctabcolsep)
+
+Synopses:
+
+```latex
+\resizebox{horizontal length}{vertical length}{material}
+\resizebox*{horizontal length}{vertical length}{material}
+```
+
+给定一个大小（例如`3`厘米）,请转换`material`使其达到该大小. 
+ 如果水平长度或垂直长度是一个感叹号`!` 就进行等比缩放. 
+
+此示例使图形的宽度为半英寸,并按相同的比例垂直缩放图形,以防止图形变形. 
+
+```bash
+\ resizebox {0.5in} {!} {\ includegraphics {lion}}
+```
+
+未加星标形式 `\resizebox` 取垂直长度为`box`的高度,而带星标形式 `\resizebox*` 取其`height+depth`.  
+例如,使用 `\resizebox*{!}{0.25in}{\parbox{1in}{使此框同时具有高度和深度. }}`
+使文本的高度+深度达到四分之一英寸. 
+
+您可以使用 `\depth`,`\height`,`\totalheight`和 `\width`来引用框的原始大小.  
+因此,使用 `\resizebox{2in}{\height}{Two inch}`将文本设置为两英寸宽,但保留原始高度. 
+
+***
+8.23 tabular
+
+[8.23 tabular](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005ctabcolsep)
+
+`\tabcolsep`
+
+长度是列之间间隔的一半.  默认值为`6pt`.  用 `\setlength`更改它. 
+
+### LaTeX对齐
+
+[LaTeX 对齐问题][]
+
+[LaTeX 对齐问题]: https://blog.csdn.net/lvchaoshun/article/details/50518271
+
+[latex23 doc](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005ccentering)
+
+对齐的语法是
+
+`{\centering ... }`
+
+or
+
+```latex
+\begin{group}
+  \centering ...
+\end{group}
+```
+
+它使材料在其范围内（scope）居中.  它最常在诸如图形之类的环境中或在`parbox`中使用. 
+常用来使插图居中：
+
+```latex
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{ctan_lion.png}
+  \caption{CTAN Lion}  \label{fig:CTANLion}
+\end{figure}
+```
+
+`\centering `的作用范围到`\end{figure}`为止.
+
+与`center`环境不同,`\centering`命令不会在文本上方和下方添加垂直空间.  
+这就是上面示例中的优势——没有多余的空间. 
+
+***
+一行文本对齐
+
++ `\leftline{左对齐}`
++ `\centerline{居中}`
++ `\rightline{右对齐}`
+
+***
+多行文本或段落对齐
+
+左对齐
+
+```latex
+\begin{flushleft}
+...
+\end{flushleft}
+```
+
+居中
+
+```latex
+\begin{center}
+...
+\end{center}
+```
+
+右对齐
+
+```latex
+\begin{flushright}
+...
+\end{flushright}
+```
+
+***
+LaTeX公式对齐
+
+默认情况下公式是居中对齐的,但若希望改成左对齐可以
+
+```latex
+\documentclass[a4paper,fleqn]{article}
+```
+
+这对整篇文章都有效. 
+
+对某一行公式进行左对齐
+
+```latex
+\begin{flalign}
+  your equation (1)  
+\end{flalign}
+```
+
+***
+对某一个公式左对齐
+
+```latex
+some text here\\
+yourequationhere
+\\
+and more text here.
+```
+
+对某几行公式
+
+```latex
+\begin{flalign}  
+\begin{split}  
+your equation (1)  
+your equation (2)  
+\end{split}&  
+\end{flalign}
+```
+
+[amsdoc](http://mirrors.ustc.edu.cn/CTAN/macros/latex/required/amsmath/amsldoc.pdf)
+
+ams 数学环境包括：
+
+```latex
+equation     equation*    align          align*
+gather          gather*         alignat      alignat* 
+multline      multline*     flalign        flalign*
+split
+```
+
+`split`环境是一种特殊的从属形式,仅在其他方程环境内部使用.  但是它不能在`multline`中使用. 
+`split`仅支持一个对齐（`＆`）列； 如果需要更多,应使用`aligned`或`alignedat`. 
+`split`结构的宽度是full line width
+
+```latex
+\begin{equation}\label{xx}
+\begin{split}a& =b+c-d\\
+& \quad +e-f\\
+& =g+h\\
+& =i
+\end{split}
+\end{equation}
+```
+
+### 其它对齐方法
+
+左对齐、居中对齐、右对齐的环境分别为`flushleft`、`center`和`flushright`. 
+也可以使用命令`\raggedright`、`\centering`和`\raggedleft`使以后的文本按指定方式对齐.
+
+加载amsmath宏包后,使用选项`fleqn`（就是声明加载宏包时使用`\usepackage[fleqn]{amsmath}`）
+可以使本该居中对齐的行间公式改为左对齐.
+
+### parbox
+
+[20.3 \parbox](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#g_t_005cparbox)
+
+概要,其中之一：
+
+```latex
+\parbox{width} {contents}
+\parbox[position] {width} {contents}
+\parbox[position] [height] {width} {contents}
+\parbox[position] [height] [inner-pos] {width} {contents}
+```
+
+产生一个宽度为`width`的文本框.
+使用此命令可以使一小段文本框变成单个段落.该命令是`fragile`的（请参阅`\protect`）.
+
+```latex
+\begin{picture}(0,0)
+  ...
+  \put(1,2){\parbox{1.75in}{\raggedright Because the graph is a line on
+                         this semilog paper, the relationship is
+                         exponential.}}
+\end{picture}
+```
+
+内容被以文本模式处理
+（请参见[`Modes`](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Modes)）,
+因此`LaTeX`会中断换行以形成段落.但是它不会包含多个段落；为此,请使用`minipage`环境（请参见`minipage`）.
+
+`\parbox`的选项（除了内容）与`minipage`的选项相同.为方便起见,此处提供了选项的摘要,但完整说明请参见[minipage](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#minipage).
+
+有两个必需的参数.`width`是刚性长度（请参见`Lengths`）.
+它设置LaTeX将内容排版到其中的框的宽度.`contents`是放置在该框中的文本.它不应包含任何`paragraph-making`组件.
+
+有三个可选参数,`position`, `height`, and `inner-pos`.
+`position`给出`parbox`相对于周围材料的垂直对齐.
+可能的值是`c`或`m`以使`parbox`的垂直中心与相邻线的中心对齐（这是默认值）,
+或`t`可以使`parbox`的顶行与周围材料的基线匹配,或者`b`匹配底线.
+
+可选参数`height`覆盖框的自然高度.
+
+可选参数`inner-pos`控制内容在`parbox`中的位置.它的默认值是`position`的值.
+其可能的值为：`t`将内容放置在框的顶部,`c`将其放置在框的垂直中心,`b`将其放置在框的底部,
+`s`将其垂直拉伸（为此,文本必须包含垂直可拉伸的空间）.
+
+### 代码环境
+
+[LaTex：插入代码的listings包和lstlisting环境](https://blog.csdn.net/quantumpo/article/details/26854289)
+
+[TheListingsPackage](https://mirrors.aliyun.com/CTAN/macros/latex/contrib/listings/listings.pdf)
+
+```latex
+% LaTex中插入高亮显示的代码需以下设定
+ % 注意，代码中不能含有中文，否则为无法编译。
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+% The package allows the user to select font encodings, 
+% and for each encoding provides an interface to 'font-encoding-specific' commands for each font
+\usepackage{listings}
+% 在LaTex中添加代码高亮
+\usepackage{color}
+%定义各种颜色
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{〈style name〉}{〈key=value list〉}
+%stores the key=value list
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+例子
+
+\begin{oframed}
+\begin{lstlisting}[language=C++,style=mystyle]
+#include <iostream>
+using namespace std;
+int main(){
+    cout << "Hello world!" << endl;
+}
+\end{lstlisting}
+\end{oframed}
+```
+
+如果遇到因为中文字符报错的问题，可以尝试添加`framed`环境。
+
+```latex
+\begin{framed}
+ \begin{lstlisting}  %or \lstinputlisting{...} 
+ \end{lstlisting}
+ \end{framed}
+```
+
+[package framed](https://www.ctan.org/pkg/framed)
+
+该软件包创建了三个环境：
+
+`framed`，用普通方框围绕该区域，通常的 frame box (`\fbox`)，`edge`在`margin`（页边）
+`oframed`，在分页处，方框的顶部和底部是开放的
+`shaded`，阴影区域，`\colorbox`
+leftbar，在左侧放置一条线。 环境允许在开始时有一个中断（`\FrameCommand`允许创建标题附加到该环境）;
+`framed/shaded`环境中也允许有`breaks`。
+
+还有一个命令`\MakeFramed`可以创建自己的框架式环境。
+
+创建可以跨页的`边框`，`阴影`或其他高亮区域。 定义的环境有
+`framed` 通常的 frame box (`\fbox`)，`edge`在`margin`（页边）
+`oframed` 在分页符处带有开放的 顶/底框
+`shaded` 背景阴影(\colorbox)，阴影边界渗入页边
+`shaded*` 背景阴影，阴影边界在页边
+`snugshade` 阴影紧密贴合文本（特别是列表中的阴影）
+`snugshade*` like snugshade with shading edge at margin
+`leftbar` 左边缘的粗垂直线
+`titled-frame` 带有标题栏的框
+
+实际上，`shaded`环境只是将`\FrameCommand`重新定义为`\colorbox{shadecolor}`
+（所以你需要定义颜色`shadecolor`:`\definecolor{shadecolor}...`）。
+
+常用颜色指定
+
+```latex
+\definecolor{shadecolor}{rgb}{0.9412,1,1} %靛青色
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9} %灰色
+ \colorbox[rgb]{.87, .9, .83} %  淡青色
+\definecolor{notes}{rgb}{.75, .3, .3}% 橙色
+\definecolor{shadecolor}{rgb}{0.96,0.96,0.93} % 土黄色
+```
+
+## 方程
+
+***
+子方程
 
 ```latex
 \begin{subequations}
@@ -387,22 +874,25 @@ Invoke-Expression $("lualatex" + " " + "-halt-on-error " + "-output-directory=te
 
 创建 子方程 环境
 
-## 二元运算符
+***
+二元运算符
 
 `+` 号后面 加 `{}` , 变成二元运算符,强制排版,用在多行公式换行中
 
 `=` 号也是同理
 
-## spacing in math mode
+***
+spacing in math mode
 
 `/,`  `/:` `/;` `/quad` `/qquad`
 
-## 占位符号Placeholders
+***
+占位符号Placeholders
 
 使用占位符：如果完成的命令具有需要填写的选项,
 则将`占位符`放在此位置,并可以通过使用`Ctrl + Right`/`Ctrl + Left`跳转到它们
 
-## shell-escape
+### shell-escape
 
 What does --shell-escape do?
 
@@ -417,7 +907,7 @@ What does --shell-escape do?
 如果用户需要使用它,则需要明确告诉编译器,
 他信任带有`shell`交互的文件的作者,而这正是可选的`--shell-escape`参数的目的.
 
-## align环境如何对齐
+### align环境如何对齐
 
 多&情况下flalign和align环境是如何对齐的：
 [对齐@CSDN][]
@@ -430,129 +920,7 @@ What does --shell-escape do?
 
 [对齐@CSDN]: https://blog.csdn.net/yanxiangtianji/article/details/54767265
 
-## pdf 书签
-
-[在 LaTeX 中使用含有中文的 PDF 书签避免乱码的正确姿势 ](https://liam.page/2014/11/22/latex-pdf-cjk-bookmarks/)
-
-[hyperref – Extensive support for hypertext in LaTeX](https://www.ctan.org/pkg/hyperref)
-
-LaTeX 的 `hyperref` 宏包可以处理交叉引用命令，在 PDF 文件中产生超文本链接，或者是 PDF 书签，
-
-最好的办法是将中文支持和版式处理都交给 `ctex` 宏包/文档类，只需要开启 `hyperref` 选项即可。
-
-```latex
-\documentclass[hyperref, UTF8]{ctexart}
-\begin{document}
-\section{中文书签不会乱码}
-UTF-8 编码，Xe\LaTeX{}/pdf\LaTeX{}/\LaTeX{} - DVIPDFMx 编译。
-\end{document}
-```
-
-### Token not allowed
-
-`Hyperref - Token not allowed [duplicate]`
-
-The following code:
-
-```latex
-\subsection{The classes $\mathcal{L}(\gamma)$}
-```
-
-产生错误：
-
-```shell
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)      removing `math shift' on input line 1938.
-```
-
-`PDF`书签与目录是不同的. 
-书签不是由`TeX`排版的：它们只是字符串,因此不允许使用数学或一般的格式说明.
-避免警告的最简单方法是使用`\texorpdfstring`：
-
-```latex
-\subsection{The classes \texorpdfstring{$\mathcal{L}(\gamma)$}{Lg}}
-```
-
-在第二个参数位置中你写下一个最佳的近似即可； 毕竟,书签只是参考文档的指南.
-
-## 符号
-
-[RaySir][]
-
-[RaySir]: https://www.zhihu.com/people/a739643d07dc71b56c03cec1e1942358
-
-连字符（Hyphens）、连接号（En-dashes）、破折号（Em-dashes）、减号（Minus signs）
-
-连字符为`-`、连接号为`--`、破折号为`---`、减号为`$-$`. 
-
-u+2014*2
-
-+ `hyphen`,用于连接复合词,比如 pesudo-vector,TeX 里面用`-`
-+ `en dash`,大致相当于中文的连接号,可连接人名、时间、地点等,如 Newton–Leibniz formula、10–20,TeX 里面用`--`
-+ `em dash`,大致相当于中文的破折号,TeX 里面用`---` (即三个 hyphen)
-
-### 数学符号
-
-```bash
-\DeclareMathOperator{\tr}{Tr}
-\DeclareMathOperator{\re}{Re}
-\DeclareMathOperator{\im}{Im}
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
-```
-
-## 在文中使用链接
-
-使用宏包 `hyperref` 来制作
-
-```latex
-\usepackage[dvipdfm, %
-pdfstartview=FitH, %
-bookmarks=true,
-CJKbookmarks=true, %
-bookmarksnumbered=true, %
-bookmarksopen=true, %
-colorlinks=true, %注释掉此项则交叉引用为彩色边框 %
-%(将colorlinks和pdfborder同时注释掉) %
-pdfborder=001, %注释掉此项则交叉引用为彩色边框 %
-citecolor=magenta, % magenta , cyan %
-linkcolor=blue,
-%linktocpage
-%nativepdf=true %
-linktocpage=true, %
-]{hyperref}
-```
-
-### email链接
-
-```latex
-\href{mailto:michaelbibby@gmail.com}{给我电邮}
-```
-
-### URL链接
-
-链接有颜色,显示为`OpenBSD官方网站`,链接到`http://www.openbsd.org`
-
-```latex
-\href{http://www.openbsd.org}{OpenBSD官方网站}
-```
-
-只显示`URL`
-
-```latex
-\url{http://www.openbsd.org}
-```
-
-显示URL,但是不做链接和跳转：
-
-```latex
-\nolinkurl{http://www.openbsd.org}
-```
-
-[LaTeX技巧159：如何在文中使用链接][]
-
-[LaTeX技巧159：如何在文中使用链接]: https://www.latexstudio.net/archives/7741.html
-
-## 反向搜索设置 SumatraPDF
+### 反向搜索设置 SumatraPDF
 
 ```code
 "C:\Users\Thomas\AppData\Local\Programs\Microsoft VS Code\Code.exe"  "C:\Users\Thomas\AppData\Local\Programs\Microsoft VS Code\resources\app\out\cli.js" -r -g "%f:%l"
@@ -562,13 +930,14 @@ linktocpage=true, %
 
 [使用VSCode编写LaTeX]: https://blog.csdn.net/fenzang/article/details/99805315
 
-## BibTeX生成参考文献列表
+### BibTeX生成参考文献列表
 
 [LaTeX技巧829:使用BibTeX生成参考文献列表][]
 
 [LaTeX技巧829:使用BibTeX生成参考文献列表]: https://www.latexstudio.net/archives/5594
 
-### bst 和 bib 格式简介
+***
+bst 和 bib 格式简介
 
 `BibTeX` 涉及到两种特有的辅助的文件格式： `bst` 和 `bib` . 
 
@@ -583,14 +952,16 @@ linktocpage=true, %
 实际排版出来的参考文献列表中有多少条文献,实际是哪几条,具体由文中使用的 `\cite` 命令（以及 `\nocite` 命令）指定. 如果没有使用 `\cite` 命令调取文献信息,那么即使在 `bib` 文件中定义了文献信息,也不会展现在参考文献列表中. 
 很多人对此误解甚深,于是经常有人问道"为什么我在 bib 文件里写的文献,不出现在参考文献中"之类的问题. 
 
-### BibTeX 的工作流程
+***
+BibTeX 的工作流程
 
 介绍中提到,BibTeX 是一个参考文献格式化工具. 
 这个定义,给 BibTeX 的用处做了良好的界定：BibTeX 不是用来排版参考文献的,更不是个排版工具,它只是根据需要,按照（ `bst` 文件规定的）某种格式,将（ `bib` 文件中包含的）参考文献信息,格式化 为 LaTeX 能够使用的列表信息. 
 
 清楚了 `BibTeX` 需要做的事情（用软件工程的话说,就是清楚了 `BibTeX` 的 `API` ）,我们就可以理清 `BibTeX` 的工作流程. 
 
-### 知道需要哪些参考文献信息
+***
+知道需要哪些参考文献信息
 
 既然 `BibTeX` 会根据需要 格式化数据,那么首先要解决的问题就是：`BibTeX` 如何了解此处的"需求".  对 `BibTeX` 稍有了解的读者可能知道,运行 `BibTeX` 的命令行命令是：
 
@@ -616,7 +987,8 @@ bar\cite{baz}
 它说明了：用户需要标记为 `baz` 的参考文献信息. 
 当 BibTeX 读入 `aux` 文件的时候,它就会记录下所有 `\citation` 命令中的内容（即文献标记——`label`）,这样就知道了用户需要哪些参考文献信息. 
 
-### 了解文献列表格式以及读取文献数据库
+***
+了解文献列表格式以及读取文献数据库
 
 当 BibTeX 清楚了用户需要哪些文献信息,接下来自然应该搞清楚用户想要什么样的格式. 
 而知道了格式之后,就可以从数据库中抽取所需的文献信息,按照格式准备数据. 
@@ -653,7 +1025,8 @@ tex 文件中的 `\bibliographystyle` 指定了用户期待的参考文献列表
 `在这里,unsrt` 是 `unsort` 的缩写,它对应着 `unsrt.bst` 文件,是大多数 TeX发行版自带的标准格式文件之一；
 `foobar` 则对应着 `foobar.bib` 文件,该文件是用户自己编写或生成的参考文献数据库. 
 
-### 实际操作看看
+***
+实际操作看看
 
 我们假设上述 `foobar.bib` 文件有如下内容：
 
@@ -736,7 +1109,8 @@ latex foo.tex
 
 如果没有意外,此时的 `foo.dvi` 文件应该看起来一切正常了. 
 
-### 小结
+***
+小结
 
 `BibTeX` 是一个参考文献格式化工具,它会根据需要,按照（bst 文件规定的）某种式,将（bib 文件中包含的）参考文献信息,格式化 为 LaTeX 能够使用的列表信息. 
 
@@ -755,7 +1129,7 @@ bibtex foo.aux
 (xe/pdf)latex foo.tex
 ```
 
-### 常见问题
+### bibtex 常见问题
 
 ***
 我希望将一条文献展示在参考文献列表中,但不想在正文中用 `\cite` 命令引用,怎么办？
@@ -879,139 +1253,9 @@ In numerical mode,the results are different.
 + `elide` 合并参考文献后,去掉重复的共同要素,例如作者或年份；
 + `mcite`识别（并忽略）合并语法
 
-### lyx中使用
+#### lyx中使用 bib tex
 
 菜单栏`Insert/List_Toc/Bibtex`添加 `bib`库文件，即可使用。
-
-## input与include
-
-[Latex导入文件/input和/include方式][]
-
-[Latex导入文件/input和/include方式]: https://blog.csdn.net/OOFFrankDura/article/details/89644373
-
-`\input`命令可以改为`include`,
-区别在于,`input`可以放在导言区和正文区,包含的内容不另起一页；
-而`include`只能放在正文区,包含的内容另起一页. 
-
-另外`CJK`中还有`CJKinput`和`CJKinclude`命令. 
-
-## texdoc
-
-`man` page 指出这些命令行选项等价于使用the command forms as `\scrollmode`,官方文档是`TeXBook`,或者输入
-
-```powershell
-texdoc texbytopic
-```
-
-自由选择(see chapter 32).
-
-## latex 编译调试
-
-### 报错示例-1
-
-```latex
-./chapter-6.tex:58: Undefined control sequence.
-l.58             \partial_\mu - i \eofphi
-                                           A_\mu(x)
-Output written on temp/main.xdv (21 pages, 329924 bytes).
-SyncTeX written on temp/main.synctex.gz.
-
-Transcript written on temp/main.log.
-```
-
-### 简短版latexmk
-
-```powershell
-$mk_message=(latexmk -f -xelatex); Write-Output ("*" * 90);$mk_message | Where-Object {$_ -like "*tex:*"}
-```
-
-### 详细版latexmk
-
-```powershell
-if ($null -eq $args[0]) {
-    # the default tex compiler, used to compile the '*.tex' files
-    $tex_compiler = "-xelatex";
-}
-else {
-    $tex_compiler = $args[0]
-};
-
-$mk_message = (latexmk -f "$tex_compiler");
-#detect the line number of the error message
-$line_start = ($mk_message | Where-Object { $_ -match '[ ./\w]+tex:\d+:[ \w]+' });
-$line_end = ($mk_message | Where-Object { $_ -match '^Transcript[ \w]*' });
-$length = ($line_start.count - 1)
-## show the erroe message
-Write-Output ("`n" * 2 + "the error message start" + "`n" * 2 );
-for ($i = 0; $i -le $length; $i++) {
-    Write-Output ("*" * 90);
-    $mk_message[$mk_message.IndexOf($line_start[$i])..($mk_message.IndexOf($line_end[$i]))] | Select-Object -First 10
-}
-```
-
-在命令行下运行的时候,选择不同的引擎,关键字为
-
-`-pdf` : `-pdflatex`
-`-xelatex`
-`-lualatex`
-
-### 报错示例-2
-
-ref-2: [LaTeX 如何进行 debug][]
-
-[LaTeX 如何进行 debug]: https://www.zhihu.com/question/28698141/answer/41774879
-
-我们故意构建一段错误的代码看看. 
-
-```latex
-\documentclass{minimal}
-\begin{document}
-\usepackage{amsmath}
-\end{document}
-```
-
-编译运行之后,会提示错误
-
-```latex
-./test.tex:3: LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...
-
-l.3 \usepackage
-               {amsmath}
-No pages of output.
-```
-
-`LaTeX` 的错误提示分成四个部分,以这个报错为例. 
-
-以叹号开头的行说明出错原因,示例中提示:
-
-`LaTeX Error: Can be used only in preamble`
-
-中间段落是`LATEX`给出的提示建议. 
-
-以字母`l`开头的那一行给出出错的具体位置. 
-可以看到代码在 `\usepackage` 之后截断分为两行,这说明问题出在截断处. 
-这里是第三行的 `\usepackage` 出错了. 以问号开头的行,表示 `LaTeX` 正在等待用户输入. 这里可以输入 `x` 停止编译,直接按回车忽略该错误,甚至输入 `s` 直接忽略后续一切错误. 
-
-这里表示"第三行的 `\usepackage` 只能放在导言区,不能放在正文部分",
-于是你只需要根据提示调整一下 `\usepackage` 的位置就好了. 
-
-实际使用中遇到的错误多种多样,一些错误的分析和修复可能不这么简单. 
-刘海洋 的《LaTeX 入门》中有名为「从错误中救赎」的章节,
-专门讲解 `LaTeX` 的排错,对 `LaTeX` 的不同报错进行了详细地叙述. 
-
-### 清理latex 辅助文件powershell
-
-```powershell
-remove-item -Path ('.\*.aux','.\*.lof','.\*.log','.\*.lot','.\*.fls','.\*.out','.\*.toc','.\*.fmt','.\*.fot','.\*.cb','.\*.cb2','.\*.ptc','.\*.xdv','.\*.fdb_latexmk','.\*.synctex.gz','.\*.ps1','.\*.bib','.\*.bbl','.\*.blg')
-```
-
-```powershell
-remove-item -Path ($tepath+'*.aux',$tepath+'*.lof',$tepath+'*.log',$tepath+'*.lot',$tepath+'*.fls',$tepath+'*.out',$tepath+'*.toc',$tepath+'*.fmt',$tepath+'*.fot',$tepath+'*.cb',$tepath+'*.cb2',$tepath+'*.ptc',$tepath+'*.xdv',$tepath+'*.fdb_latexmk',$tepath+'*.synctex.gz',$tepath+'*.ps1')
-```
 
 ## 定理类环境 of elegant-note
 
@@ -1213,17 +1457,7 @@ a&b\\ c&d
 %%%%%+++++++++++++++++++++++---------------------
 ```
 
-### 表格
 
-```latex
-\begin{table}[htbp]
-\centering
-\begin{tabular}{|l|l|l|}
-
-\end{tabular}
-\caption{input anything you need}
-\end{table}
-```
 
 ### 常用颜色声明
 
@@ -1645,6 +1879,12 @@ fc-list -f "%{family}\n" :lang=zh
 ```latex
 \usepackage{unicode-math}
 ```
+
+### latex 注音符号
+
+http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Accents
+
+23.5 Accents
 
 ### latex 字体设置
 
@@ -2110,339 +2350,125 @@ $\int \mathop{}\mathrm{d} x $\\
 \end{gather}
 ```
 
-## newcommand 新命令
+### pdf 书签
 
-[LaTeX2e unofficial reference manual (October 2018)][]
+[在 LaTeX 中使用含有中文的 PDF 书签避免乱码的正确姿势 ](https://liam.page/2014/11/22/latex-pdf-cjk-bookmarks/)
 
-[LaTeX2e unofficial reference manual (October 2018)]: http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html
+[hyperref – Extensive support for hypertext in LaTeX](https://www.ctan.org/pkg/hyperref)
 
-12.1 \newcommand & \renewcommand
+LaTeX 的 `hyperref` 宏包可以处理交叉引用命令，在 PDF 文件中产生超文本链接，或者是 PDF 书签，
 
-语法,使用下面形式中的一个:
+最好的办法是将中文支持和版式处理都交给 `ctex` 宏包/文档类，只需要开启 `hyperref` 选项即可。
 
 ```latex
-\newcommand{\cmd}{defn}
-\newcommand{\cmd}[nargs]{defn}
-\newcommand{\cmd}[nargs][optargdefault]{defn}
-\newcommand*{\cmd}{defn}
-\newcommand*{\cmd}[nargs]{defn}
-\newcommand*{\cmd}[nargs][optargdefault]{defn}
+\documentclass[hyperref, UTF8]{ctexart}
+\begin{document}
+\section{中文书签不会乱码}
+UTF-8 编码，Xe\LaTeX{}/pdf\LaTeX{}/\LaTeX{} - DVIPDFMx 编译。
+\end{document}
 ```
 
-or one of these.
+### Token not allowed
+
+`Hyperref - Token not allowed [duplicate]`
+
+The following code:
+
+```latex
+\subsection{The classes $\mathcal{L}(\gamma)$}
+```
+
+产生错误：
+
+```shell
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)      removing `math shift' on input line 1938.
+```
+
+`PDF`书签与目录是不同的. 
+书签不是由`TeX`排版的：它们只是字符串,因此不允许使用数学或一般的格式说明.
+避免警告的最简单方法是使用`\texorpdfstring`：
+
+```latex
+\subsection{The classes \texorpdfstring{$\mathcal{L}(\gamma)$}{Lg}}
+```
+
+在第二个参数位置中你写下一个最佳的近似即可； 毕竟,书签只是参考文档的指南.
+
+### 数学符号
+
+[RaySir](https://www.zhihu.com/people/a739643d07dc71b56c03cec1e1942358)
+
+连字符（Hyphens）、连接号（En-dashes）、破折号（Em-dashes）、减号（Minus signs）
+
+连字符为`-`、连接号为`--`、破折号为`---`、减号为`$-$`. 
+
+u+2014*2
+
++ `hyphen`,用于连接复合词,比如 pesudo-vector,TeX 里面用`-`
++ `en dash`,大致相当于中文的连接号,可连接人名、时间、地点等,如 Newton–Leibniz formula、10–20,TeX 里面用`--`
++ `em dash`,大致相当于中文的破折号,TeX 里面用`---` (即三个 hyphen)
 
 ```bash
-\renewcommand{\cmd}[nargs]{defn}
-\renewcommand{\cmd}[nargs]{defn}
-\renewcommand{\cmd}[nargs][optargdefault]{defn}
-\renewcommand*{\cmd}{defn}
-\renewcommand*{\cmd}[nargs]{defn}
-\renewcommand*{\cmd}[nargs][optargdefault]{defn}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 ```
 
-定义或重定义一个命令. See also the discussion of `\DeclareRobustCommand` in Class and package commands.
-这两个命令的`*`号形式要求参数中不包含多段文字. （用 `plain TeX` 术语说,不能为`\long` ）. 
+### 在文中使用链接
 
-参数说明:
-
-+ `cmd`：必选,命令名称. 用`\`开头. 且不能以`\end`开头,对于`\newcommand`,命令不能定义过. 
-对于`\renewcommand`,命令必须已经定义过. 
-+ `nargs`:可选,一个从`0`到`9`的整数. 指定命令接受的参数个数,包括可选参数. 忽略这个参数相当于设定为`0`,
-意味着命令不接受参数. 如果重定义命令,新命令可以和旧命令的参数数目可以不一样. 
-+ `optargdefault`：可选. 如果这个参数存在,`\cmd`的第一个参数将是可选参数（可以是空字符串）. 如果这个参数不存在,`\cmd`不使用可选参数. 也就是说,如果用`\cmd[optval]{...}`调用,`#1`将会被设置成`optval`; 如果用`\cmd{...}`调用,`#1`将会被设置成`optargdefault`. 两种情况下,必选参数都从`#2`开始. 
-忽略`[optargdefault]`与使用`[]`是不同的,前一种情况, `#1`被设置为`optargdefault`；后一种情况,`#1`被设置为空字符串. 
-+ `defn`: 需要；每次遇到`\cmd`就用`defn`替换. 参数`#1`,`#2`被替换成你提供的值. `Tex`会忽略跟在`\cmd`后面的空白. 如果你想要一个空白,使用`\cmd{}`或者使用显式的控制序列`'\cmd\ '`. 
-一个简单的定义新命令的例子：`\newcommand{\RS}{Robin Smith}`,文中的每个`\RS`会被`Robin Smith`替换. 
-重定义命令是类似的`\renewcommand{\qedsymbol}{{\small QED}}`.
-用`\newcommand`重定义命令,或者用`\renewcommand`定义新命令,都会报错. 
-
-Here the first command definition has no arguments, and the second has one required argument.
-
-```bash
-\newcommand{\student}{Ms~O'Leary}
-\newcommand{\defref}[1]{Definition~\ref{#1}}
-```
-
-使用第一个命令时,建议用`\student{}`(以便于和后面有空格区分开). 
-第二个命令有一个变量,`\defref{def:basis}`将会展开成`Definition~\ref{def:basis}`,最终展开成类似于`Definition~3.14`. 
-
-类似地,两个必选参数：`\newcommand{\nbym}[2]{$#1 \times #2$}`,调用时使用`\nbym{2}{k}`.
-
-可选参数的例子：`\newcommand{\salutation}[1][Sir or Madam]{Dear #1:}`
-`\salutation`给出`Dear Sir or Madam:`,`\salutation[John]`给出`Dear John:`.
-`\salutation[]`给出 `Dear :`
-
-这个例子给出一个可选参数和两个必选参数：
-
-```bash
-\newcommand{\lawyers}[3][company]{#2, #3, and~#1}
-I employ \lawyers[Howe]{Dewey}{Cheatem}.
-```
-
-输出是`I employ Dewey, Cheatem, and Howe`.
-`\lawyers{Dewey}{Cheatem}`将给出`I employ Dewey, Cheatem, and company`
-
-`defn` 周围的大括号并不会定义一个组,也就是说,它并不会限制指令的生效范围. 
-比如,使用`\newcommand{\shipname}[1]{\it #1}`, 
+使用宏包 `hyperref` 来制作
 
 ```latex
-The \shipname{Monitor} met the \shipname{Merrimac}.
+\usepackage[dvipdfm, %
+pdfstartview=FitH, %
+bookmarks=true,
+CJKbookmarks=true, %
+bookmarksnumbered=true, %
+bookmarksopen=true, %
+colorlinks=true, %注释掉此项则交叉引用为彩色边框 %
+%(将colorlinks和pdfborder同时注释掉) %
+pdfborder=001, %注释掉此项则交叉引用为彩色边框 %
+citecolor=magenta, % magenta , cyan %
+linkcolor=blue,
+%linktocpage
+%nativepdf=true %
+linktocpage=true, %
+]{hyperref}
 ```
 
-单词 `met the`也会变成斜体`italics`. 解决方法是在定义中额外加上一对大括号：
+***
+email链接
 
 ```latex
-\newcommand{\shipname}[1]{{\it #1}}
+\href{mailto:michaelbibby@gmail.com}{给我电邮}
 ```
 
-## latex 注音符号
+***
+URL链接
 
-http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Accents
-
-23.5 Accents
-
-### \RequirePackage \usepackage 区别
-
-[What's the difference between \RequirePackage and \usepackage?][]
-
-[What's the difference between \RequirePackage and \usepackage?]: https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
-
-惯例是在包或者文档类中使用`\RequirePackage`,在文档中使用`\usepackage`
-
-`\RequirePackage`可以用在`\documentclass ....`之前
-
-you can write :
+链接有颜色,显示为`OpenBSD官方网站`,链接到`http://www.openbsd.org`
 
 ```latex
-\RequirePackage{atbegshi}      
-\documentclass ....
+\href{http://www.openbsd.org}{OpenBSD官方网站}
 ```
 
-and not
+只显示`URL`
 
 ```latex
-\usepackage{atbegshi}      
-\documentclass ...
+\url{http://www.openbsd.org}
 ```
 
-## 保留字符 Reserved characters
-
-[23.1 Reserved characters][]
-
-[23.1 Reserved characters]: http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005c_007e
-
-LaTeX为特殊目的预留了以下字符.  例如,百分号％用于注释.  它们被称为保留字符或特殊字符. 
-
-`# $ % & { } _ ~ ^ \ `
-
-除了最后三个,都可以用转义实现
-
-如果希望保留的字符以其自身的形式打印在文本正文中,
-则除该列表中的最后三个字符外,对于所有字符,只需在字符前面加上反斜杠`\`. 因此,键入`\$ 1.23`将在输出中产生`$ 1.23`.
-
-最后三个要使用
-`\~{}` ： 本来是用来给后面跟的字符加上波浪线的
-`\^{}`：同理,本是用来加上音调符号的
-`\textbackslash{}`：这个不知道有啥用,就是加个`backslash`
-
-若要使用`typewriter font `,使用`verb!! `语法
+显示URL,但是不做链接和跳转：
 
 ```latex
-\begin{center}
-  \# \$ \% \& \{ \} \_ \~{} \^{} \textbackslash \\
-  \verb!# $ % & { } _ ~ ^ \!
-\end{center}
+\nolinkurl{http://www.openbsd.org}
 ```
 
-## 原文 verbatim
+[LaTeX技巧159：如何在文中使用链接][]
 
-### verb 宏
-
-概要：
-
-```latex
-\verb char文字文本char
-\verb * char文字文本char
-```
-
-使用打字机（`\tt`）字体对输入的文字文本进行原样排版,包括特殊字符和空格.
-此示例显示了`\verb`的两种不同调用.
-
-```latex
-This is \verb!literally! the biggest pumpkin ever.
-And this is the best squash, \verb+literally!+
-```
-
-第一个`\verb`的文字文本带有感叹号`！`.第二个取而代之的是使用加号`+`,因为感叹号是文字文本的一部分.
-
-包围文字文本的单字符定界符`char`必须相同.
-`\verb`或`\verb*`与`char`之间,`char`与文字文本之间,或文本与第二个`char`之间不能有空格
-（上面的空格是为了区分不同部分）.分隔符不能出现在后续文本中,文本中不能包含换行符.
-`*`形式的不同之处仅在于,空格以可见的空格字符打印.
-
-### verbatim 环境
-
-概要：
-
-```latex
-\ begin {verbatim}
-文字文本
-\ end {verbatim}
-```
-
-创建一个段落,对内容原样输出.例如,在文字文本中,反斜杠`\`字符不会启动命令,它会产生一个打印的`\`,
-并按字面意义使用回车符和空格.输出以类似等距打字机的字体（`\tt`）出现.
-文字文本的唯一限制是它不能包含字符串`\end {verbatim}`.
-您不能在宏的参数（例如`\section`的参数）中使用逐字记录环境.（但是cprotect软件包可以帮助您解决此问题.）
-
-`verbatim`的一种常见用法是排版计算机代码.有一些软件包可以改善`verbatim`.
-例如,一种改进是允许逐字包含外部文件或这些文件的一部分,比如`listings`, and `minted`.
-一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`.另一个是`verbatimbox`.
-有关所有相关软件包的列表,请参见CTAN.
-
-## parbox
-
-[20.3 \parbox](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#g_t_005cparbox)
-
-概要,其中之一：
-
-```latex
-\parbox{width} {contents}
-\parbox[position] {width} {contents}
-\parbox[position] [height] {width} {contents}
-\parbox[position] [height] [inner-pos] {width} {contents}
-```
-
-产生一个宽度为`width`的文本框.
-使用此命令可以使一小段文本框变成单个段落.该命令是`fragile`的（请参阅`\protect`）.
-
-```latex
-\begin{picture}(0,0)
-  ...
-  \put(1,2){\parbox{1.75in}{\raggedright Because the graph is a line on
-                         this semilog paper, the relationship is
-                         exponential.}}
-\end{picture}
-```
-
-内容被以文本模式处理
-（请参见[`Modes`](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Modes)）,
-因此`LaTeX`会中断换行以形成段落.但是它不会包含多个段落；为此,请使用`minipage`环境（请参见`minipage`）.
-
-`\parbox`的选项（除了内容）与`minipage`的选项相同.为方便起见,此处提供了选项的摘要,但完整说明请参见[minipage](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#minipage).
-
-有两个必需的参数.`width`是刚性长度（请参见`Lengths`）.
-它设置LaTeX将内容排版到其中的框的宽度.`contents`是放置在该框中的文本.它不应包含任何`paragraph-making`组件.
-
-有三个可选参数,`position`, `height`, and `inner-pos`.
-`position`给出`parbox`相对于周围材料的垂直对齐.
-可能的值是`c`或`m`以使`parbox`的垂直中心与相邻线的中心对齐（这是默认值）,
-或`t`可以使`parbox`的顶行与周围材料的基线匹配,或者`b`匹配底线.
-
-可选参数`height`覆盖框的自然高度.
-
-可选参数`inner-pos`控制内容在`parbox`中的位置.它的默认值是`position`的值.
-其可能的值为：`t`将内容放置在框的顶部,`c`将其放置在框的垂直中心,`b`将其放置在框的底部,
-`s`将其垂直拉伸（为此,文本必须包含垂直可拉伸的空间）.
-
-## 代码环境
-
-[LaTex：插入代码的listings包和lstlisting环境](https://blog.csdn.net/quantumpo/article/details/26854289)
-
-[TheListingsPackage](https://mirrors.aliyun.com/CTAN/macros/latex/contrib/listings/listings.pdf)
-
-```latex
-% LaTex中插入高亮显示的代码需以下设定
- % 注意，代码中不能含有中文，否则为无法编译。
-\usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
-% The package allows the user to select font encodings, 
-% and for each encoding provides an interface to 'font-encoding-specific' commands for each font
-\usepackage{listings}
-% 在LaTex中添加代码高亮
-\usepackage{color}
-%定义各种颜色
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-%\lstdefinestyle{〈style name〉}{〈key=value list〉}
-%stores the key=value list
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
-
-例子
-
-\begin{oframed}
-\begin{lstlisting}[language=C++,style=mystyle]
-#include <iostream>
-using namespace std;
-int main(){
-    cout << "Hello world!" << endl;
-}
-\end{lstlisting}
-\end{oframed}
-```
-
-如果遇到因为中文字符报错的问题，可以尝试添加`framed`环境。
-
-```latex
-\begin{framed}
- \begin{lstlisting}  %or \lstinputlisting{...} 
- \end{lstlisting}
- \end{framed}
-```
-
-[package framed](https://www.ctan.org/pkg/framed)
-
-该软件包创建了三个环境：
-
-`framed`，用普通方框围绕该区域，通常的 frame box (`\fbox`)，`edge`在`margin`（页边）
-`oframed`，在分页处，方框的顶部和底部是开放的
-`shaded`，阴影区域，`\colorbox`
-leftbar，在左侧放置一条线。 环境允许在开始时有一个中断（`\FrameCommand`允许创建标题附加到该环境）;
-`framed/shaded`环境中也允许有`breaks`。
-
-还有一个命令`\MakeFramed`可以创建自己的框架式环境。
-
-创建可以跨页的`边框`，`阴影`或其他高亮区域。 定义的环境有
-`framed` 通常的 frame box (`\fbox`)，`edge`在`margin`（页边）
-`oframed` 在分页符处带有开放的 顶/底框
-`shaded` 背景阴影(\colorbox)，阴影边界渗入页边
-`shaded*` 背景阴影，阴影边界在页边
-`snugshade` 阴影紧密贴合文本（特别是列表中的阴影）
-`snugshade*` like snugshade with shading edge at margin
-`leftbar` 左边缘的粗垂直线
-`titled-frame` 带有标题栏的框
-
-实际上，`shaded`环境只是将`\FrameCommand`重新定义为`\colorbox{shadecolor}`
-（所以你需要定义颜色`shadecolor`:`\definecolor{shadecolor}...`）。
-
-常用颜色指定
-
-```latex
-\definecolor{shadecolor}{rgb}{0.9412,1,1} %靛青色
-\definecolor{shadecolor}{rgb}{0.9,0.9,0.9} %灰色
- \colorbox[rgb]{.87, .9, .83} %  淡青色
-\definecolor{notes}{rgb}{.75, .3, .3}% 橙色
-\definecolor{shadecolor}{rgb}{0.96,0.96,0.93} % 土黄色
-```
+[LaTeX技巧159：如何在文中使用链接]: https://www.latexstudio.net/archives/7741.html
 
 ## 画费曼图
 

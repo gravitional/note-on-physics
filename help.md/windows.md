@@ -1,6 +1,6 @@
 # windows
 
-## 常用
+## 日常
 
 [你应该知道的 Windows 环境变量](https://zhuanlan.zhihu.com/p/67726501)
 
@@ -45,7 +45,7 @@ pause
 
 把上面的命令保存到一个名为`xxx.cmd`的文件中,右键单击,选择以管理员身份运行,运行完毕,你的电脑就可以使用组策略`gpedit.msc`了.
 
-### 解释
+### 概念解释
 
 `@echo off`
 
@@ -121,7 +121,7 @@ YNDMB-2QCFC-HTFBP-JF9HC-FX849
 
 `pwsh` 中输入`wmic memorychip`.
 
-## DistributedCOM错误10016
+### DistributedCOM错误10016
 
 在计算机上右键--管理--事件查看器--windows日志--系统中
 找到错误事件的日志,查看详细信息（XML）视图
@@ -134,7 +134,7 @@ YNDMB-2QCFC-HTFBP-JF9HC-FX849
 `HKEY_LOCAL_MACHEINE\SYSTEM\controlSet001\Services\EventLog\System\Microsoft-Windows-DistributedDCOM`
 找到上面注册表`ID `的项目,右键--权限--添加,添加自己的账户,然后勾选上所有的权限,点击确定。
 
-## 权限
+### windows 权限
 
 [TrustedInstaller SID](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731677(v=ws.10)#trustedinstaller-sid)
 
@@ -142,12 +142,12 @@ windows 有一个比 `Administrator`还高的权限,叫做`TrustedInstallers`。
 
 windows 管理工具: `%windir%\system32\control.exe\ /name Microsoft.AdministrativeTools`
 
-## win UWP 应用目录
+### win UWP 应用目录
 
 在`文件管理取`地址栏输入`shell:AppsFolder`,大小写无所谓.
 或者在`Powershell`中输入`explorer shell:appsfolder`,就可以打开UWP 应用的文件夹,可以创建桌面快捷方式。
 
-## 在 windows terminal 中添加其他程序
+### 在 windows terminal 中添加其他程序
 
 [Adding profiles for third-party tools](https://github.com/microsoft/terminal/blob/main/doc/user-docs/ThirdPartyToolProfiles.md)
 
@@ -164,7 +164,7 @@ Git Bash
 }
 ```
 
-## pwsh 别名配置
+### pwsh 别名配置
 
 [为 Windows PowerShell 设置 User Alias （命令别名）](https://zhuanlan.zhihu.com/p/74881435)
 [给 PowerShell 带来 zsh 的体验](https://zhuanlan.zhihu.com/p/137251716)
@@ -208,7 +208,7 @@ function gf  { git fetch }
 function gk { gitk --all --branches }
 ```
 
-## windows api
+### windows api
 
 [如何从Windows命令行打开回收站](https://qastack.cn/superuser/395015/how-to-open-the-recycle-bin-from-the-windows-command-line)
 
@@ -742,7 +742,9 @@ Tango Light
 接受:  `"graceful", "always", "never", true, false`
 默认值:  `"graceful"`
 
-### 参考的对象类型不支持尝试的操作
+### WSL2 参考的对象类型不支持尝试的操作
+ 
+使用VPN造成的 WSL2 启动 crash
 
 [关于使用WSL2出现'参考的对象类型不支持尝试的操作'的解决方法](https://zhuanlan.zhihu.com/p/151392411)
 

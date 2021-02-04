@@ -1489,7 +1489,584 @@ end{ytableau}
 \end_layout
 
 \begin_layout Section
-传播子
+洛伦兹变换
+\end_layout
+
+\begin_layout Subsection
+沿横轴的洛伦兹变换
+\end_layout
+
+\begin_layout Standard
+欧几里得空间的正交变换有：
+\begin_inset Formula $\sin(\theta)^{2}+\cos(\theta)^{2}=1$
+\end_inset
+
+，想象对矢量
+\begin_inset Formula $(1,0)$
+\end_inset
+
+和
+\begin_inset Formula $(0,1)$
+\end_inset
+
+逆时针转动
+\begin_inset Formula $\theta$
+\end_inset
+
+角度，得到新矢量
+\begin_inset Formula $\left(\cos\theta,\sin\theta\right)$
+\end_inset
+
+and 
+\begin_inset Formula $\left(-\sin\theta,\cos\theta\right)$
+\end_inset
+
+，分别对应转动矩阵的第一列和第二列：
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+\cos\left(\theta\right) & -\sin\left(\theta\right)\\
+\sin\left(\theta\right) & \cos\left(\theta\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+类似地，我们知道
+\begin_inset Formula 
+\begin{align*}
+ & \cosh(\theta)=\frac{e^{\theta}+e^{-\theta}}{2},\quad\sinh(\theta)=\frac{e^{\theta}-e^{-\theta}}{2}\\
+ & \cosh(\theta)^{2}-\sinh(\theta)^{2}=1,
+\end{align*}
+
+\end_inset
+
+所以我们推测逆变矢量
+\begin_inset Formula $\left(\begin{array}{c}
+t\\
+x
+\end{array}\right)$
+\end_inset
+
+的变换矩阵为：
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+\cosh\left(\theta\right) & -\sinh\left(\theta\right)\\
+-\sinh\left(\theta\right) & \cosh\left(\theta\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+在进行内积的时候，考虑闵可夫斯基度规
+\begin_inset Formula $\left(1,-1\right)$
+\end_inset
+
+，可以保证是基是正交归一的。
+\end_layout
+
+\begin_layout Standard
+在速度表象下，实际上是，
+\begin_inset Formula 
+\begin{align*}
+\beta & =\sqrt{1-v^{2}}\\
+\gamma & =1/\beta=1/\sqrt{1-v^{2}}\ge1
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $1/\gamma^{2}=1-v^{2}$
+\end_inset
+
+,
+\begin_inset Formula $\gamma^{2}-\left(\frac{v}{\beta}\right)^{2}=1$
+\end_inset
+
+,也就是
+\begin_inset Formula $\gamma^{2}-\gamma^{2}v^{2}=1$
+\end_inset
+
+所以，
+\begin_inset Formula 
+\[
+\theta=\ln\left(\frac{\gamma+\gamma v}{2}\right)=\frac{1}{2}\ln\left(\frac{\left(1+v\right)^{2}}{2(1-v^{2})}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+x^{\prime}\\
+t^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right)\left(\begin{array}{c}
+x\\
+t
+\end{array}\right)
+\]
+
+\end_inset
+
+ 这里的负号是一种约定，跟坐标系的手性有关。逆变矢量就这么变，
+\begin_inset Formula 
+\[
+x^{\prime\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}
+\]
+
+\end_inset
+
+这里虽然写的是指标上下收缩的形式，但是相乘的时候，就按普通的矩阵乘法。负号已经考虑在矩阵里面了。
+\end_layout
+
+\begin_layout Subsection
+用速度表示的形式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x^{\mu}=\Lambda^{\mu\nu}g_{\nu}
+\]
+
+\end_inset
+
+洛伦兹变换矩阵如何用速度
+\begin_inset Formula $v$
+\end_inset
+
+表示，A坐标系静止，B坐标系以速度
+\begin_inset Formula $v$
+\end_inset
+
+向右匀速移动，同时考察B坐标系的原点，得到
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+t^{\prime}\\
+0
+\end{array}\right)=\left(\begin{array}{cc}
+a & b\\
+b & a
+\end{array}\right)\left(\begin{array}{c}
+t\\
+vt
+\end{array}\right)
+\]
+
+\end_inset
+
+得到
+\begin_inset Formula 
+\begin{equation}
+a\frac{t}{t^{\prime}}=\frac{1}{1-v^{2}}\label{eq:1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+同时考虑洛伦兹矩阵的逆矩阵，
+\begin_inset Formula 
+\begin{align*}
+ & x^{\prime\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}\\
+\Rightarrow & \Lambda i_{\phantom{\mu}\mu}^{\nu}x^{\prime\mu}=x^{\nu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+根据定义有
+\begin_inset Formula 
+\begin{align*}
+\delta_{\phantom{\rho}\sigma}^{\rho} & =\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\nu}\delta_{\phantom{\mu}\nu}^{\mu}=\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\mu}\\
+ & \Rightarrow\Lambda_{\phantom{\rho}\mu}^{\rho}\Lambda_{\sigma}^{\phantom{\sigma}\mu}=\Lambda_{\phantom{\rho}\mu}^{\rho}(\Lambda^{\perp})_{\phantom{\sigma}\sigma}^{\mu}
+\end{align*}
+
+\end_inset
+
+这里不是普通的矩阵相乘，这里的相乘是指标收缩，也就是带度规的运算，如果要变成普通矩阵相乘，还需要乘上相应的
+\begin_inset Formula $\pm1$
+\end_inset
+
+。
+\begin_inset Newline newline
+\end_inset
+
+所以认为洛伦兹矩阵的逆矩阵是它的转置再乘上相应的度规（时间分量符号不变，空间分量
+\begin_inset Formula $-1$
+\end_inset
+
+）
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+t\\
+vt
+\end{array}\right)=\left(\begin{array}{cc}
+a & -b\\
+-b & a
+\end{array}\right)\left(\begin{array}{c}
+t^{\prime}\\
+0
+\end{array}\right)
+\]
+
+\end_inset
+
+得到
+\begin_inset Formula 
+\[
+t=at^{\prime}\Rightarrow\frac{t}{t^{\prime}}=a
+\]
+
+\end_inset
+
+结合EQ:
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，知道
+\begin_inset Formula $a^{2}=\frac{1}{1-v^{2}}$
+\end_inset
+
+，所以
+\begin_inset Formula $a=\frac{1}{\sqrt{1-v^{2}}}$
+\end_inset
+
+,由
+\begin_inset Formula $a^{2}-b^{2}=1$
+\end_inset
+
+可以得到
+\begin_inset Formula $b$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+验证：
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right).\left(\begin{array}{cc}
+\gamma & \gamma v\\
+\gamma v & \gamma
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma^{2}-\gamma^{2}v^{2} & 0\\
+0 & -\gamma^{2}v^{2}+\gamma^{2}
+\end{array}\right)=\left(\begin{array}{cc}
+1 & 0\\
+0 & 1
+\end{array}\right)
+\]
+
+\end_inset
+
+这里是按照普通的矩阵乘法相乘的。
+\end_layout
+
+\begin_layout Standard
+也就是说，通过考察一个结果已知的特殊坐标变换，并且利用洛伦兹矩阵的正交归一性质，我们可以确定两个未知的矩阵元
+\begin_inset Formula $a,b$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+洛伦兹变换的例子
+\end_layout
+
+\begin_layout Standard
+矢量垂直于boost方向的分量，经过boost是不变的。沿某一个轴boost的洛伦兹矩阵为，
+\begin_inset Formula 
+\[
+\Lambda_{\phantom{\mu}\nu}^{\mu}=\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right),\quad\gamma=\frac{1}{\sqrt{1-v^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+一个四动量
+\begin_inset Formula $\left(\begin{array}{c}
+m\\
+\vec{0}
+\end{array}\right)$
+\end_inset
+
+经过朝
+\begin_inset Formula $z$
+\end_inset
+
+轴方向，速度为
+\begin_inset Formula $-v$
+\end_inset
+
+的变换后，得到
+\begin_inset Formula $\left(\begin{array}{c}
+E=\gamma m\\
+p=\gamma mv
+\end{array}\right)$
+\end_inset
+
+，所以坐标变换参数
+\begin_inset Formula $\gamma=E/m$
+\end_inset
+
+,
+\begin_inset Formula $\gamma v=p/m$
+\end_inset
+
+。一般的有
+\begin_inset Formula $\gamma=E_{\vec{p}}/m,\gamma\vec{v}=\vec{p}/m$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset Formula $\vec{s}$
+\end_inset
+
+是归一化的，
+\begin_inset Formula $\vec{s}_{\parallel}=\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert},\vec{s}_{\perp}=\vec{s}-\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}$
+\end_inset
+
+，矢量
+\begin_inset Formula $\left(\begin{array}{c}
+0\\
+\vec{s}
+\end{array}\right)$
+\end_inset
+
+经过
+\begin_inset Formula $-v$
+\end_inset
+
+boost，
+\begin_inset Formula $\Lambda_{\phantom{\mu}\nu}^{\mu}=\left(\begin{array}{cc}
+\gamma & \gamma v\\
+\gamma v & \gamma
+\end{array}\right)$
+\end_inset
+
+，得到:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+(0,\vec{s}) & \to\left(\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\cdot\frac{\lvert\vec{p}\rvert}{m},\,\frac{E_{\vec{p}}}{m}\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}+\vec{s}-\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}\right)\\
+ & \Rightarrow\left(\frac{\left(\vec{p}\cdot\vec{s}\right)}{m},\,\vec{s}+\frac{(E_{\vec{p}}-m)}{m\lvert\vec{p}\rvert^{2}}\left(\vec{s}\cdot\vec{p}\right)\vec{p}\right)\\
+ & \Rightarrow\left(\frac{\left(\vec{p}\cdot\vec{s}\right)}{m},\,\vec{s}+\frac{\left(\vec{s}\cdot\vec{p}\right)\vec{p}}{m\left(E_{\vec{p}}+m\right)}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+洛伦兹生成元
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+[J,J]\times[\mu\nu,\rho\sigma] & =i*[g,J]\times([\mu\sigma,\nu\rho]+[\nu\rho,\mu\sigma]-[\mu\rho,\nu\sigma]-[\nu\sigma,\mu\rho])\\{}
+[J,J]\times[12,34] & =i*[g,J]\backslash times([14,23]+[23,14]-[13,24]-[24,13])\\{}
+[J,J]\times[12,34] & =-i*[g,J]\times([13,24]+[24,13]-[14,23]-[23,14])
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+S_{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]
+\]
+
+\end_inset
+
+使用 Clifford 代数，很容易验证，矩阵
+\begin_inset Formula $S_{\mu\nu}$
+\end_inset
+
+满足洛伦兹群的对易关系，即它们是洛伦兹群的生成元。
+\end_layout
+
+\begin_layout Standard
+此代数在任何维度都成立，with Lorentz or Euclidean 度规。特别地，在三维空间中它应该也成立。实际上，我们可以简单地写出
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma^{j}\equiv i\sigma^{j}(\text{Pauli sigma matrices})
+\]
+
+\end_inset
+
+则
+\begin_inset Formula 
+\[
+\left\{ \gamma^{i},\gamma^{j}\right\} =-2\delta^{ij}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $i$
+\end_inset
+
+因子完全是习惯约定。则洛伦兹群的表示矩阵是
+\begin_inset Formula 
+\[
+S^{ij}=\frac{1}{2}\varepsilon^{ijk}\sigma^{k}
+\]
+
+\end_inset
+
+我们认出，这是转动群的二维表示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵和
+\begin_inset Formula $S^{\rho\sigma}$
+\end_inset
+
+的对易关系：
+\begin_inset Formula 
+\[
+\left[\gamma^{\mu},S^{\rho\sigma}\right]=\left(\mathcal{J}^{\rho\sigma}\right)_{\phantom{\mu}\nu}^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+或者等价地，
+\begin_inset Formula 
+\[
+\left(1+\frac{i}{2}\omega_{\rho\sigma}S^{\rho\sigma}\right)\gamma^{\mu}\left(1-\frac{i}{2}\omega_{\rho\sigma}S^{\rho\sigma}\right)=\left(1-\frac{i}{2}\omega_{\rho\sigma}\mathcal{J}^{\rho\sigma}\right)_{\phantom{\mu}\nu}^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+有限形式
+\begin_inset Formula 
+\[
+\Lambda_{\frac{1}{2}}^{-1}\gamma^{\mu}\Lambda_{\frac{1}{2}}=\Lambda_{\phantom{\mu}\nu}^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+也就是说，
+\begin_inset Formula $\left\{ \gamma^{\mu}\right\} $
+\end_inset
+
+可以看成左边按照
+\begin_inset Formula $\Lambda_{\frac{1}{2}}^{-1}$
+\end_inset
+
+变，右边按照
+\begin_inset Formula $\Lambda_{\frac{1}{2}}$
+\end_inset
+
+变的矢量。其中
+\begin_inset Formula 
+\[
+\Lambda_{\frac{1}{2}}=\exp\left(-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+定义
+\begin_inset Formula $\bar{\psi}=\psi^{\dagger}\gamma^{0}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\bar{\psi} & \to\psi^{\dagger}\left(1+\frac{i}{2}\omega_{\mu\nu}\left(S^{\mu\nu}\right)^{\dagger}\right)\gamma^{0}\\
+\bar{\psi} & \to\bar{\psi}\Lambda_{\frac{1}{2}}^{-1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中考虑了
+\begin_inset Formula $S^{0\mu\dagger}=-S^{0\mu\dagger},S^{ij\dagger}=S^{ij}$
+\end_inset
+
+。含有
+\begin_inset Formula $0$
+\end_inset
+
+分量的分量是反厄米的，
+\begin_inset Formula $ij$
+\end_inset
+
+分量是厄米的。也就是boost生成元是反厄米的，导致
+\begin_inset Formula $\Lambda_{\frac{1}{2}}$
+\end_inset
+
+是非幺正的。由于
+\begin_inset Formula $\sigma^{\mu\nu}=\frac{i}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]$
+\end_inset
+
+与
+\begin_inset Formula $S^{\mu\nu}$
+\end_inset
+
+只差了
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+，所以这个性质对
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+也成立。
+\end_layout
+
+\begin_layout Section
+场的传播子
 \end_layout
 
 \begin_layout Subsection
@@ -3152,7 +3729,7 @@ l(k)+\text{proton}(p)\to l^{\prime}(k^{\prime})+X;\quad l,l^{\prime}=e,\mu,\nu_{
 \end_layout
 
 \begin_layout Standard
-如果末态的不变质量位置，对应末态
+如果末态的不变质量未知，对应末态
 \begin_inset Formula $X$
 \end_inset
 
