@@ -491,7 +491,7 @@ AB^{\left\{ \mu,\nu\right\} } & 0\\
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $(p\cdot\sigma)(p\cdot\bar{\sigma})=p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}=\frac{1}{2}\left(p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}+p^{\nu}\sigma_{\nu}p^{\mu}\bar{\sigma}_{\mu}\right)=p^{\mu}p^{\nu}g_{\mu\nu}=p^{2}$
+\begin_inset Formula $\left(p\cdot\sigma\right)\left(p\cdot\bar{\sigma}\right)=p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}=\frac{1}{2}\left(p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}+p^{\nu}\sigma_{\nu}p^{\mu}\bar{\sigma}_{\mu}\right)=p^{\mu}p^{\nu}g_{\mu\nu}=p^{2}$
 \end_inset
 
 。
@@ -499,7 +499,7 @@ AB^{\left\{ \mu,\nu\right\} } & 0\\
 
 \begin_layout Standard
 也就是说，由于指标总可以对称化，对于
-\begin_inset Formula $(p\cdot A)(p\cdot B)$
+\begin_inset Formula $\left(p\cdot A\right)\left(p\cdot B\right)$
 \end_inset
 
 的形式，如果
@@ -2110,9 +2110,28 @@ Weyl表象
 \begin_inset Formula 
 \[
 \slashed{p}-m=\left(\begin{array}{cc}
+-m & p\cdot\sigma\\
+p\cdot\bar{\sigma} & -m
+\end{array}\right)=\left(\begin{array}{cc}
 -m & E_{\vec{p}}-\vec{p}.\vec{\sigma}\\
 E_{\vec{p}}+\vec{p}.\vec{\sigma} & -m
 \end{array}\right)
+\]
+
+\end_inset
+
+考虑到
+\begin_inset Formula 
+\[
+\left[\sigma^{i},\sigma^{j}\right]=2i\varepsilon^{ijk}\sigma^{k},\quad\left\{ \sigma^{i},\sigma^{j}\right\} =2\delta^{ij}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(p\cdot\sigma\right)\left(p\cdot\bar{\sigma}\right)=E_{\vec{p}}^{2}-\left(\vec{p}.\vec{\sigma}\right)^{2}=E_{\vec{p}}^{2}-\vec{p}^{2}=p^{2}=m^{2}
 \]
 
 \end_inset
@@ -2126,12 +2145,10 @@ w_{2}
 
 ，得到
 \begin_inset Formula 
-\[
-\begin{cases}
-\left(-m\right)w_{1}+\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)w_{2}=0\\
-\left(E_{\vec{p}}+\vec{p}.\vec{\sigma}\right)w_{1}+\left(-m\right)w_{2}=0
-\end{cases}
-\]
+\begin{align*}
+ & \left(-m\right)w_{1}+\left(E_{\vec{p}}-\vec{p}.\vec{\sigma}\right)w_{2}=0\\
+ & \left(E_{\vec{p}}+\vec{p}.\vec{\sigma}\right)w_{1}+\left(-m\right)w_{2}=0
+\end{align*}
 
 \end_inset
 
@@ -2174,7 +2191,7 @@ u_{\lambda}(p) & =\left(\begin{array}{c}
 \frac{m}{\sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}}w_{\lambda}\\
 \sqrt{E_{\vec{p}}+\vec{p}.\vec{\sigma}}w_{\lambda}
 \end{array}\right)\\
- & =\left(\begin{array}{c}
+u_{\lambda}(p) & =\left(\begin{array}{c}
 \sqrt{p\cdot\sigma}w_{\lambda}\\
 \sqrt{p\cdot\bar{\sigma}}w_{\lambda}
 \end{array}\right)
@@ -2372,6 +2389,191 @@ v\left(\lambda,-\vec{p}\right)^{\dagger} & =\left(\begin{array}{cc}
  & \bar{u}\left(r,p\right)v\left(s,p\right)=0\qquad\bar{v}\left(r,p\right)u\left(s,p\right)=0\\
  & u\left(r,\vec{p}\right)^{\dagger}v\left(s,-\vec{p}\right)=0,\qquad v\left(r,-\vec{p}\right)^{\dagger}u\left(s,\vec{p}\right)=0
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在相对论极限，或者对于质量
+\begin_inset Formula $m=0$
+\end_inset
+
+的费米子，假设动量为
+\begin_inset Formula $p=\left(E,0,0,p\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+p\cdot\sigma & =E-p\sigma^{3}=\left(\begin{array}{cc}
+E-p & 0\\
+0 & E+p
+\end{array}\right)\approx\left(\begin{array}{cc}
+0 & 0\\
+0 & 2E
+\end{array}\right)\\
+p\cdot\bar{\sigma} & =E+p\sigma^{3}=\left(\begin{array}{cc}
+E+p & 0\\
+0 & E-p
+\end{array}\right)\approx\left(\begin{array}{cc}
+2E & 0\\
+0 & 0
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+u_{\lambda}\left(p\right)=\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}w_{\lambda}\\
+\sqrt{p\cdot\bar{\sigma}}w_{\lambda}
+\end{array}\right)\approx\left(\begin{array}{cc}
+0 & 0\\
+0 & \sqrt{2E}\\
+\sqrt{2E} & 0\\
+0 & 0
+\end{array}\right)\left(\begin{array}{c}
+w_{\lambda}\\
+w_{\lambda}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+v_{\eta}\left(p\right)=\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}q_{\eta}\\
+-\sqrt{p\cdot\bar{\sigma}}q_{\eta}
+\end{array}\right)\approx\left(\begin{array}{cc}
+0 & 0\\
+0 & \sqrt{2E}\\
+-\sqrt{2E} & 0\\
+0 & 0
+\end{array}\right)\left(\begin{array}{c}
+q_{\eta}\\
+q_{\eta}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在实际中，经常选择特定的旋量。比如
+\begin_inset Formula $\sigma^{3}$
+\end_inset
+
+的本征矢量。对于
+\begin_inset Formula $\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)$
+\end_inset
+
+，分别化简成
+\begin_inset Formula 
+\[
+u\left(\vec{p}\right)=\sqrt{2E}\left(\begin{array}{c}
+0\\
+\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)
+\end{array}\right),\quad v\left(\vec{p}\right)=\sqrt{2E}\left(\begin{array}{c}
+0\\
+\left(\begin{array}{c}
+-1\\
+0
+\end{array}\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+如果翻转动量
+\begin_inset Formula $\vec{p}\to-\vec{p}$
+\end_inset
+
+，相当于
+\begin_inset Formula $p\cdot\sigma\to p\cdot\bar{\sigma}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+u\left(-\vec{p}\right)=\sqrt{2E}\left(\begin{array}{c}
+\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)\\
+0
+\end{array}\right),\quad v\left(-\vec{p}\right)=\sqrt{2E}\left(\begin{array}{c}
+\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)\\
+0
+\end{array}\right)
+\]
+
+\end_inset
+
+也就是在零质量极限下，四分量旋量退化到两个无质量的二分量旋量。粒子或反粒子动量翻转之后，自旋方向不变，左手变成右手，但反粒子增加一个负号。
+\end_layout
+
+\begin_layout Standard
+类似地，对于
+\begin_inset Formula $\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)$
+\end_inset
+
+，旋量解以及动量翻转的旋量解分别为，
+\begin_inset Formula 
+\[
+u\left(\vec{p}\right)=\sqrt{2E}\left(\begin{array}{c}
+\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)\\
+0
+\end{array}\right),\quad v\left(\vec{p}\right)=\sqrt{2E}\left(\begin{array}{c}
+\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)\\
+0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+u\left(-\vec{p}\right)=\sqrt{2E}\left(\begin{array}{c}
+0\\
+\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)
+\end{array}\right),\quad v\left(-\vec{p}\right)=\sqrt{2E}\left(\begin{array}{c}
+0\\
+\left(\begin{array}{c}
+0\\
+-1
+\end{array}\right)
+\end{array}\right)
+\]
 
 \end_inset
 
