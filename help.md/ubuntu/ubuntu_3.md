@@ -650,11 +650,6 @@ dstat screenshot
 官方网站：  Simple Linux Utility for Resource Management
 
 ***
-`vim` & `emacs`
-
-真正程序员的代码编辑器.
-
-***
 `screen`, `dtach`, `tmux`, `byobu`
 
 你是不是经常需要 `SSH` 或者 `telent` 远程登录到 `Linux` 服务器？你是不是经常为一些长时间运行的任务而头疼,比如系统备份,`ftp` 传输等等.
@@ -668,7 +663,7 @@ dstat screenshot
 `dtach` 是用来模拟`screen`的`detach`的功能的小工具,其可以让你随意地`attach`到各种会话上 .
 
 `tmux` 是一个优秀的终端复用软件,类似`GNU Screen`,但来自于`OpenBSD`,采用`BSD`授权.
-使用它最直观的好处就是,通过一个终端登录远程主机并运行`tmux`后,在其中可以开启多个控制台而无需再`浪费`多余的终端来连接这台远程主机；
+使用它最直观的好处就是,通过一个终端登录远程主机并运行`tmux`后,在其中可以开启多个控制台而无需再浪费多余的终端来连接这台远程主机；
 当然其功能远不止于此.
 与`screen`相比的优点：可以横向和纵向分割窗口,且窗格可以自由移动和调整大小.
 可在多个缓冲区进行复制和粘贴,支持跨窗口搜索；非正常断线后不需重新`detach`；... 有人说--与`tmux`相比,`screen`简直弱爆了.
@@ -877,6 +872,26 @@ Executes tasks from input (even multithread).
 这时,网络突然断线,再次登录的时候,是找不回上一次执行的命令的.因为上一次 `SSH` 会话已经终止了,里面的进程也随之消失了.
 为了解决这个问题,会话与窗口可以`解绑`：窗口关闭时,会话并不终止,而是继续运行,等到以后需要的时候,再让会话`绑定`其他窗口.
 
+### oh-my-zsh 插件 tmux
+
+[ ohmyzsh/ohmyzsh ](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux)
+
+该插件为终端多路复用器`tmux`提供`aliases`。 要使用它，请将`tmux`添加到`zshrc`文件中的`plugins`数组中。
+
+```zshrc
+plugins=(... tmux)
+```
+
+别名 命令  描述
+
++ `ta`:  `tmux attach -t`  连接新`tmux`会话到后台运行的会话Attach new tmux session to already running named session
++ `tad`:  `tmux attach -d -t`  分离某个已命名会话
++ `ts`:  `tmux new-session -s` 创建新的命名会话Create a new named tmux session
++ `tl`:  `tmux list-sessions`  显示所有正在运行的会话Displays a list of running tmux sessions
++ `tksv`:  `tmux kill-server`  终止所有正运行的会话
++ `tkss`:  `tmux kill-session -t`  终止某个已命名会话
++ `tmux`:  `_zsh_tmux_plugin_run`  开始一个新的`tmux`会话
+
 ### 基本用法
 
 `Tmux` 一般需要自己安装.
@@ -893,8 +908,31 @@ $ brew install tmux
 ***
 启动与退出
 安装完成后,键入`tmux`命令,就进入了 `Tmux` 窗口.
-命令会启动 `Tmux` 窗口,底部有一个状态栏.状态栏的左侧是窗口信息(编号和名称),右侧是系统信息.
-按下`Ctrl+d`或者输入`exit`命令,就可以退出 `Tmux` 窗口.
+命令会启动 `Tmux` 窗口,底部有一个状态栏. 大概如下所示
+
+```bash
+[session1]0:zsh* ~~~ "OP7050" 17:12 05-2月-21
+```
+
+状态栏的左侧是窗口信息(编号和名称), `session1`是会话的名字，`0:zsh*`是窗口的编号和名称, `*`表示这个窗口被激活. 右侧是系统信息.
+按下`Ctrl+d`或者输入`exit`命令,就可以退出 `Tmux` 窗口, 并退出会话. 按`ctrl+b d`会退出窗口，但将会话转移到后台运行。
+
+***
+会话快捷键
+下面是一些会话相关的快捷键.
+
++ `Ctrl+b d`：分离当前会话.
++ `Ctrl+b s`：列出所有会话, 交互式选取
++ `Ctrl+b $`：重命名当前会话.
++ `Ctrl+b c`：创建新窗口.
++ `Ctrl+b ,`：重命名当前窗口.
++ `Ctrl+b p`：前一个窗口.
++ `Ctrl+b n`：后一个窗口.
+
++ `tmux kill-session` 关闭一个会话
++ `tmux kill-window  killw` -- 关闭一个窗口
+
+还可以加上`-a`选项使用
 
 ***
 前缀键
@@ -982,14 +1020,6 @@ $ tmux rename-session -t 0 <new-name>
 
 上面命令将`0`号会话重命名.
 
-***
-会话快捷键
-下面是一些会话相关的快捷键.
-
-+ `Ctrl+b d`：分离当前会话.
-+ `Ctrl+b s`：列出所有会话.
-+ `Ctrl+b $`：重命名当前会话.
-
 ### 最简操作流程
 
 综上所述,以下是 `Tmux` 的最简操作流程.
@@ -998,6 +1028,30 @@ $ tmux rename-session -t 0 <new-name>
 + 在 `Tmux` 窗口运行所需的程序.
 + 按下快捷键`Ctrl+b d`将会话分离.
 + 下次使用时,重新连接到会话`tmux attach-session -t my_session`.
+
+***
+`tmux`允许将命令绑定到大多数键(可以有前缀键)。
+指定键时，大多数写法表示自己(例如，`A`至`Z`)。 `Ctrl`键的前缀可以是`C-`或`^`，`Alt`(Meta)为`M-`。
+此外，还接受以下特殊键名：
+`Up`, `Down`, `Left`, `Right`, `BSpace`, `BTab`, `DC (Delete)`, `End`, `Enter`, `Escape`, `F1` to `F12`, `Home`, `IC (Insert)`, `NPage/PageDown/PgDn`, `PPage/PageUp/PgUp`, `Space`, and `Tab`。请注意，要绑定`'`或`"`键，必须使用引号，例如：
+
+```tmux
+bind-key '"' split-window
+bind-key "'" new-window
+```
+
+与键绑定相关的命令如下：
+
+```tmux
+bind-key [-nr] [-T key-table] key command [arguments]
+(alias: bind)
+```
+
+将`key`与`command`绑定。按键组合存放在`key table`中。默认情况下(不带`-T`，该键绑定在`prefix`键表中。
+这个表中的按键，要首先按下`前缀键`，再按后面的组合. 例如，默认绑定中，`c`绑定到`prefix`表中的`new-window`，因此`Ctrl-b c`会创建一个新窗口)。
+`root`表中的组合没有前置键，直接生效。比如将`c`绑定到根表中的新窗口(实际中并不推荐)，这样直接按下`c`就会创建一个新窗口. `-n`是`-T root`的别名。
+也可以把`key`绑定到自定义的``key table`中，可以使用`switch-client -T `命令切换到自定义的`key table`。
+`-r` flag 表示按键可以重复，请参见`repeat-time`选项。
 
 ## Imagemagick 使用
 
@@ -1173,10 +1227,10 @@ gs: symbol lookup error: /usr/lib/x86_64-linux-gnu/libgs.so.9: undefined symbol:
 设置图像的水平和垂直分辨率，以渲染到设备。
 
 此选项指定在对光栅图像进行编码时要存储的图像分辨率，或在将Postscript，PDF，WMF和SVG等矢量格式渲染(reading)到光栅图像时指定要存储的图像分辨率。
-图像分辨率提供了渲染到输出设备或光栅图像时要应用的度量单位。默认的度量单位是每英寸点数（`DPI`）。 `-units` 选项可用于选择每厘米点数(不同单位)。
+图像分辨率提供了渲染到输出设备或光栅图像时要应用的度量单位。默认的度量单位是每英寸点数(`DPI`)。 `-units` 选项可用于选择每厘米点数(不同单位)。
 
-默认分辨率是每英寸72点，相当于每像素一个点（Macintosh和Postscript标准）。计算机屏幕通常每英寸72或96点，而打印机通常每英寸支持150、300、600或1200点。
-要确定显示器的分辨率，请使用标尺测量屏幕的宽度（以英寸为单位），然后除以水平像素数（在1024x768显示器上为1024）。
+默认分辨率是每英寸72点，相当于每像素一个点(Macintosh和Postscript标准)。计算机屏幕通常每英寸72或96点，而打印机通常每英寸支持150、300、600或1200点。
+要确定显示器的分辨率，请使用标尺测量屏幕的宽度(以英寸为单位)，然后除以水平像素数(在1024x768显示器上为1024)。
 
 如果文件格式支持，则此选项可用于更新存储的图像分辨率。请注意，Photoshop存储并从专有的嵌入式配置文件中获取图像分辨率。
 如果未从图像中删除此配置文件，则Photoshop将继续使用其以前的分辨率来处理图像，而忽略标准文件头中指定的图像分辨率。

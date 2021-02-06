@@ -1466,6 +1466,29 @@ inode的特殊作用
 因为系统通过`inode`号码,识别运行中的文件,不通过文件名.更新的时候,新版文件以同样的文件名,生成一个新的`inode`,不会影响到运行中的文件.
 等到下一次运行这个软件的时候,文件名就自动指向新版文件,旧版文件的`inode`则被回收.
 
+### shebang 脚本开头
+
+[Shebang](https://bash.cyberciti.biz/guide/Shebang)
+
+大多数`Linux shell`和`perl`/`python`脚本以以下行开头：
+
+```bash
+#!/bin/bash
+#!/usr/bin/perl
+#!/usr/bin/python
+#!/usr/bin/python3
+#!/usr/bin/env bash
+```
+
+这称为`shebang`或`bang`行。
+
+`shebang`(意思为这一切)其实就是`Bash`解释器的绝对路径。几乎所有的`bash`脚本通常都以`#!/bin/bash`开头（假设`Bash`已安装在`/bin`中）.
+这样可以确保即使在另一个`shell`下执行脚本，也可以使用`Bash`来解释该脚本。
+`Shebang`是由Dennis Ritchie在第7版和8版`Unix`之间在`Bell`实验室推出的。 然后，它也被添加到Berkeley的`BSD`中。
+
+`/usr/bin/env`在修改后的环境中运行`bash`之类的程序。 它使您的`bash`脚本具有可移植性。 
+`#!/usr/bin/env bash`的优点是，它将使用运行用户的`$PATH`变量中最先出现的`bash`可执行文件。
+
 ## 常用软件
 
 ***
