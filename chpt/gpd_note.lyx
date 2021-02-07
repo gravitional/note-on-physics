@@ -296,7 +296,7 @@ w^{+}v^{-} & =\left(0,0\right)+\left(0,3\right)-\left(3,0\right)-\left(3,3\right
 \end_layout
 
 \begin_layout Subsection
-运动学分析
+歪斜度为零
 \end_layout
 
 \begin_layout Standard
@@ -405,37 +405,75 @@ k_{1}+p_{1}\Rightarrow k_{2}+p_{2}
 
 \end_inset
 
-能否取特殊坐标系，使
+沿某个坐标轴的相对论变换为
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+E^{\prime}\\
+p^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right)\left(\begin{array}{c}
+E\\
+p
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+E^{\prime} & =\gamma\left(E-vp\right)\\
+p^{\prime} & =\gamma\left(p-vE\right)
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\gamma=1/\beta=1/\sqrt{1-v^{2}}\ge1$
+\end_inset
+
+。不同坐标轴的boost是独立的。首先选择
 \begin_inset Formula $\Delta$
 \end_inset
 
-满足
+为
+\begin_inset Formula $\Delta=\left(0,\vec{\Delta}\right)$
+\end_inset
+
+的坐标系。然后三维转动是不影响
+\begin_inset Formula $0$
+\end_inset
+
+分量的，可以通过转动使得
+\begin_inset Formula $\Delta^{3}=0$
+\end_inset
+
+，而
+\begin_inset Formula $\Delta^{0}$
+\end_inset
+
+保持为零。则此时
 \begin_inset Formula 
 \[
 \begin{cases}
-\Delta^{0}+\Delta^{3} & =0\\
-\Delta^{0}-\Delta^{3} & =0
-\end{cases}\Rightarrow\begin{cases}
 \Delta^{0} & =0\\
 \Delta^{3} & =0
+\end{cases}\Rightarrow\begin{cases}
+\Delta^{0}+\Delta^{3} & =0\\
+\Delta^{0}-\Delta^{3} & =0
 \end{cases}
 \]
 
 \end_inset
 
-呢？显然可以，
-\begin_inset Formula $\Delta$
+如果用光锥坐标表示
+\begin_inset Formula $\left(\Delta^{+},\Delta^{-},\Delta_{\perp}\right)$
 \end_inset
 
-是类空矢量，
-\begin_inset Formula $\Delta^{0}$
-\end_inset
 
-已经选取为零，选择合适的坐标系方向，使得
-\begin_inset Formula $\Delta^{3}=0$
-\end_inset
-
-即可。此时在光锥坐标下
 \begin_inset Formula 
 \[
 \Delta=\left(0,0,\Delta_{\perp}\right),\quad\xi=-\frac{\Delta^{+}}{2P^{+}}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}=0
@@ -447,7 +485,149 @@ k_{1}+p_{1}\Rightarrow k_{2}+p_{2}
 \begin_inset Formula $\xi=0$
 \end_inset
 
-的坐标系即Drell–Yan 参考系。
+的坐标系即Drell–Yan 参考系。 
+\end_layout
+
+\begin_layout Standard
+再考虑初末态质子的动量由
+\begin_inset Formula $\Delta=p^{\prime}-p=\left(0,0,\Delta_{\perp}\right)$
+\end_inset
+
+可知
+\begin_inset Formula 
+\begin{align*}
+ & p^{\prime+}-p^{+}=0\\
+ & p^{\prime-}-p^{-}=0\\
+ & p^{\prime\perp}-p^{\perp}=\Delta_{\perp}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{cases}
+E^{\prime}+p^{\prime;3}=E+p^{3}\\
+E^{\prime}-p^{\prime;3}=E-p^{3}
+\end{cases}\Rightarrow\begin{cases}
+E^{\prime}=E\\
+p^{\prime;3}=p^{3}
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $E^{\prime}=E$
+\end_inset
+
+即
+\begin_inset Formula 
+\[
+\sqrt{M^{2}+\left(p^{\prime;\perp}\right)^{2}+\left(p^{3}\right)^{2}}=\sqrt{M^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+p^{\prime;\perp}=\pm p^{\perp}
+\]
+
+\end_inset
+
+再加上
+\begin_inset Formula 
+\[
+p^{\prime\perp}-p^{\perp}=\Delta_{\perp}
+\]
+
+\end_inset
+
+所以知道
+\begin_inset Formula 
+\begin{align*}
+p & =\left(E,-\frac{\Delta^{\perp}}{2},p^{3}\right)\\
+p^{\prime} & =\left(E,\frac{\Delta^{\perp}}{2},p^{3}\right)
+\end{align*}
+
+\end_inset
+
+或者在光锥坐标下
+\begin_inset Formula 
+\begin{align*}
+\Delta & =\left(0,0,\Delta_{\perp}\right)\\
+p & =\left(P^{+},P^{-},-\frac{\Delta^{\perp}}{2}\right)\\
+p^{\prime} & =\left(P^{+},P^{-},\frac{\Delta^{\perp}}{2}\right)
+\end{align*}
+
+\end_inset
+
+如果质子的
+\begin_inset Formula $3$
+\end_inset
+
+方向动量非常大，可以近似认为
+\begin_inset Formula $p^{\prime-}\approx p^{-}\approx0$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+P=\left(P^{+},0,0\right)
+\]
+
+\end_inset
+
+考虑到
+\begin_inset Formula $Q^{2}=-\Delta^{2}=\Delta_{\perp}^{2}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\Delta & =\left(0,0,Q\right)\\
+p & =\left(P^{+},0,-\frac{Q}{2}\right)\\
+p^{\prime} & =\left(P^{+},0,\frac{Q}{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+歪斜度不为零
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\xi & =-\frac{\Delta^{+}}{2P^{+}}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}\\
+P^{+} & =\frac{p^{+}+p^{\prime+}}{2}
+\end{align*}
+
+\end_inset
+
+解方程可知
+\begin_inset Formula 
+\begin{align*}
+p^{+} & =P^{+}\left(1+\xi\right)\\
+p^{\prime+} & =P^{+}\left(1-\xi\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta^{\perp;2}-\Delta^{+}\Delta^{-}=Q^{2}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -474,6 +654,140 @@ k_{1}+p_{1}\Rightarrow k_{2}+p_{2}
 \end_inset
 
 最后一行是光锥坐标下的形式。
+\end_layout
+
+\begin_layout Standard
+再考虑初末态质子的动量由
+\begin_inset Formula $\Delta=p^{\prime}-p=\left(0,0,\Delta_{\perp}\right)$
+\end_inset
+
+可知
+\begin_inset Formula 
+\begin{align*}
+ & p^{\prime+}-p^{+}=0\\
+ & p^{\prime-}-p^{-}=0\\
+ & p^{\prime\perp}-p^{\perp}=\Delta_{\perp}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{cases}
+E^{\prime}=E\\
+p^{\prime;3}=p^{3}-2P^{+}\xi
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $E^{\prime}=E$
+\end_inset
+
+即
+\begin_inset Formula 
+\[
+\sqrt{M^{2}+\left(p^{\prime;\perp}\right)^{2}+\left(p^{3}-2P^{+}\xi\right)^{2}}=\sqrt{M^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\left(p^{\prime;\perp}\right)^{2}=\left(p^{\perp}\right)^{2}+4P^{+}\xi\left(p^{3}-P^{+}\xi\right)
+\]
+
+\end_inset
+
+再加上
+\begin_inset Formula 
+\[
+p^{\prime\perp}-p^{\perp}=\Delta_{\perp}
+\]
+
+\end_inset
+
+所以知道
+\begin_inset Formula 
+\begin{align*}
+p & =\left(E,-\frac{\Delta^{\perp}}{2},p^{3}\right)\\
+p^{\prime} & =\left(E,\frac{\Delta^{\perp}}{2},p^{3}\right)
+\end{align*}
+
+\end_inset
+
+或者在光锥坐标下
+\begin_inset Formula 
+\begin{align*}
+\Delta & =\left(0,0,\Delta_{\perp}\right)\\
+p & =\left(P^{+},P^{-},-\frac{\Delta^{\perp}}{2}\right)\\
+p^{\prime} & =\left(P^{+},P^{-},\frac{\Delta^{\perp}}{2}\right)
+\end{align*}
+
+\end_inset
+
+如果质子的
+\begin_inset Formula $3$
+\end_inset
+
+方向动量非常大，可以近似认为
+\begin_inset Formula $p^{\prime-}\approx p^{-}\approx0$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+P=\left(P^{+},0,0\right)
+\]
+
+\end_inset
+
+考虑到
+\begin_inset Formula $Q^{2}=-\Delta^{2}=\Delta_{\perp}^{2}$
+\end_inset
+
+，
+\begin_inset Formula $\Delta$
+\end_inset
+
+写成
+\begin_inset Formula $\Delta=\left(-2\xi P^{+},\Delta_{\perp},\Delta^{3}\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+2\xi P^{+}\Delta^{-}+\Delta^{3;2}=Q^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Delta & =\left(-2\xi P^{+},0,Q\right)\\
+p & =\left(P^{+}\left(1+\xi\right),0,-\frac{Q}{2}\right)\\
+p^{\prime} & =\left(P^{+}\left(1-\xi\right),0,\frac{Q}{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+asdfsfasdfsafd
+\end_layout
+
+\begin_layout Standard
+asdffsda
+\end_layout
+
+\begin_layout Standard
+asdfas
 \end_layout
 
 \begin_layout Standard
