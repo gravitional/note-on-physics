@@ -295,56 +295,418 @@ w^{+}v^{-} & =\left(0,0\right)+\left(0,3\right)-\left(3,0\right)-\left(3,3\right
 
 \end_layout
 
+\begin_layout Standard
+如果是标准的光锥坐标，变换矩阵那里还有一个
+\begin_inset Formula $1/\sqrt{2}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+v^{+}\\
+v^{-}\\
+v^{1}\\
+v^{2}
+\end{array}\right)=\left[\begin{array}{cccc}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 & 0\\
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}\right]\left(\begin{array}{c}
+v^{0}\\
+v^{3}\\
+v^{1}\\
+v^{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+vw & =v^{+}w^{-}+v^{-}w^{+}-v_{T}w_{T}\\
+\dif^{4}z & =\dif z^{+}\dif z^{-}\dif^{2}\boldsymbol{z}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-歪斜度为零
+光锥坐标系–salamu
 \end_layout
 
 \begin_layout Standard
-运动学的自由度只跟末态粒子的数目有关，在壳或者不在壳是不独立的条件。
+在光锥坐标中，动量的各分量定义为： 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{align*}
+k^{\pm}= & k_{0}\pm k_{3},\\
+k_{\perp}^{2}= & k_{1}^{2}+k_{2}^{2}\\
+k^{2}= & k_{0}^{2}-k_{1}^{2}-k_{2}^{2}-k_{3}^{2}=k^{+}k^{-}-k_{\perp}^{2},\\
+p^{+}p^{-}= & M^{2},\quad p_{\perp}^{2}=0
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Enumerate
-比如
-\begin_inset Formula $1\to2$
-\end_inset
-
-衰变，末态两个粒子。如果认为角动量守恒，末态粒子在同一个平面上，那么自由度是
-\begin_inset Formula $2*2=4$
-\end_inset
-
-，两个动量守恒，一个能量守恒一共有
-\begin_inset Formula $3$
-\end_inset
-
-个约束，剩下
-\begin_inset Formula $1$
-\end_inset
-
-个独立变量。
+\begin_layout Standard
+per.pen.dicu.lar 垂直的；成直角的
 \end_layout
 
-\begin_layout Enumerate
-如果末态
-\begin_inset Formula $3$
+\begin_layout Standard
+k
+\begin_inset Formula $_{\perp}$
 \end_inset
 
-个粒子，也就是深度非弹性散射的情形，
-\begin_inset Formula $2*3=6$
+ :垂直方向的动量，在垂直面上可以分解成两个方向的投影，把这个矢量记作 
+\begin_inset Formula $\vec{k_{\perp}}$
 \end_inset
 
-，约束还是
-\begin_inset Formula $3$
+, 其模方为
+\begin_inset Formula $k_{\perp}^{2}$
 \end_inset
 
-个，剩下
-\begin_inset Formula $3$
+。上式最后一行中我们假设核子在
+\begin_inset Formula $z$
 \end_inset
 
-个独立变量。
-\begin_inset Formula $x,\xi,Q$
+方向快速运动，因此
+\begin_inset Formula $p_{\perp}^{2}=0$
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+符号约定:介子和重子传播子因子
+\begin_inset Formula $D_{\phi}(k)$
+\end_inset
+
+和
+\begin_inset Formula $D_{B}(k)$
+\end_inset
+
+定义为：
+\begin_inset Formula 
+\begin{align*}
+D_{\phi}(k) & =k^{2}-m_{\phi}^{2}+i\epsilon=k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}+i\epsilon=k^{+}k^{-}-\Omega_{\phi}+i\epsilon\\
+D_{B}(p-k) & =(p-k)^{2}-m_{B}^{2}+i\epsilon=(p-k)^{+}(p-k)^{-}-k_{\perp}^{2}-m_{B}^{2}+i\epsilon\\
+ & =(p-k)^{+}(p-k)^{-}-\Omega_{B}+i\epsilon
+\end{align*}
+
+\end_inset
+
+其中，
+\begin_inset Formula 
+\begin{align*}
+\Omega_{\phi} & =k_{\perp}^{2}+m_{\phi}^{2}\geq0\\
+\Omega_{B} & =k_{\perp}^{2}+m_{B}^{2}\geq0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+GPD 的自由度
+\end_layout
+
+\begin_layout Standard
+按照 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://arxiv.org/abs/hep-ph/9807358"
+target "https://arxiv.org/abs/hep-ph/9807358"
+literal "false"
+
+\end_inset
+
+ 的约定，我们定义 广义夸克分布，
+\begin_inset Formula 
+\begin{align}
+F^{q} & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\left.e^{ixP^{+}z^{-}}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}q\left(\frac{1}{2}z\right)\ket{p}\right|_{z^{+}=0,\boldsymbol{z}=0}\nonumber \\
+ & =\frac{1}{2P^{+}}\left[H^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}u\left(p\right)+E^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{i\sigma^{+\alpha}\Delta_{\alpha}}{2m}u\left(p\right)\right]\nonumber \\
+\tilde{F}^{q} & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\left.e^{ixP^{+}z^{-}}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}\gamma^{5}q\left(\frac{1}{2}z\right)\ket{p}\right|_{z^{+}=0,\boldsymbol{z}=0}\nonumber \\
+ & =\frac{1}{2P^{+}}\left[\tilde{H}^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}\gamma^{5}u\left(p\right)+\tilde{E}^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{\gamma^{5}\Delta_{\alpha}}{2m}u\left(p\right)\right]\label{eq:14}
+\end{align}
+
+\end_inset
+
+约定是
+\begin_inset Formula $\varepsilon_{0123}=1$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
+\end_inset
+
+。为了易读性，我们省略了强子态和旋量的极化指标。
+\end_layout
+
+\begin_layout Standard
+由于洛伦兹不变性，GPDs 
+\begin_inset Formula $H^{q},E^{q},\tilde{H}^{q},\tilde{E}^{q}$
+\end_inset
+
+只能依赖于运动学变量
+\begin_inset Formula $x,\xi,t$
+\end_inset
+
+。为了看出这一点，我们把定义重新写成参考系无关的形式。
+\begin_inset Formula 
+\begin{align}
+F^{q} & =\frac{1}{2}\int\frac{\dif\lambda}{2\pi}\left.e^{ix\left(Pz\right)}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\slashed{n}_{-}q\left(\frac{1}{2}z\right)\ket{p}\right|_{z=\lambda n_{-}}\label{eq:diel15}\\
+F^{q} & =\frac{1}{2}\int\frac{\dif z}{2\pi}e^{ix\left(Pz\right)}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}q\left(\frac{1}{2}z\right)\ket{p}\nonumber \\
+F^{q} & =\frac{1}{2}\int\frac{\dif\lambda}{2\pi}e^{ix\left(\lambda P^{+}\right)}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}\lambda n_{-}\right)\slashed{n}_{-}q\left(\frac{1}{2}\lambda n_{-}\right)\ket{p}\nonumber \\
+F^{q} & =\frac{1}{2\left(Pn_{-}\right)}\left[H^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\slashed{n}_{-}u\left(p\right)+E^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{i\sigma^{\alpha\beta}n_{-\alpha}\Delta_{\beta}}{2m}u\left(\beta\right)\right];\nonumber 
+\end{align}
+
+\end_inset
+
+对于
+\begin_inset Formula $\tilde{H}^{q},\tilde{E}^{q}$
+\end_inset
+
+，有类似的表达式。其中
+\begin_inset Formula $\slashed{n}_{-}$
+\end_inset
+
+是任意类光矢量。按光锥坐标的约定，
+\begin_inset Formula $n_{-}$
+\end_inset
+
+用来投影出
+\begin_inset Formula $p^{+}$
+\end_inset
+
+分量，
+\begin_inset Formula $n_{+}$
+\end_inset
+
+用来投影出
+\begin_inset Formula $p^{-}$
+\end_inset
+
+分量。矩阵元的部分应该是洛伦兹不变的，
+\begin_inset Formula $\lambda$
+\end_inset
+
+被积分掉，动量比例
+\begin_inset Formula $x$
+\end_inset
+
+留下，剩下的
+\begin_inset Formula $p,p^{\prime},n_{-}$
+\end_inset
+
+应该组成洛伦兹不变的乘积。可以选择为
+\begin_inset Formula $\Delta n_{-}$
+\end_inset
+
+，
+\begin_inset Formula $Pn_{-}$
+\end_inset
+
+ 和
+\begin_inset Formula $t=-\Delta^{2}$
+\end_inset
+
+。在沿着
+\begin_inset Formula $z$
+\end_inset
+
+轴的 boost 下，
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+E^{\prime}\\
+p^{\prime}
+\end{array}\right)=\gamma\left(\begin{array}{cc}
+1 & -v\\
+-v & 1
+\end{array}\right)\left(\begin{array}{c}
+E\\
+p
+\end{array}\right)
+\]
+
+\end_inset
+
+光锥动量
+\begin_inset Formula $n_{-}=\left(1,0,0,-1\right)/\sqrt{2}$
+\end_inset
+
+ 和 
+\begin_inset Formula $n_{+}=\left(1,0,0,1\right)/\sqrt{2}$
+\end_inset
+
+的变换为
+\begin_inset Formula 
+\[
+n_{-}\to\gamma\left(1+v\right)n_{-},\qquad n_{+}\to\gamma\left(1-v\right)n_{+},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+p^{+}=\frac{1}{\sqrt{2}}\left(E+p\right) & \to\frac{1}{\sqrt{2}}\gamma\left(E-vp\right)+\frac{1}{\sqrt{2}}\gamma\left(p-vE\right)=\frac{1}{\sqrt{2}}\left(E+p\right)\gamma\left(1-v\right)=\gamma\left(1-v\right)p^{+}\\
+p^{-}=\frac{1}{\sqrt{2}}\left(E-p\right) & \to\frac{1}{\sqrt{2}}\gamma\left(E-vp\right)-\frac{1}{\sqrt{2}}\gamma\left(p-vE\right)=\frac{1}{\sqrt{2}}\left(E-p\right)\gamma\left(1+v\right)=\gamma\left(1+v\right)p^{-}
+\end{align*}
+
+\end_inset
+
+考虑到
+\begin_inset Formula $\gamma\left(1+v\right)\gamma\left(1-v\right)=1$
+\end_inset
+
+，也就是
+\begin_inset Formula 
+\[
+n_{-}\to\alpha n_{-},\qquad n_{+}\to\alpha^{-1}n_{+}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\xi=\frac{p^{\prime+}-p^{+}}{p^{\prime+}+p^{+}}\to\frac{p^{\prime+}-p^{+}}{p^{\prime+}+p^{+}}\frac{\gamma\left(1-v\right)}{\gamma\left(1-v\right)}=\xi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+观察
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:diel15"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ ，在boost下
+\begin_inset Formula $n_{-}\to\alpha n_{-}$
+\end_inset
+
+，
+\begin_inset Formula $\slashed{n}_{-}\to\alpha\slashed{n}_{-}$
+\end_inset
+
+。而
+\begin_inset Formula $z=\lambda n_{-}$
+\end_inset
+
+，所以作积分变量代换
+\begin_inset Formula $\lambda\to\alpha^{-1}\lambda$
+\end_inset
+
+，整个积分不变，也就是GPDs独立于沿
+\begin_inset Formula $z$
+\end_inset
+
+轴的boost。
+\begin_inset Formula $\Delta n_{-}$
+\end_inset
+
+，
+\begin_inset Formula $Pn_{-}$
+\end_inset
+
+并不是boosts 不变的，而
+\begin_inset Formula $\Delta n_{-}$
+\end_inset
+
+，
+\begin_inset Formula $Pn_{-}$
+\end_inset
+
+的比例
+\begin_inset Formula $\xi=-\left(\Delta n_{-}\right)/\left(2Pn_{-}\right)$
+\end_inset
+
+是boost不变的。所以GPDs 只依赖于
+\begin_inset Formula $\xi$
+\end_inset
+
+。换句话说，它们只能依赖于plus动量分数，而不能依赖于单独的plus动量，单独的plus动量在boosts 下只是进行缩放。
+\begin_inset Formula 
+\[
+\xi=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}=\frac{-\Delta\cdot n_{-}}{2P\cdot n_{-}}=\frac{-\Delta^{+}}{2P^{+}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+上述的定义的前提是，取胶子的光锥规范
+\begin_inset Formula $A^{+}=0$
+\end_inset
+
+。在其他规范中，需要一条沿着类光路经的Wilson line 
+\begin_inset Formula $W\left[-\frac{1}{2}z^{-},\frac{1}{2}z^{-}\right]$
+\end_inset
+
+，连接位于
+\begin_inset Formula $-\frac{1}{2}z$
+\end_inset
+
+和
+\begin_inset Formula $\frac{1}{2}z$
+\end_inset
+
+ 的两个场，
+\begin_inset Formula 
+\[
+W\left[a,b\right]=P\exp\left(ig\int_{b}^{a}\dif x^{-}A^{+}\left(x^{-}n_{-}\right)\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $P$
+\end_inset
+
+ 表示从
+\begin_inset Formula $a$
+\end_inset
+
+到
+\begin_inset Formula $b$
+\end_inset
+
+的路径排序。本文中的大多数公式和结论都可以轻而易举地推广到这种情况中，对于例外我们会说明。
+\end_layout
+
+\begin_layout Subsection
+歪斜度为零
 \end_layout
 
 \begin_layout Standard
@@ -398,22 +760,22 @@ k_{1}+p_{1}\Rightarrow k_{2}+p_{2}
 \end_inset
 
 是一个类空矢量。可以一般地把它写成
-\begin_inset Formula 
-\[
-\Delta=\left(0,\vec{\Delta}\right)
-\]
-
+\begin_inset Formula $\Delta=\left(0,\vec{\Delta}\right)$
 \end_inset
 
+。
+\end_layout
+
+\begin_layout Standard
 沿某个坐标轴的相对论变换为
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
 E^{\prime}\\
 p^{\prime}
-\end{array}\right)=\left(\begin{array}{cc}
-\gamma & -\gamma v\\
--\gamma v & \gamma
+\end{array}\right)=\gamma\left(\begin{array}{cc}
+1 & -v\\
+-v & 1
 \end{array}\right)\left(\begin{array}{c}
 E\\
 p
@@ -431,7 +793,7 @@ p^{\prime} & =\gamma\left(p-vE\right)
 
 \end_inset
 
-where 
+其中
 \begin_inset Formula $\gamma=1/\beta=1/\sqrt{1-v^{2}}\ge1$
 \end_inset
 
@@ -469,15 +831,54 @@ where
 
 \end_inset
 
-如果用光锥坐标表示
-\begin_inset Formula $\left(\Delta^{+},\Delta^{-},\Delta_{\perp}\right)$
+再考虑初末态质子的动量，由
+\begin_inset Formula $\Delta=p^{\prime}-p=\left(0,\Delta_{\perp},0\right)$
 \end_inset
 
+可知
+\begin_inset Formula 
+\begin{align*}
+ & E^{\prime}=E\\
+ & p^{\prime;3}=p^{3}
+\end{align*}
 
+\end_inset
+
+由这两个条件又可以知道
+\begin_inset Formula 
+\[
+\left(p^{\prime;\perp}\right)^{2}=\left(p^{\perp}\right)^{2}
+\]
+
+\end_inset
+
+加上
+\begin_inset Formula $p^{\prime\perp}-p^{\perp}=\Delta_{\perp}$
+\end_inset
+
+，所以解出
+\begin_inset Formula 
+\begin{align*}
+p & =\left(E,-\frac{\Delta^{\perp}}{2},p^{3}\right)\\
+p^{\prime} & =\left(E,\frac{\Delta^{\perp}}{2},p^{3}\right)
+\end{align*}
+
+\end_inset
+
+如果用光锥坐标表示
 \begin_inset Formula 
 \[
 \Delta=\left(0,0,\Delta_{\perp}\right),\quad\xi=-\frac{\Delta^{+}}{2P^{+}}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}=0
 \]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+p & =\left(P^{+},P^{-},-\frac{\Delta^{\perp}}{2}\right)\\
+p^{\prime} & =\left(P^{+},P^{-},\frac{\Delta^{\perp}}{2}\right)
+\end{align*}
 
 \end_inset
 
@@ -489,87 +890,12 @@ where
 \end_layout
 
 \begin_layout Standard
-再考虑初末态质子的动量由
-\begin_inset Formula $\Delta=p^{\prime}-p=\left(0,0,\Delta_{\perp}\right)$
-\end_inset
-
-可知
-\begin_inset Formula 
-\begin{align*}
- & p^{\prime+}-p^{+}=0\\
- & p^{\prime-}-p^{-}=0\\
- & p^{\prime\perp}-p^{\perp}=\Delta_{\perp}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\begin{cases}
-E^{\prime}+p^{\prime;3}=E+p^{3}\\
-E^{\prime}-p^{\prime;3}=E-p^{3}
-\end{cases}\Rightarrow\begin{cases}
-E^{\prime}=E\\
-p^{\prime;3}=p^{3}
-\end{cases}
-\]
-
-\end_inset
-
-
-\begin_inset Formula $E^{\prime}=E$
-\end_inset
-
-即
-\begin_inset Formula 
-\[
-\sqrt{M^{2}+\left(p^{\prime;\perp}\right)^{2}+\left(p^{3}\right)^{2}}=\sqrt{M^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}
-\]
-
-\end_inset
-
-所以
-\begin_inset Formula 
-\[
-p^{\prime;\perp}=\pm p^{\perp}
-\]
-
-\end_inset
-
-再加上
-\begin_inset Formula 
-\[
-p^{\prime\perp}-p^{\perp}=\Delta_{\perp}
-\]
-
-\end_inset
-
-所以知道
-\begin_inset Formula 
-\begin{align*}
-p & =\left(E,-\frac{\Delta^{\perp}}{2},p^{3}\right)\\
-p^{\prime} & =\left(E,\frac{\Delta^{\perp}}{2},p^{3}\right)
-\end{align*}
-
-\end_inset
-
-或者在光锥坐标下
-\begin_inset Formula 
-\begin{align*}
-\Delta & =\left(0,0,\Delta_{\perp}\right)\\
-p & =\left(P^{+},P^{-},-\frac{\Delta^{\perp}}{2}\right)\\
-p^{\prime} & =\left(P^{+},P^{-},\frac{\Delta^{\perp}}{2}\right)
-\end{align*}
-
-\end_inset
-
 如果质子的
 \begin_inset Formula $3$
 \end_inset
 
 方向动量非常大，可以近似认为
-\begin_inset Formula $p^{\prime-}\approx p^{-}\approx0$
+\begin_inset Formula $P^{-}\approx0$
 \end_inset
 
 。
@@ -602,6 +928,71 @@ p^{\prime} & =\left(P^{+},0,\frac{Q}{2}\right)
 \end_layout
 
 \begin_layout Standard
+再考虑歪斜度不为零的情况，从为零的情况
+\begin_inset Formula $\Delta=\left(0,\Delta^{\perp},0\right)$
+\end_inset
+
+出发，由boost变换方程可知，
+\begin_inset Formula 
+\begin{align*}
+E^{\prime} & =\gamma\left(E-vp\right)\\
+p^{\prime} & =\gamma\left(p-vE\right)
+\end{align*}
+
+\end_inset
+
+无论沿
+\begin_inset Formula $z$
+\end_inset
+
+轴如何boost，不会改变
+\begin_inset Formula $\Delta$
+\end_inset
+
+。只有横向的boost，可以使
+\begin_inset Formula $\Delta^{0}$
+\end_inset
+
+不为零。横向的boost不改变
+\begin_inset Formula $\Delta^{3}$
+\end_inset
+
+。可以认为
+\begin_inset Formula $\Delta=\left(\Delta^{0},\Delta^{\perp},0\right)$
+\end_inset
+
+，
+\begin_inset Formula $\Delta^{+}=\Delta^{-}=\frac{1}{\sqrt{2}}\Delta^{0}$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+E^{\prime}-E & =\Delta^{0}\\
+p^{\prime;3}-p^{3} & =0
+\end{align*}
+
+\end_inset
+
+所以有方程
+\begin_inset Formula 
+\begin{align*}
+\sqrt{M^{2}+\left(p^{\prime;\perp}\right)^{2}+\left(p^{3}\right)^{2}} & -\sqrt{M^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}=\Delta^{0}\\
+p^{\prime;\perp}-p^{\perp} & =\Delta^{\perp}
+\end{align*}
+
+\end_inset
+
+解得
+\begin_inset Formula 
+\begin{align*}
+ & p^{\perp}=\frac{-\Delta^{0;2}\Delta^{\perp}+\Delta^{\perp;3}+\sqrt{\Delta^{0;2}\left(\Delta^{\perp;2}-\Delta^{0;2}\right)\left(4M^{2}+4p^{3;2}+\Delta^{\perp;2}-\Delta^{0;2}\right)}}{2\left(\Delta^{0;2}-\Delta^{\perp;2}\right)}\\
+ & p^{\prime;\perp}=\frac{\Delta^{0;2}\Delta^{\perp}-\Delta^{\perp;3}+\sqrt{\Delta^{0;2}\left(\Delta^{\perp;2}-\Delta^{0;2}\right)\left(4M^{2}+4p^{3;2}+\Delta^{\perp;2}-\Delta^{0;2}\right)}}{2\left(\Delta^{0;2}-\Delta^{\perp;2}\right)}
+\end{align*}
+
+\end_inset
+
+再考虑
 \begin_inset Formula 
 \begin{align*}
 \xi & =-\frac{\Delta^{+}}{2P^{+}}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}\\
@@ -610,7 +1001,16 @@ P^{+} & =\frac{p^{+}+p^{\prime+}}{2}
 
 \end_inset
 
-解方程可知
+
+\begin_inset Formula 
+\begin{align*}
+p^{\prime+}+p^{+} & =2P^{+}\\
+p^{\prime+}-p^{+} & =-2\xi P^{+}
+\end{align*}
+
+\end_inset
+
+可知
 \begin_inset Formula 
 \begin{align*}
 p^{+} & =P^{+}\left(1+\xi\right)\\
@@ -621,156 +1021,9 @@ p^{\prime+} & =P^{+}\left(1-\xi\right)
 
 
 \begin_inset Formula 
-\[
-\Delta^{\perp;2}-\Delta^{+}\Delta^{-}=Q^{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-如果选取
-\begin_inset Formula $\xi\neq0$
-\end_inset
-
-的坐标系，把类空矢量
-\begin_inset Formula $\Delta$
-\end_inset
-
-写成
-\begin_inset Formula $\Delta=\left(0,\Delta_{\perp},\Delta^{3}\right)$
-\end_inset
-
-，则
-\begin_inset Formula 
 \begin{align*}
- & \Delta^{0}+\Delta^{3}=\Delta^{3}=-2P^{+}\xi\\
- & \Delta^{0}-\Delta^{3}=-\Delta^{3}=2P^{+}\xi\\
- & \Delta=\left(-2P^{+}\xi,2P^{+}\xi,\Delta_{\perp}\right)
-\end{align*}
-
-\end_inset
-
-最后一行是光锥坐标下的形式。
-\end_layout
-
-\begin_layout Standard
-再考虑初末态质子的动量由
-\begin_inset Formula $\Delta=p^{\prime}-p=\left(0,0,\Delta_{\perp}\right)$
-\end_inset
-
-可知
-\begin_inset Formula 
-\begin{align*}
- & p^{\prime+}-p^{+}=0\\
- & p^{\prime-}-p^{-}=0\\
- & p^{\prime\perp}-p^{\perp}=\Delta_{\perp}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\begin{cases}
-E^{\prime}=E\\
-p^{\prime;3}=p^{3}-2P^{+}\xi
-\end{cases}
-\]
-
-\end_inset
-
-
-\begin_inset Formula $E^{\prime}=E$
-\end_inset
-
-即
-\begin_inset Formula 
-\[
-\sqrt{M^{2}+\left(p^{\prime;\perp}\right)^{2}+\left(p^{3}-2P^{+}\xi\right)^{2}}=\sqrt{M^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}
-\]
-
-\end_inset
-
-所以
-\begin_inset Formula 
-\[
-\left(p^{\prime;\perp}\right)^{2}=\left(p^{\perp}\right)^{2}+4P^{+}\xi\left(p^{3}-P^{+}\xi\right)
-\]
-
-\end_inset
-
-再加上
-\begin_inset Formula 
-\[
-p^{\prime\perp}-p^{\perp}=\Delta_{\perp}
-\]
-
-\end_inset
-
-所以知道
-\begin_inset Formula 
-\begin{align*}
-p & =\left(E,-\frac{\Delta^{\perp}}{2},p^{3}\right)\\
-p^{\prime} & =\left(E,\frac{\Delta^{\perp}}{2},p^{3}\right)
-\end{align*}
-
-\end_inset
-
-或者在光锥坐标下
-\begin_inset Formula 
-\begin{align*}
-\Delta & =\left(0,0,\Delta_{\perp}\right)\\
-p & =\left(P^{+},P^{-},-\frac{\Delta^{\perp}}{2}\right)\\
-p^{\prime} & =\left(P^{+},P^{-},\frac{\Delta^{\perp}}{2}\right)
-\end{align*}
-
-\end_inset
-
-如果质子的
-\begin_inset Formula $3$
-\end_inset
-
-方向动量非常大，可以近似认为
-\begin_inset Formula $p^{\prime-}\approx p^{-}\approx0$
-\end_inset
-
-。
-\begin_inset Formula 
-\[
-P=\left(P^{+},0,0\right)
-\]
-
-\end_inset
-
-考虑到
-\begin_inset Formula $Q^{2}=-\Delta^{2}=\Delta_{\perp}^{2}$
-\end_inset
-
-，
-\begin_inset Formula $\Delta$
-\end_inset
-
-写成
-\begin_inset Formula $\Delta=\left(-2\xi P^{+},\Delta_{\perp},\Delta^{3}\right)$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-2\xi P^{+}\Delta^{-}+\Delta^{3;2}=Q^{2}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\Delta & =\left(-2\xi P^{+},0,Q\right)\\
-p & =\left(P^{+}\left(1+\xi\right),0,-\frac{Q}{2}\right)\\
-p^{\prime} & =\left(P^{+}\left(1-\xi\right),0,\frac{Q}{2}\right)
+p & =\left(\left(1+\xi\right)P^{+},p^{-},p^{\perp}\right),\\
+p^{\prime} & =\left(\left(1-\xi\right)P^{+},p^{-}+\Delta^{-},p^{\perp}+\Delta_{\perp}\right)
 \end{align*}
 
 \end_inset
@@ -778,75 +1031,8 @@ p^{\prime} & =\left(P^{+}\left(1-\xi\right),0,\frac{Q}{2}\right)
 
 \end_layout
 
-\begin_layout Standard
-asdfsfasdfsafd
-\end_layout
-
-\begin_layout Standard
-asdffsda
-\end_layout
-
-\begin_layout Standard
-asdfas
-\end_layout
-
-\begin_layout Standard
-沿某个坐标轴的相对论变换为
-\begin_inset Formula 
-\[
-\left(\begin{array}{c}
-t^{\prime}\\
-x^{\prime}
-\end{array}\right)=\left(\begin{array}{cc}
-\gamma & -\gamma v\\
--\gamma v & \gamma
-\end{array}\right)\left(\begin{array}{c}
-t\\
-x
-\end{array}\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-t^{\prime} & =\gamma\left(t-vx\right)\\
-x^{\prime} & =\gamma\left(x-vt\right)
-\end{align*}
-
-\end_inset
-
-where 
-\begin_inset Formula $\gamma=1/\beta=1/\sqrt{1-v^{2}}\ge1$
-\end_inset
-
-。不同坐标轴的boost是独立的，经过适当的boost，认为质子动量可以写成
-\begin_inset Formula 
-\begin{align*}
-p & =\left(E,-\frac{\Delta_{\perp}}{2},-\frac{\Delta^{3}}{2}\right)\\
-p^{\prime} & =\left(E,\frac{\Delta_{\perp}}{2},\frac{\Delta^{3}}{2}\right)
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-E^{2}=M^{2}+\frac{\Delta_{\perp}^{2}+\Delta^{3;2}}{4}
-\]
-
-\end_inset
-
-所以
-\begin_inset Formula 
-\[
-P=\frac{p+p^{\prime}}{2}=\left(2E,0,0\right)=\left(P^{+},0,0\right)
-\]
-
-\end_inset
-
-
+\begin_layout Subsection
+参考文献
 \end_layout
 
 \begin_layout Standard
