@@ -391,3 +391,9 @@ L Lightness 亮度
 
 通过遮罩，裁出人物的运动画面，
 然后多轨叠加，实现影分身效果。
+
+## B站导出
+
+H.264 10-20M
+
+参考[创作中心](https://member.bilibili.com/platform/upload/video/frame)下面的视频码率
