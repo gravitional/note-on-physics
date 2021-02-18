@@ -6307,15 +6307,420 @@ L\gamma^{\mu}=\gamma^{\mu}R,R\gamma^{\mu}=\gamma^{\mu}L
 \begin_inset Formula $\bar{\psi}.L$
 \end_inset
 
-，
+
+\series default
+。
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\bar{\psi}_{L}=\bar{\psi}.R,\quad\bar{\psi}_{R}=\bar{\psi}.L$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+gamma矩阵公式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}$
+\end_inset
+
+，我们把它写成一个简单的形式
+\begin_inset Formula $\gamma[\mu\nu\rho\sigma]$
+\end_inset
+
+，注意利用反对易关系的时候
+\begin_inset Formula 
+\[
+\gamma[\mu\nu\rho\sigma]=-\gamma[\nu\mu\rho\sigma]+2g[\mu\nu]\gamma[\rho\sigma]
+\]
+
+\end_inset
+
+简写为
+\begin_inset Formula $\mu\nu\rho\sigma=-\nu\mu\rho\sigma+2(\mu\nu)\rho\sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}$
+\end_inset
+
+乘积约化
+\end_layout
+
+\begin_layout Standard
+这个等式实际上蕴含着一个重要的思想，把张量按照对称性进行分解。也就是说，
 \end_layout
 
 \begin_layout Enumerate
+如果
+\begin_inset Formula $\mu\nu\rho$
+\end_inset
 
-\series bold
+全相等，结果为
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+如果有两个相等，可能性为
+\begin_inset Formula $g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\rho\mu}\gamma^{\nu}$
+\end_inset
+
+，这里其实和全部相等有重叠，如果全部相等，刚好回到
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+，所以上面的一项可以去掉。
+\end_layout
+
+\begin_layout Enumerate
+三个指标各不相等，这样的话，我们考虑引入另一个矩阵
+\begin_inset Formula $\gamma^{\sigma}$
+\end_inset
+
+,且
+\begin_inset Formula $\sigma\notin\{\mu,\nu,\rho\}$
+\end_inset
+
+，利用
+\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
+\end_inset
+
+，和
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}=-\gamma^{\nu}\gamma^{\mu},\mu\neq\nu$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma^{\mu}\gamma_{\mu}=1,\text{ without sum }\mu$
+\end_inset
+
+，这种对称性下的项可以写成
 \begin_inset Formula 
 \[
-\bar{\psi}_{L}=\bar{\psi}.R,\quad\bar{\psi}_{R}=\bar{\psi}.L
+\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}(-i\gamma_{\sigma})=i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{5}
+\]
+
+\end_inset
+
+注意到由于
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+的全反对称性质，
+\begin_inset Formula $\sigma$
+\end_inset
+
+只取
+\begin_inset Formula $0,1,2,3$
+\end_inset
+
+中的一个值，与取全部值（求和）是等价的，因为我们假设了
+\begin_inset Formula $\mu,\nu,\rho$
+\end_inset
+
+各不相等，穷尽了其他三个值，所以求和只有一项有效值。
+\end_layout
+
+\begin_layout Standard
+综上
+\begin_inset Formula 
+\begin{equation}
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\rho\mu}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+多个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵乘积的约化
+\end_layout
+
+\begin_layout Enumerate
+两个矩阵的乘积：
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}=g^{\mu\nu}-i\sigma^{\mu\nu}$
+\end_inset
+
+，元素是
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+三个矩阵的乘积：
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\mu\rho}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma_{5}$
+\end_inset
+
+，元素是
+\begin_inset Formula $g^{\mu\nu}\gamma^{\rho}$
+\end_inset
+
+,
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma_{5}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+四个矩阵的乘积：
+\begin_inset Formula $\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\alpha}=g^{\mu\nu}\gamma^{\rho}\gamma^{\alpha}+g^{\nu\rho}\gamma^{\mu}\gamma^{\alpha}-g^{\mu\rho}\gamma^{\nu}\gamma^{\alpha}-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{5}\gamma_{\sigma}\gamma^{\alpha}$
+\end_inset
+
+利用上面的公式。元素是
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\alpha}$
+\end_inset
+
+,
+\begin_inset Formula $\gamma_{5}$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{5}\gamma_{\sigma}\gamma^{\alpha} & =-i\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}\gamma_{5}\left(g^{\mu\nu}-i\sigma^{\mu\nu}\right)\\
+ & =-\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}\left(\frac{i}{2}\varepsilon^{\sigma\alpha\theta\zeta}\sigma_{\theta\zeta}+ig^{\sigma\alpha}\gamma_{5}\right)\\
+ & =\frac{1}{4}\left(\varepsilon_{\phantom{\mu\nu\rho}\sigma}^{\mu\nu\rho}\varepsilon^{\sigma\alpha\theta\zeta}\sigma_{\theta\zeta}+\varepsilon^{\mu\nu\rho\alpha}\gamma_{5}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+含有
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+矩阵的，利用
+\begin_inset Formula $\gamma^{5}\sigma^{\mu\nu}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+乘一个矩阵：
+\begin_inset Formula $\gamma^{\mu}\gamma^{5}=-\gamma^{5}\gamma^{\mu}$
+\end_inset
+
+,元素是
+\begin_inset Formula $\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+乘两个矩阵：
+\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{\nu}=\gamma^{\mu}\gamma^{\nu}\gamma^{5}=\frac{1}{2}\gamma^{5}\left(\sigma^{\mu\nu}+g^{\mu\nu}\right)=\frac{1}{2}g^{\mu\nu}\gamma^{5}+\frac{i}{4}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
+\end_inset
+
+，元素是
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+,
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+,
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+乘三个矩阵：
+\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=\gamma^{5}\left(g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\mu\rho}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma_{5}\right)=g^{\mu\nu}\gamma^{5}\gamma^{\rho}+g^{\nu\rho}\gamma^{5}\gamma^{\mu}-g^{\mu\rho}\gamma^{5}\gamma^{\nu}-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}$
+\end_inset
+
+，元素是
+\begin_inset Formula $g^{\mu\nu}\gamma^{5}\gamma^{\rho}$
+\end_inset
+
+,
+\begin_inset Formula $i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+乘四个矩阵：
+\begin_inset Formula $\gamma^{5}\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\alpha}=g^{\mu\nu}\gamma^{5}\gamma^{\rho}\gamma^{\alpha}+g^{\nu\rho}\gamma^{5}\gamma^{\mu}\gamma^{\alpha}-g^{\mu\rho}\gamma^{5}\gamma^{\nu}\gamma^{\alpha}-i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{\alpha}$
+\end_inset
+
+，元素是
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+的关系
+\end_layout
+
+\begin_layout Standard
+旋量的表示，洛伦兹群生成元满足
+\begin_inset Formula 
+\begin{align*}
+\left[J_{\mu\nu},J_{\rho\sigma}\right] & =i(g_{\nu\rho}J_{\mu\sigma}-g_{\mu\rho}J_{\nu\sigma}-g_{\nu\sigma}J_{\mu\rho}+g_{\mu\sigma}J_{\nu\rho})
+\end{align*}
+
+\end_inset
+
+考虑到
+\begin_inset Formula $g_{\mu\nu}$
+\end_inset
+
+是对称张量，指标顺序无所谓，上面可以写成
+\begin_inset Formula 
+\[
+\left[J_{12},J_{34}\right]=ig_{\text{rest}}J_{(14+23-24-13)}
+\]
+
+\end_inset
+
+rest 表示剩下的指标。
+\begin_inset Formula 
+\[
+S_{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]
+\]
+
+\end_inset
+
+满足这个对易关系，是洛伦兹群生成元的四维旋量表示，所以
+\begin_inset Formula $\sigma^{\mu\nu}=\frac{i}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]$
+\end_inset
+
+满足
+\begin_inset Formula 
+\begin{align*}
+\left[\sigma_{12},\sigma_{34}\right] & =2ig_{\text{rest}}\sigma_{(14+23-24-13)}\\
+ & =2i(g_{23}\sigma_{14}-g_{14}\sigma_{23}-g_{13}\sigma_{24}+g_{24}\sigma_{13})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+利用
+\begin_inset Formula $\gamma^{\nu}\gamma^{\mu}=-\gamma^{\mu}\gamma^{\nu}+2g^{\mu\nu}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\sigma^{\mu\nu}\sigma_{\mu\nu} & =-\frac{2}{4}\left(\gamma^{\mu}\gamma^{\nu}\gamma_{\mu}\gamma_{\nu}-\gamma^{\mu}\gamma^{\nu}\gamma_{\nu}\gamma_{\mu}\right)\\
+ & =-\frac{2}{4}\left(\left(-4*4+2*4\right)-4*4\right)\\
+ & =\frac{-1}{2}(-8-16)=12\\
+\sigma^{\mu\nu}\sigma_{\mu\nu} & =12
+\end{align*}
+
+\end_inset
+
+如同泡利矩阵,
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+矩阵的模为
+\begin_inset Formula $1$
+\end_inset
+
+，
+\begin_inset Formula $\sigma^{\mu\nu}\sigma_{\mu\nu}=1,\mu\neq\nu$
+\end_inset
+
+（重复指标不求和，并注意指标的位置）
+\begin_inset Formula 
+\[
+\sigma^{\mu\nu}\sigma^{\rho\sigma}=\frac{-2}{4}\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}-\gamma^{\mu}\gamma^{\nu}\gamma^{\sigma}\gamma^{\rho}\right)
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula $\sigma^{\rho\sigma}$
+\end_inset
+
+是反对称的，所以考虑
+\begin_inset Formula $\rho\neq\sigma$
+\end_inset
+
+,利用
+\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sigma^{\mu\nu}\sigma^{\rho\sigma} & =\frac{-4}{4}\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\right)=-\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\\
+ & =i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}-g^{\mu\nu}\gamma^{\rho}\gamma^{\sigma}-\cdots-g^{\mu\nu}g^{\rho\sigma}-\cdots
+\end{align*}
+
+\end_inset
+
+省略号代表各种可能的组合，如果
+\begin_inset Formula $\mu,\nu,\rho,\sigma$
+\end_inset
+
+各不相等，
+\begin_inset Formula 
+\[
+\sigma^{\mu\nu}\sigma^{\rho\sigma}=i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}
 \]
 
 \end_inset
@@ -6324,11 +6729,334 @@ L\gamma^{\mu}=\gamma^{\mu}R,R\gamma^{\mu}=\gamma^{\mu}L
 \end_layout
 
 \begin_layout Standard
-end of file
+利用
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+张量的性质，有
+\begin_inset Formula 
+\begin{align*}
+\gamma^{5} & =\frac{-i}{4!}\varepsilon_{\mu\nu\rho\sigma}\sigma^{\mu\nu}\sigma^{\rho\sigma}=\frac{i}{4!}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}\sigma_{\rho\sigma}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-end of file
+
+\color red
+证明：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma^{5}\sigma^{\mu\nu}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
+\end_inset
+
+,利用
+\begin_inset Formula $\sigma^{\mu\nu}\sigma^{\rho\sigma}=i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}$
+\end_inset
+
+，右边乘上
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+,
+\begin_inset Formula $\left(\gamma^{5}\right)^{2}=1$
+\end_inset
+
+,注意这些指标
+\begin_inset Formula $\mu,\nu,\rho,\sigma$
+\end_inset
+
+各不相等
+\begin_inset Formula 
+\begin{align*}
+\sigma^{\mu\nu}\sigma^{\rho\sigma}= & i\varepsilon^{\mu\nu\rho\sigma}\gamma^{5}\\
+\sigma^{\mu\nu}\sigma^{\rho\sigma}\gamma^{5}= & i\varepsilon^{\mu\nu\rho\sigma}\\
+\sigma_{\mu\nu}\sigma^{\mu\nu}\sigma^{\rho\sigma}\gamma^{5}= & i\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\sigma_{\mu\nu}\sigma^{\mu\nu}$
+\end_inset
+
+这个求和中的指标跟
+\begin_inset Formula $\sigma^{\rho\sigma}$
+\end_inset
+
+中的
+\begin_inset Formula $\rho\sigma$
+\end_inset
+
+不能相等，
+\begin_inset Formula $\rho,\sigma$
+\end_inset
+
+也不相等，因为指标总数为
+\begin_inset Formula $0,1,2,3$
+\end_inset
+
+,如此一来，求和只有两项,如
+\begin_inset Formula $\sigma_{12}\sigma^{12}+\sigma_{21}\sigma^{21}=2$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\begin{align*}
+\sigma^{\rho\sigma}\gamma^{5} & =\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\mu\nu}\text{ 交换指标次序}\\
+\gamma^{5}\sigma^{\rho\sigma} & =\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+gamma公式总结：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+基本性质:
+\begin_inset Formula 
+\begin{align*}
+ & \sigma=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\left(\begin{array}{cc}
+0 & -i\\
+i & 0
+\end{array}\right),\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)\\
+ & \gamma^{\mu}=\left(\begin{array}{cc}
+0 & \sigma\\
+\bar{\sigma} & 0
+\end{array}\right)=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\left(\begin{array}{cc}
+0 & \sigma\\
+-\sigma & 0
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2g^{\mu\nu}\mathbbm{1}\\
+ & \gamma^{0\dagger}=\gamma^{0},\gamma^{i\dagger}=-\gamma^{i}\\
+ & \gamma^{2,*}=-\gamma^{2},\gamma^{\left\{ 0,1,3\right\} *}=\gamma^{\left\{ 0,1,3\right\} }\\
+ & \gamma^{\{0,2\},T}=\gamma^{\{0,2\}},\gamma^{\left\{ 1,3\right\} T}=-\gamma^{\left\{ 1,3\right\} }
+\end{align*}
+
+\end_inset
+
+结合这些性质有：
+\begin_inset Formula 
+\begin{align*}
+ & \gamma^{0}\gamma^{\mu}\gamma^{0}=\gamma^{\mu,\dagger}, &  & \gamma^{0}\gamma^{\mu\dagger}\gamma^{0}=\gamma^{\mu}\\
+ & \gamma^{2}\gamma^{\mu}\gamma^{2}=\gamma^{\mu,*}, &  & \gamma^{2}\gamma^{\mu*}\gamma^{2}=\gamma^{\mu}\\
+ & \gamma^{2}\gamma^{0}\gamma^{\mu}\gamma^{0}\gamma^{2}=\gamma^{\mu,T}, &  & \gamma^{2}\gamma^{0}\gamma^{\mu,T}\gamma^{0}\gamma^{2}=\gamma^{\mu}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\gamma^{0}$
+\end_inset
+
+用来求厄米，
+\begin_inset Formula $\gamma^{2}$
+\end_inset
+
+用来求复共轭。电荷共轭矩阵
+\begin_inset Formula $C=-i\gamma^{0}\gamma^{2}$
+\end_inset
+
+相当于把矩阵转置。
+\begin_inset Formula $C^{2}=-\gamma^{0}\gamma^{2}\gamma^{0}\gamma^{2}=-1,C^{\dagger}=i\left(-\gamma^{2}\right)\gamma^{0}=-C$
+\end_inset
+
+。它的表象无关系性质为：
+\begin_inset Formula 
+\[
+C^{T}=C^{-1}=-C,\quad C^{2}=-1,\quad C\gamma^{\mu}C^{-1}=-(\gamma^{\mu})^{T}\quad C\gamma^{\mu T}C^{-1}=-\gamma^{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+定义：
+\begin_inset Formula 
+\begin{align*}
+ & \gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}=\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)\\
+ & \left\{ \gamma^{5},\gamma^{\mu}\right\} =0\\
+ & \left(\gamma^{5}\right)^{2}=\mathbbm{1}
+\end{align*}
+
+\end_inset
+
+Schouten 恒等式：
+\begin_inset Formula 
+\[
+g^{\alpha\beta}\varepsilon^{\mu\nu\rho\sigma}-g^{\alpha\mu}\varepsilon^{\beta\nu\rho\sigma}+g^{\alpha\nu}\varepsilon^{\beta\mu\rho\sigma}-g^{\alpha\rho}\varepsilon^{\beta\mu\nu\sigma}+g^{\alpha\sigma}\varepsilon^{\beta\mu\nu\rho}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\gamma^{5}\sigma^{\rho\sigma}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}
+\]
+
+\end_inset
+
+三阶收缩 Chisholm 公式
+\begin_inset Formula 
+\begin{equation}
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}=g^{\mu\nu}\gamma^{\rho}+g^{\nu\rho}\gamma^{\mu}-g^{\rho\mu}\gamma^{\nu}+i\varepsilon^{\mu\nu\rho\sigma}\gamma_{\sigma}\gamma^{5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果求迹内部出现
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵收缩，首先要化简收缩： 
+\begin_inset Formula 
+\begin{align*}
+\gamma^{\mu}\gamma^{\nu}\gamma_{\mu} & =-2\gamma^{\nu}\\
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma_{\mu} & =4g^{\nu\rho}\\
+\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\gamma_{\mu} & =-2\gamma^{\sigma}\gamma^{\rho}\gamma^{\nu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+peskin page134，求迹公式：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\tr\left(\boldsymbol{1}\right) & =4\\
+\tr\left(\text{any odd \# of }\gamma's\right) & =0\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\right) & =4g^{\mu\nu}\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\right) & =4\left(g^{\mu\nu}g^{\rho\sigma}-g^{\mu\rho}g^{\nu\sigma}+g^{\mu\sigma}g^{\nu\rho}\right)\\
+\tr\left(\gamma^{5}\right) & =0\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{5}\right) & =0\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{5}\right) & =0\\
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\gamma^{5}\right) & =-4i\varepsilon^{\mu\nu\rho\sigma}
+\end{align*}
+
+\end_inset
+
+含有
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+的求迹中，从含有
+\begin_inset Formula $4$
+\end_inset
+
+个
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+开始才不为零。
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+和奇数个
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵求迹等于
+\begin_inset Formula $0$
+\end_inset
+
+。
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}$
+\end_inset
+
+有恒等式：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\varepsilon^{\alpha\beta\gamma\delta}\varepsilon_{\alpha\beta\gamma\delta} & =-24\\
+\varepsilon^{\alpha\beta\gamma\mu}\varepsilon_{\alpha\beta\gamma\nu} & =-6\delta_{\phantom{\mu}\nu}^{\mu}\\
+\varepsilon^{\alpha\beta\mu\nu}\varepsilon_{\alpha\beta\rho\sigma} & =-2\left(\delta_{\phantom{\mu}\rho}^{\mu}\delta_{\phantom{\mu}\sigma}^{\nu}-\delta_{\phantom{\mu}\sigma}^{\mu}\delta_{\phantom{\mu}\rho}^{\nu}\right)
+\end{align*}
+
+\end_inset
+
+这些等式全都可以通过考虑对称因子，然后计算一个特殊的例子来决定整体的常数。
+\end_layout
+
+\begin_layout Standard
+还有一个等式，翻转求迹括号内的次序：
+\begin_inset Formula 
+\[
+\tr\left(\gamma^{\mu}\gamma^{\nu}\gamma^{\rho}\gamma^{\sigma}\cdots\right)=\tr\left(\cdots\gamma^{\sigma}\gamma^{\rho}\gamma^{\nu}\gamma^{\mu}\right)
+\]
+
+\end_inset
+
+这个关系可以通过使用
+\begin_inset Formula $C\equiv-i\gamma^{0}\gamma^{2}$
+\end_inset
+
+ （电荷共轭）证明。
+\end_layout
+
+\begin_layout Standard
+EOF
+\end_layout
+
+\begin_layout Standard
+EOF
 \end_layout
 
 \begin_layout Bibliography

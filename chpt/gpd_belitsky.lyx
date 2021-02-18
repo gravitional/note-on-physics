@@ -45,6 +45,7 @@
 %\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\res}{Res}
 \DeclareMathOperator{\disc}{Disc}
+\DeclareMathOperator{\diag}{diag}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\cola}[1]{{\color{blue}{#1}}}
 %%%+++++++++++++++++++++++++++++++
@@ -642,7 +643,641 @@ GPDs 可以理解成 off–forward 运动学情形下，非定域光锥算符矩
 \end_layout
 
 \begin_layout Standard
-渐近态的硬过程的主要项由最低扭度的算符给出。在深度非弹性散射中，这些算符对应 Bjorken 标度不变性的贡献。
+渐近态的硬过程的主要项由最低扭度的算符给出。在深度非弹性散射中，这些算符对应 Bjorken 标度不变性的贡献。几何参数扭度的正式定义为算符量纲减去算符的洛伦兹
+自旋（以质量为单位）
+\begin_inset Formula 
+\[
+\tau=d-s
+\]
+
+\end_inset
+
+对于一些给定的洛伦兹指标，当它们全对称时，得到最大自旋。不可约意味着无法化简到更低阶自旋张量：也就是说，任意一对指标和度规张量收缩为零。因此，它的洛伦兹结构必须
+是无迹的。例如，标量场的非规范理论的扭矩–
+\begin_inset Formula $2$
+\end_inset
+
+，自旋–
+\begin_inset Formula $j$
+\end_inset
+
+的算符为
+\begin_inset Formula 
+\[
+\mathcal{R}_{\mu_{1}\cdots\mu_{j}}^{2,\phi\phi}\left(0\right)=\underset{\mu_{1}\cdots\mu_{j}}{\boldsymbol{S}}\phi^{\dagger}\left(0\right)i\overleftrightarrow{\partial}_{\mu_{1}}\cdots i\overleftrightarrow{\partial}_{\mu_{1}}\phi\left(0\right)
+\]
+
+\end_inset
+
+其中定义了左右导数
+\begin_inset Formula 
+\[
+\overleftrightarrow{\partial}_{\mu}=\overrightarrow{\partial}_{\mu}-\overleftarrow{\partial}_{\mu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{R}_{\mu_{1}\cdots\mu_{j}}^{2,\phi\phi}$
+\end_inset
+
+中的上标
+\begin_inset Formula $2$
+\end_inset
+
+是指扭度为
+\begin_inset Formula $2$
+\end_inset
+
+。操作
+\begin_inset Formula $\boldsymbol{S}$
+\end_inset
+
+表示将洛伦兹指标全对称化，然后减去迹。例如，对于两个指标是
+\begin_inset Formula 
+\[
+\underset{\mu_{1}\mu_{2}}{\boldsymbol{S}}t_{\mu_{1}\mu_{2}}=\frac{1}{2!}\left(t_{\mu_{1}\mu_{2}}+t_{\mu_{2}\mu_{1}}-\frac{1}{2}g_{\mu_{1}\mu_{2}}g^{\nu_{1}\nu_{2}}t_{\nu_{1}\nu_{2}}\right).
+\]
+
+\end_inset
+
+对于标量场，带有
+\begin_inset Formula $j$
+\end_inset
+
+个导数的算符的量纲是
+\begin_inset Formula $d=2d_{\phi}+j$
+\end_inset
+
+。
+\begin_inset Formula $\phi$
+\end_inset
+
+的量纲是
+\begin_inset Formula $d_{\phi}=1$
+\end_inset
+
+，所以
+\begin_inset Formula $\tau=2$
+\end_inset
+
+。扭度–
+\begin_inset Formula $2$
+\end_inset
+
+ 自旋–
+\begin_inset Formula $j$
+\end_inset
+
+算符的towers可以方便地写成一个非定域形式，也可以使用非定域光锥算符的泰勒展开定义扭度，类比于
+\begin_inset Formula 
+\[
+f\left(x\right)=\sum_{j=0}^{\infty}\frac{x^{j}}{j!}\partial^{j}f\left(0\right),
+\]
+
+\end_inset
+
+考虑到左右导数：
+\begin_inset Formula 
+\begin{align*}
+\mathcal{O}^{\phi\phi}\left(-z^{-},z^{-}\right) & =\phi^{\dagger}\left(-z^{-}\right)\phi\left(z^{-}\right)=\sum_{j=0}^{\infty}\frac{\left(-iz^{-}\right)^{j}}{j!}n^{\mu_{1}}\cdots n^{\mu_{j}}\mathcal{R}_{\mu_{1}\cdots\mu_{j}}^{2,\phi\phi}\left(0\right)\\
+ & =\sum_{j=0}^{\infty}\frac{\left(-iz^{-}\right)^{j}}{j!}n^{\mu_{1}}\cdots n^{\mu_{j}}\underset{\mu_{1}\cdots\mu_{j}}{\boldsymbol{S}}\phi^{\dagger}\left(0\right)i\overleftrightarrow{\partial}_{\mu_{1}}\cdots i\overleftrightarrow{\partial}_{\mu_{1}}\phi\left(0\right).
+\end{align*}
+
+\end_inset
+
+当理论中包含费米子和规范波色子时，首先要区分场算符不同自旋的投影。这在光锥下最简洁。
+\end_layout
+
+\begin_layout Subsection
+夸克算符
+\end_layout
+
+\begin_layout Standard
+对一个四分量的费米场算符
+\begin_inset Formula $\psi$
+\end_inset
+
+，使用投影算符得到
+\begin_inset Formula 
+\[
+\psi=\psi_{+}+\psi_{-},\quad\psi_{\pm}\equiv\Pi^{\pm}\psi,\quad\Pi_{\pm}\equiv\frac{1}{2}\gamma^{\mp}\gamma^{\pm}.
+\]
+
+\end_inset
+
+分解得到的两个分量
+\begin_inset Formula $\psi_{\pm}$
+\end_inset
+
+的光锥自旋为：
+\begin_inset Formula 
+\[
+\Sigma^{-+}\psi_{\pm}=\pm\frac{1}{2}\psi_{\pm}
+\]
+
+\end_inset
+
+这里
+\begin_inset Formula $\Sigma^{\mu\nu}\equiv\frac{1}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]$
+\end_inset
+
+是自旋张量。由于费米子场的量纲为
+\begin_inset Formula $d=3/2$
+\end_inset
+
+，
+\begin_inset Formula $\psi_{+}$
+\end_inset
+
+的自旋为
+\begin_inset Formula $1/2$
+\end_inset
+
+，所以扭度为
+\begin_inset Formula $1$
+\end_inset
+
+。
+\begin_inset Formula $\psi_{-}$
+\end_inset
+
+的自旋为
+\begin_inset Formula $-1/2$
+\end_inset
+
+，所以扭度为
+\begin_inset Formula $2$
+\end_inset
+
+。因此，只有
+\begin_inset Formula $\psi_{+}$
+\end_inset
+
+会进入最低扭度的非定域算符。从四分量到 Weyl 旋量，“good”部分产生两个独立的场
+\begin_inset Formula 
+\[
+\psi_{+\uparrow}=\frac{1}{2}\left(1+\gamma^{5}\right)\psi_{+},\quad\psi_{+\downarrow}=\frac{1}{2}\left(1-\gamma^{5}\right)\psi_{+},
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\psi_{+\uparrow}$
+\end_inset
+
+和
+\begin_inset Formula $\psi_{+\downarrow}$
+\end_inset
+
+只有一个分量不为零，描述一个拥有确定螺旋度的状态。螺旋度算符习惯上定义为（Appendix A.2）
+\begin_inset Formula 
+\[
+h\equiv\frac{1}{2}\bar{e}_{\perp}^{i}e_{\perp}^{j}\Sigma^{ij}=i\Sigma^{12},\quad e_{\perp}^{i}=\left(\bar{e}_{\perp}^{i}\right)^{*}=\left(1,i\right),
+\]
+
+\end_inset
+
+螺旋度的本征值为
+\begin_inset Formula 
+\[
+h\psi_{+\uparrow}=\frac{1}{2}\psi_{+\uparrow},\quad h\psi_{+\downarrow}=-\frac{1}{2}\psi_{+\downarrow},
+\]
+
+\end_inset
+
+在weyl 表象下
+\begin_inset Formula 
+\[
+\psi_{+\uparrow}=\left(\begin{array}{c}
+\lambda_{\uparrow}\\
+0
+\end{array}\right),\quad\psi_{+\downarrow}=\left(\begin{array}{c}
+0\\
+\bar{\chi}_{\downarrow}
+\end{array}\right)
+\]
+
+\end_inset
+
+其中Weyl 旋量
+\begin_inset Formula 
+\[
+\lambda_{\uparrow}\sim\left(\begin{array}{c}
+1\\
+0
+\end{array}\right),\quad\bar{\chi}_{\downarrow}\sim\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)
+\]
+
+\end_inset
+
+分别是洛伦兹群的
+\begin_inset Formula $\left(0,\frac{1}{2}\right)$
+\end_inset
+
+和
+\begin_inset Formula $\left(\frac{1}{2},0\right)$
+\end_inset
+
+表示。使用它们可以构造所有双粒子领头阶扭度算符，
+\begin_inset Formula 
+\[
+\left(\frac{1}{2},0\right)\otimes\left(\frac{1}{2},0\right)=\left(0,0\right)\oplus\left(1,0\right),\quad\left(\frac{1}{2},0\right)\otimes\left(0,\frac{1}{2}\right)=\left(\frac{1}{2},\frac{1}{2}\right).
+\]
+
+\end_inset
+
+可以构造四个不同的组合，把它们写回到四维形式
+\begin_inset Formula 
+\[
+\lambda_{\uparrow}^{*}\lambda_{\uparrow}\pm\bar{\chi}_{\downarrow}^{*}\bar{\chi}_{\downarrow}=\frac{1}{\sqrt{2}}\bar{\psi}\left\{ \begin{array}{c}
+\gamma^{+}\\
+\gamma^{+}\gamma^{5}
+\end{array}\right\} \psi,\quad\lambda_{\uparrow}^{*}\chi_{\downarrow}\pm\bar{\chi}_{\downarrow}^{*}\lambda_{\uparrow}=\frac{i}{\sqrt{2}}\bar{\psi}\left\{ \begin{array}{c}
+i\sigma^{+2}\\
+\sigma^{+1}
+\end{array}\right\} \psi,
+\]
+
+\end_inset
+
+后两个算符
+\begin_inset Formula $\lambda_{\uparrow}^{*}\chi_{\downarrow}\pm\bar{\chi}_{\downarrow}^{*}\lambda_{\uparrow}$
+\end_inset
+
+仅仅是一个二维矢量的两个分量。注意到
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+和
+\begin_inset Formula $\sigma^{\mu\nu}\gamma^{5}$
+\end_inset
+
+并不是独立的，
+\begin_inset Formula $\gamma^{5}\sigma^{\mu\nu}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
+\end_inset
+
+，
+\begin_inset Formula $\sigma^{\mu\nu}\gamma^{5}$
+\end_inset
+
+不作为一个可能的狄拉克结构。所以领头阶扭度的bilocal 夸克算符为
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{O}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\gamma^{+}\psi\left(z_{2}^{-}\right)\\
+ & \tilde{\mathcal{O}}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\gamma^{+}\gamma^{5}\psi\left(z_{2}^{-}\right)\\
+ & \mathcal{T}_{\mu}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\sigma_{\phantom{+}\mu}^{+\perp}\psi\left(z_{2}^{-}\right)
+\end{align*}
+
+\end_inset
+
+这里添加了规范链接，以使得算符是明显规范不变的，即使不再光锥规范
+\begin_inset Formula $A^{+}=0$
+\end_inset
+
+中。如在介绍中讨论的，物理观测量中的路径排序的指数来自于末态（DIS）和初态（DY）相互作用。
+\end_layout
+
+\begin_layout Subsection
+胶子算符
+\end_layout
+
+\begin_layout Standard
+略
+\end_layout
+
+\begin_layout Section
+算符矩阵元和 GPDs
+\end_layout
+
+\begin_layout Standard
+在bilocal 算符的off–forward 强子矩阵元的分解中，会遇到领头阶扭度的广义部分子分布函数。对于标量算符，
+\begin_inset Formula 
+\[
+F^{\phi}\left(x,\eta,\Delta^{2}\right)=p^{+}\int\frac{\dif z^{-}}{2\pi}e^{ixp^{+}z^{-}}\bra{p_{2}}\mathcal{O}^{\phi\phi}\left(-z^{-},z^{-}\right)\ket{p_{1}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $p^{+}$
+\end_inset
+
+的存在是GPD在
+\begin_inset Formula $z$
+\end_inset
+
+方向上boost 不变性的要求。变量
+\begin_inset Formula $x$
+\end_inset
+
+，如同普通的部分子分布函数那里的，是 Ioffe time 的傅立叶共轭。使用部分子的入射动量
+\begin_inset Formula $k_{1}$
+\end_inset
+
+和出射动量
+\begin_inset Formula $k_{2}$
+\end_inset
+
+，可以写成
+\begin_inset Formula 
+\[
+x=\frac{k_{1}^{+}+k_{2}^{+}}{p^{+}}
+\]
+
+\end_inset
+
+GPDs 也依赖于洛伦兹不变量
+\begin_inset Formula $t$
+\end_inset
+
+–道 动量转移
+\begin_inset Formula $\Delta^{2}=\left(p_{1}-p_{2}\right)^{2}$
+\end_inset
+
+以及 skewness
+\begin_inset Formula 
+\[
+\eta=\frac{\Delta^{+}}{p^{+}}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $p=p_{1}+p_{2}$
+\end_inset
+
+，
+\begin_inset Formula $\Delta=p_{1}-p_{2}$
+\end_inset
+
+。这里的
+\begin_inset Formula $\Delta$
+\end_inset
+
+跟通常在形状因子中使用的差一个负号，为了保证
+\begin_inset Formula $\eta$
+\end_inset
+
+是正数，对于遍举的深度虚轻子–强子散射过程。因此，入射和出射部分子的plus 动量分别为
+\begin_inset Formula 
+\[
+k_{1}^{+}=\frac{x+\eta}{2}p^{+},\quad k_{2}^{+}=\frac{x-\eta}{2}p^{+}.
+\]
+
+\end_inset
+
+也有文献使用另一种参数化，对应于nonforward 部分子分布，这时部分子动量以入射强子动量为单位计算
+\begin_inset Formula 
+\[
+k_{1}^{+}=Xp_{1}^{+},\quad k_{2}^{+}=\left(X-\zeta\right)p_{1}^{+}.
+\]
+
+\end_inset
+
+两种参数化之间的关系为
+\begin_inset Formula 
+\[
+\eta=\frac{\zeta}{2-\zeta},\quad x=\frac{X-\zeta/2}{1-\zeta/2},\quad X=\frac{x+\eta}{1+\eta},\quad X-\zeta=\frac{x-\eta}{1+\eta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+编时乘积和support
+\end_layout
+
+\begin_layout Standard
+让我们讨论定义 GPDs 的算符是否需要编时乘积。总的来说，因为它们进入费曼图的计算，而费曼图描述物理过程，所以需要编时乘积，包括双粒子算符
+\begin_inset Formula $\mathcal{O}^{\phi\phi}\left(-z^{-},z^{-}\right)$
+\end_inset
+
+中的场。以标量粒子为例，我们定义：
+\begin_inset Formula 
+\[
+F^{\phi}\left(x,\eta,\Delta^{2}\right)=p^{+}\int\frac{\dif z^{-}}{2\pi}e^{ixp^{+}z^{-}}\bra{p_{2}}T\left\{ \phi^{\dagger}\left(-z^{-}\right)\phi\left(z^{-}\right)\right\} \ket{p_{1}}
+\]
+
+\end_inset
+
+我们的目标是证明由于进入算符的基本场处在相等的光锥时间
+\begin_inset Formula $z^{+}=0$
+\end_inset
+
+，通常的编时乘积可以忽略。注意这并不需要场之间的间隔是类光的：论证对于横向动量依赖的函数也成立。函数
+\begin_inset Formula $F^{\phi}\left(x,\eta,\Delta^{2}\right)$
+\end_inset
+
+可以看成投影
+\begin_inset Formula 
+\[
+F^{\phi}\left(x,\eta,\Delta^{2}\right)=\int_{-\infty}^{+\infty}\dif k^{+}\dif^{2}\boldsymbol{k_{\perp}}\delta\left(x-\frac{k^{+}}{p^{+}}\right)\int_{-\infty}^{+\infty}\dif k^{-}\mathcal{A}\left(k^{+},\boldsymbol{k}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{A}\left(k\right)$
+\end_inset
+
+是一个格林函数
+\begin_inset Formula 
+\[
+\mathcal{A}\left(k\right)=\int\frac{\dif^{4}z}{\left(2\pi\right)^{4}}e^{ikz}\bra{p_{2}}T\left\{ \phi^{\dagger}\left(-z\right)\phi\left(z\right)\right\} \ket{p_{1}}
+\]
+
+\end_inset
+
+for （离壳）部分子在强子上散射，
+\begin_inset Formula $\phi\left(-k_{1}\right)+h\left(p_{1}\right)\to\phi\left(-k_{2}\right)+h\left(p_{2}\right)$
+\end_inset
+
+，
+\begin_inset Formula $z^{\mu}$
+\end_inset
+
+是一个四维矢量，分量都不为零。下一步是证明对
+\begin_inset Formula $\mathcal{A}\left(k\right)$
+\end_inset
+
+的
+\begin_inset Formula $k^{-}$
+\end_inset
+
+积分等价于对
+\begin_inset Formula $\mathcal{A}\left(k\right)$
+\end_inset
+
+的不连续积分。
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif k^{-}\mathcal{A}\left(k^{+},\boldsymbol{k}\right)=\int_{-\infty}^{+\infty}\dif k^{-}\disc_{k^{-}}\mathcal{A}\left(k^{+},\boldsymbol{k}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+GPDs 计数
+\end_layout
+
+\begin_layout Subsection
+GPDs 的boost不变性
+\end_layout
+
+\begin_layout Standard
+belitsky文章中的光锥记号为：
+\begin_inset Newline newline
+\end_inset
+
+引入一对类光矢量
+\begin_inset Formula $n^{2}=n^{*2}=0$
+\end_inset
+
+ 且 
+\begin_inset Formula $n\cdot n^{*}\equiv n^{\mu}n_{\mu}^{*}=1$
+\end_inset
+
+。它们可以选取为
+\begin_inset Formula 
+\[
+n^{\mu}\equiv\frac{1}{\sqrt{2}}\left(1,0,0,-1\right),\quad n^{*\mu}\equiv\frac{1}{\sqrt{2}}\left(1,0,0,1\right)
+\]
+
+\end_inset
+
+任何四矢量
+\begin_inset Formula $z^{\mu}$
+\end_inset
+
+可以分解成它的光锥分量
+\begin_inset Formula 
+\begin{align*}
+ & z^{\mu}=z^{+}n^{*\mu}+z^{-}n^{\mu}+z_{\perp}^{\mu}\\
+ & z^{+}\equiv z\cdot n=\frac{1}{\sqrt{2}}\left(z^{0}+z^{z}\right),\quad z^{-}\equiv z\cdot n^{*}=\frac{1}{\sqrt{2}}\left(z^{0}-z^{z}\right)
+\end{align*}
+
+\end_inset
+
+标量积写成
+\begin_inset Formula 
+\[
+z\cdot y\equiv z_{\mu}y^{\mu}=z^{+}y^{-}+z^{-}y^{+}-\boldsymbol{z_{\perp}\cdot y_{\perp}}
+\]
+
+\end_inset
+
+光锥导数定义为
+\begin_inset Formula 
+\[
+\partial^{+}=\frac{\partial}{\partial z^{-}},\quad\partial^{-}=\frac{\partial}{\partial z^{+}},\quad\partial_{\perp}^{\mu}=\frac{\partial}{\partial z_{\mu}^{\perp}},
+\]
+
+\end_inset
+
+对横向的二维空间使用 Euclidean 记号
+\begin_inset Formula 
+\[
+\delta_{\alpha\beta}=\diag\left(0,1,1,0\right)
+\]
+
+\end_inset
+
+以及全反对称张量的横向投影
+\begin_inset Formula $\varepsilon_{\perp}^{\mu\nu}\equiv\varepsilon^{\mu\nu+-}$
+\end_inset
+
+，非零元为
+\begin_inset Formula 
+\[
+\varepsilon_{\perp}^{12}=-\varepsilon_{\perp}^{21}=\varepsilon_{12}^{\perp}=-\varepsilon_{21}^{\perp}=1.
+\]
+
+\end_inset
+
+因此对于横向，使用记号
+\begin_inset Formula 
+\[
+v_{\perp}\cdot u_{\perp}=-\boldsymbol{v_{\perp}\cdot u_{\perp}}
+\]
+
+\end_inset
+
+对于横向 Dirac 矩阵
+\begin_inset Formula 
+\[
+\boldsymbol{\slashed{k}_{\perp}}=\boldsymbol{\gamma_{\perp}\cdot k_{\perp}}=-\gamma_{\perp}\cdot k_{\perp}.
+\]
+
+\end_inset
+
+由于沿
+\begin_inset Formula $z$
+\end_inset
+
+轴具有boost不变性，所以可以对光锥矢量进行重标度，
+\begin_inset Formula 
+\[
+n^{*\mu}\to\varrho n^{*\mu},\quad n^{\mu}\to\varrho^{-1}n^{\mu}
+\]
+
+\end_inset
+
+只要它们的乘积保持不变（
+\begin_inset Formula $n\cdot n^{*}=1$
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Standard
+GPDs在光锥矢量的重标度下不变，也就是说它们在动量的重标度下不变：
+\begin_inset Formula 
+\[
+k^{-}\to\varrho k^{-},\quad k^{+}\to\varrho^{-1}k^{+}.
+\]
+
+\end_inset
+
+容易看出上面定义的GPDs满足这个性质，
+\begin_inset Formula 
+\[
+F^{\phi}\left(x,\eta,\Delta^{2}\right)=p^{+}\int\frac{\dif z^{-}}{2\pi}e^{ixp^{+}z^{-}}\bra{p_{2}}\mathcal{O}^{\phi\phi}\left(-z^{-},z^{-}\right)\ket{p_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+自旋1/2强子
+\end_layout
+
+\begin_layout Standard
+如果靶粒子自旋是
+\begin_inset Formula $1/2$
+\end_inset
+
+，将定域算符的期望值用双线性型表示会比较方便
+\begin_inset Formula 
+\begin{align*}
+ & b=\bar{u}\left(p_{2}\right)u\left(p_{1}\right) &  & \tilde{b}=\bar{u}\left(p_{2}\right)\gamma^{5}u\left(p_{1}\right)\\
+ & h^{\mu}=\bar{u}\left(p_{2}\right)\gamma^{\mu}u\left(p_{1}\right) &  & \tilde{h}^{\mu}=\bar{u}\left(p_{2}\right)\gamma^{\mu}\gamma^{5}u\left(p_{1}\right)\\
+ & t^{\mu\nu}=\bar{u}\left(p_{2}\right)i\sigma^{\mu\nu}u\left(p_{1}\right) &  & \tilde{t}^{\mu\nu}=\bar{u}\left(p_{2}\right)i\sigma^{\mu\nu}\gamma^{5}u\left(p_{1}\right)
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -693,7 +1328,7 @@ v^{\mu}=(v_{0},\vec{v}),\quad v_{\mu}=(v_{0},-\vec{v})
 \begin_inset Formula $1$
 \end_inset
 
-正号)
+正号)。
 \end_layout
 
 \begin_layout Standard
