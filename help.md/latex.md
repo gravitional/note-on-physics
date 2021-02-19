@@ -2053,7 +2053,7 @@ Latex下 字体大小命令 比较
 `Computer Modern Math`, `Latin Modern Math`, 用 XeTeX 的时候是后一个.
 
 + `mathbb`：blackboard bold,黑板粗体
-+ `mathcal`：calligraphy（美术字）
++ `mathcal`：calligraphy（美术字），还有普通的`cal`
 + `mathrm`：math roman
 + `mathbf`：math boldface
 + `\mathbbm`: `\usepackage{bbm}`，黑板粗体字母，`\mathbbm{1}`
@@ -2071,6 +2071,9 @@ Latex下 字体大小命令 比较
 ```latex
 \usepackage{bbm}
 ```
+
+这个包的文档里有很多字体的示范
+[mathalpha](https://www.ctan.org/pkg/mathalpha)
 
 ### 其他数学字体
 

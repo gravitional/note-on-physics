@@ -364,6 +364,358 @@ p & =\frac{\partial L}{\partial\dot{q}}
 核子可观测量
 \end_layout
 
+\begin_layout Subsection
+核子结构函数
+\end_layout
+
+\begin_layout Standard
+现在讨论轻子–强子深度非弹性散射。在入射轻子撞击靶粒子之前，它涨落成一个轻子和一个光子，
+\begin_inset Formula $e\left(k\right)\to e\left(k^{\prime}\right)\gamma^{*}\left(q\right)$
+\end_inset
+
+；光子和靶粒子
+\begin_inset Formula $\ket{p}$
+\end_inset
+
+作用，
+\begin_inset Formula $\ket{p}$
+\end_inset
+
+碎裂成一系列强子末态
+\begin_inset Formula $\ket{n}$
+\end_inset
+
+，末态的总动量为
+\begin_inset Formula $P_{n}=p+q=\sum_{k=1}^{N}p_{k}$
+\end_inset
+
+。由于电磁力相比于强相互作用很弱，可以将分析限制在单光子交换中。
+\end_layout
+
+\begin_layout Standard
+这个过程的振幅由流流耦合描述
+\begin_inset Formula 
+\[
+\mathcal{A}_{n}=L_{\mu}\left(k,k^{\prime}\right)\bra{n}j^{\mu}\left(0\right)\ket{p},
+\]
+
+\end_inset
+
+强子跃迁振幅
+\begin_inset Formula $\bra{n}j^{\mu}\left(0\right)\ket{p}$
+\end_inset
+
+中的
+\begin_inset Formula $j^{\mu}\left(x\right)=\sum_{q=u,d,\cdots}Q_{q}\bar{\psi}_{q}\left(x\right)\gamma^{\mu}\psi_{q}\left(x\right)$
+\end_inset
+
+。轻子流为
+\begin_inset Formula 
+\[
+L^{\mu}\left(k,k^{\prime}\right)\bra{n}j^{\mu}\left(0\right)\ket{p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+忽略相空间因子，散射截面是
+\begin_inset Formula 
+\[
+\sigma_{\text{DIS}}=\frac{\alpha_{\text{em}}^{2}}{4}\sum_{n}\abs{\mathcal{A}_{n}}^{2}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p+q-P_{n}\right)=\frac{\alpha_{\text{em}}^{2}}{4}L_{\mu}^{\dagger}L_{\nu}W^{\mu\nu}
+\]
+
+\end_inset
+
+其中强子流张量是
+\begin_inset Formula 
+\begin{equation}
+W^{\mu\nu}=\frac{1}{4\pi}\int\dif^{4}ze^{iqz}\bra{p}j^{\mu}\left(z\right)j^{\nu}\left(0\right)\ket{p}\label{eq:2.33}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+将强子流张量分解到独立的洛伦兹结构引入了结构函数。对于自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+的靶粒子，
+\begin_inset Formula $W^{\mu\nu}$
+\end_inset
+
+最一般的形式为
+\begin_inset Formula 
+\begin{align*}
+W^{\mu\nu} & =-\left(g^{\mu\nu}-\frac{q^{\mu}q^{\nu}}{q^{2}}\right)F_{1}\left(x_{B},\mathcal{Q}^{2}\right)+\frac{1}{p\cdot q}\left(p^{\mu}-\frac{p\cdot q}{q^{2}}q^{\mu}\right)\left(p^{\nu}-\frac{p\cdot q}{q^{2}}q^{\nu}\right)F_{2}\left(x_{B},\mathcal{Q}^{2}\right)\\
+ & \phantom{=}-\frac{i}{p\cdot q}\varepsilon^{\mu\nu\rho\sigma}q_{\rho}s_{\sigma}g_{1}\left(x_{B},\mathcal{Q}^{2}\right)-\frac{i}{p\cdot q}\varepsilon^{\mu\nu\rho\sigma}q_{\rho}\left(s_{\sigma}-\frac{s\cdot q}{p\cdot q}p_{\sigma}\right)g_{2}\left(x_{B},\mathcal{Q}^{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $F_{i}$
+\end_inset
+
+和
+\begin_inset Formula $g_{i}$
+\end_inset
+
+分别称作非极化结构函数和极化结构函数，依赖于两个变量：探针的类空动量和Bjorken 变量
+\begin_inset Formula 
+\[
+q^{2}\equiv-\mathcal{Q}^{2},\quad x_{B}\equiv\frac{\mathcal{Q}^{2}}{2p\cdot q}.
+\]
+
+\end_inset
+
+强子流张量可以和向前康普顿散射振幅的虚部通过光学定理联系起来，向前散射
+\begin_inset Formula $\gamma^{*}\left(q\right)N\left(p\right)\to\gamma^{*}\left(q\right)N\left(p\right)$
+\end_inset
+
+的振幅由夸克电磁流的编时乘积决定：
+\begin_inset Formula 
+\begin{align*}
+ & W^{\mu\nu}=\frac{1}{2\pi}\Im T^{\mu\nu}\\
+ & T^{\mu\nu}=i\int\dif^{4}ze^{iqz}\bra{p}T\left\{ j^{\mu}\left(z\right)j^{\nu}\left(0\right)\right\} \ket{0}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在深度非弹性散射中，光子的作用如同探针。分辨率是虚光子动量
+\begin_inset Formula $\mathcal{Q}^{2}$
+\end_inset
+
+的倒数，也就是说分辨率
+\begin_inset Formula $\approx0.2\text{fm}/\mathcal{Q}\text{ in }\GeV$
+\end_inset
+
+。由于核子的尺寸
+\begin_inset Formula $R_{N}\sim1\text{fm}$
+\end_inset
+
+，可以推测
+\begin_inset Formula $\mathcal{Q}^{2}$
+\end_inset
+
+若为几个
+\begin_inset Formula $\GeV$
+\end_inset
+
+的量级，光子将穿透到核子内部，与核子的成分相互作用。This is the regime which initiates a hard scattering：电
+子一定离某个部分子很近，距离大约是
+\begin_inset Formula $z^{2}\sim1/\mathcal{Q}^{2}$
+\end_inset
+
+，从而交换虚光子
+\begin_inset Formula $\mathcal{Q}^{2}$
+\end_inset
+
+。结构函数有一个重要的性质，scaling，也就是与
+\begin_inset Formula $\mathcal{Q}^{2}$
+\end_inset
+
+无关，在Bjorken极限下：
+\begin_inset Formula 
+\[
+\mathcal{Q}^{2}\to\infty,\quad x_{B}=\text{fixed}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+QCD部分子分布
+\end_layout
+
+\begin_layout Standard
+现在建立QCD部分子分布的算符内容。出发点是
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.33"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的强子流张量。插入强子的完备集，
+\begin_inset Formula $\sum_{n}\ket{n}\bra{n}=1$
+\end_inset
+
+，其中状态
+\begin_inset Formula $\ket{n}$
+\end_inset
+
+包含
+\begin_inset Formula $n$
+\end_inset
+
+个粒子，动量满足
+\begin_inset Formula $P_{n}=\sum_{k=1}^{n}p_{k}$
+\end_inset
+
+以及其它一些量子数，
+\begin_inset Formula 
+\[
+W^{\mu\nu}=\frac{1}{4\pi}\sum_{n}\int\prod_{k=1}^{n}\frac{\dif^{3}p_{k}}{2E_{p_{k}}\left(2\pi\right)^{3}}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(\sum_{l=1}^{n}p_{l}-p-q\right)\bra{p}j^{\mu}\left(0\right)\ket{p_{1},\cdots,p_{n}}\bra{p_{1},\cdots,p_{n}}j^{\nu}\left(0\right)\ket{p}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+F_{1}\left(x_{B},\mathcal{Q}^{2}\right) & =\frac{1}{2}\int^{\mathcal{Q}^{2}}\dif^{2}k_{\perp}f^{q}\left(x_{B},\boldsymbol{k_{\perp}}\right)\label{eq:2.51}\\
+ & =\frac{1}{4}\int^{\mathcal{Q}^{2}}\dif^{2}k_{\perp}\int\frac{\dif z^{-}}{2\pi}\frac{\dif^{2}z_{\perp}}{\left(2\pi\right)^{2}}e^{ix_{B}p^{+}z^{-}-i\boldsymbol{k_{\perp}z_{\perp}}}\bra{p}\bar{\psi}\left(0,\boldsymbol{0}\right)\gamma^{+}\psi\left(z^{-},\boldsymbol{z_{\perp}}\right)\ket{p}\nonumber 
+\end{align}
+
+\end_inset
+
+这里，
+\begin_inset Formula $f^{q}\left(x_{B},\boldsymbol{k_{\perp}}\right)$
+\end_inset
+
+是横向动量依赖的部分子分布在树图阶的近似，
+\begin_inset Formula $xp^{+}n^{*\mu}$
+\end_inset
+
+和
+\begin_inset Formula $k_{\perp}$
+\end_inset
+
+是夸克动量
+\begin_inset Formula $k^{\mu}$
+\end_inset
+
+的光锥分量和横向分量。
+\begin_inset Formula 
+\[
+k^{\mu}\approx xp^{+}n^{*\mu}+k_{\perp}^{\mu}.
+\]
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.51"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的分布不是规范不变的，由于夸克场不在同一个时空点。
+\end_layout
+
+\begin_layout Standard
+强子碎裂成夸克，以及旁观碎片，夸克形成 jet。如果考虑末态jet和旁观碎片的多重散射，进行 resummation，就可以恢复部分子分布的规范不变性。规范不变
+的横向动量依赖的部分子分布为
+\begin_inset Formula 
+\[
+f^{q}\left(x,\boldsymbol{k_{\perp}}\right)=\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\frac{\dif^{2}z_{\perp}}{\left(2\pi\right)^{2}}e^{ixp^{+}z^{-}-i\boldsymbol{k_{\perp}z_{\perp}}}\bra{p}\bar{\Psi}_{\infty}\left(0,\boldsymbol{0}\right)\gamma^{+}\Psi_{\infty}\left(z^{-},\boldsymbol{z_{\perp}}\right)\ket{p}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\Psi_{\infty}\left(z^{-},\boldsymbol{z_{\perp}}\right)\equiv\left[\infty,\boldsymbol{\infty};{\color{blue}\infty,\boldsymbol{z_{\perp}}}\right]\left[{\color{blue}\infty,\boldsymbol{z_{\perp}}};z^{-},\boldsymbol{z_{\perp}}\right]\psi\left(z^{-},\boldsymbol{z_{\perp}}\right)
+\]
+
+\end_inset
+
+两个规范连接分别沿着光锥和横向
+\begin_inset Formula 
+\begin{align*}
+ & \left[{\color{blue}\infty,\boldsymbol{z_{\perp}}};z^{-},\boldsymbol{z_{\perp}}\right]=P\exp\left(ig\int_{z^{-}}^{\infty}\dif z^{\prime-}A^{+}\left(z^{\prime-},\boldsymbol{z_{\perp}}\right)\right)\\
+ & \left[\infty,\boldsymbol{\infty};{\color{blue}\infty,\boldsymbol{z_{\perp}}}\right]=P\exp\left(-ig\int_{\boldsymbol{z_{\perp}}}^{\infty}\dif\boldsymbol{z_{\perp}^{\prime}}\cdot\boldsymbol{A}_{\perp}\left(\infty,\boldsymbol{z_{\perp}}^{\prime}\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this formulation，the purely collinear 部分子分布是更广义横向动量依赖分布的积分
+\begin_inset Formula 
+\begin{align*}
+f^{q}\left(x,\mu\right) & =\int^{\mu^{2}}\dif\boldsymbol{k_{\perp}}f^{q}\left(x,\boldsymbol{k_{\perp}}\right)\\
+ & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}e^{ixp^{+}z^{-}}\bra{p}\bar{\psi}\left(0,\boldsymbol{0}\right)\gamma^{+}\left[0,\boldsymbol{0};z^{-},\boldsymbol{0}\right]\psi\left(z^{-},\boldsymbol{0}\right)\ket{p}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\mu$
+\end_inset
+
+示意地表示了横向动量积分的截断能标依赖。
+\end_layout
+
+\begin_layout Standard
+对于正的
+\begin_inset Formula $x$
+\end_inset
+
+，函数
+\begin_inset Formula $f^{q}\left(x,\mu^{2}\right)$
+\end_inset
+
+可以翻译为夸克密度
+\begin_inset Formula $q\left(x,\mu^{2}\right)$
+\end_inset
+
+，而对于负的动量分数
+\begin_inset Formula $x$
+\end_inset
+
+，它可以理解成（负）反夸克密度：
+\begin_inset Formula 
+\[
+f^{q}\left(x,\mu^{2}\right)=q\left(x,\mu^{2}\right)\theta\left(x\right)-\bar{q}\left(-x,\mu^{2}\right)\theta\left(-x\right)
+\]
+
+\end_inset
+
+在Bjorken 极限下，结构函数可以用夸克分布表示。例如，质子非极化结构函数
+\begin_inset Formula 
+\begin{align*}
+F_{1}\left(x_{B},\mathcal{Q}^{2}\right) & =\frac{1}{2x_{B}}F_{2}\left(x_{B},\mathcal{Q}^{2}\right)\\
+ & =\frac{1}{2}\sum_{q}Q_{q}^{2}\left(q\left(x_{B},\mathcal{Q}^{2}\right)+\bar{q}\left(x_{B},\mathcal{Q}^{2}\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $F_{1}$
+\end_inset
+
+和
+\begin_inset Formula $F_{2}$
+\end_inset
+
+成正比的原因是夸克的自旋为
+\begin_inset Formula $1/2$
+\end_inset
+
+。
+\end_layout
+
 \begin_layout Section
 夸克相空间分布
 \end_layout
@@ -1274,6 +1626,189 @@ F^{\phi}\left(x,\eta,\Delta^{2}\right)=p^{+}\int\frac{\dif z^{-}}{2\pi}e^{ixp^{+
  & h^{\mu}=\bar{u}\left(p_{2}\right)\gamma^{\mu}u\left(p_{1}\right) &  & \tilde{h}^{\mu}=\bar{u}\left(p_{2}\right)\gamma^{\mu}\gamma^{5}u\left(p_{1}\right)\\
  & t^{\mu\nu}=\bar{u}\left(p_{2}\right)i\sigma^{\mu\nu}u\left(p_{1}\right) &  & \tilde{t}^{\mu\nu}=\bar{u}\left(p_{2}\right)i\sigma^{\mu\nu}\gamma^{5}u\left(p_{1}\right)
 \end{align*}
+
+\end_inset
+
+显然，
+\begin_inset Formula $\tilde{t}^{\mu\nu}$
+\end_inset
+
+可以将
+\begin_inset Formula $t^{\mu\nu}$
+\end_inset
+
+与全反对称张量
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+收缩得到，所以不算做独立算符。此外，在每个宇称的sector，使用运动方程可以得到算符之间的关系
+\begin_inset Formula 
+\begin{align}
+ & p^{\mu}b=\left(M_{H_{2}}+M_{H_{1}}\right)h^{\mu}-t^{\nu\mu}\Delta_{\nu},\quad\Delta^{\mu}b=-\left(M_{H_{2}}-M_{H_{1}}\right)h^{\mu}-t^{\nu\mu}p_{\nu},\label{eq:3.35}\\
+ & \Delta^{\mu}\tilde{b}=-\left(M_{H_{2}}+M_{H_{1}}\right)\tilde{h}^{\mu}-\tilde{t}^{\nu\mu}p_{\nu},\quad p^{\mu}\tilde{b}=\left(M_{H_{2}}-M_{H_{1}}\right)\tilde{h}^{\mu}-\tilde{t}^{\nu\mu}\Delta_{\nu},\nonumber 
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula $M_{H_{1/2}}$
+\end_inset
+
+是入射/出射强子的质量。最终结果就是，对于自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+的靶粒子，独立的狄拉克结构可以选为
+\begin_inset Formula 
+\[
+h^{\mu},\quad e^{\mu}=\frac{t^{\nu\mu}\Delta_{\nu}}{M_{H_{2}}+M_{H_{1}}},\quad\tilde{h}^{\mu},\quad\tilde{e}^{\mu}=-\frac{\Delta^{\mu}\tilde{b}}{M_{H_{2}}+M_{H_{1}}}
+\]
+
+\end_inset
+
+对应的，给出
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.35"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中
+\begin_inset Formula $b,\tilde{b}$
+\end_inset
+
+的光锥投影：
+\begin_inset Formula 
+\[
+b=\left(M_{H_{2}}+M_{H_{1}}\right)\frac{h^{+}-e^{+}}{p^{+}},\quad\tilde{b}=-\left(M_{H_{2}}+M_{H_{1}}\right)\frac{\tilde{e}^{+}}{\Delta^{+}}.
+\]
+
+\end_inset
+
+因此，对于矢量和轴矢量算符，各有两种独立的狄拉克结构，对于最大螺旋度的夸克算符，有四种结构。特定算符的矩阵元分解为
+\begin_inset Formula 
+\begin{align*}
+\bra{p_{2}}\mathcal{O}^{qq}\left(-z^{-},z^{-}\right)\ket{p_{1}} & =\int_{-1}^{1}\dif xe^{-ixp^{+}z^{-}}\left\{ h^{+}H^{q}\left(x,\eta,\Delta^{2}\right)+e^{+}E^{q}\left(x,\eta,\Delta^{2}\right)\right\} \\
+\bra{p_{2}}\tilde{\mathcal{O}}^{qq}\left(-z^{-},z^{-}\right)\ket{p_{1}} & =\int_{-1}^{1}\dif xe^{-ixp^{+}z^{-}}\left\{ \tilde{h}^{+}\tilde{H}^{q}\left(x,\eta,\Delta^{2}\right)+\tilde{e}^{+}\tilde{E}^{q}\left(x,\eta,\Delta^{2}\right)\right\} \\
+\bra{p_{2}}\mathcal{T}_{\mu}^{qq}\left(-z^{-},z^{-}\right)\ket{p_{1}} & =\int_{-1}^{1}\dif xe^{-ixp^{+}z^{-}}\left\{ h^{+}H^{q}\left(x,\eta,\Delta^{2}\right)+e^{+}E^{q}\left(x,\eta,\Delta^{2}\right)\right\} \\
+ & =\int_{-1}^{1}\dif xe^{-ixp^{+}z^{-}}\Bigg\{ t_{\mu}^{+\perp}H_{T}^{q}\left(x,\eta,\Delta^{2}\right)+\frac{p^{+}e_{\mu}^{\perp}}{M_{N}}\tilde{H}_{T}^{q}\left(x,\eta,\Delta^{2}\right)\\
+ & -\frac{1}{2M_{N}}\left(\Delta_{\mu}^{\perp}h^{+}-\Delta^{+}h_{\mu}^{\perp}\right)E_{T}^{q}\left(x,\eta,\Delta^{2}\right)-\frac{p^{+}h_{\mu}^{\perp}}{2M_{N}}\tilde{E}_{T}^{q}\left(x,\eta,\Delta^{2}\right)\Bigg\}
+\end{align*}
+
+\end_inset
+
+相比于Ref.69，我们丢掉了正比于
+\begin_inset Formula $p^{\mu}$
+\end_inset
+
+的横向分量，由于我们处在DIS–类型的参考系中，
+\begin_inset Formula $p_{\perp}^{\mu}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+时间反演和厄米性
+\end_layout
+
+\begin_layout Standard
+从非相对论的薛定谔方程容易知道，时间反演需要加上复共轭操作，
+\begin_inset Formula $i\partial_{t}\ket{\psi}=\hat{H}\ket{\psi}$
+\end_inset
+
+。希尔伯特空间上的时间反演算符，对它右边的所有
+\begin_inset Formula $C$
+\end_inset
+
+数，进行复共轭，
+\begin_inset Formula $\mathcal{T}f=f^{*}\mathcal{T}$
+\end_inset
+
+，所以是一个反幺正算符
+\begin_inset Formula 
+\[
+\bra{\Omega_{2}}\mathcal{T}^{\dagger}\mathcal{T}\ket{\Omega_{1}}=\bra{\Omega_{2}}\ket{\Omega_{1}}^{*}=\bra{\Omega_{1}}\ket{\Omega_{2}}
+\]
+
+\end_inset
+
+期望值是
+\begin_inset Formula $\bra{a}\mathcal{O}_{1}\mathcal{O}_{2}\cdots\mathcal{O}_{n}\ket{b}$
+\end_inset
+
+的形式，不管中间插入多少个算符。
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+作用它右边的所有对象上，因为右边总相当于
+\begin_inset Formula $\ket{b}$
+\end_inset
+
+。类似地，
+\begin_inset Formula $\mathcal{T}^{\dagger}$
+\end_inset
+
+作用在
+\begin_inset Formula $\bra{a}$
+\end_inset
+
+上。所以在一个链条内插入
+\begin_inset Formula $\mathcal{T}^{\dagger}\mathcal{T}$
+\end_inset
+
+，总相当于整体取复共轭，在任意位置插入两个就是两次复共轭，相当于零操作。除此之外，还要考虑
+\begin_inset Formula $t\to-t$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+从时空反演对称性直到
+\begin_inset Formula 
+\[
+\bra{p_{2},s_{2}}\bar{\psi}\left(-z^{-}\right)\gamma^{+}\psi\left(z^{-}\right)\ket{s_{1},p_{1}}=e^{i\left[\chi\left(s_{2}\right)-\chi\left(s_{1}\right)\right]}\bra{p_{1},-s_{1}}\bar{\psi}\left(-z^{-}\right)\gamma^{+}\psi\left(z^{-}\right)\ket{-s_{2},p_{2}}
+\]
+
+\end_inset
+
+另一方面，厄米性给出
+\begin_inset Formula 
+\[
+\bra{p_{2},s_{2}}\bar{\psi}\left(-z^{-}\right)\gamma^{+}\psi\left(z^{-}\right)\ket{s_{1},p_{1}}^{*}=\bra{p_{1},s_{1}}\bar{\psi}\left(z^{-}\right)\gamma^{+}\psi\left(-z^{-}\right)\ket{-s_{2},p_{2}}
+\]
+
+\end_inset
+
+这些变换导致GPDs的如下条件：
+\end_layout
+
+\begin_layout Itemize
+自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+F^{q}\left(x,\eta,\Delta^{2}\right)=F^{q}\left(x,-\eta,\Delta^{2}\right)
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $F=H,\tilde{H},E,\tilde{E},H_{T},\tilde{H}_{T},E_{T}$
+\end_inset
+
+和
+\begin_inset Formula 
+\[
+\tilde{E}_{T}^{q}\left(x,\eta,\Delta^{2}\right)=-\tilde{E}_{T}^{q}\left(x,-\eta,\Delta^{2}\right)
+\]
 
 \end_inset
 
