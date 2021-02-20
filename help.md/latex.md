@@ -2055,7 +2055,7 @@ Latex下 字体大小命令 比较
 + `mathbb`：blackboard bold,黑板粗体
 + `mathcal`：calligraphy（美术字），还有普通的`cal`
 + `mathrm`：math roman
-+ `mathbf`：math boldface
++ `mathbf`：math 粗体字，还有一个`boldsymbol`，在`amsbsy`中，可以打出小写字母的粗体.
 + `\mathbbm`: `\usepackage{bbm}`，黑板粗体字母，`\mathbbm{1}`
 
 花体`\mathcal`：`L,F,D,N`

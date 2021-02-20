@@ -7051,6 +7051,344 @@ peskin page134，求迹公式：
  （电荷共轭）证明。
 \end_layout
 
+\begin_layout Section
+洛伦兹群
+\end_layout
+
+\begin_layout Subsection
+生成元
+\end_layout
+
+\begin_layout Standard
+洛伦兹群生成员的对易关系为：
+\begin_inset Formula 
+\begin{align*}
+[J,J]\times[\mu\nu,\rho\sigma] & =i*[g,J]\times([\mu\sigma,\nu\rho]+[\nu\rho,\mu\sigma]-[\mu\rho,\nu\sigma]-[\nu\sigma,\mu\rho])\\{}
+[J,J]\times[12,34] & =i*[g,J]\backslash times([14,23]+[23,14]-[13,24]-[24,13])\\{}
+[J,J]\times[12,34] & =-i*[g,J]\times([13,24]+[24,13]-[14,23]-[23,14])
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+S_{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]
+\]
+
+\end_inset
+
+使用 Clifford 代数，很容易验证，矩阵
+\begin_inset Formula $S_{\mu\nu}$
+\end_inset
+
+满足洛伦兹群的对易关系，即它们是洛伦兹群的生成元。
+\end_layout
+
+\begin_layout Standard
+此代数在任何维度都成立，with Lorentz or Euclidean 度规。特别地，在三维空间中它应该也成立。实际上，我们可以简单地写出
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma^{j}\equiv i\sigma^{j}(\text{Pauli sigma matrices})
+\]
+
+\end_inset
+
+则
+\begin_inset Formula 
+\[
+\left\{ \gamma^{i},\gamma^{j}\right\} =-2\delta^{ij}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $i$
+\end_inset
+
+因子完全是习惯约定。则洛伦兹群的表示矩阵是
+\begin_inset Formula 
+\[
+S^{ij}=\frac{1}{2}\varepsilon^{ijk}\sigma^{k}
+\]
+
+\end_inset
+
+我们认出，这是转动群的二维表示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵和
+\begin_inset Formula $S^{\rho\sigma}$
+\end_inset
+
+的对易关系：
+\begin_inset Formula 
+\[
+\left[\gamma^{\mu},S^{\rho\sigma}\right]=\left(\mathcal{J}^{\rho\sigma}\right)_{\phantom{\mu}\nu}^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+或者等价地，
+\begin_inset Formula 
+\[
+\left(1+\frac{i}{2}\omega_{\rho\sigma}S^{\rho\sigma}\right)\gamma^{\mu}\left(1-\frac{i}{2}\omega_{\rho\sigma}S^{\rho\sigma}\right)=\left(1-\frac{i}{2}\omega_{\rho\sigma}\mathcal{J}^{\rho\sigma}\right)_{\phantom{\mu}\nu}^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+有限形式
+\begin_inset Formula 
+\[
+\Lambda_{\frac{1}{2}}^{-1}\gamma^{\mu}\Lambda_{\frac{1}{2}}=\Lambda_{\phantom{\mu}\nu}^{\mu}\gamma^{\nu}
+\]
+
+\end_inset
+
+也就是说，
+\begin_inset Formula $\left\{ \gamma^{\mu}\right\} $
+\end_inset
+
+可以看成左边按照
+\begin_inset Formula $\Lambda_{\frac{1}{2}}^{-1}$
+\end_inset
+
+变，右边按照
+\begin_inset Formula $\Lambda_{\frac{1}{2}}$
+\end_inset
+
+变的矢量。其中
+\begin_inset Formula 
+\[
+\Lambda_{\frac{1}{2}}=\exp\left(-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+定义
+\begin_inset Formula $\bar{\psi}=\psi^{\dagger}\gamma^{0}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\bar{\psi} & \to\psi^{\dagger}\left(1+\frac{i}{2}\omega_{\mu\nu}\left(S^{\mu\nu}\right)^{\dagger}\right)\gamma^{0}\\
+\bar{\psi} & \to\bar{\psi}\Lambda_{\frac{1}{2}}^{-1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中考虑了
+\begin_inset Formula $S^{0\mu\dagger}=-S^{0\mu\dagger},S^{ij\dagger}=S^{ij}$
+\end_inset
+
+。含有
+\begin_inset Formula $0$
+\end_inset
+
+分量的分量是反厄米的，
+\begin_inset Formula $ij$
+\end_inset
+
+分量是厄米的。也就是boost生成元是反厄米的，导致
+\begin_inset Formula $\Lambda_{\frac{1}{2}}$
+\end_inset
+
+是非幺正的。由于
+\begin_inset Formula $\sigma^{\mu\nu}=\frac{i}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]$
+\end_inset
+
+与
+\begin_inset Formula $S^{\mu\nu}$
+\end_inset
+
+只差了
+\begin_inset Formula $2$
+\end_inset
+
+，所以这个性质对
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+也成立。
+\end_layout
+
+\begin_layout Subsection
+转动和平移
+\end_layout
+
+\begin_layout Standard
+定义转动和平移生成元分别为
+\begin_inset Formula 
+\[
+L^{i}=\frac{1}{2}\epsilon^{ijk}J^{jk},\quad K^{i}=J^{0i}
+\]
+
+\end_inset
+
+无限小形式的洛伦兹变换可以写成
+\begin_inset Formula 
+\[
+\Phi\to\left(1-i\boldsymbol{\theta\cdot L}-i\boldsymbol{\beta\cdot K}\right)\Phi
+\]
+
+\end_inset
+
+这些算符的组合
+\begin_inset Formula 
+\begin{align*}
+ & \boldsymbol{J_{+}}=\frac{1}{2}\left(\boldsymbol{L}+i\boldsymbol{K}\right),\quad\boldsymbol{J_{-}}=\frac{1}{2}\left(\boldsymbol{L}-i\boldsymbol{K}\right)\\
+ & \boldsymbol{L}=\boldsymbol{J_{+}}+\boldsymbol{J_{-}},\quad\boldsymbol{K}=-i\left(\boldsymbol{J_{+}}-\boldsymbol{J_{-}}\right)
+\end{align*}
+
+\end_inset
+
+彼此对易，并且分别满足角动量生成元的对易关系。
+\begin_inset Formula 
+\[
+\Phi\to\left[1-i\boldsymbol{\theta}\cdot\left(\boldsymbol{J_{+}}+\boldsymbol{J_{-}}\right)-\boldsymbol{\beta}\cdot\left(\boldsymbol{J_{+}}-\boldsymbol{J_{-}}\right)\right]\Phi
+\]
+
+\end_inset
+
+可以看出，平移和转动的部分差了个
+\begin_inset Formula $i$
+\end_inset
+
+，这样两个矢量内积会差个
+\begin_inset Formula $i^{2}=-1$
+\end_inset
+
+，这是闵可夫斯基度规的体现。
+\end_layout
+
+\begin_layout Standard
+洛伦兹群的有限维表示由一对数字
+\begin_inset Formula $\left(j_{+},j_{-}\right)$
+\end_inset
+
+描述，它们是整数或者半整数，对应于两个转动群。对于自旋–
+\begin_inset Formula $1/2$
+\end_inset
+
+表示，
+\begin_inset Formula $\boldsymbol{J}=\boldsymbol{\sigma}/2$
+\end_inset
+
+。把狄拉克旋量用Weyl旋量表示
+\begin_inset Formula 
+\[
+\psi=\left(\begin{array}{c}
+\psi_{L}\\
+\psi_{R}
+\end{array}\right),
+\]
+
+\end_inset
+
+Weyl 旋量的变换规则是
+\begin_inset Formula 
+\begin{align*}
+ & \psi_{L}\to\left(1-i\boldsymbol{\theta}\cdot\frac{\boldsymbol{\sigma}}{2}-\boldsymbol{\beta}\cdot\frac{\boldsymbol{\sigma}}{2}\right)\psi_{L}\\
+ & \psi_{R}\to\left(1-i\boldsymbol{\theta}\cdot\frac{\boldsymbol{\sigma}}{2}+\boldsymbol{\beta}\cdot\frac{\boldsymbol{\sigma}}{2}\right)\psi_{R}
+\end{align*}
+
+\end_inset
+
+这两个变换规则可以通过复共轭联系起来，使用等式
+\begin_inset Formula 
+\[
+\sigma^{2}\boldsymbol{\sigma}^{*}\sigma^{2}=-\boldsymbol{\sigma}\quad\text{or}\quad\sigma^{2}\boldsymbol{\sigma}^{*}=-\boldsymbol{\sigma}\sigma^{2},
+\]
+
+\end_inset
+
+可以证明
+\begin_inset Formula $\sigma^{2}\psi_{L}^{*}$
+\end_inset
+
+按照右手旋量变换。
+\end_layout
+
+\begin_layout Standard
+上面的
+\begin_inset Formula $\sigma$
+\end_inset
+
+等式也可以写成
+\begin_inset Formula 
+\[
+\sigma^{2}\boldsymbol{\sigma}^{T}\sigma^{2}=-\boldsymbol{\sigma}\quad\text{or}\quad\sigma^{2}\boldsymbol{\sigma}^{T}=-\boldsymbol{\sigma}\sigma^{2},
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\psi_{L}$
+\end_inset
+
+的变换也可以等价地写成
+\begin_inset Formula 
+\[
+\psi_{L}^{\prime}\to\psi_{L}^{\prime}\left(1+i\boldsymbol{\theta}\cdot\frac{\boldsymbol{\sigma}}{2}+\boldsymbol{\beta}\cdot\frac{\boldsymbol{\sigma}}{2}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\psi_{L}^{\prime}=\psi_{L}^{T}\sigma^{2}$
+\end_inset
+
+。所以也可以把
+\begin_inset Formula $\left(\frac{1}{2},\frac{1}{2}\right)$
+\end_inset
+
+表示写成一个
+\begin_inset Formula $2\times2$
+\end_inset
+
+矩阵
+\begin_inset Formula 
+\begin{align*}
+ & A=\psi_{R}\psi_{L}^{\prime}=\psi_{R}\left(\psi_{L}^{T}\sigma^{2}\right)\\
+ & A\to\left(1-i\boldsymbol{\theta}\cdot\frac{\boldsymbol{\sigma}}{2}+\boldsymbol{\beta}\cdot\frac{\boldsymbol{\sigma}}{2}\right)A\left(1+i\boldsymbol{\theta}\cdot\frac{\boldsymbol{\sigma}}{2}+\boldsymbol{\beta}\cdot\frac{\boldsymbol{\sigma}}{2}\right)
+\end{align*}
+
+\end_inset
+
+如果把这个矩阵参数化成
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+V^{0}+V^{3} & V^{1}-iV^{2}\\
+V^{1}+iV^{2} & V^{0}-V^{3}
+\end{array}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula $V^{\mu}$
+\end_inset
+
+将按照矢量变换。
+\end_layout
+
 \begin_layout Standard
 EOF
 \end_layout
