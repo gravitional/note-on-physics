@@ -10122,7 +10122,7 @@ noprefix "false"
 \begin_inset Formula $\text{质子}\to\text{重子}+\text{介子}$
 \end_inset
 
- 分裂函数，以及重子和介子的 PDFs，流耦合在上面。在下面的章节中，使用计算分裂函数时同样的 Chiral 
+ 分裂函数，以及重子和介子的 PDFs。在下面的章节中，使用计算分裂函数时同样的 Chiral 
 \begin_inset Formula $\text{SU}\left(3\right)$
 \end_inset
 
@@ -10130,11 +10130,11 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-在有效理论中，夸克算符匹配到强子算符的和，强子算符的矩阵元由分裂函数的
+在有效理论中，夸克算符匹配到一系列强子算符的和，而强子算符的矩阵元由分裂函数的
 \begin_inset Formula $n$
 \end_inset
 
-阶 Mellin 矩给出。如
+阶 Mellin 矩给出，系数由强子中PDFs的矩给出。如
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.6"
@@ -10170,7 +10170,7 @@ noprefix "false"
 \begin_inset Formula $\mathcal{O}_{q}^{\mu_{1}\cdots\mu_{n}}$
 \end_inset
 
-，所有按照矢量变换的，可能的八重态和十重态重子中间态构成的表达式为，（这里的矢量/轴矢量指的是在宇称变换下的性质，在宇称变换下，
+，可能的八重态和十重态重子中间态构成的矢量算符为，（这里的矢量/轴矢量指的是在宇称变换下的性质，在宇称变换下，
 \begin_inset Formula $u\leftrightarrow u^{\dagger}$
 \end_inset
 
@@ -10192,7 +10192,11 @@ noprefix "false"
 \begin_inset Formula $\left\{ \mu_{1}\cdots\mu_{n}\right\} $
 \end_inset
 
-对称，“Trace”表示对味道空间求迹。
+对称，
+\begin_inset Formula $\tr$
+\end_inset
+
+表示对味道空间求迹。
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:yu_4.13"
@@ -10289,7 +10293,7 @@ where
 \begin_inset Formula $\left\{ \bar{\theta}^{\left(n\right)},\bar{\rho}^{\left(n\right)}\right\} $
 \end_inset
 
-分别联系到十重态重子的自旋平均和自旋依赖的矩。
+分别联系到十重态重子的自旋无关和自旋依赖的矩。
 \begin_inset Formula $\bar{\omega}^{\left(n\right)}$
 \end_inset
 
@@ -14775,6 +14779,79 @@ noprefix "false"
 \end_inset
 
 阶Mellin矩之间的关系，下一节我们利用这些关系是推导出各顶角的夸克分布函数。
+\end_layout
+
+\begin_layout Subsection
+自旋独立/自旋依赖
+\end_layout
+
+\begin_layout Standard
+对于狄拉克旋量，在狄拉克表象下，用直乘构建密度矩阵，
+\begin_inset Formula 
+\[
+u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(\slashed{p}+m\right)\left(1+\gamma_{5}\frac{\slashed{s}}{m}\right)
+\]
+
+\end_inset
+
+其中定义了四维 spin-vector
+\begin_inset Formula 
+\[
+s^{\mu}=2m\left(\begin{array}{cc}
+\frac{\left(\vec{p}\cdot\vec{s}\right)}{m}, & \vec{s}+\frac{\vec{p}\left(\vec{p}\cdot\vec{s}\right)}{m\left(E_{p}+m\right)}\end{array}\right),\quad s^{2}=-m^{2}
+\]
+
+\end_inset
+
+静止系下
+\begin_inset Formula $s^{\mu}=2m(0,\vec{s})$
+\end_inset
+
+,
+\begin_inset Formula $s^{2}=4m^{2}\left(-\vec{s}\cdot\vec{s}\right)=-m^{2}$
+\end_inset
+
+，说明
+\begin_inset Formula $\vec{s}^{2}=\frac{1}{4}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+它可以由三维的自旋矢量
+\begin_inset Formula $\vec{s}$
+\end_inset
+
+做一个沿着
+\begin_inset Formula $\vec{p}$
+\end_inset
+
+的平移得到（其实是反方向平移，也就是选择速度为
+\begin_inset Formula $-v$
+\end_inset
+
+的坐标系，等效于
+\begin_inset Formula $\vec{s}$
+\end_inset
+
+有了
+\begin_inset Formula $\vec{p}$
+\end_inset
+
+方向的分量）。这两个关系都是对于general 自旋状态成立的。利用密度矩阵，我们发现，
+\begin_inset Formula 
+\[
+\bar{u}\left(p\right)\gamma^{\mu}u\left(p\right)=2p^{\mu},\quad\bar{u}\left(p\right)\gamma^{\mu}\gamma^{5}u\left(p\right)=2s^{\mu}
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula $\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+的结果和自旋有关。
 \end_layout
 
 \begin_layout Section

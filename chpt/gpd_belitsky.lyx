@@ -325,14 +325,26 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-对于一个纯态，密度矩阵
+量子力学系统由它的波函数
+\begin_inset Formula $\psi$
+\end_inset
+
+决定。但是大多数实验观测量只和
+\begin_inset Formula $\abs{\psi}$
+\end_inset
+
+有关。如果知道了密度矩阵
+\begin_inset Formula $\varrho$
+\end_inset
+
+，就能知道波函数的相位信息。对于一个纯态，密度矩阵
 \begin_inset Formula $\rho$
 \end_inset
 
 定义为，
 \begin_inset Formula 
 \[
-\rho\left(\vec{r}_{1},\vec{r}_{2}\right)=\psi^{\ast}\left(\vec{r}_{1}\right)\psi\left(\vec{r}_{2}\right)
+\varrho\left(\vec{r}_{1},\vec{r}_{2}\right)=\psi^{\ast}\left(\vec{r}_{1}\right)\psi\left(\vec{r}_{2}\right)
 \]
 
 \end_inset
@@ -345,7 +357,44 @@ literal "true"
 \end_layout
 
 \begin_layout Subsection
-补充
+原子的形状因子和动量密度
+\end_layout
+
+\begin_layout Standard
+对于量子力学系统，常见的物理可观测量有形状因子和动量密度。
+\end_layout
+
+\begin_layout Standard
+物质或电荷的空间分布可以通过电子，光子，中子的弹性散射探测。形状因子依赖于动量转移
+\begin_inset Formula $\Delta$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\rho\left(\boldsymbol{r}\right)=\int\dif^{3}\boldsymbol{\Delta}e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}/\hbar}F\left(\boldsymbol{\Delta}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho\left(\boldsymbol{r}\right)=\abs{\psi\left(\boldsymbol{r}\right)}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+另一种研究量子系统性质的方法是，测量在给定动量上的组分数目，即动量分布，通过 knock–out 散射。动量密度使用动量空间波函数表示
+\begin_inset Formula $n\left(\boldsymbol{p}\right)=\abs{\psi\left(\boldsymbol{p}\right)}^{2}$
+\end_inset
+
+。一个非相对论量子系统的量是 超流氦,superfluid helium。在中子散射实验中，测量穿过样品helium 的中子束流的角度和能量分布，而不测量经过散
+射的liquid helium 的状态。另一个例子是原子核中的核子分布，通过准弹性电子散射测量。
 \end_layout
 
 \begin_layout Standard
@@ -360,8 +409,118 @@ p & =\frac{\partial L}{\partial\dot{q}}
 
 \end_layout
 
+\begin_layout Subsection
+Wigner 分布
+\end_layout
+
+\begin_layout Standard
+不管是在坐标还是动量空间，上面提到的探测方法只能测量密度矩阵的对角元，而不能测量非对角元，所以缺乏波函数的相位信息。
+\end_layout
+
+\begin_layout Standard
+密度矩阵的一种等价，且在经典上更全面的描述方法是部分傅立叶变换的密度矩阵，被称作 Wigner 准概率分布
+\begin_inset Formula 
+\[
+W\left(\boldsymbol{r},\boldsymbol{p}\right)=\int\frac{\dif^{3}\boldsymbol{R}}{\left(2\pi\hbar\right)^{3}}e^{-i\boldsymbol{p}\cdot\boldsymbol{R}/\hbar}\psi^{*}\left(\boldsymbol{r}-\frac{1}{2}\boldsymbol{R}\right)\psi\left(\boldsymbol{r}+\frac{1}{2}\boldsymbol{R}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\boldsymbol{r}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{p}$
+\end_inset
+
+是
+\begin_inset Formula $c$
+\end_inset
+
+–数，而不是算符。由于它涉及不同空间点的波函数，所以显然包含了它们相位有关的信息，就像密度矩阵那样。它有一些重要性质：
+\end_layout
+
+\begin_layout Itemize
+Wigner分布比密度矩阵更好，因为它是实数：
+\begin_inset Formula 
+\[
+W^{*}\left(\boldsymbol{r},\boldsymbol{p}\right)=W\left(\boldsymbol{r},\boldsymbol{p}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+它有确定的经典极限，因此可以认为是直观经典概念向量子物理的推广。在经典物理中，一个粒子通过位置
+\begin_inset Formula $\boldsymbol{r}$
+\end_inset
+
+和动量
+\begin_inset Formula $\boldsymbol{p}$
+\end_inset
+
+确定。在经典全同粒子组成的气体中，单粒子性质通过相空间分布
+\begin_inset Formula $f\left(\boldsymbol{r},\boldsymbol{p}\right)$
+\end_inset
+
+描述，表示在相空间点
+\begin_inset Formula $\left(\boldsymbol{r},\boldsymbol{p}\right)$
+\end_inset
+
+的粒子密度。分布的时间依赖由波尔兹曼方程决定（如果粒子间没有相互作用，则通过刘维尔方程）。在量子力学中，由于位置和动量算符不对易，原则上无法同时讨论位置和动量。
+\begin_inset Newline newline
+\end_inset
+
+Wigner分布在一定程度上，可以看作是量子粒子的位置和动量的同时分布。Wiger 分布并不是真正的同时分布，它有“负概率”补丁，由于量子相位的干涉。量子力学不
+确定原理限制了Wigner 分布的精确度。所以，不确定原理导致对系统的模糊描述，相比于单独动量或者坐标的精确描述。在经典极限下，
+\begin_inset Formula $W\left(\boldsymbol{r},\boldsymbol{p}\right)$
+\end_inset
+
+回到通常的相空间分布，因此变成半正定的。Wigner 函数是实数，并包含了干涉的完整信息。
+\end_layout
+
+\begin_layout Itemize
+可以计算任何动力学量
+\begin_inset Formula $\hat{\mathcal{O}}\left(\hat{\boldsymbol{r}},\hat{\boldsymbol{p}}\right)$
+\end_inset
+
+，通过对 Wigner 分布进行平均（如同它是经典分布），with 对算符
+\begin_inset Formula $\mathcal{O}\left(\boldsymbol{r},\boldsymbol{p}\right)$
+\end_inset
+
+按照 Weyl 关联规则排序，
+\begin_inset Formula 
+\[
+\langle\hat{\mathcal{O}}\rangle=\int\dif^{3}\boldsymbol{p}\dif^{3}\boldsymbol{r}W\left(\boldsymbol{r},\boldsymbol{p}\right)\mathcal{O}_{\text{Weyl}}\left(\boldsymbol{r},\boldsymbol{p}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Wiger 函数的边缘投影就是熟悉的位置和动量概率密度，
+\begin_inset Formula 
+\[
+\int\dif^{3}\boldsymbol{p}W\left(\boldsymbol{r},\boldsymbol{p}\right)=\rho\left(\boldsymbol{r}\right),\quad\int\frac{\dif^{3}\boldsymbol{r}}{\left(2\pi\hbar\right)^{3}}W\left(\boldsymbol{r},\boldsymbol{p}\right)=n\left(\boldsymbol{p}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 核子可观测量
+\end_layout
+
+\begin_layout Standard
+量子力学中Wigner 分布的两个边缘投影，电荷分布和动量密度，在QCD中都有对应。虽然相对论性质和测量设置，使得解释变得复杂，但它们和非相对论情形的表亲具有类
+似的概率诠释。特别地，在探究质子或中子的内部结构的时候，主要使用两种方法：（i）弹性反应，测量形状因子，and （ii）非弹性散射饰演，测量核子组分的动量分布。
 \end_layout
 
 \begin_layout Subsection
@@ -1768,7 +1927,7 @@ b=\left(M_{H_{2}}+M_{H_{1}}\right)\frac{h^{+}-e^{+}}{p^{+}},\quad\tilde{b}=-\lef
 \end_layout
 
 \begin_layout Standard
-从时空反演对称性直到
+从时空反演对称性知道
 \begin_inset Formula 
 \[
 \bra{p_{2},s_{2}}\bar{\psi}\left(-z^{-}\right)\gamma^{+}\psi\left(z^{-}\right)\ket{s_{1},p_{1}}=e^{i\left[\chi\left(s_{2}\right)-\chi\left(s_{1}\right)\right]}\bra{p_{1},-s_{1}}\bar{\psi}\left(-z^{-}\right)\gamma^{+}\psi\left(z^{-}\right)\ket{-s_{2},p_{2}}
@@ -2093,16 +2252,13 @@ AB^{\left\{ \mu,\nu\right\} } & 0\\
 \end_inset
 
 。
-\end_layout
+\begin_inset Formula 
+\[
+(p\cdot\sigma)(p\cdot\bar{\sigma})=p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}=\frac{1}{2}\left(p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}+p^{\nu}\sigma_{\nu}p^{\mu}\bar{\sigma}_{\mu}\right)=p^{\mu}p^{\nu}g_{\mu\nu}=p^{2}.
+\]
 
-\begin_layout Standard
-\begin_inset Formula $(p\cdot\sigma)(p\cdot\bar{\sigma})=p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}=\frac{1}{2}\left(p^{\mu}\sigma_{\mu}p^{\nu}\bar{\sigma}_{\nu}+p^{\nu}\sigma_{\nu}p^{\mu}\bar{\sigma}_{\mu}\right)=p^{\mu}p^{\nu}g_{\mu\nu}=p^{2}$
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
 也就是说，由于指标总可以对称化，对于
 \begin_inset Formula $(p\cdot A)(p\cdot B)$
 \end_inset
@@ -2111,11 +2267,7 @@ AB^{\left\{ \mu,\nu\right\} } & 0\\
 \begin_inset Formula $A=B$
 \end_inset
 
-，指标对称化将进化成算子对称化。
-\end_layout
-
-\begin_layout Standard
-如果
+，指标对称化将进化成算子对称化。如果
 \begin_inset Formula $A\neq B$
 \end_inset
 
@@ -2197,9 +2349,6 @@ Dirac 表示
 
 \begin_layout Standard
 Dirac 表示可有 Wyel 表示做一个 幺正变换得到
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \gamma_{D}=\mathcal{U}^{\dagger}\gamma_{w}\mathcal{U},\quad\mathcal{U}=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
@@ -2469,10 +2618,6 @@ u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(\slashed{p}+m\right)\left(1+\gamma_{5}\fr
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 其中定义了四维 spin-vector
 \begin_inset Formula 
 \[
@@ -2482,10 +2627,6 @@ s^{\mu}=2m\left(\begin{array}{cc}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 静止系下
 \begin_inset Formula $s^{\mu}=2m(0,\vec{s})$
 \end_inset
@@ -2502,7 +2643,7 @@ s^{\mu}=2m\left(\begin{array}{cc}
 \end_layout
 
 \begin_layout Standard
-它可以由 spin three-vector 
+它可以由三维的自旋矢量
 \begin_inset Formula $\vec{s}$
 \end_inset
 
@@ -2522,14 +2663,10 @@ s^{\mu}=2m\left(\begin{array}{cc}
 \begin_inset Formula $\vec{p}$
 \end_inset
 
-方向的分量）。
-\end_layout
-
-\begin_layout Standard
-这两个关系都是对于general 自旋状态成立的。利用密度矩阵，我们发现
+方向的分量）。这两个关系都是对于general 自旋状态成立的。利用密度矩阵，我们发现
 \begin_inset Formula 
 \[
-\bar{u}(p)\gamma^{\mu}u(p)=2p^{\mu},\quad\bar{u}(p)\gamma^{\mu}\gamma^{5}u(p)=2s^{\mu}
+\bar{u}\left(p\right)\gamma^{\mu}u\left(p\right)=2p^{\mu},\quad\bar{u}\left(p\right)\gamma^{\mu}\gamma^{5}u\left(p\right)=2s^{\mu}
 \]
 
 \end_inset
@@ -2553,10 +2690,6 @@ lorentz 变换补充
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 一个四动量
 \begin_inset Formula $\left(\begin{array}{c}
 m\\
@@ -2592,9 +2725,9 @@ p=\gamma mv
 \end_inset
 
 。
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 设
 \begin_inset Formula $\vec{s}$
 \end_inset
@@ -2622,9 +2755,6 @@ boost，
 \end_inset
 
 ，得到:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
 (0,\vec{s}) & \to\left(\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\cdot\frac{\lvert\vec{p}\rvert}{m},\,\frac{E_{p}}{m}\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}+\vec{s}-\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}\right)\\
@@ -2881,11 +3011,7 @@ p_{1,2}^{\mu}=mv^{\mu}+k^{\mu}\pm\Delta^{\mu}/2
 \begin_inset Formula $\Delta^{\mu}=(0,\vec{\Delta})$
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
-其中四速度
+。其中四速度
 \begin_inset Formula $v^{\mu}=(1,\vec{0})$
 \end_inset
 
@@ -2907,7 +3033,7 @@ k^{\mu}=\left(m\sqrt{1-\Delta^{2}/(4m)^{2}}-1\text{，\vec{0}}\right)
 进行投影，可以得到重子旋量（依赖于速度的）中的大分量
 \begin_inset Formula 
 \[
-u_{v}(p_{i})=\frac{\left(1+\slashed{v}\right)u(p_{i})}{\sqrt{2+2\left(v\cdot p_{i}\right)/m}}
+u_{v}(p_{i})=\frac{\left(1+\slashed{v}\right)u\left(p_{i}\right)}{\sqrt{2+2\left(v\cdot p_{i}\right)/m}}
 \]
 
 \end_inset
@@ -2969,10 +3095,17 @@ u_{v}(p_{i})=\frac{\left(1+\slashed{v}\right)u(p_{i})}{\sqrt{2+2\left(v\cdot p_{
 \end_inset
 
 ,其中
-\begin_inset Formula $\vec{\Sigma}=\text{diag}\left(\vec{\sigma},\vec{\sigma}\right)$
+\begin_inset Formula 
+\[
+\vec{\Sigma}=\left(\begin{array}{cc}
+\vec{\sigma} & 0\\
+0 & \vec{\sigma}
+\end{array}\right).
+\]
+
 \end_inset
 
-。
+
 \end_layout
 
 \begin_layout Section
