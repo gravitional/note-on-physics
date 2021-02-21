@@ -508,6 +508,10 @@ bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
 重启输入法
 
 `ibus restart`: Restart ibus-daemon.
+ibus-daemon -drx
+`-d --daemonize`:作为后台程序运行
+`-r, --replace`: 如果有旧的`ibus-daemon`在运行，就替换它。
+`-x, --xim`: 运行`XIM`服务器
 
 ### gedit默认编码设置为UTF-8编码
 

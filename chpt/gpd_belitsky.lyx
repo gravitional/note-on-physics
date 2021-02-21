@@ -519,8 +519,107 @@ Wiger 函数的边缘投影就是熟悉的位置和动量概率密度，
 \end_layout
 
 \begin_layout Standard
-量子力学中Wigner 分布的两个边缘投影，电荷分布和动量密度，在QCD中都有对应。虽然相对论性质和测量设置，使得解释变得复杂，但它们和非相对论情形的表亲具有类
-似的概率诠释。特别地，在探究质子或中子的内部结构的时候，主要使用两种方法：（i）弹性反应，测量形状因子，and （ii）非弹性散射饰演，测量核子组分的动量分布。
+量子力学中Wigner分布的两个边缘投影，电荷分布和动量密度，在QCD中都有对应。虽然相对论性质和测量设置，使得解释变得复杂，但它们和非相对论情形的表亲具有类似
+的概率诠释。特别地，在探究质子或中子的内部结构的时候，主要使用两种方法：（i）弹性反应，测量形状因子，and （ii）非弹性散射饰演，测量核子组分的动量分布。
+\end_layout
+
+\begin_layout Standard
+两种方法各有优劣。形状因子不给出关于组分速度的信息，而动量分布不会给出关于空间位置的信息。从量子力学上说，相空间结构完全被冲洗掉了。如同之前章节讲的，对微观状态
+的描述，需要考虑动量和位置空间分布的关联：粒子所处的位置，以及同时刻它的速度。显然，量子力学解释不仅会受到我们前面提到的相对论效应的影响，而且还会受到固有干涉现
+象的影响。
+\end_layout
+
+\begin_layout Subsection
+核子电磁形状因子
+\end_layout
+
+\begin_layout Standard
+在本小节中，我们将重新审视质子电磁形状因数的解释，以了解与此解释相关的内在ambiguities。 电磁形状因子的定义是，夸克电磁流在两个核子态之间的矩阵元，两
+个核子态的四动量不同。
+\begin_inset Formula 
+\[
+j^{\mu}\left(x\right)=\sum_{q=u,d,\cdots}Q_{q}\bar{\psi}_{q}\left(x\right)\gamma^{\mu}\psi_{q}\left(x\right)
+\]
+
+\end_inset
+
+其中夸克电荷为
+\begin_inset Formula 
+\[
+Q_{u}=Q_{c}=\frac{2}{3},\quad Q_{d}=Q_{s}=-\frac{1}{3}.
+\]
+
+\end_inset
+
+由于核子是自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+的粒子，矩阵元参数化成两个形状因子
+\begin_inset Formula 
+\[
+\bra{p_{2}}j^{\mu}\left(0\right)\ket{p_{1}}=\bar{u}\left(p_{2}\right)\left\{ \gamma^{\mu}F_{1}\left(\Delta^{2}\right)+\frac{i\sigma^{\nu\mu}\Delta_{\nu}}{2M_{N}}F_{2}\left(\Delta^{2}\right)\right\} u\left(p_{1}\right)
+\]
+
+\end_inset
+
+成为狄拉克 
+\begin_inset Formula $F_{1}$
+\end_inset
+
+ 和泡利
+\begin_inset Formula $F_{2}$
+\end_inset
+
+形状因子。它们依赖于
+\begin_inset Formula $\text{动量转移}^{2}$
+\end_inset
+
+ 
+\begin_inset Formula $\Delta=p_{1}-p_{2}$
+\end_inset
+
+。本文对狄拉克矩阵和核子旋量
+\begin_inset Formula $u\left(p\right)$
+\end_inset
+
+的约定在 Appendix A 中。
+\end_layout
+
+\begin_layout Standard
+在零动量转移时，形状因子归一化到核子的静态性质。通过研究zero–recoil 
+\begin_inset Formula $p=p_{1}\to p_{2}$
+\end_inset
+
+。极限的矩阵元可以推测它们的值。引入时间
+\begin_inset Formula $t=0$
+\end_inset
+
+时的电荷和磁矩算符（它们不随时间改变）
+\begin_inset Formula 
+\[
+Q\equiv\int\dif^{3}\boldsymbol{r}j^{0}\left(\boldsymbol{r}\right),\quad\boldsymbol{\mu}\equiv\int\dif^{3}\left[\boldsymbol{r}\times\boldsymbol{j}\left(\boldsymbol{r}\right)\right]
+\]
+
+\end_inset
+
+归一化后
+\begin_inset Formula 
+\[
+\frac{\bra{p}Q\ket{p}}{\langle p|p\rangle}=F_{1}\left(0\right),\quad\frac{\bra{p}\boldsymbol{\mu}\ket{p}}{\langle p|p\rangle}=\frac{\boldsymbol{s}}{M_{N}}\left(F_{1}\left(0\right)+F_{2}\left(0\right)\right)
+\]
+
+\end_inset
+
+其中自旋三矢量
+\begin_inset Formula $\boldsymbol{s}=\frac{1}{2}w^{*}\boldsymbol{\sigma}w$
+\end_inset
+
+，
+\begin_inset Formula $w$
+\end_inset
+
+是Weyl旋量。
 \end_layout
 
 \begin_layout Subsection
