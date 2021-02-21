@@ -505,10 +505,25 @@ bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
 
 ### 输入法
 
+添加删除输入法在系统设置目录, 直接搜索`settings-Region&Language--input sources`，添加输入法是按照语言进行的，先选择语言，然后可以选择具体的输入法。
+如`Intelligent Pinyin`
+
+***
+切换输入法可以使用如下命令：
+
+`im-config -s fcitx`, 
+`-s`:    无动作； 对可能发生的事件进行模拟,但实际上不更改配置文件。
+
+如果要查看当前可用的输入法可以使用 `im-config -l` ，更多查看 `man im-config`.
+
+`ibus-setup`: 图形界面程序，用于设置`ibus`输入法框架
+
+***
 重启输入法
 
-`ibus restart`: Restart ibus-daemon.
-ibus-daemon -drx
+`ibus restart`: 重启 ibus 守护进程。
+
+`ibus-daemon -drx`
 `-d --daemonize`:作为后台程序运行
 `-r, --replace`: 如果有旧的`ibus-daemon`在运行，就替换它。
 `-x, --xim`: 运行`XIM`服务器

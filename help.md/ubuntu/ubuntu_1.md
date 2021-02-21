@@ -1489,6 +1489,18 @@ inode的特殊作用
 `/usr/bin/env`在修改后的环境中运行`bash`之类的程序。 它使您的`bash`脚本具有可移植性。 
 `#!/usr/bin/env bash`的优点是，它将使用运行用户的`$PATH`变量中最先出现的`bash`可执行文件。
 
+### 图形界面
+
+[Linux图形界面知识](https://blog.csdn.net/qq_16093937/article/details/83269106)
+
+`X`是协议，不是具体的某个软件。`XFree86`只是实现`X`协议的一个免费X服务器软件
+`X11R6` 是 X Protocol version 11 Release 6,(`X`协议第`11`版第`6`次发行)的意思
+窗口管理器的作用是最大化，最小化，移动，关闭窗口等.而这些不是`X`服务器来负责完成的.
+
+`KDE` 和`GNOME`是`Linux`里最常用的图形界面操作环境，他们不仅仅是一个窗口管理器那么简单， `KDE`是`K Desktop Environment` 的缩写.
+他不仅是一个窗口管理器，还有很多配套的应用软件和方便使用的桌面环境，比如任务栏，开始菜单，桌面图标等等.
+`GNOME`是`GNU Network Object Model Environment` 的缩写.和`KDE`一样，也是一个功能强大的综合环境.
+
 ## 常用软件
 
 ***
