@@ -828,21 +828,8 @@ sudo fsck.exfat /dev/sdXn
 
 ### 查看文档首行末行
 
-文档尾巴
-
-```bash
-tail -n [+]num
-```
-
-`+num`  从第 num 行开始,
-
-文档开头
-
-```bash
-head -n [-]num
-```
-
-`-num` 不输出最后num行
+文档尾巴, `tail -n, --lines=[+]NUM`, 从第`num`行开始. 
+文档开头, `head -n, --lines=[-]NUM`, 减去最后`num`行.
 
 ### 查看使用的桌面环境
 

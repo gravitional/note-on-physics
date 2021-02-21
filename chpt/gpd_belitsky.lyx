@@ -598,16 +598,16 @@ Q_{u}=Q_{c}=\frac{2}{3},\quad Q_{d}=Q_{s}=-\frac{1}{3}.
 时的电荷和磁矩算符（它们不随时间改变）
 \begin_inset Formula 
 \[
-Q\equiv\int\dif^{3}\boldsymbol{r}j^{0}\left(\boldsymbol{r}\right),\quad\boldsymbol{\mu}\equiv\int\dif^{3}\left[\boldsymbol{r}\times\boldsymbol{j}\left(\boldsymbol{r}\right)\right]
+Q\equiv\int\dif^{3}\boldsymbol{r}j^{0}\left(\boldsymbol{r}\right),\quad\boldsymbol{\mu}\equiv\int\dif^{3}\boldsymbol{r}\left[\boldsymbol{r}\times\boldsymbol{j}\left(\boldsymbol{r}\right)\right]
 \]
 
 \end_inset
 
 归一化后
 \begin_inset Formula 
-\[
-\frac{\bra{p}Q\ket{p}}{\langle p|p\rangle}=F_{1}\left(0\right),\quad\frac{\bra{p}\boldsymbol{\mu}\ket{p}}{\langle p|p\rangle}=\frac{\boldsymbol{s}}{M_{N}}\left(F_{1}\left(0\right)+F_{2}\left(0\right)\right)
-\]
+\begin{equation}
+\frac{\bra{p}Q\ket{p}}{\langle p|p\rangle}=F_{1}\left(0\right),\quad\frac{\bra{p}\boldsymbol{\mu}\ket{p}}{\langle p|p\rangle}=\frac{\boldsymbol{s}}{M_{N}}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]\label{eq:2.18}
+\end{equation}
 
 \end_inset
 
@@ -619,7 +619,57 @@ Q\equiv\int\dif^{3}\boldsymbol{r}j^{0}\left(\boldsymbol{r}\right),\quad\boldsymb
 \begin_inset Formula $w$
 \end_inset
 
-是Weyl旋量。
+是Weyl旋量。（见Appendix A.2）。磁矩关系可以如下证明：引入
+\begin_inset Formula $\boldsymbol{j}\left(\boldsymbol{r}\right)$
+\end_inset
+
+矩阵元的傅立叶变换，并把指数展开到线性项,
+\begin_inset Formula 
+\[
+\int\dif^{3}\boldsymbol{r}e^{-i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}\approx\int\dif^{3}\boldsymbol{r}\left(1-i\boldsymbol{\Delta}\cdot\boldsymbol{r}\right)\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}
+\]
+
+\end_inset
+
+使用恒等式
+\begin_inset Formula $\left(\boldsymbol{r}\cdot\boldsymbol{\Delta}\right)\boldsymbol{j}=\boldsymbol{r}\times\boldsymbol{j}\times\boldsymbol{\Delta}=j\left(r\cdot\Delta\right)-r\left(j\cdot\Delta\right)$
+\end_inset
+
+，以及steady electromagnetic current 的条件
+\begin_inset Formula $\boldsymbol{\nabla}_{r}\cdot\boldsymbol{j}\left(\boldsymbol{r}\right)=0$
+\end_inset
+
+，比较矩阵元和形状因子表示的形式即可得到等式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.18"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+ & \bar{u}\left(p_{2}\right)\gamma^{0}u\left(p_{1}\right)=2m\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\gamma^{k}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}\\
+ & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu0}\Delta_{\mu}}{2m}u\left(p_{1}\right)=-\frac{\vec{\Delta}^{2}}{2m}\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu k}\Delta_{\mu}}{2m}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\bra{p}\int\dif^{3}\boldsymbol{r}\left[\boldsymbol{r}\times\boldsymbol{j}\left(\boldsymbol{r}\right)\right]\ket{p} & =\int\dif^{3}\boldsymbol{r}\,\boldsymbol{r}\times\bar{u}\left(p\right)\left\{ \gamma^{k}F_{1}\left(\Delta^{2}\right)+\frac{i\sigma^{\nu k}\Delta_{\nu}}{2M_{N}}F_{2}\left(\Delta^{2}\right)\right\} u\left(p\right)\\
+ & =2i\int\dif^{3}\boldsymbol{r}\,\boldsymbol{r}\times\left(\boldsymbol{\Delta}\times\boldsymbol{s}\right)\left[F_{1}\left(\Delta^{2}\right)+F_{2}\left(\Delta^{2}\right)\right]\\
+ & =2i\boldsymbol{s}\int\dif^{3}\boldsymbol{r}\left(\boldsymbol{r}\cdot\boldsymbol{\Delta}\right)\left[F_{1}\left(\Delta^{2}\right)+F_{2}\left(\Delta^{2}\right)\right]\\
+ & =\frac{\boldsymbol{s}}{M_{N}}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2704,7 +2754,7 @@ p_{\perp}\equiv p^{x}+ip^{y},\quad\bar{p}_{\perp}\equiv p^{x}-ip^{y}
 总的 Dirac bispinor 被归一化为
 \begin_inset Formula 
 \[
-\bar{u}_{\lambda}(p)u_{\lambda^{\prime}}(p)=2m\delta_{\lambda\lambda^{\prime}}
+\bar{u}_{\lambda}\left(p\right)u_{\lambda^{\prime}}\left(p\right)=2m\delta_{\lambda\lambda^{\prime}}
 \]
 
 \end_inset
@@ -2712,7 +2762,7 @@ p_{\perp}\equiv p^{x}+ip^{y},\quad\bar{p}_{\perp}\equiv p^{x}-ip^{y}
 可以用直乘构建密度矩阵，
 \begin_inset Formula 
 \[
-u(p)\otimes\bar{u}(p)=\frac{1}{2}\left(\slashed{p}+m\right)\left(1+\gamma_{5}\frac{\slashed{s}}{m}\right)
+u\left(p\right)\otimes\bar{u}\left(p\right)=\frac{1}{2}\left(\slashed{p}+m\right)\left(1+\gamma_{5}\frac{\slashed{s}}{m}\right)
 \]
 
 \end_inset
@@ -2955,8 +3005,8 @@ u_{\lambda}(p)=\left(\begin{array}{c}
 所以，偶宇称的 Dirac bilinears 用二分量 Weyl spinors 表示就是
 \begin_inset Formula 
 \begin{align*}
- & \bar{u}(p_{2})\gamma^{0}u(p_{1})=2m\omega_{2}^{\dagger}\omega_{1}, & \bar{u}(p_{2})\gamma^{k}u(p_{1})=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}\\
- & \bar{u}(p_{2})\frac{i\sigma^{\mu0}\Delta_{\mu}}{2m}u(p_{1})=-\frac{\vec{\Delta}^{2}}{2m}\omega_{2}^{\dagger}\omega_{1}, & \bar{u}(p_{2})\frac{i\sigma^{\mu k}\Delta_{\mu}}{2m}u(p_{1})=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}
+ & \bar{u}\left(p_{2}\right)\gamma^{0}u\left(p_{1}\right)=2m\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\gamma^{k}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}\\
+ & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu0}\Delta_{\mu}}{2m}u\left(p_{1}\right)=-\frac{\vec{\Delta}^{2}}{2m}\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu k}\Delta_{\mu}}{2m}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}
 \end{align*}
 
 \end_inset
@@ -2980,8 +3030,8 @@ u_{\lambda}(p)=\left(\begin{array}{c}
 类似地，奇宇称的 Dirac bilinears为：
 \begin_inset Formula 
 \begin{align*}
- & \bar{u}(p_{2})\gamma^{0}\gamma^{5}u(p_{1})=0, & \bar{u}(p_{2})\gamma^{k}\gamma^{5}u(p_{1})=2m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})}\omega_{2}^{\dagger}\sigma^{k}\omega_{1}\\
- & \bar{u}(p_{2})\gamma^{5}u(p_{1})=\omega_{2}^{\dagger}\left(\vec{\sigma}\cdot\vec{\Delta}\right)\omega_{1}, & -\frac{\omega_{2}^{\dagger}\Delta^{k}\left(\vec{\sigma}\cdot\vec{\Delta}\right)\omega_{1}}{2m\left(1+\sqrt{1+\vec{\Delta}^{2}/(4m^{2})}\right)}
+ & \bar{u}\left(p_{2}\right)\gamma^{0}\gamma^{5}u\left(p_{1}\right)=0, & \bar{u}\left(p_{2}\right)\gamma^{k}\gamma^{5}u\left(p_{1}\right)=2m\sqrt{1+\vec{\Delta}^{2}/(4m^{2})}\omega_{2}^{\dagger}\sigma^{k}\omega_{1}\\
+ & \bar{u}\left(p_{2}\right)\gamma^{5}u\left(p_{1}\right)=\omega_{2}^{\dagger}\left(\vec{\sigma}\cdot\vec{\Delta}\right)\omega_{1}, & -\frac{\omega_{2}^{\dagger}\Delta^{k}\left(\vec{\sigma}\cdot\vec{\Delta}\right)\omega_{1}}{2m\left(1+\sqrt{1+\vec{\Delta}^{2}/(4m^{2})}\right)}
 \end{align*}
 
 \end_inset
@@ -2989,7 +3039,7 @@ u_{\lambda}(p)=\left(\begin{array}{c}
 或者简写为，
 \begin_inset Formula 
 \[
-\bar{u}(p_{2})\gamma^{k}\gamma^{5}u(p_{1})=\omega_{2}^{\dagger}\left(2E\sigma^{k}-\frac{\left(\vec{\sigma}\cdot\vec{\Delta}\right)\Delta^{k}}{2\left(m+E\right)}\right)\omega_{1}
+\bar{u}\left(p_{2}\right)\gamma^{k}\gamma^{5}u\left(p_{1}\right)=\omega_{2}^{\dagger}\left(2E\sigma^{k}-\frac{\left(\vec{\sigma}\cdot\vec{\Delta}\right)\Delta^{k}}{2\left(m+E\right)}\right)\omega_{1}
 \]
 
 \end_inset
