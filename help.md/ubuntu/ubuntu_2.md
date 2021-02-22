@@ -1069,9 +1069,7 @@ menuentry 'Example GNU/Linux distribution' --class gnu-linux --id example-gnu-li
 
 ## ibus下定制自己的libpinyin
 
-[ibus下定制自己的libpinyin][]
-
-[ibus下定制自己的libpinyin]: https://blog.csdn.net/godbreak/article/details/9031887
+[ibus下定制自己的libpinyin](https://blog.csdn.net/godbreak/article/details/9031887)
 
 智能拼音输入法从`ibus-pinyin`更名为`ibus-libpinyin`
 
