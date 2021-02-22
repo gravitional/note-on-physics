@@ -130,6 +130,8 @@ mathematica
 ***
 Finder中显示隐藏文件`Cmd+Shift+.`
 
+`mac` 中询问窗口，焦点的移动方式仍然是按下`tab`，但是取消操作需要按下`space`,不管在什么情况下，`enter`都是确定。
+
 ## homebrew 软件安装
 
 [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)
