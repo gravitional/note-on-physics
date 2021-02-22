@@ -981,17 +981,13 @@ It has an example crash report and a method to retrace crashes.
 
 [how to read and use crash reports?]: https://askubuntu.com/questions/346953/how-to-read-and-use-crash-reports
 
-## grub2
+## linux 开机引导 grub2
 
-[grub2详解(翻译和整理官方手册)][]
-[官方手册原文][]
+[grub2详解(翻译和整理官方手册)](https://www.cnblogs.com/f-ck-need-u/archive/2017/06/29/7094693.html#auto_id_37)
+[官方手册原文](https://www.gnu.org/software/grub/manual/html_node/Simple-configuration.html#Simple-configuration)
 
-[grub2详解(翻译和整理官方手册)]: https://www.cnblogs.com/f-ck-need-u/archive/2017/06/29/7094693.html#auto_id_37
-
-[官方手册原文]: https://www.gnu.org/software/grub/manual/html_node/Simple-configuration.html#Simple-configuration
-
-`grub2-mkconfig`是根据`/etc/default/grub`文件来创建配置文件的.
-该文件中定义的是`grub`的全局宏,修改内置的宏可以快速生成`grub`配置文件.实际上在`/etc/grub.d/`目录下还有一些`grub`配置脚本,这些shell脚本读取一些脚本配置文件(如`/etc/default/grub`),根据指定的逻辑生成`grub`配置文件.
+`grub2-mkconfig`是根据`/etc/default/grub`文件来创建配置文件的.该文件中定义的是`grub`的全局宏,修改内置的宏可以快速生成`grub`配置文件.
+实际上在`/etc/grub.d/`目录下还有一些`grub`配置脚本,这些`shell`脚本读取一些脚本配置文件(如`/etc/default/grub`),根据指定的逻辑生成`grub`配置文件.
 若有兴趣,不放读一读`/etc/grub.d/10_linux`文件,它指导了创建`grub.cfg`的细节,例如如何生成启动菜单.
 
 ```bash
@@ -1034,6 +1030,42 @@ menuentry 'Example GNU/Linux distribution' --class gnu-linux --id example-gnu-li
 如果想将此菜单设为默认菜单,则可设置`GRUB_DEFAULT=example-gnu-linux`.
 
 如果`GRUB_DEFAULT`的值设置为`saved`,则表示默认的菜单项是`GRUB_SAVEDEFAULT`或`grub-set-default`所指定的菜单项.
+
+***
+
+### UEFI 系统下的安装
+
+[GRand Unified Bootloader](https://wiki.archlinux.org/index.php/GRUB_(简体中文))
+
+安装
+
+本节假设您正在 `x86_64` 系统上安装 `GRUB`。对于 `IA32` （32 位） `UEFI `系统（不要和 32 位 CPU 相混淆）， 将`x86_64-efi`替换成`i386-efi`。
+首先安装软件包 `grub` 和 `efibootmgr`。其中`GRUB`是启动引导器，`efibootmgr`被 `GRUB` 脚本用来将启动项写入 `NVRAM` 。
+
+然后按照下列步骤安装 `GRUB`：
+
+挂载 `EFI` 系统分区，在本节之后的内容里，把 `esp` 替换成挂载点。
+选择一个启动引导器标识，这里叫做 `new`。这将在 `esp/EFI/` 中创建一个`new`目录来储存 `EFI` 二进制文件，而且这个名字还会在 `UEFI` 启动菜单中表示 `new` 启动项。
+执行下面的命令来将 `GRUB EFI` 应用 `grubx64.efi` 安装到 `esp/EFI/new/`，并将其模块安装到 `/boot/grub/x86_64-efi/`。
+
+```
+# grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=new
+```
+
+上述安装完成后 GRUB 的主目录将位于 `/boot/grub/`。注意上述例子中，grub-install 还将在固件启动管理器中创建一个条目，名叫 `new`。
+
+在配置完成后，记得生成主配置文件。
+
+提示： 如果你使用了 `--removable` 选项，那 `GRUB` 将被安装到 `esp/EFI/BOOT/BOOTX64.EFI` （当使用 `i386-efi` 时是 e`sp/EFI/BOOT/BOOTIA32.EFI`），
+此时即使 `EFI` 变量被重设或者你把这个驱动器接到其他电脑上，你仍可从这个驱动器上启动。
+通常来说，你只要像操作 `BIOS` 设备一样在启动时选择这个驱动器就可以了。
+如果和 `Windows` 一起多系统启动，注意 `Windows` 通常会在那里安装一个 `EFI` 可执行程序，这只是为了重建 `Windows` 的 UEFI 启动项。
+
+注意：
+`--efi-directory` 和 `--bootloader-id` 是 `GRUB UEFI` 特有的。-`-efi-directory` 替代了已经废弃的 `--root-directory`。
+您可能注意到在 `grub-install` 命令中没有一个 `<device_path>` 选项，例如 `/dev/sda`。事实上即使提供了 `<device_path>`，也会被 `GRUB` 安装脚本忽略，因为 `UEFI` 启动加载器不使用 MBR 启动代码或启动扇区。
+确保 `grub-install` 命令是在你想要用 GRUB 引导的那个系统上运行的。也就是说如果你是用安装介质启动进入了安装环境中，你需要在 `chroot` 之后再运行 `grub-install`。
+如果因为某些原因不得不在安装的系统之外运行 `grub-install`，在后面加上 `--boot-directory= `选项来指定挂载 `/boot` 目录的路径，例如 `--boot-directory=/mnt/boot`。
 
 ## ibus下定制自己的libpinyin
 

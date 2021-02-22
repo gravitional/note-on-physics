@@ -105,6 +105,7 @@ Yuppy SC Regular
 + 切换输入为`opt+space`
 + `spotlight`的快捷键为`opt+s`
 + `Show launchpad`的快捷键改成`F12`
++ `显示桌面`为`F11`,在`设置-调度中心`修改.
 + 切换全屏的快捷键为`^+cmd+F`: `Enter Full Screen`, `Exit Full Screen`
 + 锁定屏幕快捷键`^+cmd+Q`
 
@@ -113,9 +114,11 @@ Yuppy SC Regular
 
 + 插入多个光标变成`cmd+option+up`, 可以在`Selection`里面选择鼠标插入的修饰键`alt`or`ctrl`
 + 把`markdown`切换代码环境--`toggle code block`的快捷键设置为`^+k ^+b`
-+ 把补全提示--`triggerSugges`的快捷键设置为`^+space`.
-+ 跳转到文档开头--`go last`->`cmd+end`
++ 把补全提示--`trigger Suggest`的快捷键设置为`^+space`.
++ `go last`->`cmd+end`
 + 跳转到文档开头--`cmd+up`,跳转到文档末尾--`cmd+down`
+
+[Keyboard shortcuts for macOS](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
 
 ***
 mathematica
@@ -578,22 +581,22 @@ Utility to manage local disks and volumes
 + 验证, 修复磁盘分区或文件系统:如 `verifyVolume`, `repairDisk` 等
 + 分区操作:如 `splitPartitions`, `mergePartitions` 等
 + 其他:如 `appleRAID`, `apfs` 等
++ `diskutil listFilesystems`: 列出支持的文件系统格式
 
 如不清楚某个 `verb` 的具体命令格式,可以直接使用 `diskutil` 命令加上该 `verb` 并且不带任何其他选项,命令行即输出该 `verb` 的使用介绍.
 如 `eraseDisk` 的使用介绍:
 
 ```bash
 $   diskutil eraseDisk
-Usage:  diskutil eraseDisk format name [APM[Format]|MBR[Format]|GPT[Format]]
+用法:  diskutil eraseDisk format name [APM[Format]|MBR[Format]|GPT[Format]]
         MountPoint|DiskIdentifier|DeviceNode
 ```
 
 完全擦除现有的整个磁盘. 清除磁盘上的所有内容, 需要磁盘的所有权.
-`Format`是你擦除之后,重新格式化要得到的格式(`HFS+`等).例如:
+`format`是你擦除之后,重新格式化要得到的格式(`HFS+`等).例如:
 
-```bash
-diskutil eraseDisk JHFS+ UntitledUFS disk3
-```
+擦除整个设备或者磁盘
+`diskutil eraseDisk JHFS+ Untitled disk3`
 
 ### 获取磁盘分区信息
 
@@ -660,10 +663,10 @@ Formattable file systems
 ...
 ```
 
-可以使用 `diskutil eraseDisk ExFAT StarkyDisk disk2` 命令将优盘数据擦除并格式化为 `ExFAT` 格式.
+可以使用 `diskutil eraseDisk ExFAT StarkyDisk GPT disk2` 命令将优盘数据擦除并格式化为 `ExFAT` 格式.
 
 ```bash
-$   diskutil eraseDisk ExFAT StarkyDisk disk2
+$   diskutil eraseDisk ExFAT StarkyDisk GPT disk2
 Started erase on disk2
 Unmounting disk
 ...
@@ -679,11 +682,21 @@ Password:
 Started erase on disk2
 ```
 
-此时的优盘分区表变为 MBR 类型:
+此时的优盘分区表变为 `MBR` 类型:
 
 其他擦除命令如 `eraseVolume` (完全擦除整个磁盘或某个磁盘分区,创建新的文件系统), `zeroDisk` (向整个磁盘或某个分区全部写入`'0'`)
 使用 `zeroDisk` 命令擦除磁盘(该过程会花费很长的时间,我试了)后,该磁盘上的全部信息被抹除,同时也不再包含分区和文件系统信息.
 则再次插入此优盘会提示你`初始化`或`格式化`该磁盘.
+
+***
+制作启动U盘
+
+```bash
+# 首先取消usb硬盘的挂载
+diskutil unmountDisk /dev/disk6
+# bs是读写快的大小，太小会增大io，降低效率，一般1M~2M即可。
+sudo dd if=/Users/tom/software/manjaro-kde-20.2.1-210103-linux59.iso of=/dev/disk6 bs=2M
+```
 
 ### 创建磁盘分区
 
