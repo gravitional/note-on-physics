@@ -127,6 +127,9 @@ mathematica
 `终端` or `iterm2` 中大部分常用的快捷键,移动,清屏等等与`linux` 相同，是在`readline`库中约定的。
 [Bash 行操作](https://wangdoc.com/bash/readline.html)
 
+***
+Finder中显示隐藏文件`Cmd+Shift+.`
+
 ## homebrew 软件安装
 
 [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)
