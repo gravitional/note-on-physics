@@ -1957,7 +1957,8 @@ icon: [vimix-icon-theme/](https://github.com/vinceliuice/vimix-icon-theme/)
 
 extensions: `Blyr `,`Dash to panel`,`User themes`,`openweather`
 
-#### Plymouth
+****
+Plymouth
 
 [Ubuntu 16.04美化——Plymouth(splash screen/开机画面)主题安装](https://blog.csdn.net/mutilcam_prince/article/details/78299628)
 
@@ -2071,14 +2072,15 @@ chmod +x xxx.sh
 
 即可完成安装
 
-#### 其他主题安装
+****
+其他主题安装
 
 有的主题也可能自带安装脚本，比如
 
 [ubuntu-touch: A Plymouth startup and shutdown animated splash](http://gnome-look.org/content/show.php/colours%3A+Ubuntu+rainbow+plymouth+theme?content=163234)
 
 1. 下载解压缩，进入`ubuntu-touch-splash`
-1. `./install-ubuntu-touch [ENTER]`.将安装`plymouth-x11`软件包以提供测试主题的功能，而无需重新启动。
+2. `./install-ubuntu-touch [ENTER]`.将安装`plymouth-x11`软件包以提供测试主题的功能，而无需重新启动。
 之后，将显示新主题的启动和关闭的10秒测试。
 
 如果修改不小心导致启动屏幕黑屏，则恢复的最快方法是重新提取下载文件，然后重新安装它。
@@ -2094,6 +2096,28 @@ chmod +x xxx.sh
 ```
 
 根据要求选择`ubuntu-logo`或者其他之前使用的主题。
+
+### KDE 桌面环境
+
+现在，如果您不喜欢KDE或出于任何原因想要删除此环境，请按照以下步骤在Ubuntu上卸载KDE：
+
+```bash
+sudo apt --purge remove kde-standard
+sudo apt autoremove
+reboot
+```
+
+注意：在安装KDE软件包时安装的某些应用程序必须手动删除。 像（Konsole，Konqueror等）之类的应用
+重新启动后，如果遇到CLI登录屏幕，请不要慌张。
+这是因为您已将SDDM设置为默认显示管理器，现在已将其删除。 因此，我们将`gdm3`设置为默认值。
+
+```bash
+sudo systemctl restart gdm3
+sudo dpkg-reconfigure gdm3
+reboot
+```
+
+重新启动系统，然后检查是否一切正常。
 
 ## ubuntu 备份和恢复
 
