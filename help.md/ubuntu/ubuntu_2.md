@@ -2151,7 +2151,20 @@ reboot
 
 ## ubuntu 备份和恢复
 
-### Ubuntu系统备份1
+教程中排除的目录
+
+```bash
+--exclude=/proc 
+--exclude=/tmp 
+# --exclude=/home 
+--exclude=/lost+found 
+--exclude=/media 
+--exclude=/mnt 
+--exclude=/run
+--exclude=/sys
+```
+
+### 备份方法1
 
 ***
 分区 id 记录

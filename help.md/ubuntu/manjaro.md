@@ -61,11 +61,10 @@ sudo pacman -S archlinuxcn-keyring
 sudo pacman -S yay
 ```
 
-`yay`是一个用Go语言写的一个`AUR`助手，有些时候官方仓库没有你想要的软件，就需要通过`yay`来安装
+`yay`是一个用Go语言写的一个`AUR`助手，有些时候官方仓库没有你想要的软件，就需要通过`yay`来安装,有了`yay`，以后就不用`sudo pacman`了
 
-有了`yay`，以后就不用`sudo pacman`了
-
-安装拼音输入法, 安装fcitx5（输入法框架）
+***
+安装拼音输入法, 安装`fcitx5`（输入法框架）
 
 ```bash
 yay -S fcitx5-im
@@ -86,409 +85,362 @@ XMODIFIERS    DEFAULT=\@im=fcitx
 SDL_IM_MODULE DEFAULT=fcitx
 ```
 
-安装fcitx5-rime（输入法引擎）
-
-yay -S fcitx5-rime
-
-安装rime-cloverpinyin（输入方案）
-
-yay -S rime-cloverpinyin
-
-创建并写入rime-cloverpinyin的输入方案：
-
-nano ~/.local/share/fcitx5/rime/default.custom.yaml
-
-内容为：
-
-patch:
-  "menu/page_size": 5
-  schema_list:
-    - schema: clover
-
-关于这个输入方案有什么问题，可以去github看对应的wiki
-fkxxyz/rime-cloverpinyin​
-github.com图标
-
 安装中文维基百科词库：
 
-yay -S fcitx5-pinyin-zhwiki-rime
+```bash
+yay -S fcitx5-pinyin-zhwiki
+```
 
-关于词库的配置可以看我这篇文章：
-https://zhuanlan.zhihu.com/p/287774005​
-zhuanlan.zhihu.com图标
+配置主题：
 
-（可选）配置主题：
-
+```bash
 yay -S fcitx5-material-color
+```
 
-关于这个的配置建议去项目地址查看：
-Fcitx5-Material-Color​
-github.com
+[大佬制作的fcitx5主题](https://github.com/ayamir/fcitx5-nord)
 
-还有可以试试我参与制做的两个主题：
-Nord​
-github.com
+安装
 
+```bash
+git clone https://github.com/tonyfettes/fcitx5-nord.git
+mkdir -p ~/.local/share/fcitx5/themes/
+cd fcitx5-nord
+cp -r nord-Dark/ nord-Light/ ~/.local/share/fcitx5/themes/
+```
 
-Gruvbox​
-github.com
-Nord-Light皮肤效果
+然后编辑`~/.config/fcitx5/conf/classicui.conf`, 更改主题指定的行，
 
-完成之后就可以注销，重新登录之后打开fcitx5-configtool编辑一下相应配置：
+```bash
+Theme=Nord-Dark
+# or
+Theme=Nord-Light
+```
 
-切换到rime输入法之后，右击输入法托盘图标，点击重新部署，就可以看到四叶草输入法了
+然后重启`fcitx5`, `fcitx5 -r`
 
-5.2 配置ohmyzsh（神器，用过的都说好
+完成之后就可以注销，重新登录之后打开`fcitx5-configtool`编辑一下相应配置：
 
-首先说一下这个过程不需要使用pacman/yay安装软件，因此可以和安装软件并发进行
+### 配置ohmyzsh
 
-首先修改默认shell为zsh
+首先说一下这个过程不需要使用`pacman/yay`安装软件，首先修改默认`shell`为`zsh`
 
+```bash
 chsh -s /usr/bin/zsh
-
-安装ohmyzsh
-
+#安装ohmyzsh
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+```
 
-如果每次执行都失败提示被拒绝连接就先改一下hosts文件
+安装`zsh-syntax-highlighting`：提供命令高亮
 
-sudo nano /etc/hosts
-
-把这段话复制到下面
-
-# GitHub Start
-151.101.64.133 raw.githubusercontent.com
-# GitHub End
-
-5.2.1安装zsh-syntax-highlighting：提供命令高亮
-
+```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
 
-5.2.2安装autosuggestions：记住你之前使用过的命令
+安装autosuggestions：记住你之前使用过的命令
 
+```bash
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+```
 
-5.2.3 安装incr：（需要注意的是这个插件会拖慢zsh的速度，新手入门可以试试）
+安装incr：（需要注意的是这个插件会拖慢zsh的速度，新手入门可以试试）
 
-再也不用先ls在粘贴文件名了，看下效果：
-
+```bash
 git clone git://github.com/makeitjoe/incr.zsh $ZSH_CUSTOM/plugins/incr
+```
 
-5.2.4 启用所有插件
+启用所有插件
 
+```bash
 nano ~/.zshrc
-
-将plugins=(git)改为:
-
+# 将 plugins=(git) 改为:
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions incr sudo extract)
+```
 
-这个sudo是ohmyzsh自带的插件，功能是在你输入的命令的开头添加sudo ，方法是双击Esc
+这个`sudo`是`ohmyzsh`自带的插件，功能是在你输入的命令的开头添加`sudo `，方法是`双击Esc`
+`extract`也是自带插件，不用再去记不同文件的解压命令，方法是`extract +你要解压的文件名`.
+保存退出之后，手动修改`konsole`的默认`bash`为`zsh`：（右键`Konsole - 编辑当前方案`）,打开`konsole`执行`source ~/.zshrc`, 配置完毕.
 
-extract也是自带插件，不用再去记不同文件的解压命令，方法是extract +你要解压的文件名
+### 安装Vimplus
 
-保存退出之后，手动修改konsole的默认bash为zsh：（右键Konsole -> 编辑当前方案）
+（现代化的vim插件管理工具，开箱即用，不使用vim的可以略过
 
-打开konsole执行：
-
-source ~/.zshrc
-
-配置完毕，这时候输入zsh感受一下ohmyzsh以及这些插件的强大吧
-
-还有很多有意思的插件，可以自行安装
-
-alias 可以帮助你简化很多命令，具体设置看你习惯
-
-一个究极自定义的zsh主题：
-romkatv/powerlevel10k​
-github.com图标
-
-如果想在这个主题中使用Icon请将终端字体改为打了Nerd补丁的Font，下面这个链接是一些nerd fonts的下载地址，个人推荐JetBrainsMono Nerd Font
-Releases · ryanoasis/nerd-fonts​
-github.com
-
-解压下载完的字体压缩包，假设目录名是JetBrainsMono
-
-mkdir -p ~/.local/share/fonts
-cp -vr JetBrainsMono/ ~/.local/share/fonts
-fc-cache -vf
-
-再开一个konsole，手动把字体改成JetBrainsMono Nerd Font即可
-这是我配置完的效果
-
-关于显示CPU利用率、磁盘使用率和内存剩余率，请手动编辑~/.p10k.zsh取消图中所示行的注释：
-
-5.3安装Vimplus（现代化的vim插件管理工具，开箱即用，不使用vim的可以略过
-
+```bash
 git clone https://github.com/chxuan/vimplus.git ~/.vimplus
 cd ~/.vimplus
 ./install.sh
+```
 
-vimplus​
-github.com
+### 安装腾讯系软件
 
-下图为安装效果：
+安装Tim
 
-同样想显示icon，需要将终端字体改为打了nerd补丁的字体
-
-vim并不难，开个终端执行vimtutor命令，进去练30分钟就能掌握80%的有用操作
-
-如果想上手Emacs，个人建议使用Doom Emacs：
-Doom Emacs​
-github.com
-
-5.4 安装腾讯系软件
-
-5.4.1 安装Tim
-
+```bash
 yay -S deepin-wine-tim
+```
 
-安装过程中出现选择输入n就好
+安装过程中出现选择输入`n`就好
 
-切换deepin-wine环境
+切换`deepin-wine`环境
 
+```bash
 sh /opt/deepinwine/apps/Deepin-Tim/run.sh -d
+```
 
-有问题直接去
-作者GitHub项目地址 ​
-github.com
-
-开issue反馈就好了
-
+有问题直接去 [countstarlight/deepin-wine-tim-arch ](https://github.com/countstarlight/deepin-wine-tim-arch/issues) 开issue反馈就好了, 
 如果这个版本的卡或者有其他问题，建议安装：
 
+```bash
 yay -S deepin.com.qq.office
+```
 
-如果这个也没办法装，则使用linuxqq
+如果这个也没办法装，则使用`linuxqq`
 
+```bash
 yay -S linuxqq
+```
 
-5.4.2 安装微信
+***
+安装微信
 
-deepin-wine版：
+`deepin-wine`版：
 
+```bash
 yay -S deepin-wine-wechat
+```
 
-切换到deepin-wine环境：
+切换到`deepin-wine`环境：
 
+```bash
 /opt/apps/com.qq.weixin.deepin/files/run.sh -d
+```
 
 关于字体发虚问题：
 
-在切换到deepin-wine环境后，在terminal输入下面的指令：
+在切换到`deepin-wine`环境后，在`terminal`输入下面的指令：
 
+```bash
 env WINEPREFIX="$HOME/.deepinwine/Deepin-TIM" /usr/bin/deepin-wine winecfg
+```
 
-在弹出的窗口中选择windows xp，将DPI调大（默认是96），我调成了120
+在弹出的窗口中选择`windows xp`，将`DPI`调大（默认是`96`），我调成了`120`
 
 微信的同样，只需要将命令改为：
 
+```bash
 env WINEPREFIX="$HOME/.deepinwine/Deepin-WeChat" /usr/bin/deepin-wine winecfg
+```
 
-electron版：
+`electron`版：
 
+```bash
 yay -S electron-wechat
+```
 
-5.5 安装其他软件：
+### 安装其他软件
 
-tldr(Too Long; Don't Read)：帮你更加高效地学习linux命令
+`tldr`(Too Long; Don't Read)：帮你更加高效地学习`linux`命令
 
+```bash
 pip install --user tldr
+```
 
 如果下载太慢：
 
+```bash
 mkdir -p ~/.config/pip
 nano ~/.config/pip/pip.conf
+```
 
 写入如下内容
 
+```bash
 [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
-这样就永久地修改了用户级别的pip下载源
+这样就永久地修改了用户级别的`pip`下载源
 
 如果安装失败则用：
 
+```bash
 yay -S tldr
+```
 
-GNU/Linux基本命令的rust替代（更好用）：
-https://zhuanlan.zhihu.com/p/347596983​
-zhuanlan.zhihu.com图标
+`ranger`：终端文件浏览器
 
-ranger：终端文件浏览器
-
+```bash
 yay -S ranger
+```
 
-wps:中文版，想要英文版把后面那个包去掉
+`wps`:中文版，想要英文版把后面那个包去掉
 
+```bash
 yay -S wps-office wps-office-mui-zh-cn
+```
 
-如果你使用fcitx5的话，还需要修改/usr/bin/wps和/usr/bin/wpp，将下面这行代码加到文件开头：
+如果你使用`fcitx5`的话，还需要修改`/usr/bin/wps`和`/usr/bin/wpp`，将下面这行代码加到文件开头：
 
+```bash
 export QT_IM_MODULE="fcitx5"
-
-修改完的效果为：
-
-ibreoffice：如果你安装时没有装的话（建议）
-
-yay -S libreoffice
-
-其下libreoffice-fresh相当于是beta版，libreoffice-still相当于是stable版
+```
 
 网易云音乐：
 
+```bash
 yay -S netease-cloud-music
+```
 
-这样得到的版本不能在搜索框输入中文，可以使用我在用的这个版本
-ForMat网络安全联盟/netease-cloud-music_For_Arch​
-gitee.com图标
+这样得到的版本不能在搜索框输入中文，
 
 高颜值、开发活跃的第三方客户端：
-YesPlayMusic​
-github.com
 
+```bash
 yay -S yesplaymusic
+```
 
 qq音乐：
 
+```bash
 yay -S qqmusic-bin
+```
 
-一个支持全平台听歌的软件：FeelUown
+一个支持全平台听歌的软件：`FeelUown`
 
+```bash
 yay -S feeluown
+```
 
 根据装完之后的提示装对应平台的依赖
 
 chrome
 
+```bash
 yay -S google-chrome
+```
 
 百度网盘：
 
+```bash
 yay -S baidunetdisk
+```
 
 或者命令行（CLI）的：
 
+```bash
 yay -S baidupcs-go
+```
 
 坚果云：
 
+```bash
 yay -S nutstore
+```
 
 为知笔记：全平台通用、有云端同步、支持md的笔记
 
+```bash
 yay -S wiznote
-
-如果你更喜欢开源软件，这里还有个很好的选择：joplin
-
-yay -S joplin
-
-还有个选择：notion
-
-yay -S notion-app
+```
 
 Typora：我认为最舒适的md编辑器
 
+```bash
 yay -S typora
+```
 
-flameshot：最强大的截图工具 当你的tim/微信截图不好用的时候，用这个
+***
+`flameshot`：强大的截图工具
 
+```bash
 yay -S flameshot
+```
 
-timeshift：强大好用的备份、回滚系统工具
+设置快捷键启动的方式
 
+`设置->快捷键->自定义快捷键 -> 编辑 -> 新建 -> 全局快捷键 -> 命令/URL`，转到`触发器`标签，设置习惯的快捷键.
+转到`动作`标签,在`命令/URL`中填上`/usr/bin/flameshot gui`
+
+***
+`timeshift` ：强大好用的备份、回滚系统工具
+
+```bash
 yay -S timeshift
-
-设置快捷键启动的方式：
-
-设置 -> 快捷键 -> 自定义快捷键 -> 编辑 -> 新建 -> 全局快捷键 -> 命令/URL
-
-设置触发器：设置为你习惯的快捷键 -> 动作：命令/URL这填：/usr/bin/flameshot gui
-设置快捷键
-设置命令
+```
 
 XDM：Linux下最快的下载神器
 
+```bash
 yay -S xdman
+```
 
-建议直接去官网下载压缩包安装，比命令行快很多
+建议直接去[https://subhra74.github.io/xdm/](https://subhra74.github.io/xdm/)下载压缩包安装，比命令行快很多
 
-calibre：电子书管理神器
+***
+`calibre`：电子书管理神器
 
+```bash
 yay -S calibre
+```
 
 系统托盘那开启夜间颜色控制，不需要安装redshift了
-6.字体:
 
-1.使用Windows/Mac OS字体
-Fonts (简体中文) - ArchWiki​
-wiki.archlinux.org
+### 字体
 
-这里建议直接拷贝字体文件而非链接
+使用Windows/Mac OS字体:
+[Fonts (简体中文) - ArchWiki​](https://wiki.archlinux.org/index.php/Fonts_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#Microsoft_%E5%AD%97%E4%BD%93)
 
-2.渲染效果优化
-https://zhuanlan.zhihu.com/p/343934880​
-zhuanlan.zhihu.com图标
-7.美化（饱暖思淫欲
+这里建议直接拷贝字体文件
 
-安装latte-dock
+[渲染效果优化](https://zhuanlan.zhihu.com/p/343934880)
 
+### 美化
+
+安装`latte-dock`
+
+```bash
 yay -S latte-dock
+```
 
-添加一个新空面板，默认会出现在上面，然后删除下面这个面板
+添加一个新空面板，默认会出现在桌面上方，可以删除下面自带的面板，在新面板上添加必要的部件：应用程序面板，数字时钟，托盘，还可以加全局菜单，显示面板等等
 
-在新面板上添加必要的部件：应用程序面板，数字时钟，托盘图标
+启动`latte-dock`，下方就会出现一个dock栏，具体配置看自己爱好.
+除dock栏中时钟的方法: 右键`配置lattedock`,接着右键时钟,选择`移除`就好了
 
-还可以加全局菜单，显示面板等等
+***
+`设置-外观`中选择你喜欢的主题什么的安装并且应用即可
+`设置-工作区行为-桌面特效` 中可以启用一些华丽的特效
+`设置-开机和关机`中更改登录屏幕等效果
+`设置-工作区行为-常规行为-点击行为`设置双击打开文件/文件夹的设置
 
-启动latte-dock，下方就会出现一个dock栏，具体配置看自己爱好
+***
+修改`/home/user`下的用户文件夹名称为英文：
+先去手动修改文件夹名称，然后在 `设置 -> 应用程序 -> 地点` 中修改
 
-移除那个时钟的方法：
+***
+双系统时间同步
 
-右键 配置lattedock 然后右键 那个时钟 移除 就好了
+按照[ Arch WiKi ](https://wiki.archlinux.org/index.php/System_time_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))的建议，这里修改`Windows`系统的注册表：
+`win+X` 以管理员方式打开PowerShell，输入
 
-进入设置-外观中选择你喜欢的主题什么的安装并且应用即可
-
-设置-工作空间行为-桌面特效 中可以启用一些华丽的特效
-
-设置-开机和关机 中更改登录屏幕等效果
-
-在设置-工作空间行为-常规行为-点击行为 中改掉单击打开文件/文件夹的设置
-
-修改~下的用户文件夹名称为英文：
-
-先去手动修改文件夹名称，然后在 设置 -> 应用程序 -> 地点 这修改
-
-添加开机动画：
-参见这篇教程​
-www.jianshu.com
-
-修改grub主题：
-
-去 Gnome-look 找自己喜欢的grub主题按照提示安装就好了
-
-全部设置完之后就可以重启了
-8.双系统时间同步
-
-按照 Arch WiKi 的建议，这里修改Windows系统的注册表：
-
-ctrl+X 按 A 以管理员方式打开PowerShell，输入
-
+```bash
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_QWORD /f
+```
 
-如果你的WIndows是32位的，把上述代码中的REG_QWORD改成REG_DWORD
+如果你的`Windows`是`32`位的，把上述代码中的`REG_QWORD`改成`REG_DWORD`
 
-同时禁用Windows的自动同步时间功能
+同时禁用`Windows`的自动同步时间功能
 
-最后附一张图：
+***
+查看系统信息
 
-图中渐变色怎么做到：先yay -S lolcat然后neofetch | lolcat
+```bash
+yay -S neofetch lolcat # lolcat 只是渐变色的工具
+neofetch | lolcat
+```
 
-装好Manjaro必须要有的习惯：
+装好`Manjaro`必须要有的习惯：
 
-1.必须要做timeshift，以防你哪天玩坏只能重装
+1. 必须要做`timeshift`，以防你哪天玩坏只能重装
+2. 每天要开机执行一遍`sudo pacman -Syyu`
 
-2.每天要开机执行一遍sudo pacman -Syyu
-
-虽说Manjaro相对Arch应该稳定一点，但终究是滚动发行版，还是有滚挂的风险
-
-防止滚挂的最好办法就是 及时滚 长时间不更新必挂
+虽说`Manjaro`相对`Arch`应该稳定一点，但终究是滚动发行版，还是有滚挂的风险, 防止滚挂的最好办法就是 及时滚 长时间不更新必挂
