@@ -1,5 +1,7 @@
 # manjaro
 
+[Manjaro-KDE安装配置全攻略](https://zhuanlan.zhihu.com/p/114296129)
+
 ## 系统安装
 
 这里我假设你的电脑引导方式是 `UEFI`, 如果你的`ssd`是`NVMe`协议`M.2`的，
