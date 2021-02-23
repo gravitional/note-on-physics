@@ -129,6 +129,14 @@ df -h | sort -hr --key=2
 
 ### 环境变量
 
+[/etc/environment 与 /etc/profile区别](https://blog.csdn.net/lijingshan34/article/details/86568596)
+
+`/etc/environment`是设置整个系统的环境，而`/etc/profile`是设置所有用户的环境，前者与登录用户无关，后者与登录用户有关。
+
+跟环境变量相关的参数：
+
+`/etc/profile` ->`/etc/enviroment` -->`$HOME/.profile` -->`$HOME/.env`
+
 如果你把文本放在双引号中, `shell` 使用的特殊字符, 除了`\`(反斜杠),`$` ,和 `` ` ``(倒引号)之外, 则失去它们的特殊含义,被当作普通字符来看待。
 
 这意味着

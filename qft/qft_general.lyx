@@ -3050,13 +3050,13 @@ a & \cdots & b
 \begin_layout Standard
 \begin_inset Formula 
 \[
-U(x)\phi(0)U^{-1}(x)=\phi(x)
+U\left(x\right)\phi\left(0\right)U^{-1}\left(x\right)=\phi\left(x\right)
 \]
 
 \end_inset
 
 
-\begin_inset Formula $U(x)$
+\begin_inset Formula $U\left(x\right)$
 \end_inset
 
 是 Hilbert 空间上的幺正算符。
@@ -3080,22 +3080,22 @@ f(a)=\sum_{n=0}^{\infty}f^{(n)}(0)\frac{a^{n}}{n!}=\exp(a*\partial_{x=0})\cdot f
 \end_inset
 
 所以平移算符
-\begin_inset Formula $Q_{a}f(x)=f(x+a)$
+\begin_inset Formula $Q_{a}f\left(x\right)=f(x+a)$
 \end_inset
 
 可以写成上面的形式
-\begin_inset Formula $\exp(a*\partial_{x=0})\cdot f(x)$
+\begin_inset Formula $\exp(a*\partial_{x=0})\cdot f\left(x\right)$
 \end_inset
 
 。
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $U(x)\phi(0)U^{-1}(x)=\phi(x)$
+\begin_inset Formula $U\left(x\right)\phi\left(0\right)U^{-1}\left(x\right)=\phi\left(x\right)$
 \end_inset
 
 也就是一种平移操作。
-\begin_inset Formula $S=\int\dif^{4}x\mathcal{L}(x)$
+\begin_inset Formula $S=\int\dif^{4}x\mathcal{L}\left(x\right)$
 \end_inset
 
 ，拉氏量具有时间平移不变性和空间平移不变性。
@@ -3110,11 +3110,11 @@ f(a)=\sum_{n=0}^{\infty}f^{(n)}(0)\frac{a^{n}}{n!}=\exp(a*\partial_{x=0})\cdot f
 \end_layout
 
 \begin_layout Standard
-由场论的基本对易关系
-\begin_inset Formula $\left[\phi_{a}(x),\pi_{b}(x)\right]=2\pi\delta^{(3)}(x-y)\delta_{ab}$
+把场论的基本对易关系
+\begin_inset Formula $\left[\phi_{a}\left(x\right),\pi_{b}\left(x\right)\right]=2\pi\delta^{\left(3\right)}\left(x-y\right)\delta_{ab}$
 \end_inset
 
-可以推导出，守恒荷是场论体系对称变换的生成元，
+代入到量子场论中守恒荷的表达式中，可以推导出场的守恒荷是场论体系对称变换的生成元，
 \begin_inset Formula 
 \[
 \left[Q_{\alpha},\phi_{a}\right]=\frac{\delta\phi_{a}}{\delta\alpha}
@@ -3131,19 +3131,34 @@ f(a)=\sum_{n=0}^{\infty}f^{(n)}(0)\frac{a^{n}}{n!}=\exp(a*\partial_{x=0})\cdot f
 \end_inset
 
 生成空间平移变换。所以有
-\begin_inset Formula $U(x)\phi(0)U^{-1}(x)=\phi(x)$
+\begin_inset Formula $U\left(x\right)\phi\left(0\right)U^{-1}\left(x\right)=\phi\left(x\right)$
 \end_inset
 
-。不仅对于自由场论，对于相互作用场论，这个结论也成立，因为场论体系的拉氏量一般必须满足庞加莱不变性。所以这个等式是群论的必然要求。跟理论的量子化细节无关。
-\end_layout
-
-\begin_layout Standard
-一般，场的产生湮灭算符满足：
+。不仅对于自由场论，对于相互作用场论，这个结论也成立，因为即使相互作用场论体系的拉氏量一般也满足庞加莱不变性。所以这个等式是群论的必然要求。跟理论的量子化细节无
+关。一般，场的产生湮灭算符满足：
 \begin_inset Formula 
 \begin{align*}
 e^{iHt}a_{p}e^{-iHt}=a_{p}e^{-iE_{p}t} &  & e^{iHt}a_{p}^{+}e^{-iHt}=a_{p}^{+}e^{+iE_{p}t}\\
 e^{-i\boldsymbol{Px}}a_{p}e^{i\boldsymbol{Px}}=a_{p}e^{+i\boldsymbol{p.x}} &  & e^{-i\boldsymbol{Px}}a_{p}^{\dagger}e^{i\boldsymbol{Px}}=a_{p}^{\dagger}e^{-i\boldsymbol{p.x}}\\
 e^{+iPx}\phi\left(0\right)e^{-iPx}=\phi\left(x\right) &  & e^{+iPx}\phi\left(0\right)^{\dagger}e^{-iPx}=\phi\left(x\right)^{\dagger}
+\end{align*}
+
+\end_inset
+
+进一步认为由场组成的算符，比如守恒流也满足这样的关系
+\begin_inset Formula 
+\begin{align*}
+ & j^{\mu}\left(x\right)=e^{+iPx}j^{\mu}\left(0\right)e^{-iPx}\\
+ & j^{\mu}\left(0\right)=e^{-iPx}j^{\mu}\left(x\right)e^{+iPx}
+\end{align*}
+
+\end_inset
+
+散射过程中的单粒子态是能动量算符的本征态，
+\begin_inset Formula 
+\begin{align*}
+\bra{p_{2}}j^{\mu}\left(x\right)\ket{p_{1}} & =\bra{p_{2}}e^{+iPx}j^{\mu}\left(0\right)e^{-iPx}\ket{p_{1}}=\bra{p_{2}}e^{+ip_{2}x}j^{\mu}\left(0\right)e^{-ip_{1}x}\ket{p_{1}}\\
+ & =e^{+i\left(p_{2}-p_{1}\right)x}\bra{p_{2}}j^{\mu}\left(0\right)\ket{p_{1}}=e^{+i\Delta x}\bra{p_{2}}j^{\mu}\left(0\right)\ket{p_{1}}
 \end{align*}
 
 \end_inset

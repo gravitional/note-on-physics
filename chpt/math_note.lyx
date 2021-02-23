@@ -2540,6 +2540,239 @@ f\otimes g(T)=\int\dif\tau\,f(\tau)g(T-\tau)
 \end_layout
 
 \begin_layout Section
+散度旋度
+\end_layout
+
+\begin_layout Standard
+ref:
+\begin_inset CommandInset href
+LatexCommand href
+name "多元微积分"
+target "https://www.zhihu.com/search?q=%E6%95%A3%E5%BA%A6%E5%92%8C%E6%97%8B%E5%BA%A6&utm_content=search_suggestion&type=content"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+斯托克斯公式
+\end_layout
+
+\begin_layout Standard
+二维情形，格林公式:
+\begin_inset Formula 
+\[
+\oint_{\partial D^{+}}P\dif x+Q\dif y=\iint_{D}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\dif x\dif y
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\partial D^{+}$
+\end_inset
+
+表示二维环路的方向，按照右手螺旋，法线方向向上。
+\end_layout
+
+\begin_layout Standard
+Stokes 斯托克斯公式：环路的积分等于旋度在曲面上的通量。
+\begin_inset Formula 
+\begin{align*}
+ & \oint_{\partial\Sigma^{+}}P\dif x+Q\dif y+R\dif z\\
+ & =\iint_{\Sigma}\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\dif x\dif z+\iint_{\Sigma}\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\dif z\dif x+\iint_{\Sigma}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\dif x\dif y
+\end{align*}
+
+\end_inset
+
+简写为
+\begin_inset Formula 
+\[
+\oint_{\partial\Sigma^{+}}\vec{v}\cdot\dif\vec{r}=\iint_{\Sigma}\nabla\times\vec{v}\cdot\dif\vec{S}
+\]
+
+\end_inset
+
+可以证明
+\begin_inset Formula 
+\[
+\iint_{\Sigma}\dif\vec{S}\times\nabla\varphi=\oint_{\partial\Sigma^{+}}\dif\vec{r}\,\varphi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+高斯公式
+\end_layout
+
+\begin_layout Standard
+闭曲面的通量等于散度在体积上的积分。
+\begin_inset Formula 
+\[
+\oiint_{\partial\Omega^{+}}P\dif y\dif z+Q\dif z\dif x+R\dif x\dif y=\iiint_{\Omega}\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\dif V
+\]
+
+\end_inset
+
+简写为
+\begin_inset Formula 
+\[
+\oiint_{\partial\Omega^{+}}\vec{v}\cdot\dif\vec{S}=\iiint_{\Omega}\nabla\cdot\vec{v}\dif V
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\partial\Omega^{+}$
+\end_inset
+
+的方向为
+\begin_inset Formula $\Omega$
+\end_inset
+
+向外。以及
+\begin_inset Formula 
+\[
+\iiint_{\Omega}\dif V\,\nabla\times\vec{f}=\oiint_{\partial\Omega^{+}}\dif\vec{S}\times\vec{f}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+已知一个电荷系统的偶极矩定义为
+\begin_inset Formula 
+\[
+\boldsymbol{p}\left(t\right)=\int_{V}\rho\left(t,\boldsymbol{x^{\prime}}\right)\boldsymbol{x^{\prime}}\dif\boldsymbol{V^{\prime}}
+\]
+
+\end_inset
+
+利用电荷守恒定律
+\begin_inset Formula $\nabla\cdot\boldsymbol{J}+\frac{\partial\rho}{\partial t}=0$
+\end_inset
+
+证明
+\begin_inset Formula $\boldsymbol{p}$
+\end_inset
+
+的变化率为
+\begin_inset Formula 
+\[
+\frac{\dif\boldsymbol{p}}{\dif t}=\int_{V}\boldsymbol{J}\left(t,\boldsymbol{x^{\prime}}\right)\dif\boldsymbol{V^{\prime}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+常用公式
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $\boldsymbol{r}=\boldsymbol{x}-\boldsymbol{x^{\prime}}$
+\end_inset
+
+，
+\begin_inset Formula $r=\abs{\boldsymbol{r}}$
+\end_inset
+
+并且
+\begin_inset Formula 
+\[
+\boldsymbol{\nabla^{\prime}}=\boldsymbol{e_{x}}\frac{\partial}{\partial x^{\prime}}+\boldsymbol{e_{y}}\frac{\partial}{\partial y^{\prime}}+\boldsymbol{e_{z}}\frac{\partial}{\partial z^{\prime}},\quad\boldsymbol{\nabla}=\boldsymbol{e_{x}}\frac{\partial}{\partial x}+\boldsymbol{e_{y}}\frac{\partial}{\partial y}+\boldsymbol{e_{z}}\frac{\partial}{\partial z}
+\]
+
+\end_inset
+
+则有
+\begin_inset Formula 
+\begin{align*}
+ & \nabla r=-\nabla^{\prime}r=\frac{\boldsymbol{r}}{r}\text{ 单位矢量}\\
+ & \nabla\cdot\boldsymbol{r}=-\nabla^{\prime}\cdot\boldsymbol{r}=3\\
+ & \nabla\times\boldsymbol{r}=-\nabla^{\prime}\times\boldsymbol{r}=0\\
+ & \nabla\boldsymbol{r}=-\nabla^{\prime}\boldsymbol{r}=\boldsymbol{I}\text{ 单位张量}\\
+ & \nabla\frac{1}{r}=-\nabla^{\prime}\frac{1}{r}=-\frac{\boldsymbol{r}}{r^{3}}\\
+ & \nabla\cdot\frac{\boldsymbol{r}}{r^{3}}=-\nabla^{\prime}\cdot\frac{\boldsymbol{r}}{r^{3}}=\delta\left(r\right)\left(r\neq0\right)\\
+ & \nabla\times\frac{\boldsymbol{r}}{r^{3}}=-\nabla^{\prime}\times\frac{\boldsymbol{r}}{r^{3}}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于一个常矢量
+\begin_inset Formula $\boldsymbol{a}$
+\end_inset
+
+，即
+\begin_inset Formula $\nabla\cdot\boldsymbol{a}=0$
+\end_inset
+
+，
+\begin_inset Formula $\nabla\times\boldsymbol{a}=0$
+\end_inset
+
+。考虑到
+\begin_inset Formula $\nabla\boldsymbol{r}$
+\end_inset
+
+是单位张量，
+\begin_inset Formula $\nabla\times\boldsymbol{r}=0$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\left(\boldsymbol{a}\cdot\nabla\right)\boldsymbol{r}=\boldsymbol{a}\cdot\boldsymbol{\nabla r}=\boldsymbol{a}\cdot\boldsymbol{I}=\boldsymbol{a}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nabla\left(\boldsymbol{a}\cdot\boldsymbol{r}\right)=\left(\boldsymbol{a}\cdot\boldsymbol{\nabla}\right)\boldsymbol{r}=\boldsymbol{a}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\nabla\left(\boldsymbol{A\cdot B}\right) & =\boldsymbol{B}\times\left(\boldsymbol{\nabla}\times\boldsymbol{A}\right)+\left(\boldsymbol{B}\cdot\boldsymbol{\nabla}\right)\boldsymbol{A}+\boldsymbol{A}\times\left(\boldsymbol{\nabla}\times\boldsymbol{B}\right)+\left(\boldsymbol{A}\cdot\boldsymbol{\nabla}\right)\boldsymbol{B}\\
+\boldsymbol{A}\times\left(\boldsymbol{\nabla}\times\boldsymbol{A}\right) & =\frac{1}{2}\boldsymbol{\nabla}\left(\boldsymbol{A}\cdot\boldsymbol{A}\right)-\left(\boldsymbol{A}\cdot\boldsymbol{\nabla}\right)\boldsymbol{A}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nabla\cdot\left(\boldsymbol{AB}\right)=\left(\nabla\cdot\boldsymbol{A}\right)\boldsymbol{B}+\boldsymbol{A}\cdot\nabla\boldsymbol{B}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\boldsymbol{AB}$
+\end_inset
+
+为并矢，或者说二阶张量。
+\end_layout
+
+\begin_layout Section
 发散积分变量平移
 \end_layout
 
