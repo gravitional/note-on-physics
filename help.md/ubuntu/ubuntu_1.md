@@ -1536,7 +1536,6 @@ pip3 install git+git://github.com/powerline/powerline
 #### 安装 Powerline 的字体
 
 `Powerline` 使用特殊的符号来为开发者显示特殊的箭头效果和符号内容.因此你的系统中必须要有符号字体或者补丁过的字体.
-
 通过下面的 `wget` 命令下载最新的系统字体及字体配置文件.
 
 ```bash
@@ -1603,6 +1602,14 @@ set t_Co=256
 ```
 
 然后你打开 `vim` 后会看到一个新的状态行
+
+### tldr
+
+`tldr`(Too Long; Don't Read)：帮你更加高效地学习`linux`命令
+
+```bash
+pip3 install --user tldr
+```
 
 ## bash 快捷键
 

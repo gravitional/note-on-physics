@@ -132,19 +132,20 @@ chsh -s /usr/bin/zsh
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 ```
 
-安装`zsh-syntax-highlighting`：提供命令高亮
+安装`zsh-syntax-highlighting`：[提供命令高亮](https://github.com/zsh-users/zsh-syntax-highlighting)
+作者建议把这个插件放在插件列表的最后
 
 ```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
-安装autosuggestions：记住你之前使用过的命令
+安装[`autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions)：记住你之前使用过的命令
 
 ```bash
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 ```
 
-安装incr：（需要注意的是这个插件会拖慢zsh的速度，新手入门可以试试）
+安装incr：（需要注意的是这个插件会拖慢`zsh`的速度，新手入门可以试试）
 
 ```bash
 git clone git://github.com/makeitjoe/incr.zsh $ZSH_CUSTOM/plugins/incr
@@ -155,7 +156,7 @@ git clone git://github.com/makeitjoe/incr.zsh $ZSH_CUSTOM/plugins/incr
 ```bash
 nano ~/.zshrc
 # 将 plugins=(git) 改为:
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions incr sudo extract)
+plugins=(git tmux  sudo extract  zsh-autosuggestions zsh-syntax-highlighting)
 ```
 
 这个`sudo`是`ohmyzsh`自带的插件，功能是在你输入的命令的开头添加`sudo `，方法是`双击Esc`
@@ -445,4 +446,4 @@ neofetch | lolcat
 1. 必须要做`timeshift`，以防你哪天玩坏只能重装
 2. 每天要开机执行一遍`sudo pacman -Syyu`
 
-虽说`Manjaro`相对`Arch`应该稳定一点，但终究是滚动发行版，还是有滚挂的风险, 防止滚挂的最好办法就是 及时滚 长时间不更新必挂
+虽说`Manjaro`相对`Arch`应该稳定一点，但终究是滚动发行版，还是有滚挂的风险, 防止滚挂的最好办法就是 及时滚 长时间不更新必挂.
