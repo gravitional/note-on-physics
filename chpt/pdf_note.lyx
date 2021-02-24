@@ -944,9 +944,9 @@ literal "true"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\mathcal{L} & ={\rm Tr}\big[\bar{B}\left(i\slashed{D}-M_{B}\right)B\big]+D{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma_{5}\left[u_{\mu},B\right]\right]\\
- & +\overline{T}_{\mu}^{ijk}\left(i\gamma^{\mu\nu\alpha}D_{\alpha}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}^{ijk}+\mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}+\text{h.c.}\right]\\
- & -\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}\left(u_{\alpha}\right)^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\big]
+\mathcal{L} & ={\rm Tr}\big[\bar{B}\left(i\slashed{\mathscr{D}}-M_{B}\right)B\big]+D{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma_{5}\left[u_{\mu},B\right]\right]\\
+ & +\overline{T}_{\mu}^{ijk}\left(i\gamma^{\mu\nu\alpha}\mathscr{D}_{\alpha}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}^{ijk}+\mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}+\text{h.c.}\right]\\
+ & -\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}\left(u_{\alpha}\right)^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[\mathscr{D}_{\mu}U\left(\mathscr{D}^{\mu}U\right)^{\dagger}\big]
 \end{align*}
 
 \end_inset
@@ -1087,7 +1087,11 @@ K^{-} & \bar{K}^{0} & -\frac{2}{\sqrt{6}}\eta
 
 \end_inset
 
-赝标介子组成矢量流和轴矢量流(Chiral connection and Chiral veilbein)
+
+\end_layout
+
+\begin_layout Standard
+赝标介子组成矢量流和轴矢量流(Chiral connection and Chiral veilbein)，进入拉氏量，
 \begin_inset Formula 
 \begin{align*}
 \Gamma_{\mu} & =\frac{1}{2}\left(u\partial_{\mu}u^{\dagger}+u^{\dagger}\partial_{\mu}u\right)-\frac{i}{2}\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)v_{\mu}^{a}\\
@@ -1100,29 +1104,77 @@ u_{\mu} & =\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}
 \begin_inset Formula $v_{\mu}^{a}$
 \end_inset
 
-代表与chpt系统进行耦合的矢量外场，
+代表耦合到强子的外矢量场，一般就是光子场乘上系数
+\begin_inset Formula 
+\[
+v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
+\]
+
+\end_inset
+
+这里的负号是QED的约定，电子的电荷为负数。
 \begin_inset Formula $\lambda^{a}$
 \end_inset
 
-是 Gell-Mann 矩阵，
+表示 Gell-Mann 矩阵，注意
 \begin_inset Formula $\lambda^{a}/2$
 \end_inset
 
-是 SU(3) 生成元。协变导数的定义为
+是 
+\begin_inset Formula $\text{SU}\left(3\right)$
+\end_inset
+
+ 群的生成元。拉氏量中使用的协变导数的定义为，
 \begin_inset Formula 
 \begin{align*}
-D_{\mu}B & =\partial_{\mu}B+\left[\Gamma_{\mu},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
-D_{\mu}T_{\nu}^{ijk} & =\partial_{\mu}T_{\nu}^{ijk}+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}-i\langle\lambda^{0}\rangle v_{\mu}^{0}T_{\nu}^{ijk}\\
-D_{\mu}U & =\partial_{\mu}U-i\left[v_{\mu},U\right]=\partial_{\mu}U+i\left(U\lambda^{a}-\lambda^{a}U\right)v_{\mu}^{a}\\
-\left(D_{\mu}U\right) & ^{\dagger}=\partial_{\mu}U^{\dagger}-i\left[v_{\mu}^{a}\lambda^{a},U^{\dagger}\right]=D_{\mu}\left(U^{\dagger}\right)
+\mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[\Gamma_{\mu},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}\lambda^{0}B\\
+\mathscr{D}_{\mu}T_{\nu}^{ijk} & =\partial_{\mu}T_{\nu}^{ijk}+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}-i\langle\lambda^{0}\rangle v_{\mu}^{0}\lambda^{0}T_{\nu}^{ijk}\\
+\mathscr{D}_{\mu}U & =\partial_{\mu}U-i\left[v_{\mu},U\right]=\partial_{\mu}U+i\left(U\lambda^{a}-\lambda^{a}U\right)v_{\mu}^{a}\\
+\left(\mathscr{D}_{\mu}U\right) & ^{\dagger}=\partial_{\mu}U^{\dagger}-i\left[v_{\mu}^{a}\lambda^{a},U^{\dagger}\right]=\mathscr{D}_{\mu}\left(U^{\dagger}\right)
 \end{align*}
 
 \end_inset
 
-在最低阶，只关注外场,
+由于一般的电荷矩阵不一定无迹，所以引入了单态外场
+\begin_inset Formula $v_{\mu}^{0}$
+\end_inset
+
+，对应QCD中耦合到
+\begin_inset Formula $\bar{q}\mathbbm{1}\gamma^{\mu}q$
+\end_inset
+
+的外场，一般还是光子场
+\begin_inset Formula $v_{\mu}^{0}=x^{0}\left(-e\mathcal{A}_{\mu}\right)$
+\end_inset
+
+。
+\begin_inset Formula $\lambda^{0}=I_{3\times3}$
+\end_inset
+
+是味道空间的单位矩阵，
+\begin_inset Formula $\langle\lambda^{0}\rangle$
+\end_inset
+
+表示求迹，
+\begin_inset Formula $\langle\lambda^{0}\rangle=3$
+\end_inset
+
+ 。只看
+\begin_inset Formula $\Gamma_{\mu}$
+\end_inset
+
+正比于
+\begin_inset Formula $v_{\mu}$
+\end_inset
+
+的部分，在最低阶
+\begin_inset Formula $u=u^{\dagger}=1$
+\end_inset
+
+，则有
 \begin_inset Formula 
 \begin{align*}
-D_{\mu}B & =\partial_{\mu}B+\left[-i\lambda^{a}v_{\mu}^{a},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
+\mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[-i\lambda^{a}v_{\mu}^{a},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
  & {\color{cyan}\lambda^{a}v_{\mu}^{a}\Longleftrightarrow\langle\lambda^{0}\rangle v_{\mu}^{0}=3v_{\mu}^{0}}
 \end{align*}
 
@@ -1132,31 +1184,7 @@ D_{\mu}B & =\partial_{\mu}B+\left[-i\lambda^{a}v_{\mu}^{a},B\right]-i\langle\lam
 \end_layout
 
 \begin_layout Standard
-其中
-\begin_inset Formula $v_{\mu}^{0}$
-\end_inset
-
-是单态外场，对应 和QCD 中的 
-\begin_inset Formula $\bar{q}\mathbbm{1}\gamma^{\mu}q$
-\end_inset
-
-耦合的外场。
-\begin_inset Formula $\lambda^{0}$
-\end_inset
-
-是味道空间的单位矩阵（
-\begin_inset Formula $3\times3$
-\end_inset
-
-）。
-\begin_inset Formula $\langle\lambda^{0}\rangle$
-\end_inset
-
-表示求迹，也就是
-\begin_inset Formula $\langle\lambda^{0}\rangle=3$
-\end_inset
-
- 。十重态定义中的
+十重态定义中的
 \begin_inset Formula $\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}$
 \end_inset
 
@@ -1208,9 +1236,31 @@ D_{\mu}B & =\partial_{\mu}B+\left[-i\lambda^{a}v_{\mu}^{a},B\right]-i\langle\lam
 其中
 \begin_inset Formula 
 \begin{align*}
-F_{\mu\nu} & =F_{\mu\nu}^{a}\lambda^{a}\quad F_{\mu\nu}^{a}=\partial_{\mu}v_{\nu}^{a}-\partial_{\nu}v_{\mu}^{a}\\
-F_{\mu\nu}^{\dagger} & =-\frac{1}{2}\left(u^{\dagger}F_{\mu\nu}u+uF_{\mu\nu}u^{\dagger}\right)
+F_{\mu\nu} & =F_{\mu\nu}^{a}\lambda^{a},\quad F_{\mu\nu}^{a}=\partial_{\mu}v_{\nu}^{a}-\partial_{\nu}v_{\mu}^{a}\text{ 无迹部分部分}\\
+F_{\mu\nu}^{\dagger} & =-\frac{1}{2}\left(u^{\dagger}F_{\mu\nu}u+uF_{\mu\nu}u^{\dagger}\right)\text{ 手征组合}\\
+F_{\mu\nu}^{0} & =F_{\mu\nu}I_{3\times3}
 \end{align*}
+
+\end_inset
+
+这里的手征变换性质为，在
+\begin_inset Formula $L=R=V$
+\end_inset
+
+的变换下，
+\begin_inset Formula 
+\begin{align*}
+u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)K^{\dagger}\\
+u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u\right)K^{\dagger}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bar{B}\mapsto K\bar{B}K^{\dagger},\quad B\mapsto KBK^{\dagger}
+\]
 
 \end_inset
 

@@ -16887,6 +16887,7 @@ u_{\mu}\stackrel{P}{\mapsto}Ku_{\mu}K^{\dagger}
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
@@ -17515,7 +17516,7 @@ Element
 \begin_inset Formula $x$
 \end_inset
 
-上，而不是作用到参数位置上，所以会出现一个负号。
+上，而不是作用到参数位置整体上，所以会出现一个负号。
 \end_layout
 
 \end_inset
@@ -17529,31 +17530,19 @@ Element
 \end_layout
 
 \begin_layout Standard
-讨论：
-\begin_inset Formula 
-\[
-u\mapsto RuK^{\dagger}=KuL^{\dagger},\quad u^{\dagger}\mapsto Lu^{\dagger}K^{\dagger}=Ku^{\dagger}R^{\dagger}
-\]
-
+经常遇到的和矢量场如光子场
+\begin_inset Formula $\mathcal{A}_{\mu}$
 \end_inset
 
-chpt 
-\begin_inset Formula $U\left(1\right)$
+耦合的情形，用到的协变手征强子矢量流和轴矢流的组合为，（这里的
+\series bold
+轴
+\series default
+指的是宇称变换下的行为，宇称变换下
+\begin_inset Formula $u\leftrightarrow u^{\dagger}$
 \end_inset
 
-耦合的矢量流和轴矢流组合中分别包括
-\begin_inset Formula $u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u$
-\end_inset
-
-和
-\begin_inset Formula $u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u$
-\end_inset
-
-组合，此时左右手是同步变换的，
-\begin_inset Formula $L=R=V$
-\end_inset
-
-
+）
 \begin_inset Formula 
 \begin{align*}
 \Gamma_{\mu} & =\frac{1}{2}\left(u\partial_{\mu}u^{\dagger}+u^{\dagger}\partial_{\mu}u\right)-\frac{i}{2}\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)v_{\mu}^{a}\\
@@ -17562,7 +17551,43 @@ u_{\mu} & =\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}
 
 \end_inset
 
-QCD 中夸克和电荷矩阵形式为，
+首先
+\begin_inset Formula 
+\[
+u\mapsto RuK^{\dagger}=KuL^{\dagger},\quad u^{\dagger}\mapsto Lu^{\dagger}K^{\dagger}=Ku^{\dagger}R^{\dagger}
+\]
+
+\end_inset
+
+和
+\begin_inset Formula $\mathcal{A}_{\mu}$
+\end_inset
+
+场耦合的强子矢量流和轴矢流组合中分别包括
+\begin_inset Formula $u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u$
+\end_inset
+
+和
+\begin_inset Formula $u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u$
+\end_inset
+
+组合。这里实际上是把电荷矩阵
+\begin_inset Formula $Q$
+\end_inset
+
+分解到了
+\begin_inset Formula $8$
+\end_inset
+
+个
+\begin_inset Formula $\text{SU}\left(3\right)$
+\end_inset
+
+生成元上，因此要首先确定
+\begin_inset Formula $Q$
+\end_inset
+
+在手征变换下是怎么变的，QCD 中夸克的电荷矩阵形式为，
 \begin_inset Formula 
 \[
 \mathcal{L}_{\text{ext}}=-e\mathcal{A}_{\mu}\left(\bar{q}_{L}Q\gamma^{\mu}q_{L}+\bar{q}_{R}Q\gamma^{\mu}q_{R}\right)=-e\mathcal{A}_{\mu}\bar{q}Q\gamma^{\mu}q
@@ -17578,7 +17603,43 @@ Q\mapsto LQL^{\dagger}=RQR^{\dagger}=VQV^{\dagger}
 
 \end_inset
 
+也就是我们认为左右手是同步变换的，
+\begin_inset Formula $L=R=V$
+\end_inset
 
+，所以对应的，认为
+\begin_inset Formula $\lambda^{a}$
+\end_inset
+
+也是这么变换，
+\begin_inset Formula 
+\[
+\lambda^{a}\mapsto L\lambda^{a}L^{\dagger}=R\lambda^{a}R^{\dagger}=V\lambda^{a}V^{\dagger}.
+\]
+
+\end_inset
+
+如果
+\begin_inset Formula $\tr\left[Q\right]\neq0$
+\end_inset
+
+，则还需要分解到单位矩阵
+\begin_inset Formula $I_{3\times3}$
+\end_inset
+
+上，
+\begin_inset Formula 
+\[
+I\mapsto LI_{3\times3}L^{\dagger}=RI_{3\times3}R^{\dagger}=I_{3\times3}
+\]
+
+\end_inset
+
+即单位矩阵的分量在手征变换下不变。
+\end_layout
+
+\begin_layout Standard
+所以强子流部分的变换为，
 \begin_inset Formula 
 \begin{align*}
 u\lambda^{a}u^{\dagger} & \mapsto KuL^{\dagger}\left(L\lambda^{a}L^{\dagger}\right)Lu^{\dagger}K^{\dagger}=K\left(u\lambda^{a}u^{\dagger}\right)K^{\dagger}\\
@@ -17587,11 +17648,19 @@ u^{\dagger}\lambda^{a}u & \mapsto Ku^{\dagger}R^{\dagger}\left(R\lambda^{a}R^{\d
 
 \end_inset
 
-所以在
-\begin_inset Formula $L=R=V$
+即强子流和
+\begin_inset Formula $\mathcal{A}_{\mu}$
 \end_inset
 
-的变换下，
+场耦合时，电荷矩阵分量的变换是
+\begin_inset Formula $\lambda^{a}\mapsto V\lambda^{a}V^{\dagger}$
+\end_inset
+
+，
+\begin_inset Formula $I\mapsto I$
+\end_inset
+
+，两种组合在手征变换下的行为相同，
 \begin_inset Formula 
 \begin{align*}
 u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)K^{\dagger}\\
@@ -17600,7 +17669,140 @@ u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{
 
 \end_inset
 
-变换形式是相同的。
+
+\end_layout
+
+\begin_layout Standard
+例如对于
+\begin_inset Formula $u$
+\end_inset
+
+夸克单独矩阵，按如下分解
+\begin_inset Formula 
+\[
+Q_{u}=\left(\begin{array}{ccc}
+1\\
+ & 0\\
+ &  & 0
+\end{array}\right)=\left(\begin{array}{ccc}
+\frac{1}{3}\\
+ & \frac{1}{3}\\
+ &  & \frac{1}{3}
+\end{array}\right)+\left(\begin{array}{ccc}
+\frac{2}{3}\\
+ & -\frac{1}{3}\\
+ &  & -\frac{1}{3}
+\end{array}\right)
+\]
+
+\end_inset
+
+第一项是
+\begin_inset Formula $\tr$
+\end_inset
+
+部分。第二项是无迹部分，再分解到
+\begin_inset Formula $\lambda^{a}/2$
+\end_inset
+
+，每个
+\begin_inset Formula $\lambda^{a}/2$
+\end_inset
+
+的系数可以利用正交性求出，
+\begin_inset Formula $\tr\left(\lambda_{a}\lambda_{b}\right)=2\delta_{ab}$
+\end_inset
+
+。不过实际中一般不需要明确求出。例如八重态重子的协变导数
+\begin_inset Formula 
+\[
+\mathscr{D}_{\mu}B=\partial_{\mu}B+\left[\Gamma_{\mu},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}\lambda^{0}B
+\]
+
+\end_inset
+
+代入
+\begin_inset Formula $v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8$
+\end_inset
+
+，这里
+\begin_inset Formula $x^{a}$
+\end_inset
+
+是普通数，作为系数。展开到最低阶为
+\begin_inset Formula 
+\begin{align*}
+\mathscr{D}_{\mu}B & =\partial_{\mu}B+ie\mathcal{A}_{\mu}\left[\lambda^{a}x^{a},B\right]+ie\mathcal{A}_{\mu}3\lambda^{0}x^{0}B\\
+ & =\partial_{\mu}B+ie\mathcal{A}_{\mu}\left(\left[\lambda^{a}x^{a},B\right]+3\lambda^{0}x^{0}B\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $Q$
+\end_inset
+
+虽然要分解到
+\begin_inset Formula $\lambda^{a}$
+\end_inset
+
+和
+\begin_inset Formula $\lambda^{0}$
+\end_inset
+
+上去，但表达式中
+\begin_inset Formula $\lambda^{a}x^{a}$
+\end_inset
+
+，
+\begin_inset Formula $3x^{0}\lambda^{0}$
+\end_inset
+
+是整体出现的，所以不需要实际计算出确切的系数，只要把
+\begin_inset Formula $Q$
+\end_inset
+
+分成有迹部分和无迹部分即可，
+\begin_inset Formula 
+\[
+\mathscr{D}_{\mu}B=\partial_{\mu}B+ie\mathcal{A}_{\mu}\left\{ \left[\left(\begin{array}{ccc}
+\frac{2}{3}\\
+ & -\frac{1}{3}\\
+ &  & -\frac{1}{3}
+\end{array}\right),B\right]+\left(\begin{array}{ccc}
+\frac{1}{3}\\
+ & \frac{1}{3}\\
+ &  & \frac{1}{3}
+\end{array}\right)B\right\} 
+\]
+
+\end_inset
+
+chpt primer 中使用的电荷投影基为
+\begin_inset Formula $\frac{\lambda_{a}}{2},\frac{1}{3}I$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{ext}}=\sum_{a=1}^{8}v_{a}^{\mu}\bar{q}\gamma_{\mu}\frac{\lambda_{a}}{2}q+\frac{1}{3}v_{(s)}^{\mu}\bar{q}\gamma_{\mu}Iq+\cdots.
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\frac{1}{3}$
+\end_inset
+
+来自于
+\begin_inset Formula $\tr\left(I\right)=3$
+\end_inset
+
+，这样
+\begin_inset Formula $\tr$
+\end_inset
+
+项的系数就等于电荷矩阵的迹。
 \end_layout
 
 \begin_layout Chapter
