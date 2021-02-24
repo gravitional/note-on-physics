@@ -1127,8 +1127,8 @@ v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
  群的生成元。拉氏量中使用的协变导数的定义为，
 \begin_inset Formula 
 \begin{align*}
-\mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[\Gamma_{\mu},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}\lambda^{0}B\\
-\mathscr{D}_{\mu}T_{\nu}^{ijk} & =\partial_{\mu}T_{\nu}^{ijk}+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}-i\langle\lambda^{0}\rangle v_{\mu}^{0}\lambda^{0}T_{\nu}^{ijk}\\
+\mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[\Gamma_{\mu},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
+\mathscr{D}_{\mu}T_{\nu}^{ijk} & =\partial_{\mu}T_{\nu}^{ijk}+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}-i\langle\lambda^{0}\rangle v_{\mu}^{0}T_{\nu}^{ijk}\\
 \mathscr{D}_{\mu}U & =\partial_{\mu}U-i\left[v_{\mu},U\right]=\partial_{\mu}U+i\left(U\lambda^{a}-\lambda^{a}U\right)v_{\mu}^{a}\\
 \left(\mathscr{D}_{\mu}U\right) & ^{\dagger}=\partial_{\mu}U^{\dagger}-i\left[v_{\mu}^{a}\lambda^{a},U^{\dagger}\right]=\mathscr{D}_{\mu}\left(U^{\dagger}\right)
 \end{align*}
@@ -1175,12 +1175,32 @@ v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
 \begin_inset Formula 
 \begin{align*}
 \mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[-i\lambda^{a}v_{\mu}^{a},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
- & {\color{cyan}\lambda^{a}v_{\mu}^{a}\Longleftrightarrow\langle\lambda^{0}\rangle v_{\mu}^{0}=3v_{\mu}^{0}}
+ & =\partial_{\mu}B+ie\mathcal{A}_{\mu}\left(\left[\lambda^{a}x^{a},B\right]+\langle\lambda^{0}\rangle\lambda^{0}x^{0}B\right)
 \end{align*}
 
 \end_inset
 
-这个系数的选取方式，可以通过将展开结果和夸克流的量子数如电荷,进行匹配得到。
+由于
+\begin_inset Formula $\left[I,B\right]=0$
+\end_inset
+
+，无迹部分加上任意正比于
+\begin_inset Formula $I$
+\end_inset
+
+的矩阵结果不变，所以可以写成
+\begin_inset Formula 
+\[
+\mathscr{D}_{\mu}B=\partial_{\mu}B+ie\mathcal{A}_{\mu}\left[Q,B\right]+ie\mathcal{A}_{\mu}\langle Q\rangle B
+\]
+
+\end_inset
+
+之所以单态的系数是
+\begin_inset Formula $\langle Q\rangle B$
+\end_inset
+
+，是通过将展开结果和夸克流的量子数如电荷,进行匹配得到。
 \end_layout
 
 \begin_layout Standard
@@ -1204,7 +1224,11 @@ v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
 
 \end_inset
 
-上标的
+内积
+\begin_inset Formula $\Gamma_{\mu}.T_{\nu}$
+\end_inset
+
+带有三个指标，上标的
 \begin_inset Formula $(123)$
 \end_inset
 
@@ -1215,39 +1239,153 @@ v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
 \end{array}\right)$
 \end_inset
 
-作用到内积
-\begin_inset Formula $\Gamma_{\mu}.T_{\nu}$
+作用到三个指标上，最后得到的
+\begin_inset Formula $\left(\Gamma_{\mu},T_{\nu}\right)$
 \end_inset
 
-的结果。
+仍然是一个全对称张量。
 \end_layout
 
 \begin_layout Standard
 此外还有跟反常磁矩相关的拉氏量
 \begin_inset Formula 
 \begin{align*}
-\mathcal{L}^{\text{mag}} & =\frac{1}{4m_{N}}\left(c_{1}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ F_{\mu\nu}^{\dagger},B\right\} \right]+c_{2}\tr\left[\bar{B}\sigma^{\mu\nu}\left[F_{\mu\nu}^{\dagger},B\right]\right]+c_{3}\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\tr\left[F_{\mu\nu}^{0}\right]\right)\\
- & -\frac{iF_{2}^{T}}{4m_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\left(F_{\alpha\beta}\right)^{ce}T^{\mu,eba}\\
- & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{ijk}\bar{B}^{jm}\left(F_{\mu\nu}\right)^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\left(F_{\mu\nu}\right)^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+\mathcal{L}^{\text{mag}} & =\frac{1}{4m_{N}}\left(c_{1}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\mathcal{F}_{\mu\nu}\right)\\
+ & -\frac{iF_{2}^{T}}{4m_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
+ & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{ijk}\bar{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
 \end{align*}
 
 \end_inset
 
 其中
+\begin_inset Formula $\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}$
+\end_inset
+
+是电磁场强张量，
 \begin_inset Formula 
-\begin{align*}
-F_{\mu\nu} & =F_{\mu\nu}^{a}\lambda^{a},\quad F_{\mu\nu}^{a}=\partial_{\mu}v_{\nu}^{a}-\partial_{\nu}v_{\mu}^{a}\text{ 无迹部分部分}\\
-F_{\mu\nu}^{\dagger} & =-\frac{1}{2}\left(u^{\dagger}F_{\mu\nu}u+uF_{\mu\nu}u^{\dagger}\right)\text{ 手征组合}\\
-F_{\mu\nu}^{0} & =F_{\mu\nu}I_{3\times3}
-\end{align*}
+\[
+\mathcal{F}_{\mu\nu}^{u}=-\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}\left(x^{a}\lambda^{a}\right)u+u\left(x^{a}\lambda^{a}\right)u^{\dagger}\right]
+\]
 
 \end_inset
 
-这里的手征变换性质为，在
-\begin_inset Formula $L=R=V$
+
+\begin_inset Formula $x^{a}$
 \end_inset
 
-的变换下，
+是组合系数，
+\begin_inset Formula $a=1,\cdots,8$
+\end_inset
+
+。跟前面一样，假设电荷矩阵
+\begin_inset Formula $Q$
+\end_inset
+
+的迹不为零，我们首先分成有迹部分和无迹部分。
+\begin_inset Formula $c_{1}^{\prime}$
+\end_inset
+
+和
+\begin_inset Formula $c_{2}^{\prime}$
+\end_inset
+
+对应无迹部分
+\begin_inset Formula $Q-\tr\left[Q\right]/3$
+\end_inset
+
+，
+\begin_inset Formula $c_{3}^{\prime}$
+\end_inset
+
+对应有迹部分
+\begin_inset Formula $\tr\left[Q\right]$
+\end_inset
+
+。但是
+\begin_inset Formula $c_{2}^{\prime}$
+\end_inset
+
+项是对易式，加上任意
+\begin_inset Formula $xI_{3\times3}$
+\end_inset
+
+结果不变；
+\begin_inset Formula $c_{1}^{\prime}$
+\end_inset
+
+项是反对易，加上任意
+\begin_inset Formula $xI_{3\times3}$
+\end_inset
+
+相当于
+\begin_inset Formula $-2x\mathcal{F}_{\mu\nu}c_{1}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}B\right]$
+\end_inset
+
+，这样和
+\begin_inset Formula $c_{3}^{\prime}$
+\end_inset
+
+变成同一种结构，可以吸收到
+\begin_inset Formula $c_{3}^{\prime}$
+\end_inset
+
+中。所以最后可以一般地写成
+\begin_inset Formula 
+\[
+\Rightarrow\frac{1}{4m_{N}}\left(c_{1}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}\tr\left[\bar{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}\mathcal{F}_{\mu\nu}\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\mathcal{F}_{\mu\nu}^{u}=-\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}Qu+uQu^{\dagger}\right]
+\]
+
+\end_inset
+
+也可以一开始就用
+\begin_inset Formula $Q$
+\end_inset
+
+构造
+\begin_inset Formula $\mathcal{F}_{\mu\nu}^{u}$
+\end_inset
+
+，是等价的。因为QCD 中夸克的电荷矩阵形式为，
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{ext}}=-e\mathcal{A}_{\mu}\left(\bar{q}_{L}Q\gamma^{\mu}q_{L}+\bar{q}_{R}Q\gamma^{\mu}q_{R}\right)=-e\mathcal{A}_{\mu}\bar{q}Q\gamma^{\mu}q
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula $Q$
+\end_inset
+
+的变换性质为
+\begin_inset Formula $Q\mapsto LQL^{\dagger}=RQR^{\dagger}=VQV^{\dagger}$
+\end_inset
+
+，对应地
+\begin_inset Formula $\mathcal{F}_{\mu\nu}^{u}\mapsto K\mathcal{F}_{\mu\nu}^{u}K^{\dagger}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+假设电荷矩阵分量的变换是
+\begin_inset Formula $\lambda^{a}\mapsto V\lambda^{a}V^{\dagger}$
+\end_inset
+
+，
+\begin_inset Formula $I\mapsto I$
+\end_inset
+
+，上面使用的手征模块的变换性质为：
 \begin_inset Formula 
 \begin{align*}
 u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)K^{\dagger}\\
@@ -1901,14 +2039,18 @@ then,
 \end_inset
 
 考虑到
-\begin_inset Formula $D_{\mu}B=\partial_{\mu}B+\left[\Gamma,B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B$
+\begin_inset Formula $\mathscr{D}_{\mu}B=\partial_{\mu}B+ie\mathcal{A}_{\mu}\left[Q,B\right]+ie\mathcal{A}_{\mu}\langle Q\rangle B$
+\end_inset
+
+，
+\begin_inset Formula $\mathscr{D}_{\mu}B=\partial_{\mu}B+\left[\Gamma,B\right]-ie\mathcal{A}_{\mu}\langle Q\rangle B$
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
-D_{\mu}B & =\partial_{\mu}B+\left[-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\frac{1}{4f^{2}}\phi\left(\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right)\phi,B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
- & =\partial_{\mu}B-\left[\left(\pm ieQ\mathcal{A}_{\mu}\right),B\right]+\frac{1}{4f^{2}}\left[\phi\left(\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right)\phi,B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B
+\mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\frac{1}{4f^{2}}\phi\left(\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right)\phi,B\right]-ie\mathcal{A}_{\mu}\langle Q\rangle B\\
+ & =\partial_{\mu}B-\left[\left(\pm ieQ\mathcal{A}_{\mu}\right),B\right]+\frac{1}{4f^{2}}\left[\phi\left(\partial_{\mu}-\left(\pm ieQ\mathcal{A}_{\mu}\right)\right)\phi,B\right]-ie\mathcal{A}_{\mu}\langle Q\rangle B
 \end{align*}
 
 \end_inset
@@ -1926,7 +2068,7 @@ D_{\mu}B & =\partial_{\mu}B+\left[-\left(\pm ieQ\mathcal{A}_{\mu}\right)+\frac{1
 
 \begin_inset Formula 
 \[
-D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\left[\phi\left(\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right)\phi,B\right]-i\langle\lambda^{0}\rangle e\mathcal{A}_{\mu}B
+D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\left[\phi\left(\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right)\phi,B\right]-ie\mathcal{A}_{\mu}\langle Q\rangle B
 \]
 
 \end_inset
@@ -2031,10 +2173,8 @@ B=\sum_{a=1}^{8}\frac{B_{a}\lambda_{a}}{\sqrt{2}}=\left(\begin{array}{ccc}
 
 \end_layout
 
-\begin_layout Standard
-
-\color cyan
-矢量流和轴矢流总结：
+\begin_layout Subsection
+矢量流和轴矢流总结
 \end_layout
 
 \begin_layout Standard
@@ -2042,7 +2182,7 @@ B=\sum_{a=1}^{8}\frac{B_{a}\lambda_{a}}{\sqrt{2}}=\left(\begin{array}{ccc}
 \begin_inset Formula $l_{\mu}=r_{\mu}=+eQ\mathcal{A}_{\mu}$
 \end_inset
 
-。对于
+，对于
 \begin_inset Formula $l_{\mu}=r_{\mu}=-eQ\mathcal{A}_{\mu}$
 \end_inset
 
@@ -2062,7 +2202,7 @@ u_{\mu} & =-\frac{1}{f}\partial_{\mu}\phi+\frac{i}{f}e\mathcal{A}_{\mu}\left[Q,\
 对应的协变导数为，
 \begin_inset Formula 
 \[
-D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\left[\phi\partial_{\mu}\phi,B\right]-\frac{ie\mathcal{A}_{\mu}}{4f^{2}}\left[\phi Q\phi,B\right]-i\langle\lambda^{0}\rangle e\mathcal{A}_{\mu}B
+\mathscr{D}_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\left[\phi\partial_{\mu}\phi,B\right]-\frac{ie\mathcal{A}_{\mu}}{4f^{2}}\left[\phi Q\phi,B\right]-ie\mathcal{A}_{\mu}\langle Q\rangle B
 \]
 
 \end_inset
@@ -2077,7 +2217,7 @@ D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\le
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-D_{\mu}U & =\partial_{\mu}U+\left(iU\lambda^{a}-i\lambda^{a}U\right)v_{\mu}^{a}=\partial_{\mu}U-i\left[v_{\mu},U\right]
+\mathscr{D}_{\mu}U & =\partial_{\mu}U+\left(iU\lambda^{a}-i\lambda^{a}U\right)v_{\mu}^{a}=\partial_{\mu}U-i\left[v_{\mu},U\right]
 \end{align*}
 
 \end_inset
@@ -2087,11 +2227,11 @@ D_{\mu}U & =\partial_{\mu}U+\left(iU\lambda^{a}-i\lambda^{a}U\right)v_{\mu}^{a}=
 \end_inset
 
 ，得
-\begin_inset Formula $D_{\mu}U=\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,U\right]$
+\begin_inset Formula $\mathscr{D}_{\mu}U=\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,U\right]$
 \end_inset
 
 ，类似于重子
-\begin_inset Formula $D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]$
+\begin_inset Formula $\mathscr{D}_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]$
 \end_inset
 
 。这里的要点是，
@@ -2105,8 +2245,8 @@ D_{\mu}U & =\partial_{\mu}U+\left(iU\lambda^{a}-i\lambda^{a}U\right)v_{\mu}^{a}=
 在共轭下改变次序，所以
 \begin_inset Formula 
 \begin{align*}
-D_{\mu}U & =\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,U\right]\\
-\left(D_{\mu}U\right)^{\dagger} & =\partial_{\mu}U^{\dagger}-ie\mathcal{A}_{\mu}\left[Q,U^{\dagger}\right]
+\mathscr{D}_{\mu}U & =\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,U\right]\\
+\left(\mathscr{D}_{\mu}U\right)^{\dagger} & =\partial_{\mu}U^{\dagger}-ie\mathcal{A}_{\mu}\left[Q,U^{\dagger}\right]
 \end{align*}
 
 \end_inset
@@ -2118,8 +2258,8 @@ D_{\mu}U & =\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,U\right]\\
 ，得到
 \begin_inset Formula 
 \begin{align*}
-D_{\mu}U & =\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,1+\frac{i}{f}\phi\right]=\frac{i}{f}\partial_{\mu}\phi+e\mathcal{A}_{\mu}\frac{1}{f}\left[Q,\phi\right]\\
-\left(D_{\mu}U\right)^{\dagger} & =-\frac{i}{f}\partial_{\mu}\phi-e\mathcal{A}_{\mu}\frac{1}{f}\left[Q,\phi\right]
+\mathscr{D}_{\mu}U & =\partial_{\mu}U-ie\mathcal{A}_{\mu}\left[Q,1+\frac{i}{f}\phi\right]=\frac{i}{f}\partial_{\mu}\phi+e\mathcal{A}_{\mu}\frac{1}{f}\left[Q,\phi\right]\\
+\left(\mathscr{D}_{\mu}U\right)^{\dagger} & =-\frac{i}{f}\partial_{\mu}\phi-e\mathcal{A}_{\mu}\frac{1}{f}\left[Q,\phi\right]
 \end{align*}
 
 \end_inset
@@ -2401,9 +2541,9 @@ u\sqrt{2}K^{-} & d\sqrt{2}\bar{K}^{0} & s\left(\frac{-2}{\sqrt{3}}\eta\right)
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\mathcal{L} & ={\rm Tr}\big[\bar{B}(i\slashed{D}-M_{B})B\big]+D{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma_{5}\left[u_{\mu},B\right]\right]\\
- & +\overline{T}_{\mu}^{ijk}(i\gamma^{\mu\nu\alpha}D_{\alpha}-M_{T}\gamma^{\mu\nu})T_{\nu}^{ijk}+\mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\text{h.c.}\right]\\
- & -\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}(u_{\alpha})^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[D_{\mu}U\left(D^{\mu}U\right)^{\dagger}\big]
+\mathcal{L} & ={\rm Tr}\big[\bar{B}(i\slashed{\mathscr{D}}-M_{B})B\big]+D{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma_{5}\left[u_{\mu},B\right]\right]\\
+ & +\overline{T}_{\mu}^{ijk}(i\gamma^{\mu\nu\alpha}\mathscr{D}_{\alpha}-M_{T}\gamma^{\mu\nu})T_{\nu}^{ijk}+\mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}+\text{h.c.}\right]\\
+ & -\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}\left(u_{\alpha}\right)^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[\mathscr{D}_{\mu}U\left(\mathscr{D}^{\mu}U\right)^{\dagger}\big]
 \end{align*}
 
 \end_inset

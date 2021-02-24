@@ -5067,6 +5067,705 @@ salamu 约定狄拉克旋量
 
 \end_layout
 
+\begin_layout Section
+强子流的磁矩
+\end_layout
+
+\begin_layout Subsection
+peskin的证明
+\end_layout
+
+\begin_layout Standard
+page 185。
+\end_layout
+
+\begin_layout Standard
+一个电子在外部电磁场上散射，半经典的哈密顿量为
+\begin_inset Formula 
+\[
+\Delta H_{\text{int}}=\int\dif^{3}xeA_{\mu}^{\text{cl}}j^{\mu},
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $j^{\mu}\left(x\right)=\bar{\psi}\left(x\right)\gamma^{\mu}\psi\left(x\right)$
+\end_inset
+
+是电磁流，
+\begin_inset Formula $A_{\mu}^{\text{cl}}$
+\end_inset
+
+是固定的经典势场。在微扰理论的领头阶，在这个势场上散射的
+\begin_inset Formula $S$
+\end_inset
+
+–矩阵元是
+\begin_inset Formula 
+\[
+i\mathcal{M}\left(2\pi\right)\delta\left(p^{\prime0}-p^{0}\right)=-ie\bar{u}\left(p^{\prime}\right)\gamma^{\mu}u\left(p\right)\cdot\tilde{A}_{\mu}^{\text{cl}}\left(p^{\prime}-p\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\tilde{A}_{\mu}^{\text{cl}}\left(q\right)$
+\end_inset
+
+是
+\begin_inset Formula $A_{\mu}^{\text{cl}}\left(x\right)$
+\end_inset
+
+的傅立叶变换。顶点修正将表达式变成
+\begin_inset Formula 
+\begin{equation}
+i\mathcal{M}\left(2\pi\right)\delta\left(p^{\prime0}-p^{0}\right)=-ie\bar{u}\left(p^{\prime}\right)\Gamma^{\mu}\left(p^{\prime},p\right)u\left(p\right)\cdot\tilde{A}_{\mu}^{\text{cl}}\left(p^{\prime}-p\right)\label{eq:peskin 6.30}
+\end{equation}
+
+\end_inset
+
+在最低阶
+\begin_inset Formula $\Gamma^{\mu}=\gamma^{\mu}$
+\end_inset
+
+。由于洛伦兹协变性，ward 恒等式，以及Gordon 恒等式，
+\begin_inset Formula $\Gamma^{\mu}$
+\end_inset
+
+的参数化可以写成
+\begin_inset Formula 
+\[
+\Gamma^{\mu}\left(p^{\prime},p\right)=\gamma^{\mu}F_{1}\left(q^{2}\right)+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}F_{2}\left(q^{2}\right)
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula $F_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+包含了电磁场对电子影响的完整信息，它们应当也包含了电子的电荷和磁矩耦合的总量。为了确定电子的电荷，我们可以考虑使用
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:peskin 6.30"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，计算一个非相对论电子在非零静电场中的库伦散射。令
+\begin_inset Formula $A_{\mu}^{\text{cl}}=\left(\phi\left(\boldsymbol{x}\right),\boldsymbol{0}\right)$
+\end_inset
+
+，则
+\begin_inset Formula $\tilde{A}_{\mu}^{\text{cl}}\left(q\right)=\left(\left(2\pi\right)\delta\left(q^{0}\right)\tilde{\phi}\left(\boldsymbol{q}\right),\boldsymbol{0}\right)$
+\end_inset
+
+。代入到
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:peskin 6.30"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中，得到
+\begin_inset Formula 
+\[
+i\mathcal{M}\left(2\pi\right)\delta\left(p^{\prime0}-p^{0}\right)=-ie\bar{u}\left(p^{\prime}\right)\Gamma^{\mu}\left(p^{\prime},p\right)u\left(p\right)\cdot\tilde{\phi}\left(\boldsymbol{q}\right)
+\]
+
+\end_inset
+
+如果静电场在大片区域是平缓的，
+\begin_inset Formula $\tilde{\phi}\left(\boldsymbol{q}\right)$
+\end_inset
+
+将集中于
+\begin_inset Formula $\boldsymbol{q}=0$
+\end_inset
+
+附近；我们可以在旋量矩阵元中取
+\begin_inset Formula $\boldsymbol{q}\to0$
+\end_inset
+
+极限。只有形状因子
+\begin_inset Formula $F_{1}$
+\end_inset
+
+贡献。使用旋量的非相对论极限
+\begin_inset Formula 
+\[
+\bar{u}\left(p^{\prime}\right)\gamma^{0}u\left(p\right)=u^{\dagger}\left(p^{\prime}\right)u\left(p\right)\approx2m\xi^{\prime\dagger}\xi,
+\]
+
+\end_inset
+
+电子在静电场上散射的振幅近似为
+\begin_inset Formula 
+\[
+i\mathcal{M}=-ieF_{1}\left(0\right)\tilde{\phi}\left(\boldsymbol{q}\right)\cdot2m\xi^{\prime\dagger}\xi
+\]
+
+\end_inset
+
+这是下面势散射的波恩近似
+\begin_inset Formula 
+\[
+V\left(\boldsymbol{x}\right)=eF_{1}\left(0\right)\phi\left(\boldsymbol{x}\right)
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula $F_{1}\left(0\right)$
+\end_inset
+
+是电子的电荷，单位是
+\begin_inset Formula $e$
+\end_inset
+
+。由于围绕理论的领头阶已经有
+\begin_inset Formula $F_{1}\left(0\right)=1$
+\end_inset
+
+，所以当
+\begin_inset Formula $q^{2}=0$
+\end_inset
+
+时，辐射修正对于
+\begin_inset Formula $F_{1}\left(q^{2}\right)$
+\end_inset
+
+的贡献应该为零。
+\end_layout
+
+\begin_layout Standard
+重复类似的过程，研究电子在一个静矢势上的散射，可以推导出形状因子与电子磁矩的联系，注意空间指标升降引起的正负号。令
+\begin_inset Formula $A_{\mu}^{\text{cl}}\left(x\right)=\left(0,\boldsymbol{A}^{\text{cl}}\left(\boldsymbol{x}\right)\right)$
+\end_inset
+
+，则在这个势场上散射的振幅为
+\begin_inset Formula 
+\[
+i\mathcal{M}=+ie\left[\bar{u}\left(p^{\prime}\right)\left(\gamma^{i}F_{1}+\frac{i\sigma^{i\nu}q_{\nu}}{2m}F_{2}\right)u\left(p\right)\right]\cdot\tilde{A}_{\text{cl}}^{i}\left(\boldsymbol{q}\right)
+\]
+
+\end_inset
+
+方括号中的表达式在
+\begin_inset Formula $\boldsymbol{q}=0$
+\end_inset
+
+的时候消失，所以必须小心的提取出正比于
+\begin_inset Formula $q^{i}$
+\end_inset
+
+的贡献。首先将
+\begin_inset Formula $u\left(p\right)$
+\end_inset
+
+作非相对论展开，
+\begin_inset Formula 
+\[
+u\left(p\right)=\left(\begin{array}{c}
+\sqrt{p\cdot\sigma}\xi\\
+\sqrt{p\cdot\bar{\sigma}}\xi
+\end{array}\right)\approx\sqrt{m}\left(\begin{array}{c}
+\left(1-\boldsymbol{p}\cdot\boldsymbol{\sigma}/2m\right)\xi\\
+\left(1+\boldsymbol{p}\cdot\boldsymbol{\sigma}/2m\right)\xi
+\end{array}\right)
+\]
+
+\end_inset
+
+然后化简
+\begin_inset Formula $F_{1}$
+\end_inset
+
+项：
+\begin_inset Formula 
+\[
+\bar{u}\left(p^{\prime}\right)\gamma^{i}u\left(p\right)=2m\xi^{\prime\dagger}\left(\frac{\boldsymbol{p}^{\prime}\cdot\boldsymbol{\sigma}}{2m}\sigma^{i}+\sigma^{i}\frac{\boldsymbol{p}\cdot\boldsymbol{\sigma}}{2m}\right)\xi
+\]
+
+\end_inset
+
+使用等式
+\begin_inset Formula $\sigma^{i}\sigma^{j}=\delta^{ij}+i\epsilon^{ijk}\sigma^{k}$
+\end_inset
+
+，可以得到一个自旋无关的项，正比于
+\begin_inset Formula $\left(\boldsymbol{p}^{\prime}+\boldsymbol{p}\right)$
+\end_inset
+
+，和一个自旋依赖的项，正比于
+\begin_inset Formula $\left(\boldsymbol{p}^{\prime}-\boldsymbol{p}\right)$
+\end_inset
+
+。前一项是非相对论量子力学中标准动能项中的算符
+\begin_inset Formula $\left[\boldsymbol{p}\cdot\boldsymbol{A}+\boldsymbol{A}\cdot\boldsymbol{p}\right]$
+\end_inset
+
+的贡献。后一项正是我们寻找的磁矩相互作用。只考虑后一项，有
+\begin_inset Formula 
+\[
+\bar{u}\left(p^{\prime}\right)\gamma^{i}u\left(p\right)=2m\xi^{\prime\dagger}\left(\frac{-i}{2m}\epsilon^{ijk}q^{j}\sigma^{k}\right)\xi.
+\]
+
+\end_inset
+
+
+\begin_inset Formula $F_{2}$
+\end_inset
+
+项已经包含了显式的
+\begin_inset Formula $q$
+\end_inset
+
+，所以只需要使用旋量的领头阶展开，得到
+\begin_inset Formula 
+\[
+\bar{u}\left(p^{\prime}\right)\left(\frac{i}{2m}\sigma^{i\nu}q_{\nu}\right)u\left(p\right)=2m\xi^{\prime\dagger}\left(\frac{-i}{2m}\epsilon^{ijk}q^{j}\sigma^{k}\right)\xi.
+\]
+
+\end_inset
+
+因此，电子–光子顶点中所有正比于
+\begin_inset Formula $q^{j}$
+\end_inset
+
+的项是
+\begin_inset Formula 
+\[
+\bar{u}\left(p^{\prime}\right)\left(\gamma^{i}F_{1}+\frac{i\sigma^{i\nu}q_{\nu}}{2m}F_{2}\right)u\left(p\right)\underset{q\to0}{\approx}2m\xi^{\prime\dagger}\left(\frac{-i}{2m}\epsilon^{ijk}q^{j}\sigma^{k}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]\right)\xi.
+\]
+
+\end_inset
+
+插入到
+\begin_inset Formula 
+\[
+i\mathcal{M}=+ie\left[\bar{u}\left(p^{\prime}\right)\left(\gamma^{i}F_{1}+\frac{i\sigma^{i\nu}q_{\nu}}{2m}F_{2}\right)u\left(p\right)\right]\cdot\tilde{A}_{\text{cl}}^{i}\left(\boldsymbol{q}\right)
+\]
+
+\end_inset
+
+中得到
+\begin_inset Formula 
+\[
+i\mathcal{M}=-i\left(2m\right)\cdot e\xi^{\prime\dagger}\left(\frac{-1}{2m}\sigma^{k}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]\right)\xi\tilde{B}^{k}\left(\boldsymbol{q}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\tilde{B}^{k}\left(\boldsymbol{q}\right)=-i\epsilon^{ijk}q^{i}\tilde{A}_{\text{cl}}^{j}\left(\boldsymbol{q}\right),\quad\text{or }\tilde{\boldsymbol{B}}\left(\boldsymbol{q}\right)=-i\boldsymbol{q}\times\tilde{\boldsymbol{A}}\left(\boldsymbol{q}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\tilde{B}$
+\end_inset
+
+是磁场的傅立叶变换，也就是电磁学关系
+\begin_inset Formula $\boldsymbol{B}\left(\boldsymbol{x}\right)=\nabla\times\boldsymbol{A}\left(\boldsymbol{x}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+我们故伎重施，把
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+理解成电子在势井中散射的波恩近似。势能项就是磁相互作用的形式，
+\begin_inset Formula 
+\[
+V\left(\boldsymbol{x}\right)=-\langle\boldsymbol{\mu}\rangle\cdot\boldsymbol{B}\left(x\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\langle\boldsymbol{\mu}\rangle=\frac{e}{m}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]\xi^{\prime\dagger}\frac{\boldsymbol{\sigma}}{2}\xi.
+\]
+
+\end_inset
+
+可以把电子的磁矩写成标准形式
+\begin_inset Formula 
+\[
+\boldsymbol{\mu}=g\left(\frac{e}{2m}\right)\boldsymbol{S}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\boldsymbol{S}$
+\end_inset
+
+是电子自旋。
+\begin_inset Formula $g$
+\end_inset
+
+称为 Land
+\begin_inset Formula $\acute{e}$
+\end_inset
+
+
+\begin_inset Formula $g$
+\end_inset
+
+–因子，
+\begin_inset Formula 
+\[
+g=2\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]=2+2F_{2}\left(0\right).
+\]
+
+\end_inset
+
+由于微扰论领头阶没有
+\begin_inset Formula $F_{2}$
+\end_inset
+
+项，QED预测
+\begin_inset Formula $g=2+\mathcal{O}\left(\alpha\right)$
+\end_inset
+
+。领头阶是狄拉克方程的标准预测，计算高阶的话，会稍微偏离
+\begin_inset Formula $2$
+\end_inset
+
+，这被称为反常磁矩。由于推导
+\begin_inset Formula $\Gamma^{\mu}$
+\end_inset
+
+的表达式时，只使用了最一般的对称性，因此对于其他与电磁场相互作用的费米子也成立。
+\end_layout
+
+\begin_layout Standard
+波恩近似：粒子被势场散射，归结为求解薛定谔方程
+\begin_inset Formula 
+\[
+\left(\nabla^{2}+k^{2}\right)\psi\left(\boldsymbol{r}\right)=\frac{2\mu}{\hbar^{2}}V\left(\boldsymbol{r}\right)\psi\left(\boldsymbol{r}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $E=\hbar^{2}k^{2}/2$
+\end_inset
+
+ 是入射粒子的能量。
+\begin_inset Formula $\psi\left(\boldsymbol{r}\right)$
+\end_inset
+
+满足下列边界条件：
+\begin_inset Formula 
+\[
+\psi\left(\boldsymbol{r}\right)\stackrel{r\to\infty}{\longrightarrow}\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}\right)+f\left(\theta,\varphi\right)\frac{\exp\left(ikr\right)}{r}
+\]
+
+\end_inset
+
+方程的解为
+\begin_inset Formula 
+\[
+\psi\left(\boldsymbol{r}\right)=\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}\right)-\frac{\mu}{2\pi\hbar^{2}}\int\dif^{3}r^{\prime}\frac{\exp\left(ik\abs{\boldsymbol{r}-\boldsymbol{r}^{\prime}}\right)}{\abs{\boldsymbol{r}-\boldsymbol{r}^{\prime}}}V\left(\boldsymbol{r}^{\prime}\right)\psi\left(\boldsymbol{r}^{\prime}\right)
+\]
+
+\end_inset
+
+它是关于
+\begin_inset Formula $\psi$
+\end_inset
+
+的积分方程，具体计算中，往往只能采用逐级近似法求解。波恩近似就是把入射粒子与靶的相互作用
+\begin_inset Formula $V$
+\end_inset
+
+看成微扰，作为一级近似，把积分方程右边的
+\begin_inset Formula $V\left(\boldsymbol{r}^{\prime}\right)\psi\left(\boldsymbol{r}^{\prime}\right)$
+\end_inset
+
+用其零级近似
+\begin_inset Formula $V\left(\boldsymbol{r}^{\prime}\right)\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}\right)$
+\end_inset
+
+代替。此时
+\begin_inset Formula 
+\[
+\psi\left(\boldsymbol{r}\right)\approx\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}\right)-\frac{\mu}{2\pi\hbar^{2}}\int\dif^{3}r^{\prime}\frac{\exp\left(ik\abs{\boldsymbol{r}-\boldsymbol{r}^{\prime}}\right)}{\abs{\boldsymbol{r}-\boldsymbol{r}^{\prime}}}V\left(\boldsymbol{r}^{\prime}\right)\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}^{\prime}\right)
+\]
+
+\end_inset
+
+此即散射问题的 Born 一级近似解。根据它在
+\begin_inset Formula $r\to\infty$
+\end_inset
+
+的渐近行为，与边界条件比较，既可求出散射振幅
+\begin_inset Formula $f$
+\end_inset
+
+的一级近似解。当
+\begin_inset Formula $r\to\infty$
+\end_inset
+
+时，
+\begin_inset Formula 
+\[
+\psi_{\text{sc}}\left(\boldsymbol{r}\right)\stackrel{r\to\infty}{\longrightarrow}\frac{-\mu\exp\left(ikr\right)}{2\pi\hbar^{2}r}\int\dif^{3}r^{\prime}\exp\left[-i\left(\boldsymbol{k}_{f}-\boldsymbol{k}\right)\cdot\boldsymbol{r}^{\prime}\right]V\left(\boldsymbol{r}^{\prime}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\boldsymbol{k}_{f}=k_{f}\frac{\boldsymbol{r}}{r}$
+\end_inset
+
+，
+\begin_inset Formula $\hbar\boldsymbol{k}_{f}$
+\end_inset
+
+是出射粒子动量，对于弹性散射，
+\begin_inset Formula $\abs{\boldsymbol{k}_{f}}=k$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+f\left(\theta,\varphi\right)=f\left(\boldsymbol{k},\boldsymbol{k}_{f}\right)=\frac{-\mu}{2\pi\hbar^{2}}\int\dif^{3}r^{\prime}\exp\left[i\boldsymbol{q}\cdot\boldsymbol{r}^{\prime}\right]V\left(\boldsymbol{r}^{\prime}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\boldsymbol{q}=\boldsymbol{k}_{f}-\boldsymbol{k}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+belitsky
+\end_layout
+
+\begin_layout Standard
+证明如下：考虑场的平移不变性，得到
+\begin_inset Formula 
+\[
+\bra{p_{2}}j^{\mu}\left(x\right)\ket{p_{1}}=e^{+i\left(p_{2}-p_{1}\right)x}\bra{p_{2}}j^{\mu}\left(0\right)\ket{p_{1}}
+\]
+
+\end_inset
+
+再考虑
+\begin_inset Formula $\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}$
+\end_inset
+
+的傅立叶变换，直接积分得到：
+\begin_inset Formula 
+\begin{align*}
+ & \int\dif^{3}\boldsymbol{r}e^{-i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}=2\pi\delta\left(\boldsymbol{p_{2}}-\boldsymbol{p_{1}}+\boldsymbol{\Delta}\right)\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{0}\right)\ket{p_{1}}\\
+ & =2\pi\delta\left(\boldsymbol{p_{2}}-\boldsymbol{p_{1}}+\boldsymbol{\Delta}\right)\bar{u}\left(p_{2}\right)\left\{ \boldsymbol{\gamma}F_{1}\left(\Delta^{2}\right)+\frac{i\boldsymbol{\sigma^{\nu k}}\boldsymbol{\Delta_{k}}}{2M_{N}}F_{2}\left(\Delta^{2}\right)\right\} u\left(p_{1}\right)\\
+ & =2\pi\delta\left(\boldsymbol{p_{2}}-\boldsymbol{p_{1}}+\boldsymbol{\Delta}\right)\left[F_{1}\left(\Delta^{2}\right)+F_{2}\left(\Delta^{2}\right)\right]i\omega_{2}^{\dagger}\left(\boldsymbol{\Delta}\times\boldsymbol{\sigma}\right)\omega_{1}
+\end{align*}
+
+\end_inset
+
+如果把指数展开到线性项,
+\begin_inset Formula 
+\begin{align*}
+\int\dif^{3}\boldsymbol{r}e^{-i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}} & \approx\bra{p_{2}}\int\dif^{3}\boldsymbol{r}\left(1-i\boldsymbol{\Delta}\cdot\boldsymbol{r}\right)\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}\\
+ & \approx\bra{p_{2}}\int\dif^{3}\boldsymbol{r}\left(i\boldsymbol{\Delta}\cdot\boldsymbol{r}\right)\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}
+\end{align*}
+
+\end_inset
+
+后面会证明稳恒电场条件下
+\begin_inset Formula $\int_{V}\boldsymbol{j}\left(\boldsymbol{r}\right)\dif^{3}\boldsymbol{r}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+再来考虑
+\begin_inset Formula $\boldsymbol{\mu}=\int\dif^{3}\boldsymbol{r}\,\boldsymbol{r}\times\boldsymbol{j}$
+\end_inset
+
+，使用
+\begin_inset Formula $\boldsymbol{r}\times\boldsymbol{j}\times\boldsymbol{\Delta}=\boldsymbol{j}\left(\boldsymbol{r}\cdot\boldsymbol{\Delta}\right)-\boldsymbol{r}\left(\boldsymbol{j}\cdot\boldsymbol{\Delta}\right)$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow-i\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\boldsymbol{r}\times\boldsymbol{j}\left(\boldsymbol{r}\right)\times\boldsymbol{\Delta}e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\ket{p_{1}}\\
+ & =\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\left[\left(-i\boldsymbol{\Delta}\cdot\boldsymbol{r}\right)\boldsymbol{j}+\boldsymbol{r}\left(i\boldsymbol{\Delta}\cdot\boldsymbol{j}\right)\right]e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\ket{p_{1}}\\
+ & =\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\left[-\boldsymbol{j}\boldsymbol{r}\cdot\nabla e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}+\boldsymbol{r}\left(\boldsymbol{j}\cdot\nabla e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\right)\right]\ket{p_{1}}
+\end{align*}
+
+\end_inset
+
+使用分部积分，
+\begin_inset Formula 
+\begin{align*}
+ & -\boldsymbol{j}\boldsymbol{r}\cdot\nabla e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}=\left[\boldsymbol{j}\left(\nabla\cdot\boldsymbol{r}\right)+\left(\nabla\boldsymbol{j}\right)\cdot\boldsymbol{r}\right]e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\\
+ & \boldsymbol{r}\boldsymbol{j}\cdot\nabla e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}=\left[\boldsymbol{r}\left(\nabla\cdot\boldsymbol{j}\right)+\left(\nabla\boldsymbol{r}\right)\cdot\boldsymbol{j}\right]e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}
+\end{align*}
+
+\end_inset
+
+使用稳恒电场条件
+\begin_inset Formula $\nabla\cdot\boldsymbol{j}=0$
+\end_inset
+
+，以及
+\begin_inset Formula $\nabla\boldsymbol{r}=I$
+\end_inset
+
+，
+\begin_inset Formula $\int_{V}\boldsymbol{j}\left(\boldsymbol{r}\right)\dif^{3}\boldsymbol{r}=0$
+\end_inset
+
+，可知第二项为零，只用考虑第一项，
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow-i\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\boldsymbol{r}\times\boldsymbol{j}\left(\boldsymbol{r}\right)\times\boldsymbol{\Delta}e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\ket{p_{1}}\\
+ & =\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\boldsymbol{j}\left(-i\boldsymbol{\Delta}\cdot\boldsymbol{r}\right)e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\ket{p_{1}}\\
+ & =\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}
+\end{align*}
+
+\end_inset
+
+在
+\begin_inset Formula $\boldsymbol{\Delta}\to0$
+\end_inset
+
+的极限，
+\begin_inset Formula 
+\[
+-i\bra{p_{2}}\boldsymbol{\mu}\ket{p_{1}}\times\boldsymbol{\Delta}=\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+-i\bra{p_{2}}\boldsymbol{\mu}\ket{p_{1}}\times\boldsymbol{\Delta}=\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]i\omega_{2}^{\dagger}\left(\boldsymbol{\Delta}\times\boldsymbol{\sigma}\right)\omega_{1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\bra{p}\boldsymbol{\mu}\ket{p}}{\bra{p}\ket{p}}=\frac{\boldsymbol{s}}{M_{N}}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bra{p}\boldsymbol{\mu}\ket{p}=2\pi\delta\left(\boldsymbol{0}\right)\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]2\boldsymbol{s}
+\]
+
+\end_inset
+
+其中使用了归一化
+\begin_inset Formula $\bra{p_{2}}\ket{p_{1}}=2E\delta\left(p_{2}-p_{1}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+稳恒电场
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\boldsymbol{j}\left(\boldsymbol{r}\right)$
+\end_inset
+
+的空间积分为零。我们有电荷守恒条件
+\begin_inset Formula $\partial_{\mu}j^{\mu}=\partial_{t}j^{0}-\nabla\cdot\boldsymbol{j}=0$
+\end_inset
+
+，使用矢量公式
+\begin_inset Formula 
+\[
+\nabla\cdot\left(\boldsymbol{AB}\right)=\left(\nabla\cdot\boldsymbol{A}\right)\boldsymbol{B}+\boldsymbol{A}\cdot\nabla\boldsymbol{B}
+\]
+
+\end_inset
+
+得到
+\begin_inset Formula 
+\[
+\nabla\cdot\left(\boldsymbol{j}\boldsymbol{r}\right)=\left(\nabla\cdot\boldsymbol{j}\right)\boldsymbol{r}+\boldsymbol{j}\cdot\boldsymbol{\nabla}\boldsymbol{r}=\left(\nabla\cdot\boldsymbol{j}\right)\boldsymbol{r}+\boldsymbol{j}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\partial_{t}\int_{V}\dif^{3}\boldsymbol{r}\,\left(\boldsymbol{r}j^{0}\right) & =\int_{V}\dif^{3}\boldsymbol{r}\,\left(\nabla\cdot\boldsymbol{j}\right)\boldsymbol{r}=\int_{V}\dif^{3}\boldsymbol{r}\,\left[\nabla\cdot\left(\boldsymbol{j}\boldsymbol{r}\right)-\boldsymbol{j}\right]\\
+ & =\oint_{S}\dif\boldsymbol{S}\cdot\left(\boldsymbol{j}\boldsymbol{r}\right)-\int_{V}\dif^{3}\boldsymbol{r}\,\boldsymbol{j}
+\end{align*}
+
+\end_inset
+
+认为
+\begin_inset Formula $\boldsymbol{j}$
+\end_inset
+
+的收敛性足够好，第一项为零。则
+\begin_inset Formula 
+\[
+\int_{V}\boldsymbol{j}\left(\boldsymbol{r}\right)\dif^{3}\boldsymbol{r}=-\partial_{t}\int_{V}\dif^{3}\boldsymbol{r}\,\left(\boldsymbol{r}j^{0}\right)=\frac{\dif}{\dif t}\boldsymbol{p_{e}}
+\]
+
+\end_inset
+
+电流的空间积分等于电偶极矩的变化率。我们假设是静电场，变化率为零，所以
+\begin_inset Formula $\int_{V}\boldsymbol{j}\left(\boldsymbol{r}\right)\dif^{3}\boldsymbol{r}=0$
+\end_inset
+
+。以及steady electromagnetic current 的条件
+\begin_inset Formula $\boldsymbol{\nabla}_{r}\cdot\boldsymbol{j}\left(\boldsymbol{r}\right)=0$
+\end_inset
+
+。上面还使用了附录中的公式
+\begin_inset Formula 
+\begin{align*}
+ & \bar{u}\left(p_{2}\right)\gamma^{0}u\left(p_{1}\right)=2m\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\gamma^{k}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}\\
+ & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu0}\Delta_{\mu}}{2m}u\left(p_{1}\right)=-\frac{\vec{\Delta}^{2}}{2m}\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu k}\Delta_{\mu}}{2m}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\vec{\Delta}\times\vec{\sigma}\right)\omega_{1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 end of file
 \end_layout

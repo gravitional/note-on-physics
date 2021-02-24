@@ -17732,8 +17732,8 @@ Q_{u}=\left(\begin{array}{ccc}
 是普通数，作为系数。展开到最低阶为
 \begin_inset Formula 
 \begin{align*}
-\mathscr{D}_{\mu}B & =\partial_{\mu}B+ie\mathcal{A}_{\mu}\left[\lambda^{a}x^{a},B\right]+ie\mathcal{A}_{\mu}3\lambda^{0}x^{0}B\\
- & =\partial_{\mu}B+ie\mathcal{A}_{\mu}\left(\left[\lambda^{a}x^{a},B\right]+3\lambda^{0}x^{0}B\right)
+\mathscr{D}_{\mu}B & =\partial_{\mu}B+ie\mathcal{A}_{\mu}\left[\lambda^{a}x^{a},B\right]+ie\mathcal{A}_{\mu}\langle\lambda^{0}\rangle\lambda^{0}x^{0}B\\
+ & =\partial_{\mu}B+ie\mathcal{A}_{\mu}\left(\left[\lambda^{a}x^{a},B\right]+\langle\lambda^{0}\rangle\lambda^{0}x^{0}B\right)
 \end{align*}
 
 \end_inset
@@ -17755,7 +17755,7 @@ Q_{u}=\left(\begin{array}{ccc}
 \end_inset
 
 ，
-\begin_inset Formula $3x^{0}\lambda^{0}$
+\begin_inset Formula $\langle\lambda^{0}\rangle\lambda^{0}$
 \end_inset
 
 是整体出现的，所以不需要实际计算出确切的系数，只要把
@@ -17765,44 +17765,56 @@ Q_{u}=\left(\begin{array}{ccc}
 分成有迹部分和无迹部分即可，
 \begin_inset Formula 
 \[
-\mathscr{D}_{\mu}B=\partial_{\mu}B+ie\mathcal{A}_{\mu}\left\{ \left[\left(\begin{array}{ccc}
-\frac{2}{3}\\
- & -\frac{1}{3}\\
- &  & -\frac{1}{3}
-\end{array}\right),B\right]+\left(\begin{array}{ccc}
-\frac{1}{3}\\
- & \frac{1}{3}\\
- &  & \frac{1}{3}
-\end{array}\right)B\right\} 
+\mathscr{D}_{\mu}B=\partial_{\mu}B+ie\mathcal{A}_{\mu}\left\{ \left[Q-\frac{1}{3}\tr\left[Q\right],B\right]+\tr\left[Q\right]B\right\} 
 \]
 
 \end_inset
 
-chpt primer 中使用的电荷投影基为
-\begin_inset Formula $\frac{\lambda_{a}}{2},\frac{1}{3}I$
+并且由于
+\begin_inset Formula $\left[I,B\right]=0$
+\end_inset
+
+，第一项中可以加上
+\begin_inset Formula $\frac{1}{3}\tr\left[Q\right]$
+\end_inset
+
+，最后可以写成
+\begin_inset Formula 
+\[
+\mathscr{D}_{\mu}B=\partial_{\mu}B+ie\mathcal{A}_{\mu}\left[Q,B\right]+ie\mathcal{A}_{\mu}\tr\left[Q\right]B
+\]
+
+\end_inset
+
+这里单态的系数之所以是
+\begin_inset Formula $\tr\left[Q\right]$
+\end_inset
+
+，是要求展开展开之后的结果匹配夸克电荷数目得到的。
+\end_layout
+
+\begin_layout Standard
+chpt primer 前面章节中出现的拉氏量，电荷矩阵的投影基是
+\begin_inset Formula $\frac{\lambda_{a}}{2},\frac{I}{3}$
 \end_inset
 
 ，
 \begin_inset Formula 
 \[
-\mathcal{L}_{\text{ext}}=\sum_{a=1}^{8}v_{a}^{\mu}\bar{q}\gamma_{\mu}\frac{\lambda_{a}}{2}q+\frac{1}{3}v_{(s)}^{\mu}\bar{q}\gamma_{\mu}Iq+\cdots.
+\mathcal{L}_{\text{ext}}=\sum_{a=1}^{8}v_{a}^{\mu}\bar{q}\gamma_{\mu}\frac{\lambda_{a}}{2}q+v_{(s)}^{\mu}\bar{q}\gamma_{\mu}f\frac{I}{3}q+\cdots.
 \]
 
 \end_inset
 
-
-\begin_inset Formula $\frac{1}{3}$
-\end_inset
-
-来自于
-\begin_inset Formula $\tr\left(I\right)=3$
+由于
+\begin_inset Formula $\tr\left(\frac{I}{3}\right)=1$
 \end_inset
 
 ，这样
-\begin_inset Formula $\tr$
+\begin_inset Formula $v_{(s)}^{\mu}$
 \end_inset
 
-项的系数就等于电荷矩阵的迹。
+中的系数直接等于电荷矩阵的迹。
 \end_layout
 
 \begin_layout Chapter
