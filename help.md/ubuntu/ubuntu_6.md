@@ -1399,7 +1399,7 @@ ssh root@192.168.0.105
 这个`config`的路径在服务的位置是 `~/.ssh/config` 如果没有找到这个文件,就在`>~/.ssh/config`
 
 那么说到这个文件我们怎么用呢？
-实际上在平时的运维管理中,我们可能管理多台机器,可能是几台、十几台甚至几十上百台.
+实际上在平时的运维管理中,我们可能管理多台机器,可能是几台,十几台甚至上百台.
 我们将这些服务器配置在`config`中,方便我们去连接和管理.
 
 例如:(`IdentityFile`可以暂时不配置,`ssh`默认端口为`22`)
@@ -1423,9 +1423,7 @@ host "NagaSiren"
 
 ### SSH免密登录ssh-keygen
 
-[Linux 配置SSH免密登录`ssh-keygen`][]
-
-[Linux 配置SSH免密登录`ssh-keygen`]: https://www.jb51.net/article/163093.htm
+[Linux 配置SSH免密登录`ssh-keygen`](https://www.jb51.net/article/163093.htm)
 
 为了在不同平台/网络主机之间的通信安全, 很多时候我们都要通过`ssh`进行认证. `ssh`认证方式主要有2种:
 

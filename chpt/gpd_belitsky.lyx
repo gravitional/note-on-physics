@@ -634,6 +634,463 @@ Q\equiv\int\dif^{3}\boldsymbol{r}j^{0}\left(\boldsymbol{r}\right),\quad\boldsymb
 是Weyl旋量。（见Appendix A.2）。磁矩的关系的证明参考 math_note。
 \end_layout
 
+\begin_layout Standard
+很久之前，人们就意识到，将核子的形状因子理解成电荷和磁化分布，会因为相对论而模糊。考虑一个大小为
+\begin_inset Formula $R$
+\end_inset
+
+，质量为
+\begin_inset Formula $M$
+\end_inset
+
+的系统。在一个相对论性量子场论中，系统无法被确定到比康普顿波长
+\begin_inset Formula $1/M$
+\end_inset
+
+更精确的位置（这里将
+\begin_inset Formula $\hbar$
+\end_inset
+
+设置成
+\begin_inset Formula $1$
+\end_inset
+
+）。结果是，系统的静态尺寸无法确定的比
+\begin_inset Formula $1/M$
+\end_inset
+
+更精确。如果
+\begin_inset Formula $R\gg1/M$
+\end_inset
+
+，也就是非相对论系统的情况，这不是很重要的限制。可以使用波长
+\begin_inset Formula $\lambda\sim1/\abs{\boldsymbol{\Delta}}$
+\end_inset
+
+与
+\begin_inset Formula $R$
+\end_inset
+
+相当或者更小的探针探测内部结构。一个熟悉的例子是氢原子，
+\begin_inset Formula $R_{\text{atm}}M_{\text{atm}}\sim M_{\text{atm}}/\left(m_{e}\alpha_{\text{em}}\right)\sim10^{5}$
+\end_inset
+
+，可以通过动量转移
+\begin_inset Formula $\abs{\Delta}\ll M_{\text{atom}}$
+\end_inset
+
+的散射测量形状因子。
+\end_layout
+
+\begin_layout Standard
+当探针波长和
+\begin_inset Formula $1/M$
+\end_inset
+
+可比拟时，形状因子将不再由内部结构单独决定。他们将会包含洛伦兹boosts 的动力学效应，由于初末态核子动量不同，由于不可忽视的反冲，recoil。在相对论量子
+场论中，boost算符包含不平庸的动力学效应，使得核子波函数与在静止系统中不同（in the instant form of quantization）。因此在
+\begin_inset Formula $\abs{\Delta}\sim M$
+\end_inset
+
+区域，形状因子的物理诠释会比较复杂，由于内部运动和质心运动的纠缠。在
+\begin_inset Formula $\abs{\Delta}\gg M$
+\end_inset
+
+极限，形状因子主要依赖于核子动量变化的物理机制，结构效应只对核子波函数贡献很小一部分，由于它只对应最低的一些 Fock 态。
+\end_layout
+
+\begin_layout Standard
+对于核子，
+\begin_inset Formula $M_{N}R_{N}\sim4$
+\end_inset
+
+。尽管相比于氢原子的情形确定性降低，但电磁形状因子的静止系图像还是有意义的，只需记住核子尺寸的定义差
+\begin_inset Formula $1/M_{N}$
+\end_inset
+
+
+\begin_inset Formula $\left(R_{N}M_{N}\right)$
+\end_inset
+
+也是合理的。
+\begin_inset Formula $\abs{\boldsymbol{\Delta}}\ge M_{N}\sim1\GeV$
+\end_inset
+
+时的形状因子不能被单独的看成是核子内部结构的信息。
+\end_layout
+
+\begin_layout Subsection
+Breit 系中的形状因子和电荷分布
+\end_layout
+
+\begin_layout Standard
+为了建立起电荷分布的改变，需要构造一个波包表示位置在
+\begin_inset Formula $\boldsymbol{R}$
+\end_inset
+
+的静态核子，
+\begin_inset Formula 
+\begin{equation}
+\ket{\boldsymbol{R}}=\int\frac{\dif^{3}\boldsymbol{p}}{\left(2\pi\right)^{3}}e^{i\boldsymbol{p}\cdot\boldsymbol{R}}\Psi\left(\boldsymbol{p}\right)\ket{\boldsymbol{p}}\label{eq:2.19}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\Psi\left(\boldsymbol{p}\right)$
+\end_inset
+
+是动量空间 profile 。平面波状态
+\begin_inset Formula $\ket{\boldsymbol{p}}$
+\end_inset
+
+按照相对论不变的方式归一化，则
+\begin_inset Formula 
+\[
+\int\frac{\dif^{3}\boldsymbol{p}}{\left(2\pi\right)^{3}}\left(2E_{p}\right)\abs{\Psi\left(\boldsymbol{p}\right)}^{2}=1
+\]
+
+\end_inset
+
+以使得
+\begin_inset Formula $\bra{\boldsymbol{R}}\ket{\boldsymbol{R}}=1$
+\end_inset
+
+。波包
+\begin_inset Formula $\Psi$
+\end_inset
+
+不是自由哈密顿的本征态，所以随着时间进行，它会传播。特征弥散时间正比于
+\begin_inset Formula 
+\[
+t_{\text{char}}\sim\int\dif^{3}p\left(M_{N}/\boldsymbol{p}^{2}\right){\Psi\left(\boldsymbol{p}\right)}^{2}
+\]
+
+\end_inset
+
+对于非相对论系统，这个时间很长。但是对于相对论粒子，相比于作用较弱的探针的时间尺度，这个传播要快的多。波包的具体形状并不重要，由于我们想得到的是粒子自身的信息，
+而不是辅助波包的信息。
+\end_layout
+
+\begin_layout Standard
+如果将波包定位在
+\begin_inset Formula $\boldsymbol{R}=0$
+\end_inset
+
+，使用方程
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.19"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+计算，例如，波包的电荷分布
+\begin_inset Formula 
+\[
+\rho\left(\boldsymbol{r}\right)=\bra{\boldsymbol{R}=0}j^{0}\left(\boldsymbol{r}\right)\ket{\boldsymbol{R}=0},
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\boldsymbol{r}$
+\end_inset
+
+度量离中心的相对距离，
+\begin_inset Formula $\boldsymbol{R}=0$
+\end_inset
+
+。取它的傅立叶变换，得到
+\begin_inset Formula 
+\begin{align*}
+F\left(\boldsymbol{\Delta}\right) & \equiv\int\dif^{3}\boldsymbol{r}e^{-i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\rho\left(\boldsymbol{r}\right)\\
+ & =\int\frac{\dif^{3}\boldsymbol{p}}{\left(2\pi\right)^{3}}\Psi^{*}\left(\boldsymbol{p}-\frac{1}{2}\boldsymbol{\Delta}\right)\Psi\left(\boldsymbol{p}+\frac{1}{2}\boldsymbol{\Delta}\right)\bra{\boldsymbol{p}-\frac{1}{2}\boldsymbol{\Delta}}j^{0}\left(0\right)\ket{\boldsymbol{p}+\frac{1}{2}\boldsymbol{\Delta}}
+\end{align*}
+
+\end_inset
+
+其中我们改变了动量积分变量，
+\begin_inset Formula $\boldsymbol{p}$
+\end_inset
+
+表示初末态核子的平均动量。值得注意的是，分辨率动量
+\begin_inset Formula $\boldsymbol{\Delta}$
+\end_inset
+
+现在和初末态动量的差联系起来。在非相对论体系中，由于巨大的质量，动量转移对速度的影响很小，初末态的波函数实际上差不多。在相对论性系统中，这变成了解释形状因子困难
+的起源：矩阵元涉及的相互作用前后的核子态动量不同。
+\end_layout
+
+\begin_layout Standard
+为了消除歧义，必须对动量施加一些限制，避免一些危险的区域，在那里诠释会被相对论，微观物体的波性质，或者用来定位的波包影响，也就是
+\end_layout
+
+\begin_layout Itemize
+为了移除波包的影响，
+\begin_inset Formula $\Psi\left(\boldsymbol{p}\right)$
+\end_inset
+
+必须满足，波包在坐标空间的尺寸远小于被测试系统的尺寸，也就是核子
+\begin_inset Formula 
+\[
+\delta\abs{\boldsymbol{r}}\ll R_{N}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+探针的尺寸，或者说分辨率，必须远大于波包的尺寸，这样可以忽略波包的细节：
+\begin_inset Formula 
+\[
+\delta\abs{\boldsymbol{r}}\ll1/\abs{\boldsymbol{\Delta}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+波包的尺寸必须远大于质子的康普顿波长，这样可以忽略质子的波属性，
+\begin_inset Formula 
+\[
+\delta\abs{\boldsymbol{r}}\gg1/M_{N}.
+\]
+
+\end_inset
+
+对应对动量的限制是
+\begin_inset Formula $\abs{\boldsymbol{p}}\ll M_{N}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以，对波包的综合限制是
+\begin_inset Formula 
+\begin{equation}
+1/R_{N}\ll\abs{\boldsymbol{\Delta}}\ll\abs{\boldsymbol{p}}\ll M_{N},\label{eq:2.22}
+\end{equation}
+
+\end_inset
+
+其中波包的尺寸是
+\begin_inset Formula $\delta\abs{\boldsymbol{r}}\sim1/\abs{\boldsymbol{p}}$
+\end_inset
+
+。由于
+\begin_inset Formula $R_{N}M_{N}\sim1/4$
+\end_inset
+
+ ，所以容易知道质子的窗口很狭窄。
+\end_layout
+
+\begin_layout Standard
+前面的两个条件允许我们忽视
+\begin_inset Formula $\Psi$
+\end_inset
+
+对
+\begin_inset Formula $\boldsymbol{\Delta}$
+\end_inset
+
+的依赖，
+\begin_inset Formula $\Psi\left(\boldsymbol{p}\pm\frac{1}{2}\boldsymbol{\Delta}\right)\approx\Psi\left(\boldsymbol{p}\right)$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\[
+F\left(\boldsymbol{\Delta}\right)=\int\frac{\dif^{3}\boldsymbol{p}}{\left(2\pi\right)^{3}}\abs{\Psi\left(\boldsymbol{p}\right)}^{2}\bra{\boldsymbol{p}-\frac{1}{2}\boldsymbol{\Delta}}j^{0}\left(0\right)\ket{\boldsymbol{p}+\frac{1}{2}\boldsymbol{\Delta}}
+\]
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.22"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+最后一个等式的极端情况，产生一个零动量核子的波包
+\begin_inset Formula 
+\[
+\abs{\Psi\left(\boldsymbol{p}\right)}^{2}=\frac{\left(2\pi\right)^{3}}{2M_{N}}\delta^{\left(3\right)}\left(\boldsymbol{p}\right)
+\]
+
+\end_inset
+
+所以得到
+\begin_inset Formula 
+\begin{equation}
+2M_{N}F\left(\boldsymbol{\Delta}\right)=\bra{-\frac{1}{2}\boldsymbol{\Delta}}j^{0}\left(0\right)\ket{\frac{1}{2}\boldsymbol{\Delta}}\label{eq:2.25}
+\end{equation}
+
+\end_inset
+
+这就是 Breit 坐标系中电荷密度的矩阵元。Breit 坐标系的性质是，入射和出射核子的能量转移为零，所以强子四动量为
+\begin_inset Formula 
+\[
+p_{1}=\left(E,\frac{1}{2}\boldsymbol{\Delta}\right),\quad p_{2}=\left(E,-\frac{1}{2}\boldsymbol{\Delta}\right)
+\]
+
+\end_inset
+
+回忆起之前的定义，
+\begin_inset Formula 
+\[
+F\left(\boldsymbol{\Delta}\right)\equiv\int\dif^{3}\boldsymbol{r}e^{-i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\rho\left(\boldsymbol{r}\right)
+\]
+
+\end_inset
+
+因此形状因子
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.25"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+和 Sachs 电形状因子联系到一起
+\begin_inset Formula 
+\[
+F\left(\boldsymbol{\Delta}\right)=G_{E}\left(-\boldsymbol{\Delta}^{2}\right)w_{2}^{*}w_{1}
+\]
+
+\end_inset
+
+它是Dirac 和 Pauli 形状因子的叠加
+\begin_inset Formula 
+\[
+G_{E}\left(-\boldsymbol{\Delta}^{2}\right)=F_{1}\left(-\boldsymbol{\Delta}^{2}\right)-\frac{\boldsymbol{\Delta}^{2}}{4M_{N}^{2}}F_{2}\left(-\boldsymbol{\Delta}^{2}\right).
+\]
+
+\end_inset
+
+Weyl 旋量
+\begin_inset Formula $w_{2}^{*}$
+\end_inset
+
+，
+\begin_inset Formula $w_{1}$
+\end_inset
+
+是Dirac 双旋量的剩余部分。因此，这就是
+\begin_inset Formula $G_{E}$
+\end_inset
+
+的教科书解释，它是核子电荷分布的傅立叶变换。类似地，
+\begin_inset Formula $G_{M}$
+\end_inset
+
+是磁化强度分布的傅立叶变换
+\begin_inset Formula 
+\[
+\bra{-\frac{1}{2}\boldsymbol{\Delta}}\boldsymbol{j}\left(0\right)\ket{\frac{1}{2}\boldsymbol{\Delta}}=2i\left[\boldsymbol{\Delta}\times\boldsymbol{s}\right]G_{M}\left(-\boldsymbol{\Delta}^{2}\right),
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+G_{M}\left(-\boldsymbol{\Delta}^{2}\right)=F_{1}\left(-\boldsymbol{\Delta}^{2}\right)+F_{2}\left(-\boldsymbol{\Delta}^{2}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在讨论中，我们多次提到了质子半径。这里指的是均方根半径，定义为
+\begin_inset Formula 
+\[
+R_{N}^{2}=\langle\boldsymbol{r}^{2}\rangle_{E}\equiv\int\dif^{3}\boldsymbol{r}\,\boldsymbol{r}^{2}\rho\left(\boldsymbol{r}\right)=-6\frac{\partial G_{E}\left(-\boldsymbol{\Delta}^{2}\right)}{\partial\boldsymbol{\Delta}^{2}}
+\]
+
+\end_inset
+
+和电形状因子
+\begin_inset Formula $G_{E}$
+\end_inset
+
+的斜率联系到一起。在文献中，还有其他定义，例如
+\begin_inset Formula $\langle\boldsymbol{r}^{2}\rangle_{D}$
+\end_inset
+
+，使用的是狄拉克形状因子
+\begin_inset Formula $F_{1}$
+\end_inset
+
+的定义，而不是
+\begin_inset Formula $G_{E}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+Breit 坐标系中的螺旋度具有良好的定义，由于入射和出射粒子的动量是共线的。在这个坐标系中，螺旋度保持的跃迁由电形状因子
+\begin_inset Formula $G_{E}$
+\end_inset
+
+决定，而螺旋度翻转的跃迁由磁的
+\begin_inset Formula $G_{M}$
+\end_inset
+
+决定。当然，这些论断跟坐标系有关，通过洛伦兹 boost，质子的方向会翻转，所以螺旋度的符号会改变。
+\end_layout
+
+\begin_layout Standard
+如同之前强调的，Breit 坐标系的独特性在于能量交换为零，因此可以无歧义地定义电磁流跃迁矩阵元的傅立叶变换。当然，这样定义的电荷和磁化强度分布和静止系下的是不
+同的。这是由于沿着
+\begin_inset Formula $\boldsymbol{\Delta}$
+\end_inset
+
+方向的洛伦兹收缩，当
+\begin_inset Formula $\Delta\gg4M_{N}^{2}$
+\end_inset
+
+时，此时质子变成一张薄饼。如果boost到核子静止系的形状因子，在高动量转移时，洛伦兹变换对动量的依赖会有截断，最后发现
+\begin_inset Formula $F\left(\Delta^{2}\right)\to F\left(\Delta^{2}/\sqrt{1-\Delta^{2}/4M_{N}^{2}}\right)$
+\end_inset
+
+。然而，这种程序不是唯一的，结果只是多了一种电荷分布的定义。最近的分析中使用了几种不同的处方从已知的形状因子数据中提取出静态电荷分布。另一种比较物理的方法是，找
+到静电荷密度的傅立叶变换和模型的形状因子的关系，模型通过对波函数作boost得到。例如，可以从 Skyrme 模型中得到这样的关系。不同的模型得到的关系差别在
+\begin_inset Formula $1/M_{N}$
+\end_inset
+
+量级。
+\end_layout
+
+\begin_layout Standard
+在 Sect.3.10.1 中我们发现，在无穷大动量坐标系相对论修正和洛伦兹收缩效应都会消失。在这个坐标系，核子具有无穷大的等效质量，因此，对于横向上的物理，我们回到
+了非相对论的情形。特别地，核子在横向坐标空间中没有反冲。狄拉克形状因子
+\begin_inset Formula $F_{1}$
+\end_inset
+
+将会和横截面上的电荷分布联系起来，沿着纵向
+\begin_inset Formula $z$
+\end_inset
+
+–轴的信息被积分掉。消除相对论修正的代价是减少了空间维度。
+\end_layout
+
 \begin_layout Subsection
 核子结构函数
 \end_layout

@@ -379,9 +379,7 @@ DESCRIPTION
 + `git commit -m 'rename dir game to gamesdk'`
 + `git push origin dev`  推送到`dev`分支
 
-ref: [git重命名文件夹][]
-
-[git重命名文件夹]: https://www.jianshu.com/p/e886fde18ba0
+ref: [git重命名文件夹](https://www.jianshu.com/p/e886fde18ba0)
 
 ## 修改最后一次注释
 
@@ -393,9 +391,7 @@ ref: [git重命名文件夹][]
 
 ### 添加ssh 公匙
 
-[SSH 公钥设置 ][]
-
-[SSH 公钥设置 ]: https://gitee.com/help/articles/4191#article-header0
+[SSH 公钥设置 ](https://gitee.com/help/articles/4191#article-header0)
 
 用如下命令来生成 `sshkey`:
 
