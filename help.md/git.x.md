@@ -758,6 +758,7 @@ commit-id 为要删除的 `commit` 的前一次`commit`号
 
 ### short
 
++ `gcl`='git clone --recurse-submodules', `git clone  <仓库> [本地目录]`，也就是后面可以跟上本地目录位置.
 + `gst`='git status'
 + `gaa`='git add --all'
 + `gcam`='git commit -a -m'
