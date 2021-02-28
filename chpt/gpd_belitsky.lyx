@@ -1150,9 +1150,9 @@ L^{\mu}\left(k,k^{\prime}\right)\bra{n}j^{\mu}\left(0\right)\ket{p}
 \begin_layout Standard
 忽略相空间因子，散射截面是
 \begin_inset Formula 
-\[
-\sigma_{\text{DIS}}=\frac{\alpha_{\text{em}}^{2}}{4}\sum_{n}\abs{\mathcal{A}_{n}}^{2}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p+q-P_{n}\right)=\frac{\alpha_{\text{em}}^{2}}{4}L_{\mu}^{\dagger}L_{\nu}W^{\mu\nu}
-\]
+\begin{equation}
+\sigma_{\text{DIS}}=\frac{\alpha_{\text{em}}^{2}}{4}\sum_{n}\abs{\mathcal{A}_{n}}^{2}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p+q-P_{n}\right)=\frac{\alpha_{\text{em}}^{2}}{4}L_{\mu}^{\dagger}L_{\nu}W^{\mu\nu}\label{eq:2.32}
+\end{equation}
 
 \end_inset
 
@@ -1277,6 +1277,186 @@ q^{2}\equiv-\mathcal{Q}^{2},\quad x_{B}\equiv\frac{\mathcal{Q}^{2}}{2p\cdot q}.
 \begin_layout Standard
 一个硬散射过程，例如深度非弹性散射界面，初态至少有一个强子不是红外安全的，由于在强子渐近态的制备过程中，它的组分在束缚态中长时间的相互作用。显然，束缚态中夸克的
 波函数和它们自由的情形不同，这种差异必然影响散射截面。
+\end_layout
+
+\begin_layout Standard
+由于携带大块强子动量的部分子数目比较少，每次碰撞中光子一般只看到一个部分子。
+\begin_inset Formula $n$
+\end_inset
+
+个部分子的相干散射的振幅被虚光子动量的
+\begin_inset Formula $n$
+\end_inset
+
+次幂压低，
+\begin_inset Formula 
+\[
+\mathcal{P}_{n}\sim\left(\frac{\abs{\delta z_{\perp}}^{2}}{\pi R_{N}^{2}}\right)^{n}\sim\frac{1}{\left(\mathcal{Q}^{2}\pi R_{N}^{2}\right)^{n}}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\pi R_{N}^{2}$
+\end_inset
+
+是核子的横截面积。这些幂次修正存在于高扭度中。因此，在高
+\begin_inset Formula $\mathcal{Q}^{2}$
+\end_inset
+
+的领头阶近似中，可以只考虑光子和单个部分子散射的情形，这被称为手袋近似，handbag approximation。相比于上面提到的单举湮灭过程，对夸克的向前康
+普顿散射admits一个经典轨迹。在
+\begin_inset Formula $t=0$
+\end_inset
+
+，强子中的一个夸克吸收一个虚光子，动量改变，然后在
+\begin_inset Formula $t>0$
+\end_inset
+
+的时刻放出一个光子，回到原先的动量状态。在能量释放到末态之后，部分子重新融入强子之中。如同之前讨论的，这个过程不是红外安全的，取决于束缚在核子中的夸克。吸收和发
+射的点被类光间隔分开。康普顿振幅中 relevant distances 的特点是深度欧几里得运动学
+\begin_inset Formula $\mathcal{Q}^{2}\to\infty$
+\end_inset
+
+的结果。在固定的 Bjorken 变量
+\begin_inset Formula $x_{B}$
+\end_inset
+
+，巨大的虚动量，
+\begin_inset Formula $\mathcal{Q}^{2}$
+\end_inset
+
+和能量
+\begin_inset Formula $\nu\equiv p\cdot q$
+\end_inset
+
+，分别探测过程的短程和短时结构。为了推导深度非弹性散射的 relevant distances ，让我们切换到靶核子的静止系，虚光子的三动量与
+\begin_inset Formula $z$
+\end_inset
+
+–轴反向。然后
+\begin_inset Formula 
+\[
+q^{\mu}=\left(\frac{\mathcal{Q}^{2}}{2Mx_{B}},0,0,-\frac{\mathcal{Q}^{2}}{2Mx_{B}}\sqrt{1+4M^{2}x_{B}^{2}/\mathcal{Q}^{2}}\right),
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $\mathcal{Q}^{2}$
+\end_inset
+
+很大，动量转移的光锥分量近似为，
+\begin_inset Formula 
+\[
+q^{-}\sim\mathcal{Q}^{2}/\left(Mx_{B}\right),\quad q^{+}\sim Mx_{B}.
+\]
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.32"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的被积式是一个振荡函数，结果为零，
+\begin_inset Formula 
+\[
+\sigma_{\text{DIS}}=\frac{\alpha_{\text{em}}^{2}}{4\pi}\sum_{n}\abs{\mathcal{A}_{n}}^{2}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(p+q-P_{n}\right)=\frac{\alpha_{\text{em}}^{2}}{q^{4}}L_{\mu}^{\dagger}L_{\nu}W^{\mu\nu}
+\]
+
+\end_inset
+
+除非涉及的距离为
+\begin_inset Formula 
+\[
+z^{-}\sim1/\left(Mx_{B}\right),\quad z^{+}\sim Mx_{B}/\mathcal{Q}^{2}.
+\]
+
+\end_inset
+
+因此，假设横向分隔
+\begin_inset Formula $z_{\perp}$
+\end_inset
+
+比较小，深度非弹性散射探测接近光锥
+\begin_inset Formula $z^{2}\approx0$
+\end_inset
+
+时候的强相互作用动力学，可以忽略除了
+\begin_inset Formula $z^{-}$
+\end_inset
+
+之外的所有坐标依赖。
+\begin_inset Formula $z^{-}$
+\end_inset
+
+被称为 Ioffe 时间，意义是过程中探测到的纵向距离。它的傅立叶共轭动量是
+\begin_inset Formula $x$
+\end_inset
+
+，是与探针作用的部分子携带的核子动量分数。在最低阶近似中，
+\begin_inset Formula $x=x_{B}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+硬过程占据很小的时空体积。另一方面，强子非微扰波函数信息涉及到的能标大的多，典型能标为
+\begin_inset Formula $1\GeV$
+\end_inset
+
+。因此，看起来这两个能标无关，不会互相干扰。因此，尽管过程取决于强子态，被散射部分子来自其中，但是强子态与硬过程基本没关系。此外，在深度非弹性散射中，所有末态相
+互作用互相抵消。这可以通过关系
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.32"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，从光学定理得出。因此，对末态的软相互作用不敏感，所有的长程物理被编码到一个反映质子内部结构的函数中，称为夸克（胶子）分布。量子力学在不同能标的不相干性导致结构
+函数的因子化，
+\begin_inset Formula 
+\[
+F_{i}\left(x_{B},\mathcal{Q}^{2}\right)=\int_{x_{B}}^{1}\frac{\dif x}{x}C_{i}\left(x_{B}/x,\mathcal{Q}^{2}/\mu^{2}\right)q\left(x;\mu^{2}\right).
+\]
+
+\end_inset
+
+这里
+\begin_inset Formula $q$
+\end_inset
+
+是夸克分布，依赖于父质子动量分数
+\begin_inset Formula $x$
+\end_inset
+
+，
+\begin_inset Formula $C$
+\end_inset
+
+是可以微扰计算的，夸克–光子短程散射截面。这是微扰QCD预言能力的基本。
+\end_layout
+
+\begin_layout Standard
+结构函数的因子化表达式有几个基本性质。部分子分布是 universal 对象，可以连接不相关的过程，例如深度非弹性反射和质子–质子碰撞
+\begin_inset Formula $pp\to\ell^{+}\ell^{-}X$
+\end_inset
+
+的Drell–Yan 强子对产生。另外，这个公式暗示了，在
+\begin_inset Formula $1/\mathcal{Q}^{2}$
+\end_inset
+
+展开中，领头阶对动量的依赖可以从第一性原理计算。这是 Section 4 的主题。
 \end_layout
 
 \begin_layout Subsection
