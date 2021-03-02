@@ -41,8 +41,8 @@
 \usepackage{tikz}
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
-%\DeclareMathOperator{\re}{Re}
-%\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\cnre}{\Re e}
+\DeclareMathOperator{\cnim}{\Im m}
 \DeclareMathOperator{\res}{Res}
 \DeclareMathOperator{\disc}{Disc}
 \DeclareMathOperator{\diag}{diag}
@@ -1267,7 +1267,230 @@ q^{2}\equiv-\mathcal{Q}^{2},\quad x_{B}\equiv\frac{\mathcal{Q}^{2}}{2p\cdot q}.
 \end_layout
 
 \begin_layout Standard
-这一节研究强子流张量对核子结构信息是否敏感。
+这一节研究强子流张量对核子结构信息是否敏感。论据是广义的，并不依赖于相互作用的细节。我们只需要记住，QC耦合常数在大的时空尺度上会增长。所以我们可以把QCD微扰
+理论替换成量子力学，使用薛定谔方程，散射势为
+\begin_inset Formula $V$
+\end_inset
+
+。方程的解用无穷远过去的渐近态表示，此时相互作用被绝热的关闭。自由粒子方程，
+\begin_inset Formula $V=0$
+\end_inset
+
+，给出
+\begin_inset Formula 
+\[
+\psi_{0}\left(t\right)=\exp\left(-itE_{m}\right)\ket{\omega_{m}}
+\]
+
+\end_inset
+
+其中静态解组成一个完备基
+\begin_inset Formula $\sum_{m}\ket{\omega_{m}}\bra{\omega_{m}}=1$
+\end_inset
+
+。在时间
+\begin_inset Formula $t$
+\end_inset
+
+完整方程的解可以按自由粒子解展开
+\begin_inset Formula 
+\[
+\psi\left(t\right)=\sum_{m}\ket{\omega_{m}}S_{m}.
+\]
+
+\end_inset
+
+对重复指标的求和遍历自由运动方程的所有本征函数。
+\begin_inset Formula $S_{m}$
+\end_inset
+
+是系统的演化算符，从未受微扰的状态
+\begin_inset Formula $\psi\left(-\infty\right)=\ket{\omega_{0}}$
+\end_inset
+
+，
+\begin_inset Formula $V\left(\infty\right)=0$
+\end_inset
+
+，到时刻
+\begin_inset Formula $t$
+\end_inset
+
+被观测到的状态
+\begin_inset Formula $\ket{\omega_{m}}$
+\end_inset
+
+，经过相继的相互作用和中间态的自由传播。
+\begin_inset Formula 
+\[
+S_{m}=\int_{-\infty}^{+\infty}\dif\tau_{m}e^{-i\left(E_{m-1}-E_{m}\right)\tau_{m}}V_{m-1}\int_{-\infty}^{\tau_{m}}\dif\tau_{m-1}e^{-i\left(E_{m-2}-E_{m-1}\right)\tau_{m-1}}V_{m-2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $V_{m}=\bra{m}V\ket{m}$
+\end_inset
+
+是作为微扰的相互作用势在自由粒子传播态之间的矩阵元。指数因子合并起来为
+\begin_inset Formula 
+\[
+\text{phase}=\sum_{n=1}^{m}E_{n}\left(\tau_{n}-\tau_{n-1}\right)
+\]
+
+\end_inset
+
+是自由粒子作用量：也就是
+\begin_inset Formula $S=-\int\dif\tau$
+\end_inset
+
+。由此可以总结：
+\end_layout
+
+\begin_layout Enumerate
+只要总相位–自由粒子作用量时间依赖的，就对长期不敏感，where耦合常数增长。由于被积函数的振荡性，相互抵消。
+\end_layout
+
+\begin_layout Enumerate
+然而，如果相位是静态的 stationary，对应于 stationary classical action，粒子沿着经典轨迹运动，振幅对长期动力学敏感。
+\end_layout
+
+\begin_layout Standard
+由于在大时空尺度
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+很大，使用微扰展开计算振幅不可靠，夸克紧闭的效应需要考虑。在相反的情形，也就是“红外安全”，夸克紧闭不需要考虑，在动量转移
+\begin_inset Formula $q^{\mu}$
+\end_inset
+
+的领头阶，可以只使用微扰理论计算振幅。这给出了 Coleman-Norton 定理的直观解释，它是所有QCD 因子化理论的必须部分。在场论的框架下，上面的直观论
+证可以用更加严格的关于费曼图奇点的朗道方程表示。
+\end_layout
+
+\begin_layout Standard
+然而，完全红外安全的量比较少。包括电弱
+\begin_inset Formula $Z$
+\end_inset
+
+–玻色子的宽度，jet 和电子–正电子湮灭到强子的单举散射截面
+\begin_inset Formula $e^{+}e^{-}\to X$
+\end_inset
+
+。在后一种情况有
+\begin_inset Formula 
+\[
+\sigma_{\text{tot}}\left(q^{2}\right)=\frac{1}{2\pi}\sum_{n}\bra{0}j_{\mu}\left(0\right)\ket{n}\bra{n}j^{\mu}\left(0\right)\ket{0}\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(\sum_{i}^{n}p_{i}-q\right),
+\]
+
+\end_inset
+
+求和对于末态
+\begin_inset Formula $n$
+\end_inset
+
+个粒子进行，它们的总动量为
+\begin_inset Formula $\sum_{i}^{n}p_{i}$
+\end_inset
+
+。根据光学定理（见附录 C），散射截面可以表示成真空极化的吸收部，
+\begin_inset Formula 
+\[
+\sigma_{\text{tot}}\left(q^{2}\right)=\frac{1}{\pi}\cnim i\int\dif z^{4}e^{iq\cdot z}\bra{0}T\left\{ j_{\mu}\left(z\right)j^{\mu}\left(0\right)\right\} \ket{0}
+\]
+
+\end_inset
+
+上面给出的论据表明这个量是红外安全的。事实上，当正反夸克对通过
+\begin_inset Formula $j_{\mu}$
+\end_inset
+
+创造，它们背对背以光速运行，因此无法组成一个可以被
+\begin_inset Formula $j_{\mu}^{\dagger}=j^{\mu}$
+\end_inset
+
+吸收的物理态。由于这个过程不对应经典轨迹，所以可观测量对红外物理不敏感。
+\end_layout
+
+\begin_layout Standard
+真空极化在Minkowski 空间下的讨论比较复杂，由于他的非解析行为是
+\begin_inset Formula $q^{2}$
+\end_inset
+
+的branch cut。它们对应于强子的产生阈值。另一方面，QCD描述涉及到产生并传播到无穷远的夸克和胶子。当然，默认后者会 fragment
+ into 强子。可靠的理论计算只能在远离物理态产生的
+\begin_inset Formula $q^{2}$
+\end_inset
+
+值才能进行。为了进行计算，需要使用色散关系，它是光学定理的关键。进行 Wick 转动，转换到欧几里得空间，
+\begin_inset Formula $-q^{2}=\mathcal{Q}^{2}$
+\end_inset
+
+给出
+\begin_inset Formula 
+\begin{equation}
+i\int\dif^{4}ze^{iqz}\bra{0}T\left\{ j_{\mu}\left(z\right)j^{\mu}\left(0\right)\right\} \ket{0}=\int_{0}^{\infty}\dif M^{2}\frac{\sigma_{\text{tot}}\left(M^{2}\right)}{\mathcal{Q}^{2}+M^{2}},\label{eq:2.42}
+\end{equation}
+
+\end_inset
+
+现在左手边是
+\begin_inset Formula $\mathcal{Q}^{2}$
+\end_inset
+
+的解析函数。在 deep Euclidean 区域，
+\begin_inset Formula $\mathcal{Q}_{\mu}\to\infty$
+\end_inset
+
+，关联函数间的距离很小，
+\begin_inset Formula $z^{\mu}\to0$
+\end_inset
+
+，由于 Heisenberg 不确定性原理，所以可以安全的使用 QCD 微扰理论。当虚光子不是 asymptotically large，还应当包括幂次修正，使
+用定域算符展开，in 短程 singularities:
+\begin_inset Formula 
+\[
+j_{\mu}\left(z\right)j^{\mu}\left(0\right)=C_{0}\left(z^{2}\right)\mathbbm{1}+\sum_{d}C_{d}\left(z^{2}\right)\mathcal{O}_{d}\left(0\right),
+\]
+
+\end_inset
+
+其中第一项是纯微扰贡献，求和遍历量纲为
+\begin_inset Formula $d$
+\end_inset
+
+的定域算符。例如在无质量情形下，最低阶算符为
+\begin_inset Formula $\mathcal{O}_{4}\left(0\right)=F_{\mu\nu}^{a}\left(0\right)F_{a}^{\mu\nu}\left(0\right)$
+\end_inset
+
+。经过傅立叶变换之后，这个级数变成按
+\begin_inset Formula $1/\mathcal{Q}^{2}$
+\end_inset
+
+的幂次展开。将
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2.42"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+两边的式子匹配，可以发现物理散射截面
+\begin_inset Formula $\sigma_{\text{tot}}\left(q^{2}\right)$
+\end_inset
+
+将联系到使用部分子语言计算的量。所以，对物理共振态的积分，对应于对夸克 continuum 的积分。这就是 quark–hadron duality
+ 的概念，也就是物理的散射截面和部分子的散射截面 coincides in average。
+\end_layout
+
+\begin_layout Standard
+前一节中讨论的和深度非弹性散射相关的强子张量，具有比
+\begin_inset Formula $e^{+}e^{-}$
+\end_inset
+
+到强子总截面更复杂的结构。它是否同样能够表示成两个电磁流的编时乘积，虽然是不同的矩阵元？这在下一节讨论。
 \end_layout
 
 \begin_layout Subsection
@@ -1276,11 +1499,7 @@ q^{2}\equiv-\mathcal{Q}^{2},\quad x_{B}\equiv\frac{\mathcal{Q}^{2}}{2p\cdot q}.
 
 \begin_layout Standard
 一个硬散射过程，例如深度非弹性散射界面，初态至少有一个强子不是红外安全的，由于在强子渐近态的制备过程中，它的组分在束缚态中长时间的相互作用。显然，束缚态中夸克的
-波函数和它们自由的情形不同，这种差异必然影响散射截面。
-\end_layout
-
-\begin_layout Standard
-由于携带大块强子动量的部分子数目比较少，每次碰撞中光子一般只看到一个部分子。
+波函数和它们自由的情形不同，这种差异必然影响散射截面。由于携带大块强子动量的部分子数目比较少，每次碰撞中光子一般只看到一个部分子。
 \begin_inset Formula $n$
 \end_inset
 
