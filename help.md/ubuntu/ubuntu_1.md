@@ -850,6 +850,7 @@ sudo fsck.exfat /dev/sdXn
 
 ```bash
 echo $XDG_CURRENT_DESKTOP
+echo $XDG_SESSION_TYPE
 ```
 
 ***
