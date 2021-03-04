@@ -3268,7 +3268,7 @@ F^{q}\left(x,\eta,\Delta^{2}\right)=F^{q}\left(x,-\eta,\Delta^{2}\right)
 \end_layout
 
 \begin_layout Chapter
-约定
+附录A 约定
 \end_layout
 
 \begin_layout Standard
@@ -5215,6 +5215,419 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Chapter
+附录B 光锥矢量和张量
+\end_layout
+
+\begin_layout Standard
+在讨论高能散射时，引入一对光锥矢量是很方便的，
+\begin_inset Formula $n^{2}=n^{*2}=0$
+\end_inset
+
+，且
+\begin_inset Formula $n\cdot n^{*}\equiv n^{\mu}n_{\mu}^{*}=1$
+\end_inset
+
+。它们可以如下选取
+\begin_inset Formula 
+\begin{equation}
+n^{\mu}\equiv\frac{1}{\sqrt{2}}\left(1,0,0,-1\right),\quad n^{*\mu}\equiv\frac{1}{\sqrt{2}}\left(1,0,0,1\right).\label{eq:b.1}
+\end{equation}
+
+\end_inset
+
+任何四矢量
+\begin_inset Formula $z^{\mu}$
+\end_inset
+
+都可以分解成光锥分量
+\begin_inset Formula 
+\[
+z^{\mu}=z^{+}n^{*\mu}+z^{-}n^{\mu}+z_{\perp}^{\mu}
+\]
+
+\end_inset
+
+with
+\begin_inset Formula 
+\[
+z^{+}\equiv z\cdot n=\frac{1}{\sqrt{2}}\left(z^{0}+z^{z}\right),\quad z^{-}\equiv z\cdot n^{*}=\frac{1}{\sqrt{2}}\left(z^{0}-z^{z}\right)
+\]
+
+\end_inset
+
+标量积写成
+\begin_inset Formula 
+\[
+z\cdot y\equiv z_{\mu}y^{\mu}=z^{+}y^{-}+z^{-}y^{+}-\boldsymbol{z}_{\perp}\cdot\boldsymbol{y}_{\perp}
+\]
+
+\end_inset
+
+光锥导数习惯上定义为
+\begin_inset Formula 
+\[
+\partial^{+}=\frac{\partial}{\partial z^{-}},\quad\partial^{-}=\frac{\partial}{\partial z^{+}},\quad\partial_{\perp}^{\mu}=\frac{\partial}{\partial z_{\mu}^{\perp}}
+\]
+
+\end_inset
+
+对于横向的二维空间，我们使用欧几里得记号，度规为
+\begin_inset Formula 
+\[
+\delta_{\alpha\beta}=-g_{\alpha\beta}^{\perp}\equiv-\left(g_{\alpha\beta}-n_{\alpha}n_{\beta}^{*}-n_{\alpha}^{*}n_{\beta}\right)=\diag\left(0,1,1,0\right)
+\]
+
+\end_inset
+
+以及全反对称张量的横向投影
+\begin_inset Formula $\varepsilon_{\perp}^{\mu\nu}\equiv\varepsilon^{\mu\nu+-}$
+\end_inset
+
+，它的非零元素为
+\begin_inset Formula 
+\[
+\varepsilon_{\perp}^{12}=\varepsilon_{12}^{\perp}=-\varepsilon_{\perp}^{21}=-\varepsilon_{21}^{\perp}=1.
+\]
+
+\end_inset
+
+因此，使用横向欧几里得度规，我们有
+\begin_inset Formula $v_{\perp}\cdot u_{\perp}=-\boldsymbol{v}_{\perp}\cdot\boldsymbol{u}_{\perp}$
+\end_inset
+
+，
+\begin_inset Formula $v=\left(v^{x},v^{y}\right)$
+\end_inset
+
+是二维矢量。对于和狄拉克矩阵的收缩，我们使用约定
+\begin_inset Formula 
+\[
+\slashed{\boldsymbol{k}}_{\perp}=\boldsymbol{\gamma}_{\perp}\cdot\boldsymbol{k}_{\perp}=-\gamma_{\perp}\cdot k_{\perp}.
+\]
+
+\end_inset
+
+需要注意，由于沿着
+\begin_inset Formula $z$
+\end_inset
+
+–轴的平移不变性，可以重标度光锥矢量，
+\begin_inset Formula 
+\[
+n^{*\mu}\to\varrho n^{*\mu},\quad n^{\mu}\to\varrho^{-1}n^{\mu},
+\]
+
+\end_inset
+
+这样乘积保持不变（
+\begin_inset Formula $n\cdot n^{*}=1$
+\end_inset
+
+）。为使用方便，可以自由的选取
+\begin_inset Formula $\varrho$
+\end_inset
+
+的值，让我们考虑一些在实际应用中常用的选择。
+\end_layout
+
+\begin_layout Section
+康普顿坐标系
+\end_layout
+
+\begin_layout Standard
+在本综述的大多数情况，可以使用物理过程的运动学矢量来构建光锥矢量
+\begin_inset Formula $n,n^{*}$
+\end_inset
+
+。以康普顿振幅，
+\begin_inset Formula $2\to2$
+\end_inset
+
+粒子运动学，
+\begin_inset Formula $p_{1}+q_{1}=p_{2}+q_{2}$
+\end_inset
+
+为例。可以选取一个平均动量沿着
+\begin_inset Formula $z$
+\end_inset
+
+–轴的坐标系，并且反向。则有
+\begin_inset Formula 
+\begin{align*}
+ & n_{\mu}=\frac{2\xi}{Q^{2}\sqrt{1+4\left(\xi\delta\right)^{2}}}q_{\mu}-\frac{1-\sqrt{1+4\left(\xi\delta\right)^{2}}}{2Q^{2}\delta^{2}\sqrt{1+4\left(\xi\delta\right)^{2}}}p_{\mu},\\
+ & n_{\mu}=\frac{-\xi\delta^{2}}{\sqrt{1+4\left(\xi\delta\right)^{2}}}q_{\mu}+\frac{1+\sqrt{1+4\left(\xi\delta\right)^{2}}}{4\sqrt{1+4\left(\xi\delta\right)^{2}}}p_{\mu},
+\end{align*}
+
+\end_inset
+
+其中使用了动量
+\begin_inset Formula 
+\begin{equation}
+p=p_{1}+p_{2},\quad q=\frac{1}{2}\left(q_{1}+q_{2}\right),\quad\Delta=p_{1}-p_{2}=q_{2}-q_{1},\label{eq:b.8}
+\end{equation}
+
+\end_inset
+
+以及在 Sec 5.1.2 中引入的运动学变量
+\begin_inset Formula 
+\[
+Q^{2}=-q^{2},\quad\xi=\frac{Q^{2}}{p\cdot q},\quad\delta^{2}\equiv\frac{M_{N}^{2}-\frac{1}{4}\Delta^{2}}{Q^{2}},
+\]
+
+\end_inset
+
+使用重参数化不变性，我们令
+\begin_inset Formula $n^{*\mu}$
+\end_inset
+
+具有质量量纲，对应的
+\begin_inset Formula $n^{\mu}$
+\end_inset
+
+具有倒质量量纲。
+\end_layout
+
+\begin_layout Standard
+对一个一般的
+\begin_inset Formula $2\to2$
+\end_inset
+
+散射的光锥分解的逆变换为
+\begin_inset Formula 
+\begin{align*}
+ & p_{\mu}=2n_{\mu}^{*}+Q^{2}\delta^{2}n_{\mu},\\
+ & q_{\mu}=-\frac{2\xi}{1+\sqrt{1+4\left(\xi\delta\right)^{2}}}n_{\mu}^{*}-\frac{\xi Q^{2}\delta^{2}}{1-\sqrt{1+4\left(\xi\delta\right)^{2}}}n_{\mu}.
+\end{align*}
+
+\end_inset
+
+根据选取的 skewness 变量的方式不同，动量之差的表达式可能有略微差别。skewness可以定义成外动量组成的洛伦兹不变量，
+\begin_inset Formula 
+\[
+\eta=\frac{\Delta\cdot q}{p\cdot q},
+\]
+
+\end_inset
+
+或者光锥坐标
+\begin_inset Formula 
+\[
+\tilde{\eta}=\frac{\Delta^{+}}{p^{+}}=\frac{p_{1}^{+}-p_{2}^{+}}{p_{1}^{+}+p_{2}^{+}}.
+\]
+
+\end_inset
+
+由显式表达式可以推测，两种不同定义间的差别应该是幂次压低的
+\begin_inset Formula 
+\[
+\tilde{\eta}=\frac{\eta}{\sqrt{1+4\left(\xi\delta\right)^{2}}}.
+\]
+
+\end_inset
+
+两种定义下的动量转移为，
+\begin_inset Formula 
+\[
+\Delta_{\mu}=\frac{2\eta}{\sqrt{1+4\left(\xi\delta\right)}}n_{\mu}^{*}-\frac{\eta Q^{2}\delta^{2}}{\sqrt{1+4\left(\xi\delta\right)^{2}}}n_{\mu}+\Delta_{\mu}^{\perp},\quad\Delta_{\mu}=2\tilde{\eta}n_{\mu}^{*}-\tilde{\eta}Q^{2}\delta^{2}n_{\mu}+\Delta_{\mu}^{\perp}.
+\]
+
+\end_inset
+
+对于本文这种差别是不重要的，因为几乎所有地方的精度都在 twist–four 以下，所以可以取
+\begin_inset Formula $\eta\approx\tilde{\eta}$
+\end_inset
+
+。横向动量的大小可以表示成四维动量平方和它的最小值的差
+\begin_inset Formula 
+\[
+\Delta_{\perp}^{2}=-\boldsymbol{\Delta}_{\perp}^{2}=\left(1-\tilde{\eta}^{2}\right)\left(\Delta^{2}-\Delta_{\text{min}}^{2}\right),\quad\Delta_{\text{min}}^{2}=-\frac{4\tilde{\eta}^{2}M_{N}^{2}}{1-\tilde{\eta}^{2}}
+\]
+
+\end_inset
+
+在多数情况下，可以忽略掉
+\begin_inset Formula $\mathcal{O}\left(\delta^{2}\right)$
+\end_inset
+
+的修正，使用光锥动量来表示
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b.8"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的动量，
+\begin_inset Formula 
+\[
+p_{\mu}\simeq2n_{\mu}^{*},\quad q_{\mu}\sim\frac{Q^{2}}{2\xi}n_{\mu}-\xi n_{\mu}^{*},\quad\Delta^{\mu}\simeq2\eta n^{*\mu}+\Delta_{\perp}^{\mu}.
+\]
+
+\end_inset
+
+对出射和入射动量也有类似的表达式
+\begin_inset Formula 
+\begin{align*}
+ & q_{1\mu}\simeq\frac{Q^{2}}{2\xi}n_{\mu}-\left(\xi+\eta\right)n_{\mu}^{*}-\frac{1}{2}\Delta_{\mu}^{\perp},\quad q_{2\mu}\simeq\frac{Q^{2}}{2\xi}n_{\mu}-\left(\xi-\eta\right)n_{\mu}^{*}+\frac{1}{2}\Delta_{\mu}^{\perp},\\
+ & p_{1\mu}\simeq\left(1+\eta\right)n_{\mu}^{*}+\frac{1}{2}\Delta_{\mu}^{\perp},\quad p_{\mu}\simeq\left(1-\eta\right)n_{\mu}^{*}-\frac{1}{2}\Delta_{\mu}^{\perp}.
+\end{align*}
+
+\end_inset
+
+可以看到，对于质子的横向动量，我们选取了横向的 Breit–坐标系的分配，令
+\begin_inset Formula $p_{1\perp}^{\mu}=-p_{2\perp}^{\mu}=\frac{1}{2}\Delta_{\perp}^{\mu}$
+\end_inset
+
+。在特殊情况下，我们会解除这个条件，例如 sect.3.10.3 and 5.3.6。类似的关系对光子动量也成立。这个近似会在分析中一直使用。类似地，对于光锥动量，
+\begin_inset Formula 
+\[
+n_{\mu}\simeq\frac{\xi}{Q^{2}}\left(2q_{\mu}+\xi p_{\mu}\right),\quad n_{\mu}^{*}\simeq\frac{1}{2}p_{\mu}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Breit 坐标系
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $2\to2$
+\end_inset
+
+ hard 弹性散射，我们引入“纵向”Breit 坐标系，用于讨论单举介子产生的因子化定理时会很有用，见 sect 6.3.4。在这个坐标系中，入射虚光子能量为零，
+沿着
+\begin_inset Formula $z$
+\end_inset
+
+–轴移动。初态质子迎头撞上“砖墙”光子，也就是沿着
+\begin_inset Formula $z$
+\end_inset
+
+–轴对撞，而末态强子反冲之后，沿着和虚光子相同的方向移动。现在的碎裂系统–末态的光子或者介子–沿着和反冲强子相同的方向移动。忽略质量参数和小的横向分量，相关的矢
+量可以用
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的类光矢量表示，
+\begin_inset Formula 
+\begin{align*}
+ & n^{\mu}\equiv\frac{1}{\sqrt{2}}\left(1,0,0,-1\right),\quad n^{*\mu}\equiv\frac{1}{\sqrt{2}}\left(1,0,0,1\right)\\
+ & q_{1}^{\mu}=\frac{\mathcal{Q}}{\sqrt{2}}n^{*\mu}-\frac{\mathcal{Q}}{\sqrt{2}}n^{\mu},\\
+ & q_{2}^{\mu}=\frac{\mathcal{Q}}{\sqrt{2}}\frac{\xi-\eta}{\xi+\eta}n^{*\mu}-\frac{\mathcal{Q}}{\sqrt{2}}n^{\mu},\\
+ & p_{1}^{\mu}=-\frac{\mathcal{Q}}{\sqrt{2}}\frac{1+\eta}{\xi+\eta}n^{*\mu},\\
+ & p_{2}^{\mu}=-\frac{\mathcal{Q}}{\sqrt{2}}\frac{1-\eta}{\xi+\eta}n^{*\mu},
+\end{align*}
+
+\end_inset
+
+with 
+\begin_inset Formula $\mathcal{Q}^{2}=-q_{1}^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Section
+Drell–Yan 坐标系
+\end_layout
+
+\begin_layout Standard
+动量为
+\begin_inset Formula $q$
+\end_inset
+
+的虚光子与在壳夸克
+\begin_inset Formula $l$
+\end_inset
+
+进行深度非弹性散射，在末态产生动量为
+\begin_inset Formula $p_{J}=q+l$
+\end_inset
+
+的夸克 jet ，讨论这个过程时，Drell–Yan 坐标系很有用，在 sect 2.2.6 中使用了这个坐标系。这个坐标系是通过变换到入射夸克
+\begin_inset Formula $l$
+\end_inset
+
+和出射夸克jet 
+\begin_inset Formula $p_{J}$
+\end_inset
+
+的质心系定义的。流 jet的四动量
+\begin_inset Formula $p_{J}$
+\end_inset
+
+是类光的，
+\begin_inset Formula $p_{J}^{2}=0$
+\end_inset
+
+，可以方便的选取为类光矢量之一，另一个可以选取为强子动量
+\begin_inset Formula $p_{\mu}=n_{\mu}^{*}$
+\end_inset
+
+。因此，我们定义一个归一化的 null–矢量
+\begin_inset Formula $\tilde{n}_{\mu}$
+\end_inset
+
+，与
+\begin_inset Formula $n^{\mu}$
+\end_inset
+
+相切，
+\begin_inset Formula 
+\[
+\tilde{n}_{\mu}\equiv\frac{p_{J\mu}}{p_{J}\cdot n^{*}}.
+\]
+
+\end_inset
+
+显然，
+\begin_inset Formula $\tilde{n}^{2}=n^{*2}=0$
+\end_inset
+
+且
+\begin_inset Formula $n\cdot\tilde{n}=1$
+\end_inset
+
+。洛伦兹矢量的 Sudakov 分解是
+\begin_inset Formula 
+\[
+v_{\mu}=\tilde{n}_{\mu}v_{-}+n_{\mu}^{*}v_{+}+v_{\mu}^{\perp}.
+\]
+
+\end_inset
+
+其中，
+\begin_inset Formula $v^{+}\equiv\tilde{n}\cdot v$
+\end_inset
+
+。在 Bjorken极限
+\begin_inset Formula $q^{-}\to\infty$
+\end_inset
+
+ 下，
+\begin_inset Formula $P_{J}^{-}$
+\end_inset
+
+和
+\begin_inset Formula $q^{-}$
+\end_inset
+
+的区别可以忽略，则 Compton 坐标系和现在的 Drell–Yan 坐标系等价。
 \end_layout
 
 \begin_layout Standard
