@@ -3051,6 +3051,16 @@ F^{\phi}\left(x,\eta,\Delta^{2}\right)=p^{+}\int\frac{\dif z^{-}}{2\pi}e^{ixp^{+
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:3.2.5"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 如果靶粒子自旋是
 \begin_inset Formula $1/2$
 \end_inset
@@ -3273,6 +3283,565 @@ F^{q}\left(x,\eta,\Delta^{2}\right)=F^{q}\left(x,-\eta,\Delta^{2}\right)
 
 \begin_layout Section
 形状因子
+\end_layout
+
+\begin_layout Standard
+GPDs 的另一个有趣的极限是强子的形状因子。这一节我们进行详细说明。形状因子是定域流矩阵元按照狄拉克/洛伦兹结构进行展开的系数。定义每种夸克味道的形状因子很有
+用。最低阶洛伦兹–自旋定域算符是电磁流
+\begin_inset Formula 
+\[
+j_{q}^{\mu}\left(z\right)=\bar{\psi}_{q}\left(z\right)\gamma^{\mu}\psi_{q}\left(z\right),
+\]
+
+\end_inset
+
+以及轻子与强子弱相互作用用到的赝矢量流
+\begin_inset Formula 
+\[
+j_{q}^{5\mu}\left(z\right)=\bar{\psi}_{q}\left(z\right)\gamma^{\mu}\gamma^{5}\psi_{q}\left(z\right).
+\]
+
+\end_inset
+
+已知的探针中，没有可以测量张量chiral–odd 流的。
+\end_layout
+
+\begin_layout Subsection
+自旋–零强子
+\end_layout
+
+\begin_layout Standard
+自旋零强子只有一个形状因子
+\begin_inset Formula 
+\[
+\bra{p_{2}}j_{q}^{\mu}\left(0\right)\ket{p_{1}}=p^{\mu}F^{q}\left(\Delta^{2}\right).
+\]
+
+\end_inset
+
+化简公式为
+\begin_inset Formula 
+\[
+\int_{-1}^{1}\dif xH^{q}\left(x,\eta,\Delta^{2}\right)=F^{q}\left(\Delta^{2}\right).
+\]
+
+\end_inset
+
+此求和规则中，右边对 skewness 的依赖消失了，这将会在 sect3.5 解释。比较熟悉的自旋–零的例子是带电 pion 介子，
+\begin_inset Formula 
+\[
+F_{\pi^{+}}=Q_{u}F^{\mu}-Q_{d}F^{d}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+自旋1/2强子
+\end_layout
+
+\begin_layout Standard
+从自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+开始，赝矢量流的矩阵元开始不为零。类比于电磁流的质子矩阵元，可以分别定义特定夸克的形状因子
+\begin_inset Formula 
+\[
+\bra{p_{2}}j_{q}^{\mu}\left(0\right)\ket{p_{1}}=h^{\mu}F_{1}^{q}\left(\Delta^{2}\right)+e^{\mu}F_{2}^{q}\left(\Delta^{2}\right),
+\]
+
+\end_inset
+
+对于赝矢量流
+\begin_inset Formula 
+\[
+\bra{p_{2}}j_{q}^{5\mu}\left(0\right)\ket{p_{1}}=\tilde{h}^{\mu}G_{A}^{q}\left(\Delta^{2}\right)+\tilde{e}^{\mu}G_{P}^{q}\left(\Delta^{2}\right),
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $G_{A}$
+\end_inset
+
+赝矢量形状因子，
+\begin_inset Formula $G_{P}$
+\end_inset
+
+赝标量形状因子，乘上的狄拉克双线性型为，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:3.2.5"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & h^{\mu}=\bar{u}\left(p_{2}\right)\gamma^{\mu}u\left(p_{1}\right), &  & e^{\mu}=\frac{\bar{u}\left(p_{2}\right)i\sigma^{\mu\nu}u\left(p_{1}\right)\Delta_{\nu}}{M_{H_{2}}+M_{H_{1}}},\\
+ & \tilde{h}^{\mu}=\bar{u}\left(p_{2}\right)\gamma^{\mu}\gamma^{5}u\left(p_{1}\right), &  & \tilde{e}^{\mu}=-\frac{\Delta^{\mu}\bar{u}\left(p_{2}\right)\gamma^{5}u\left(p_{1}\right)}{M_{H_{2}}+M_{H_{1}}}.
+\end{align*}
+
+\end_inset
+
+注意，在赝矢流的情况，还可以写出一项
+\begin_inset Formula $\Delta_{\nu}\bar{u}\left(p_{2}\right)\sigma^{\nu\mu}\gamma^{5}u\left(p_{1}\right)$
+\end_inset
+
+，类似于核子的电偶极矩，但这一项被时间反演不变性排除了。参考
+\begin_inset Formula $\gamma^{5}\sigma^{\mu\nu}=\frac{i}{2}\varepsilon^{\mu\nu\rho\sigma}\sigma_{\rho\sigma}$
+\end_inset
+
+，
+\begin_inset Formula $\bar{\psi}\sigma^{\mu\nu}\psi$
+\end_inset
+
+在
+\begin_inset Formula $T$
+\end_inset
+
+变换下行为是
+\begin_inset Formula $-g\left(\mu\right)g\left(\nu\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+因此，twist–two GPDs的一阶矩等于对应的核子中的形状因子，
+\begin_inset Formula 
+\begin{align*}
+ & \int_{-1}^{1}\dif xH^{q}\left(x,\eta,\Delta^{2}\right)=F_{1}^{q}\left(\Delta^{2}\right),\quad\int_{-1}^{1}\dif xE^{q}\left(x,\eta,\Delta^{2}\right)=F_{2}^{q}\left(\Delta^{2}\right),\\
+ & \int_{-1}^{1}\dif x\tilde{H}^{q}\left(x,\eta,\Delta^{2}\right)=G_{A}^{q}\left(\Delta^{2}\right),\quad\int_{-1}^{1}\dif x\tilde{E}^{q}\left(x,\eta,\Delta^{2}\right)=G_{P}^{q}\left(\Delta^{2}\right),
+\end{align*}
+
+\end_inset
+
+分别是狄拉克，泡利，赝矢量和赝标量形状因子。通常将质子
+\begin_inset Formula $F_{i}^{p}$
+\end_inset
+
+和重子
+\begin_inset Formula $F_{i}^{n}$
+\end_inset
+
+电磁形状因子用夸克的表示，
+\begin_inset Formula 
+\[
+F_{i}^{p}=Q_{\mu}F_{i}^{\mu}+Q_{d}F_{i}^{d},\quad F_{i}^{n}=Q_{d}F_{i}^{\mu}+Q_{u}F_{i}^{d},
+\]
+
+\end_inset
+
+在第二个关系中，我们使用了同位旋对称性，将中子态间的夸克矩阵元表示成质子那边的，
+\begin_inset Formula $\bra{n}\bar{d}d\ket{n}=\bra{p}\bar{u}u\ket{p}$
+\end_inset
+
+ ，以及
+\begin_inset Formula $\bra{n}\bar{u}u\ket{n}=\bra{p}\bar{d}d\ket{p}$
+\end_inset
+
+ 。类似地可以定义其他形状因子的分解。在零反冲时的质子和中子形状因子归一化列在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中。
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F_{1}^{i}\left(0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F_{2}^{i}\left(0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $G_{A}^{\left(3\right)i}\left(0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $G_{P}^{\left(3\right)i}\left(0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+proton
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\kappa^{p}=1.79$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $g_{A}^{\left(3\right)p}=1.267$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4g_{A}^{\left(3\right)p}\left(0\right)M_{N}^{2}/m_{\pi}^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+neutron
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\kappa^{p}=-1.93$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $g_{A}^{\left(3\right)n}=-1.267$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4g_{A}^{\left(3\right)p}\left(0\right)M_{N}^{2}/m_{\pi}^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Normalization of nucleon electromagnetic and isovector axial and pseudoscalar
+ form factors.
+ 这里对轴形状因子使用了精确的同位旋对称性，
+\begin_inset Formula $M_{N}=M_{p}=M_{n}$
+\end_inset
+
+，使得 isovector axial 常数相同，如果不考虑符号的话，
+\begin_inset Formula $g_{A}^{\left(3\right)}=g_{A}^{\left(3\right)p}=-g_{A}^{\left(3\right)n}$
+\end_inset
+
+。
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+因此，
+\begin_inset Formula $u$
+\end_inset
+
+–和
+\begin_inset Formula $d$
+\end_inset
+
+–夸克的价形状因子可以通过质子和中子的形状因子抽取出来，
+\begin_inset Formula 
+\[
+F_{i}^{u,\text{val}}\left(\Delta^{2}\right)=2F_{i}^{p}\left(\Delta^{2}\right)+F_{i}^{n}\left(\Delta^{2}\right),\quad F_{i}^{d,\text{val}}\left(\Delta^{2}\right)=F_{i}^{p}\left(\Delta^{2}\right)+2F_{i}^{n}\left(\Delta^{2}\right).
+\]
+
+\end_inset
+
+后者可以从实验测量的 Sachs 电磁形状因子得到，见 sect 2.2.2。Sachs 电磁形状因子和狄拉克，泡利形状因子的关系为
+\begin_inset Formula 
+\[
+G_{E}^{i}\left(\Delta^{2}\right)=F_{1}^{i}\left(\Delta^{2}\right)+\frac{\Delta^{2}}{4M^{2}}F_{2}^{i}\left(\Delta^{2}\right),\quad G_{M}^{i}\left(\Delta^{2}\right)=F_{1}^{i}\left(\Delta^{2}\right)+F_{2}^{i}\left(\Delta^{2}\right).
+\]
+
+\end_inset
+
+在小
+\begin_inset Formula $\Delta^{2}$
+\end_inset
+
+区域，可以用 dipole 形式参数化，
+\begin_inset Formula 
+\begin{align*}
+ & G_{E}^{p}\left(\Delta^{2}\right)=\frac{1}{1+\kappa_{p}}G_{M}^{p}\left(\Delta\right)=\frac{1}{\kappa_{n}}G_{M}^{n}\left(\Delta\right)\equiv G_{D}\left(\Delta^{2}\right)=\left(1-\frac{\Delta^{2}}{0.71\GeV^{2}}\right)^{-2}\\
+ & G_{E}^{n}\left(\Delta^{2}\right)=0.
+\end{align*}
+
+\end_inset
+
+这里引入了核子的dipole 形状因子
+\begin_inset Formula $G_{D}$
+\end_inset
+
+，作为对
+\begin_inset Formula $\Delta^{2}$
+\end_inset
+
+依赖的领头阶近似。得到的实验数据和这个简单的形式符合的非常好，当
+\begin_inset Formula $\abs{\Delta^{2}}\ge2\GeV^{2}$
+\end_inset
+
+时，会有一些偏差。注意到这里我们令中子的电形状因子为零，由于在小的
+\begin_inset Formula $\abs{\Delta^{2}}$
+\end_inset
+
+，它是
+\begin_inset Formula $\Delta^{2}$
+\end_inset
+
+的一次方，系数为
+\begin_inset Formula $-1/6$
+\end_inset
+
+乘上中子的电荷半径
+\begin_inset Formula $r_{n}^{2}$
+\end_inset
+
+，
+\begin_inset Formula $r_{n}^{2}$
+\end_inset
+
+非常小，
+\begin_inset Formula $\approx-0.113\text{fm}^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+海夸克形状因子的参数化，和海夸克部分子分布的一阶矩相联系，在 sect 6.3.2中讨论。一个基于模型的合理假设可以用 Sach 形状因子表示为
+\begin_inset Formula 
+\[
+G_{E}^{\text{sea}}\left(\Delta^{2}\right)=\frac{1}{1+\kappa_{\text{sea}}}G_{M}^{\text{sea}}\left(\Delta^{2}\right)=\left(1-\frac{\Delta^{2}}{m_{\text{sea}}^{2}}\right)^{-3},
+\]
+
+\end_inset
+
+其中有一个 cutoff 
+\begin_inset Formula $m_{\text{sea}}$
+\end_inset
+
+。
+\begin_inset Formula $F_{1}^{\text{sea}}$
+\end_inset
+
+的斜率由
+\begin_inset Formula 
+\[
+B_{\text{sea}}=\left.\frac{\partial F_{1}^{\text{sea}}}{\partial\Delta^{2}}\right|_{\Delta^{2}=0}=3/m_{\text{sea}}^{2}-\kappa_{\text{sea}}/4M^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+赝形状因子可以类似地给出
+\begin_inset Formula 
+\[
+G_{A}^{i,\text{val}}\left(\Delta^{2}\right)=\left(1-\frac{\Delta^{2}}{1.1\GeV^{2}}\right)^{-2},\quad G_{A}^{\text{sea}}\left(\Delta^{2}\right)=\left(1-\frac{B_{A}}{3}\Delta^{2}\right)^{-3},
+\]
+
+\end_inset
+
+
+\begin_inset Formula $i$
+\end_inset
+
+表示
+\begin_inset Formula $u$
+\end_inset
+
+或者
+\begin_inset Formula $d$
+\end_inset
+
+夸克。其中第一个是从实验数据得到的，第二个是粗略的模型。斜率
+\begin_inset Formula $B_{A}$
+\end_inset
+
+是一个自由参数，应该由实验确定。最后，isovector pseudoscalar 形状因子，对于质子其味道结构为
+\begin_inset Formula $G_{P}^{\left(3\right)}=\bra{p}\bar{u}u-\bar{d}d\ket{p}$
+\end_inset
+
+，由 pion–pole 贡献主导，
+\begin_inset Formula 
+\[
+G_{P}^{\left(3\right)}\approx\frac{4g_{A}^{\left(3\right)}M_{N}^{2}}{m_{\pi}^{2}-\Delta^{2}},
+\]
+
+\end_inset
+
+valid at 
+\begin_inset Formula $\abs{\Delta}\sim m_{\pi}\approx0.14\GeV$
+\end_inset
+
+，pole 的留数正比于三重态 axial 常数
+\begin_inset Formula $g_{A}^{\left(3\right)}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Chapter
