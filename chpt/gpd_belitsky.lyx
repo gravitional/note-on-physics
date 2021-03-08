@@ -2714,11 +2714,11 @@ i\sigma^{+2}\\
 
 不作为一个可能的狄拉克结构。所以领头阶扭度的bilocal 夸克算符为
 \begin_inset Formula 
-\begin{align*}
- & \mathcal{O}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\gamma^{+}\psi\left(z_{2}^{-}\right)\\
- & \tilde{\mathcal{O}}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\gamma^{+}\gamma^{5}\psi\left(z_{2}^{-}\right)\\
- & \mathcal{T}_{\mu}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\sigma_{\phantom{+}\mu}^{+\perp}\psi\left(z_{2}^{-}\right)
-\end{align*}
+\begin{align}
+ & \mathcal{O}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\gamma^{+}\psi\left(z_{2}^{-}\right)\label{eq:3.10}\\
+ & \tilde{\mathcal{O}}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\gamma^{+}\gamma^{5}\psi\left(z_{2}^{-}\right)\nonumber \\
+ & \mathcal{T}_{\mu}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\sigma_{\phantom{+}\mu}^{+\perp}\psi\left(z_{2}^{-}\right)\nonumber 
+\end{align}
 
 \end_inset
 
@@ -3281,6 +3281,298 @@ F^{q}\left(x,\eta,\Delta^{2}\right)=F^{q}\left(x,-\eta,\Delta^{2}\right)
 向前极限
 \end_layout
 
+\begin_layout Standard
+GPDs 满足许多显著的约束，使得它们在某些运动学区域中“部分已知”。我们观察到GPD的算符定义与引言中讨论的通常的部分子密度相似。 显然，当我们将
+\begin_inset Formula $t$
+\end_inset
+
+道动量转移设置为零，即
+\begin_inset Formula $\Delta=0$
+\end_inset
+
+时，GPDs会化简到PDFs。让我们分析目标为不同自旋时的化简。
+\end_layout
+
+\begin_layout Subsection
+自旋零强子
+\end_layout
+
+\begin_layout Standard
+对于自旋零的靶子，对于每个算符矩阵元，部分子分布由单个函数定义。领头twist 的密度是
+\begin_inset Formula 
+\begin{align*}
+ & \bra{p}\mathcal{O}^{qq}\left(0,z^{-}\right)\ket{p}=2p^{+}\int_{0}^{1}\dif x\left\{ q\left(x\right)e^{-ixp^{+}z^{-}}-\bar{q}\left(x\right)e^{ixp^{+}z^{-}}\right\} ,\\
+ & \bra{p}\mathcal{O}^{gg}\left(0,z^{-}\right)\ket{p}=\left(p^{+}\right)^{2}\int_{0}^{1}\dif x\left\{ e^{-ixp^{+}z^{-}}+e^{ixp^{+}z^{-}}\right\} xg\left(x\right).
+\end{align*}
+
+\end_inset
+
+注意到，出于实用目的夸克分布
+\begin_inset Formula $q\left(x\right)$
+\end_inset
+
+和反夸克分布
+\begin_inset Formula $\bar{q}\left(x\right)$
+\end_inset
+
+，都是对于正的动量分数
+\begin_inset Formula $x>0$
+\end_inset
+
+定义的，也可以组合成单个函数
+\begin_inset Formula $f_{q}\left(x\right)$
+\end_inset
+
+，定义域是
+\begin_inset Formula $-1\le x\le1$
+\end_inset
+
+，如 eq.2.63 所示，
+\begin_inset Formula 
+\[
+f^{q}\left(x,\mu^{2}\right)=q\left(x,\mu^{2}\right)\theta\left(x\right)-\bar{q}\left(-x,\mu^{2}\right)\theta\left(-x\right).
+\]
+
+\end_inset
+
+夸克分布可以在高能实验中测量，如深度非弹性散射和 Drell–Yan 轻子对产生。对于 pion 靶的例子，部分子分布实验数据的拟合可以在 refs
+ 78，89中找到。如果将原子核作为可能的靶子，则会出现其他赝标量靶。在向前极限下
+\begin_inset Formula $\Delta\to0$
+\end_inset
+
+，
+\begin_inset Formula $p_{1}=p_{2}\equiv p$
+\end_inset
+
+，自旋零 GPDs 3.30–3.33产生通常的部分子分布,
+\begin_inset Formula 
+\[
+H^{q}\left(x,0,0\right)=f^{q}\left(x\right)=q\left(x\right)\theta\left(x\right)-\bar{q}\left(-x\right)\theta\left(-x\right).
+\]
+
+\end_inset
+
+对于胶子也有类似的关系，只需作替换
+\begin_inset Formula $q\left(x\right)\to xg\left(x\right)$
+\end_inset
+
+，以及
+\begin_inset Formula $\bar{q}\left(-x\right)\to xg\left(-x\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+自旋1/2重子
+\end_layout
+
+\begin_layout Standard
+自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+是第一个非平庸例子–除了非极化分布
+\begin_inset Formula $q\left(x\right)$
+\end_inset
+
+和
+\begin_inset Formula $\bar{q}\left(x\right)$
+\end_inset
+
+之外，由于自旋赝矢量
+\begin_inset Formula $s^{\mu}$
+\end_inset
+
+的存在，还允许极化夸克密度
+\begin_inset Formula $\Delta q$
+\end_inset
+
+和反夸克密度
+\begin_inset Formula $\Delta\bar{q}$
+\end_inset
+
+。More than this, the set of parton distributions for spin–one–half targets
+ takes the advantage of the entire variety of the available twist–two operators
+ introduced in Section 3.1 and leads to the introduction of the chiral–odd
+ 夸克密度
+\begin_inset Formula $\delta q\left(x\right)$
+\end_inset
+
+，which do not show up though in conventional deeply inelastic lepton–hadron
+ experiment.
+ 算符矩阵元的完整集合参数化如下：
+\begin_inset Formula 
+\begin{align*}
+ & \bra{p}\mathcal{O}^{qq}\left(0,z^{-}\right)\ket{p}=2p^{+}\int_{0}^{1}\dif x\left\{ q\left(x\right)e^{-ixp^{+}z^{-}}-\bar{q}\left(x\right)e^{ixp^{+}z^{-}}\right\} ,\\
+ & \bra{p}\tilde{\mathcal{O}}^{qq}\left(0,z^{-}\right)\ket{p}=2s^{+}\int_{0}^{1}\dif x\left\{ \Delta q\left(x\right)e^{-ixp^{+}z^{-}}+\Delta\bar{q}\left(x\right)e^{ixp^{+}z^{-}}\right\} ,\\
+ & \bra{p}\mathcal{T}_{\mu}^{qq}\left(0,z^{-}\right)\ket{p}=2\tilde{s}_{\mu}^{\perp}\int_{0}^{1}\dif x\left\{ \delta q\left(x\right)e^{-ixp^{+}z^{-}}-\delta\bar{q}\left(x\right)e^{ixp^{+}z^{-}}\right\} ,
+\end{align*}
+
+\end_inset
+
+其中使用了核子极化矢量
+\begin_inset Formula $s^{\mu}$
+\end_inset
+
+。这里我们定义了“dual”自旋矢量
+\begin_inset Formula $\tilde{s}_{\mu}^{\perp}=i\varepsilon_{\mu\nu}^{\perp}s_{\perp}^{\nu}$
+\end_inset
+
+，由于习惯上横向分布使用的狄拉克矩阵是
+\begin_inset Formula $\sigma^{+\perp}\gamma^{5}$
+\end_inset
+
+而不是
+\begin_inset Formula $\sigma^{+\perp}$
+\end_inset
+
+，
+\begin_inset Formula $\mathcal{T}_{\mu}^{qq}\left(0,z^{-}\right)$
+\end_inset
+
+中使用的是
+\begin_inset Formula $\sigma^{+\perp}$
+\end_inset
+
+。向前极限对GPDs 
+\begin_inset Formula $H$
+\end_inset
+
+ 和 
+\begin_inset Formula $\tilde{H}$
+\end_inset
+
+施加了限制：
+\begin_inset Formula 
+\begin{align*}
+ & H\left(x,0,0\right)=f^{q}\left(x\right)=q\left(x\right)\theta\left(x\right)-\bar{q}\left(-x\right)\theta\left(-x\right),\\
+ & \tilde{H}\left(x,0,0\right)=\Delta f^{q}\left(x\right)=\Delta q\left(x\right)\theta\left(x\right)+\Delta\bar{q}\left(-x\right)\theta\left(-x\right),
+\end{align*}
+
+\end_inset
+
+这里使用的
+\begin_inset Formula $\left(f_{q},\Delta f_{q}\right)$
+\end_inset
+
+支持负数的动量分数。从这些约定中可以知道，对于chiral–even 和 parity–even 情形，反夸克分布满足
+\begin_inset Formula $f^{q}\left(-x\right)=-\bar{q}\left(x\right)$
+\end_inset
+
+，对于 odd 情形，
+\begin_inset Formula $\Delta f^{q}\left(-x\right)=\Delta\bar{q}\left(x\right)$
+\end_inset
+
+。对于 chiral odd 密度还有
+\begin_inset Formula 
+\[
+\delta\bar{q}\left(x\right)=-\delta f^{q}\left(-x\right).
+\]
+
+\end_inset
+
+对于GPDs 
+\begin_inset Formula $E$
+\end_inset
+
+ 和 
+\begin_inset Formula $\tilde{E}$
+\end_inset
+
+没有限制，由于当
+\begin_inset Formula $\Delta\to0$
+\end_inset
+
+时它们的狄拉克结构消失。
+\end_layout
+
+\begin_layout Standard
+胶子分布的定义为，
+\begin_inset Formula 
+\begin{align*}
+ & \bra{p}\mathcal{O}^{gg}\left(0,z^{-}\right)\ket{p}=\left(p^{+}\right)^{2}\int_{0}^{1}\dif x\left\{ e^{-ixp^{+}z^{-}}+e^{ixp^{+}z^{-}}\right\} xg\left(x\right),\\
+ & \bra{p}\tilde{\mathcal{O}}^{gg}\left(0,z^{-}\right)\ket{p}=s^{+}p^{+}\int_{0}^{1}\dif x\left\{ e^{-ixp^{+}z^{-}}-e^{ixp^{+}z^{-}}\right\} x\Delta g\left(x\right),
+\end{align*}
+
+\end_inset
+
+对于胶子GPDs有
+\begin_inset Formula 
+\begin{align*}
+ & H^{g}\left(x,0,0\right)=xg\left(x\right)\theta\left(x\right)-xg\left(-x\right)\theta\left(-x\right),\\
+ & \tilde{H}^{g}\left(x,0,0\right)=\Delta g\left(x\right)\theta\left(x\right)+x\Delta g\left(-x\right)\theta\left(-x\right),
+\end{align*}
+
+\end_inset
+
+对于 maximal–helicity 胶子部分算符没有约化公式，由于
+\begin_inset Formula $\mathcal{T}_{\mu\nu}^{g}$
+\end_inset
+
+在自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+强子态之间的向前矩阵元恒为零，由于夸克–强子螺旋度守恒。在 off–forward 情形，存在不为零的动量转移
+\begin_inset Formula $\Delta$
+\end_inset
+
+，部分子存在非零轨道动量，所以存在
+\begin_inset Formula $\mathcal{T}_{\mu\nu}^{g}$
+\end_inset
+
+部分的GPDs。
+\end_layout
+
+\begin_layout Standard
+对于非极化夸克分布，习惯上分成 valence 和 sea 夸克贡献。也就是对于非极化函数，
+\begin_inset Formula 
+\[
+f^{q}\left(x\right)=q\left(x\right)\theta\left(x\right)-\bar{q}\left(-x\right)\theta\left(-x\right)=f^{q,\text{val}}\left(x\right)+f^{q,\text{sea}}\left(x\right),
+\]
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{align*}
+ & f^{q,\text{val}}\left(x\right)=q^{\text{val}}\left(x\right)\theta\left(x\right)\equiv\left\{ q\left(x\right)-\bar{q}\left(x\right)\right\} \theta\left(x\right),\\
+ & f^{q,\text{sea}}\left(x\right)=\bar{q}\left(x\right)\theta\left(x\right)-\bar{q}\left(-x\right)\theta\left(-x\right).
+\end{align*}
+
+\end_inset
+
+类似地，对计划情形也能定义 valence 和 sea 夸克分布
+\begin_inset Formula 
+\[
+\Delta f^{q}\left(x\right)=\Delta f^{q,\text{val}}\left(x\right)+\Delta f^{q,\text{sea}}\left(x\right),
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula 
+\begin{align*}
+ & \Delta f^{q,\text{val}}\left(x\right)=\Delta q^{\text{val}}\left(x\right)\theta\left(x\right)\equiv\left\{ \Delta q\left(x\right)-\Delta\bar{q}\left(x\right)\right\} \theta\left(x\right),\\
+ & \Delta f^{q,\text{sea}}\left(x\right)=\Delta\bar{q}\left(x\right)\theta\left(x\right)+\Delta\bar{q}\left(-x\right)\theta\left(-x\right).
+\end{align*}
+
+\end_inset
+
+除了横向分布
+\begin_inset Formula $\delta\left(x\right)$
+\end_inset
+
+，在动量分数
+\begin_inset Formula $x$
+\end_inset
+
+很大的范围内，核子部分子分布被实验数据限制的很好。The fits to world data can be found in Refs.80,81,82
+ and 83,84,85,86,87 fot the unpolarized and polarized parton densities,
+ respectively.
+\end_layout
+
 \begin_layout Section
 形状因子
 \end_layout
@@ -3303,7 +3595,7 @@ j_{q}^{5\mu}\left(z\right)=\bar{\psi}_{q}\left(z\right)\gamma^{\mu}\gamma^{5}\ps
 
 \end_inset
 
-已知的探针中，没有可以测量张量chiral–odd 流的。
+已知的探针中，没有可以测量张量 chiral–odd 流的。
 \end_layout
 
 \begin_layout Subsection
@@ -3842,6 +4134,130 @@ valid at
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Section
+Polynomiality 和 skewness 依赖
+\end_layout
+
+\begin_layout Standard
+前面讨论了GPDs的简单极限，现在来处理它们的一般性质，比如 Polynomiality in the skewness 参数
+\begin_inset Formula $\eta$
+\end_inset
+
+。Wilson 算符对于解决这个问题很方便。非定域光锥算符经过泰勒展开可以变成一摞定域算符，洛伦兹自旋依次增加。也就是，对于 even–parity
+ 夸克和胶子算符，我们有无穷级数展开
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{O}^{qq}\left(-z^{-},z^{-}\right)=\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}n^{\mu_{2}}\cdots n^{\mu_{j+1}}\mathcal{R}_{\mu_{1}\mu_{2}\cdots\mu_{j+1}}^{2,qq},\\
+ & \mathcal{O}^{gg}\left(-z^{-},z^{-}\right)=\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}n^{\mu_{2}}\cdots n^{\mu_{j+2}}\mathcal{R}_{\mu_{1}\mu_{2}\cdots\mu_{j+2}}^{2,qq},
+\end{align*}
+
+\end_inset
+
+其中使用了 twist–two 定域算符，
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{R}_{\mu_{1}\mu_{2}\cdots\mu_{j}}^{2,qq}=\underset{\mu_{1}\mu_{2}\cdots\mu_{j}}{\mathbf{S}}\bar{\psi}\gamma_{\mu_{1}}i\overset{\leftrightarrow}{\mathcal{D}}_{\mu_{2}}i\overset{\leftrightarrow}{\mathcal{D}}_{\mu_{3}}\cdots i\overset{\leftrightarrow}{\mathcal{D}}_{\mu_{j}}\psi,\\
+ & \mathcal{R}_{\mu_{1}\mu_{2}\cdots\mu_{j}}^{2,gg}=\underset{\mu_{1}\mu_{2}\cdots\mu_{j}}{\mathbf{S}}F_{\mu_{1}\nu}i\overset{\leftrightarrow}{\mathcal{D}}_{\mu_{2}}i\overset{\leftrightarrow}{\mathcal{D}}_{\mu_{3}}\cdots i\overset{\leftrightarrow}{\mathcal{D}}_{\mu_{j-1}}F_{\mu_{j}}^{\nu},
+\end{align*}
+
+\end_inset
+
+它们使用基本场构建，使用协变的左右导数作用在上面
+\begin_inset Formula 
+\[
+\overset{\leftrightarrow}{\mathcal{D}}_{\mu}\equiv\overset{\rightarrow}{\mathcal{D}}_{\mu}-\overset{\leftarrow}{\mathcal{D}}_{\mu}.
+\]
+
+\end_inset
+
+如同之前，
+\begin_inset Formula $\mathbf{S}$
+\end_inset
+
+是全对称化和减迹算符。对于其他 twist–two 夸克和胶子算符有类似的泰勒展开。上面定域算符的矩阵元联系着之前提到的 GPDs 的 Mellin
+ 矩。对于
+\begin_inset Formula $j=2$
+\end_inset
+
+，算符刚好和经典的，夸克和胶子的对称能量–动量张量一致（见 Appendix E），也就是
+\begin_inset Formula 
+\begin{align*}
+ & \theta_{\mu_{1}\mu_{2}}^{q}=\frac{1}{2}\mathcal{R}_{\mu_{1}\mu_{2}}^{2,qq}\equiv\frac{i}{4}\bar{\psi}\left\{ \gamma_{\mu_{1}}\overset{\leftrightarrow}{\mathcal{D}}_{\mu_{2}}+\gamma_{\mu_{2}}\overset{\leftrightarrow}{\mathcal{D}}_{\mu_{1}}-\frac{1}{2}g_{\mu_{1}\mu_{2}}\overset{\leftrightarrow}{\slashed{\mathcal{D}}}\right\} \psi\\
+ & \theta_{\mu_{1}\mu_{2}}^{g}=\frac{1}{2}\mathcal{R}_{\mu_{1}\mu_{2}}^{2,gg}\equiv\frac{1}{2}\left\{ F_{\mu_{1}\nu}^{a}F_{a\mu_{2}}^{\nu}+F_{\mu_{2}\nu}^{a}F_{a\mu_{1}}^{\nu}-\frac{1}{2}g_{\mu_{1}\mu_{2}}F_{\mu\nu}^{a}F_{a}^{\nu\mu}\right\} 
+\end{align*}
+
+\end_inset
+
+当夸克 bilocal 算符
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.10"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的狄拉克矩阵的指标不和类光矢量
+\begin_inset Formula $n^{\mu}$
+\end_inset
+
+收缩的时候，算符不再具有确定的几何 twist–two。
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{O}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\gamma^{+}\psi\left(z_{2}^{-}\right)\\
+ & \tilde{\mathcal{O}}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\gamma^{+}\gamma^{5}\psi\left(z_{2}^{-}\right)\\
+ & \mathcal{T}_{\mu}^{qq}\left(z_{1}^{-},z_{2}^{-}\right)=\bar{\psi}\left(z_{1}^{-}\right)\left[z_{1}^{-},z_{2}^{-}\right]\sigma_{\phantom{+}\mu}^{+\perp}\psi\left(z_{2}^{-}\right)
+\end{align*}
+
+\end_inset
+
+在后面的讨论中，我们会需要 twist–two 夸克算符的非定域形式，提取自 bilocal 夸克算符的领头阶成员，狄拉克矩阵带有一个自由指标。使用
+ ref230 中的恒等式可以得到这个形式，通过对 light–ray 算符进行泰勒展开可以验证。
+\begin_inset Formula 
+\begin{align*}
+\mathcal{R}_{\mu}^{2,qq}\left(-z^{-},z^{-}\right) & =\int_{-1}^{1}\dif u\frac{\partial}{\partial z^{\mu}}\bar{\psi}\left(-uz\right)\slashed{z}\left[-uz,uz\right]\psi\left(uz\right)\\
+ & =\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}\cdots n^{\mu_{j}}\mathcal{R}_{\mu\mu_{1}\cdots\mu_{j}}^{2,qq},
+\end{align*}
+
+\end_inset
+
+式子右边
+\begin_inset Formula $z^{\mu}=z^{-}n^{\mu}$
+\end_inset
+
+。显然
+\begin_inset Formula 
+\[
+\mathcal{O}^{qq}\left(-z^{-},z^{-}\right)=\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}n^{\mu_{2}}\cdots n^{\mu_{j+1}}\mathcal{R}_{\mu_{1}\mu_{2}\cdots\mu_{j+1}}^{2,qq}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{O}^{qq}\left(-z^{-},z^{-}\right)=n^{\mu}\mathcal{R}_{\mu}^{2,qq}\left(-z^{-},z^{-}\right).
+\]
+
+\end_inset
+
+胶子算符的推广是很直接的。引入了local Wilson 算符之后，我们就可以讨论 GPDs Mellin矩的 polynomiality 性质，Mellin矩
+联系着算符的强子矩阵元。
+\end_layout
+
+\begin_layout Subsection
+自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+强子
+\end_layout
+
+\begin_layout Standard
+东afsd
 \end_layout
 
 \begin_layout Chapter
