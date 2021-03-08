@@ -4148,10 +4148,10 @@ Polynomiality 和 skewness 依赖
 。Wilson 算符对于解决这个问题很方便。非定域光锥算符经过泰勒展开可以变成一摞定域算符，洛伦兹自旋依次增加。也就是，对于 even–parity
  夸克和胶子算符，我们有无穷级数展开
 \begin_inset Formula 
-\begin{align*}
- & \mathcal{O}^{qq}\left(-z^{-},z^{-}\right)=\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}n^{\mu_{2}}\cdots n^{\mu_{j+1}}\mathcal{R}_{\mu_{1}\mu_{2}\cdots\mu_{j+1}}^{2,qq},\\
- & \mathcal{O}^{gg}\left(-z^{-},z^{-}\right)=\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}n^{\mu_{2}}\cdots n^{\mu_{j+2}}\mathcal{R}_{\mu_{1}\mu_{2}\cdots\mu_{j+2}}^{2,qq},
-\end{align*}
+\begin{align}
+ & \mathcal{O}^{qq}\left(-z^{-},z^{-}\right)=\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}n^{\mu_{2}}\cdots n^{\mu_{j+1}}\mathcal{R}_{\mu_{1}\mu_{2}\cdots\mu_{j+1}}^{2,qq},\label{eq:3.105}\\
+ & \mathcal{O}^{gg}\left(-z^{-},z^{-}\right)=\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}n^{\mu_{2}}\cdots n^{\mu_{j+2}}\mathcal{R}_{\mu_{1}\mu_{2}\cdots\mu_{j+2}}^{2,qq},\label{eq:3.106}
+\end{align}
 
 \end_inset
 
@@ -4217,10 +4217,10 @@ noprefix "false"
 在后面的讨论中，我们会需要 twist–two 夸克算符的非定域形式，提取自 bilocal 夸克算符的领头阶成员，狄拉克矩阵带有一个自由指标。使用
  ref230 中的恒等式可以得到这个形式，通过对 light–ray 算符进行泰勒展开可以验证。
 \begin_inset Formula 
-\begin{align*}
-\mathcal{R}_{\mu}^{2,qq}\left(-z^{-},z^{-}\right) & =\int_{-1}^{1}\dif u\frac{\partial}{\partial z^{\mu}}\bar{\psi}\left(-uz\right)\slashed{z}\left[-uz,uz\right]\psi\left(uz\right)\\
- & =\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}\cdots n^{\mu_{j}}\mathcal{R}_{\mu\mu_{1}\cdots\mu_{j}}^{2,qq},
-\end{align*}
+\begin{align}
+\mathcal{R}_{\mu}^{2,qq}\left(-z^{-},z^{-}\right) & =\int_{-1}^{1}\dif u\frac{\partial}{\partial z^{\mu}}\bar{\psi}\left(-uz\right)\slashed{z}\left[-uz,uz\right]\psi\left(uz\right)\label{eq:3.112}\\
+ & =\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}\cdots n^{\mu_{j}}\mathcal{R}_{\mu\mu_{1}\cdots\mu_{j}}^{2,qq},\nonumber 
+\end{align}
 
 \end_inset
 
@@ -4249,6 +4249,303 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
+自旋零强子
+\end_layout
+
+\begin_layout Standard
+对于自旋零的强子态，全对称无迹定域 Wilson 算符的矩阵元参数如下
+\begin_inset Formula 
+\begin{align}
+ & \bra{p_{2}}\mathcal{R}_{\mu_{1}\cdots\mu_{j}}^{2,qq}\ket{p_{1}}=\underset{\mu_{2}\cdots\mu_{j}}{\mathbf{S}}\left\{ p_{\mu_{1}}\cdots p_{\mu_{j}}H_{j,0}^{q}+\Delta_{\mu_{1}}p_{\mu_{2}}\cdots p_{\mu_{j}}H_{j,1}^{q}+\cdots+\Delta_{\mu_{1}}\cdots\Delta_{\mu_{j}}H_{j,j}^{q}\right\} ,\label{eq:3.113}\\
+ & \bra{p_{2}}\tilde{\mathcal{R}}_{\mu_{1}\cdots\mu_{j}}^{2,qq}\ket{p_{1}}=0,\nonumber 
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula $H_{j,k}\left(\Delta^{2}\right)$
+\end_inset
+
+ 是形状因子，上面省略了对转移动量
+\begin_inset Formula $Q^{2}$
+\end_inset
+
+的依赖以求简洁。odd parity 算符的矩阵元为零是因为，对于一个自旋零强子，无法只使用 collinear 动量，构建一个twist–two赝矢量。因此，
+只有矢量算符具有非零期望值。此外，可以为系数
+\begin_inset Formula $H_{jk}$
+\end_inset
+
+引入生成函数。将
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.113"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的自由洛伦兹指标与类光矢量
+\begin_inset Formula $n_{\mu}$
+\end_inset
+
+收缩，并对结果中的 Wilson 算符求和，类似
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.105"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.106"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的形式，可以建立与 GPDs 的 Mellin 矩的关系
+\begin_inset Formula 
+\begin{equation}
+H_{j,k}^{q}\left(\Delta^{2}\right)=\left.\frac{1}{k!}\frac{\dif^{k}}{\dif\eta^{k}}\right|_{\eta=0}\int_{-1}^{1}\dif xx^{j-1}H^{q}\left(x,\eta,\Delta^{2}\right),\label{eq:3.115}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $0\le k\le j,1\le j$
+\end_inset
+
+。这个方程表明了，GPD 
+\begin_inset Formula $H^{q}\left(x,\eta,\Delta^{2}\right)$
+\end_inset
+
+的
+\begin_inset Formula $x^{j-1}$
+\end_inset
+
+矩是 skewness 
+\begin_inset Formula $\eta$
+\end_inset
+
+ 的多项式，order 为
+\begin_inset Formula $j$
+\end_inset
+
+。由于时间反演不变性，GPDs 是 skewness 的偶函数，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.113"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中只保留
+\begin_inset Formula $\Delta$
+\end_inset
+
+的偶次项。
+\end_layout
+
+\begin_layout Standard
+在随后的 sect 5中，我们会分析 off–forward 康普顿振幅的算符乘积展开，也将得到 GPDs。这需要考虑带有自由指标的非定域 twist–two
+ 算符在强子矩阵元，如
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.112"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，以及它们用 twist–two GPDs 进行的参数化。使用关系
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.113"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.115"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。将方程
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.113"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+两边同时乘上
+\begin_inset Formula $n_{\mu_{2}}\cdots n_{\mu_{j}}$
+\end_inset
+
+作投影，留下
+\begin_inset Formula $\mu_{1}$
+\end_inset
+
+不动。动量组合存在关系
+\begin_inset Formula 
+\[
+p^{\mu}=p^{+}n^{*\mu}+p^{-}n^{\mu}+p^{\perp}n^{\perp\mu},\quad n_{\mu}p^{\mu}=p^{+},\quad n_{\mu}^{*}p^{\mu}=p^{-}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+n_{\mu_{1}}\cdots n_{\mu_{j}}\underset{\mu\mu_{1}\cdots\mu_{j}}{\mathbf{S}}\Delta^{\mu}\Delta^{\mu_{2}}\cdots\Delta^{\mu_{k}}p^{\mu_{1}}p^{\mu_{k+1}}\cdots p^{\mu_{j}}=\frac{\left(p^{+}\right)^{j}}{j+1}\left\{ \left(j+1-k\right)p^{\mu}\eta^{k}+k\Delta^{\mu}\eta^{k-1}\right\} ,\label{eq:3.116}
+\end{equation}
+
+\end_inset
+
+其中系数
+\begin_inset Formula $j+1$
+\end_inset
+
+，
+\begin_inset Formula $j+1-k$
+\end_inset
+
+，
+\begin_inset Formula $k$
+\end_inset
+
+来自于全对称操作。使用上面等式可以得到 off–forward Wilson 算符矩阵元的方程
+\begin_inset Formula 
+\begin{equation}
+n^{\mu_{1}}\cdots n^{\mu_{j}}\bra{p_{2}}\mathcal{R}_{\mu\mu_{1}\cdots\mu_{j}}^{2,qq}\ket{p_{1}}=p_{\mu}\left(p^{+}\right)^{j}\left(1-\frac{\eta}{j+1}\frac{\dif}{\dif\eta}\right)H_{j+1}^{q}\left(\eta\right)+\Delta_{\mu}\left(p^{+}\right)^{j}\frac{1}{j+1}\frac{\dif}{\dif\eta}H_{j+1}^{q}\left(\eta\right).\label{eq:3.117}
+\end{equation}
+
+\end_inset
+
+这里
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.116"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+右边两项前的系数，变成了作用在
+\begin_inset Formula $H_{j+1}\left(\eta\right)$
+\end_inset
+
+前对
+\begin_inset Formula $\eta$
+\end_inset
+
+的微分算符。
+\begin_inset Formula $H_{j+1}^{q}\left(\eta\right)$
+\end_inset
+
+可以联系到 GPDs的Mellin 矩，
+\begin_inset Formula 
+\[
+H_{j}^{q}\left(\eta\right)=\int_{-1}^{1}\dif xx^{j-1}H^{q}\left(x,\eta\right)=\sum_{k=0}^{j}\eta^{k}H_{j,k}^{q},
+\]
+
+\end_inset
+
+the moments 
+\begin_inset Formula $H_{j+1}^{q}\left(\eta\right)$
+\end_inset
+
+可以直接从算符
+\begin_inset Formula $\mathcal{R}_{+}^{2,qq}$
+\end_inset
+
+的
+\begin_inset Formula $+$
+\end_inset
+
+分量得到。显然，
+\begin_inset Formula 
+\[
+n^{\mu}n^{\mu_{1}}\cdots n^{\mu_{j}}\bra{p_{2}}\mathcal{R}_{\mu\mu_{1}\cdots\mu_{j}}^{2,qq}\ket{p_{1}}=\left(p^{+}\right)^{j+1}H_{j+1}^{q}\left(\eta\right).
+\]
+
+\end_inset
+
+由于对称化的原因，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.117"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+存在一个 Wandzura–Wilczek 项，正比于
+\begin_inset Formula $\Delta_{\mu}^{\perp}=\Delta_{\mu}-\eta p_{\mu}$
+\end_inset
+
+，实际上是对散射振幅的 twist–three 的贡献，将会在 sect5.3 中证明。最后，twist–two light–ray 算符
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.112"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的矩阵元可以通过重求和得到：
+\begin_inset Formula 
+\[
+\mathcal{R}_{\mu}^{2,qq}\left(-z^{-},z^{-}\right)=\int_{-1}^{1}\dif u\frac{\partial}{\partial z^{\mu}}\bar{\psi}\left(-uz\right)\slashed{z}\left[-uz,uz\right]\psi\left(uz\right)=\sum_{j=0}^{\infty}\frac{1}{j!}\left(-iz^{-}\right)^{j}n^{\mu_{1}}\cdots n^{\mu_{j}}\mathcal{R}_{\mu\mu_{1}\cdots\mu_{j}}^{2,qq},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bra{p_{2}}\mathcal{R}_{\mu}^{2,qq}\left(-z^{-},z^{-}\right)\ket{p_{1}}=\int_{-1}^{1}\dif xe^{-iz^{-}p^{+}x}\left(p_{\mu}H^{q}\left(x,\eta\right)+\Delta_{\mu}^{\perp}\int_{-1}^{1}\dif yW_{2}\left(x,y\right)\frac{\dif}{\dif\eta}H^{q}\left(x,\eta\right)\right),
+\]
+
+\end_inset
+
+其中 kernel 
+\begin_inset Formula $W_{2}\left(x,y\right)$
+\end_inset
+
+为
+\begin_inset Formula 
+\[
+W_{2}\left(x,y\right)=\frac{1}{y}\theta\left(x\right)\theta\left(y-x\right)-\frac{1}{x}\theta\left(-x\right)\theta\left(x-y\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 自旋
 \begin_inset Formula $1/2$
 \end_inset
@@ -4257,7 +4554,38 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-东afsd
+twist–two 夸克算符的核子矩阵元可以通过“形状因子”参数化为，
+\begin_inset Formula 
+\begin{align*}
+\bra{p_{2}}\mathcal{R}_{\mu_{1}\cdots\mu_{j}}^{2,qq}\ket{p_{1}} & =\underset{\mu_{2}\cdots\mu_{j}}{\mathbf{S}}h_{\mu_{1}}\left\{ p_{\mu_{2}}\cdots p_{\mu_{j}}A_{j,0}^{q}+\cdots+\Delta_{\mu_{2}}\cdots\Delta_{\mu_{j}}A_{j,j-1}^{q}\right\} \\
+ & +\underset{\mu_{2}\cdots\mu_{j}}{\mathbf{S}}\frac{b}{2M_{N}}\left\{ p_{\mu_{1}}\cdots p_{\mu_{j}}B_{j,0}^{q}+\cdots+\Delta_{\mu_{1}}p_{\mu_{2}}\cdots p_{\mu_{j}}B_{j,1}^{q}+\cdots+\Delta_{\mu_{1}}\cdots\Delta_{\mu_{j}}B_{j,j}^{q}\right\} ,
+\end{align*}
+
+\end_inset
+
+其中第二行的结构和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.113"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的相同。对于 parity odd and chiral odd 算符的矩阵元，也有类似的关系，尽管形状因子 counting 是不一样的。对于洛伦兹自旋
+\begin_inset Formula $j\ge1$
+\end_inset
+
+，一共有
+\begin_inset Formula $j+1$
+\end_inset
+
+个形状因子
+\begin_inset Formula $H_{j,k}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Chapter
