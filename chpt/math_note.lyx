@@ -4696,8 +4696,8 @@ where
 运动学变量关系为
 \begin_inset Formula 
 \begin{align*}
- & m^{2}=p_{2}^{2}=\left(p_{1}+q\right)^{2}=m^{2}+q^{2}+2p_{1}q\Rightarrow-q^{2}=m^{2}+2p_{1}q\\
- & m^{2}=p_{1}^{2}=\left(p_{2}-q\right)^{2}=m^{2}+q^{2}-2p_{2}q\Rightarrow-q^{2}=m^{2}-2p_{2}q\\
+ & m^{2}=p_{2}^{2}=\left(p_{1}+q\right)^{2}=m^{2}+q^{2}+2p_{1}q\Rightarrow-q^{2}=2p_{1}q\\
+ & m^{2}=p_{1}^{2}=\left(p_{2}-q\right)^{2}=m^{2}+q^{2}-2p_{2}q\Rightarrow-q^{2}=-2p_{2}q\\
  & q^{2}=\left(p_{2}-p_{1}\right)^{2}=m^{2}+m^{2}-2p_{1}p_{2}=2m^{2}-2p_{1}p_{2}
 \end{align*}
 
@@ -4706,8 +4706,8 @@ where
 即
 \begin_inset Formula 
 \begin{align*}
- & Q^{2}=m^{2}+2p_{1}q=m^{2}-2p_{2}q=-2m^{2}+2p_{1}p_{2}\\
- & 2p_{1}q=Q^{2}-m^{2},\quad2p_{2}q=m^{2}-Q^{2},\quad2p_{1}p_{2}=Q^{2}+2m^{2}
+ & Q^{2}=2p_{1}q=-2p_{2}q=-2m^{2}+2p_{1}p_{2}\\
+ & p_{1}q=Q^{2}/2,\quad2p_{2}q=-Q^{2}/2,\quad p_{1}p_{2}=Q^{2}/2+m^{2}
 \end{align*}
 
 \end_inset
@@ -4924,13 +4924,13 @@ A & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma_{\mu}u\left(p_{1}\right)\
 \end_inset
 
 代入
-\begin_inset Formula $2p_{1}q=Q^{2}-m^{2},\quad2p_{2}q=m^{2}-Q^{2},\quad2p_{1}p_{2}=Q^{2}+2m^{2}$
+\begin_inset Formula $p_{1}q=Q^{2}/2,\quad2p_{2}q=-Q^{2}/2,\quad p_{1}p_{2}=Q^{2}/2+m^{2}$
 \end_inset
 
 ，得到
 \begin_inset Formula 
 \[
-A=F_{1}\left(8m^{2}-4Q^{2}\right)+F_{2}\left(6m^{2}-6Q^{2}\right)
+A=4F_{1}\left(2m^{2}-Q^{2}\right)-6Q^{2}F_{2}
 \]
 
 \end_inset
@@ -4942,13 +4942,13 @@ A=F_{1}\left(8m^{2}-4Q^{2}\right)+F_{2}\left(6m^{2}-6Q^{2}\right)
 类似地，令
 \begin_inset Formula 
 \begin{align*}
-B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma_{\mu}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\left(p_{2}+p_{1}\right)^{\mu}u\left(p_{2}\right)=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}\right]\\
- & =\tr\left[\left(F_{1}+F_{2}\right)\gamma_{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}-\frac{F_{2}}{2m}\left(p_{2}+p_{1}\right)^{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}\right]\\
- & =\left(F_{1}+F_{2}\right)\left(8mp_{1}p_{2}+4mp_{1}^{2}+4mp_{2}^{2}\right)-\frac{F_{2}}{2m}4\left(2p_{1}p_{2}+p_{1}^{2}+p_{2}^{2}\right)\left(p_{1}p_{2}+m^{2}\right)\\
- & =\left(F_{1}+F_{2}\right)\left(4mQ^{2}+16m^{3}\right)-\frac{F_{2}}{m}\left(2p_{1}p_{2}+2m^{2}\right)\left(2p_{1}p_{2}+2m^{2}\right)\\
- & =\left(F_{1}+F_{2}\right)\left({\color{blue}4mQ^{2}+16m^{3}}\right)-\frac{F_{2}}{m}\left(Q^{2}+4m^{2}\right)^{2}\\
- & =F_{1}\left({\color{blue}4mQ^{2}+16m^{3}}\right)+F_{2}\left({\color{blue}4mQ^{2}+16m^{3}}-16m^{3}-\frac{Q^{4}}{m}-8mQ^{2}\right)\\
-B & =F_{1}\left(4mQ^{2}+16m^{3}\right)+F_{2}\left(-4mQ^{2}-\frac{Q^{4}}{m}\right)
+B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma_{\mu}u\left(p_{1}\right)\bar{u}\left(p_{1}\right){\color{blue}\frac{\left(p_{2}+p_{1}\right)^{\mu}}{m}}u\left(p_{2}\right)=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}\right]\\
+ & =\tr\left[\left(F_{1}+F_{2}\right)\gamma_{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\frac{\left(p_{2}+p_{1}\right)^{\mu}}{m}-\frac{F_{2}}{2m^{2}}\left(p_{2}+p_{1}\right)^{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}\right]\\
+ & =\left(F_{1}+F_{2}\right)\left(8p_{1}p_{2}+4p_{1}^{2}+4p_{2}^{2}\right)-\frac{F_{2}}{2m^{2}}4\left(2p_{1}p_{2}+p_{1}^{2}+p_{2}^{2}\right)\left(p_{1}p_{2}+m^{2}\right)\\
+ & =\left(F_{1}+F_{2}\right)\left(4Q^{2}+16m^{2}\right)-\frac{F_{2}}{m^{2}}\left(2p_{1}p_{2}+2m^{2}\right)\left(2p_{1}p_{2}+2m^{2}\right)\\
+ & =\left(F_{1}+F_{2}\right)\left({\color{blue}4Q^{2}+16m^{2}}\right)-\frac{F_{2}}{m^{2}}\left(Q^{2}+4m^{2}\right)^{2}\\
+ & =F_{1}\left({\color{blue}4Q^{2}+16m^{2}}\right)+F_{2}\left({\color{blue}4Q^{2}+16m^{2}}-16m^{2}-\frac{Q^{4}}{m^{2}}-8Q^{2}\right)\\
+B & =F_{1}4\left(Q^{2}+4m^{2}\right)-F_{2}\frac{Q^{2}}{m^{2}}\left(4m^{2}+Q^{2}\right)
 \end{align*}
 
 \end_inset
@@ -4960,8 +4960,8 @@ B & =F_{1}\left(4mQ^{2}+16m^{3}\right)+F_{2}\left(-4mQ^{2}-\frac{Q^{4}}{m}\right
 总结就是
 \begin_inset Formula 
 \begin{align*}
- & A=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\gamma^{\mu}\left(\gamma p_{2}+m\right)\right]=F_{1}\left(8m^{2}-4Q^{2}\right)+F_{2}\left(6m^{2}-6Q^{2}\right)\\
- & B=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\left(p_{2}+p_{1}\right)^{\mu}\right]=F_{1}\left(4mQ^{2}+16m^{3}\right)+F_{2}\left(-4mQ^{2}-\frac{Q^{4}}{m}\right)
+ & A=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\gamma^{\mu}\left(\gamma p_{2}+m\right)\right]=4F_{1}\left(2m^{2}-Q^{2}\right)-6Q^{2}F_{2}\\
+ & B=\tr\left[\Gamma_{\mu}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\frac{\left(p_{2}+p_{1}\right)^{\mu}}{m}\right]=F_{1}4\left(Q^{2}+4m^{2}\right)-F_{2}\frac{Q^{2}}{m^{2}}\left(4m^{2}+Q^{2}\right)
 \end{align*}
 
 \end_inset
@@ -4973,7 +4973,7 @@ B & =F_{1}\left(4mQ^{2}+16m^{3}\right)+F_{2}\left(-4mQ^{2}-\frac{Q^{4}}{m}\right
 的线性方程组，求解得到
 \begin_inset Formula 
 \[
-F_{1}=\frac{AQ^{2}\left(4m^{2}+Q^{2}\right)+6B\left(m^{3}-mQ^{2}\right)}{96m^{6}-40m^{4}Q^{2}-32m^{2}Q^{4}-4Q^{6}},\quad F_{2}=\frac{m\left[B\left(-2m^{2}+Q^{2}\right)+Am\left(4m^{2}+Q^{2}\right)\right]}{-24m^{6}+10m^{4}Q^{2}+8m^{2}Q^{4}+Q^{6}}
+F_{1}=-\frac{A\left(4m^{2}+Q^{2}\right)-6m^{2}B}{4\left(4m^{2}+Q^{2}\right)^{2}},\quad F_{2}=-m^{2}\frac{A\left(4m^{2}+Q^{2}\right)-\left(2m^{2}-Q^{2}\right)B}{Q^{2}\left(4m^{2}+Q^{2}\right)^{2}}
 \]
 
 \end_inset

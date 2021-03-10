@@ -189,29 +189,6 @@ Thomas
 \end_layout
 
 \begin_layout Section
-约定
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-f_{q}\left(x\right)=\frac{1}{2}\int_{-\infty}^{\infty}\frac{\dif\lambda}{2\pi}e^{-i\lambda x\left(n_{-}P\right)}\bra{P^{\prime}}\bar{q}\left(\frac{\lambda}{2}n_{-}\right)\slashed{n}_{-}q\left(-\frac{\lambda}{2}n_{-}\right)\ket{P}
-\]
-
-\end_inset
-
-相当于
-\begin_inset Formula 
-\[
-xP^{+}=\frac{P^{+}-P^{\prime+}}{2}
-\]
-
-\end_inset
-
-部分子动量是初末态动量变化的一半。
-\end_layout
-
-\begin_layout Subsection
 光锥坐标
 \end_layout
 
@@ -426,7 +403,7 @@ D_{B}(p-k) & =(p-k)^{2}-m_{B}^{2}+i\epsilon=(p-k)^{+}(p-k)^{-}-k_{\perp}^{2}-m_{
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 GPD 的自由度
 \end_layout
 
@@ -705,8 +682,8 @@ where
 的路径排序。本文中的大多数公式和结论都可以轻而易举地推广到这种情况中，对于例外我们会说明。
 \end_layout
 
-\begin_layout Subsection
-歪斜度为零
+\begin_layout Section
+运动学变量
 \end_layout
 
 \begin_layout Standard
@@ -759,11 +736,15 @@ k_{1}+p_{1}\Rightarrow k_{2}+p_{2}
 \begin_inset Formula $\Delta$
 \end_inset
 
-是一个类空矢量。可以一般地把它写成
+是一个类空矢量。一般地可以把它写成
 \begin_inset Formula $\Delta=\left(0,\vec{\Delta}\right)$
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Subsection
+歪斜度为零
 \end_layout
 
 \begin_layout Standard
@@ -805,19 +786,19 @@ p^{\prime} & =\gamma\left(p-vE\right)
 \begin_inset Formula $\Delta=\left(0,\vec{\Delta}\right)$
 \end_inset
 
-的坐标系。然后三维转动是不影响
-\begin_inset Formula $0$
-\end_inset
-
-分量的，可以通过转动使得
-\begin_inset Formula $\Delta^{3}=0$
-\end_inset
-
-，而
+的坐标系。只作三维转动而不boost不影响
 \begin_inset Formula $\Delta^{0}$
 \end_inset
 
-保持为零。则此时
+分量，可以通过三维转动选取
+\begin_inset Formula $\Delta^{3}=0$
+\end_inset
+
+同时保持
+\begin_inset Formula $\Delta^{0}$
+\end_inset
+
+，此时
 \begin_inset Formula 
 \[
 \begin{cases}
@@ -832,7 +813,7 @@ p^{\prime} & =\gamma\left(p-vE\right)
 \end_inset
 
 再考虑初末态质子的动量，由
-\begin_inset Formula $\Delta=p^{\prime}-p=\left(0,\Delta_{\perp},0\right)$
+\begin_inset Formula $\Delta=p^{\prime}-p=$
 \end_inset
 
 可知
@@ -844,7 +825,7 @@ p^{\prime} & =\gamma\left(p-vE\right)
 
 \end_inset
 
-由这两个条件又可以知道
+由这两个条件，以及初末态质量相等可知，
 \begin_inset Formula 
 \[
 \left(p^{\prime;\perp}\right)^{2}=\left(p^{\perp}\right)^{2}
@@ -852,11 +833,11 @@ p^{\prime} & =\gamma\left(p-vE\right)
 
 \end_inset
 
-加上
+即核子初末态的横向动量绝对值相等。加上
 \begin_inset Formula $p^{\prime\perp}-p^{\perp}=\Delta_{\perp}$
 \end_inset
 
-，所以解出
+，所以有
 \begin_inset Formula 
 \begin{align*}
 p & =\left(E,-\frac{\Delta^{\perp}}{2},p^{3}\right)\\
@@ -867,56 +848,79 @@ p^{\prime} & =\left(E,\frac{\Delta^{\perp}}{2},p^{3}\right)
 
 如果用光锥坐标表示
 \begin_inset Formula 
-\[
-\Delta=\left(0,0,\Delta_{\perp}\right),\quad\xi=-\frac{\Delta^{+}}{2P^{+}}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}=0
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
 \begin{align*}
-p & =\left(P^{+},P^{-},-\frac{\Delta^{\perp}}{2}\right)\\
-p^{\prime} & =\left(P^{+},P^{-},\frac{\Delta^{\perp}}{2}\right)
+ & \Delta=\left(0,0,\Delta_{\perp}\right),\quad\xi=-\frac{\Delta^{+}}{2P^{+}}=\left(\frac{p-p^{\prime}}{p^{\prime}+p}\right)^{+}=0\\
+ & p=\left(P^{+},P^{-},-\frac{\Delta_{\perp}}{2}\right),\quad p^{\prime}=\left(P^{+},P^{-},\frac{\Delta_{\perp}}{2}\right)
 \end{align*}
 
 \end_inset
 
-
+一般把
 \begin_inset Formula $\xi=0$
 \end_inset
 
-的坐标系即Drell–Yan 参考系。 
-\end_layout
-
-\begin_layout Standard
-如果质子的
-\begin_inset Formula $3$
+的坐标称为Drell–Yan 参考系。如果核子在
+\begin_inset Formula $z$
 \end_inset
 
-方向动量非常大，可以近似认为
-\begin_inset Formula $P^{-}\approx0$
+方向动量非常大，
+\begin_inset Formula 
+\begin{align*}
+p^{-} & =E-p^{z}=\sqrt{p^{z;2}+p^{\perp;2}+M^{2}}-p^{z}\\
+ & \stackrel{p^{z}\to\infty}{=}p^{z}\left(1+\frac{p^{\perp;2}+M^{2}}{2p^{z;2}}\right)-p^{z}=\frac{\sqrt{p^{\perp;2}+M^{2}}}{2p^{z}}\sqrt{p^{\perp;2}+M^{2}}\to0
+\end{align*}
+
+\end_inset
+
+可以认为
+\begin_inset Formula $p^{-}=0$
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+计算中会用到各种动量乘积，由于
+\begin_inset Formula $\delta\left(y-\frac{k^{+}}{p^{+}}\right)$
+\end_inset
+
+的存在，迫使
+\begin_inset Formula $k^{+}=yp^{+}$
+\end_inset
+
+，
 \begin_inset Formula 
 \[
-P=\left(P^{+},0,0\right)
+k\cdot p=k^{+}p^{-}+k^{-}p^{+}-k_{\perp}p_{\perp}=k^{+}p^{-}+k^{-}p^{+}+k_{\perp}\frac{\Delta_{\perp}}{2}
 \]
 
 \end_inset
 
 考虑到
-\begin_inset Formula $Q^{2}=-\Delta^{2}=\Delta_{\perp}^{2}$
+\begin_inset Formula $2p^{+}p^{-}-p_{\perp}^{2}=M_{N}^{2}$
 \end_inset
 
-，
+，则
 \begin_inset Formula 
-\begin{align*}
-\Delta & =\left(0,0,Q\right)\\
-p & =\left(P^{+},0,-\frac{Q}{2}\right)\\
-p^{\prime} & =\left(P^{+},0,\frac{Q}{2}\right)
-\end{align*}
+\[
+k^{+}p^{-}=yp^{+}p^{-}=\frac{y}{2}\left(M_{N}^{2}+p_{\perp}^{2}\right)=\frac{y}{2}\left(M_{N}^{2}+\frac{Q^{2}}{4}\right)
+\]
+
+\end_inset
+
+同理，
+\begin_inset Formula 
+\[
+k^{+}p^{\prime-}=yp^{\prime+}p^{\prime-}=\frac{y}{2}\left(M_{N}^{2}+p_{\perp}^{2}\right)=\frac{y}{2}\left(M_{N}^{2}+\frac{Q^{2}}{4}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+2p\cdot p^{\prime}=-\left(p-p^{\prime}\right)^{2}+2m^{2}=Q^{2}+2m^{2}=\Delta_{\perp}^{2}+2m^{2}
+\]
 
 \end_inset
 
@@ -928,89 +932,91 @@ p^{\prime} & =\left(P^{+},0,\frac{Q}{2}\right)
 \end_layout
 
 \begin_layout Standard
-再考虑歪斜度不为零的情况，从为零的情况
-\begin_inset Formula $\Delta=\left(0,\Delta^{\perp},0\right)$
+不同坐标轴的boost是独立的。首先选择
+\begin_inset Formula $\Delta^{\mu}$
 \end_inset
 
-出发，由boost变换方程可知，
+为
+\begin_inset Formula $\Delta^{\mu}=\left(0,0,0,\Delta^{3}\right),\Delta^{3}>0$
+\end_inset
+
+的坐标系。即通过三维转动选取
+\begin_inset Formula $\Delta_{\perp}$
+\end_inset
+
+为零的坐标系。由
+\begin_inset Formula $\Delta^{\mu}=\left(0,0,0,\Delta^{3}\right)$
+\end_inset
+
+我们知道
 \begin_inset Formula 
 \begin{align*}
-E^{\prime} & =\gamma\left(E-vp\right)\\
-p^{\prime} & =\gamma\left(p-vE\right)
+ & E^{\prime}-E=0,\quad p^{\prime;\perp}-p^{\perp}=0\\
+ & p^{\prime;3}-p^{3}=\Delta^{3}\\
+ & \Delta^{+}=-\Delta^{-}=-2\xi P^{+}=\frac{1}{\sqrt{2}}\Delta^{3}\\
+ & \frac{1}{2}\Delta^{3;2}=4\left(\xi P^{+}\right)^{2}=Q^{2},\quad Q>0
 \end{align*}
 
 \end_inset
 
-无论沿
-\begin_inset Formula $z$
+我们假设
+\begin_inset Formula $p^{3}>p^{\prime;3}$
 \end_inset
 
-轴如何boost，不会改变
-\begin_inset Formula $\Delta$
+,即
+\begin_inset Formula $\Delta^{3}<0$
 \end_inset
 
-。只有横向的boost，可以使
-\begin_inset Formula $\Delta^{0}$
+，所以
+\begin_inset Formula $\Delta^{3}=-\sqrt{2}Q$
 \end_inset
 
-不为零。横向的boost不改变
-\begin_inset Formula $\Delta^{3}$
+。同时
+\begin_inset Formula $\left(E+p^{3}\right)/\sqrt{2}>\left(E+p^{\prime;3}\right)/\sqrt{2}$
 \end_inset
 
-。可以认为
-\begin_inset Formula $\Delta=\left(\Delta^{0},\Delta^{\perp},0\right)$
+，即
+\begin_inset Formula $p^{+}>p^{\prime+}$
+\end_inset
+
+，所以
+\begin_inset Formula $\xi>0$
 \end_inset
 
 ，
-\begin_inset Formula $\Delta^{+}=\Delta^{-}=\frac{1}{\sqrt{2}}\Delta^{0}$
-\end_inset
-
-。
 \begin_inset Formula 
-\begin{align*}
-E^{\prime}-E & =\Delta^{0}\\
-p^{\prime;3}-p^{3} & =0
-\end{align*}
+\[
+P^{+}=\frac{Q}{2\xi},\quad\xi>0.
+\]
 
 \end_inset
 
-所以有方程
+
 \begin_inset Formula 
-\begin{align*}
-\sqrt{M^{2}+\left(p^{\prime;\perp}\right)^{2}+\left(p^{3}\right)^{2}} & -\sqrt{M^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}=\Delta^{0}\\
-p^{\prime;\perp}-p^{\perp} & =\Delta^{\perp}
-\end{align*}
+\[
+\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}-\sqrt{2}Q\right)^{2}}-\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}=0
+\]
 
 \end_inset
 
-解得
+所以有
 \begin_inset Formula 
-\begin{align*}
- & p^{\perp}=\frac{-\Delta^{0;2}\Delta^{\perp}+\Delta^{\perp;3}+\sqrt{\Delta^{0;2}\left(\Delta^{\perp;2}-\Delta^{0;2}\right)\left(4M^{2}+4p^{3;2}+\Delta^{\perp;2}-\Delta^{0;2}\right)}}{2\left(\Delta^{0;2}-\Delta^{\perp;2}\right)}\\
- & p^{\prime;\perp}=\frac{\Delta^{0;2}\Delta^{\perp}-\Delta^{\perp;3}+\sqrt{\Delta^{0;2}\left(\Delta^{\perp;2}-\Delta^{0;2}\right)\left(4M^{2}+4p^{3;2}+\Delta^{\perp;2}-\Delta^{0;2}\right)}}{2\left(\Delta^{0;2}-\Delta^{\perp;2}\right)}
-\end{align*}
+\[
+p^{3}=\frac{\sqrt{2}}{2}Q,\quad p^{\prime;3}=-\frac{\sqrt{2}}{2}Q
+\]
 
 \end_inset
 
-再考虑
-\begin_inset Formula 
-\begin{align*}
-\xi & =-\frac{\Delta^{+}}{2P^{+}}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}\\
-P^{+} & =\frac{p^{+}+p^{\prime+}}{2}
-\end{align*}
-
-\end_inset
-
-
+考虑到
 \begin_inset Formula 
 \begin{align*}
 p^{\prime+}+p^{+} & =2P^{+}\\
-p^{\prime+}-p^{+} & =-2\xi P^{+}
+p^{+}-p^{\prime+} & =2\xi P^{+}
 \end{align*}
 
 \end_inset
 
-可知
+首先可以解出
 \begin_inset Formula 
 \begin{align*}
 p^{+} & =P^{+}\left(1+\xi\right)\\
@@ -1019,16 +1025,131 @@ p^{\prime+} & =P^{+}\left(1-\xi\right)
 
 \end_inset
 
+使用上面的
+\begin_inset Formula $P^{+}=\frac{Q}{2\xi}$
+\end_inset
 
+，
 \begin_inset Formula 
 \begin{align*}
-p & =\left(\left(1+\xi\right)P^{+},p^{-},p^{\perp}\right),\\
-p^{\prime} & =\left(\left(1-\xi\right)P^{+},p^{-}+\Delta^{-},p^{\perp}+\Delta_{\perp}\right)
+ & p^{-}=p^{+}-\sqrt{2}p^{3}=\frac{\left(1+\xi\right)}{2\xi}Q-Q=\frac{\left(1-\xi\right)}{2\xi}Q,\\
+ & p^{\prime-}=p^{\prime+}-\sqrt{2}p^{3}=\frac{\left(1-\xi\right)}{2\xi}Q+Q=\frac{\left(1+\xi\right)}{2\xi}Q,
 \end{align*}
 
 \end_inset
 
+综上，
+\begin_inset Formula $\xi>0$
+\end_inset
 
+时，
+\begin_inset Formula 
+\begin{align*}
+ & p=\left(\frac{\left(1+\xi\right)}{2\xi}Q,\frac{\left(1-\xi\right)}{2\xi}Q,p_{\perp}\right),\\
+ & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\xi}Q,\frac{\left(1+\xi\right)}{2\xi}Q,p_{\perp}\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $p_{\perp}^{2}$
+\end_inset
+
+为
+\begin_inset Formula 
+\[
+p_{\perp}^{2}=\frac{1-\xi^{2}}{2\xi^{2}}Q^{2}-M_{N}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+类似地，当我们假设
+\begin_inset Formula $p^{3}<p^{\prime;3}$
+\end_inset
+
+,即
+\begin_inset Formula $\Delta^{3}>0$
+\end_inset
+
+，
+\begin_inset Formula $\Delta^{3}=\sqrt{2}Q$
+\end_inset
+
+。同时
+\begin_inset Formula $\xi<0$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+P^{+}=-\frac{Q}{2\xi},\quad\xi<0.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}+\sqrt{2}Q\right)^{2}}-\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}=0
+\]
+
+\end_inset
+
+所以有
+\begin_inset Formula 
+\[
+p^{3}=-\frac{\sqrt{2}}{2}Q,\quad p^{\prime;3}=+\frac{\sqrt{2}}{2}Q
+\]
+
+\end_inset
+
+使用
+\begin_inset Formula $P^{+}=-\frac{Q}{2\xi}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+ & p^{-}=p^{+}-\sqrt{2}p^{3}=-\frac{\left(1+\xi\right)}{2\xi}Q+Q=\frac{-\left(1-\xi\right)}{2\xi}Q,\\
+ & p^{\prime-}=p^{\prime+}-\sqrt{2}p^{3}=-\frac{\left(1-\xi\right)}{2\xi}Q-Q=\frac{-\left(1+\xi\right)}{2\xi}Q,
+\end{align*}
+
+\end_inset
+
+综上，
+\begin_inset Formula $\xi<0$
+\end_inset
+
+时，
+\begin_inset Formula 
+\begin{align*}
+ & p=\left(\frac{\left(1+\xi\right)}{-2\xi}Q,\frac{\left(1-\xi\right)}{-2\xi}Q,p_{\perp}\right),\\
+ & p^{\prime}=\left(\frac{\left(1-\xi\right)}{-2\xi}Q,\frac{\left(1+\xi\right)}{-2\xi}Q,p_{\perp}\right)
+\end{align*}
+
+\end_inset
+
+仍然有
+\begin_inset Formula 
+\[
+p_{\perp}^{2}=\frac{1-\xi^{2}}{2\xi^{2}}Q^{2}-M_{N}^{2}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\Delta^{\mu}$
+\end_inset
+
+的光锥形式为
+\begin_inset Formula $\Delta=\left(-2\xi P^{+},2\xi P^{+},0\right)$
+\end_inset
+
+，
 \end_layout
 
 \begin_layout Subsection
@@ -1323,6 +1444,321 @@ I_{a}^{+} & =\bar{u}\left(p^{\prime}\right)C_{\phi B}\int\frac{\dif^{4}a}{\left(
  & \frac{1}{D_{\phi}\left(k-\Delta\right)}\frac{1}{\slashed{p}-\left(\slashed{k}-\slashed{\Delta}\right)-m}\left(-1\right)\left(\slashed{k}-\slashed{\Delta}\right)\gamma^{5}F\left(k-\Delta\right)\delta\left(y-\frac{k^{+}}{p^{+}}\right)u\left(p\right)\\
  & =\bar{u}\left(p^{\prime}\right)\left\{ \gamma^{+}f_{\phi B}\left(y,Q^{2}\right)+\frac{i\sigma^{+\nu}q_{\nu}}{2m_{N}}g_{\phi B}\left(y,Q^{2}\right)\right\} u\left(p\right)
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+分裂函数
+\end_layout
+
+\begin_layout Standard
+参考文献
+\begin_inset CommandInset href
+LatexCommand href
+name "https://arxiv.org/abs/hep-ph/9807358"
+target "https://arxiv.org/abs/hep-ph/9807358"
+literal "false"
+
+\end_inset
+
+ 中的约定是，
+\begin_inset Formula 
+\begin{align*}
+F^{q} & =\frac{1}{2}\int\frac{\dif z^{-}}{2\pi}\left.e^{ixP^{+}z^{-}}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}z\right)\gamma^{+}q\left(\frac{1}{2}z\right)\ket{p}\right|_{z^{+}=0,\boldsymbol{z}=0}\\
+ & =\frac{1}{2}\int\frac{\dif\lambda}{2\pi}e^{ix\left(\lambda P\cdot n^{-}\right)}\bra{p^{\prime}}\bar{q}\left(-\frac{1}{2}\lambda n_{-}\right)\slashed{n}_{-}q\left(\frac{1}{2}\lambda n_{-}\right)\ket{p}\\
+ & =\frac{1}{2P^{+}}\left[H^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\gamma^{+}u\left(p\right)+E^{q}\left(x,\xi,t\right)\bar{u}\left(p^{\prime}\right)\frac{i\sigma^{+\alpha}\Delta_{\alpha}}{2m}u\left(p\right)\right].
+\end{align*}
+
+\end_inset
+
+第一行里的要求
+\begin_inset Formula $z^{+}=0,\boldsymbol{z}=0$
+\end_inset
+
+，也就是光锥坐标
+\begin_inset Formula $z^{\mu}$
+\end_inset
+
+只有
+\begin_inset Formula $n_{-}$
+\end_inset
+
+分量。
+\begin_inset Formula $n_{+}^{\mu},n_{-}^{\mu}$
+\end_inset
+
+是一对类光矢量，
+\begin_inset Formula $n_{+}^{\mu}n_{+\mu}=n_{-}^{\mu}n_{-\mu}=0$
+\end_inset
+
+，
+\begin_inset Formula $n_{+}^{\mu}n_{-\mu}=1$
+\end_inset
+
+，所以
+\begin_inset Formula $n_{-}$
+\end_inset
+
+投影出
+\begin_inset Formula $p^{+}$
+\end_inset
+
+分量，
+\begin_inset Formula $n_{+}$
+\end_inset
+
+投影出
+\begin_inset Formula $p^{-}$
+\end_inset
+
+分量。
+\begin_inset Formula 
+\begin{align*}
+ & z^{\mu}=\lambda n_{-}^{\mu},\quad\lambda=z^{\mu}n_{+\mu},\quad\gamma^{+}=\gamma\cdot n_{-}\\
+ & P^{+}z^{-}=\lambda P\cdot n^{-}=\lambda P^{+}
+\end{align*}
+
+\end_inset
+
+所以上式前两行的定义是等价的。何方成使用的定义为，
+\begin_inset Formula 
+\[
+V_{q}=\int\frac{\dif\lambda}{2\pi}e^{-ix\lambda P^{+}}\bra{p^{\prime}}\bar{q}\left(\frac{1}{2}\lambda n\right)\slashed{n}q\left(-\frac{1}{2}\lambda n\right)\ket{p}
+\]
+
+\end_inset
+
+这里的
+\begin_inset Formula $n$
+\end_inset
+
+相当于上面的
+\begin_inset Formula $n_{-}$
+\end_inset
+
+，并且作了
+\begin_inset Formula $\lambda\to-\lambda$
+\end_inset
+
+的代换，前面没有
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+因子，除此之外是完全相同的。根据洛伦兹不变性，包括GPD具有
+\begin_inset Formula $z$
+\end_inset
+
+方向上的 boost 不变性，可以知道，
+\begin_inset Formula $H^{q}$
+\end_inset
+
+ 和
+\begin_inset Formula $E^{q}$
+\end_inset
+
+只是运动学变量
+\begin_inset Formula $x,\xi,t$
+\end_inset
+
+的函数。其中各项定义为，
+\begin_inset Formula 
+\begin{align*}
+ & \Delta=p^{\prime}-p,\quad P=\frac{p^{\prime}+p}{2}\\
+ & p^{\prime}=P+\frac{\Delta}{2},\quad p=P-\frac{\Delta}{2},\\
+ & t=Q^{2}=-\Delta^{2},\quad\xi=-\frac{\Delta^{+}}{2P^{+}}=\left(\frac{p-p^{\prime}}{p^{\prime}+p}\right)^{+}
+\end{align*}
+
+\end_inset
+
+如果初末态核子沿着
+\begin_inset Formula $z$
+\end_inset
+
+轴运动的纵向动量
+\begin_inset Formula $p^{z}$
+\end_inset
+
+为无穷大，可认为
+\begin_inset Formula $p^{-}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+投影方法
+\end_layout
+
+\begin_layout Standard
+原先的
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵是
+\begin_inset Formula $\gamma^{0},\gamma^{1},\gamma^{2},\gamma^{3}$
+\end_inset
+
+，
+\begin_inset Formula $\gamma^{\mu}\gamma_{\mu}=\gamma^{0}\gamma^{0}-\gamma^{i}\gamma^{i}$
+\end_inset
+
+，所以
+\begin_inset Formula $\gamma^{0}\gamma^{0}=1,$
+\end_inset
+
+
+\begin_inset Formula $\gamma^{i}\gamma^{i}=-1$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+ & \gamma^{+}=\frac{1}{\sqrt{2}}\left(\gamma^{0}+\gamma^{3}\right),\quad\gamma^{-}=\frac{1}{\sqrt{2}}\left(\gamma^{0}-\gamma^{3}\right)\\
+ & \gamma^{+}\gamma^{+}=\frac{1}{2}\left[\left(\gamma^{0}\right)^{2}+\left(\gamma^{3}\right)^{2}+\gamma^{0}\gamma^{3}+\gamma^{3}\gamma^{0}\right]=0\\
+ & \gamma^{-}\gamma^{-}=\frac{1}{2}\left[\left(\gamma^{0}\right)^{2}+\left(\gamma^{3}\right)^{2}-\gamma^{0}\gamma^{3}-\gamma^{3}\gamma^{0}\right]=0\\
+ & \left\{ \gamma^{+},\gamma^{-}\right\} =\frac{1}{2}\left[2\left(\gamma^{0}\right)^{2}-2\left(\gamma^{3}\right)^{2}\right]=2
+\end{align*}
+
+\end_inset
+
+原先的Clifford 代数
+\begin_inset Formula $\left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2g^{\mu\nu}$
+\end_inset
+
+变成了
+\begin_inset Formula 
+\begin{align*}
+ & \left\{ \gamma^{+},\gamma^{-}\right\} =2,\quad\left\{ \gamma^{+},\gamma^{+}\right\} =0,\quad\left\{ \gamma^{-},\gamma^{-}\right\} =0,\\
+ & \left\{ \gamma^{+,-},\gamma^{1,2}\right\} =0,\\
+ & \left\{ \gamma^{1,2},\gamma^{1,2}\right\} =-2.
+\end{align*}
+
+\end_inset
+
+与动量的洛伦兹不变内积，
+\begin_inset Formula 
+\[
+\gamma^{\mu}p_{\mu}=\gamma^{0}p^{0}-\boldsymbol{\gamma}\boldsymbol{p}=\gamma^{+}p^{-}+\gamma^{-}p^{+}-\gamma^{\perp}p^{\perp}
+\]
+
+\end_inset
+
+从而有，
+\begin_inset Formula 
+\begin{align*}
+ & \gamma^{+}\slashed{\gamma}=-\slashed{\gamma}\gamma^{+}+2p^{+}\\
+ & \tr\left[\gamma^{+}\slashed{\gamma}\right]=\tr\left[\slashed{\gamma}\gamma^{+}\right]=4p^{+}\\
+ & \tr\left[\gamma^{-}\slashed{\gamma}\right]=\tr\left[\slashed{\gamma}\gamma^{-}\right]=4p^{-}
+\end{align*}
+
+\end_inset
+
+跟通常的公式一致
+\begin_inset Formula $\gamma^{\mu}\slashed{\gamma}=-\slashed{\gamma}\gamma^{\mu}+2p^{\mu}$
+\end_inset
+
+。计算一下后面会用到的表达式
+\begin_inset Formula 
+\[
+\tr\left[\gamma^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]=\tr\left[\gamma^{+}\gamma p_{1}\gamma^{+}\gamma p_{2}\right]=8p_{1}^{+}p_{2}^{+}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \tr\left[\left(p_{2}+p_{1}\right)^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]\\
+ & =m\left(p_{2}+p_{1}\right)^{+}\tr\left[\gamma p_{1}\gamma^{+}+\gamma^{+}\gamma p_{2}\right]\\
+ & =m\left(p_{2}+p_{1}\right)^{+}\tr\left[\gamma^{+}\gamma\left(p_{1}+p_{2}\right)\right]\\
+ & =4m\left(p_{2}+p_{1}\right)^{+}\left(p_{2}+p_{1}\right)^{+}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+振幅的参数化为，
+\begin_inset Formula 
+\[
+\Gamma^{\mu}=\gamma^{\mu}F_{1}\left(Q^{2}\right)+\frac{i\sigma^{\mu\nu}q_{\nu}}{2m}F_{2}\left(Q^{2}\right)
+\]
+
+\end_inset
+
+利用Gordon公式化简成，
+\begin_inset Formula 
+\[
+\Gamma^{\mu}=\gamma^{\mu}\left[F_{1}\left(Q^{2}\right)+F_{2}\left(Q^{2}\right)\right]-\frac{\left(p_{2}+p_{1}\right)^{\mu}}{2m}F_{2}\left(Q^{2}\right)
+\]
+
+\end_inset
+
+构造第一个表达式，
+\begin_inset Formula 
+\begin{align*}
+A & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\gamma^{+}u\left(p_{2}\right)=\tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]\\
+ & =\tr\left[\left(F_{1}+F_{2}\right)\gamma^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)-\frac{F_{2}}{2m}\left(p_{2}+p_{1}\right)^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]\\
+ & =\left(F_{1}+F_{2}\right)8p_{1}^{+}p_{2}^{+}-2F_{2}\left(p_{2}+p_{1}\right)^{+}\left(p_{2}+p_{1}\right)^{+}\\
+ & =\left(F_{1}+F_{2}\right)8\left(p_{1}^{+}\right)^{2}-F_{2}8\left(p_{1}^{+}\right)^{2}\\
+A & =8\left(p_{1}^{+}\right)^{2}F_{1}
+\end{align*}
+
+\end_inset
+
+最后一步是考虑了
+\begin_inset Formula $\xi=0$
+\end_inset
+
+的时候，
+\begin_inset Formula $p_{1}^{+}=p_{2}^{+}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+构造第二个表达式，
+\begin_inset Formula 
+\begin{align*}
+B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}u\left(p_{2}\right)\\
+ & =\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]\right\} \\
+ & =\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \left(F_{1}+F_{2}\right)\tr\left[\gamma^{+}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]-\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}F_{2}\tr\left[\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]\right\} \\
+ & =\frac{\left(p_{2}+p_{1}\right)^{+}}{2}\left(F_{1}+F_{2}\right)\tr\left[\gamma^{+}\gamma\left(p_{1}+p_{2}\right)\right]-\left[\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\right]^{2}F_{2}\tr\left[p_{1}\cdot p_{2}+m^{2}\right]\\
+ & =2\left(p_{2}+p_{1}\right)^{+;2}\left(F_{1}+F_{2}\right)-\left(p_{2}+p_{1}\right)^{+;2}F_{2}\left(\frac{Q^{2}}{2m^{2}}+2\right)\\
+ & =8\left(p_{1}^{+}\right)^{2}\left(F_{1}+F_{2}\right)-\left(4\left(p_{1}^{+}\right)^{2}F_{2}\frac{Q^{2}}{2m^{2}}+8\left(p_{1}^{+}\right)^{2}F_{2}\right)\\
+B & =8\left(p_{1}^{+}\right)^{2}F_{1}-\frac{2Q^{2}\left(p_{1}^{+}\right)^{2}}{m^{2}}F_{2}
+\end{align*}
+
+\end_inset
+
+同样，最后一行使用了
+\begin_inset Formula $p_{1}^{+}=p_{2}^{+}$
+\end_inset
+
+。总结就是
+\begin_inset Formula 
+\begin{align*}
+ & A=\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\gamma^{+}u\left(p_{2}\right)=8\left(p_{1}^{+}\right)^{2}F_{1}\\
+ & B=\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}u\left(p_{2}\right)=8\left(p_{1}^{+}\right)^{2}F_{1}-\frac{2Q^{2}\left(p_{1}^{+}\right)^{2}}{m^{2}}F_{2}
+\end{align*}
+
+\end_inset
+
+把它看成一个关于
+\begin_inset Formula $F_{1},F_{2}$
+\end_inset
+
+的线性方程组，求解得到
+\begin_inset Formula 
+\[
+F_{1}=\frac{A}{8\left(p_{1}^{+}\right)^{2}},\quad F_{2}=\frac{m^{2}\left(A-B\right)}{2Q^{2}\left(p_{1}^{+}\right)^{2}}
+\]
 
 \end_inset
 
