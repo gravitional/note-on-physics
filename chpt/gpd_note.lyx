@@ -1589,7 +1589,7 @@ V_{q}=\int\frac{\dif\lambda}{2\pi}e^{-ix\lambda P^{+}}\bra{p^{\prime}}\bar{q}\le
 \end_layout
 
 \begin_layout Subsection
-投影方法
+含歪斜度的投影
 \end_layout
 
 \begin_layout Standard
@@ -1624,7 +1624,7 @@ V_{q}=\int\frac{\dif\lambda}{2\pi}e^{-ix\lambda P^{+}}\bra{p^{\prime}}\bar{q}\le
 
 \end_inset
 
-原先的Clifford 代数
+原先的 Clifford 代数
 \begin_inset Formula $\left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2g^{\mu\nu}$
 \end_inset
 
@@ -1699,53 +1699,103 @@ V_{q}=\int\frac{\dif\lambda}{2\pi}e^{-ix\lambda P^{+}}\bra{p^{\prime}}\bar{q}\le
 
 \end_inset
 
+
+\begin_inset Formula $\xi>0$
+\end_inset
+
+时动量的表达式为，
+\begin_inset Formula 
+\begin{align*}
+ & p=\left(\frac{\left(1+\xi\right)}{2\xi}Q,\frac{\left(1-\xi\right)}{2\xi}Q,p_{\perp}\right),\\
+ & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\xi}Q,\frac{\left(1+\xi\right)}{2\xi}Q,p_{\perp}\right)\\
+ & p^{\prime+}p^{+}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2},\left(p_{2}+p_{1}\right)^{+}=\frac{Q}{\xi}
+\end{align*}
+
+\end_inset
+
 构造第一个表达式，
 \begin_inset Formula 
 \begin{align*}
 A & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\gamma^{+}u\left(p_{2}\right)=\tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]\\
  & =\tr\left[\left(F_{1}+F_{2}\right)\gamma^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)-\frac{F_{2}}{2m}\left(p_{2}+p_{1}\right)^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]\\
  & =\left(F_{1}+F_{2}\right)8p_{1}^{+}p_{2}^{+}-2F_{2}\left(p_{2}+p_{1}\right)^{+}\left(p_{2}+p_{1}\right)^{+}\\
- & =\left(F_{1}+F_{2}\right)8\left(p_{1}^{+}\right)^{2}-F_{2}8\left(p_{1}^{+}\right)^{2}\\
-A & =8\left(p_{1}^{+}\right)^{2}F_{1}
+ & =\left(F_{1}+F_{2}\right)2\frac{1-\xi^{2}}{\xi^{2}}Q^{2}-2F_{2}\frac{Q^{2}}{\xi^{2}}\\
+ & =F_{1}2\frac{1-\xi^{2}}{\xi^{2}}Q^{2}-F_{2}2Q^{2}
 \end{align*}
 
 \end_inset
 
-最后一步是考虑了
-\begin_inset Formula $\xi=0$
-\end_inset
-
-的时候，
-\begin_inset Formula $p_{1}^{+}=p_{2}^{+}$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
 构造第二个表达式，
 \begin_inset Formula 
 \begin{align*}
-B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}u\left(p_{2}\right)\\
- & =\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]\right\} \\
+B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}u\left(p_{2}\right)=\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]\right\} \\
  & =\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \left(F_{1}+F_{2}\right)\tr\left[\gamma^{+}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]-\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}F_{2}\tr\left[\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]\right\} \\
  & =\frac{\left(p_{2}+p_{1}\right)^{+}}{2}\left(F_{1}+F_{2}\right)\tr\left[\gamma^{+}\gamma\left(p_{1}+p_{2}\right)\right]-\left[\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\right]^{2}F_{2}\tr\left[p_{1}\cdot p_{2}+m^{2}\right]\\
  & =2\left(p_{2}+p_{1}\right)^{+;2}\left(F_{1}+F_{2}\right)-\left(p_{2}+p_{1}\right)^{+;2}F_{2}\left(\frac{Q^{2}}{2m^{2}}+2\right)\\
- & =8\left(p_{1}^{+}\right)^{2}\left(F_{1}+F_{2}\right)-\left(4\left(p_{1}^{+}\right)^{2}F_{2}\frac{Q^{2}}{2m^{2}}+8\left(p_{1}^{+}\right)^{2}F_{2}\right)\\
-B & =8\left(p_{1}^{+}\right)^{2}F_{1}-\frac{2Q^{2}\left(p_{1}^{+}\right)^{2}}{m^{2}}F_{2}
+ & =\frac{Q^{2}}{\xi^{2}}\left[2\left(F_{1}+F_{2}\right)-F_{2}\left(\frac{Q^{2}}{2m^{2}}+2\right)\right]\\
+ & =\frac{Q^{2}}{\xi^{2}}\left[2F_{1}-F_{2}\frac{Q^{2}}{2m^{2}}\right]
 \end{align*}
 
 \end_inset
 
-同样，最后一行使用了
+总结就是
+\begin_inset Formula 
+\begin{align*}
+ & A=\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\gamma^{+}u\left(p_{2}\right)=F_{1}2\frac{1-\xi^{2}}{\xi^{2}}Q^{2}-F_{2}2Q^{2}\\
+ & B=\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}u\left(p_{2}\right)=\frac{Q^{2}}{\xi^{2}}\left[2F_{1}-F_{2}\frac{Q^{2}}{2m^{2}}\right]
+\end{align*}
+
+\end_inset
+
+把它看成一个关于
+\begin_inset Formula $F_{1},F_{2}$
+\end_inset
+
+的线性方程组，求解得到
+\begin_inset Formula 
+\[
+F_{1}=\frac{-\xi^{2}\left(AQ^{2}-4Bm^{2}\xi^{2}\right)}{2Q^{2}\left(4m^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)},\quad F_{2}=\frac{-2m^{2}\xi^{2}\left(A+B\xi^{2}-B\right)}{Q^{2}\left(4m^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\xi\to0$
+\end_inset
+
+的极限和下面的公式一致。
+\end_layout
+
+\begin_layout Subsection
+歪斜度为零的投影
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $\xi=0$
+\end_inset
+
+，
 \begin_inset Formula $p_{1}^{+}=p_{2}^{+}$
 \end_inset
 
-。总结就是
+，构造的公式将化简为
 \begin_inset Formula 
 \begin{align*}
- & A=\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\gamma^{+}u\left(p_{2}\right)=8\left(p_{1}^{+}\right)^{2}F_{1}\\
- & B=\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}u\left(p_{2}\right)=8\left(p_{1}^{+}\right)^{2}F_{1}-\frac{2Q^{2}\left(p_{1}^{+}\right)^{2}}{m^{2}}F_{2}
+A & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\gamma^{+}u\left(p_{2}\right)\\
+ & =\tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]\\
+ & =\left(F_{1}+F_{2}\right)8\left(p_{1}^{+}\right)^{2}-F_{2}8\left(p_{1}^{+}\right)^{2}\\
+ & =8\left(p_{1}^{+}\right)^{2}F_{1}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}u\left(p_{2}\right)\\
+ & =8\left(p_{1}^{+}\right)^{2}\left(F_{1}+F_{2}\right)-\left(4\left(p_{1}^{+}\right)^{2}F_{2}\frac{Q^{2}}{2m^{2}}+8\left(p_{1}^{+}\right)^{2}F_{2}\right)\\
+ & =8\left(p_{1}^{+}\right)^{2}F_{1}-\frac{2Q^{2}\left(p_{1}^{+}\right)^{2}}{m^{2}}F_{2}
 \end{align*}
 
 \end_inset
