@@ -321,7 +321,7 @@ DESCRIPTION
 例如,要重命名所有匹配`* .bak`的文件,以去除扩展名,可以用
 
 ```bash
-rename 's/\e.bak$//' *.bak
+rename 's/\w.bak$//' *.bak
 ```
 
 要将大写名称转换为小写,可以使用
