@@ -1501,8 +1501,8 @@ B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\ba
 总结就是
 \begin_inset Formula 
 \begin{align*}
- & A=\tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]=F_{1}2\frac{1-\xi^{2}}{\xi^{2}}Q^{2}-F_{2}2Q^{2}\\
- & B=\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]\right\} =\frac{Q^{2}}{\xi^{2}}\left[2F_{1}-F_{2}\frac{Q^{2}}{2m^{2}}\right]
+ & A=\tr\left[\Gamma^{+}\left(\slashed{p}_{1}+M_{N}\right)\gamma^{+}\left(\slashed{p}_{2}+M_{N}\right)\right]=F_{1}2\frac{1-\xi^{2}}{\xi^{2}}Q^{2}-F_{2}2Q^{2}\\
+ & B=\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \tr\left[\Gamma^{+}\left(\slashed{p}_{1}+M_{N}\right)\left(\slashed{p}_{2}+M_{N}\right)\right]\right\} =\frac{Q^{2}}{\xi^{2}}\left[2F_{1}-F_{2}\frac{Q^{2}}{2m^{2}}\right]
 \end{align*}
 
 \end_inset
@@ -1514,7 +1514,7 @@ B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\ba
 的线性方程组，求解得到
 \begin_inset Formula 
 \[
-F_{1}=\frac{-\xi^{2}\left(AQ^{2}-4Bm^{2}\xi^{2}\right)}{2Q^{2}\left(4m^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)},\quad F_{2}=\frac{-2m^{2}\xi^{2}\left(A+B\xi^{2}-B\right)}{Q^{2}\left(4m^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)}
+F_{1}=\frac{-\xi^{2}\left(AQ^{2}-4BM_{N}^{2}\xi^{2}\right)}{2Q^{2}\left(4M_{N}^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)},\quad F_{2}=\frac{-2M_{N}^{2}\xi^{2}\left(A+B\xi^{2}-B\right)}{Q^{2}\left(4M_{N}^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)}
 \]
 
 \end_inset
@@ -1675,6 +1675,26 @@ a, 光子耦合到介子，它对分裂函数的贡献为，
 \[
 F_{1}=\frac{-\xi^{2}\left(AQ^{2}-4BM_{N}^{2}\xi^{2}\right)}{2Q^{2}\left(4M_{N}^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)},\quad F_{2}=\frac{-2M_{N}^{2}\xi^{2}\left(A+B\xi^{2}-B\right)}{Q^{2}\left(4M_{N}^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)}
 \]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & p=\left(\frac{\left(1+\xi\right)}{2\xi}Q,\frac{\left(1-\xi\right)}{2\xi}Q,p_{\perp}\right),\\
+ & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\xi}Q,\frac{\left(1+\xi\right)}{2\xi}Q,p_{\perp}\right),\quad\Delta=\left(-2\xi P^{+},2\xi P^{+},0\right)\\
+ & p^{\prime+}p^{+}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2},\left(p_{2}+p_{1}\right)^{+}=\frac{Q}{\xi},P^{+}=\frac{Q}{2\xi}
+\end{align*}
+
+\end_inset
+
+把分子按照分母中传播子的线性组合化简相消，使用代换：
+\begin_inset Formula 
+\begin{align*}
+ & M_{N}=\left(\overline{M}-\Delta\right)/2,\quad M_{B}=\left(\overline{M}+\Delta\right)/2,\quad M_{N}M_{B}=\left(\overline{M}^{2}-\Delta^{2}\right)/4\\
+ & k^{2}=D_{\phi}+m_{\phi}^{2},\quad2kp=k^{2}-\left(p-k\right)^{2}+M^{2}=D_{\phi}-D_{B}\left(p-k\right)+m_{\phi}^{2}-\Delta\overline{M}\\
+ & 2kp^{\prime}=k^{2}-\left(p^{\prime}-k\right)^{2}+M^{2}=D_{\phi}-D_{B}\left(p^{\prime}-k\right)+m_{\phi}^{2}-\Delta\overline{M}
+\end{align*}
 
 \end_inset
 

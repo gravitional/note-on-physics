@@ -201,6 +201,10 @@ Block[{x}, Print[x]]
 Module[{x}, Print[x]]
 ```
 
+`Block`和`Moudle`的区别可以查看`tutorial/BlocksComparedWithModules`，
+`Module`是`lexical scoping`，而`Block`是`dynamic scoping`, `Module`把程序文本中出现的变量替换成局部变量，而`Block`则把计算过程中出现的变量替换成局部变量。
+也就是`Block`是在执行历史中进行替换。`Block`在交互计算的时候，更常用，因为这时候更关注计算历史。
+
 ***
 `表达式的层次`: `Level` `Map` `Scan` 等的区别: 
 

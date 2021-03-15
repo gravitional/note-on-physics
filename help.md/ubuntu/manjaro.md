@@ -447,3 +447,36 @@ neofetch | lolcat
 2. 每天要开机执行一遍`sudo pacman -Syyu`
 
 虽说`Manjaro`相对`Arch`应该稳定一点，但终究是滚动发行版，还是有滚挂的风险, 防止滚挂的最好办法就是 及时滚 长时间不更新必挂.
+
+## 维护
+
+## Failed to start Load/Save Screen Backlight Brightness of amdgpu_b10
+
+[Load/Save Screen Backlight Brightness](https://www.linux.org/threads/failed-to-start-load-save-screen-backlight-brightness-of-amdgpu_bl1.31998/)
+
+开关机的时候出现上面的错误提示, 查看运行状态
+
+```bash
+sudo systemctl status systemd-backlight@backlight:amdgpu_b10
+```
+
+手动启动
+
+```bash
+sudo systemctl start systemd-backlight@backlight:amdgpu_b10
+```
+
+关于 `systemd` 可以参考 [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
+添加`systemd`开机启动配置, `sudo vim /etc/systemd/system/startup-brightness.service`
+
+```systemd
+[Unit]
+Description=Dummy service for attempting to start the problematic amdgpu_bl0 service
+
+[Service]
+Type=simple
+ExecStart=systemctl start systemd-backlight@backlight:amdgpu_bl0
+
+[Install]
+WantedBy=multi-user.target
+```
