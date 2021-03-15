@@ -913,51 +913,39 @@ k^{+}p^{\prime-}=yp^{\prime+}p^{\prime-}=\frac{y}{2}\left(M_{N}^{2}+p_{\perp}^{2
 \end_layout
 
 \begin_layout Standard
-不同坐标轴的boost是独立的。首先选择
-\begin_inset Formula $\Delta^{\mu}$
+不同坐标轴的boost是独立的。首先通过三维转动选取
+\begin_inset Formula $\Delta_{\perp}=0$
 \end_inset
 
-为
-\begin_inset Formula $\Delta^{\mu}=\left(0,0,0,\Delta^{3}\right),\Delta^{3}>0$
+，
+\begin_inset Formula $\Delta^{3}<0$
 \end_inset
 
-的坐标系。即通过三维转动选取
-\begin_inset Formula $\Delta_{\perp}$
+的坐标系，即令
+\begin_inset Formula $\Delta^{\mu}=\left(0,0,0,-Q\right)$
 \end_inset
 
-为零的坐标系。由
-\begin_inset Formula $\Delta^{\mu}=\left(0,0,0,\Delta^{3}\right)$
-\end_inset
-
-我们知道
+，由此可知，
 \begin_inset Formula 
 \begin{align*}
  & E^{\prime}-E=0,\quad p^{\prime;\perp}-p^{\perp}=0\\
- & p^{\prime;3}-p^{3}=\Delta^{3}\\
- & \Delta^{+}=-\Delta^{-}=-2\xi P^{+}=\frac{1}{\sqrt{2}}\Delta^{3}\\
- & \frac{1}{2}\Delta^{3;2}=4\left(\xi P^{+}\right)^{2}=Q^{2},\quad Q>0
+ & p^{\prime;3}-p^{3}=-Q,\quad Q>0\\
+ & \Delta^{+}=-\Delta^{-}=-2\xi P^{+}=\frac{-Q}{\sqrt{2}}\\
+ & \frac{1}{2}Q^{2}=4\left(\xi P^{+}\right)^{2},
 \end{align*}
 
 \end_inset
 
-我们假设
+根据我们的假设，
 \begin_inset Formula $p^{3}>p^{\prime;3}$
 \end_inset
 
-,即
-\begin_inset Formula $\Delta^{3}<0$
-\end_inset
-
-，所以
-\begin_inset Formula $\Delta^{3}=-\sqrt{2}Q$
-\end_inset
-
-。同时
+，
 \begin_inset Formula $\left(E+p^{3}\right)/\sqrt{2}>\left(E+p^{\prime;3}\right)/\sqrt{2}$
 \end_inset
 
 ，即
-\begin_inset Formula $p^{+}>p^{\prime+}$
+\begin_inset Formula $p^{+}>p^{\prime+}>0$
 \end_inset
 
 ，所以
@@ -966,16 +954,21 @@ k^{+}p^{\prime-}=yp^{\prime+}p^{\prime-}=\frac{y}{2}\left(M_{N}^{2}+p_{\perp}^{2
 
 ，
 \begin_inset Formula 
-\[
-P^{+}=\frac{Q}{2\xi},\quad\xi>0.
-\]
+\begin{align*}
+ & P^{+}=\frac{p^{+}-p^{\prime+}}{p^{+}+p^{\prime+}}>0\\
+ & P^{+}=\frac{Q}{2\sqrt{2}\xi},\quad\xi>0
+\end{align*}
 
 \end_inset
 
+由
+\begin_inset Formula $E=E^{\prime}$
+\end_inset
 
+，
 \begin_inset Formula 
 \[
-\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}-\sqrt{2}Q\right)^{2}}-\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}=0
+\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}=\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}-Q\right)^{2}}
 \]
 
 \end_inset
@@ -983,12 +976,16 @@ P^{+}=\frac{Q}{2\xi},\quad\xi>0.
 所以有
 \begin_inset Formula 
 \[
-p^{3}=\frac{\sqrt{2}}{2}Q,\quad p^{\prime;3}=-\frac{\sqrt{2}}{2}Q
+p^{3}=\frac{Q}{2},\quad p^{\prime;3}=-\frac{Q}{2}
 \]
 
 \end_inset
 
-考虑到
+求解
+\begin_inset Formula $p,p^{\prime}$
+\end_inset
+
+的各个分量，首先有
 \begin_inset Formula 
 \begin{align*}
 p^{\prime+}+p^{+} & =2P^{+}\\
@@ -1007,14 +1004,14 @@ p^{\prime+} & =P^{+}\left(1-\xi\right)
 \end_inset
 
 使用上面的
-\begin_inset Formula $P^{+}=\frac{Q}{2\xi}$
+\begin_inset Formula $P^{+}=\frac{Q}{2\sqrt{2}\xi}$
 \end_inset
 
 ，
 \begin_inset Formula 
 \begin{align*}
- & p^{-}=p^{+}-\sqrt{2}p^{3}=\frac{\left(1+\xi\right)}{2\xi}Q-Q=\frac{\left(1-\xi\right)}{2\xi}Q,\\
- & p^{\prime-}=p^{\prime+}-\sqrt{2}p^{3}=\frac{\left(1-\xi\right)}{2\xi}Q+Q=\frac{\left(1+\xi\right)}{2\xi}Q,
+ & p^{-}=p^{+}-\sqrt{2}p^{3}=\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q-\frac{Q}{\sqrt{2}}=\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q,\\
+ & p^{\prime-}=p^{\prime+}-\sqrt{2}p^{\prime;3}=\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q+\frac{Q}{\sqrt{2}}=\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q,
 \end{align*}
 
 \end_inset
@@ -1026,29 +1023,49 @@ p^{\prime+} & =P^{+}\left(1-\xi\right)
 时，
 \begin_inset Formula 
 \begin{align*}
- & p=\left(\frac{\left(1+\xi\right)}{2\xi}Q,\frac{\left(1-\xi\right)}{2\xi}Q,p_{\perp}\right),\\
- & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\xi}Q,\frac{\left(1+\xi\right)}{2\xi}Q,p_{\perp}\right)
+ & p=\left(\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q,\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q,p_{\perp}\right),\\
+ & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q,\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q,p_{\perp}\right)
 \end{align*}
 
 \end_inset
 
-其中
+由
+\begin_inset Formula $2p^{+}p^{-}-p_{\perp}^{2}=M_{N}^{2}$
+\end_inset
+
+知
 \begin_inset Formula $p_{\perp}^{2}$
 \end_inset
 
 为
 \begin_inset Formula 
 \[
-p_{\perp}^{2}=\frac{1-\xi^{2}}{2\xi^{2}}Q^{2}-M_{N}^{2}
+p_{\perp}^{2}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2}-M_{N}^{2}
 \]
 
 \end_inset
 
+由于
+\begin_inset Formula $p_{\perp}^{2}\ge0$
+\end_inset
 
+，所以
+\begin_inset Formula $\xi^{2}<1$
+\end_inset
+
+，再考虑到之前
+\begin_inset Formula $\xi>0$
+\end_inset
+
+，所以
+\begin_inset Formula $0<\xi<1$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
-类似地，当我们假设
+类似地，如果我们假设
 \begin_inset Formula $p^{3}<p^{\prime;3}$
 \end_inset
 
@@ -1057,17 +1074,17 @@ p_{\perp}^{2}=\frac{1-\xi^{2}}{2\xi^{2}}Q^{2}-M_{N}^{2}
 \end_inset
 
 ，
-\begin_inset Formula $\Delta^{3}=\sqrt{2}Q$
+\begin_inset Formula $\Delta^{3}=Q$
 \end_inset
 
-。同时
+，则此时
 \begin_inset Formula $\xi<0$
 \end_inset
 
 ，
 \begin_inset Formula 
 \[
-P^{+}=-\frac{Q}{2\xi},\quad\xi<0.
+P^{+}=-\frac{Q}{2\sqrt{2}\xi},\quad\xi<0.
 \]
 
 \end_inset
@@ -1075,7 +1092,7 @@ P^{+}=-\frac{Q}{2\xi},\quad\xi<0.
 
 \begin_inset Formula 
 \[
-\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}+\sqrt{2}Q\right)^{2}}-\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}=0
+\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}\right)^{2}}=\sqrt{M_{N}^{2}+\left(p^{\perp}\right)^{2}+\left(p^{3}+Q\right)^{2}}
 \]
 
 \end_inset
@@ -1083,20 +1100,20 @@ P^{+}=-\frac{Q}{2\xi},\quad\xi<0.
 所以有
 \begin_inset Formula 
 \[
-p^{3}=-\frac{\sqrt{2}}{2}Q,\quad p^{\prime;3}=+\frac{\sqrt{2}}{2}Q
+p^{3}=-\frac{Q}{2},\quad p^{\prime;3}=+\frac{Q}{2}
 \]
 
 \end_inset
 
 使用
-\begin_inset Formula $P^{+}=-\frac{Q}{2\xi}$
+\begin_inset Formula $P^{+}=-\frac{Q}{2\sqrt{2}\xi}$
 \end_inset
 
 ，
 \begin_inset Formula 
 \begin{align*}
- & p^{-}=p^{+}-\sqrt{2}p^{3}=-\frac{\left(1+\xi\right)}{2\xi}Q+Q=\frac{-\left(1-\xi\right)}{2\xi}Q,\\
- & p^{\prime-}=p^{\prime+}-\sqrt{2}p^{3}=-\frac{\left(1-\xi\right)}{2\xi}Q-Q=\frac{-\left(1+\xi\right)}{2\xi}Q,
+ & p^{-}=p^{+}-\sqrt{2}p^{3}=-\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q+\frac{1}{\sqrt{2}}Q=\frac{-\left(1-\xi\right)}{2\sqrt{2}\xi}Q,\\
+ & p^{\prime-}=p^{\prime+}-\sqrt{2}p^{3}=-\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q-\frac{1}{\sqrt{2}}Q=\frac{-\left(1+\xi\right)}{2\sqrt{2}\xi}Q,
 \end{align*}
 
 \end_inset
@@ -1108,16 +1125,20 @@ p^{3}=-\frac{\sqrt{2}}{2}Q,\quad p^{\prime;3}=+\frac{\sqrt{2}}{2}Q
 时，
 \begin_inset Formula 
 \begin{align*}
- & p=\left(\frac{\left(1+\xi\right)}{-2\xi}Q,\frac{\left(1-\xi\right)}{-2\xi}Q,p_{\perp}\right),\\
- & p^{\prime}=\left(\frac{\left(1-\xi\right)}{-2\xi}Q,\frac{\left(1+\xi\right)}{-2\xi}Q,p_{\perp}\right)
+ & p=\left(\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}\left(-Q\right),\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}\left(-Q\right),p_{\perp}\right),\\
+ & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}\left(-Q\right),\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}\left(-Q\right),p_{\perp}\right)
 \end{align*}
 
 \end_inset
 
-仍然有
+相当于
+\begin_inset Formula $Q\to-Q$
+\end_inset
+
+，仍然有
 \begin_inset Formula 
 \[
-p_{\perp}^{2}=\frac{1-\xi^{2}}{2\xi^{2}}Q^{2}-M_{N}^{2}.
+p_{\perp}^{2}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2}-M_{N}^{2}.
 \]
 
 \end_inset
@@ -1467,8 +1488,9 @@ V_{q}=\int\frac{\dif\lambda}{2\pi}e^{-ix\lambda P^{+}}\bra{p^{\prime}}\bar{q}\le
 \begin_inset Formula 
 \begin{align*}
  & p=\left(\frac{\left(1+\xi\right)}{2\xi}Q,\frac{\left(1-\xi\right)}{2\xi}Q,p_{\perp}\right),\\
- & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\xi}Q,\frac{\left(1+\xi\right)}{2\xi}Q,p_{\perp}\right),\quad\Delta=\left(-2\xi P^{+},2\xi P^{+},0\right)\\
- & p^{\prime+}p^{+}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2},\left(p_{2}+p_{1}\right)^{+}=\frac{Q}{\xi},P^{+}=\frac{Q}{2\xi}
+ & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\xi}Q,\frac{\left(1+\xi\right)}{2\xi}Q,p_{\perp}\right),\quad\Delta=\left(-Q,Q,0\right)\\
+ & p^{\prime+}p^{+}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2},\quad P^{+}=\frac{Q}{2\xi}\\
+ & p_{\perp}^{2}=\frac{1-\xi^{2}}{2\xi^{2}}Q^{2}-M_{N}^{2}
 \end{align*}
 
 \end_inset
@@ -1681,9 +1703,10 @@ F_{1}=\frac{-\xi^{2}\left(AQ^{2}-4BM_{N}^{2}\xi^{2}\right)}{2Q^{2}\left(4M_{N}^{
 
 \begin_inset Formula 
 \begin{align*}
- & p=\left(\frac{\left(1+\xi\right)}{2\xi}Q,\frac{\left(1-\xi\right)}{2\xi}Q,p_{\perp}\right),\\
- & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\xi}Q,\frac{\left(1+\xi\right)}{2\xi}Q,p_{\perp}\right),\quad\Delta=\left(-2\xi P^{+},2\xi P^{+},0\right)\\
- & p^{\prime+}p^{+}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2},\left(p_{2}+p_{1}\right)^{+}=\frac{Q}{\xi},P^{+}=\frac{Q}{2\xi}
+ & p=\left(\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q,\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q,p_{\perp}\right),\\
+ & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q,\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q,p_{\perp}\right),\\
+ & p^{\prime+}p^{+}=\frac{1-\xi^{2}}{8\xi^{2}}Q^{2},\quad P^{+}=\frac{Q}{2\sqrt{2}\xi},\quad p_{\perp}^{2}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2}-M_{N}^{2}\\
+ & \Delta=\left(-\frac{Q}{\sqrt{2}},\frac{Q}{\sqrt{2}},0\right)
 \end{align*}
 
 \end_inset

@@ -481,9 +481,10 @@ ExecStart=systemctl start systemd-backlight@backlight:amdgpu_bl0
 WantedBy=multi-user.target
 ```
 
+然后启用: `sudo systemctl enable startup-brightness.service`.
+
 ***
 也可以手动调节亮度, [manjaro 手动调节屏幕亮度](https://zhuanlan.zhihu.com/p/138880080)
 
 亮度由`ACPI`内核模块控制，这个模块的接口在以下位置：`/sys/class/backlight`.
-
 使用`root`用户进入这个文件夹，其中`max_brightness`表示亮度的最大值，笔者的设备显示为`255`, 想要修改亮度的话直接修改`brightness`即可：`echo 255 > brightness`
