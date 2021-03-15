@@ -450,20 +450,20 @@ neofetch | lolcat
 
 ## 维护
 
-## Failed to start Load/Save Screen Backlight Brightness of amdgpu_b10
+## Failed to start Load/Save Screen Backlight Brightness of amdgpu_bl0
 
 [Load/Save Screen Backlight Brightness](https://www.linux.org/threads/failed-to-start-load-save-screen-backlight-brightness-of-amdgpu_bl1.31998/)
 
 开关机的时候出现上面的错误提示, 查看运行状态
 
 ```bash
-sudo systemctl status systemd-backlight@backlight:amdgpu_b10
+sudo systemctl status systemd-backlight@backlight:amdgpu_bl0
 ```
 
 手动启动
 
 ```bash
-sudo systemctl start systemd-backlight@backlight:amdgpu_b10
+sudo systemctl start systemd-backlight@backlight:amdgpu_bl0
 ```
 
 关于 `systemd` 可以参考 [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
