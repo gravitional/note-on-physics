@@ -2820,7 +2820,7 @@ Stokes 斯托克斯公式：环路的积分等于旋度在曲面上的通量。
 \end_layout
 
 \begin_layout Section
-光锥动量
+光锥动量参数化
 \end_layout
 
 \begin_layout Subsection
@@ -2966,7 +2966,7 @@ where
 \end_layout
 
 \begin_layout Subsection
-GPD 模型
+GPD 模型：对称参数化
 \end_layout
 
 \begin_layout Standard
@@ -2974,51 +2974,131 @@ GPD中skewness不等于
 \begin_inset Formula $0$
 \end_inset
 
-时，设
+时，
+\begin_inset Formula $\Delta$
+\end_inset
+
+为类空矢量，选取坐标系使它的形式为，
 \begin_inset Formula 
 \begin{align*}
  & \Delta=p^{\prime}-p=\left(0,0,0,-Q\right)\\
- & Q^{2}=-t=-\Delta^{2}\\
- & 0<\xi=\frac{\left(p-p\right)^{+}}{\left(p+p\right)^{+}}<1
+ & Q^{2}=-t=-\Delta^{2}
 \end{align*}
 
 \end_inset
 
-计算出各动量在光锥坐标下的表达式，
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename inset/pasted5.png
+	scale 35
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename inset/pasted6.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+GPD动量的两种参数化
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+计算出各动量在光锥坐标下的表达式，如果使用对称化参数
+\begin_inset Formula $\left(x,\xi\right)$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+0<\xi=\frac{\left(p-p\right)^{+}}{\left(p+p\right)^{+}}<1
+\]
+
+\end_inset
+
+介子动量
+\begin_inset Formula $k^{+}$
+\end_inset
+
+为
+\begin_inset Formula 
+\[
+k^{+}=\left(y+\xi\right)P^{+}=\frac{y+\xi}{2\sqrt{2}\xi}Q,\quad\left(k+q\right)^{+}=\left(y-\xi\right)P^{+}=\frac{y-\xi}{2\sqrt{2}\xi}Q.
+\]
+
+\end_inset
+
+初末态核子动量为，
 \begin_inset Formula 
 \begin{align*}
- & p=\left(\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q,\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q,p_{\perp}\right),\\
- & p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q,\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q,p_{\perp}\right),\\
- & p^{\prime+}p^{+}=\frac{1-\xi^{2}}{8\xi^{2}}Q^{2},\quad P^{+}=\frac{Q}{2\sqrt{2}\xi},\quad p_{\perp}^{2}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2}-M_{N}^{2}\\
+ & p=\left(\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q,\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q,p_{\perp}\right),\quad p^{\prime}=\left(\frac{\left(1-\xi\right)}{2\sqrt{2}\xi}Q,\frac{\left(1+\xi\right)}{2\sqrt{2}\xi}Q,p_{\perp}\right),\\
+ & P^{+}=\frac{Q}{2\sqrt{2}\xi},\quad p_{\perp}^{2}=\frac{1-\xi^{2}}{4\xi^{2}}Q^{2}-M_{N}^{2}\\
  & \Delta=\left(-\frac{Q}{\sqrt{2}},\frac{Q}{\sqrt{2}},0\right).
 \end{align*}
 
 \end_inset
 
-在GPD模型中，介子动量
-\begin_inset Formula $k^{+}$
+在GPD模型中，
+\begin_inset Formula $0<k^{+}<p^{+}$
 \end_inset
 
-的参数化为
+，也就是
+\begin_inset Formula $-\xi<y<1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+传播子的表达式为，
 \begin_inset Formula 
 \begin{align*}
-k^{+} & =\left(y+\xi\right)P^{+}=\frac{y+\xi}{2\sqrt{2}\xi}Q,\quad-1<y<1.\\
-\left(k+q\right)^{+} & =\left(y-\xi\right)P^{+}=\frac{y-\xi}{2\sqrt{2}\xi}Q
+\left(k+q\right)^{2}-m_{\phi}^{2}+i\varepsilon & =2k^{-}k^{+}+2\left(k^{-}q^{+}+k^{+}q^{-}\right)-k_{\perp}^{2}-Q^{2}-m_{\phi}^{2}\\
+\left(p-k\right)^{2}-M_{B}^{2}+i\varepsilon & =2k^{-}k^{+}-2\left(k^{-}p^{+}+k^{+}p^{-}-k_{\perp}p_{\perp}\right)-k_{\perp}^{2}+M_{N}^{2}-M_{B}^{2}
+\end{align*}
+
+\end_inset
+
+总结就是，
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+ & k^{2}-m_{\phi}^{2}+i\varepsilon=2k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}=k^{-}\left(\frac{y+\xi}{\sqrt{2}\xi}\right)Q+\cdots\\
+ & \left(k+q\right)^{2}-m_{\phi}^{2}+i\varepsilon=2k^{-}\left(k^{+}+q^{+}\right)+2k^{+}q^{-}-k_{\perp}^{2}-Q^{2}-m_{\phi}^{2}=k^{-}\left(\frac{y-\xi}{\sqrt{2}\xi}\right)Q-\cdots\\
+ & \left(p-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}\left(k^{+}-p^{+}\right)+2k_{\perp}p_{\perp}-k_{\perp}^{2}-2k^{+}p^{-}+M_{N}^{2}-M_{B}^{2}=k^{-}\left(\frac{y-1}{\sqrt{2}\xi}\right)Q-\cdots\\
+ & \left(p^{\prime}-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}\left(k^{+}-p^{\prime+}\right)+2k_{\perp}p_{\perp}^{\prime}-k_{\perp}^{2}-2k^{+}p^{\prime-}+M_{N}^{2}-M_{B}^{2}=k^{-}\left(\frac{y+2\xi-1}{\sqrt{2}\xi}\right)Q-\cdots
 \end{align*}
 
 \end_inset
 
 
-\begin_inset Formula 
-\begin{align*}
- & k^{2}-m_{\phi}^{2}+i\varepsilon=2k^{+}k^{-}+\cdots=k^{-}\left(\frac{y+\xi}{\sqrt{2}\xi}\right)Q+\cdots\\
- & \left(p-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}k^{+}-2k^{-}p^{+}+\cdots=k^{-}\left(\frac{y-1}{\sqrt{2}\xi}\right)Q-\cdots\\
- & \left(p^{\prime}-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}k^{+}-2k^{-}p^{\prime+}+\cdots=k^{-}\left(\frac{y+2\xi-1}{\sqrt{2}\xi}\right)Q-\cdots\\
- & \left(k+q\right)^{2}-m_{\phi}^{2}+i\varepsilon=2k^{-}k^{+}+2k^{-}q^{+}+\cdots=k^{-}\left(\frac{y-\xi}{\sqrt{2}\xi}\right)Q-\cdots
-\end{align*}
-
-\end_inset
-
+\size default
 
 \begin_inset Float figure
 placement H
@@ -3396,7 +3476,11 @@ status open
 \begin_inset Formula $\left(\xi,1\right)$
 \end_inset
 
-。其中系数
+。传播子
+\begin_inset Formula $\left(p^{\prime}-k\right)^{2}$
+\end_inset
+
+的系数
 \begin_inset Formula $\left(\frac{y+2\xi-1}{\sqrt{2}\xi}\right)$
 \end_inset
 
@@ -3406,6 +3490,385 @@ status open
 
 ，
 \begin_inset Formula $\left(1-2\xi,1\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+非对称参数化
+\end_layout
+
+\begin_layout Standard
+非对称参数化
+\begin_inset Formula $\left(X,\zeta\right)$
+\end_inset
+
+为，
+\begin_inset Formula 
+\begin{align*}
+ & p=\left(\frac{Q}{\sqrt{2}\zeta},\frac{\left(1-\zeta\right)}{\sqrt{2}\zeta}Q,p_{\perp}\right),\quad p^{\prime}=\left(\frac{\left(1-\zeta\right)}{\sqrt{2}\zeta}Q,\frac{Q}{\sqrt{2}\zeta},p_{\perp}\right),\\
+ & k^{+}=Xp^{+}=\frac{X}{\sqrt{2}\zeta}Q,\quad\left(k+q\right)^{+}=\frac{\left(X-\zeta\right)}{\sqrt{2}\zeta}Q
+\end{align*}
+
+\end_inset
+
+传播子的表达式为，
+\begin_inset Formula 
+\begin{align*}
+\left(k+q\right)^{2}-m_{\phi}^{2}+i\varepsilon & =2k^{-}k^{+}+2\left(k^{-}q^{+}+k^{+}q^{-}\right)-k_{\perp}^{2}-Q^{2}-m_{\phi}^{2}\\
+\left(p-k\right)^{2}-M_{B}^{2}+i\varepsilon & =2k^{-}k^{+}-2\left(k^{-}p^{+}+k^{+}p^{-}-k_{\perp}p_{\perp}\right)-k_{\perp}^{2}+M_{N}^{2}-M_{B}^{2}
+\end{align*}
+
+\end_inset
+
+总结就是，
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+ & k^{2}-m_{\phi}^{2}+i\varepsilon=2k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}=k^{-}\frac{\sqrt{2}X}{\zeta}Q+\cdots\\
+ & \left(k+q\right)^{2}-m_{\phi}^{2}+i\varepsilon=2k^{-}\left(k^{+}+q^{+}\right)+2k^{+}q^{-}-k_{\perp}^{2}-Q^{2}-m_{\phi}^{2}=k^{-}\frac{\sqrt{2}\left(X-\zeta\right)}{\zeta}Q-\cdots\\
+ & \left(p-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}\left(k^{+}-p^{+}\right)+2k_{\perp}p_{\perp}-k_{\perp}^{2}-2k^{+}p^{-}+M_{N}^{2}-M_{B}^{2}=k^{-}\frac{\sqrt{2}\left(X-1\right)}{\zeta}Q-\cdots\\
+ & \left(p^{\prime}-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}\left(k^{+}-p^{\prime+}\right)+2k_{\perp}p_{\perp}^{\prime}-k_{\perp}^{2}-2k^{+}p^{\prime-}+M_{N}^{2}-M_{B}^{2}=k^{-}\frac{\sqrt{2}\left(X+\zeta-1\right)}{\zeta}Q-\cdots
+\end{align*}
+
+\end_inset
+
+
+\size default
+
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+传播子
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k^{2}-\Lambda^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k^{2}-m_{\phi}^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(k+q\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(p-k\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(p^{\prime}-k\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+系数
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k^{-}\frac{\sqrt{2}X}{\zeta}Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k^{-}\frac{\sqrt{2}X}{\zeta}Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(X-\zeta\right)}{\zeta}Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(X-1\right)}{\zeta}Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(X+\zeta-1\right)}{\zeta}Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+符号
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(+,+\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(+,+\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-,+\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-,-\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-,+\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+区间
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,\zeta,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,\zeta,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,\zeta,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,\zeta,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,1-\zeta,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+在分裂函数的区间中，传播子中
+\begin_inset Formula $k^{-}$
+\end_inset
+
+系数的正负。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+取值范围是
+\begin_inset Formula $0<X<1$
+\end_inset
+
+，
+\begin_inset Formula $0<\zeta<1$
 \end_inset
 
 。
@@ -6220,11 +6683,11 @@ belitsky
 \end_layout
 
 \begin_layout Standard
-end of file
+EOF
 \end_layout
 
 \begin_layout Standard
-end of file
+EOF
 \end_layout
 
 \begin_layout Bibliography

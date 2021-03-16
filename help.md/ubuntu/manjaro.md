@@ -481,7 +481,7 @@ ExecStart=systemctl start systemd-backlight@backlight:amdgpu_bl0
 WantedBy=multi-user.target
 ```
 
-然后启用: `sudo systemctl enable startup-brightness.service`.
+然后启用: `sudo systemctl enable startup-brightness.service`. 下次开机虽然还有提示，但是`systemd-backlight@backlight:amdgpu_bl0`会自动运行。
 
 ***
 也可以手动调节亮度, [manjaro 手动调节屏幕亮度](https://zhuanlan.zhihu.com/p/138880080)
