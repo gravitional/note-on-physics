@@ -1644,7 +1644,7 @@ V_{q}=\int\frac{\dif\lambda}{2\pi}e^{-ix\lambda P^{+}}\bra{p^{\prime}}\bar{q}\le
 \begin{align*}
 A & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\gamma^{+}u\left(p_{2}\right)=\tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]\\
  & =\tr\left[\left(F_{1}+F_{2}\right)\gamma^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)-\frac{F_{2}}{2m}\left(p_{2}+p_{1}\right)^{+}\left(\gamma p_{1}+m\right)\gamma^{+}\left(\gamma p_{2}+m\right)\right]\\
- & =\left(F_{1}+F_{2}\right)8p_{1}^{+}p_{2}^{+}-2F_{2}\left(p_{2}+p_{1}\right)^{+}\left(p_{2}+p_{1}\right)^{+}\\
+ & =\left(F_{1}+F_{2}\right)8p_{1}^{+}p_{2}^{+}-2F_{2}\left(p_{2}^{+}+p_{1}^{+}\right)^{2}\\
  & =\left(F_{1}+F_{2}\right)2\frac{1-\xi^{2}}{\xi^{2}}Q^{2}-2F_{2}\frac{Q^{2}}{\xi^{2}}\\
  & =F_{1}2\frac{1-\xi^{2}}{\xi^{2}}Q^{2}-F_{2}2Q^{2}
 \end{align*}
@@ -1657,18 +1657,23 @@ A & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\ba
 B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\bar{u}\left(p_{1}\right)\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}u\left(p_{2}\right)=\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \tr\left[\Gamma^{+}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]\right\} \\
  & =\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \left(F_{1}+F_{2}\right)\tr\left[\gamma^{+}\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]-\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}F_{2}\tr\left[\left(\gamma p_{1}+m\right)\left(\gamma p_{2}+m\right)\right]\right\} \\
  & =\frac{\left(p_{2}+p_{1}\right)^{+}}{2}\left(F_{1}+F_{2}\right)\tr\left[\gamma^{+}\gamma\left(p_{1}+p_{2}\right)\right]-\left[\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\right]^{2}F_{2}\tr\left[p_{1}\cdot p_{2}+m^{2}\right]\\
- & =2\left(p_{2}+p_{1}\right)^{+;2}\left(F_{1}+F_{2}\right)-\left(p_{2}+p_{1}\right)^{+;2}F_{2}\left(\frac{Q^{2}}{2m^{2}}+2\right)\\
+ & =2\left(p_{2}^{+}+p_{1}^{+}\right)^{2}\left(F_{1}+F_{2}\right)-\left(p_{2}^{+}+p_{1}^{+}\right)^{2}F_{2}\left(\frac{Q^{2}}{2m^{2}}+2\right)\\
  & =\frac{Q^{2}}{\xi^{2}}\left[2\left(F_{1}+F_{2}\right)-F_{2}\left(\frac{Q^{2}}{2m^{2}}+2\right)\right]\\
  & =\frac{Q^{2}}{\xi^{2}}\left[2F_{1}-F_{2}\frac{Q^{2}}{2m^{2}}\right]
 \end{align*}
 
 \end_inset
 
-总结就是
+
+\end_layout
+
+\begin_layout Standard
+如果不代入参数化的具体形式，
 \begin_inset Formula 
 \begin{align*}
- & A=\tr\left[\Gamma^{+}\left(\slashed{p}_{1}+M_{N}\right)\gamma^{+}\left(\slashed{p}_{2}+M_{N}\right)\right]=F_{1}2\frac{1-\xi^{2}}{\xi^{2}}Q^{2}-F_{2}2Q^{2}\\
- & B=\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \tr\left[\Gamma^{+}\left(\slashed{p}_{1}+M_{N}\right)\left(\slashed{p}_{2}+M_{N}\right)\right]\right\} =\frac{Q^{2}}{\xi^{2}}\left[2F_{1}-F_{2}\frac{Q^{2}}{2m^{2}}\right]
+A & =\tr\left[\Gamma^{+}\left(\slashed{p}_{1}+M_{N}\right)\gamma^{+}\left(\slashed{p}_{2}+M_{N}\right)\right]=\left(F_{1}+F_{2}\right)8p_{1}^{+}p_{2}^{+}-2F_{2}\left(p_{2}^{+}+p_{1}^{+}\right)^{2}\\
+B & =\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \tr\left[\Gamma^{+}\left(\slashed{p}_{1}+M_{N}\right)\left(\slashed{p}_{2}+M_{N}\right)\right]\right\} \\
+ & =2\left(p_{2}^{+}+p_{1}^{+}\right)^{2}\left(F_{1}+F_{2}\right)-\left(p_{2}^{+}+p_{1}^{+}\right)^{2}F_{2}\left(\frac{Q^{2}}{2m^{2}}+2\right)
 \end{align*}
 
 \end_inset
@@ -1678,6 +1683,28 @@ B & =\sum_{\text{spin}}\bar{u}\left(p_{2}\right)\Gamma^{+}u\left(p_{1}\right)\ba
 \end_inset
 
 的线性方程组，求解得到
+\begin_inset Formula 
+\begin{align*}
+ & F_{1}=\frac{-AQ^{2}\left(p_{1}^{+}+p_{2}^{+}\right)^{2}+4BM_{N}^{2}\left(p_{1}^{+}-p_{2}^{+}\right)^{2}}{8\left(p_{2}^{+}+p_{1}^{+}\right)^{2}\left(M_{N}^{2}\left(p_{1}^{+}-p_{2}^{+}\right)^{2}-p_{1}^{+}p_{2}^{+}Q^{2}\right)},\\
+ & F_{2}=\frac{-AM_{N}^{2}\left(p_{1}^{+}+p_{2}^{+}\right)^{2}+4Bp_{1}^{+}p_{2}^{+}}{2\left(p_{2}^{+}+p_{1}^{+}\right)^{2}\left(M_{N}^{2}\left(p_{1}^{+}-p_{2}^{+}\right)^{2}-p_{1}^{+}p_{2}^{+}Q^{2}\right)}
+\end{align*}
+
+\end_inset
+
+如果代入对称参数化
+\begin_inset Formula $\left(\xi,x\right)$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\begin{align*}
+ & A=\tr\left[\Gamma^{+}\left(\slashed{p}_{1}+M_{N}\right)\gamma^{+}\left(\slashed{p}_{2}+M_{N}\right)\right]=F_{1}2\frac{1-\xi^{2}}{\xi^{2}}Q^{2}-F_{2}2Q^{2}\\
+ & B=\frac{\left(p_{2}+p_{1}\right)^{+}}{2m}\left\{ \tr\left[\Gamma^{+}\left(\slashed{p}_{1}+M_{N}\right)\left(\slashed{p}_{2}+M_{N}\right)\right]\right\} =\frac{Q^{2}}{\xi^{2}}\left[2F_{1}-F_{2}\frac{Q^{2}}{2m^{2}}\right]
+\end{align*}
+
+\end_inset
+
+求解得到
 \begin_inset Formula 
 \[
 F_{1}=\frac{-\xi^{2}\left(AQ^{2}-4BM_{N}^{2}\xi^{2}\right)}{2Q^{2}\left(4M_{N}^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)},\quad F_{2}=\frac{-2M_{N}^{2}\xi^{2}\left(A+B\xi^{2}-B\right)}{Q^{2}\left(4M_{N}^{2}\xi^{2}+\xi^{2}Q^{2}-Q^{2}\right)}
