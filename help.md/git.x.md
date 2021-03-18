@@ -222,27 +222,26 @@ Unloading the module doesn't unload the assembly from the PSReadLine module (by 
 
 ### git restore
 
+还原工作区的文件，可以用 --source 指定例如`HEAD`.
+
 ```git
 git restore [<options>] [--source=<tree>] [--staged] [--worktree] <pathspec>…​
 git restore (-p|--patch) [<options>] [--source=<tree>] [--staged] [--worktree] [<pathspec>…​]
 ```
 
-Restore specified paths in the working tree with some contents from a restore source.
-If a path is tracked but does not exist in the restore source, it will be removed to match the source.
+使用恢复源中的某些内容还原工作树中的指定路径。
+如果跟踪了一条路径，但该路径在恢复源中不存在，则会将其删除以匹配该源。
 
-The command can also be used to restore the content in the index with `--staged`, or restore both the working tree and the index with `--staged --worktree`.
-
-By default, the restore sources for working tree are the index, and for the `index` are `HEAD`. `--source` could be used to specify a commit as the restore source.
+该命令还可用于通过`--staged`还原索引中的内容，或通过`--staged --worktree`还原工作树和索引。
 
 ```git
 -s <tree>
 --source=<tree>
 ```
 
-Restore the working tree files with the content from the given tree. It is common to specify the source tree by naming a `commit`, `branch` or `tag` associated with it.
-
-If not specified, the default restore source for the `working tree` is the `index`, and the default restore source for the `index` is `HEAD`.
-When both `--staged` and `--worktree` are specified, `--source` must also be specified.
+使用给定`tree`中的内容还原工作树文件。 可以通过与之关联的`commit`，`branch`或`tag`来指定`source tree`。
+如果未指定，则`working tree`的默认还原源为`index`，而 `index`的默认还原源为`HEAD`。
+当同时指定了`--staged`和`--worktree`时，则必须指定`--source`。
 
 ```git
 -W
@@ -251,11 +250,9 @@ When both `--staged` and `--worktree` are specified, `--source` must also be spe
 --staged
 ```
 
-Specify the restore location.
-If neither option is specified, by default the working tree is restored.
-Specifying `--staged` will only restore the index. Specifying both restores both.
+指定要还原的对象。如果未给出，默认还原`working tree`。指定`--staged`则只还原`index`，指定两个的话都还原.
 
-example:
+例子：
 
 ```git
 git restore --source master~2 Makefile
@@ -276,14 +273,14 @@ git checkout [<tree-ish>] [--] <pathspec>…​
 ```
 
 用 `index`或者`<tree-ish>`（通常是一个`commit`）里面的内容替换`working tree`里面的 `paths`.
-当给出一个`<tree-ish>`的时候, the `paths` that match the `<pathspec>`会在 `index`and in the `working tree` 里面都更新.
+当给出一个`<tree-ish>`的时候, 与`<pathspec>`匹配的路径会在`index`和`working tree` 里面都更新.
 
 `index` 中可能包含有之前合并失败的`entries`.
-默认情况下, 如果你想 `checkout` 一个这样的entries, 会失败, 什么都不会发生. 使用`-f`选项忽略未合并的entries.
+默认情况下, 如果你想 `checkout` 一个这样的entries, 会失败, 什么都不会发生. 使用`-f`选项忽略未合并的项目.
 
-The contents from a specific side of the merge can be checked out of the `index` by using `--ours` or `--theirs`.
+当合并的时候，特定来源方的内容可以通过使用 `--ours` or `--theirs`从`index`中取出.
 
-With `-m`, 对 `working tree` 所做的更改将会被丢弃, 重新创建冲突的 merge 结果
+使用`-m`, 对 `working tree` 所做的更改将会被丢弃, 重新创建冲突的`merge`结果.
 
 ### git reset
 

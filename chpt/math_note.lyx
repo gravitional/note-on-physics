@@ -1495,6 +1495,232 @@ f_{n} & =\frac{(p+q)^{2n}-p^{2n}}{q^{2}+2q.p}
 \end_layout
 
 \begin_layout Section
+留数定理
+\end_layout
+
+\begin_layout Enumerate
+类型一：
+\begin_inset Formula $\int_{0}^{2\pi}R\left(\cos x,\sin x\right)\dif x$
+\end_inset
+
+。作自变量代换
+\begin_inset Formula 
+\[
+z=e^{i\pi}
+\]
+
+\end_inset
+
+新的积分回路为单位圆，逆时针绕原点一周。
+\begin_inset Formula 
+\[
+\cos x=\frac{1}{2}\left(z+z^{-}\right),\quad\sin x=\frac{1}{2i}\left(z-z^{-}\right),\quad\dif x=\frac{\dif z}{iz}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+类型二：
+\begin_inset Formula $\int_{-\infty}^{+\infty}f\left(x\right)\dif x$
+\end_inset
+
+。积分区间是
+\begin_inset Formula $\left(-\infty,+\infty\right)$
+\end_inset
+
+；复变函数
+\begin_inset Formula $f\left(z\right)$
+\end_inset
+
+在实轴上没有奇点，在上半平面除有限个奇点外是解析的；当
+\begin_inset Formula $z$
+\end_inset
+
+在上半平面
+\begin_inset Formula $\to\infty$
+\end_inset
+
+和实轴上
+\begin_inset Formula $\to\infty$
+\end_inset
+
+时，
+\begin_inset Formula $zf\left(z\right)$
+\end_inset
+
+一致地
+\begin_inset Formula $\to$
+\end_inset
+
+0。如果
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+是有理分式
+\begin_inset Formula $\varphi\left(x\right)/\psi\left(x\right)$
+\end_inset
+
+，上述条件意味着
+\begin_inset Formula $\psi\left(x\right)$
+\end_inset
+
+没有实的零点，
+\begin_inset Formula $\psi\left(x\right)$
+\end_inset
+
+的次数至少高于
+\begin_inset Formula $\varphi\left(x\right)$
+\end_inset
+
+两次。考虑半圆积分回路
+\begin_inset Formula $l$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\oint f\left(z\right)\dif z=\int_{-R}^{R}f\left(x\right)\dif x+\int_{C_{R}}f\left(z\right)\dif z
+\]
+
+\end_inset
+
+根据留数定理，即
+\begin_inset Formula 
+\[
+2\pi i\sum_{\text{在\ensuremath{l}所围半圆}}\res f\left(z\right)=\int_{-R}^{R}f\left(x\right)\dif x+\int_{C_{R}}f\left(z\right)\dif z
+\]
+
+\end_inset
+
+令
+\begin_inset Formula $R\to\infty$
+\end_inset
+
+。上式左边就是
+\begin_inset Formula $2\pi i$
+\end_inset
+
+乘上上半平面所有留数之和，右边第一个积分趋于
+\begin_inset Formula $\int_{-\infty}^{+\infty}f\left(x\right)\dif x$
+\end_inset
+
+，第二个积分可证明趋于零；
+\begin_inset Formula 
+\begin{align*}
+\abs*{\int_{C_{R}}f\left(z\right)\dif z} & =\abs*{\int_{C_{R}}zf\left(z\right)\frac{\dif z}{z}}\le\int_{C_{R}}\abs*{zf\left(z\right)}\frac{\abs{\dif z}}{\abs{z}}\\
+ & \le\max\abs{zf\left(z\right)}\frac{\pi R}{R}=\pi*\max\abs{zf\left(z\right)}\to0,
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\max\abs{zf\left(z\right)}$
+\end_inset
+
+指的是
+\begin_inset Formula $\max\abs{zf\left(z\right)}$
+\end_inset
+
+在
+\begin_inset Formula $C_{R}$
+\end_inset
+
+上的最大值。于是得到
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}f\left(x\right)\dif x=2\pi i\sum_{\text{上半平面}}\res f\left(z\right)
+\]
+
+\end_inset
+
+如果不是高两次，比如
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif k^{-}\frac{1}{k^{+}k^{-}-\Omega_{\phi}+i\varepsilon}
+\]
+
+\end_inset
+
+最后会有一项类似于下面的项，
+\begin_inset Formula 
+\[
+\pi\frac{R}{k^{+}R-\Omega_{\phi}+i\varepsilon}\stackrel{R\to\infty}{\longrightarrow}\frac{\pi}{k^{+}+i\varepsilon}=\pi\left(\frac{1}{k^{+}}-i\pi\delta\left(k^{+}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+类型三：Jordan引理：如果函数
+\begin_inset Formula $g\left(z\right)$
+\end_inset
+
+沿上半平面圆周
+\begin_inset Formula $\Gamma_{R}:z=Re^{i\theta}\left(0\le\theta\le\pi\right)$
+\end_inset
+
+上连续(
+\begin_inset Formula $R$
+\end_inset
+
+充分大)，并且
+\begin_inset Formula $\lim_{R\to\infty}g\left(z\right)=0$
+\end_inset
+
+在
+\begin_inset Formula $\Gamma_{R}$
+\end_inset
+
+上一致成立，则：
+\begin_inset Formula 
+\[
+\lim_{R\to\infty}\int_{\Gamma_{R}}\dif zg\left(z\right)e^{imz}=0,\qquad(m>0)
+\]
+
+\end_inset
+
+留数定理：对于满足上面条件的函数
+\begin_inset Formula $g\left(z\right)$
+\end_inset
+
+，且
+\begin_inset Formula $g\left(z\right)$
+\end_inset
+
+的极点
+\begin_inset Formula $a_{k}$
+\end_inset
+
+都不在实轴上，则
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif zg(z)e^{imz}=2\pi i\sum_{\Im a_{k}>0}\res_{z=a_{k}}\left[g\left(z\right)e^{imz}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+积分公式：
+\begin_inset Formula 
+\begin{align*}
+ & \int_{0}^{\infty}\frac{\sin mx}{x}\dif x=\int_{0}^{\infty}\frac{\sin mx}{mx}\dif mx=\frac{\pi}{2},\quad\left(m>0\right)\\
+ & \int_{0}^{\infty}\frac{\sin mx}{x}\dif x=-\int_{0}^{\infty}\frac{\sin\abs{x}}{x}\dif x=-\frac{\pi}{2},\quad\left(m<0\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 广义函数
 \end_layout
 
@@ -2384,7 +2610,7 @@ pf\Rightarrow p\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}p\left(x\righ
 的 Fourier 逆变换是
 \begin_inset Formula 
 \[
-\frac{1}{\left(2\pi\right)}\int_{-\infty}^{+\infty}\dif k\left(-\pi\abs{k}e^{+ikx}\right)=\frac{\dif}{\dif x}\left(\text{P.V.}\frac{-1}{x}\right)
+\frac{1}{\left(2\pi\right)}\int_{-\infty}^{+\infty}\dif k\left(-\pi\abs{k}e^{+ikx}\right)=\frac{\dif}{\dif x}\left(\text{P.V.}\frac{-1}{x}\right)=\text{P.V.}\frac{1}{x}\frac{\dif}{\dif x}
 \]
 
 \end_inset
@@ -2428,7 +2654,7 @@ pf\Rightarrow p\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}p\left(x\righ
 定义成
 \begin_inset Formula 
 \[
-\frac{1}{x^{2}}:=\frac{\dif}{\dif x}\left(-\text{P.V.}\frac{1}{x}\right)
+\frac{1}{x^{2}}:=\frac{\dif}{\dif x}\left(-\text{P.V.}\frac{1}{x}\right)=\text{P.V.}\frac{1}{x}\frac{\dif}{\dif x}
 \]
 
 \end_inset
@@ -2487,7 +2713,7 @@ pf\Rightarrow p\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}p\left(x\righ
 ，这不改变它的导数，所以也不改变主值积分的值。所以一般地有
 \begin_inset Formula 
 \[
-\frac{\dif}{\dif x}\left(-\text{P.V.}\frac{1}{x}\right)\left[\phi\right]=\text{P.V.}\int_{-\infty}^{+\infty}\dif x\frac{\phi\left(x\right)-\phi\left(0\right)}{x^{2}}
+\left(\text{P.V.}\frac{1}{x}\frac{\dif}{\dif x}\right)\left[\phi\right]=\text{P.V.}\int_{-\infty}^{+\infty}\dif x\frac{\phi\left(x\right)-\phi\left(0\right)}{x^{2}}
 \]
 
 \end_inset
@@ -2503,7 +2729,7 @@ pf\Rightarrow p\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}p\left(x\righ
 ，最后算 Cauchy 主值积分”，比如
 \begin_inset Formula 
 \[
-\text{P.V.}\int\frac{\cos x}{x^{2}}\dif x=\text{P.V.}\int\frac{\cos x-\cos0}{x^{2}}\dif x=-\pi
+\text{P.V.}\int_{-\infty}^{+\infty}\frac{\cos x}{x^{2}}\dif x=\text{P.V.}\int_{-\infty}^{+\infty}\frac{\cos x-\cos0}{x^{2}}\dif x=-\pi
 \]
 
 \end_inset
@@ -4381,6 +4607,25 @@ D_{\phi}\left(k\right)=k^{2}-m_{\phi}^{2},\quad D_{\Lambda}\left(k\right)=k^{2}-
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int\dif k^{-}\frac{1}{\left(k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}$
+\end_inset
+
+的结果实际上丢掉了一个有限项，
+\begin_inset Formula 
+\[
+\begin{cases}
+-i\pi*\text{P.V.}\frac{1}{k^{+}}, & k^{+}>0\\
++i\pi*\text{P.V.}\frac{1}{k^{+}}, & k^{+}<0
+\end{cases}
+\]
+
+\end_inset
+
+P.V.
+ 是主值积分的意思。不过也可能是由于考虑主值积分的缘故，就丢掉了。
 \end_layout
 
 \begin_layout Subsection

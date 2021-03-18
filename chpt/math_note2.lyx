@@ -2087,33 +2087,149 @@ asdfasfa
 \end_layout
 
 \begin_layout Standard
+首先我们推导了公式，
 \begin_inset Formula 
 \[
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{\phi}\left(k+q\right)}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)}=\int\dif k^{-}\frac{1}{\left(2k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}=\left(\pi i\right)\log\left(\frac{\Omega_{\phi}}{\mu^{2}}\right)\frac{\delta\left(y\right)}{p^{+}}
 \]
 
 \end_inset
 
-
-\begin_inset Formula $D_{\phi}\left(k\right)$
+这个式子可以理解，当
+\begin_inset Formula $k^{+}=0$
 \end_inset
 
-的极点位置为
-\begin_inset Formula $-$
+时，被积式变成
+\begin_inset Formula $-\Omega_{\phi}+i\varepsilon$
 \end_inset
 
-,如果
-\begin_inset Formula $D_{\phi}\left(k+q\right)$
-\end_inset
-
-的极点位置为
-\begin_inset Formula $+$
-\end_inset
-
-，则留数定理的结果为，
+，积分区间无穷大，结果是发散的。而对于
 \begin_inset Formula 
 \[
-\frac{1}{p^{+}}\frac{\left(-\pi i\right)\zeta^{2}}{2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\left(k_{\perp}^{2}+m_{\phi}^{2}\right)}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{\phi}\left(k+q\right)}=\int\dif k^{-}\frac{1}{\left(2k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)\left[2\left(k^{+}+q^{+}\right)\left(k^{-}+q^{-}\right)-\Omega_{q\phi}+i\varepsilon\right]}
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $k^{+}$
+\end_inset
+
+等于零时，积分变成，
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{\left(-\Omega_{\phi}+i\varepsilon\right)\left[2q^{+}k^{-}-\Omega_{q\phi}^{\prime}+i\varepsilon\right]}
+\]
+
+\end_inset
+
+按照上面的公式，这个积分的结果大约是
+\begin_inset Formula 
+\[
+\sim\left(\pi i\right)\log\left(\frac{\Omega_{q\phi}^{\prime}}{\mu^{2}}\right)\delta\left(q^{+}\right)
+\]
+
+\end_inset
+
+我们假设
+\begin_inset Formula $q^{+}\neq0$
+\end_inset
+
+，所以这个积分是等于零的。也就是当
+\begin_inset Formula $q^{+}\neq0$
+\end_inset
+
+时，这个积分不会产生正比于
+\begin_inset Formula $\delta\left(k^{+}\right)$
+\end_inset
+
+的项。所以它不会发散。或者简单地说，两个传播子的
+\begin_inset Formula $\delta$
+\end_inset
+
+的位置不一样，一个是
+\begin_inset Formula $\delta\left(k^{+}\right)$
+\end_inset
+
+，一个是
+\begin_inset Formula $\delta\left(k^{+}+q^{+}\right)$
+\end_inset
+
+，只要
+\begin_inset Formula $q^{+}\neq0$
+\end_inset
+
+，就无法同时满足，所以不会产生
+\begin_inset Formula $\delta$
+\end_inset
+
+项。所以在提取
+\begin_inset Formula $\delta$
+\end_inset
+
+项的时候，只需要查看具有重叠
+\begin_inset Formula $\delta$
+\end_inset
+
+位置的传播子结构。所以只能是
+\begin_inset Formula 
+\[
+\frac{1}{D_{\Lambda}\left(k\right)D_{\phi}\left(k\right)},\quad\frac{1}{D_{\Lambda}\left(k+q\right)D_{\phi}\left(k+q\right)}
+\]
+
+\end_inset
+
+这种类型的。其他的收敛的情形直接用留数定理计算。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\Lambda}\left(k\right)D_{\Lambda}\left(k+q\right)D_{\phi}\left(k\right)D_{\phi}\left(k+q\right)D_{B}\left(p-k\right)}@\left\{ \Lambda,\phi\right\} 
+\]
+
+\end_inset
+
+用留数定理得到积分结果是，
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\zeta^{4}y^{2}\left(-2\pi i\right)}{-2p^{+}\left(\overline{\Lambda}^{2}\right)}\left(\frac{1}{\Omega_{p\Lambda}^{2}\left(\Omega_{p\Lambda}^{2}+\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\Lambda B}}-\frac{1}{\Omega_{p\phi}^{2}\left(\Omega_{p\phi}^{2}-\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\phi B}}\right)\\
+= & \frac{\zeta^{4}y^{2}\left(\pi i\right)}{p^{+}\left(\overline{\Lambda}^{2}\right)}\left(\frac{1}{\Omega_{p\Lambda}^{2}\left(\Omega_{p\Lambda}^{2}+\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\Lambda B}}-\frac{1}{\Omega_{p\phi}^{2}\left(\Omega_{p\phi}^{2}-\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\phi B}}\right)
+\end{align*}
+
+\end_inset
+
+其中，
+\begin_inset Formula 
+\begin{align*}
+ & \overline{\Lambda}^{2}=\Lambda^{2}-m_{\phi}^{2},\quad\Omega_{\Lambda}^{2}=\Lambda^{2}+k_{\perp}^{2},\quad\Omega_{\phi}^{2}=m_{\phi}^{2}+k_{\perp}^{2}\\
+ & \Omega_{p\phi}^{2}=2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\Omega_{\phi}^{2},\quad\Omega_{p\Lambda}^{2}=2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\Omega_{\Lambda}^{2}\\
+ & D_{\phi B}=\frac{yM_{B}^{2}+k_{\perp}^{2}-2yk_{\perp}p_{\perp}+\left(1-y\right)m_{\phi}^{2}+y\left(y-1\right)M_{N}^{2}+y^{2}p_{\perp}^{2}}{-\overline{y}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\Lambda}\left(k\right)D_{\Lambda}\left(k+q\right)D_{\phi}\left(k\right)D_{\phi}\left(k+q\right)D_{B}\left(p-k\right)}@\left\{ \Lambda,\phi,\phi q\right\} 
+\]
+
+\end_inset
+
+用留数定理得到积分结果是，
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\zeta^{4}\left(-2\pi i\right)}{-2p^{+}\left(\overline{\Lambda}^{2}\right)}\left(\frac{-y^{2}}{\Omega_{p\phi}^{2}\left(\Omega_{p\phi}^{2}-\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\phi B}}+\frac{y^{2}}{\Omega_{p\Lambda}^{2}\left(\Omega_{p\Lambda}^{2}+\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\Lambda B}}\right)\\
+= & \frac{\zeta^{4}y^{2}\left(\pi i\right)}{p^{+}\left(\overline{\Lambda}^{2}\right)}\left(\frac{1}{\Omega_{p\Lambda}^{2}\left(\Omega_{p\Lambda}^{2}+\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\Lambda B}}-\frac{1}{\Omega_{p\phi}^{2}\left(\Omega_{p\phi}^{2}-\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\phi B}}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\zeta^{4}y^{2}}{\left(2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\left(\Lambda^{2}+k_{\perp}^{2}\right)\right)\left(2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\left(\Lambda^{2}+k_{\perp}^{2}-\zeta y\overline{\Lambda}^{2}\right)\right)}
 \]
 
 \end_inset
@@ -2122,40 +2238,9 @@ asdfasfa
 \end_layout
 
 \begin_layout Standard
-如果极点在同一侧，
 \begin_inset Formula 
 \[
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{\phi}\left(k+q\right)}=\frac{1}{\left(a-1\right)!\left(b-1\right)!}\frac{\partial^{a+b-2}}{\partial\Omega^{a+b-2}}\int_{0}^{1}\dif z\int\dif k_{\perp}^{2}\frac{\left(\pi i\right)\left(1-z\right)^{a-1}z^{b-1}}{\left(k_{\perp}^{2}+\Omega\right)}\delta\left(y\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & p=\left(\frac{Q}{\sqrt{2}\zeta},\frac{\left(1-\zeta\right)}{\sqrt{2}\zeta}Q,p_{\perp}\right),\quad p^{\prime}=\left(\frac{\left(1-\zeta\right)}{\sqrt{2}\zeta}Q,\frac{Q}{\sqrt{2}\zeta},p_{\perp}\right),\\
- & k^{+}=yp^{+}=\frac{y}{\sqrt{2}\zeta}Q,\quad\left(k+q\right)^{+}=\frac{\left(y-\zeta\right)}{\sqrt{2}\zeta}Q\\
- & \Delta=\left(-\frac{Q}{\sqrt{2}},\frac{Q}{\sqrt{2}},0\right)=\left(-\zeta p^{+},\zeta p^{+}\right)
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & \left(k^{2}-m_{\phi}^{2}\right)\left(1-z\right)+\left[\left(k+q\right)^{2}-m_{\phi}^{2}\right]z\\
-= & k^{2}-m_{\phi}^{2}+z\left(q^{2}+2kq\right)\\
-= & 2k^{-}\left(k^{+}+q^{+}\right)-m_{\phi}^{2}+z\left(q^{2}+2k^{+}q^{-}\right)\\
-= & 2k^{-}p^{+}\left(y-\zeta\right)-m_{\phi}^{2}+z\zeta\left(y-\zeta\right)2\left(p^{+}\right)^{2}\\
-= & 2k^{-}p^{+}\left(y-\zeta\right)-\Omega_{\phi q}
-\end{align*}
-
-\end_inset
-
-where
-\begin_inset Formula 
-\[
-\Omega_{\phi q}=m_{\phi}^{2}-z\zeta\left(y-\zeta\right)2\left(p^{+}\right)^{2}
+\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{\phi}\left(k+q\right)}
 \]
 
 \end_inset

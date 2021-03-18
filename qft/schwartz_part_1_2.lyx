@@ -10707,13 +10707,13 @@ end{align}
 
 \series bold
 这种类型的积分需要考虑积分区域的变化，因为
-\begin_inset Formula $\delta(x)$
+\begin_inset Formula $\delta\left(x\right)$
 \end_inset
 
 函数相当于一个分布，使得积分区间中某些区域不贡献了
 \series default
 。
-\begin_inset Formula $\delta(x)$
+\begin_inset Formula $\delta\left(x\right)$
 \end_inset
 
 函数总是会减少一个维度，因此总相当于积分区域
@@ -10729,7 +10729,7 @@ end{align}
 
 \begin_layout Standard
 比如在二维情况下，
-\begin_inset Formula $\delta(x+y-1)$
+\begin_inset Formula $\delta\left(x+y-1\right)$
 \end_inset
 
 限定积分区域在
@@ -10741,7 +10741,7 @@ end{align}
 \end_inset
 
 ，直线上的点坐标为
-\begin_inset Formula $(x,1-x)$
+\begin_inset Formula $\left(x,1-x\right)$
 \end_inset
 
 ，所以
@@ -10793,7 +10793,7 @@ end{align}
 
 \begin_layout Standard
 对于高维的情况，
-\begin_inset Formula $\delta(x+y+z+\cdots)=1$
+\begin_inset Formula $\delta\left(x+y+z+\cdots\right)=1$
 \end_inset
 
 。总的测度体积是
@@ -10807,7 +10807,7 @@ end{align}
 函数的限制，可以写成 
 \begin_inset Formula 
 \[
-\int_{0}^{1}\dif x\int_{0}^{1}\dif y\int_{0}^{1}\dif z\cdots\delta(x+y+z+\cdots)\to\int_{0}^{1}\dif x\int_{0}^{1-x+\epsilon}\dif y\int_{0}^{1-x-y+\epsilon}\dif z\delta(x+y+z+\cdots)
+\int_{0}^{1}\dif x\int_{0}^{1}\dif y\int_{0}^{1}\dif z\cdots\delta\left(x+y+z+\cdots\right)\to\int_{0}^{1}\dif x\int_{0}^{1-x+\epsilon}\dif y\int_{0}^{1-x-y+\epsilon}\dif z\delta\left(x+y+z+\cdots\right)
 \]
 
 \end_inset
@@ -10823,19 +10823,15 @@ end{align}
 。所以，一般有
 \begin_inset Formula 
 \[
-\frac{1}{A_{1}A_{2}\cdots A_{n}}=\int_{0}^{1}\dif x_{1}\cdots\dif x_{n}\delta(\sum x_{1}-1)\frac{(n-1)!}{\left[x_{1}A_{1}+\cdots+x_{n}A_{n}\right]^{n}}
+\frac{1}{A_{1}A_{2}\cdots A_{n}}=\int_{0}^{1}\dif x_{1}\cdots\dif x_{n}\delta\left(\sum x_{1}-1\right)\frac{\left(n-1\right)!}{\left[x_{1}A_{1}+\cdots+x_{n}A_{n}\right]^{n}}
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 类似地，
 \begin_inset Formula 
 \[
-\frac{1}{AB^{n}}=\int_{0}^{1}\dif x\dif y\delta(x+y-1)\frac{ny^{n-1}}{\left[xA+yB\right]^{n+1}}
+\frac{1}{AB^{n}}=\int_{0}^{1}\dif x\dif y\delta\left(x+y-1\right)\frac{ny^{n-1}}{\left[xA+yB\right]^{n+1}}
 \]
 
 \end_inset
@@ -10843,21 +10839,17 @@ end{align}
 
 \begin_inset Formula 
 \[
-\frac{1}{ABC}=\int_{0}^{1}\dif x\dif y\dif z\delta(x+y+z-1)\frac{2}{\left[xA+yB+zC\right]^{3}}
+\frac{1}{ABC}=\int_{0}^{1}\dif x\dif y\dif z\delta\left(x+y+z-1\right)\frac{2}{\left[xA+yB+zC\right]^{3}}
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 通过这些公式，可以把传播子合并起来，
 \begin_inset Formula 
 \begin{align*}
-\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{k^{2}}\frac{1}{(k-p)^{2}} & =\int\frac{\dif^{4}k}{(2\pi)^{4}}\int_{0}^{1}\dif x\frac{1}{\left[k^{2}+x\left((k-p)^{2}-k^{2}\right)\right]^{2}}\\
- & =\int\frac{\dif^{4}k}{(2\pi)^{4}}\int_{0}^{1}\dif x\frac{1}{\left[k^{2}-2kxp+xp^{2}\right]^{2}}\\
- & =\int_{0}^{1}\dif x\int\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{\left[(k-xp)^{2}-\Delta\right]^{2}}
+\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{k^{2}}\frac{1}{\left(k-p\right)^{2}} & =\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\int_{0}^{1}\dif x\frac{1}{\left[k^{2}+x\left(\left(k-p\right)^{2}-k^{2}\right)\right]^{2}}\\
+ & =\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\int_{0}^{1}\dif x\frac{1}{\left[k^{2}-2kxp+xp^{2}\right]^{2}}\\
+ & =\int_{0}^{1}\dif x\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left[\left(k-xp\right)^{2}-\Delta\right]^{2}}
 \end{align*}
 
 \end_inset
@@ -10866,7 +10858,7 @@ when
 \begin_inset Formula $\Delta=-p^{2}x(1-x)$
 \end_inset
 
-。我们可以通过shift 
+。我们可以通过平移 
 \begin_inset Formula $k\to k+xp$
 \end_inset
 
@@ -10881,7 +10873,7 @@ when
 peskin书给出了更一般的形式，
 \begin_inset Formula 
 \[
-\frac{1}{A_{1}^{m_{1}}A_{1}^{m_{2}}A_{n}^{m_{n}}}=\int_{0}^{1}\dif x_{1}\cdots\dif x_{n}\delta(\sum x_{i}-1)\frac{\prod x_{i}^{m_{i}-1}}{\left[\sum x_{i}A_{i}\right]^{\sum m_{i}}}\frac{\Gamma(m_{1}+\cdots+m_{n})}{\Gamma(m_{1})\cdots\Gamma(m_{n})}
+\frac{1}{A_{1}^{m_{1}}A_{1}^{m_{2}}A_{n}^{m_{n}}}=\int_{0}^{1}\dif x_{1}\cdots\dif x_{n}\delta\left(\sum x_{i}-1\right)\frac{\prod x_{i}^{m_{i}-1}}{\left[\sum x_{i}A_{i}\right]^{\sum m_{i}}}\frac{\Gamma\left(m_{1}+\cdots+m_{n}\right)}{\Gamma\left(m_{1}\right)\cdots\Gamma\left(m_{n}\right)}
 \]
 
 \end_inset
@@ -10897,15 +10889,15 @@ peskin书给出了更一般的形式，
 可以这么证明它，通过变量代换：
 \begin_inset Formula 
 \[
-z\equiv\frac{wA}{wA+(1-w)B},\quad(1-z)=\frac{(1-w)B}{wA+(1-w)B},\dif z-\frac{AB\dif w}{\left[wA+(1-w)B\right]^{2}}
+z\equiv\frac{wA}{wA+\left(1-w\right)B},\quad\left(1-z\right)=\frac{\left(1-w\right)B}{wA+\left(1-w\right)B},\dif z-\frac{AB\dif w}{\left[wA+\left(1-w\right)B\right]^{2}}
 \]
 
 \end_inset
 
-so that
+所以
 \begin_inset Formula 
 \[
-\int_{0}^{1}\dif w\frac{w^{\alpha-1}(1-w)^{\beta-1}}{\left[wA+(1-w)B\right]^{\alpha+\beta}}=\frac{1}{A^{\alpha}B^{\beta}}\int_{0}^{1}\dif zz^{\alpha-1}(1-z)^{\beta-1}=\frac{1}{A^{\alpha}B^{\beta}}B(\alpha,\beta)
+\int_{0}^{1}\dif w\frac{w^{\alpha-1}\left(1-w\right)^{\beta-1}}{\left[wA+\left(1-w\right)B\right]^{\alpha+\beta}}=\frac{1}{A^{\alpha}B^{\beta}}\int_{0}^{1}\dif z\,z^{\alpha-1}\left(1-z\right)^{\beta-1}=\frac{1}{A^{\alpha}B^{\beta}}B\left(\alpha,\beta\right)
 \]
 
 \end_inset
@@ -10942,7 +10934,7 @@ Schwinger 参数化
 可以保证积分是良好定义的。
 \begin_inset Formula 
 \[
-(\frac{i}{A})^{2}=\int_{0}^{\infty}s\dif se^{isA}
+\left(\frac{i}{A}\right)^{2}=\int_{0}^{\infty}s\dif se^{isA}
 \]
 
 \end_inset
@@ -11136,7 +11128,7 @@ Wick 转动
 \begin_inset Formula 
 \begin{align*}
 \int_{-\infty}^{+\infty}\dif k^{0}f\left(k^{0}\right) & =i\int_{-\infty}^{+\infty}\dif k^{0}f\left(ik^{0}\right)\\
-\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{n}} & ={\color{red}i\left(-1\right)^{n}}\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{(2\pi)^{4}}\frac{1}{(k_{E}^{2}+\Delta-i\varepsilon)^{n}}
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{n}} & ={\color{red}i\left(-1\right)^{n}}\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{\left(2\pi\right)^{4}}\frac{1}{(k_{E}^{2}+\Delta-i\varepsilon)^{n}}
 \end{align*}
 
 \end_inset
@@ -11160,7 +11152,7 @@ wick 转动的好处是，转动之后，离积分轴很近的极点一般已经
 。所以
 \begin_inset Formula 
 \[
-\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{(2\pi)^{4}}f(k_{E}^{2})=\frac{1}{16\pi^{4}}\int\dif\Omega_{4}\int_{0}^{\infty}k_{E}^{3}\dif k_{E}f(k_{E}^{2})=\frac{1}{8\pi^{2}}\int_{0}^{\infty}k_{E}^{3}\dif k_{E}f(k_{E}^{2})
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k_{E}}{\left(2\pi\right)^{4}}f(k_{E}^{2})=\frac{1}{16\pi^{4}}\int\dif\Omega_{4}\int_{0}^{\infty}k_{E}^{3}\dif k_{E}f(k_{E}^{2})=\frac{1}{8\pi^{2}}\int_{0}^{\infty}k_{E}^{3}\dif k_{E}f(k_{E}^{2})
 \]
 
 \end_inset
@@ -11172,9 +11164,9 @@ Wick rotation 只是数学技巧，并没有物理内容，只要没有新的 po
 常用公式有：
 \begin_inset Formula 
 \begin{align*}
-\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{k^{2}}{(k^{2}-\Delta+i\varepsilon)^{4}} & =\frac{-i}{48\pi^{2}}\frac{1}{\Delta}\\
-\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-\Delta+i\varepsilon)^{r}} & =\frac{i(-1)^{r}}{16\pi^{2}}\frac{1}{(r-1)(r-2)}\frac{1}{\Delta^{r-2}},r>2\\
-\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{(2\pi)^{4}}\frac{k^{2}}{(k^{2}-\Delta+i\varepsilon)^{r}} & =\frac{i(-1)^{r-1}}{16\pi^{2}}\frac{2}{(r-1)(r-2)(r-3)}\frac{1}{\Delta^{r-3}},r>3
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{k^{2}}{\left(k^{2}-\Delta+i\varepsilon\right)^{4}} & =\frac{-i}{48\pi^{2}}\frac{1}{\Delta}\\
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left(k^{2}-\Delta+i\varepsilon\right)^{r}} & =\frac{i\left(-1\right)^{r}}{16\pi^{2}}\frac{1}{\left(r-1\right)\left(r-2\right)}\frac{1}{\Delta^{r-2}},r>2\\
+\int_{-\infty}^{+\infty}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{k^{2}}{\left(k^{2}-\Delta+i\varepsilon\right)^{r}} & =\frac{i\left(-1\right)^{r-1}}{16\pi^{2}}\frac{2}{\left(r-1\right)\left(r-2\right)\left(r-3\right)}\frac{1}{\Delta^{r-3}},r>3
 \end{align*}
 
 \end_inset
