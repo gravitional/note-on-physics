@@ -2188,6 +2188,10 @@ asdfasfa
 的项即可。
 \end_layout
 
+\begin_layout Subsection
+积分公式
+\end_layout
+
 \begin_layout Standard
 \begin_inset Formula 
 \[
@@ -2198,10 +2202,9 @@ asdfasfa
 
 用留数定理得到积分结果是，
 \begin_inset Formula 
-\begin{align*}
- & \frac{\zeta^{4}y^{2}\left(-2\pi i\right)}{-2p^{+}\left(\overline{\Lambda}^{2}\right)}\left(\frac{1}{\Omega_{p\Lambda}^{2}\left(\Omega_{p\Lambda}^{2}+\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\Lambda B}}-\frac{1}{\Omega_{p\phi}^{2}\left(\Omega_{p\phi}^{2}-\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\phi B}}\right)\\
-= & \frac{\zeta^{4}y^{2}\left(\pi i\right)}{p^{+}\left(\overline{\Lambda}^{2}\right)}\left(\frac{1}{\Omega_{p\Lambda}^{2}\left(\Omega_{p\Lambda}^{2}+\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\Lambda B}}-\frac{1}{\Omega_{p\phi}^{2}\left(\Omega_{p\phi}^{2}-\zeta^{2}y\overline{\Lambda}^{2}\right)\left(-\overline{y}\right)D_{\phi B}}\right)
-\end{align*}
+\[
+\frac{y^{2}\zeta^{4}}{\left(-2p^{+}\right)\left(\overline{\Lambda}^{2}\right)}\left(\frac{-1}{\overline{y}D_{\Lambda B}\Omega_{B\Lambda t}\Omega_{B\Lambda t}^{\prime}}+\frac{1}{\overline{y}D_{\phi B}\Omega_{B\phi t}\Omega_{B\phi t}^{\prime}}\right)
+\]
 
 \end_inset
 
@@ -2209,8 +2212,18 @@ asdfasfa
 \begin_inset Formula 
 \begin{align*}
  & \overline{\Lambda}^{2}=\Lambda^{2}-m_{\phi}^{2},\quad\Omega_{\Lambda}^{2}=\Lambda^{2}+k_{\perp}^{2},\quad\Omega_{\phi}^{2}=m_{\phi}^{2}+k_{\perp}^{2}\\
- & \Omega_{p\phi}^{2}=2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\Omega_{\phi}^{2},\quad\Omega_{p\Lambda}^{2}=2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\Omega_{\Lambda}^{2}\\
  & D_{\phi B}=\frac{yM_{B}^{2}+k_{\perp}^{2}-2yk_{\perp}p_{\perp}+\left(1-y\right)m_{\phi}^{2}+y\left(y-1\right)M_{N}^{2}+y^{2}p_{\perp}^{2}}{-\overline{y}}
+\end{align*}
+
+\end_inset
+
+以及
+\begin_inset Formula 
+\begin{align*}
+ & \Omega_{B\phi\perp}=2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\left(m_{\phi}^{2}+k_{\perp}^{2}\right)\\
+ & \Omega_{B\Lambda\perp}=2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\left(\Lambda^{2}+k_{\perp}^{2}\right)\\
+ & \Omega_{B\phi\perp}^{\prime}=2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\left(m_{\phi}^{2}+k_{\perp}^{2}\right)+y\zeta^{2}\left(m_{\phi}^{2}-\Lambda^{2}\right)\\
+ & \Omega_{B\Lambda\perp}^{\prime}=2\left(p^{+}\right)^{2}y\left(\zeta y-1\right)-\zeta\left(\Lambda^{2}+k_{\perp}^{2}\right)+y\zeta^{2}\left(\Lambda^{2}-m_{\phi}^{2}\right)
 \end{align*}
 
 \end_inset
@@ -2253,6 +2266,49 @@ asdfasfa
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int\dif k^{-}\frac{1}{D_{\Lambda}\left(k\right)D_{\Lambda}\left(k+q\right)D_{\phi}\left(k\right)D_{\phi}\left(k+q\right)}@\left\{ \Lambda,\phi\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{y^{2}\zeta^{4}}{\left(-2p^{+}\right)\left(\overline{\Lambda}^{2}\right)}\left(\frac{-1}{\overline{y}D_{\Lambda B}\Omega_{B\Lambda t}\Omega_{B\Lambda t}^{\prime}}+\frac{1}{\overline{y}D_{\phi B}\Omega_{B\phi t}\Omega_{B\phi t}^{\prime}}\right)
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $D_{\Lambda B}\to0$
+\end_inset
+
+，
+\begin_inset Formula $D_{\phi B}\to0$
+\end_inset
+
+时
+\begin_inset Formula 
+\[
+\frac{y}{-\overline{y}}\frac{\zeta^{5}y\overline{\zeta y}\left(-\zeta\left(\Omega\Lambda^{2}+\Omega\phi^{2}\right)-4\left(p^{+}\right)^{2}y\overline{\zeta y}\right)}{\left(2p^{+}\right)\Omega_{B\Lambda t}\Omega_{B\Lambda t}^{\prime}\Omega_{B\phi t}\Omega_{B\phi t}^{\prime}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\zeta^{5}y\overline{\zeta y}\left(-\zeta\left(\Omega\Lambda^{2}+\Omega\phi^{2}\right)-4\left(p^{+}\right)^{2}y\overline{\zeta y}\right)}{\left(2p^{+}\right)\Omega_{B\Lambda t}\Omega_{B\Lambda t}^{\prime}\Omega_{B\phi t}\Omega_{B\phi t}^{\prime}}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
