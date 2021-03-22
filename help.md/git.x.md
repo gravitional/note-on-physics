@@ -565,7 +565,7 @@ git push [远程仓库] --delete [branchname]
 
 当创建新分支的时候, 自动设置上游.
 如果`-b` 选项没有给出, 本地分支的名字会从`remote-tracking branch`推导.
-git先查看本地中远程的`refspec`, 然后把前面的初始部分去掉.
+`git`先查看本地中远程的`refspec`, 然后把前面的初始部分去掉.
 也就是说, 如果远程名字是`origin/hack` (or `remotes/origin/hack`, or even `refs/remotes/origin/hack`),
 新的本地分支就叫做`hack`, 如果查询到的名称中没有“slash”(`/`), 或者上面的猜测得到一个空字符串, 那么猜测就会停止,
 你可以用`-b`选项手动指定一个名字.

@@ -166,7 +166,7 @@ Thomas Young
 我们使用的 Lagrangian, 参考这篇文章比较多： 
 \begin_inset CommandInset href
 LatexCommand href
-name "https://arxiv.org/pdf/hep-ph/9212226.pdf"
+name "hep-ph/9212226.pdf"
 target "https://arxiv.org/pdf/hep-ph/9212226.pdf"
 literal "true"
 
@@ -184,11 +184,7 @@ literal "true"
 \begin_inset Formula $v$
 \end_inset
 
-写在场的右下角。
-\end_layout
-
-\begin_layout Standard
-最低阶的包含 octet and decuplet 的拉氏量为
+写在场的右下角。最低阶的包含 octet and decuplet 的拉氏量为
 \begin_inset Formula 
 \begin{align}
 L_{v}^{0} & =i\tr\bar{B}_{v}\left(v\cdot\mathcal{D}\right)B_{v}+2D\tr\bar{B}_{v}S_{v}^{\mu}\left\{ A_{\mu},B_{v}\right\} +2F\tr\bar{B}_{v}S_{v}^{\mu}\left[A_{\mu},B_{v}\right]\nonumber \\
@@ -221,7 +217,7 @@ S_{v}^{\mu}\equiv\frac{i}{2}\gamma_{5}\sigma^{\mu\nu}v_{\nu}=-\frac{1}{2}\gamma_
 \begin_inset Formula 
 \begin{align*}
 \mathcal{N}_{v} & =e^{+imv\cdot x}P_{v+}\Psi,\quad P_{v\pm}\equiv\frac{1}{2}\left(\mathbbm{1}\pm\slashed{v}\right)\\
-\Psi(x) & =e^{-imv\cdot x}\left[\mathcal{N}_{v}(x)+\mathcal{H}_{v}(x)\right]
+\Psi\left(x\right) & =e^{-imv\cdot x}\left[\mathcal{N}_{v}\left(x\right)+\mathcal{H}_{v}\left(x\right)\right]
 \end{align*}
 
 \end_inset
@@ -269,8 +265,8 @@ noprefix "false"
 \begin_inset Formula $\overline{10}\otimes10\otimes8$
 \end_inset
 
-的张量直乘中，只有一项是 SU
-\begin_inset Formula $(3)$
+的张量直乘中，只有一项是 
+\begin_inset Formula $\text{SU}\left(3\right)$
 \end_inset
 
 不变的，可以选择正比于电荷，所以十重态磁矩算符可以写成
@@ -318,7 +314,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-octet-decuplet transition magnetic moment operator 的形式为：
+八重态–十重态转移磁矩的形式为：
 \begin_inset Formula 
 \begin{equation}
 \mathcal{L}=i\frac{e}{2m_{N}}\mu_{T}F_{\mu\nu}\left(\varepsilon^{ijk}Q^{il}\bar{B}_{v}^{jm}S_{v}^{\mu}T_{v}^{\nu,klm}+\varepsilon^{ijk}Q^{li}\bar{T}_{v}^{\mu,klm}S_{v}^{\nu}B_{v}^{mj}\right)\label{eq:15}
@@ -346,8 +342,7 @@ octet-decuplet transition magnetic moment operator 的形式为：
 \end_layout
 
 \begin_layout Standard
-octet-decuplet transition electric quadrupole moment operator 有一个额外偏导数，因此位于
- chiral 展开的更高阶。eq.
+八重态–十重态转移磁矩包含一个额外偏导数，因此位于 chiral 展开的更高阶。eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:15"
@@ -369,11 +364,7 @@ noprefix "false"
 \begin_inset Formula $\mu_{T}=-7.7\pm0.5$
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
-除了 电磁耦合，计算磁矩还需要引入 SU
+。除了电磁耦合，计算磁矩还需要引入 SU
 \begin_inset Formula $(3)$
 \end_inset
 
@@ -1250,9 +1241,9 @@ v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
 此外还有跟反常磁矩相关的拉氏量
 \begin_inset Formula 
 \begin{align*}
-\mathcal{L}^{\text{mag}} & =\frac{1}{4m_{N}}\left(c_{1}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\mathcal{F}_{\mu\nu}\right)\\
- & -\frac{iF_{2}^{T}}{4m_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
- & +\frac{ie}{4m_{N}}c_{4}\left(\varepsilon^{ijk}\bar{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+\mathcal{L}^{\text{mag}} & =\frac{1}{4M_{N}}\left(c_{1}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\mathcal{F}_{\mu\nu}\right)\\
+ & -\frac{iF_{2}^{T}}{4M_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
+ & +\frac{ie}{4M_{N}}c_{4}\left(\varepsilon^{ijk}\bar{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
 \end{align*}
 
 \end_inset
@@ -1261,7 +1252,20 @@ v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
 \begin_inset Formula $\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}$
 \end_inset
 
-是电磁场强张量，
+是电磁场强张量，这里的质量参数就是
+\begin_inset Formula $M_{N}$
+\end_inset
+
+，参考这篇文章： 
+\begin_inset CommandInset href
+LatexCommand href
+name "hep-ph/9212226.pdf"
+target "https://arxiv.org/pdf/hep-ph/9212226.pdf"
+literal "true"
+
+\end_inset
+
+。
 \begin_inset Formula 
 \[
 \mathcal{F}_{\mu\nu}^{u}=-\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}\left(x^{a}\lambda^{a}\right)u+u\left(x^{a}\lambda^{a}\right)u^{\dagger}\right]

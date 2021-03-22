@@ -189,9 +189,9 @@ ColorData["scheme"][par] 或 ColorData["scheme", par]
 ColorData["SiennaTones"]
 ColorData["SiennaTones"][0.7]
 
-## Wolfram 语言脚本
+## Wolframscripts
 
-in total,
+总的来说，
 
 windows: 建立后缀名为`.wl`的文件，然后按正常的方法去写`mma`笔记本，
 运行的时候用`wolframscript.exe`
@@ -216,6 +216,21 @@ wolframscript.exe -print all -file .\test.wl para1 para2
 ```bash
 ./test.wl para1 para2
 ```
+
+经常用到的`mma`系统变量,参考
+
+`guide/SystemInformation` : mma 系统信息
+`guide/WolframSystemSetup`: 更一般的系统设置
+
+`$InputFileName`: 脚本的绝对路径。
+`$Notebooks`：如果是用前端运行的，则为`True`.
+`$BatchInput`: 输入是否来自批处理
+`$BatchOutput`:如果在命令行中输出，则为`True`.
+`$CommandLine`: 唤醒环境变量所使用的命令行，
+`$ProcessID`:进程ID
+`$ParentProcessID`:
+`$Username`: 用户的登陆名
+`Environment["var"]`:操作系统的环境变量，如`Environment["HOME"]`
 
 ### 脚本文件
 

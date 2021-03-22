@@ -1821,269 +1821,8 @@ status open
 光锥收敛项
 \end_layout
 
-\begin_layout Standard
-分裂函数中有一个
-\begin_inset Formula $\int\dif k^{+}\delta\left(y-\frac{k^{+}}{p^{+}}\right)$
-\end_inset
-
-，所以始终认为
-\begin_inset Formula $k^{+}=yp^{+}$
-\end_inset
-
-，
-\begin_inset Formula $\delta\left(k^{+}\right)=\delta\left(y\right)/p^{+}$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-圈积分的被积函数化简后，形式为
-\begin_inset Formula $\frac{1}{D_{\phi}^{n}D_{B}^{m}}$
-\end_inset
-
-(
-\begin_inset Formula $n$
-\end_inset
-
- and 
-\begin_inset Formula $m$
-\end_inset
-
-是自然数)。此类积分可以通过它们的留数求解：
-\begin_inset Formula 
-\begin{align*}
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)} & =\left(-2\pi i\right)\frac{1}{D_{\phi B}p^{+}\overline{y}}\\
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)} & =\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\left(-2\pi i\right)\frac{1}{D_{\phi B}^{2}p^{+}\overline{y}}\\
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)^{2}D_{B}\left(p-k\right)^{2}} & =\frac{\partial}{\partial M_{B}^{2}}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\left(-2\pi i\right)\frac{y}{D_{\phi B}^{2}p^{+}\overline{y}^{2}}
-\end{align*}
-
-\end_inset
-
-一般地，
-\begin_inset Formula 
-\begin{align*}
- & \int\dif^{4}k\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)D_{\Lambda}^{b}\left(k\right)}=\int\dif k_{\perp}^{2}\frac{\left(-\pi i\right)}{\overline{y}}\frac{1}{D_{\phi B}^{a}D_{\Lambda B}^{b}}\\
- & \int\dif^{4}k\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)^{2}D_{\Lambda}^{b}\left(k\right)}=\int\dif k_{\perp}^{2}\frac{y}{\overline{y}}\frac{\left(-\pi i\right)}{\overline{y}}\left(\frac{a}{D_{\phi B}^{a+1}D_{\Lambda B}^{b}}+\frac{b}{D_{\phi B}^{a}D_{\Lambda B}^{b+1}}\right)
-\end{align*}
-
-\end_inset
-
-where
-\begin_inset Formula 
-\[
-2kp=D_{\phi}+m_{\phi}^{2}-D_{B}-\Delta\overline{M}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-D_{\phi B}+m_{\phi}^{2}-\Delta^{2}=\frac{k_{\perp}^{2}+\left(yM+\Delta\right)^{2}}{-\overline{y}}
-\]
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
-两个传播子
-\end_layout
-
-\begin_layout Standard
-以第一个积分为例，演示计算过程，
-\begin_inset Formula 
-\begin{align*}
- & \int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}\\
-= & \int\dif k^{-}\frac{1}{{\color{blue}\left(2k^{+}k^{-}-\Omega_{\phi}+i\varepsilon\right)}{\color{red}\left[2\left(p-k\right)^{+}\left(p-k\right)^{-}-\Omega_{B}+i\varepsilon\right]}}
-\end{align*}
-
-\end_inset
-
-查表可知，
-\begin_inset Formula $D_{\phi}\left(k\right)$
-\end_inset
-
-极点在下半平面，
-\begin_inset Formula $D_{B}\left(p-k\right)$
-\end_inset
-
-极点在上半平面位置，取包围下半平面的环路，使用留数定理，这里直接使用 mma中的 Residue 函数计算，得到积分的结果为，
-\begin_inset Formula 
-\[
-\frac{-\left(-2\pi i\right)}{2p^{+}\left(yM_{B}^{2}+k_{\perp}^{2}-2yk_{\perp}p_{\perp}+\left(1-y\right)m_{\phi}^{2}+y\left(y-1\right)M_{N}^{2}+y^{2}p_{\perp}^{2}\right)}
-\]
-
-\end_inset
-
-如果
-\begin_inset Formula $p_{\perp}=0$
-\end_inset
-
-，可以回到salamu的结果。
-\begin_inset Formula 
-\[
-\frac{\left(2\pi i\right)}{p^{+}}\frac{1}{k_{\perp}^{2}+\left(1-y\right)m_{\phi}^{2}-y\left(1-y\right)M^{2}+yM_{B}^{2}}
-\]
-
-\end_inset
-
-因子
-\begin_inset Formula $2$
-\end_inset
-
-的差别来自于光锥坐标的约定不同。这里使用
-\begin_inset Formula $p^{2}=2p^{+}p^{-}-p_{\perp}^{2}$
-\end_inset
-
-，salamu使用
-\begin_inset Formula $p^{2}=p^{+}p^{-}-p_{\perp}$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
- & \int\dif^{4}k\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)}=\frac{\left(-\pi i\right)}{p^{+}}\frac{1}{\overline{y}}\frac{-\overline{y}}{yM_{B}^{2}+k_{\perp}^{2}-2yk_{\perp}p_{\perp}+\overline{y}m_{\phi}^{2}-y\overline{y}M_{N}^{2}+y^{2}p_{\perp}^{2}}\\
- & =\int\dif k_{\perp}^{2}\frac{\left(-\pi i\right)}{D_{\phi B}p^{+}\overline{y}}
-\end{align*}
-
-\end_inset
-
-where,
-\begin_inset Formula 
-\[
-D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M_{N}^{2}+\overline{y}m_{\phi}^{2}-2yk_{\perp}p_{\perp}+y^{2}p_{\perp}^{2}}{-\overline{y}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-三个传播子
-\end_layout
-
-\begin_layout Standard
-对于三个传播子的情况，
-\begin_inset Formula 
-\[
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)}
-\]
-
-\end_inset
-
-
-\begin_inset Formula $1/D_{\Lambda}\left(k\right)$
-\end_inset
-
- 和 
-\begin_inset Formula $1/D_{\phi}\left(k\right)$
-\end_inset
-
- 的 pole 类似，在同一个半平面。所以使用留数定理时，还要考虑
-\begin_inset Formula $1/D_{\Lambda}\left(k\right)$
-\end_inset
-
-的 pole。不过留数的形式相同，只需要替换
-\begin_inset Formula $m_{\phi}^{2}\to\Lambda^{2}$
-\end_inset
-
-即可。直接使用mma求解得到，积分的结果为
-\begin_inset Formula 
-\[
-\int\dif k^{-}\frac{1}{D_{\phi}\left(k\right)D_{B}\left(p-k\right)D_{\Lambda}\left(k\right)}=\frac{\left(-\pi i\right)}{p^{+}\overline{y}}\frac{1}{D_{\phi B}D_{\Lambda B}}
-\]
-
-\end_inset
-
-where,
-\begin_inset Formula 
-\begin{align*}
- & D_{\phi B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M_{N}^{2}+\overline{y}m_{\phi}^{2}-2yk_{\perp}p_{\perp}+y^{2}p_{\perp}^{2}}{-\overline{y}}\\
- & D_{\Lambda B}=\frac{k_{\perp}^{2}+yM_{B}^{2}-y\overline{y}M_{N}^{2}+\overline{y}\Lambda^{2}-2yk_{\perp}p_{\perp}+y^{2}p_{\perp}^{2}}{-\overline{y}}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-高幂次传播子的公式可以通过对
-\begin_inset Formula $\frac{1}{D_{\phi}\left(k\right)}$
-\end_inset
-
-或者
-\begin_inset Formula $\frac{1}{D_{B}\left(p-k\right)}$
-\end_inset
-
-中的
-\begin_inset Formula $m_{\phi}^{2}$
-\end_inset
-
- or 
-\begin_inset Formula $M_{B}^{2}$
-\end_inset
-
-求导得到，对应的，在右边对
-\begin_inset Formula $D_{\phi B}$
-\end_inset
-
-求偏导。
-\begin_inset Formula 
-\[
-\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi}\left(k\right)}=\frac{1}{D_{\phi}\left(k\right)^{2}},\quad\frac{\partial}{\partial M_{B}^{2}}\frac{1}{D_{B}\left(p-k\right)}=\frac{1}{D_{B}\left(p-k\right)^{2}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\frac{\partial}{\partial m_{\phi}^{2}}\frac{1}{D_{\phi B}}=\frac{1}{D_{\phi B}^{2}},\quad\frac{\partial}{\partial M_{B}^{2}}\frac{1}{D_{\phi B}}=\frac{y}{\overline{y}}\frac{1}{D_{\phi B}^{2}}
-\]
-
-\end_inset
-
-包含
-\begin_inset Formula $D_{B}\left(p-k\right)$
-\end_inset
-
-高次方项的会复杂一些，因为右手边
-\begin_inset Formula $D_{\phi B},D_{\Lambda B}$
-\end_inset
-
-都包含
-\begin_inset Formula $M_{B}^{2}$
-\end_inset
-
-，同时，
-\begin_inset Formula $M_{B}^{2}$
-\end_inset
-
- 前的系数是
-\begin_inset Formula $y$
-\end_inset
-
-。例如
-\begin_inset Formula 
-\[
-\int\dif^{4}k\frac{\delta\left(y-\frac{k^{+}}{p^{+}}\right)}{D_{\phi}\left(k\right)^{a}D_{B}\left(p-k\right)^{2}D_{\Lambda}^{b}\left(k\right)}=\int\dif k_{\perp}^{2}\frac{y}{\overline{y}}\frac{\left(-\pi i\right)}{\overline{y}}\left(\frac{a}{D_{\phi B}^{a+1}D_{\Lambda B}^{b}}+\frac{b}{D_{\phi B}^{a}D_{\Lambda B}^{b+1}}\right)
-\]
-
-\end_inset
-
-更高次幂的结果可以递推得到。
-\end_layout
-
-\begin_layout Subsection
-asdfasfa
+分析
 \end_layout
 
 \begin_layout Standard
@@ -2186,6 +1925,23 @@ asdfasfa
 \end_inset
 
 的项即可。
+\end_layout
+
+\begin_layout Standard
+首先把分子上的动量标量积换成传播子的线性组合，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & 2kp=-\left(p-k\right)^{2}+M_{N}^{2}+k^{2}=D_{\phi}\left(k\right)-D_{B}\left(p-k\right)+m_{\phi}^{2}-M_{B}^{2}+M_{N}^{2}\\
+ & 2kp^{\prime}=-\left(p^{\prime}-k\right)^{2}+M_{N}^{2}+k^{2}=D_{\phi}\left(k\right)-D_{B}\left(p^{\prime}-k\right)+m_{\phi}^{2}-M_{B}^{2}+M_{N}^{2}\\
+ & 2kq=\left(k+q\right)^{2}-k^{2}+Q^{2}=D_{\phi}\left(k+q\right)-D_{\phi}\left(k\right)+Q^{2}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
