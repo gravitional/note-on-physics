@@ -3,7 +3,7 @@
 ## 常用概念
 
 ***
-`前段令牌` guide/FrontEndTokens :
+`前端令牌`--`guide/FrontEndTokens` :
 Wolfram语言允许通过发送适当的前端令牌，从内核以脚本的方式执行任何前端命令。如`保存`,`打开`文件等等。 
 除了所有标准菜单命令，还包括默认前端菜单配置无法直接访问的`tokens`。
 
@@ -26,13 +26,15 @@ Wolfram 语言中模块的基本工作方式非常简单.
 
 `__ BlankSequence[]`, 一个或多个表达式序列
 
+`f[x_, x_]` 表示函数中两个相同的自变量，`f[x_,y_]`表示函数中任意两个变量，可以相同，也可以不同。
+
 ```mathematica
 s : _ | __ // FullForm
 Pattern[s,Alternatives[Blank[],BlankSequence[]]]
 ```
 
 头部也可以是表达式，
-所以`_ Blank[]`可以指带`f[a,b,c...][x,y,z...]`
+所以`_`也就是`Blank[]`可以指带`f[a,b,c...][x,y,z...]`
 
 ```mathematica
 MatchQ[f[a,b,c][x,y,z],x_]
@@ -893,6 +895,7 @@ f[g[args],...]^:=rhs    定义 g 的上值
 + 自动选择绘图范围：
 + 排除非实数的函数范围：
 + 函数中存在断点时断开曲线：
++ `plot`有`HoldAll`属性，一般是先代入具体的值，再计算`f(x)`，为了强迫先计算`f(x)`再代入具体的坐标，可以使用`Evaluate[f(x)]`
 
 其他特性还有
 
