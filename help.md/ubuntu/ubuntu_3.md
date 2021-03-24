@@ -488,9 +488,7 @@ if [ 1 ]; then fi
 
 ## Linux技巧
 
-[应该知道的Linux技巧][]
-
-[应该知道的Linux技巧]: https://coolshell.cn/articles/8883.html
+[应该知道的Linux技巧](https://coolshell.cn/articles/8883.html)
 
 ### 基础
 
@@ -611,7 +609,70 @@ cat a b b | sort | uniq -u > c   # c is set difference a - b 差集
 + 如果你调试某个东西为什么出错时,`sar`命令会有用.它可以让你看看 CPU, 内存, 网络, 等的统计信息.
 + 使用 `dmesg` 来查看一些硬件或驱动程序的信息或问题.
 
-## transmission 屏蔽Ipv4
+### Ubuntu死机解决方法
+
+[https://www.jianshu.com/p/36fb9eed82a3](https://www.jianshu.com/p/36fb9eed82a3)
+
+***
+进入`TTY`终端. `Ctrl+Alt+F1`进入`TTY1`终端字符界面, 输入用户名和密码以登录,也可能是`Ctrl+Alt+F2`,`Ctrl+Alt+F3`等等，不同系统可能有点点区别。
+输入`top`命令, 找到可能造成假死的进程, 用`kill`命令结束掉进程。然后`Ctrl+Alt+F7`回到桌面
+
+***
+直接注销用户: `Ctrl+Alt+F1`进入`TTY1`终端字符界面, 输入用户名和密码以登录。然后执行以下的任意一个命令注销桌面重新登录。
+
+```bash
+sudo pkill Xorg
+# 或者
+sudo restart lightdm
+```
+
+***
+底层方法: 如果上面两种方法不成功, 那有可能是比较底层的软件出现问题。可以试试 :**reisub 方法**。
+
+说具体一点, 是一种系统请求, 直接交给内核处理。键盘上一般都有一个键`SysRq`, 和`PrtSc`(PrintScreen,截屏)在一个键位上，这就是系统请求的键。
+这个方法可以在死机的情况下安全地重启计算机, 数据不会丢失。
+
+其实 `SysRq`是一种叫做系统请求的东西, 按住`Alt-PrtSc` 的时候就相当于按住了`SysRq`键，这个时候输入的一切都会直接由 `Linux` 内核来处理，它可以进行许多低级操作。
+这个时候 `reisub` 中的每一个字母都是一个独立操作，分别表示：
+
++ `r` : `unRaw` 将键盘控制从 `X Server` 那里抢回来
++ `e` : `tErminate` 给所有进程发送 `SIGTERM` 信号，让它们自己解决善后
++ `i` : `kIll` 给所有进程发送 `SIGKILL` 信号，强制他们马上关闭
++ `s` : `Sync` 将所有数据同步至磁盘
++ `u` : `Unmount` 将所有分区挂载为只读模式
++ `b` : `reBoot` 重启
+
+如果某一天你的 Linux 死机了，键盘不听使唤了，`Ctrl+Alt+F1` 已经没有任何反应，该怎么办呢？
+使用'魔法键'：`Alt+SysRq + r,e,i,s,u,b`（确实很好背，就是单词 `busier`的倒写）。
+
+首先，你的系统要支持这个功能，接下来就是操作：同时按下`<Alt>+<SysRq>`不行，只会蹦出来一个屏幕截图窗口。所以，真正的做法应该是：
+
++ 伸出你的左手，同时按住`<Ctrl>+<Alt>`键，下面几步时，一直不松开
++ 右手先按一下`<SysRq>`or`PrcSc`，左手别松开，等`1`秒,
++ 右手按一下`R`, 左手别松开, 等`1`秒,
++ 右手按一下`E`, 左手别松开. 这时包括桌面在内，所有程序都会终止，你会看到一个黑乎乎的屏幕，稍微等一段时间
++ 右手依次按下`I`,`S`,`U`,`B`,左手别松开. 每按一次都等那么几秒种，你会发现每按一次，屏幕上信息都会有所变化。
+最后按下`B`时，屏幕显示`reset`，这时你的左手可以松开了，等几秒钟，计算机就会安全重启。
+
+***
+[Linux中的SysRq魔术键](https://blog.csdn.net/jasonchen_gbd/article/details/79080576). 幸运的是：Ubuntu 默认已经开启了这个功能。
+
+首先要确保内核打开了`CONFIG_MAGIC_SYSRQ`配置项，这样`SysRq`的底层处理才可用。另外内核中有一个宏定义`SYSRQ_DEFAULT_ENABLE`，表示系统默认情况下是否启用`SysRq`功能键。
+当然，不管这个值是不是`yes`，你都可以通过`proc`文件系统来开启或关闭`SysRq`键：
+
+```bash
+# 查看当前SysRq是否被开启（0表示关闭）：
+cat /proc/sys/kernel/sysrq
+# 开启SysRq：
+echo 1 > /proc/sys/kernel/sysrq
+# 也可以使用sysctl命令
+sysctl -w kernel.sysrq=1
+```
+
+实际上`sysctl`这条命令就是通过修改`/proc/sys/kernel/sysrq`来生效的。可以把`kernel.sysrq=1`设置到`/etc/sysctl.conf`中，使`SysRq`在下次系统重启仍生效。
+上面说`0`表示完全关闭`SysRq`，`1`表示使能`SysRq`的所有功能，还可以设置成其他数字来选择开启部分功能，可参考内核里的`Documentation/sysrq.txt`。 
+
+### transmission 屏蔽Ipv4
 
 `cd ~/.config/transmission/blocklists`
 
