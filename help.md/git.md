@@ -1038,11 +1038,8 @@ git remote prune origin
 
 ## git 删除历史中的大文件
 
-[仓库体积过大，如何减小？ ][]
-[Git清理删除历史提交文件][]
-
-[仓库体积过大，如何减小？ ]: https://gitee.com/help/articles/4232#article-header2
-[Git清理删除历史提交文件]:https://www.jianshu.com/p/7ace3767986a
+[仓库体积过大，如何减小？ ](https://gitee.com/help/articles/4232#article-header2)
+[Git清理删除历史提交文件](https://www.jianshu.com/p/7ace3767986a)
 
 常见的Git清理方式有两种，一种是使用`BFG`工具，
 另外一种是使用`git filter-branch`手动处理。
@@ -1079,7 +1076,7 @@ git rev-list --objects --all | grep -E "$(git verify-pack -v .git/objects/pack/*
 git filter-branch --force --index-filter "git rm -rf --cached --ignore-unmatch <filename>" --prune-empty --tag-name-filter cat -- --all
 ```
 
-+ `filter-branch` 命令通过一个`filter`来重写历史提交，这个`filter`针对指定的所有分支(rev-list)运行。
++ `filter-branch` 命令通过一个`filter`来重写历史提交，这个`filter`针对指定的所有分支(`rev-list`)运行。
 + `--index-filter`：过滤Git仓库的`index`，该过滤命令作用于`git rm -rf --cached --ignore-unmatch  <filename>`。不`checkout`到`working directory`，只修改`index`的文件，速度快。
 + `--cached`会删除`index`中的文件
 + `--ignore-unmatch`：如果没匹配到文件，不会报错，会继续执行命令
@@ -1094,8 +1091,7 @@ git filter-branch --force --index-filter "git rm -rf --cached --ignore-unmatch <
 
 ### 删除缓存
 
-你的历史中将不再包含对那个文件的引用。 
-不过，你的引用日志和你在 `.git/refs/original` 通过 `filter-branch` 选项添加的新引用中还存有对这个文件的引用，
+你的历史中将不再包含对那个文件的引用。 不过，你的引用日志和你在 `.git/refs/original` 通过 `filter-branch` 选项添加的新引用中还存有对这个文件的引用，
 所以你必须移除它们然后重新打包数据库。 在重新打包前需要移除任何包含指向那些旧提交的指针的文件：
 
 移除本地仓库中指向旧提交的剩余`refs`，`git for-each-ref` 会打印仓库中匹配`refs/original`的所有`refs`，并使用`delete`作为前缀，此命令通过管道传送到 `git update-ref` 命令，该命令会移除所有指向旧`commit`的引用。

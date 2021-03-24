@@ -781,14 +781,14 @@ status open
 
 \begin_layout Standard
 非对称参数化
-\begin_inset Formula $\left(X,\zeta\right)$
+\begin_inset Formula $\left(y,\zeta\right)$
 \end_inset
 
 为，
 \begin_inset Formula 
 \begin{align*}
  & p=\left(\frac{Q}{\sqrt{2}\zeta},\frac{\left(1-\zeta\right)}{\sqrt{2}\zeta}Q,p_{\perp}\right),\quad p^{\prime}=\left(\frac{\left(1-\zeta\right)}{\sqrt{2}\zeta}Q,\frac{Q}{\sqrt{2}\zeta},p_{\perp}\right),\\
- & k^{+}=Xp^{+}=\frac{X}{\sqrt{2}\zeta}Q,\quad\left(k+q\right)^{+}=\frac{\left(X-\zeta\right)}{\sqrt{2}\zeta}Q\\
+ & k^{+}=yp^{+}=\frac{y}{\sqrt{2}\zeta}Q,\quad\left(k+q\right)^{+}=\frac{\left(y-\zeta\right)}{\sqrt{2}\zeta}Q\\
  & \Delta=\left(-\frac{Q}{\sqrt{2}},\frac{Q}{\sqrt{2}},0\right)=\left(-\zeta p^{+},\zeta p^{+}\right)
 \end{align*}
 
@@ -808,15 +808,26 @@ status open
 
 \begin_inset Formula 
 \begin{align*}
- & k^{2}-m_{\phi}^{2}+i\varepsilon=2k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}=k^{-}\frac{\sqrt{2}X}{\zeta}Q+\cdots\\
- & \left(k+q\right)^{2}-m_{\phi}^{2}+i\varepsilon=2k^{-}\left(k^{+}+q^{+}\right)+2k^{+}q^{-}-k_{\perp}^{2}-Q^{2}-m_{\phi}^{2}=k^{-}\frac{\sqrt{2}\left(X-\zeta\right)}{\zeta}Q-\cdots\\
- & \left(p-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}\left(k^{+}-p^{+}\right)+2k_{\perp}p_{\perp}-k_{\perp}^{2}-2k^{+}p^{-}+M_{N}^{2}-M_{B}^{2}=k^{-}\frac{\sqrt{2}\left(X-1\right)}{\zeta}Q-\cdots\\
- & \left(p^{\prime}-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}\left(k^{+}-p^{\prime+}\right)+2k_{\perp}p_{\perp}^{\prime}-k_{\perp}^{2}-2k^{+}p^{\prime-}+M_{N}^{2}-M_{B}^{2}=k^{-}\frac{\sqrt{2}\left(X+\zeta-1\right)}{\zeta}Q-\cdots
+ & k^{2}-m_{\phi}^{2}+i\varepsilon=2k^{+}k^{-}-k_{\perp}^{2}-m_{\phi}^{2}=k^{-}\frac{\sqrt{2}y}{\zeta}Q+\cdots,\\
+ & \left(k+q\right)^{2}-m_{\phi}^{2}+i\varepsilon=2k^{-}\left(k^{+}+q^{+}\right)+2k^{+}q^{-}-k_{\perp}^{2}-Q^{2}-m_{\phi}^{2}=k^{-}\frac{\sqrt{2}\left(y-\zeta\right)}{\zeta}Q-\cdots,\\
+ & \left(k-q\right)^{2}-m_{\phi}^{2}+i\varepsilon=2k^{-}\left(k^{+}-q^{+}\right)-2k^{+}q^{-}-k_{\perp}^{2}-Q^{2}-m_{\phi}^{2}=k^{-}\frac{\sqrt{2}\left(y+\zeta\right)}{\zeta}Q-\cdots,\\
+ & \left(p-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}\left(k^{+}-p^{+}\right)+2k_{\perp}p_{\perp}-k_{\perp}^{2}-2k^{+}p^{-}+M_{N}^{2}-M_{B}^{2}=k^{-}\frac{\sqrt{2}\left(y-1\right)}{\zeta}Q-\cdots,\\
+ & \left(p^{\prime}-k\right)^{2}-M_{B}^{2}+i\varepsilon=2k^{-}\left(k^{+}-p^{\prime+}\right)+2k_{\perp}p_{\perp}^{\prime}-k_{\perp}^{2}-2k^{+}p^{\prime-}+M_{N}^{2}-M_{B}^{2}=k^{-}\frac{\sqrt{2}\left(y+\zeta-1\right)}{\zeta}Q-\cdots.
 \end{align*}
 
 \end_inset
 
 
+\size default
+
+\begin_inset Formula $k^{2}-\Lambda^{2}+i\varepsilon$
+\end_inset
+
+与
+\begin_inset Formula $k^{2}-m_{\phi}^{2}+i\varepsilon$
+\end_inset
+
+类似。
 \end_layout
 
 \begin_layout Standard
@@ -846,10 +857,10 @@ status open
 的大小关系，一共四种情况，
 \begin_inset Formula 
 \begin{align*}
-\left(1,1\right) &  & 0<X<\zeta,0<X<1-\zeta & \Rightarrow\left(0<\zeta<\frac{1}{2}\land0<X<\zeta\right)\lor\left(\frac{1}{2}<\zeta<1\land0<X<1-\zeta\right)\\
-\left(1,2\right) &  & 0<X<\zeta,1-\zeta<X<1 & \Rightarrow\frac{1}{2}<\zeta<1\land1-\zeta<X<\zeta\\
-\left(2,1\right) &  & \zeta<X<1,0<X<1-\zeta & \Rightarrow0<\zeta<\frac{1}{2}\land\zeta<X<1-\zeta\\
-\left(2,2\right) &  & \zeta<X<1,1-\zeta<X<1 & \Rightarrow\left(0<\zeta\leq\frac{1}{2}\land1-\zeta<X<1\right)\lor\left(\frac{1}{2}<\zeta<1\land\zeta<X<1\right)
+\left(1,1\right) &  & 0<y<\zeta,0<y<1-\zeta & \Rightarrow\left(0<\zeta<\frac{1}{2}\land0<y<\zeta\right)\lor\left(\frac{1}{2}<\zeta<1\land0<y<1-\zeta\right)\\
+\left(1,2\right) &  & 0<y<\zeta,1-\zeta<y<1 & \Rightarrow\frac{1}{2}<\zeta<1\land1-\zeta<y<\zeta\\
+\left(2,1\right) &  & \zeta<y<1,0<y<1-\zeta & \Rightarrow0<\zeta<\frac{1}{2}\land\zeta<y<1-\zeta\\
+\left(2,2\right) &  & \zeta<y<1,1-\zeta<y<1 & \Rightarrow\left(0<\zeta\leq\frac{1}{2}\land1-\zeta<y<1\right)\lor\left(\frac{1}{2}<\zeta<1\land\zeta<y<1\right)
 \end{align*}
 
 \end_inset
@@ -858,14 +869,14 @@ status open
 \begin_inset Formula 
 \begin{align*}
  & 0<\zeta<\frac{1}{2},\begin{cases}
-0<X<\zeta & \left(1,1\right)\\
-\zeta<X<1-\zeta & \left(2,1\right)\\
-1-\zeta<X<1 & \left(2,2\right)
+0<y<\zeta & \left(1,1\right)\\
+\zeta<y<1-\zeta & \left(2,1\right)\\
+1-\zeta<y<1 & \left(2,2\right)
 \end{cases}\\
  & \frac{1}{2}<\zeta<1,\begin{cases}
-0<X<1-\zeta & \left(1,1\right)\\
-1-\zeta<X<\zeta & \left(1,2\right)\\
-\zeta<X<1 & \left(2,2\right)
+0<y<1-\zeta & \left(1,1\right)\\
+1-\zeta<y<\zeta & \left(1,2\right)\\
+\zeta<y<1 & \left(2,2\right)
 \end{cases}
 \end{align*}
 
@@ -879,9 +890,12 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="7">
+<lyxtabular version="3" rows="10" columns="8">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -903,6 +917,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 传播子
 \end_layout
 
@@ -913,6 +929,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $k^{2}-m_{\phi}^{2}$
 \end_inset
@@ -927,6 +944,22 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $\left(k-q\right)^{2}-m_{\phi}^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color blue
 \begin_inset Formula $\left(p-k\right)^{2}-M_{B}^{2}$
 \end_inset
@@ -941,6 +974,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $\left(k+q\right)^{2}-m_{\phi}^{2}$
 \end_inset
@@ -955,6 +989,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color brown
 \begin_inset Formula $\left(p^{\prime}-k\right)^{2}-M_{B}^{2}$
 \end_inset
@@ -988,6 +1023,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 系数
 \end_layout
 
@@ -998,8 +1035,9 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
-\begin_inset Formula $k^{-}\frac{\sqrt{2}X}{\zeta}Q$
+\begin_inset Formula $k^{-}\frac{\sqrt{2}y}{\zeta}Q$
 \end_inset
 
 
@@ -1012,8 +1050,9 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
-\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(X-1\right)}{\zeta}Q$
+\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(y+\zeta\right)}{\zeta}Q$
 \end_inset
 
 
@@ -1026,8 +1065,9 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
-\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(X-\zeta\right)}{\zeta}Q$
+\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(y-1\right)}{\zeta}Q$
 \end_inset
 
 
@@ -1040,8 +1080,24 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(y-\zeta\right)}{\zeta}Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color brown
-\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(X+\zeta-1\right)}{\zeta}Q$
+\begin_inset Formula $k^{-}\frac{\sqrt{2}\left(y+\zeta-1\right)}{\zeta}Q$
 \end_inset
 
 
@@ -1073,6 +1129,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 区间
 \end_layout
 
@@ -1083,6 +1141,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $\left(0,1\right)$
 \end_inset
@@ -1097,6 +1156,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $\left(0,1\right)$
 \end_inset
@@ -1111,6 +1171,22 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $\left(0,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color blue
 \begin_inset Formula $\left(0,\zeta,1\right)$
 \end_inset
@@ -1125,6 +1201,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color brown
 \begin_inset Formula $\left(0,1-\zeta,1\right)$
 \end_inset
@@ -1158,6 +1235,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 符号
 \end_layout
 
@@ -1168,6 +1247,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $\left(+\right)$
 \end_inset
@@ -1182,6 +1262,22 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $\left(+\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color blue
 \begin_inset Formula $\left(-\right)$
 \end_inset
@@ -1196,6 +1292,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $\left(-,+\right)$
 \end_inset
@@ -1210,6 +1307,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color brown
 \begin_inset Formula $\left(-,+\right)$
 \end_inset
@@ -1234,6 +1332,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $0<\zeta<\frac{1}{2}$
 \end_inset
 
@@ -1246,7 +1346,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $0<X<\zeta$
+
+\size footnotesize
+\begin_inset Formula $0<y<\zeta$
 \end_inset
 
 
@@ -1259,6 +1361,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $+$
 \end_inset
@@ -1273,6 +1376,22 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color blue
 \begin_inset Formula $-$
 \end_inset
@@ -1287,6 +1406,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $-$
 \end_inset
@@ -1301,6 +1421,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color brown
 \begin_inset Formula $-$
 \end_inset
@@ -1314,6 +1435,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\left(1,1\right)$
 \end_inset
 
@@ -1337,7 +1460,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\zeta<X<1-\zeta$
+
+\size footnotesize
+\begin_inset Formula $\zeta<y<1-\zeta$
 \end_inset
 
 
@@ -1350,6 +1475,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $+$
 \end_inset
@@ -1364,6 +1490,22 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color blue
 \begin_inset Formula $-$
 \end_inset
@@ -1378,6 +1520,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $+$
 \end_inset
@@ -1392,6 +1535,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color brown
 \begin_inset Formula $-$
 \end_inset
@@ -1405,6 +1549,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\left(2,1\right)$
 \end_inset
 
@@ -1428,7 +1574,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $1-\zeta<X<1$
+
+\size footnotesize
+\begin_inset Formula $1-\zeta<y<1$
 \end_inset
 
 
@@ -1441,6 +1589,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $+$
 \end_inset
@@ -1455,6 +1604,22 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color blue
 \begin_inset Formula $-$
 \end_inset
@@ -1469,6 +1634,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $+$
 \end_inset
@@ -1483,6 +1649,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color brown
 \begin_inset Formula $+$
 \end_inset
@@ -1496,6 +1663,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\left(2,2\right)$
 \end_inset
 
@@ -1510,6 +1679,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\frac{1}{2}<\zeta<1$
 \end_inset
 
@@ -1522,7 +1693,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $0<X<1-\zeta$
+
+\size footnotesize
+\begin_inset Formula $0<y<1-\zeta$
 \end_inset
 
 
@@ -1535,6 +1708,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $+$
 \end_inset
@@ -1549,6 +1723,22 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color blue
 \begin_inset Formula $-$
 \end_inset
@@ -1563,6 +1753,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $-$
 \end_inset
@@ -1577,6 +1768,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color brown
 \begin_inset Formula $-$
 \end_inset
@@ -1590,6 +1782,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\left(1,1\right)$
 \end_inset
 
@@ -1613,7 +1807,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $1-\zeta<X<\zeta$
+
+\size footnotesize
+\begin_inset Formula $1-\zeta<y<\zeta$
 \end_inset
 
 
@@ -1626,6 +1822,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $+$
 \end_inset
@@ -1640,6 +1837,22 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color blue
 \begin_inset Formula $-$
 \end_inset
@@ -1654,6 +1867,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $-$
 \end_inset
@@ -1668,6 +1882,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color brown
 \begin_inset Formula $+$
 \end_inset
@@ -1681,6 +1896,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\left(1,2\right)$
 \end_inset
 
@@ -1704,7 +1921,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\zeta<X<1$
+
+\size footnotesize
+\begin_inset Formula $\zeta<y<1$
 \end_inset
 
 
@@ -1717,6 +1936,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $+$
 \end_inset
@@ -1731,6 +1951,22 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
+\color blue
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 \color blue
 \begin_inset Formula $-$
 \end_inset
@@ -1745,6 +1981,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color blue
 \begin_inset Formula $+$
 \end_inset
@@ -1759,6 +1996,7 @@ status open
 
 \begin_layout Plain Layout
 
+\size footnotesize
 \color brown
 \begin_inset Formula $+$
 \end_inset
@@ -1772,6 +2010,8 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\left(2,2\right)$
 \end_inset
 
@@ -1793,7 +2033,7 @@ status open
 
 \begin_layout Plain Layout
 在参数
-\begin_inset Formula $\left(X,\zeta\right)$
+\begin_inset Formula $\left(y,\zeta\right)$
 \end_inset
 
 的区间中，传播子中
@@ -1968,11 +2208,60 @@ status open
 
 \end_inset
 
-另一种表示，
+考虑到我们加入了正规子
+\begin_inset Formula $D_{\Lambda}$
+\end_inset
+
+，并且
+\begin_inset Formula $D_{\Lambda}$
+\end_inset
+
+一般次数比较高，所以优先去和
+\begin_inset Formula $D_{\Lambda}$
+\end_inset
+
+相消。
+\end_layout
+
+\begin_layout Standard
+以
+\begin_inset Formula $D_{\Lambda}\left(k\right),D_{\Lambda}\left(k+q\right),D_{B}\left(p-k\right)$
+\end_inset
+
+为基，
 \begin_inset Formula 
 \begin{align*}
- & 2kp^{\prime}=D_{\phi}\left(k+q\right)+Q^{2}-D_{B}\left(p-k\right)+m_{\phi}^{2}-M_{B}^{2}+M_{N}^{2}\\
- & 2kq=D_{B}\left(p-k\right)-D_{B}\left(p^{\prime}-k\right)
+ & 2kq=D_{\Lambda}\left(k+q\right)-D_{\Lambda}\left(k\right)+Q^{2}\\
+ & 2kp=D_{\Lambda}\left(k\right)-D_{B}\left(p-k\right)+\Lambda^{2}-M_{B}^{2}+M_{N}^{2}\\
+ & 2kp^{\prime}=D_{\Lambda}\left(k+q\right)+Q^{2}-D_{B}\left(p-k\right)+\Lambda^{2}-M_{B}^{2}+M_{N}^{2}
+\end{align*}
+
+\end_inset
+
+以
+\begin_inset Formula $D_{\Lambda}\left(k\right),D_{B}\left(p-k\right),D_{B}\left(p^{\prime}-k\right)$
+\end_inset
+
+为基，
+\begin_inset Formula 
+\begin{align*}
+ & 2kq=D_{B}\left(p-k\right)-D_{B}\left(p^{\prime}-k\right)\\
+ & 2kp=D_{\Lambda}\left(k\right)-D_{B}\left(p-k\right)+\Lambda^{2}-M_{B}^{2}+M_{N}^{2}\\
+ & 2kp^{\prime}=D_{\Lambda}\left(k\right)-D_{B}\left(p^{\prime}-k\right)+\Lambda^{2}-M_{B}^{2}+M_{N}^{2}
+\end{align*}
+
+\end_inset
+
+以
+\begin_inset Formula $D_{\Lambda}\left(k\right),D_{\Lambda}\left(k-q\right),D_{B}\left(p^{\prime}-k\right)$
+\end_inset
+
+为基，
+\begin_inset Formula 
+\begin{align*}
+ & 2kq=D_{\Lambda}\left(k\right)-D_{\Lambda}\left(k-q\right)+Q^{2}\\
+ & 2kp^{\prime}=D_{\Lambda}\left(k\right)-D_{B}\left(p^{\prime}-k\right)+\Lambda^{2}-M_{B}^{2}+M_{N}^{2}\\
+ & 2kp=D_{\Lambda}\left(k-q\right)-Q^{2}-D_{B}\left(p^{\prime}-k\right)+\Lambda^{2}-M_{B}^{2}+M_{N}^{2}
 \end{align*}
 
 \end_inset
