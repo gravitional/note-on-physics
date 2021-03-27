@@ -533,9 +533,9 @@ $ ls /dev
 首先,启动一个实时查看文件`/var/log/messages` (你可能需要超级用户权限):
 
 ```bash
-$ sudo tail -f /var/log/messages
+sudo tail -f /var/log/messages
 # or in ubuantu
-$ sudo tail -f /var/log/kern.log
+sudo tail -f /var/log/kern.log
 ```
 
 这个文件的最后几行会被显示,然后停止.下一步,插入这个可移动的设备.

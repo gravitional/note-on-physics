@@ -1485,6 +1485,66 @@ inode的特殊作用
 `/usr/bin/env`在修改后的环境中运行`bash`之类的程序。 它使您的`bash`脚本具有可移植性。 
 `#!/usr/bin/env bash`的优点是，它将使用运行用户的`$PATH`变量中最先出现的`bash`可执行文件。
 
+### 查看日志
+
+[linux系统日志在哪？](https://www.php.cn/linux-435716.html)
+[linux日志介绍](https://zhuanlan.zhihu.com/p/26428150)
+
+```bash
+sudo tail -f /var/log/messages
+# or in ubuantu
+sudo tail -f /var/log/kern.log
+```
+
+linux日志大多是以明文存储，一般存储在`/var/log`目录中，linux系统中主要有三个日志子系统：连接时间日志，进程统计日志，错误日志。
+
++ `assess-log` 记录和`HTTP/web`的传输
++ `secure` 记录登录系统存取资料的消息
++ `btmp` 记录失败的消息
++ `lastlog` 记录最近几次成功登录的事件和最后一次不成功的登录
++ `messages`：包括整体系统信息，其中也包含系统启动期间的日志。此外，还包括`mail`，`cron`，`daemon`，`kern`和`auth`等内容
++ `sudolog` 记录`sudo`发出的命令
++ `sulog` 记录使用`su`命令的使用
++ `utmp` 记录当前登录的每个用户
++ `wtmp` 一个用户每次登录进入和退出的的永久记录
++ `syslog`：它和`/etc/log/messages`日志文件不同，它只记录警告信息，常常是系统出问题的信息。
++ `xferlog` 记录了FTP会话
++ `user.log`：记录所有等级用户信息的日志。
++ `auth.log`：包含系统授权信息，包括用户登录和使用的权限机制等。
++ `daemon.log`：包含各种系统后台守护进程日志信息。
++ `kern.log`：包含内核产生的日志，有助于在定制内核时解决问题。
+
+连接时间日志是有多个程序执行的，把日志记录到`/var/log/wtmp`, `/var/run/utmp`,`/var/log/lastlog` 三个文件中，这三个文件记录了用户登录系统和退出的有关信息，
+`utmp`保存了当前用户的每个用户的信息，`wtmp`记录了每个用户登录注销和系统的启动，关机的事件，`lastlog`记录了每个用户最后登录的信息记录。
+
+`wtmp`和`utmp`文件都是二进制，不能使用`cat`和`tail`命令查看，但是可以使用`who`, `w`,`users`,`last` 等命令查看着两个文件的信息
+
+***
+`who [参数]`
+
++ `-a` 显示全部信息
++ `-m` 只显示当前终端的登录用户信息
++ `-q` 只显示当前登录到系统中的用户名称和数量，和其他参数共同使用的时候，其他参数将被忽略
+
+***
+`Systemd`统一管理所有 `Unit` 的启动日志。带来的好处就是可以只用`journalctl`一个命令，查看所有日志（内核日志和 应用日志）。
+
+语法格式： `journalctl [参数]`
+
++ `-k`  查看内核日志
++ `-b`  查看系统本次启动的日志
++ `-u`  查看指定服务的日志
++ `-n`  指定日志条数
++ `-f`  追踪日志
++ `--disk-usage`  查看当前日志占用磁盘的空间的总大小
+
+参考实例
+
++ 查看所有日志： `journalctl` 
++ 查看httpd的日志： `journalctl -u httpd`
++ 查看最近发生的20条日志： `journalctl -n 20`
++ 追踪日志： `journalctl -f`
+
 ## bash 快捷键
 
 [Bash 快捷键大全 ](https://linux.cn/article-5660-1.html)

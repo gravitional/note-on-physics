@@ -450,7 +450,9 @@ neofetch | lolcat
 
 ## 维护
 
-### Failed to start Load/Save Screen Backlight Brightness of amdgpu_bl0
+### manjaro 开机红色提示
+
+Failed to start Load/Save Screen Backlight Brightness of amdgpu_bl0
 
 [Load/Save Screen Backlight Brightness](https://www.linux.org/threads/failed-to-start-load-save-screen-backlight-brightness-of-amdgpu_bl1.31998/)
 
@@ -466,7 +468,11 @@ sudo systemctl status systemd-backlight@backlight:amdgpu_bl0
 sudo systemctl start systemd-backlight@backlight:amdgpu_bl0
 ```
 
-关于 `systemd` 可以参考 [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
+关于 `systemd` 可以参考
+[Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
+[systemd](https://wiki.archlinux.org/index.php/Systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+[Kernel parameters ](https://wiki.archlinux.org/index.php/Kernel_parameters)
+
 添加`systemd`开机启动配置, `sudo vim /etc/systemd/system/startup-brightness.service`
 
 ```systemd
@@ -488,3 +494,76 @@ WantedBy=multi-user.target
 
 亮度由`ACPI`内核模块控制，这个模块的接口在以下位置：`/sys/class/backlight`.
 使用`root`用户进入这个文件夹，其中`max_brightness`表示亮度的最大值，笔者的设备显示为`255`, 想要修改亮度的话直接修改`brightness`即可：`echo 255 > brightness`
+
+### manjaro grub 内核参数
+
+***
+[systemd](https://wiki.archlinux.org/index.php/Systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+
+***
+`apparmor=1 security=apparmor`
+[AppArmor](https://wiki.archlinux.org/index.php/AppArmor#Installation)
+
+AppArmor是基于Linux安全模块（Linux Security Modules, LSM）实施的强制性访问控制（Mandatory Access Control,MAC）系统。
+
+***
+[udev](https://wiki.archlinux.org/index.php/Udev_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+`udev` 是 `Linux` 内核的设备管理器。总的来说，它取代了 `devfs` 和 `hotplug`，负责管理 `/dev` 中的设备节点。
+同时，`udev` 也处理所有用户空间发生的硬件添加、删除事件，以及某些特定设备所需的固件加载。
+
+与传统的顺序加载相比，`udev` 通过并行加载内核模块提供了潜在的性能优势。
+异步加载模块的方式也有一个天生的缺点：无法保证每次加载模块的顺序，如果机器具有多个块设备，那么它们的设备节点可能随机变化。例如如果有两个硬盘，`/dev/sda` 可能会随机变成`/dev/sdb`
+
+`Debug output`
+
+要获取硬件调试信息，请使用内核参数`udev.log-priority=debug`。 或者，您可以设置`/etc/udev/udev.conf`
+
+```bash
+udev_log="debug"
+```
+
+***
+[Kernel parameters ](https://wiki.archlinux.org/index.php/Kernel_parameters)
+[Power management/Suspend and hibernate](https://wiki.archlinux.org/index.php/Power_management/Suspend_and_hibernate#Hibernation)
+[Blacklisting](https://wiki.archlinux.org/index.php/Kernel_module#Blacklisting)
+
+`resume=UUID=0f163abf-8e60-4626-a4de-54332c64db51`. `resume`指定从休眠状态唤醒时要使用的`swap`设备。
+
+在升级到内核版本`4.15.3`后，唤醒系统时可能会黑屏，只在黑屏上留下一个静止不动的鼠标指针。 `Blacklisting` 这个模块 `nvidiafb` 可能会有帮助。
+
+***
+方法1：在 `/etc/modprobe.d/` 中创建 `.conf` 文件，使用 `blacklist` 关键字屏蔽不需要的模块，例如如果不想装入 `pcspkr` 模块：
+
+```bash
+vim /etc/modprobe.d/nobeep.conf
+# Do not load the pcspkr module on boot
+blacklist pcspkr
+```
+
+注意： `blacklist` 命令将屏蔽一个模板，所以不会自动装入，但是如果其它非屏蔽模块需要这个模块，系统依然会装入它。要避免这个行为，可以让 `modprobe` 使用自定义的 `install` 命令，而不是像往常一样将模块插入内核，因此您可以通过以下方式强制模块始终无法加载：
+
+```bash
+/etc/modprobe.d/blacklist.conf
+...
+install MODULE /bin/true
+...
+```
+
+****
+方法2：从引导加载程序,例如`grub`，将模块列入黑名单。
+如`Kernel parameters`中所述，只需将`module_blacklist=modname1,modname2,modname3` 添加到引导加载程序的内核行中即可。
+注意： 将多个模块列入黑名单时，请注意，它们之间仅用逗号分隔。 空格或其他内容可能会破坏语法。
+
+[Kernel parameters](https://wiki.archlinux.org/index.php/Kernel_parameters)
+对于初学者，建议编辑 `/etc/default/grub` 并将您的内核选项添加至 `GRUB_CMDLINE_LINUX_DEFAULT` 行：
+
+```bash
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX_DEFAULT="module_blacklist=nvidiafb"
+```
+
+然后重新生成 `grub.cfg` 文件：
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```

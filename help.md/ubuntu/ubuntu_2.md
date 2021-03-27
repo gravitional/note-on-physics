@@ -931,56 +931,41 @@ export PATH=$PAHT:<PATH 1>:<PATH 2>:<PATH 3>:--------:< PATH n >
 
 ## shell脚本中的符号
 
-[shell脚本中一些特殊符号][]
-
-[shell脚本中一些特殊符号]: https://www.cnblogs.com/xuxm2007/archive/2011/10/20/2218846.html
+[shell脚本中一些特殊符号](https://www.cnblogs.com/xuxm2007/archive/2011/10/20/2218846.html)
 
 ## 开机报错
 
-[System program problem detected?][]
+[System program problem detected?](https://askubuntu.com/questions/1160113/system-program-problem-detected)
 
-[System program problem detected?]: https://askubuntu.com/questions/1160113/system-program-problem-detected
+查看转储到您的磁盘上的崩溃报告。目录是`/var/crash/`，它将包含几个文件，这些文件将您指向它所涉及的软件包以及崩溃的原因。
 
-### What causes this
+该目录描述为：
 
-See the crash report that is dumped on your disk.
-The directory you want is `/var/crash/` and it will contain several files pointing you to the package it is about and what the crash is.
+>`/var/crash`：系统崩溃转储（可选）
+>该目录包含系统故障转储。
+>自本标准发布之日起，Linux不支持系统故障转储，但其他可能符合FHS的系统也可能支持系统转储。
 
-This directory is described as:
+Ubuntu版本使用此（可选）目录来转储崩溃和执行崩溃的软件包，称为`apport` (and `whoopsie`)。该链接有详细的描述，也有描述崩溃报告数据格式的PDF。
+如果您想获得关于崩溃的真正详细的报告，请安装`GDB`：`The GNU Project Debugger` with `sudo apt-get install gdb`。
 
->`/var/crash` : System crash dumps (optional)
->This directory holds system crash dumps.
->As of the date of this release of the standard, system crash dumps were not supported under Linux but may be supported by other systems which may comply with the FHS.
+***
+如何摆脱它
 
-Ubuntu releases use this (optional) directory to dump crashes and the package that does that is called `apport` (and `whoopsie`).
-The link has a detailed description and also has a PDF that describes the crash report data format.
+取决于您所说的`摆脱`。理想的解决方法是检查报告中包含的内容，然后尝试找到解决方法。
+如果不需要包装或良性包装，也可以将其清除。多数情况下，它是一项核心功能。
 
-If you want really detailed reports on a crash install `GDB`: `The GNU Project Debugger` with `sudo apt-get install gdb`.
+您可以选择以下任意一种来删除崩溃报告，直到实际删除该软件包为止（如果错误来自于`apport`本身，那将非常具有讽刺意味）：
 
-### How to get rid of it
++ `sudo rm /var/crash/*`将删除旧的崩溃并停止通知您，直到某些软件包再次崩溃为止。
++ 您可以通过`sudo systemctl disable apport`停止服务（并通过`sudo systemctl enable apport`再次启用它）
++ 如果不想看到崩溃报告，可以通过`vim /etc/default/apport`将其禁用。并将`enabled = 1`更改为` enabled = 0`。反向编辑将再次启用它。
++ 您可以使用`sudo apt purge apport`（使用`sudo apt install apport`再次安装）
++还有一种桌面方法(`问题报告`选项)：
 
-Depends on what you call "get rid". The ideal fix would be to check what is inside the reports, and try and find a fix for it.
-If the package it is about is unneeded or benign you could also purge it. Most times it is a core functionality though.
+[如何阅读和使用崩溃报告]（https://askubuntu.com/questions/346953/how-to-read-and-use-crash-reports）有一些有趣的答案。
+它有一个示例崩溃报告和一种跟踪崩溃的方法。
 
-If you can not understand those crash reports most times you can google the error notice (there will always be one in there). Or drop a message in chat.
-Generally crashes are off topic on AU as those are bugs and would need to be reported (through this service ;) ).
-
-You can pick any of these to remove the crash report up to actually removing the package (would be rather ironic if the error comes from apport itself):
-
-+ `sudo rm /var/crash/*` will delete old crashes and stop informing you about them until some package crashes again.
-+ You can stop the service with `sudo systemctl` disable apport (and enable it again with `sudo systemctl enable apport`)
-+ If you do not want to see crash reports you can disable it by doing sudo `vim /etc/default/apport`
-and changing `enabled=1` to `enabled=0`. (or `sudo nano /etc/default/apport`).
-Editing it in reverse will enable it again.
-+ You can delete the service with `sudo apt purge apport` (and install it again with `sudo apt install apport`)
-+ And there is also a desktop method (option "problem reporting":
-
-[how to read and use crash reports?][] has some interesting answers.
-It has an example crash report and a method to retrace crashes.
-
-[how to read and use crash reports?]: https://askubuntu.com/questions/346953/how-to-read-and-use-crash-reports
-
-## linux 开机引导 grub2
+## linux grub
 
 [grub2详解(翻译和整理官方手册)](https://www.cnblogs.com/f-ck-need-u/archive/2017/06/29/7094693.html#auto_id_37)
 [官方手册原文](https://www.gnu.org/software/grub/manual/html_node/Simple-configuration.html#Simple-configuration)
@@ -1029,8 +1014,6 @@ menuentry 'Example GNU/Linux distribution' --class gnu-linux --id example-gnu-li
 如果想将此菜单设为默认菜单,则可设置`GRUB_DEFAULT=example-gnu-linux`.
 
 如果`GRUB_DEFAULT`的值设置为`saved`,则表示默认的菜单项是`GRUB_SAVEDEFAULT`或`grub-set-default`所指定的菜单项.
-
-***
 
 ### UEFI 系统下的安装
 
@@ -1236,7 +1219,7 @@ fi
 
 ### grub 命令行手动引导
 
-链式加载 UEFI 模式下安装的 `Windows/Linux`
+链式加载`UEFI`模式下安装的 `Windows/Linux`
 
 ```bash
 insmod fat
@@ -1244,6 +1227,35 @@ set root=(hd1,gpt1)
 chainloader /EFI/Microsoft/Boot/bootmgfw.efi
 boot
 ```
+
+### grub 参数
+
+[nomodeset, quiet and splash](https://askubuntu.com/questions/716957/what-do-the-nomodeset-quiet-and-splash-kernel-parameters-mean)
+
+`nomodeset`
+
+最新的内核已将`video mode setting`移入内核。So all the programming of the hardware specific clock rates and registers on the video card 发生在内核中，
+而不是`X`服务器启动后的`X`驱动中。如此，可以在开机时展示高分辨率`splash/boot`画面，并实现平滑过渡，不用闪烁一下子。
+然而有些显卡无法正常工作，并且最终会出现黑屏。添加`nomodeset`参数指示内核在加载`X`之前不加载显卡驱动程序，而改用`BIOS`模式。
+
+***
+`quiet splash`
+
+`splash`（由`/boot/grub/grub.cfg`设置）导致显示启动画面。同时，您希望启动过程安静一些，否则所有类型的消息都会覆盖启动屏幕。
+尽管在`GRUB`中指定了这些参数，但它们是影响内核或其模块加载的内核参数，而不是改变`GRUB`行为的参数。来自`GRUB_CMDLINE_LINUX_DEFAULT`的重要部分是`CMDLINE_LINUX`
+
+***
+`acpi`, `noapic` and `nolapic`:
+通常不需要这些参数，除非你的`BIOS`很古老，不支持这些标准。
+
+`ACPI`（Advanced Configuration and Power Interface）是用于处理电源管理的标准。
+较早的系统可能不完全支持`ACPI`，因此有时它有助于向内核提示不使用它。`acpi=off`
+
+`APIC`（`Advanced Programmable Interrupt Controller`）是在较新的系统上发行的一种功能。
+`"local"`版本称为`LAPIC`。该控制器可以生成和处理中断，中断是硬件用来传递消息的信号。
+同样，`APIC`的某些实现在较旧的系统上可能会出现问题，因此禁用它很有用。 `noapic` ,`nolapic`。
+
+有时，`APIC`可以正常工作，但是传递消息可能会减慢速度，这可能会干扰音频和视频处理。人们也可能出于这个原因禁用它。
 
 ## ibus下定制自己的libpinyin
 
