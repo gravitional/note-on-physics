@@ -6971,6 +6971,528 @@ belitsky
 
 \end_layout
 
+\begin_layout Section
+重子磁矩
+\end_layout
+
+\begin_layout Subsection
+重子波函数
+\end_layout
+
+\begin_layout Standard
+参考 Griffiths, Introduction to Elementary particles，自旋
+\begin_inset Formula $\frac{3}{2}$
+\end_inset
+
+的波函数
+\begin_inset Formula $\psi_{s}$
+\end_inset
+
+为，
+\begin_inset Formula 
+\begin{align*}
+\ket{\frac{3}{2},\frac{3}{2}} & =\left(\uparrow\uparrow\uparrow\right)\\
+\ket{\frac{3}{2},\frac{1}{2}} & =\left(\uparrow\uparrow\downarrow+\uparrow\downarrow\uparrow+\downarrow\uparrow\uparrow\right)/\sqrt{3}\\
+\ket{\frac{3}{2},-\frac{1}{2}} & =\left(\downarrow\downarrow\uparrow+\downarrow\uparrow\downarrow+\uparrow\downarrow\downarrow\right)/\sqrt{3}\\
+\ket{\frac{3}{2},-\frac{3}{2}} & =\left(\downarrow\downarrow\downarrow\right)
+\end{align*}
+
+\end_inset
+
+自旋
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+的波函数为
+\begin_inset Formula $\psi_{12}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\ket{\frac{1}{2},\frac{1}{2}}_{12} & =\left(\uparrow\downarrow-\downarrow\uparrow\right)\uparrow/\sqrt{2}\\
+\ket{\frac{3}{2},\frac{1}{2}}_{12} & =\left(\uparrow\downarrow-\downarrow\uparrow\right)\downarrow/\sqrt{2}
+\end{align*}
+
+\end_inset
+
+以及自旋
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+的波函数
+\begin_inset Formula $\psi_{23}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\ket{\frac{1}{2},\frac{1}{2}}_{23} & =\uparrow\left(\uparrow\downarrow-\downarrow\uparrow\right)/\sqrt{2}\\
+\ket{\frac{3}{2},\frac{1}{2}}_{23} & =\downarrow\left(\uparrow\downarrow-\downarrow\uparrow\right)/\sqrt{2}
+\end{align*}
+
+\end_inset
+
+自旋
+\begin_inset Formula $3/2$
+\end_inset
+
+的波函数是完全对称的。自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+的波函数是部分反对称的。
+\begin_inset Formula $\psi_{12}$
+\end_inset
+
+对交换
+\begin_inset Formula $1,2$
+\end_inset
+
+粒子反对称，
+\begin_inset Formula $\psi_{23}$
+\end_inset
+
+对交换
+\begin_inset Formula $2,3$
+\end_inset
+
+粒子反对称。当然也可以构造
+\begin_inset Formula $\psi_{13}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\ket{\frac{1}{2},\frac{1}{2}}_{13} & =\left(\uparrow\uparrow\downarrow-\downarrow\uparrow\uparrow\right)/\sqrt{2}\\
+\ket{\frac{3}{2},\frac{1}{2}}_{23} & =\left(\uparrow\downarrow\downarrow-\downarrow\downarrow\uparrow\right)/\sqrt{2}
+\end{align*}
+
+\end_inset
+
+但是它们不是完全独立的，可以验证
+\begin_inset Formula 
+\[
+\ket{\,}_{13}=\ket{\,}{}_{12}+\ket{\,}{}_{23}
+\]
+
+\end_inset
+
+用群论的语言说，
+\begin_inset Formula $3$
+\end_inset
+
+个
+\begin_inset Formula $\text{SU}\left(2\right)$
+\end_inset
+
+的基本表示的直乘分解为，
+\begin_inset Formula 
+\[
+2\otimes2\otimes2=4\oplus2\oplus2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+全对称味道波函数
+\begin_inset Formula $\psi_{s}$
+\end_inset
+
+为，
+\begin_inset Formula 
+\begin{align*}
+ & \Delta^{++}=uuu\\
+ & \Delta^{+}=\frac{1}{\sqrt{3}}\left(uud+udu+duu\right)\\
+ & \Delta^{0}=\frac{1}{\sqrt{3}}\left(ddu+dud+udd\right)\\
+ & \Delta^{-}=ddd\\
+ & \Sigma^{*+}=\frac{1}{\sqrt{3}}\left(uus+usu+suu\right)\\
+ & \Sigma^{*0}=\frac{1}{\sqrt{6}}\left(uds+usd+dus+dsu+sud+sdu\right)\\
+ & \Sigma^{*-}=\frac{1}{\sqrt{3}}\left(dds+dsd+sdd\right)\\
+ & \Xi^{*0}=\frac{1}{\sqrt{3}}\left(uss+sus+ssu\right)\\
+ & \Xi^{*-}=\frac{1}{\sqrt{3}}\left(dss+sds+ssd\right)\\
+ & \Omega^{-}=sss
+\end{align*}
+
+\end_inset
+
+全反对称味道波函数
+\begin_inset Formula $\psi_{A}$
+\end_inset
+
+为,
+\begin_inset Formula 
+\[
+\frac{1}{\sqrt{6}}\left(uds-usd+dsu-dus-sud-sdu\right)
+\]
+
+\end_inset
+
+对
+\begin_inset Formula $1,2$
+\end_inset
+
+反对称的波函数为，
+\begin_inset Formula 
+\begin{align*}
+ & p=\left(ud-du\right)u/\sqrt{2}\\
+ & n=\left(ud-du\right)d/\sqrt{2}\\
+ & \Sigma^{+}=\left(us-su\right)u/\sqrt{2}\\
+ & \Sigma^{+}=\left[\left(us-su\right)d+\left(ds-sd\right)u\right]/2\\
+ & \Sigma^{-}=\left(ds-sd\right)d/\sqrt{2}\\
+ & \Xi^{0}=\left(us-su\right)s/\sqrt{2}\\
+ & \Xi^{-}=\left(ds-sd\right)s/\sqrt{2}\\
+ & \Lambda=\left[2\left(ud-du\right)s+\left(us-su\right)d-\left(ds-sd\right)u\right]/\sqrt{12}
+\end{align*}
+
+\end_inset
+
+对
+\begin_inset Formula $2,3$
+\end_inset
+
+反对称的波函数为，
+\begin_inset Formula 
+\begin{align*}
+ & p=u\left(ud-du\right)/\sqrt{2}\\
+ & n=d\left(ud-du\right)/\sqrt{2}\\
+ & \Sigma^{+}=u\left(us-su\right)/\sqrt{2}\\
+ & \Sigma^{+}=\left[d\left(us-su\right)+u\left(ds-sd\right)\right]/2\\
+ & \Sigma^{-}=d\left(ds-sd\right)/\sqrt{2}\\
+ & \Xi^{0}=s\left(us-su\right)/\sqrt{2}\\
+ & \Xi^{-}=s\left(ds-sd\right)/\sqrt{2}\\
+ & \Lambda=\left[2s\left(ud-du\right)+d\left(us-su\right)-u\left(ds-sd\right)\right]/\sqrt{12}
+\end{align*}
+
+\end_inset
+
+因此三味轻夸克产生了一个十重态，一个单态，两个八重态，用群论表示为
+\begin_inset Formula 
+\[
+3\otimes3\otimes3=1\oplus8\oplus8\oplus10.
+\]
+
+\end_inset
+
+同样，也可以构造
+\begin_inset Formula $\psi_{13}$
+\end_inset
+
+态，但它不独立，
+\begin_inset Formula $\psi_{13}=\psi_{12}+\psi_{23}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+颜色波函数是单态，是全反对称的。所以剩下的乘起来必须是完全对称的。自旋
+\begin_inset Formula $3/2$
+\end_inset
+
+波函数为
+\begin_inset Formula 
+\[
+\psi\left(\text{十重态}\right)=\psi_{s}\left(\text{自旋}\right)\psi_{s}\left(\text{味道}\right)
+\]
+
+\end_inset
+
+例如
+\begin_inset Formula 
+\begin{align*}
+\ket{\Delta^{+}:\frac{3}{2},\frac{-1}{2}} & =\left\{ \left(uud+udu+duu\right)/\sqrt{3}\right\} \left[\left(\downarrow\downarrow\uparrow+\downarrow\uparrow\downarrow+\uparrow\downarrow\downarrow\right)/\sqrt{3}\right]\\
+ & =\Big[u\left(\downarrow\right)u\left(\downarrow\right)d\left(\uparrow\right)+u\left(\downarrow\right)u\left(\uparrow\right)d\left(\downarrow\right)+u\left(\uparrow\right)u\left(\downarrow\right)d\left(\downarrow\right)\\
+ & +u\left(\downarrow\right)d\left(\downarrow\right)u\left(\uparrow\right)+u\left(\downarrow\right)d\left(\uparrow\right)u\left(\downarrow\right)+u\left(\uparrow\right)d\left(\downarrow\right)u\left(\downarrow\right)\\
+ & +d\left(\downarrow\right)u\left(\downarrow\right)u\left(\uparrow\right)+d\left(\downarrow\right)u\left(\uparrow\right)u\left(\downarrow\right)+d\left(\uparrow\right)u\left(\downarrow\right)u\left(\downarrow\right)\Big]/3
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\psi\left(\text{八重态}\right)=\frac{\sqrt{2}}{3}\left[\psi_{12}\left(\text{自旋}\right)\psi_{12}\left(\text{味道}\right)+\psi_{23}\left(\text{自旋}\right)\psi_{23}\left(\text{味道}\right)+\psi_{13}\left(\text{自旋}\right)\psi_{13}\left(\text{味道}\right)\right],
+\]
+
+\end_inset
+
+例如，质子自旋朝上的波函数，
+\begin_inset Formula $\ket{p:\frac{1}{2},\frac{1}{2}}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow\frac{\sqrt{2}}{3}\left\{ \frac{1}{2}\left(\uparrow\downarrow\uparrow-\downarrow\uparrow\uparrow\right)\left(udu-duu\right)+\frac{1}{2}\left(\uparrow\uparrow\downarrow-\uparrow\downarrow\uparrow\right)\left(uud-udu\right)+\frac{1}{2}\left(\uparrow\uparrow\downarrow-\downarrow\uparrow\uparrow\right)\left(uud-duu\right)\right\} \\
+ & =\frac{1}{3\sqrt{2}}\left\{ uud\left(2\uparrow\uparrow\downarrow-\uparrow\downarrow\uparrow-\downarrow\uparrow\uparrow\right)+udu\left(2\uparrow\downarrow\uparrow-\downarrow\uparrow\uparrow-\uparrow\uparrow\downarrow\right)+duu\left(2\downarrow\uparrow\uparrow-\uparrow\downarrow\uparrow-\uparrow\uparrow\downarrow\right)\right\} \\
+ & =\frac{1}{3\sqrt{2}}\left\{ u\left(\uparrow\right)u\left(\uparrow\right)d\left(\downarrow\right)\right\} -\frac{1}{3\sqrt{2}}\left\{ u\left(\uparrow\right)u\left(\downarrow\right)d\left(\uparrow\right)\right\} -\frac{1}{3\sqrt{2}}\left\{ u\left(\downarrow\right)u\left(\uparrow\right)d\left(\uparrow\right)\right\} +\text{置换}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+夸克模型磁矩
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{\mu}=\frac{e\hbar}{mc}Q\vec{S}
+\]
+
+\end_inset
+
+对于夸克有
+\begin_inset Formula 
+\[
+\mu_{u}=\frac{2}{3}\frac{e\hbar}{2m_{u}c},\quad\mu_{d}=\frac{-1}{3}\frac{e\hbar}{2m_{d}c},\quad\mu_{s}=\frac{-1}{3}\frac{e\hbar}{2m_{s}c},
+\]
+
+\end_inset
+
+重子
+\begin_inset Formula $B$
+\end_inset
+
+的磁矩为，
+\begin_inset Formula 
+\[
+\mu_{B}=\bra{B\uparrow}\left(\mu_{1z}+\mu_{2z}+\mu_{3z}\right)\ket{B\uparrow}=\frac{2}{\hbar}\sum_{i=1}^{3}\bra{B\uparrow}\left(\mu_{i}S_{iz}\right)\ket{B\uparrow}.
+\]
+
+\end_inset
+
+例如计算质子的磁矩，由上面的波函数，第一项为,
+\begin_inset Formula 
+\[
+\frac{1}{3\sqrt{2}}\left\{ u\left(\uparrow\right)u\left(\uparrow\right)d\left(\downarrow\right)\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\mu_{1z}+\mu_{2z}+\mu_{3z}\right)\ket{u\left(\uparrow\right)u\left(\uparrow\right)d\left(\downarrow\right)}=\left[\mu_{u}+\mu_{u}-\mu_{d}\right]\ket{u\left(\uparrow\right)u\left(\uparrow\right)d\left(\downarrow\right)}
+\]
+
+\end_inset
+
+所以这一项的贡献是
+\begin_inset Formula 
+\[
+\left(\frac{1}{3\sqrt{2}}\right)^{2}\left[\mu_{u}+\mu_{u}-\mu_{d}\right]=\frac{2}{9}\left(2\mu_{u}-\mu_{d}\right)
+\]
+
+\end_inset
+
+由于波函数是全对称的，所以总贡献是
+\begin_inset Formula 
+\[
+\mu_{p}=\frac{2}{3}\left(2\mu_{u}-\mu_{d}\right).
+\]
+
+\end_inset
+
+类似地，可以算出其他重子磁矩的夸克表示，
+\begin_inset Formula 
+\begin{align*}
+ & \mu_{\Sigma^{-}}=\left(4\mu_{d}-\mu_{s}\right)/3,\quad\mu_{\Sigma^{0}}=\left(2\mu_{u}+2\mu_{d}-\mu_{s}\right)/3,\quad\mu_{\Sigma^{+}}=\left(4\mu_{u}-\mu_{s}\right)/3\\
+ & \mu_{p}=\left(4\mu_{u}-\mu_{d}\right)/3,\quad\mu_{n}=\left(4\mu_{d}-\mu_{u}\right)/3\\
+ & \mu_{\Xi^{-}}=\left(4\mu_{s}-\mu_{d}\right)/3,\quad\mu_{\Xi^{0}}=\left(4\mu_{s}-\mu_{u}\right)/3\\
+ & \mu_{\Lambda}=\mu_{s},\quad{\color{blue}\mu_{\Sigma\Lambda}=\left(\mu_{d}-\mu_{u}\right)/\sqrt{3}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula ${\color{blue}\mu_{\Sigma\Lambda}=\left(\mu_{d}-\mu_{u}\right)/\sqrt{3}}$
+\end_inset
+
+与chpt的表示差一个负号。
+\end_layout
+
+\begin_layout Standard
+十重态的比较简单
+\begin_inset Formula 
+\begin{align*}
+ & \mu_{\Delta^{-}}=3\mu_{d},\quad\mu_{\Delta^{0}}=\mu_{u}+2\mu_{d},\quad\mu_{\Delta^{+}}=2\mu_{u}+\mu_{d},\quad\mu_{\Delta^{++}}=3\mu_{u}\\
+ & \mu_{\Sigma^{*-}}=\mu_{s}+2\mu_{d},\quad\mu_{\Sigma^{*0}}=\mu_{s}+\mu_{u}+\mu_{d},\quad\mu_{\Sigma^{*+}}=\mu_{s}+2\mu_{u}\\
+ & \mu_{\Xi^{*-}}=\mu_{d}+2\mu_{s},\quad\mu_{\Xi^{*0}}=\mu_{u}+2\mu_{s}\\
+ & \mu_{\Omega^{-}}=3\mu_{s}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+chpt 八重态磁矩
+\end_layout
+
+\begin_layout Standard
+在chpt中用
+\begin_inset Formula $c_{1},c_{2},c_{3}$
+\end_inset
+
+的表示重子的
+\begin_inset Formula $F_{2}$
+\end_inset
+
+。使用
+\begin_inset Formula $c_{1},c_{2},c_{3}$
+\end_inset
+
+表示重子磁矩时，在最大近似下有，
+\begin_inset Formula 
+\begin{align*}
+ & \frac{2}{3}c_{1}-1=c_{2},\quad c_{3}=c_{2}-c_{1}=-\frac{1}{3}c_{1}-1\\
+ & u,d,s\to\frac{2}{3}c_{1},-\frac{c_{1}}{3},-\frac{c_{1}}{3}
+\end{align*}
+
+\end_inset
+
+以下
+\begin_inset Formula $F$
+\end_inset
+
+表示
+\begin_inset Formula $F_{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u,d,s$
+\end_inset
+
+真实电荷贡献，
+\begin_inset Formula 
+\begin{align*}
+ & F_{\Sigma^{-}}=\frac{\left(c_{1}-3c_{2}\right)}{3},\quad F_{\Sigma^{0}}=\frac{c_{1}}{3},\quad F_{\Sigma^{+}}=\frac{c_{1}+3c_{2}}{3}\\
+ & F_{p}=\frac{c_{1}+3c_{2}}{3},\quad F_{n}=\frac{-2c_{1}}{3}\\
+ & F_{\Xi^{-}}=\frac{\left(c_{1}-3c_{2}\right)}{3},\quad F_{\Xi^{0}}=\frac{-2c_{1}}{3}\\
+ & F_{\Lambda}=-\frac{c_{1}}{3},\quad F_{\Sigma\Lambda}=\frac{c_{1}}{\sqrt{3}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $u$
+\end_inset
+
+贡献，
+\begin_inset Formula 
+\begin{align*}
+ & F_{\Sigma^{-}}=\left(c_{1}-c_{2}+c_{3}\right),\quad F_{\Sigma^{0}}=\left(c_{1}+c_{3}\right),\quad F_{\Sigma^{+}}=\left(c_{1}+c_{2}+c_{3}\right)\\
+ & F_{p}=\left(c_{1}+c_{2}+c_{3}\right),\quad F_{n}=c_{3}\\
+ & F_{\Xi^{-}}=\left(c_{1}-c_{2}+c_{3}\right),\quad F_{\Xi^{0}}=c_{3}\\
+ & F_{\Lambda}=\frac{1}{3}\left(c_{1}+3c_{3}\right),\quad F_{\Sigma\Lambda}=\frac{c_{1}}{\sqrt{3}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $d$
+\end_inset
+
+贡献，
+\begin_inset Formula 
+\begin{align*}
+ & F_{\Sigma^{-}}=\left(c_{1}+c_{2}+c_{3}\right),\quad F_{\Sigma^{0}}=\left(c_{1}+c_{3}\right),\quad F_{\Sigma^{+}}=\left(c_{1}-c_{2}+c_{3}\right)\\
+ & F_{p}=c_{3},\quad F_{n}=\left(c_{1}+c_{2}+c_{3}\right)\\
+ & F_{\Xi^{-}}=c_{3},\quad F_{\Xi^{0}}=\left(c_{1}-c_{2}+c_{3}\right)\\
+ & F_{\Lambda}=\frac{1}{3}\left(c_{1}+3c_{3}\right),\quad F_{\Sigma\Lambda}=\frac{-c_{1}}{\sqrt{3}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $s$
+\end_inset
+
+贡献，
+\begin_inset Formula 
+\begin{align*}
+ & F_{\Sigma^{-}}=c_{3},\quad F_{\Sigma^{0}}=c_{3},\quad F_{\Sigma^{+}}=c_{3}\\
+ & F_{p}=\left(c_{1}-c_{2}+c_{3}\right),\quad F_{n}=\left(c_{1}-c_{2}+c_{3}\right)\\
+ & F_{\Xi^{-}}=\left(c_{1}+c_{2}+c_{3}\right),\quad F_{\Xi^{0}}=\left(c_{1}+c_{2}+c_{3}\right)\\
+ & F_{\Lambda}=\left(\frac{4}{3}c_{1}+c_{3}\right),\quad F_{\Sigma\Lambda}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+转移磁矩
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & F_{\Delta^{+}p}=\frac{c_{1}}{\sqrt{3}},\quad F_{\Delta^{0}n}=\frac{c_{1}}{\sqrt{3}},\\
+ & F_{\Sigma^{*+}\Sigma^{+}}=-\frac{c_{1}}{\sqrt{3}},\quad F_{\Sigma^{*-}\Sigma^{-}}=0,\quad F_{\Sigma^{*0}\Sigma^{0}}=\frac{c_{1}}{2\sqrt{3}},\quad F_{\Sigma^{*0}\Lambda}=-\frac{c_{1}}{2},\\
+ & F_{\Xi^{*0}\Xi^{0}}=-\frac{c_{1}}{\sqrt{3}},\quad F_{\Xi^{*-}\Xi^{-}}=0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $u$
+\end_inset
+
+贡献
+\begin_inset Formula 
+\begin{align*}
+ & F_{\Delta^{+}p}=\frac{c_{1}}{\sqrt{3}},\quad F_{\Delta^{0}n}=\frac{c_{1}}{\sqrt{3}},\\
+ & F_{\Sigma^{*+}\Sigma^{+}}=-\frac{c_{1}}{\sqrt{3}},\quad F_{\Sigma^{*-}\Sigma^{-}}=0,\quad F_{\Sigma^{*0}\Sigma^{0}}=\frac{c_{1}}{2\sqrt{3}},\quad F_{\Sigma^{*0}\Lambda}=-\frac{c_{1}}{2},\\
+ & F_{\Xi^{*0}\Xi^{0}}=-\frac{c_{1}}{\sqrt{3}},\quad F_{\Xi^{*-}\Xi^{-}}=0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $d$
+\end_inset
+
+贡献
+\begin_inset Formula 
+\begin{align*}
+ & F_{\Delta^{+}p}=-\frac{c_{1}}{\sqrt{3}},\quad F_{\Delta^{0}n}=-\frac{c_{1}}{\sqrt{3}},\\
+ & F_{\Sigma^{*+}\Sigma^{+}}=0,\quad F_{\Sigma^{*-}\Sigma^{-}}=\frac{c_{1}}{\sqrt{3}},\quad F_{\Sigma^{*0}\Sigma^{0}}=\frac{c_{1}}{2\sqrt{3}},\quad F_{\Sigma^{*0}\Lambda}=\frac{c_{1}}{2},\\
+ & F_{\Xi^{*0}\Xi^{0}}=0,\quad F_{\Xi^{*-}\Xi^{-}}=\frac{c_{1}}{\sqrt{3}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $s$
+\end_inset
+
+贡献
+\begin_inset Formula 
+\begin{align*}
+ & F_{\Delta^{+}p}=0,\quad F_{\Delta^{0}n}=0,\\
+ & F_{\Sigma^{*+}\Sigma^{+}}=\frac{c_{1}}{\sqrt{3}},\quad F_{\Sigma^{*-}\Sigma^{-}}=\frac{-c_{1}}{\sqrt{3}},\quad F_{\Sigma^{*0}\Sigma^{0}}=\frac{-c_{1}}{\sqrt{3}},\quad F_{\Sigma^{*0}\Lambda}=0,\\
+ & F_{\Xi^{*0}\Xi^{0}}=\frac{c_{1}}{\sqrt{3}},\quad F_{\Xi^{*-}\Xi^{-}}=-\frac{c_{1}}{\sqrt{3}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 EOF
 \end_layout
