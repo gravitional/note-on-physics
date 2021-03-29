@@ -923,7 +923,7 @@ B^{\mu}p^{\nu}+C^{\mu}\gamma^{\nu}=\gamma^{\mu}p^{\nu}-p^{\mu}\gamma^{\nu}
 参考
 \begin_inset CommandInset href
 LatexCommand href
-name "https://arxiv.org/pdf/1806.07551.pdf"
+name "1806.07551"
 target "https://arxiv.org/pdf/1806.07551.pdf"
 literal "true"
 
@@ -937,7 +937,7 @@ literal "true"
 \begin{align*}
 \mathcal{L} & ={\rm Tr}\big[\bar{B}\left(i\slashed{\mathscr{D}}-M_{B}\right)B\big]+D{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma_{5}\left[u_{\mu},B\right]\right]\\
  & +\overline{T}_{\mu}^{ijk}\left(i\gamma^{\mu\nu\alpha}\mathscr{D}_{\alpha}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}^{ijk}+\mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}+\text{h.c.}\right]\\
- & -\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}\left(u_{\alpha}\right)^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[\mathscr{D}_{\mu}U\left(\mathscr{D}^{\mu}U\right)^{\dagger}\big]
+ & +\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}\left(u_{\alpha}\right)^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[\mathscr{D}_{\mu}U\left(\mathscr{D}^{\mu}U\right)^{\dagger}\big]
 \end{align*}
 
 \end_inset
@@ -992,14 +992,14 @@ u_{\mu}=\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}u\r
 \end_inset
 
 的时候，
-\begin_inset Formula $\Theta^{\mu\nu}=g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}=\frac{1}{2}\left(\gamma^{\nu}\gamma^{\mu}-\gamma^{\mu}\gamma^{\nu}\right)=i\sigma^{\mu\nu}$
+\begin_inset Formula 
+\[
+\Theta^{\mu\nu}=g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}=\frac{1}{2}\left(\gamma^{\nu}\gamma^{\mu}-\gamma^{\mu}\gamma^{\nu}\right)=i\sigma^{\mu\nu}.
+\]
+
 \end_inset
 
-，此时
-\begin_inset Formula $\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}$
-\end_inset
 
-是厄米的。
 \end_layout
 
 \begin_layout Standard
@@ -1091,7 +1091,27 @@ u_{\mu} & =\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}
 
 \end_inset
 
+这里的
+\begin_inset Formula $i$
+\end_inset
 
+因子是为了满足
+\begin_inset Formula $\Gamma_{\mu}^{\dagger}=-\Gamma_{\mu}$
+\end_inset
+
+，
+\begin_inset Formula $u_{\mu}^{\dagger}=u_{\mu}$
+\end_inset
+
+，注意厄米共轭会改变矩阵位置，再考虑协变偏导前的
+\begin_inset Formula $i$
+\end_inset
+
+，以及对易子在厄米共轭下出一个负号，以及
+\begin_inset Formula $\gamma^{5\dagger}=\gamma^{5},\gamma^{0}\gamma^{5}\gamma^{0}=-\gamma^{5}$
+\end_inset
+
+，最后的拉氏量才是厄米的。
 \begin_inset Formula $v_{\mu}^{a}$
 \end_inset
 
@@ -1210,7 +1230,7 @@ v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
 也就是
 \begin_inset Formula 
 \[
-\left(\Gamma_{\mu},T_{\nu}\right)=\Gamma_{\mu}.T_{\nu}+\left(\Gamma_{\mu}.T_{\nu}\right)^{(123)}+\left(\Gamma_{\mu}.T_{\nu}\right)^{(132)}
+\left(\Gamma_{\mu},T_{\nu}\right)=\Gamma_{\mu}.T_{\nu}+\left(\Gamma_{\mu}.T_{\nu}\right)^{\left(123\right)}+\left(\Gamma_{\mu}.T_{\nu}\right)^{\left(132\right)}
 \]
 
 \end_inset
@@ -1241,9 +1261,9 @@ v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
 此外还有跟反常磁矩相关的拉氏量
 \begin_inset Formula 
 \begin{align*}
-\mathcal{L}^{\text{mag}} & =\frac{1}{4M_{N}}\left(c_{1}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}^{\prime}c_{3}\tr\left[\mathcal{F}_{\mu\nu}^{u}\right]\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\right)\\
- & +\frac{eF_{2}^{T}}{4M_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
- & +\frac{ie}{4M_{N}}c_{4}\left(\varepsilon^{ijk}\bar{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+\mathcal{L}^{\text{mag}} & =\frac{e}{4M_{N}}\left(c_{1}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}^{\prime}\tr\left[\mathcal{F}_{\mu\nu}^{u}\right]\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\right)\\
+ & +\frac{-eF_{2}^{T}}{4M_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
+ & +\frac{iec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\bar{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
 \end{align*}
 
 \end_inset
@@ -1263,6 +1283,22 @@ name "hep-ph/9212226.pdf"
 target "https://arxiv.org/pdf/hep-ph/9212226.pdf"
 literal "true"
 
+\end_inset
+
+。转移磁矩中包含
+\begin_inset Formula $i$
+\end_inset
+
+是因为有
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+，各种矩阵作转置，
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+会出一个负号，所以必须有个
+\begin_inset Formula $i$
 \end_inset
 
 。
@@ -1333,25 +1369,26 @@ literal "true"
 \begin_inset Formula $c_{3}^{\prime}$
 \end_inset
 
-中。所以最后可以一般地写成
+中。
 \begin_inset Formula 
 \begin{align*}
-\mathcal{L}^{\text{mag}} & =\frac{1}{4M_{N}}\left(c_{1}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}\tr\left[\bar{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}\tr\left[\mathcal{F}_{\mu\nu}^{u}\right]\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\right)\\
- & +\frac{eF_{2}^{T}}{4M_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
- & +\frac{ie}{4M_{N}}c_{4}\left(\varepsilon^{ijk}\bar{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+\mathcal{F}_{\mu\nu}^{u} & =\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}Qu+uQu^{\dagger}\right],\quad\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}\\
+ & =\mathcal{F}_{\mu\nu}Q\text{ 在领头阶}
 \end{align*}
 
 \end_inset
 
-其中
+所以最后可以一般地写成
 \begin_inset Formula 
-\[
-\mathcal{F}_{\mu\nu}^{u}=\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}Qu+uQu^{\dagger}\right],\quad\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}
-\]
+\begin{align*}
+\mathcal{L}^{\text{mag}} & =\frac{e}{4M_{N}}\mathcal{F}_{\mu\nu}\left(c_{1}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ Q,B\right\} \right]+c_{2}\tr\left[\bar{B}\sigma^{\mu\nu}\left[Q,B\right]\right]+c_{3}\tr\left[Q\right]\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\right)\\
+ & +\frac{-eF_{2}^{T}}{4M_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
+ & +\frac{iec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\bar{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+\end{align*}
 
 \end_inset
 
-也可以一开始就用
+其中也可以一开始就用
 \begin_inset Formula $Q$
 \end_inset
 
@@ -1433,7 +1470,19 @@ u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{
 \begin_inset Formula $abc$
 \end_inset
 
-，认为这些指标之间是独立运算的。
+，认为这些指标之间是独立运算的。数字的转置还是数字本身，如
+\begin_inset Formula $\left(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\right)^{\dagger}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}$
+\end_inset
+
+。矩阵的转置就需要交换指标了，如
+\begin_inset Formula 
+\[
+\left(\sigma^{\mu\nu}\right)^{\dagger}=\sigma^{\nu\mu\dagger}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1586,11 +1635,7 @@ end{shaded}
 
 \end_inset
 
-注意：
-\end_layout
-
-\begin_layout Standard
-比如其中的
+注意：例如其中的
 \begin_inset Formula $\left(F_{\mu\nu}\right)^{lj}$
 \end_inset
 
@@ -1606,35 +1651,31 @@ end{shaded}
 \begin_inset Formula $\lambda^{a}$
 \end_inset
 
-都是厄米的，所以没有额外的负号。也要处理洛伦兹指标
-\begin_inset Formula $\mu\nu$
-\end_inset
-
-，即对
+都是厄米的，所以没有额外的负号。考虑
 \begin_inset Formula $\bar{T}^{\mu}F_{\mu\nu}\gamma^{\nu}\gamma^{5}$
 \end_inset
 
-这个二次型作厄米共轭，
+的
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+指标时，由于
+\begin_inset Formula $F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}$
+\end_inset
+
+已经是单纯的数了，所以不需要转置，而且它是实数，也不需要复共轭。但是右边一项交换了指标，即
+\begin_inset Formula 
+\[
+\bar{T}^{\mu}F_{\mu\nu}\gamma^{\nu}\gamma^{5}\to-\bar{T}^{\nu}F_{\mu\nu}\gamma^{\mu}\gamma^{5}
+\]
+
+\end_inset
+
+这个负号是
 \begin_inset Formula $F_{\mu\nu}$
 \end_inset
 
-最外层是反对易式
-\begin_inset Formula $A^{\mu}B^{\nu}-B^{\mu}A^{\nu}$
-\end_inset
-
-，且没有额外的复数，所以对于外层的洛伦兹指标，
-\begin_inset Formula $F_{\mu\nu}^{\dagger}=-F_{\mu\nu}$
-\end_inset
-
-，对于内层的味道指标，
-\begin_inset Formula $\lambda^{a}$
-\end_inset
-
-矩阵都是厄米的，没有变化。
-\end_layout
-
-\begin_layout Standard
-另外还要考虑
+的反对称性质带来的。另外还要考虑
 \begin_inset Formula $\gamma^{\nu}\gamma^{5}$
 \end_inset
 
@@ -1685,7 +1726,7 @@ MBD低能强子耦合项：
 \begin_inset Formula 
 \begin{align*}
  & \mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\text{h.c.}\right]\\
-= & \mathcal{C}\left[\varepsilon^{jki}\overline{T}_{\mu}^{iml}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\bar{B}^{km}\left(-\Theta^{\dagger\mu\nu}\right)T_{\nu}^{ilm}(u_{\mu})^{jl}\varepsilon^{ijk}\right]\\
+= & \mathcal{C}\left[\varepsilon^{jki}\overline{T}_{\mu}^{iml}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\bar{B}^{km}\left(-\Theta^{\mu\nu\dagger}\right)T_{\nu}^{ilm}(u_{\mu})^{jl}\varepsilon^{ijk}\right]\\
 = & \mathcal{C}\left[\varepsilon^{jki}\overline{T}_{\mu}^{iml}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\bar{B}^{km}(u_{\mu})^{jl}\Theta^{\mu\nu}T_{\nu}^{lmi}\left(-\varepsilon^{ikj}\right)\right]\\
 = & \mathcal{C}\left[\tr\left(\left(\varepsilon.\overline{T}_{\mu}.u_{\nu}\right)^{\left\{ 1,4\right\} }.\Theta^{\mu\nu}.B\right)+\tr\left(\bar{B}.\Theta^{\mu\nu}.\left(u_{\mu}.T_{\nu}.\left(-\varepsilon\right)\right)^{\{1,4\}}\right)\right]
 \end{align*}
@@ -1703,7 +1744,7 @@ MBD低能强子耦合项：
 \begin_inset Formula 
 \begin{align*}
 \Gamma_{\mu} & =\frac{1}{2}\left(\xi\partial_{\mu}\xi^{\dagger}+\xi^{\dagger}\partial_{\mu}\xi\right)+\frac{1}{2}ie\mathcal{A}_{\mu}\left(\xi Q_{c}\xi^{\dagger}+\xi^{\dagger}Q_{c}\xi\right)\\
-u_{\mu} & =\frac{1}{2}i\left(\xi\partial_{\mu}\xi^{\dagger}-\xi^{\dagger}\partial_{\mu}\xi\right)+\frac{1}{2}ie\mathcal{A}_{\mu}i\left(\xi Q_{c}\xi^{\dagger}-\xi^{\dagger}Q_{c}\xi\right)
+u_{\mu} & =\frac{i}{2}\left(\xi\partial_{\mu}\xi^{\dagger}-\xi^{\dagger}\partial_{\mu}\xi\right)+\frac{1}{2}ie\mathcal{A}_{\mu}i\left(\xi Q_{c}\xi^{\dagger}-\xi^{\dagger}Q_{c}\xi\right)
 \end{align*}
 
 \end_inset
@@ -2092,14 +2133,10 @@ D_{\mu}B=\partial_{\mu}B-ie\mathcal{A}_{\mu}\left[Q,B\right]+\frac{1}{4f^{2}}\le
 
 \end_inset
 
-由
-\begin_inset Formula $\tr$
-\end_inset
 
-的轮换不变性，以及费米子交换出负号，得
 \begin_inset Formula 
 \[
-\tr\left[\bar{B}\left[Q,B\right]\right]=-\tr\left[\left(B\bar{B}+\bar{B}B\right)Q\right]
+\tr\left[\bar{B}\left[Q,B\right]\right]=\tr\left[BQ\bar{B}-\bar{B}BQ\right]
 \]
 
 \end_inset
@@ -2124,54 +2161,6 @@ B=\sum_{a=1}^{8}\frac{B_{a}\lambda_{a}}{\sqrt{2}}=\left(\begin{array}{ccc}
 \bar{\Sigma}^{+} & -\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}} & \bar{\Xi}^{0}\\
 \bar{p}^{+} & \bar{n}^{0} & \frac{-2\bar{\Lambda}}{\sqrt{6}}
 \end{array}\right)
-\]
-
-\end_inset
-
-
-\size small
-
-\begin_inset Formula 
-\begin{align*}
- & \tr\left[\left(B\bar{B}+\bar{B}B\right)Q\right]\\
-= & u\left[\left(\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}}\right)\left(\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}}\right)+\Sigma^{+}\bar{\Sigma}^{+}+p^{+}\bar{p}^{+}\right]+u\left[\left(\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}}\right)\left(\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}}\right)+\bar{\Sigma}^{-}\Sigma^{-}+\bar{\Xi}^{-}\Xi^{-}\right]\\
-+ & d\left[\Sigma^{-}\bar{\Sigma}^{-}+\left(-\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}}\right)\left(-\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}}\right)+n^{0}\bar{n}^{0}\right]+d\left[\bar{\Sigma}^{+}\Sigma^{+}+\left(-\frac{\bar{\Sigma}^{0}}{\sqrt{2}}+\frac{\bar{\Lambda}}{\sqrt{6}}\right)\left(-\frac{\Sigma^{0}}{\sqrt{2}}+\frac{\Lambda}{\sqrt{6}}\right)+\bar{\Xi}^{0}\Xi^{0}\right]\\
-+ & s\left[\Xi^{-}\bar{\Xi}^{-}+\Xi^{0}\bar{\Xi}^{0}+\frac{-2\Lambda}{\sqrt{6}}\frac{-2\bar{\Lambda}}{\sqrt{6}}\right]+s\left[\bar{p}^{+}p^{+}+\bar{n}^{0}n^{0}+\frac{-2\bar{\Lambda}}{\sqrt{6}}\frac{-2\Lambda}{\sqrt{6}}\right]\\
-= & \left(u+d\right)\frac{\bar{\Sigma}^{0}\Sigma^{0}+\Sigma^{0}\bar{\Sigma}^{0}}{2}+\left(u+d+4s\right)\frac{\bar{\Lambda}\Lambda+\Lambda\bar{\Lambda}}{6}+\left(u-d\right)\frac{\left(\bar{\Sigma}^{0}\Lambda+\bar{\Lambda}\Sigma^{0}\right)+\Sigma^{0}\bar{\Lambda}+\Lambda\bar{\Sigma}^{0}}{2\sqrt{3}}\\
-+ & u\Sigma^{+}\bar{\Sigma}^{+}+up^{+}\bar{p}^{+}+u\bar{\Sigma}^{-}\Sigma^{-}+u\bar{\Xi}^{-}\Xi^{-}\\
-+ & d\Sigma^{-}\bar{\Sigma}^{-}+dn^{0}\bar{n}^{0}+d\bar{\Sigma}^{+}\Sigma^{+}+d\bar{\Xi}^{0}\Xi^{0}\\
-+ & s\Xi^{0}\bar{\Xi}^{0}+s\Xi^{-}\bar{\Xi}^{-}+s\bar{p}^{+}p^{+}+s\bar{n}^{0}n^{0}
-\end{align*}
-
-\end_inset
-
-
-\size default
-如果认为
-\begin_inset Formula $\bar{\psi}_{1}\psi_{2}+\psi_{2}\bar{\psi}_{1}=0$
-\end_inset
-
-，则
-\size small
-
-\begin_inset Formula 
-\begin{align*}
- & \tr\left[\left(B\bar{B}+\bar{B}B\right)Q\right]\\
-\Rightarrow & \left(u-d\right)\Sigma^{+}\bar{\Sigma}^{+}+\left(u-s\right)p^{+}\bar{p}^{+}+\left(d-u\right)\Sigma^{-}\bar{\Sigma}^{-}+\left(s-u\right)\Xi^{-}\bar{\Xi}^{-}+\left(s-d\right)\Xi^{0}\bar{\Xi}^{0}+\left(d-s\right)n^{0}\bar{n}^{0}
-\end{align*}
-
-\end_inset
-
-
-\size default
-如果
-\begin_inset Formula $d=s$
-\end_inset
-
-，进一步化简为
-\begin_inset Formula 
-\[
-\tr\left[\left(B\bar{B}+\bar{B}B\right)Q\right]=\left(u-d\right)\Sigma^{+}\bar{\Sigma}^{+}+\left(u-d\right)p^{+}\bar{p}^{+}+\left(d-u\right)\Sigma^{-}\bar{\Sigma}^{-}+\left(d-u\right)\Xi^{-}\bar{\Xi}^{-}
 \]
 
 \end_inset
@@ -2655,8 +2644,8 @@ Q_{u}\\
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\mathcal{L}^{\text{mag}} & =\frac{1}{4M_{N}}\left(c_{1}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}\tr\left[\bar{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}\tr\left[\mathcal{F}_{\mu\nu}^{u}\right]\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\right)\\
- & -\frac{F_{2}^{T}}{4M_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
+\mathcal{L}^{\text{mag}} & =\frac{e}{4M_{N}}\left(c_{1}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}\tr\left[\bar{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}\tr\left[\mathcal{F}_{\mu\nu}^{u}\right]\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\right)\\
+ & +\frac{-eF_{2}^{T}}{4M_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
  & +\frac{iec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\bar{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
 \end{align*}
 
@@ -2665,7 +2654,7 @@ Q_{u}\\
 其中
 \begin_inset Formula 
 \[
-\mathcal{F}_{\mu\nu}^{u}=-\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}Qu+uQu^{\dagger}\right],\quad\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}
+\mathcal{F}_{\mu\nu}^{u}=\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}Qu+uQu^{\dagger}\right],\quad\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}
 \]
 
 \end_inset
@@ -2691,21 +2680,33 @@ Q_{u}\\
 \end_inset
 
 直接写成厄米共轭的和，结果一定是厄米的。考虑光子是进入的，
-\begin_inset Formula $\partial_{\nu}\mathcal{A}_{\mu}=-iq_{\nu}A_{\mu}$
+\begin_inset Formula $-\partial_{\nu}\mathcal{A}_{\mu}=\left(-\right)\left(-\right)iq_{\nu}A_{\mu}$
 \end_inset
 
 ，
+\size small
+
 \begin_inset Formula 
 \begin{align*}
  & J_{q}^{\mu\left(\text{mag}\right)}=\frac{\delta\mathcal{L}^{\text{mag}}}{\delta A_{\mu}}\\
- & =\frac{\left(-iq_{\nu}\right)}{4M_{N}}\left(c_{1}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ u^{\dagger}Qu+uQu^{\dagger},B\right\} \right]+c_{2}\tr\left[\bar{B}\sigma^{\mu\nu}\left[u^{\dagger}Qu+uQu^{\dagger},B\right]\right]+c_{3}\tr\left[Q\right]\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\right)\\
- & +\frac{F_{2}^{T}\left(+iq_{\nu}\right)}{4M_{T}}\bar{T}_{\alpha}^{abc}\sigma^{\mu\nu}Q^{ce}T^{\alpha,eba}\\
- & +\frac{c_{4}\left(+q_{\nu}\right)}{4M_{N}}\left(\varepsilon^{ijk}\bar{B}^{jm}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+ & =\frac{\left(ieq_{\nu}\right)}{4M_{N}}\left\{ c_{1}\tr\left[\bar{B}\sigma^{\mu\nu}\left\{ u^{\dagger}Qu+uQu^{\dagger},B\right\} \right]+c_{2}\tr\left[\bar{B}\sigma^{\mu\nu}\left[u^{\dagger}Qu+uQu^{\dagger},B\right]\right]+c_{3}\tr\left[u^{\dagger}Qu+uQu^{\dagger}\right]\tr\left[\bar{B}\sigma^{\mu\nu}B\right]\right\} \\
+ & +\frac{\left(-ieq_{\nu}\right)F_{2}^{T}}{2M_{T}}\bar{T}_{\alpha}^{abc}\sigma^{\mu\nu}Q^{ce}T^{\alpha,eba}\\
+ & +\frac{\left(q_{\mu}A_{\nu}-A_{\mu}q_{\nu}\right)ec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\bar{B}^{jm}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\bar{T}^{\mu,klm}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
 \end{align*}
 
 \end_inset
 
-将有效顶点和强子的
+
+\size default
+注意第一行的分母为
+\begin_inset Formula $4M_{N}$
+\end_inset
+
+，但是右边的式子中都有两个
+\begin_inset Formula $Q$
+\end_inset
+
+。将有效顶点和强子的
 \begin_inset Formula $F_{2}$
 \end_inset
 
@@ -2713,7 +2714,39 @@ Q_{u}\\
 \begin_inset Formula $c_{1},c_{2},c_{3}$
 \end_inset
 
-等等。
+等等。转移磁矩一项中，考虑结果例如
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow\overline{p}\gamma^{\mu}\gamma^{5}\Delta^{+\nu}\left(q_{\mu}A_{\nu}-q_{\nu}A_{\mu}\right)\\
+ & =\overline{p}\gamma^{\nu}\gamma^{5}\Delta^{+\mu}q_{\nu}A_{\mu}-\overline{\Delta^{+\nu}}\gamma^{\mu}\gamma^{5}p\,q_{\nu}A_{\mu}\\
+ & =\left(\overline{p}\gamma^{\nu}\gamma^{5}\Delta^{+\mu}-\overline{\Delta^{+\nu}}\gamma^{\mu}\gamma^{5}p\right)q_{\nu}A_{\mu}
+\end{align*}
+
+\end_inset
+
+厄米共轭的一项为
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow-\overline{\Delta^{+\mu}}\gamma^{\nu}\gamma^{5}p\left(q_{\mu}A_{\nu}-q_{\nu}A_{\mu}\right)\\
+ & =-\overline{\Delta^{+\nu}}\gamma^{\mu}\gamma^{5}pq_{\nu}A_{\mu}+\overline{p}\gamma^{\nu}\gamma^{5}\Delta^{+\mu}q_{\nu}A_{\mu}\\
+ & =\left(\overline{p}\gamma^{\nu}\gamma^{5}\Delta^{+\mu}-\overline{\Delta^{+\nu}}\gamma^{\mu}\gamma^{5}p\right)q_{\nu}A_{\mu}
+\end{align*}
+
+\end_inset
+
+上面作了指标替换，并假设
+\begin_inset Formula 
+\[
+\left(\overline{p}\gamma^{\mu}\gamma^{5}\Delta^{+\nu}\right)^{\dagger}=\overline{\Delta^{+\nu}}\gamma^{\mu}\gamma^{5}p,
+\]
+
+\end_inset
+
+可以看到，这两项其实是相同的，所以相当于单项中的耦合系数乘以
+\begin_inset Formula $2$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Section
