@@ -924,7 +924,7 @@ uname
 [Linux dmesg命令](https://www.runoob.com/linux/linux-comm-dmesg.html)
 
 dmesg是用于编写内核消息的强大命令.这对于获取系统信息也非常有用.`dmesg`命令用于显示开机信息.
-kernel会将开机信息存储在`ring buffer`中.您若是开机时来不及查看信息,可利用dmesg来查看.开机信息亦保存在`/var/log`目录中,名称为`dmesg`的文件里.
+`kernel`会将开机信息存储在`ring buffer`中.您若是开机时来不及查看信息,可利用dmesg来查看.开机信息亦保存在`/var/log`目录中,名称为`dmesg`的文件里.
 
 由于`dmesg`提供了很多信息,使用`grep`挑选.
 
