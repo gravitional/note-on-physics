@@ -1812,37 +1812,26 @@ Heaviside 函数的 fourier 变换
 \end_layout
 
 \begin_layout Subsection
-1/x
+log函数
 \end_layout
 
 \begin_layout Standard
 需要在积分意义下理解：
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{f(x)}{x\pm i\varepsilon}=\text{P.V.}\frac{f(x)}{x}\mp i\pi f(0)
+\frac{f(x)}{x\pm i\varepsilon}=\text{P.V.}\frac{f(x)}{x}\mp i\pi f\left(0\right)
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Cauchy principal value(柯西主值)
 \begin_inset Formula 
 \[
-\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x}=\lim_{\delta\to0^{\dagger}}\left\{ \int_{-\infty}^{-\delta}\frac{f(x)}{x}\dif x+\int_{\delta}^{\infty}\frac{f(x)}{x}\dif x\right\} 
+\text{P.V.}\int_{-\infty}^{+\infty}\frac{f(x)\dif x}{x}=\lim_{\delta\to0^{\dagger}}\left\{ \int_{-\infty}^{-\delta}\frac{f(x)}{x}\dif x+\int_{\delta}^{\infty}\frac{f(x)}{x}\dif x\right\} .
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 狄拉克在《量子力学原理》一书中提出了一个公式
 \begin_inset Formula 
 \[
@@ -2093,7 +2082,7 @@ name "fig:int_path"
 ，
 \begin_inset Formula 
 \[
-\lim_{\varepsilon\to0}\ln(x\pm i\varepsilon)=\ln\abs{x}\pm i\pi\Theta(-x)
+\lim_{\varepsilon\to0}\ln\left(x\pm i\varepsilon\right)=\ln\abs{x}\pm i\pi\Theta\left(-x\right)
 \]
 
 \end_inset
@@ -2105,7 +2094,7 @@ name "fig:int_path"
 求导，立马得到 Sokhotski-Plemelj 公式
 \begin_inset Formula 
 \[
-\frac{\dif}{\dif x}\Theta(-x)=-\frac{\dif}{\dif x}\Theta(x)=-\delta(x)
+\frac{\dif}{\dif x}\Theta\left(-x\right)=-\frac{\dif}{\dif x}\Theta\left(x\right)=-\delta\left(x\right)
 \]
 
 \end_inset
@@ -2113,7 +2102,7 @@ name "fig:int_path"
 所以
 \begin_inset Formula 
 \[
-\lim_{\varepsilon\to0}\frac{1}{x\pm i\varepsilon}=\text{P.V.}\frac{1}{x}\mp i\pi\delta(x)
+\lim_{\varepsilon\to0}\frac{1}{x\pm i\varepsilon}=\text{P.V.}\frac{1}{x}\mp i\pi\delta\left(x\right)
 \]
 
 \end_inset
@@ -2468,7 +2457,7 @@ f\Rightarrow\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}\dif xf\left(x\r
 对于积分的情形，交换积分次序
 \begin_inset Formula 
 \begin{align*}
- & \phantom{={}}\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\,e^{-ikx}\int_{c}^{x}f\left(t\right)\dif t=\frac{1}{2\pi}\int_{c}^{\infty}\dif tf\left(t\right)\int_{t}^{\infty}\dif x\,e^{-ikx}\\
+ & \Rightarrow\frac{1}{2\pi}\int_{-\infty}^{\infty}\dif x\,e^{-ikx}\int_{c}^{x}f\left(t\right)\dif t=\frac{1}{2\pi}\int_{c}^{\infty}\dif tf\left(t\right)\int_{t}^{\infty}\dif x\,e^{-ikx}\\
  & =\frac{1}{2\pi}\frac{1}{-ik}\int_{c}^{\infty}\dif tf\left(t\right)\left(e^{-ik\infty}-e^{-ikt}\right)\\
  & =\frac{1}{2\pi}\frac{1}{ik}\int_{c}^{\infty}\dif t\left(f\left(t\right)e^{-ikt}-f\left(t\right)e^{-ik\infty}\right)\\
  & =\frac{1}{2\pi}\frac{1}{ik}\int_{c}^{\infty}\dif tf\left(t\right)e^{-ikt}-\frac{1}{2\pi}\frac{1}{ik}e^{-ik\infty}\int_{c}^{\infty}\dif tf\left(t\right)
@@ -2582,14 +2571,30 @@ pf\Rightarrow p\mathcal{F}\left[\phi\right]=\int_{-\infty}^{\infty}p\left(x\righ
 \begin_inset Formula $-\text{P.V.}\frac{1}{x}$
 \end_inset
 
-。
+，其中
 \begin_inset Formula $\text{sign}\left(k\right)=\Theta\left(k\right)-\Theta\left(-k\right)$
 \end_inset
 
-
+。由傅立叶积分基本公式：
 \begin_inset Formula 
 \[
-\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\dif x\left(\mp i\Theta\left(\mp x\right)e^{-ikx}\right)=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)=\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}
+\int_{-\infty}^{+\infty}\dif xe^{-ikx}=2\pi\delta\left(k\right),
+\]
+
+\end_inset
+
+对
+\begin_inset Formula $k\neq0$
+\end_inset
+
+以及
+\begin_inset Formula $k=0$
+\end_inset
+
+分情况讨论，可以得到：
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{1}{k}\dif\left(\mp ikx\right)\left[\Theta\left(\mp x\right)e^{-i\left(k\mp i\varepsilon\right)x}\right]=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)=\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}
 \]
 
 \end_inset
@@ -2763,6 +2768,90 @@ f\otimes g(T)=\int\dif\tau\,f(\tau)g(T-\tau)
 \end_inset
 
 只与时间差的绝对值有关。
+\end_layout
+
+\begin_layout Subsection
+希尔伯特变换
+\end_layout
+
+\begin_layout Standard
+设有一个实值函数
+\begin_inset Formula $x\left(t\right)$
+\end_inset
+
+，其希尔伯特变换为
+\begin_inset Formula 
+\[
+\hat{x}\left(\tau\right)=H\left[x\left(t\right)\right]=\frac{1}{\pi}\int_{-\infty}^{+\infty}\frac{x\left(t\right)}{\tau-t}\dif t,
+\]
+
+\end_inset
+
+逆变换为
+\begin_inset Formula 
+\[
+x\left(t\right)=-\frac{1}{\pi}\int_{-\infty}^{+\infty}\frac{\hat{x}\left(\tau\right)}{t-\tau}\dif\tau.
+\]
+
+\end_inset
+
+与卷积的改变对比，可以发现，Hilbert 变换的表达式相当于将原始信号和一个响应函数作卷积，这个用来卷积的信号就是
+\begin_inset Formula 
+\[
+h\left(\tau\right)=\frac{1}{\pi\tau}.
+\]
+
+\end_inset
+
+因此，Hilbert 变换可以看成是一个滤波器。
+\begin_inset Formula $1/\pi\tau$
+\end_inset
+
+的傅立叶变换为，
+\begin_inset Formula 
+\[
+\lim_{\varepsilon\to0}\int_{-\infty}^{+\infty}\frac{1}{k}\dif\left(\mp ikx\right)\left[\Theta\left(\mp x\right)e^{-i\left(k\mp i\varepsilon\right)x}\right]=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)=\lim_{\varepsilon\to0}\frac{1}{k\pm i\varepsilon}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+之前我们了解了公式，
+\begin_inset Formula 
+\[
+\frac{1}{k\pm i\varepsilon}=\text{P.V.}\frac{1}{k}\mp i\pi\delta\left(k\right)
+\]
+
+\end_inset
+
+以及
+\begin_inset Formula $i\pi\sign\left(k\right)$
+\end_inset
+
+的逆变换是
+\begin_inset Formula $-\text{P.V.}\frac{1}{x}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\mathcal{F}\left[\text{P.V.}\frac{1}{\tau}\right]=-i\pi\sign\left(\omega\right)
+\]
+
+\end_inset
+
+即
+\begin_inset Formula $\frac{1}{\pi\tau}$
+\end_inset
+
+的傅立叶变换是
+\begin_inset Formula $-i\sign\left(\omega\right)$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Section

@@ -944,10 +944,9 @@ literal "true"
 
 以及高阶拉氏量
 \begin_inset Formula 
-\begin{align*}
-\mathcal{L} & =\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]\\
- & +\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]
-\end{align*}
+\[
+\mathcal{L}=\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]+\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]
+\]
 
 \end_inset
 
@@ -2535,10 +2534,9 @@ u\sqrt{2}K^{-} & d\sqrt{2}\bar{K}^{0} & s\left(\frac{-2}{\sqrt{3}}\eta\right)
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-\mathcal{L} & =\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]\\
- & +\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]
-\end{align*}
+\[
+\mathcal{L}=\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]+\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]
+\]
 
 \end_inset
 
@@ -2562,7 +2560,61 @@ u_{\mu}=\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}u\r
 \begin_inset Formula $b_{9}=1.36\GeV,b_{10}=1.24\GeV,b_{11}=0.46\GeV$
 \end_inset
 
-。
+。考虑到
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+是反对称的，可以化简成，
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+ib_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ u_{\mu}u_{\nu},B\right\} \right]+ib_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left[u_{\mu}u_{\nu},B\right]\right]
+\]
+
+\end_inset
+
+矩阵可以做三角形分解，
+\begin_inset Formula 
+\[
+X=U+L-D,
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $U,L,D$
+\end_inset
+
+分别是上三角部分，下三角部分，和对角线部分，则
+\begin_inset Formula $A_{\mu},A_{\nu}$
+\end_inset
+
+两个矩阵的乘积为:
+\begin_inset Formula 
+\[
+D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-L_{\mu}D_{\nu}-D_{\mu}U_{\nu}-U_{\mu}D_{\nu}+L_{\mu}L_{\nu}+U_{\mu}U_{\nu}+L_{\mu}U_{\nu}+U_{\mu}L_{\nu}
+\]
+
+\end_inset
+
+考虑到
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+对交换指标是反对称的，将
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+单一化为，
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow D_{\mu}D_{\nu}-D_{\mu}L_{\nu}+L_{\nu}D_{\mu}-D_{\mu}U_{\nu}+U_{\nu}D_{\mu}+L_{\mu}L_{\nu}+U_{\mu}U_{\nu}+L_{\mu}U_{\nu}-U_{\nu}L_{\mu}\\
+ & =D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-D_{\mu}U_{\nu}+L_{\mu}L_{\nu}+U_{\mu}U_{\nu}+L_{\mu}U_{\nu}+L_{\nu}D_{\mu}+U_{\nu}D_{\mu}-U_{\nu}L_{\mu}\\
+ & =-D_{\mu}A_{\nu}+L_{\mu}\left(A_{\nu}+D_{\nu}\right)+U_{\mu}U_{\nu}+\left(A_{\nu}+D_{\nu}\right)D_{\mu}-U_{\nu}L_{\mu}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
