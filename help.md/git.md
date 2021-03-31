@@ -1052,7 +1052,7 @@ git remote prune origin
 先进行垃圾回收，并压缩一些文件
 
 ```bash
-$ git gc --prune=now
+git gc --prune=now
 ```
 
 Git 最初向磁盘中存储对象使用松散的格式，后续会将多个对象打包为一个二进制的包文件（packfile），以节省磁盘空间
@@ -1150,7 +1150,7 @@ $ cd ~/Desktop/gitthin/gitthin
 把已瘦身的仓库同步到远程仓库，使用`--mirror`参数：
 
 ```bash
-$ git push --mirror git@gitee.com:coderhony/gitthin.git
+git push --mirror git@gitee.com:coderhony/gitthin.git
 ```
 
 为了确保都已同步，再执行以下命令：

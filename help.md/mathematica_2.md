@@ -458,6 +458,8 @@ guide/FlowControl
 
 普通的流程控制可以使用`Return[expr]`，复杂的可以使用`Throw`,`Catch`
 
+由于`Return`一般在控制结构比如`If`中使用，`Return`会退出`If`，以及`If`外面那层函数，但对于嵌套函数的情形，只退出最内的一层函数。
+
 语句组：
 `CompoundExpression[exp1,exp2,...]`
 例如:`Print[x]; Print[y]`，按顺序执行。
