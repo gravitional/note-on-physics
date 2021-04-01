@@ -5970,7 +5970,7 @@ A_{\mu}(x)=\int\frac{\dif^{3}}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\sum_{j=1}
 的运动方程变成
 \begin_inset Formula 
 \[
-\left(-p^{2}g_{\mu\nu}+(1-\frac{1}{\xi})p_{\mu}p_{\nu}\right)A^{\nu}=J_{\mu}
+\left(-p^{2}g_{\mu\nu}+\left(1-\frac{1}{\xi}\right)p_{\mu}p_{\nu}\right)A^{\nu}=J_{\mu}
 \]
 
 \end_inset
@@ -5978,7 +5978,7 @@ A_{\mu}(x)=\int\frac{\dif^{3}}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\sum_{j=1}
 尽管不明显，但是容易检验，括号中算符的逆是
 \begin_inset Formula 
 \[
-\Pi_{\mu\nu}=-\frac{g_{\mu\nu}-(1-\xi)\frac{p_{\mu}p_{\nu}}{p^{2}}}{p^{2}}
+\Pi_{\mu\nu}=-\frac{g_{\mu\nu}-\left(1-\xi\right)\frac{p_{\mu}p_{\nu}}{p^{2}}}{p^{2}}
 \]
 
 \end_inset
@@ -5986,19 +5986,19 @@ A_{\mu}(x)=\int\frac{\dif^{3}}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\sum_{j=1}
 检查一下
 \begin_inset Formula 
 \begin{align*}
- & \left(-p^{2}g_{\mu\alpha}+(1-\frac{1}{\xi})p_{\mu}p_{\alpha}\right)\Pi_{\nu}^{\alpha}\\
-= & \left(p^{2}g_{\mu\alpha}-(1-\frac{1}{\xi})p_{\mu}p_{\alpha}\right)\left(\frac{p^{2}g_{\mu\nu}-(1-\xi)p_{\mu}p_{\nu}}{p^{2}}\right)\frac{1}{p^{4}}\\
-= & g_{\mu\nu}+\left(-(1-\frac{1}{\xi})-(1-\xi)+(1-\frac{1}{\xi})(1-\xi)\right)\frac{p_{\mu}p_{\nu}}{p^{4}}\\
+ & \left(-p^{2}g_{\mu\alpha}+\left(1-\frac{1}{\xi}\right)p_{\mu}p_{\alpha}\right)\Pi_{\nu}^{\alpha}\\
+= & \left(p^{2}g_{\mu\alpha}-\left(1-\frac{1}{\xi}\right)p_{\mu}p_{\alpha}\right)\left(\frac{p^{2}g_{\mu\nu}-\left(1-\xi\right)p_{\mu}p_{\nu}}{p^{2}}\right)\frac{1}{p^{4}}\\
+= & g_{\mu\nu}+\left(-\left(1-\frac{1}{\xi}\right)-\left(1-\xi\right)+\left(1-\frac{1}{\xi}\right)\left(1-\xi\right)\right)\frac{p_{\mu}p_{\nu}}{p^{4}}\\
 = & g_{\mu\nu}
 \end{align*}
 
 \end_inset
 
-光子的 The time-ordered Feynman propagator 可以用类似于标量场的方法推导出来
+光子的编时的费曼传播子可以用类似于标量场的方法推导出来
 \begin_inset Formula 
 \begin{align*}
-i\Pi^{\mu\nu}(p) & =\frac{-i}{p^{2}+i\epsilon}\left[g^{\mu\nu}-(1-\xi)\frac{p^{\mu}p^{\nu}}{p^{2}}\right]\\
- & =\frac{i}{p^{2}+i\epsilon}\left[-g^{\mu\nu}+(1-\xi)\frac{p^{\mu}p^{\nu}}{p^{2}}\right]
+i\Pi^{\mu\nu}\left(p\right) & =\frac{-i}{p^{2}+i\epsilon}\left[g^{\mu\nu}-\left(1-\xi\right)\frac{p^{\mu}p^{\nu}}{p^{2}}\right]\\
+ & =\frac{i}{p^{2}+i\epsilon}\left[-g^{\mu\nu}+\left(1-\xi\right)\frac{p^{\mu}p^{\nu}}{p^{2}}\right]
 \end{align*}
 
 \end_inset
@@ -6020,15 +6020,15 @@ covariant
 \end_inset
 
 加上
-\begin_inset Formula $\xi$
+\begin_inset Formula $\overline{\xi}$
 \end_inset
 
-互补乘上动量
+乘上动量
 \begin_inset Formula $p^{\mu}$
 \end_inset
 
-的归一化并矢，度规张量的父加上
-\begin_inset Formula $(1-\xi)$
+的归一化并矢，即度规张量的负加上
+\begin_inset Formula $\left(1-\xi\right)$
 \end_inset
 
 倍
@@ -6043,8 +6043,8 @@ covariant
 \begin_inset Formula $i\epsilon$
 \end_inset
 
-项是快速把 advanced and retarded propagators 结合成 time-ordered 传播子的方法。分子的符号可以这么记（老Sh，你
-也太贴心了）
+项是快速把 advanced and retarded propagators 结合成 time-ordered 传播子的方法。分子的符号可以这么记（Schwa
+rtz也太贴心了）
 \begin_inset Formula 
 \[
 -ig^{\mu\nu}=\left(\begin{array}{cccc}
