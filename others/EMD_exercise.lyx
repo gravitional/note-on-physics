@@ -8,6 +8,8 @@
 \begin_preamble
 %% 设置主题
 \usetheme{Madrid} %主题
+\usecolortheme{default}% 颜色方案，背景图片
+\setbeamertemplate{background}{\includegraphics[height=\paperheight]{b.jpg}}
 \setbeamercovered{transparent}
 \usefonttheme[onlymath]{serif} %设置数学字体
 % 设置中文字体
@@ -86,7 +88,7 @@
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
 %%%+++++++++++++++++++++++++++++++
 \end_preamble
-\options UTF8,dvipsnames,svgnames,x11names
+\options UTF8,dvipsnames,svgnames,x11names,aspectratio=141
 \use_default_options true
 \maintain_unincluded_children false
 \language chinese-simplified
@@ -194,7 +196,7 @@ tableofcontents[currentsection]}
 status open
 
 \begin_layout Plain Layout
-1.2指标
+1.2
 \end_layout
 
 \end_inset
@@ -211,7 +213,7 @@ status open
 \begin_inset Formula $x,y,z$
 \end_inset
 
-的函数，证明：
+的函数，证明：11111
 \begin_inset Formula 
 \begin{align*}
  & \nabla f\left(u\right)=\frac{\dif f}{\dif u}\nabla u\\
@@ -263,7 +265,7 @@ status open
 \begin_layout Frame
 \begin_inset Formula 
 \[
-\nabla u=\partial_{i}u
+\nabla u\Rightarrow\partial_{i}u
 \]
 
 \end_inset
@@ -271,7 +273,7 @@ status open
 
 \begin_inset Formula 
 \[
-\nabla\cdot\vec{A}\left(u\right)=\partial_{i}A_{i}\left(u\right)=\frac{\dif A_{i}}{\dif u}\left(\partial_{i}u\right)=\frac{\dif\vec{A}}{\dif u}\cdot\nabla u
+\nabla\cdot\vec{A}\left(u\right)\Rightarrow\partial_{i}A_{i}\left(u\right)=\frac{\dif A_{i}}{\dif u}\left(\partial_{i}u\right)\Rightarrow\frac{\dif\vec{A}}{\dif u}\cdot\nabla u
 \]
 
 \end_inset
@@ -279,7 +281,7 @@ status open
 
 \begin_inset Formula 
 \[
-\nabla\times\vec{A}\left(u\right)=\varepsilon_{ijk}\,\vec{e}_{i}\partial_{j}A_{k}\left(u\right)=\varepsilon_{ijk}\,\vec{e}_{i}\frac{\dif A_{j}}{\dif u}\left(\partial_{k}u\right)=\nabla u\times\frac{\dif\vec{A}}{\dif u}
+\nabla\times\vec{A}\left(u\right)\Rightarrow\varepsilon_{ijk}\partial_{j}A_{k}\left(u\right)=\varepsilon_{ijk}\left(\partial_{j}u\right)\frac{\dif A_{k}}{\dif u}\Rightarrow\nabla u\times\frac{\dif\vec{A}}{\dif u}
 \]
 
 \end_inset
@@ -299,7 +301,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-1.4几何
+1.4
 \end_layout
 
 \end_inset
@@ -356,7 +358,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-1.6叉乘
+1.6
 \end_layout
 
 \end_inset
@@ -388,7 +390,7 @@ status open
 。
 \begin_inset Formula 
 \[
-a\times\left(b\times c\right)=b\left(a\times c\right)-c\left(a\times b\right),\text{ back cab}
+\boldsymbol{a}\times\left(\boldsymbol{b}\times\boldsymbol{c}\right)=\boldsymbol{b}\left(\boldsymbol{a}\cdot\boldsymbol{c}\right)-\boldsymbol{c}\left(\boldsymbol{a}\boldsymbol{\cdot}\boldsymbol{b}\right),\text{ back cab}
 \]
 
 \end_inset
@@ -432,6 +434,14 @@ status open
 
 
 \begin_inset Formula 
+\[
+\nabla\times\vec{A}=-\left(\vec{m}\cdot\nabla\right)\frac{\vec{R}}{R^{3}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
 \begin{align*}
 \nabla\varphi & =\nabla\left(\vec{m}\cdot\frac{\vec{R}}{R^{3}}\right)=\vec{m}\times{\color{blue}\left(\nabla\times\frac{\vec{R}}{R^{3}}\right)}+\left(\vec{m}\cdot\nabla\right)\frac{\vec{R}}{R^{3}}\\
  & =\left(\vec{m}\cdot\nabla\right)\frac{\vec{R}}{R^{3}}
@@ -469,15 +479,23 @@ status open
 
 
 \begin_inset Formula 
+\[
+\left(\vec{m}\cdot\nabla\right)\frac{\vec{R}}{R^{3}}=m\cdot\left(\nabla\frac{\vec{R}}{R^{3}}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
 \begin{align*}
-\nabla\frac{\vec{R}}{R^{3}} & \Rightarrow\nabla_{i}\frac{\vec{R}_{j}}{R^{3}}=\left(\nabla_{i}R^{-3}\right)R_{j}+R^{-3}\nabla_{i}R_{j}\\
+\nabla\frac{\vec{R}}{R^{3}} & \Rightarrow\nabla_{i}\frac{R_{j}}{R^{3}}=\left(\nabla_{i}R^{-3}\right)R_{j}+R^{-3}\nabla_{i}R_{j}\\
  & =\left(-3\right)R^{-4}\left(\nabla_{i}R\right)R_{j}+R^{-3}\nabla_{i}R_{j}\\
  & =\left(-3\right)R^{-4}\left(\frac{R_{i}}{R}\right)R_{j}+R^{-3}\delta_{ij}\Rightarrow-\frac{3\vec{R}\vec{R}}{R^{5}}+\frac{I}{R^{3}}
 \end{align*}
 
 \end_inset
 
-
+then：
 \begin_inset Formula 
 \[
 \vec{m}\cdot\vec{R}\vec{R}=\left(\vec{m}\cdot\vec{R}\right)\vec{R},\quad I\cdot\vec{m}=\vec{m}
@@ -512,6 +530,543 @@ status open
 证明两个闭合的恒定电流圈之间的相互作用力大小相等，方向相反。但两个电流元之间的相互作用力不服从牛顿第三定律。
 \end_layout
 
+\begin_layout Frame
+根据安培定律：
+\begin_inset Formula 
+\[
+\dif\boldsymbol{F}=I\dif\boldsymbol{l}\times\boldsymbol{B},\quad\left(\boldsymbol{I},\boldsymbol{B},\boldsymbol{F}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\boldsymbol{B}\left(\boldsymbol{x}\right)={\color{blue}\frac{\mu_{0}}{4\pi}\int_{V}\frac{\boldsymbol{J}\left(\boldsymbol{x}^{\prime}\right)\dif V^{\prime}\times\boldsymbol{r}}{r^{3}}},\quad\left(\boldsymbol{J},\boldsymbol{r},\boldsymbol{B}\right),\quad\boldsymbol{r}=\boldsymbol{x}-\boldsymbol{x}^{\prime}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dif\boldsymbol{F}_{1\to2}=I_{2}\dif\boldsymbol{l}_{2}\times{\color{blue}\frac{\mu_{0}}{4\pi}\oint_{L_{1}}\frac{I_{1}\dif\boldsymbol{l}_{1}\times\boldsymbol{r}_{12}}{r_{12}^{3}}}
+\]
+
+\end_inset
+
+总的作用力为
+\begin_inset Formula 
+\[
+\oint_{L_{2}}\dif\boldsymbol{F}_{1\to2}=\frac{\mu_{0}}{4\pi}\oint_{L_{2}}I_{2}\dif\boldsymbol{l}_{2}\times{\color{blue}\oint_{L_{1}}\frac{I_{1}\dif\boldsymbol{l}_{1}\times\boldsymbol{r}_{12}}{r_{12}^{3}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\boldsymbol{a}\times\left(\boldsymbol{b}\times\boldsymbol{c}\right)=\boldsymbol{b}\left(\boldsymbol{a}\cdot\boldsymbol{c}\right)-\boldsymbol{c}\left(\boldsymbol{a}\boldsymbol{\cdot}\boldsymbol{b}\right),\text{ back cab}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+1.7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{F}_{1\to2} & =\frac{\mu_{0}}{4\pi}\oint_{L_{2}}I_{2}\dif\boldsymbol{l}_{2}\times{\color{blue}\oint_{L_{1}}\frac{I_{1}\dif\boldsymbol{l}_{1}\times\boldsymbol{r}_{12}}{r_{12}^{3}}}\\
+ & =\frac{\mu_{0}I_{1}I_{2}}{4\pi}\oint_{L_{2}}\oint_{L_{1}}\left[\frac{\dif\boldsymbol{l}_{1}\left(\dif\boldsymbol{l}_{2}\cdot\boldsymbol{r}_{12}\right)}{r_{12}^{3}}-\frac{\boldsymbol{r}_{12}\left(\dif\boldsymbol{l}_{2}\cdot\dif\boldsymbol{l}_{1}\right)}{r_{12}^{3}}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Rightarrow\oint_{L_{2}}\oint_{L_{1}}\frac{\dif\boldsymbol{l}_{1}\left(\dif\boldsymbol{l}_{2}\cdot\boldsymbol{r}_{12}\right)}{r_{12}^{3}}=\oint_{L_{1}}\dif\boldsymbol{l}_{1}\left({\color{brown}\oint_{L_{2}}\frac{\dif\boldsymbol{l}_{2}\cdot\boldsymbol{r}_{12}}{r_{12}^{3}}}\right)
+\]
+
+\end_inset
+
+由 Stokes 公式
+\begin_inset Formula $\oint_{L}\dif\boldsymbol{l}\cdot\boldsymbol{f}=\iint_{S}\dif\boldsymbol{S}\,\nabla\times\boldsymbol{f}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+{\color{brown}\oint_{L_{2}}\dif\boldsymbol{l}_{2}\cdot\frac{\boldsymbol{r}_{12}}{r_{12}^{3}}}=\iint_{S}\dif\boldsymbol{S}\,\nabla\times\frac{\boldsymbol{r}_{12}}{r_{12}^{3}}=0\quad\Leftarrow\text{静电场无旋}.
+\]
+
+\end_inset
+
+最终
+\begin_inset Formula 
+\[
+\boldsymbol{F}_{1\to2}=-\frac{\mu_{0}I_{1}I_{2}}{4\pi}\oint_{L_{2}}\oint_{L_{1}}\frac{\boldsymbol{r}_{12}\left(\dif\boldsymbol{l}_{2}\cdot\dif\boldsymbol{l}_{1}\right)}{r_{12}^{3}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+1.7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{F}_{1\to2} & =-\frac{\mu_{0}I_{1}I_{2}}{4\pi}\oint_{L_{2}}\oint_{L_{1}}\frac{\boldsymbol{r}_{12}\left(\dif\boldsymbol{l}_{2}\cdot\dif\boldsymbol{l}_{1}\right)}{r_{12}^{3}}\\
+\boldsymbol{F}_{2\to1} & =-\frac{\mu_{0}I_{2}I_{1}}{4\pi}\oint_{L_{1}}\oint_{L_{2}}\frac{\boldsymbol{r}_{21}\left(\dif\boldsymbol{l}_{1}\cdot\dif\boldsymbol{l}_{2}\right)}{r_{21}^{3}}
+\end{align*}
+
+\end_inset
+
+由
+\begin_inset Formula 
+\[
+r_{12}=\abs{\boldsymbol{r}_{12}}=\abs{\boldsymbol{r}_{21}}=r_{21}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\boldsymbol{r}_{12}=-\boldsymbol{r}_{21}
+\]
+
+\end_inset
+
+可知
+\begin_inset Formula 
+\[
+\boldsymbol{F}_{1\to2}=-\boldsymbol{F}_{2\to1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+1.7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+对于孤立电流元
+\begin_inset Formula 
+\begin{align*}
+\dif\boldsymbol{F}_{1\to2} & =\frac{\mu_{0}I_{1}I_{2}}{4\pi}\left[\frac{\left(\dif\boldsymbol{l}_{1}\dif\boldsymbol{l}_{2}\right)\cdot\boldsymbol{r}_{12}}{r_{12}^{3}}-\frac{\boldsymbol{r}_{12}\left(\dif\boldsymbol{l}_{2}\cdot\dif\boldsymbol{l}_{1}\right)}{r_{12}^{3}}\right]\\
+\dif\boldsymbol{F}_{2\to1} & =\frac{\mu_{0}I_{1}I_{2}}{4\pi}\left[\frac{-\left(\dif\boldsymbol{l}_{2}\dif\boldsymbol{l}_{1}\right)\cdot\boldsymbol{r}_{12}}{r_{12}^{3}}-\frac{-\boldsymbol{r}_{12}\left(\dif\boldsymbol{l}_{2}\cdot\dif\boldsymbol{l}_{1}\right)}{r_{12}^{3}}\right]
+\end{align*}
+
+\end_inset
+
+一般来说
+\begin_inset Formula 
+\[
+A.X\neq X.A,
+\]
+
+\end_inset
+
+所以头一项大小不相等。
+\end_layout
+
+\begin_layout Frame
+然而恒定电流
+\begin_inset Formula 
+\[
+\nabla\cdot\boldsymbol{J}\left(\boldsymbol{x},t\right)=0,
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\boldsymbol{J}$
+\end_inset
+
+必定为闭合曲线，不可能是孤立的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+1.8
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+证明均匀介质内部的极化电荷密度
+\begin_inset Formula $\rho_{P}$
+\end_inset
+
+总是等于自由电荷密度
+\begin_inset Formula $\rho_{f}$
+\end_inset
+
+的
+\begin_inset Formula $\left(\frac{\varepsilon_{0}}{\varepsilon}-1\right)$
+\end_inset
+
+倍。
+\end_layout
+
+\begin_layout Frame
+各向同性均匀介质，
+\begin_inset Formula 
+\[
+\boldsymbol{D}=\varepsilon\boldsymbol{E},\quad\nabla\cdot\boldsymbol{D}=\rho_{f},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\rho_{P} & =-\nabla\cdot\boldsymbol{P}=-\nabla\cdot\left(\boldsymbol{D}-\varepsilon_{0}\boldsymbol{E}\right)\\
+ & =-\nabla\cdot\left(1-\varepsilon_{0}/\varepsilon\right)\boldsymbol{D}\\
+ & =\left(\frac{\varepsilon_{0}}{\varepsilon}-1\right)\rho_{f}.
+\end{align*}
+
+\end_inset
+
+一般介质中
+\begin_inset Formula $\varepsilon>\varepsilon_{0}$
+\end_inset
+
+，因此如果
+\begin_inset Formula $\rho_{f}$
+\end_inset
+
+是正电荷，则
+\begin_inset Formula $\rho_{P}$
+\end_inset
+
+是负电荷。电场中的介质，会产生感应电荷，感应电场总是削弱原先的电场，稳定之后总电场
+\begin_inset Formula $E$
+\end_inset
+
+小于原先的电场
+\begin_inset Formula $D/\varepsilon_{0}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+1.9
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+有一内外半径分别为
+\begin_inset Formula $r_{1}$
+\end_inset
+
+和
+\begin_inset Formula $r_{2}$
+\end_inset
+
+的空心的线性均匀介质球，介质的电容率为
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+，使介质均匀地带静止的自由电荷密度
+\begin_inset Formula $\rho_{r}$
+\end_inset
+
+，求：
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+空间各点的电场；
+\end_layout
+
+\begin_layout Enumerate
+极化电荷体密度和极化电荷面密度。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+1.10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+内外半径分别为
+\begin_inset Formula $r_{1}$
+\end_inset
+
+和
+\begin_inset Formula $r_{2}$
+\end_inset
+
+的无穷长中空导体圆柱，沿轴向流有恒定均匀的自由电流密度
+\begin_inset Formula $\boldsymbol{J}_{f}$
+\end_inset
+
+，导体中的磁导率为
+\begin_inset Formula $\mu$
+\end_inset
+
+，求磁感应强度和磁化电流。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+1.11
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+平行板电容器内有两层介质，它们的厚度分别为
+\begin_inset Formula $l_{1}$
+\end_inset
+
+和
+\begin_inset Formula $l_{2}$
+\end_inset
+
+，电容率为
+\begin_inset Formula $\varepsilon_{1}$
+\end_inset
+
+和
+\begin_inset Formula $\varepsilon_{2}$
+\end_inset
+
+，今在两极板上接上电动势为
+\begin_inset Formula $\mathscr{E}$
+\end_inset
+
+的电源，求：
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+电容器两极板上的自由电荷面密度
+\begin_inset Formula $\omega_{f}$
+\end_inset
+
+；
+\end_layout
+
+\begin_layout Enumerate
+介质分界面上的自由电荷面密度
+\begin_inset Formula $\omega_{f}$
+\end_inset
+
+；
+\end_layout
+
+\begin_layout Enumerate
+若介质是漏电的，电导率分别是
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+和
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+，当电流达到稳定时，上述结果如何？
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+1.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+证明：
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+当两种线性均匀的绝缘介质的分界面上不带面自由电荷时，电场线的曲折满足：
+\begin_inset Formula 
+\[
+\frac{\tan\theta_{2}}{\tan\theta_{1}}=\frac{\varepsilon_{2}}{\varepsilon_{1}}.
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\varepsilon_{1}$
+\end_inset
+
+和
+\begin_inset Formula $\varepsilon_{2}$
+\end_inset
+
+分别是两种介质的电容率，
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+和
+\begin_inset Formula $\theta_{2}$
+\end_inset
+
+分别是界面两侧电场线与法线的夹角。
+\end_layout
+
+\begin_layout Enumerate
+当两种线性均匀的导电介质内流有恒定电流时，分界面上电场线的曲折满足：
+\begin_inset Formula 
+\[
+\frac{\tan\theta_{2}}{\tan\theta_{1}}=\frac{\sigma_{2}}{\sigma_{1}}.
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+和
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+分别是两种介质的电导率。
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 EOF
 \end_layout
