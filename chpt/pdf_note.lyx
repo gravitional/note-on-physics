@@ -916,822 +916,6 @@ B^{\mu}p^{\nu}+C^{\mu}\gamma^{\nu}=\gamma^{\mu}p^{\nu}-p^{\mu}\gamma^{\nu}
 \end_layout
 
 \begin_layout Section
-拉氏量约定
-\end_layout
-
-\begin_layout Standard
-参考
-\begin_inset CommandInset href
-LatexCommand href
-name "1806.07551"
-target "https://arxiv.org/pdf/1806.07551.pdf"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\mathcal{L} & ={\rm Tr}\big[\bar{B}\left(i\slashed{\mathscr{D}}-M_{B}\right)B\big]+D{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma_{5}\left[u_{\mu},B\right]\right]\\
- & +\overline{T}_{\mu}^{ijk}\left(i\gamma^{\mu\nu\alpha}\mathscr{D}_{\alpha}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}^{ijk}+\mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}+\text{h.c.}\right]\\
- & +\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}\left(u_{\alpha}\right)^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[\mathscr{D}_{\mu}U\left(\mathscr{D}^{\mu}U\right)^{\dagger}\big]
-\end{align*}
-
-\end_inset
-
-以及高阶拉氏量
-\begin_inset Formula 
-\[
-\mathcal{L}=\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]+\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]
-\]
-
-\end_inset
-
-这里的
-\begin_inset Formula $u_{v}$
-\end_inset
-
-只需要取强子部分
-\begin_inset Formula 
-\[
-u_{\mu}=\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}u\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula $b_{9},b_{10},b_{11}$
-\end_inset
-
-的值为
-\begin_inset Formula $b_{9}=1.36\GeV,b_{10}=1.24\GeV,b_{11}=0.46\GeV$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-其中
-\begin_inset Formula 
-\[
-\Theta^{\mu\nu}=g^{\mu\nu}-Z\gamma^{\mu}\gamma^{\nu}
-\]
-
-\end_inset
-
-
-\begin_inset Formula $Z$
-\end_inset
-
-代表十重态离壳参数。当
-\begin_inset Formula $Z=1$
-\end_inset
-
-的时候，
-\begin_inset Formula 
-\[
-\Theta^{\mu\nu}=g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}=\frac{1}{2}\left(\gamma^{\nu}\gamma^{\mu}-\gamma^{\mu}\gamma^{\nu}\right)=i\sigma^{\mu\nu}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $f$
-\end_inset
-
-是介子衰变常数，
-\begin_inset Formula $f\approx93\MeV$
-\end_inset
-
-.
-\begin_inset Formula 
-\[
-\gamma^{\mu\nu}=\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=-i\sigma^{\mu\nu},\quad\gamma^{\mu\nu\alpha}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\alpha}\right\} =-i\left\{ \sigma^{\mu\nu},\gamma^{\alpha}\right\} 
-\]
-
-\end_inset
-
-
-\begin_inset Formula $B$
-\end_inset
-
-是八重态重子矩阵，
-\begin_inset Formula 
-\[
-B=\left(\begin{array}{ccc}
-\frac{1}{\sqrt{2}}\Sigma^{0}+\frac{1}{\sqrt{6}}\Lambda & \Sigma^{+} & p\\
-\Sigma^{-} & -\frac{1}{\sqrt{2}}\Sigma^{0}+\frac{1}{\sqrt{6}}\Lambda & n\\
-%\Xi^{-}
- & \Xi^{0} & -\frac{2}{\sqrt{6}}\Lambda
-\end{array}\right)
-\]
-
-\end_inset
-
-十重态用一个全对称张量
-\begin_inset Formula $T^{ijk}$
-\end_inset
-
-描述
-\begin_inset Formula 
-\begin{align*}
- & T^{111}=\Delta^{++},T^{112}=\frac{1}{\sqrt{3}}\Delta^{+},T^{122}=\frac{1}{\sqrt{3}}\Delta^{0},T^{222}=\Delta^{-},\\
- & T^{113}=\frac{1}{\sqrt{3}}\Sigma^{*+},T^{123}=\frac{1}{\sqrt{6}}\Sigma^{*0},T^{223}=\frac{1}{\sqrt{6}}\Sigma^{*-},\\
- & T^{133}=\frac{1}{\sqrt{3}}\Xi^{*0},T^{233}=\frac{1}{\sqrt{3}}\Xi^{*-}\\
- & T^{333}=\Omega^{-}
-\end{align*}
-
-\end_inset
-
-介子被收集在
-\begin_inset Formula $U$
-\end_inset
-
-矩阵中，
-\begin_inset Formula $\phi$
-\end_inset
-
-是介子矩阵
-\begin_inset Formula 
-\[
-u=\exp\left(i\frac{\phi}{\sqrt{2}f}\right)\quad U=u^{2}=\exp\left(i\sqrt{2}\frac{\phi}{f}\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\phi=\left(\begin{array}{ccc}
-\frac{1}{\sqrt{2}}\pi^{0}+\frac{1}{\sqrt{6}}\eta & \pi^{+} & K^{+}\\
-\pi^{-} & -\frac{1}{\sqrt{2}}\pi^{0}+\frac{1}{\sqrt{6}}\eta & K^{0}\\
-K^{-} & \bar{K}^{0} & -\frac{2}{\sqrt{6}}\eta
-\end{array}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-赝标介子组成矢量流和轴矢量流(Chiral connection and Chiral veilbein)，进入拉氏量，
-\begin_inset Formula 
-\begin{align*}
-\Gamma_{\mu} & =\frac{1}{2}\left(u\partial_{\mu}u^{\dagger}+u^{\dagger}\partial_{\mu}u\right)-\frac{i}{2}\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)v_{\mu}^{a}\\
-u_{\mu} & =\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}u\right)+\frac{1}{2}\left(u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u\right)v_{\mu}^{a}
-\end{align*}
-
-\end_inset
-
-这里的
-\begin_inset Formula $i$
-\end_inset
-
-因子是为了满足
-\begin_inset Formula $\Gamma_{\mu}^{\dagger}=-\Gamma_{\mu}$
-\end_inset
-
-，
-\begin_inset Formula $u_{\mu}^{\dagger}=u_{\mu}$
-\end_inset
-
-，注意厄米共轭会改变矩阵位置，再考虑协变偏导前的
-\begin_inset Formula $i$
-\end_inset
-
-，以及对易子在厄米共轭下出一个负号，以及
-\begin_inset Formula $\gamma^{5\dagger}=\gamma^{5},\gamma^{0}\gamma^{5}\gamma^{0}=-\gamma^{5}$
-\end_inset
-
-，最后的拉氏量才是厄米的。
-\begin_inset Formula $v_{\mu}^{a}$
-\end_inset
-
-代表耦合到强子的外矢量场，一般就是光子场乘上系数
-\begin_inset Formula 
-\[
-v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
-\]
-
-\end_inset
-
-这里的负号是QED的约定，电子的电荷为负数。
-\begin_inset Formula $\lambda^{a}$
-\end_inset
-
-表示 Gell-Mann 矩阵，注意
-\begin_inset Formula $\lambda^{a}/2$
-\end_inset
-
-是 
-\begin_inset Formula $\text{SU}\left(3\right)$
-\end_inset
-
- 群的生成元。拉氏量中使用的协变导数的定义为，
-\begin_inset Formula 
-\begin{align*}
-\mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[\Gamma_{\mu},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
-\mathscr{D}_{\mu}T_{\nu}^{ijk} & =\partial_{\mu}T_{\nu}^{ijk}+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}-i\langle\lambda^{0}\rangle v_{\mu}^{0}T_{\nu}^{ijk}\\
-\mathscr{D}_{\mu}U & =\partial_{\mu}U-i\left[v_{\mu},U\right]=\partial_{\mu}U+i\left(U\lambda^{a}-\lambda^{a}U\right)v_{\mu}^{a}\\
-\left(\mathscr{D}_{\mu}U\right) & ^{\dagger}=\partial_{\mu}U^{\dagger}-i\left[v_{\mu}^{a}\lambda^{a},U^{\dagger}\right]=\mathscr{D}_{\mu}\left(U^{\dagger}\right)
-\end{align*}
-
-\end_inset
-
-由于一般的电荷矩阵不一定无迹，所以引入了单态外场
-\begin_inset Formula $v_{\mu}^{0}$
-\end_inset
-
-，对应QCD中耦合到
-\begin_inset Formula $\bar{q}\mathbbm{1}\gamma^{\mu}q$
-\end_inset
-
-的外场，一般还是光子场
-\begin_inset Formula $v_{\mu}^{0}=x^{0}\left(-e\mathcal{A}_{\mu}\right)$
-\end_inset
-
-。
-\begin_inset Formula $\lambda^{0}=I_{3\times3}$
-\end_inset
-
-是味道空间的单位矩阵，
-\begin_inset Formula $\langle\lambda^{0}\rangle$
-\end_inset
-
-表示求迹，
-\begin_inset Formula $\langle\lambda^{0}\rangle=3$
-\end_inset
-
- 。只看
-\begin_inset Formula $\Gamma_{\mu}$
-\end_inset
-
-正比于
-\begin_inset Formula $v_{\mu}$
-\end_inset
-
-的部分，在最低阶
-\begin_inset Formula $u=u^{\dagger}=1$
-\end_inset
-
-，则有
-\begin_inset Formula 
-\begin{align*}
-\mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[-i\lambda^{a}v_{\mu}^{a},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
- & =\partial_{\mu}B+ie\mathcal{A}_{\mu}\left(\left[\lambda^{a}x^{a},B\right]+\langle\lambda^{0}\rangle\lambda^{0}x^{0}B\right)
-\end{align*}
-
-\end_inset
-
-由于
-\begin_inset Formula $\left[I,B\right]=0$
-\end_inset
-
-，无迹部分加上任意正比于
-\begin_inset Formula $I$
-\end_inset
-
-的矩阵结果不变，所以可以写成
-\begin_inset Formula 
-\[
-\mathscr{D}_{\mu}B=\partial_{\mu}B+ie\mathcal{A}_{\mu}\left[Q,B\right]+ie\mathcal{A}_{\mu}\langle Q\rangle B
-\]
-
-\end_inset
-
-之所以单态的系数是
-\begin_inset Formula $\langle Q\rangle B$
-\end_inset
-
-，是通过将展开结果和夸克流的量子数如电荷,进行匹配得到。
-\end_layout
-
-\begin_layout Standard
-十重态定义中的
-\begin_inset Formula $\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}$
-\end_inset
-
-为
-\begin_inset Formula 
-\[
-\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}=\Gamma_{\mu}^{il}T_{\nu}^{ljk}+\Gamma_{\mu}^{jl}T_{\nu}^{ilk}+\Gamma_{\mu}^{kl}T_{\nu}^{ijl}
-\]
-
-\end_inset
-
-也就是
-\begin_inset Formula 
-\[
-\left(\Gamma_{\mu},T_{\nu}\right)=\Gamma_{\mu}.T_{\nu}+\left(\Gamma_{\mu}.T_{\nu}\right)^{\left(123\right)}+\left(\Gamma_{\mu}.T_{\nu}\right)^{\left(132\right)}
-\]
-
-\end_inset
-
-内积
-\begin_inset Formula $\Gamma_{\mu}.T_{\nu}$
-\end_inset
-
-带有三个指标，上标的
-\begin_inset Formula $(123)$
-\end_inset
-
-表示将置换群元素
-\begin_inset Formula $\left(\begin{array}{ccc}
-1 & 2 & 3\\
-2 & 3 & 1
-\end{array}\right)$
-\end_inset
-
-作用到三个指标上，最后得到的
-\begin_inset Formula $\left(\Gamma_{\mu},T_{\nu}\right)$
-\end_inset
-
-仍然是一个全对称张量。
-\end_layout
-
-\begin_layout Standard
-此外还有跟反常磁矩相关的拉氏量
-\begin_inset Formula 
-\begin{align*}
-\mathcal{L}^{\text{mag}} & =\frac{e}{4M_{N}}\left(c_{1}^{\prime}\tr\left[\overline{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}^{\prime}\tr\left[\overline{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}^{\prime}\tr\left[\mathcal{F}_{\mu\nu}^{u}\right]\tr\left[\overline{B}\sigma^{\mu\nu}B\right]\right)\\
- & +\frac{-eF_{2}^{T}}{4M_{T}}\overline{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
- & +\frac{iec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\overline{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\overline{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
-\end{align*}
-
-\end_inset
-
-其中
-\begin_inset Formula $\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}$
-\end_inset
-
-是电磁场强张量，这里的质量参数就是
-\begin_inset Formula $M_{N}$
-\end_inset
-
-，参考这篇文章： 
-\begin_inset CommandInset href
-LatexCommand href
-name "hep-ph/9212226.pdf"
-target "https://arxiv.org/pdf/hep-ph/9212226.pdf"
-literal "true"
-
-\end_inset
-
-。转移磁矩中包含
-\begin_inset Formula $i$
-\end_inset
-
-，作厄米共轭时出一个负号，和后面交换
-\begin_inset Formula $\mu\nu$
-\end_inset
-
-指标的负号抵消。
-\begin_inset Formula 
-\[
-\mathcal{F}_{\mu\nu}^{u}=\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}\left(x^{a}\lambda^{a}\right)u+u\left(x^{a}\lambda^{a}\right)u^{\dagger}\right]
-\]
-
-\end_inset
-
-
-\begin_inset Formula $x^{a}$
-\end_inset
-
-是组合系数，
-\begin_inset Formula $a=1,\cdots,8$
-\end_inset
-
-。跟前面一样，假设电荷矩阵
-\begin_inset Formula $Q$
-\end_inset
-
-的迹不为零，我们首先分成有迹部分和无迹部分。
-\begin_inset Formula $c_{1}^{\prime}$
-\end_inset
-
-和
-\begin_inset Formula $c_{2}^{\prime}$
-\end_inset
-
-对应无迹部分
-\begin_inset Formula $Q-\tr\left[Q\right]/3$
-\end_inset
-
-，
-\begin_inset Formula $c_{3}^{\prime}$
-\end_inset
-
-对应有迹部分
-\begin_inset Formula $\tr\left[Q\right]$
-\end_inset
-
-。但是
-\begin_inset Formula $c_{2}^{\prime}$
-\end_inset
-
-项是对易式，加上任意
-\begin_inset Formula $xI_{3\times3}$
-\end_inset
-
-结果不变；
-\begin_inset Formula $c_{1}^{\prime}$
-\end_inset
-
-项是反对易，加上任意
-\begin_inset Formula $xI_{3\times3}$
-\end_inset
-
-相当于
-\begin_inset Formula $-2x\mathcal{F}_{\mu\nu}c_{1}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}B\right]$
-\end_inset
-
-，这样和
-\begin_inset Formula $c_{3}^{\prime}$
-\end_inset
-
-变成同一种结构，可以吸收到
-\begin_inset Formula $c_{3}^{\prime}$
-\end_inset
-
-中。
-\begin_inset Formula 
-\begin{align*}
-\mathcal{F}_{\mu\nu}^{u} & =\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}Qu+uQu^{\dagger}\right],\quad\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}\\
- & =\mathcal{F}_{\mu\nu}Q\text{ 在领头阶}
-\end{align*}
-
-\end_inset
-
-所以最后可以一般地写成
-\begin_inset Formula 
-\begin{align*}
-\mathcal{L}^{\text{mag}} & =\frac{e}{4M_{N}}\mathcal{F}_{\mu\nu}\left(c_{1}\tr\left[\overline{B}\sigma^{\mu\nu}\left\{ Q,B\right\} \right]+c_{2}\tr\left[\overline{B}\sigma^{\mu\nu}\left[Q,B\right]\right]+c_{3}\tr\left[Q\right]\tr\left[\overline{B}\sigma^{\mu\nu}B\right]\right)\\
- & +\frac{-eF_{2}^{T}}{4M_{T}}\overline{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
- & +\frac{iec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\overline{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\overline{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
-\end{align*}
-
-\end_inset
-
-其中也可以一开始就用
-\begin_inset Formula $Q$
-\end_inset
-
-构造
-\begin_inset Formula $\mathcal{F}_{\mu\nu}^{u}$
-\end_inset
-
-，是等价的。因为QCD 中夸克的电荷矩阵形式为，
-\begin_inset Formula 
-\[
-\mathcal{L}_{\text{ext}}=-e\mathcal{A}_{\mu}\left(\bar{q}_{L}Q\gamma^{\mu}q_{L}+\bar{q}_{R}Q\gamma^{\mu}q_{R}\right)=-e\mathcal{A}_{\mu}\bar{q}Q\gamma^{\mu}q
-\]
-
-\end_inset
-
-所以
-\begin_inset Formula $Q$
-\end_inset
-
-的变换性质为
-\begin_inset Formula $Q\mapsto LQL^{\dagger}=RQR^{\dagger}=VQV^{\dagger}$
-\end_inset
-
-，对应地
-\begin_inset Formula $\mathcal{F}_{\mu\nu}^{u}\mapsto K\mathcal{F}_{\mu\nu}^{u}K^{\dagger}$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-假设电荷矩阵分量的变换是
-\begin_inset Formula $\lambda^{a}\mapsto V\lambda^{a}V^{\dagger}$
-\end_inset
-
-，
-\begin_inset Formula $I\mapsto I$
-\end_inset
-
-，上面使用的手征模块的变换性质为：
-\begin_inset Formula 
-\begin{align*}
-u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)K^{\dagger}\\
-u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u\right)K^{\dagger}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\bar{B}\mapsto K\bar{B}K^{\dagger},\quad B\mapsto KBK^{\dagger}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-指标求和式的处理
-\end_layout
-
-\begin_layout Standard
-拉氏量必须是实数，因为
-\begin_inset Formula $\mathcal{H}=\sum_{\phi}\Pi\dot{\phi}-\mathcal{L}$
-\end_inset
-
-，而能量是可观测量，是实数。物理中，总是认为不同空间的运算是独立的。运算可以直接“穿透”外层指标，到下一层指标。也就是认为大多数运算，跟矩阵分块不矛盾。比如旋量
-指标
-\begin_inset Formula $xyz$
-\end_inset
-
-，洛伦兹指标
-\begin_inset Formula $\mu\nu$
-\end_inset
-
-，味道指标
-\begin_inset Formula $abc$
-\end_inset
-
-，认为这些指标之间是独立运算的。数字的转置还是数字本身，如
-\begin_inset Formula $\left(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\right)^{\dagger}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}$
-\end_inset
-
-。矩阵的转置就需要交换指标了，如
-\begin_inset Formula 
-\[
-\left(\sigma^{\mu\nu}\right)^{\dagger}=\sigma^{\nu\mu\dagger}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-对于二次型，如果
-\begin_inset Formula $x=\left(\begin{array}{c}
-x_{1}\\
-x_{2}\\
-\vdots
-\end{array}\right)$
-\end_inset
-
-是场的集合，我们认为
-\begin_inset Formula $\dagger$
-\end_inset
-
-能透过场的指标，
-\begin_inset Formula $x^{\dagger}=\left(x_{1}^{\dagger},x_{2}^{\dagger},\cdots\right)$
-\end_inset
-
-（外层没有其他复数的时候，厄米共轭中只有转置发挥作用，外层只进行转置）。以下重复指标代表求和：
-\begin_inset Formula 
-\begin{align*}
-x^{\dagger}Ay & =x_{i}^{\dagger}A_{ij}y_{j}\\
-\left(x^{\dagger}Ay\right)^{\dagger} & =y^{\dagger}A^{\dagger}x=y_{i}^{\dagger}A_{ij}^{\dagger}x_{j}
-\end{align*}
-
-\end_inset
-
-如果
-\begin_inset Formula $A$
-\end_inset
-
-是厄米的，
-\begin_inset Formula $A^{\dagger}=A$
-\end_inset
-
-,
-\begin_inset Formula 
-\begin{align*}
-x^{\dagger}Ay & =x_{i}^{\dagger}A_{ij}y_{j}\\
-\left(x^{\dagger}Ay\right)^{\dagger} & =y_{i}^{\dagger}A_{ij}^{\dagger}x_{j}=y_{i}^{\dagger}A_{ij}x_{j}=x_{i}A_{ji}y_{j}^{\dagger}
-\end{align*}
-
-\end_inset
-
-作厄米共轭相当于交换
-\begin_inset Formula $x,y$
-\end_inset
-
-的位置。等价地，如果把指标写出来，相当于交换
-\begin_inset Formula $A$
-\end_inset
-
-的两个指标。
-\end_layout
-
-\begin_layout Standard
-同理，如果
-\begin_inset Formula $A$
-\end_inset
-
-是反厄米的，
-\begin_inset Formula $A^{\dagger}=-A$
-\end_inset
-
-，
-\begin_inset Formula 
-\begin{align*}
-\left(x^{\dagger}Ay\right)^{\dagger} & =y_{i}^{\dagger}A_{ij}^{\dagger}x_{j}=-y_{i}^{\dagger}A_{ij}x_{j}=-x_{i}A_{ji}y_{j}^{\dagger}
-\end{align*}
-
-\end_inset
-
-区别是把
-\begin_inset Formula $A$
-\end_inset
-
-换成
-\begin_inset Formula $-A$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{shaded}
-\end_layout
-
-\begin_layout Plain Layout
-
-对二次型的复共轭，除了对两边的矢量作复共轭之外，还会交换中间二次型矩阵的指标。
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{shaded}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-对于大部分拉氏量，都已经写成了矩阵运算的形式，可以直接在 Mathematica 中进行处理。对于含有
-\begin_inset Formula $T^{abc}$
-\end_inset
-
-的式子，需要先表示成张量运算的形式，方便处理。
-\end_layout
-
-\begin_layout Standard
-十重态反常磁矩：
-\begin_inset Formula 
-\begin{align*}
- & -\frac{iF_{2}^{T}}{4m_{T}}\bar{T}_{\mu}^{abc}\sigma^{\alpha\beta}\left(F_{\alpha\beta}\right)^{ce}T^{\mu,eba}\\
- & -\frac{iF_{2}^{T}}{4m_{T}}\left(\bar{T}_{\mu}.F_{\alpha\beta}.\left(\sigma^{\alpha\beta}.T^{\mu}\right)\right)^{\left\{ \left\{ 1,4\right\} ,\left\{ 2,3\right\} \right\} }
-\end{align*}
-
-\end_inset
-
-式子中的点乘都是在味道空间进行的，相当于结果中的指标进行
-\begin_inset Formula $\left\{ \left\{ 1,3\right\} ,\left\{ 2,4\right\} \right\} $
-\end_inset
-
- or 
-\begin_inset Formula $\left\{ \left\{ 1,4\right\} ,\left\{ 2,3\right\} \right\} $
-\end_inset
-
- 收缩。
-\end_layout
-
-\begin_layout Standard
-八重态十重态重子–转移磁矩：
-\begin_inset Formula 
-\begin{align*}
- & \Rightarrow\frac{iec_{4}}{4m_{N}}\left(\varepsilon^{ijk}\bar{T}^{\mu,ilm}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\varepsilon^{ijk}\bar{B}^{km}\left(-F_{\mu\nu}\right)^{jl}\gamma^{5}\gamma^{\mu}T^{\nu,ilm}\right)\\
- & =\frac{iec_{4}}{4m_{N}}\left(\varepsilon^{jki}\bar{T}^{\mu,iml}\left(F_{\mu\nu}\right)^{lj}\gamma^{\nu}\gamma^{5}B^{mk}+\bar{B}^{km}\left(-F_{\mu\nu}\right)^{jl}\left(\gamma^{\mu}\gamma^{5}\right)T^{\nu,lmi}\left(-\varepsilon^{ikj}\right)\right)\\
- & =\frac{iec_{4}}{4m_{N}}\left(\tr\left(\left(\varepsilon.\bar{T}^{\mu}.F_{\mu\nu}\right)^{\{1,4\}}.\gamma^{\nu}\gamma^{5}.B\right)-\tr\left(\bar{B}.\gamma^{\mu}\gamma^{5}.\left(F_{\mu\nu}.T^{\nu}.\left(\varepsilon\right)\right)^{\{1,4\}}\right)\right)
-\end{align*}
-
-\end_inset
-
-注意：例如其中的
-\begin_inset Formula $\left(F_{\mu\nu}\right)^{lj}$
-\end_inset
-
-作厄米共轭时，如果令场的味道指标不变，那么相对的
-\begin_inset Formula $\left(F_{\mu\nu}\right)^{lj}$
-\end_inset
-
-要变成
-\begin_inset Formula $\left(F_{\mu\nu}\right)^{jl}$
-\end_inset
-
-，由于
-\begin_inset Formula $\lambda^{a}$
-\end_inset
-
-都是厄米的，所以没有额外的负号。考虑
-\begin_inset Formula $\bar{T}^{\mu}F_{\mu\nu}\gamma^{\nu}\gamma^{5}$
-\end_inset
-
-的
-\begin_inset Formula $\mu\nu$
-\end_inset
-
-指标时，由于
-\begin_inset Formula $F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}$
-\end_inset
-
-已经是单纯的数了，所以不需要转置，而且它是实数，也不需要复共轭。但是右边一项交换了指标，即
-\begin_inset Formula 
-\[
-\bar{T}^{\mu}F_{\mu\nu}\gamma^{\nu}\gamma^{5}\to-\bar{T}^{\nu}F_{\mu\nu}\gamma^{\mu}\gamma^{5}
-\]
-
-\end_inset
-
-这个负号是
-\begin_inset Formula $F_{\mu\nu}$
-\end_inset
-
-的反对称性质带来的。注意最外面还有一个
-\begin_inset Formula $i$
-\end_inset
-
-。另外还要考虑
-\begin_inset Formula $\gamma^{\nu}\gamma^{5}$
-\end_inset
-
-。
-\begin_inset Formula 
-\begin{align*}
-\bar{\psi}\gamma^{\nu}\gamma^{5}\psi & \stackrel{\text{\ensuremath{\dagger}}}{\mapsto}\psi^{\dagger}\gamma^{5}\gamma^{\nu\dagger}\gamma^{0}\psi=\psi^{\dagger}\gamma^{0}\gamma^{0}\gamma^{5}\gamma^{\nu\dagger}\gamma^{0}\psi=\bar{\psi}\gamma^{0}\gamma^{5}\gamma^{\nu\dagger}\gamma^{0}\psi\\
- & =-\bar{\psi}\gamma^{5}\gamma^{0}\gamma^{\nu\dagger}\gamma^{0}\psi=-\bar{\psi}\gamma^{5}\gamma^{\nu}\psi=\bar{\psi}\gamma^{\nu}\gamma^{5}\psi
-\end{align*}
-
-\end_inset
-
-也求实说
-\begin_inset Formula $\bar{\psi}\gamma^{\nu}\gamma^{5}\psi$
-\end_inset
-
-是厄米的，
-\begin_inset Formula $\bar{\psi}\gamma^{5}\gamma^{\nu}\psi=-\bar{\psi}\gamma^{\nu}\gamma^{5}\psi$
-\end_inset
-
-也是厄米的，不用考虑在厄米共轭下额外的负号。
-\end_layout
-
-\begin_layout Standard
-注意：
-\begin_inset Formula $\gamma^{0}\gamma^{5}\gamma^{0}\neq\gamma^{5\dagger}$
-\end_inset
-
-，厄米的双线性型为
-\begin_inset Formula 
-\[
-\bar{\psi}\psi,\quad\bar{\psi}\gamma^{\mu}\psi,\quad\bar{\psi}i\left[\gamma^{\mu},\gamma^{\nu}\right]\psi,\quad\bar{\psi}\gamma^{\mu}\gamma^{5}\psi,\quad\bar{\psi}i\gamma^{5}\psi
-\]
-
-\end_inset
-
-
-\color cyan
-这里不需要考虑费米子交换位置出负号，因为矩阵
-\begin_inset Formula $\left(AB\right)^{\dagger}=B^{\dagger}A^{\dagger}$
-\end_inset
-
-是更加基本的运算法则，对易或者反对易都是这个法则之下的特殊代数。
-\end_layout
-
-\begin_layout Standard
-MBD低能强子耦合项：
-\begin_inset Formula 
-\begin{align*}
- & \mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\text{h.c.}\right]\\
-= & \mathcal{C}\left[\varepsilon^{jki}\overline{T}_{\mu}^{iml}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\bar{B}^{km}\left(-\Theta^{\mu\nu\dagger}\right)T_{\nu}^{ilm}(u_{\mu})^{jl}\varepsilon^{ijk}\right]\\
-= & \mathcal{C}\left[\varepsilon^{jki}\overline{T}_{\mu}^{iml}\Theta^{\mu\nu}(u_{\nu})^{lj}B^{mk}+\bar{B}^{km}(u_{\mu})^{jl}\Theta^{\mu\nu}T_{\nu}^{lmi}\left(-\varepsilon^{ikj}\right)\right]\\
-= & \mathcal{C}\left[\tr\left(\left(\varepsilon.\overline{T}_{\mu}.u_{\nu}\right)^{\left\{ 1,4\right\} }.\Theta^{\mu\nu}.B\right)+\tr\left(\bar{B}.\Theta^{\mu\nu}.\left(u_{\mu}.T_{\nu}.\left(-\varepsilon\right)\right)^{\{1,4\}}\right)\right]
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 强子矢量流和轴矢流
 \end_layout
 
@@ -2525,87 +1709,715 @@ u\sqrt{2}K^{-} & d\sqrt{2}\bar{K}^{0} & s\left(\frac{-2}{\sqrt{3}}\eta\right)
 \end_layout
 
 \begin_layout Section
-高阶拉氏量
+强相互作用
+\end_layout
+
+\begin_layout Standard
+参考
+\begin_inset CommandInset href
+LatexCommand href
+name "1806.07551"
+target "https://arxiv.org/pdf/1806.07551.pdf"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\mathcal{L}=\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]+\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]
-\]
-
-\end_inset
-
-这里的
-\begin_inset Formula $u_{v}$
-\end_inset
-
-只需要取强子部分
-\begin_inset Formula 
-\[
-u_{\mu}=\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}u\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula $b_{9},b_{10},b_{11}$
-\end_inset
-
-的值为
-\begin_inset Formula $b_{9}=1.36\GeV,b_{10}=1.24\GeV,b_{11}=0.46\GeV$
-\end_inset
-
-。考虑到
-\begin_inset Formula $\sigma^{\mu\nu}$
-\end_inset
-
-是反对称的，可以化简成，
-\begin_inset Formula 
-\[
-\mathcal{L}=\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+ib_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ u_{\mu}u_{\nu},B\right\} \right]+ib_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left[u_{\mu}u_{\nu},B\right]\right]
-\]
-
-\end_inset
-
-矩阵可以做三角形分解，
-\begin_inset Formula 
-\[
-X=U+L-D,
-\]
+\begin{align*}
+\mathcal{L} & ={\rm Tr}\big[\bar{B}\left(i\slashed{\mathscr{D}}-M_{B}\right)B\big]+D{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F{\rm Tr}\left[\bar{B}\gamma^{\mu}\gamma_{5}\left[u_{\mu},B\right]\right]\\
+ & +\overline{T}_{\mu}^{ijk}\left(i\gamma^{\mu\nu\alpha}\mathscr{D}_{\alpha}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}^{ijk}+\mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}+\text{h.c.}\right]\\
+ & +\mathcal{H}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}\left(u_{\alpha}\right)^{kl}T_{\nu}^{ijl}+\frac{f^{2}}{4}{\rm Tr}\big[\mathscr{D}_{\mu}U\left(\mathscr{D}^{\mu}U\right)^{\dagger}\big]
+\end{align*}
 
 \end_inset
 
 其中
-\begin_inset Formula $U,L,D$
-\end_inset
-
-分别是上三角部分，下三角部分，和对角线部分，则
-\begin_inset Formula $A_{\mu},A_{\nu}$
-\end_inset
-
-两个矩阵的乘积为:
 \begin_inset Formula 
 \[
-D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-L_{\mu}D_{\nu}-D_{\mu}U_{\nu}-U_{\mu}D_{\nu}+L_{\mu}L_{\nu}+U_{\mu}U_{\nu}+L_{\mu}U_{\nu}+U_{\mu}L_{\nu}
+\Theta^{\mu\nu}=g^{\mu\nu}-Z\gamma^{\mu}\gamma^{\nu}
 \]
 
 \end_inset
 
-考虑到
-\begin_inset Formula $\sigma^{\mu\nu}$
+
+\begin_inset Formula $Z$
 \end_inset
 
-对交换指标是反对称的，将
+代表十重态离壳参数。当
+\begin_inset Formula $Z=1$
+\end_inset
+
+的时候，
+\begin_inset Formula 
+\[
+\Theta^{\mu\nu}=g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}=\frac{1}{2}\left(\gamma^{\nu}\gamma^{\mu}-\gamma^{\mu}\gamma^{\nu}\right)=i\sigma^{\mu\nu}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f$
+\end_inset
+
+是介子衰变常数，
+\begin_inset Formula $f\approx93\MeV$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\gamma^{\mu\nu}=\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=-i\sigma^{\mu\nu},\quad\gamma^{\mu\nu\alpha}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\alpha}\right\} =-i\left\{ \sigma^{\mu\nu},\gamma^{\alpha}\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula $B$
+\end_inset
+
+是八重态重子矩阵，
+\begin_inset Formula 
+\[
+B=\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}}\Sigma^{0}+\frac{1}{\sqrt{6}}\Lambda & \Sigma^{+} & p\\
+\Sigma^{-} & -\frac{1}{\sqrt{2}}\Sigma^{0}+\frac{1}{\sqrt{6}}\Lambda & n\\
+%\Xi^{-}
+ & \Xi^{0} & -\frac{2}{\sqrt{6}}\Lambda
+\end{array}\right)
+\]
+
+\end_inset
+
+十重态用一个全对称张量
+\begin_inset Formula $T^{ijk}$
+\end_inset
+
+描述
+\begin_inset Formula 
+\begin{align*}
+ & T^{111}=\Delta^{++},T^{112}=\frac{1}{\sqrt{3}}\Delta^{+},T^{122}=\frac{1}{\sqrt{3}}\Delta^{0},T^{222}=\Delta^{-},\\
+ & T^{113}=\frac{1}{\sqrt{3}}\Sigma^{*+},T^{123}=\frac{1}{\sqrt{6}}\Sigma^{*0},T^{223}=\frac{1}{\sqrt{6}}\Sigma^{*-},\\
+ & T^{133}=\frac{1}{\sqrt{3}}\Xi^{*0},T^{233}=\frac{1}{\sqrt{3}}\Xi^{*-}\\
+ & T^{333}=\Omega^{-}
+\end{align*}
+
+\end_inset
+
+介子被收集在
+\begin_inset Formula $U$
+\end_inset
+
+矩阵中，
+\begin_inset Formula $\phi$
+\end_inset
+
+是介子矩阵
+\begin_inset Formula 
+\[
+u=\exp\left(i\frac{\phi}{\sqrt{2}f}\right)\quad U=u^{2}=\exp\left(i\sqrt{2}\frac{\phi}{f}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\phi=\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}}\pi^{0}+\frac{1}{\sqrt{6}}\eta & \pi^{+} & K^{+}\\
+\pi^{-} & -\frac{1}{\sqrt{2}}\pi^{0}+\frac{1}{\sqrt{6}}\eta & K^{0}\\
+K^{-} & \bar{K}^{0} & -\frac{2}{\sqrt{6}}\eta
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+赝标介子组成矢量流和轴矢量流(Chiral connection and Chiral veilbein)，进入拉氏量，
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{\mu} & =\frac{1}{2}\left(u\partial_{\mu}u^{\dagger}+u^{\dagger}\partial_{\mu}u\right)-\frac{i}{2}\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)v_{\mu}^{a}\\
+u_{\mu} & =\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}u\right)+\frac{1}{2}\left(u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u\right)v_{\mu}^{a}
+\end{align*}
+
+\end_inset
+
+这里的
+\begin_inset Formula $i$
+\end_inset
+
+因子是为了满足
+\begin_inset Formula $\Gamma_{\mu}^{\dagger}=-\Gamma_{\mu}$
+\end_inset
+
+，
+\begin_inset Formula $u_{\mu}^{\dagger}=u_{\mu}$
+\end_inset
+
+，注意厄米共轭会改变矩阵位置，再考虑协变偏导前的
+\begin_inset Formula $i$
+\end_inset
+
+，以及对易子在厄米共轭下出一个负号，以及
+\begin_inset Formula $\gamma^{5\dagger}=\gamma^{5},\gamma^{0}\gamma^{5}\gamma^{0}=-\gamma^{5}$
+\end_inset
+
+，最后的拉氏量才是厄米的。
+\begin_inset Formula $v_{\mu}^{a}$
+\end_inset
+
+代表耦合到强子的外矢量场，一般就是光子场乘上系数
+\begin_inset Formula 
+\[
+v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
+\]
+
+\end_inset
+
+这里的负号是QED的约定，电子的电荷为负数。
+\begin_inset Formula $\lambda^{a}$
+\end_inset
+
+表示 Gell-Mann 矩阵，注意
+\begin_inset Formula $\lambda^{a}/2$
+\end_inset
+
+是 
+\begin_inset Formula $\text{SU}\left(3\right)$
+\end_inset
+
+ 群的生成元。拉氏量中使用的协变导数的定义为，
+\begin_inset Formula 
+\begin{align*}
+\mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[\Gamma_{\mu},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
+\mathscr{D}_{\mu}T_{\nu}^{ijk} & =\partial_{\mu}T_{\nu}^{ijk}+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}-i\langle\lambda^{0}\rangle v_{\mu}^{0}T_{\nu}^{ijk}\\
+\mathscr{D}_{\mu}U & =\partial_{\mu}U-i\left[v_{\mu},U\right]=\partial_{\mu}U+i\left(U\lambda^{a}-\lambda^{a}U\right)v_{\mu}^{a}\\
+\left(\mathscr{D}_{\mu}U\right) & ^{\dagger}=\partial_{\mu}U^{\dagger}-i\left[v_{\mu}^{a}\lambda^{a},U^{\dagger}\right]=\mathscr{D}_{\mu}\left(U^{\dagger}\right)
+\end{align*}
+
+\end_inset
+
+由于一般的电荷矩阵不一定无迹，所以引入了单态外场
+\begin_inset Formula $v_{\mu}^{0}$
+\end_inset
+
+，对应QCD中耦合到
+\begin_inset Formula $\bar{q}\mathbbm{1}\gamma^{\mu}q$
+\end_inset
+
+的外场，一般还是光子场
+\begin_inset Formula $v_{\mu}^{0}=x^{0}\left(-e\mathcal{A}_{\mu}\right)$
+\end_inset
+
+。
+\begin_inset Formula $\lambda^{0}=I_{3\times3}$
+\end_inset
+
+是味道空间的单位矩阵，
+\begin_inset Formula $\langle\lambda^{0}\rangle$
+\end_inset
+
+表示求迹，
+\begin_inset Formula $\langle\lambda^{0}\rangle=3$
+\end_inset
+
+ 。只看
+\begin_inset Formula $\Gamma_{\mu}$
+\end_inset
+
+正比于
+\begin_inset Formula $v_{\mu}$
+\end_inset
+
+的部分，在最低阶
+\begin_inset Formula $u=u^{\dagger}=1$
+\end_inset
+
+，则有
+\begin_inset Formula 
+\begin{align*}
+\mathscr{D}_{\mu}B & =\partial_{\mu}B+\left[-i\lambda^{a}v_{\mu}^{a},B\right]-i\langle\lambda^{0}\rangle v_{\mu}^{0}B\\
+ & =\partial_{\mu}B+ie\mathcal{A}_{\mu}\left(\left[\lambda^{a}x^{a},B\right]+\langle\lambda^{0}\rangle\lambda^{0}x^{0}B\right)
+\end{align*}
+
+\end_inset
+
+由于
+\begin_inset Formula $\left[I,B\right]=0$
+\end_inset
+
+，无迹部分加上任意正比于
+\begin_inset Formula $I$
+\end_inset
+
+的矩阵结果不变，所以可以写成
+\begin_inset Formula 
+\[
+\mathscr{D}_{\mu}B=\partial_{\mu}B+ie\mathcal{A}_{\mu}\left[Q,B\right]+ie\mathcal{A}_{\mu}\langle Q\rangle B
+\]
+
+\end_inset
+
+之所以单态的系数是
+\begin_inset Formula $\langle Q\rangle B$
+\end_inset
+
+，是通过将展开结果和夸克流的量子数如电荷,进行匹配得到。
+\end_layout
+
+\begin_layout Standard
+十重态定义中的
+\begin_inset Formula $\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}$
+\end_inset
+
+为
+\begin_inset Formula 
+\[
+\left(\Gamma_{\mu},T_{\nu}\right)^{ijk}=\Gamma_{\mu}^{il}T_{\nu}^{ljk}+\Gamma_{\mu}^{jl}T_{\nu}^{ilk}+\Gamma_{\mu}^{kl}T_{\nu}^{ijl}
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\[
+\left(\Gamma_{\mu},T_{\nu}\right)=\Gamma_{\mu}.T_{\nu}+\left(\Gamma_{\mu}.T_{\nu}\right)^{\left(123\right)}+\left(\Gamma_{\mu}.T_{\nu}\right)^{\left(132\right)}
+\]
+
+\end_inset
+
+内积
+\begin_inset Formula $\Gamma_{\mu}.T_{\nu}$
+\end_inset
+
+带有三个指标，上标的
+\begin_inset Formula $(123)$
+\end_inset
+
+表示将置换群元素
+\begin_inset Formula $\left(\begin{array}{ccc}
+1 & 2 & 3\\
+2 & 3 & 1
+\end{array}\right)$
+\end_inset
+
+作用到三个指标上，最后得到的
+\begin_inset Formula $\left(\Gamma_{\mu},T_{\nu}\right)$
+\end_inset
+
+仍然是一个全对称张量。
+\end_layout
+
+\begin_layout Section
+反常磁矩
+\end_layout
+
+\begin_layout Standard
+此外还有跟反常磁矩相关的拉氏量
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}^{\text{mag}} & =\frac{e}{4M_{N}}\left(c_{1}^{\prime}\tr\left[\overline{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}^{\prime}\tr\left[\overline{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}^{\prime}\tr\left[\mathcal{F}_{\mu\nu}^{u}\right]\tr\left[\overline{B}\sigma^{\mu\nu}B\right]\right)\\
+ & +\frac{-eF_{2}^{T}}{4M_{T}}\overline{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
+ & +\frac{iec_{4}}{4M_{N}}\mathcal{F}_{\mu\nu}\left(\varepsilon^{ijk}\overline{B}^{jm}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\overline{T}^{\mu,klm}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}$
+\end_inset
+
+是电磁场强张量，这里的质量参数就是
+\begin_inset Formula $M_{N}$
+\end_inset
+
+，参考这篇文章： 
+\begin_inset CommandInset href
+LatexCommand href
+name "hep-ph/9212226.pdf"
+target "https://arxiv.org/pdf/hep-ph/9212226.pdf"
+literal "true"
+
+\end_inset
+
+。转移磁矩中包含
+\begin_inset Formula $i$
+\end_inset
+
+，作厄米共轭时出一个负号，和后面交换
 \begin_inset Formula $\mu\nu$
 \end_inset
 
-单一化为，
+指标的负号抵消。
+\begin_inset Formula 
+\[
+\mathcal{F}_{\mu\nu}^{u}=\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}\left(x^{a}\lambda^{a}\right)u+u\left(x^{a}\lambda^{a}\right)u^{\dagger}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula $x^{a}$
+\end_inset
+
+是组合系数，
+\begin_inset Formula $a=1,\cdots,8$
+\end_inset
+
+。跟前面一样，假设电荷矩阵
+\begin_inset Formula $Q$
+\end_inset
+
+的迹不为零，我们首先分成有迹部分和无迹部分。
+\begin_inset Formula $c_{1}^{\prime}$
+\end_inset
+
+和
+\begin_inset Formula $c_{2}^{\prime}$
+\end_inset
+
+对应无迹部分
+\begin_inset Formula $Q-\tr\left[Q\right]/3$
+\end_inset
+
+，
+\begin_inset Formula $c_{3}^{\prime}$
+\end_inset
+
+对应有迹部分
+\begin_inset Formula $\tr\left[Q\right]$
+\end_inset
+
+。但是
+\begin_inset Formula $c_{2}^{\prime}$
+\end_inset
+
+项是对易式，加上任意
+\begin_inset Formula $xI_{3\times3}$
+\end_inset
+
+结果不变；
+\begin_inset Formula $c_{1}^{\prime}$
+\end_inset
+
+项是反对易，加上任意
+\begin_inset Formula $xI_{3\times3}$
+\end_inset
+
+相当于
+\begin_inset Formula $-2x\mathcal{F}_{\mu\nu}c_{1}^{\prime}\tr\left[\bar{B}\sigma^{\mu\nu}B\right]$
+\end_inset
+
+，这样和
+\begin_inset Formula $c_{3}^{\prime}$
+\end_inset
+
+变成同一种结构，可以吸收到
+\begin_inset Formula $c_{3}^{\prime}$
+\end_inset
+
+中。
 \begin_inset Formula 
 \begin{align*}
- & \Rightarrow D_{\mu}D_{\nu}-D_{\mu}L_{\nu}+L_{\nu}D_{\mu}-D_{\mu}U_{\nu}+U_{\nu}D_{\mu}+L_{\mu}L_{\nu}+U_{\mu}U_{\nu}+L_{\mu}U_{\nu}-U_{\nu}L_{\mu}\\
- & =D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-D_{\mu}U_{\nu}+L_{\mu}L_{\nu}+U_{\mu}U_{\nu}+L_{\mu}U_{\nu}+L_{\nu}D_{\mu}+U_{\nu}D_{\mu}-U_{\nu}L_{\mu}\\
- & =-D_{\mu}A_{\nu}+L_{\mu}\left(A_{\nu}+D_{\nu}\right)+U_{\mu}U_{\nu}+\left(A_{\nu}+D_{\nu}\right)D_{\mu}-U_{\nu}L_{\mu}
+\mathcal{F}_{\mu\nu}^{u} & =\frac{1}{2}\mathcal{F}_{\mu\nu}\left[u^{\dagger}Qu+uQu^{\dagger}\right],\quad\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}\\
+ & =\mathcal{F}_{\mu\nu}Q\text{ 在领头阶}
+\end{align*}
+
+\end_inset
+
+所以最后可以一般地写成
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}^{\text{mag}} & =\frac{e}{4M_{N}}\mathcal{F}_{\mu\nu}\left(c_{1}\tr\left[\overline{B}\sigma^{\mu\nu}\left\{ Q,B\right\} \right]+c_{2}\tr\left[\overline{B}\sigma^{\mu\nu}\left[Q,B\right]\right]+c_{3}\tr\left[Q\right]\tr\left[\overline{B}\sigma^{\mu\nu}B\right]\right)\\
+ & +\frac{-eF_{2}^{T}}{4M_{T}}\overline{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
+ & +\frac{iec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\overline{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\overline{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+\end{align*}
+
+\end_inset
+
+其中也可以一开始就用
+\begin_inset Formula $Q$
+\end_inset
+
+构造
+\begin_inset Formula $\mathcal{F}_{\mu\nu}^{u}$
+\end_inset
+
+，是等价的。因为QCD 中夸克的电荷矩阵形式为，
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{ext}}=-e\mathcal{A}_{\mu}\left(\bar{q}_{L}Q\gamma^{\mu}q_{L}+\bar{q}_{R}Q\gamma^{\mu}q_{R}\right)=-e\mathcal{A}_{\mu}\bar{q}Q\gamma^{\mu}q
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula $Q$
+\end_inset
+
+的变换性质为
+\begin_inset Formula $Q\mapsto LQL^{\dagger}=RQR^{\dagger}=VQV^{\dagger}$
+\end_inset
+
+，对应地
+\begin_inset Formula $\mathcal{F}_{\mu\nu}^{u}\mapsto K\mathcal{F}_{\mu\nu}^{u}K^{\dagger}$
+\end_inset
+
+。假设电荷矩阵分量的变换是
+\begin_inset Formula $\lambda^{a}\mapsto V\lambda^{a}V^{\dagger}$
+\end_inset
+
+，
+\begin_inset Formula $I\mapsto I$
+\end_inset
+
+，上面使用的手征模块的变换性质为：
+\begin_inset Formula 
+\begin{align*}
+u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u\right)K^{\dagger}\\
+u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u & \mapsto K\left(u\lambda^{a}u^{\dagger}-u^{\dagger}\lambda^{a}u\right)K^{\dagger}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bar{B}\mapsto K\bar{B}K^{\dagger},\quad B\mapsto KBK^{\dagger}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+考虑这个拉氏量的厄米性：
+\begin_inset Formula $\bar{\psi}\gamma^{\nu}\gamma^{5}\psi$
+\end_inset
+
+这个双线性型是厄米的，
+\begin_inset Formula 
+\begin{align*}
+\bar{\psi}\gamma^{\nu}\gamma^{5}\psi & \stackrel{\text{\ensuremath{\dagger}}}{\mapsto}\psi^{\dagger}\gamma^{5}\gamma^{\nu\dagger}\gamma^{0}\psi=\psi^{\dagger}\gamma^{0}\gamma^{0}\gamma^{5}\gamma^{\nu\dagger}\gamma^{0}\psi=\bar{\psi}\gamma^{0}\gamma^{5}\gamma^{\nu\dagger}\gamma^{0}\psi\\
+ & =-\bar{\psi}\gamma^{5}\gamma^{0}\gamma^{\nu\dagger}\gamma^{0}\psi=-\bar{\psi}\gamma^{5}\gamma^{\nu}\psi=\bar{\psi}\gamma^{\nu}\gamma^{5}\psi
+\end{align*}
+
+\end_inset
+
+注意：
+\begin_inset Formula $\gamma^{0}\gamma^{5}\gamma^{0}\neq\gamma^{5\dagger}$
+\end_inset
+
+。常用的厄米双线性型为
+\begin_inset Formula 
+\[
+\bar{\psi}\psi,\quad\bar{\psi}\gamma^{\mu}\psi,\quad\bar{\psi}i\left[\gamma^{\mu},\gamma^{\nu}\right]\psi,\quad\bar{\psi}\gamma^{\mu}\gamma^{5}\psi,\quad\bar{\psi}i\gamma^{5}\psi
+\]
+
+\end_inset
+
+所以，
+\begin_inset Formula 
+\[
+\left(\varepsilon^{ijk}\overline{B}^{jm}\left(\mathcal{F}_{\mu\nu}\right)^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}\right)^{\dagger}=\varepsilon^{ijk}{\color{blue}\left(\mathcal{F}_{\mu\nu}\right)^{li}}\overline{T}^{\nu,klm}\gamma^{\mu}\gamma^{5}B^{mj}=-\varepsilon^{ijk}{\color{blue}\left(\mathcal{F}_{\nu\mu}\right)^{li}}\overline{T}^{\nu,klm}\gamma^{\mu}\gamma^{5}B^{mj}
+\]
+
+\end_inset
+
+注意，这里的
+\begin_inset Formula $\overline{B}$
+\end_inset
+
+和
+\begin_inset Formula $B$
+\end_inset
+
+矩阵的在定义的时候，就差一个转置，所以在作厄米共轭时需要交换指标。
+\begin_inset Formula $\mathcal{F}_{\mu\nu}$
+\end_inset
+
+对某确定
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+是一个厄米矩阵，也需要交换指标。与上面的拉氏量比较可知，
+\begin_inset Formula 
+\[
++\frac{iec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\overline{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\overline{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+\]
+
+\end_inset
+
+中的两项拉氏量在厄米共轭下会多一个负号，结合外面的
+\begin_inset Formula $iec_{4}$
+\end_inset
+
+，所以这一项是厄米的。展开拉氏量得到的具体例子是
+\begin_inset Formula 
+\[
+\frac{ie\left(d-u\right)c_{4}\mathcal{F}_{\mu\nu}}{4\sqrt{3}M_{N}}\left(\overline{p}\gamma^{\mu}\gamma^{5}\Delta^{+\nu}+\overline{\Delta^{+\mu}}\gamma^{\nu}\gamma^{5}p\right)
+\]
+
+\end_inset
+
+也可以看出是厄米的，后一项交换了
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+指标，
+\begin_inset Formula $\mathcal{F}_{\mu\nu}$
+\end_inset
+
+是反对称的，出一个负号，而前面的
+\begin_inset Formula $ie$
+\end_inset
+
+在复共轭下也会出一个负号，相互抵消。
+\end_layout
+
+\begin_layout Standard
+这里不需要考虑费米子交换位置出负号，因为矩阵
+\begin_inset Formula $\left(AB\right)^{\dagger}=B^{\dagger}A^{\dagger}$
+\end_inset
+
+是更加基本的运算法则，对易或者反对易都是这个法则之下的特殊代数。
+\end_layout
+
+\begin_layout Subsection
+指标求和式的处理
+\end_layout
+
+\begin_layout Standard
+拉氏量必须是实数，因为
+\begin_inset Formula $\mathcal{H}=\sum_{\phi}\Pi\dot{\phi}-\mathcal{L}$
+\end_inset
+
+，而能量是可观测量，是实数。物理中，总是认为不同空间的运算是独立的。运算可以直接“穿透”外层指标，到下一层指标。也就是认为大多数运算，跟矩阵分块不矛盾。比如旋量
+指标
+\begin_inset Formula $xyz$
+\end_inset
+
+，洛伦兹指标
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+，味道指标
+\begin_inset Formula $abc$
+\end_inset
+
+，认为这些指标之间是独立运算的。厄米共轭分成转置和复共轭两部分。数字的转置还是数字本身，如
+\begin_inset Formula $\left(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\right)^{\dagger}=\partial_{\mu}A_{\nu}^{*}-\partial_{\nu}A_{\mu}^{*}$
+\end_inset
+
+。矩阵的转置就需要交换指标，如
+\begin_inset Formula $\left(\sigma^{\mu\nu}\right)$
+\end_inset
+
+除了矢量指标还有旋量指标，
+\begin_inset Formula 
+\[
+\left(\sigma^{\mu\nu}\right)^{\dagger}=\sigma^{\nu\mu\dagger}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于二次型，如果
+\begin_inset Formula $x=\left(\begin{array}{c}
+x_{1}\\
+x_{2}\\
+\vdots
+\end{array}\right)$
+\end_inset
+
+是场的集合，我们认为
+\begin_inset Formula $\dagger$
+\end_inset
+
+能透过场的指标，
+\begin_inset Formula $x^{\dagger}=\left(x_{1}^{*},x_{2}^{*},\cdots\right)$
+\end_inset
+
+（外层没有其他复数的时候，厄米共轭相当于转置，外层只进行转置）。矩阵的厄米共轭用指标表示为
+\begin_inset Formula $\left(A^{\dagger}\right)_{ij}=A_{ji}^{*}$
+\end_inset
+
+，对于一个二次型，
+\begin_inset Formula 
+\[
+x^{\dagger}Ay\Rightarrow x_{i}^{*}A_{ij}y_{j}
+\]
+
+\end_inset
+
+从矩阵变换的角度，同时考虑转置和复共轭，
+\begin_inset Formula 
+\[
+\left(x^{\dagger}Ay\right)^{\dagger}=y^{\dagger}A^{\dagger}x\Rightarrow y_{i}^{*}A_{ji}^{*}x_{j}
+\]
+
+\end_inset
+
+写成指标的形式，单元变成数字，只用考虑复共轭，
+\begin_inset Formula 
+\[
+\left(x_{i}^{*}A_{ij}y_{j}\right)^{\dagger}=\left(x_{i}^{*}A_{ij}y_{j}\right)^{*}\Rightarrow y_{j}^{*}A_{ij}^{*}x_{i}.
+\]
+
+\end_inset
+
+两种考虑方式是等价的。
+\end_layout
+
+\begin_layout Standard
+对于大部分拉氏量，都已经写成了矩阵运算的形式，可以直接在 Mathematica 中进行处理。对于含有
+\begin_inset Formula $T^{abc}$
+\end_inset
+
+的式子，需要先表示成张量运算的形式，方便处理。
+\end_layout
+
+\begin_layout Standard
+十重态反常磁矩：
+\begin_inset Formula 
+\begin{align*}
+ & -\frac{iF_{2}^{T}}{4m_{T}}\overline{T}_{\mu}^{abc}\sigma^{\alpha\beta}\left(F_{\alpha\beta}\right)^{ce}T^{\mu,eba}\\
+ & -\frac{iF_{2}^{T}}{4m_{T}}\left(\overline{T}_{\mu}.F_{\alpha\beta}.\left(\sigma^{\alpha\beta}.T^{\mu}\right)\right)^{\left\{ \left\{ 1,4\right\} ,\left\{ 2,3\right\} \right\} }
+\end{align*}
+
+\end_inset
+
+式子中的点乘都是在味道空间进行的，相当于结果中的指标进行
+\begin_inset Formula $\left\{ \left\{ 1,3\right\} ,\left\{ 2,4\right\} \right\} $
+\end_inset
+
+ or 
+\begin_inset Formula $\left\{ \left\{ 1,4\right\} ,\left\{ 2,3\right\} \right\} $
+\end_inset
+
+ 收缩。
+\end_layout
+
+\begin_layout Standard
+八重态十重态重子–转移磁矩：
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow\frac{iec_{4}}{4m_{N}}\left(\varepsilon^{ijk}\overline{B}^{jm}\left(\mathcal{F}_{\mu\nu}\right)^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\overline{T}^{\mu,klm}\left(\mathcal{F}_{\mu\nu}\right)^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)\\
+ & =\frac{iec_{4}}{4m_{N}}\left(\overline{B}^{jm}\left(\mathcal{F}_{\mu\nu}\right)^{il}\left(\gamma^{\mu}\gamma^{5}\right)T^{\nu,lmk}\left(-\varepsilon^{kji}\right)+\varepsilon^{ijk}\overline{T}^{\mu,kml}\left(\mathcal{F}_{\mu\nu}\right)^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)\\
+ & =\frac{iec_{4}}{4m_{N}}\left(\tr\left(\overline{B}.\left(\mathcal{F}_{\mu\nu}.\gamma^{\mu}\gamma^{5}T^{\nu}.\left(-\varepsilon\right)\right)^{\left\{ 1,4\right\} }\right)+\tr\left(\left(\varepsilon.\overline{T}^{\mu}.\mathcal{F}_{\mu\nu}\right)^{\left\{ 1,4\right\} }.\gamma^{\nu}\gamma^{5}.B\right)\right)
 \end{align*}
 
 \end_inset
@@ -2613,7 +2425,62 @@ D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-L_{\mu}D_{\nu}-D_{\mu}U_{\nu}-U_{\mu}D_{\nu}+L_{\m
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+另一个例子是八重态–十重态–介子低能强子耦合项：
+\begin_inset Formula 
+\begin{align*}
+ & \mathcal{C}\left[\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}+\text{h.c.}\right]\\
+= & \mathcal{C}\left[\varepsilon^{jki}\overline{T}_{\mu}^{iml}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}+\overline{B}^{km}\left(-\Theta^{\mu\nu}\right)^{\dagger}T_{\nu}^{ilm}\left(u_{\mu}\right)^{jl}\varepsilon^{ijk}\right]\\
+= & \mathcal{C}\left[\overline{B}^{km}\left(u_{\mu}\right)^{jl}\Theta^{\mu\nu}T_{\nu}^{lmi}\left(-\varepsilon^{ikj}\right)+\varepsilon^{jki}\overline{T}_{\mu}^{iml}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}\right]\\
+= & \mathcal{C}\left[\tr\left(\overline{B}.\Theta^{\mu\nu}.\left(u_{\mu}.T_{\nu}.\left(-\varepsilon\right)\right)^{\left\{ 1,4\right\} }\right)+\tr\left(\left(\varepsilon.\overline{T}_{\mu}.u_{\nu}\right)^{\left\{ 1,4\right\} }.\Theta^{\mu\nu}.B\right)\right]
+\end{align*}
+
+\end_inset
+
+检查一下这一项的厄米性，我们使用的
+\begin_inset Formula $\Theta^{\mu\nu}=i\sigma^{\mu\nu}$
+\end_inset
+
+，而
+\begin_inset Formula $\bar{\psi}\sigma^{\mu\nu}\psi$
+\end_inset
+
+是厄米的二次型，
+\begin_inset Formula 
+\[
+\left(\varepsilon^{ijk}\overline{T}_{\mu}^{ilm}\Theta^{\mu\nu}\left(u_{\nu}\right)^{lj}B^{mk}\right)^{\dagger}=\overline{B}^{km}\left(u_{\nu}\right)^{jl}\left(-\Theta^{\mu\nu}\right)T_{\mu}^{ilm}\varepsilon^{ijk}=\varepsilon^{ijk}\overline{B}^{km}\left(u_{\mu}\right)^{jl}\Theta^{\mu\nu}T_{\nu}^{ilm}.
+\]
+
+\end_inset
+
+最后交换了
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+指标，并利用了
+\begin_inset Formula $\Theta^{\mu\nu}$
+\end_inset
+
+是反对称的。展开拉氏量得到的具体例子为
+\begin_inset Formula 
+\[
+\frac{\mathcal{C}}{\sqrt{2}f}\overline{p}\Theta^{\mu\nu}\Delta_{\nu}^{++}\partial_{\mu}\pi^{-}+\frac{\mathcal{C}}{\sqrt{2}f}\overline{\Delta_{\mu}^{++}}\Theta^{\mu\nu}p\partial_{\nu}\pi^{+}
+\]
+
+\end_inset
+
+也能看出是厄米的，因为
+\begin_inset Formula $\Theta^{\mu\nu}$
+\end_inset
+
+是反厄米反对称的，后一项交换了
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+指标。
+\end_layout
+
+\begin_layout Subsection
 强子电磁流
 \end_layout
 
@@ -2728,9 +2595,9 @@ Q_{u}\\
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\mathcal{L}^{\text{mag}} & =\frac{e}{4M_{N}}\left(c_{1}\tr\left[\overline{B}\sigma^{\mu\nu}\left\{ \mathcal{F}_{\mu\nu}^{u},B\right\} \right]+c_{2}\tr\left[\overline{B}\sigma^{\mu\nu}\left[\mathcal{F}_{\mu\nu}^{u},B\right]\right]+c_{3}\tr\left[\mathcal{F}_{\mu\nu}^{u}\right]\tr\left[\overline{B}\sigma^{\mu\nu}B\right]\right)\\
+\mathcal{L}^{\text{mag}} & =\frac{e}{4M_{N}}\mathcal{F}_{\mu\nu}\left(c_{1}\tr\left[\overline{B}\sigma^{\mu\nu}\left\{ Q,B\right\} \right]+c_{2}\tr\left[\overline{B}\sigma^{\mu\nu}\left[Q,B\right]\right]+c_{3}\tr\left[Q\right]\tr\left[\overline{B}\sigma^{\mu\nu}B\right]\right)\\
  & +\frac{-eF_{2}^{T}}{4M_{T}}\overline{T}_{\mu}^{abc}\sigma^{\alpha\beta}\mathcal{F}_{\alpha\beta}Q^{ce}T^{\mu,eba}\\
- & +\frac{iec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\bar{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\overline{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
+ & +\frac{iec_{4}}{4M_{N}}\left(\varepsilon^{ijk}\overline{B}^{jm}\mathcal{F}_{\mu\nu}Q^{il}\gamma^{\mu}\gamma^{5}T^{\nu,klm}+\varepsilon^{ijk}\overline{T}^{\mu,klm}\mathcal{F}_{\mu\nu}Q^{li}\gamma^{\nu}\gamma^{5}B^{mj}\right)
 \end{align*}
 
 \end_inset
@@ -2759,7 +2626,11 @@ Q_{u}\\
 \begin_inset Formula $\mp$
 \end_inset
 
-分别对应入射和出射光子。也可以通过分部积分，将导数挪到强子部分，
+分别对应入射和出射光子。零一种方法是通过分部积分，将
+\begin_inset Formula $\partial_{\mu}$
+\end_inset
+
+挪到强子部分：
 \size small
 
 \begin_inset Formula 
@@ -2802,39 +2673,144 @@ Q_{u}\\
 \begin_inset Formula $\overline{T}_{\alpha}T^{\alpha}$
 \end_inset
 
-会有一个额外负号，类似于光子场求和结果是
-\begin_inset Formula $-ig^{\mu\nu}$
+会有一个额外负号，类似于光子场极化矢量求和是
+\begin_inset Formula $-g^{\mu\nu}$
 \end_inset
 
 。
 \end_layout
 
 \begin_layout Enumerate
-转移磁矩：
+转移磁矩拉氏量展开得到的具体例子为：
 \begin_inset Formula 
 \[
-\overline{p}\gamma^{\mu}\gamma^{5}\Delta^{+\nu}\left(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\right)=\left(\overline{p}\gamma^{\nu}\gamma^{5}\Delta^{+\mu}-\overline{p}\gamma^{\mu}\gamma^{5}\Delta^{+\nu}\right)\partial_{\nu}A_{\mu}.
+\frac{-ie\left(u-d\right)c_{4}\mathcal{F}_{\mu\nu}}{4\sqrt{3}M_{N}}\left(\overline{p}\gamma^{\mu}\gamma^{5}\Delta^{+\nu}+\overline{\Delta^{+\mu}}\gamma^{\nu}\gamma^{5}p\right)
 \]
 
 \end_inset
 
-另一方面，参考旋量的厄米性质，
+也就是，
+\begin_inset Formula 
+\begin{align*}
+ & \overline{p}\gamma^{\mu}\gamma^{5}\Delta^{+\nu}\left(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\right)=\overline{p}\left(\gamma^{\nu}\gamma^{5}\Delta^{+\mu}-\gamma^{\mu}\gamma^{5}\Delta^{+\nu}\right)\partial_{\nu}A_{\mu}\\
+ & \overline{\Delta^{+\mu}}\gamma^{\nu}\gamma^{5}p\left(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\right)=\left(\overline{\Delta^{+\nu}}\gamma^{\mu}\gamma^{5}-\overline{\Delta^{+\mu}}\gamma^{\nu}\gamma^{5}\right)p\partial_{\nu}A_{\mu}
+\end{align*}
+
+\end_inset
+
+如果写成傅立叶空间的形式，
+\begin_inset Formula 
+\begin{align*}
+ & \frac{ie\left(d-u\right)c_{4}\mathcal{F}_{\mu\nu}}{4\sqrt{3}M_{N}}\left(\overline{p}\gamma^{\mu}\gamma^{5}\Delta^{+\nu}+\overline{\Delta^{+\mu}}\gamma^{\nu}\gamma^{5}p\right)\\
+ & =\frac{e\left(d-u\right)c_{4}}{4\sqrt{3}M_{N}}\left[\overline{p}\left(\slashed{q}\gamma^{5}\Delta^{+\mu}-\gamma^{\mu}\gamma^{5}q_{\nu}\Delta^{+\nu}\right)+\left(\overline{\Delta^{+\nu}}q_{\nu}\gamma^{\mu}\gamma^{5}-\overline{\Delta^{+\mu}}\slashed{q}\gamma^{5}\right)p\right]A_{\mu}\\
+ & =\frac{e\left(d-u\right)c_{4}}{4\sqrt{3}M_{N}}\left[\overline{p}\left(\slashed{q}g^{\mu\nu}-\gamma^{\mu}q^{\nu}\right)\gamma^{5}A_{\mu}\Delta_{\nu}^{+}+A_{\mu}\overline{\Delta_{\nu}^{+}}\left(\gamma^{\mu}q^{\nu}-g^{\mu\nu}\slashed{q}\right)\gamma^{5}p\right]
+\end{align*}
+
+\end_inset
+
+其中
 \begin_inset Formula 
 \[
-\left(\overline{p}\gamma^{\mu}\gamma^{5}\Delta^{+\nu}F_{\mu\nu}\right)^{\dagger}=\overline{\Delta^{+\nu}}\gamma^{\mu}\gamma^{5}pF_{\mu\nu}=-\overline{\Delta^{+\mu}}\gamma^{\nu}\gamma^{5}pF_{\mu\nu}
+q_{\mu}\left(\slashed{q}g^{\mu\nu}-\gamma^{\mu}q^{\nu}\right)=\slashed{q}q^{\nu}-\slashed{q}q^{\nu}=0.
 \]
 
 \end_inset
 
-这里也是利用了
-\begin_inset Formula $F_{\mu\nu}$
-\end_inset
 
-的反对称性。
 \end_layout
 
 \begin_layout Section
-非定域拉氏量
+双轴矢拉氏量
+\end_layout
+
+\begin_layout Standard
+还有双轴矢流拉氏量
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+\frac{i}{2}b_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left[\left[u_{\mu},u_{\nu}\right],B\right]\right]+\frac{i}{2}b_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ \left[u_{\mu},u_{\nu}\right],B\right\} \right]
+\]
+
+\end_inset
+
+这里的
+\begin_inset Formula $u_{v}$
+\end_inset
+
+只需要取强子部分
+\begin_inset Formula 
+\[
+u_{\mu}=\frac{i}{2}\left(u\partial_{\mu}u^{\dagger}-u^{\dagger}\partial_{\mu}u\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $b_{9},b_{10},b_{11}$
+\end_inset
+
+的值为
+\begin_inset Formula $b_{9}=1.36\GeV,b_{10}=1.24\GeV,b_{11}=0.46\GeV$
+\end_inset
+
+。考虑到
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+是反对称的，可以化简成，
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{i}{2}b_{9}\sigma^{\mu\nu}\tr\left(\bar{B}u_{\mu}\right)\tr\left(u_{\nu}B\right)+ib_{10}\sigma^{\mu\nu}\tr\left[\bar{B}\left\{ u_{\mu}u_{\nu},B\right\} \right]+ib_{11}\sigma^{\mu\nu}\tr\left[\bar{B}\left[u_{\mu}u_{\nu},B\right]\right]
+\]
+
+\end_inset
+
+矩阵可以做三角形分解，
+\begin_inset Formula 
+\[
+X=U+L-D,
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $U,L,D$
+\end_inset
+
+分别是上三角部分，下三角部分，和对角线部分，则
+\begin_inset Formula $A_{\mu},A_{\nu}$
+\end_inset
+
+两个矩阵的乘积为:
+\begin_inset Formula 
+\[
+D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-L_{\mu}D_{\nu}-D_{\mu}U_{\nu}-U_{\mu}D_{\nu}+L_{\mu}L_{\nu}+U_{\mu}U_{\nu}+L_{\mu}U_{\nu}+U_{\mu}L_{\nu}
+\]
+
+\end_inset
+
+考虑到
+\begin_inset Formula $\sigma^{\mu\nu}$
+\end_inset
+
+对交换指标是反对称的，将
+\begin_inset Formula $\mu\nu$
+\end_inset
+
+单一化为，
+\begin_inset Formula 
+\begin{align*}
+ & \Rightarrow D_{\mu}D_{\nu}-D_{\mu}L_{\nu}+L_{\nu}D_{\mu}-D_{\mu}U_{\nu}+U_{\nu}D_{\mu}+L_{\mu}L_{\nu}+U_{\mu}U_{\nu}+L_{\mu}U_{\nu}-U_{\nu}L_{\mu}\\
+ & =D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-D_{\mu}U_{\nu}+L_{\mu}L_{\nu}+U_{\mu}U_{\nu}+L_{\mu}U_{\nu}+L_{\nu}D_{\mu}+U_{\nu}D_{\mu}-U_{\nu}L_{\mu}\\
+ & =-D_{\mu}A_{\nu}+L_{\mu}\left(A_{\nu}+D_{\nu}\right)+U_{\mu}U_{\nu}+\left(A_{\nu}+D_{\nu}\right)D_{\mu}-U_{\nu}L_{\mu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+拉氏量非定域化
 \end_layout
 
 \begin_layout Standard
