@@ -25,9 +25,9 @@
 
 可以在`Insert`菜单栏中插入`beamer`特有的格式。
 
-## 5 创造一个演示的参考Guidelines for Creating Presentations 
+## 5 创造一个演示的参考
 
-### 组织一个frameStructuring a Frame 
+### 组织一个frame
 
 + 使用块环境，例如 `block`, `theorem`, `proof`, `example` 等。
 + 优先使用`enumerations` and `itemize` 而不是纯文本环境。
@@ -59,9 +59,9 @@
 + 除较长的书目外，请勿使用选项`allowframebreaks`。
 + 请勿使用较长的参考书目。
 
-## 创建覆盖 9 creating overlays  
+## 创建覆盖 9
 
-### 递增指定 Incremental Specifications 
+### 递增指定
 
 `+-` 会被替换成一个变量`beamerpauses`的值，它在每张`frame`上重置为`1`，每个`overlay specification` 使它增加`1`。这样可以方便的实现递增 uncover 效果。
 另外，`alert` 表示强调
@@ -89,7 +89,7 @@
 
 ## Structuring a Presentation: The Local Structure
 
-### Highlighting
+### 高亮
 
 `\structure<⟨overlay specification⟩>{⟨text⟩}`
 
@@ -104,9 +104,9 @@
 
 `\structure` 命令的环境版本。
 
-## 17 colors
+## 17 颜色
 
-### Default and Special-Purpose Color Themes 默认和特殊颜色主题
+### 默认和特殊颜色主题
 
 默认颜色主题中的主要颜色如下：
 
@@ -119,9 +119,7 @@
 
 ## beamer 加参考文献
 
-[在 Beamer 中使用参考文献][]
-
-[在 Beamer 中使用参考文献]: https://guyueshui.github.io/post/use-reference-in-beamer/
+[在 Beamer 中使用参考文献](https://guyueshui.github.io/post/use-reference-in-beamer/)
 
 主要是要把参考文献生成部分的命令放在`frame`里面，其他的和平常的用法一样。
 指定参考文献库，指定参考文献风格。
@@ -143,7 +141,7 @@
 \end{document}
 ```
 
-bibtex 标准 style `plain`,`unsrt`,`alpha`,`abbrv`
+`bibtex` 标准 style `plain`,`unsrt`,`alpha`,`abbrv`
 
 用find 查找到的本机的安装的支持`nat`的`bst`:
 
@@ -293,3 +291,11 @@ texdoc beamer : 101
 ```latex
 \frame{\tableofcontents[currentsection]}
 ```
+
+### 背景图片
+
+```latex
+\setbeamertemplate{background}{\includegraphics[height=\paperheight]{b.jpg}}
+```
+
+page 11 有beamer文档的格式规范

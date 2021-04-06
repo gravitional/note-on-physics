@@ -1102,23 +1102,19 @@ Grid[Table[x, {4}, {7}],
 Background -> {None, None, {{1, 1} -> Pink, {3, 4} -> Red}}]
 ```
 
+使格子中的文本不换行, 指定`ItemSize->Full`.
+
 ***
-MapThread level 的区别
+`MapThread`,`level` 的区别
 
-一般编程语言中的`Map/Reduce`在mma中相当于
-
-`Map`以及一系列函数，`Fold`以及一系列函数
+一般编程语言中的`Map/Reduce`在`mma`中相当于`Map`以及一系列函数，`Fold`以及一系列函数.
 
 由于`mma`是`m[m,m,m,..]`的形式，其中`m=Head[Sequence]`，(可以无穷无尽地套娃)
-
 所以除了函数作用到**一堆参数列表**上，还有反向操作，就是**一堆函数**作用到一个参数上，相应的函数为:
 
-`Through[p[f,g][args]]`
-`f,g`被组织在结构`p[]`中，`p`可以是列表，也可以是`Plus`，等等。
+`Through[p[f,g][args]]`: `f,g`被组织在结构`p[]`中，`p`可以是列表，也可以是`Plus`，等等。
 
-还有专门用来对头部作用的函数:`Operate`
-
-`Operate[p,f[x,y]]`给出`p[f][x,y]`
+还有专门用来对头部作用的函数:`Operate`:`Operate[p,f[x,y]]`给出`p[f][x,y]`
 
 ```mathematica
 In[2]:= MapThread[f, {{{a, b}, {c, d}}, {{u, v}, {s, t}}}]
