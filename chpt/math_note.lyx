@@ -166,10 +166,7 @@ Thomas Young
 \end_layout
 
 \begin_layout Standard
-圈积分在零点处的不稳定性，来自于 ScalarC0 函数在动量奇点处的不稳定性。
-\end_layout
-
-\begin_layout Standard
+圈积分在零点处的不稳定性，来自于 ScalarC0 函数：
 \begin_inset Formula 
 \[
 \text{ScalarC0}\left(s_{1},s_{12},s_{2};m_{0},m_{1},m_{2}\right)
@@ -188,7 +185,42 @@ Thomas Young
 
 \end_inset
 
+举一个具体的例子：
+\size default
 
+\begin_inset Formula 
+\[
+\text{ScalarC0}\left(1.42,1.42,0.01;1.385,0.138,1.116\right)
+\]
+
+\end_inset
+
+即
+\begin_inset Formula 
+\begin{align*}
+ & s_{1}=s_{2}=1.42,\quad s_{3}=0.01\\
+ & m_{0}=1.116,\quad m_{1}=0.138,\quad m_{2}=1.385
+\end{align*}
+
+\end_inset
+
+相应地，被积式为
+\begin_inset Formula 
+\[
+\frac{1}{\left(1.42y^{2}+1.42z^{2}+2.83yz+\left(-2.64641\right)y+\left(-0.747231\right)z+1.24546-i\varepsilon\right)}
+\]
+
+\end_inset
+
+它在
+\begin_inset Formula $0\le y\le1,0\le z\le1-y$
+\end_inset
+
+上是没有零点的。但是可能有数值不稳定的区域。在计算的时候，需要指定运算的精确度，即使用
+\begin_inset Formula $1.385`16$
+\end_inset
+
+的形式输入数字。
 \end_layout
 
 \begin_layout Section
