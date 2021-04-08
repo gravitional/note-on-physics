@@ -1159,7 +1159,7 @@ This is useful when you want to finish up a download started by a previous insta
 通过网络来远程操控类 Unix 的操作系统已经有很多年了.
 
 早些年,在因特网普遍推广之前,有 一些受欢迎的程序被用来登录远程主机.它们是 rlogin 和 telnet 程序.
-然而这些程序,拥有和 ftp 程序 一样的致命缺点;它们以明码形式来传输所有的交流信息(包括登录命令和密码).
+然而这些程序,拥有和 `ftp` 程序 一样的致命缺点;它们以明码形式来传输所有的交流信息(包括登录命令和密码).
 这使它们完全不 适合使用在因特网时代.
 
 ### ssh
@@ -1175,13 +1175,11 @@ This is useful when you want to finish up a download started by a previous insta
 
 大多数 Linux 发行版自带一个提供 SSH 功能的软件包,叫做 `OpenSSH`,来自于 `BSD` 项目.
 一些发行版 默认包含客户端和服务器端两个软件包(例如,Red Hat),而另一些(比方说 Ubuntu)则只是提供客户端服务.
-为了能让系统接受远端的连接,它必须安装 OpenSSH-server 软件包,配置,运行它,
-并且(如果系统正在运行,或者是在防火墙之后) 它必须允许在 TCP 端口号上接收网络连接.
+为了能让系统接受远端的连接,它必须安装 `OpenSSH-server` 软件包,配置运行它, 并且须允许它在 `TCP` 端口号上接收网络链接(如果系统运在防火墙之后) .
 
-小贴示:如果你没有远端系统去连接,但还想试试这些实例,则确认安装了 OpenSSH-server 软件包 ,则可使用 localhost 作为远端主机的名字.这种情况下,计算机会和它自己创建网络连接.
+小贴示:如果你没有远端系统去连接,但还想试试这些实例,则确认安装了 `OpenSSH-server` 软件包 ,则可使用 `localhost` 作为远端主机的名字.这种情况下,计算机会和它自己创建网络连接.
 
-用来与远端 SSH 服务器相连接的 SSH 客户端程序,顺理成章,叫做 `ssh`.
-连接到远端名为 `remote-sys` 的主机,我们可以这样使用 ssh 客户端程序:
+用来与远端 `SSH` 服务器相连接的 `SSH` 客户端程序,顺理成章,叫做 `ssh`. 连接到远端名为 `remote-sys` 的主机,我们可以这样使用 `ssh` 客户端程序:
 
 ```bash
 $ ssh remote-sys
@@ -1302,10 +1300,9 @@ Last login: Mon Sep 08 13:23:11 2008
 这个 `xload` 命令在远端执行之后,它的窗口就会出现在本地.
 在某些系统中,你可能需要 使用 `-Y` 选项,而不是 `-X` 选项来完成这个操作.
 
-### `scp` 和 `sftp`
+### scp 和  sftp
 
-这个 `OpenSSH` 软件包也包含两个程序,它们可以利用 `SSH` 加密通道在网络间复制文件.
-第一个:`scp`(安全复制)被用来复制文件,与熟悉的 `cp` 程序非常相似.
+这个 `OpenSSH` 软件包也包含两个程序,它们可以利用 `SSH` 加密通道在网络间复制文件. 第一个:`scp`(安全复制)被用来复制文件,与熟悉的 `cp` 程序非常相似.
 最显著的区别就是源或者目标路径名要以远端主机的名字`remote-sys`开头,后跟一个**冒号**字符开头. 这里的`remote-sys`可以写在 `ssh` 的配置文件中，后面会讲如何配置 `~/.ssh/config`.
 比如复制远程服务器`dell`下的`~/Desktop/draft.lyx`这个文件到当前目录`.`，下面的方法都是可以的
 
@@ -1369,9 +1366,40 @@ Linux 文档项目提供了 Linux 网络管理指南,可以广泛地(虽然过�
 [http://en.wikipedia.org/wiki/Host_name](http://en.wikipedia.org/wiki/Host_name)
 [http://en.wikipedia.org/wiki/Uniform_Resource_Identifier](http://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
 
-## 补充:ssh的使用
+### ssh ipv6
 
-### 连接服务器
+[Linux下通过IPv6使用SSH和SCP](http://beanocean.github.io/tech/2014/10/17/scp_ipv6/)
+
+解决这个问题的主要思路有两个，第一个是在路由器上设置`NAT`，进行端口映射；
+第二个便是利用`IPv6`登录。其中，`IPv6`的方式最方便（Linux默认是开启`IPv6`服务的），无须多余设置，只需要知道`IPv6`地址即可。
+具体方法如下：（假设`IPv6`地址为`2101:da8:a000:12:bc26:9915:4b1d:64cc`）
+
+***
+`ssh`远程登录服务器
+
+```bash
+# 用法:
+ssh [username]@[IPv6_Host] -p [port number]
+# 例子:
+ssh lg@2101:da8:a000:12:bc26:9915:4b1d:64cc -p 1234
+```
+
+***
+`SCP`拷贝文件
+
+```bash
+# 用法;
+scp [username]@[IPv6_Host]:[file_path] [target_path]
+# 例子:
+scp lg@\[2101:da8:a000:12:bc26:9915:4b1d:64cc\]:/home/lg/example.c ~/home/lg/src
+```
+
+这里需要注意的是，由于`IPv6`地址中的冒号和`host`中的冒号有冲突，需要用中括号加转义字符的方式把`IPv6`的地址括起来。
+
+### 补充:ssh的使用
+
+***
+连接服务器
 
 [Linux SSH 使用](https://www.jianshu.com/p/e6d308e9162f)
 
@@ -1386,7 +1414,8 @@ ssh root@192.168.0.105
 `192.168.0.105` 是服务器`ip`.这个`ip`不能使用内网`ip`,如果是本地虚拟机的话,可以将连接方式改为`桥接`的方式.
 然后用`ifconfig`查看本机公网`ip`
 
-### ssh 的 config 文件
+***
+ssh 的 config 文件
 
 先展示一下`SSH config` 语法关键字,如下五个：
 
@@ -1421,7 +1450,8 @@ host "NagaSiren"
 在配置了这个文件之后,我们不需要再通过 `ssh root@192.168.0.105` 这个命令去连接服务器了,
 我们可以这么写连接语句 `ssh KatoUyi` .这样管理方式在一定程度上简化了我们的操作.
 
-### SSH免密登录ssh-keygen
+***
+SSH免密登录ssh-keygen
 
 [Linux 配置SSH免密登录`ssh-keygen`](https://www.jb51.net/article/163093.htm)
 
@@ -1571,7 +1601,8 @@ $ cat authorized_keys
 + 对普通用户, 建议设置成`600`权限: `chmod 600 authorized_keys id_rsa id_rsa.pub`;
 + 对root用户, 建议设置成`644`权限: `chmod 644 authorized_keys id_rsa id_rsa.pub`.
 
-### windows 免密码登录
+***
+windows 免密码登录
 
 `windows`中生成密钥：可以在`Xshell`中也可以达到类似效果,这种方式生成了密钥之后,可以将之保存起来.
 当然也可以通过其他方式例如`git bash`中用`linux`指令生成,在这里不详细描述了.
@@ -1582,7 +1613,8 @@ $ cat authorized_keys
 我们需要先进入linux服务器,将我们选择的这个 `id_rsa_2048.pub` 的内容放置到linux服务器的`authorized_keys`文件中.
 这样的话我们再访问就可以无密码连接了.
 
-### ssh 安全端口
+***
+ssh 安全端口
 
 端口安全指的是尽量避免服务器的远程连接端口被不法份子知道,为此而改变默认的服务端口号的操作.
 

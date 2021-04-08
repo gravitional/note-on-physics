@@ -763,11 +763,6 @@ Out[2]//DisplayForm=  a+b
 `!command` 执行外部命令,只在命令行有效.
 
 ***
-`算符优先级` tutorial/OperatorInputForms
-
-可以具有内置定义的运算符
-
-***
 `无内置定义的算符`tutorial/OperatorsWithoutBuiltInMeanings
 
 有几百个记号没有内部（`built-in`）定义，也就是没有和函数绑定。
@@ -781,7 +776,7 @@ LeftRightArrow[x,y]
 Del[x]
 Square[x]
 AngleBracket[x,y,...]
-Subscript[x,y]
+x,y]
 Superscript[x, y]
 UnderBar[x]
 SubPlus[x]
@@ -1422,7 +1417,7 @@ a_2 & b_2 \\
 `Reap`收割, 收获
 
 `Reap[expr]`
-给出表达式 expr 的值，以及在计算中已经应用 `Sow` 的所有表达式. 使用 `Sow[e]` 或具有不同标记的 `Sow[e,Subscript[tag, i]]` "散布"的表达式在不同列表中给出.
+给出表达式 expr 的值，以及在计算中已经应用 `Sow` 的所有表达式. 使用 `Sow[e]` 或具有不同标记的 `Sow[e,tag, i]]` "散布"的表达式在不同列表中给出.
 
 ***
 `产生 C 和 Fortran 表达式`: tutorial/GeneratingCAndFortranExpressions
@@ -1471,6 +1466,18 @@ Show[%, Frame -> True]
 
 `Delayed` and 不带 `Delayed` 的最重要区别就是，定义时计算，还是调用的时候计算。
 也就是不带 `Delayed` 容易受到全局变量的影响，带 `Delayed` 更加接近函数式编程
+
+***
+一个变量的值具有许多类型，见:ref/Set
+
+OwnValues
+DownValues
+SubValues
+UpValues
+DefaultValues
+NValues
+FormatValues
+Definition
 
 `上值`:`UpValue`
 
@@ -2034,3 +2041,122 @@ NotebookEvaluate: 计算 `notebook`  中所有可计算单元
 +`Dialog[expr]` 启动对话，将 `expr` 作为 `%` 的当前值
 +`Return[]` 从对话返回，取 `%` 的当前值作为返回值
 +`Return[expr]` 从对话返回，取 `expr` 作为返回值
+
+### 算符优先级
+
+tutorial/OperatorInputForms
+
+具有内置定义的运算符, 下面是常用算符的优先级，同一优先级的放到一组:
+
+***
+数字
+符号Symbol，上下文
+字符串
+***
+矩阵, List
+分段函数,PieceWise
+***
+`exp::string`, MessageName
+`exp::string1::String2`
+***
+包含`#`的格式
+包含`%`的格式
+包含`_`的格式
+***
+`<<`,Get
+***
+`\!boxes` ,(interpreted version of boxes)
+***
+`exp1[exp2]`
+`exp1[[exp2]]`,Part
+***
+`exp1@*exp2`,Compositon
+`exp1/*exp2`,RightCompositon
+***
+`exp1@exp2`, 前缀
+***
+`exp1~exp2~exp3`, exp2[exp1,exp3]，中缀
+***
+`exp1/@exp2`,Map
+`exp1//@exp2`,MapAll
+`exp1@@exp2`,Apply
+`exp1@@@exp2`,Apply,1
+***
+`exp!`,Factorial
+`exp!!`,Factorial2
+***
+`exp1<>exp2<>exp3`,StringJoin
+***
+`exp1^exp2`,Power
+***
+`Sqrt[exp]`,Sqrt
+***
+`exp1.exp2.exp3`,Dot
+***
+`-exp`,Times[-1,exp]
+`+exp`,exp
+`PlusMinus`
+`MinusPlus`
+***
+`exp1/exp2`,exp1 (exp2)^-1，除法
+***
+`exp1 exp2 exp3`,Times, 乘法
+`exp1*exp2*exp3`,Times
+***
+`exp1+exp2+exp3`,Plus，加法
+`exp1-exp2`,exp1+(-exp2)，减法
+***
+`i;;j;;k`,Span
+***
+`exp1==exp2`,Equal
+`exp1!=exp2`,Unequal
+`exp1>=exp2`,GreaterEqual
+***
+`exp1===exp2`,SameQ
+`exp1=!=exp2`,UnSameQ
+***
+`!expr`,Not
+***
+`exp1&&exp2&&exp3`,And
+***
+`exp1||exp2`,Or
+***
+`expr..`, Repeated
+`expr...` RepeatedNull
+***
+`exp1 | exp2` , Alternatives,
+***
+`symb:expr`, Pattern
+`patt:expr`, Optional
+***
+`exp1~~exp2~~exp3`, StringExpression
+***
+`exp1/;exp2`, Condition
+***
+`exp1->exp2`,Rule
+`exp1->exp2`, Rule
+`exp1:>exp2`, RuleDelayed
+`exp1:> exp2`,RuleDelayed
+***
+`exp1/.exp2`, ReplaceAll，替换规则
+`exp1//.exp2`, ReplaceRepeated
+***
+`expr&`, Function
+***
+`exp1//exp2`,后缀
+***
+`exp1=exp2`,  Set[exp1,exp2]
+`exp1:=exp2`,  SetDelayed[exp1,exp2]
+`exp1^=exp2`,  UpSet[exp1,exp2]
+`exp1^:=exp2`,  UpSetDelayed[exp1,exp2]
+`symb/:exp1=exp2`,  TagSet[symb,exp1,exp2]
+`symb/:exp1:=exp2`,  TagSetDelayed[symb,exp1,exp2]
+`expr=.` ,  Unset[expr]
+`symb/:expr=.` ,  TagUnset[symb,expr]
+`exp1|->exp2`,  Function[{exp1},exp2]
+***
+`expr>>filename`,Put
+`expr>>>filename`,PutAppend
+***
+`exp1;exp2;exp3`,CompoundExpression
+`exp1;exp2;`,CompoundExpression
