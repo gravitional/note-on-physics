@@ -2042,11 +2042,82 @@ NotebookEvaluate: 计算 `notebook`  中所有可计算单元
 +`Return[]` 从对话返回，取 `%` 的当前值作为返回值
 +`Return[expr]` 从对话返回，取 `expr` 作为返回值
 
-### 算符优先级
+### 常用优先级
 
 tutorial/OperatorInputForms
 
-具有内置定义的运算符, 下面是常用算符的优先级，同一优先级的放到一组:
+下面是常用算符的优先级
+
+***
+`<<`,Get,导入文件
+***
+`exp1?exp2`,PatternTest，模式测试
+***
+`exp1[[exp2]]`,Part，部分值
+***
+`exp1@exp2`, 前缀
+***
+`exp1/@exp2`,Map，映射
+`exp1@@exp2`,Apply
+***
+`exp1<>exp2<>exp3`,StringJoin，字符串衔接
+***
+`exp1^exp2`,Power
+***
+`Sqrt[exp]`,Sqrt
+***
+`exp1.exp2.exp3`,Dot
+***
+`-exp`,Times[-1,exp]
+***
+`exp1/exp2`,exp1 (exp2)^-1，除法
+***
+`exp1 exp2 exp3`,Times, 乘法
+`exp1*exp2*exp3`,Times
+***
+`exp1+exp2+exp3`,Plus，加法
+`exp1-exp2`,exp1+(-exp2)，减法
+***
+`i;;j;;k`,Span
+***
+`exp1==exp2`,Equal
+***
+`exp1===exp2`,SameQ
+***
+`!expr`,Not
+***
+`exp1&&exp2&&exp3`,And
+***
+`exp1||exp2`,Or
+***
+`expr..`, Repeated
+***
+`exp1 | exp2` , Alternatives,模式并集
+***
+`symb:expr`, Pattern，模式命名
+`patt:expr`, Optional，可选
+***
+`exp1~~exp2~~exp3`, StringExpression，字符串表达式
+***
+`exp1/;exp2`, Condition，条件
+***
+`exp1->exp2`,Rule,规则
+***
+`exp1/.exp2`, ReplaceAll，替换
+***
+`expr&`, Function，函数
+***
+`exp1//exp2`, 后缀，后作用
+***
+`exp1=exp2`,  Set[exp1,exp2],赋值
+***
+`expr>>filename`,Put，导出
+***
+`exp1;exp2;exp3`,CompoundExpression，复合表达式
+
+### 算符优先级
+
+具有内置定义的运算符, 同一优先级的放到一组:
 
 ***
 数字
@@ -2066,6 +2137,8 @@ tutorial/OperatorInputForms
 `<<`,Get
 ***
 `\!boxes` ,(interpreted version of boxes)
+***
+`exp1?exp2`,PatternTest
 ***
 `exp1[exp2]`
 `exp1[[exp2]]`,Part
@@ -2131,7 +2204,7 @@ tutorial/OperatorInputForms
 ***
 `exp1~~exp2~~exp3`, StringExpression
 ***
-`exp1/;exp2`, Condition
+`exp1/;exp2`, Condition，条件
 ***
 `exp1->exp2`,Rule
 `exp1->exp2`, Rule
@@ -2143,9 +2216,9 @@ tutorial/OperatorInputForms
 ***
 `expr&`, Function
 ***
-`exp1//exp2`,后缀
+`exp1//exp2`, 后缀，后作用
 ***
-`exp1=exp2`,  Set[exp1,exp2]
+`exp1=exp2`,  Set[exp1,exp2],赋值
 `exp1:=exp2`,  SetDelayed[exp1,exp2]
 `exp1^=exp2`,  UpSet[exp1,exp2]
 `exp1^:=exp2`,  UpSetDelayed[exp1,exp2]
@@ -2160,3 +2233,132 @@ tutorial/OperatorInputForms
 ***
 `exp1;exp2;exp3`,CompoundExpression
 `exp1;exp2;`,CompoundExpression
+
+### 特殊形式
+
+`#`,Slot
+`#n`
+`#string`
+`##`
+`##n`
+
+`%`,Out
+`%%`,
+`%n`,
+
+`_`, Blank
+`_expr`
+`__`
+`__expr`
+`___`
+`___expr`
+`_.`
+`symb_`
+`symb_expr`
+`symb__`
+`symb__expr`
+`symb___`
+`symb___expr`
+`symb_.`
+
+## 并行计算
+
+ParallelTools/tutorial/Overview
+ParallelTools/tutorial/ConcurrencyManagingParallelProcesses
+
+`Parallelize`是偏底层的函数，`ParallelTable`,`ParallelMap`是偏上层的函数。
+`Parallelize`默认选项`DistributedContexts:>$Context`,它分配当前`context`中所有符号的定义，但不分配`packages`中符号的定义。
+
+大多数并行函数, 如`ParallelTable`的默认选项是`DistributedContexts:>$DistributedContexts`,而`$DistributedContexts`的初始值是`$Context`. 
+同样不会默认分配`packages`中的符号
+
+使用`DistributeDefinitions[s1,s2] `或者`` DistributeDefinitions["context`"] ` `，将`s1,s2`的定义，或者某个上下文分配到所有并行计算中，
+包括`ownvalues`, `downvalues`, `upvalues`,以及其他类型的`values`. `DistributeDefinitions`会递归的运行， `s1,s2`依赖的符号也会被分配.
+
+`DistributeDefinitions[expr]`会分配`expr`中所有符号的定义.
+
+***
+`ParallelNeeds`可以在所有从核加载`packages`，新开的从核也会自动加载。
+
+在主核加载:`Needs["ComputerArithmetic`"]`
+在所有从核加载: `ParallelNeeds["ComputerArithmetic`"]`
+
+### 配置和监控运行
+
+常用的管理多核的函数及变量为:
+
+`LaunchKernels`: 启动从核
+`AbortKernels`-- 停止所有从核上的运算
+`CloseKernels`: 关闭所有从核
+`$KernelCount`:目前运行的从核数量.
+`Kernels`: 列出正在运行的从核
+`$KernelID`: 每个从核的特有`ID`
+`$ConfiguredKernels`:从核的默认启动列表
+
+### 启动并链接从核
+
+### 并行计算
+
+### 并发：管理多进程
+
+每个要计算的表达式就是一个进程`process`,
+
+并发控制的常用函数:
+
+`ParallelSubmit`:提交表达式进行并发运算
+`WaitAll`: 等待所有并发计算完成，相当于并发任务的启动按钮
+`WaitNext`:运行下一个并发任务，相当于并发任务的步进按钮
+
+***
+还有并发任务的开发者工具,导入工具包:
+
+```mathematica
+Needs["Parallel`Developer`"]
+```
+
+可以使用底层函数:
+
+`ProcessID[pid]`:表示进程的整数
+`Process[pid]`: 对应进程的表达式
+`Scheduling[pid]`:分配给进程的优先级
+`ProcessState[pid]`进程的运行状态: `queued`, `running`, `finished`
+
+***
+与Parallelize的比较
+
+"Parallel Evaluation" 中介绍了Parallel mapping, tables, and inner product 。 这些函数在`method`选项的控制下，将任务分为若干个子问题。 
+本节中的功能为每个子问题生成一个计算。 此划分等效于设置`Method->"FinestGrained"`。
+
+如果所有子问题花费相同的时间，则诸如`ParallelMap[]`和`ParallelTable[]`之类的功能会更快。 
+但是，如果子问题的计算时间不同，并且不容易预先估计，则最好使用本节中所述的`WaitAll [... ParallelSubmit [] ...]`或等效的`Method->"FinestGrained"`。 
+如果生成的进程数大于远程内核数，则此方法将执行自动负载平衡，一旦完成前一个作业，便将作业分配给内核，使所有内核始终保持忙碌状态。
+
+### 推送定义到远程
+
+### 虚拟共享内存
+
+***
+同步
+
+一个简单的实现`deadlock`的例子。
+
+```mathematica
+Parallelize[
+ {
+      (*获得锁a*)
+  CriticalSection[{lcka},
+   CriticalSection[{lckb},
+    Pause[Random[]];
+    Print["A done"]
+    ]
+   ],
+   (*获得锁b*)
+  CriticalSection[{lckb},
+   CriticalSection[{lcka},
+    Pause[Random[]];
+    Print["B done"]
+    ]
+   ]
+  }
+ ]
+```

@@ -222,7 +222,7 @@ Unloading the module doesn't unload the assembly from the PSReadLine module (by 
 
 ### git restore
 
-还原工作区的文件，可以用 --source 指定例如`HEAD`.
+还原工作区的文件，可以用 `--source` 指定例如`HEAD`.
 
 ```git
 git restore [<options>] [--source=<tree>] [--staged] [--worktree] <pathspec>…​
@@ -264,8 +264,6 @@ git restore --source=9ea00d1 parton.note.1.nb
 
 ### git checkout
 
-git-checkout - Switch branches or restore working tree files
-
 切换分支或者恢复`working tree`中的文件
 
 ```bash
@@ -275,8 +273,7 @@ git checkout [<tree-ish>] [--] <pathspec>…​
 用 `index`或者`<tree-ish>`（通常是一个`commit`）里面的内容替换`working tree`里面的 `paths`.
 当给出一个`<tree-ish>`的时候, 与`<pathspec>`匹配的路径会在`index`和`working tree` 里面都更新.
 
-`index` 中可能包含有之前合并失败的`entries`.
-默认情况下, 如果你想 `checkout` 一个这样的entries, 会失败, 什么都不会发生. 使用`-f`选项忽略未合并的项目.
+`index` 中可能包含有之前合并失败的`entries`.默认情况下, 如果你想 `checkout` 一个这样的entries, 会失败, 什么都不会发生. 使用`-f`选项忽略未合并的项目.
 
 当合并的时候，特定来源方的内容可以通过使用 `--ours` or `--theirs`从`index`中取出.
 

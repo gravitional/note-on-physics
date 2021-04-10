@@ -1134,7 +1134,7 @@ Linux 版本的 `ps` 命令,可以模拟几个不同 Unix 版本中的 `ps` 程�
 寻找进程:`top ps pgrep`
 发送信号:`kill`
 
-ps 选项
+`ps` 选项
 
 + `ps u -C lyx`: Display user-oriented format, with command `lyx`
 + `ps u t 2` : Display user-oriented format, with tty `2`
