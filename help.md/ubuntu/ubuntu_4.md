@@ -255,7 +255,7 @@ echo $(expr index "$string" io)  # 输出 4
 
 ### Shell 数组
 
-bash支持一维数组(不支持多维数组),并且没有限定数组的大小.
+`bash`支持一维数组(不支持多维数组),并且没有限定数组的大小.
 
 类似于 `C` 语言,数组元素的下标由 `0` 开始编号.
 获取数组中的元素要利用下标,下标可以是整数或算术表达式,其值应大于或等于 `0`.
@@ -971,7 +971,7 @@ parameter 后面可能接的保留字,`:` `#` `%` `/`
 
 最简单的参数展开形式反映在平常使用的变量上.
 
-在这个例子中,我们试图创建一个文件名,通过把字符串 ``_file`` 附加到变量 `a` 的值的后面.
+在这个例子中,我们试图创建一个文件名,通过把字符串 `_file` 附加到变量 `a` 的值的后面.
 
 ```bash
 [me@linuxbox ~]$ a="foo"
@@ -1192,9 +1192,7 @@ jpg.JPG
 JPG.jpg
 ```
 
-知道参数展开是件很好的事情.
-
-字符串操作展开可以用来替换其它常见命令比方说 `sed` 和 `cut`.通过减少使用外部程序,展开提高了脚本的效率.
+知道参数展开是件很好的事情.字符串操作展开可以用来替换其它常见命令比方说 `sed` 和 `cut`.通过减少使用外部程序,展开提高了脚本的效率.
 
 举例说明,我们将修改在之前章节中讨论的 `longest-word` 程序,
 用参数展开`${#j}` 取代命令 `$(echo $j | wc -c)` 及其`subshell` ,像这样:
@@ -1253,9 +1251,7 @@ wolframscript -print "all" -file ./f.figure.series-full.rencon3.strange.baryons-
 
 ### 通配符/Wildcard/glob
 
-[Shell中的通配符][]
-
-[Shell中的通配符]: https://www.jianshu.com/p/25f3d0cd5fdc
+[Shell中的通配符](https://www.jianshu.com/p/25f3d0cd5fdc)
 
 `glob()`, glob: 一滴 一团
 

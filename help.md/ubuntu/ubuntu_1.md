@@ -791,14 +791,14 @@ umount /dev/sda5
 
 通过`df`可以查看设备挂载点
 
-### 格式化 exfat
+### U盘格式化
 
 [将 USB 盘格式化为 exFAT](https://linux.cn/article-12294-1.html)
 
-从 `Linux kernel 5.4` 开始，Linux 内核本身中启用了 `exFAT` 文件系统支持。检查正在运行的 `Linux` 内核版本。`uname -r`
+从 `Linux kernel 5.4`开始，`Linux` 内核本身中启用了 `exFAT` 文件系统支持。检查正在运行的 `Linux` 内核版本。`uname -r`
 如果是内核 `5.4` 或更高版本，那么应该没问题。
 
-不然，你必须启用 exFAT 支持。在基于 `Ubuntu` 的发行版中，你可以安装以下软件包：
+不然，你必须启用`exFAT`支持。在基于 `Ubuntu` 的发行版中，你可以安装以下软件包：
 
 ```bash
 sudo apt install exfat-fuse exfat-utils
@@ -813,26 +813,28 @@ sudo apt install exfat-fuse exfat-utils
 ***
 方法 2：在 `Linux` 命令行中将磁盘格式化为 `exFAT`.
 
-插入外部硬盘，然后在终端中输入以下命令：
+插入外部硬盘，然后在终端中输入以下命令`sudo fdisk -l`.通过列出的磁盘大小信息找出`USB`的标记，假设为`/dev/sdc1`.
+如果磁盘有多个分区，想要管理，可以使用`sudo fdisk /dev/sdc`进行分区的管理工作。这里要输入`/dev/sdc`而不是`/dev/sdc1`.
+进入交互式分区工具:
+
+`m`提示可用的命令列表.
+`o`:创建新的`dos`分区表
+`t`:更改分区类型, dos 类型的分区表，如果要和`windows`格式化一致，为`HPFS/NTFS/exFAT`，就输入`7`.
+`w`:保存更改，`q`退出不保存更改.
+
+在这里更改分区表保存后，磁盘已经可用了.如果保存原来的分区直接格式，可以使用`mkfs.exfat`:
+
++ `mkfs.exfat`:格式化成`exfat`.
++ `mkfs.fat`:格式化成`fat32`.
+
+`man mkfs.exfat`会发现，`mkfs.exfat`的同义词`mkexfatfs`.如果分区表是`MBR`类型的，需要将文件系统类型设置为`0X07`(NTFS/exFAT)，否则其他操作系统可能会拒绝挂载。
+仍然假设U盘分区为`/dev/sdc1`，使用以下命令将它格式化为 `exfat`。
 
 ```bash
-sudo fdisk -l
+sudo mkfs.exfat -i 0x07 -n udisk /dev/sdc1
 ```
 
-通过列出的磁盘大小信息找出`USB`的标记，`/dev/sdb1`.
-识别出 USB 盘后，请使用以下命令将它格式化为 `exfat`。将` /dev/sdXn` 替换为你的磁盘 `ID`。`LABEL` 是你要为磁盘命名的名称，例如 `Data`,`MyUSB` 等。
-
-```bash
-sudo mkfs.exfat -n LABEL /dev/sdXn
-```
-
-可选地，运行 `fsck` 检查，以确保格式化正确。
-
-```bash
-sudo fsck.exfat /dev/sdXn
-```
-
-就是这样。享受 `exFAT` 盘吧。
+将`/dev/sdc1` 替换为你的磁盘 `ID`。`udisk` 是你要为磁盘命名的名称。可选地，运行 `fsck` 检查`sudo fsck.exfat /dev/sdc1`，以确保格式化正确, 享受 `exFAT` 盘吧。
 
 ### 查看文档首行末行
 
@@ -1599,12 +1601,12 @@ terminal 快捷键
 
 | 快捷键 | 快捷键说明      |
 | ------------- | ---------------------- |
-| `c+s+t`       | new tab  |
-| `c+s+n`       | new window      |
-| `c+s+w`       | close tab       |
-| `c+s+q`       | close window    |
-| `c+page up`   | switch to previous tab |
-| `c+s+page up` | switch to the left     |
+| `Ctrl+Shift+t`       | new tab  |
+| `Ctrl+Shift+n`       | new window      |
+| `Ctrl+Shift+w`       | close tab       |
+| `Ctrl+Shift+q`       | close window    |
+| `Ctrl+page up`   | switch to previous tab |
+| `Ctrl+Shift+page up` | switch to the left     |
 
 ### 广泛的
 

@@ -614,14 +614,15 @@ a toggle a bootable flag
 我们想要做的第一件事情是检查已存在的分区布局.输入`p`会打印出这个设备的分区表:
 
 ```bash
-Command (m for help): p
 Disk /dev/sdb: 16 MB, 16006656 bytes
 1 heads, 31 sectors/track, 1008 cylinders
 Units = cylinders of 31 * 512 = 15872 bytes
-...
+
+Device Boot   Start         End           Blocks            Id     System
+/dev/sdb1          2             1008          15608+        b        w95 FAT32
 ```
 
-在此例中,我们看到一个 `16MB` 的设备只有一个分区`(1)`,此分区占用了可用的1008个柱面中的1006个, 并被标识为 `Windows 95 FAT32`分区.
+在此例中,我们看到一个 `16MB` 的设备只有一个分区`(1)`,此分区占用了可用的`1008`个柱面中的1006个, 并被标识为 `Windows 95 FAT32`分区.
 
 有些程序会使用这个标志符来限制一些可以对磁盘所做的操作, 但大多数情况下更改这个标志符没有危害.
 然而,为了叙述方便,我们将会更改它, 以此来表明是个 `Linux` 分区.在更改之前,首先我们必须找到被用来识别一个 `Linux` 分区的 `ID` 号码. 
@@ -683,7 +684,7 @@ Block size=1024 (log=0)
 ```
 
 当 `ext3` 被选为文件系统类型时,这个程序会显示许多信息.
-若把这个设备重新格式化为它最初的 FAT32文件系统,指定`vfat`作为文件系统类型:
+若把这个设备重新格式化为它最初的`FAT32`文件系统,指定`vfat`作为文件系统类型:
 
 ```bash
 $ sudo mkfs -t vfat /dev/sdb1
