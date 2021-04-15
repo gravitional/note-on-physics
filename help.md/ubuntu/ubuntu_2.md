@@ -261,23 +261,41 @@ lspci -v -s 00:02.0
 
 输出信息中 `prefetchable` 那一行显示了系统中的显卡内存大小:
 
-最后使用下面的命令展示当前内存使用量（兆字节）：
+使用`xrandr` 可以设置屏幕输出的大小，方向或反射。 它还可以设置屏幕尺寸.
+
+***
+安装专有显卡驱动:
+
+首先查看显卡硬件型号`ubuntu-drivers devices`，使用`ubuntu-drivers -h`可以查看使用帮助：
+
+用法：`ubuntu-drivers [OPTIONS] COMMAND [ARGS]...`
+
+选项：
+
+`--gpgpu`:gpgpu驱动程序
+`--free-only`:仅考虑免费软件包
+`--package-list PATH`:使用已安装软件包列表,创建文件（在`install`模式）
+`--no-oem`: 不包括OEM软件包,默认值：`False`
+`-h`，`--help`:显示此消息并退出。
+
+命令：
+
+`autoinstall`:已弃用，请改用`install`
+`debug`:打印有关驱动程序的所有可用信息和调试数据。
+`devices`:显示所有需要驱动程序的设备以及哪些软件包可用
+`install`:安装驱动程序`[driver[:version][,driver[:version]]]`
+`list`:显示适用于当前系统的所有驱动程序包。
+`  list-oem`:显示适用于此系统的所有OEM软件包
+
+***
+使用下面的命令展示当前内存使用量（兆字节）：
 
 ```bash
 free -m
 ```
 
 这条命令告诉你多少内存是空闲的，多少命令正在使用中以及交换内存的大小和是否正在使用。`top` 命令为你提供内存使用更加详细的信息。
-它显示了当前全部内存和 CPU 使用情况并按照进程 ID、用户 ID 及正在运行的命令细分。同时这条命令也是全屏输出:
-
-```bash
-top
-```
-
-使用`xrandr` 可以设置屏幕输出的大小，方向或反射。 它还可以设置屏幕尺寸.
-
-Dell optiplex 7060 AMD Radeon R5 430
-Intel HD 530
+它显示了当前全部内存和 CPU 使用情况并按照进程 ID、用户 ID 及正在运行的命令细分。同时这条命令也是全屏输出.
 
 ### 磁盘文件系统和设备
 
@@ -965,7 +983,7 @@ Ubuntu版本使用此（可选）目录来转储崩溃和执行崩溃的软件�
 [如何阅读和使用崩溃报告]（https://askubuntu.com/questions/346953/how-to-read-and-use-crash-reports）有一些有趣的答案。
 它有一个示例崩溃报告和一种跟踪崩溃的方法。
 
-## linux grub
+## Linux Grub2
 
 [grub2详解(翻译和整理官方手册)](https://www.cnblogs.com/f-ck-need-u/archive/2017/06/29/7094693.html#auto_id_37)
 [官方手册原文](https://www.gnu.org/software/grub/manual/html_node/Simple-configuration.html#Simple-configuration)
@@ -1256,6 +1274,24 @@ boot
 同样，`APIC`的某些实现在较旧的系统上可能会出现问题，因此禁用它很有用。 `noapic` ,`nolapic`。
 
 有时，`APIC`可以正常工作，但是传递消息可能会减慢速度，这可能会干扰音频和视频处理。人们也可能出于这个原因禁用它。
+
+### ACPI 伪装 windows
+
+[Manjaro折腾记录](https://blog.csdn.net/hustcw98/article/details/81979172)
+[how to set acpi_osi parameter in the grub](https://unix.stackexchange.com/questions/246672/how-to-set-acpi-osi-parameter-in-the-grub)
+
+有时从suspend恢复时，会发现登录后整个桌面一片黑色，只有一个亮亮的鼠标可以移动。
+
+```bash
+vim /etc/default/grub
+## 在 GRUB_CMDLINE_LINUX_DEFAUT= 后面添加下面的语句
+acpi_osi=! acpi_osi="Windows 2018"
+```
+
+`acpi_osi=!`清空表示`acpi_osi`原来的值，然后假装成`Windows 10 版本 1803`，具体的版本对应可以参考：[如何使用 _OSI 识别 ACPI 中的 Windows 版本](https://docs.microsoft.com/zh-cn/windows-hardware/drivers/acpi/winacpi-osi).
+
+对于`Debian`系列的发行版，可能需要转义引号，写成`acpi_osi=\"Windows 2009\"`,修改后，运行`sudo update-grub`重新生成引导配置。
+可以使用`cat /proc/cmdline`检查内核启动的参数，参考[Linux中proc/cmdline](https://blog.csdn.net/baidu_33879812/article/details/104906774)
 
 ## ibus下定制自己的libpinyin
 
