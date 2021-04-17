@@ -1164,7 +1164,9 @@ ps aux --sort=-start | less # 按照运行时间排序
 ps ux --sort=-start_time | head -n 10 # 查看用户最近运行的进程
 ```
 
-### 用top命令动态查看进程
+### top 命令
+
+[linux top命令VIRT,RES,SHR,DATA的含义](https://javawind.net/p131)
 
 虽然 `ps` 命令能够展示许多计算机运行状态的信息,但是它只是提供,`ps` 命令执行时刻的机器状态快照.
 为了看到更多动态的信息,我们使用 `top` 命令:

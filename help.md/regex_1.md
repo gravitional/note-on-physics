@@ -6,23 +6,17 @@ For myself and for you
 
 Regular Expression 久仰大名，以前也一直有过类似的需求，然而之前或者用其他工具实现了，或者暴力解决了 😅
 
-不过辣个咸鱼没点理想呢？加上 [notepad++][] 事件，坚定了我学习Vim的决心，学 Vim 当然也要学习 regex 了，当然 regex 的应用远远不止在 Vim 当中。
+不过辣个咸鱼没点理想呢？加上 [notepad++](https://www.runoob.com/regexp/regexp-tutorial.html) 事件，坚定了我学习Vim的决心，学 Vim 当然也要学习 `regex` 了，当然 `regex` 的应用远远不止在 Vim 当中。
 
-此笔记参考了：[runoob-tutorial][] ，版权归原作者所有
+此笔记参考了：[runoob-tutorial](https://www.jianshu.com/p/1adced676d79) ，版权归原作者所有
 
 出于行文简洁的考虑，摘抄的内容不会全部一一声明，  但我会把链接都放上来，各位谅解 🤝
 
-[runoob-tutorial]: https://www.runoob.com/regexp/regexp-tutorial.html
-[notepad++]: https://www.jianshu.com/p/1adced676d79
-
 ## 简介
 
-refer: [runoob brief introduction][]
-
-[runoob brief introduction]: https://www.runoob.com/regexp/regexp-intro.html
+refer: [runoob brief introduction](https://www.runoob.com/regexp/regexp-intro.html)
 
 许多程序设计语言都支持利用正则表达式进行字符串操作.
-
 除非你以前使用过正则表达式，否则你可能不熟悉一些术语。
 但是，毫无疑问，你已经使用过不涉及脚本的某些正则表达式概念。
 例如，你很可能使用 `?`和`*` 通配符来查找硬盘上的文件。

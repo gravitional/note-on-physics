@@ -1,8 +1,6 @@
 # perl_regex
 
-参考： [Perl 正则表达式][]
-
-[Perl 正则表达式]: https://www.w3cschool.cn/perl/perl-regular-expressions.html
+参考： [Perl 正则表达式](https://www.w3cschool.cn/perl/perl-regular-expressions.html)
 
 ## Perl 正则表达式
 
@@ -46,7 +44,7 @@ if ($bar =~ /w3c/){
 第二次匹配
 ```
 
-### 模式匹配修饰符
+### m 匹配修饰符
 
 模式匹配有一些常用的修饰符，如下表所示：
 
@@ -91,7 +89,7 @@ print "匹配后的字符串: $'\n";
 匹配后的字符串: school site.
 ```
 
-## 替换操作符
+## s 替换操作符
 
 替换操作符 `s/// `是匹配操作符的扩展，使用新的字符串替换指定的字符串。基本格式如下：
 `s/PATTERN/REPLACEMENT/;`
@@ -128,7 +126,7 @@ print "$string\n";
 + `g`    替换所有匹配的字符串。
 + `e`    替换字符串作为表达式
 
-## 转化操作符
+## tr 转化操作符
 
 以下是转化操作符相关的修饰符：
 
