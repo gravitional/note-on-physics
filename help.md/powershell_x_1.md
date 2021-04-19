@@ -86,7 +86,10 @@ Get-Process -Name Explorer, Winlogon, Services
 New-Alias -Option {None | ReadOnly | Constant | Private | AllScope}
 ```
 
-### 特殊运算符
+### 运算符
+
+[关于运算符](https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7.1)
+[关于算术运算符](https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_arithmetic_operators?view=powershell-7.1)
 
 任何编程语言或者脚本语言中的小括号`()`,主要作用都是用来改变默认操作符的运算顺序的,`PowerShell`也不例外. 比如：
 
@@ -115,9 +118,7 @@ note：
 如果执行的是`Powershell`脚本,那么脚本会在自己的作用域中执行,
 也就是说在当前环境下无法访问被执行的脚本中的变量.
 
-`&`
-
-默认键入一个字符串,`powershell`会将它原样输出,如果该字符串是一个`命令`或者`外部程序`,在字符串前加‘`&`’可以执行命令,或者启动程序.
+`&`默认键入一个字符串,`powershell`会将它原样输出,如果该字符串是一个`命令`或者`外部程序`,在字符串前加‘`&`’可以执行命令,或者启动程序.
 
 如果你之前将`Powershell`命令存储在了一个字符串中,或者一个变量中.
 此时,`&`将字符串直接解释成命令并执行
@@ -127,27 +128,23 @@ note：
 
 ### 详细解释
 
-`&`
-
+***
 `&`运算符将它后面的命令设置为后台运行,当运行的命令需要阻塞当前终端的时候很有用.
 
-`[]`
-
-运算符用于转换变量的类型,比如说下面的代码,就将`pi`变量转换为了`Float`类型.
+***
+`[]`运算符用于转换变量的类型,比如说下面的代码,就将`pi`变量转换为了`Float`类型.
 
 ```powershell
 [Float]$pi = 3.14
 $pi -is [Float]
 ```
 
-`.`
-
-运算符用于调用`.NET`对象的成员,它也可以用于执行脚本.
+***
+`.`运算符用于调用`.NET`对象的成员,它也可以用于执行脚本.
 当它用于执行脚本的时候,脚本会在当前作用域中执行,所以脚本结束之后,我们可以访问脚本中的元素.
 
-`::`
-
-运算符用于调用**类**中的**静态成员**,
+***
+`::`运算符用于调用**类**中的**静态成员**,
 例如下面调用`.NET`平台中`DateTime`类的`Now`属性.
 
 ```powershell
@@ -156,9 +153,8 @@ out:
 2017年5月18日 22:45:42
 ```
 
-`..`
-
-运算符用于创建一个范围闭区间,例如下面这样.
+***
+`..`运算符用于创建一个范围闭区间,例如下面这样.
 
 ```powershell
 PS D:\Desktop> 1..3
@@ -169,8 +165,7 @@ out:
 PS D:\Desktop> 3..1
 ```
 
-`-f`
-
+***
 `-f`运算符用于格式化数据,例如下面这样.格式化方法和`C#`中的完全相同,所以如果不熟悉的话直接看在`C#`中如何格式化数据就行了.
 
 ```powershell
@@ -178,8 +173,7 @@ PS D:\Desktop> 'My name is {0}, I am {1} years old' -f 'yitian',24
 My name is yitian, I am 24 years old
 ```
 
-`$`
-
+***
 `$`运算符可以将字符串内部的变量转换为实际的值,例如下面这样.需要注意使用内插操作符的时候,外部字符串需要使用双引号,否则`Powershell`会直接输出字符串内容.
 
 ```powershell
@@ -190,13 +184,11 @@ out:
 My name is yitian, I am 24 years old.
 ```
 
-`@()`
-
+***
 `@()`运算符用于将一系列值转换为一个数组.
 假如在脚本中有一个函数可能返回`0、1或多个值`,就可以使用这个操作符,将一系列值合并为一个数组,方便后续处理.
 
-`,`
-
+***
 `,`逗号运算符如果放置在单个值前面,就会创建一个包含这个值的单元素数组.
 
 ## 概念解释
@@ -514,7 +506,7 @@ Get-Partition -DiskNumber 4 | Set-Partition -NewDriveLetter G
 
 ## 流程控制
 
-### if
+### if 条件判断
 
 `Where-Object` 进行条件判断很方便,如果在判断执行代码段,可以使用`IF-ELSEIF-ELSE`语句.语句模板：
 
@@ -541,7 +533,7 @@ if($n -lt 0 ){"-1" } elseif($n -eq 0){"0"} else {"1"}
 1
 ```
 
-### for
+### for 循环
 
 `for`循环可以看做是`while`循环的另一种形式,常用于固定次数的循环.
 
@@ -551,11 +543,8 @@ for ($i = 0; $i -ne 3; $i++) {
 }
 ```
 
-`foreach-object`循环
-
-alias `foreach -> ForEach-Object`
-
-`foreach-object`循环用于遍历一个集合中的所有元素.
+`foreach`循环用于遍历一个集合中的所有元素.
+[关于 ForEach](https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7.1)
 
 ```powershell
 $array = @(1, 2, 3, 4)

@@ -9,7 +9,7 @@ For myself and for you
 
 ## Powershell tricks
 
-### PowerShell转义通配符
+### 转义通配符
 
 当你使用`–like`操纵符，它支持`3`个通配符，
 ”`*`“代表任意个数的字符，”`?`“代表一个字符，“`[a-z]`”代表一个字符列表。
@@ -55,7 +55,7 @@ PS> "*abc" -like "``*abc"
 True
 ```
 
-### Powershell 任意键退出
+### 任意键退出
 
 `Powershell`控制台退出,推荐3种方法：
 
@@ -91,7 +91,7 @@ Exit ;
 
 在`Powershell`中短斜杠是个特殊字符，如果一个函数名中包含了特殊字符就应当把它放在花括号中。
 
-### Powershell缩短文件路径
+### 缩短文件路径
 
 将很长的文件路径缩短，并且在`powershell`和`windows`中能够识别。下面有一个函数：
 
@@ -133,7 +133,7 @@ PS C:mossfly> cd POWERS~1
 PS C:mossflyPowershell 缩短文件路径缩短文件路径缩短文件路径缩短文件路径缩短文件路径>
 ```
 
-### Powershell获取星期和月份
+### 获取星期和月份
 
 ```powershell
 PS C:> [Enum]::GetNames([DayOfWeek])
@@ -141,7 +141,7 @@ PS C:> [Enum]::GetNames([DayOfWeek])
 PS C:> [Globalization.DatetimeFormatInfo]::CurrentInfo.MonthNames
 ```
 
-### Powershell 朗读文本
+### 朗读文本
 
 通过`.net`对象`System.Speech.Synthesis.SpeechSynthesizer`
 可以朗读文本，可以调节朗读的语速和音量，还可以将文本转换成音频。
@@ -166,7 +166,7 @@ $syn.SetOutputToWaveFile("e:a.wav")
 $syn.Speak("飞苔博客")
 ```
 
-### Powershell 算术运算符主题
+### 算术运算符主题
 
 说明在 `Windows PowerShell` 中执行算术运算的运算符。
 
@@ -577,4 +577,3 @@ Name Value
 + `about_variables`
 + `Get-Date`
 + `New-TimeSpan`
-

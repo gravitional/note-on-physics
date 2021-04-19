@@ -2,14 +2,12 @@
 
 For myself and for you
 
-[收集和分享 Windows PowerShell 相关教程,技术和最新动态][]
+[收集和分享 Windows PowerShell 相关教程,技术和最新动态](https://www.pstips.net/)
 版权归原作者所有
 
-[收集和分享 Windows PowerShell 相关教程,技术和最新动态]: https://www.pstips.net/
+## 使用对象
 
-## Powershell使用对象
-
-### Powershell对象=属性+方法
+### 对象=属性+方法
 
 在现实世界中，你可能已经了解对象就是那些能够摸到的东西。`Powershell`中的对象和现实生活很相似。
 
@@ -94,7 +92,7 @@ IsInstance               : True
 
 到目前为止一个虚拟的小刀对象就创建完成了，一个对象包含数据（属性）和动作（方法）。
 
-### Powershell属性：描述对象是什么
+### 属性：描述对象是什么
 
 属性可以描述一个对象，对象的属性可以被`Powershell`自动转换成文本，并且输出到控制台。
 因此可以通过这种方法查看任何对象，例如`$host`:
@@ -366,7 +364,7 @@ CurrentUICulture    Property   System.Globalization.CultureInfo CurrentUICulture
 `在Definition`列首先列出属性的具体类型，然后列出构造器，
 如果一个构造器中只有`Get`方法，没有`Set`方法，表示该属性为**只读**属性。
 
-### Powershell方法（对象能做什么）
+### 方法（对象能做什么）
 
 方法定义了一个对象可以做什么事情。
 当你把一个对象输出在控制台时，它的属性可能会被转换成可视的文本。
@@ -587,7 +585,7 @@ PS C:PowerShell> .\test.ps1
 重启
 ```
 
-### Powershell使用真实的对象工作
+### 使用真实的对象工作
 
 每一个`Powershell`命令都会返回一个对象，但是返回的对象不易操作，
 因为控制台解释器会自动将对象转换成可视的文本，这样就会丢失绝大多数对象的信息。
@@ -654,7 +652,7 @@ PS C:Powershell> $obj.LastAccessTime
 2012年1月11日 14:21:01
 ```
 
-#### Powershell特殊属性
+#### 特殊属性
 
 `Powershell`中可以给一个对象增加属性，增加的属性仍然可以通过`Get-Member`的标签辨别，
 因为对象的正常属性标签名为：`Property`，新增加的属性标签多了一个前缀，如`ScriptProperty`和`NoteProperty`。
@@ -742,7 +740,7 @@ False
 `Method`：正常的方法
 `ScriptMethod`：一个执行`Powershell`脚本的方法
 
-### Powershell调用静态方法
+### 调用静态方法
 
 `Powershell` 将信息存储在对象中，每个对象都会有一个具体的类型，
 简单的文本会以 `System.String` 类型存储，日期会以`System.DateTime`类型存储。
@@ -936,7 +934,7 @@ LocalHost
 
 新版的 `.NET` 中有动态类型，不能直接通过`GetExportedTypes()`调用了
 
-### Powershell创建对象
+### 创建对象
 
 `.Net`类型中的方法功能很强大。
 可以通过类型的构造函数创建新的对象，也可以将已存在的对象转换成指定的类型。
@@ -1159,9 +1157,9 @@ PS C:Powershell> $link.IconLocation='Powershell.exe'
 PS C:Powershell> $link.Save()
 ```
 
-## Powershell条件判断
+## 条件判断
 
-### Powershell 中的比较运算符
+### 比较运算符
 
 + -eq ：等于
 + -ne ：不等于
@@ -1274,7 +1272,7 @@ PS> "a","b","c" -ccontains "A"
 False
 ```
 
-### Powershell Where-Object 条件过滤
+### 条件过滤Where-Object 
 
 本篇会对条件判断进行实际应用。
 在管道中可以通过条件判断过滤管道结果，Where-Object会对集合逐个过滤，将符合条件的结果保留。
@@ -1594,9 +1592,9 @@ switch($value)
 #407
 ```
 
-## Powershell循环
+## 循环
 
-### Powershell ForEach-Object 循环
+### ForEach-Object 循环
 
 `Powershell`管道就像流水线，对于数据的处理是一个环节接着一个环节，
 如果你想在某一环节对流进来的数据逐个细致化的处理，可以使用`ForEach-Object`，
@@ -1660,7 +1658,7 @@ PS C:Powershell> Get-Process iexplore | ForEach-Object {$_.kill()}
 PS C:Powershell> Get-Process iexplore
 ```
 
-### Powershell Foreach 循环
+### Foreach 循环
 
 `Foreach-object` 为`cmdlet`命令，使用在管道中，对管道结果逐个处理，
 
@@ -1700,7 +1698,7 @@ explorer.exe
 WindowsUpdate.log
 ```
 
-### Powershell Do While 循环
+### Do While 循环
 
 `Do`和`While`可能产生死循环，为了防止死循环的发生，你必须确切的指定循环终止的条件。
 指定了循环终止的条件后，一旦条件不满足就会退出循环。
@@ -1783,7 +1781,7 @@ while($n -lt 6)
 }
 ```
 
-### Powershell For 循环
+### For 循环
 
 如果你知道循环的确切次数可以使用`For`循环，`For`循环属于计数型循环，
 一旦达到最大次数，循环就会自动终止。下面的例子通过循环求`1-100`的数列和。
@@ -1843,7 +1841,7 @@ $file.Close()
 REM Dummy file for NTVDM
 ```
 
-### Powershell Switch 循环
+### Switch 循环
 
 `Switch`本是多路分支的关键字，但是在`Powershell`中由于`Switch`支持集合，
 所以也可以使用它进行循环处理。下面举两个例子。

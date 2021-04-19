@@ -7,7 +7,7 @@ For myself and for you
 
 [收集和分享 Windows PowerShell 相关教程,技术和最新动态]: https://www.pstips.net/
 
-## Powershell函数
+## 函数
 
 ### 定义函数
 
@@ -728,7 +728,7 @@ PS E:mossfly.com> $function:A:
 Set-Location A:
 ```
 
-### Powershell函数 过滤器 管道
+### 函数 过滤器 管道
 
 一个函数能够访问和进一步处理另外一条命令的结果吗？
 答案是肯定的，这被称为管道。
@@ -889,7 +889,7 @@ Function MarkEXE
 
 ## 脚本
 
-### Powershell 编写和运行脚本
+### 编写和运行脚本
 
 一个`Powershell`仅仅是一个包含`Powershell`代码的文本文件。
 如果这个文本文件执行，`Powershell`解释器会逐行解释并执行它的的语句。
@@ -1025,7 +1025,7 @@ files count
 20
 ```
 
-### Powershell 给脚本传递参数
+### 给脚本传递参数
 
 怎样将一个脚本稍作润色，让它能够根据用户的输入，处理并输出相应的结果，而不是只产生一成不变的输出。
 怎样将参数传递给脚本，这是本篇讨论的内容。
@@ -1122,10 +1122,7 @@ FileName=config.xml
 #### 验证参数
 
 给脚本的参数绑定数据类型，绑定帮助信息。
-一旦脚本缺少参数，或者输入的参数类型不正确，就提醒用户：
-
-输入脚本：
-
+一旦脚本缺少参数，或者输入的参数类型不正确，就提醒用户输入脚本：
 
 ```powershell
 param(
@@ -1186,7 +1183,7 @@ PS E:> $temp
 mosser lee
 ```
 
-#### Powershell 增强脚本的可读性
+#### 增强脚本的可读性
 
 如果你愿意，你可以把一个脚本写的非常长，问题是脚本的代码量越大，可读性越差。
 最好的方式是在写脚本时融入**函数**和**类库**的概念：
@@ -1312,7 +1309,7 @@ d----         2012/4/30     22:47            PSLib
 PS E:> copy .PSLib.ps1 $env:APPDATAPSLib
 ```
 
-### Powershell 创建管道脚本
+### 创建管道脚本
 
 我们可以像创建管道函数那样创建管道脚本，
 具体采用低速顺序模式，还是高速流模式，这取决于具体的编程实现。
@@ -1398,7 +1395,7 @@ PS E:> ls | .\pipeline.ps1
 管道脚本环境恢复
 ```
 
-### Powershell自动执行脚本之profile
+### 自动执行脚本之profile
 
 在`Powershell`控制台的许多更改只会在当前会话有效。
 一旦关闭当前控制台，你自定义地所有别名、函数、和其它改变将会消失，除非将更改保存在`windows`环境变量中。
@@ -1444,7 +1441,7 @@ PS E:> ls | .\pipeline.ps1
 
 需要注意的是，创建全局`profile`需要管理员权限，没有管理员权限，该文件或者文件夹拒绝访问。
 
-### Powershell 脚本数字签名
+### 脚本数字签名
 
 脚本很容易被冒名顶替或者更改，因为它们是由纯文本构成的。
 数字签名为脚本提供了更高的安全性，因为它能确定脚本和脚本的编辑者的唯一性，并且不能被更改。
@@ -1622,7 +1619,7 @@ SelectFromCollection($collection, $title, $text, 0)
 Set-AuthenticodeSignature -Certificate $certificate[0] -FilePath .firstSignScript.ps1
 ```
 
-#### Powershell脚本签名验证
+#### 脚本签名验证
 
 在脚本中签名到底能带来什么好处，那就是可以进行验证。
 可以手动验证，也可以自动验证。

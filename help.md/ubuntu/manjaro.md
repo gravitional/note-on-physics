@@ -63,7 +63,7 @@ sudo pacman -S archlinuxcn-keyring
 sudo pacman -S yay
 ```
 
-`yay`是一个用Go语言写的一个`AUR`助手，有些时候官方仓库没有你想要的软件，就需要通过`yay`来安装,有了`yay`，以后就不用`sudo pacman`了
+`yay`是一个用`Go`语言写的一个`AUR`助手，有些时候官方仓库没有你想要的软件，就需要通过`yay`来安装,有了`yay`，以后就不用`sudo pacman`了
 
 ***
 安装拼音输入法, 安装`fcitx5`（输入法框架）
@@ -567,3 +567,8 @@ GRUB_CMDLINE_LINUX_DEFAULT="module_blacklist=nvidiafb"
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
+## pacman
+
+[pacman](https://wiki.archlinux.org/index.php/Pacman_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+[PACMAN(8)](https://man.archlinux.org/man/pacman.8)

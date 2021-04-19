@@ -742,7 +742,6 @@ If the Recurse parameter is added to the command, the trailing asterisk (`*`) in
 If a trailing asterisk (`*`) is not included in the Path parameter, the **command does not return any output** and returns to the PowerShell prompt. For example,
 `dir -Path C:\Test\`.
 
-
 与`-include`相反的是`-exclude`。在你想排除特定文件时，可以使用`-exclude`。不像`-filter`，`-include`和`-exclude`还支持数组，能让你获取你的家目录下所有的图片文件。
 
 ```powershell

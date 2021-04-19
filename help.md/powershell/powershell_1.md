@@ -24,7 +24,7 @@ For myself and for you
 
 ## 认识Powershell
 
-### Powershell管道和重定向
+### 管道和重定向
 
 #### 管道
 
@@ -59,9 +59,9 @@ Powershell Routing
 PS C:\PStest>
 ```
 
-## Powershell交互式
+## 交互式
 
-### Powershell 进行数学运算
+### 数学运算
 
 我们可以把`powershell`当成一个计算器。
 像键入命令行那样输入数学表达式，回车，`powershell`会自动计算并把结果输出。
@@ -69,7 +69,7 @@ PS C:\PStest>
 
 `PowerShell`也能自动识别计算机容量单位, 包括`KB，MB，GB，TB，PB`
 
-### Powershell 执行外部命令
+### 执行外部命令
 
 `Powershell` 能够像`CMD`一样很好的执行外部命令。
 
@@ -108,7 +108,7 @@ PS C:\PS> &"ls"
 
 ```
 
-### Powershell 命令集 cmdlets
+### 命令集 cmdlets
 
 `cmdlets`是`Powershell`的内部命令，`cmdlet`的类型名为`System.Management.Automation.CmdletInfo`，包含下列属性和方法：
 
@@ -120,7 +120,7 @@ PS C:\PS> &"ls"
 
 [Powershell 命令集]: https://www.pstips.net/powershell-cmdlets.html
 
-### Powershell 别名
+### 别名
 
 `cmdlet`的名称由一个动词和一个名词组成，其功能对用户来讲一目了然。
 但是对于一个经常使用`powershell`命令的人每天敲那么多命令也很麻烦啊。
@@ -196,7 +196,7 @@ PS C:\PS> Export-Alias alias.ps1
 PS C:\PS> Import-Alias -Force alias.ps1
 ```
 
-### Powershell 通过函数扩展别名
+### 通过函数扩展别名
 
 在`Powershell`中设置别名的确方便快捷，但是在设置别名的过程中没有参数的相关信息。
 尽管别名会自动识别参数，但是如何把经常使用的参数默认设定在别名里面呢？
@@ -218,7 +218,7 @@ test-me-01   localhost       127.0.0.1        ::1                               
 
 有了函数牵线，别名可以完成更高级更强大的功能，其中`$args`为参数的占位符。
 
-### Powershell 执行文件和脚本
+### 执行文件和脚本
 
 像运行可执行文件一样，`Powershell`运行文件和脚本，
 也必须使用绝对路径或者相对路径，或者要运行的文件必须定义在可受信任的环境变量中。
@@ -278,7 +278,7 @@ At line:1 char:10
 
 这是`powershell`的默认安全设置禁用了执行脚本，要启用这个功能需要拥有管理员的权限。
 
-#### Powershell调用入口的优先级
+#### 调用入口的优先级
 
 别名：控制台首先会寻找输入是否为一个别名，如果是，执行别名所指的命令。因此我们可以通过别名覆盖任意`powershell`命令，因为别名的优先级最高。
 
@@ -295,9 +295,9 @@ At line:1 char:10
 The term ‘now’ is not recognized as the name of a cmdlet, function, script file, or operable program...
 ```
 
-## Powershell变量
+## 变量
 
-### Powershell 定义变量
+### 定义变量
 
 变量可以临时保存数据，因此可以把数据保存在变量中，以便进一步操作。
 
@@ -336,7 +336,7 @@ mossfly
 
 #### 赋值和返回值
 
-赋值操作符为`“=”`，几乎可以把任何数据赋值给一个变量，甚至一条`cmdlet`命令，
+赋值操作符为`=`，几乎可以把任何数据赋值给一个变量，甚至一条`cmdlet`命令，
 为什么，因为`Powershell`支持对象，对象可以包罗万象。
 
 ```powershell
@@ -468,7 +468,7 @@ PS C:\test> new-variable name -Value "me" -Description "This is my name"
 PS C:\test> ls Variable:name | fl *
 ```
 
-### Powershell自动化变量
+### 自动化变量
 
 `Powershell` 自动化变量 是那些一旦打开`Powershell`就会自动加载的变量。
 这些变量一般存放的内容包括
@@ -493,7 +493,7 @@ PS> Get-Process -Id $pid
 
 [detail on automatic]: https://www.pstips.net/powershell-automatic-variables.html
 
-### Powershell环境变量
+### 环境变量
 
 传统的控制台一般没有象`Powershell`这么高级的变量系统。
 它们都是依赖于机器本身的环境变量，进行操作。
@@ -599,7 +599,7 @@ PS> [environment]::GetEnvironmentvariable("Path", "User")
 ;c:\powershellscript
 ```
 
-### Powershell驱动器变量
+### 驱动器变量
 
 `Powershell`中所有不是我们自己的定义的变量都属于驱动器变量（比如环境变量），
 它的前缀只是提供给我们一个可以访问信息的虚拟驱动器。
@@ -671,7 +671,7 @@ PS> "The size of Powershell_Cmdlets.html is $($(ls Powershell_Cmdlets.html).Leng
 The size of Powershell_Cmdlets.html is 735892
 ```
 
-### Powershell变量的作用域
+### 变量的作用域
 
 `Powershell`所有的变量都有一个作用域,决定变量是否可用。
 `Powershell`支持四个作用域：全局、当前、私有和脚本。
@@ -834,7 +834,7 @@ PS> $local:var
  Try to change variable in function
 ```
 
-### Powershell变量的类型和强类型
+### 变量的类型和强类型
 
 变量可以自动存储任何`Powershell`能够识别的类型信息，
 可以通过`$variable`的`GetType().Name`查看和验证`Powershell`分配给变量的数据类型。
@@ -960,7 +960,7 @@ PS> $xml.LogoTest.Extensions.E
 
 `[ XML ]`
 
-### Powershell强类型数组
+### 强类型数组
 
 `Powershell`数组一般具有多态性，如果你不指定元素的具体类型，解释器会自动选择合适的类型存储每个元素。
 如果要统一限制所有元素的类型，可是使用**类型名和一对方括号**作为数组变量的类型。
@@ -975,7 +975,7 @@ PS C:Powershell> $nums+="can not convert"
 Cannot convert value "can not convert" to type "System.Int32". Error: "Input string was not in a correct format."
 ```
 
-### Powershell变量的幕后管理
+### 变量的幕后管理
 
 在`Powershell`中创建一个变量，会在后台生成一个`PSVariable`对象，
 这个对象不仅包含变量的值，也包含变量的其它信息，例如”**只写保护**”这样的描述。
@@ -1170,9 +1170,9 @@ PS> $email="www@mossfly"
 The variable cannot be validated because the value www@mossfly is not a valid value for the email variable.
 ```
 
-## Powershell管道
+## 管道
 
-### Powershell使用管道
+### 使用管道
 
 管道并不是什么新事物，以前的`Cmd`控制台也有重定向的命令，
 例如`Dir | More`可以将结果分屏显示。
@@ -1265,7 +1265,7 @@ Dir C: -recurse | Sort-Object
 例如`Sort-object`导致阻塞的原因肯定是由于技术实现上采用的是内排序，没有使用外排序。
 但是像`Out-Host -paging` 这样的命令属于流出来模式，就一般不会导致系统阻塞。
 
-### Powershell对象转换成文本
+### 对象转换成文本
 
 怎样将`Powershell`的对象结果转换成文本并显示在控制台上。
 `Powershell`已经内置`Out-Default`命令追加在管道的命令串的末尾。因此你使用`dir` 和d`ir | out-default`的结果是相同的。
@@ -1421,7 +1421,7 @@ d---- 2011/11/29     18:21        myscript
 -a--- 2011/11/24     18:30  67580 a.html
 ```
 
-### Powershell排序和分组管道结果
+### 排序和分组管道结果
 
 使用`Sort-Object`和`Group-Object`可以对管道结果进行分组。
 其实每条命令执行后的结果已经排过序了。
@@ -1550,7 +1550,7 @@ Mode                LastWriteTime     Length Name
 -a---        2011/11/28     15:30         63 ping.bat
 ```
 
-### Powershell过滤管道结果
+### 过滤管道结果
 
 通过管道可以过滤某些对象和对象的属性，这个功能很实用，因为很多时候我们并不是对所有的结果感兴趣，可能只会对某些结果感兴趣。
 如果要过滤对象可以使用`Where-Object`；
@@ -1705,7 +1705,7 @@ PS C:Powershell> ls | foreach{$_.extension} | Sort-Object |Get-Unique
 .xml
 ```
 
-### Powershell分析和比较管道结果
+### 分析和比较管道结果
 
 使用`Measure-Object`和`Compare-Object`可以统计和对比管道结果。
 `Measure-Object`允许指定待统计对象的属性。`Compare-Object`可以对比对象前后的快照。
@@ -1836,7 +1836,7 @@ PS C:PowerShell> $after=Get-Process
 PS C:PowerShell> Compare-Object -ReferenceObject $before -DifferenceObject $after
 ```
 
-### Powershell导出管道结果
+### 导出管道结果
 
 可以将管道的结果转换成文本输出，默认是`Out-Default`。
 可以通过`Get-Command -verb out`查看`Powershell`都有哪些输出的命令。
@@ -1974,7 +1974,7 @@ PS C:PowerShell> Get-Service | ConvertTo-Html -Title "ls result" | Out-File a.ht
 PS C:PowerShell> .a.html
 ```
 
-### Powershell扩展类型系统
+### 扩展类型系统
 
 `Powershell`一个最吸引人的功能是它能够将任何对象转换成文本，
 我们已经使用过将对象属性以不同的版式转换成文本，并且输出。

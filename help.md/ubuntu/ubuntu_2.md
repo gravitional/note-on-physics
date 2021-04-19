@@ -1293,6 +1293,8 @@ acpi_osi=! acpi_osi="Windows 2018"
 对于`Debian`系列的发行版，可能需要转义引号，写成`acpi_osi=\"Windows 2009\"`,修改后，运行`sudo update-grub`重新生成引导配置。
 可以使用`cat /proc/cmdline`检查内核启动的参数，参考[Linux中proc/cmdline](https://blog.csdn.net/baidu_33879812/article/details/104906774)
 
+`Manjaro`在更新内核到`Linux 5.11.14-1`的时候出现问题，开机提示`NMI watchdog: Watchdog detected hard LOCKUP on cpu x`,删除这个配置之后可以正常进入。
+
 ## ibus下定制自己的libpinyin
 
 [ibus下定制自己的libpinyin](https://blog.csdn.net/godbreak/article/details/9031887)
