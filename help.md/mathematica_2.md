@@ -2393,11 +2393,9 @@ ConfigureJupyter["Add"] ## 配置Jupyter笔记本
 `Linux `安装：
 首先安装好`wolframscript`和`Jupyter`
 
-Clone [WolframLanguageForJupyter](https://github.com/WolframResearch/WolframLanguageForJupyter/)仓库:
+Clone [WolframLanguageForJupyter](https://github.com/WolframResearch/WolframLanguageForJupyter)仓库:
 在终端中进入仓库，运行`git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git`
-在克隆好的仓库中运行`./configure-jupyter.wls add`.
-
-如果报错`Jupyter installation on Environment["PATH"] not found`，可以尝试指定具体的路径：
+在克隆好的仓库中运行`./configure-jupyter.wls add`. 如果报错`Jupyter installation on Environment["PATH"] not found`，可以尝试指定具体的路径：
 
 ```bash
 configure-jupyter.wls add "Wolfram Engine二进制程序的绝对路径" "Jupyter二进制程序的绝对路径"
