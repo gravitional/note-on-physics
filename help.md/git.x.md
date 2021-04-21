@@ -893,7 +893,7 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 
 ### remote
 
-`git remote add <shortname> <url>`
+`git remote add 远程仓库简称 <url>`
 
 + `gr`='git remote'
 + `gra`='git remote add'

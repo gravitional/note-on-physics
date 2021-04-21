@@ -153,6 +153,19 @@ zsh problem: compinit:503: no such file or directory: /usr/local/share/zsh/site-
 
 进入`/usr/local/share/zsh/site-functions/`，`rm _brew _brew_cask`即可.
 
+***
+brew 命令补全：在`.zshrc`文件附上
+
+```bash
+if type brew &>/dev/null; then
+FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
+autoload -Uz compinit
+compinit
+fi
+```
+
+其中`/share/zsh-completions`是插件`zsh-completions`补全函数的位置.
+
 ### tuna
 
 建议按照[Homebrew / Linuxbrew 镜像使用帮助](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/)中的教程安装
