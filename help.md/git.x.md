@@ -170,7 +170,6 @@ Set-Theme Paradox
 
 现在，每个新实例启动时都会导入 `Posh-Git` 和 `Oh-My-Posh`，然后从 `Oh-My-Posh` 设置 `Paradox` 主题。 `Oh-My-Posh` 附带了若干内置主题。
 
-
 You need to close all powershell instances and then run
 
 ```powershell
@@ -750,6 +749,17 @@ commit-id 为要删除的 `commit` 的前一次`commit`号
 
 ## zsh 定义的 git别名
 
+***
+`--depth <depth>`:
+
+创建一个浅表克隆，其历史记录将被截断为指定的提交数。暗示使用了`--single-branch`，除非给出`--no-single-branc`来获取所有分支的tip附近的历史记录。 
+如果要浅层克隆`--no-single-branc`，则还要传递`--shallow-submodules`。
+
+***
+`-C <path>`:
+将`git`的起始目录设置成`<paht>`。 给定多个`-C`选项时， 后面每个不是绝对路径的指定，将和前面的连接起来。
+如果`<path>`存在但为空，例如`-C`，则当前工作目录保持不变。
+
 ### short
 
 + `gcl`='git clone --recurse-submodules', `git clone  <仓库> [本地目录]`，也就是后面可以跟上本地目录位置.
@@ -883,7 +893,7 @@ In combination with `-m` (or `--move`), allow renaming the branch even if the ne
 
 ### remote
 
-`git remote add <shortname> <url>`
+`git remote add 远程仓库简称 <url>`
 
 + `gr`='git remote'
 + `gra`='git remote add'

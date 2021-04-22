@@ -137,14 +137,62 @@ Finder中显示隐藏文件`Cmd+Shift+.`
 
 ## homebrew 软件安装
 
+`brew Shellenv`:
+Print export statements. 在shell中运行时，将Homebrew 的安装路径添加到`PATH`，`MANPATH`和`INFOPATH`。
+变量`HOMEBREW_PREFIX`，`HOMEBREW_CELLAR`和`HOMEBREW_REPOSITORY`也被导出以避免多次查询。
+考虑将该命令的输出添加配置文件中(例如`~/.profile, ~/.bash_profile, or ~/.zprofile`)，例如：`eval "$(/opt/homebrew/bin/brew shellenv)"`
+
+***
+uninstall/卸载brew: 运行  `git` 仓库中的`uninstall.sh`脚本即可，但是其中有一个`raw github` 地址，需要更改一下.
+
+卸载之后打开终端时，可能会报错:
+
+```
+zsh problem: compinit:503: no such file or directory: /usr/local/share/zsh/site-functions/_brew
+```
+
+进入`/usr/local/share/zsh/site-functions/`，`rm _brew _brew_cask`即可.
+
+***
+brew 命令补全：在`.zshrc`文件附上
+
+```bash
+if type brew &>/dev/null; then
+FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
+autoload -Uz compinit
+compinit
+fi
+```
+
+其中`/share/zsh-completions`是插件`zsh-completions`补全函数的位置.
+
+### tuna
+
+建议按照[Homebrew / Linuxbrew 镜像使用帮助](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/)中的教程安装
+以及 [Homebrew-bottles 镜像使用帮助](https://mirrors.tuna.tsinghua.edu.cn/help/homebrew-bottles/)
+
+或者参考使用中科大镜像的git备份，[ineo6/homebrew-install](https://github.com/ineo6/homebrew-install)
+
+### sspai
+
 [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)
 
-`Homebrew` 是一款`Mac OS`平台下的软件包管理工具,拥有安装, 卸载, 更新, 查看, 搜索等很多实用的功能.
+为什么 ARM 版 Mac 要使用 `/opt `路径？
 
-`Homebrew` 的两个术语:
+根据《文件系统层次结构标准》（Filesystem Hierarchy Standard，主要为 Linux 系统制定，但对具有共同 UNIX 基因的 macOS 也有参考价值）：
+`/usr/local` 目录用于系统管理员在本地安装软件。系统软件更新时，该目录应免于被覆盖。
+`/opt` 目录留作附加应用程序（add-on application）软件包的安装。安装在该目录下的软件包必须将其静态文件放置在单独的 `/opt/<package>` 或` /opt/<provider>` 路径下。
+历史上，`/usr/local` 主要用于放置在本地编译并另行安装的程序，避免和` /usr `下的系统自带版本冲突；而 `/opt` 则用于安装非系统自带的、第三方预先编译并发行的独立软件包。
+显然，在如今的 macOS 使用场景下，用户很少会需要自行编译软件包，`/usr/local` 和 `/opt` 的区分一定程度上已经成为名义上的了。
+Homebrew 启用 `/opt` 作为 ARM 版的安装路径，可能更多是出于确保与 X86 版相互区隔的考虑。
+
+***
+`Homebrew` 是一款`Mac OS`平台下的软件包管理工具,拥有安装, 卸载, 更新, 查看, 搜索等很多实用的功能.`Homebrew` 的两个术语:
 
 `Formulae` :软件包,包括了这个软件的依赖, 源码位置及编译方法等；
-`Casks`:已经编译好的应用包,如图形界面程序等.
+`Casks`:已经编译好的应用包,如图形界面程序等. 现在的版本中,`brew cask install` 已经过时了,建议使用`brew install [--cask]`.
+
+***
 `Homebrw`相关的几个文件夹用途:
 
 `bin` :用于存放所安装程序的启动链接(相当于快捷方式)
@@ -155,9 +203,9 @@ Finder中显示隐藏文件`Cmd+Shift+.`
 `X86` 版 `Homebrew` 无法在 `ARM` 环境下安装.为此,需要先启动一个 `X86` 环境的终端.
 网络上传播较广的方法是创建一个 `Terminal.app` 的副本,然后令其在 `Rosetta` 兼容模式下运行,显得有些麻烦.
 
-其实,注意到在任何命令前增加 `arch -x86_64`,就可以以 `X86` 模式运行该命令.因此,运行:
+其实,注意到在任何命令前增加 `arch -x86_64`,就可以以 `x86` 模式运行该命令.因此,运行:
 
-`arch -x86_64 $SHELL`, 就可以启动一个 `X86` 模式终端,使得之后运行的命令都在 X86 模式下运行.
+`arch -x86_64 $SHELL`, 就可以启动一个 `x86` 模式终端,使得之后运行的命令都在 X86 模式下运行.
 
 此时,运行 `Homebrew` 的官方安装脚本
 

@@ -929,7 +929,6 @@ Executes tasks from input (even multithread).
 ## 终端复用器 tmux
 
 [Tmux 使用教程](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
-
 [Linux 守护进程的启动方法](http://www.ruanyifeng.com/blog/2016/02/linux-daemon.html)
 
 `Tmux` 是一个终端复用器`(terminal multiplexer)`, 非常有用,属于常用的开发工具.
@@ -956,10 +955,10 @@ plugins=(... tmux)
 
 别名 命令  描述
 
-+ `ta`:  `tmux attach -t`  连接新`tmux`会话到后台运行的会话Attach new tmux session to already running named session
++ `ta`:  `tmux attach -t`  连接新`tmux`会话到后台运行的会话
 + `tad`:  `tmux attach -d -t`  分离某个已命名会话
-+ `ts`:  `tmux new-session -s` 创建新的命名会话Create a new named tmux session
-+ `tl`:  `tmux list-sessions`  显示所有正在运行的会话Displays a list of running tmux sessions
++ `ts`:  `tmux new-session -s` 创建新的命名会话
++ `tl`:  `tmux list-sessions`  显示所有正在运行的会话
 + `tksv`:  `tmux kill-server`  终止所有正运行的会话
 + `tkss`:  `tmux kill-session -t`  终止某个已命名会话
 + `tmux`:  `_zsh_tmux_plugin_run`  开始一个新的`tmux`会话
@@ -1096,10 +1095,13 @@ $ tmux rename-session -t 0 <new-name>
 
 综上所述,以下是 `Tmux` 的最简操作流程.
 
-+ 新建会话`tmux new -s my_session`.
++ 查看现存会话，`tl`:  `tmux list-sessions`
++ 新建会话,`tmux new-session -s name`:`ts`  
 + 在 `Tmux` 窗口运行所需的程序.
-+ 按下快捷键`Ctrl+b d`将会话分离.
-+ 下次使用时,重新连接到会话`tmux attach-session -t my_session`.
++ 按下快捷键`Ctrl+b d`将会话分离, 
++ 下次使用时,重新连接到会话,`tmux attach-session -t name`:`ta`
++ `tkss`:  `tmux kill-session -t`  终止某个已命名会话
++ `tksv`:  `tmux kill-server`  终止所有正运行的会话
 
 ***
 `tmux`允许将命令绑定到大多数键(可以有前缀键)。
