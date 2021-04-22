@@ -929,7 +929,6 @@ Executes tasks from input (even multithread).
 ## 终端复用器 tmux
 
 [Tmux 使用教程](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
-
 [Linux 守护进程的启动方法](http://www.ruanyifeng.com/blog/2016/02/linux-daemon.html)
 
 `Tmux` 是一个终端复用器`(terminal multiplexer)`, 非常有用,属于常用的开发工具.
