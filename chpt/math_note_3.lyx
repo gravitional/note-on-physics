@@ -288,6 +288,59 @@ f^{\left(n\right)}\left(z\right)=\frac{n!}{2\pi i}\oint_{l}\frac{f\left(\xi\righ
 \end_layout
 
 \begin_layout Standard
+球函数的一般形式为
+\begin_inset Formula 
+\[
+Y_{l}^{m}\left(\theta,\varphi\right)=P_{l}^{m}\left(\cos\theta\right)\left\{ \begin{array}{c}
+\sin m\varphi\\
+\cos m\varphi
+\end{array}\right\} \left(\begin{array}{c}
+m=0,1,2,\cdots l\\
+l=0,1,2,3,\cdots
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\varphi$
+\end_inset
+
+部分可以是
+\begin_inset Formula $\sin\varphi$
+\end_inset
+
+也可以是
+\begin_inset Formula $\cos m\varphi$
+\end_inset
+
+，
+\begin_inset Formula $l$
+\end_inset
+
+称为它的阶。也可以选取为
+\begin_inset Formula 
+\[
+Y_{l}^{m}\left(\theta,\varphi\right)=P_{l}^{m}\left(\cos\theta\right)e^{im\varphi}\left(\begin{array}{c}
+m=-l,-l+1,\cdots,0,1,\cdots l\\
+l=0,1,2,3,\cdots
+\end{array}\right)
+\]
+
+\end_inset
+
+独立的
+\begin_inset Formula $l$
+\end_inset
+
+阶球函数仍为
+\begin_inset Formula $2l+1$
+\end_inset
+
+个。
+\end_layout
+
+\begin_layout Standard
 在球坐标中，对拉普拉斯方程分离变量
 \begin_inset Formula 
 \[
@@ -541,6 +594,347 @@ P_{l}\left(x\right)=\frac{1}{\pi}\int_{0}^{\pi}\left[\cos\theta+i\sin\theta\cos\
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+作为施图姆–刘维尔本征值问题的正交关系的特例，不同阶的勒让德多项式在区间
+\begin_inset Formula $\left(-1,+1\right)$
+\end_inset
+
+上正交，
+\begin_inset Formula 
+\begin{align*}
+ & \int_{-1}^{+1}\dif xP_{k}\left(x\right)P_{l}\left(x\right)=\delta\left(k-l\right)\frac{2}{2l+1}\\
+ & \int_{0}^{\pi}\sin\theta\dif\theta P_{k}\left(\cos\theta\right)P_{l}\left(\cos\theta\right)=\delta\left(k-l\right)\frac{2}{2l+1}
+\end{align*}
+
+\end_inset
+
+在区间
+\begin_inset Formula $-1\le x\le+1$
+\end_inset
+
+，或者
+\begin_inset Formula $0\le\theta\le\pi$
+\end_inset
+
+上，以勒让德多项式为基本函数族，可把函数
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+展开为广义傅立叶级数，
+\begin_inset Formula 
+\[
+\begin{cases}
+f\left(x\right)=\sum_{l=0}^{\infty}f_{l}P_{l}\left(x\right)\\
+\text{系数}=\frac{2l+1}{2}\int_{-1}^{+1}f\left(x\right)P_{l}\left(x\right)\dif x\\
+\text{系数}=\frac{2l+1}{2}\int_{0}^{\pi}f\left(\theta\right)P_{l}\left(\cos\theta\right)\sin\theta\dif\theta
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+母函数与递推公式
+\end_layout
+
+\begin_layout Standard
+在单位球北极点放置
+\begin_inset Formula $4\pi\varepsilon_{0}$
+\end_inset
+
+单位的正电荷，球内一点
+\begin_inset Formula $r<1$
+\end_inset
+
+的电势为
+\begin_inset Formula 
+\[
+\frac{1}{d}=\frac{1}{\sqrt{1-2r\cos\theta+r^{2}}}=\sum_{l=0}^{\infty}A_{l}r^{l}P_{l}\left(\cos\theta\right)
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $\theta=0$
+\end_inset
+
+时有
+\begin_inset Formula 
+\[
+\frac{1}{1-r}=1+r+r^{2}+\cdots
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula $A_{l}=1,l=0,1,2,\cdots$
+\end_inset
+
+。也就是
+\begin_inset Formula 
+\[
+\frac{1}{\sqrt{1-2r\cos\theta+r^{2}}}=\sum_{l=0}^{\infty}r^{l}P_{l}\left(\cos\theta\right)
+\]
+
+\end_inset
+
+将
+\begin_inset Formula $1/\sqrt{1-2r\cos\theta+r^{2}}$
+\end_inset
+
+称为勒让德多项式的母函数。类似地，在球外
+\begin_inset Formula $r>1$
+\end_inset
+
+有：
+\begin_inset Formula 
+\[
+\frac{1}{\sqrt{1-2r\cos\theta+r^{2}}}=\sum_{l=0}^{\infty}\frac{1}{r^{l+1}}P_{l}\left(\cos\theta\right)
+\]
+
+\end_inset
+
+对于半径为
+\begin_inset Formula $R$
+\end_inset
+
+的球，式子修改为
+\begin_inset Formula 
+\[
+\frac{1}{\sqrt{R^{2}-2Rr\cos\theta+r^{2}}}=\begin{cases}
+\sum_{l=0}^{\infty}\frac{r^{l}}{R^{l+1}}P_{l}\left(\cos\theta\right)\\
+\sum_{l=0}^{\infty}\frac{R^{l}}{r^{l+1}}P_{l}\left(\cos\theta\right)
+\end{cases}
+\]
+
+\end_inset
+
+利用母函数可以得到递推公式：
+\begin_inset Formula 
+\[
+\left(k+1\right)P_{k+1}\left(x\right)=\left(2k+1\right)xP_{k}\left(x\right)-kP_{k-1}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+一般的球函数
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(1-x^{2}\right)\frac{\dif^{2}\Theta}{\dif x^{2}}-2x\frac{\dif\Theta}{\dif x}+\left[l\left(l+1\right)-\frac{m^{2}}{1-x^{2}}\right]\Theta=0,\quad x=\cos\theta.
+\]
+
+\end_inset
+
+通过做变换
+\begin_inset Formula 
+\[
+\Theta\left(x\right)=\left(1-x^{2}\right)^{m/2}y\left(x\right)
+\]
+
+\end_inset
+
+将待求函数从
+\begin_inset Formula $\Theta\left(x\right)$
+\end_inset
+
+变成
+\begin_inset Formula $y\left(x\right)$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\begin{equation}
+\left(1-x^{2}\right)y^{\prime\prime}-2\left(m+1\right)xy^{\prime}+\left[l\left(l+1\right)-m\left(m+1\right)\right]y=0\label{eq:45.6}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:45.6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+刚好是勒让德方程逐项求导
+\begin_inset Formula $m$
+\end_inset
+
+次的结果。使用关于乘积求导的莱布尼茨规则即可验证：
+\begin_inset Formula 
+\[
+\left(uv\right)^{\left[m\right]}=\sum_{a=0}^{m}C_{m}^{a}u^{\left[a\right]}v^{\left[m-a\right]}.
+\]
+
+\end_inset
+
+所以
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:45.6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的解是勒让德方程解
+\begin_inset Formula $P\left(x\right)$
+\end_inset
+
+的
+\begin_inset Formula $m$
+\end_inset
+
+阶导数
+\begin_inset Formula 
+\[
+y\left(x\right)=P^{\left[m\right]}\left(x\right),
+\]
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:45.6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+满足自然边界条件的解就是勒让德多项式的
+\begin_inset Formula $m$
+\end_inset
+
+阶导数
+\begin_inset Formula 
+\[
+y\left(x\right)=P_{l}^{\left[m\right]}\left(x\right),
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\Theta\left(x\right)=\left(1-x^{2}\right)^{m/2}P_{l}^{\left[m\right]}\left(x\right),
+\]
+
+\end_inset
+
+称作缔合勒让德函数，通常记作
+\begin_inset Formula $P_{l}^{m}\left(x\right)$
+\end_inset
+
+，
+\begin_inset Formula $m=0,1,2,\cdots,l$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+类似地，缔合勒让德函数具有微分表示和积分表示。罗德里格斯公式：
+\begin_inset Formula 
+\[
+P_{\ell}^{m}\left(x\right)=\frac{\left(1-x^{2}\right)^{m/2}}{2^{\ell}\ell!}\frac{\dif^{\ell+m}}{\dif x^{\ell+m}}\left(x^{2}-1\right)^{\ell}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & P_{\ell}^{m}\left(x\right)=\left(-1\right)^{m}\frac{\left(\ell+m\right)!}{\left(\ell-m\right)!}P_{\ell}^{-m}\left(x\right)\\
+ & P_{\ell}^{-m}\left(x\right)=\left(-1\right)^{m}\frac{\left(\ell-m\right)!}{\left(\ell+m\right)!}P_{\ell}^{m}\left(x\right)
+\end{align*}
+
+\end_inset
+
+施列夫利积分：
+\begin_inset Formula 
+\[
+P_{\ell}^{m}\left(x\right)=\frac{\left(1-x^{2}\right)^{m/2}}{2^{\ell}}\frac{1}{2\pi i}\frac{\left(\ell+m\right)!}{\ell!}\oint_{C}\frac{\left(z^{2}-1\right)^{\ell}}{\left(z-x\right)^{\ell+m+1}}\dif z
+\]
+
+\end_inset
+
+拉普拉斯积分：
+\begin_inset Formula 
+\[
+P_{\ell}^{m}\left(x\right)=\frac{i^{m}}{2\pi}\frac{\left(\ell+m\right)!}{\ell!}\int_{-\pi}^{\pi}e^{-im\psi}\left[\cos\theta+i\sin\theta\cos\psi\right]^{\ell}\dif\psi
+\]
+
+\end_inset
+
+正交关系：
+\begin_inset Formula 
+\[
+\int_{-1}^{+1}P_{k}^{m}\left(x\right)P_{\ell}^{m}\left(x\right)\dif x=\delta\left(k-\ell\right)\frac{\left(\ell+m\right)!}{\left(\ell-m\right)!}\frac{2\pi C_{m}}{2\ell+1}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+C_{m}=\begin{cases}
+2 & m=0\\
+1 & m\neq0
+\end{cases}
+\]
+
+\end_inset
+
+递推公式：
+\begin_inset Formula 
+\[
+\left(k+1-m\right)P_{k+1}^{m}\left(x\right)=\left(2k+1\right)xP_{k}^{m}\left(x\right)-\left(k+m\right)P_{k-1}^{m}\left(x\right).
+\]
+
+\end_inset
+
+加法公式：
+\begin_inset Formula 
+\[
+P_{l}\left(\cos\Theta\right)=\sum_{m=0}^{\ell}\frac{2}{C_{m}}\frac{\left(\ell-m\right)!}{\left(\ell+m\right)!}\left(\cos m\varphi_{0}\cos m\varphi+\sin m\varphi_{0}\sin m\varphi\right)P_{\ell}^{m}\left(\cos\theta_{0}\right)P_{\ell}^{m}\left(\cos\theta\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+P_{l}\left(\cos\Theta\right)=\sum_{m=-\ell}^{+\ell}\frac{\left(\ell-m\right)!}{\left(\ell+m\right)!}P_{\ell}^{m}\left(\cos\theta_{0}\right)P_{\ell}^{m}\left(\cos\theta\right)e^{im\left(\varphi-\varphi_{0}\right)}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\cos\Theta=\cos\theta_{0}\cos\theta+\sin\theta_{0}\sin\theta\cos\left(\varphi-\varphi_{0}\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

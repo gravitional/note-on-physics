@@ -242,6 +242,23 @@ Email bug reports to <xetex@tug.org>.
 
 Invoke-Expression $("lualatex" + " " + "-halt-on-error " + "-output-directory=temp -shell-escape -interaction=nonstopmode " + "test.tikz.tex" ) > ./null
 
+### 中文
+
+使用 `xelatex` 进行编译，可以设置`Document Settings`--`Fonts`--`LaTeX font encoding: None fontenc`
+在同一个页面，如果勾选`Use non-Tex fonts`，即可选择系统自带的字体，即可显示中文
+
+对应 `latex`设置为
+
+```latex
+\setmainfont[Mapping=tex-text]{Times New Roman}
+\setsansfont[Mapping=tex-text]{Noto Sans CJK SC}
+\setmonofont{Noto Sans Mono CJK SC}
+```
+
+另外，`Document Settings`--`Language`中可设置语言，以及`xeTeX,utf-8`编码。
+
+可以在`Insert`菜单栏中插入`beamer`特有的格式。
+
 ## 语法
 
 ### input与include
@@ -1456,8 +1473,6 @@ a&b\\ c&d
 ```latex
 %%%%%+++++++++++++++++++++++---------------------
 ```
-
-
 
 ### 常用颜色声明
 
