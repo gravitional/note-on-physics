@@ -2,11 +2,8 @@
 
 ## zsh和Bash的不同
 
-[zsh和Bash究竟有何不同][]
-[zsh和Bash,究竟有何不同 坑很深][]
-
-[zsh和Bash究竟有何不同]: https://blog.csdn.net/lixinze779/article/details/81012318
-[zsh和Bash,究竟有何不同 坑很深]: https://www.xshell.net/shell/bash_zsh.html
+[zsh和Bash究竟有何不同](https://blog.csdn.net/lixinze779/article/details/81012318)
+[zsh和Bash,究竟有何不同 坑很深](https://www.xshell.net/shell/bash_zsh.html)
 
 ```bash
 chsh -s /bin/bash
