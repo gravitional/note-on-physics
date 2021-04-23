@@ -642,7 +642,7 @@ sudo restart lightdm
 + `u` : `Unmount` 将所有分区挂载为只读模式
 + `b` : `reBoot` 重启
 
-如果某一天你的 Linux 死机了，键盘不听使唤了，`Ctrl+Alt+F1` 已经没有任何反应，该怎么办呢？
+如果某一天你的 `Linux` 死机了，键盘不听使唤了，`Ctrl+Alt+F1` 已经没有任何反应，该怎么办呢？
 使用'魔法键'：`Alt+SysRq + r,e,i,s,u,b`（确实很好背，就是单词 `busier`的倒写）。
 
 首先，你的系统要支持这个功能，接下来就是操作：同时按下`<Alt>+<SysRq>`不行，只会蹦出来一个屏幕截图窗口。所以，真正的做法应该是：
@@ -655,7 +655,7 @@ sudo restart lightdm
 最后按下`B`时，屏幕显示`reset`，这时你的左手可以松开了，等几秒钟，计算机就会安全重启。
 
 ***
-开启`SysRq`功能：[Linux中的SysRq魔术键](https://blog.csdn.net/jasonchen_gbd/article/details/79080576). 幸运的是：Ubuntu 默认已经开启了这个功能。
+开启`SysRq`功能：[Linux中的SysRq魔术键](https://blog.csdn.net/jasonchen_gbd/article/details/79080576). 幸运的是：`Ubuntu` 默认已经开启了这个功能。
 
 首先要确保内核打开了`CONFIG_MAGIC_SYSRQ`配置项，这样`SysRq`的底层处理才可用。另外内核中有一个宏定义`SYSRQ_DEFAULT_ENABLE`，表示系统默认情况下是否启用`SysRq`功能键。
 当然，不管这个值是不是`yes`，你都可以通过`proc`文件系统来开启或关闭`SysRq`键：
@@ -670,9 +670,18 @@ sysctl -w kernel.sysrq=1
 ```
 
 实际上`sysctl`这条命令就是通过修改`/proc/sys/kernel/sysrq`来生效的。可以把`kernel.sysrq=1`设置到`/etc/sysctl.conf`中，使`SysRq`在下次系统重启仍生效。
-上面说`0`表示完全关闭`SysRq`，`1`表示使能`SysRq`的所有功能，还可以设置成其他数字来选择开启部分功能，可参考内核里的`Documentation/sysrq.txt`。 
+[Ryzen随机卡死问题](https://mrswolf.github.io/zh-cn/2019/05/24/manjaro%E8%B8%A9%E5%9D%91%E8%AE%B0/\)
 
-我们可以直接通过按键的方式或者通过写`/proc/sysrq-trigger`的方式来触发SysRq的操作。SysRq支持的操作可参考下面的HELP输出：
+```bash
+# 编辑或新建99-sysctl.conf
+sudo nano /etc/sysctl.d/99-sysctl.conf
+# 添加以下内容, 按Alt+PrtSc+REISUB可以安全重启
+kernel.sysrq = 1
+```
+
+`0`表示完全关闭`SysRq`，`1`表示使能`SysRq`的所有功能，还可以设置成其他数字来选择开启部分功能，可参考内核里的`Documentation/sysrq.txt`。 
+
+我们可以直接通过按键的方式或者通过写`/proc/sysrq-trigger`的方式来触发`SysRq`的操作。`SysRq`支持的操作可参考下面的HELP输出：
 即`SysRq键+一个字母`来触发一个操作，例如`SysRq+t`打印所有任务的状态。
 
 也可以不通过按键，而是写`/proc/sysrq-trigger`的方式，用法形如：
