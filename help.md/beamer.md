@@ -1,29 +1,8 @@
 # beamer
 
 参考：
-[使用 Beamer 制作学术讲稿 ][]
-[beamer class][]
-
-[使用 Beamer 制作学术讲稿 ]: https://www.latexstudio.net/archives/2825.html
-
-[beamer class]: https://mirrors.ustc.edu.cn/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf
-
-## lyx
-
-使用 xelatex 进行编译，可以设置`Document Settings`--`Fonts`--`LaTeX font encoding: None fontenc`
-在同一个页面，如果勾选`Use non-Tex fonts`，即可选择系统自带的字体，即可显示中文
-
-对应 `latex`设置为
-
-```latex
-\setmainfont[Mapping=tex-text]{Times New Roman}
-\setsansfont[Mapping=tex-text]{Noto Sans CJK SC}
-\setmonofont{Noto Sans Mono CJK SC}
-```
-
-另外，`Document Settings`--`Language`中可设置语言，以及`xeTeX,utf-8`编码。
-
-可以在`Insert`菜单栏中插入`beamer`特有的格式。
+[使用 Beamer 制作学术讲稿 ](https://www.latexstudio.net/archives/2825.html)
+[beamer class](https://mirrors.ustc.edu.cn/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf)
 
 ## 5 创造一个演示的参考
 
@@ -171,7 +150,7 @@
 [如何使用 LaTeX/XeLaTeX 编辑中文？](https://zhuanlan.zhihu.com/p/27739925)
 [全面总结如何在 LaTeX 中使用中文 (2020 最新版)](https://jdhao.github.io/2018/03/29/latex-chinese.zh/)
 
-这里介绍 LaTeX 编辑中文的两种方式。注意，虽说是使用 LaTeX，实际使用的是 XeLaTeX 引擎。具体方法如下：
+这里介绍 `LaTeX` 编辑中文的两种方式。注意，虽说是使用`LaTeX`,实际使用的是 `XeLaTeX` 引擎。具体方法如下：
 
 ### 使用xeCJK宏包
 
@@ -182,14 +161,12 @@
 ***
 [Beamer的中文自动换行问题](http://softlab.sdut.edu.cn/blog/subaochen/2018/11/)
 
-在LyX中，标准的Beamer无法实现中文自动换行，观察其tex源文件可以发现，其导入的package为：
-`\usepackage{fontspec}`
-而在导言区使用
-`\usepackage{xeCJK}`
+在`LyX`中，标准的`Beamer`无法实现中文自动换行，观察其`tex`源文件可以发现，其导入的`package`为：`\usepackage{fontspec}`
+而在导言区使用`\usepackage{xeCJK}`
 就可以支持中文自动换行了。
 
 ***
-beamer 有个选项，可以更改数学字体的显示方式，`\usefonttheme[onlymath]{serif}`可以使数学字体风格为`serif`
+`beamer` 有个选项，可以更改数学字体的显示方式，`\usefonttheme[onlymath]{serif}`可以使数学字体风格为`serif`
 
 一个简单可运行的例子如下：
 
@@ -243,7 +220,7 @@ beamer 有个选项，可以更改数学字体的显示方式，`\usefonttheme[o
 对于中文来说，`\setCJKmainfont{}` 命令用来设置正文使用的中文字体，同时也是 `\textrm{}` 命令使用的字体。
 `\setCJKmonofont{}` 用来设置 `\texttt{}` 命令中的中文使用的字体。`\setCJKsansfont{}` 用来设置 `\textsf{}` 命令中的中文使用的字体。
 
-那么问题来了，如何找到可用的中文字体呢？如果你已经安装了 TeX Live，那么很容易找到中文字体。在系统的命令行，使用下面的命令：
+那么问题来了，如何找到可用的中文字体呢？如果你已经安装了 `TeX Live`，那么很容易找到中文字体。在系统的命令行，使用下面的命令：
 
 ```bash
 fc-list :lang=zh
@@ -283,6 +260,25 @@ lyx 的设置
 ```
 
 此种方式比较简便，也更适合中文排版要求，建议选用。
+
+## lyx 使用中文
+
+首先必须调用 `xelatex` 进行编译，找到设置`Document Settings`--`Fonts`--勾选`Use non-Tex fonts`,即可选择系统自带的字体，即可显示中文,
+建议选择默认字体，避免字体不全问题.
+
+`LaTeX font encoding: None fontenc`
+
+对应 `latex`设置为
+
+```latex
+\setmainfont[Mapping=tex-text]{Times New Roman}
+\setsansfont[Mapping=tex-text]{Noto Sans CJK SC}
+\setmonofont{Noto Sans Mono CJK SC}
+```
+
+另外，`Document Settings`--`Language`中可设置语言，以及`xeTeX,utf-8`编码。
+
+可以在`Insert`菜单栏中插入`beamer`特有的格式。
 
 ## 添加当前位置
 

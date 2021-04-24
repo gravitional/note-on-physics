@@ -1285,15 +1285,26 @@ boot
 ```bash
 vim /etc/default/grub
 ## 在 GRUB_CMDLINE_LINUX_DEFAUT= 后面添加下面的语句
-acpi_osi=! acpi_osi="Windows 2018"
+acpi_osi=! acpi_osi='Windows 2009'
 ```
 
-`acpi_osi=!`清空表示`acpi_osi`原来的值，然后假装成`Windows 10 版本 1803`，具体的版本对应可以参考：[如何使用 _OSI 识别 ACPI 中的 Windows 版本](https://docs.microsoft.com/zh-cn/windows-hardware/drivers/acpi/winacpi-osi).
+`acpi_osi=!`清空表示`acpi_osi`原来的值，然后假装成`Windows 7、Win Server 2008 R2`，
+具体的版本对应可以参考：[如何使用 _OSI 识别 ACPI 中的 Windows 版本](https://docs.microsoft.com/zh-cn/windows-hardware/drivers/acpi/winacpi-osi).
 
 对于`Debian`系列的发行版，可能需要转义引号，写成`acpi_osi=\"Windows 2009\"`,修改后，运行`sudo update-grub`重新生成引导配置。
 可以使用`cat /proc/cmdline`检查内核启动的参数，参考[Linux中proc/cmdline](https://blog.csdn.net/baidu_33879812/article/details/104906774)
 
+***
 `Manjaro`在更新内核到`Linux 5.11.14-1`的时候出现问题，开机提示`NMI watchdog: Watchdog detected hard LOCKUP on cpu x`,删除这个配置之后可以正常进入。
+
+***
+20210423  测试:
+
++ `GRUB_CMDLINE_LINUX_DEFAULT="apparmor=1 security=apparmor resume=UUID=0f163abf-8e60-4626-a4de-54332c64db51 udev.log_priority=3"`: 不设置这个选项, 可以正常启动.
++ 加上`acpi_osi=! acpi_osi='Windows 2009'` : 可以正常启动
++ 加上`acpi_osi=! acpi_osi='Windows 2015'`  : 可以正常启动
+
+三种参数的开机日志基本没啥区别
 
 ## ibus下定制自己的libpinyin
 
