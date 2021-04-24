@@ -1487,7 +1487,7 @@ ls -l /bin/usr > ls-output.txt 2>&1
 ls -l /bin/usr &> ls-output.txt
 ```
 
-在这个例子里面,我们使用单单一个表示法 `&>` 来重定向标准输出和错误到文件 ls-output.txt。
+在这个例子里面,我们使用单单一个表示法 `&>` 来重定向标准输出和错误到文件 `ls-output.txt`。
 
 ### 处理不需要的输出
 
