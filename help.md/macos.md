@@ -173,6 +173,8 @@ fi
 
 或者参考使用中科大镜像的git备份，[ineo6/homebrew-install](https://github.com/ineo6/homebrew-install)
 
+如果没有使用过`homebrew/cask/sublime-text`下面的软件，可能没有`/opt/homebrew/Library/Taps/homebrew/homebrew-cask`这个目录，随便安装一个`cask`软件，再设置即可.
+
 ### sspai
 
 [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)
