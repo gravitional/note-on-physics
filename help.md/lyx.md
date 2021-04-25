@@ -1,6 +1,6 @@
 # lyx
 
-使用 LyX 须知：
+使用 LyX 须知: 
 
 1. lyx 具有极好的文档--使用它。点击帮助--介绍按钮,将会得到一个简明的介绍。
 然后通过 帮助--教程 学习使用 lyx。
@@ -11,7 +11,7 @@ latex老司机可以瞄一眼下面的教程就行了。然后阅读 "LyX for La
 (对于别的读者:不用担心,你不必礼教LaTeX 才能使用LyX。)
 1. lyx有许多特性,为非英语使用者提供便利。另外,键盘组合,工具栏和许多其他特性都是高度可定制的。见 Help->Cuttomization
 1. lyx 主页是http://www.lyx.org/. Get information about LyX, subscribe to the LyX mailing list(s), take the LyX Graphical Tour, and more
-1. Linux 用户请注意：请检查 latex 发行版 texlive 的语言包是否安装,否则会得到latex 错误。例如在linux发行版(K,X)Ubuntu and Debian上,the package name for the German language is "texlive-lang-german。
+1. Linux 用户请注意: 请检查 latex 发行版 texlive 的语言包是否安装,否则会得到latex 错误。例如在linux发行版(K,X)Ubuntu and Debian上,the package name for the German language is "texlive-lang-german。
 安装完语言包后,必须使用LyX menu Tools->Reconfigure 来更新。
 
 ## Introduction to LyX
@@ -20,7 +20,7 @@ latex老司机可以瞄一眼下面的教程就行了。然后阅读 "LyX for La
 
 LyX 是文档准备系统,适合用来打公式,交叉引用,参考文献,索引。
 
-lyx 背后的理念是：指定你在做什么,而不是怎么做。
+lyx 背后的理念是: 指定你在做什么,而不是怎么做。
 Instead of "What You See Is What You Get," the LyX model is "What You See Is What You Mean" or "WYSIWYM."
 
 + `Emphasized Style` is used for general emphasis, generic arguments, book titles, names of sections of other manuals, 
@@ -141,7 +141,7 @@ Shape: As the name implies. Options are:
 
 ### 添加转换器
 
-可以通过在命令行中运行LyX来获取有关转换过程的更多信息：
+可以通过在命令行中运行LyX来获取有关转换过程的更多信息: 
 
 ```bash
 lyx -dbg graphics
@@ -178,7 +178,7 @@ lyx -dbg graphics
 [ImageMagick security policy 'PDF' blocking conversion](https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion)
 
 linux 下 lyx `pdf` 无法预览,可能是由于`Imagemagick`的安全策略引起的。你需要更改`/etc/ImageMagick-7/policy.xml`中ImageMagick的策略。 
-例如在ArchLinux中(2019年5月1日),以下行未注释：
+例如在ArchLinux中(2019年5月1日),以下行未注释: 
 
 ```xml
 <policy domain="coder" rights="none" pattern="{PS,PS2,PS3,EPS,PDF,XPS}" />
@@ -188,28 +188,28 @@ linux 下 lyx `pdf` 无法预览,可能是由于`Imagemagick`的安全策略引�
 
 ## lyx preamble
 
-下面是我经常使用的 `lyx` 导言，也即 `latex`导言。
+下面是我经常使用的 `lyx` 导言,也即 `latex`导言。
 
 ```latex
-% 如果没有这一句命令，XeTeX会出错，原因参见
+% 如果没有这一句命令,XeTeX会出错,原因参见
 % http://bbs.ctex.org/viewthread.php?tid=60547
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
 %%%%%%%%%%%%%%%%%+++++++++++
 \usepackage{eso-pic} 
-% 添加图片命令或者背景到每一页的绝对位置，
+% 添加图片命令或者背景到每一页的绝对位置,
 % 添加一个或者多个用户命令到 latex 的 shipout rou­tine, 可以用来在固定位置放置输出
-\usepackage{hyperref} %处理交叉引用，在生成的文档中插入超链接
+\usepackage{hyperref} %处理交叉引用,在生成的文档中插入超链接
 %\usepackage[colorlinks,linkcolor=blue]{hyperref} 
-\usepackage{graphicx} %插入图片，基于graphics，给 \includegraphics 命令提供了key-value 形式的接口，比 graphics 更好用
+\usepackage{graphicx} %插入图片,基于graphics,给 \includegraphics 命令提供了key-value 形式的接口,比 graphics 更好用
 %%%+++++++++++++++++++++++++++++++
 \usepackage{xcolor} 
-% xcolor 包从 color 包的基本实现开始，提供了独立于驱动的接口，可以设置 color tints, shades, tones, 或者任意颜色的混合
-% 可以用名字指定颜色，颜色可以混合, \color{red!30!green!40!blue}
+% xcolor 包从 color 包的基本实现开始,提供了独立于驱动的接口,可以设置 color tints, shades, tones, 或者任意颜色的混合
+% 可以用名字指定颜色,颜色可以混合, \color{red!30!green!40!blue}
 %\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色名称
 %\newcommand{\cola}[1]{{\color{blue}{#1}}} %定义一个颜色命令
 %%%+++++++++++++++++++++++++++++++
 \usepackage{listings} % 在LaTex中添加代码高亮
-\definecolor{codegreen}{rgb}{0,0.6,0} %定义各种颜色，给代码着色用
+\definecolor{codegreen}{rgb}{0,0.6,0} %定义各种颜色,给代码着色用
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
@@ -233,13 +233,13 @@ linux 下 lyx `pdf` 无法预览,可能是由于`Imagemagick`的安全策略引�
     tabsize=2
 }
 %%%+++++++++++++++++++++++++++++++
-\usepackage{framed} % 在对象周围添加方框，阴影等等，允许跨页
+\usepackage{framed} % 在对象周围添加方框,阴影等等,允许跨页
 \definecolor{shadecolor}{rgb}{0.96,0.96,0.93}  %定义阴影颜色 shaded环境使用
 %%%+++++++++++++++++++++++++++++++
 \usepackage{amsmath,amssymb,amsfonts} % 数学字体
-\usepackage{mathrsfs} % \mathscr 命令，更花的花体
-\usepackage{enumitem} % 提供了对三种基本列表环境： enumerate, itemize and description 的用户控制。
-% 取代  enumerate and mdwlist 包，对它们功能有 well-structured 的替代。
+\usepackage{mathrsfs} % \mathscr 命令,更花的花体
+\usepackage{enumitem} % 提供了对三种基本列表环境:  enumerate, itemize and description 的用户控制。
+% 取代  enumerate and mdwlist 包,对它们功能有 well-structured 的替代。
 %%%+++++++++++++++++++++++++++++++
 \usepackage{hepunits} % 高能物理单位 \MeV \GeV
 \usepackage{braket} % 狄拉克 bra-ket notation
@@ -252,12 +252,37 @@ linux 下 lyx `pdf` 无法预览,可能是由于`Imagemagick`的安全策略引�
 \usepackage{tikz-feynman}  % 画费曼图用
 \usepackage{tikz} %画矢量图用
 %%++++++++++++++++++++ 
-\usepackage{mathtools}% 基于 amsmath, 提供更多数学符号，这里用来定义配对的数学符号
+\usepackage{mathtools}% 基于 amsmath, 提供更多数学符号,这里用来定义配对的数学符号
 \DeclarePairedDelimiter\abs{\lvert}{\rvert} % 定义配对的绝对值命令
-%%  amsmath 子包 amsopn 提供了\DeclareMathOperatorfor 命令，可以用于定义新的算符名称
+%%  amsmath 子包 amsopn 提供了\DeclareMathOperatorfor 命令,可以用于定义新的算符名称
 \DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
 \DeclareMathOperator{\diag}{diag} %对角矩阵
 \DeclareMathOperator{\res}{Res} %复变函数的留数
 \DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
 ```
+
+## LyX 命令行
+
+概要: `lyx [ command-line switches ] [ name[.lyx] ... ]`
+
+描述: `LyX`太复杂了,无法以`man`页面格式进行完整描述。如果系统配置正确,则可以在`Help`菜单下的`LyX`中访问完整文档。
+`LyX`支持以下命令行switches。
+
++ `-help`总结LyX的用法
++ `-version`:提供有关LyX构建的版本信息。
++ `-sysdir directory`: 设置系统目录。通常不需要。
++ `-userdir directory`:设置用户目录。如果要与其他`lyxrc`设置一起使用LyX,则需要此选项。
++ `-geometry WxH+X+Y`: 设置主窗口的几何形状。
++ `-dbg feature[,feature...]`:  其中`feature`是名称或数字。使用`lyx -dbg`查看可用的调试功能列表。
++ ` -x [--execute] command`:  其中command是一个lyx命令
++ ` -e [--export] fmt`:其中`fmt`是选择的导出格式(`latex`, `pdflatex`, `luatex`, `xetex`, `xhtml`, `text`, `lyx`, `ps`, `pdf`, ...).注意`-e`和`-x`switch 的顺序很重要.
++ `-E [--export-to] fmt filename`:其中,`fmt`是选择的导出格式(请参阅`--export`),而`filename`是目标文件名。
++ 请注意,任何其他外部文件名所需的文件(例如图像文件)也将导出到包含文件名的文件夹中(保留相对原始LyX文档中嵌入的路径(如果有)。
++ `-i [--import] fmt file.xxx`:其中,fmt是选择的导入格式,而file.xxx是要导入的文件。
++ `-f [--force-overwrite] what`:     其中`what`是"all", "main" or "none"之一。指定`all`以允许在批量导出期间覆盖所有文件,指定`main`以允许仅覆盖主文件,或`none`以覆盖任何文件。其他内容被当成`all`，更之后的命令行输入留待进一步解析。
++ `--ignore-error-message which`: 允许您忽略特定的`LaTeX`错误消息。请勿用于最终文件！当前支持的值: `"missing_glyphs"`,Fontspec `"missing glyphs"` error.
++ `-n [--no-remote]`: 即使在另一个`LyX`实例已在运行的情况下,也可以在新实例中打开作为参数传递的文档。
++ `-r [--remote]`: 通过使用lyxpipe,要求一个已经运行的`LyX`实例打开作为参数传递的文档,然后退出。如果是`lyxpipe`未设置或无法正常运行,则创建了新实例,并且正常继续执行。
++ `-v [--verbose]`:在终端上打印所有产生的外部命令。
++ `-batch`:使`LyX`在不打开`GUI`窗口的情况下运行给定命令。因此,类似于`lyx -batch -x "buffer-print printer default dvips" myfile.lyx`的命令会导致`LyX`将`myfile.lyx`打印到默认打印机(必须已配置),使用`dvips`和默认打印设置。

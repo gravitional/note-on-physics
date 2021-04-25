@@ -1174,7 +1174,7 @@ This is useful when you want to finish up a download started by a previous insta
 `SSH `**服务器**运行在远端主机上运行,在端口号`22`上监听将要到来的连接,而 `SSH` **客户端**用在本地系统中,用来和远端服务器通信.
 
 大多数 Linux 发行版自带一个提供 SSH 功能的软件包,叫做 `OpenSSH`,来自于 `BSD` 项目.
-一些发行版 默认包含客户端和服务器端两个软件包(例如,Red Hat),而另一些(比方说 Ubuntu)则只是提供客户端服务.
+一些发行版 默认包含客户端和服务器端两个软件包(例如,`Red Hat`),而另一些(比方说 `Ubuntu`)则只是提供客户端服务.
 为了能让系统接受远端的连接,它必须安装 `OpenSSH-server` 软件包,配置运行它, 并且须允许它在 `TCP` 端口号上接收网络链接(如果系统运在防火墙之后) .
 
 小贴示:如果你没有远端系统去连接,但还想试试这些实例,则确认安装了 `OpenSSH-server` 软件包 ,则可使用 `localhost` 作为远端主机的名字.这种情况下,计算机会和它自己创建网络连接.
@@ -1415,7 +1415,7 @@ ssh root@192.168.0.105
 然后用`ifconfig`查看本机公网`ip`
 
 ***
-ssh 的 config 文件
+`ssh` 的 `config` 文件
 
 先展示一下`SSH config` 语法关键字,如下五个：
 
