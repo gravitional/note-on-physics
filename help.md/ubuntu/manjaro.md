@@ -452,7 +452,7 @@ neofetch | lolcat
 
 ### manjaro 开机红色提示
 
-Failed to start Load/Save Screen Backlight Brightness of amdgpu_bl0
+`Failed to start Load/Save Screen Backlight Brightness of amdgpu_bl0`
 
 [Load/Save Screen Backlight Brightness](https://www.linux.org/threads/failed-to-start-load-save-screen-backlight-brightness-of-amdgpu_bl1.31998/)
 
@@ -494,6 +494,13 @@ WantedBy=multi-user.target
 
 亮度由`ACPI`内核模块控制，这个模块的接口在以下位置：`/sys/class/backlight`.
 使用`root`用户进入这个文件夹，其中`max_brightness`表示亮度的最大值，笔者的设备显示为`255`, 想要修改亮度的话直接修改`brightness`即可：`echo 255 > brightness`
+
+***
+[Failed to start Load/Save Screen Backlight Brightness of](https://bbs.archlinux.org/viewtopic.php?id=254654)
+
+`ls /sys/class/backlight`可以查看`linux`背光子系统.
+对于报错的另一个设备：`Failed to start Load/Save Screen Backlight Brightness of backlight:acpi_video1`，提示设备不存在，直接禁用这个服务:
+`sudo systemctl mask systemd-backlight@backlight:acpi_video0.service`
 
 ### manjaro grub 内核参数
 
@@ -603,7 +610,19 @@ $ makepkg -sri
 # systemctl start example.service
 ```
 
-`systemd` 页面包含了管理 systemd 单元的详细介绍。 
+`systemd` 页面包含了管理 systemd 单元的详细介绍。 下面列出一些常用的命令:
+
+立即激活单元：`# systemctl start <单元>`
+立即停止单元：`# systemctl stop <单元>`
+重启单元：`# systemctl restart <单元>`
+重新加载配置：`# systemctl reload <单元>`
+输出单元运行状态：`$ systemctl status <单元>`
+检查单元是否配置为自动启动：`$ systemctl is-enabled <单元>`
+开机自动激活单元：`# systemctl enable <单元>`
+设置单元为自动启动并立即启动这个单元:`# systemctl enable --now unit`
+取消开机自动激活单元：`# systemctl disable <单元>`
+禁用一个单元（禁用后，间接启动也是不可能的）：`# systemctl mask <单元>`
+取消禁用一个单元：`# systemctl unmask <单元>`
 
 ## pacman
 
