@@ -559,25 +559,21 @@ git push [远程仓库] --delete [branchname]
 `git checkout`:
 `-t, --track`
 
-当创建新分支的时候, 自动设置上游.
-如果`-b` 选项没有给出, 本地分支的名字会从`remote-tracking branch`推导.
-`git`先查看本地中远程的`refspec`, 然后把前面的初始部分去掉.
-也就是说, 如果远程名字是`origin/hack` (or `remotes/origin/hack`, or even `refs/remotes/origin/hack`),
-新的本地分支就叫做`hack`, 如果查询到的名称中没有“slash”(`/`), 或者上面的猜测得到一个空字符串, 那么猜测就会停止,
+当创建新分支的时候, 自动设置上游. 如果`-b` 选项没有给出, 本地分支的名字会从`remote-tracking branch`推导.`git`先查看本地中远程的`refspec`, 然后把前面的初始部分去掉.
+也就是说, 如果远程名字是`origin/hack` (or `remotes/origin/hack`, 或者是`refs/remotes/origin/hack`),
+新的本地分支就叫做`hack`, 如果查询到的名称中没有`slash`(`/`), 或者上面的猜测得到一个空字符串, 那么猜测就会停止,
 你可以用`-b`选项手动指定一个名字.
 
 ***
 `git branch`:
 `-t`, `--track`
 
-当创建新分支的时候, 设置`branch.<name>.remote`和`branch.<name>.merge`条目,
-把`start-point branch`当作`upstream`（上游分支）.
-
-这个配置会告诉git, 在`git status` and `git branch -v`命令中显示两个分支的关系.
-而且, 当切换到新分支的时候, 它指导不带参数的`git pull`从上游拉取更新.
+当创建新分支的时候, 设置`branch.<name>.remote`和`branch.<name>.merge`条目,把`start-point branch`当作`upstream`（上游分支）.
+这个配置会告诉`git`, 在`git status` and `git branch -v`命令中显示两个分支的关系.而且, 当切换到新分支的时候, 它指导不带参数的`git pull`从上游拉取更新.
 
 如果 `start point` 是`remote-tracking`分支, 会默认进行上面的设置.
-可以配置变量`branch.autoSetupMerge`为`false`, 如果你想让`git checkout` and `git branch`默认行为是`--no-track`, 也就是不自动跟踪上游. 也可以设置成`always`, 这样不管`start-point`是本地还是远程分支, 都会自动跟踪.
+如果你想让`git checkout` and `git branch`默认行为是`--no-track`, 也就是不自动跟踪上游,可以配置变量`branch.autoSetupMerge`为`false` .
+也可以设置成`always`, 这样不管`start-point`是本地还是远程分支, 都会自动跟踪.
 
 ### 常见使用方法
 
