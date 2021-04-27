@@ -2407,3 +2407,20 @@ configure-jupyter.wls add "Wolfram Engine二进制程序的绝对路径" "Jupyte
 wolframscript
 FileNameJoin[{$InstallationDirectory, "Executables", "WolframKernel"}]
 ```
+
+### SliceVectorPlot3D 空白解决办法
+
+[https://mathematica.stackexchange.com/questions/240037/slicevectorplot3d-example-code-gives-empty-plot#](https://mathematica.stackexchange.com/questions/240037/slicevectorplot3d-example-code-gives-empty-plot#)
+
+测试下面的方法：
+
+```mathematica
+Style[SliceVectorPlot3D[{y, -x, z},   "CenterPlanes", {x, -2, 2}, {y, -2, 2}, {z, -2, 2}],  RenderingOptions -> {"3DRenderingEngine" -> "Mesa"}]
+```
+
+```mathematica
+Style[SliceVectorPlot3D[{y, -x, z},   "CenterPlanes", {x, -2, 2}, {y, -2, 2}, {z, -2, 2}],  RenderingOptions -> {"3DRenderingMethod" -> "BSPTree"}]
+```
+
+如果其中一个可以的话，更改`Mathematica`的设置：
+`Format -> Option Inspector -> Selection -> Global Preferences -> Lookup`，然后搜索`3DRenderingEngine`，然后选择`Mesa`.

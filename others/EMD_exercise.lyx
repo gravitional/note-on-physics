@@ -1896,7 +1896,7 @@ status open
 
 \begin_layout Frame
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Graphics3D[ { White, Opacity[.9], Cylinder[{{0, 0, 0}, {0, 0, 5}}, 1], Blue,
@@ -2477,9 +2477,816 @@ status open
 
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+证明：
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\delta\left(ax\right)=\delta\left(x\right)/a,\left(a>0\right)$
+\end_inset
+
+;若
+\begin_inset Formula $a<0$
+\end_inset
+
+，则结果如何？
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x\delta\left(x\right)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta\left(x\right)$
+\end_inset
+
+函数是偶函数，满足
+\begin_inset Formula 
+\[
+\int_{-L}^{+L}\delta\left(x\right)\dif x=1,\quad0<L
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $a>0$
+\end_inset
+
+时，
+\begin_inset Formula 
+\[
+\int_{-L}^{+L}\delta\left(ax\right)\dif x\stackrel{t=ax}{=}\frac{1}{a}\int_{-\abs{a}L}^{+\abs{a}L}\delta\left(t\right)\dif t=\frac{1}{a},\quad0<L
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $a<0$
+\end_inset
+
+时，
+\begin_inset Formula 
+\[
+\int_{-L}^{+L}\delta\left(ax\right)\dif x\stackrel{t=ax}{=}\frac{1}{a}\int_{+\abs{a}L}^{-\abs{a}L}\delta\left(t\right)\dif t=\frac{1}{-a},\quad0<L
+\]
+
+\end_inset
+
+总的来说，
+\begin_inset Formula 
+\[
+\int_{-L}^{+L}\delta\left(ax\right)\dif x=\frac{1}{\abs{a}},0<L
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 1
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+证明：
+\begin_inset Formula $x\delta\left(x\right)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{-L}^{+L}x\,\delta\left(x\right)\dif x=\left.x\right|_{0}=0,
+\]
+
+\end_inset
+
+也就是对于任何奇函数
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\int_{-L}^{+L}g\left(x\right)\,\delta\left(x\right)\dif x=\left.g\left(x\right)\right|_{0}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+另外，由于
+\begin_inset Formula $\delta\left(x\right)$
+\end_inset
+
+函数是偶函数，
+\begin_inset Formula $\delta^{\left(1\right)}\left(x\right)=\frac{\dif}{\dif x}\delta\left(x\right)$
+\end_inset
+
+是奇函数。
+\begin_inset Formula 
+\begin{align*}
+\int_{-L}^{+L}f\left(x\right)\,\frac{\dif}{\dif x}\delta\left(x\right)\dif x & ={\color{blue}\left.f\left(x\right)\delta\left(x\right)\right|_{-L}^{+L}}-\int_{-L}^{+L}\delta\left(x\right)\frac{\dif}{\dif x}f\left(x\right)\\
+ & ={\color{blue}0}-\left.\frac{\dif}{\dif x}f\left(x\right)\right|_{0}=f^{\,\left(1\right)}\left(0\right)
+\end{align*}
+
+\end_inset
+
+一般地，
+\begin_inset Formula 
+\[
+f\left(x\right)\,\delta^{\left(n\right)}\left(x\right)=\left(-1\right)^{n}f^{\,\left(n\right)}\left(x\right)\delta\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Print[tea = GraphicsGrid[{{ Plot[ Evaluate[Sqrt[n/Pi] Exp[-n x^2] /.
+ n -> {1, 10, 100}], {x, -2, 2}, PlotRange -> All], Plot[ Evaluate[ D[Sqrt[n/Pi]
+ Exp[-n x^2] /.
+ n -> {1, 10, 100}, {x, 1}]], {x, -2, 2}, PlotRange -> All] }}]]; Export[
+ "/home/tom/note/others/delta.pdf", tea ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+画出函数
+\begin_inset Formula $\dif\delta\left(x\right)/\dif x$
+\end_inset
+
+的图，说明
+\begin_inset Formula $\rho=-\boldsymbol{p}\cdot\boldsymbol{\nabla}\delta\left(\boldsymbol{x}\right)$
+\end_inset
+
+是一个位于原点的电偶极子的电荷密度。
+\begin_inset Formula 
+\[
+f\left(x\right)=\sqrt{\frac{n}{\pi}}e^{-nx^{2}},\quad f^{\,\prime}\left(x\right)=-\frac{2n^{3/2}xe^{-nx^{2}}}{\sqrt{\pi}},\quad n=1,10,100
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Graphics
+	filename delta.pdf
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula $\delta\left(x\right)$
+\end_inset
+
+是偶函数，
+\begin_inset Formula $\dif\delta\left(x\right)/\dif x$
+\end_inset
+
+是奇函数。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+对于静电场电势的积分表达式，例如无界空间中的：
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\varphi\left(\boldsymbol{x}\right)=\frac{-1}{4\pi\varepsilon}\int\rho\left(\boldsymbol{x}^{\,\prime}\right){\color{blue}\frac{1}{\abs{\boldsymbol{x}-\boldsymbol{x}^{\,\prime}}}}\dif\boldsymbol{V}^{\,\prime}
+\]
+
+\end_inset
+
+记号的约定为：
+\begin_inset Formula $\nabla=\nabla_{x},\quad\nabla^{\prime}=\nabla_{x^{\,\prime}}$
+\end_inset
+
+。对于被积函数，我们经常使用：
+\begin_inset Formula 
+\[
+\nabla{\color{blue}\frac{1}{\abs{\boldsymbol{x}-\boldsymbol{x}^{\,\prime}}}}=-\nabla^{\prime}{\color{blue}\frac{1}{\abs{\boldsymbol{x}-\boldsymbol{x}^{\,\prime}}}}
+\]
+
+\end_inset
+
+而微分方程中只有一个坐标
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\nabla^{2}\varphi\left(\boldsymbol{x}\right)=-\rho\left(\boldsymbol{x}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula $\rho\left(\boldsymbol{x}\right)=q\delta\left(\boldsymbol{x}-\boldsymbol{l}/2\right)-q\delta\left(\boldsymbol{x}+\boldsymbol{l}/2\right)$
+\end_inset
+
+，描述位置在
+\begin_inset Formula $\boldsymbol{l}/2$
+\end_inset
+
+处的正电荷，和位置在
+\begin_inset Formula $-\boldsymbol{l}/2$
+\end_inset
+
+处的负电荷，也就是中心在原点的电偶极子。当
+\begin_inset Formula $\abs{\boldsymbol{l}}\to0$
+\end_inset
+
+时：
+\begin_inset Formula 
+\begin{align*}
+\rho\left(\boldsymbol{x}\right) & =q\delta\left(\boldsymbol{x}-\boldsymbol{l}/2\right)-q\delta\left(\boldsymbol{x}+\boldsymbol{l}/2\right)\quad\text{相当于\ensuremath{\delta\left(\boldsymbol{x}\right)}沿着\ensuremath{-\boldsymbol{l}}方向的变化量}\\
+ & =q\,\nabla\delta\left(\boldsymbol{x}\right)\cdot\left(-\boldsymbol{l}\right)\\
+ & =-\boldsymbol{p}\cdot\nabla\delta\left(\boldsymbol{x}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Print[tea = Graphics[{ LightCyan, Rectangle[{-3, 0}, {3, 2}], LightGreen,
+ Rectangle[{-3, -2}, {3, 0}], Black, Line[{{-3, 0}, {3, 0}}], EdgeForm[{Gray}],
+ FaceForm[{Opacity[0]}], Rectangle[{-1.7, -.5}, {1.7, .5}], Blue, Text[Style["
+\backslash
+[ScriptL]", 9], {1.9, .25}], Text[Style["w", 9], {.2, -.8}], Magenta, Text[Style["++
+++++++++++++++++++++", 10], {0, .02}] }, Method -> {"ShrinkWrap" -> True},
+ ImageSize -> {150, 100} ]]; Export[ "/home/tom/note/others/huanlu.pdf",
+ tea ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+证明下述结果，并熟悉面电荷和面偶极层两侧电势和电场的变化。
+\end_layout
+
+\begin_layout Enumerate
+在面电荷两侧，电势的法向微商有跃变，而电势是连续的；
+\end_layout
+
+\begin_layout Enumerate
+在面电偶极层两侧，电势有跃变
+\begin_inset Formula $\varphi_{2}-\varphi_{1}=\boldsymbol{e}_{n}\cdot\boldsymbol{P}/\varepsilon_{0}$
+\end_inset
+
+，而电势的法向微商是连续的。（带等量正负面电荷
+\begin_inset Formula $\pm\sigma$
+\end_inset
+
+而靠的很近的两个面，形成面电偶极层，面偶极矩密度
+\begin_inset Formula $\boldsymbol{P}=\lim_{\sigma\to\infty,l\to0}\sigma\boldsymbol{l}$
+\end_inset
+
+ 。）
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+证明：高斯定理与环路定理：
+\end_layout
+
+\begin_layout ColumnsCenterAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+.3
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename huanlu.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+.6
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{align*}
+ & \oiint_{S}\boldsymbol{E}\cdot\dif\boldsymbol{S}=\frac{1}{\varepsilon_{0}}\int_{V}\rho\dif V,\quad\oint_{L}\boldsymbol{E}\cdot\dif\boldsymbol{l}=0\\
+ & \nabla\cdot\boldsymbol{E}=\frac{\rho}{\varepsilon_{0}},\quad\nabla\times\boldsymbol{E}=0\\
+ & \boldsymbol{n}\cdot\boldsymbol{E}=\frac{\rho}{\varepsilon_{0}},\quad\boldsymbol{n}\times\boldsymbol{E}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\[
+E_{2\perp}-E_{1\perp}=\sigma/\varepsilon_{0},\qquad E_{2\parallel}-E_{1\parallel}=0
+\]
+
+\end_inset
+
+
+\size default
+由
+\begin_inset Formula $E=-\nabla\varphi$
+\end_inset
+
+，用电势表示即为
+\begin_inset Formula 
+\[
+-\frac{\partial\varphi_{2}}{\partial n}+\frac{\partial\varphi_{1}}{\partial n}=\frac{\sigma}{\varepsilon_{0}},\qquad\varphi_{2}=\varphi_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Print[tea = Graphics[{ LightCyan, Rectangle[{-3, 0}, {3, 2}], LightGreen,
+ Rectangle[{-3, -2}, {3, 0}], Dashed, Black, Line[{{-3, 0}, {3, 0}}], Magenta,
+ Text[Style["++++++++++++++++++++++", 9], {0, .5}], Brown, Text[Style["----------
+-------------", 9], {0, -.5}], Black, EdgeForm[{Gray}], FaceForm[{Opacity[0]}]
+ , Rectangle[{-2.8, .2}, {2.8, .8}], Blue, Text[Style["
+\backslash
+[ScriptL]", 10], {2.7, .6}], Text[Style["w", 10], {-1, 1}], Red, Text[ Style["
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(E
+\backslash
+), 
+\backslash
+(2
+\backslash
+)]
+\backslash
+)", 10], {0, 1.2}], Text[Style["
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(E
+\backslash
+), 
+\backslash
+(1
+\backslash
+)]
+\backslash
+)", 10], {0, -1}], Text[Style["
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(E
+\backslash
+), 
+\backslash
+(0
+\backslash
+)]
+\backslash
+)", 10], {-.1, -.1}], Dashing[{}], Arrow[{{.35, .5}, {.35, 1.6}}], Arrow[{{.2,
+ .5}, {.2, -0.5}}], Arrow[{{.35, -1.5}, {.35, -.5}}] }, Method -> {"ShrinkWrap"
+ -> True}, ImageSize -> {150, 100} ]]; Export[ "/home/tom/note/others/huanluMian
+Ouji.pdf", tea ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsCenterAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+.3
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename huanluMianOuji.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+.5
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在没有电荷分布的地方，由高斯定理可知，平行场必为匀强场。也就是说，在忽略边缘效应的情况下，问题中的电场是正负面电荷各自产生的对称匀强场的叠加。
+\begin_inset Formula 
+\[
+E_{1\perp}=E_{2\perp}=0,\quad E_{0\perp}=\frac{\sigma}{\varepsilon_{0}}
+\]
+
+\end_inset
+
+显然也满足两层电荷附近的高斯定理
+\begin_inset Formula 
+\[
+E_{2\perp}+E_{0\perp}=\frac{\sigma}{\varepsilon_{0}},\quad-E_{0\perp}-E_{1\perp}=-\frac{\sigma}{\varepsilon_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+所以面偶极层两侧场强
+\begin_inset Formula $E_{2}=E_{1}$
+\end_inset
+
+，也就是两侧电势的法向微商相等。
+\end_layout
+
+\begin_layout Standard
+两层电荷间的电势差为
+\begin_inset Formula 
+\[
+\varphi_{2}-\varphi_{1}=\frac{\sigma}{\varepsilon_{0}}*l=\frac{\boldsymbol{e}_{n}\cdot\boldsymbol{P}}{\varepsilon_{0}},\quad\boldsymbol{e}_{n},\boldsymbol{p}\,\text{的方向均从负电荷指向正电荷}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+一个半径为
+\begin_inset Formula $R$
+\end_inset
+
+的电介质球，极化强度为
+\begin_inset Formula $\boldsymbol{P}=K\boldsymbol{r}/r^{2}$
+\end_inset
+
+，电容率为
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+。计算：
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+束缚电荷的体密度和面密度；
+\end_layout
+
+\begin_layout Enumerate
+自由电荷体密度；
+\end_layout
+
+\begin_layout Enumerate
+球外和球内的电势；
+\end_layout
+
+\begin_layout Enumerate
+该带电介质球产生的静电场的总能量。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+注意：
+\begin_inset Formula $\nabla\cdot\left(\boldsymbol{r}/r^{3}\right)=0$
+\end_inset
+
+，但
+\begin_inset Formula $\nabla\cdot\left(\boldsymbol{r}/r^{2}\right)$
+\end_inset
+
+未知。使用
+\begin_inset Formula $\nabla$
+\end_inset
+
+在球坐标系下的形式：
+\begin_inset Formula 
+\[
+\nabla\cdot A=\frac{1}{r^{2}}\partial_{r}\left(r^{2}A_{r}\right)+\frac{1}{r\sin\theta}\partial_{\theta}\left(\sin\theta A_{\theta}\right)+\frac{1}{r\sin\theta}\partial_{\phi}A_{\phi}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{P}=-\nabla\cdot\boldsymbol{P}=-\frac{K}{r^{2}},\quad\sigma_{P}=\left(-\right)\left(-\right)\left.\frac{K}{r}\right|_{R}=\frac{K}{R}
+\]
+
+\end_inset
+
+在线性介质内
+\begin_inset Formula $\rho_{P}=\frac{\varepsilon_{0}-\varepsilon}{\varepsilon}\rho_{f}$
+\end_inset
+
+，所以自由电荷体密度为：
+\begin_inset Formula 
+\[
+\rho_{f}=\frac{\varepsilon K}{\left(\varepsilon-\varepsilon_{0}\right)r^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename qiuJiHua.pdf
+	scale 50
+
+\end_inset
+
+由
+\begin_inset Formula $\boldsymbol{D}_{1}=\varepsilon\boldsymbol{E}_{1}=\varepsilon_{0}\boldsymbol{E}_{1}+\boldsymbol{P}$
+\end_inset
+
+，得电场强度为
+\begin_inset Formula 
+\[
+\boldsymbol{E}_{1}=\frac{\boldsymbol{P}}{\varepsilon-\varepsilon_{0}}=\frac{K}{\varepsilon-\varepsilon_{0}}\frac{\boldsymbol{r}}{r^{2}},\quad\left(r<R\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
