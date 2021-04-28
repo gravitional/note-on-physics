@@ -141,9 +141,7 @@ linux风格和字体直接写完整单词, 大小是数字, 写在最后即可.
 
 ### 替换的细节
 
-[Search and replace]
-
-[Search and replace]: https://vim.fandom.com/wiki/Search_and_replace
+[Search and replace](https://vim.fandom.com/wiki/Search_and_replace)
 
 当搜索时, 也就是左侧：
 

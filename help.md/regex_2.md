@@ -569,7 +569,7 @@ Who kept all of his cash in a bucket.
 
 [Linux ack命令使用详解 ](https://man.comptechs.cn/ack.html)
 
-ack 官网：[ack is a grep-like source code search tool.](https://beyondgrep.com/)
+`ack` 官网：[ack is a grep-like source code search tool.](https://beyondgrep.com/)
 
 ### 安装
 

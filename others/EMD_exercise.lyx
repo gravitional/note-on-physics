@@ -24,6 +24,8 @@
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
 \usepackage{bm,bbm} %\bm 让参数变成粗体, \bbm Computer Modern fonts 的黑板体
+\usepackage{tikz} % 画图库
+\usetikzlibrary{calc} %计算功能
 %%++++++++++++++++++++++++++++++++++++
 \usepackage{simplewick} 
 % a simple means of drawing Wick contractions above and below expressions. 
@@ -44,15 +46,8 @@
 \usepackage{unicode-math}
 \setmathfont{STIX Math}
 %开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
-% DejaVu Math TeX Gyre
-% Latin Modern Math
-% TeX Gyre Pagella Math
-% TeX Gyre Termes Math
-% TeX Gyre Schola Math
-% TeX Gyre Bonum Math
-% Noto Sans Math
-% TeX Gyre DejaVu Math
-% STIX Math
+% DejaVu Math TeX Gyre,  Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
+% TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
 %%++++++++++++++++++++++++++++++++++++++++
 % \usepackage{mathspec} %这个包也能改字体，但是跟 fontspec 好像冲突
 % \setmathsfont(Digits,Latin,Greek){Latin Modern Math}
@@ -875,9 +870,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Frame
 \begin_inset Note Note
 status collapsed
 
@@ -926,7 +918,8 @@ Graphics3D[ { White, Opacity[0.25], Sphere[{0, 0, 0}, 1], Blue, Opacity[0.15],
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 有一内外半径分别为
 \begin_inset Formula $r_{1}$
 \end_inset
@@ -946,28 +939,6 @@ Graphics3D[ { White, Opacity[0.25], Sphere[{0, 0, 0}, 1], Blue, Opacity[0.15],
 ，求：
 \end_layout
 
-\begin_deeper
-\begin_layout ColumnsTopAligned
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.4
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Enumerate
 空间各点的电场；
 \end_layout
@@ -976,33 +947,33 @@ textwidth
 极化电荷体密度和极化电荷面密度。
 \end_layout
 
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.4
-\backslash
-textwidth
-\end_layout
-
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename sphere.pdf
-	scale 50
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(2.5,1.4)$) {
+\backslash
+includegraphics[scale=0.5]{sphere}};
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 使用高斯定理，
 \end_layout
@@ -1154,9 +1125,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Frame
 \begin_inset Note Note
 status collapsed
 
@@ -1278,7 +1246,8 @@ Graphics3D[ { White, Cuboid[{0, 0, 0}, {5, 2, 0.2}], Blue, Cuboid[{0, 0,
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 平行板电容器内有两层介质，它们的厚度分别为
 \begin_inset Formula $l_{1}$
 \end_inset
@@ -1300,28 +1269,6 @@ Graphics3D[ { White, Cuboid[{0, 0, 0}, {5, 2, 0.2}], Blue, Cuboid[{0, 0,
 \end_inset
 
 的电源，求：
-\end_layout
-
-\begin_deeper
-\begin_layout ColumnsCenterAligned
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.4
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -1352,15 +1299,19 @@ textwidth
 ，当电流达到稳定时，上述结果如何？
 \end_layout
 
-\begin_layout Column
+\begin_layout Standard
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-.4
+
 \backslash
-textwidth
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)-(3.5,2.5)$) {
+\backslash
+includegraphics[scale=0.3]{dianrong}};
 \end_layout
 
 \end_inset
@@ -1368,17 +1319,6 @@ textwidth
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename dianrong.pdf
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -1403,9 +1343,22 @@ status open
 \begin_deeper
 \begin_layout Standard
 极板上的自由电荷无法进入电介质，两种绝缘介质分界面上没有自由电荷。
-\begin_inset Graphics
-	filename dianrong.pdf
-	scale 20
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.north east)-(3,2.5)$) {
+\backslash
+includegraphics[scale=0.25]{dianrong}};
+\end_layout
 
 \end_inset
 
@@ -1509,46 +1462,19 @@ J_{1n}=J_{2n},\quad\sigma_{1}E_{1}=\sigma_{2}E_{2}
 则正极板，负极板，介质分界面上的自由面电荷分别为：
 \end_layout
 
-\begin_layout ColumnsCenterAligned
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.2
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-\begin_inset Graphics
-	filename dianrong.pdf
-	scale 20
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Column
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-.7
+
 \backslash
-textwidth
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(3.5,-.3)$) {
+\backslash
+includegraphics[scale=0.25]{dianrong}};
 \end_layout
 
 \end_inset
@@ -1569,7 +1495,6 @@ textwidth
 
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 \begin_inset Formula $\omega_{f1}+\omega_{f2}+\omega_{f3}=0$
 \end_inset
@@ -1762,46 +1687,19 @@ E_{2t}=E_{1t},\quad D_{2n}=D_{1n}.
 
 \end_layout
 
-\begin_layout ColumnsCenterAligned
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.2
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-\begin_inset Graphics
-	filename zheshe.pdf
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Column
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-.7
+
 \backslash
-textwidth
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(4.5,-.5)$) {
+\backslash
+includegraphics[scale=0.3]{zheshe}};
 \end_layout
 
 \end_inset
@@ -1830,7 +1728,6 @@ E_{2}\sin\theta_{2}=E_{1}\sin\theta_{1},\quad\varepsilon_{2}E_{2}\cos\theta_{2}=
 \end_layout
 
 \end_deeper
-\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -1851,7 +1748,8 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 对于恒定电流的情形：电流恒定时，
 \begin_inset Formula $\nabla\cdot\symbf{J}=-\partial_{t}\rho=0$
 \end_inset
@@ -1891,6 +1789,7 @@ E_{2}\sin\theta_{2}=E_{1}\sin\theta_{1},\quad\sigma_{2}E_{2}\cos\theta_{2}=\sigm
 
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -1909,9 +1808,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Frame
 \begin_inset Note Note
 status collapsed
 
@@ -2036,27 +1932,6 @@ ckness[2], Arrow[{{0, 0, 0}, {0, 0, 6.5}}], Arrow[{{2, 0, 5}, {2, 0, 6.5}}],
 
 \end_layout
 
-\begin_layout ColumnsCenterAligned
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.6
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Enumerate
 当
 \begin_inset Formula $r<r_{1}$
@@ -2093,15 +1968,19 @@ textwidth
 。
 \end_layout
 
-\begin_layout Column
+\begin_layout Standard
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-.3
+
 \backslash
-textwidth
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(3.5,-2)$) {
+\backslash
+includegraphics[scale=0.5]{zhongkong}};
 \end_layout
 
 \end_inset
@@ -2109,17 +1988,6 @@ textwidth
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename zhongkong.pdf
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -2141,7 +2009,8 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 由磁场强度的定义：
 \begin_inset Formula 
 \[
@@ -2185,6 +2054,7 @@ status open
 
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2206,27 +2076,6 @@ status open
 \end_layout
 
 \begin_deeper
-\begin_layout ColumnsCenterAligned
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.7
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 \begin_inset Formula 
 \[
@@ -2252,21 +2101,21 @@ textwidth
 \end_inset
 
 符号参考右手螺旋。
-\begin_inset VSpace smallskip
-\end_inset
-
-
 \end_layout
 
-\begin_layout Column
+\begin_layout Standard
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-.2
+
 \backslash
-textwidth
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(4.5,-1)$) {
+\backslash
+includegraphics[scale=0.5]{zhongkong}};
 \end_layout
 
 \end_inset
@@ -2274,17 +2123,6 @@ textwidth
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename zhongkong.pdf
-	scale 60
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \begin_layout Standard
 内表面磁化电流密度：方向沿
 \begin_inset Formula $\symbf{e}_{z}$
@@ -2599,9 +2437,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \int_{-L}^{+L}x\,\delta\left(x\right)\dif x=\left.x\right|_{0}=0,
@@ -2621,10 +2456,6 @@ status open
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 另外，由于
 \begin_inset Formula $\delta\left(x\right)$
 \end_inset
@@ -2688,7 +2519,8 @@ Print[tea = GraphicsGrid[{{ Plot[ Evaluate[Sqrt[n/Pi] Exp[-n x^2] /.
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 画出函数
 \begin_inset Formula $\dif\delta\left(x\right)/\dif x$
 \end_inset
@@ -2708,7 +2540,12 @@ f\left(x\right)=\sqrt{\frac{n}{\pi}}e^{-nx^{2}},\quad f^{\,\prime}\left(x\right)
 
 \end_layout
 
-\begin_layout Frame
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+
 \begin_inset Graphics
 	filename delta.pdf
 	scale 70
@@ -2718,7 +2555,7 @@ f\left(x\right)=\sqrt{\frac{n}{\pi}}e^{-nx^{2}},\quad f^{\,\prime}\left(x\right)
 
 \end_layout
 
-\begin_layout Frame
+\begin_layout Standard
 \begin_inset Formula $\delta\left(x\right)$
 \end_inset
 
@@ -2729,6 +2566,7 @@ f\left(x\right)=\sqrt{\frac{n}{\pi}}e^{-nx^{2}},\quad f^{\,\prime}\left(x\right)
 是奇函数。
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2749,14 +2587,12 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 对于静电场电势的积分表达式，例如无界空间中的：
-\end_layout
-
-\begin_layout Frame
 \begin_inset Formula 
 \[
-\varphi\left(\symbf{x}\right)=\frac{-1}{4\pi\varepsilon}\int\rho\left(\symbf{x}^{\,\prime}\right){\color{blue}\frac{1}{\abs{\symbf{x}-\symbf{x}^{\,\prime}}}}\dif\symbf{V}^{\,\prime}
+\varphi\left(\symbf{x}\right)=\frac{-1}{4\pi\varepsilon}\int\rho\left(\symbf{x}^{\,\prime}\right){\color{blue}\frac{1}{\abs{\symbf{x}-\symbf{x}^{\,\prime}}}}\dif\symbf{V}^{\prime}
 \]
 
 \end_inset
@@ -2788,7 +2624,7 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_layout Standard
 \begin_inset Formula $\rho\left(\symbf{x}\right)=q\delta\left(\symbf{x}-\symbf{l}/2\right)-q\delta\left(\symbf{x}+\symbf{l}/2\right)$
 \end_inset
 
@@ -2817,6 +2653,7 @@ status open
 
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2888,57 +2725,8 @@ Print[tea = Graphics[{ LightCyan, Rectangle[{-3, 0}, {3, 2}], LightGreen,
 
 \begin_layout Standard
 证明：高斯定理与环路定理：
-\end_layout
-
-\begin_layout ColumnsCenterAligned
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.3
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename huanlu.pdf
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.6
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-
 \size small
+
 \begin_inset Formula 
 \begin{align*}
  & \oiint_{S}\symbf{E}\cdot\dif\symbf{S}=\frac{1}{\varepsilon_{0}}\int_{V}\rho\dif V,\quad\oint_{L}\symbf{E}\cdot\dif\symbf{l}=0\\
@@ -2949,12 +2737,6 @@ textwidth
 \end_inset
 
 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\size small
 \begin_inset Formula 
 \[
 E_{2\perp}-E_{1\perp}=\sigma/\varepsilon_{0},\qquad E_{2\parallel}-E_{1\parallel}=0
@@ -2973,6 +2755,23 @@ E_{2\perp}-E_{1\perp}=\sigma/\varepsilon_{0},\qquad E_{2\parallel}-E_{1\parallel
 \[
 -\frac{\partial\varphi_{2}}{\partial n}+\frac{\partial\varphi_{1}}{\partial n}=\frac{\sigma}{\varepsilon_{0}},\qquad\varphi_{2}=\varphi_{1}
 \]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)-(5.2,.6)$) {
+\backslash
+includegraphics[scale=.9]{huanlu}};
+\end_layout
 
 \end_inset
 
@@ -3068,52 +2867,6 @@ Ouji.pdf", tea ]
 \end_layout
 
 \begin_deeper
-\begin_layout ColumnsCenterAligned
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.3
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename huanluMianOuji.pdf
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Column
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-.5
-\backslash
-textwidth
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 在没有电荷分布的地方，由高斯定理可知，平行场必为匀强场。也就是说，在忽略边缘效应的情况下，问题中的电场是正负面电荷各自产生的对称匀强场的叠加。
 \begin_inset Formula 
@@ -3131,11 +2884,6 @@ E_{2\perp}+E_{0\perp}=\frac{\sigma}{\varepsilon_{0}},\quad-E_{0\perp}-E_{1\perp}
 
 \end_inset
 
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
 所以面偶极层两侧场强
 \begin_inset Formula $E_{2}=E_{1}$
 \end_inset
@@ -3149,6 +2897,26 @@ E_{2\perp}+E_{0\perp}=\frac{\sigma}{\varepsilon_{0}},\quad-E_{0\perp}-E_{1\perp}
 \[
 \varphi_{2}-\varphi_{1}=\frac{\sigma}{\varepsilon_{0}}*l=\frac{\symbf{e}_{n}\cdot\symbf{P}}{\varepsilon_{0}},\quad\symbf{e}_{n},\symbf{p}\,\text{的方向均从负电荷指向正电荷}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(4.8,1.5)$) {
+\backslash
+includegraphics[scale=.9]{huanluMianOuji}};
+\end_layout
 
 \end_inset
 
@@ -3260,6 +3028,26 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(6.2,2.5)$) {
+\backslash
+includegraphics[scale=1]{qiuJiHua}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -3283,12 +3071,6 @@ status open
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Graphics
-	filename qiuJiHua.pdf
-	scale 50
-
-\end_inset
-
 由
 \begin_inset Formula $\symbf{D}_{1}=\varepsilon\symbf{E}_{1}=\varepsilon_{0}\symbf{E}_{1}+\symbf{P}$
 \end_inset
@@ -3304,8 +3086,7 @@ status open
 
 \end_layout
 
-\end_deeper
-\begin_layout Frame
+\begin_layout Standard
 极化过程遵从电荷守恒，球内与球面总的束缚电荷等值异号，对球外的电场没有影响。
 \begin_inset Formula 
 \[
@@ -3317,8 +3098,46 @@ q_{f}=\int_{0}^{R}\rho_{f}\dif V=\frac{4\pi\varepsilon KR}{\varepsilon-\varepsil
 所以球外的电场为
 \begin_inset Formula 
 \[
-\boldsymbol{E}_{2}=\frac{q_{f}\boldsymbol{r}}{4\pi\varepsilon_{0}r^{3}}=\frac{\varepsilon KR}{\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}
+\symbf{E}_{2}=\frac{q_{f}\symbf{r}}{4\pi\varepsilon_{0}r^{3}}=\frac{\varepsilon KR}{\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}
 \]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(6.2,2.5)$) {
+\backslash
+includegraphics[scale=1]{qiuJiHua}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+5
+\end_layout
 
 \end_inset
 

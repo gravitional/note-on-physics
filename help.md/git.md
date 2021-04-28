@@ -1245,60 +1245,66 @@ The latest stash you created is stored in refs/stash; older stashes are found in
 为了避免在在合并提交时，记录下不相关的更改，如果相对于`HEAD`在`index`记录了任何更改，则`git pull`和`git merge`也将中止。 （取决于所使用的合并策略，但通常索引必须与`HEAD`匹配。）
 如果所有已命名的提交都已经是`HEAD`的祖先，则`git merge`会提前退出，并显示消息`已经更新`。
 
-### FAST-FORWARD MERGE
+***
+git-stash
 
-Often the current branch head is an ancestor of the named commit.
-This is the most common case especially when invoked from git pull: you are tracking an upstream repository, you have committed no local changes, and now you want to update to a newer upstream revision.
+当您想记录工作目录和索引的当前状态，但又想回到干净的工作目录时，请使用`git stash`。该命令将您的本地修改保存下来，并还原工作目录以匹配`HEAD`commit。
 
-In this case, a new commit is not needed to store the combined history; instead, the HEAD (along with the index) is updated to point at the named commit, without creating an extra merge commit.
+可以使用`git stash list`列出存储的修改，可以使用`git stash show`进行检查，还可以使用`git stash apply`恢复（可能应用到其他commit）。
+不带任何参数调用`git stash`等效于`git stash push`。默认情况下，一个 stash 显示为`WIP on branchname ...`，但是在创建存储项时，可以在命令行上提供更具描述性的消息。
 
-This behavior can be suppressed with the `--no-ff` option.
+您创建的最新`stash`存储在`refs/stash`中。在此引用的`reflog`中可以找到较旧的`stashes`，
+并且可以使用通常的`reflog`语法进行调用。（例如`stash@{0}`是最近创建的stash，`stash@{1}`是之前创建的stash,`stash@{2.hours.ago}`也可以）。
+还可以通过仅指定`stash index`来引用存储（例如，整数`n`等于`stash@{n}`）。
 
-### TRUE MERGE
+### 快进式合并
 
-Except in a `fast-forward merge` (see above), the branches to be merged must be tied together by a merge commit that has both of them as its parents.
+当前分支`head`通常是要合并的提交的祖先。这是最常见的情况，尤其是使用`git pull`时：您正在跟踪上游 repository，尚未提交任何本地更改，现在想更新到较新的上游修订版。
+在这种情况下，不需要新的 commit 来存储合并的历史记录； 相反，将`HEAD`（以及`index`）更新到新的commit即可，而不创建额外的`merge commit`。
 
-A merged version reconciling(使和谐一致；调和；使配合) the changes from all branches to be merged is committed, and your `HEAD`, `index`, and `working tree` are updated to it.
-It is possible to have modifications in the working tree as long as they do not overlap; the update will preserve them.
+这个行为可以通过`--no-ff`选项来抑制。
 
-When it is not obvious how to reconcile the changes, the following happens:
+### 真正的合并
 
-+ The `HEAD` pointer stays the same.
-+ The `MERGE_HEAD` ref is set to point to the other branch head.
-+ Paths that merged cleanly are updated both in the index file and in your working tree.
-+ For conflicting paths, the index file records up to three versions: stage 1 stores the version from the common ancestor, stage 2 from `HEAD`, and stage 3 from `MERGE_HEAD` (you can inspect the stages with `git ls-files -u`).
-The working tree files contain the result of the "merge" program; i.e. 3-way merge results with familiar conflict markers `<<< === >>>`.
-+ No other changes are made. In particular, the local modifications you had before you started merge will stay the same and the index entries for them stay as they were, i.e. matching `HEAD`.
+除了`fast-forward merge`之外，要合并的分支必须有一个共同的父节点。在进行真正的合并操作时，将会提交一个合并的版本，
+协调所有要合并的分支中的更改，并且将`HEAD`, `index`, and `working tree` 更新为该版本。
+只要修改不重叠，工作树中可以有修改，合并操作将保留这些修改。
 
-If you tried a merge which resulted in complex conflicts and want to start over, you can recover with git `merge --abort`.
+如果不清楚如何协调修改，则会发生以下情况：
 
-### HOW CONFLICTS ARE PRESENTED
++ `HEAD`指针保持不变。
++ `MERGE_HEAD` 引用被设置为指向要合并进来的另一个分支头。
++ 对于不矛盾的合并文件，将会在`index`中和工作树中都更新。
++ 对于冲突的文件/路径，`index`将记录三个版本：`stage 1`存储共同祖先的版本，`stage 2`存储` HEAD`的修改，
+`stage 3`存储`MERGE_HEAD`的修改（可以使用`git ls-files -u`检查这些`stage`）。工作区中包含合并的结果:即使用熟悉的冲突标记` <<< === >>>`进行三方合并的结果。
++ 不进行其他更改。特别是，在开始合并之前进行的本地修改将保持不变，指向它们的`index`条目也保持不变，即匹配`HEAD`。
 
-During a merge, the working tree files are updated to reflect the result of the merge.
-Among the changes made to the common ancestor’s version, non-overlapping ones (that is, you changed an area of the file while the other side left that area intact(完好无损；完整), or vice versa) are incorporated in the final result verbatim.
-When both sides made changes to the same area, however, Git cannot randomly pick one side over the other, and asks you to resolve it by leaving what both sides did to that area.
+如果合并产生了复杂的冲突，则可以使用git`merge --abort`恢复到合并之前。
 
-By default, Git uses the same style as the one used by the "merge" program from the `RCS` suite to present such a conflicted hunk, like this:
+### 合并冲突的表示
+
+在合并期间，将更新工作区以反映合并结果。
+在对共同祖先版本所做的更改中，不重叠的更改被原封不动地合并到最终结果中（即你更改了文件的某区域，而其他人没有修改这个地方，反之亦然）。
+但是，当双方对同一区域进行更改时，`Git`不能随意选择一边，会将两边的修改都列出来，让用户选择。
+
+默认情况下，Git使用与`RCS`套件中`合并`程序相同的样式来呈现这种冲突，如下所示：
 
 ```git
-Here are lines that are either unchanged from the common
-ancestor, or cleanly resolved because only one side changed.
+这些行相对于共同祖先版本不变，或者只有一方进行修改。下面的<<<===>>>将形成两个区域。
 <<<<<<< yours:sample.txt
 Conflict resolution is hard;
 let's go shopping.
 =======
 Git makes conflict resolution easy.
 >>>>>>> theirs:sample.txt
-And here is another line that is cleanly resolved or unmodified.
+这是另一行解决好的或者未修改的行。
 ```
 
-The area where a pair of conflicting changes happened is marked with markers `<<<<<<<`, `=======`, and `>>>>>>>`.
-The part before the `=======` is typically your side, and the part afterwards is typically their side.
+发生冲突的更改的区域用`<<<<<<<`, `=======`, and `>>>>>>>`标记。在`========`之前的部分通常是你的修改，而在其后的部分通常是他人的修改。
 
-The default format does not show what the original said in the conflicting area. You cannot tell how many lines are deleted and replaced with Barbie’s remark on your side.
-The only thing you can tell is that your side wants to say it is hard and you’d prefer to go shopping, while the other side wants to claim it is easy.
-
-An alternative style can be used by setting the "merge.conflictStyle" configuration variable to "diff3".
+默认格式不显示原文件在冲突区域中的内容。 您无法判断有多少行被删除或替换。
+唯一可以确定的是，你想表达这事儿很难，你更喜欢去购物，而另一方则想声称这很容易。
+通过将`merge.conflictStyle`配置变量设置为`diff3`，可以使用其他样式。
 
 ### HOW TO RESOLVE CONFLICTS
 
@@ -1312,10 +1318,18 @@ Use `git commit` or `git merge --continue` to seal the deal. The latter command 
 
 You can work through the conflict with a number of tools:
 
-+ Use a mergetool. `git mergetool` to launch a graphical mergetool which will work you through the merge.
-+ Look at the diffs. `git diff` will show a three-way diff, highlighting changes from both the `HEAD` and `MERGE_HEAD` versions.
-+ Look at the diffs from each branch. `git log --merge -p <path>` will show diffs first for the `HEAD` version and then the `MERGE_HEAD` version.
-+ Look at the originals. `git show :1:filename` shows the common ancestor, `git show :2:filename` shows the `HEAD` version, and `git show :3:filename` shows the `MERGE_HEAD` version.
+看到冲突后，您可以做两件事：
+
++ 决定不合并。 您唯一需要进行的清理工作就是将`index`文件重置为`HEAD` commit以撤消`2`, 并清理`2`和`3`所做的工作树更改。运行`git merge --abort`即可.
++ 解决冲突。 `Git`将在工作树中标记冲突, 将文件修改好之后将它们添加到`index`中。使用`git commit`或`git merge --continue`完成封印。
+后一个命令在调用`git commit`之前将检查是否有一个（中断的）合并正在进行中。
+
+您可以使用多种工具来解决冲突：
+
++ 使用合并工具。 `git mergetool`启动一个图形化的合并工具，它将帮助您完成合并。
++ 查看差异。 `git diff`将显示三方差异，并突出显示`HEAD`和`MERGE_HEAD`版本的变化。
++ 查看每个分支的修改。 `git log --merge -p <path>`将首先显示`HEAD`版本的差异，然后显示`MERGE_HEAD`版本。
++ 看一下原件。 `git show :1:filename`显示共同祖先，`git show :2:filename`显示`HEAD`版本，`git show :3:filename`显示`MERGE_HEAD`版本。
 
 ## 分支管理策略
 

@@ -247,7 +247,7 @@ Invoke-Expression $("lualatex" + " " + "-halt-on-error " + "-output-directory=te
 ## 中文西文数学字体
 
 ***
-[LaTeX数学公式的默认字体是什么？ - 孟晨的回答 - 知乎](https://www.zhihu.com/question/30058577/answer/46612848)。
+[LaTeX数学公式的默认字体是什么](https://www.zhihu.com/question/30058577/answer/46612848)。
 `LaTeX` 默认的文章类中的字体是 `Computer Modern Math`(`LaTeX`), `Latin Modern Math`(`XeTeX`). 字体文件的位置可以用`kpsewhich`查看. 在安装`TeXLive`的时候会自动安装。
 如果没有安装的话，[GUST](http://www.gust.org.pl/projects/e-foundry/lm-math)可以下载`Latin Modern Math`字体，以及其他字体。
 

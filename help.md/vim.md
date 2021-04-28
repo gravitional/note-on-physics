@@ -352,7 +352,7 @@ Press ENTER or type command to continue
 + 使用命令：`cat filename1 | tr -d “^V^M” > newfile`；
 + 使用命令：`sed -e “s/^V^M//” filename > outputfilename`。
 
-需要注意的是在1、2两种方法中, `^V`和`^M`指的是`Ctrl+V`和`Ctrl+M`。你必须要手工进行输入, 而不是粘贴。
+需要注意的是在1, 2两种方法中, `^V`和`^M`指的是`Ctrl+V`和`Ctrl+M`。你必须要手工进行输入, 而不是粘贴。
 
 在`vi`中处理：首先使用`vi`打开文件, 然后按`ESC`键, 接着输入命令：`%s/^V^M//`。
 
@@ -410,9 +410,7 @@ Don't care what they are called
 就是一个删除操作符。然后你输入一个动作命令, 例如 `4l` 或者 `w`。这种方法使你可
 以在任何你能越过的文本上执行各种操作
 
-更详细可参见 [vimdoc][]
-
-[vimdoc]: http://vimcdoc.sourceforge.net/doc/usr_04.html#usr_04.txt
+更详细可参见 [vimdoc](http://vimcdoc.sourceforge.net/doc/usr_04.html#usr_04.txt)
 
 #### 修改文本--`c`
 

@@ -176,23 +176,21 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage{fontspec}
 \usepackage[slantfont, boldfont]{xeCJK}
-% 设置英文字体
-\setmainfont{Microsoft YaHei}
-\setsansfont{Comic Sans MS}
-\setmonofont{Courier New}
-% 设置数学字体
-\setmathrm{⟨font name⟩}[⟨font features⟩]
-\setmathsf{⟨font name⟩}[⟨font features⟩]
-\setmathtt{⟨font name⟩}[⟨font features⟩]
-\setboldmathrm{⟨font name⟩}[⟨font features⟩]
-% 设置中文字体
-\setCJKmainfont[Mapping=tex-text]{Noto Sans CJK SC}
-\setCJKsansfont[Scale=0.7,Mapping=tex-text]{Source Han Sans SC}
-\setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
-% 中文断行设置
-\XeTeXlinebreaklocale "zh"
-\XeTeXlinebreakskip = 0pt plus 1pt
 
+% % 设置英文字体
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Roman}
+% 设置中文字体
+\setCJKmainfont[Mapping=tex-text]{Noto Serif CJK SC}
+\setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
+\setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
+\XeTeXlinebreaklocale "zh"  % 中文断行设置
+\XeTeXlinebreakskip = 0pt plus 1pt
+%设置数学字体
+\usepackage{unicode-math}
+\setmathfont{STIX Math}
+%开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
 \title{测试}
 \author{东}
 \date{2016年6月6日}
@@ -296,3 +294,143 @@ texdoc beamer : 101
 ```
 
 page 11 有 `beamer` 文档的格式规范
+
+## 在确定的位置摆放图片
+
+`latex`中在确定的位置放置对象，诀窍是使用图片环境，然后给对象提供坐标。可以使用`LaTeX2e`自带的`picture`环境，也可以使用专门的`tikz`包提供的`tikzpicture`环境。参考下面的链接:
+
+[How to position images in Beamer absolutely](https://bryanwweber.com/writing/personal/2014/09/02/how-to-position-images-in-beamer-absolutely/)
+[Precise positioning in LaTeX beamer](https://blogs.helsinki.fi/smsiltan/2012/10/12/precise-positioning-in-latex-beamer/)
+[lshort Page89](https://mirrors.sjtug.sjtu.edu.cn/ctan/info/lshort/english/lshort.pdf)
+
+### picture 环境
+
+基于对LaTeX`picture`环境的巧妙使用，将每张幻灯片变成一幅大图，在其中可以使用坐标来放置公式，文本，图像或视频。
+
+举个例子. 使用的图像文件在[blogs.helsinki.fi](https://blogs.helsinki.fi/smsiltan/?p=107)。
+![img](https://blogs.helsinki.fi/smsiltan/files/2012/10/sincos21-1024x768.png)
+
+```latex
+\documentclass[graphics]{beamer}
+\begin{document}
+\begin{frame}{Drawing the unit disc is a good way to introduce sine and cosine functions}
+\begin{picture}(320,250)
+\put(-80,20){\includegraphics[height=8cm]{sincos2.png}}
+\put(180,180){\begin{minipage}[t]{0.4\linewidth}
+{Choose a point on the unit circle. Connect it to the origin with a line of length one, and denote the angle between that line and the horizontal coordinate axis by $\theta$.}
+\end{minipage}}
+\end{picture}
+\end{frame}
+\end{document}
+```
+
+这是生成的幻灯片：
+
+![img](https://blogs.helsinki.fi/smsiltan/files/2012/10/slide1-1024x768.png)
+
+现在，我们创建两张连续的幻灯片，并包含一些新结构。
+
+```latex
+\documentclass[graphics]{beamer}
+\begin{document}
+\begin{frame}{Drawing the unit disc is a good way to introduce sine and cosine functions}
+\begin{picture}(320,250)
+\put(-80,20){\includegraphics[height=8cm]{sincos2.png}}
+\put(180,180){\begin{minipage}[t]{0.4\linewidth}
+{Choose a point on the unit circle. Connect it to the origin with a line of length one, and denote the angle between that line and the horizontal coordinate axis by $\theta$.}
+\end{minipage}}
+\end{picture}
+\end{frame}
+
+\begin{frame}{Now sine and cosine of angle $\theta$ can be found as the $x$ and $y$ coordinates of the chosen point at the unit circle}
+\begin{picture}(320,250)
+\put(-80,20){\includegraphics[height=8cm]{sincos3.png}}
+\put(180,180){\begin{minipage}[t]{0.4\linewidth}
+{Try drawing a similar figure with larger values of $\theta$. What happens to sine and cosine when you complete a full circle? Can you see from the figure which one of the functions $\sin$ and $\cos$ is odd and which one is even?}
+\end{minipage}}
+\end{picture}
+\end{frame}
+\end{document}
+```
+
+产生的两张幻灯片如下所示：
+
+![img](https://blogs.helsinki.fi/smsiltan/files/2012/10/slide11-1024x768.png)
+![img](https://blogs.helsinki.fi/smsiltan/files/2012/10/slide2-1024x768.png)
+
+请注意，圆的位置没有移动。切换幻灯片时，彩色部分将覆盖在上一张图像上。
+
+上述方法仍然存在一个问题。如果某一页标题较长，超过下一页，则图片环境的位置将发生改变，失去连续幻灯片切换时的平稳覆盖效果。解决方法是在标题较短的那一张添加额外的`ghost`行：
+
+```latex
+\begin{frame}{Too short title\\ \phantom{m}}
+```
+
+***
+参考`lshort`，`picture`环境的语法如下：
+
+```latex
+\begin{picture}(width,height)...\end{picture}
+%% 或者是
+\begin{picture}(width,height)(x0;y0)...\end{picture}
+```
+
+`x,y,x0,y0`的单位是`\unitlength`, 默认是`1pt`. 可以随时使用命令重置，比如`\setlength{\unitlength}{1.2cm}`，但要在`picture`环境之外. 
+前一组坐标`(width,height)`指定矩形的大小，后一组`(x0;y0)`指定矩阵左下角，即锚点的位置。
+
+大部分画图指定的形式为
+
+```latex
+\put(x;y){object}
+%% 或者
+\multiput(x;y)(∆x;∆y){n}{object}
+```
+
+一个简单的例子：
+
+```latex
+\setlength{\unitlength}{5cm}
+\begin{picture}(1,1)
+\put(0,0){\line(0,1){1}}
+\put(0,0){\line(1,0){1}}
+\put(0,0){\line(1,1){1}}
+\put(0,0){\line(1,2){.5}}
+\end{picture}
+```
+
+### tikz 环境
+
+如果比较复杂的情况，使用`tikz`会更简单，且有更多的功能.
+
+```latex
+\tikz[remember picture, overlay] \node[anchor=center] at (current page.center) {\includegraphics{foo}};
+```
+
+编译两次得到输出，图片恰好放置在幻灯片的中心。 可以更改锚点以移动图片，并且可以使用`calc`库进行进一步的调整。
+
+```latex
+% 导言区
+\usepackage{tikz}
+\usetikzlibrary{calc}
+% 主文档
+\tikz[remember picture, overlay] \node[anchor=center] at ($(current page.center)-(1,0)$) {\includegraphics{foo}};
+```
+
+图像将被放置在中心左侧`1`厘米处。 
+
+***
+参考[beamer中任意摆放图片的方法](http://softlab.sdut.edu.cn/blog/subaochen/2017/05/beamer%e4%b8%ad%e4%bb%bb%e6%84%8f%e6%91%86%e6%94%be%e5%9b%be%e7%89%87%e7%9a%84%e6%96%b9%e6%b3%95/). 也可以使用下面的语法:
+
+```latex
+\begin{tikzpicture}[remember picture,overlay]   
+    \node<1->[xshift=-3cm,yshift=-1cm] at (current page.center) {\includegraphics[height=3cm]{fig}};  
+    \node<2->[xshift=0cm,yshift=0cm] at (current page.center) {\includegraphics[height=3cm]{fig}};
+    \node<3->[xshift=3cm,yshift=1cm] at (current page.center) {\includegraphics[height=3cm]{fig}}; 
+\end{tikzpicture}
+```
+
+`texdoc tikz` 文档 p.238 有关于位置库的说明。 常用的位置有：
+
+```latex
+center, north west, west, north, base, north east, east
+```
