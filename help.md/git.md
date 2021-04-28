@@ -1216,13 +1216,11 @@ Force overwriting the backup with -f
 
 ## 解决冲突
 
-解决冲突就是把`Git`合并失败的文件手动编辑为我们希望的内容，再提交。
-用 `git log --graph` 命令可以看到分支合并图。
+解决冲突就是把`Git`合并失败的文件手动编辑为我们希望的内容，再提交。用 `git log --graph` 命令可以看到分支合并图。
 
 冲突的位置`git`会提醒并作标记，需要手动修改，然后提交。
 注意，`git` 只会标出冲突的位置，并不能帮你解决冲突，也不能判断你是否正确解决了冲突，
-所以下一次的提交，就会被视为冲突已经解决的提交--无论你的修改是否正确。
-当然由于可以恢复，这也算不了什么问题。
+所以下一次的提交，就会被视为冲突已经解决的提交--无论你的修改是否正确。当然由于可以恢复，这也算不了什么问题。
 
 也可以
 
@@ -1231,6 +1229,21 @@ git reset --hard commit
 ```
 
 还原本地工作，然后`git pull`
+
+### 合并前检查
+
+DESCRIPTION
+
+Use git stash when you want to record the current state of the working directory and the index, but want to go back to a clean working directory. The command saves your local modifications away and reverts the working directory to match the HEAD commit.
+
+The modifications stashed away by this command can be listed with git stash list, inspected with git stash show, and restored (potentially on top of a different commit) with git stash apply. Calling git stash without any arguments is equivalent to git stash push. A stash is by default listed as "WIP on branchname …​", but you can give a more descriptive message on the command line when you create one.
+
+The latest stash you created is stored in refs/stash; older stashes are found in the reflog of this reference and can be named using the usual reflog syntax (e.g. stash@{0} is the most recently created stash, stash@{1} is the one before it, stash@{2.hours.ago} is also possible). Stashes may also be referenced by specifying just the stash index (e.g. the integer n is equivalent to stash@{n}).
+
+在应用外部更改之前，您应该使自己的工作空间保持良好状态并在本地提交，这样在发生冲突时不会毁坏文件。
+另请参见`git-stash`。 当本地未提交的更改与`git pull / git merge`可能需要更新的文件重叠时，`git pull`和`git merge`将停止而不进行任何操作。
+为了避免在在合并提交时，记录下不相关的更改，如果相对于`HEAD`在`index`记录了任何更改，则`git pull`和`git merge`也将中止。 （取决于所使用的合并策略，但通常索引必须与`HEAD`匹配。）
+如果所有已命名的提交都已经是`HEAD`的祖先，则`git merge`会提前退出，并显示消息`已经更新`。
 
 ### FAST-FORWARD MERGE
 

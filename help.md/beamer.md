@@ -176,18 +176,19 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage{fontspec}
 \usepackage[slantfont, boldfont]{xeCJK}
-
 % 设置英文字体
 \setmainfont{Microsoft YaHei}
 \setsansfont{Comic Sans MS}
 \setmonofont{Courier New}
-
+% 设置数学字体
+\setmathrm{⟨font name⟩}[⟨font features⟩]
+\setmathsf{⟨font name⟩}[⟨font features⟩]
+\setmathtt{⟨font name⟩}[⟨font features⟩]
+\setboldmathrm{⟨font name⟩}[⟨font features⟩]
 % 设置中文字体
 \setCJKmainfont[Mapping=tex-text]{Noto Sans CJK SC}
 \setCJKsansfont[Scale=0.7,Mapping=tex-text]{Source Han Sans SC}
 \setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
-
-
 % 中文断行设置
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt
@@ -294,4 +295,4 @@ texdoc beamer : 101
 \setbeamertemplate{background}{\includegraphics[height=\paperheight]{b.jpg}}
 ```
 
-page 11 有beamer文档的格式规范
+page 11 有 `beamer` 文档的格式规范

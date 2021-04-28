@@ -292,6 +292,13 @@ ls ~/draft/draft.2008{03,04,05}.nb
 /home/tom/draft/draft.200803.nb  /home/tom/draft/draft.200804.nb  /home/tom/draft/draft.200805.nb
 ```
 
+删除本目录下的子目录，只保留文件:
+
+```bash
+find . -mindepth 1 -maxdepth 0 -type d # 先查看输出
+find . -mindepth 1 -maxdepth 1 -type d -exec rm -rf '{}' + #使用 + 号将输出合并到 rm -rf 后面
+```
+
 ### 重命名 rename
 
 重命名除了使用`mv`,也可以使用`rename`,以下是简单的说明:
@@ -404,7 +411,7 @@ DESCRIPTION
 
 canonical order: 在排序中,指一种标准的顺序,比如字母顺序.
 
-### tar and 7z 压缩
+### tar  7z unzip
 
 ***
 创建压缩文件
@@ -448,8 +455,14 @@ canonical order: 在排序中,指一种标准的顺序,比如字母顺序.
 + `-Z, --compress, --uncompress`通过`compress(1)`过滤存档。
 + `--zstd`: 通过`zstd(1)`过滤存档。
 
+`unzip` 解压特定文件合并到当前目录: 使用`unzip -j`选项: junk paths, 不会重新创建档案的目录结构； 所有文件都存放在提取目录中（默认为当前目录），结合通配符.
+
+```bash
+unzip -j '*.zip'  '*.otf'
+```
+
 ***
-7z解压缩
+`7z`解压缩
 
 支持的格式
 
@@ -511,9 +524,7 @@ fc-list :lang=zh
 ***
 安装字体
 
-[Ubuntu系统字体命令和字体的安装][]
-
-[Ubuntu系统字体命令和字体的安装]: https://www.jianshu.com/p/e7f12b8c8602
+[Ubuntu系统字体命令和字体的安装](https://www.jianshu.com/p/e7f12b8c8602)
 
 字体有`.ttf格`式(truetype font)和`.otf`格式(opentype font)字体
 
@@ -549,6 +560,7 @@ sudo chmod -R  755 myfonts/
 (5) 建立字体缓存
 
 ```bash
+cd /usr/share/fonts/myfonts
 sudo mkfontscale && mkfontdir && fc-cache -fv
 ```
 

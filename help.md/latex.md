@@ -240,32 +240,122 @@ Email bug reports to <xetex@tug.org>.
 
 ### latex in  powershell
 
+```pwsh
 Invoke-Expression $("lualatex" + " " + "-halt-on-error " + "-output-directory=temp -shell-escape -interaction=nonstopmode " + "test.tikz.tex" ) > ./null
-
-### 中文
-
-使用 `xelatex` 进行编译，可以设置`Document Settings`--`Fonts`--`LaTeX font encoding: None fontenc`
-在同一个页面，如果勾选`Use non-Tex fonts`，即可选择系统自带的字体，即可显示中文
-
-对应 `latex`设置为
-
-```latex
-\setmainfont[Mapping=tex-text]{Times New Roman}
-\setsansfont[Mapping=tex-text]{Noto Sans CJK SC}
-\setmonofont{Noto Sans Mono CJK SC}
 ```
 
-另外，`Document Settings`--`Language`中可设置语言，以及`xeTeX,utf-8`编码。
+## 中文西文数学字体
 
+***
+[LaTeX数学公式的默认字体是什么？ - 孟晨的回答 - 知乎](https://www.zhihu.com/question/30058577/answer/46612848)。
+`LaTeX` 默认的文章类中的字体是 `Computer Modern Math`(`LaTeX`), `Latin Modern Math`(`XeTeX`). 字体文件的位置可以用`kpsewhich`查看. 在安装`TeXLive`的时候会自动安装。
+如果没有安装的话，[GUST](http://www.gust.org.pl/projects/e-foundry/lm-math)可以下载`Latin Modern Math`字体，以及其他字体。
+
+```bash
+kpsewhich latinmodern-math.otf
+/usr/share/texmf/fonts/opentype/public/lm-math/latinmodern-math.otf
+```
+
+`kpsewhich`的介绍可以查看[The TeX Live Guide—2021 ](https://www.tug.org/texlive/doc/texlive-en/texlive-en.html)
+
+***
+一般可以使用[fontspec](https://ctan.org/pkg/fontspec)控制西文字体和数学字体。用法大概如下:
+
+```latex
+% 设置英文字体
+\setmainfont{Microsoft YaHei}
+\setsansfont{Comic Sans MS}
+\setmonofont{Courier New}
+% 设置数学字体
+\setmathrm{⟨font name⟩}[⟨font features⟩]
+\setmathsf{⟨font name⟩}[⟨font features⟩]
+\setmathtt{⟨font name⟩}[⟨font features⟩]
+\setboldmathrm{⟨font name⟩}[⟨font features⟩]
+```
+
+但有一个问题，`\boldsymbol`是`AMS`系列包中的`amsbsy`定义的宏，可以产生粗体数学符号. 
+如果用`fontspec`设置数学字体为`latinmodern-math.otf`字体时，没有粗体效果，而是变成直立体，原因不明。可以通过使用`unicode-math`包解决，见下文.
+
+对中文字体的选择可以通过[xeCJK](https://www.ctan.org/pkg/xecjk)完成:
+
+```latex
+\usepackage[slantfont, boldfont]{xeCJK}
+% 设置中文字体
+\setCJKmainfont[Mapping=tex-text]{Noto Sans CJK SC}
+\setCJKsansfont[Scale=0.7,Mapping=tex-text]{Source Han Sans SC}
+\setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
+% 中文断行设置
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1p
+```
+
+***
+其他指定数学字体的包有：[mathspec – Specify arbitrary fonts](https://ctan.org/pkg/mathspec),以及[unicode-math](https://ctan.org/pkg/unicode-math)。`stackexchange`上有关于 change the math italic font in XeTeX/fontspec 的讨论，见 [change the math italic font](https://tex.stackexchange.com/questions/11058/how-do-i-change-the-math-italic-font-in-xetex-fontspec). 作者给出的示例代码为:
+
+```latex
+\documentclass{article}
+\usepackage{unicode-math}
+\setmainfont{Georgia}
+\setmathfont{xits-math.otf}
+\setmathfont[range=\mathit]{Georgia Italic}
+\begin{document}
+Hello $a+b=c$
+\end{document}
+```
+
+载入`unicode-math`包，并使用`\boldsymbol`时会报错：[Error:Extended mathchar used as mathchar](https://tex.stackexchange.com/questions/431013/error-extended-mathchar-used-as-mathchar-when-using-bm),解决方案是不使用`\bm`,`\boldsymbol`命令，而使用`\symbf`,`\symcal`等命令. 
+见[Theunicode-mathpackage](https://mirrors.bfsu.edu.cn/CTAN/macros/unicodetex/latex/unicode-math/unicode-math.pdf).
+`unicode-math`引入了一些新的命令，例如：
+
+```latex
+\symbb, \symbbit, \symcal, \symscr, \symfrak, \symsfup, \symsfit, 
+\symbfsf, \symbfup, \symbfit, \symbfcal, \symbfscr, \symbffrak, \symbfsfup, \symbfsfit 
+```
+
+用来表示单个粗体数学符号，跟粗体普通文字是不同的，粗体普通文字使用`latex`中通常的`\mathbb, \mathbbit, \mathcal`等命令. 例子是：
+
+```latex
+\documentclass{article}
+\usepackage{unicode-math}
+\setmainfont{XITS}
+\setmathfont{XITS Math}
+
+\begin{document}
+This is a simple math example with a variable $k$.
+This works $\symbfit{k}$.
+What I actually need is this: $\mathbfcal{X}$ and $\symbf{\Theta}$.
+Compare with $\mathcal{X}$ and $\Theta$.
+\end{document}
+```
+
+****
+[fontenc –selecting font encodings](https://www.ctan.org/pkg/fontenc)
+[Why should I use \usepackage[T1]{fontenc}?](https://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc)
+
+`fontenc`指定字体编码（确定使用哪种字体），而不是输入编码。
+
+`TeX`的默认字体编码（`OT1`）为`7`位，并使用具有`128`个字形的字体，因此不包括带重音符号的字符作为单个字形。 因此，通过在现有的`o`字形上添加一个重音来制作字母`ö`。
+`T1`字体编码是一种8位编码，并使用具有`256`个字形的字体。 因此，`ö`是字体中的实际单个字形。 
+许多较早的字体也为它们设计了`T1`变体，并且许多较新的字体仅在`T1`中可用。 我认为`Computer Modern`字体最初是`OT1`，而`Latin Modern`是T1。
+
+如果您不使用`\usepackage[T1]{fontenc}`，
+
++ 包含重音符号的单词不能自动连字，
++ 您无法从输出`(DVI/PS/PDF)`中正确复制和粘贴此类文字，
++ 诸如竖线符号，小于号和大于号的字符会在文本中产生意外的结果。
+
+***
+在`lyx`中，使用 `xelatex` 进行编译，可以设置`Document Settings`--`Fonts`--`LaTeX font encoding: None fontenc`
+在同一个页面，如果勾选`Use non-Tex fonts`，即可选择系统自带的字体，即可显示中文。
+
+另外，`Document Settings`--`Language`中可设置语言，以及`xeTeX,utf-8`编码。
 可以在`Insert`菜单栏中插入`beamer`特有的格式。
 
 ## 语法
 
 ### input与include
 
-[Latex导入文件/input和/include方式][]
-
-[Latex导入文件/input和/include方式]: https://blog.csdn.net/OOFFrankDura/article/details/89644373
+[Latex导入文件/input和/include方式](https://blog.csdn.net/OOFFrankDura/article/details/89644373)
 
 `\input`命令可以改为`include`,
 区别在于,`input`可以放在导言区和正文区,包含的内容不另起一页；
@@ -285,9 +375,7 @@ texdoc texbytopic
 
 ### newcommand 新命令
 
-[LaTeX2e unofficial reference manual (October 2018)][]
-
-[LaTeX2e unofficial reference manual (October 2018)]: http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html
+[LaTeX2e unofficial reference manual (October 2018)](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html)
 
 12.1 \newcommand & \renewcommand
 
@@ -2062,10 +2150,6 @@ Latex下 字体大小命令 比较
 + $\nabla$ 微分算子
 
 ### 数学字体
-
-[LaTeX数学公式的默认字体是什么？ - 孟晨的回答 - 知乎](https://www.zhihu.com/question/30058577/answer/46612848)
-
-`Computer Modern Math`, `Latin Modern Math`, 用 XeTeX 的时候是后一个.
 
 + `mathbb`：blackboard bold,黑板粗体
 + `mathcal`：calligraphy（美术字），还有普通的`cal`
