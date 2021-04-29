@@ -2030,6 +2030,42 @@ find ./ -mindepth 1 -maxdepth 1 -type f -iname '*.jpg' -print0 | xargs --null ls
 
 通过指定分隔符为`null`(ASCII`0`)，来构建参数列表
 
+***
+`man find`中有一个例子，解释了`-printf`操作的`％f`和`％h`格式指令:
+
+```bash
+$ find . .. / /tmp /tmp/TRACE compile compile/64/tests/find -maxdepth 0 -printf '[%h][%f]\n'
+[.][.]
+[.][..]
+[][/]
+[][tmp]
+[/tmp][TRACE]
+[.][compile]
+[compile/64/tests][find]
+```
+
+***
+只打印文件名称：
+
+```bash
+find ./opentype ./truetype -mindepth 1 -printf '%f\n'
+```
+
+即可列出`./opentype ./truetype`两个目录下所有文件的名称, 不包括前面的路径。
+
+```bash
+gfind /usr/local/texlive/2020/texmf-dist/fonts/{opentype/,truetype/} -mindepth 1 '(' -iname '*.ttf' -or -iname '*.otf' ')' > ~/test/fontname.txt
+```
+
+***
+按照`fontname.txt`文件中给出的地址，批量生成符号链接.
+
+```bash
+for font in $(cat fontname.txt); do
+  ln -s  ${font} ${font##*/}
+done
+```
+
 ### xargs
 
 这个 `xargs` 命令会执行一个有趣的函数.它从标准输入接受输入,并把输入转换为一个特定命令的 参数列表.
@@ -2047,9 +2083,7 @@ find ~ -type f -name 'foo\*' -print | xargs ls -l
 当命令行超过系统支持的最大长度时,`xargs` 会执行带有最大 参数个数的指定命令,然后重复这个过程直到耗尽标准输入.
 执行带有 `–show–limits` 选项 的 `xargs` 命令,来查看命令行的最大值.
 
-[Shell中去掉文件中的换行符简单方法][]
-
-[]: https://blog.csdn.net/Jerry_1126/article/details/85009615
+[Shell中去掉文件中的换行符简单方法](https://blog.csdn.net/Jerry_1126/article/details/85009615)
 
 ```bash
 cat FileName | xargs echo -n   # 连文件末尾换行符也去掉
@@ -2059,10 +2093,7 @@ cat FileName | xargs           # 会保留文件末尾的换行符
 
 #### 处理古怪的文件名
 
-[Shell 截取文件名和后缀][]
-
-[Shell 截取文件名和后缀]: https://segmentfault.com/a/1190000023219453
-
+[Shell 截取文件名和后缀](https://segmentfault.com/a/1190000023219453).
 类 Unix 的系统允许在文件名中嵌入空格(甚至换行符).
 
 这就给一些程序,如为其它 程序构建参数列表的`xargs` 程序,造成了问题.
@@ -2089,94 +2120,55 @@ find . -iname '*.tex' -printf '%f\0' | xargs --null echo
 
 \a     Alarm bell.
 
-              \b     Backspace.
-
-              \c     Stop printing from this format immediately and flush the output.
-
-              \f     Form feed.
-
-              \n     Newline.
-
-              \r     Carriage return.
-
-              \t     Horizontal tab.
-
-              \v     Vertical tab.
-
-              \0     ASCII NUL.
-
-              \\     A literal backslash (`\').
-
-              \NNN   The character whose ASCII code is NNN (octal).
-
-              A `\' character followed by any other character is treated as an ordinary character, so they both are printed.
-
-              %%     A literal percent sign.
-
-              %a     File's last access time in the format returned by the C `ctime' function.
-
-              %Ak    File's last access time in the format specified by k, which is either `@' or a directive for the C `strftime' function.  The possible values for  k
+\b     Backspace.
+\c     Stop printing from this format immediately and flush the output.
+\f     Form feed.
+\n     Newline.
+\r     Carriage return.
+\t     Horizontal tab.
+\v     Vertical tab.
+\0     ASCII NUL.
+\\     A literal backslash (`\').
+\NNN   The character whose ASCII code is NNN (octal).
+A `\' character followed by any other character is treated as an ordinary character, so they both are printed.
+%%     A literal percent sign.
+%a     File's last access time in the format returned by the C `ctime' function.
+%Ak    File's last access time in the format specified by k, which is either `@' or a directive for the C `strftime' function.  The possible values for  k
                      are listed below; some of them might not be available on all systems, due to differences in `strftime' between systems.
-
 %c     File's last status change time in the format returned by the C `ctime' function.
-
-              %Ck    File's last status change time in the format specified by k, which is the same as for %A.
-
-              %d     File's depth in the directory tree; 0 means the file is a starting-point.
-
-              %D     The device number on which the file exists (the st_dev field of struct stat), in decimal.
-
-              %f     File's name with any leading directories removed (only the last element).
-
-              %F     Type of the filesystem the file is on; this value can be used for -fstype.
-
-              %g     File's group name, or numeric group ID if the group has no name.
-
-              %G     File's numeric group ID.
-
-              %h     Leading directories of file's name (all but the last element).  If the file name contains no slashes (since it is in the current directory) the  %h
-                     specifier expands to `.'.
-
-              %H     Starting-point under which file was found.
-
-              %i     File's inode number (in decimal).
-
-              %k     The  amount of disk space used for this file in 1K blocks.  Since disk space is allocated in multiples of the filesystem block size this is usually
-                     greater than %s/1024, but it can also be smaller if the file is a sparse file.
-
-              %l     Object of symbolic link (empty string if file is not a symbolic link).
-
+%Ck    File's last status change time in the format specified by k, which is the same as for %A.
+%d     File's depth in the directory tree; 0 means the file is a starting-point.
+%D     The device number on which the file exists (the st_dev field of struct stat), in decimal.
+%f     File's name with any leading directories removed (only the last element).
+%F     Type of the filesystem the file is on; this value can be used for -fstype.
+%g     File's group name, or numeric group ID if the group has no name.
+%G     File's numeric group ID.
+%h     Leading directories of file's name (all but the last element).  If the file name contains no slashes (since it is in the current directory) the  %h
+       specifier expands to `.'.
+%H     Starting-point under which file was found.
+%i     File's inode number (in decimal).
+%k     The  amount of disk space used for this file in 1K blocks.  Since disk space is allocated in multiples of the filesystem block size this is usually
+       greater than %s/1024, but it can also be smaller if the file is a sparse file.
+%l     Object of symbolic link (empty string if file is not a symbolic link).
 %m     File's permission bits (in octal).  This option uses the `traditional' numbers which most Unix implementations use, but if your  particular  imple‐
                      mentation  uses an unusual ordering of octal permissions bits, you will see a difference between the actual value of the file's mode and the output
                      of %m.   Normally you will want to have a leading zero on this number, and to do this, you should use the # flag (as in, for example, `%#m').
-
-              %M     File's permissions (in symbolic form, as for ls).  This directive is supported in findutils 4.2.5 and later.
-
-              %n     Number of hard links to file.
-
-              %p     File's name.
-
-              %P     File's name with the name of the starting-point under which it was found removed.
-
-              %s     File's size in bytes.
-
-              %S     File's sparseness.  This is calculated as (BLOCKSIZE*st_blocks / st_size).  The exact value you will get for an ordinary file of a  certain  length
-                     is  system-dependent.  However, normally sparse files will have values less than 1.0, and files which use indirect blocks may have a value which is
-                     greater than 1.0.   The value used for BLOCKSIZE is system-dependent, but is usually 512 bytes.   If the file size is zero, the  value  printed  is
-                     undefined.  On systems which lack support for st_blocks, a file's sparseness is assumed to be 1.0.
-
-              %t     File's last modification time in the format returned by the C `ctime' function.
-
-              %Tk    File's last modification time in the format specified by k, which is the same as for %A.
-
-              %u     File's user name, or numeric user ID if the user has no name.
-
-              %U     File's numeric user ID.
+%M     File's permissions (in symbolic form, as for ls).  This directive is supported in findutils 4.2.5 and later.
+%n     Number of hard links to file.
+%p     File's name.
+%P     File's name with the name of the starting-point under which it was found removed.
+%s     File's size in bytes.
+%S     File's sparseness.  This is calculated as (BLOCKSIZE*st_blocks / st_size).  The exact value you will get for an ordinary file of a  certain  length
+       is  system-dependent.  However, normally sparse files will have values less than 1.0, and files which use indirect blocks may have a value which is
+       greater than 1.0.   The value used for BLOCKSIZE is system-dependent, but is usually 512 bytes.   If the file size is zero, the  value  printed  is
+       undefined.  On systems which lack support for st_blocks, a file's sparseness is assumed to be 1.0.
+%t     File's last modification time in the format returned by the C `ctime' function.
+%Tk    File's last modification time in the format specified by k, which is the same as for %A.
+%u     File's user name, or numeric user ID if the user has no name.
+%U     File's numeric user ID.
 %y     File's type (like in ls -l), U=unknown type (shouldn't happen)
-
-              %Y     File's type (like %y), plus follow symlinks: L=loop, N=nonexistent
-
-              %Z     (SELinux only) file's security context.
+%Y     File's type (like %y), plus follow symlinks: L=loop, N=nonexistent
+%Z     (SELinux only) file's security context.
 
 如果要使用通配符，需要用括号包住，或者进行转义(escape)，否则shell 会将路径名展开，find 会接受到错误的参数列表。
 

@@ -243,7 +243,7 @@ brew info tcl-tk git-gui # gitk 命令
 brew install ncurses; brew install htop # 更好用的 top
 brew install libevent utf8proc ; brew install tmux # 终端复用器
 brew install visual-studio-code lyx # 文字编辑器
-brew install findutils # 字体配置工具  sudo mkfontscale && mkfontdir && fc-cache -fv
+brew install findutils # find locate xargs
 ```
 
 为了使安装的软件能利用`zsh`的补全功能，需要添加 `brew` 补全函数的路径:
