@@ -107,12 +107,14 @@ Yuppy SC Regular
 编辑文件`/usr/local/texlive/2015/texmf.cnf`, 在文件末尾加上一行：`OSFONTDIR = /Library/Fonts//:~/Library/Fonts//`
 保存文件
 
-`mactex`的字体文件在`/usr/local/texlive/2020/texmf-dist/fonts`
+`macTex`的字体文件在`/usr/local/texlive/2020/texmf-dist/fonts`, 使用`fontspec`和`xetex`时，可能不会自动搜索`TeXLive` tree，参考
+[Missing Dejavu Font](https://tex.stackexchange.com/questions/314298/missing-dejavu-font)
+最简单的方法是直接把需要的字体文件复制到`/Users/tom/Library/fonts`，或者`/Library/Fonts`目录下，前者是用户字体文件夹。使用`字体册.app`安装也可以，但是速度感人.
 
 ## mac 快捷键设置
 
 [在 Mac 上使用全局键盘快捷键](https://support.apple.com/zh-cn/guide/mac-help/mchlp2262/10.15/mac/10.15)
-您只能为现有菜单命令创建键盘快捷键。您不能为通用任务定义键盘快捷键，例如：打开一个 App 或在 App 之间切换。
+您只能为现有菜单命令创建键盘快捷键。您不能为通用任务定义键盘快捷键，例如：打开一个 `App` 或在 `App` 之间切换。
 
 妙控键盘的控制键顺序是 `contrl`,`option`,`command`, 把键位更改成这个顺序，大部分使用默认的快捷键，加上少部分修改：
 
@@ -598,7 +600,7 @@ brew cask install App
 brew cu
 ```
 
-### 命令行批量更新macOS软件
+### 批量更新macOS软件
 
 如果你希望安装 MAS 上的应用,也可以绕过原生的商店应用,直接采用终端进行安装.
 你可以先通过刚才安装的 Homebrew 安装一个我们需要的 `mas` ,即在终端输入:
