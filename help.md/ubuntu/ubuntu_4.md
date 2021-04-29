@@ -1022,8 +1022,8 @@ echo $foo
 ${parameter:=word}
 ```
 
-若 parameter 没有设置或为空,展开结果是 word 的值.另外,word 的值会赋值给 parameter.
-若parameter 不为空,展开结果是 parameter 的值.
+若 `parameter` 没有设置或为空,展开结果是 `word` 的值.另外,`word` 的值会赋值给 `parameter`.
+若 `parameter` 不为空,展开结果是 `parameter` 的值.
 
 ```bash
 foo=
@@ -1301,13 +1301,9 @@ Shell 中可以使用的通配符如下:
 
 分字 word splitting
 
-[Shell_Linux Shell 中实现字符串切割的几种方法][]
-[refs1][]
-[refs2][]
-
-[Shell_Linux Shell 中实现字符串切割的几种方法]: https://blog.csdn.net/u010003835/article/details/80750003
-[refs1]: https://blog.csdn.net/u010003835/article/details/80749220
-[refs2]: https://blog.csdn.net/whuslei/article/details/7187639
+[Shell_Linux Shell 中实现字符串切割的几种方法](ttps://blog.csdn.net/u010003835/article/details/80750003)
+[refs1](https://blog.csdn.net/u010003835/article/details/80749220)
+[refs2](https://blog.csdn.net/whuslei/article/details/7187639)
 
 ***
 shell 的 `for` 参数可以是一个连续的字符串,用`IFS`分割

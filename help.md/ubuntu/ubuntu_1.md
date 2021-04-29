@@ -1094,7 +1094,7 @@ SYNOPSIS
 + `-h`, `--human-readable` print sizes in powers of 1024 (e.g., 1023M)
 + `-T`, `--print-type` print file system type
 
-### find
+### find 过滤文件
 
 删除日志文件
 

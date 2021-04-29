@@ -49,7 +49,7 @@ $ open .
 `brew install archey`
 
 ***
-`mdfind` 命令查找文件，类似 Spotlight 查询效果的命令行
+`mdfind` 命令查找文件，类似 `Spotlight` 查询效果的命令行
 
 ### 中文字体
 
@@ -94,6 +94,20 @@ Xingkai SC Light
 Yuanti SC Regular
 Yuppy SC Regular
 ```
+
+### XeLaTeX 使用系统字体
+
+[修复 MacTeX 2015 无法按字体文件名调](https://liam.page/2015/07/11/mactex-2015-system-font/)
+
+`XeLaTeX` 通过字体文件名调用字体需要 `kpathsea` 库的协助。默认情况下，`kpathsea` 会搜索 `MacTeX` 自己的目录树（TEXMF）。
+如果希望 `kpathsea` 搜索系统字体目录的话，还需要配置 `OSFONTDIR` 这个环境变量。
+在 `MacTeX 2014` 中，这个变量是默认配置好了的。但是在 `MacTeX 2015` 中，不知为何，这个变量没有预先配置。因此，需要用户自行配置。
+
+具体的配置方法如下：
+编辑文件`/usr/local/texlive/2015/texmf.cnf`, 在文件末尾加上一行：`OSFONTDIR = /Library/Fonts//:~/Library/Fonts//`
+保存文件
+
+`mactex`的字体文件在`/usr/local/texlive/2020/texmf-dist/fonts`
 
 ## mac 快捷键设置
 
@@ -217,6 +231,30 @@ Homebrew 启用 `/opt` 作为 ARM 版的安装路径，可能更多是出于确�
 
 就可以完成 `X86` 版 `Homebrew` 的安装.
 
+### 常用软件的安装
+
+使用`brew info zsh-completions`, 可以查看安装完需要进行的操作,比如配置路径等. `gnu`的软件会多一个`g`开头。
+
+```bash
+brew install  gettext libunistring libidn2 openssl wget # 前面的是依赖
+brew install zsh-completions zsh-autosuggestions brew-cask-completion
+brew install coreutils rename pcre grep
+brew info tcl-tk git-gui # gitk 命令
+brew install ncurses; brew install htop # 更好用的 top
+brew install libevent utf8proc ; brew install tmux # 终端复用器
+brew install visual-studio-code lyx # 文字编辑器
+brew install findutils # 字体配置工具  sudo mkfontscale && mkfontdir && fc-cache -fv
+```
+
+为了使安装的软件能利用`zsh`的补全功能，需要添加 `brew` 补全函数的路径:
+[在 Mac OS X 系统下为 Brew 开启 Zsh 补全功能](https://tommy.net.cn/2015/02/24/enable-zsh-completion-of-brew-under-mac-os-x/). 在`.zshrc`中添加
+
+```bash
+# brew 的 zsh 补全，依情况更改路径
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+compinit
+```
+
 ### arhc 指定软件架构
 
 `arch` -- 打印 `architecture` type 或者运行指定`architecture`的`universal binary`.
@@ -276,6 +314,7 @@ arch命令的另一个用途是运行通用二进制文件的选定体系结构.
 + 查看软件库版本:`brew list --versions`
 + 查找软件包:`brew search xxx` (xxx为要查找软件的关键词)
 + 安装软件包:`brew install xxx` (xxx为软件包名称)
++ `brew info `: 显示某个软件的信息，不带参数时显示总的统计
 + 卸载软件包:`brew uninstall xxx`
 + 安装图形界面软件:`brew install [--cask] xxx`(xxx为软件名称)
 + 卸载图形界面:`brew uninstall [--cask] xxx`
@@ -289,7 +328,7 @@ arch命令的另一个用途是运行通用二进制文件的选定体系结构.
 ## zsh 配置
 
 *** 
-zsh-syntax-highlighting,语法高亮 
+`zsh-syntax-highlighting`,语法高亮 
 
 [最漂亮( iTerm2+oh-my-zsh配色)](https://www.jianshu.com/p/246b844f4449)
 [zsh-syntax-highlighting/INSTALL.md](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
