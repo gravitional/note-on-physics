@@ -1109,6 +1109,30 @@ $ tmux rename-session -t 0 <new-name>
 + `tkss`:  `tmux kill-session -t`  终止某个已命名会话
 + `tksv`:  `tmux kill-server`  终止所有正运行的会话
 
++ `ctrl+b c`:创建一个新窗口
++ `ctrl+b p`: 切换到上一个窗口
++ `ctrl+b n`: 切换到下一个窗口
++ `ctrl+b <数字>`: 切换到指定编号的窗口
++ `ctrl+b w `: 从列表中选择窗口
++ `ctrl+b ,`: 窗口重命名
+
++ `ctrl+b %`:划分左右两个窗格
++ `ctrl+b "`: 划分上下两个窗格
++ `ctrl+b <方向键>`: 切换输入到其他窗格
++ `ctrl+b ;`: 切换输入到上一个窗格
++ `ctrl+b {`: 当前窗格与上一个交换位置
++ `ctrl+b }`: 与下一个窗格交换位置
++ `ctrl+b ctrl+o`: 所有窗格向前移动一个位置
++ `ctrl+b alt+o`: 所有窗格向后移动一个位置
++ `ctrl+b x`： 关闭当前窗格
++ `ctrl+b !`：将当前窗格拆分为独立窗口
++ `ctrl+b z`：将当前窗格全屏显示，按两次恢复原状
++ `ctrl+b ctrl+<方向>`：调整窗口大小
++ `ctrl+b space`: 重新排列当前窗格.
++ `ctrl+b p`: 显示窗口编号.
++ `ctrl+b t`: 显示时间
++ `ctrl+b i`: 显示当前窗格信息
+
 ***
 `tmux`允许将命令绑定到大多数键(可以有前缀键)。
 指定键时，大多数写法表示自己(例如，`A`至`Z`)。 `Ctrl`键的前缀可以是`C-`或`^`，`Alt`(Meta)为`M-`。
