@@ -1647,6 +1647,46 @@ i\int\dif^{4}xe^{ipx}\left(\square+m^{2}\right)\phi\left(x\right)=\sqrt{2\omega_
 其中所有的内点坐标被积分掉，剩下的就是动量空间的散射矩阵元。
 \end_layout
 
+\begin_layout Section
+习题
+\end_layout
+
+\begin_layout Standard
+计算费曼传播子在位置空间的形式。
+\begin_inset Formula 
+\[
+D_{F}\left(x_{1},x_{2}\right)=\bra{0}T{\phi_{0}\left(x_{1}\right)\phi_{0}\left(x_{2}\right)}\ket{0}=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{k^{2}-m^{2}+i\varepsilon}e^{ik\left(x_{1}-x_{2}\right)}
+\]
+
+\end_inset
+
+使用施温格参数化得到正确的极点形式，取
+\begin_inset Formula $m\to0$
+\end_inset
+
+的极限得到：
+\begin_inset Formula 
+\[
+\bra{0}T{\phi_{0}\left(x_{1}\right)\phi_{0}\left(x_{2}\right)}\ket{0}=\frac{-1}{4\pi^{2}}\frac{1}{\left(x_{1}-x_{2}\right)^{2}-i\varepsilon}.
+\]
+
+\end_inset
+
+容易看出，只有当
+\begin_inset Formula $x_{1}\to x_{2}$
+\end_inset
+
+的时候，传播子才有虚部。由于取了
+\begin_inset Formula $m\to0$
+\end_inset
+
+极限，相当于动量在壳
+\begin_inset Formula $k^{2}\to0$
+\end_inset
+
+，跟24章中关于幺正性的讨论一致。
+\end_layout
+
 \begin_layout Chapter
 费曼规则
 \end_layout

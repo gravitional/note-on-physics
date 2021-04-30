@@ -3411,10 +3411,6 @@ M^{\mu\nu}=\int\dif^{3}xJ^{0,\mu\nu}=i\int\dif^{3}\psi^{\dagger}\left(x\right)\l
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 其中
 \begin_inset Formula 
 \[
@@ -3424,6 +3420,83 @@ M^{\mu\nu}=\int\dif^{3}xJ^{0,\mu\nu}=i\int\dif^{3}\psi^{\dagger}\left(x\right)\l
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+幺正性
+\end_layout
+
+\begin_layout Standard
+量子力学的概率守恒要求演化矩阵元是幺正的。在正则量子化，使用哈密顿方法推导关联函数的微扰展开时：
+\begin_inset Formula 
+\[
+\bra{\Omega}T\left\{ \phi\left(x_{1}\right)\cdots\phi\left(x_{n}\right)\right\} \ket{\Omega}=\lim_{T\to\infty\left(1-i\varepsilon\right)}\frac{\bra{0}T\left\{ \phi_{0}\left(x_{1}\right)\cdots\phi_{0}\left(x_{n}\right)\exp\left(i\int_{-\infty}^{+\infty}\dif^{4}x\mathcal{L}_{\text{int}}\left[\phi_{0}\right]\right)\right\} \ket{0}}{\bra{0}T\left\{ \exp\left(i\int_{-\infty}^{+\infty}\dif^{4}x\mathcal{L}_{\text{int}}\left[\phi_{0}\right]\right)\right\} \ket{0}}
+\]
+
+\end_inset
+
+其中用到的演化矩阵元就是幺正的：
+\begin_inset Formula 
+\[
+U\left(t,t_{0}\right)=T\left\{ \exp\left[-i\int_{t_{0}}^{t}\dif t^{\prime}V_{I}\left(t^{\prime}\right)\right]\right\} ,\quad T\left\{ \exp\left(i\int_{-\infty}^{+\infty}\dif^{4}x\mathcal{L}_{\text{int}}\left[\phi_{0}\right]\right)\right\} 
+\]
+
+\end_inset
+
+因为
+\begin_inset Formula $\mathcal{L}_{\text{int}}\left[\phi_{0}\right]$
+\end_inset
+
+是哈密顿量的一部分，而哈密顿量是厄米的，自由部分是厄米的，所以相互作用部分也是厄米的。在做微扰展开的时候，
+\begin_inset Formula 
+\[
+T\left\{ \exp\left(i\int_{-\infty}^{+\infty}\dif^{4}x\mathcal{L}_{\text{int}}\left[\phi_{0}\right]\right)\right\} =1+i\int_{-\infty}^{+\infty}\dif^{4}x\mathcal{L}_{\text{int}}\left[\phi_{0}\right]+T\left\{ \cdots\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula $i\int_{-\infty}^{+\infty}\dif^{4}x\mathcal{L}_{\text{int}}\left[\phi_{0}\right]$
+\end_inset
+
+这一项不是厄米的，它对应微扰理论中费曼规则的顶点。
+\begin_inset Formula $\mathcal{L}_{\text{int}}$
+\end_inset
+
+多一个
+\begin_inset Formula $i$
+\end_inset
+
+之后不是厄米。但例如对于QED，顶点总是成对出现的。由电荷共轭，奇数个顶点的圈图振幅为零。法雷定理p303页。所以顶点对振幅的虚部没有贡献。振幅的虚部只会来自于
+传播子，传播子的虚部只来自于传播子在壳。
+\end_layout
+
+\begin_layout Standard
+振幅作为动量的复变函数，在动量的复平面上，大部分都是实数，只有动量在壳的时候有虚部。传播子具有一个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数，
+\begin_inset Formula 
+\[
+\frac{1}{k^{0}-\omega_{k}+i\varepsilon}-\frac{1}{k^{0}-\omega_{k}-i\varepsilon}=-2\pi i\delta\left(k^{0}-\omega_{k}\right)
+\]
+
+\end_inset
+
+经过圈图积分，
+\begin_inset Formula $\delta$
+\end_inset
+
+发散变成振幅的有限不连续变化。也就是 cutting rules 得到 [Cutkosky,1960]。
+\begin_inset Formula 
+\[
+\disc i\mathcal{M}(p^{0})=i\mathcal{M}(p^{0}+i\varepsilon)-i\mathcal{M}(p^{0}-i\varepsilon)=-2\Im\mathcal{M}(p^{0})
+\]
+
+\end_inset
+
+使用柯西公式，可以利用虚部重建出解析函数的值，也就是色散关系。
 \end_layout
 
 \begin_layout Section

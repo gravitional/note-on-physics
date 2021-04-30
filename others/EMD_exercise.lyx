@@ -3210,7 +3210,7 @@ status open
 
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Print[tea = Graphics3D[{ Yellow, Opacity[0.25], Ball[{0, 0, 0}, .2], White,
@@ -3557,6 +3557,73 @@ status open
 \end_inset
 
 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Print[tea = Graphics3D[{ AbsoluteThickness[2], Yellow, Opacity[1], Arrow[{{0,
+ 0, -.3}, {0, 0, .3}}], AbsoluteThickness[1], Blue, Opacity[0.2], Sphere[{0,
+ 0, 0}, 2], White, Opacity[0.15], Cube[{0, 0, 0}, 6], Black, Opacity[1],
+ AbsoluteThickness[1], Arrow[{{0, 0, 0}, {2, 0, 0}}], Text[Style["
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(R
+\backslash
+), 
+\backslash
+(0
+\backslash
+)]
+\backslash
+)", 10], {2, 0, .5}/ 2], Text[ Style["
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(
+\backslash
+[CurlyPhi]
+\backslash
+), 
+\backslash
+(1
+\backslash
+)]
+\backslash
+)", 10], {2, 0, 2.5}/2], Text[Style["
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(
+\backslash
+[CurlyPhi]
+\backslash
+), 
+\backslash
+(2
+\backslash
+)]
+\backslash
+)", 10], {5, 0, 2.5}/2]}, Boxed -> False, Method -> {"ShrinkWrap" -> True},
+ ViewPoint -> {0, -2, 0}, ImageSize -> {100, 100}]]; Export["/home/tom/note/othe
+rs/qiuJiezhi.pdf", tea]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3608,6 +3675,26 @@ status open
 \[
 \varphi_{1}\left(r\right)=\frac{p_{f}\cos\theta}{4\pi\varepsilon_{1}r^{2}}+\sum_{n=0}^{\infty}a_{n}r^{n}P_{n}\left(\cos\theta\right),\quad\varphi_{2}\left(r\right)=\frac{p_{f}\cos\theta}{4\pi\varepsilon_{2}r^{2}}+\sum_{n=0}^{\infty}\frac{b_{n}}{r^{n+1}}P_{n}\left(\cos\theta\right)
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(5,2)$) {
+\backslash
+includegraphics[scale=1]{qiuJiezhi}};
+\end_layout
 
 \end_inset
 
@@ -3704,7 +3791,8 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 球心处
 \begin_inset Formula $\symbfit{p}_{f}$
 \end_inset
@@ -3754,6 +3842,27 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(5,2.6)$) {
+\backslash
+includegraphics[scale=1]{qiuJiezhi}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -3848,6 +3957,109 @@ status open
 \end_inset
 
 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Print[tea = Graphics3D[{ AbsoluteThickness[2], Yellow, Opacity[1], Arrow[{{0,
+ 0, -.3}, {0, 0, .3}}], AbsoluteThickness[1], Blue, Opacity[0.1], Sphere[{0,
+ 0, 0}, 2], White, Opacity[0.2], Sphere[{0, 0, 0}, 3], Black, Opacity[1],
+ AbsoluteThickness[1], Arrow[{{0, 0, 0}, {2, 0, 0}}], Text[Style["
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(R
+\backslash
+), 
+\backslash
+(0
+\backslash
+)]
+\backslash
+)", 10], {2, 0, .5}/ 2], Text[Style[ "
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(
+\backslash
+[CurlyPhi]
+\backslash
+), 
+\backslash
+ 
+\backslash
+(1
+\backslash
+)]
+\backslash
+),
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(R
+\backslash
+), 
+\backslash
+(1
+\backslash
+)]
+\backslash
+)", 10], {2, 0, 2.5}/2], Text[Style[ "
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(
+\backslash
+[CurlyPhi]
+\backslash
+), 
+\backslash
+ 
+\backslash
+(2
+\backslash
+)]
+\backslash
+),
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(R
+\backslash
+), 
+\backslash
+(2
+\backslash
+)]
+\backslash
+)", 10], {5, 0, -2.5}/2]}, Boxed -> False, Method -> {"ShrinkWrap" -> True},
+ ViewPoint -> {0, -2, 0}, ImageSize -> {100, 100}]]; Export["/home/tom/note/othe
+rs/qiuKeOuJi.pdf", tea]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3899,6 +4111,26 @@ status open
 \[
 \varphi_{1}\left(r\right)=\frac{p\cos\theta}{4\pi\varepsilon_{0}r^{2}}+\sum_{n=0}^{\infty}a_{n}r^{n}P_{n}\left(\cos\theta\right),\quad\varphi_{2}\left(r\right)=\frac{p\cos\theta}{4\pi\varepsilon_{0}r^{2}}+\sum_{n=0}^{\infty}\frac{b_{n}}{r^{n+1}}P_{n}\left(\cos\theta\right)
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(5,1.8)$) {
+\backslash
+includegraphics[scale=1]{qiuKeOuJi}};
+\end_layout
 
 \end_inset
 
@@ -4045,6 +4277,26 @@ a_{0}=\frac{1}{4\pi\varepsilon_{0}}\frac{q}{R_{2}},\quad a_{1}=\frac{1}{4\pi\var
 有关，说明导体球壳对内部的偶极子有屏蔽作用，外表面电荷均匀分布。
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(5.5,-0.7)$) {
+\backslash
+includegraphics[scale=1]{qiuKeOuJi}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -4059,6 +4311,110 @@ status open
 
 \begin_layout Plain Layout
 13
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Print[tea = Graphics3D[{ Black, Line[{{0, 0, 0}, {0, 0, 3}}], AbsoluteThickness[
+2], Yellow, Opacity[1], Ball[{0, 0, .6}, .2], Ball[{0, 0, 2.4}, .2], AbsoluteThickne
+ss[1], Blue, Opacity[0.1], Sphere[{0, 0, 0}, 2], White, Opacity[0.2], Sphere[{0,
+ 0, 0}, 3], Black, Opacity[1], AbsoluteThickness[1], Arrow[{{0, 0, 0}, {2,
+ 0, 0}}], Text[Style["
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(R
+\backslash
+), 
+\backslash
+(0
+\backslash
+)]
+\backslash
+)", 10], {2, 0, .5}/ 2], Text[Style[ "
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(
+\backslash
+[CurlyPhi]
+\backslash
+), 
+\backslash
+ 
+\backslash
+(1
+\backslash
+)]
+\backslash
+),
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(R
+\backslash
+), 
+\backslash
+(1
+\backslash
+)]
+\backslash
+)", 10], {2, 0, 2.5}/2], Text[Style[ "
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(
+\backslash
+[CurlyPhi]
+\backslash
+), 
+\backslash
+ 
+\backslash
+(2
+\backslash
+)]
+\backslash
+),
+\backslash
+!
+\backslash
+(
+\backslash
+*SubscriptBox[
+\backslash
+(R
+\backslash
+), 
+\backslash
+(2
+\backslash
+)]
+\backslash
+)", 10], {5, 0, -2.5}/2]}, Boxed -> False, Method -> {"ShrinkWrap" -> True},
+ ViewPoint -> {0, -2, 0}, ImageSize -> {100, 100}]]; Export["/home/tom/note/othe
+rs/jieDiQiu.pdf", tea]
 \end_layout
 
 \end_inset
@@ -4091,8 +4447,7 @@ status open
 ，用镜像法求电势。导体球上的感应电荷有多少？分布在内表面还是外表面？
 \end_layout
 
-\end_deeper
-\begin_layout Frame
+\begin_layout Standard
 以球心为坐标原点，设点电荷
 \begin_inset Formula $q$
 \end_inset
@@ -4153,6 +4508,27 @@ q^{\prime}=-q\frac{R_{1}}{a},\quad b=\frac{R_{1}^{2}}{a}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(5.5,-2.9)$) {
+\backslash
+includegraphics[scale=1]{jieDiQiu}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -4215,7 +4591,8 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 有一点电荷
 \begin_inset Formula $q$
 \end_inset
@@ -4231,7 +4608,7 @@ status open
 ，求空间电势。
 \end_layout
 
-\begin_layout Frame
+\begin_layout Standard
 设两导体所处平面为
 \begin_inset Formula $y=0$
 \end_inset
@@ -4272,6 +4649,7 @@ status open
 
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -4720,17 +5098,16 @@ status open
 为偶数时，
 \begin_inset Formula 
 \[
-P_{n}\left(0\right)=\left(-1\right)^{n/2}\frac{1*3*5\cdots\left(n-1\right)}{2*4*6\cdots n}=\left(-1\right)^{n/2}\prod_{n}\frac{\text{奇数}}{\text{偶数}}
+P_{\ell}\left(x\right)=\frac{1}{\ell!}\frac{\dif^{\ell}}{\dif x^{\ell}}\left(\frac{x^{2}-1}{2}\right)^{\ell}
 \]
 
 \end_inset
 
-所以积分的结果为
+
 \begin_inset Formula 
 \begin{align*}
-\int_{0}^{+1}P_{n}\left(x\right)\dif x & =\frac{1}{2n+1}\left(-1\right)^{\frac{n-1}{2}}\left[\frac{1*3*5\cdots\left(n-2\right)}{2*4*6\cdots\left(n-1\right)}+\frac{1*3*5\cdots\left(n-2\right)n}{2*4*6\cdots\left(n-1\right)\left(n+1\right)}\right]\\
- & =\frac{1}{2n+1}\left(-1\right)^{\frac{n-1}{2}}\left[X+X\frac{n}{n+1}\right]=\frac{1}{2n+1}\left(-1\right)^{\frac{n-1}{2}}X\frac{\left(2n+1\right)}{n+1}\\
- & =\left(-1\right)^{\frac{n-1}{2}}\frac{1*3*5\cdots\left(n-2\right)}{2*4*6\cdots\left(n-1\right)\left(n+1\right)}=\frac{\left(-1\right)^{\frac{n-1}{2}}}{n+1}\prod_{n-1}\frac{\text{奇数}}{\text{偶数}}
+P_{n}\left(0\right) & =\left(-1\right)^{n/2}\frac{C_{n}^{n/2}}{2^{n}}=\left(-1\right)^{n/2}\frac{n!}{2^{n}\left(n/2\right)!\left(n/2\right)!}=\left(-1\right)^{n/2}\frac{n!}{\left(n!!\right)\left(n!!\right)}\\
+ & =\left(-1\right)^{n/2}\frac{\left(n-1\right)!!}{n!!}=\left(-1\right)^{n/2}\frac{1*3*5\cdots\left(n-1\right)}{2*4*6\cdots n}
 \end{align*}
 
 \end_inset
@@ -4761,31 +5138,426 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+所以积分的结果为
+\begin_inset Formula 
+\begin{align*}
+\int_{0}^{+1}P_{n}\left(x\right)\dif x & =\frac{1}{2n+1}\left(-1\right)^{\frac{n-1}{2}}\left[\frac{\left(n-2\right)!!}{\left(n-1\right)!!}+\frac{n!!}{\left(n+1\right)!!}\right]\\
+ & =\frac{1}{2n+1}\left(-1\right)^{\frac{n-1}{2}}\frac{\left(n-2\right)!!}{\left(n-1\right)!!}\left[1+\frac{n}{n+1}\right]\\
+ & =\frac{1}{2n+1}\left(-1\right)^{\frac{n-1}{2}}\frac{\left(n-2\right)!!}{\left(n-1\right)!!}\frac{\left(2n+1\right)}{n+1}\\
+ & =\frac{\left(-1\right)^{\frac{n-1}{2}}}{n+1}\frac{\left(n-2\right)!!}{\left(n-1\right)!!}
+\end{align*}
+
+\end_inset
+
 即
 \begin_inset Formula 
 \[
-a_{n}=\frac{\varphi_{0}}{R_{0}^{n}}\left(-1\right)^{\frac{n-1}{2}}\frac{2n+1}{n+1}\prod_{n-1}\frac{\text{奇数}}{\text{偶数}},\quad n=1,3,5,\cdots
+a_{n}=\left(-1\right)^{\frac{n-1}{2}}\frac{\varphi_{0}}{R_{0}^{n}}\frac{2n+1}{n+1}\frac{\left(n-2\right)!!}{\left(n-1\right)!!},\quad n=1,3,5,\cdots
 \]
 
 \end_inset
 
-可以改写成标准形式
-\begin_inset Formula 
-\[
-a_{2k+1}=\frac{\varphi_{0}}{R_{0}^{2k+1}}\left(-1\right)^{k}\frac{4k+3}{2k+2}\prod_{2k}\frac{\text{奇数}}{\text{偶数}},\quad k=0,1,2,3,\cdots
-\]
-
+可以改写成标准形式，
+\begin_inset Formula $n\to2k+1$
 \end_inset
 
 
 \begin_inset Formula 
 \[
-b_{2k+1}=a_{2k+1}R_{0}^{4k+3}
+a_{2k+1}=\left(-1\right)^{k}\frac{\varphi_{0}}{R_{0}^{2k+1}}\frac{4k+3}{2k+2}\frac{\left(2k-1\right)!!}{\left(2k\right)!!},\quad k=0,1,2,3,\cdots
 \]
 
 \end_inset
 
 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+18
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+系数
+\begin_inset Formula $b_{n}$
+\end_inset
+
+的求解是同理的，只是对
+\begin_inset Formula $r$
+\end_inset
+
+的依赖不同。最后的结果为：
+\begin_inset Formula 
+\[
+b_{2k+1}=a_{2k+1}R_{0}^{4k+3}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a_{2k+1}=\left(-1\right)^{k}\frac{\varphi_{0}}{R_{0}^{2k+1}}\frac{4k+3}{2k+2}\frac{\left(2k-1\right)!!}{\left(2k\right)!!},\quad k=0,1,2,3,\cdots
+\]
+
+\end_inset
+
+将
+\begin_inset Formula $R_{0}^{2k+1}$
+\end_inset
+
+这个因子提到外面，令
+\begin_inset Formula $a_{2k+1}=A_{2k+1}/R_{0}^{2k+1}$
+\end_inset
+
+最后把球内外的电势写成：
+\begin_inset Formula 
+\begin{align*}
+ & \varphi_{1}=\sum_{k=0}^{\infty}A_{2k+1}\left(\frac{r}{R_{0}}\right)^{2k+1}P_{2k+1}\left(\cos\theta\right),\\
+ & \varphi_{2}=\sum_{k=0}^{\infty}A_{2k+1}\left(\frac{R_{0}}{r}\right)^{2k+2}P_{2k+1}\left(\cos\theta\right)
+\end{align*}
+
+\end_inset
+
+式中
+\begin_inset Formula $n=0$
+\end_inset
+
+为偶极矩，
+\begin_inset Formula $n=1$
+\end_inset
+
+为八极矩……。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+18
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+f[k_, x_] := (-1)^k*(4 k + 3)/( 2 k + 2)*(2 k - 1)!!/(2 k)!! LegendreP[2
+ k + 1, x] sumf[n_, x_] := Sum[f[k, x], {k, 0, n}] tea = Plot[ Evaluate[Table[.5
+ n + sumf[n, x], {n, 0, 20, 1}]], {x, -1, 1}, PlotLabels -> Range[0, 20]
+ , ImageSize -> {300, 300}] ;Export["/home/tom/note/others/Legendre.pdf",
+ tea]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{k=0}^{\cdots}\left(-1\right)^{k}\frac{4k+3}{2k+2}\frac{\left(2k-1\right)!!}{\left(2k\right)!!}P_{2k+1}\left(x\right)
+\]
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Legendre.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+19
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+第一类边值问题的解：
+\begin_inset Formula 
+\[
+\varphi\left(\symbfit{x}\right)=\int_{V}G\left(\symbfit{x}^{\prime},\symbfit{x}\right)\rho\left(\symbfit{x}^{\prime}\right)\dif V^{\prime}-\varepsilon_{0}\oint_{S}\left[\varphi\left(\symbfit{x}^{\prime}\right)\frac{\partial G\left(\symbfit{x}^{\prime},\symbfit{x}\right)}{\partial n^{\prime}}\right]\dif S^{\prime}
+\]
+
+\end_inset
+
+其中格林函数满足泊松方程：
+\begin_inset Formula 
+\[
+\nabla^{2}G\left(\symbfit{x}^{\prime},\symbfit{x}\right)=-\delta\left(\symbfit{x}-\symbfit{x}^{\prime}\right)/\varepsilon_{0}
+\]
+
+\end_inset
+
+格林函数的边界条件为：
+\begin_inset Formula 
+\[
+\left.G\left(\symbfit{x}^{\prime},\symbfit{x}\right)\right|_{x^{\prime}\in S}=0
+\]
+
+\end_inset
+
+利用镜像法可以求得格林函数满足边值条件的解：
+\begin_inset Formula 
+\[
+G\left(\symbfit{x}^{\prime},\symbfit{x}\right)=\frac{1}{4\pi\varepsilon_{0}}\left[\frac{1}{\sqrt{r^{2}+r^{\prime2}-2rr^{\prime}\cos\alpha}}-\frac{1}{\sqrt{\left(rr^{\prime}/R_{0}\right)^{2}+R_{0}^{2}-2rr^{\prime}\cos\alpha}}\right]
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\alpha$
+\end_inset
+
+是场点
+\begin_inset Formula $\symbfit{x}$
+\end_inset
+
+和源点
+\begin_inset Formula $\symbfit{x}^{\prime}$
+\end_inset
+
+之间的夹角：
+\begin_inset Formula 
+\[
+\cos\alpha=\cos\theta\cos\theta^{\prime}+\sin\theta\sin\theta^{\prime}\cos\left(\phi-\phi^{\prime}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+19
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+勒让德多项式的母函数：
+\begin_inset Formula 
+\[
+\frac{1}{\sqrt{1-2r\cos\theta+r^{2}}}=\sum_{l=0}^{\infty}r^{l}P_{l}\left(\cos\theta\right)
+\]
+
+\end_inset
+
+类似地，在球外
+\begin_inset Formula $r>1$
+\end_inset
+
+有：
+\begin_inset Formula 
+\[
+\frac{1}{\sqrt{1-2r\cos\theta+r^{2}}}=\sum_{l=0}^{\infty}\frac{1}{r^{l+1}}P_{l}\left(\cos\theta\right)
+\]
+
+\end_inset
+
+对于半径为
+\begin_inset Formula $R$
+\end_inset
+
+的球，式子修改为
+\begin_inset Formula 
+\[
+\frac{1}{\sqrt{R^{2}-2Rr\cos\theta+r^{2}}}=\begin{cases}
+\sum_{l=0}^{\infty}\frac{r^{l}}{R^{l+1}}P_{l}\left(\cos\theta\right)\\
+\sum_{l=0}^{\infty}\frac{R^{l}}{r^{l+1}}P_{l}\left(\cos\theta\right)
+\end{cases}
+\]
+
+\end_inset
+
+利用母函数可以推导递归公式。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+19
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+勒让德函数的加法公式：同一个函数在两个坐标系中的形式为：
+\begin_inset Formula 
+\begin{align*}
+ & \delta\left(\cos\theta-\cos\theta^{\prime}\right)\delta\left(\varphi-\varphi_{0}\right)\\
+ & \delta\left(\cos\alpha-1\right)\frac{1}{2\pi}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\cos\alpha=\cos\theta\cos\theta^{\prime}+\sin\theta\sin\theta^{\prime}\cos\left(\phi-\phi^{\prime}\right)$
+\end_inset
+
+。坐标系旋转，径向的
+\begin_inset Formula $r$
+\end_inset
+
+不变，
+\begin_inset Formula $\ell$
+\end_inset
+
+阶球函数保持不变。匹配两边的
+\begin_inset Formula $\ell$
+\end_inset
+
+阶球函数得到：
+\begin_inset Formula 
+\[
+P_{n}\left(\cos\alpha\right)=P_{n}\left(\cos\theta\right)P_{n}\left(\cos\theta^{\prime}\right)=P_{n}\left(x\right)P_{n}\left(x^{\prime}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+19
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+因此，将解得的格林函数展开为：
+\begin_inset Formula 
+\[
+G\left(\symbfit{x}^{\prime},\symbfit{x}\right)=\frac{1}{4\pi\varepsilon_{0}}\sum_{n=0}^{\infty}\left[\frac{r^{n}}{r^{\prime n+1}}-\frac{r^{2}r^{\prime2}}{R_{0}^{2n+1}}\right]P_{n}\left(x\right)P_{n}\left(x^{\prime}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left.\frac{\partial G}{\partial n^{\prime}}\right|_{r=R_{0}}=\frac{-1}{4\pi\varepsilon_{0}}\sum_{n=0}^{\infty}\left(2n+1\right)\frac{r^{n}}{R_{0}^{n+2}}P_{n}\left(x\right)P_{n}\left(x^{\prime}\right)
+\]
+
+\end_inset
+
+球面积分测度
+\begin_inset Formula $\dif S^{\prime}=R_{0}^{2}\sin\theta^{\prime}\dif\theta^{\prime}\dif\phi^{\prime}=-R_{0}^{2}\dif x^{\prime}\dif\phi^{\prime}$
+\end_inset
+
+。边值关系为：上半球面电势为
+\begin_inset Formula $\varphi_{0}$
+\end_inset
+
+，下半球面电势为
+\begin_inset Formula $-\varphi_{0}$
+\end_inset
+
+，代入通解的积分形式得到：
+\begin_inset Formula 
+\begin{align*}
+\varphi_{1} & =2\pi\varepsilon_{0}R_{0}^{2}\left[\int_{+1}^{0}\varphi_{0}\frac{\partial G}{\partial r^{\prime}}\dif x^{\prime}-\int_{0}^{-1}\varphi_{0}\frac{\partial G}{\partial r^{\prime}}\dif x^{\prime}\right]\\
+ & =-4\pi\varepsilon_{0}R_{0}^{2}\varphi_{0}\int_{0}^{1}\frac{\partial G}{\partial r^{\prime}}\dif x^{\prime}\\
+ & =\varphi_{0}\sum_{n=0}^{\infty}\left(2n+1\right)\left(\frac{r}{R_{0}}\right)^{n}P_{n}\left(x\right)\int_{0}^{1}P_{n}\left(x^{\prime}\right)\dif x^{\prime}
+\end{align*}
+
+\end_inset
+
+最后的结果与Q2.18相同。
 \end_layout
 
 \end_deeper
