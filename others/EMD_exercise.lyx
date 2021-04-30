@@ -3754,7 +3754,7 @@ a_{n}r^{2n+1}=b_{n},\quad a_{n}r^{2n+1}=\frac{-\left(1+n\right)}{n}b_{n}
 有不为零的值，求解方程得到：
 \begin_inset Formula 
 \[
-a_{1}=\frac{\left(\varepsilon_{1}-\varepsilon_{2}\right)\rho_{f}}{2\pi\varepsilon_{1}\left(\varepsilon_{1}+2\varepsilon_{2}\right)R_{0}^{3}},\quad b_{1}=\frac{\left(\varepsilon_{2}-\varepsilon_{1}\right)\rho_{f}}{4\pi\varepsilon_{2}\left(\varepsilon_{1}+2\varepsilon_{2}\right)},
+a_{1}=\frac{\left(\varepsilon_{1}-\varepsilon_{2}\right)p_{f}}{2\pi\varepsilon_{1}\left(\varepsilon_{1}+2\varepsilon_{2}\right)R_{0}^{3}},\quad b_{1}=\frac{\left(\varepsilon_{2}-\varepsilon_{1}\right)p_{f}}{4\pi\varepsilon_{2}\left(\varepsilon_{1}+2\varepsilon_{2}\right)},
 \]
 
 \end_inset
@@ -3762,7 +3762,7 @@ a_{1}=\frac{\left(\varepsilon_{1}-\varepsilon_{2}\right)\rho_{f}}{2\pi\varepsilo
 所以
 \begin_inset Formula 
 \[
-\varphi_{1}\left(r\right)=\frac{p_{f}\cos\theta}{4\pi\varepsilon_{1}r^{2}}+\frac{\left(\varepsilon_{1}-\varepsilon_{2}\right)\rho_{f}r\cos\theta}{2\pi\varepsilon_{1}\left(\varepsilon_{1}+2\varepsilon_{2}\right)R_{0}^{3}},\quad\varphi_{2}\left(r\right)=\frac{3p_{f}\cos\theta}{4\pi\left(\varepsilon_{1}+2\varepsilon_{2}\right)r^{2}}
+\varphi_{1}\left(r\right)=\frac{p_{f}\cos\theta}{4\pi\varepsilon_{1}r^{2}}+\frac{\left(\varepsilon_{1}-\varepsilon_{2}\right)p_{f}r\cos\theta}{2\pi\varepsilon_{1}\left(\varepsilon_{1}+2\varepsilon_{2}\right)R_{0}^{3}},\quad\varphi_{2}\left(r\right)=\frac{3p_{f}\cos\theta}{4\pi\left(\varepsilon_{1}+2\varepsilon_{2}\right)r^{2}}
 \]
 
 \end_inset
@@ -4320,11 +4320,11 @@ status open
 status collapsed
 
 \begin_layout Plain Layout
-Print[tea = Graphics3D[{ Black, Line[{{0, 0, 0}, {0, 0, 3}}], AbsoluteThickness[
-2], Yellow, Opacity[1], Ball[{0, 0, .6}, .2], Ball[{0, 0, 2.4}, .2], AbsoluteThickne
-ss[1], Blue, Opacity[0.1], Sphere[{0, 0, 0}, 2], White, Opacity[0.2], Sphere[{0,
- 0, 0}, 3], Black, Opacity[1], AbsoluteThickness[1], Arrow[{{0, 0, 0}, {2,
- 0, 0}}], Text[Style["
+Print[tea = Graphics3D[{Black, Line[{{0, 0, 0}, {0, 0, 3}}], AbsoluteThickness[2
+], Yellow, Opacity[1], Ball[{0, 0, .6}, .2], Blue, Ball[{0, 0, 2.4}, .2], AbsoluteTh
+ickness[1], Blue, Opacity[0.1], Sphere[{0, 0, 0}, 2], White, Opacity[0.2],
+ Sphere[{0, 0, 0}, 3], Black, Opacity[1], AbsoluteThickness[1], Arrow[{{0,
+ 0, 0}, {2, 0, 0}}], Text[Style["
 \backslash
 !
 \backslash
@@ -4340,7 +4340,7 @@ ss[1], Blue, Opacity[0.1], Sphere[{0, 0, 0}, 2], White, Opacity[0.2], Sphere[{0,
 \backslash
 )]
 \backslash
-)", 10], {2, 0, .5}/ 2], Text[Style[ "
+)", 10], {2, 0, .5}/ 2], Text[ Style["
 \backslash
 !
 \backslash
@@ -4353,6 +4353,8 @@ ss[1], Blue, Opacity[0.1], Sphere[{0, 0, 0}, 2], White, Opacity[0.2], Sphere[{0,
 [CurlyPhi]
 \backslash
 ), 
+\backslash
+ 
 \backslash
  
 \backslash
@@ -4389,6 +4391,8 @@ ss[1], Blue, Opacity[0.1], Sphere[{0, 0, 0}, 2], White, Opacity[0.2], Sphere[{0,
 [CurlyPhi]
 \backslash
 ), 
+\backslash
+ 
 \backslash
  
 \backslash
@@ -4589,6 +4593,24 @@ status open
 \end_inset
 
 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Print[tea = Graphics3D[{ White, Opacity[0.6], HalfPlane[{{0, 0, 0}, {1, 0,
+ 0}}, {0, 0, 1}], HalfPlane[{{0, -1, 0}, {1, -1, 0}}, {0, 1, 0}], Yellow,
+ Opacity[0.8], Ball[q = {x = 1, y = 1, h = .8}, .1], Black, AbsoluteThickness[1],
+ Line[{q, {1, 0, h}}], Line[{q, {x, y, 0}}], Black, Opacity[0.8], Text[Style["a",
+ 9], {1, .4, .6}], Text[Style["b", 9], {1, .8, .2}], Text[Style["+q", 9], {x,
+ y + .2, h + .2}] }, Boxed -> False, Method -> {"ShrinkWrap" -> True}, ViewPoint
+ -> {2, .9, .5}, Axes -> True, AxesOrigin -> {0, 0, 0}, AxesLabel -> {"x",
+ "y", "z"}, Ticks -> None, PlotRange -> {{0, 2}, {0, 2}, {0, 2}}, ImageSize
+ -> {100, 100}]]; Export["/home/tom/note/others/pingMian.pdf", tea]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4649,6 +4671,26 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(5.9,-2.9)$) {
+\backslash
+includegraphics[scale=1]{pingMian}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -4663,6 +4705,25 @@ status open
 
 \begin_layout Plain Layout
 17
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Print[tea = Graphics3D[{ White, Opacity[0.6], HalfPlane[{{0, 0, -1}, {1,
+ 0, -1}}, {0, 0, 1}], HalfPlane[{{0, -1, -1}, {1, -1, -1}}, {0, 1, 0}],
+ Yellow, Opacity[0.8], Cuboid[q1 = {1 - (h = .1), 1 - .5 h, .6 - 2 h}, {1 +
+ h, 1 + .5 h, .6 + 2 h}], Yellow, Opacity[0.8], Cuboid[q2 = {1 - (h = .1), 1
+ - .5 h, -.6 - 2 h}, {1 + h, 1 + .5 h, -.6 + 2 h}], Black, AbsoluteThickness[1],
+ Line[{{1, 1, .8}, {2, 2, 1}}], Line[{q2, {2, 2, -1}}] }, Boxed -> False,
+ Method -> {"ShrinkWrap" -> True}, ViewPoint -> {2, .9, .5}, Axes -> True,
+ AxesOrigin -> {0, 0, 0}, AxesLabel -> {"x", "y", "z"}, Ticks -> None, PlotRange
+ -> {{0, 2}, {0, 2}, {-1, 1}}, ImageSize -> {100, 100}]]; Export["/home/tom/note
+/others/DianJiBan.pdf", tea]
 \end_layout
 
 \end_inset
@@ -4785,7 +4846,7 @@ status open
 平面处电流无法向分量，即电场无法向分量：
 \begin_inset Formula 
 \[
-\left.\frac{\partial\varphi}{\partial x}\right|_{x=0}=0,\quad\left.\frac{\partial\varphi}{\partial x}\right|_{y=0}=0
+\left.\frac{\partial\varphi}{\partial x}\right|_{x=0}=0,\quad\left.\frac{\partial\varphi}{\partial y}\right|_{y=0}=0
 \]
 
 \end_inset
@@ -4796,6 +4857,26 @@ status open
  & +q@\left(-x_{0},y_{0},z_{0}\right),\left(x_{0},-y_{0},z_{0}\right),\left(-x_{0},-y_{0},z_{0}\right)\\
  & -q@\left(-x_{0},y_{0},-z_{0}\right),\left(x_{0},-y_{0},-z_{0}\right),\left(-x_{0},-y_{0},-z_{0}\right)
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(5.9,+.5)$) {
+\backslash
+includegraphics[scale=1]{DianJiBan}};
+\end_layout
 
 \end_inset
 
@@ -4816,6 +4897,31 @@ status open
 
 \begin_layout Plain Layout
 18
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Print[tea = SphericalPlot3D[ {HeavisideTheta[
+\backslash
+[Theta] - 
+\backslash
+[Pi]/2], HeavisideTheta[
+\backslash
+[Pi]/2 - 
+\backslash
+[Theta]]}, {
+\backslash
+[Theta], 0, Pi}, {
+\backslash
+[Phi], 0, 2 Pi}, PlotPoints -> 30, PlotStyle -> Opacity[.5], Axes -> None,
+ Mesh -> None, Boxed -> False, ViewPoint -> {0, -2, 0}, Method -> {"ShrinkWrap"
+ -> True}, ImageSize -> {100, 100} ]]; Export["/home/tom/note/others/banQiu.pdf",
+ tea]
 \end_layout
 
 \end_inset
@@ -4902,6 +5008,26 @@ P_{\ell}\left(x\right)=\frac{1}{\ell!}\frac{\dif^{\ell}}{\dif x^{\ell}}\left(\fr
 \end_inset
 
 是偶函数。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(5,+1)$) {
+\backslash
+includegraphics[scale=1]{banQiu}};
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -5075,15 +5201,27 @@ status open
 
 \end_inset
 
+根据
+\begin_inset Formula $P_{n}\left(x\right)$
+\end_inset
+
+的拉普拉斯积分表示：
+\begin_inset Formula 
+\[
+P_{n}\left(\cos\theta\right)=\frac{1}{\pi}\int_{0}^{\pi}\left[\cos\theta+i\sin\theta\cos\psi\right]^{n}\dif\psi.
+\]
+
+\end_inset
+
 当
 \begin_inset Formula $n$
 \end_inset
 
 为整数时，
-\begin_inset Formula $P_{n}\left(1\right)=0$
+\begin_inset Formula $P_{n}\left(1\right)=1$
 \end_inset
 
-，当
+。另外，当
 \begin_inset Formula $n$
 \end_inset
 
@@ -5286,9 +5424,25 @@ f[k_, x_] := (-1)^k*(4 k + 3)/( 2 k + 2)*(2 k - 1)!!/(2 k)!! LegendreP[2
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\sum_{k=0}^{\cdots}\left(-1\right)^{k}\frac{4k+3}{2k+2}\frac{\left(2k-1\right)!!}{\left(2k\right)!!}P_{2k+1}\left(x\right)
+\sum_{k=0}^{m}\left(-1\right)^{k}\frac{4k+3}{2k+2}\frac{\left(2k-1\right)!!}{\left(2k\right)!!}P_{2k+1}\left(x\right)
 \]
 
+\end_inset
+
+
+\begin_inset Formula $m$
+\end_inset
+
+取
+\begin_inset Formula $0\sim20$
+\end_inset
+
+时候的图像：
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace*{}
+\length 3cm
 \end_inset
 
 
@@ -5391,7 +5545,7 @@ G\left(\symbfit{x}^{\prime},\symbfit{x}\right)=\frac{1}{4\pi\varepsilon_{0}}\lef
 status open
 
 \begin_layout Plain Layout
-19
+勒让德多项式的母函数
 \end_layout
 
 \end_inset
@@ -5401,7 +5555,11 @@ status open
 
 \begin_deeper
 \begin_layout Standard
-勒让德多项式的母函数：
+在单位球的北极点放置一点电荷，取单位球的球心为原点，球坐标为
+\begin_inset Formula $\left(r,\theta,\varphi\right)$
+\end_inset
+
+。则球内电势为：
 \begin_inset Formula 
 \[
 \frac{1}{\sqrt{1-2r\cos\theta+r^{2}}}=\sum_{l=0}^{\infty}r^{l}P_{l}\left(\cos\theta\right)

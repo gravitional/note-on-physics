@@ -564,7 +564,7 @@ P_{2n}\left(0\right)=\left(-1\right)^{n}\frac{\left(2n\right)!}{2^{n}n!2^{n}n!}=
 勒让德多项式的微分表示–罗德里格斯公式：
 \begin_inset Formula 
 \[
-P_{l}\left(x\right)=\frac{1}{l!}\frac{\dif^{l}}{\dif x^{l}}\left(\frac{x^{2}-1}{2}\right)^{l}
+P_{\ell}\left(x\right)=\frac{1}{\ell!}\frac{\dif^{\ell}}{\dif x^{\ell}}\left(\frac{x^{2}-1}{2}\right)^{\ell}
 \]
 
 \end_inset
@@ -572,7 +572,7 @@ P_{l}\left(x\right)=\frac{1}{l!}\frac{\dif^{l}}{\dif x^{l}}\left(\frac{x^{2}-1}{
 根据柯西公式，
 \begin_inset Formula 
 \[
-P_{l}\left(x\right)=\frac{1}{2\pi i}\frac{1}{2^{l}}\oint_{C}\frac{\left(z^{2}-1\right)^{l}}{\left(z-x\right)^{l+1}}\dif z
+P_{\ell}\left(x\right)=\frac{1}{2\pi i}\frac{1}{2^{\ell}}\oint_{C}\frac{\left(z^{2}-1\right)^{\ell}}{\left(z-x\right)^{\ell+1}}\dif z
 \]
 
 \end_inset
@@ -580,7 +580,7 @@ P_{l}\left(x\right)=\frac{1}{2\pi i}\frac{1}{2^{l}}\oint_{C}\frac{\left(z^{2}-1\
 还可以进一步表示成定积分
 \begin_inset Formula 
 \[
-P_{l}\left(x\right)=\frac{1}{\pi}\int_{0}^{\pi}\left[\cos\theta+i\sin\theta\cos\psi\right]^{l}\dif\psi.
+P_{\ell}\left(x\right)=\frac{1}{\pi}\int_{0}^{\pi}\left[\cos\theta+i\sin\theta\cos\psi\right]^{\ell}\dif\psi.
 \]
 
 \end_inset
@@ -965,6 +965,24 @@ P_{l}\left(\cos\Theta\right)=\sum_{m=-\ell}^{+\ell}\frac{\left(\ell-m\right)!}{\
 
 \begin_layout Section
 开耳芬函数
+\end_layout
+
+\begin_layout Standard
+gf
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+f[x_, y_] := 11 x*Log10[x]*y (y - 1) + Exp[-((25 x - 25/E)^2 + (25 y - 25/2)^2)^
+3]/25; Plot3D[{f[x, y], f[x, -y + 2]}, {x, 0, 1}, {y, 0, 2}, Mesh -> None,
+ BoxRatios -> Automatic, PlotRange -> {0, 1.1}, ViewAngle -> 0.45, ViewCenter
+ -> {{0.5, 0.5, 0.5}, {0.55, 0.54}}, ViewPoint -> {1., 1.4, 0.95}, ViewVertical
+ -> {0.83, -0.36, -0.42}, Axes -> None, ImageSize -> Large, PlotTheme -> "Classic"]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
