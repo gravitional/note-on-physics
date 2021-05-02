@@ -1232,14 +1232,6 @@ git reset --hard commit
 
 ### 合并前检查
 
-DESCRIPTION
-
-Use git stash when you want to record the current state of the working directory and the index, but want to go back to a clean working directory. The command saves your local modifications away and reverts the working directory to match the HEAD commit.
-
-The modifications stashed away by this command can be listed with git stash list, inspected with git stash show, and restored (potentially on top of a different commit) with git stash apply. Calling git stash without any arguments is equivalent to git stash push. A stash is by default listed as "WIP on branchname …​", but you can give a more descriptive message on the command line when you create one.
-
-The latest stash you created is stored in refs/stash; older stashes are found in the reflog of this reference and can be named using the usual reflog syntax (e.g. stash@{0} is the most recently created stash, stash@{1} is the one before it, stash@{2.hours.ago} is also possible). Stashes may also be referenced by specifying just the stash index (e.g. the integer n is equivalent to stash@{n}).
-
 在应用外部更改之前，您应该使自己的工作空间保持良好状态并在本地提交，这样在发生冲突时不会毁坏文件。
 另请参见`git-stash`。 当本地未提交的更改与`git pull / git merge`可能需要更新的文件重叠时，`git pull`和`git merge`将停止而不进行任何操作。
 为了避免在在合并提交时，记录下不相关的更改，如果相对于`HEAD`在`index`记录了任何更改，则`git pull`和`git merge`也将中止。 （取决于所使用的合并策略，但通常索引必须与`HEAD`匹配。）
@@ -1306,21 +1298,58 @@ Git makes conflict resolution easy.
 唯一可以确定的是，你想表达这事儿很难，你更喜欢去购物，而另一方则想声称这很容易。
 通过将`merge.conflictStyle`配置变量设置为`diff3`，可以使用其他样式。
 
-### HOW TO RESOLVE CONFLICTS
+### 合并策略
 
-After seeing a conflict, you can do two things:
+合并机制（`git merge`和`git pull`命令）允许使用`-s`选项选择后端具体的合并策略。
+一些策略还具有自己的二级选项，可以通过为`git merge`和/或`git pull`提供`-X <option>`参数来传递它们。
 
-+ Decide not to merge. The only clean-ups you need are to reset the index file to the HEAD commit to reverse 2. and to clean up working tree changes made by `2.` and `3.`;
-`git merge --abort` can be used for this.
-+ Resolve the conflicts. Git will mark the conflicts in the working tree.
-Edit the files into shape and git add them to the index.
-Use `git commit` or `git merge --continue` to seal the deal. The latter command checks whether there is a (interrupted) merge in progress before calling `git commit`.
+***
+`resolve`:使用三方合并算法，只能处理两个`head`的情况（即当前分支和要pull的分支）。 它试图仔细检测纠缠的部分，并且通常被认为是安全且快速的。
 
-You can work through the conflict with a number of tools:
+***
+`recursive`: 使用三方合并算法，只能处理两个`head`的情况。 当有一个以上的共同祖先可用于三方合并时，它将创建一个共同祖先的合并树，并将其用作三方合并的参考树。
+据纪录，在`Linux 2.6`内核开发历史中，这样做能减少合并冲突，以及合并错误。 此外，还可以检测和处理涉及重命名的合并，但是当前还无法使用检测到的副本。 
+这是`pulling`或`merging`分支时的默认合并策略。`recursive`策略可以采用以下选项：
+
++ `ours`: 将冲突通过采用`ours`的版本解决。与另一棵树不冲突的变化也会反映在合并结果中。对于二进制文件，全部内容都将来自我们这边。
+`git merge -s recursive -Xours`与`git merge -s ours`合并策略并不相同，`merge -s ours`根本不看另一棵树的内容。它丢弃另一棵树所做的所有操作，只使用我们的提交记录。
++ `theirs`: 与`ours`相反。不过，并没有`git merge -s theirs`合并策略，所以不会混淆.
++ `patience`: 使用此选项，`merge-recursive`会花费一些额外的时间来避免有时由于不重要的匹配行（例如来自不同函数的花括号）而导致的合并错误。
+当要合并的分支出现巨大分歧时，请使用此选项。另请参见`git-diff[1] --patience`。
++ `diff-algorithm=[patience|minimal|histogram|myers]`: 告诉`merge-recursive`使用不同的`diff`算法，这可以帮助避免由于不重要的匹配行（例如，来自不同函数的花括号）而导致的合并错误。另请参见`git-diff[1] --diff-algorithm`。
++ `ignore-space-change`
++ `ignore-all-space`
++ `ignore-space-at-eol`
++ `ignore-cr-at-eol`: 在进行三方合并时，将具有指示的空白类型更改的行视为未更改。空格更改与行的其他更改混合在一起将不被忽略。
+另请参见`git-diff[1] -b, -w, --ignore-space-at-eol`, and `--ignore-cr-at-eol`。
+如果`their`版本的改动都是空白内容, 则使用`our`版本；如果`our`版本引入了空白更改，但`their`版本包含实质性更改，则使用`their`版本；否则，合并将以通常的方式进行。
++ `renormalize`:进行三方合并时，这将对文件的所有三个`stage`进行虚拟`check-out` and `check-in`。当合并具有不同`clean filters`或`end-of-line normalization`规则的分支时，应使用此选项。有关详细信息，请参见`gitattributes[5]`中的`合并具有不同checkin/checkout属性的分支`。
++ `no-renormalize`: 禁用`renormalize`选项。这将覆盖`merge.renormalize`配置变量。
++ `no-renames`: 关闭重命名检测。这将覆盖`merge.renames`配置变量。另请参见`git-diff [1] --no-renames`。
++ `  find-renames[=<n>]`:打开重命名检测，可以选择设置相似性阈值。这是默认值。这将覆盖merge.renames配置变量。另请参见`git-diff[1] --find-renames`。
++ `rename-threshold=<n>`:`find-renames=<n>`的已弃用同义词。
++ `subtree[=<path>]`:此选项是`subtree`策略的一种更高级形式，`subtree`策略会猜测如何平移目录，才能让两棵树在合并时相互匹配。
+此选项可以将特定的路径添加到前缀（或从开头删除）以使两棵树的形状匹配。
+
+***
+`octopus`:这样可以解决具有两个`heads`的情况，但是拒绝执行需要手动解决的复杂合并。它主要用于将`topic`分支头捆绑在一起。当`pulling`或`merging`多个分支时，这是默认的合并策略。
+
+***
+`ours`:该策略可以处理任意数量的`head`，但是合并的结果树始终是当前分支`head`的树，忽略所有其他分支的所有更改。它旨在取代`side branches`的旧开发历史。
+请注意，它与`recursive`合并策略的`-Xours`选项不同。
+
+***
+`subtree`:    这是一种修改的`递归`策略。合并树`A`和`B`时，如果`B`对应于`A`的子树，则首先调整`B`以匹配`A`的树结构，而不是读取相同级别的树。对多个共同祖先树也进行此调整。
+
+***
+对于使用三方合并的策略（包括默认的`recursive`），如果在两个分支上都进行了更改，但随后又在其中一个分支上进行了还原，则该更改将出现在合并结果中。
+有些人觉得这种行为令人困惑。发生这种情况的原因是，执行合并时仅考虑`heads`和`merge base`，而不考虑单独的提交。因此，合并算法将还原后的更改视为完全没有更改，转而使用更改过的版本。
+
+### 如何解决冲突
 
 看到冲突后，您可以做两件事：
 
-+ 决定不合并。 您唯一需要进行的清理工作就是将`index`文件重置为`HEAD` commit以撤消`2`, 并清理`2`和`3`所做的工作树更改。运行`git merge --abort`即可.
++ 决定不合并。 您唯一需要进行的清理工作就是将`index`文件重置为`HEAD` 提交以撤消`2`, 并清理`2`和`3`所做的工作树更改。运行`git merge --abort`即可.
 + 解决冲突。 `Git`将在工作树中标记冲突, 将文件修改好之后将它们添加到`index`中。使用`git commit`或`git merge --continue`完成封印。
 后一个命令在调用`git commit`之前将检查是否有一个（中断的）合并正在进行中。
 
