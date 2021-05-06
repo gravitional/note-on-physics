@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 # 使用 axodraw 画图的常用指令
 # 虚线 \DashLine(10,25)(80,25){2}
@@ -9,8 +9,7 @@
 # 顶点  \Vertex(40,10){1.5} 位置，半径
 # 圆弧 \Arc[arrow,dash,clockwise](40,40)(30,20,160) （圆心），（半径，角度指定）
 
-import os
-import math
+import os,math
 from collections import Iterable
 
 fpath = r'/home/tom/note/axodraw2'

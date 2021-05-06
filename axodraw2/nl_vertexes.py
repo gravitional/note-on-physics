@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 # 使用 axodraw 画图的常用指令
 # 虚线 \DashLine(10,25)(80,25){2}
