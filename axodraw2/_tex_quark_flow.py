@@ -14,7 +14,7 @@ import math
 from collections import Iterable
 
 fpath = r'/home/tom/note/axodraw2'
-tex_name = r"tex_quark_flow.tex"
+tex_name = r"quark_flow.tex"
 file = os.path.join(fpath, tex_name)
 
 fig_size = [100, 200]
@@ -192,13 +192,13 @@ sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
 print(sh_com)
 os.system(sh_com)
 
-# pdfcrop     参数是 left bottom right top, 单位是`point`, A4纸张(mm) =`595.4 point`*`842.1 point`
-sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
-if [ -f "${texbase}.pdf" ]; then \n\
-    pdfcrop --margins 3 --clip --bbox \'250 520 345 680\' "${texbase}.pdf" "${texbase}_cropped.pdf" \n\
-fi \n\
-if [ -f "${texbase}_cropped.pdf" ]; then \n\
-    evince "${texbase}_cropped.pdf" & \n\
-fi\n'
-# 
-os.system(sh_com)
+# # pdfcrop     参数是 left bottom right top, 单位是`point`, A4纸张(mm) =`595.4 point`*`842.1 point`
+# sh_com = 'texbase=$(basename '+tex_name+' ".tex") \n\
+# if [ -f "${texbase}.pdf" ]; then \n\
+#     pdfcrop --margins 3 --clip --bbox \'250 520 345 680\' "${texbase}.pdf" "${texbase}_cropped.pdf" \n\
+# fi \n\
+# if [ -f "${texbase}_cropped.pdf" ]; then \n\
+#     evince "${texbase}_cropped.pdf" & \n\
+# fi\n'
+# # 
+# os.system(sh_com)
