@@ -6,7 +6,7 @@ import math
 from collections import Iterable
 
 fpath = r'/home/tom/note/axodraw2'
-tex_name = r"tex_lagrangian_hamilton.tex"
+tex_name = r"_tex_lagrangian_hamilton.tex"
 file = os.path.join(fpath, tex_name)
 
 fig_size = [300, 300]

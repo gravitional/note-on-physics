@@ -14,7 +14,7 @@ import math
 from collections import Iterable
 
 fpath = r'/home/tom/note/axodraw2'
-tex_name = r"quark_flow.tex"
+tex_name = r"_tex_quark_flow.tex"
 file = os.path.join(fpath, tex_name)
 
 fig_size = [100, 200]
