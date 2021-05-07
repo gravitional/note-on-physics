@@ -428,9 +428,21 @@ canonical order: 在排序中,指一种标准的顺序,比如字母顺序.
 + `gzip -fvr foo.txt `: force,verbose,recursive
 + `zip -r foo.zip a b c ...`
 
-同时用`gunzip`压缩
+创建存档的同时用`gunzip`压缩: `tar -czvf a.tar.gz /etc`.  
+`tar`默认把路径当成相对路径，如果提供的路径为`/home/user/file`, `tar`在创建存档时依次创建这些目录层次，并且去掉开头的`/`, 使用`-P`选项改变默认设置.
+下面讨论一些`tar`的选项：
 
-+ `tar -czvf a.tar.gz /etc`
++ `-P, --absolute-names`:在创建存档时，不去掉领头的`/`.
++ `--no-recursion`:避免自动递归子目录。
++ `--recursion`:递归子目录，默认。
++ `-f, --file=ARCHIVE`: 设置存档用的文件或设备为`ARCHIVE`。
+
+如果未提供`--file=ARCHIVE`，则`tar`将首先检查环境变量`TAPE`。如果`TAPE`不为`null`，其值将用作存档名称。
+否则，`tar`将采用编译的默认值。默认值可以使用`--show-defaults`选项，或在`tar --help`输出的末尾查看。
+用带有`:`的存档名称表示远程计算机上的文件或设备。冒号之前的部分作为机器名称或`IP`地址，其后的部分为文件或设备路径名，例如：`--file=remotehost:/dev/sr0`.
+也可以使用`user@host`，即`用户名@主机名`的形式。默认情况下，通过`rsh(1)`命令访问远程主机。如今通常使用`ssh(1)`代替，可以通过以下选项指定：`--rsh-command=/usr/bin/ssh`。
+远程计算机应安装了`rmt(8)`命令。如果远程机器上`rmt`的路径名与`tar`的默认不匹配，可以通过`--rmt-command`选项来指定正确的路径。
+使用`--force-local`选项: 即使带有`:`号，也认为文件存在于本地。
 
 ***
 解压缩`xxx.tar.gz`
