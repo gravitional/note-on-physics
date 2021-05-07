@@ -67,41 +67,41 @@
 		\diagram*{
 		%普通连线
 		{ [edge= plain]
-		(a1) --[edge label =\(u\)] (a2),(a9)--(a10),(a4)--(a6),
-		(a7) --[edge label =\(d\)] (a2d)--(a3d),(a9) -- (a10),
+		(a1) --[edge label =\(u\)] (a2),(a9)--(a10),(a4)--(a6),(a9) -- (a10),
+		(a7) --[edge label =\(s\)] (a2d)--(a3d),
 		(a11)--[edge label =\(u\)](a2dd),
 		%%%
 		(b3)--(b4),
 		(b1)--[edge label =\(u\)](b2),
-		(b5)--[edge label =\(d\)](b2d),
-		(b7)--[edge label =\(d\)](b2dd),
+		(b5)--[edge label =\(s\)](b2d),
+		(b7)--[edge label =\(u\)](b2dd),
 		%%%
 		(c3)--(c4),
-		(c1)--[edge label =\(u\)](c2),
+		(c1)--[edge label =\(s\)](c2),
 		(c5)--[edge label =\(u\)](c2d),
-		(c7)--[edge label =\(d\)](c2dd),
+		(c7)--[edge label =\(u\)](c2dd),
 		},
 		%费米子箭头连线
 		{ [edge= fermion]
-		(x1) --[edge label =\(p\)](x2)--[edge label =\(n\)](x4) --[edge label =\(p\)](x5),
+		(x1) --[edge label =\(\Sigma^{+}\)](x2)--[edge label =\(\Xi^{0}\)](x4) --[edge label =\(\Sigma^{+}\)](x5),
 		%%%
-		(a3) --[edge label =\(d\)] (a4),(a3d)--(a8),(a11)--(a12),
 		(a2) --[half left,looseness=1.5,edge label =\(u\)](a9),(a8) --[half right,looseness=1.5](a3),
+		(a3) --[edge label =\(s\)] (a4), (a3d)--(a8),(a11)--(a12),
 		%%%
 		(b5)--(b6),(b7)--(b8),
 		(b2) --[half left,looseness=1.5,edge label =\(u\)](b3),
-		(b9) --[half right,looseness=0.9,edge label =\(d\)](b10) --[half right,looseness=0.9](b9),
+		(b9) --[half right,looseness=0.9,edge label =\(s\)](b10) --[half right,looseness=0.9](b9),
 		%%%
-		(y1) --[edge label =\(p\)](y2)--[edge label =\(\Sigma0;\Lambda\)](y4) --[edge label =\(p\)](y5),
+		(y1) --[edge label =\(\Sigma^{+}\)](y2)--[edge label =\(p\)](y4) --[edge label =\(\Sigma^{+}\)](y5),
 		%%%
 		(c5)--(c6),(c7)--(c8),
-		(c2) --[half left,looseness=1.5,edge label =\(u\)](c3),
-		(c9) --[half right,looseness=0.9,edge label =\(s\)](c10) --[half right,looseness=0.9](c9),
+		(c2) --[half left,looseness=1.5,edge label =\(s\)](c3),
+		(c9) --[half right,looseness=0.9,edge label =\(d\)](c10) --[half right,looseness=0.9](c9),
 		},
 		% 介子连线
 		{ [edge= charged scalar]
-		(x2) --[half left,edge label =\(\pi^{+}\)](x4),
-		(y2) --[half left,edge label =\(K^{+}\)](y4),
+		(x2) --[half left,edge label =\(K^{+}\)](x4),
+		(y2) --[half left,edge label =\(\overline{K^{0}}\)](y4),
 		}
 		};
 	\end{feynman}
