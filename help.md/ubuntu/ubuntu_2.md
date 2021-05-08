@@ -163,8 +163,7 @@ Executing `hostname` from the Command Prompt is the easiest way to show the host
 
 ### 硬件概述
 
-`inxi` 命令能够列出包括 CPU、图形、音频、网络、驱动、分区、传感器等详细信息。
-当论坛里的人尝试帮助其他人解决问题的时候，他们常常询问此命令的输出。
+`inxi` 命令能够列出包括 CPU、图形、音频、网络、驱动、分区、传感器等详细信息。当论坛里的人尝试帮助其他人解决问题的时候，他们常常询问此命令的输出。
 
 ```bash
 inxi -Fxz

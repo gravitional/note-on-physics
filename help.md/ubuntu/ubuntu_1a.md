@@ -579,7 +579,6 @@ sudo dmesg
 ```
 
 [Ubuntu 18.04 如何添加或删除 SWAP 交换分区](https://www.sysgeek.cn/ubuntu-18-04-swap/)
-
 [Linux系统制作Ubuntu18.04启动盘](https://blog.csdn.net/xiaoma_2018/article/details/85059930)
 
 ```bash
