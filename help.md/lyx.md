@@ -2,65 +2,48 @@
 
 使用 LyX 须知: 
 
-1. lyx 具有极好的文档--使用它。点击帮助--介绍按钮,将会得到一个简明的介绍。
-然后通过 帮助--教程 学习使用 lyx。
-1. lyx 是一个"文档处理系统 "。在设计上,它跟通常的文字处理系统不同--它可以让写作变得更容易。但是区别也不是天翻地覆的,不要怕。文档会告诉你怎么使用。
-1. lyx的输出比较好看。使用菜单里的 文档--查看[PDF(pdflatex)]或者点击工具栏按钮,亲自试试看。
-1. 没错,lyx可以模仿`LaTex`几乎所有的功能。并且能够导入LaTeX文件。
-latex老司机可以瞄一眼下面的教程就行了。然后阅读 "LyX for LaTeX Users"一章。
-(对于别的读者:不用担心,你不必礼教LaTeX 才能使用LyX。)
-1. lyx有许多特性,为非英语使用者提供便利。另外,键盘组合,工具栏和许多其他特性都是高度可定制的。见 Help->Cuttomization
-1. lyx 主页是http://www.lyx.org/. Get information about LyX, subscribe to the LyX mailing list(s), take the LyX Graphical Tour, and more
-1. Linux 用户请注意: 请检查 latex 发行版 texlive 的语言包是否安装,否则会得到latex 错误。例如在linux发行版(K,X)Ubuntu and Debian上,the package name for the German language is "texlive-lang-german。
-安装完语言包后,必须使用LyX menu Tools->Reconfigure 来更新。
+1. `LyX` 具有极好的文档--使用它。点击`Help--Introduction`按钮,将会得到一个简明的介绍。然后通过`Help-Tutorial`学习使用 `LyX`。
+1. `LyX` 是一个`文档处理系统`。在设计上,它跟通常的文字处理系统不同--它可以让写作变得更容易。但是区别也不是天翻地覆的,不要怕。帮助文档会告诉你如何使用。
+1. `LyX`的输出更加好看。使用菜单里的`Document--View[PDF(pdflatex)]`或者点击工具栏上的`眼睛`按钮,亲自试试看。
+1. `LyX`可以模仿几乎所有的`LaTex`功能。并且能够导入`LaTeX`件。`LaTeX`老司机简单浏览下面的教程就可以了。然后阅读 `LyX for LaTeX Users`一章。(对于别的读者:不用担心,你不必精通`LaTeX`才能使用`LyX`)。
+1. `LyX` 的许多特性为非英语使用者提供便利。另外,按键绑定以及工具栏等许多其他特性都是高度可定制的，参见 `Help->Cuttomization`。
+1. `LyX` 主页是[http://www.lyx.org/](http://www.lyx.org/). 可以用来获取有关`LyX`的信息，订阅 LyX mailing list(s)，参加 LyX Graphical Tour 等等。
+2. `Linux` 用户请注意: 请检查 `LaTeX` 发行版 `TeXLive` 的语言包是否安装,否则`LaTeX`可能会报错。例如在`Linux`发行版`(K,X)Ubuntu`和`Debian`上,`German`语言的包为`texlive-lang-german`。安装完语言包后, 需要使用`LyX`菜单栏中的`Tools->Reconfigure` 来更新。重装`TeXLive`等操作之后，也需要`Tools->Reconfigure`。
 
-## Introduction to LyX
+## LyX 介绍 
 
-### The Philosophy of LyX
+### LyX 的理念
 
-LyX 是文档准备系统,适合用来打公式,交叉引用,参考文献,索引。
-
-lyx 背后的理念是: 指定你在做什么,而不是怎么做。
+`LyX` 是文档准备系统,适合用来打公式,交叉引用,参考文献,索引。lyx 背后的理念是: 指定你的意愿，而不是具体怎么实现。
 Instead of "What You See Is What You Get," the LyX model is "What You See Is What You Mean" or "WYSIWYM."
 
-+ `Emphasized Style` is used for general emphasis, generic arguments, book titles, names of sections of other manuals, 
-and notes from the authors.
-+ `Typewriter` is used for program and file names, LyX code and functions.
-+ `Sans Serif` is used for menu, button, or dialog box names, and the names of keyboard keys.
-+ `Noun Style` is used for people's names.
-+ `Bold` is used for LaTeX code
++ `Emphasized Style` 用于一般强调，一般论点，书籍标题，其他手册各节的名称，和作者的注释.
++ `Typewriter` 用于程序和文件名，`LyX`代码和功能。
++ `Sans Serif` 用于菜单，按钮或对话框的名称以及键盘键的名称。
++ `Noun Style` 用于表示人的名字。
++ `Bold` 用于 `LaTeX` 代码。
 
-## Getting started with LyX
+## LyX 入门
 
-## Writing Documents
+## 创建文档
 
 ### 脚注
 
-脚注可以复制粘贴,可以把普通文字变成脚注--通过点击工具栏上的按钮。
-也可以把脚注变成普通文字,通过 backspace 或者 delete
+脚注可以复制粘贴,通过点击工具栏上的按钮, 可以把普通文字变成脚注。也可以把脚注变成普通文字,通过 `backspace` 或者 `delete`，去掉脚注框。
 
 ### 数学
 
 ### 杂项
 
-LyX is heavily configurable, 从窗口外观到输出结果样式都是多种方式定制的。
+`LyX` 是高度可定制的, 从窗口外观到输出结果样式都可以按多种方式定制。
 
-Much configuration is done through `Tools->Preferences`. 
-For more information on this, check out `Help->Customization`.
-The LyX menus feature keybindings. 
-
-This means that you can do `File->Open` by pressing `Alt+F` followed by `O` or by using the binding which is shown next to it in the menu (`Ctrl+O` by default). 
-
-Keybindings are also configurable. 
-For information on this, check out `Help->Customization`.
+大部分配置通过`Tools->Preferences`完成。有关此的更多信息，请查看`Help->Customization`。LyX菜单中的操作支持按键绑定。
+这意味着您可以通过按`Alt+F`松开手接着按下`O`或使用菜单旁边显示的快捷键绑定(默认为`Ctrl+O`)来执行`File->Open`。
+按键绑定也是可配置的。有关此信息，请查看`Help->Customization`。
 
 ### SVG Converter
 
-安装软件 inkscape
-
-In the Section Converters
-
-依次填写以下转换规则
+安装软件 `inkscape`, 在设置的`Converters`部分，依次填写以下转换规则
 
 ***
 From: SVG
@@ -94,39 +77,37 @@ You need to  maybe `reconfigure`  and restart LyX.
 
 ### 字体
 
-`Edit`--`Text Style`  or `Alt-E-S-C`
+调整字体外观：`Edit`--`Text Style`  or `Alt-E-S-C`.
 
-Family: The "overall look" of the font. The possible options are,
+`Family`:字体的"整体外观"。 可能的选择是，
 
-+ Roman This is the Roman font family. Normally a serif font. It's also the default family. (key binding `Alt+C R`)
-+ Sans Serif This is the Sans Serif font family. (key binding `Alt+C S`)
-+ Typewriter This is the Typewriter font family. (key binding `Ctrl+Shift+P`)
-
-***
-Series: This corresponds to the print weight. Options are:
-
-+ Medium This is the Medium font series. It's also the default series.
-+ Bold This is the Bold font series. (key binding `Ctrl+Alt+B`)
++ `Roman`: 罗马字体家族。 通常是衬线字体。 这也是默认的`family`。 （快捷键为`Alt+C R`）
++ `Sans Serif`: 无衬线字体. （快捷键为 `Alt + C S`）
++ `Typewriter`: 打字机字体，即等宽字体，带有`mono`后缀的字体。 （快捷键为 `Ctrl+Shift+P`）
 
 ***
-Shape: As the name implies. Options are:
+`Series`: 对应于打印的`weight`。 选项有：
 
-+ Upright This is the Upright font shape. It's also the default shape.
-+ Italic This is the Italic font shape.
-+ Slanted This is the Slanted font shape (although it might not be visible in LyX, this is different from italic).
-+ Small Caps This is the Small caps font shape.
++ `Medium`: 中等宽度， 这也是默认`series`。
++ `Bold`: 粗体 （快捷键为`Ctrl+Alt+B`）
 
-### 插入latex code
+***
+`Shape`：顾名思义。 选项有：
+
++ `Upright`: 直立字体形状。 这也是默认形状。
++ `Italic`:斜体形状。
++ `Slanted`: 倾斜字体形状（它与`italic`不同，尽管在`LyX`编辑器中可能看不出来）。
++ `Small Caps`: 小型大写字母形状。
+
+### 插入 LaTeX 代码
 
 `ctrl+L` or `Insert->Tex code`
 
 ## 插入各种特殊格式
 
-`lyx note`: Insert--Note-Lyx Note
-
-`Institute mark`: (Insert->Custom Insets->InstituteMark)
-
-还可以插入 `Short Author`, `Short Date`,但要在相应的`Author` or `Date`环境中,`Insert`菜单中才有相应条目
++ `lyx note`: 插入`Lyx`备注.
++ `机构标志`: (`Insert->Custom Insets->InstituteMark`)
++ 还可以插入 `Short Author`, `Short Date`,但要在相应的`Author` or `Date`环境中,`Insert`菜单中才有相应条目
 
 ## lyx pdf 预览问题
 
@@ -141,7 +122,7 @@ Shape: As the name implies. Options are:
 
 ### 添加转换器
 
-可以通过在命令行中运行LyX来获取有关转换过程的更多信息: 
+可以通过在命令行中运行 `LyX` 来获取有关转换过程的更多信息: 
 
 ```bash
 lyx -dbg graphics
