@@ -643,6 +643,56 @@ seagull/.pic={
 -- (2,1) pic [red] {seagull};
 ```
 
+### 定义新的Pic类型
+
+如`pic`命令说明中所述，要定义新的`pic`类型，您需要
+
+1. 定义一个路径前缀为`/tikz/pics`的`key`，
+2. 将`/tikz/pics/code`设置为`pic`的`code`。
+ 
+这可以使用`.style` handler 实现：
+
+```latex
+\tikzset{
+  pics/seagull/.style ={
+      % 当调用 seagull 的时候，下面的代码会设置 seagull 的 code key:
+      code = { %
+          \draw (...) ... ;
+        }
+    }
+}
+```
+
+一些简单的情况下，可以直接使用`.pic` handler,
+
+```latex
+\tikzset{
+    seagull/.pic = {
+    \draw (...) ... ;
+  }
+}
+```
+
+此`handler`只能对带有`/tikz/`前缀的`key`一起使用，因此通常应将其用作`TikZ`命令或`\tikzset`命令的选项。 
+它使用`<key>`的路径，并把其中的`/tikz/`替换为`/tikz/pics/`。最终得到一个`style`，能够执行`code = some code`。
+大多数情况下，`.pic`handler足以设置`keys`。 但是，在某些情况下确实需要使用第一个版本:
+
++ 当您的图片类型需要设置`foreground`或`background`代码时。
++ 如果给`key`提供了复杂的参数
+
+例如：
+
+```latex
+\tikzset{
+    pics/my circle/.style = {
+    background code = { \fill circle [radius=#1]; }
+  }
+}
+\tikz [fill=blue!30]
+```
+
+这里给`my circle`使用了参数。
+
 ## key 管理
 
 ### key 简述
