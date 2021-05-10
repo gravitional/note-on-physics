@@ -1,0 +1,87 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{tikz-feynman} % texdoc tikz-feynman 
+\begin{document}
+
+\tikzset{
+	pics/figChpt/.style n args={3}{
+			code={
+					\begin{feynman}
+						\vertex (x1) at (0,0);
+						\vertex[right =1cm  of x1] (x2);
+						\vertex[right =2.5cm  of x1] (x3);
+						\vertex[right =4cm  of x1] (x4);
+						\vertex[right =5cm  of x1] (x5);
+						\node[below  right = 2pt ] at (x1) {#1};
+						\node[below  = 2pt ] at (x3) {#2};
+						\node[below  left= 2pt ] at (x5) {#1};
+						\node[above = 1.35cm ] at (x3) {#3};
+						% 对各个顶点连线
+						\diagram*{
+						%费米子箭头连线
+						{ [edge= fermion]
+								(x1) --(x2)--(x4) --(x5),
+							},
+						% 介子连线
+						{ [edge= charged scalar]
+						(x2) --[half left,](x4),
+						}
+						};
+					\end{feynman}
+				}
+		},
+	pics/figQrkA/.style n args={4}{
+			code={
+					\begin{feynman}
+						%% 子图 a
+						\vertex (a1) at (0,0);
+						\vertex[right =1  of a1] (a2);
+						\vertex[above =-0.5  of a2] (a2d);
+						\vertex[above =-0.5  of a2d] (a2dd);
+						\vertex[right =1.4  of a1] (a3);
+						\vertex[above =-0.5  of a3] (a3d);
+						\vertex[right =3.6  of a1] (a4) ;
+						\vertex[right =4  of a1] (a5) ;
+						\vertex[right =5  of a1] (a6);
+						\vertex[above =-0.5 of a1] (a7);
+						\vertex[right =3.6 of a7] (a8);
+						\vertex[right =4 of a7] (a9);
+						\vertex[right =5 of a7] (a10);
+						\vertex[above =-0.5 of a7] (a11);
+						\vertex[right =5 of a11] (a12);
+						\node[above right =0.7 and 4.2 of a1] {#4};
+						\node[above right =0.5pt and 1pt of a1] {#1};
+						\node[above right =0.5pt and 1pt of a7] {#2};
+						\node[above right =0.5pt and 1pt of a11] {#3};
+                        %%额外的标注
+                        \node[above right =1.1 and 0.82 of a3] {#1};
+                        \node[above right =1 pt and .82 of a3] {#2};
+						% 对各个顶点连线
+						\diagram*{
+						%普通连线
+						{ [edge= plain]
+								(a1) --(a2),(a9)--(a10),(a4)--(a6),
+								(a7) -- (a2d)--(a3d),(a9) -- (a10),
+								(a11)--(a2dd)
+							},
+						%费米子箭头连线
+						{ [edge= fermion]
+						(a3) -- (a4),(a3d)--(a8),(a11)--(a12),
+						(a2) --[half left,looseness=1.5](a9),(a8) --[half right,looseness=1.5](a3),
+						}
+						};
+					\end{feynman}
+				}
+		}
+}
+
+\begin{tikzpicture}
+	\path (0,0) pic {figChpt = {$p$}{$n$}{$\pi^{+}$} } ;
+	\path (0,-2.5) pic {figQrkA = {$d$}{$u$}{$u$}{${(a)}$} } ;
+
+\end{tikzpicture}
+
+\end{document}
+
+

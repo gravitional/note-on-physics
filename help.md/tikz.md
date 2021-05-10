@@ -1,4 +1,4 @@
-# tikz
+# texdoc tikz
 
 用来替换`pdf` 粘贴过程额外`h..i`的正则表达式
 
@@ -7,203 +7,11 @@
 <$1>
 ```
 
-## tikz 示例教程
+## Tutorial Karl
 
-[TiKZ入门教程 ][]
+### 路径命令
 
-[TiKZ入门教程 ]: https://www.latexstudio.net/archives/9774.html
-
-安装`texlive`
-
-我们先从一个最简单的例子开始：画一条直线。 代码如下：
-
-```latex
-\documentclass[tikz,border=10pt]{standalone} % 生成自动裁剪过的pdf
-\usepackage{tikz}
-\begin{document}
-    \begin{tikzpicture}
-        \draw (0,0) -- (1,1);
-    \end{tikzpicture}
-\end{document}
-```
-
-这样,我们得到了一个`pdf`文件,我们用`pdf2svg`工具将其转换为`svg`格式的矢量图。
-带`\`的都是LaTeX的宏命令,这段代码的核心就一句话 `\draw (0,0) -- (1,1)`;
-这句话的意思就是从`(0,0)`到`(1,1)`画一条线段。我们还可以画的稍微复杂一点：
-
-```latex
-\documentclass[tikz,convert=pdf2svg]{standalone}
-\usepackage{tikz}
-\begin{document}
-    \begin{tikzpicture}
-        \draw [color=blue!50,->](0,0) node[left]{$A$}-- node [color=red!70,pos=0.25,above,sloped]{Hello}(3,3) node[right]{$B$};
-    \end{tikzpicture}
-\end{document}
-```
-
-输出：可以看到,`\draw`后面的方括号中跟的是对线的一些设置,`color=blue!50`表示的是用`50%`的蓝色,因为LaTeX中,`%`用作了注释,所以这里用`!`替代,
-
-`->`表示的是线形是一个箭头,我们注意到,在起点坐标,`-–`,终点坐标后面,我们分别加入了一个`node`元素,起点后面的`node`表示的是加入一个标示,它在坐标点`(0,0)`的左边,`--`后面的`node`采用`70%`的红色,位置在线段的上方`0.25`的位置,随线段倾斜,花括号中是`node`的文字,为`Hello`,终点坐标同理。
-
-`node`经常用于加入一些标注,这一点我们在后面将会看到。
-
-### 一些复杂的形状
-
-在TikZ中,除了画线段之外,还支持各种复杂的形状,下面一个例子给出了一些常见的形状：
-
-```latex
-\documentclass[tikz,convert=pdf2svg]{standalone}
-\usepackage{tikz}
-\begin{document}
-    \begin{tikzpicture}
-        \draw (0,0) circle (10pt);     %画一个圆心在原点,半径为10pt的圆；
-        \draw (0,0) .. controls (1,1) and (2,1) .. (2,0);       %画一个起点为(0,0),终点为(2,0),控制点为(1,1),(2,1)的贝塞尔曲线；
-        \draw (0,0) ellipse (20pt and 10pt);       %画一个中心在原点,长轴、短轴分别为20pt和10pt的椭圆；
-        \draw (0,0) rectangle (0.5,0.5);       %画一个从(0,0)到(0.5,0.5)的矩形
-        \filldraw[fill=green!20!white, draw=green!50!black](0,0) -- (3mm,0mm) arc (0:30:3mm) -- cycle;
-        %画一个扇形,并填充,扇形的边色和填充色的透明度不同。
-    \end{tikzpicture}
-\end{document}
-```
-
-### 属性预定义
-
-在刚才的例子中我们看到,随着我们对样式需求的多样化,属性越来越长,而且多个实体之间往往具有相同的属性,这样一来,我们希望能预定义一个属性集合,到时候直接赋给相应的实体,`TikZ`本身就是个宏,因此它为我们提供了强大的属性定义功能,来看这段代码：
-
-```latex
-\documentclass[tikz,convert=pdf2svg]{standalone}
-\usepackage{tikz}
-\begin{document}
-    \begin{tikzpicture}
-    [
-    L1Node/.style={circle,   draw=blue!50, fill=blue!20, very thick, minimum size=10mm},
-    L2Node/.style={rectangle,draw=green!50,fill=green!20,very thick, minimum size=10mm}
-    ]
-       \node[L1Node] (n1) at (0, 0){$\int x dx$};
-       \node[L2Node] (n2) at (2, 0){$n!$};
-    \end{tikzpicture}
-\end{document}
-```
-
-输出：在这段代码中,我们在最开始定义了两个名为`L1Node`和`L2Node`的属性,在生成`node`结点的时候直接填到属性的位置即可。
-
-### 循环
-
-TikZ相比于Viso的一个优势就在于其循环功能,Viso里面要循环画十个圆就得复制十次,还要调节各自的位置,如果遇到需要调整位置又得重来,TikZ这种命令行的方式能直接画出来,如果需要调整位置,更改参数即可,我们在上一个例子上生成十个结点：
-
-```latex
-\documentclass[tikz,convert=pdf2svg]{standalone}
-\usepackage{tikz}
-\begin{document}
-    \begin{tikzpicture}
-    [
-    L1Node/.style={circle,   draw=blue!50, fill=blue!20, very thick, minimum size=10mm},
-    L2Node/.style={rectangle,draw=green!50,fill=green!20,very thick, minimum size=10mm}
-    ]
-       \foreach \x in {1,...,5}
-        \node[L1Node] (w1_\x) at (2*\x, 0){$\int_\Omega x_\x$};
-    \end{tikzpicture}
-\end{document}
-```
-
-### node树
-
-node结点不但可以用于添加标识,还可以来绘制树形图,下面看一个例子
-
-```latex
-\documentclass[tikz,convert=pdf2svg]{standalone}
-\usepackage{tikz}
-\begin{document}
-    \begin{tikzpicture}
-        \node {root}
-            child {node {a1}}
-            child {node {a2}
-                child {node {b1}}
-                child {node {b2}}}
-            child {node {a3}};
-    \end{tikzpicture}
-\end{document}
-```
-
-稍微加点样式：
-
-```latex
-\documentclass[tikz,convert=pdf2svg]{standalone}
-\usepackage{tikz}
-\begin{document}
-    \begin{tikzpicture}
-    [every node/.style={fill=blue!30,draw=blue!70,rounded corners},
-     edge from parent/.style={blue,thick,draw}]
-        \node {root}
-            child {node {a1}}
-            child {node {a2}
-                child {node {b1}}
-                child {node {b2}}}
-            child {node {a3}};
-    \end{tikzpicture}
-\end{document}
-```
-
-### 绘制函数图像
-
-TikZ提供了强大的函数绘制功能,下面的代码展示了如何绘制函数,当然,绘制数据图表并非TikZ擅长的事情,也并非其设计初衷,TikZ着眼于定性的图表,定量数据的演示还是用其他工具绘制较好。
-
-```latex
-\documentclass[tikz]{standalone}
-\usepackage{tikz}
-\begin{document}
-    \begin{tikzpicture}[domain=0:4]
-  \draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
-  \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
-  \draw[->] (0,-1.2) -- (0,4.2) node[above] {$f(x)$};
-  \draw[color=red]    plot (\x,\x)             node[right] {$f(x) =x$};
-  % \x r 表示弧度
-  \draw[color=blue]   plot (\x,{sin(\x r)})    node[right] {$f(x) = \sin x$};
-  \draw[color=orange] plot (\x,{0.05*exp(\x)}) node[right] {$f(x) = \frac{1}{20} \mathrm e^x$};
-\end{tikzpicture}
-\end{document}
-```
-
-TikZ提供了图的支持,通过类似于`dot`语言的方式来生成图关系
-
-```latex
-\documentclass[tikz]{standalone}
-\usepackage{tikz}
-\usetikzlibrary{graphs}
-\begin{document}
-\begin{tikzpicture}
-    \graph {
-        "$x_1$" -> "$x_2$"[red] -> "$x_3,x_4$";
-        "$x_1$" ->[bend left] "$x_3,x_4$";
-    };
-\end{tikzpicture}
-\begin{tikzpicture}
-    \graph  {
-     a -> {
-        b -> c,
-        d -> e
-     } -> f
-    };
-\end{tikzpicture}
-\end{document}
-```
-
-[各种更样的示例](http://www.texample.net/tikz/examples/)
-
-```latex
-\coordinate [label=left:{$a$}](a) at (0,0);
-\draw (a) circle (0.5);
-\node[inner color=white, outer color=orange,inner sep=0.5cm] (b) at (5,2){$b$};
-\draw (a)--(b);
-\draw (a) .. controls (1,3) and (5,5) .. (b);
-\draw (a) -| (b);
-\draw (a)|- (b);
-```
-
-## tikz 教程
-
-32
-tikz中，路径就是一连串的坐标，在路径的开头可以选择
+p32, `tikz`中，`path`就是一连串的坐标，在路径的开头可以选择:
 
 + `\path` 什么也不做
 + `\draw` 画出路径
@@ -227,15 +35,18 @@ tikz中，路径就是一连串的坐标，在路径的开头可以选择
 `\draw (0,0) rectangle (0.5,0.5);`
 `\draw[step=.5cm] (-1.4,-1.4) grid (1.4,1.4);`
 
-自定义格式 35
+自定义格式, \tikzset,p35
 
 ```latex
-help lines/.style={color=blue!50,very thin} %在环境内部任意地方定义格式
+help lines/.style={color=blue!50,very thin} %在环境内部任意地方定义格式, 后面可以调用
 \tikzset{help lines/.style=very thin} %在文档开头，定义全局格式
 \tikzset{Karl's grid/.style={help lines,color=blue!50}} %格式可以嵌套
+\draw[step=.5cm,gray,very thin] (-1.4,-1.4) grid (1.4,1.4); % 使用 grid 绘制 参考格子
 ```
 
-绘制选项 36
+### 颜色线型等
+
+绘制选项, p36
 
 ```latex
 %颜色
@@ -259,7 +70,9 @@ densely dotted
 dash pattern
 ```
 
-剪切出图形的某一部分
+### 放大部分区域
+
+剪切出图形的某一部分,clip
 
 ```latex
 \draw[clip] (0.5,0.5) circle (.6cm);
@@ -267,7 +80,9 @@ dash pattern
 ...
 ```
 
-抛物线 38
+### 画抛物线
+
+抛物线,parabola, p38
 
 ```latex
 \tikz \draw (0,0) rectangle (1,1)(0,0) parabola (1,1);
@@ -288,25 +103,236 @@ arc [start angle=0, end angle=30, radius=3mm] -- cycle;
 \end{tikzpicture}
 ```
 
-过渡颜色 39
+### 渐变色
+
+渐变色,shade,p39 
 
 ```latex
 \shadedraw[left color=gray,right color=green, draw=green!50!black](0,0) -- (3mm,0mm)
 ```
 
-定义命令，相对坐标指定
+### 相对坐标
+
+定义命令，相对坐标指定, p40
 
 ```latex
-(30:1cm |- 0,0) % 垂直线与水平线的交点
-\def\rectanglepath{-- ++(1cm,0cm) -- ++(0cm,1cm) -- ++(-1cm,0cm) -- cycle} %%连续相对坐标
-\def\rectanglepath{-- +(1cm,0cm) -- +(1cm,1cm) -- +(0cm,1cm) -- cycle} %% 同源相对坐标
+(30:1cm |- 0,0) % 垂直线与水平线的交点，|- 左边的坐标对应铅垂线，右边的对应水平线。
+\def\rectanglepath{-- ++(1cm,0cm) -- ++(0cm,1cm) -- ++(-1cm,0cm) -- cycle} %% 连续的相对指定，后一个坐标相对于前一个，使用 \def 在任意地方定义一个命令替换。
+\def\rectanglepath{-- +(1cm,0cm) -- +(1cm,1cm) -- +(0cm,1cm) -- cycle} %% 基于相同root的相对坐标，后面几个坐标相对于同一个最初坐标
 ```
+
+### 路径交点
+
+路径的交点, 使用`name path`在后面引用.
+
+可以使用`(1,{tan(30)})`这种坐标形式, `tikz`的数学引擎可以处理`tan(30)`，但是外面需要包围一层`{}`，否则会与坐标的语法冲突。一般情况中，遇到含有`()`的坐标，也需要用`{}`包裹起来。
+
+```latex
+% 在导言区 \tikz 后面添加 \usetikzlibrary{intersections}
+\path [name path=upward line] (1,0) -- (1,1); % 给第一条路径命名, \path 只计算路径，不进行实际描绘.
+\path [name path=sloped line] (0,0) -- (30:1.5cm);  % 第二条路径，画得稍微长一点，保证有交点
+\draw [name intersections={of=upward line and sloped line, by=x}] [very thick,orange] (1,0) -- (x);
+```
+
+***
+添加箭头, 通过`->`选项，可以指定在路径末端加上箭头。
+
+```latex
+\usetikzlibrary {arrows.meta}
+\begin{tikzpicture}[>=Stealth]
+\draw [->] (0,0) arc [start angle=180, end angle=30, radius=10pt];
+\draw [<<-,very thick] (1,0) -- (1.5cm,10pt) -- (2cm,0pt) -- (2.5cm,10pt);
+\end{tikzpicture}
+```
+
+### 作用域
+
+p42, scope,
+可以给选项设置作用范围, 如果想让整个环境都生效，可以把选项传递给`\tikz`命令或者`{tikzpicture}`环境。
+如果希望定义一个局部环境，可以使用`{scope}`环境. 例如:
+
+```latex
+\begin{tikzpicture}[ultra thick]
+\draw (0,0) -- (0,1);
+\begin{scope}[thin] % 在这里给出选项
+\draw (1,0) -- (1,1);
+\draw (2,0) -- (2,1);
+\end{scope}
+\draw (3,0) -- (3,1);
+\end{tikzpicture}
+```
+
+`\clip`的生效范围也受`\scope`的控制，只在`scope`范围内有效。
+类似于`\draw`的选项，其实不是`\draw`的选项，而是提供给`path`的选项，可以在路径命令序列的任何地方提供。大部分`graphic`选项是对整个路径生效的，所以选项的位置不重要。
+例如，下面三种用法是等价的。如果同时给出`thick` and `thin`，后一个覆盖前一个的效果。
+
+```latex
+\begin{tikzpicture}
+\draw[thin] (0,0) --(1,0);
+\draw (0,1) [thin] --(1,1);
+\draw (0,2) --(1,2) [thin];
+\end{tikzpicture}
+```
+
+大部分图形选项应用于整个路径，而所有的变形选项,`transformation` 只作用于跟在其后的路径片段。
+
+### 路径变形
+
+路径变形选项。
+图像的最后位置是由`TikZ`, `TeX`, `PDF`共同决定的。tikz 提供了一些选项可以在自己的坐标系统内变换图像的位置. 并且运行在路径中途修改变换方式。例如:
+
+```latex
+\begin{tikzpicture}[even odd rule,rounded corners=2pt,x=10pt,y=10pt]
+\filldraw[fill=yellow!80!black] (0,0)  rectangle (1,1) [xshift=5pt,yshift=5pt]  (0,0)  rectangle (1,1) [rotate=30]   (-1,-1) rectangle (2,2);
+\end{tikzpicture}
+```
+
+这类选项有：
+
++ `xshift`,`yshift`:用来平移
++ `shift`: 平移到指定的点，如`shift={(1,0)}, shift={+(1,0)},`，必须加上`{}`，以避免`TeX`把坐标解析成两个选项。
++ `rotate`: 旋转特定角度。以及`rotate around`:绕指定的点旋转。
++ `scale`: 放大或者缩小指定的倍数。以及`xscale`, `yscale`。`xscale=-1`表示翻转。
++ `xslant`, `yslant`：倾斜
++ `cm`: 指定任意的变换矩阵。
+
+### 循环
+
+`latex`本身有循环的命令，`pstricks`具有`\multido`命令。`tikz`也引入了自己的循环命令`\foreach`，它定义在`\pgffor`中，`\tikz`会自动`\include`这个命令。
+语法是`\foreach \x in {1,2,3} {$x =\x $,}`. 循环区域用列表指定， 要循环的指令也放在一个`{}`中。如果不用`{}`包裹，就把下一个`;`之前的命令当作循环指令。例如下面的语句绘制一个坐标系：
+
+```latex
+\begin{tikzpicture}[scale=3]
+\draw[step=.5cm,gray,very thin] (-1.4,-1.4) grid (1.4,1.4);
+\draw[->] (-1.5,0) -- (1.5,0);
+\draw[->] (0,-1.5) -- (0,1.5);
+\foreach \x in {-1cm,-0.5cm,1cm}
+\draw (\x,-1pt) -- (\x,1pt);
+\foreach \y in {-1cm,-0.5cm,0.5cm,1cm}
+\draw (-1pt,\y) -- (1pt,\y);
+\end{tikzpicture}
+```
+
+也可以结合平移使用:
+
+```latex
+\foreach \x in {-1,-0.5,1} \draw[xshift=\x cm] (0pt,-1pt) -- (0pt,1pt);
+```
+
+`\foreach`也可以使用`c`式的范围指定：`{a,...,b}`，必须使用无量纲的实数。 `{1,3,...,11}`则可以指定步长。两种语法可以混合，例如:
+
+```latex
+\tikz \foreach \x in {1,3,...,11} \draw (\x,0) circle (0.4cm);
+```
+
+循环可以嵌套：
+
+```latex
+\begin{tikzpicture}
+\foreach \x in {1,2,...,5,7,8,...,12}
+\foreach \y in {1,...,5}
+{
+  \draw (\x,\y) +(-.5,-.5) rectangle ++(.5,.5);
+  \draw (\x,\y) node{\x,\y};
+}
+\end{tikzpicture}
+```
+
+为了方便，还有一种`key/value`型的循环语法：`foreach \key/\value in {1/a,2/b,3/c}`，`key/value`用`/`分隔开。在每一次循环中，`\key`和`\value`的值将一一对应。
+如果循环域中，某一项只给出了`key`，会默认`value`等于`key`.
+
+### 添加文字
+
+添加文字可以使用`\node`命令，也可以用来添加任意形状。通常的用法是`\node[选项]{文字}`. `\node`会放在当前位置，也就是`\node`命令前面的那个坐标上。
+当所有路径`draw/fill/shade/clipped/whatever`完成之后，才绘制`\node`，所以`\node`的图层在最上面。
+
++ 可以使用类似于`anchor=north`指定`\node`的哪一个锚点放在前面给定的坐标上。也可以使用`below=1pt`直接指定`\node`的相对偏移。
++ 如果担心图形上的其他元素干扰了`node`的辨识度，可以给`node`加上`[fill=white]`选项，绘制一个白色的背景。
++ 如果把`\node`放在`--`后面，默认会将`\node`的位置放在这条线段的中点。可以使用`pos=`选项控制具体的位置，也可以使用`near start`, `near end`等等指定大概位置。
++ 还可以使用`[above, sloped]`选项，使曲线上方的`\node`贴合曲线斜率。例如：
+
+```latex
+\begin{tikzpicture}
+\draw (0,0) .. controls (6,1) and (9,1) .. 
+node[near start,sloped,above] {near start} node {midway} 
+node[very near end,sloped,below] {very near end} (12,0);
+\end{tikzpicture}
+```
+
+如果`\node`中的文本量比较大，需要控制换行，可以使用类似`text width=6cm`的选项控制`\node`宽度。完整的例子为:
+
+```latex
+\begin{tikzpicture}
+  [scale=3,line cap=round,
+    % 定义一些对象的格式
+    axes/.style=,
+    important line/.style={very thick},
+    information text/.style={rounded corners,fill=red!10,inner sep=1ex}]
+  % 定义一些对象的颜色
+  \colorlet{anglecolor}{green!50!black}
+  \colorlet{sincolor}{red}
+  \colorlet{tancolor}{orange!80!black}
+  \colorlet{coscolor}{blue}
+  % 开始画图
+  \draw[help lines,step=0.5cm] (-1.4,-1.4) grid (1.4,1.4);
+  \draw (0,0) circle [radius=1cm];
+  \begin{scope}[axes]
+    \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$} coordinate(x axis);
+    \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$} coordinate(y axis);
+    \foreach \x/\xtext in {-1, -.5/-\frac{1}{2}, 1}
+    \draw[xshift=\x cm] (0pt,1pt) -- (0pt,-1pt) node[below,fill=white] {$\xtext$};
+    \foreach \y/\ytext in {-1, -.5/-\frac{1}{2}, .5/\frac{1}{2}, 1}
+    \draw[yshift=\y cm] (1pt,0pt) -- (-1pt,0pt) node[left,fill=white] {$\ytext$};
+  \end{scope}
+  \filldraw[fill=green!20,draw=anglecolor] (0,0) -- (3mm,0pt)
+  arc [start angle=0, end angle=30, radius=3mm];
+  \draw (15:2mm) node[anglecolor] {$\alpha$};
+  \draw[important line,sincolor]
+  (30:1cm) -- node[left=1pt,fill=white] {$\sin \alpha$} (30:1cm |- x axis);
+  \draw[important line,coscolor]
+  (30:1cm |- x axis) -- node[below=2pt,fill=white] {$\cos \alpha$} (0,0);
+  \path [name path=upward line] (1,0) -- (1,1);
+  \path [name path=sloped line] (0,0) -- (30:1.5cm);
+  \draw [name intersections={of=upward line and sloped line, by=t}]
+  [very thick,orange] (1,0) -- node [right=1pt,fill=white]
+  {$\displaystyle \tan \alpha \color{black}=
+      \frac{{\color{red}\sin \alpha}}{\color{blue}\cos \alpha}$} (t);
+  \draw (0,0) -- (t);
+  \draw[xshift=1.85cm]
+  node[right,text width=6cm,information text]
+  {
+    The {\color{anglecolor} angle $\alpha$} is $30^\circ$ in the
+    example ($\pi/6$ in radians). The {\color{sincolor}sine of
+        $\alpha$}, which is the height of the red line, is
+    \[
+      {\color{sincolor} \sin \alpha} = 1/2.
+    \]
+    By the Theorem of Pythagoras ...
+  };
+\end{tikzpicture}
+```
+
+### pic: 图形复用
+
+`pic`是`picture`的简称。通过预先定义的图片名字，可以在指定的地方复用图形。例如:
+
+```latex
+\usetikzlibrary {angles,quotes}
+\begin{tikzpicture}[scale=3]
+\coordinate (A) at (1,0);
+\coordinate (B) at (0,0);
+\coordinate (C) at (30:1cm);
+\draw (A) -- (B) -- (C)
+pic [draw=green!50!black, fill=green!20, angle radius=9mm,"$\alpha$"] {angle = A--B--C};
+\end{tikzpicture}
+```
+
+这里调用了`angles` and `quotes`库。前者预定义了`angle`图形，后者可以简化参数输入为`"标记"`，而不需要输入`label text="标记"`。
+`{angle = A--B--C}`表示`angle`是`BA`和`BC`的夹角。 `\coordinate`用于声明一个坐标点，可以在后文引用。
 
 ## tikz 设计原则
 
-page 124
-
-TikZ遵循以下基本设计原则：
+page 124, `TikZ` 遵循以下基本设计原则：
 
 1. 用于指定`points`的特殊语法。
 2. 指定`path`的特殊语法。
@@ -320,9 +346,7 @@ TikZ遵循以下基本设计原则：
 
 ## scope 作用范围
 
-131 Using Scopes to Structure a Picture
-
-如果不生效的话，可以尝试在导言区添加
+131 Using Scopes to Structure a Picture. 如果`scope`不生效的话，可以尝试在导言区添加
 
 ```latex
 \usetikzlibrary {scopes}
@@ -339,69 +363,10 @@ TikZ遵循以下基本设计原则：
 上面例子中,选项 `rounded corners` 的作用范围受到花括号的限制,并且颜色选项 red 没有起到作用,这是因为 `\draw` 的默认颜色是 `draw=black`,颜色 `black` 把 `red` 覆盖了。
 还要注意开启 scope 的符号组合`{[...]`要放在坐标点之后、`--`之前。
 
+
 ## 坐标计算
 
 148
-
-## tikz 图形对齐
-
-[LaTeX中tikz画的图放在公式环境中如何和公式对齐](https://www.zhihu.com/question/381314763/answer/1096658439)
-
-```latex
-\documentclass{ctexart}
-\usepackage{adjustbox}
-\usepackage{tikz}
-
-\makeatletter
-\newcommand\valignWithTikz[1]{%
-  text \tikzcircle{#1} text, $a^2 + \tikzcircle{#1} + b^2$ \par
-}
-\newcommand\tikzcircle[1]{%
-  \tikz[#1] \draw (0, 0) circle (.5);
-}
-
-\newcommand\sep{\par\hspace*{10em}}
-\makeatother
-
-\begin{document}
-\subsection*{默认效果}
-绘图底部和文字基线对齐 \sep
-  \valignWithTikz{}
-
-\subsection*{使用 \texttt{baseline} 选项}
-\verb|\tikz[baseline=(current bounding box.center)]| \sep
-  \valignWithTikz{baseline=(current bounding box.center)}
-调整纵向偏移,\verb|\tikz[baseline={([yshift=-.5ex]current bounding box.center)}]| \sep
-  \valignWithTikz{baseline={([yshift=-.5ex]current bounding box.center)}}
-
-\subsection*{使用 \texttt{\char`\\adjustbox} 命令的 \texttt{valign} 选项}
-\renewcommand{\tikzcircle}[1]{%
-  \adjustbox{valign=#1}{\tikz \draw (0, 0) circle (.5);}%
-}
-\verb|\adjustbox{valign=M}{\tikz ...}| \sep
-  \valignWithTikz{M}
-\verb|\adjustbox{valign=m}{\tikz ...}| \sep
-  \valignWithTikz{m}
-\end{document}
-```
-
-### 例子
-
-```latex
-\begin{equation}
-\begin{aligned}
--i M^2 (p^2)=
-\adjustbox{valign=M}{
-\feynmandiagram [layered layout, horizontal=b to c] {
-a -- [photon, momentum=\(p\)] b
--- [fermion, half left, momentum=\(k\)] c
--- [fermion, half left, momentum=\(k-p\)] b,
-c -- [photon, momentum=\(p\)] d,
-
-}};
-\end{aligned}
-\end{equation}
-```
 
 ## 指定坐标点
 
@@ -654,11 +619,116 @@ Decoration markings
 或者
 `arc(<start angle>:<end angle>:<x radius> and <y radius>)`
 
-## tikz-feynman
+## Pics: 复用图形组件
 
-添加动量 key, 连线的 label
+p263, `pic`是`picture`的简称。通过预先定义的图片名字，可以在指定的地方复用图形。例如先定义一个海鸥的形状：
 
-```tikz
-(b2) --[half right, momentum'={\scriptsize \(k\)} ](b4),
-(d) -- [boson, bend left, edge label=\(W^{+}\)] (c2)
+```latex
+\tikzset{
+seagull/.pic={
+% Code for a "seagull". Do you see it?...
+\draw (-3mm,0) to [bend left] (0,0) to [bend left] (3mm,0);
+}
+}
 ```
+
+使用`\tikzset`定义的是全局的，整个文档都可以调用。然后调用它：
+
+```latex
+\tikz \fill [fill=blue!20]
+(1,1)
+-- (2,2) pic {seagull}
+-- (3,2) pic {seagull}
+-- (3,1) pic [rotate=30] {seagull}
+-- (2,1) pic [red] {seagull};
+```
+
+## key 管理
+
+### key 简述
+
+p975. `key` 就是`tikz`中的各种关键字，它们是通过包`pgfkeys`管理的。`\usepackage{pgfkeys}`。
+
+`key`的例子：`/tikz/coordinate system/x`，或者只用写`/x`. 这种写法类似于`Unix`上的文件路径。可以使用绝对路径，也可以使用相对路径。`tikz`的`key`名称经常包含空格。
+调用`key`使用`\pgfkeys`命令。`pgfkeys`接受`key=value`形式的参数。例如:
+
+```latex
+\pgfkeys{/my key=hallo, /your keys=something\strange, others=something else}
+```
+
+可以在`key`中存储一些`code`，通常用`handler`来管理`key`的内容。例如:
+
+```latex
+\pgfkeys{/my key/.code=The value is '#1'.}
+\pgfkeys{/my key=hi!}
+```
+
+有许多`handler`可以用来定义`key`。例如，我们可以定义一个具有多个参数的`key`:
+
+```latex
+\pgfkeys{/my key/.code 2 args=The values are '#1' and '#2'.}
+\pgfkeys{/my key={a1}{a2}}
+```
+
+常用`handler`有:
+
++ `.default`:提供默认值。
++ `/.value required`:必须指定参数.
++ `/.value forbidden`:不能指定参数。
+
+`tikz`的所有`key`都以`/tikz`开头。然而不必每次都显式加上这个前缀，可以使用`/.cd`来声明默认目录。
+
+```latex
+\pgfkeys{/tikz/.cd,line width=1cm, linecap=round}
+```
+
+当`handle`一个`key`时，除了直接执行某些代码，也可以递归调用另一些`keys`, 这种`key`被称为`styles`。`styles`本质上就是`key`的列表。例如:
+
+```latex
+\pgfkeys{/a/.code=(a:#1)}
+\pgfkeys{/b/.code=(b:#1)}
+\pgfkeys{/my style/.style={/a=foo,/b=bar,/a=#1}}
+\pgfkeys{/my style=wow}
+```
+
+`.styles`也可以带有参数`#1`，如同普通的`.code`.
+
+### The Key Tree
+
+p975, `key`的组织方式类似`Unix`. `/a/b.../x`中，前面的`/a/b.../`是`路径`，后面的`x`是`名称`.
+`pgfkeys`包中有一些内部命令，如`\pgfkeyssetvalue`，`\pgfkeyslet`等等。但是通常用户不需要直接调用这些命令.
+
+简要提一下`\def`, `\let`,`\edef`三个命令：[What is the difference between \let and \def](https://tex.stackexchange.com/questions/258/what-is-the-difference-between-let-and-def)
+`\let`相当于直接赋值，右边的式子计算之后赋给左边. `\def`命令相当于mma中的`SetDelay`即`:=`，会在被调用时重新计算。
+`\edef`是`expand def`的缩写，也就是赋值之前右边的式子会被展开。
+
+### Key Handlers
+
+p984, 常用的 `key handler`:
+
++ `<key>/.cd`: 设置默认路径为`key`.
++ `<key>/.is family`：当使用`key`时，当前路径被设置为`key`,效果同`<key>/.cd`.
++ `<key>/.default=<值>` :设置`key`的默认值。例如`\pgfkeys{/width/.default=1cm}`
++ `<key>/.value required`: 表明必须赋值。
++ `<key>/.value forbidden`: 表明禁止赋值。
++ `<key>/.code=<代码>`: 添加代码，可以有一个参数`#1`
++ `<key>/.code 2 args=<代码>`:表示有两个参数`{#1}{#2}`，如果第二个未给出，将会是空字符。如果传入`first`，第一个参数将是`f`，第二个将是`irst`，所以需要用`{}`包裹起来。
++ `<key>/.code n args={<m>}{<代码>}`:传入`m`个参数`{#1}{#2}{#3}...`，`m`为`0`~`9`，不能多也不能少，空格也可以作为参数。
++ `<key>/.code args={<参数模式>}{<代码>}`:可以指定任意的参数模式，比如`(#1/#2)`,调用对应的写成`(first/second)`, 空格将被去掉。
++ `<key>/.add code={<前缀代码>}{<后缀代码>}`：将代码添加到已经存在的`key`.
++ `<key>/.prefix code=<前缀代码>`: 类似`.add code`，但只添加前缀。
++ `<key>/.append code=<后缀代码>`: 类似`.add code`，但只添加后缀。
+
+其中 `.code 2 args`和`.code args`的区别见下面的例子：
+
+```latex
+\pgfkeys{/page size/.code 2 args={\paperheight=#2\paperwidth=#1}}
+\pgfkeys{/page size={30cm}{20cm}}
+% 同样的定义，使用 .code args
+\pgfkeys{/page size/.code args={#1 and #2}{\paperheight=#2\paperwidth=#1}}
+\pgfkeys{/page size=30cm and 20cm}
+```
+
+### Defining Styles
+
+`.style`是`key`的列表，它的`handler`和`key`基本相同，只需要作替换`.code`->`.style`
