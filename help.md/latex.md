@@ -377,9 +377,9 @@ texdoc texbytopic
 
 [LaTeX2e unofficial reference manual (October 2018)](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html)
 
-12.1 \newcommand & \renewcommand
+`12.1 \newcommand & \renewcommand`
 
-语法,使用下面形式中的一个:
+语法为:
 
 ```latex
 \newcommand{\cmd}{defn}
@@ -390,9 +390,7 @@ texdoc texbytopic
 \newcommand*{\cmd}[nargs][optargdefault]{defn}
 ```
 
-or one of these.
-
-```bash
+```latex
 \renewcommand{\cmd}[nargs]{defn}
 \renewcommand{\cmd}[nargs]{defn}
 \renewcommand{\cmd}[nargs][optargdefault]{defn}
@@ -419,7 +417,7 @@ or one of these.
 
 Here the first command definition has no arguments, and the second has one required argument.
 
-```bash
+```latex
 \newcommand{\student}{Ms~O'Leary}
 \newcommand{\defref}[1]{Definition~\ref{#1}}
 ```
