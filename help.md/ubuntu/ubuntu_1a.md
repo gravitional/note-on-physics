@@ -587,7 +587,7 @@ sudo fdisk -l
 # 然后卸载掉 U 盘：
 sudo umount /dev/sdb*
 # U 盘格式化：
-sudo mkfs.vfat /dev/sdb -I
+sudo mkfs.vfat /dev/sdb -I # 使用 -I 选项创建
 #完成格式化后查看磁盘信息：
 # 最后使用 dd 命令制作启动盘：
 sudo dd if=ubuntu-18.04.1-desktop-amd64.iso of=/dev/sdb bs=10M

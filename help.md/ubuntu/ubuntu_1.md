@@ -834,7 +834,7 @@ umount /dev/sda5
 
 通过`df`可以查看设备挂载点
 
-### U盘格式化
+### U盘格式化 exFAT
 
 [将 USB 盘格式化为 exFAT](https://linux.cn/article-12294-1.html)
 
@@ -870,7 +870,7 @@ sudo apt install exfat-fuse exfat-utils
 + `mkfs.exfat`:格式化成`exfat`.
 + `mkfs.fat`:格式化成`fat32`.
 
-`man mkfs.exfat`会发现，`mkfs.exfat`的同义词`mkexfatfs`.如果分区表是`MBR`类型的，需要将文件系统类型设置为`0X07`(NTFS/exFAT)，否则其他操作系统可能会拒绝挂载。
+`man mkfs.exfat`会发现，`mkfs.exfat`的同义词`mkexfatfs`. 如果分区表是`MBR`类型的，需要将文件系统类型设置为`0X07`(`NTFS/exFAT`)，否则其他操作系统可能会拒绝挂载。
 仍然假设U盘分区为`/dev/sdc1`，使用以下命令将它格式化为 `exfat`。
 
 ```bash
