@@ -665,58 +665,57 @@ $
 
 `GNU Parted` 是创建和处理分区表的程序。 `GParted`是`GUI`前端。 
 
-`Parted` 有两种模式：命令行和交互，请用下面命令启动：`#`表示超级用户模式
+`Parted` 有两种模式：命令行和交互,请用下面命令启动：`#`表示超级用户模式
 
 ```bash
 # parted device  # device 是要编辑的硬盘设备,例如 /dev/sda 
 ```
 
 ***
-`命令行模式`: 在命令行模式下，可以同时执行一个或多个命令：
+`命令行模式`: 在命令行模式下,可以同时执行一个或多个命令：
 
 ```bash
 # parted /dev/sda mklabel gpt mkpart P1 ext3 1MiB 8MiB 
 ```
 
 ***
-`交互模式`: 交互模式简化了分区过程，可以自动对设备执行分区操作。打开需要新建分区表的设备：
+`交互模式`: 交互模式简化了分区过程,可以自动对设备执行分区操作。打开需要新建分区表的设备：
 
 ```bash
 sudo parted /dev/sdx
 ```
 
 命令提示符会从 (`#`) 变成 (`parted`): 要查看可用的命令：`(parted) help`
-完成操作后，用下面命令退出：`(parted) quit`.
+完成操作后,用下面命令退出：`(parted) quit`.
 
-如果命令没带参数，`Parted` 会进行询问：
+如果命令没带参数,`Parted` 会进行询问：
 
 ```bash
 (parted) mklabel
 New disk label type? gpt
 ```
 
-`parted 2.4` 开始，当使用`MiB`, `GiB`, `TiB` 等 `IEC`(国际电工委员会)单位时，`parted` 会使用精确数值，不进行修正，它们是`2`次幂的容量单位.
-而使用`4GB`这样的设置时，可能会有前后`500MB`的误差。所以在创建分区时，应该指定比特(`B`),扇区(`s`)或`IEC`二进制单位`MiB`，不要使用`MB`,`GB。 
+`parted 2.4` 开始,当使用`MiB`, `GiB`, `TiB` 等 `IEC`(国际电工委员会)单位时,`parted` 会使用精确数值,不进行修正,它们是`2`次幂的容量单位.
+而使用`4GB`这样的设置时,可能会有前后`500MB`的误差。所以在创建分区时,应该指定比特(`B`),扇区(`s`)或`IEC`二进制单位`MiB`,不要使用`MB`,`GB。 
 
 ***
-`创建新分区表`: 如果设备没有分区，或者要改变分区表类型，重建分区结构，需要新建分区表。
+`创建新分区表`: 如果设备没有分区,或者要改变分区表类型,重建分区结构,需要新建分区表。
 
 + 打开分区: `# parted /dev/sdx`:
 + 为 `BIOS` 系统创建 `MBR/msdos` 分区表：`(parted) mklabel msdos`
 + 为`UEFI`系统创建 `GPT` 分区表：`(parted) mklabel gpt`
 
-***
-分区方案:
+### 分区方案
 
-您可以决定磁盘应该分为多少个区，每个分区如何映射至目录（一般称此为挂载点），取决于您的分区方案。需要满足：
+您可以决定磁盘应该分为多少个区,每个分区如何映射至目录（一般称此为挂载点）,取决于您的分区方案。需要满足：
 
-+ 至少需要创建一个 `/` (`root`) 目录，有些分区类型和`启动加载器`(`bootloader`)组合有额外的分区要求：
++ 至少需要创建一个 `/` (`root`) 目录,有些分区类型和`启动加载器`(`bootloader`)组合有额外的分区要求：
 + `BIOS/GPT`+`GRUB`: 需要按照 `BIOS` 启动分区设置 的方式创建一个 `1M` 或 `2M` 的 `EF02` 类型分区.
-+ `UEFI` 的主板，需要一个 `EFI` 系统分区.
-+ 如果您需要加密磁盘，则必须加以调整分区方案。系统安装后，也可以再配置加密文件夹，容器或 `home` 目录。
++ `UEFI` 的主板,需要一个 `EFI` 系统分区.
++ 如果您需要加密磁盘,则必须加以调整分区方案。系统安装后,也可以再配置加密文件夹,容器或 `home` 目录。
 
-系统需要需要 `/boot`、`/home` 等目录， [Arch 文件系统架构](https://man.archlinux.org/man/file-hierarchy.7) 有各目录的详细介绍。
-如果没有创建单独的`/boot` 或 `/home` 分区，这些目录直接放到了根分区下面
+系统需要需要 `/boot`、`/home` 等目录, [Arch 文件系统架构](https://man.archlinux.org/man/file-hierarchy.7) 有各目录的详细介绍。
+如果没有创建单独的`/boot` 或 `/home` 分区,这些目录直接放到了根分区下面
 
 用下面命令打开 `parted` 交互模式：
 
@@ -726,22 +725,22 @@ New disk label type? gpt
 
 用下面命令创建分区：`(parted) mkpart part-type fs-type start end`
 
-+ `part-type` 是分区类型，可以选择 `primary`, `extended` 或 `logical`，仅用于 `MBR `分区表.
-+ `fs-type` 是文件系统类型，支持的类型列表可以通过 `help mkpart` 查看。 `mkpart` 并不会实际创建文件系统， `fs-type` 参数仅是让 `parted` 设置一个 `1-byte` 编码，让启动管理器可以提前知道分区中有什么格式的数据。参阅 Wikipedia:Disk partitioning#PC partition types.
++ `part-type` 是分区类型,可以选择 `primary`, `extended` 或 `logical`,仅用于 `MBR `分区表.
++ `fs-type` 是文件系统类型,支持的类型列表可以通过 `help mkpart` 查看。 `mkpart` 并不会实际创建文件系统, `fs-type` 参数仅是让 `parted` 设置一个 `1-byte` 编码,让启动管理器可以提前知道分区中有什么格式的数据。参阅 Wikipedia:Disk partitioning#PC partition types.
 Tips: 大多数 Linux native file systems 对应的分区码相同 (`0x83`), 所以对一个 ext4 格式的分区使用例如 ext2 类型是安全的.
 
-+ `start` 是分区的起始位置，可以带单位, 例如 `1M` 指 `1MiB`.
-+ `end` 是设备的结束位置(不是与 `start` 值的差)，同样可以带单位，也可以用百分比，例如 `100%` 表示到设备的末尾。
-+ 为了不留空隙，分区的开始和结束应该首尾相连。
++ `start` 是分区的起始位置,可以带单位, 例如 `1M` 指 `1MiB`.
++ `end` 是设备的结束位置(不是与 `start` 值的差),同样可以带单位,也可以用百分比,例如 `100%` 表示到设备的末尾。
++ 为了不留空隙,分区的开始和结束应该首尾相连。
 
-Warning: 分区不相互重叠是很重要的：如果您不想在设备中留下未使用的空间，请确保每个分区从上一个分区的结尾处开始。如果看到下面警告：
+Warning: 分区不相互重叠是很重要的：如果您不想在设备中留下未使用的空间,请确保每个分区从上一个分区的结尾处开始。如果看到下面警告：
 
 ```bash
 Warning: The resulting partition is not properly aligned for best performance.
 Ignore/Cancel?
 ```
 
-表示分区没对齐，请参照分区对齐进行修正。
+表示分区没对齐,请参照分区对齐进行修正。
 
 下面命令设置 `/boot` 为启动目录：
 
@@ -749,12 +748,12 @@ Ignore/Cancel?
 (parted) set <partition> boot on
 ```
 
-`<partition>` 是分区的编号，从 `print` 命令获取。
+`<partition>` 是分区的编号,从 `print` 命令获取。
 
 ***
 UEFI/GPT 示例
 
-首先需要一个`EFI`系统分区.如果是和 `Windows` 双系统启动，此分区已经存在，不要重新创建。用下面命令创建分区 (建议大小是 `512MiB` )。
+首先需要一个`EFI`系统分区.如果是和 `Windows` 双系统启动,此分区已经存在,不要重新创建。用下面命令创建分区 (建议大小是 `512MiB` )。
 
 ```bash
 (parted) mkpart ESP fat32 1M 513M
@@ -767,7 +766,7 @@ UEFI/GPT 示例
 (parted) mkpart primary ext4 513M 100%
 ```
 
-也可以`/`(`20GiB`)，剩下的给 `/home`：
+也可以`/`(`20GiB`),剩下的给 `/home`：
 
 ```bash
 (parted) mkpart primary ext4 513M 20.5G
@@ -792,7 +791,7 @@ UEFI/GPT 示例
 (parted) set 1 boot on
 ```
 
-`/` (`20Gib`)分区，剩下的给 `/home`：
+`/` (`20Gib`)分区,剩下的给 `/home`：
 
 ```bash
 (parted) mkpart primary ext4 1M 20G
@@ -813,9 +812,64 @@ UEFI/GPT 示例
 ***
 双启动 Windows XP
 
-如果您打算将一个同属于启动分区的 Windows XP 分区移动到另一块硬盘，只要将以下的注册表删除，之后就可以用 GParted 轻易地操作，Windows 不会出现任何问题: 
+如果您打算将一个同属于启动分区的 Windows XP 分区移动到另一块硬盘,只要将以下的注册表删除,之后就可以用 GParted 轻易地操作,Windows 不会出现任何问题: 
 
     HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices
+
+### 调整分区
+
+警告： 若要调整分区,必须先停止使用并卸载它。如果无法卸载（比如,它被挂载到 `/`,使用安装介质或者备用系统。 ）
+
+注意：
+
++ 使用 `parted`,你只能移动分区的末尾.
++ 在 parted v4.2 `resizepart` 可能需要使用#Interactive `mode`
++ 这些说明适用于格式为`ext2`,`ext3`或 `ext4` 文件系统的分区。
+
+如果要扩展分区,则必须先调整`分区`的大小,然后再调整其上的`文件系统`的大小; 
+如果要缩小分区,必须先调整`文件系统`的大小,再调整`分区`,以避免数据丢失。
+
+***
+扩展分区（在 `parted` 交互模式下）：
+
+```bash
+(parted) resizepart number end
+```
+
+其中 `number` 是您正在扩展的分区的编号,而 `end` 是该分区的新末端（需要大于旧的末端）。
+
+然后,扩展此分区上的文件系统：
+
+```bah
+# resize2fs /dev/sdaX size
+```
+
+`sdaX` 代表您正在扩展的分区,而 `size` 是分区的新大小。
+
+***
+缩小分区上的文件系统：
+
+```bash
+# resize2fs /dev/sdaX size
+```
+
+其中 `sdaX` 代表您要缩小的分区,而 `size` 是该分区的新大小。
+
+然后缩小分区（在 `parted` 交互模式下）：
+
+```bash
+(parted) resizepart number end
+```
+
+其中 `number` 是您要缩小的分区的编号,而 `end` 是该分区的新末端（需要小于旧末端）。
+
+完成后,使用 `util-linux` 中的 `resizepart` 命令告诉内核新的分区大小：
+
+```bash
+# resizepart device number size
+```
+
+其中 `device` 是保存分区的设备,`number` 是分区的编号, `size` 是分区的新大小。 
 
 ### 用mkfs命令创建一个新的文件系统
 
@@ -824,7 +878,7 @@ UEFI/GPT 示例
 为此,我们会使用 `mkfs`(make file system 的简写),它能创建各种格式的文件系统. 
 在此设备上创建一个 `ext3`文件系统,我们使用`-t` 选项来指定这个`ext3`系统类型,随后是我们要格式化的设备分区名称:
 
-创建`ext4`格式的文件系统，可以使用`mkfs.ext4 `
+创建`ext4`格式的文件系统,可以使用`mkfs.ext4 `
 
 ```bash
 $ sudo mkfs -t ext3 /dev/sdb1
@@ -1455,8 +1509,8 @@ Last login: Mon Sep 08 13:23:11 2008
 ### scp 和  sftp
 
 这个 `OpenSSH` 软件包也包含两个程序,它们可以利用 `SSH` 加密通道在网络间复制文件. 第一个:`scp`(安全复制)被用来复制文件,与熟悉的 `cp` 程序非常相似.
-最显著的区别就是源或者目标路径名要以远端主机的名字`remote-sys`开头,后跟一个**冒号**字符开头. 这里的`remote-sys`可以写在 `ssh` 的配置文件中，后面会讲如何配置 `~/.ssh/config`.
-比如复制远程服务器`dell`下的`~/Desktop/draft.lyx`这个文件到当前目录`.`，下面的方法都是可以的
+最显著的区别就是源或者目标路径名要以远端主机的名字`remote-sys`开头,后跟一个**冒号**字符开头. 这里的`remote-sys`可以写在 `ssh` 的配置文件中,后面会讲如何配置 `~/.ssh/config`.
+比如复制远程服务器`dell`下的`~/Desktop/draft.lyx`这个文件到当前目录`.`,下面的方法都是可以的
 
 ```bash
 scp tom@192.168.218.191:~/Desktop/draft.lyx .
@@ -1522,8 +1576,8 @@ Linux 文档项目提供了 Linux 网络管理指南,可以广泛地(虽然过�
 
 [Linux下通过IPv6使用SSH和SCP](http://beanocean.github.io/tech/2014/10/17/scp_ipv6/)
 
-解决这个问题的主要思路有两个，第一个是在路由器上设置`NAT`，进行端口映射；
-第二个便是利用`IPv6`登录。其中，`IPv6`的方式最方便（Linux默认是开启`IPv6`服务的），无须多余设置，只需要知道`IPv6`地址即可。
+解决这个问题的主要思路有两个,第一个是在路由器上设置`NAT`,进行端口映射；
+第二个便是利用`IPv6`登录。其中,`IPv6`的方式最方便（Linux默认是开启`IPv6`服务的）,无须多余设置,只需要知道`IPv6`地址即可。
 具体方法如下：（假设`IPv6`地址为`2101:da8:a000:12:bc26:9915:4b1d:64cc`）
 
 ***
@@ -1546,7 +1600,7 @@ scp [username]@[IPv6_Host]:[file_path] [target_path]
 scp lg@\[2101:da8:a000:12:bc26:9915:4b1d:64cc\]:/home/lg/example.c ~/home/lg/src
 ```
 
-这里需要注意的是，由于`IPv6`地址中的冒号和`host`中的冒号有冲突，需要用中括号加转义字符的方式把`IPv6`的地址括起来。
+这里需要注意的是,由于`IPv6`地址中的冒号和`host`中的冒号有冲突,需要用中括号加转义字符的方式把`IPv6`的地址括起来。
 
 ### 补充:ssh的使用
 
@@ -1943,7 +1997,7 @@ $ find ~ -type f -iname "\*.JPG" -size +1M | wc -l
 + `-type c` 匹配的文件类型是 `c`.
 + `-user name` 匹配的文件或目录属于某个用户.这个用户可以通过用户名或用户 ID 来表示.
 + `-maxdepth 0 ` 表示只应用在`开始点`列表本身。
-+ `-mindepth  1` 表示排除开始点列表，测试其余
++ `-mindepth  1` 表示排除开始点列表,测试其余
 
 这不是一个完整的列表.`find` 命令手册有更详细的说明.
 
@@ -2164,26 +2218,26 @@ find ~ -type f -name 'foo*' -exec ls -l '{}' +
 
 ### find 补充
 
-find 有一些称为`Global option`（全局选项）的选项，对于出现在前面的Test，它们仍然会产生影响。
-如果你把它放在别的位置，`find`会报出警告。它应该被放在`star points...`后面，也就是文件列表的后面。
+find 有一些称为`Global option`（全局选项）的选项,对于出现在前面的Test,它们仍然会产生影响。
+如果你把它放在别的位置,`find`会报出警告。它应该被放在`star points...`后面,也就是文件列表的后面。
 
 `...`表示一个参数可以有多个
 
 诸如 `-maxdepth levels`,`-mindepth levels`都是全局参数。
 
 `-maxdepth 0 ` 表示只应用在`开始点`列表本身
-`-mindepth  1` 表示排除开始点列表，测试其余
+`-mindepth  1` 表示排除开始点列表,测试其余
 
-因为经常遇到文件名中包含空格，所以有一个常用操作
+因为经常遇到文件名中包含空格,所以有一个常用操作
 
 ```bash
 find ./ -mindepth 1 -maxdepth 1 -type f -iname '*.jpg' -print0 | xargs --null ls -l
 ```
 
-通过指定分隔符为`null`(ASCII`0`)，来构建参数列表
+通过指定分隔符为`null`(ASCII`0`),来构建参数列表
 
 ***
-`man find`中有一个例子，解释了`-printf`操作的`％f`和`％h`格式指令:
+`man find`中有一个例子,解释了`-printf`操作的`％f`和`％h`格式指令:
 
 ```bash
 $ find . .. / /tmp /tmp/TRACE compile compile/64/tests/find -maxdepth 0 -printf '[%h][%f]\n'
@@ -2210,7 +2264,7 @@ gfind /usr/local/texlive/2020/texmf-dist/fonts/{opentype/,truetype/} -mindepth 1
 ```
 
 ***
-按照`fontname.txt`文件中给出的地址，批量生成符号链接.
+按照`fontname.txt`文件中给出的地址,批量生成符号链接.
 
 ```bash
 for font in $(cat fontname.txt); do
@@ -2260,13 +2314,13 @@ find ~ -iname '*.jpg' -print0 | xargs --null ls -l
 ```
 
 使用这项技术,我们可以保证所有文件,甚至那些文件名中包含空格的文件,都能被正确地处理.
-例如在latex 编译脚本里，可以这么用
+例如在latex 编译脚本里,可以这么用
 
 ```
 find . -iname '*.tex' -printf '%f\0' | xargs --null echo
 ```
 
-其中 `-printf '%f\0'` 指定输出格式为 不带路径的文件名，然后用ASCII`null`分隔。
+其中 `-printf '%f\0'` 指定输出格式为 不带路径的文件名,然后用ASCII`null`分隔。
 
 所有可以用的格式指定为
 
@@ -2322,7 +2376,7 @@ A `\' character followed by any other character is treated as an ordinary charac
 %Y     File's type (like %y), plus follow symlinks: L=loop, N=nonexistent
 %Z     (SELinux only) file's security context.
 
-如果要使用通配符，需要用括号包住，或者进行转义(escape)，否则shell 会将路径名展开，find 会接受到错误的参数列表。
+如果要使用通配符,需要用括号包住,或者进行转义(escape),否则shell 会将路径名展开,find 会接受到错误的参数列表。
 
 比如`find . -name *.c  -print`会被shell 展开为类似于：`find . -name frcode.c locate.c word_io.c -print`
 这将会使`find`报错.
@@ -2331,10 +2385,10 @@ A `\' character followed by any other character is treated as an ordinary charac
 + `$ find . -name '*.c' -print`
 + `$ find . -name \*.c -print`
 
-`escape`:逃脱，逃离，避开，即避免`shell`对提供的字符串进行各种处理。
+`escape`:逃脱,逃离,避开,即避免`shell`对提供的字符串进行各种处理。
 
 ***
-例子：抽取所有子文件，即把子目录的所有文件复制到当前目录下
+例子：抽取所有子文件,即把子目录的所有文件复制到当前目录下
 
 `find ./  -type f -print0 | xargs -0 cp -t . --backup=t `
 

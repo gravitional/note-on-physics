@@ -1643,7 +1643,7 @@ sudo parted --list
 运行 `gedit /etc/fstab`, 查找其中带有`swap`的行。它应该在第三列, 用空格或制表符分隔。您可以使用路径或`UUID`来告诉`Linux`在哪里找到交换分区。建议使用`UUID`，因为即使您移动分区或磁盘之后，`sdb`变成`sda`，`UUID`也将保持不变。
 如果您使用的是UUID，则您的代码行应如下所示：
 
-    UUID = 41e86209-3802-424b-9a9d-d7683142dab7无swap sw 0 0
+    UUID=41e86209-3802-424b-9a9d-d7683142dab7 none swap sw 0 0
 
 或使用路径：
 
