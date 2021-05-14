@@ -2113,7 +2113,7 @@ tutorial/OperatorInputForms
 ***
 `expr>>filename`,Put，导出
 ***
-`exp1;exp2;exp3`,CompoundExpression，复合表达式
+`exp1;exp2;exp3`, CompoundExpression，复合表达式
 
 ### 算符优先级
 
@@ -2121,30 +2121,30 @@ tutorial/OperatorInputForms
 
 ***
 数字
-符号Symbol，上下文
+符号`Symbol`，上下文
 字符串
 ***
 矩阵, List
 分段函数,PieceWise
 ***
-`exp::string`, MessageName
-`exp::string1::String2`
+`exp::string`, 信息名，MessageName
+`exp::string1::String2`，消息，语言
 ***
-包含`#`的格式
-包含`%`的格式
-包含`_`的格式
+包含`#`的格式: 函数变量
+包含`%`的格式: `%n`,输出历史
+包含`_`的格式: 模式匹配
 ***
 `<<`,Get
 ***
-`\!boxes` ,(interpreted version of boxes)
+`\!boxes` ,(诠释框符)
 ***
-`exp1?exp2`,PatternTest
+`exp1?exp2`, 模式检测，PatternTest
 ***
-`exp1[exp2]`
-`exp1[[exp2]]`,Part
+`exp1[exp2]`，函数应用，
+`exp1[[exp2]]`,切片，Part
 ***
-`exp1@*exp2`,Compositon
-`exp1/*exp2`,RightCompositon
+`exp1@*exp2`,复合函数，Compositon
+`exp1/*exp2`,右复合函数，RightCompositon
 ***
 `exp1@exp2`, 前缀
 ***

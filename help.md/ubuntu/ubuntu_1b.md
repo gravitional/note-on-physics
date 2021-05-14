@@ -150,4 +150,3 @@ exit 0
 ## cgroup
 
 [Control groups](https://wiki.archlinux.org/title/Cgroups)
-
