@@ -1630,7 +1630,7 @@ sudo parted --list
 
 使用`Ubuntu`安装介质如U盘开机，选择`立即运行Ubuntu`.
 打开`GParted`分区编辑器：删除原先的`swap`，`resize`主分区大小，留出合适的空白空间用作`swap`.可以直接在`"free space following"`一项中设置想要的`swap`分区大小.
-在新的空白空间中，选择`new`，输入`linux-swap`, 如果喜欢可以起个名`swap`，然后点击`Apply`应用.  完成后，重新启动原先硬盘上的`Ubuntu`系统。
+在新的空白空间中，选择`new`，输入`linux-swap`, 如果喜欢,可以起个名`swap`到`Partition name`中，然后点击`Apply`应用.  完成后，重新启动原先硬盘上的`Ubuntu`系统。
 
 ***
 激活交换分区
