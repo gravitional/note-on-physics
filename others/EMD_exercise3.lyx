@@ -1496,6 +1496,195 @@ status open
 。
 \end_layout
 
+\begin_layout Standard
+
+\color blue
+解：
+\color black
+以球心为原点，建立球坐标系。
+\end_layout
+
+\begin_layout Standard
+因球内外均无传导电流，可以引入磁标势
+\begin_inset Formula $\varphi$
+\end_inset
+
+，使
+\begin_inset Formula $\symbfit{H}=-\nabla\varphi$
+\end_inset
+
+。球内
+\begin_inset Formula $\symbfit{B}_{1}=\mu\symbfit{H}_{1}=\mu_{0}\left(\symbfit{H}_{1}+\symbfit{M}_{1}\right)$
+\end_inset
+
+，球外
+\begin_inset Formula $\symbfit{M}_{2}=0$
+\end_inset
+
+。磁标势满足的微分方程为：
+\begin_inset Formula 
+\[
+\nabla\cdot\left(-\nabla\varphi\right)=-\nabla\symbfit{M}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \text{球内}:\quad\rho_{m1}=-\mu_{0}\nabla\cdot\symbfit{M}_{1}=\frac{\mu_{0}-\mu}{\mu}\nabla\cdot\symbfit{B}_{1}=0\\
+ & \text{球外}:\quad\rho_{m2}=-\mu_{0}\nabla\cdot\symbfit{M}_{2}=0
+\end{align*}
+
+\end_inset
+
+总结定解条件为：
+\begin_inset Formula 
+\begin{align*}
+ & \nabla^{2}\varphi_{1}=0,\left(R<R_{0}\right),\quad\nabla^{2}\varphi_{2}=0,\left(R>R_{0}\right)\\
+ & R=0,\quad\varphi_{1}\text{有限};\quad R\to\infty,\quad\varphi_{2}\to-H_{0}R\cos\theta\\
+ & \varphi_{1}\left(R_{0}\right)=\varphi_{2}\left(R_{0}\right),\quad\left.\mu\frac{\partial\varphi_{1}}{\partial R}\right|_{R_{0}}=\left.\mu_{0}\frac{\partial\varphi_{2}}{\partial R}\right|_{R_{0}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+3.9
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+球内外的解分别为，
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+ & \varphi_{1}=\sum_{n=0}^{\infty}a_{n}R^{n}P_{n}\left(\cos\theta\right),\quad\left(R=0,\varphi_{1}\text{有限}\right)\\
+ & \varphi_{2}=-H_{0}R{\color{blue}P_{1}\left(\cos\theta\right)}+\sum_{n=0}^{\infty}\frac{b_{n}}{R^{n+1}}P_{n}\left(\cos\theta\right),\quad\left(R\to\infty,\varphi_{2}\to-H_{0}R\cos\theta\right)
+\end{align*}
+
+\end_inset
+
+对于
+\begin_inset Formula $n\neq1$
+\end_inset
+
+有：
+\begin_inset Formula 
+\begin{align*}
+ & a_{n}R_{0}^{n}=\frac{b_{n}}{R_{0}^{n+1}},\quad\mu\,na_{n}R_{0}^{n-1}=\mu_{0}\frac{-\left(n+1\right)b_{n}}{R_{0}^{n+2}}\\
+\Rightarrow & a_{n}R_{0}^{2n+1}=b_{n},\quad a_{n}R_{0}^{2n+1}=\frac{-\left(n+1\right)}{n}\frac{\mu_{0}}{\mu}b_{n}
+\end{align*}
+
+\end_inset
+
+所以简化到：
+\begin_inset Formula 
+\[
+\varphi_{1}=a_{1}RP_{1}\left(\cos\theta\right),\quad\varphi_{2}=-H_{0}R{\color{blue}P_{1}\left(\cos\theta\right)}+\frac{b_{1}}{R^{2}}P_{1}\left(\cos\theta\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a_{1}R_{0}=-H_{0}R_{0}+\frac{b_{1}}{R_{0}^{2}},\quad a_{1}=\frac{\mu_{0}}{\mu}\left(-H_{0}+\frac{-2b_{1}}{R_{0}^{3}}\right)
+\]
+
+\end_inset
+
+求解方程组得到：
+\begin_inset Formula 
+\[
+a_{1}=\frac{-3\mu_{0}}{\mu+2\mu_{0}}H_{0},\quad b_{1}=\frac{\mu-\mu_{0}}{\mu+2\mu_{0}}H_{0}R_{0}^{3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+3.9
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+所以
+\begin_inset Formula 
+\begin{align*}
+ & \varphi_{1}=\frac{-3\mu_{0}}{\mu+2\mu_{0}}\symbfit{H}_{0}\cdot\symbfit{R}\\
+ & \varphi_{2}=-\symbfit{H}_{0}\cdot\symbfit{R}+\frac{\mu-\mu_{0}}{\mu+2\mu_{0}}\frac{R_{0}^{3}\symbfit{H}_{0}\cdot\symbfit{R}}{R^{3}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+B_{1} & =-\mu\nabla\varphi_{1}=\frac{3\mu\mu_{0}}{\mu+2\mu_{0}}\symbfit{H}_{0}=\mu_{0}\symbfit{H}_{0}+\frac{2\left(\mu-\mu_{0}\right)}{\mu+2\mu_{0}}\symbfit{H}_{0}\\
+B_{2} & =-\mu_{0}\nabla\varphi_{1}=\mu_{0}\symbfit{H}_{0}+\frac{\left(\mu-\mu_{0}\right)\mu_{0}R_{0}^{3}}{\mu+2\mu_{0}}\symbfit{H}_{0}\cdot\left[\frac{3\symbfit{R}\symbfit{R}}{R^{5}}-\frac{\symbfit{I}}{R^{3}}\right]
+\end{align*}
+
+\end_inset
+
+球内外的
+\begin_inset Formula $B$
+\end_inset
+
+都是原磁场和磁化电流产生场的叠加。由
+\begin_inset Formula $\varphi_{1},\varphi_{2}$
+\end_inset
+
+的表达式容易看出，介质球面磁化电流形成的磁矩为：
+\begin_inset Formula 
+\[
+\symbfit{m}=4\pi\frac{\left(\mu-\mu_{0}\right)R_{0}^{3}}{\mu+2\mu_{0}}\symbfit{H}_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -1628,6 +1817,197 @@ status open
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+解：
+\color inherit
+以球心为坐标原点，转轴为
+\begin_inset Formula $z$
+\end_inset
+
+轴。
+\begin_inset Formula $\left(\symbfit{e}_{R},\symbfit{e}_{\phi},\symbfit{e}_{z}\right)$
+\end_inset
+
+，
+\begin_inset Formula $\left(\symbfit{e}_{R},\symbfit{e}_{\theta},\symbfit{e}_{\phi}\right)$
+\end_inset
+
+分别组成右手螺旋。电流
+\begin_inset Formula $\symbfit{I}=nes\symbfit{v}$
+\end_inset
+
+。球壳电荷面密度为
+\begin_inset Formula $\sigma_{f}=q/4\pi R_{0}^{2}$
+\end_inset
+
+，球壳自转形成的面电流密度为：
+\begin_inset Formula 
+\[
+\symbfit{\alpha}_{f}=\frac{q}{4\pi R_{0}^{2}}\omega\symbfit{e}_{z}\times R_{0}\symbfit{e}_{R}=\frac{q\omega}{4\pi R_{0}}\sin\theta\symbfit{e}_{\phi}.
+\]
+
+\end_inset
+
+球壳内外均无传导电流分布，引入磁标势满足
+\begin_inset Formula $\nabla\varphi^{2}=0$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{align*}
+ & R=0,\varphi_{1}\text{有限；}\quad R\to\infty,\varphi_{2}\to0\\
+ & R=R_{0},\quad B_{2R}=B_{1R},\quad\symbfit{e}_{R}\times\left(\symbfit{H}_{2}-\symbfit{H}_{1}\right)=\symbfit{\alpha}_{f}\\
+\text{即}\quad & \frac{\partial\varphi_{2}}{\partial R}=\frac{\partial\varphi_{1}}{\partial R},\quad-\frac{1}{R}\frac{\partial\varphi_{2}}{\partial\theta}+\frac{1}{R}\frac{\partial\varphi_{2}}{\partial\theta}=\frac{q\omega}{4\pi R_{0}}\sin\theta
+\end{align*}
+
+\end_inset
+
+上式使用了：
+\begin_inset Formula 
+\[
+\nabla\varphi=\symbfit{e}_{R}\partial_{R}\varphi+\symbfit{e}_{\theta}\frac{1}{R}\partial_{\theta}\varphi+\symbfit{e}_{\phi}\frac{1}{R\sin\theta}\partial_{\phi}\varphi
+\]
+
+\end_inset
+
+并假设
+\begin_inset Formula $\symbfit{H}_{2},\symbfit{H}_{1}$
+\end_inset
+
+都沿
+\begin_inset Formula $\symbfit{e}_{\theta}$
+\end_inset
+
+方向，运算结果的正负决定
+\begin_inset Formula $\symbfit{H}_{2},\symbfit{H}_{1}$
+\end_inset
+
+的实际方向。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+3.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \varphi_{1}=\sum_{n=0}^{\infty}a_{n}R^{n}P_{n}\left(\cos\theta\right),\quad\left(R<R_{0}\right)\\
+ & \varphi_{2}=\sum_{n=0}^{\infty}\frac{b_{n}}{R^{n+1}}P_{n}\left(\cos\theta\right),\quad\left(R>R_{0}\right)
+\end{align*}
+
+\end_inset
+
+对于
+\begin_inset Formula $n\neq1$
+\end_inset
+
+有：
+\begin_inset Formula 
+\begin{align*}
+ & na_{n}R_{0}^{n-1}=\frac{-\left(n+1\right)b_{n}}{R^{n+2}},n\in\left[0,\infty\right]\quad-\frac{1}{R_{0}}a_{n}R^{n}+\frac{1}{R_{0}}\frac{b_{n}}{R^{n+1}}=0,\quad n\in\left[1,\infty\right]\\
+\Rightarrow & \frac{n}{-\left(n+1\right)}a_{n}R^{2n+1}=b_{n},\quad a_{n}R^{2n+1}=b_{n}
+\end{align*}
+
+\end_inset
+
+所以简化到：
+\begin_inset Formula 
+\[
+\varphi_{1}=a_{1}RP_{1}\left(\cos\theta\right),\quad\varphi_{2}=\frac{b_{1}}{R^{2}}P_{1}\left(\cos\theta\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{-2}a_{1}R_{0}^{2}=b_{1},\quad a_{1}R_{0}^{3}=b_{1}+\frac{q\omega}{4\pi R_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\size small
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\size small
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\size small
+3.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+求解方程组得到：
+\begin_inset Formula 
+\[
+\varphi_{1}=\frac{-q\omega}{6\pi R_{0}}R\cos\theta,\quad\varphi_{2}=\frac{m}{4\pi R^{2}}\cos\theta
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\symbfit{m} & =\int\symbfit{I}\dif S=\int_{0}^{\pi}{\color{blue}\frac{q\omega}{4\pi R_{0}}\sin\theta\symbfit{e}_{\phi}}\,\pi R_{0}^{2}\sin^{2}\theta\,R_{0}\dif\theta\\
+ & =\frac{1}{2}\int_{0}^{2\pi}R_{0}^{2}\sin\theta\dif\phi\int_{0}^{\pi}\dif\theta\,R_{0}\frac{q\omega}{4\pi R_{0}}\symbfit{e}_{\phi}\\
+ & =\frac{1}{2}\oint_{S}\left(R_{0}\symbfit{e}_{R}\times\symbfit{\alpha}_{f}\right)\dif S=\frac{q\omega R_{0}^{2}}{3}\symbfit{e}_{z}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\symbfit{m}=\frac{1}{2}\oint_{S}\left(R_{0}\symbfit{e}_{R}\times\symbfit{\alpha}_{f}\right)\dif S=\frac{q\omega R_{0}^{2}}{3}\symbfit{e}_{z}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
