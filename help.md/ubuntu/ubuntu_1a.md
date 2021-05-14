@@ -19,9 +19,7 @@ Dash to Panel 是 Gnome Shell 的一个高度可配置面板,是 Ubuntu Dock 或
 ### oh-my-zsh
 
 [Oh My Zsh 插件](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
-
 [Mac/Linux使用ZSH (oh-my-zsh)](https://www.jianshu.com/p/fa6aa9329be6)
-
 [oh-my-zsh国内镜像安装和更新方法](https://touka.dev/tech/oh-my-zsh-china-mirror/)
 
 首先需要安装`zsh`，可以直接用`sudo apt install zsh`. 

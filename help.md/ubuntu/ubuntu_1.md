@@ -659,16 +659,14 @@ apt-get -f install pkg
 + `-A` after 后输出
 + `-o` only 仅输出匹配字符
 + `-i` `--ignore-case` 忽略大小写
-+ `-m NUM`, `--max-count=NUM` 输出的最大行
 
-Stop  reading  a  file after `NUM` matching lines.
+***
+`-m NUM`, `--max-count=NUM` 输出的最大行: 在`NUM`行匹配的行之后停止读取文件。
 
-If the input is standard input from a regular file, and `NUM` matching lines are output,
-grep ensures that the standard input is positioned to just after the last matching line before exiting, regardless of the presence of trailing(后面的) context lines.
-This  enables a  calling process to resume a search.  When grep stops after `NUM` matching lines, it outputs any trailing context lines.
-
-When the `-c` or `--count` option is also used, grep does not output a count greater than `NUM`.
-When the `-v` or `--invert-match` option is also used, grep stops after outputting `NUM` non-matching lines.
+如果输入来自于普通文件，就输出`NUM`行匹配的结果. 之后`grep`将标准输入定位到最后一个匹配行后面，不再处理后面的内容。
+这使调用`grep`的程序可以继续搜索，当`grep`停止之后，它可以继续输出后面的文本。
+当同时使用`-c`或`--count`选项时，`grep`不会输出大于`NUM`的计数。
+当同时使用`-v`或`--invert-match`选项时，`grep`在输出`NUM`不匹配的行后停止。
 
 example:
 
@@ -684,28 +682,22 @@ grep -n --color -P -B 1 -A 6 "(?:tex:\d+:|warning:)" ./temp $tex_file".log"
 
 ### 图片格式转换
 
-pkg: `pdftoppm`
+`pdf`转成图片格式. 包名: `pdftoppm`. 语法是：`pdftoppm input.pdf outputname -png -f {page} -singlefile`
 
+```bash
 pdftoppm  -png -rx 300 -ry 300  input.pdf outputname
+```
 
-pdftoppm input.pdf outputname -png -f {page} -singlefile
+这个命令将会把`PDF`的每一页转换成`png`格式，文件名为`outputname-01.png`,`outputname-02.png`等等。
+如果只想转换其中的特定一页，使用`-f {page}`选项指定. 例如`-f 1`表示第一页。
 
-This will output each page in the PDF using the format outputname-01.png, with 01 being the index of the page.
-Converting a single page of the PDF
-
-Change {page} to the page number. It's indexed at 1, so -f 1 would be the first page.
-
-查看图片用 eye of gnome `eog`
+`gnome`默认的查看图片程序为`eog`: eye of gnome 
 
 ### ubuntu 自带截图
 
-ubuntu自带截图程序叫做`gnome-serceenshot`
+`ubuntu` 自带截图程序叫做`gnome-serceenshot`
 
-[Ubuntu设置截图到剪贴板,像QQ一样截图][]
-
-[Ubuntu设置截图到剪贴板,像QQ一样截图]: https://www.jianshu.com/p/7f453c144f9c
-
-定义一个快捷键,保存到桌面文件
+[Ubuntu设置截图到剪贴板,像QQ一样截图](https://www.jianshu.com/p/7f453c144f9c)。可以定义一个快捷键,保存到桌面文件
 
 ```bash
 gnome-screenshot -a --file=(~"/Desktop/$(date +%s).png")
@@ -723,8 +715,7 @@ gnome-screenshot -a --file=(~"/Desktop/$(date +%s).png")
 sudo apt install gnome-shell-extensions-gpaste gpaste
 ```
 
-安装完成后,按下 `Alt + F2` 并输入 `r` 重新启动 Gnome Shell,然后按回车键.
-现在应该启用了 GPaste Gnome Shell 扩展,其图标应显示在顶部 Gnome Shell 面板上.
+安装完成后,按下 `Alt + F2` 并输入 `r` 重新启动 Gnome Shell,然后按回车键.现在应该启用了 GPaste Gnome Shell 扩展,其图标应显示在顶部 Gnome Shell 面板上.
 如果没有,请使用 Gnome Tweaks(Gnome Tweak Tool)启用扩展.
 
 Debian 和 Ubuntu 的 GPaste 3.28.0 中有一个错误,如果启用了图像支持选项会导致它崩溃,所以现在不要启用此功能.
@@ -1596,144 +1587,153 @@ linux日志大多是以明文存储，一般存储在`/var/log`目录中，linux
 + 查看最近发生的20条日志： `journalctl -n 20`
 + 追踪日志： `journalctl -f`
 
-## bash 快捷键
+### Linux 安装时的分区 
 
-[Bash 快捷键大全 ](https://linux.cn/article-5660-1.html)
-[vim ,vi总是卡死,终于找到原因了.](https://www.cnblogs.com/cocoliu/p/6369749.html)
+[UEFI/GPT 示例](https://wiki.archlinux.org/title/Parted_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#UEFI/GPT_%E7%A4%BA%E4%BE%8B)
+[manjaro_user_guide 也有分区的例子](https://manjaro.org/support/userguide/)
+[Arch boot process](https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%90%AF%E5%8A%A8%E5%8A%A0%E8%BD%BD%E5%99%A8)
 
-`Alt+tab`:切换程序
-`` Alt+` ``:切换程序的不同窗口
+以`UEFI`主板为例，参考`manjaro_user_guide`. 主要设置三个分区:
 
-在`vim`下,有时候不小心按下了`CTRL-S`,会冻结终端的输入,表现为按什么键都没有反应,这时候按下`CTRL-Q`即可恢复.
+文件系统格式，挂载点，建议大小, `flags`
 
-`CTRL-S`: `Suspend(XOFF)`,挂起.这个是冻结终端的`stdin`.要恢复可以按`CTRL-Q`.
++ `fat32`,`/boot/efi`,`512MiB`, `boot,esp`
++ `linuxswap`,不需要挂载，$\sqrt{\text{内存大小}} \sim 2* \text{内存大小}$
++ `ext4`,`/`,最简单的，可以把剩下空间全部分配给`/`,文件系统也可以选别的，比如`Btrfs`
 
-### 常用的
+强迫症可以把分区调整成`EFI`,`root`,`swap`的顺序，可能有玄学加成。
 
-| 快捷键   | 快捷键说明|
-| --------------- | ----------- |
-| `CTRL-/` | 撤消操作,Undo.    |
-| `ALT-B`  | 光标往回跳一个词,词以非字母为界(跳动到当前光标所在词的开头).   |
-| `ALT-F`  | 光标往前跳一个词(移动到光标所在词的末尾).     |
-| `ALT-D`  | 删除光标所在位置到光标所在词的结尾位置的所有内容      |
-| `ALT-BASKSPACE` | 删除光标所在位置到词开头的所有内容.    |
-| `ALT-数值`      | 这个数值可以是正或者是负,这个键单独没有作用,必须后面再接其他内容,如果后面是字符,则表示重复次数.如:`[ALT-9,k]`则光标位置会插入`9`个`k`字符(负值在这种情况下无效)；如果后面接的是命令,则数字会影响后面命令的执行结果,如:`[ALT-9,CTRL-D]`则向`CTRL-D`默认方向相反(负数)的方向执行`9`次操作. |
-| `ALT-<`  | 移动到历史记录中的第一行命令.   |
-| `ALT->`  | 移动到历史的最后一行,即当前正在输入的行(没有输入的情况下为空). |
-| `ALT-P`  | 从当前行开始向前搜索,有必要则向"上"移动,移动时,使用非增量搜索查找用户提供的字符串.      |
-| `ALT-N`  | 从当前行开始向后搜索,如果有必要向"下"移动,移动时,使用非增量搜索查找用户提供的字符串.    |
-| `ALT-?`  | 列出能够补全标志点前的条目.     |
-| `ALT-C`  | 将光标所在位置的字母转为大写     |
-| `ALT-U`  | 将光标所在位置到词尾的所有字母转为大写.       |
-| `ALT-L`  | 将光标位置到词尾的所有字母转为小写.    |
-| `ALT-R`  | 取消所有变更,并将当前行恢复到在历史记录中的原始状态  |
-| `ALT-T`  | 当光标两侧都存在词的时候,交换光标两侧词的位置.如:`abc <ALT-T>bcd -> bcd abc|`     |
-| `ALT-.`  | 使用前一次命令的最后一个词(命令本身也是一个词,参见后一篇的Bang命令中的词指示符概念).      |
-| `CTRL-A` | 将光标移到行首(在命令行下)     |
-| `CTRL-C` | 中断,终结一个前台作业.         |
-| `CTRL-E` | 将光标移动到行尾(在命令行下)   |
-| `CTRL-K` | 在控制台或 xterm 窗口输入文本时,`CTRL-K`会删除从光标所在处到行尾的所有字符.        |
-| `CTRL-U` | 擦除从光标位置开始到行首的所有字符内容.       |
-| `CTRL-W` | `CTRL-W` 会删除从在光标处往回的第一个空白符之间的内容 |
-| `CTRL-Y` | 将之前已经清除的文本粘贴回来(主要针对`CTRL-U`或`CTRL-W`).     |
-| `CTRL-N` | 每按一次,是更接近的一条命令.   |
-| `CTRL-P` | 此快捷键召回的顺序是由近及远的召回,    |
-| `ALT-*`  | 把能够补全[`ALT-?`]命令能生成的所有文本条目插入到标志点前.      |
-| `CTRL-Q` | `Resume (XON)`.恢复/解冻,这个命令是恢复终端的stdin用的,可参见`CTRL-S`.    |
-| `CTRL-R` | 回溯搜索(Backwards search)history缓冲区内的文本(在命令行下).注意:按下之后,提示符会变成`(reverse-i-search)'':`输入的搜索内容出现在单引号内,同时冒号后面出现最近最匹配的历史命令.         |
-| `CTRL-S` | `Suspend(XOFF)`,挂起.这个是冻结终端的`stdin`.要恢复可以按`CTRL-Q`.        |
-| `CTRL-T` | 交换光标位置与光标的前一个位置的字符内容(在命令行下)|
-| `CTRL-\` | 退出.和`CTRL-C`差不多,也可能dump一个"core"文件到你的工作目录下(这个文件可能对你没用).    |
-***
+### 交换分区 swap
 
-terminal 快捷键
+[ubnuntu SwapFaq](https://help.ubuntu.com/community/SwapFaq)
 
-| 快捷键 | 快捷键说明      |
-| ------------- | ---------------------- |
-| `Ctrl+Shift+t`       | new tab  |
-| `Ctrl+Shift+n`       | new window      |
-| `Ctrl+Shift+w`       | close tab       |
-| `Ctrl+Shift+q`       | close window    |
-| `Ctrl+page up`   | switch to previous tab |
-| `Ctrl+Shift+page up` | switch to the left     |
-
-### 广泛的
-
-| 快捷键  | 快捷键说明       |
-| --------------- | ------ |
-| `CTRL-A` | 将光标移到行首(在命令行下)          |
-| `CTRL-B` | 退格 (非破坏性的),这个只是将光标位置往回移动一个位置.    |
-| `CTRL-C` | 中断,终结一个前台作业. |
-| `CTRL-D` | "EOF" (文件结尾:end of file).它用于表示标准输入(`stdin`)的结束.  |
-| `CTRL-E` | 将光标移动到行尾(在命令行下)        |
-| `CTRL-F` | 将光标向前移动一个字符(在命令行下)         |
-| `CTRL-G` | `BEL`.在一些老式打印机终端上,这会引发一个响铃.在xterm终端上可能是哔的一声.     |
-| `CTRL-H` | 擦除(Rubout)(破坏性的退格).在光标往回移动的时候,同时擦除光标前的一个字符.       |
-| `CTRL-I` | 水平制表符.      |
-| `CTRL-J` | 新行(`换行[line feed]`并到行首).在脚本中,也可能表示为八进制形式(`'\012'`)或十六进制形式(`'\x0a'`).   |
-| `CTRL-K` | 垂直制表符(Vertical tab).在控制台或 xterm 窗口输入文本时,`CTRL-K`会删除从光标所在处到行尾的所有字符. |
-| `CTRL-L` | 跳纸,换页(Formfeed),清屏.清空终端屏幕.在终端上,这个命令的作用和`clear`命令一样.但当这个命令发送到打印机时,`Ctrl-L`会直接跳到纸张(Paper sheet)的末尾.      |
-| `CTRL-M` | 回车(Carriage return).  |
-| `CTRL-N` | 擦除从history缓冲区召回的一行文本(在命令行下).如果当前输入是历史记录中选择的时候,这个是从这个历史记录开始,每按一次,是更接近的一条命令. |
-| `CTRL-O` | 产生一个新行(在命令行下).          |
-| `CTRL-P` | 从history缓冲区召回上一次的命令(在命令行下).此快捷键召回的顺序是由近及远的召回,即按一次,召回的是前一次的命令,再按一次,是召回上一次之前的命令,这和`CTRL-N`都是以当前的输入为起点,但是两个命令操作刚好相反,`CTRL-N`是从起点开始由远及近(如果起点是历史命令的话).        |
-| `CTRL-Q` | `Resume (XON)`.恢复/解冻,这个命令是恢复终端的stdin用的,可参见`CTRL-S`.         |
-| `CTRL-R` | 回溯搜索(Backwards search)history缓冲区内的文本(在命令行下).注意:按下之后,提示符会变成`(reverse-i-search)'':`输入的搜索内容出现在单引号内,同时冒号后面出现最近最匹配的历史命令. |
-| `CTRL-S` | `Suspend(XOFF)`,挂起.这个是冻结终端的`stdin`.要恢复可以按`CTRL-Q`.|
-| `CTRL-T` | 交换光标位置与光标的前一个位置的字符内容(在命令行下).比如:`echo $var;`,假设光标在`a`上,那么,按下`C-T`之后,`v`和`a`将会交换位置:`echo $avr;`.     |
-| `CTRL-U` | 擦除从光标位置开始到行首的所有字符内容.在某些设置下,`CTRL-U`会不以光标位置为参考而删除整行的输入.    |
-| `CTRL-V` | 在输入文本的时候,按下`C-V`之后,可以插入控制字符.比如:`echo -e '\x0a';`和`echo <CTRL-V><CTRL-J>;`这两种效果一样.这点功能在文本编辑器内非常有效. |
-| `CTRL-W` | 当在控制台或一个xterm窗口敲入文本时, `CTRL-W` 会删除从在光标处往后(回)的第一个空白符之间的内容.在某些设置里, `CTRL-W` 删除光标往后(回)到第一个非文字和数字之间的字符.     |
-| `CTRL-X` | 在某些文字处理程序中,这个控制字符将会剪切高亮的文本并且将它复制到剪贴板中.       |
-| `CTRL-Y` | 将之前已经清除的文本粘贴回来(主要针对`CTRL-U`或`CTRL-W`).   |
-| `CTRL-Z` | 暂停一个前台的作业；在某些文本处理程序中也作为替换操作；在MSDOS文件系统中作为EOF(End-of-file)字符.    |
-| `CTRL-\` | 退出.和`CTRL-C`差不多,也可能dump一个"core"文件到你的工作目录下(这个文件可能对你没用).  |
-| `CTRL-/` | 撤消操作,Undo.  |
-| `CTRL-_` | 撤消操作.        |
-| `CTRL-xx`       | 在行首和光标两个位置间进行切换,此处是两个`"x"`字符.      |
-| `ALT-B`  | 光标往回跳一个词,词以非字母为界(跳动到当前光标所在词的开头). |
-| `ALT-F`  | 光标往前跳一个词(移动到光标所在词的末尾).   |
-| `ALT-D`  | 删除光标所在位置到光标所在词的结尾位置的所有内容(如果光标是在词开头,则删除整个词).      |
-| `ALT-BASKSPACE` | 删除光标所在位置到词开头的所有内容.         |
-| `ALT-C`  | 将光标所在位置的字母转为大写(如果光标在一个词的起始位置或之前,则词首字母大写).   |
-| `ALT-U`  | 将光标所在位置到词尾的所有字母转为大写.     |
-| `ALT-L`  | 将光标位置到词尾的所有字母转为小写.         |
-| `ALT-R`  | 取消所有变更,并将当前行恢复到在历史记录中的原始状态(前提是当前命令是从历史记录中来的,如果是手动输入,则会清空行).        |
-| `ALT-T`  | 当光标两侧都存在词的时候,交换光标两侧词的位置.如:`abc <ALT-T>bcd -> bcd abc|`   |
-| `ALT-.`  | 使用前一次命令的最后一个词(命令本身也是一个词,参见后一篇的Bang命令中的词指示符概念).    |
-| `ALT-_`  | 同`ALT-.`.       |
-| `ALT-数值`      | 这个数值可以是正或者是负,这个键单独没有作用,必须后面再接其他内容,如果后面是字符,则表示重复次数.如:`[ALT-10,k]`则光标位置会插入`10`个`k`字符(负值在这种情况下无效)；如果后面接的是命令,则数字会影响后面命令的执行结果,如:`[ALT--10,CTRL-D]`则向`CTRL-D`默认方向相反(负数)的方向执行`10`次操作. |
-| `ALT-<`  | 移动到历史记录中的第一行命令.        |
-| `ALT->`  | 移动到历史的最后一行,即当前正在输入的行(没有输入的情况下为空).      |
-| `ALT-P`  | 从当前行开始向前搜索,有必要则向"上"移动,移动时,使用非增量搜索查找用户提供的字符串.    |
-| `ALT-N`  | 从当前行开始向后搜索,如果有必要向"下"移动,移动时,使用非增量搜索查找用户提供的字符串.  |
-| `ALT-CTRL-Y`    | 在标志点上插入前一个命令的第一个参数(一般是前一行的第二个词).如果有参数`n`,则插入前一个命令的第`n`个词(前一行的词编号从`0`开始,见历史扩展).负的参数将插入冲前一个命令的结尾开始的第n个词.参数`n`通过`M-No.`的方式传递,如:`[ALT-0,ALT-CTRL-Y]`插入前一个命令的第`0`个词(命令本身).        |
-| `ALT-Y`  | 轮询到删除环,并复制新的顶端文本.只能在`yank[CTRL-Y]`或者`yank-pop[M-Y]`之后使用这个命令.      |
-| `ALT-?`  | 列出能够补全标志点前的条目.          |
-| `ALT-*`  | 把能够补全[`ALT-?`]命令能生成的所有文本条目插入到标志点前.|
-| `ALT-/`  | 试图对标志点前的文本进行文件名补全.`[CTRL-X,/]`把标志点前的文本当成文件名并列出可以补全的条目. |
-| `ALT-~`  | 把标志点前的文本当成用户名并试图进行补全.`[CTRL-X,~]`列出可以作为用户名补全标志点前的条目.     |
-| `ALT-$`  | 把标志点前的文本当成Shell变量并试图进行补全.`[CTRL-X,$]`列出可以作为变量补全标志点前的条目.    |
-| `ALT-@`  | 把标志点前的文本当成主机名并试图进行补全.`[CTRL-X,@]`列出可以作为主机补全标志点前的条目.       |
-| `ALT-!`  | 把标志点前的文本当成命令名并试图进行补全.进行命令名补全时会依次使用别名,保留字,Shell函数,shell内部命令,最后是可执行文件名.`[CTRL-X,!]`把标志点前的文本当成命令名并列出可补全的条目.          |
-| `ALT-TAB`       | 把标志点前的文本与历史记录中的文本进行比较以寻找匹配的并试图进行补全.|
-| `ALT-{`  | 进行文件名补全,把可以补全的条目列表放在大括号之间,让shell可以使用. |
-
-***
-
-在控制台或`xterm` 窗口输入文本时,``CTRL-D`` 删除在光标下的字符.从一个shell中退出 (类似于`exit`).如果没有字符存在,``CTRL-D`` 则会登出该会话.在一个xterm窗口中,则会产生关闭此窗口的效果.
-
-`CTRL-K`
-在脚本中,也可能表示为八进制形式(`'\013'`)或十六进制形式(`'\x0b'`).在脚本中,`CTRL-K`可能会有不一样的行为,下面的例子给出其不一样的行为:
+**
+如果想要确认是否有`swap`分区，使用`parted`查看所有分区
 
 ```bash
-#!/bin/bash
-## 一个`CTRL-K`垂直制表符的例子
-var=$'\x0aBottom Line\x0bTop line\x0a'
-## 直接输出
-echo "$var"
-## 使用col来过滤控制字符
-echo "$var" | col
-## 上面的显示将会不一样
-exit 0
+sudo parted --list
 ```
+
+如果有`swap`，在输出中可以看到类似下面的内容
+
+    5      236GB   256GB   20.0GB  linux-swap(v1)
+
+***
+增加交换分区大小并将其用于休眠
+
++ 创建交换分区
++ 激活交换分区
++ 使新的交换分区适用于休眠状态（可选）
+
+***
+创建交换分区
+
+使用`Ubuntu`安装介质如U盘开机，选择`立即运行Ubuntu`.
+打开`GParted`分区编辑器：删除原先的`swap`，`resize`主分区大小，留出合适的空白空间用作`swap`.可以直接在`"free space following"`一项中设置想要的`swap`分区大小.
+在新的空白空间中，选择`new`，输入`linux-swap`, 如果喜欢可以起个名`swap`，然后点击`Apply`应用.  完成后，重新启动原先硬盘上的`Ubuntu`系统。
+
+***
+激活交换分区
+
+如果交换位于主硬盘驱动器上，则无需在此处做任何事情。
+现在，您需要查找`swap`所在的`分区`及其`UUID`, Universally Unique IDentifier，它是该分区的通用唯一身份，即使由于添加磁盘，重启之后分区挂载点改变，`UUID`也不会改变。
+
+切换到`root`用户，运行`gparted` . 右键单击交换分区，然后选择`Information`。
+应该可以看到`Path`和`UUID`。保持打开状态以供进一步参考。
+运行 `gedit /etc/fstab`, 查找其中带有`swap`的行。它应该在第三列, 用空格或制表符分隔。您可以使用路径或`UUID`来告诉`Linux`在哪里找到交换分区。建议使用`UUID`，因为即使您移动分区或磁盘之后，`sdb`变成`sda`，`UUID`也将保持不变。
+如果您使用的是UUID，则您的代码行应如下所示：
+
+    UUID = 41e86209-3802-424b-9a9d-d7683142dab7无swap sw 0 0
+
+或使用路径：
+
+    /dev/sda2 none swap sw 0 0 
+
+保存更改。
+
+使用此命令启用新的交换分区。
+
+```bash
+sudo swapon --all # 或者 sudo swapon --all --verbose
+```
+
+确认交换分区存在。
+
+```bash
+$ cat /proc/swaps
+Filename                                Type            Size  Used    Priority
+/dev/sda2                               partition      20971480       -1
+```
+
+接着可以重启查看交换分区能否被正确激活。
+
+***
+使交换分区用于休眠（可选）
+
+运行`cat /proc/swaps`，可以看到`swap`分区的路径. 找到它的`UUID`. 使用
+
+    sudo gedit /etc/default/grub
+
+修改`grub`(启动引导加载程序)的配置。如果怕出问题可以先备份
+
+    sudo cp -a /etc/default/grub /etc/default/grub.bak 
+
+查找`GRUB_CMDLINE_LINUX="xx"`行，在后面添加上:
+
+    GRUB_CMDLINE_LINUX="XXX resume=UUID=41e86209-3802-424b-9a9d-d7683142dab7"
+
+并保存文件.`sudo update-grub`并等待其完成.
+
+然后`sudo gedit /etc/initramfs-tools/conf.d/resume`，确保内容类似下面这样：
+
+    resume=UUID=41e86209-3802-424b-9a9d-d7683142dab7 
+    
+如果不使用`swap`，这里的设置应该是`resume=none`,保存文件.
+ 然后运行`sudo update-initramfs -u`。重启. 现在应该可以休眠了.
+
+***
+启用未生效的交换分区：如果你已经有交换分区，则有几种启用它的方法。首先查看`fstab`
+
+    cat /etc/fstab
+
+确保下面有`swap`的记录，这样可以在启动时启用`swap`。
+
+    /dev/sdb5       none            swap    sw              0       0
+
+然后禁用所有`swap`，再重新创建它，然后使用以下命令重新启用
+
+```bash
+sudo swapoff -a
+sudo /sbin/mkswap /dev/sdb5
+sudo swapon -a
+```
+
+***
+什么是`swappiness`，我该如何更改？
+
+`swappiness`参数控制内核使用`swap`的倾向。因为磁盘要比`RAM`慢得多，所以如果进程经常主动地移出内存，可能导致系统和应用程序的响应时间变慢。
+
++ `swappiness` 的值可以在`0`到`100`之间
++ `swappiness=0`告诉内核尽可能避免将进程从物理内存中交换出来
++ `swappiness=100` 告诉内核积极地把进程从物理内存移动到`swap`缓存
+
+`Ubuntu` 中的默认设置为`swappiness=60`。降低 `swappiness` 的默认值可能会提高典型的`Ubuntu`桌面安装的整体性能。
+建议将 `swappiness` 的值设置为`10`，你也可以自己尝试。`Ubuntu`服务器对桌面系统的性能要求不同，默认值`60`可能更合适。
+
+检查`swappiness`值
+
+    cat /proc/sys/vm/swappiness
+
+临时更改 `swappiness` 值（重启之后丢失）:
+
+    sudo sysctl vm.swappiness=10
+
+永久更改：
+
+    sudo gedit /etc/sysctl.conf
+
+搜索`vm.swappiness`根据需要更改其值。如果`vm.swappiness`不存在则自己添加：
+
+    vm.swappiness=10
+
+保存文件并重新启动。

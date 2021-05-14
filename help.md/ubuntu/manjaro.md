@@ -468,7 +468,7 @@ sudo systemctl status systemd-backlight@backlight:amdgpu_bl0
 sudo systemctl start systemd-backlight@backlight:amdgpu_bl0
 ```
 
-关于 `systemd` 可以参考
+关于 `systemd` 可以参考:
 [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
 [systemd](https://wiki.archlinux.org/index.php/Systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 [Kernel parameters ](https://wiki.archlinux.org/index.php/Kernel_parameters)

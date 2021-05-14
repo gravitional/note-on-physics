@@ -304,12 +304,10 @@ http://en.wikipedia.org/wiki/Metadata
 
 ## 第十六章:存储媒介
 
-在前面章节中,我们已经从文件级别看了操作数据.在这章里,我们将从设备级别来考虑数据. 
-Linux 有着令人惊奇的能力来处理存储设备,
-不管是物理设备,比如说硬盘,还是网络设备,或者是 虚拟存储设备,像RAID(独立磁盘冗余阵列)和 LVM(逻辑卷管理器).
+在前面章节中,我们已经从文件级别看了操作数据.在这章里,我们将从设备级别来考虑数据. `Linux` 有着令人惊奇的能力来处理存储设备,
+不管是物理设备,比如说硬盘,还是网络设备,或者是虚拟存储设备,像 `RAID`(独立磁盘冗余阵列)和 `LVM`(逻辑卷管理器).
 
-然而,这不是一本关于系统管理的书籍,我们不会试图深入地覆盖整个主题.
-我们将努力做的就是 介绍一些概念和用来管理存储设备的重要命令.
+然而,这不是一本关于系统管理的书籍,我们不会试图深入地覆盖整个主题.我们将努力做的就是 介绍一些概念和用来管理存储设备的重要命令.
 我们将会使用 `USB` 闪存,`CD-RW` 光盘(因为系统配备了 `CD-ROM` 烧写器)和一张软盘(若系统这样配备),来做这章的练习题.
 
 我们将看看以下命令:
@@ -327,17 +325,14 @@ Linux 有着令人惊奇的能力来处理存储设备,
 
 ### 挂载和卸载存储设备
 
-Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户来说极其容易.
-大多数情况下,我们 只要把设备连接到系统中,它就能工作.在过去(比如说,2004年),这个工作必须手动完成.
-
+`Linux` 桌面系统的最新进展已经使存储设备管理对于桌面用户来说极其容易.大多数情况下,我们 只要把设备连接到系统中,它就能工作.在过去(比如说,2004年),这个工作必须手动完成.
 在非桌面系统中(例如,服务器中),这仍然是一个主要地手动过程,因为服务器经常有极端的存储需求 和复杂的配置要求.
 管理存储设备的第一步是把设备连接到文件系统树中.这个过程叫做挂载,允许设备参与到操作系统中. 
 
 回想一下第三章,类 Unix 的操作系统,像 `Linux`,维护单一文件系统树,设备连接到各个结点上. 
 这与其它操作系统形成对照,比如说 `MS-DOS` 和 `Windows` 系统中,每个设备(例如 `C:\`,`D:\`,等) 保持着单独的文件系统树.
 
-有一个叫做`/etc/fstab` 的文件可以列出系统启动时要挂载的设备(典型地,硬盘分区).
-下面是 来自于 Fedora7系统的`/etc/fstab` 文件实例:
+有一个叫做`/etc/fstab` 的文件可以列出系统启动时要挂载的设备(典型地,硬盘分区). 下面是 来自于 `Fedora7` 系统的`/etc/fstab` 文件实例:
 
 ```bash
 LABEL=/12   /   ext3    defaults    1 1
@@ -590,10 +585,10 @@ $ df
 
 ### 用 fdisk 命令操作分区
 
-这个 `fdisk` 程序允许我们直接在底层与类似磁盘的设备(比如说硬盘驱动器和闪存驱动器)进行交互. 
+[util-linux fdisk](https://wiki.archlinux.org/title/Fdisk_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 
-使用这个工具可以在设备上编辑,删除,和创建分区.以我们的闪存驱动器为例, 
-首先我们必须卸载它(如果需要的话),然后调用 `fdisk` 程序,如下所示:
+`fdisk` 程序允许我们直接在底层与类似磁盘的设备(比如说硬盘驱动器和闪存驱动器)进行交互. 
+使用这个工具可以在设备上编辑,删除,和创建分区. 以我们的闪存驱动器为例, 首先我们必须卸载它(如果需要的话),然后调用 `fdisk` 程序,如下所示:
 
 ```bash
 $ sudo umount /dev/sdb1
@@ -664,6 +659,164 @@ $
 如果我们已经决定保持设备不变,可在提示符下输入`q`,这将退出程序而没有写更改.
 我们 可以安全地忽略这些不祥的警告信息.
 
+### GNU Parted
+
+[Parted (简体中文)](https://wiki.archlinux.org/title/Parted_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+
+`GNU Parted` 是创建和处理分区表的程序。 `GParted`是`GUI`前端。 
+
+`Parted` 有两种模式：命令行和交互，请用下面命令启动：`#`表示超级用户模式
+
+```bash
+# parted device  # device 是要编辑的硬盘设备,例如 /dev/sda 
+```
+
+***
+`命令行模式`: 在命令行模式下，可以同时执行一个或多个命令：
+
+```bash
+# parted /dev/sda mklabel gpt mkpart P1 ext3 1MiB 8MiB 
+```
+
+***
+`交互模式`: 交互模式简化了分区过程，可以自动对设备执行分区操作。打开需要新建分区表的设备：
+
+```bash
+sudo parted /dev/sdx
+```
+
+命令提示符会从 (`#`) 变成 (`parted`): 要查看可用的命令：`(parted) help`
+完成操作后，用下面命令退出：`(parted) quit`.
+
+如果命令没带参数，`Parted` 会进行询问：
+
+```bash
+(parted) mklabel
+New disk label type? gpt
+```
+
+`parted 2.4` 开始，当使用`MiB`, `GiB`, `TiB` 等 `IEC`(国际电工委员会)单位时，`parted` 会使用精确数值，不进行修正，它们是`2`次幂的容量单位.
+而使用`4GB`这样的设置时，可能会有前后`500MB`的误差。所以在创建分区时，应该指定比特(`B`),扇区(`s`)或`IEC`二进制单位`MiB`，不要使用`MB`,`GB。 
+
+***
+`创建新分区表`: 如果设备没有分区，或者要改变分区表类型，重建分区结构，需要新建分区表。
+
++ 打开分区: `# parted /dev/sdx`:
++ 为 `BIOS` 系统创建 `MBR/msdos` 分区表：`(parted) mklabel msdos`
++ 为`UEFI`系统创建 `GPT` 分区表：`(parted) mklabel gpt`
+
+***
+分区方案:
+
+您可以决定磁盘应该分为多少个区，每个分区如何映射至目录（一般称此为挂载点），取决于您的分区方案。需要满足：
+
++ 至少需要创建一个 `/` (`root`) 目录，有些分区类型和`启动加载器`(`bootloader`)组合有额外的分区要求：
++ `BIOS/GPT`+`GRUB`: 需要按照 `BIOS` 启动分区设置 的方式创建一个 `1M` 或 `2M` 的 `EF02` 类型分区.
++ `UEFI` 的主板，需要一个 `EFI` 系统分区.
++ 如果您需要加密磁盘，则必须加以调整分区方案。系统安装后，也可以再配置加密文件夹，容器或 `home` 目录。
+
+系统需要需要 `/boot`、`/home` 等目录， [Arch 文件系统架构](https://man.archlinux.org/man/file-hierarchy.7) 有各目录的详细介绍。
+如果没有创建单独的`/boot` 或 `/home` 分区，这些目录直接放到了根分区下面
+
+用下面命令打开 `parted` 交互模式：
+
+```bash
+# parted /dev/sdx
+```
+
+用下面命令创建分区：`(parted) mkpart part-type fs-type start end`
+
++ `part-type` 是分区类型，可以选择 `primary`, `extended` 或 `logical`，仅用于 `MBR `分区表.
++ `fs-type` 是文件系统类型，支持的类型列表可以通过 `help mkpart` 查看。 `mkpart` 并不会实际创建文件系统， `fs-type` 参数仅是让 `parted` 设置一个 `1-byte` 编码，让启动管理器可以提前知道分区中有什么格式的数据。参阅 Wikipedia:Disk partitioning#PC partition types.
+Tips: 大多数 Linux native file systems 对应的分区码相同 (`0x83`), 所以对一个 ext4 格式的分区使用例如 ext2 类型是安全的.
+
++ `start` 是分区的起始位置，可以带单位, 例如 `1M` 指 `1MiB`.
++ `end` 是设备的结束位置(不是与 `start` 值的差)，同样可以带单位，也可以用百分比，例如 `100%` 表示到设备的末尾。
++ 为了不留空隙，分区的开始和结束应该首尾相连。
+
+Warning: 分区不相互重叠是很重要的：如果您不想在设备中留下未使用的空间，请确保每个分区从上一个分区的结尾处开始。如果看到下面警告：
+
+```bash
+Warning: The resulting partition is not properly aligned for best performance.
+Ignore/Cancel?
+```
+
+表示分区没对齐，请参照分区对齐进行修正。
+
+下面命令设置 `/boot` 为启动目录：
+
+```bash
+(parted) set <partition> boot on
+```
+
+`<partition>` 是分区的编号，从 `print` 命令获取。
+
+***
+UEFI/GPT 示例
+
+首先需要一个`EFI`系统分区.如果是和 `Windows` 双系统启动，此分区已经存在，不要重新创建。用下面命令创建分区 (建议大小是 `512MiB` )。
+
+```bash
+(parted) mkpart ESP fat32 1M 513M
+(parted) set 1 boot on
+```
+
+剩下的空间可以按需要创建. 可以`root` 占用全部 `100%` 剩余空间：
+
+```bash
+(parted) mkpart primary ext4 513M 100%
+```
+
+也可以`/`(`20GiB`)，剩下的给 `/home`：
+
+```bash
+(parted) mkpart primary ext4 513M 20.5G
+(parted) mkpart primary ext4 20.5G 100%
+```
+
+创建 `/` (`20GiB`), `swap` (`4Gib`), 剩下给 `/home`：
+
+```bash
+(parted) mkpart primary ext4 513M 20.5G
+(parted) mkpart primary linux-swap 20.5G 24.5G
+(parted) mkpart primary ext4 24.5G 100%
+```
+
+***
+`BIOS/MBR` 示例
+
+单个`/`目录分区：
+
+```bash
+(parted) mkpart primary ext4 1M 100%
+(parted) set 1 boot on
+```
+
+`/` (`20Gib`)分区，剩下的给 `/home`：
+
+```bash
+(parted) mkpart primary ext4 1M 20G
+(parted) set 1 boot on
+(parted) mkpart primary ext4 20G 100%
+```
+
+`/boot` (`100MiB`), `/` (`20Gib`), `swap` (`4GiB`) 剩下的给 `/home`:
+
+```bash
+(parted) mkpart primary ext4 1M 100M
+(parted) set 1 boot on
+(parted) mkpart primary ext4 100M 20G
+(parted) mkpart primary linux-swap 20G 24G
+(parted) mkpart primary ext4 24G 100%
+```
+
+***
+双启动 Windows XP
+
+如果您打算将一个同属于启动分区的 Windows XP 分区移动到另一块硬盘，只要将以下的注册表删除，之后就可以用 GParted 轻易地操作，Windows 不会出现任何问题: 
+
+    HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices
+
 ### 用mkfs命令创建一个新的文件系统
 
 完成了分区编辑工作(它或许是轻量级的),是时候在我们的闪存驱动器上创建一个新的文件系统了. 
@@ -690,7 +843,6 @@ $ sudo mkfs -t vfat /dev/sdb1
 ```
 
 任何时候添加额外的存储设备到系统中时,都可以使用这个分区和格式化的过程.
-
 虽然我们只以一个小小的闪存驱动器为例,同样的操作可以被应用到内部硬盘和其它可移动的存储设备上像 USB 硬盘驱动器.
 
 ### 测试和修复文件系统
