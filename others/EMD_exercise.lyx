@@ -98,6 +98,7 @@
 \DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
 \DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
 %%%+++++++++++++++++++++++++++++++
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,aspectratio=141
@@ -244,8 +245,8 @@ status open
 \begin_inset Formula 
 \begin{align*}
  & \nabla f\left(u\right)=\frac{\dif f}{\dif u}\nabla u\\
- & \nabla\cdot\symbfit{A}\left(u\right)=\nabla u\cdot\frac{\dif\symbfit{A}}{\dif u}\\
- & \nabla\times\symbfit{A}\left(u\right)=\nabla u\times\frac{\dif\symbfit{A}}{\dif u}
+ & \nabla\cdot\sbf{A}\left(u\right)=\nabla u\cdot\frac{\dif\sbf{A}}{\dif u}\\
+ & \nabla\times\sbf{A}\left(u\right)=\nabla u\times\frac{\dif\sbf{A}}{\dif u}
 \end{align*}
 
 \end_inset
@@ -253,7 +254,7 @@ status open
 证明：
 \begin_inset Formula 
 \[
-\nabla=\symbfit{e}_{i}\frac{\partial}{\partial x_{i}}=\symbfit{e}_{i}\partial_{i},\quad\nabla g=\left(\symbfit{e}_{i}\partial_{i}\right)g,\quad\left(\nabla g\right)_{i}=\partial_{i}g
+\nabla=\sbf{e}_{i}\frac{\partial}{\partial x_{i}}=\sbf{e}_{i}\partial_{i},\quad\nabla g=\left(\sbf{e}_{i}\partial_{i}\right)g,\quad\left(\nabla g\right)_{i}=\partial_{i}g
 \]
 
 \end_inset
@@ -300,7 +301,7 @@ status open
 
 \begin_inset Formula 
 \[
-\nabla\cdot\symbfit{A}\left(u\right)\Rightarrow\partial_{i}A_{i}\left(u\right)=\frac{\dif A_{i}}{\dif u}\left(\partial_{i}u\right)\Rightarrow\frac{\dif\symbfit{A}}{\dif u}\cdot\nabla u
+\nabla\cdot\sbf{A}\left(u\right)\Rightarrow\partial_{i}A_{i}\left(u\right)=\frac{\dif A_{i}}{\dif u}\left(\partial_{i}u\right)\Rightarrow\frac{\dif\sbf{A}}{\dif u}\cdot\nabla u
 \]
 
 \end_inset
@@ -308,7 +309,7 @@ status open
 
 \begin_inset Formula 
 \[
-\nabla\times\symbfit{A}\left(u\right)\Rightarrow\varepsilon_{ijk}\partial_{j}A_{k}\left(u\right)=\varepsilon_{ijk}\left(\partial_{j}u\right)\frac{\dif A_{k}}{\dif u}\Rightarrow\nabla u\times\frac{\dif\symbfit{A}}{\dif u}
+\nabla\times\sbf{A}\left(u\right)\Rightarrow\varepsilon_{ijk}\partial_{j}A_{k}\left(u\right)=\varepsilon_{ijk}\left(\partial_{j}u\right)\frac{\dif A_{k}}{\dif u}\Rightarrow\nabla u\times\frac{\dif\sbf{A}}{\dif u}
 \]
 
 \end_inset
@@ -340,7 +341,7 @@ status open
 应用高斯定理证明
 \begin_inset Formula 
 \[
-\int_{V}\dif V\,\nabla\times\symbfit{f}=\oint_{S}\dif\symbfit{S}\times\symbfit{f}
+\int_{V}\dif V\,\nabla\times\sbf{f}=\oint_{S}\dif\sbf{S}\times\sbf{f}
 \]
 
 \end_inset
@@ -348,26 +349,26 @@ status open
 应用斯托克斯定理证明
 \begin_inset Formula 
 \[
-\int_{S}\dif\symbfit{S}\times\nabla\varphi=\oint_{L}\dif\symbfit{l}\,\varphi
+\int_{S}\dif\sbf{S}\times\nabla\varphi=\oint_{L}\dif\sbf{l}\,\varphi
 \]
 
 \end_inset
 
 证明：设
-\begin_inset Formula $\symbfit{c}$
+\begin_inset Formula $\sbf{c}$
 \end_inset
 
 为任意常矢量，uniform and constant，
 \begin_inset Formula 
 \begin{align*}
- & \nabla\cdot\left(\symbfit{f}\times\symbfit{c}\right)=\left(\nabla\times\symbfit{f}\right)\cdot\symbfit{c}-\left(\nabla\times\symbfit{c}\right)\cdot\symbfit{f}=\left(\nabla\times\symbfit{f}\right)\cdot\symbfit{c}\\
- & \nabla\times\left(\symbfit{c}\varphi\right)=\left(\nabla\times\symbfit{c}\right)\varphi+\nabla\varphi\times\symbfit{c}=\nabla\varphi\times\symbfit{c}
+ & \nabla\cdot\left(\sbf{f}\times\sbf{c}\right)=\left(\nabla\times\sbf{f}\right)\cdot\sbf{c}-\left(\nabla\times\sbf{c}\right)\cdot\sbf{f}=\left(\nabla\times\sbf{f}\right)\cdot\sbf{c}\\
+ & \nabla\times\left(\sbf{c}\varphi\right)=\left(\nabla\times\sbf{c}\right)\varphi+\nabla\varphi\times\sbf{c}=\nabla\varphi\times\sbf{c}
 \end{align*}
 
 \end_inset
 
 由
-\begin_inset Formula $\symbfit{c}$
+\begin_inset Formula $\sbf{c}$
 \end_inset
 
 的任意性可证。
@@ -395,7 +396,7 @@ status open
 
 \begin_layout Frame
 若
-\begin_inset Formula $\symbfit{m}$
+\begin_inset Formula $\sbf{m}$
 \end_inset
 
 是常矢量，证明除
@@ -403,21 +404,21 @@ status open
 \end_inset
 
 的点以外，矢量
-\begin_inset Formula $\symbfit{A}=\symbfit{m}\times\symbfit{R}/R^{3}$
+\begin_inset Formula $\sbf{A}=\sbf{m}\times\sbf{R}/R^{3}$
 \end_inset
 
 的旋度等于标量
-\begin_inset Formula $\varphi=\symbfit{m}\cdot\symbfit{R}/R^{3}$
+\begin_inset Formula $\varphi=\sbf{m}\cdot\sbf{R}/R^{3}$
 \end_inset
 
 的梯度的负值，即
-\begin_inset Formula $\nabla\times\symbfit{A}=-\nabla\varphi$
+\begin_inset Formula $\nabla\times\sbf{A}=-\nabla\varphi$
 \end_inset
 
 。
 \begin_inset Formula 
 \[
-\symbfit{a}\times\left(\symbfit{b}\times\symbfit{c}\right)=\symbfit{b}\left(\symbfit{a}\cdot\symbfit{c}\right)-\symbfit{c}\left(\symbfit{a}\symbfit{\cdot}\symbfit{b}\right),\text{ back cab}
+\sbf{a}\times\left(\sbf{b}\times\sbf{c}\right)=\sbf{b}\left(\sbf{a}\cdot\sbf{c}\right)-\sbf{c}\left(\sbf{a}\sbf{\cdot}\sbf{b}\right),\text{ back cab}
 \]
 
 \end_inset
@@ -425,7 +426,7 @@ status open
 
 \begin_inset Formula 
 \[
-\text{静电势}\Rightarrow\frac{\symbfit{R}}{R^{3}}=\frac{1}{R^{2}}\frac{\symbfit{R}}{R},\quad{\color{blue}\left(\nabla\cdot\frac{\symbfit{R}}{R^{3}}\right)}=0,\quad{\color{blue}\left(\nabla\times\frac{\symbfit{R}}{R^{3}}\right)}=0
+\text{静电势}\Rightarrow\frac{\sbf{R}}{R^{3}}=\frac{1}{R^{2}}\frac{\sbf{R}}{R},\quad{\color{blue}\left(\nabla\cdot\frac{\sbf{R}}{R^{3}}\right)}=0,\quad{\color{blue}\left(\nabla\times\frac{\sbf{R}}{R^{3}}\right)}=0
 \]
 
 \end_inset
@@ -433,8 +434,8 @@ status open
 
 \begin_inset Formula 
 \begin{align*}
-\nabla\times\symbfit{A} & =\nabla\times\left(\frac{\symbfit{m}\times\symbfit{R}}{R^{3}}\right)={\color{blue}\left(\nabla\cdot\frac{\symbfit{R}}{R^{3}}\right)}\symbfit{m}-\left(\symbfit{m}\cdot\nabla\right)\frac{\symbfit{R}}{R^{3}}\\
- & =-\left(\symbfit{m}\cdot\nabla\right)\frac{\symbfit{R}}{R^{3}}
+\nabla\times\sbf{A} & =\nabla\times\left(\frac{\sbf{m}\times\sbf{R}}{R^{3}}\right)={\color{blue}\left(\nabla\cdot\frac{\sbf{R}}{R^{3}}\right)}\sbf{m}-\left(\sbf{m}\cdot\nabla\right)\frac{\sbf{R}}{R^{3}}\\
+ & =-\left(\sbf{m}\cdot\nabla\right)\frac{\sbf{R}}{R^{3}}
 \end{align*}
 
 \end_inset
@@ -462,7 +463,7 @@ status open
 
 \begin_inset Formula 
 \[
-\nabla\times\symbfit{A}=-\left(\symbfit{m}\cdot\nabla\right)\frac{\symbfit{R}}{R^{3}}
+\nabla\times\sbf{A}=-\left(\sbf{m}\cdot\nabla\right)\frac{\sbf{R}}{R^{3}}
 \]
 
 \end_inset
@@ -470,8 +471,8 @@ status open
 
 \begin_inset Formula 
 \begin{align*}
-\nabla\varphi & =\nabla\left(\symbfit{m}\cdot\frac{\symbfit{R}}{R^{3}}\right)=\symbfit{m}\times{\color{blue}\left(\nabla\times\frac{\symbfit{R}}{R^{3}}\right)}+\left(\symbfit{m}\cdot\nabla\right)\frac{\symbfit{R}}{R^{3}}\\
- & =\left(\symbfit{m}\cdot\nabla\right)\frac{\symbfit{R}}{R^{3}}
+\nabla\varphi & =\nabla\left(\sbf{m}\cdot\frac{\sbf{R}}{R^{3}}\right)=\sbf{m}\times{\color{blue}\left(\nabla\times\frac{\sbf{R}}{R^{3}}\right)}+\left(\sbf{m}\cdot\nabla\right)\frac{\sbf{R}}{R^{3}}\\
+ & =\left(\sbf{m}\cdot\nabla\right)\frac{\sbf{R}}{R^{3}}
 \end{align*}
 
 \end_inset
@@ -479,7 +480,7 @@ status open
 所以
 \begin_inset Formula 
 \[
-\nabla\times\symbfit{A}=-\nabla\varphi
+\nabla\times\sbf{A}=-\nabla\varphi
 \]
 
 \end_inset
@@ -507,7 +508,7 @@ status open
 
 \begin_inset Formula 
 \[
-\left(\symbfit{m}\cdot\nabla\right)\frac{\symbfit{R}}{R^{3}}=\symbfit{m}\cdot\left(\nabla\frac{\symbfit{R}}{R^{3}}\right)
+\left(\sbf{m}\cdot\nabla\right)\frac{\sbf{R}}{R^{3}}=\sbf{m}\cdot\left(\nabla\frac{\sbf{R}}{R^{3}}\right)
 \]
 
 \end_inset
@@ -515,9 +516,9 @@ status open
 
 \begin_inset Formula 
 \begin{align*}
-\nabla\frac{\symbfit{R}}{R^{3}} & \Rightarrow\nabla_{i}\frac{R_{j}}{R^{3}}=\left(\nabla_{i}R^{-3}\right)R_{j}+R^{-3}\nabla_{i}R_{j}\\
+\nabla\frac{\sbf{R}}{R^{3}} & \Rightarrow\nabla_{i}\frac{R_{j}}{R^{3}}=\left(\nabla_{i}R^{-3}\right)R_{j}+R^{-3}\nabla_{i}R_{j}\\
  & =\left(-3\right)R^{-4}\left(\nabla_{i}R\right)R_{j}+R^{-3}\nabla_{i}R_{j}\\
- & =\left(-3\right)R^{-4}\left(\frac{R_{i}}{R}\right)R_{j}+R^{-3}\delta_{ij}\Rightarrow-\frac{3\symbfit{RR}}{R^{5}}+\frac{I}{R^{3}}
+ & =\left(-3\right)R^{-4}\left(\frac{R_{i}}{R}\right)R_{j}+R^{-3}\delta_{ij}\Rightarrow-\frac{3\sbf{RR}}{R^{5}}+\frac{I}{R^{3}}
 \end{align*}
 
 \end_inset
@@ -525,7 +526,7 @@ status open
 then：
 \begin_inset Formula 
 \[
-\symbfit{m}\cdot\symbfit{RR}=\left(\symbfit{m}\cdot\symbfit{R}\right)\symbfit{R},\quad I\cdot\symbfit{m}=\symbfit{m}
+\sbf{m}\cdot\sbf{RR}=\left(\sbf{m}\cdot\sbf{R}\right)\sbf{R},\quad I\cdot\sbf{m}=\sbf{m}
 \]
 
 \end_inset
@@ -561,7 +562,7 @@ status open
 根据安培定律：
 \begin_inset Formula 
 \[
-\dif\symbfit{F}=I\dif\symbfit{l}\times\symbfit{B},\quad\left(\symbfit{I},\symbfit{B},\symbfit{F}\right)
+\dif\sbf{F}=I\dif\sbf{l}\times\sbf{B},\quad\left(\sbf{I},\sbf{B},\sbf{F}\right)
 \]
 
 \end_inset
@@ -569,7 +570,7 @@ status open
 
 \begin_inset Formula 
 \[
-\symbfit{B}\left(\symbfit{x}\right)={\color{blue}\frac{\mu_{0}}{4\pi}\int_{V}\frac{\symbfit{J}\left(\symbfit{x}^{\prime}\right)\dif V^{\prime}\times\symbfit{r}}{r^{3}}},\quad\left(\symbfit{J},\symbfit{r},\symbfit{B}\right),\quad\symbfit{r}=\symbfit{x}-\symbfit{x}^{\prime}
+\sbf{B}\left(\sbf{x}\right)={\color{blue}\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf{J}\left(\sbf{x}^{\prime}\right)\dif V^{\prime}\times\sbf{r}}{r^{3}}},\quad\left(\sbf{J},\sbf{r},\sbf{B}\right),\quad\sbf{r}=\sbf{x}-\sbf{x}^{\prime}
 \]
 
 \end_inset
@@ -577,7 +578,7 @@ status open
 
 \begin_inset Formula 
 \[
-\dif\symbfit{F}_{1\to2}=I_{2}\dif\symbfit{l}_{2}\times{\color{blue}\frac{\mu_{0}}{4\pi}\oint_{L_{1}}\frac{I_{1}\dif\symbfit{l}_{1}\times\symbfit{r}_{12}}{r_{12}^{3}}}
+\dif\sbf{F}_{1\to2}=I_{2}\dif\sbf{l}_{2}\times{\color{blue}\frac{\mu_{0}}{4\pi}\oint_{L_{1}}\frac{I_{1}\dif\sbf{l}_{1}\times\sbf{r}_{12}}{r_{12}^{3}}}
 \]
 
 \end_inset
@@ -585,7 +586,7 @@ status open
 总的作用力为
 \begin_inset Formula 
 \[
-\oint_{L_{2}}\dif\symbfit{F}_{1\to2}=\frac{\mu_{0}}{4\pi}\oint_{L_{2}}I_{2}\dif\symbfit{l}_{2}\times{\color{blue}\oint_{L_{1}}\frac{I_{1}\dif\symbfit{l}_{1}\times\symbfit{r}_{12}}{r_{12}^{3}}}
+\oint_{L_{2}}\dif\sbf{F}_{1\to2}=\frac{\mu_{0}}{4\pi}\oint_{L_{2}}I_{2}\dif\sbf{l}_{2}\times{\color{blue}\oint_{L_{1}}\frac{I_{1}\dif\sbf{l}_{1}\times\sbf{r}_{12}}{r_{12}^{3}}}
 \]
 
 \end_inset
@@ -593,7 +594,7 @@ status open
 
 \begin_inset Formula 
 \[
-\symbfit{a}\times\left(\symbfit{b}\times\symbfit{c}\right)=\symbfit{b}\left(\symbfit{a}\cdot\symbfit{c}\right)-\symbfit{c}\left(\symbfit{a}\symbfit{\cdot}\symbfit{b}\right),\text{ back cab}
+\sbf{a}\times\left(\sbf{b}\times\sbf{c}\right)=\sbf{b}\left(\sbf{a}\cdot\sbf{c}\right)-\sbf{c}\left(\sbf{a}\sbf{\cdot}\sbf{b}\right),\text{ back cab}
 \]
 
 \end_inset
@@ -624,8 +625,8 @@ status open
 \begin_layout Frame
 \begin_inset Formula 
 \begin{align*}
-\symbfit{F}_{1\to2} & =\frac{\mu_{0}}{4\pi}\oint_{L_{2}}I_{2}\dif\symbfit{l}_{2}\times{\color{blue}\oint_{L_{1}}\frac{I_{1}\dif\symbfit{l}_{1}\times\symbfit{r}_{12}}{r_{12}^{3}}}\\
- & =\frac{\mu_{0}I_{1}I_{2}}{4\pi}\oint_{L_{2}}\oint_{L_{1}}\left[\frac{\dif\symbfit{l}_{1}\left(\dif\symbfit{l}_{2}\cdot\symbfit{r}_{12}\right)}{r_{12}^{3}}-\frac{\symbfit{r}_{12}\left(\dif\symbfit{l}_{2}\cdot\dif\symbfit{l}_{1}\right)}{r_{12}^{3}}\right]
+\sbf{F}_{1\to2} & =\frac{\mu_{0}}{4\pi}\oint_{L_{2}}I_{2}\dif\sbf{l}_{2}\times{\color{blue}\oint_{L_{1}}\frac{I_{1}\dif\sbf{l}_{1}\times\sbf{r}_{12}}{r_{12}^{3}}}\\
+ & =\frac{\mu_{0}I_{1}I_{2}}{4\pi}\oint_{L_{2}}\oint_{L_{1}}\left[\frac{\dif\sbf{l}_{1}\left(\dif\sbf{l}_{2}\cdot\sbf{r}_{12}\right)}{r_{12}^{3}}-\frac{\sbf{r}_{12}\left(\dif\sbf{l}_{2}\cdot\dif\sbf{l}_{1}\right)}{r_{12}^{3}}\right]
 \end{align*}
 
 \end_inset
@@ -633,19 +634,19 @@ status open
 
 \begin_inset Formula 
 \[
-\Rightarrow\oint_{L_{2}}\oint_{L_{1}}\frac{\dif\symbfit{l}_{1}\left(\dif\symbfit{l}_{2}\cdot\symbfit{r}_{12}\right)}{r_{12}^{3}}=\oint_{L_{1}}\dif\symbfit{l}_{1}\left({\color{brown}\oint_{L_{2}}\frac{\dif\symbfit{l}_{2}\cdot\symbfit{r}_{12}}{r_{12}^{3}}}\right)
+\Rightarrow\oint_{L_{2}}\oint_{L_{1}}\frac{\dif\sbf{l}_{1}\left(\dif\sbf{l}_{2}\cdot\sbf{r}_{12}\right)}{r_{12}^{3}}=\oint_{L_{1}}\dif\sbf{l}_{1}\left({\color{brown}\oint_{L_{2}}\frac{\dif\sbf{l}_{2}\cdot\sbf{r}_{12}}{r_{12}^{3}}}\right)
 \]
 
 \end_inset
 
 由 Stokes 公式
-\begin_inset Formula $\oint_{L}\dif\symbfit{l}\cdot\symbfit{f}=\iint_{S}\dif\symbfit{S}\,\nabla\times\symbfit{f}$
+\begin_inset Formula $\oint_{L}\dif\sbf{l}\cdot\sbf{f}=\iint_{S}\dif\sbf{S}\,\nabla\times\sbf{f}$
 \end_inset
 
 ，
 \begin_inset Formula 
 \[
-{\color{brown}\oint_{L_{2}}\dif\symbfit{l}_{2}\cdot\frac{\symbfit{r}_{12}}{r_{12}^{3}}}=\iint_{S}\dif\symbfit{S}\,\nabla\times\frac{\symbfit{r}_{12}}{r_{12}^{3}}=0\quad\Leftarrow\text{静电场无旋}.
+{\color{brown}\oint_{L_{2}}\dif\sbf{l}_{2}\cdot\frac{\sbf{r}_{12}}{r_{12}^{3}}}=\iint_{S}\dif\sbf{S}\,\nabla\times\frac{\sbf{r}_{12}}{r_{12}^{3}}=0\quad\Leftarrow\text{静电场无旋}.
 \]
 
 \end_inset
@@ -653,7 +654,7 @@ status open
 最终
 \begin_inset Formula 
 \[
-\symbfit{F}_{1\to2}=-\frac{\mu_{0}I_{1}I_{2}}{4\pi}\oint_{L_{2}}\oint_{L_{1}}\frac{\symbfit{r}_{12}\left(\dif\symbfit{l}_{2}\cdot\dif\symbfit{l}_{1}\right)}{r_{12}^{3}}
+\sbf{F}_{1\to2}=-\frac{\mu_{0}I_{1}I_{2}}{4\pi}\oint_{L_{2}}\oint_{L_{1}}\frac{\sbf{r}_{12}\left(\dif\sbf{l}_{2}\cdot\dif\sbf{l}_{1}\right)}{r_{12}^{3}}
 \]
 
 \end_inset
@@ -684,8 +685,8 @@ status open
 \begin_layout Frame
 \begin_inset Formula 
 \begin{align*}
-\symbfit{F}_{1\to2} & =-\frac{\mu_{0}I_{1}I_{2}}{4\pi}\oint_{L_{2}}\oint_{L_{1}}\frac{\symbfit{r}_{12}\left(\dif\symbfit{l}_{2}\cdot\dif\symbfit{l}_{1}\right)}{r_{12}^{3}}\\
-\symbfit{F}_{2\to1} & =-\frac{\mu_{0}I_{2}I_{1}}{4\pi}\oint_{L_{1}}\oint_{L_{2}}\frac{\symbfit{r}_{21}\left(\dif\symbfit{l}_{1}\cdot\dif\symbfit{l}_{2}\right)}{r_{21}^{3}}
+\sbf{F}_{1\to2} & =-\frac{\mu_{0}I_{1}I_{2}}{4\pi}\oint_{L_{2}}\oint_{L_{1}}\frac{\sbf{r}_{12}\left(\dif\sbf{l}_{2}\cdot\dif\sbf{l}_{1}\right)}{r_{12}^{3}}\\
+\sbf{F}_{2\to1} & =-\frac{\mu_{0}I_{2}I_{1}}{4\pi}\oint_{L_{1}}\oint_{L_{2}}\frac{\sbf{r}_{21}\left(\dif\sbf{l}_{1}\cdot\dif\sbf{l}_{2}\right)}{r_{21}^{3}}
 \end{align*}
 
 \end_inset
@@ -693,7 +694,7 @@ status open
 由
 \begin_inset Formula 
 \[
-r_{12}=\abs{\symbfit{r}_{12}}=\abs{\symbfit{r}_{21}}=r_{21}
+r_{12}=\abs{\sbf{r}_{12}}=\abs{\sbf{r}_{21}}=r_{21}
 \]
 
 \end_inset
@@ -701,7 +702,7 @@ r_{12}=\abs{\symbfit{r}_{12}}=\abs{\symbfit{r}_{21}}=r_{21}
 
 \begin_inset Formula 
 \[
-\symbfit{r}_{12}=-\symbfit{r}_{21}
+\sbf{r}_{12}=-\sbf{r}_{21}
 \]
 
 \end_inset
@@ -709,7 +710,7 @@ r_{12}=\abs{\symbfit{r}_{12}}=\abs{\symbfit{r}_{21}}=r_{21}
 可知
 \begin_inset Formula 
 \[
-\symbfit{F}_{1\to2}=-\symbfit{F}_{2\to1}
+\sbf{F}_{1\to2}=-\sbf{F}_{2\to1}
 \]
 
 \end_inset
@@ -741,8 +742,8 @@ status open
 对于孤立电流元
 \begin_inset Formula 
 \begin{align*}
-\dif\symbfit{F}_{1\to2} & =\frac{\mu_{0}I_{1}I_{2}}{4\pi}\left[\frac{\left(\dif\symbfit{l}_{1}\dif\symbfit{l}_{2}\right)\cdot\symbfit{r}_{12}}{r_{12}^{3}}-\frac{\symbfit{r}_{12}\left(\dif\symbfit{l}_{2}\cdot\dif\symbfit{l}_{1}\right)}{r_{12}^{3}}\right]\\
-\dif\symbfit{F}_{2\to1} & =\frac{\mu_{0}I_{1}I_{2}}{4\pi}\left[\frac{-\left(\dif\symbfit{l}_{2}\dif\symbfit{l}_{1}\right)\cdot\symbfit{r}_{12}}{r_{12}^{3}}-\frac{-\symbfit{r}_{12}\left(\dif\symbfit{l}_{2}\cdot\dif\symbfit{l}_{1}\right)}{r_{12}^{3}}\right]
+\dif\sbf{F}_{1\to2} & =\frac{\mu_{0}I_{1}I_{2}}{4\pi}\left[\frac{\left(\dif\sbf{l}_{1}\dif\sbf{l}_{2}\right)\cdot\sbf{r}_{12}}{r_{12}^{3}}-\frac{\sbf{r}_{12}\left(\dif\sbf{l}_{2}\cdot\dif\sbf{l}_{1}\right)}{r_{12}^{3}}\right]\\
+\dif\sbf{F}_{2\to1} & =\frac{\mu_{0}I_{1}I_{2}}{4\pi}\left[\frac{-\left(\dif\sbf{l}_{2}\dif\sbf{l}_{1}\right)\cdot\sbf{r}_{12}}{r_{12}^{3}}-\frac{-\sbf{r}_{12}\left(\dif\sbf{l}_{2}\cdot\dif\sbf{l}_{1}\right)}{r_{12}^{3}}\right]
 \end{align*}
 
 \end_inset
@@ -762,13 +763,13 @@ A.X\neq X.A,
 然而恒定电流
 \begin_inset Formula 
 \[
-\nabla\cdot\symbfit{J}\left(\symbfit{x},t\right)=0,
+\nabla\cdot\sbf{J}\left(\sbf{x},t\right)=0,
 \]
 
 \end_inset
 
 
-\begin_inset Formula $\symbfit{J}$
+\begin_inset Formula $\sbf{J}$
 \end_inset
 
 必定为闭合曲线，不可能是孤立的。
@@ -814,7 +815,7 @@ status open
 各向同性均匀介质，
 \begin_inset Formula 
 \[
-\symbfit{D}=\varepsilon\symbfit{E},\quad\nabla\cdot\symbfit{D}=\rho_{f},
+\sbf{D}=\varepsilon\sbf{E},\quad\nabla\cdot\sbf{D}=\rho_{f},
 \]
 
 \end_inset
@@ -822,8 +823,8 @@ status open
 
 \begin_inset Formula 
 \begin{align*}
-\rho_{P} & =-\nabla\cdot\symbfit{P}=-\nabla\cdot\left(\symbfit{D}-\varepsilon_{0}\symbfit{E}\right)\\
- & =-\nabla\cdot\left(1-\varepsilon_{0}/\varepsilon\right)\symbfit{D}\\
+\rho_{P} & =-\nabla\cdot\sbf{P}=-\nabla\cdot\left(\sbf{D}-\varepsilon_{0}\sbf{E}\right)\\
+ & =-\nabla\cdot\left(1-\varepsilon_{0}/\varepsilon\right)\sbf{D}\\
  & =\left(\frac{\varepsilon_{0}}{\varepsilon}-1\right)\rho_{f}.
 \end{align*}
 
@@ -996,7 +997,7 @@ includegraphics[scale=0.5]{sphere}};
 ：
 \begin_inset Formula 
 \[
-\symbfit{E}_{2}=\frac{\symbfit{D}_{2}}{\varepsilon}=\frac{\rho_{f}}{\varepsilon}\frac{\frac{4\pi}{3}\left(r^{3}-r_{1}^{3}\right)}{4\pi r^{2}}\frac{\symbfit{r}}{r}=\frac{\rho_{f}\left(r^{3}-r_{1}^{3}\right)\symbfit{r}}{3\varepsilon r^{3}}
+\sbf{E}_{2}=\frac{\sbf{D}_{2}}{\varepsilon}=\frac{\rho_{f}}{\varepsilon}\frac{\frac{4\pi}{3}\left(r^{3}-r_{1}^{3}\right)}{4\pi r^{2}}\frac{\sbf{r}}{r}=\frac{\rho_{f}\left(r^{3}-r_{1}^{3}\right)\sbf{r}}{3\varepsilon r^{3}}
 \]
 
 \end_inset
@@ -1011,7 +1012,7 @@ includegraphics[scale=0.5]{sphere}};
 ：
 \begin_inset Formula 
 \[
-\symbfit{E}_{3}=\frac{\symbfit{D}_{3}}{\varepsilon_{0}}=\frac{\rho_{f}}{\varepsilon_{0}}\frac{\frac{4\pi}{3}\left(r_{2}^{3}-r_{1}^{3}\right)}{4\pi r^{2}}\frac{\symbfit{r}}{r}=\frac{\rho_{f}\left(r_{2}^{3}-r_{1}^{3}\right)\symbfit{r}}{3\varepsilon_{0}r^{3}}
+\sbf{E}_{3}=\frac{\sbf{D}_{3}}{\varepsilon_{0}}=\frac{\rho_{f}}{\varepsilon_{0}}\frac{\frac{4\pi}{3}\left(r_{2}^{3}-r_{1}^{3}\right)}{4\pi r^{2}}\frac{\sbf{r}}{r}=\frac{\rho_{f}\left(r_{2}^{3}-r_{1}^{3}\right)\sbf{r}}{3\varepsilon_{0}r^{3}}
 \]
 
 \end_inset
@@ -1045,7 +1046,7 @@ status open
 极化电荷体密度和极化电荷面密度：
 \begin_inset Formula 
 \[
-\symbfit{E}_{2}=\frac{\rho_{f}\left(r^{3}-r_{1}^{3}\right)\symbfit{r}}{3\varepsilon r^{3}}
+\sbf{E}_{2}=\frac{\rho_{f}\left(r^{3}-r_{1}^{3}\right)\sbf{r}}{3\varepsilon r^{3}}
 \]
 
 \end_inset
@@ -1053,7 +1054,7 @@ status open
 
 \begin_inset Formula 
 \[
-\symbfit{P}_{2}=\symbfit{D}_{2}-\varepsilon_{0}\symbfit{E}_{2}=\left(\varepsilon-\varepsilon_{0}\right)\symbfit{E}_{2}={\color{blue}\left(1-\frac{\varepsilon_{0}}{\varepsilon}\right)\frac{\rho_{f}\left(r^{3}-r_{1}^{3}\right)\symbfit{r}}{3r^{3}}}
+\sbf{P}_{2}=\sbf{D}_{2}-\varepsilon_{0}\sbf{E}_{2}=\left(\varepsilon-\varepsilon_{0}\right)\sbf{E}_{2}={\color{blue}\left(1-\frac{\varepsilon_{0}}{\varepsilon}\right)\frac{\rho_{f}\left(r^{3}-r_{1}^{3}\right)\sbf{r}}{3r^{3}}}
 \]
 
 \end_inset
@@ -1061,7 +1062,7 @@ status open
 
 \begin_inset Formula 
 \[
-\rho_{P}=-\nabla\cdot\symbfit{P},\quad\nabla\cdot\symbfit{r}=3,\quad\nabla\cdot\frac{\symbfit{r}}{r^{3}}=4\pi\delta\left(\symbfit{r}\right)
+\rho_{P}=-\nabla\cdot\sbf{P},\quad\nabla\cdot\sbf{r}=3,\quad\nabla\cdot\frac{\sbf{r}}{r^{3}}=4\pi\delta\left(\sbf{r}\right)
 \]
 
 \end_inset
@@ -1075,14 +1076,14 @@ status open
 
 \begin_layout Itemize
 球壳外表面：介质球外
-\begin_inset Formula $\symbfit{P}_{3}=0$
+\begin_inset Formula $\sbf{P}_{3}=0$
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
  & -\sigma_{P}=P_{3}-P_{2}=-P_{2}\\
- & \sigma_{P}=P_{2}={\color{blue}\left(1-\frac{\varepsilon_{0}}{\varepsilon}\right)\frac{\rho_{f}\left(r_{2}^{3}-r_{1}^{3}\right)\symbfit{r}}{3r_{2}^{3}}}
+ & \sigma_{P}=P_{2}={\color{blue}\left(1-\frac{\varepsilon_{0}}{\varepsilon}\right)\frac{\rho_{f}\left(r_{2}^{3}-r_{1}^{3}\right)\sbf{r}}{3r_{2}^{3}}}
 \end{align*}
 
 \end_inset
@@ -1092,7 +1093,7 @@ status open
 
 \begin_layout Itemize
 球壳内表面：
-\begin_inset Formula $\symbfit{P}_{2}=0,\symbfit{P}_{1}=0$
+\begin_inset Formula $\sbf{P}_{2}=0,\sbf{P}_{1}=0$
 \end_inset
 
 。所以极化电荷面密度为
@@ -1440,7 +1441,7 @@ status open
 \begin_deeper
 \begin_layout Standard
 当介质漏电且电流恒定时，
-\begin_inset Formula $\nabla\cdot\symbfit{J}=-\partial_{t}\rho=0$
+\begin_inset Formula $\nabla\cdot\sbf{J}=-\partial_{t}\rho=0$
 \end_inset
 
 。电流处处连续。在介质分界面上：
@@ -1654,7 +1655,7 @@ status open
 \begin_layout Frame
 \begin_inset Formula 
 \[
-\nabla\times\symbfit{E}=-\frac{\partial\symbfit{B}}{\partial t},\quad\nabla\cdot\symbfit{D}=\rho_{f}.
+\nabla\times\sbf{E}=-\frac{\partial\sbf{B}}{\partial t},\quad\nabla\cdot\sbf{D}=\rho_{f}.
 \]
 
 \end_inset
@@ -1679,7 +1680,7 @@ E_{2t}=E_{1t},\quad D_{2n}=D_{1n}.
 对于线性介质
 \begin_inset Formula 
 \[
-\symbfit{D}_{1}=\varepsilon_{1}\symbfit{E}_{1},\quad\symbfit{D}_{2}=\varepsilon_{2}\symbfit{E}_{2}.
+\sbf{D}_{1}=\varepsilon_{1}\sbf{E}_{1},\quad\sbf{D}_{2}=\varepsilon_{2}\sbf{E}_{2}.
 \]
 
 \end_inset
@@ -1751,7 +1752,7 @@ status open
 \begin_deeper
 \begin_layout Standard
 对于恒定电流的情形：电流恒定时，
-\begin_inset Formula $\nabla\cdot\symbfit{J}=-\partial_{t}\rho=0$
+\begin_inset Formula $\nabla\cdot\sbf{J}=-\partial_{t}\rho=0$
 \end_inset
 
 ，电流处处连续。
@@ -1765,7 +1766,7 @@ E_{2t}=E_{1t},\quad J_{2n}=J_{1n}.
 对于线性均匀导电介质，
 \begin_inset Formula 
 \[
-\symbfit{J}_{1}=\sigma\symbfit{E}_{1},\quad\symbfit{J}_{2}=\sigma\symbfit{E}_{2}.
+\sbf{J}_{1}=\sigma\sbf{E}_{1},\quad\sbf{J}_{2}=\sigma\sbf{E}_{2}.
 \]
 
 \end_inset
@@ -1886,7 +1887,7 @@ ckness[2], Arrow[{{0, 0, 0}, {0, 0, 6.5}}], Arrow[{{2, 0, 5}, {2, 0, 6.5}}],
 \end_inset
 
 的无穷长中空导体圆柱，沿轴向流有恒定均匀的自由电流密度
-\begin_inset Formula $\symbfit{J}_{f}$
+\begin_inset Formula $\sbf{J}_{f}$
 \end_inset
 
 ，导体中的磁导率为
@@ -1900,7 +1901,7 @@ ckness[2], Arrow[{{0, 0, 0}, {0, 0, 6.5}}], Arrow[{{2, 0, 5}, {2, 0, 6.5}}],
 毕奥–萨伐尔定律：
 \begin_inset Formula 
 \[
-\symbfit{B}\left(\symbfit{x}\right)=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\symbfit{J}\left(\symbfit{x}^{\prime}\right)\times\symbfit{r}}{r^{3}}\dif V^{\prime}
+\sbf{B}\left(\sbf{x}\right)=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf{J}\left(\sbf{x}^{\prime}\right)\times\sbf{r}}{r^{3}}\dif V^{\prime}
 \]
 
 \end_inset
@@ -1914,17 +1915,17 @@ ckness[2], Arrow[{{0, 0, 0}, {0, 0, 6.5}}], Arrow[{{2, 0, 5}, {2, 0, 6.5}}],
 \end_inset
 
 轴，电流
-\begin_inset Formula $\symbfit{J}_{f}=J_{f}\symbfit{e}_{z}$
+\begin_inset Formula $\sbf{J}_{f}=J_{f}\sbf{e}_{z}$
 \end_inset
 
 只会产生
-\begin_inset Formula $\symbfit{e}_{\phi}$
+\begin_inset Formula $\sbf{e}_{\phi}$
 \end_inset
 
 方向的磁场。使用安培环路定理：
 \begin_inset Formula 
 \[
-\oint\symbfit{H}\cdot\dif\symbfit{l}=\iint_{S}\symbfit{J}_{f}\cdot\dif\symbfit{S}
+\oint\sbf{H}\cdot\dif\sbf{l}=\iint_{S}\sbf{J}_{f}\cdot\dif\sbf{S}
 \]
 
 \end_inset
@@ -1938,7 +1939,7 @@ ckness[2], Arrow[{{0, 0, 0}, {0, 0, 6.5}}], Arrow[{{2, 0, 5}, {2, 0, 6.5}}],
 \end_inset
 
 ，
-\begin_inset Formula $\symbfit{B}_{1}=\mu_{0}\symbfit{H}_{1}=0$
+\begin_inset Formula $\sbf{B}_{1}=\mu_{0}\sbf{H}_{1}=0$
 \end_inset
 
 。
@@ -1950,7 +1951,7 @@ ckness[2], Arrow[{{0, 0, 0}, {0, 0, 6.5}}], Arrow[{{2, 0, 5}, {2, 0, 6.5}}],
 \end_inset
 
 ：
-\begin_inset Formula $\symbfit{B}_{2}=\mu H_{2}=J_{f}\frac{\mu\left(r^{2}-r_{1}^{2}\right)}{2r}\symbfit{e}_{\phi}$
+\begin_inset Formula $\sbf{B}_{2}=\mu H_{2}=J_{f}\frac{\mu\left(r^{2}-r_{1}^{2}\right)}{2r}\sbf{e}_{\phi}$
 \end_inset
 
 。
@@ -1962,7 +1963,7 @@ ckness[2], Arrow[{{0, 0, 0}, {0, 0, 6.5}}], Arrow[{{2, 0, 5}, {2, 0, 6.5}}],
 \end_inset
 
 ：
-\begin_inset Formula $\symbfit{B}_{3}=\mu_{0}H_{3}=J_{f}\frac{\mu_{0}\left(r_{2}^{2}-r_{1}^{2}\right)}{2r}\symbfit{e}_{\phi}$
+\begin_inset Formula $\sbf{B}_{3}=\mu_{0}H_{3}=J_{f}\frac{\mu_{0}\left(r_{2}^{2}-r_{1}^{2}\right)}{2r}\sbf{e}_{\phi}$
 \end_inset
 
 。
@@ -2014,7 +2015,7 @@ status open
 由磁场强度的定义：
 \begin_inset Formula 
 \[
-\symbfit{H}=\frac{\symbfit{B}}{\mu_{0}}-\symbfit{M}
+\sbf{H}=\frac{\sbf{B}}{\mu_{0}}-\sbf{M}
 \]
 
 \end_inset
@@ -2022,7 +2023,7 @@ status open
 得到导体内的磁化强度和磁化电流密度：
 \begin_inset Formula 
 \[
-\symbfit{M}_{2}=\left(\frac{\mu\symbfit{H}_{2}}{\mu_{0}}-\symbfit{H}_{2}\right)=\frac{\mu-\mu_{0}}{\mu_{0}}J_{f}\frac{\left(r^{2}-r_{1}^{2}\right)}{2r}\symbfit{e}_{\phi}
+\sbf{M}_{2}=\left(\frac{\mu\sbf{H}_{2}}{\mu_{0}}-\sbf{H}_{2}\right)=\frac{\mu-\mu_{0}}{\mu_{0}}J_{f}\frac{\left(r^{2}-r_{1}^{2}\right)}{2r}\sbf{e}_{\phi}
 \]
 
 \end_inset
@@ -2030,7 +2031,7 @@ status open
 
 \begin_inset Formula 
 \[
-\nabla\times A=\left(\frac{1}{r}\partial_{\phi}A_{z}-\partial_{z}A_{\phi}\right)\symbfit{e}_{r}+\left(\partial_{z}A_{r}-\partial_{r}A_{z}\right)\symbfit{e}_{\phi}+\frac{1}{r}\left[\partial_{r}\left(rA_{\phi}\right)-\partial_{\phi}A_{r}\right]\symbfit{e}_{z}
+\nabla\times A=\left(\frac{1}{r}\partial_{\phi}A_{z}-\partial_{z}A_{\phi}\right)\sbf{e}_{r}+\left(\partial_{z}A_{r}-\partial_{r}A_{z}\right)\sbf{e}_{\phi}+\frac{1}{r}\left[\partial_{r}\left(rA_{\phi}\right)-\partial_{\phi}A_{r}\right]\sbf{e}_{z}
 \]
 
 \end_inset
@@ -2038,7 +2039,7 @@ status open
 
 \begin_inset Formula 
 \[
-\symbfit{J}_{M}=\nabla\times\symbfit{M}=\frac{\mu-\mu_{0}}{\mu_{0}}J_{f}\symbfit{e}_{z},\quad\symbfit{J}_{M}=\frac{\mu-\mu_{0}}{\mu_{0}}\symbfit{J}_{f}
+\sbf{J}_{M}=\nabla\times\sbf{M}=\frac{\mu-\mu_{0}}{\mu_{0}}J_{f}\sbf{e}_{z},\quad\sbf{J}_{M}=\frac{\mu-\mu_{0}}{\mu_{0}}\sbf{J}_{f}
 \]
 
 \end_inset
@@ -2079,7 +2080,7 @@ status open
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\symbfit{M}_{2}=\left(\frac{\mu\symbfit{H}_{2}}{\mu_{0}}-\symbfit{H}_{2}\right)=\frac{\mu-\mu_{0}}{\mu_{0}}J_{f}\frac{\left(r^{2}-r_{1}^{2}\right)}{2r}\symbfit{e}_{\phi}
+\sbf{M}_{2}=\left(\frac{\mu\sbf{H}_{2}}{\mu_{0}}-\sbf{H}_{2}\right)=\frac{\mu-\mu_{0}}{\mu_{0}}J_{f}\frac{\left(r^{2}-r_{1}^{2}\right)}{2r}\sbf{e}_{\phi}
 \]
 
 \end_inset
@@ -2089,7 +2090,7 @@ status open
 
 \begin_layout Standard
 外表面磁化电流密度：方向沿
-\begin_inset Formula $\symbfit{e}_{z}$
+\begin_inset Formula $\sbf{e}_{z}$
 \end_inset
 
 ，大小为：
@@ -2125,7 +2126,7 @@ includegraphics[scale=0.5]{zhongkong}};
 
 \begin_layout Standard
 内表面磁化电流密度：方向沿
-\begin_inset Formula $\symbfit{e}_{z}$
+\begin_inset Formula $\sbf{e}_{z}$
 \end_inset
 
 ，大小为：
@@ -2137,11 +2138,11 @@ includegraphics[scale=0.5]{zhongkong}};
 \end_inset
 
 如果将
-\begin_inset Formula $\symbfit{J}_{M}$
+\begin_inset Formula $\sbf{J}_{M}$
 \end_inset
 
 作面积分，将
-\begin_inset Formula $\symbfit{\alpha}_{M}$
+\begin_inset Formula $\sbf{\alpha}_{M}$
 \end_inset
 
 作线积分，它们流向相反，可得磁化电流的总和为零，即磁化电流遵从连续性(电荷守恒)。
@@ -2172,7 +2173,7 @@ status open
 证明：
 \begin_inset Formula 
 \[
-\nabla\cdot\frac{\symbfit{r}}{r^{3}}=4\pi\delta\left(\symbfit{x}-\symbfit{x}^{\prime}\right)
+\nabla\cdot\frac{\sbf{r}}{r^{3}}=4\pi\delta\left(\sbf{x}-\sbf{x}^{\prime}\right)
 \]
 
 \end_inset
@@ -2192,8 +2193,8 @@ status open
 
 \begin_inset Formula 
 \begin{align*}
- & \frac{\symbfit{r}}{r^{3}}=\frac{1}{r^{2}}\symbfit{e}_{r}+0\symbfit{e}_{\theta}+0\symbfit{e}_{\phi}\\
- & \nabla\cdot\frac{\symbfit{r}}{r^{3}}=\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{1}{r^{2}}\right)=0
+ & \frac{\sbf{r}}{r^{3}}=\frac{1}{r^{2}}\sbf{e}_{r}+0\sbf{e}_{\theta}+0\sbf{e}_{\phi}\\
+ & \nabla\cdot\frac{\sbf{r}}{r^{3}}=\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{1}{r^{2}}\right)=0
 \end{align*}
 
 \end_inset
@@ -2233,7 +2234,7 @@ status open
 的球面，根据高斯定理：
 \begin_inset Formula 
 \begin{align*}
-\int_{V}\nabla\cdot\frac{\symbfit{r}}{r^{3}}\dif V & =\oint_{S}\frac{\symbfit{r}}{r^{3}}\cdot\dif\symbfit{S}=\int_{0}^{2\pi}\int_{0}^{\pi}\frac{\symbfit{r}}{r^{3}}\cdot r^{2}\symbfit{e}_{r}\sin\theta\dif\theta\dif\varphi\\
+\int_{V}\nabla\cdot\frac{\sbf{r}}{r^{3}}\dif V & =\oint_{S}\frac{\sbf{r}}{r^{3}}\cdot\dif\sbf{S}=\int_{0}^{2\pi}\int_{0}^{\pi}\frac{\sbf{r}}{r^{3}}\cdot r^{2}\sbf{e}_{r}\sin\theta\dif\theta\dif\varphi\\
  & =4\pi
 \end{align*}
 
@@ -2246,7 +2247,7 @@ status open
 时：
 \begin_inset Formula 
 \[
-\int_{V}\nabla\cdot\frac{\symbfit{r}}{r^{3}}\dif V\sim\frac{4\pi r^{3}}{3}\left(\nabla\cdot\frac{\symbfit{r}}{r^{3}}\right)
+\int_{V}\nabla\cdot\frac{\sbf{r}}{r^{3}}\dif V\sim\frac{4\pi r^{3}}{3}\left(\nabla\cdot\frac{\sbf{r}}{r^{3}}\right)
 \]
 
 \end_inset
@@ -2256,7 +2257,7 @@ status open
 \end_inset
 
 ，积分结果为有限值，所以
-\begin_inset Formula $\nabla\cdot\frac{\symbfit{r}}{r^{3}}$
+\begin_inset Formula $\nabla\cdot\frac{\sbf{r}}{r^{3}}$
 \end_inset
 
 发散。具有这种特点的函数，把它称为
@@ -2266,7 +2267,7 @@ status open
 函数，
 \begin_inset Formula 
 \[
-\int_{V}4\pi\delta\left(\symbfit{x}-\symbfit{x}^{\prime}\right)\dif V=4\pi,\quad\symbfit{x}^{\prime}\in V
+\int_{V}4\pi\delta\left(\sbf{x}-\sbf{x}^{\prime}\right)\dif V=4\pi,\quad\sbf{x}^{\prime}\in V
 \]
 
 \end_inset
@@ -2274,7 +2275,7 @@ status open
 所以我们令
 \begin_inset Formula 
 \[
-\nabla\cdot\frac{\symbfit{r}}{r^{3}}=4\pi\delta\left(\symbfit{x}-\symbfit{x}^{\prime}\right)
+\nabla\cdot\frac{\sbf{r}}{r^{3}}=4\pi\delta\left(\sbf{x}-\sbf{x}^{\prime}\right)
 \]
 
 \end_inset
@@ -2526,7 +2527,7 @@ Print[tea = GraphicsGrid[{{ Plot[ Evaluate[Sqrt[n/Pi] Exp[-n x^2] /.
 \end_inset
 
 的图，说明
-\begin_inset Formula $\rho=-\symbfit{p}\cdot\symbfit{\nabla}\delta\left(\symbfit{x}\right)$
+\begin_inset Formula $\rho=-\sbf{p}\cdot\sbf{\nabla}\delta\left(\sbf{x}\right)$
 \end_inset
 
 是一个位于原点的电偶极子的电荷密度。
@@ -2592,7 +2593,7 @@ status open
 对于静电场电势的积分表达式，例如无界空间中的：
 \begin_inset Formula 
 \[
-\varphi\left(\symbfit{x}\right)=\frac{-1}{4\pi\varepsilon}\int\rho\left(\symbfit{x}^{\,\prime}\right){\color{blue}\frac{1}{\abs{\symbfit{x}-\symbfit{x}^{\,\prime}}}}\dif\symbfit{V}^{\prime}
+\varphi\left(\sbf{x}\right)=\frac{-1}{4\pi\varepsilon}\int\rho\left(\sbf{x}^{\,\prime}\right){\color{blue}\frac{1}{\abs{\sbf{x}-\sbf{x}^{\,\prime}}}}\dif\sbf{V}^{\prime}
 \]
 
 \end_inset
@@ -2604,19 +2605,19 @@ status open
 。对于被积函数，我们经常使用：
 \begin_inset Formula 
 \[
-\nabla{\color{blue}\frac{1}{\abs{\symbfit{x}-\symbfit{x}^{\,\prime}}}}=-\nabla^{\prime}{\color{blue}\frac{1}{\abs{\symbfit{x}-\symbfit{x}^{\,\prime}}}}
+\nabla{\color{blue}\frac{1}{\abs{\sbf{x}-\sbf{x}^{\,\prime}}}}=-\nabla^{\prime}{\color{blue}\frac{1}{\abs{\sbf{x}-\sbf{x}^{\,\prime}}}}
 \]
 
 \end_inset
 
 而微分方程中只有一个坐标
-\begin_inset Formula $\symbfit{x}$
+\begin_inset Formula $\sbf{x}$
 \end_inset
 
 ：
 \begin_inset Formula 
 \[
-\nabla^{2}\varphi\left(\symbfit{x}\right)=-\rho\left(\symbfit{x}\right)
+\nabla^{2}\varphi\left(\sbf{x}\right)=-\rho\left(\sbf{x}\right)
 \]
 
 \end_inset
@@ -2625,27 +2626,27 @@ status open
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\rho\left(\symbfit{x}\right)=q\delta\left(\symbfit{x}-\symbfit{l}/2\right)-q\delta\left(\symbfit{x}+\symbfit{l}/2\right)$
+\begin_inset Formula $\rho\left(\sbf{x}\right)=q\delta\left(\sbf{x}-\sbf{l}/2\right)-q\delta\left(\sbf{x}+\sbf{l}/2\right)$
 \end_inset
 
 ，描述位置在
-\begin_inset Formula $\symbfit{l}/2$
+\begin_inset Formula $\sbf{l}/2$
 \end_inset
 
 处的正电荷，和位置在
-\begin_inset Formula $-\symbfit{l}/2$
+\begin_inset Formula $-\sbf{l}/2$
 \end_inset
 
 处的负电荷，也就是中心在原点的电偶极子。当
-\begin_inset Formula $\abs{\symbfit{l}}\to0$
+\begin_inset Formula $\abs{\sbf{l}}\to0$
 \end_inset
 
 时：
 \begin_inset Formula 
 \begin{align*}
-\rho\left(\symbfit{x}\right) & =q\delta\left(\symbfit{x}-\symbfit{l}/2\right)-q\delta\left(\symbfit{x}+\symbfit{l}/2\right)\quad\text{相当于\ensuremath{\delta\left(\symbfit{x}\right)}沿着\ensuremath{-\symbfit{l}}方向的变化量}\\
- & =q\,\nabla\delta\left(\symbfit{x}\right)\cdot\left(-\symbfit{l}\right)\\
- & =-\symbfit{p}\cdot\nabla\delta\left(\symbfit{x}\right)
+\rho\left(\sbf{x}\right) & =q\delta\left(\sbf{x}-\sbf{l}/2\right)-q\delta\left(\sbf{x}+\sbf{l}/2\right)\quad\text{相当于\ensuremath{\delta\left(\sbf{x}\right)}沿着\ensuremath{-\sbf{l}}方向的变化量}\\
+ & =q\,\nabla\delta\left(\sbf{x}\right)\cdot\left(-\sbf{l}\right)\\
+ & =-\sbf{p}\cdot\nabla\delta\left(\sbf{x}\right)
 \end{align*}
 
 \end_inset
@@ -2702,7 +2703,7 @@ Print[tea = Graphics[{ LightCyan, Rectangle[{-3, 0}, {3, 2}], LightGreen,
 
 \begin_layout Enumerate
 在面电偶极层两侧，电势有跃变
-\begin_inset Formula $\varphi_{2}-\varphi_{1}=\symbfit{e}_{n}\cdot\symbfit{P}/\varepsilon_{0}$
+\begin_inset Formula $\varphi_{2}-\varphi_{1}=\sbf{e}_{n}\cdot\sbf{P}/\varepsilon_{0}$
 \end_inset
 
 ，而电势的法向微商是连续的。（带等量正负面电荷
@@ -2710,7 +2711,7 @@ Print[tea = Graphics[{ LightCyan, Rectangle[{-3, 0}, {3, 2}], LightGreen,
 \end_inset
 
 而靠的很近的两个面，形成面电偶极层，面偶极矩密度
-\begin_inset Formula $\symbfit{P}=\lim_{\sigma\to\infty,l\to0}\sigma\symbfit{l}$
+\begin_inset Formula $\sbf{P}=\lim_{\sigma\to\infty,l\to0}\sigma\sbf{l}$
 \end_inset
 
  。）
@@ -2729,9 +2730,9 @@ Print[tea = Graphics[{ LightCyan, Rectangle[{-3, 0}, {3, 2}], LightGreen,
 
 \begin_inset Formula 
 \begin{align*}
- & \oiint_{S}\symbfit{E}\cdot\dif\symbfit{S}=\frac{1}{\varepsilon_{0}}\int_{V}\rho\dif V,\quad\oint_{L}\symbfit{E}\cdot\dif\symbfit{l}=0\\
- & \nabla\cdot\symbfit{E}=\frac{\rho}{\varepsilon_{0}},\quad\nabla\times\symbfit{E}=0\\
- & \symbfit{n}\cdot\symbfit{E}=\frac{\rho}{\varepsilon_{0}},\quad\symbfit{n}\times\symbfit{E}=0
+ & \oiint_{S}\sbf{E}\cdot\dif\sbf{S}=\frac{1}{\varepsilon_{0}}\int_{V}\rho\dif V,\quad\oint_{L}\sbf{E}\cdot\dif\sbf{l}=0\\
+ & \nabla\cdot\sbf{E}=\frac{\rho}{\varepsilon_{0}},\quad\nabla\times\sbf{E}=0\\
+ & \sbf{n}\cdot\sbf{E}=\frac{\rho}{\varepsilon_{0}},\quad\sbf{n}\times\sbf{E}=0
 \end{align*}
 
 \end_inset
@@ -2895,7 +2896,7 @@ E_{2\perp}+E_{0\perp}=\frac{\sigma}{\varepsilon_{0}},\quad-E_{0\perp}-E_{1\perp}
 两层电荷间的电势差为
 \begin_inset Formula 
 \[
-\varphi_{2}-\varphi_{1}=\frac{\sigma}{\varepsilon_{0}}*l=\frac{\symbfit{e}_{n}\cdot\symbfit{P}}{\varepsilon_{0}},\quad\symbfit{e}_{n},\symbfit{p}\,\text{的方向均从负电荷指向正电荷}
+\varphi_{2}-\varphi_{1}=\frac{\sigma}{\varepsilon_{0}}*l=\frac{\sbf{e}_{n}\cdot\sbf{P}}{\varepsilon_{0}},\quad\sbf{e}_{n},\sbf{p}\,\text{的方向均从负电荷指向正电荷}
 \]
 
 \end_inset
@@ -2944,13 +2945,14 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 一个半径为
 \begin_inset Formula $R$
 \end_inset
 
 的电介质球，极化强度为
-\begin_inset Formula $\symbfit{P}=K\symbfit{r}/r^{2}$
+\begin_inset Formula $\sbf{P}=K\sbf{r}/r^{2}$
 \end_inset
 
 ，电容率为
@@ -2960,7 +2962,6 @@ status open
 。计算：
 \end_layout
 
-\begin_deeper
 \begin_layout Enumerate
 束缚电荷的体密度和面密度；
 \end_layout
@@ -2986,11 +2987,11 @@ status open
 
 \begin_layout Standard
 注意：
-\begin_inset Formula $\nabla\cdot\left(\symbfit{r}/r^{3}\right)=0$
+\begin_inset Formula $\nabla\cdot\left(\sbf{r}/r^{3}\right)=0$
 \end_inset
 
 ，但
-\begin_inset Formula $\nabla\cdot\left(\symbfit{r}/r^{2}\right)$
+\begin_inset Formula $\nabla\cdot\left(\sbf{r}/r^{2}\right)$
 \end_inset
 
 未知。使用
@@ -3000,7 +3001,7 @@ status open
 在球坐标系下的形式：
 \begin_inset Formula 
 \[
-\nabla\cdot\symbfit{A}=\frac{1}{r^{2}}\partial_{r}\left(r^{2}A_{r}\right)+\frac{1}{r\sin\theta}\partial_{\theta}\left(\sin\theta A_{\theta}\right)+\frac{1}{r\sin\theta}\partial_{\phi}A_{\phi},\quad P_{r}=\frac{K}{r}
+\nabla\cdot\sbf{A}=\frac{1}{r^{2}}\partial_{r}\left(r^{2}A_{r}\right)+\frac{1}{r\sin\theta}\partial_{\theta}\left(\sin\theta A_{\theta}\right)+\frac{1}{r\sin\theta}\partial_{\phi}A_{\phi},\quad P_{r}=\frac{K}{r}
 \]
 
 \end_inset
@@ -3008,7 +3009,7 @@ status open
 
 \begin_inset Formula 
 \[
-\rho_{P}=-\nabla\cdot\symbfit{P}=-\frac{K}{r^{2}},\quad\sigma_{P}=\left(-\right)\symbfit{n}\cdot\symbfit{P}=\left(-\right)\left(-\right)\left.\frac{K}{r}\right|_{R}=\frac{K}{R}
+\rho_{P}=-\nabla\cdot\sbf{P}=-\frac{K}{r^{2}},\quad\sigma_{P}=\left(-\right)\sbf{n}\cdot\sbf{P}=\left(-\right)\left(-\right)\left.\frac{K}{r}\right|_{R}=\frac{K}{R}
 \]
 
 \end_inset
@@ -3072,13 +3073,13 @@ status open
 \begin_deeper
 \begin_layout Standard
 由
-\begin_inset Formula $\symbfit{D}_{1}=\varepsilon\symbfit{E}_{1}=\varepsilon_{0}\symbfit{E}_{1}+\symbfit{P}$
+\begin_inset Formula $\sbf{D}_{1}=\varepsilon\sbf{E}_{1}=\varepsilon_{0}\sbf{E}_{1}+\sbf{P}$
 \end_inset
 
 ，得电场强度为
 \begin_inset Formula 
 \[
-\symbfit{E}_{1}=\frac{\symbfit{P}}{\varepsilon-\varepsilon_{0}}=\frac{K}{\varepsilon-\varepsilon_{0}}\frac{\symbfit{r}}{r^{2}},\quad\left(r<R\right)
+\sbf{E}_{1}=\frac{\sbf{P}}{\varepsilon-\varepsilon_{0}}=\frac{K}{\varepsilon-\varepsilon_{0}}\frac{\sbf{r}}{r^{2}},\quad\left(r<R\right)
 \]
 
 \end_inset
@@ -3098,7 +3099,7 @@ q_{f}=\int_{0}^{R}\rho_{f}\dif V=\frac{4\pi\varepsilon KR}{\varepsilon-\varepsil
 所以球外的电场为
 \begin_inset Formula 
 \[
-\symbfit{E}_{2}=\frac{q_{f}\symbfit{r}}{4\pi\varepsilon_{0}r^{3}}={\color{blue}\frac{\varepsilon}{\varepsilon_{0}}\frac{K}{\left(\varepsilon-\varepsilon_{0}\right)}\frac{R\symbfit{r}}{r^{3}}},\quad\left(r>R\right)
+\sbf{E}_{2}=\frac{q_{f}\sbf{r}}{4\pi\varepsilon_{0}r^{3}}={\color{blue}\frac{\varepsilon}{\varepsilon_{0}}\frac{K}{\left(\varepsilon-\varepsilon_{0}\right)}\frac{R\sbf{r}}{r^{3}}},\quad\left(r>R\right)
 \]
 
 \end_inset
@@ -3106,7 +3107,7 @@ q_{f}=\int_{0}^{R}\rho_{f}\dif V=\frac{4\pi\varepsilon KR}{\varepsilon-\varepsil
 球外的电势
 \begin_inset Formula 
 \[
-\varphi_{2}\left(r\right)-0=-\int_{\infty}^{r}{\color{blue}\frac{\varepsilon}{\varepsilon_{0}}\frac{K}{\left(\varepsilon-\varepsilon_{0}\right)}\frac{R\symbfit{t}}{t^{3}}}\cdot\dif\symbfit{t}=\frac{\varepsilon KR}{\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)r}
+\varphi_{2}\left(r\right)-0=-\int_{\infty}^{r}{\color{blue}\frac{\varepsilon}{\varepsilon_{0}}\frac{K}{\left(\varepsilon-\varepsilon_{0}\right)}\frac{R\sbf{t}}{t^{3}}}\cdot\dif\sbf{t}=\frac{\varepsilon KR}{\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)r}
 \]
 
 \end_inset
@@ -3167,14 +3168,14 @@ status open
 球内的电势：
 \begin_inset Formula 
 \begin{align*}
-\varphi_{1}\left(r\right)-\varphi_{2}\left(R\right) & =-\int_{R}^{r}\frac{K}{\varepsilon-\varepsilon_{0}}\frac{\symbfit{t}}{t^{2}}\cdot\dif\symbfit{t}=\frac{K}{\varepsilon-\varepsilon_{0}}\ln\frac{R}{r}\\
+\varphi_{1}\left(r\right)-\varphi_{2}\left(R\right) & =-\int_{R}^{r}\frac{K}{\varepsilon-\varepsilon_{0}}\frac{\sbf{t}}{t^{2}}\cdot\dif\sbf{t}=\frac{K}{\varepsilon-\varepsilon_{0}}\ln\frac{R}{r}\\
 \Rightarrow\varphi_{1}\left(r\right) & =\frac{K}{\varepsilon-\varepsilon_{0}}\left(\ln\frac{R}{r}+\frac{\varepsilon}{\varepsilon_{0}}\right)
 \end{align*}
 
 \end_inset
 
 静电能
-\begin_inset Formula $W=\int_{\infty}\frac{1}{2}\symbfit{E}\cdot\symbfit{D}\dif V=\int_{\infty}\frac{1}{2}\rho_{f}\cdot\varphi\dif V$
+\begin_inset Formula $W=\int_{\infty}\frac{1}{2}\sbf{E}\cdot\sbf{D}\dif V=\int_{\infty}\frac{1}{2}\rho_{f}\cdot\varphi\dif V$
 \end_inset
 
 :
@@ -3297,7 +3298,7 @@ Print[tea = Graphics3D[{ Yellow, Opacity[0.25], Ball[{0, 0, 0}, .2], White,
 。 泊松方程/拉普拉斯方程为：
 \begin_inset Formula 
 \begin{align*}
--\nabla^{2}\varphi_{1} & =q_{f}\delta\left(\symbfit{x}\right)/\varepsilon,\quad\left(r<R_{0}\right)\\
+-\nabla^{2}\varphi_{1} & =q_{f}\delta\left(\sbf{x}\right)/\varepsilon,\quad\left(r<R_{0}\right)\\
 -\nabla^{2}\varphi_{2} & =0,\quad\left(r>R_{0}\right)
 \end{align*}
 
@@ -3494,13 +3495,13 @@ status open
 如果使用高斯定理，容易知道，介质球内外的场球为
 \begin_inset Formula 
 \[
-\symbfit{E}_{1}=\frac{q_{f}\symbfit{r}}{4\pi\varepsilon r^{3}},\quad\symbfit{E}_{2}=\frac{q_{f}\symbfit{r}}{4\pi\varepsilon_{0}r^{3}}.
+\sbf{E}_{1}=\frac{q_{f}\sbf{r}}{4\pi\varepsilon r^{3}},\quad\sbf{E}_{2}=\frac{q_{f}\sbf{r}}{4\pi\varepsilon_{0}r^{3}}.
 \]
 
 \end_inset
 
 根据
-\begin_inset Formula $\varphi\left(r\right)-\varphi\left(\infty\right)=-\int_{\infty}^{r}\symbfit{E}\cdot\dif\symbfit{r}$
+\begin_inset Formula $\varphi\left(r\right)-\varphi\left(\infty\right)=-\int_{\infty}^{r}\sbf{E}\cdot\dif\sbf{r}$
 \end_inset
 
 也能求出电势，与上面相同。
@@ -3633,7 +3634,7 @@ rs/qiuJiezhi.pdf", tea]
 \end_inset
 
 ）的中心置一自由电偶极子
-\begin_inset Formula $\symbfit{\rho}_{f}$
+\begin_inset Formula $\sbf{\rho}_{f}$
 \end_inset
 
 ，球外充满了另一种电容率为
@@ -3651,7 +3652,7 @@ rs/qiuJiezhi.pdf", tea]
 轴方向建立球坐标系，微分方程为：
 \begin_inset Formula 
 \begin{align*}
--\nabla^{2}\varphi_{1} & =-\symbfit{p}_{f}\cdot\nabla\delta\left(\symbfit{x}\right)/\varepsilon_{1},\quad\left(r<R_{0}\right)\\
+-\nabla^{2}\varphi_{1} & =-\sbf{p}_{f}\cdot\nabla\delta\left(\sbf{x}\right)/\varepsilon_{1},\quad\left(r<R_{0}\right)\\
 -\nabla^{2}\varphi_{2} & =0,\quad\left(r>R_{0}\right)
 \end{align*}
 
@@ -3667,7 +3668,7 @@ rs/qiuJiezhi.pdf", tea]
 \end_inset
 
 减去电偶极子电势的特解
-\begin_inset Formula $\varphi_{p}=\frac{\symbfit{p}_{f}\cdot\symbfit{r}}{4\pi\varepsilon_{1}r^{3}}$
+\begin_inset Formula $\varphi_{p}=\frac{\sbf{p}_{f}\cdot\sbf{r}}{4\pi\varepsilon_{1}r^{3}}$
 \end_inset
 
 ，剩下的部分满足拉普拉斯方程：
@@ -3794,13 +3795,13 @@ status open
 \begin_deeper
 \begin_layout Standard
 球心处
-\begin_inset Formula $\symbfit{p}_{f}$
+\begin_inset Formula $\sbf{p}_{f}$
 \end_inset
 
 附近产生一个方向相反的极化电偶极子：
 \begin_inset Formula 
 \[
-\symbfit{p}_{P}=\frac{\varepsilon_{0}-\varepsilon_{1}}{\varepsilon_{1}}\symbfit{p}_{f}
+\sbf{p}_{P}=\frac{\varepsilon_{0}-\varepsilon_{1}}{\varepsilon_{1}}\sbf{p}_{f}
 \]
 
 \end_inset
@@ -3812,7 +3813,7 @@ status open
 也是这个数值。
 \begin_inset Formula 
 \[
-\symbfit{P}_{i}=\left(\varepsilon_{i}-\varepsilon_{0}\right)\left(-\right)\nabla\varphi=\left(\varepsilon_{0}-\varepsilon_{i}\right)\nabla\varphi,\quad i=1,2
+\sbf{P}_{i}=\left(\varepsilon_{i}-\varepsilon_{0}\right)\left(-\right)\nabla\varphi=\left(\varepsilon_{0}-\varepsilon_{i}\right)\nabla\varphi,\quad i=1,2
 \]
 
 \end_inset
@@ -3820,7 +3821,7 @@ status open
 
 \begin_inset Formula 
 \begin{align*}
-\sigma_{P} & =-\symbfit{n}\cdot\symbfit{P}=\left.-\left[\left(\varepsilon_{0}-\varepsilon_{2}\right)\frac{\partial\varphi_{2}}{\partial r}-\left(\varepsilon_{0}-\varepsilon_{1}\right)\frac{\partial\varphi_{1}}{\partial r}\right]\right|_{R_{0}}\\
+\sigma_{P} & =-\sbf{n}\cdot\sbf{P}=\left.-\left[\left(\varepsilon_{0}-\varepsilon_{2}\right)\frac{\partial\varphi_{2}}{\partial r}-\left(\varepsilon_{0}-\varepsilon_{1}\right)\frac{\partial\varphi_{1}}{\partial r}\right]\right|_{R_{0}}\\
  & \Rightarrow\text{使用边界条件}\left.\varepsilon_{1}\frac{\partial\varphi_{1}}{\partial r}\right|_{R_{0}}=\left.\varepsilon_{2}\frac{\partial\varphi_{2}}{\partial r}\right|_{R_{0}}\\
  & =\left.\left(-\varepsilon_{0}\right)\left(\frac{\partial\varphi_{2}}{\partial r}-\frac{\partial\varphi_{1}}{\partial r}\right)\right|_{R_{0}}
 \end{align*}
@@ -3897,15 +3898,15 @@ status open
 \end_inset
 
 的第一项是
-\begin_inset Formula $\symbfit{p}_{f}$
+\begin_inset Formula $\sbf{p}_{f}$
 \end_inset
 
 和
-\begin_inset Formula $\symbfit{p}_{P}$
+\begin_inset Formula $\sbf{p}_{P}$
 \end_inset
 
 产生偶极场的叠加，总的偶极矩为
-\begin_inset Formula $\symbfit{p}_{1}=\frac{\varepsilon_{0}}{\varepsilon_{1}}\symbfit{p}_{f}$
+\begin_inset Formula $\sbf{p}_{1}=\frac{\varepsilon_{0}}{\varepsilon_{1}}\sbf{p}_{f}$
 \end_inset
 
 ，第二项为
@@ -3920,19 +3921,19 @@ status open
 \end_inset
 
 是
-\begin_inset Formula $\symbfit{p}_{f}$
+\begin_inset Formula $\sbf{p}_{f}$
 \end_inset
 
 ，
-\begin_inset Formula $\symbfit{p}_{P}$
+\begin_inset Formula $\sbf{p}_{P}$
 \end_inset
 
 ，
-\begin_inset Formula $\symbfit{p}_{\sigma}$
+\begin_inset Formula $\sbf{p}_{\sigma}$
 \end_inset
 
 偶极场的叠加，总的偶极矩为
-\begin_inset Formula $\symbfit{p}_{2}=\symbfit{p}_{f}\frac{3\varepsilon_{0}}{\varepsilon_{1}+2\varepsilon_{2}}$
+\begin_inset Formula $\sbf{p}_{2}=\sbf{p}_{f}\frac{3\varepsilon_{0}}{\varepsilon_{1}+2\varepsilon_{2}}$
 \end_inset
 
 。
@@ -4073,7 +4074,7 @@ rs/qiuKeOuJi.pdf", tea]
 \end_inset
 
 ，球中心置一偶极子
-\begin_inset Formula $\symbfit{p}$
+\begin_inset Formula $\sbf{p}$
 \end_inset
 
 ，球壳上带电
@@ -4091,7 +4092,7 @@ rs/qiuKeOuJi.pdf", tea]
 轴正向，建立球坐标。微分方程为：
 \begin_inset Formula 
 \begin{align*}
--\nabla^{2}\varphi_{1} & =-\symbfit{p}_{f}\cdot\nabla\delta\left(\symbfit{x}\right)/\varepsilon_{0},\quad\left(r<R_{0}\right)\\
+-\nabla^{2}\varphi_{1} & =-\sbf{p}_{f}\cdot\nabla\delta\left(\sbf{x}\right)/\varepsilon_{0},\quad\left(r<R_{0}\right)\\
 -\nabla^{2}\varphi_{2} & =0,\quad\left(r>R_{0}\right)
 \end{align*}
 
@@ -4256,14 +4257,14 @@ a_{0}=\frac{1}{4\pi\varepsilon_{0}}\frac{q}{R_{2}},\quad a_{1}=\frac{1}{4\pi\var
 面电荷分布：
 \begin_inset Formula 
 \begin{align*}
- & \sigma_{f1}=\symbfit{n}\cdot\symbfit{D}_{1}=\left(-\right)\left(-\right)\varepsilon_{0}\left.\frac{\partial\varphi_{1}}{\partial r}\right|_{R_{1}}=\frac{-3p}{4\pi R_{1}^{3}}\cos\theta\\
- & \sigma_{f2}=\symbfit{n}\cdot\symbfit{D}_{2}=\left(-\right)\varepsilon_{0}\left.\frac{\partial\varphi_{2}}{\partial r}\right|_{R_{2}}=\frac{q}{4\pi R_{2}^{2}}
+ & \sigma_{f1}=\sbf{n}\cdot\sbf{D}_{1}=\left(-\right)\left(-\right)\varepsilon_{0}\left.\frac{\partial\varphi_{1}}{\partial r}\right|_{R_{1}}=\frac{-3p}{4\pi R_{1}^{3}}\cos\theta\\
+ & \sigma_{f2}=\sbf{n}\cdot\sbf{D}_{2}=\left(-\right)\varepsilon_{0}\left.\frac{\partial\varphi_{2}}{\partial r}\right|_{R_{2}}=\frac{q}{4\pi R_{2}^{2}}
 \end{align*}
 
 \end_inset
 
 球腔内第一项是球心的
-\begin_inset Formula $\symbfit{p}$
+\begin_inset Formula $\sbf{p}$
 \end_inset
 
 产生的偶极场，第二项是内表面感应电荷产生的均匀场，第三项是导体的常数电势。
@@ -4762,19 +4763,19 @@ Print[tea = Graphics3D[{ White, Opacity[0.6], HalfPlane[{{0, 0, -1}, {1,
 
 \begin_layout Standard
 稳恒的电流场满足
-\begin_inset Formula $\partial_{t}\rho=\nabla\cdot\symbfit{J}=0$
+\begin_inset Formula $\partial_{t}\rho=\nabla\cdot\sbf{J}=0$
 \end_inset
 
 。电流与电场的关系为：
 \begin_inset Formula 
 \[
-\symbfit{J}=\sigma\symbfit{E}
+\sbf{J}=\sigma\sbf{E}
 \]
 
 \end_inset
 
 也就是空间各处电场满足
-\begin_inset Formula $\nabla\cdot\symbfit{E}=0$
+\begin_inset Formula $\nabla\cdot\sbf{E}=0$
 \end_inset
 
 。但正负电极处比较特别，对于我们求解的区域，它们一个是源，一个是汇，这两个位置的散度不等于零。
@@ -4784,7 +4785,7 @@ Print[tea = Graphics3D[{ White, Opacity[0.6], HalfPlane[{{0, 0, -1}, {1,
 时间电极上电荷的变化数量为：
 \begin_inset Formula 
 \[
-\Delta\rho=-\Delta t\iint_{S}\symbfit{J}\cdot\dif S=-I\Delta t
+\Delta\rho=-\Delta t\iint_{S}\sbf{J}\cdot\dif S=-I\Delta t
 \]
 
 \end_inset
@@ -4792,7 +4793,7 @@ Print[tea = Graphics3D[{ White, Opacity[0.6], HalfPlane[{{0, 0, -1}, {1,
 电极上必须维持一定数量的电荷，形成电场，迫使电荷往外（内）运动，达到动态平衡。电极上的电荷可以估计为
 \begin_inset Formula 
 \[
-q=\pm\iint_{S}\varepsilon_{0}\symbfit{E}\cdot\dif S=\pm\frac{\varepsilon_{0}}{\sigma}\iint_{S}\symbfit{J}\cdot\dif S=\pm\frac{\varepsilon_{0}}{\sigma}I
+q=\pm\iint_{S}\varepsilon_{0}\sbf{E}\cdot\dif S=\pm\frac{\varepsilon_{0}}{\sigma}\iint_{S}\sbf{J}\cdot\dif S=\pm\frac{\varepsilon_{0}}{\sigma}I
 \]
 
 \end_inset
@@ -4806,7 +4807,7 @@ q=\pm\iint_{S}\varepsilon_{0}\symbfit{E}\cdot\dif S=\pm\frac{\varepsilon_{0}}{\s
 \end_inset
 
 越大，需要的电场
-\begin_inset Formula $\symbfit{E}$
+\begin_inset Formula $\sbf{E}$
 \end_inset
 
 越小，极板上积累的电荷越少。
@@ -5480,7 +5481,7 @@ status open
 第一类边值问题的解：
 \begin_inset Formula 
 \[
-\varphi\left(\symbfit{x}\right)=\int_{V}G\left(\symbfit{x}^{\prime},\symbfit{x}\right)\rho\left(\symbfit{x}^{\prime}\right)\dif V^{\prime}-\varepsilon_{0}\oint_{S}\left[\varphi\left(\symbfit{x}^{\prime}\right)\frac{\partial G\left(\symbfit{x}^{\prime},\symbfit{x}\right)}{\partial n^{\prime}}\right]\dif S^{\prime}
+\varphi\left(\sbf{x}\right)=\int_{V}G\left(\sbf{x}^{\prime},\sbf{x}\right)\rho\left(\sbf{x}^{\prime}\right)\dif V^{\prime}-\varepsilon_{0}\oint_{S}\left[\varphi\left(\sbf{x}^{\prime}\right)\frac{\partial G\left(\sbf{x}^{\prime},\sbf{x}\right)}{\partial n^{\prime}}\right]\dif S^{\prime}
 \]
 
 \end_inset
@@ -5488,7 +5489,7 @@ status open
 其中格林函数满足泊松方程：
 \begin_inset Formula 
 \[
-\nabla^{2}G\left(\symbfit{x}^{\prime},\symbfit{x}\right)=-\delta\left(\symbfit{x}-\symbfit{x}^{\prime}\right)/\varepsilon_{0}
+\nabla^{2}G\left(\sbf{x}^{\prime},\sbf{x}\right)=-\delta\left(\sbf{x}-\sbf{x}^{\prime}\right)/\varepsilon_{0}
 \]
 
 \end_inset
@@ -5496,7 +5497,7 @@ status open
 格林函数的边界条件为：
 \begin_inset Formula 
 \[
-\left.G\left(\symbfit{x}^{\prime},\symbfit{x}\right)\right|_{x^{\prime}\in S}=0
+\left.G\left(\sbf{x}^{\prime},\sbf{x}\right)\right|_{x^{\prime}\in S}=0
 \]
 
 \end_inset
@@ -5504,7 +5505,7 @@ status open
 利用镜像法可以求得格林函数满足边值条件的解：
 \begin_inset Formula 
 \[
-G\left(\symbfit{x}^{\prime},\symbfit{x}\right)=\frac{1}{4\pi\varepsilon_{0}}\left[\frac{1}{\sqrt{r^{2}+r^{\prime2}-2rr^{\prime}\cos\alpha}}-\frac{1}{\sqrt{\left(rr^{\prime}/R_{0}\right)^{2}+R_{0}^{2}-2rr^{\prime}\cos\alpha}}\right]
+G\left(\sbf{x}^{\prime},\sbf{x}\right)=\frac{1}{4\pi\varepsilon_{0}}\left[\frac{1}{\sqrt{r^{2}+r^{\prime2}-2rr^{\prime}\cos\alpha}}-\frac{1}{\sqrt{\left(rr^{\prime}/R_{0}\right)^{2}+R_{0}^{2}-2rr^{\prime}\cos\alpha}}\right]
 \]
 
 \end_inset
@@ -5514,11 +5515,11 @@ G\left(\symbfit{x}^{\prime},\symbfit{x}\right)=\frac{1}{4\pi\varepsilon_{0}}\lef
 \end_inset
 
 是场点
-\begin_inset Formula $\symbfit{x}$
+\begin_inset Formula $\sbf{x}$
 \end_inset
 
 和源点
-\begin_inset Formula $\symbfit{x}^{\prime}$
+\begin_inset Formula $\sbf{x}^{\prime}$
 \end_inset
 
 之间的夹角：
@@ -5680,7 +5681,7 @@ status open
 因此，将解得的格林函数展开为：
 \begin_inset Formula 
 \[
-G\left(\symbfit{x}^{\prime},\symbfit{x}\right)=\frac{1}{4\pi\varepsilon_{0}}\sum_{n=0}^{\infty}\left[\frac{r^{n}}{r^{\prime n+1}}-\frac{r^{2}r^{\prime2}}{R_{0}^{2n+1}}\right]P_{n}\left(x\right)P_{n}\left(x^{\prime}\right)
+G\left(\sbf{x}^{\prime},\sbf{x}\right)=\frac{1}{4\pi\varepsilon_{0}}\sum_{n=0}^{\infty}\left[\frac{r^{n}}{r^{\prime n+1}}-\frac{r^{2}r^{\prime2}}{R_{0}^{2n+1}}\right]P_{n}\left(x\right)P_{n}\left(x^{\prime}\right)
 \]
 
 \end_inset
