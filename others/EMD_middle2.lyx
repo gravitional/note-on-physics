@@ -157,11 +157,16 @@
 \begin_body
 
 \begin_layout Title
-电动力学期中考试
+2021年春季学期电动力学期中考试
 \end_layout
 
 \begin_layout Author
-杨明炀
+主讲教师：王平
+\begin_inset space \hspace*{}
+\length 2cm
+\end_inset
+
+助教：杨明炀
 \end_layout
 
 \begin_layout Standard
@@ -219,36 +224,6 @@ end{exercise}
 \end_layout
 
 \begin_layout Standard
-
-\color blue
-解
-\color inherit
-：
-\begin_inset Formula 
-\begin{align*}
-\nabla\cdot\boldsymbol{D} & =\rho_{e} & \nabla\times\boldsymbol{E} & =-\boldsymbol{J}_{m}-\frac{\partial\boldsymbol{B}}{\partial t}\\
-\nabla\cdot\boldsymbol{B} & =\rho_{m} & \nabla\times\boldsymbol{H} & =\boldsymbol{J}_{e}+\frac{\partial\boldsymbol{D}}{\partial t}
-\end{align*}
-
-\end_inset
-
-或者
-\begin_inset Formula 
-\begin{align*}
-\varepsilon_{0}\nabla\cdot\boldsymbol{E} & =\rho_{e} & \nabla\times\boldsymbol{E} & =-\boldsymbol{J}_{m}-\frac{\partial\boldsymbol{B}}{\partial t}\\
-\nabla\cdot\boldsymbol{B} & =\rho_{m} & \nabla\times\boldsymbol{B}/\mu_{0} & =\boldsymbol{J}_{e}+\varepsilon_{0}\frac{\partial\boldsymbol{E}}{\partial t}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-根的
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -285,37 +260,13 @@ begin{exercise}
 \begin_inset Formula $\nabla\times\boldsymbol{E}=0$
 \end_inset
 
-时，电偶极子在电场中收到的力
+时，电偶极子在电场中受到的力
 \begin_inset Formula $F=-\nabla U$
 \end_inset
 
 。
 \series bold
 （10分）
-\end_layout
-
-\begin_layout Standard
-
-\color blue
-解
-\color inherit
-：
-\begin_inset Formula 
-\[
-U_{e}=-\boldsymbol{p}\cdot\boldsymbol{E},\quad U_{m}=-\boldsymbol{m}\cdot\boldsymbol{B}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-F_{e}=-\nabla\left(-\boldsymbol{p}\cdot\boldsymbol{E}\right)=\boldsymbol{p}\times\left(\nabla\times\boldsymbol{E}\right)+p\cdot\nabla\boldsymbol{E}=p\cdot\nabla\boldsymbol{E}
-\]
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -367,7 +318,7 @@ begin{exercise}
 \begin_inset Formula $q$
 \end_inset
 
-的镜像电荷，包括位置和电荷。
+的镜像电荷，包括位置和电量。
 \series bold
 （10分）
 \end_layout
@@ -375,25 +326,7 @@ begin{exercise}
 \begin_layout Standard
 \begin_inset Graphics
 	filename 60DuJiao.pdf
-	scale 80
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color blue
-解
-\color inherit
-：
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename 60DuJiaoJingXiang.pdf
-	scale 80
+	scale 90
 
 \end_inset
 
@@ -484,30 +417,6 @@ end{exercise}
 \end_layout
 
 \begin_layout Standard
-
-\color blue
-解
-\color inherit
-：
-\begin_inset Formula 
-\[
-\nabla\varphi=\boldsymbol{e}_{r}\frac{\partial\varphi}{\partial r}+\boldsymbol{e}_{\theta}\frac{1}{r}\frac{\partial\varphi}{\partial\theta}+\boldsymbol{e}_{\phi}\frac{1}{r\sin\theta}\frac{\partial\varphi}{\partial\phi}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\nabla\cdot\boldsymbol{A}=\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}A_{r}\right)+\frac{1}{r\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta A_{\theta}\right)+\frac{1}{r\sin\theta}\frac{\partial A_{\phi}}{\partial\phi}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -588,11 +497,15 @@ begin{exercise}
 \end_layout
 
 \begin_layout Enumerate
-写出当
+写出
 \begin_inset Formula $R>1$
 \end_inset
 
-时，电势的表达式。
+区域中，电势
+\begin_inset Formula $\varphi$
+\end_inset
+
+的表达式。
 \end_layout
 
 \begin_layout Enumerate
@@ -613,26 +526,6 @@ end{exercise}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-
-\color blue
-解：
-\color inherit
-电势
-\begin_inset Formula 
-\[
-\varphi=\frac{4\pi\varepsilon_{0}}{4\pi\varepsilon_{0}r}=\frac{1}{\sqrt{\left(1+R^{2}-2R\cos\theta\right)}}
-\]
-
-\end_inset
-
-第一项的系数为
-\begin_inset Formula $1$
-\end_inset
-
-。
 \end_layout
 
 \begin_layout Standard
@@ -687,99 +580,6 @@ status open
 \backslash
 end{exercise}
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color blue
-解
-\color inherit
-：使用
-\begin_inset Formula $\nabla\cdot\boldsymbol{A}$
-\end_inset
-
-在球坐标系下的形式：
-\begin_inset Formula 
-\[
-\nabla\cdot\boldsymbol{A}=\frac{1}{r^{2}}\partial_{r}\left(r^{2}A_{r}\right)+\frac{1}{r\sin\theta}\partial_{\theta}\left(\sin\theta A_{\theta}\right)+\frac{1}{r\sin\theta}\partial_{\phi}A_{\phi},\quad P_{r}=K
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\rho_{P}=-\nabla\cdot\boldsymbol{P}=-\frac{2K}{r},\quad\sigma_{P}=\left(-\right)\boldsymbol{n}\cdot\boldsymbol{P}=\left(-\right)\left(-\right)\left.K\right|_{R}=K
-\]
-
-\end_inset
-
-在线性介质内
-\begin_inset Formula $\rho_{P}=-\frac{\varepsilon-\varepsilon_{0}}{\varepsilon}\rho_{f}$
-\end_inset
-
-，所以自由电荷体密度为：
-\begin_inset Formula 
-\[
-\rho_{f}=\frac{2\varepsilon K}{\left(\varepsilon-\varepsilon_{0}\right)r}
-\]
-
-\end_inset
-
-由
-\begin_inset Formula $\boldsymbol{D}_{1}=\varepsilon\boldsymbol{E}_{1}=\varepsilon_{0}\boldsymbol{E}_{1}+\boldsymbol{P}$
-\end_inset
-
-，得电场强度为
-\begin_inset Formula 
-\[
-\boldsymbol{E}_{1}=\frac{\boldsymbol{P}}{\varepsilon-\varepsilon_{0}}=\frac{K}{\left(\varepsilon-\varepsilon_{0}\right)}\frac{\boldsymbol{r}}{r},\quad\left(r<R\right)
-\]
-
-\end_inset
-
-极化过程遵从电荷守恒，球内与球面总的束缚电荷等值异号，对球外的电场没有影响。电荷总量为：
-\begin_inset Formula 
-\[
-q_{f}=\int_{0}^{R}\frac{2\varepsilon K}{\left(\varepsilon-\varepsilon_{0}\right)r}4\pi r^{2}\dif r=\frac{4\pi\varepsilon}{\varepsilon-\varepsilon_{0}}KR^{2}
-\]
-
-\end_inset
-
-所以球外的电场为
-\begin_inset Formula 
-\[
-\boldsymbol{E}_{2}=\frac{q_{f}\boldsymbol{r}}{4\pi\varepsilon_{0}r^{3}}=\frac{\varepsilon KR^{2}}{\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}\frac{\boldsymbol{r}}{r^{3}},\quad\left(r>R\right)
-\]
-
-\end_inset
-
-球外的电势
-\begin_inset Formula 
-\[
-\varphi_{2}\left(r\right)-0=-\int_{\infty}^{r}\frac{\varepsilon KR^{2}}{\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}\frac{\boldsymbol{r}^{\prime}}{r^{\prime3}}\cdot\dif\boldsymbol{r}^{\prime}=\frac{\varepsilon KR^{2}}{\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}\frac{1}{r}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\varphi_{2}\left(R\right)=\frac{\varepsilon KR}{\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}
-\]
-
-\end_inset
-
-球内的电势：
-\begin_inset Formula 
-\begin{align*}
-\varphi_{1}\left(r\right)-\varphi_{2}\left(R\right) & =-\int_{R}^{r}\frac{K}{\varepsilon-\varepsilon_{0}}\frac{\boldsymbol{r}^{\prime}}{r^{\prime}}\cdot\dif\boldsymbol{r}^{\prime}=\frac{K}{\varepsilon-\varepsilon_{0}}\left(R-r\right)\\
-\Rightarrow\varphi_{1}\left(r\right) & =\frac{K}{\varepsilon-\varepsilon_{0}}\left[\left(1+\frac{\varepsilon}{\varepsilon_{0}}\right)R-r\right]
-\end{align*}
 
 \end_inset
 
@@ -898,74 +698,6 @@ end{exercise}
 
 轴上的磁感应强度
 \begin_inset Formula $\boldsymbol{B}$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-
-\color blue
-解：
-\color inherit
-设任意一点坐标为
-\begin_inset Formula $\left(\rho,\phi,z\right)$
-\end_inset
-
-，任意场点相对于
-\begin_inset Formula $+L$
-\end_inset
-
-处导线的矢径为
-\begin_inset Formula $\boldsymbol{r}=\rho\boldsymbol{e}_{\rho}+z\boldsymbol{e}_{z}-\left(L\boldsymbol{e}_{y}-t\boldsymbol{e}_{z}\right)$
-\end_inset
-
-，
-\begin_inset Formula $r^{2}=\left(z-t\right)^{2}+\rho^{2}+L^{2}-2\rho L\cos\phi$
-\end_inset
-
-，由于积分限为
-\begin_inset Formula $-\infty,+\infty$
-\end_inset
-
-，所以积分结果不依赖于
-\begin_inset Formula $z$
-\end_inset
-
-。
-\begin_inset Formula 
-\[
-\boldsymbol{A}\left(\rho,\phi\right)=\sum\frac{\mu_{0}}{4\pi}\int_{L}\frac{I}{r}\dif\boldsymbol{l}=\boldsymbol{e}_{z}\int_{-\infty}^{+\infty}\dif t\left[\frac{1}{\sqrt{t^{2}+\rho^{2}+L^{2}-2\rho L\cos\phi}}+\frac{1}{\sqrt{t^{2}+\rho^{2}+L^{2}+2\rho L\cos\phi}}\right]
-\]
-
-\end_inset
-
-
-\begin_inset Formula $\pm L$
-\end_inset
-
-处导线的线元均为：
-\begin_inset Formula $\dif\boldsymbol{l}=\boldsymbol{e}_{z}\dif t$
-\end_inset
-
-：
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\boldsymbol{B}\left(\boldsymbol{x}\right) & =\sum\frac{\mu_{0}}{4\pi}\int_{L}\frac{I\dif\boldsymbol{l}\times\boldsymbol{r}}{r^{3}}\\
- & =\int_{-\infty}^{+\infty}\left[\frac{1}{\left[t^{2}+\rho^{2}+L^{2}-2\rho L\cos\phi\right]^{3/2}}+\frac{1}{\left[t^{2}+\rho^{2}+L^{2}+2\rho L\cos\phi\right]^{3/2}}\right]\rho\boldsymbol{e}_{\phi}\dif t
-\end{align*}
-
-\end_inset
-
-显然，当
-\begin_inset Formula $\rho=0$
-\end_inset
-
-时，
-\begin_inset Formula $\boldsymbol{B}\left(\boldsymbol{x}\right)=0$
 \end_inset
 
 。
