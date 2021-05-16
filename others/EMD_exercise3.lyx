@@ -220,17 +220,6 @@ tableofcontents[currentsection]
 \end_layout
 
 \begin_layout Frame
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
 \begin_inset Argument 4
 status open
 
@@ -1963,7 +1952,7 @@ tikz[remember picture, overlay]
 \backslash
 node[anchor=center] at ($(current page.center)+(0,0)$) {
 \backslash
-includegraphics[scale=1]{ciPingBi}};
+includegraphics[scale=1.5]{ciPingBi}};
 \end_layout
 
 \end_inset
@@ -2151,10 +2140,38 @@ status open
 
 \end_inset
 
-球内为均匀场，球外是磁偶极场。球面的磁化电流分布为
+球内为均匀场，球外是磁偶极场。
+\begin_inset Formula $\sbf{B}_{1}=\mu_{0}\left(\sbf{H}_{1}+\sbf{M}_{1}\right)$
+\end_inset
+
+，
+\begin_inset Formula $\sbf{B}_{1}=\mu\sbf{H}_{1}+\mu_{0}\sbf{M_{0}}$
+\end_inset
+
+，所以
 \begin_inset Formula 
 \[
-\sbf{\alpha}_{M}=\left.\frac{1}{\mu_{0}}\sbf{e}_{R}\times\left(\sbf{B}_{2}-\sbf{B}_{1}\right)\right|_{R=R_{0}}=\frac{3\mu^{\prime}}{2\mu^{\prime}+\mu_{0}}M_{0}\sin\theta\sbf{e}_{\phi}.
+\sbf{M}_{1}=\frac{\mu-\mu_{0}}{\mu\mu_{0}}\sbf{B}_{1}+\frac{\mu_{0}}{\mu}\sbf{M}_{0},\quad\sbf{M}_{2}=\frac{\sbf{B}_{2}}{\mu_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以球面的磁化电流分布为
+\begin_inset Formula 
+\[
+\sbf{\alpha}_{M}=\left.\sbf{e}_{R}\times\left[\frac{\sbf{B}_{2}}{\mu_{0}}-\frac{\mu-\mu_{0}}{\mu\mu_{0}}\sbf{B}_{1}-\frac{\mu_{0}}{\mu}\sbf{M}_{0}\right]\right|_{R=R_{0}}=\frac{\left(\mu_{0}+3\mu^{\prime}\right)}{\mu+2\mu^{\prime}}M_{0}\sin\theta\sbf{e}_{\phi}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf{e}_{z}=\cos{\theta}\sbf{e}_{R}-\sin\theta\sbf{e}_{\theta},\quad\sbf{e}_{R}\times\sbf{e}_{\theta}=\sbf{e}_{\phi}.
 \]
 
 \end_inset
@@ -2259,11 +2276,11 @@ status open
 
 \end_inset
 
-并假设
+
 \begin_inset Formula $\sbf{H}_{2},\sbf{H}_{1}$
 \end_inset
 
-都沿
+默认都沿
 \begin_inset Formula $\sbf{e}_{\theta}$
 \end_inset
 
