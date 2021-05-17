@@ -1471,7 +1471,7 @@ run `latexmk -showextraoptions`给出选项列表,这些选项被直接传递给
 # texhash
 ```
 
-Log off/Log in 后,就完成了~
+`Log off/Log in`后,就完成了~
 
 ### latex pdf 裁剪
 
@@ -1479,11 +1479,11 @@ Log off/Log in 后,就完成了~
 
 使用方法如下：
 
-`pdfcrop --margins 3 --clip input.pdf output.pdf; `
-or
+`pdfcrop --margins 3 --clip input.pdf output.pdf; ` 或者
 
 ```bash
 pdfcrop --clip --bbox '120 480 570 830' input.pdf output.pdf;
+pdfcrop --clip --bbox '60 660 516 775' moban.pdf moban_crop.pdf && evince moban_crop.pdf  # 国科大试卷的裁减参数
 ```
 
 四个数字的含义是,以左下角为原点,给出`left bottom right top`的数值,单位是`point`

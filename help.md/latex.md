@@ -247,9 +247,9 @@ Invoke-Expression $("lualatex" + " " + "-halt-on-error " + "-output-directory=te
 ## 中文西文数学字体
 
 ***
-[LaTeX数学公式的默认字体是什么](https://www.zhihu.com/question/30058577/answer/46612848)。
-`LaTeX` 默认的文章类中的字体是 `Computer Modern Math`(`LaTeX`), `Latin Modern Math`(`XeTeX`). 字体文件的位置可以用`kpsewhich`查看. 在安装`TeXLive`的时候会自动安装。
-如果没有安装的话，[GUST](http://www.gust.org.pl/projects/e-foundry/lm-math)可以下载`Latin Modern Math`字体，以及其他字体。
+[LaTeX数学公式的默认字体是什么](https://www.zhihu.com/question/30058577/answer/46612848).
+`LaTeX` 默认的文章类中的字体是 `Computer Modern Math`(`LaTeX`), `Latin Modern Math`(`XeTeX`). 字体文件的位置可以用`kpsewhich`查看. 在安装`TeXLive`的时候会自动安装.
+如果没有安装的话,[GUST](http://www.gust.org.pl/projects/e-foundry/lm-math)可以下载`Latin Modern Math`字体,以及其他字体.
 
 ```bash
 kpsewhich latinmodern-math.otf
@@ -259,7 +259,7 @@ kpsewhich latinmodern-math.otf
 `kpsewhich`的介绍可以查看[The TeX Live Guide—2021 ](https://www.tug.org/texlive/doc/texlive-en/texlive-en.html)
 
 ***
-一般可以使用[fontspec](https://ctan.org/pkg/fontspec)控制西文字体和数学字体。用法大概如下:
+一般可以使用[fontspec](https://ctan.org/pkg/fontspec)控制西文字体和数学字体.用法大概如下:
 
 ```latex
 % 设置英文字体
@@ -273,8 +273,8 @@ kpsewhich latinmodern-math.otf
 \setboldmathrm{⟨font name⟩}[⟨font features⟩]
 ```
 
-但有一个问题，`\boldsymbol`是`AMS`系列包中的`amsbsy`定义的宏，可以产生粗体数学符号. 
-如果用`fontspec`设置数学字体为`latinmodern-math.otf`字体时，没有粗体效果，而是变成直立体，原因不明。可以通过使用`unicode-math`包解决，见下文.
+但有一个问题,`\boldsymbol`是`AMS`系列包中的`amsbsy`定义的宏,可以产生粗体数学符号. 
+如果用`fontspec`设置数学字体为`latinmodern-math.otf`字体时,没有粗体效果,而是变成直立体,原因不明.可以通过使用`unicode-math`包解决,见下文.
 
 对中文字体的选择可以通过[xeCJK](https://www.ctan.org/pkg/xecjk)完成:
 
@@ -290,7 +290,7 @@ kpsewhich latinmodern-math.otf
 ```
 
 ***
-其他指定数学字体的包有：[mathspec – Specify arbitrary fonts](https://ctan.org/pkg/mathspec),以及[unicode-math](https://ctan.org/pkg/unicode-math)。`stackexchange`上有关于 change the math italic font in XeTeX/fontspec 的讨论，见 [change the math italic font](https://tex.stackexchange.com/questions/11058/how-do-i-change-the-math-italic-font-in-xetex-fontspec). 作者给出的示例代码为:
+其他指定数学字体的包有：[mathspec – Specify arbitrary fonts](https://ctan.org/pkg/mathspec),以及[unicode-math](https://ctan.org/pkg/unicode-math).`stackexchange`上有关于 change the math italic font in XeTeX/fontspec 的讨论,见 [change the math italic font](https://tex.stackexchange.com/questions/11058/how-do-i-change-the-math-italic-font-in-xetex-fontspec). 作者给出的示例代码为:
 
 ```latex
 \documentclass{article}
@@ -303,16 +303,16 @@ Hello $a+b=c$
 \end{document}
 ```
 
-载入`unicode-math`包，并使用`\boldsymbol`时会报错：[Error:Extended mathchar used as mathchar](https://tex.stackexchange.com/questions/431013/error-extended-mathchar-used-as-mathchar-when-using-bm),解决方案是不使用`\bm`,`\boldsymbol`命令，而使用`\symbf`,`\symcal`等命令. 
+载入`unicode-math`包,并使用`\boldsymbol`时会报错：[Error:Extended mathchar used as mathchar](https://tex.stackexchange.com/questions/431013/error-extended-mathchar-used-as-mathchar-when-using-bm),解决方案是不使用`\bm`,`\boldsymbol`命令,而使用`\symbf`,`\symcal`等命令. 
 见[Theunicode-mathpackage](https://mirrors.bfsu.edu.cn/CTAN/macros/unicodetex/latex/unicode-math/unicode-math.pdf).
-`unicode-math`引入了一些新的命令，例如：
+`unicode-math`引入了一些新的命令,例如：
 
 ```latex
 \symbb, \symbbit, \symcal, \symscr, \symfrak, \symsfup, \symsfit, 
 \symbfsf, \symbfup, \symbfit, \symbfcal, \symbfscr, \symbffrak, \symbfsfup, \symbfsfit 
 ```
 
-用来表示单个粗体数学符号，跟粗体普通文字是不同的，粗体普通文字使用`latex`中通常的`\mathbb, \mathbbit, \mathcal`等命令. 例子是：
+用来表示单个粗体数学符号,跟粗体普通文字是不同的,粗体普通文字使用`latex`中通常的`\mathbb, \mathbbit, \mathcal`等命令. 例子是：
 
 ```latex
 \documentclass{article}
@@ -332,24 +332,24 @@ Compare with $\mathcal{X}$ and $\Theta$.
 [fontenc –selecting font encodings](https://www.ctan.org/pkg/fontenc)
 [Why should I use \usepackage[T1]{fontenc}?](https://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc)
 
-`fontenc`指定字体编码（确定使用哪种字体），而不是输入编码。
+`fontenc`指定字体编码（确定使用哪种字体）,而不是输入编码.
 
-`TeX`的默认字体编码（`OT1`）为`7`位，并使用具有`128`个字形的字体，因此不包括带重音符号的字符作为单个字形。 因此，通过在现有的`o`字形上添加一个重音来制作字母`ö`。
-`T1`字体编码是一种8位编码，并使用具有`256`个字形的字体。 因此，`ö`是字体中的实际单个字形。 
-许多较早的字体也为它们设计了`T1`变体，并且许多较新的字体仅在`T1`中可用。 我认为`Computer Modern`字体最初是`OT1`，而`Latin Modern`是T1。
+`TeX`的默认字体编码（`OT1`）为`7`位,并使用具有`128`个字形的字体,因此不包括带重音符号的字符作为单个字形. 因此,通过在现有的`o`字形上添加一个重音来制作字母`ö`.
+`T1`字体编码是一种8位编码,并使用具有`256`个字形的字体. 因此,`ö`是字体中的实际单个字形. 
+许多较早的字体也为它们设计了`T1`变体,并且许多较新的字体仅在`T1`中可用. 我认为`Computer Modern`字体最初是`OT1`,而`Latin Modern`是T1.
 
-如果您不使用`\usepackage[T1]{fontenc}`，
+如果您不使用`\usepackage[T1]{fontenc}`,
 
-+ 包含重音符号的单词不能自动连字，
-+ 您无法从输出`(DVI/PS/PDF)`中正确复制和粘贴此类文字，
-+ 诸如竖线符号，小于号和大于号的字符会在文本中产生意外的结果。
++ 包含重音符号的单词不能自动连字,
++ 您无法从输出`(DVI/PS/PDF)`中正确复制和粘贴此类文字,
++ 诸如竖线符号,小于号和大于号的字符会在文本中产生意外的结果.
 
 ***
-在`lyx`中，使用 `xelatex` 进行编译，可以设置`Document Settings`--`Fonts`--`LaTeX font encoding: None fontenc`
-在同一个页面，如果勾选`Use non-Tex fonts`，即可选择系统自带的字体，即可显示中文。
+在`lyx`中,使用 `xelatex` 进行编译,可以设置`Document Settings`--`Fonts`--`LaTeX font encoding: None fontenc`
+在同一个页面,如果勾选`Use non-Tex fonts`,即可选择系统自带的字体,即可显示中文.
 
-另外，`Document Settings`--`Language`中可设置语言，以及`xeTeX,utf-8`编码。
-可以在`Insert`菜单栏中插入`beamer`特有的格式。
+另外,`Document Settings`--`Language`中可设置语言,以及`xeTeX,utf-8`编码.
+可以在`Insert`菜单栏中插入`beamer`特有的格式.
 
 ## 语法
 
@@ -480,9 +480,7 @@ and not
 
 ### 保留字符 Reserved characters
 
-[23.1 Reserved characters][]
-
-[23.1 Reserved characters]: http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005c_007e
+[23.1 Reserved characters](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005c_007e)
 
 LaTeX为特殊目的预留了以下字符.  例如,百分号％用于注释.  它们被称为保留字符或特殊字符. 
 
@@ -555,7 +553,7 @@ And this is the best squash, \verb+literally!+
 
 ## 浮动体 图形
 
-[liam.page][]
+[liam.page](https://liam.page/2014/09/08/latex-introduction/)
 
 由两个 graphics packages:
 
@@ -577,15 +575,8 @@ And this is the best squash, \verb+literally!+
 
 `htbp` 选项用来指定插图的理想位置,这几个字母分别代表 `here`, `top`, `bottom`, `float page`,也就是就这里、页顶、页尾、浮动页（专门放浮动体的单独页面或分栏）. `\centering` 用来使插图居中；`\caption` 命令设置插图标题,`LaTeX` 会自动给浮动体的标题加上编号. 注意 `\label` 应该放在标题命令之后. 
 
-如果你想了解 `LaTeX` 的浮动体策略算法细节,你可以参考我博客中关于[浮动体的系列文章][]
-
-如果你困惑于"为什么图表会乱跑"或者"怎样让图表不乱跑",请看[我的回答][]. 
-
-[liam.page]: https://liam.page/2014/09/08/latex-introduction/
-
-[浮动体的系列文章]: https://liam.page/series/#LaTeX-%E4%B8%AD%E7%9A%84%E6%B5%AE%E5%8A%A8%E4%BD%93
-
-[我的回答]: https://www.zhihu.com/question/25082703/answer/30038248
+如果你想了解 `LaTeX` 的浮动体策略算法细节,你可以参考我博客中关于[浮动体的系列文章](https://liam.page/series/#LaTeX-%E4%B8%AD%E7%9A%84%E6%B5%AE%E5%8A%A8%E4%BD%93)
+如果你困惑于"为什么图表会乱跑"或者"怎样让图表不乱跑",请看[我的回答](https://www.zhihu.com/question/25082703/answer/30038248). 
 
 ### 表格
 
@@ -602,18 +593,14 @@ And this is the best squash, \verb+literally!+
 ### float 包
 
 把浮动体放到确定的位置:
-
-改进了用于定义浮动对象（如图形和表格）的接口。引入了`boxed float`, `ruled float` and the `plaintop float`。 您可以定义自己的`floats`并改善旧`floats`的行为。
-
-该软件包还提供了`H` float修饰符选项,用来替换过时的`here`包。您可以使用`\floatplacement{figure}{H}`将其设置为默认。
+改进了用于定义浮动对象（如图形和表格）的接口.引入了`boxed float`, `ruled float` and the `plaintop float`. 您可以定义自己的`floats`并改善旧`floats`的行为.
+该软件包还提供了`H` float修饰符选项,用来替换过时的`here`包.您可以使用`\floatplacement{figure}{H}`将其设置为默认.
 
 ### 设置子页面宽度resizebox
 
-[一行代码解决LaTex表格过宽或过窄问题][]
+[一行代码解决LaTex表格过宽或过窄问题](https://blog.csdn.net/Rained_99/article/details/79389189#commentBox)
 
-[一行代码解决LaTex表格过宽或过窄问题]: https://blog.csdn.net/Rained_99/article/details/79389189#commentBox
-
-若表格过宽,则
+若表格过宽,则使用
 
 ```bash
 \begin{table}[htbp]
@@ -627,7 +614,7 @@ And this is the best squash, \verb+literally!+
 \end{table}
 ```
 
-若表格过窄,则
+若表格过窄,则使用
 
 ```bash
 \begin{table}[htbp]
@@ -681,10 +668,7 @@ Synopses:
 
 ### LaTeX对齐
 
-[LaTeX 对齐问题][]
-
-[LaTeX 对齐问题]: https://blog.csdn.net/lvchaoshun/article/details/50518271
-
+[LaTeX 对齐问题](https://blog.csdn.net/lvchaoshun/article/details/50518271)
 [latex23 doc](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005ccentering)
 
 对齐的语法是
@@ -870,12 +854,11 @@ split
 ### 代码环境
 
 [LaTex：插入代码的listings包和lstlisting环境](https://blog.csdn.net/quantumpo/article/details/26854289)
-
 [TheListingsPackage](https://mirrors.aliyun.com/CTAN/macros/latex/contrib/listings/listings.pdf)
 
 ```latex
 % LaTex中插入高亮显示的代码需以下设定
- % 注意，代码中不能含有中文，否则为无法编译。
+ % 注意,代码中不能含有中文,否则为无法编译.
 \usepackage[utf8]{inputenc}
 %\usepackage[T1]{fontenc}
 % The package allows the user to select font encodings, 
@@ -922,7 +905,7 @@ int main(){
 \end{oframed}
 ```
 
-如果遇到因为中文字符报错的问题，可以尝试添加`framed`环境。
+如果遇到因为中文字符报错的问题,可以尝试添加`framed`环境.
 
 ```latex
 \begin{framed}
@@ -935,26 +918,26 @@ int main(){
 
 该软件包创建了三个环境：
 
-`framed`，用普通方框围绕该区域，通常的 frame box (`\fbox`)，`edge`在`margin`（页边）
-`oframed`，在分页处，方框的顶部和底部是开放的
-`shaded`，阴影区域，`\colorbox`
-leftbar，在左侧放置一条线。 环境允许在开始时有一个中断（`\FrameCommand`允许创建标题附加到该环境）;
-`framed/shaded`环境中也允许有`breaks`。
+`framed`,用普通方框围绕该区域,通常的 frame box (`\fbox`),`edge`在`margin`（页边）
+`oframed`,在分页处,方框的顶部和底部是开放的
+`shaded`,阴影区域,`\colorbox`
+leftbar,在左侧放置一条线. 环境允许在开始时有一个中断（`\FrameCommand`允许创建标题附加到该环境）;
+`framed/shaded`环境中也允许有`breaks`.
 
-还有一个命令`\MakeFramed`可以创建自己的框架式环境。
+还有一个命令`\MakeFramed`可以创建自己的框架式环境.
 
-创建可以跨页的`边框`，`阴影`或其他高亮区域。 定义的环境有
-`framed` 通常的 frame box (`\fbox`)，`edge`在`margin`（页边）
+创建可以跨页的`边框`,`阴影`或其他高亮区域. 定义的环境有
+`framed` 通常的 frame box (`\fbox`),`edge`在`margin`（页边）
 `oframed` 在分页符处带有开放的 顶/底框
-`shaded` 背景阴影(\colorbox)，阴影边界渗入页边
-`shaded*` 背景阴影，阴影边界在页边
+`shaded` 背景阴影(\colorbox),阴影边界渗入页边
+`shaded*` 背景阴影,阴影边界在页边
 `snugshade` 阴影紧密贴合文本（特别是列表中的阴影）
 `snugshade*` like snugshade with shading edge at margin
 `leftbar` 左边缘的粗垂直线
 `titled-frame` 带有标题栏的框
 
-实际上，`shaded`环境只是将`\FrameCommand`重新定义为`\colorbox{shadecolor}`
-（所以你需要定义颜色`shadecolor`:`\definecolor{shadecolor}...`）。
+实际上,`shaded`环境只是将`\FrameCommand`重新定义为`\colorbox{shadecolor}`
+（所以你需要定义颜色`shadecolor`:`\definecolor{shadecolor}...`）.
 
 常用颜色指定
 
@@ -1013,7 +996,7 @@ What does --shell-escape do?
 ### align环境如何对齐
 
 多&情况下flalign和align环境是如何对齐的：
-[对齐@CSDN][]
+[对齐@CSDN](https://blog.csdn.net/yanxiangtianji/article/details/54767265)
 
 根据 `&`（假设`n`个）一行被分为`n+1`列. 从左向右将列两个分为一组,第一组紧靠页左侧,最后一组紧靠页左侧,其余组均匀散布在整个行中. 当公式比较短时,中间可能会有几段空白. 
 需要注意的是：
@@ -1021,23 +1004,17 @@ What does --shell-escape do?
 所谓紧靠页左/右是在进行了组内对齐调整之后,最长的一块紧靠上去. 也就是说对于长度不一两行,较短的那一行是靠不上去的. 
 如果总共有奇数个列,及最后一组只有一个列,则它右对齐到页右侧,即所有行的最后一列的右侧都靠在页右侧. 
 
-[对齐@CSDN]: https://blog.csdn.net/yanxiangtianji/article/details/54767265
-
 ### 反向搜索设置 SumatraPDF
 
 ```code
 "C:\Users\Thomas\AppData\Local\Programs\Microsoft VS Code\Code.exe"  "C:\Users\Thomas\AppData\Local\Programs\Microsoft VS Code\resources\app\out\cli.js" -r -g "%f:%l"
 ```
 
-[使用VSCode编写LaTeX][]
-
-[使用VSCode编写LaTeX]: https://blog.csdn.net/fenzang/article/details/99805315
+[使用VSCode编写LaTeX](https://blog.csdn.net/fenzang/article/details/99805315)
 
 ### BibTeX生成参考文献列表
 
-[LaTeX技巧829:使用BibTeX生成参考文献列表][]
-
-[LaTeX技巧829:使用BibTeX生成参考文献列表]: https://www.latexstudio.net/archives/5594
+[LaTeX技巧829:使用BibTeX生成参考文献列表](https://www.latexstudio.net/archives/5594)
 
 ***
 bst 和 bib 格式简介
@@ -1118,8 +1095,7 @@ bar\cite{baz}
 简单的对比,不难发现：
 
 `foo.tex` 中新增的 `\bibliographystyle{unsrt}` 与 `aux` 文件中的 `\bibstyle{unsrt}` 相对应. 
-
-`foo.tex` 中新增的 `\bibliography{foobar}` 与 aux 文件中的 `\bibdata{foobar}` 相对应. 
+`foo.tex` 中新增的 `\bibliography{foobar}` 与 `aux` 文件中的 `\bibdata{foobar}` 相对应. 
 
 根据命令的名字,我们很容易猜测各个命令的作用. 
 
@@ -1178,11 +1154,9 @@ You've used 1 entry,
 ...
 ```
 
-我们看到,BibTeX 打出的日志文件中,记录了读入 `aux/bst/bib` 文件的情况. 
-特别地,记录了所需的参考文献条目（entry）的数量（此处为 1）. 
+我们看到,BibTeX 打出的日志文件中,记录了读入 `aux/bst/bib` 文件的情况. 特别地,记录了所需的参考文献条目（entry）的数量（此处为 1）. 
 日志中值得注意的地方是在提到 bib 文件时,使用了 `#1` 的标记. 既然存在 `#1`,那么合理推测也可以存在`#2`. 
-也就是说,BibTeX 可能支持两个或更多的 `bib` 数据库共同工作. 
-具体如何实现,请读者自己阅读相关资料（手册或 Google 检索）后实验. 
+也就是说,BibTeX 可能支持两个或更多的 `bib` 数据库共同工作. 具体如何实现,请读者自己阅读相关资料（手册或 Google 检索）后实验. 
 紧接着,我们再执行一次 `LaTeX` ：
 
 ```bash
@@ -1235,42 +1209,42 @@ bibtex foo.aux
 ### bibtex 常见问题
 
 ***
-我希望将一条文献展示在参考文献列表中,但不想在正文中用 `\cite` 命令引用,怎么办？
+我希望将一条文献展示在参考文献列表中,但不想在正文中用 `\cite` 命令引用,怎么办? 
 
 首先,确保这条文献已经写入了 `bib` 文件. 
 其次,可以在 `\bibliography` 命令之前,用 `\nocite{label}`提示 `BibTeX` 调取这条文献. 
-我有很多条文献,都存在这样的情况. 每条文献逐一 `\nocite` 太繁琐了,有没有懒人适用的办法？
+我有很多条文献,都存在这样的情况. 每条文献逐一 `\nocite` 太繁琐了,有没有懒人适用的办法? 
 有的. `\nocite{*}`. 
 
 ***
-每次都要编译四次,我感觉懒癌又要发作了,有没有办法治疗？
+每次都要编译四次,我感觉懒癌又要发作了,有没有办法治疗? 
 
 有的. 可以尝试 `LaTeXmk`, `TeXify` 之类的自动化工具. 
 
 ***
-我对默认提供的 `bst` 文件的格式效果不满意,哪里能找到更多的 `bst` ？
+我对默认提供的 `bst` 文件的格式效果不满意,哪里能找到更多的 `bst` ? 
 
 现代 TeX 发行版都提供了多种 `bst` 可供选择,每个 `bst` 文件的格式、适用范围、使用条件都不一样,需要仔细甄别. 
 具体可以去安装目录下搜索试试. 
 
 ***
-有没有遵循国家标准的 `bst`？
+有没有遵循国家标准的 `bst`? 
 
 有的
 
 ***
-我找到的 bst,效果都不满意,怎么办？
+我找到的 bst,效果都不满意,怎么办? 
 
 你可以在命令行执行 `latex makebst`,制作一个符合自己要求的 `bst` 文件. 
 你需要回答大约 100 个关于参考文献列表效果的问题. 
 
 ***
-`bib` 文件怎么生成？
+`bib` 文件怎么生成? 
 
 你可以手写,或者用 `JabRef` 之类的文献工具生成. 具体请自行 Google 检索,篇幅所限就不展开了. 
 
 ***
-我听说还有一个名为 `biblatex` 的工具,能介绍一下吗？
+我听说还有一个名为 `biblatex` 的工具,能介绍一下吗? 
 
 `biblatex` 与 `BibTeX` 是不同的工具,超出了本文的范围. 
 
@@ -1358,7 +1332,7 @@ In numerical mode,the results are different.
 
 #### lyx中使用 bib tex
 
-菜单栏`Insert/List_Toc/Bibtex`添加 `bib`库文件，即可使用。
+菜单栏`Insert/List_Toc/Bibtex`添加 `bib`库文件,即可使用.
 
 ## 定理类环境 of elegant-note
 
@@ -1586,9 +1560,7 @@ xcolor 使用
 这个是{\color{SpringGreen}{春天绿}},最后一个{\color{SeaGreen3}{海绿3}}
 ```
 
-[LaTeX：xcolor颜色介绍][]
-
-[LaTeX：xcolor颜色介绍]: https://www.jianshu.com/p/5aee7c366369
+[LaTeX：xcolor颜色介绍](https://www.jianshu.com/p/5aee7c366369)
 
 ### 颜色包的使用
 
@@ -1612,8 +1584,8 @@ $(\lambda)=(\lambda_1,\lambda_2,\cdots \lambda_m)$
 
 [ytableau – Many-featured Young tableaux and Young diagrams](https://www.ctan.org/pkg/ytableau)
 
-该软件包提供了一些绘制 Young tableaux 和 Young diagrams 的功能，扩展了 `young` 和 `youngtab` 软件包，但提供了更多功能。 
-倾斜和彩色表格很容易， and pgfkeys-enabled options are provided both at package load and configurably. 
+该软件包提供了一些绘制 Young tableaux 和 Young diagrams 的功能,扩展了 `young` 和 `youngtab` 软件包,但提供了更多功能. 
+倾斜和彩色表格很容易, and pgfkeys-enabled options are provided both at package load and configurably. 
 
 ```latex
 \begin{equation}\begin{aligned}
@@ -1627,9 +1599,9 @@ $(\lambda)=(\lambda_1,\lambda_2,\cdots \lambda_m)$
 
 ### 公式编号
 
-数学公式的环境中，除了 `split` 环境，每个方程环境都有带`*`和不带`*`号的版本，不带星号的版本将会自动编号，在一行结束之前，使用`\notag`可以抑制编号。为了避免弄乱编号，`\notag`应该只在`display`类型的环境内使用。可以使用`\tag{<lable>}`使用自定义编号，tag 可以引用 a different tagged display，通过使用`\tag{\ref{<label>}<modifier>}`，其中`<modifier>`是可选的。如果你使用了`hyperref`，可以使用`\ref*`，避免创建包含内置链接的reference.
+数学公式的环境中,除了 `split` 环境,每个方程环境都有带`*`和不带`*`号的版本,不带星号的版本将会自动编号,在一行结束之前,使用`\notag`可以抑制编号.为了避免弄乱编号,`\notag`应该只在`display`类型的环境内使用.可以使用`\tag{<lable>}`使用自定义编号,tag 可以引用 a different tagged display,通过使用`\tag{\ref{<label>}<modifier>}`,其中`<modifier>`是可选的.如果你使用了`hyperref`,可以使用`\ref*`,避免创建包含内置链接的reference.
 
-还有一个`\tag*`命令，可以原义输出文本，不加括号。`\tag` and `\tag*`也可以在`amsmath`包的无编号环境中使用。
+还有一个`\tag*`命令,可以原义输出文本,不加括号.`\tag` and `\tag*`也可以在`amsmath`包的无编号环境中使用.
 
 ## 杨表 tableaux  模板
 
@@ -1694,24 +1666,20 @@ $\limsup\limits_{x\rightarrow0}$ vs $\lim\sup\limits_{x\rightarrow0}$
 
 So you will want to use `\limsup`.
 
-[如何公式实现左下标？](https://wenda.latexstudio.net/q-2075.html)
+[如何公式实现左下标? ](https://wenda.latexstudio.net/q-2075.html)
 
-如果要使用左侧下标，使用 `amsmath` 提供的`\sideset`。例如
+如果要使用左侧下标,使用 `amsmath` 提供的`\sideset`.例如
 
 ```bash
 %\usepackage{amsmath}
 \[\sideset{_h}{_h}{\mathop{\langle\psi|Q_h|\psi\rangle}}\]
 ```
 
-[氢化脱苄苯甲醇-上下标][]
-
-[氢化脱苄苯甲醇-上下标]: https://www.jianshu.com/p/229cbbac9446
-
+[氢化脱苄苯甲醇-上下标](https://www.jianshu.com/p/229cbbac9446)
+ 
 ## Math accents
 
-reference: [Math accents][]
-
-[Math accents]: http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Math-accents
+reference: [Math accents](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Math-accents)
 
 `LaTeX` provides a variety of commands for producing accented letters in math.
 These are different from `accents` in `normal text` (see `Accents`).
@@ -1739,14 +1707,14 @@ These are different from `accents` in `normal text` (see `Accents`).
 1. 分段：用控制命令`\par` 或空出一行. 
 1. 特殊控制字符: #,$, %, &, - ,{, }, ^, ~
 
-## 换页
+### 换页
 
-用控制命令``\newpage``或``\clearpage``
+用控制命令`\newpage`或`\clearpage`
 
-+ `\newpage`：  The `\newpage` command ends the current page.
-+ `\clearpage`：The `\clearpage` command ends the current page and causes all figures and tables that have so far appeared in the input to be printed.
++ `\newpage`：  The `\newpage` 结束当前页.
++ `\clearpage`：The `\clearpage` 结束当前页面,并且强迫排版到目前为止`input`中的图和表格浮动题.
 
-## 连字符
+### 连字符
 
 连字符（`Hyphens`）、连接号（`En-dashes`）、破折号（`Em-dashes`）及减号（`Minus signs`）
 
@@ -1755,7 +1723,7 @@ These are different from `accents` in `normal text` (see `Accents`).
 + 破折号 `---` 是一个正规的标点符号,用来表示转折或者承上启下. 要注意的是,破折号与其前后的单词之间不应该存在空格,例如 `A specter is haunting Europe---the specter of Communism.`
 + 排版中的减号应该比连字符要长,因此用来表示减号或者负号时,请严格使用数学模式 $-5$ 而不要使用文字模式 `-5`
 
-## 计数器 Counters
+### 计数器 Counters
 
 所有的` LaTeX`自动编号都有一个`counter`与之关联.
 `counter`的名称通常与与数字关联的`environment`或`command`的名称相同,只是`counter`的名称没有反斜杠` \`. 
@@ -1949,9 +1917,7 @@ Synopsis:
 \nolinkurl{http://www.openbsd.org}
 ```
 
-[LaTeX技巧159：如何在文中使用链接][]
-
-[LaTeX技巧159：如何在文中使用链接]: https://www.latexstudio.net/archives/7741.html
+[LaTeX技巧159：如何在文中使用链接](https://www.latexstudio.net/archives/7741.html)
 
 ## 字体 font 数学符号
 
@@ -1963,8 +1929,8 @@ Synopsis:
 fc-list -f "%{family}\n" :lang=zh
 ```
 
-所有用逗号 , 隔开的短语，如 `Source Han Serif SC`，`思源宋体`，`Source Han Serif SC Medium`，`思源宋体 Medium`，都可以作为后面调用的代号，
-其中后两者代表`Medium`这个粗细，而前两者实际上代表的是这个字体的默认粗细，即`Regular`，想要调用非默认粗细的话需要注意代号。
+所有用逗号 , 隔开的短语,如 `Source Han Serif SC`,`思源宋体`,`Source Han Serif SC Medium`,`思源宋体 Medium`,都可以作为后面调用的代号,
+其中后两者代表`Medium`这个粗细,而前两者实际上代表的是这个字体的默认粗细,即`Regular`,想要调用非默认粗细的话需要注意代号.
 
 ***
 出现下面这种报错
@@ -1973,7 +1939,7 @@ fc-list -f "%{family}\n" :lang=zh
 ! Internal error: bad native font flag in `map_char_to_glyph'
 ```
 
-可能是数学字体设置有问题。
+可能是数学字体设置有问题.
 
 相关的包
 
@@ -1990,7 +1956,6 @@ http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Accents
 ### latex 字体设置
 
 [LaTeX 特殊符号与数学字体](https://blog.csdn.net/lanchunhui/article/details/54633576)
-
 [latex 字体设置](https://www.jianshu.com/p/68da21a1501a)
 
 字体是由一些正交的属性决定的,通常讨论的属性为
@@ -2150,10 +2115,10 @@ Latex下 字体大小命令 比较
 ### 数学字体
 
 + `mathbb`：blackboard bold,黑板粗体
-+ `mathcal`：calligraphy（美术字），还有普通的`cal`
++ `mathcal`：calligraphy（美术字）,还有普通的`cal`
 + `mathrm`：math roman
-+ `mathbf`：math 粗体字，还有一个`boldsymbol`，在`amsbsy`中，可以打出小写字母的粗体.
-+ `\mathbbm`: `\usepackage{bbm}`，黑板粗体字母，`\mathbbm{1}`
++ `mathbf`：math 粗体字,还有一个`boldsymbol`,在`amsbsy`中,可以打出小写字母的粗体.
++ `\mathbbm`: `\usepackage{bbm}`,黑板粗体字母,`\mathbbm{1}`
 
 花体`\mathcal`：`L,F,D,N`
 
@@ -2195,8 +2160,8 @@ Latex下 字体大小命令 比较
 
 ### 小写字母的数字花体
 
-ref-2: [LaTeX小写花体字母][]
-ref-3: [查找任意符号的LaTeX指令][]
+ref-2: [LaTeX小写花体字母](https://www.zhihu.com/question/26941177/answer/34623570)
+ref-3: [查找任意符号的LaTeX指令](https://www.zhihu.com/question/26941177/answer/34626024)
 
 拥有小写字母的数字花体字体当然也是存在的——比如`MathTime Pro 2`的`\mathcal`就支持小写,
 需要付钱.  把一些正文字体借用于数学公式中是可能
@@ -2205,16 +2170,8 @@ ref-3: [查找任意符号的LaTeX指令][]
 
 推荐两个查找任意符号的LaTeX指令的方法
 
-+ 查阅 [The Comprehensive LaTeX Symbol List][] ,这份资料很好,囊括众多宏包中的符号,就是查起来比较麻烦
-+ 使用 [Detexify][] ,用鼠标直接画出你想要的符号即可查出该符号的`LaTeX`指令,灰常给力.
-
-[LaTeX小写花体字母]: https://www.zhihu.com/question/26941177/answer/34623570
-
-[查找任意符号的LaTeX指令]: https://www.zhihu.com/question/26941177/answer/34626024
-
-[The Comprehensive LaTeX Symbol List]: http://mirrors.ustc.edu.cn/CTAN/info/symbols/comprehensive/symbols-a4.pdf
-
-[Detexify]: http://detexify.kirelabs.org/classify.html
++ 查阅 [The Comprehensive LaTeX Symbol List](http://mirrors.ustc.edu.cn/CTAN/info/symbols/comprehensive/symbols-a4.pdf) ,这份资料很好,囊括众多宏包中的符号,就是查起来比较麻烦
++ 使用 [Detexify](http://detexify.kirelabs.org/classify.html) ,用鼠标直接画出你想要的符号即可查出该符号的`LaTeX`指令,灰常给力.
 
 ### 数学符号
 
@@ -2253,15 +2210,11 @@ ref-3: [查找任意符号的LaTeX指令][]
 
 \mathrm v.s. \text
 
-[is-there-a-preference-of-when-to-use-text-and-mathrm][]
+[is-there-a-preference-of-when-to-use-text-and-mathrm](https://tex.stackexchange.com/questions/19502/is-there-a-preference-of-when-to-use-text-and-mathrm)
 
-[is-there-a-preference-of-when-to-use-text-and-mathrm]: https://tex.stackexchange.com/questions/19502/is-there-a-preference-of-when-to-use-text-and-mathrm
+警告：以下讨论假定软件包`amsmath`已加载.通常, `\ mathrm`应用于`符号`,而 `\ text`应用于文本. :)
 
-警告：以下讨论假定软件包`amsmath`已加载.
-通常, `\ mathrm`应用于`符号`,而 `\ text`应用于文本. :)
-
-但是,最好对代表函数的罗马字母簇使用运算符：命令`\lcm`和`\gcd`已预定义； 
-对于`ord`,没有预定义的命令,但是把下列定义放入导言区就足够了
+但是,最好对代表函数的罗马字母簇使用运算符：命令`\lcm`和`\gcd`已预定义； 对于`ord`,没有预定义的命令,但是把下列定义放入导言区就足够了
 
 ```latex
 \DeclareMathOperator{\ord}{ord}
@@ -2377,9 +2330,7 @@ $\int \mathop{}\mathrm{d} x $\\
 
 ### 上下划线和大括号
 
-[LaTeX教学3.2.2 数学结构-上下划线和大括号][]
-
-[LaTeX教学3.2.2 数学结构-上下划线和大括号]: https://www.jianshu.com/p/0217f22ebb3e
+[LaTeX教学3.2.2 数学结构-上下划线和大括号](https://www.jianshu.com/p/0217f22ebb3e)
 
 有的时候我们会需要在公式的上面或者下面打一条线, 这时候我们需要用到两个命令：
 
@@ -2418,15 +2369,9 @@ $\int \mathop{}\mathrm{d} x $\\
 
 ### 多重下标
 
-[如何排版公式的多行下标][]
+[如何排版公式的多行下标](https://jingyan.baidu.com/article/59703552e0fae18fc1074043.html)
 
-[如何排版公式的多行下标]: https://jingyan.baidu.com/article/59703552e0fae18fc1074043.html
-
-第一种方法
-
-我们可以使用命令`\substack`,可以排版多重上标或下标,两行之间用`\\`分隔,居中显示. 
-
-例如：
+第一种方法:使用命令`\substack`,可以排版多重上标或下标,两行之间用`\\`分隔,居中显示. 例如：
 
 ```latex
 \begin{equation}
@@ -2453,18 +2398,17 @@ $\int \mathop{}\mathrm{d} x $\\
 ### pdf 书签
 
 [在 LaTeX 中使用含有中文的 PDF 书签避免乱码的正确姿势 ](https://liam.page/2014/11/22/latex-pdf-cjk-bookmarks/)
-
 [hyperref – Extensive support for hypertext in LaTeX](https://www.ctan.org/pkg/hyperref)
 
-LaTeX 的 `hyperref` 宏包可以处理交叉引用命令，在 PDF 文件中产生超文本链接，或者是 PDF 书签，
+LaTeX 的 `hyperref` 宏包可以处理交叉引用命令,在 PDF 文件中产生超文本链接,或者是 PDF 书签,
 
-最好的办法是将中文支持和版式处理都交给 `ctex` 宏包/文档类，只需要开启 `hyperref` 选项即可。
+最好的办法是将中文支持和版式处理都交给 `ctex` 宏包/文档类,只需要开启 `hyperref` 选项即可.
 
 ```latex
 \documentclass[hyperref, UTF8]{ctexart}
 \begin{document}
 \section{中文书签不会乱码}
-UTF-8 编码，Xe\LaTeX{}/pdf\LaTeX{}/\LaTeX{} - DVIPDFMx 编译。
+UTF-8 编码,Xe\LaTeX{}/pdf\LaTeX{}/\LaTeX{} - DVIPDFMx 编译.
 \end{document}
 ```
 
@@ -2566,9 +2510,7 @@ URL链接
 \nolinkurl{http://www.openbsd.org}
 ```
 
-[LaTeX技巧159：如何在文中使用链接][]
-
-[LaTeX技巧159：如何在文中使用链接]: https://www.latexstudio.net/archives/7741.html
+[LaTeX技巧159：如何在文中使用链接](https://www.latexstudio.net/archives/7741.html)
 
 ## 画费曼图
 
@@ -2577,7 +2519,97 @@ URL链接
 现在了解到的有
 
 [ GkAntonius:feynman ](https://github.com/GkAntonius/feynman):Sharp-looking Feynman diagrams in python 
-
 [ JP-Ellis /tikz-feynman ](https://github.com/JP-Ellis/tikz-feynman):Feynman Diagrams with TikZ 
-
 [Asymptote: The Vector Graphics Language](https://asymptote.sourceforge.io/): 其中有个叫做`feynman`的模组
+
+## 页面设置
+
+一页的大小怎么设置,能容纳多少行,一行能有多宽,页眉、页尾怎么设置,凡此种种,都叫整体页面的设置.
+首先,这一切,都需要我们使用宏包geometry. 因此,首先,我们需要在导言区中写上`\usepackage{geometry}`.
+[geometry](https://www.ctan.org/pkg/geometry)
+
+该软件包提供了一个轻松灵活的用户界面来自定义页面布局,实现了自动居中和自动平衡机制,因此用户只需给出最少的页面布局描述即可. 
+例如,如果您想将每个边距设置为`2cm`,而没有标题空间,则只需要`\usepackage[margin=2cm,nohead]{geometry}`.
+
+### 页面大小设置
+
+我们常用的页面大小,就是`A4`纸.要实现这个,可以在导言区中写上`\geometry{a4paper}`
+如果我们不是用约定的纸张大小,而是想以数值形式指定纸张大小,比如说长`22厘米`,宽`10厘米`,那么,我们可以在导言区中写
+
+```latex
+\geometry{paperheight=22cm, paperwidth=10cm}
+```
+
+***
+版心位置, 大小设置
+
+除了设置页面的大小以外,我们还可以设置版心的位置和大小. 页面文字一般会留出一些边距, 除去这些页边距以外,包括整个文字部分的长方形叫做版心.
+每行的第一个字顶着版心的最左边开始,一直写到版心的最右边开始断行.
+
+版心的位置可以通过设置其`左边距`、`右边距`、`上边距`、`下边距`来设置.
+其对应的参数名分别为 `left`, `right`, `top`, `bottom`. 比如说,我们要设置左边距为`2cm`,可以在导言区中写
+
+```latex
+\geometry{left=2cm}
+``` 
+
+此外,我们如果需要将版心居中,竖直居中的参数名为`vcentering,` 水平居中的参数名为`hcentering`, 水平、竖直均居中的参数名为`centering`. 
+例如让版心水平居中,可以在导言区中写
+
+```latex
+\geometry{hcentering} 
+```
+
+此外,还可以设置版心的大小.版心的长为`textheight`, 宽为`textwidth`. 我们如果要设置版心长为`20cm`,可以在导言区中写
+
+```latex
+\geometry{textheight=20cm}
+```
+
+`geometry`宏包具有上述参数的图像描述
+
+### 页眉与页脚
+
+[Latex的页脚和页眉](https://zhuanlan.zhihu.com/p/114676221)
+[fancyhdr – Extensive control of page headers](https://www.ctan.org/pkg/fancyhdr)
+[LaTex页码格式,第几页共几页 ](https://www.latexstudio.net/archives/7680.html)
+[LaTeX入门(七)——页面设置](https://zhuanlan.zhihu.com/p/56405574)
+
+对于页眉页脚的设置,我们使用宏包`fancyhdr`. 所以,我们首先在导言区中写上
+
+```latex
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+```
+
+这里注意一点,如果我们同时使用了`geometry`和`fancyhdr`宏包,那么一定要把`\usepackage{fancyhdr}`及相应的页眉、页脚设置写在`\usepackage{geometry}`的前面,否则会出现奇怪的错误.
+`fancyhdr`宏包的说明文档中也有各个页眉页脚位置的图示。[fancyhdr](https://www.ctan.org/pkg/fancyhdr)
+
+`fancyhdr`将页面的页眉、页脚各分为左、中、右三个部分,其对应的指令名为`\lhead{}`,` \chead{}`, `\rhead{}`, `\lfoot{}`, `\lhead{},` `\rhead{}`. 
+括号中填写的内容将在对应的地方出现. 比如想在页眉正中出现`学习指南`,我们只需在导言区加上`\chead{学习指南} `.
+现在版本的`fancyhdr`已经不建议使用这种风格的命令了，而是使用类似`\fancyhead[L]{xx}`这样的命令代替。
+
++ 如果想使用页码,可以用`\thepage`来实现. 它存储当前页面的页码.比如想在页尾右侧写上当前页码,则在导言区中加上`\rfoot{\thepage} `.
++ 此外,顺便提一句,如果要在正文中使用`\maketitle`,那么那一页的页面格式会自动变回原来的页面格式.需要在`\maketitle`后加上一句`\thispagestyle{fancy}`.
++ 同时,页眉也被默认设置了含有页眉线.页眉线、页脚线的指令名分别为`\headrulewidth`和`\footrulewidth`. 其粗细可分别用`\renewcommand`来设置, 
+例如想取消页眉线,就在导言区加上`\renewcommand\headrulewidth{0pt} `
++ 如果要在正文中使用`\maketitle`,那么那一页的页面格式会自动变回原来的页面格式.需要在`\maketitle`后加上一句`\thispagestyle{fancy}`.
+
+下面的用法生成`第x页,共y页`的页码样式。
+
+```latex
+\usepackage{fancyhdr}
+\pagestyle{fancy} %页脚的样式
+\fancyfoot[C]{\kaishu 第\thepage 页共\pageref{unknown}页}
+\label{unknown} %把这一行置于文末
+```
+
+文章的总页数可以直接由`lastpage`宏包的`\pageref{LastPage}`得到.所以也可以这样
+
+```latex
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy} %页脚的样式
+\fancyfoot[C]{\kaishu 第\thepage 页共\pageref{LastPage}页}
+```

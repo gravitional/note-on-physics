@@ -6,9 +6,32 @@
 \origin unavailable
 \textclass ctex-article
 \begin_preamble
-% 如果没有这一句命令，XeTeX会出错，原因参见
-% http://bbs.ctex.org/viewthread.php?tid=60547
+% 如果没有这一句命令，XeTeX会出错，原因参见 http://bbs.ctex.org/viewthread.php?tid=60547
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+%%%+++++++++++++++++++++++++++++++
+\usepackage{fancyhdr}%导入fancyhdr包, 页眉，页脚
+\usepackage{lastpage}%引用LaTeX文档中的页数，可以使用\pageref{LastPage}之类的新标签来引用文档的最后一页
+\pagestyle{fancy}
+\pagenumbering{arabic}%设置页码格式，大写字母标页
+%\fancyhead[L]{左页眉}
+%\fancyhead[R]{右页眉}
+%\fancyfoot[L]{左页脚}
+%\fancyfoot[C]{右页脚}
+\fancyhead{} % clear all header fields
+\fancyfoot{} % clear all footer field
+\fancyhead[C]{2020-2021学年春季学期 期中考试 本科生试题专用纸}
+\fancyfoot[R]{第\thepage 页共\pageref{LastPage}页}
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\headrulewidth}{1pt} %分隔线宽度4磅
+\renewcommand{\footrulewidth}{1pt}
+%%%+++++++++++++++++++++++++++++++
+\usepackage{geometry} % 整体页面设置
+\geometry{a4paper} %页面大小是A4纸
+\geometry{top=3cm} %设置版心顶部距离
+\geometry{top=3cm} %设置版心顶部距离
+%\geometry{textheight=22cm}  %设置版心长度
+%\geometry{centering} % 水平、竖直均居中
+\geometry{textwidth=16cm} 
 %%%%%%%%%%%%%%%%%+++++++++++
 \usepackage{eso-pic} 
 % This package makes it easy to add some picture commands to every page at ab-solute positions
@@ -156,17 +179,29 @@
 
 \begin_body
 
-\begin_layout Title
-2021年春季学期电动力学期中考试
-\end_layout
+\begin_layout Standard
+\noindent
+\align left
+\begin_inset Graphics
+	filename guoKeDaMoBan.pdf
+	scale 90
 
-\begin_layout Author
-主讲教师：王平
-\begin_inset space \hspace*{}
-\length 2cm
 \end_inset
 
-助教：杨明炀
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset line
+LatexCommand rule
+offset "2ex"
+width "100text%"
+height "0.5pt"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -531,6 +566,13 @@ end{exercise}
 \begin_layout Standard
 \begin_inset ERT
 status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
 
 \begin_layout Plain Layout
 

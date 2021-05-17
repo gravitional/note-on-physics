@@ -348,6 +348,40 @@ begin{exercise}
 \end_inset
 
 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+tel = 5; teb = .65; tec = 1.3; ted = tec + 0.2; tea = Graphics[{ FaceForm[{Blue,
+ Opacity[.05]}], Rectangle[{-.5, -.5}, {2, 2}], FaceForm[{White, Opacity[1]}],
+ FilledCurve[ Line[{{tel*Cos[
+\backslash
+[Pi]/3], tel*Sin[
+\backslash
+[Pi]/3]}, {0, 0}, {tel, 0}}] ], Circle[{0, 0}, .5, {0, 
+\backslash
+[Pi]/3}], AbsolutePointSize[6], Point[{tec*Cos[
+\backslash
+[Pi]/6], tec*Sin[
+\backslash
+[Pi]/6]}], Text[Style["
+\backslash
+[Pi]/3", 14], {teb*Cos[
+\backslash
+[Pi]/6], teb*Sin[
+\backslash
+[Pi]/6]}], Text[Style["+q", 14], {ted*Cos[
+\backslash
+[Pi]/6], ted*Sin[
+\backslash
+[Pi]/6]}] }, PlotRange -> {{-1, 2}, {-1, 2}}, Axes -> None, Ticks -> None,
+ AxesLabel -> {y, z}, Method -> {"ShrinkWrap" -> True}, ImageSize -> {200,
+ 200} ]; Print@tea; Export["/home/tom/note/others/60DuJiao.pdf", tea]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -388,6 +422,66 @@ begin{exercise}
 解
 \color inherit
 ：
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+tel = 5; teb = .65; tec = 1.3; ted = tec + 0.2; line[
+\backslash
+[Theta]_] := { Blue, Thin, Line[{{-tel*Cos[
+\backslash
+[Theta]], -tel*Sin[
+\backslash
+[Theta]]}, {tel*Cos[
+\backslash
+[Theta]], tel*Sin[
+\backslash
+[Theta]]}}], Black, Point[{tec*Cos[
+\backslash
+[Pi]/6 + 
+\backslash
+[Theta]], tec*Sin[
+\backslash
+[Pi]/6 + 
+\backslash
+[Theta]]}] } text[x_, 
+\backslash
+[Theta]_] := Text[Style[x, 12], {ted*Cos[
+\backslash
+[Pi]/6 + 
+\backslash
+[Theta]], ted*Sin[
+\backslash
+[Pi]/6 + 
+\backslash
+[Theta]]}] teq = PadRight[{}, 6, {Style["-q", 14], Style["+q", 14]}]; tea
+ = Graphics[{ Array[line[#1*
+\backslash
+[Pi]/3] &, 6], Circle[{0, 0}, .5, {0, 
+\backslash
+[Pi]/3}], Text["
+\backslash
+[Pi]/3", {teb*Cos[
+\backslash
+[Pi]/6], teb*Sin[
+\backslash
+[Pi]/6]}], Array[text[teq[[#1]], #1*
+\backslash
+[Pi]/3] &, 6], Circle[{0, 0}, .5, {0, 
+\backslash
+[Pi]/3}], Blue, Thickness[.009], Line[{{tel*Cos[
+\backslash
+[Pi]/3], tel*Sin[
+\backslash
+[Pi]/3]}, {0, 0}, {tel, 0}}] }, PlotRange -> {{-2, 2}, {-2, 2}}, Axes ->
+ None, Ticks -> None, AxesLabel -> {y, z}, Method -> {"ShrinkWrap" -> True},
+ ImageSize -> {200, 200} ]; Print@tea; Export["/home/tom/note/others/60DuJiaoJin
+gXiang.pdf", tea]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
