@@ -65,28 +65,28 @@ g++ -g -Wall -std=c++11 main.cpp
 
 `g++`常用命令选项
 
-| 选项 | 解释 |
-|----|----|
-|`-ansi`|`只支持 ANSI 标准的 C 语法。这一选项将禁止 GNU C 的某些特色， 例如 asm 或 typeof 关键词。`|
-|  `-c` | `只编译并生成目标文件。` |
-|  `-DMACRO` | `以字符串"1"定义 MACRO 宏。` |
-|  `-DMACRO=DEFN` | `以字符串"DEFN"定义 MACRO 宏。` |
-|  `-E` | `只运行 C 预编译器。` |
-|  `-g` | `生成调试信息。GNU 调试器可利用该信息。` |
-|  `-IDIRECTORY` | `指定额外的头文件搜索路径DIRECTORY。` |
-|  `-LDIRECTORY` | `指定额外的函数库搜索路径DIRECTORY。` |
-|  `-lLIBRARY` | `连接时搜索指定的函数库LIBRARY。` |
-|  `-m486` | `针对 486 进行代码优化。` |
-|  `-o` | `FILE 生成指定的输出文件。用在生成可执行文件时。` |
-|  `-O0` | `不进行优化处理。` |
-|  `-O` | `或 -O1 优化生成代码。` |
-|  `-O2` | `进一步优化。` |
-|  `-O3` | `比 -O2 更进一步优化，包括 inline 函数。` |
-|  `-shared` | `生成共享目标文件。通常用在建立共享库时。` |
-|  `-static` | `禁止使用共享连接。` |
-|  `-UMACRO` | `取消对 MACRO 宏的定义。` |
-|  `-w` | `不生成任何警告信息` |
-|  `-Wall` | `生成所有警告信息` |
+| 选项           | 解释                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------ |
+| `-ansi`        | `只支持 ANSI 标准的 C 语法。这一选项将禁止 GNU C 的某些特色， 例如 asm 或 typeof 关键词。` |
+| `-c`           | `只编译并生成目标文件。`                                                                   |
+| `-DMACRO`      | `以字符串"1"定义 MACRO 宏。`                                                               |
+| `-DMACRO=DEFN` | `以字符串"DEFN"定义 MACRO 宏。`                                                            |
+| `-E`           | `只运行 C 预编译器。`                                                                      |
+| `-g`           | `生成调试信息。GNU 调试器可利用该信息。`                                                   |
+| `-IDIRECTORY`  | `指定额外的头文件搜索路径DIRECTORY。`                                                      |
+| `-LDIRECTORY`  | `指定额外的函数库搜索路径DIRECTORY。`                                                      |
+| `-lLIBRARY`    | `连接时搜索指定的函数库LIBRARY。`                                                          |
+| `-m486`        | `针对 486 进行代码优化。`                                                                  |
+| `-o`           | `FILE 生成指定的输出文件。用在生成可执行文件时。`                                          |
+| `-O0`          | `不进行优化处理。`                                                                         |
+| `-O`           | `或 -O1 优化生成代码。`                                                                    |
+| `-O2`          | `进一步优化。`                                                                             |
+| `-O3`          | `比 -O2 更进一步优化，包括 inline 函数。`                                                  |
+| `-shared`      | `生成共享目标文件。通常用在建立共享库时。`                                                 |
+| `-static`      | `禁止使用共享连接。`                                                                       |
+| `-UMACRO`      | `取消对 MACRO 宏的定义。`                                                                  |
+| `-w`           | `不生成任何警告信息`                                                                       |
+| `-Wall`        | `生成所有警告信息`                                                                         |
 
 ## C++ 基本语法
 
@@ -200,24 +200,24 @@ myname50   _temp   j     a23b9      retVal
 
 下表列出了 `C++` 中的保留字。这些保留字不能作为常量名、变量名或其他标识符名称。
 
-| | | | |
-| ----- | ----- | ----- | ----- |
-| asm | else | new | this |
-| auto | enum | operator | throw |
-| bool | explicit | private | true |
-| break | export | protected | try |
-| case | extern | public | typedef |
-| catch | false | register | typeid |
-| char | float | reinterpret_cast | typename |
-| class | for | return | union |
-| const | friend | short | unsigned |
-| const_cast | goto | signed | using |
-| continue | if | sizeof | virtual |
-| default | inline | static | void |
-| delete | int | static_cast | volatile |
-| do | long | struct | wchar_t |
-| double | mutable | switch | while |
-| dynamic_cast | namespace | templat |  |
+|              |           |                  |          |
+| ------------ | --------- | ---------------- | -------- |
+| asm          | else      | new              | this     |
+| auto         | enum      | operator         | throw    |
+| bool         | explicit  | private          | true     |
+| break        | export    | protected        | try      |
+| case         | extern    | public           | typedef  |
+| catch        | false     | register         | typeid   |
+| char         | float     | reinterpret_cast | typename |
+| class        | for       | return           | union    |
+| const        | friend    | short            | unsigned |
+| const_cast   | goto      | signed           | using    |
+| continue     | if        | sizeof           | virtual  |
+| default      | inline    | static           | void     |
+| delete       | int       | static_cast      | volatile |
+| do           | long      | struct           | wchar_t  |
+| double       | mutable   | switch           | while    |
+| dynamic_cast | namespace | templat          |          |
 
 完整关键字介绍可查阅：[C++ 的关键字（保留字）完整介绍][]
 
@@ -232,16 +232,16 @@ myname50   _temp   j     a23b9      retVal
 下面列出了最常用的三字符序列：
 
 | 三字符组 | 替换 |
-| ----- | ----- |
-| `??=` | `#` |
-| `??/` | `\` |
-| `??'` | `^` |
-| `??(` | `[` |
-| `??)` | `]` |
-| `??!` | `|` |
-| `??<` | `{` |
-| `??>` | `}` |
-| `??-` | `~` |
+| -------- | ---- |
+| `??=`    | `#`  |
+| `??/`    | `\`  |
+| `??'`    | `^`  |
+| `??(`    | `[`  |
+| `??)`    | `]`  |
+| `??!`    | `|`  |
+| `??<`    | `{`  |
+| `??>`    | `}`  |
+| `??-`    | `~`  |
 
 如果希望在源程序中有两个连续的问号，且不希望被预处理器替换，这种情况出现在字符常量、字符串字面值或者是程序注释中，
 可选办法是用字符串的自动连接：`"...?""?..."`或者转义序列：`"...?\?..."`。
@@ -329,14 +329,14 @@ cout << "Hello World"; // 输出 Hello World
 
 `C++` 为程序员提供了种类丰富的内置数据类型和用户自定义的数据类型。下表列出了七种基本的 `C++` 数据类型：
 
-| 类型 | `关键字` |
-| ----- | ----- |
-| 布尔型 | `bool` |
-| 字符型 | `char` |
-| 整型 | `int` |
-| 浮点型 | `float` |
-| 双浮点型 | `double` |
-| 无类型 | `void` |
+| 类型     | `关键字`  |
+| -------- | --------- |
+| 布尔型   | `bool`    |
+| 字符型   | `char`    |
+| 整型     | `int`     |
+| 浮点型   | `float`   |
+| 双浮点型 | `double`  |
+| 无类型   | `void`    |
 | 宽字符型 | `wchar_t` |
 
 其实 `wchar_t` 是这样来的：
@@ -358,24 +358,24 @@ typedef short int wchar_t;
 
 注意：不同系统会有所差异。
 
-| 类型 | 位 | 范围 |
-| ----- | ----- | ----- |
-| `char` | 1个字节 | `-128到127 或者 0到255` |
-| `unsigned char` | 1 个字节 | `0到255` |
-| `signed char` | 1个字节 | `-128到127` |
-| `int` | 4个字节 | `-2147483648到2147483647` |
-| `unsigned  int` | 4个字节 | `0到4294967295` |
-| `signed int` | 4个字节 | `-2147483648到2147483647` |
-| `short int` | 2个字节 | `-32768到32767` |
-| `unsigned short int` | 2个字节 | `0到65,535` |
-| `signed short int` | 2个字节 | `-32768到32767` |
-| `long int` | 8个字节 | `-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807` |
-| `signed long int` | 8个字节 | `-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807` |
-| `unsigned long int` | 8个字节 | `0到18,446,744,073,709,551,615` |
-| `float`   | 4个字节 | `精度型占4个字节（32位）内存空间，+/- 3.4e +/- 38 (~7 个数字)`  |
-| `double`  | 8个字节 | `双精度型占8个字节（64位）内存空间，+/- 1.7e +/- 308 (~15 个数字)` |
-| `long double` | 16个字节 | `长双精度型16个字节（128位）内存空间，可提供18-19位有效数字。` |
-| `wchar_t`  | 2或4个字节 | `1个宽字符` |
+| 类型                 | 位         | 范围                                                               |
+| -------------------- | ---------- | ------------------------------------------------------------------ |
+| `char`               | 1个字节    | `-128到127 或者 0到255`                                            |
+| `unsigned char`      | 1 个字节   | `0到255`                                                           |
+| `signed char`        | 1个字节    | `-128到127`                                                        |
+| `int`                | 4个字节    | `-2147483648到2147483647`                                          |
+| `unsigned  int`      | 4个字节    | `0到4294967295`                                                    |
+| `signed int`         | 4个字节    | `-2147483648到2147483647`                                          |
+| `short int`          | 2个字节    | `-32768到32767`                                                    |
+| `unsigned short int` | 2个字节    | `0到65,535`                                                        |
+| `signed short int`   | 2个字节    | `-32768到32767`                                                    |
+| `long int`           | 8个字节    | `-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807`          |
+| `signed long int`    | 8个字节    | `-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807`          |
+| `unsigned long int`  | 8个字节    | `0到18,446,744,073,709,551,615`                                    |
+| `float`              | 4个字节    | `精度型占4个字节（32位）内存空间，+/- 3.4e +/- 38 (~7 个数字)`     |
+| `double`             | 8个字节    | `双精度型占8个字节（64位）内存空间，+/- 1.7e +/- 308 (~15 个数字)` |
+| `long double`        | 16个字节   | `长双精度型16个字节（128位）内存空间，可提供18-19位有效数字。`     |
+| `wchar_t`            | 2或4个字节 | `1个宽字符`                                                        |
 
 从上表可得知，变量的大小会根据编译器和所使用的电脑而有所不同。
 下面实例会输出您电脑上各种数据类型的大小。
@@ -480,3 +480,170 @@ $N=M\times 2^E$
 
 字符在计算机中通过编码表示：西文常用`ASCII`码，`7`位二进制数表示一个字符，最多为`2^7=128`个。
 汉字编码：中国国家标准：`GB 18030-2005 信息技术中文编码字符集`
+
+布尔类型，默认转换，非零数据转换成`false`, 其他数值转换成`true`.
+
+## 输入输出流
+
+cout << 表达式 << 表达式 ...
+cin >> 表达式 >> 表达式...
+
+`I/O`流类库操纵符.
+
++ `dec` : 十进制表示
++ `hex` : 十六进制表示
++ `oct` : 八进制表示
++ `ws` : 提取空白符
++ `endl` : 插入换行符，并刷新流
++ `ends` : 插入空字符
++ `setprecision(int)` : 设置浮点数的小数位数（包括小数点）
++ `setw(int)` : 设置域宽
+
+例如:
+
+```c++
+cout << setw(5) << setprecision(3) << 3.1415 ;
+```
+
+## 过程控制
+
+### if switch
+
+```c++
+if  (表达式1)
+{...}
+else if (表达式2)
+{...}
+else if
+```
+
+注意`if`和`else`的匹配关系:
+
+```c++
+if  (表达式1)
+{
+   if () 语句1
+}
+else
+```
+
+`switch` 语句: 没有`break`不会默认跳出, 每个 `case `都应该包含`break`; `case`包含多个语句，无需`{}`，因为`case, break`就相当于括号。
+表达式，判断值都是`int` or `char`类型。
+
+```c++
+switch (表达式){
+case 判断值0: xxx; break;
+case 判断值1: xxx; break;
+...
+default:
+}
+```
+
+### while, do while, for
+
+```c++
+int i=1, sum=0;
+while (i<=10) {
+sum +=i;
+i++;
+}
+```
+
+`do while`会先执行一次循环体。而`while`先判断。
+
+```c++
+do {
+   语句
+}
+while (判断)
+```
+
+`for`语句明确控制循环次数. `for( 初始语句;循环体;循环后语句)`
+
+```c++
+for (int k=1; k<=n; k++){
+语句
+}
+```
+
+`for`语句中的范围`for`形式, 用于遍历一个容器中的序列:
+
+```c++
+for (声明: 表达式)
+   语句
+```
+
++ `break`: 跳出最内层的循环体
++ `continue`: 提前结束本次循环，进入下一次。
++ `goto`: 跳转到任意地方。
+
+## 自定义类型
+
+给类型起一个别名
+
+```c++
+typedef 已有类型名 新类型名表 //c 语言继承的办法
+// 或者
+using 新类型名 = 已有类型名
+using Area = double
+```
+
+### 枚举类型
+
+`enum 枚举类型名 {变量值列表}`
+
+```c++
+enum Weekday {SUN,MON,TUE,WED,THU,FRI,SAT}
+```
+
+也可以定义限定类型的枚举类型. 将整数值赋值给枚举类型要进行强制类型转换。
+
+### auto, decltype 类型
+
+`auto `: 编译器通过初始值自动推断变量的类型。例如：`auto val=val1+ val2`. 
+如果都是`int`，则`val` is `int`. 如果有一个`double`，则`val`是`doule`类型。
+
+`decltype(cls) j =2`:表示`j`的初始值为`2`，但类型与`cls`一致。
+
+### struct
+
+`struct`把一组相互关联的数据整合在一起. 例如:
+
+```c++
+struct MyTimeStruct
+{
+   unsigned int year;
+   unsigned int month;
+   unsigned int day;
+}
+// 赋值和调用
+myTime={2015,3,16}
+myTime.day
+```
+
+## 函数
+
++ 内联函数
++ `constexpr`函数
++ 带默认参数值的函数
++ 函数重载: 编译时绑定--早绑定, 晚绑定
++ C++ 系统函数 
+
+### 函数定义
+
+函数定义的语法形式
+
+```c++
+类型标识符 函数名(形式参数表)
+{
+语句序列
+return x // void 函数不需要写 return
+}
+```
+
+形式参数的形式为: `type1 name1, ....`
+
+### 函数调用
+
+调用函数需要声明`函数原型`: 类型标识符 被调函数名 (含类型说明的形参表)， 调用使用`函数名(实参列表)`.
+`调用堆栈`

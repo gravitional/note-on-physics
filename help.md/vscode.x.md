@@ -26,9 +26,7 @@ and you can continue selecting files from Quick Open.
 
 ### code 环境变量
 
-[Variables Reference][]
-
-[Variables Reference]: https://code.visualstudio.com/docs/editor/variables-reference
+[Variables Reference](https://code.visualstudio.com/docs/editor/variables-reference)
 
 以下是预定义的变量：
 
