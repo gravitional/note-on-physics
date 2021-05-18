@@ -1,6 +1,6 @@
-# learn.cpp.md
+# cpp
 
-整理自 [runoob-cpp](https://www.runoob.com/cplusplus/cpp-environment-setup.html)，版权归原作者所有，转载请注明。
+[runoob-cpp](https://www.runoob.com/cplusplus/cpp-environment-setup.html).
 
 ## g++ 应用说明
 
@@ -8,9 +8,8 @@
 
 ```bash
 gcc main.cpp -lstdc++ -o main
-```
-
 gcc helloworld.cpp -lstdc++ -o helloworld
+```
 
 下面是一个保存在文件 `helloworld.cpp` 中一个简单的 `C++` 程序的代码：
 
@@ -135,7 +134,7 @@ int main()
 + 保存文件为 `hello.cpp`。
 + 打开命令提示符，进入到保存文件所在的目录。
 + 键入 '`g++ hello.cpp`'，输入回车，编译代码。如果代码中没有错误，命令提示符会跳到下一行，并生成 `a.out` 可执行文件。
-+ 现在，键入 '`a.out`' 来运行程序。
++ 现在，键入 `a.out` 来运行程序。
 + 您可以看到屏幕上显示 '`Hello World`'。
 
 ```bash
@@ -145,9 +144,7 @@ $ ./a.out
 Hello World
 ```
 
-请确保您的路径中已包含 `g++` 编译器，并确保在包含源文件 `hello.cpp` 的目录中运行它。
-
-您也可以使用 `makefile` 来编译 `C/C++` 程序。
+请确保您的路径中已包含 `g++` 编译器，并确保在包含源文件 `hello.cpp` 的目录中运行它。您也可以使用 `makefile` 来编译 `C/C++` 程序。
 
 ### C++ 中的分号 & 语句块
 

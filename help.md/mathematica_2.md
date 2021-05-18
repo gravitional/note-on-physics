@@ -2044,9 +2044,7 @@ NotebookEvaluate: 计算 `notebook`  中所有可计算单元
 
 ### 常用优先级
 
-tutorial/OperatorInputForms
-
-下面是常用算符的优先级
+tutorial/OperatorInputForms. 下面是常用算符的优先级
 
 ***
 `<<`,Get,导入文件
@@ -2055,6 +2053,9 @@ tutorial/OperatorInputForms
 ***
 `exp1[[exp2]]`,Part，部分值
 ***
+`f@*g`,Composition,`f[g[x]]`
+***
+`f /* g`,RightComposition,`g[h[x]]`
 `exp1@exp2`, 前缀
 ***
 `exp1/@exp2`,Map，映射
