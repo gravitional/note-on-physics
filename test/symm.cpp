@@ -14,7 +14,7 @@ int main()
             cout << "m^2=" << m * m << endl;
             cout << "m^3=" << m * m * m << endl;
         };
-        cout << sin(30);
+        cout << sin(3.1415926/2.0)<<endl;
 }
 
 bool symm(unsigned n) // 判断是否为回文数
