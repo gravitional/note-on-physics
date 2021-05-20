@@ -92,9 +92,7 @@ for ($i = 0; $i -le $length; $i++) {
 
 ### 报错示例-2
 
-ref-2: [LaTeX 如何进行 debug][]
-
-[LaTeX 如何进行 debug]: https://www.zhihu.com/question/28698141/answer/41774879
+ref-2: [LaTeX 如何进行 debug](https://www.zhihu.com/question/28698141/answer/41774879)
 
 我们故意构建一段错误的代码看看. 
 
@@ -542,14 +540,11 @@ And this is the best squash, \verb+literally!+
 ```
 
 创建一个段落,对内容原样输出.例如,在文字文本中,反斜杠`\`字符不会启动命令,它会产生一个打印的`\`,
-并按字面意义使用回车符和空格.输出以类似等距打字机的字体（`\tt`）出现.
-文字文本的唯一限制是它不能包含字符串`\end {verbatim}`.
+并按字面意义使用回车符和空格.输出以类似等距打字机的字体（`\tt`）出现.文字文本的唯一限制是它不能包含字符串`\end {verbatim}`.
 您不能在宏的参数（例如`\section`的参数）中使用逐字记录环境.（但是cprotect软件包可以帮助您解决此问题.）
 
-`verbatim`的一种常见用法是排版计算机代码.有一些软件包可以改善`verbatim`.
-例如,一种改进是允许逐字包含外部文件或这些文件的一部分,比如`listings`, and `minted`.
-一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`.另一个是`verbatimbox`.
-有关所有相关软件包的列表,请参见CTAN.
+`verbatim`的一种常见用法是排版计算机代码.有一些软件包可以改善`verbatim`.例如,一种改进是允许逐字包含外部文件或这些文件的一部分,比如`listings`, and `minted`.
+一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`.另一个是`verbatimbox`. 有关所有相关软件包的列表,请参见CTAN.
 
 ## 浮动体 图形
 
@@ -895,7 +890,7 @@ split
 例子
 
 \begin{oframed}
-\begin{lstlisting}[language=C++,style=mystyle]
+\begin{lstlisting}[language=C++,style=codestyle1]
 #include <iostream>
 using namespace std;
 int main(){
@@ -909,7 +904,7 @@ int main(){
 
 ```latex
 \begin{framed}
- \begin{lstlisting}  %or \lstinputlisting{...} 
+ \begin{lstlisting}  % 或者 \lstinputlisting{...} 
  \end{lstlisting}
  \end{framed}
 ```
@@ -918,11 +913,11 @@ int main(){
 
 该软件包创建了三个环境：
 
-`framed`,用普通方框围绕该区域,通常的 frame box (`\fbox`),`edge`在`margin`（页边）
-`oframed`,在分页处,方框的顶部和底部是开放的
-`shaded`,阴影区域,`\colorbox`
-leftbar,在左侧放置一条线. 环境允许在开始时有一个中断（`\FrameCommand`允许创建标题附加到该环境）;
-`framed/shaded`环境中也允许有`breaks`.
++ `framed`,用普通方框围绕该区域,通常的 frame box (`\fbox`),`edge`在`margin`（页边）
++ `oframed`,在分页处,方框的顶部和底部是开放的
++ `shaded`,阴影区域,`\colorbox`
++ `leftbar`,在左侧放置一条线. 环境允许在开始时有一个中断（`\FrameCommand`允许创建标题附加到该环境）;
++ `framed/shaded`环境中也允许有`breaks`.
 
 还有一个命令`\MakeFramed`可以创建自己的框架式环境.
 
@@ -936,8 +931,7 @@ leftbar,在左侧放置一条线. 环境允许在开始时有一个中断（`\Fr
 `leftbar` 左边缘的粗垂直线
 `titled-frame` 带有标题栏的框
 
-实际上,`shaded`环境只是将`\FrameCommand`重新定义为`\colorbox{shadecolor}`
-（所以你需要定义颜色`shadecolor`:`\definecolor{shadecolor}...`）.
+实际上,`shaded`环境只是将`\FrameCommand`重新定义为`\colorbox{shadecolor}`. （所以你需要定义颜色`shadecolor`:`\definecolor{shadecolor}...`）.
 
 常用颜色指定
 
