@@ -89,7 +89,7 @@
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\small\ttfamily,
+    basicstyle=\small\ttfamily,%小字号,等宽字体
     breakatwhitespace=false,
     breaklines=true,                 
     captionpos=b,                    
@@ -243,12 +243,12 @@ status open
 
 
 \backslash
-FA
+FA{}
 \end_layout
 
 \end_inset
 
- 还可以生成 counter–term 图，和带有单粒子不可约顶点函数占位符的图（skeleton 图）。
+还可以生成 counter–term 图，和带有单粒子不可约顶点函数占位符的图（skeleton 图）。
 \end_layout
 
 \begin_layout Enumerate
@@ -259,12 +259,12 @@ status open
 
 
 \backslash
-FA
+FA{}
 \end_layout
 
 \end_inset
 
- 使用了 
+使用了 
 \begin_inset Quotes eld
 \end_inset
 
@@ -300,12 +300,12 @@ status open
 
 
 \backslash
-FA
+FA{}
 \end_layout
 
 \end_inset
 
- 可以产生出版质量的费曼图，in PostScript or LaTeX，用户可以方便的修改。
+可以产生出版质量的费曼图，in PostScript or LaTeX，用户可以方便的修改。
 \end_layout
 
 \begin_layout Standard
@@ -336,7 +336,7 @@ FA
 
 \begin_layout Standard
 参见 page 8.
- 给出了 
+ 给出了
 \begin_inset ERT
 status open
 
@@ -344,12 +344,12 @@ status open
 
 
 \backslash
-FA
+FA{}
 \end_layout
 
 \end_inset
 
- 的工作流程图。
+的工作流程图。
 \end_layout
 
 \begin_layout Section
@@ -369,12 +369,12 @@ status open
 
 
 \backslash
-FA
+FA{}
 \end_layout
 
 \end_inset
 
- 的应用来说，拓扑就是一组线（传播子）连接一些点（顶点）。 此外，
+的应用来说，拓扑就是一组线（传播子）连接一些点（顶点）。 此外，
 \begin_inset ERT
 status open
 
@@ -382,12 +382,12 @@ status open
 
 
 \backslash
-FA
+FA{}
 \end_layout
 
 \end_inset
 
- 中的拓扑仅限于 
+中的拓扑仅限于 
 \shape italic
 connected
 \shape default
@@ -505,13 +505,16 @@ end{lstlisting}
 \begin_layout Standard
 
 \family typewriter
-Loop [n]
+\begin_inset Formula $\text{Loop}\left[n\right]$
+\end_inset
+
+
 \family default
- 中的
-\family typewriter
- n
-\family default
- 不是实际的圈图编号（通常不能明确确定），而是圈图中单粒子不可约圈图块的编号。 单粒子不可约图即构成圈图的粗粒单元。
+中的
+\begin_inset Formula $n$
+\end_inset
+
+不是实际的圈图编号（通常不能明确确定），而是圈图中单粒子不可约圈图块的编号。 单粒子不可约图即构成圈图的粗粒单元。
 \end_layout
 
 \begin_layout Standard
@@ -664,7 +667,213 @@ CreateTopologies
 \end_layout
 
 \begin_layout Standard
+Page 10.
+ 创建拓扑的基本函数是 
+\family typewriter
+CreateTopologies
+\family default
+.
+ 它根据 loops 和外腿的数量创建 topologies.
+\end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=Mathematica,style=codestyle1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+CreateTopologies[l,i->o] 	创建 topologies，l 个圈，i 个入射例子，o 个出射粒子。
+\end_layout
+
+\begin_layout Plain Layout
+
+CreateTopologies[l,e] 		创建 topologies，l 个圈，e 个外腿。
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+CreateTopologies
+\family default
+ 使用递归算法，利用 
+\begin_inset Formula $n-1$
+\end_inset
+
+ 的 topologies 产生
+\begin_inset Formula $n$
+\end_inset
+
+个外腿的 topologies [
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+K
+\backslash
+
+\begin_inset Quotes erd
+\end_inset
+
+u90
+\end_layout
+
+\end_inset
+
+]。递归进行到外腿数量为零时终止，这里预先定义了 
+\family typewriter
+starting topologies
+\family default
+ 。
+\end_layout
+
+\begin_layout Standard
+几个选项可以更改 
+\family typewriter
+CreateTopologies 
+\family default
+的行为：
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=Mathematica,style=codestyle1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+选项 							默认值
+\end_layout
+
+\begin_layout Plain Layout
+
+Adjacencies 					{3, 4} 			允许顶点具有的邻接数
+\end_layout
+
+\begin_layout Plain Layout
+
+CTOrder 							0 					topologies 的 抵消项阶
+\end_layout
+
+\begin_layout Plain Layout
+
+ExcludeTopologies 		{} 					filters 的列表，用来排除 topologies
+\end_layout
+
+\begin_layout Plain Layout
+
+StartingTopologies 		All 				使用的starting topologies 的列表
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Adjacencies 
+\family default
+给出了顶点允许的邻接数。例如，
+\family typewriter
+Adjacencies->4
+\family default
+ 产生只有
+\begin_inset Formula $4$
+\end_inset
+
+–顶点的 topologies。在可重正化量子场论中，
+\begin_inset Formula $3$
+\end_inset
+
+和
+\begin_inset Formula $4$
+\end_inset
+
+是唯一可能的 adjacencies。
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+CTOrder
+\family default
+ 指定了 topologies 所在的抵消项阶。注意 
+\family typewriter
+CreateTopologies
+\family default
+ 会在 exactly 给出的抵消项阶数创建 topologies。
+\end_layout
+
+\begin_layout Subsection
+创建抵消项拓扑
+\end_layout
+
+\begin_layout Standard
+在单圈之外，通常需要超过一阶的抵消项。例如在双圈计算中，需要树图的二阶抵消项和一圈的一阶抵消项。这个更缜密的任务由 
+\family typewriter
+CreateCTTopologies
+\family default
+ 处理。 除了没有
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{CTOrder}
+\end_layout
+
+\end_inset
+
+外，它的选项与
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{CreateTopologies}
+\end_layout
+
+\end_inset
+
+相同。
 \end_layout
 
 \begin_layout Section
@@ -673,6 +882,491 @@ CreateTopologies
 
 \begin_layout Subsection
 场的三种层次
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+FA{}
+\end_layout
+
+\end_inset
+
+区分三种不同级别的场，generic 场，classes of 场，以及特定的粒子。随着级别深入，场的信息变得越来越具体。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=Mathematica,style=codestyle1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+Generic, Classes, Particles 	(*FeynArts 中场的级别*)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Generic fields}
+\end_layout
+
+\end_inset
+
+ 是抽象的场类型。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=Mathematica,style=codestyle1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+F,S,V,U,T 		基本场类型:费米子,标量,矢量,鬼场以及张量场
+\end_layout
+
+\begin_layout Plain Layout
+
+Mix[g1,g2]		g1-g2 mixing field
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{Generic fields}
+\end_layout
+
+\end_inset
+
+ 代表具有共同属性的场，例如电荷共轭下的行为相同。
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{class}
+\end_layout
+
+\end_inset
+
+是generic 类型中的某一个，例如
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{F[1]}
+\end_layout
+
+\end_inset
+
+。在类中进一步声明成员的指标，以及指标范围。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{Particles fields}
+\end_layout
+
+\end_inset
+
+是具有确定指标的类成员，例如类
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{F[1]}
+\end_layout
+
+\end_inset
+
+有两个指标，即
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{F[1,{1,2}]}
+\end_layout
+
+\end_inset
+
+。对于没有深层指标的类，类和粒子场是相同的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{Anti Particles}
+\end_layout
+
+\end_inset
+
+（电荷共轭场）由场前面的减号表示，例如如果
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{F[2,{1}]}
+\end_layout
+
+\end_inset
+
+是电子，
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{-F[2,{1}]}
+\end_layout
+
+\end_inset
+
+是正电子。 
+\end_layout
+
+\begin_layout Standard
+除了简单场之外，
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+FA{}
+\end_layout
+
+\end_inset
+
+还可以处理混合场。混合场像任何其他场一样传播，但是没有自耦合。取而代之的是，它像左侧和右侧的简单场一样耦合。也就是说，如果标量–矢量混合场
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Mix[S,V][3]}
+\end_layout
+
+\end_inset
+
+具有 mixing partners 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{{S[3],V[3]}}
+\end_layout
+
+\end_inset
+
+，则它们耦合起来就像
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{S[3]}
+\end_layout
+
+\end_inset
+
+在左侧，
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{V[3]}
+\end_layout
+
+\end_inset
+
+在右侧。
+\end_layout
+
+\begin_layout Standard
+简单场最多具有两个状态，场及其反场，而混合场可以有四个状态，即混合场与它的反场，reversed 混合场与其反场。与简单场不同，
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{Mix[S,V][3]}
+\end_layout
+
+\end_inset
+
+的反场为
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{-2Mix[S,V][3]}
+\end_layout
+
+\end_inset
+
+，
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{-Mix[S,V][3]}
+\end_layout
+
+\end_inset
+
+的反场为
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{2Mix[S,V][3]}
+\end_layout
+
+\end_inset
+
+。自共轭场不能有负系数，即在这种情况下，底下一行不存在：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Mix}\left[\text{S},\text{V}\right]\left[3\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2\text{Mix}\left[\text{S},\text{V}\right]\left[3\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-\text{Mix}\left[\text{S},\text{V}\right]\left[3\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-2\text{Mix}\left[\text{S},\text{V}\right]\left[3\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+混合广义场是一种特殊情况，因为它需要在内部的 generic 级别进行不同的处理。 默认情况下它是禁用的:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=Mathematica,style=codestyle1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+$GenericMixing = True 	启用generic 场的混合 （必须在初始化模型之前进行设置）
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+InsertFields
 \end_layout
 
 \begin_layout Section
