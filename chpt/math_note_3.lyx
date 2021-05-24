@@ -6,6 +6,15 @@
 \origin unavailable
 \textclass ctex-book
 \begin_preamble
+%%%+++++++++++++++++++++++++++++++
+\usepackage{geometry} % 整体页面设置
+\geometry{a4paper} %页面大小是A4纸
+\geometry{top=3cm} %设置版心顶部距离
+\geometry{top=3cm} %设置版心顶部距离
+%\geometry{textheight=22cm}  %设置版心长度
+%\geometry{centering} % 水平、竖直均居中
+\geometry{textwidth=16cm} 
+%%%%%%%%%%%%%%%%%+++++++++++
 % 如果没有这一句命令，XeTeX会出错，原因参见
 % http://bbs.ctex.org/viewthread.php?tid=60547
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
@@ -997,7 +1006,7 @@ P_{l}\left(\cos\Theta\right)=\sum_{m=-\ell}^{+\ell}\frac{\left(\ell-m\right)!}{\
 \begin_layout Standard
 gf
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 f[x_, y_] := 11 x*Log10[x]*y (y - 1) + Exp[-((25 x - 25/E)^2 + (25 y - 25/2)^2)^

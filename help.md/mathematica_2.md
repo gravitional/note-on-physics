@@ -2111,6 +2111,7 @@ tutorial/OperatorInputForms. 下面是常用算符的优先级
 `exp1//exp2`, 后缀，后作用
 ***
 `exp1=exp2`,  Set[exp1,exp2],赋值
+`exp1:=exp2`,  SetDelayed[exp1,exp2],延迟赋值
 ***
 `expr>>filename`,Put，导出
 ***
