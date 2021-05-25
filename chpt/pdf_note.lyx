@@ -6,6 +6,16 @@
 \origin unavailable
 \textclass ctex-book
 \begin_preamble
+\usepackage[T1]{fontenc} % 字体的编码，不是 input 的编码utf-8
+%%%+++++++++++++++++++++++++++++++
+\usepackage{geometry} % 整体页面设置
+\geometry{a4paper} %页面大小是A4纸
+\geometry{top=2cm} %设置版心顶部距离
+\geometry{top=2cm} %设置版心顶部距离
+%\geometry{textheight=22cm}  %设置版心长度
+%\geometry{centering} % 水平、竖直均居中
+\geometry{textwidth=17cm} 
+%++++++++++++++++++++++++++++++++++++++++++++++++
 % 如果没有这一句命令，XeTeX会出错，原因参见
 % http://bbs.ctex.org/viewthread.php?tid=60547
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
@@ -810,10 +820,14 @@ noprefix "false"
 \begin_inset Formula $\left(g^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}\right)\left(m-\gamma.p\right)u_{\nu}=\left(\gamma^{\mu}p^{\nu}-\gamma^{\nu}p^{\mu}\right)u_{\nu}$
 \end_inset
 
-可知
+，最终得到
 \begin_inset Formula 
 \[
-\left(m-\gamma.p\right)u^{\mu}=0
+\begin{cases}
+\gamma^{\nu}u_{\nu}=0 & \overline{u}_{\nu}\gamma^{\nu}=0\\
+p^{\nu}u_{\nu}=0\\
+\left(\gamma.p-m\right)u^{\mu}=0
+\end{cases}
 \]
 
 \end_inset
@@ -839,6 +853,42 @@ noprefix "false"
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma^{\mu\nu}=\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=-i\sigma^{\mu\nu},\quad\gamma^{\mu\nu\alpha}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\alpha}\right\} =-i\left\{ \sigma^{\mu\nu},\gamma^{\alpha}\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma^{\mu\nu\alpha}u_{\alpha}=-i\left(\sigma^{\mu\nu}\gamma^{\alpha}+\gamma^{\alpha}\sigma^{\mu\nu}\right)u_{\alpha}=-i\gamma^{\alpha}\sigma^{\mu\nu}u_{\alpha}=\gamma^{\alpha}\left(g^{\mu\nu}-\gamma^{\nu}\gamma^{\mu}\right)u_{\alpha}=-\gamma^{\alpha}\gamma^{\nu}\gamma^{\mu}u_{\alpha}.
+\]
+
+\end_inset
+
+使用
+\begin_inset Formula 
+\[
+\gamma^{\alpha}\gamma^{\nu}\gamma^{\mu}=\left(-\gamma^{\nu}\gamma^{\alpha}+2g^{\alpha\nu}\right)\gamma^{\mu}=\gamma^{\nu}\left(\gamma^{\mu}\gamma^{\alpha}+2g^{\mu\alpha}\right)+2g^{\alpha\nu}\gamma^{\mu}=\gamma^{\nu}\gamma^{\mu}\gamma^{\alpha}+2g^{\mu\alpha}\gamma^{\nu}+2g^{\alpha\nu}\gamma^{\mu}
+\]
+
+\end_inset
+
+得到
+\begin_inset Formula 
+\begin{align*}
+\gamma^{\mu\nu\alpha}u_{\alpha} & =-\gamma^{\alpha}\gamma^{\nu}\gamma^{\mu}u_{\alpha}=-2\left(g^{\mu\alpha}\gamma^{\nu}+g^{\alpha\nu}\gamma^{\mu}\right)u_{\alpha}=-2\left(\gamma^{\nu}u_{\mu}+\gamma^{\mu}u_{\nu}\right)\\
+\overline{u}_{\alpha}\gamma^{\alpha\mu\nu} & =-2\left(\overline{u}_{\mu}\gamma^{\nu}+\overline{u}_{\nu}\gamma^{\mu}\right)
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -15950,6 +16000,2628 @@ f_{\phi B}^{\left(\text{KR}\right)}\left(y\right) & ={\color{blue}\left(-1\right
  & {\color{blue}+\left(-1\right)}e_{\phi}^{q}\frac{C_{B\phi}^{2}}{f^{2}}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{i}{D_{\phi}\left(k\right)}\tilde{F}\left(k-q\right)\tilde{F}\left(k\right)\frac{M}{P^{+}}\delta\left(y-\frac{k^{+}}{p^{+}}\right)\\
  & \times\bar{u}\left(p^{\prime}\right)\left(i\slashed{k}\gamma^{5}\right)\frac{i\left[\left(\slashed{p}^{\prime}-\slashed{k}\right)+M_{B}\right]}{D_{B}\left(p^{\prime}-k\right)}\gamma^{\mu}\gamma^{5}u\left(p\right)
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+费曼规则
+\end_layout
+
+\begin_layout Standard
+使用 mma 展开拉氏量。下面分析对应的费曼规则。
+\end_layout
+
+\begin_layout Subsection
+八重态标准动能项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tr\left[\overline{B}\left(i\gamma\cdot\partial-M_{B}\right)B\right]$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\overline{p}\left(i\gamma\cdot\partial-M_{p}\right)p
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+八重态B-M-M耦合项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tr\left[\overline{B}\left(i\gamma^{\mu}\left[\Gamma_{\mu},B\right]\right)\right]$
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bar{p}\gamma^{\mu}p\frac{1}{f_{\phi}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bar{n}\gamma^{\mu}n\frac{1}{f_{\phi}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{0}\partial_{\mu}\pi^{0}\to{\color{red}\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{0}\partial_{\mu}\pi^{0}\to{\color{red}\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\pi^{0}+\pi^{0}\partial_{\mu}\eta^{8}\to{\color{red}\frac{i}{4\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\pi^{0}+\pi^{0}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{i}{4\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K^{+}\partial_{\mu}K^{-}-K^{-}\partial_{\mu}K^{+}\to{\color{red}\frac{i}{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K^{+}\partial_{\mu}K^{-}-K^{-}\partial_{\mu}K^{+}\to{\color{red}\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{K}^{0}\partial_{\mu}K^{0}-K^{0}\partial_{\mu}\overline{K}^{0}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{K}^{0}\partial_{\mu}K^{0}-K^{0}\partial_{\mu}\overline{K}^{0}\to{\color{red}-\frac{i}{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Sigma}^{+}\gamma^{\mu}\Sigma^{+}\frac{1}{f_{\phi}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Sigma}^{0}\gamma^{\mu}\Sigma^{0}\frac{1}{f_{\phi}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Sigma}^{-}\gamma^{\mu}\Sigma^{-}\frac{1}{f_{\phi}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{0}\partial_{\mu}\pi^{0}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{0}\partial_{\mu}\pi^{0}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{0}\partial_{\mu}\pi^{0}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\eta^{8}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\eta^{8}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\eta^{8}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\pi^{0}+\pi^{0}\partial_{\mu}\eta^{8}\to{\color{red}\frac{i}{2\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\pi^{0}+\pi^{0}\partial_{\mu}\eta^{8}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\pi^{0}+\pi^{0}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{i}{2\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{i}{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\to{\color{red}-\frac{i}{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K^{+}\partial_{\mu}K^{-}-K^{-}\partial_{\mu}K^{+}\to{\color{red}\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K^{+}\partial_{\mu}K^{-}-K^{-}\partial_{\mu}K^{+}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K^{+}\partial_{\mu}K^{-}-K^{-}\partial_{\mu}K^{+}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{K}^{0}\partial_{\mu}K^{0}-K^{0}\partial_{\mu}\overline{K}^{0}\to{\color{red}\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{K}^{0}\partial_{\mu}K^{0}-K^{0}\partial_{\mu}\overline{K}^{0}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{K}^{0}\partial_{\mu}K^{0}-K^{0}\partial_{\mu}\overline{K}^{0}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Xi}^{0}\gamma^{\mu}\Xi^{0}\frac{1}{f_{\phi}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Xi}^{-}\gamma^{\mu}\Xi^{-}\frac{1}{f_{\phi}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Lambda}\gamma^{\mu}\Lambda\frac{1}{f_{\phi}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{0}\partial_{\mu}\pi^{0}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{0}\partial_{\mu}\pi^{0}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{0}\partial_{\mu}\pi^{0}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\eta^{8}\to{\color{red}\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\eta^{8}\to{\color{red}\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\eta^{8}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\pi^{0}+\pi^{0}\partial_{\mu}\eta^{8}\to{\color{red}\frac{i}{4\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\pi^{0}+\pi^{0}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{i}{4\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta^{8}\partial_{\mu}\pi^{0}+\pi^{0}\partial_{\mu}\eta^{8}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K^{+}\partial_{\mu}K^{-}-K^{-}\partial_{\mu}K^{+}\to{\color{red}-\frac{i}{4}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K^{+}\partial_{\mu}K^{-}-K^{-}\partial_{\mu}K^{+}\to{\color{red}-\frac{i}{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K^{+}\partial_{\mu}K^{-}-K^{-}\partial_{\mu}K^{+}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{K}^{0}\partial_{\mu}K^{0}-K^{0}\partial_{\mu}\overline{K}^{0}\to{\color{red}\frac{i}{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{K}^{0}\partial_{\mu}K^{0}-K^{0}\partial_{\mu}\overline{K}^{0}\to{\color{red}\frac{i}{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{K}^{0}\partial_{\mu}K^{0}-K^{0}\partial_{\mu}\overline{K}^{0}\to{\color{red}0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+十重态标准动能项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{\mu}^{ijk}\left(i\gamma^{\mu\nu\alpha}\partial_{\alpha}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}^{ijk}$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\overline{\Delta_{\mu}^{++}}\left(i\gamma^{\mu\nu\alpha}\partial_{\alpha}-M_{T}\gamma^{\mu\nu}\right)\Delta_{\nu}^{++}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+介子标准动能项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{f_{\phi}^{2}}{4}*\tr\left[\partial_{\mu}U\left(\partial_{\mu}U^{\dagger}\right)\right]$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{align*}
+ & \partial_{\mu}\pi^{0}.\partial^{\mu}\pi^{0}\to\frac{1}{2},\quad\partial_{\mu}\eta^{8}.\partial^{\mu}\eta^{8}\to\frac{1}{2},\\
+ & \partial_{\mu}\pi^{+}.\partial^{\mu}\pi^{-}\to1,\quad\partial_{\mu}K^{+}.\partial^{\mu}K^{-}\to1,\quad\partial_{\mu}\overline{K}^{0}.\partial^{\mu}K^{0}\to1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+B-M轴矢项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D\tr\left[\overline{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F\tr\left[\overline{B}\gamma^{\mu}\gamma^{5}\left[u_{\mu},B\right]\right]$
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{p}\gamma^{\mu}\gamma^{5}\Sigma^{0}\partial_{\mu}K^{+}+\overline{\Sigma^{0}}\gamma^{\mu}\gamma^{5}p\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{2f_{\phi}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{p}\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{n}\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p\partial_{\mu}\pi^{0}\to{\color{red}\frac{D+F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n\partial_{\mu}\pi^{0}\to{\color{red}-\frac{D+F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n\partial_{\mu}\pi^{+}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p\partial_{\mu}\pi^{-}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}K^{0}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}K^{0}\to{\color{red}\frac{-D+F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}K^{+}\to{\color{red}\frac{D-F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}K^{+}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Lambda\partial_{\mu}K^{+}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Lambda\partial_{\mu}K^{0}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="3">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Sigma^{+}}\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Sigma^{0}}\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Sigma^{-}}\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}\pi^{0}\to{\color{red}\frac{F}{f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Lambda\partial_{\mu}\pi^{0}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\pi^{0}\to{\color{red}-\frac{F}{f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}\eta^{8}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\eta^{8}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\eta^{8}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Lambda\partial_{\mu}\pi^{+}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{F}{f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Lambda\partial_{\mu}\pi^{-}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\pi^{+}\to{\color{red}-\frac{F}{f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}\pi^{-}\to{\color{red}-\frac{F}{f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\pi^{-}\to{\color{red}\frac{F}{f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p\partial_{\mu}\overline{K^{0}}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{0}\partial_{\mu}K^{+}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n\partial_{\mu}\overline{K^{0}}\to{\color{red}\frac{-D+F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{-}\partial_{\mu}K^{0}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{-}\partial_{\mu}K^{+}\to{\color{red}\frac{D+F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{0}\partial_{\mu}K^{0}\to{\color{red}-\frac{D+F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="3">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Xi}^{0}\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Xi}^{-}\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Lambda}\gamma^{\mu}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{0}\partial_{\mu}\pi^{0}\to{\color{red}\frac{-D+F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{-}\partial_{\mu}\pi^{0}\to{\color{red}\frac{D-F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\pi^{0}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{0}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{-}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Lambda\partial_{\mu}\eta^{8}\to{\color{red}\frac{-D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\overline{K^{0}}\to{\color{red}-\frac{D+F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}K^{-}\to{\color{red}\frac{D+F}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{0}\partial_{\mu}\pi^{-}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}\pi^{-}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}K^{-}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\overline{K^{0}}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{-}\partial_{\mu}K^{+}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Lambda\partial_{\mu}\overline{K^{0}}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Lambda\partial_{\mu}K^{-}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Xi^{0}\partial_{\mu}K^{0}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p\partial_{\mu}K^{-}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n\partial_{\mu}\overline{K^{0}}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+B-M-T 耦合项 C
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{C}\tr\left\{ \left(\varepsilon\cdot\overline{T}_{\mu}.u_{\nu}\right)^{\left(1,4\right)}\cdot\left(\Theta^{\mu\nu}\cdot B\right)+\left[\overline{B}\cdot u_{\mu}\cdot\Theta^{\mu\nu}\cdot T_{\nu}\cdot\left(-\varepsilon\right)\right]^{\left(1,4\right)}\right\} ,
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\Theta^{\mu\nu}=g^{\mu\nu}-\left(z+1/2\right)\gamma^{\mu}\gamma^{\nu}$
+\end_inset
+
+ ，取
+\begin_inset Formula $z=1/2$
+\end_inset
+
+，得到
+\begin_inset Formula $\Theta^{\mu\nu}=i\sigma^{\mu\nu}$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\overline{p}\Theta^{\mu\nu}\Delta_{\nu}^{++}\partial_{\mu}\pi^{-}+\overline{\Delta_{\mu}^{++}}\Theta^{\mu\nu}p\partial_{\nu}\pi^{+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{p}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{n}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Sigma^{+}}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Sigma^{0}}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Sigma^{-}}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Delta_{\nu}^{+}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Delta_{\nu}^{0}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Sigma_{\nu}^{*+}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Delta_{\nu}^{++}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Delta_{\nu}^{-}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Sigma_{\nu}^{*+}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Delta_{\nu}^{-}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{0}\Sigma_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{-}\Delta_{\nu}^{++}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Sigma_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Delta_{\nu}^{0}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Delta_{\nu}^{+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Sigma_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{0}\Sigma_{\nu}^{*+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\Xi_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{-}\Delta_{\nu}^{+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{-}\Delta_{\nu}^{0}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Delta_{\nu}^{+}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{0}\Xi_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{0}\Xi_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Delta_{\nu}^{0}\to{\color{red}\frac{\mathcal{C}}{\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Xi}^{0}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Xi}^{-}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\Lambda}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Xi_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Xi_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\Omega_{\nu}^{-}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{0}\Omega_{\nu}^{-}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Sigma_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Xi_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Xi_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Sigma_{\nu}^{*+}\to{\color{red}-\frac{\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{-}\Sigma_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Xi_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{0}\Xi_{\nu}^{*0}\to{\color{red}-\frac{\mathcal{C}}{2f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{-}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Sigma_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+T-M 十重态介子耦合项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{\nu}^{ijl}u_{\alpha}^{kl}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\overline{\Delta^{++}}_{\mu}\gamma^{\mu\nu\alpha}\gamma^{5}\Delta_{\nu}^{+}\partial_{\alpha}\pi^{+}+\overline{\Delta^{+}}_{\mu}\gamma^{\mu\nu\alpha}\gamma^{5}\Delta_{\nu}^{++}\partial_{\alpha}\pi^{-}\to{\color{red}\frac{-\mathcal{H}}{\sqrt{6}f_{\phi}}}
+\]
 
 \end_inset
 
