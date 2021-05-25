@@ -857,33 +857,47 @@ p^{\nu}u_{\nu}=0\\
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\gamma^{\mu\nu}=\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=-i\sigma^{\mu\nu},\quad\gamma^{\mu\nu\alpha}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\alpha}\right\} =-i\left\{ \sigma^{\mu\nu},\gamma^{\alpha}\right\} 
-\]
+\begin{align*}
+\gamma^{\mu\nu} & =\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=-i\sigma^{\mu\nu},\quad\gamma^{\mu\nu\alpha}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\alpha}\right\} =-i\left\{ \sigma^{\mu\nu},\gamma^{\alpha}\right\} \\
+\sigma^{\mu\nu} & =\frac{i}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=i\left(g^{\mu\nu}-\gamma^{\nu}\gamma^{\mu}\right)
+\end{align*}
 
 \end_inset
 
-
-\begin_inset Formula 
-\[
-\gamma^{\mu\nu\alpha}u_{\alpha}=-i\left(\sigma^{\mu\nu}\gamma^{\alpha}+\gamma^{\alpha}\sigma^{\mu\nu}\right)u_{\alpha}=-i\gamma^{\alpha}\sigma^{\mu\nu}u_{\alpha}=\gamma^{\alpha}\left(g^{\mu\nu}-\gamma^{\nu}\gamma^{\mu}\right)u_{\alpha}=-\gamma^{\alpha}\gamma^{\nu}\gamma^{\mu}u_{\alpha}.
-\]
-
-\end_inset
-
-使用
-\begin_inset Formula 
-\[
-\gamma^{\alpha}\gamma^{\nu}\gamma^{\mu}=\left(-\gamma^{\nu}\gamma^{\alpha}+2g^{\alpha\nu}\right)\gamma^{\mu}=\gamma^{\nu}\left(\gamma^{\mu}\gamma^{\alpha}+2g^{\mu\alpha}\right)+2g^{\alpha\nu}\gamma^{\mu}=\gamma^{\nu}\gamma^{\mu}\gamma^{\alpha}+2g^{\mu\alpha}\gamma^{\nu}+2g^{\alpha\nu}\gamma^{\mu}
-\]
-
-\end_inset
-
-得到
+一些化简：
 \begin_inset Formula 
 \begin{align*}
-\gamma^{\mu\nu\alpha}u_{\alpha} & =-\gamma^{\alpha}\gamma^{\nu}\gamma^{\mu}u_{\alpha}=-2\left(g^{\mu\alpha}\gamma^{\nu}+g^{\alpha\nu}\gamma^{\mu}\right)u_{\alpha}=-2\left(\gamma^{\nu}u_{\mu}+\gamma^{\mu}u_{\nu}\right)\\
-\overline{u}_{\alpha}\gamma^{\alpha\mu\nu} & =-2\left(\overline{u}_{\mu}\gamma^{\nu}+\overline{u}_{\nu}\gamma^{\mu}\right)
+\gamma^{\alpha}\gamma^{\nu}\gamma^{\mu} & =\left(-\gamma^{\nu}\gamma^{\alpha}+2g^{\alpha\nu}\right)\gamma^{\mu}=\gamma^{\nu}\left(\gamma^{\mu}\gamma^{\alpha}+2g^{\mu\alpha}\right)+2g^{\alpha\nu}\gamma^{\mu}=\gamma^{\nu}\gamma^{\mu}\gamma^{\alpha}+2g^{\mu\alpha}\gamma^{\nu}+2g^{\alpha\nu}\gamma^{\mu}.\\
+\gamma^{\nu}\gamma^{\mu} & =-\gamma^{\mu}\gamma^{\nu}+2g^{\mu\nu}
+\end{align*}
+
+\end_inset
+
+则：
+\begin_inset Formula 
+\begin{align*}
+\gamma^{\mu\nu\alpha} & =-i\left\{ \sigma^{\mu\nu},\gamma^{\alpha}\right\} =\left\{ g^{\mu\nu}-\gamma^{\nu}\gamma^{\mu},\gamma^{\alpha}\right\} =-\left\{ \gamma^{\nu}\gamma^{\mu},\gamma^{\alpha}\right\} =-\left(\gamma^{\nu}\gamma^{\mu}\gamma^{\alpha}+\gamma^{\alpha}\gamma^{\nu}\gamma^{\mu}\right)\\
+ & =-\gamma^{\nu}\gamma^{\mu}\gamma^{\alpha}-\gamma^{\nu}\gamma^{\mu}\gamma^{\alpha}-2g^{\mu\alpha}\gamma^{\nu}-2g^{\alpha\nu}\gamma^{\mu}\\
+ & =-2\gamma^{\nu}\gamma^{\mu}\gamma^{\alpha}-2g^{\mu\alpha}\gamma^{\nu}-2g^{\alpha\nu}\gamma^{\mu}\\
+ & =2\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}-4g^{\mu\nu}\gamma^{\alpha}-2g^{\mu\alpha}\gamma^{\nu}-2g^{\alpha\nu}\gamma^{\mu}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma^{\mu\nu\alpha}u_{\alpha}=\left(2\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}-4g^{\mu\nu}\gamma^{\alpha}-2g^{\mu\alpha}\gamma^{\nu}-2g^{\alpha\nu}\gamma^{\mu}\right)u_{\alpha}=-2\left(\gamma^{\nu}u_{\mu}+\gamma^{\mu}u_{\nu}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\overline{u}_{\alpha}\gamma^{\alpha\mu\nu} & =\overline{u}_{\alpha}\left(2\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}-4g^{\mu\nu}\gamma^{\alpha}-2g^{\mu\alpha}\gamma^{\nu}-2g^{\alpha\nu}\gamma^{\mu}\right)\\
+ & =\overline{u}_{\alpha}\left(4g^{\mu\alpha}\gamma^{\nu}+4g^{\alpha\nu}\gamma^{\mu}-2g^{\mu\alpha}\gamma^{\nu}-2g^{\alpha\nu}\gamma^{\mu}\right)\\
+ & =2\left(\overline{u}_{\mu}\gamma^{\nu}+\overline{u}_{\nu}\gamma^{\mu}\right)
 \end{align*}
 
 \end_inset
@@ -16895,7 +16909,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{p}\gamma^{\mu}\gamma^{5}$
+\begin_inset Formula $\frac{1}{f_{\phi}}\overline{p}\gamma^{\mu}\gamma^{5}$
 \end_inset
 
 
@@ -16907,7 +16921,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{n}\gamma^{\mu}\gamma^{5}$
+\begin_inset Formula $\frac{1}{f_{\phi}}\overline{n}\gamma^{\mu}\gamma^{5}$
 \end_inset
 
 
@@ -16921,7 +16935,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $p\partial_{\mu}\pi^{0}\to{\color{red}\frac{D+F}{2f_{\phi}}}$
+\begin_inset Formula $p\partial_{\mu}\pi^{0}\to{\color{red}\frac{D+F}{2}}$
 \end_inset
 
 
@@ -16933,7 +16947,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $n\partial_{\mu}\pi^{0}\to{\color{red}-\frac{D+F}{2f_{\phi}}}$
+\begin_inset Formula $n\partial_{\mu}\pi^{0}\to{\color{red}-\frac{D+F}{2}}$
 \end_inset
 
 
@@ -16947,7 +16961,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $p\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $p\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D-3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -16959,7 +16973,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $n\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $n\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D-3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -16973,7 +16987,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $n\partial_{\mu}\pi^{+}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $n\partial_{\mu}\pi^{+}\to{\color{red}\frac{D+F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -16985,7 +16999,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $p\partial_{\mu}\pi^{-}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $p\partial_{\mu}\pi^{-}\to{\color{red}\frac{D+F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -16999,7 +17013,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{+}\partial_{\mu}K^{0}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}K^{0}\to{\color{red}\frac{D-F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17011,7 +17025,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{0}\partial_{\mu}K^{0}\to{\color{red}\frac{-D+F}{2f_{\phi}}}$
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}K^{0}\to{\color{red}\frac{-D+F}{2}}$
 \end_inset
 
 
@@ -17025,7 +17039,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{0}\partial_{\mu}K^{+}\to{\color{red}\frac{D-F}{2f_{\phi}}}$
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}K^{+}\to{\color{red}\frac{D-F}{2}}$
 \end_inset
 
 
@@ -17037,7 +17051,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{-}\partial_{\mu}K^{+}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}K^{+}\to{\color{red}\frac{D-F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17051,7 +17065,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Lambda\partial_{\mu}K^{+}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Lambda\partial_{\mu}K^{+}\to{\color{red}-\frac{D+3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17063,7 +17077,7 @@ B-M轴矢项
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Lambda\partial_{\mu}K^{0}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Lambda\partial_{\mu}K^{0}\to{\color{red}-\frac{D+3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17103,7 +17117,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Sigma^{+}}\gamma^{\mu}\gamma^{5}$
+\begin_inset Formula $\frac{1}{f_{\phi}}\overline{\Sigma^{+}}\gamma^{\mu}\gamma^{5}$
 \end_inset
 
 
@@ -17115,7 +17129,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Sigma^{0}}\gamma^{\mu}\gamma^{5}$
+\begin_inset Formula $\frac{1}{f_{\phi}}\overline{\Sigma^{0}}\gamma^{\mu}\gamma^{5}$
 \end_inset
 
 
@@ -17127,7 +17141,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Sigma^{-}}\gamma^{\mu}\gamma^{5}$
+\begin_inset Formula $\frac{1}{f_{\phi}}\overline{\Sigma^{-}}\gamma^{\mu}\gamma^{5}$
 \end_inset
 
 
@@ -17141,7 +17155,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{+}\partial_{\mu}\pi^{0}\to{\color{red}\frac{F}{f_{\phi}}}$
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}\pi^{0}\to{\color{red}F}$
 \end_inset
 
 
@@ -17153,7 +17167,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Lambda\partial_{\mu}\pi^{0}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Lambda\partial_{\mu}\pi^{0}\to{\color{red}\frac{D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17165,7 +17179,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{-}\partial_{\mu}\pi^{0}\to{\color{red}-\frac{F}{f_{\phi}}}$
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\pi^{0}\to{\color{red}-F}$
 \end_inset
 
 
@@ -17179,7 +17193,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{+}\partial_{\mu}\eta^{8}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}\eta^{8}\to{\color{red}\frac{D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17191,7 +17205,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{0}\partial_{\mu}\eta^{8}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\eta^{8}\to{\color{red}\frac{D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17203,7 +17217,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{-}\partial_{\mu}\eta^{8}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\eta^{8}\to{\color{red}\frac{D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17217,7 +17231,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Lambda\partial_{\mu}\pi^{+}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Lambda\partial_{\mu}\pi^{+}\to{\color{red}\frac{D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17229,7 +17243,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{F}{f_{\phi}}}$
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\pi^{+}\to{\color{red}F}$
 \end_inset
 
 
@@ -17241,7 +17255,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Lambda\partial_{\mu}\pi^{-}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Lambda\partial_{\mu}\pi^{-}\to{\color{red}\frac{D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17255,7 +17269,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{0}\partial_{\mu}\pi^{+}\to{\color{red}-\frac{F}{f_{\phi}}}$
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\pi^{+}\to{\color{red}-F}$
 \end_inset
 
 
@@ -17267,7 +17281,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{+}\partial_{\mu}\pi^{-}\to{\color{red}-\frac{F}{f_{\phi}}}$
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}\pi^{-}\to{\color{red}-F}$
 \end_inset
 
 
@@ -17279,7 +17293,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{0}\partial_{\mu}\pi^{-}\to{\color{red}\frac{F}{f_{\phi}}}$
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\pi^{-}\to{\color{red}F}$
 \end_inset
 
 
@@ -17293,7 +17307,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $p\partial_{\mu}\overline{K^{0}}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $p\partial_{\mu}\overline{K^{0}}\to{\color{red}\frac{D-F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17305,7 +17319,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $p\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{2f_{\phi}}}$
+\begin_inset Formula $p\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{2}}$
 \end_inset
 
 
@@ -17317,7 +17331,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $n\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $n\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17331,7 +17345,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{0}\partial_{\mu}K^{+}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\Xi^{0}\partial_{\mu}K^{+}\to{\color{red}\frac{D+F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17343,7 +17357,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $n\partial_{\mu}\overline{K^{0}}\to{\color{red}\frac{-D+F}{2f_{\phi}}}$
+\begin_inset Formula $n\partial_{\mu}\overline{K^{0}}\to{\color{red}\frac{-D+F}{2}}$
 \end_inset
 
 
@@ -17355,7 +17369,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{-}\partial_{\mu}K^{0}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\Xi^{-}\partial_{\mu}K^{0}\to{\color{red}\frac{D+F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17378,7 +17392,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{-}\partial_{\mu}K^{+}\to{\color{red}\frac{D+F}{2f_{\phi}}}$
+\begin_inset Formula $\Xi^{-}\partial_{\mu}K^{+}\to{\color{red}\frac{D+F}{2}}$
 \end_inset
 
 
@@ -17410,7 +17424,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{0}\partial_{\mu}K^{0}\to{\color{red}-\frac{D+F}{2f_{\phi}}}$
+\begin_inset Formula $\Xi^{0}\partial_{\mu}K^{0}\to{\color{red}-\frac{D+F}{2}}$
 \end_inset
 
 
@@ -17459,7 +17473,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Xi}^{0}\gamma^{\mu}\gamma^{5}$
+\begin_inset Formula $\frac{1}{f_{\phi}}\overline{\Xi}^{0}\gamma^{\mu}\gamma^{5}$
 \end_inset
 
 
@@ -17471,7 +17485,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Xi}^{-}\gamma^{\mu}\gamma^{5}$
+\begin_inset Formula $\frac{1}{f_{\phi}}\overline{\Xi}^{-}\gamma^{\mu}\gamma^{5}$
 \end_inset
 
 
@@ -17483,7 +17497,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Lambda}\gamma^{\mu}\gamma^{5}$
+\begin_inset Formula $\frac{1}{f_{\phi}}\overline{\Lambda}\gamma^{\mu}\gamma^{5}$
 \end_inset
 
 
@@ -17497,7 +17511,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{0}\partial_{\mu}\pi^{0}\to{\color{red}\frac{-D+F}{2f_{\phi}}}$
+\begin_inset Formula $\Xi^{0}\partial_{\mu}\pi^{0}\to{\color{red}\frac{-D+F}{2}}$
 \end_inset
 
 
@@ -17509,7 +17523,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{-}\partial_{\mu}\pi^{0}\to{\color{red}\frac{D-F}{2f_{\phi}}}$
+\begin_inset Formula $\Xi^{-}\partial_{\mu}\pi^{0}\to{\color{red}\frac{D-F}{2}}$
 \end_inset
 
 
@@ -17521,7 +17535,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{0}\partial_{\mu}\pi^{0}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\pi^{0}\to{\color{red}\frac{D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17535,7 +17549,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{0}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Xi^{0}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D+3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17547,7 +17561,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{-}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Xi^{-}\partial_{\mu}\eta^{8}\to{\color{red}-\frac{D+3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17559,7 +17573,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Lambda\partial_{\mu}\eta^{8}\to{\color{red}\frac{-D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Lambda\partial_{\mu}\eta^{8}\to{\color{red}\frac{-D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17573,7 +17587,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{0}\partial_{\mu}\overline{K^{0}}\to{\color{red}-\frac{D+F}{2f_{\phi}}}$
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}\overline{K^{0}}\to{\color{red}-\frac{D+F}{2}}$
 \end_inset
 
 
@@ -17585,7 +17599,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{0}\partial_{\mu}K^{-}\to{\color{red}\frac{D+F}{2f_{\phi}}}$
+\begin_inset Formula $\Sigma^{0}\partial_{\mu}K^{-}\to{\color{red}\frac{D+F}{2}}$
 \end_inset
 
 
@@ -17597,7 +17611,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17611,7 +17625,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\Xi^{-}\partial_{\mu}\pi^{+}\to{\color{red}\frac{D-F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17623,7 +17637,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{0}\partial_{\mu}\pi^{-}\to{\color{red}\frac{D-F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\Xi^{0}\partial_{\mu}\pi^{-}\to{\color{red}\frac{D-F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17635,7 +17649,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{+}\partial_{\mu}\pi^{-}\to{\color{red}\frac{D}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}\pi^{-}\to{\color{red}\frac{D}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17649,7 +17663,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{+}\partial_{\mu}K^{-}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{+}\partial_{\mu}K^{-}\to{\color{red}\frac{D+F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17661,7 +17675,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Sigma^{-}\partial_{\mu}\overline{K^{0}}\to{\color{red}\frac{D+F}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\Sigma^{-}\partial_{\mu}\overline{K^{0}}\to{\color{red}\frac{D+F}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17673,7 +17687,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{-}\partial_{\mu}K^{+}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Xi^{-}\partial_{\mu}K^{+}\to{\color{red}-\frac{D-3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17687,7 +17701,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Lambda\partial_{\mu}\overline{K^{0}}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Lambda\partial_{\mu}\overline{K^{0}}\to{\color{red}-\frac{D-3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17699,7 +17713,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Lambda\partial_{\mu}K^{-}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Lambda\partial_{\mu}K^{-}\to{\color{red}-\frac{D-3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17711,7 +17725,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Xi^{0}\partial_{\mu}K^{0}\to{\color{red}-\frac{D-3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\Xi^{0}\partial_{\mu}K^{0}\to{\color{red}-\frac{D-3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17743,7 +17757,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $p\partial_{\mu}K^{-}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $p\partial_{\mu}K^{-}\to{\color{red}-\frac{D+3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17775,7 +17789,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $n\partial_{\mu}\overline{K^{0}}\to{\color{red}-\frac{D+3F}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $n\partial_{\mu}\overline{K^{0}}\to{\color{red}-\frac{D+3F}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17840,7 +17854,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{p}\Theta_{\mu\nu}$
+\begin_inset Formula $\frac{\mathcal{C}}{f_{\phi}}\overline{p}\Theta^{\mu\nu}$
 \end_inset
 
 
@@ -17852,7 +17866,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{n}\Theta_{\mu\nu}$
+\begin_inset Formula $\frac{\mathcal{C}}{f_{\phi}}\overline{n}\Theta^{\mu\nu}$
 \end_inset
 
 
@@ -17864,7 +17878,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Sigma^{+}}\Theta_{\mu\nu}$
+\begin_inset Formula $\frac{\mathcal{C}}{f_{\phi}}\overline{\Sigma^{+}}\Theta^{\mu\nu}$
 \end_inset
 
 
@@ -17876,7 +17890,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Sigma^{0}}\Theta_{\mu\nu}$
+\begin_inset Formula $\frac{\mathcal{C}}{f_{\phi}}\overline{\Sigma^{0}}\Theta^{\mu\nu}$
 \end_inset
 
 
@@ -17888,7 +17902,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Sigma^{-}}\Theta_{\mu\nu}$
+\begin_inset Formula $\frac{\mathcal{C}}{f_{\phi}}\overline{\Sigma^{-}}\Theta^{\mu\nu}$
 \end_inset
 
 
@@ -17902,7 +17916,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{0}\Delta_{\nu}^{+}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Delta_{\nu}^{+}\to{\color{red}\frac{-1}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17914,7 +17928,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{0}\Delta_{\nu}^{0}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Delta_{\nu}^{0}\to{\color{red}\frac{-1}{\sqrt{3}}}$
 \end_inset
 
 
@@ -17926,7 +17940,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{0}\Sigma_{\nu}^{*+}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Sigma_{\nu}^{*+}\to{\color{red}\frac{1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -17938,7 +17952,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\eta^{8}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{2}}$
 \end_inset
 
 
@@ -17950,7 +17964,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\eta^{8}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-1}{2}}$
 \end_inset
 
 
@@ -17964,7 +17978,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{-}\Delta_{\nu}^{++}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Delta_{\nu}^{++}\to{\color{red}\frac{1}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17976,7 +17990,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{+}\Delta_{\nu}^{-}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Delta_{\nu}^{-}\to{\color{red}\frac{-1}{\sqrt{2}}}$
 \end_inset
 
 
@@ -17988,7 +18002,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\eta^{8}\Sigma_{\nu}^{*+}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Sigma_{\nu}^{*+}\to{\color{red}\frac{1}{2}}$
 \end_inset
 
 
@@ -18000,7 +18014,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18012,7 +18026,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Delta_{\nu}^{-}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Delta_{\nu}^{-}\to{\color{red}\frac{1}{\sqrt{2}}}$
 \end_inset
 
 
@@ -18026,7 +18040,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{+}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{+}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18038,7 +18052,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{0}\Sigma_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{0}\Sigma_{\nu}^{*0}\to{\color{red}\frac{1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18050,7 +18064,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{-}\Delta_{\nu}^{++}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{-}\Delta_{\nu}^{++}\to{\color{red}\frac{-1}{\sqrt{2}}}$
 \end_inset
 
 
@@ -18062,7 +18076,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{-}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18074,7 +18088,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{0}\Sigma_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Sigma_{\nu}^{*-}\to{\color{red}\frac{1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18088,7 +18102,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{+}\Delta_{\nu}^{0}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Delta_{\nu}^{0}\to{\color{red}\frac{-1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18100,7 +18114,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{-}\Delta_{\nu}^{+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Delta_{\nu}^{+}\to{\color{red}\frac{1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18112,7 +18126,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{+}\Sigma_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Sigma_{\nu}^{*0}\to{\color{red}\frac{1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18124,7 +18138,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18136,7 +18150,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{-}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18150,7 +18164,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{0}\Sigma_{\nu}^{*+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{0}\Sigma_{\nu}^{*+}\to{\color{red}\frac{1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18162,7 +18176,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18174,7 +18188,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{+}\Xi_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{+}\Xi_{\nu}^{*0}\to{\color{red}\frac{1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18186,7 +18200,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{-}\Delta_{\nu}^{+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{-}\Delta_{\nu}^{+}\to{\color{red}\frac{1}{\sqrt{3}}}$
 \end_inset
 
 
@@ -18198,7 +18212,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{-}\Delta_{\nu}^{0}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{-}\Delta_{\nu}^{0}\to{\color{red}\frac{1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18230,7 +18244,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Delta_{\nu}^{+}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Delta_{\nu}^{+}\to{\color{red}\frac{-1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18242,7 +18256,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{0}\Xi_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{0}\Xi_{\nu}^{*0}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18254,7 +18268,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{0}\Xi_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{0}\Xi_{\nu}^{*-}\to{\color{red}\frac{-1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18295,7 +18309,7 @@ B-M-T 耦合项 C
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Delta_{\nu}^{0}\to{\color{red}\frac{\mathcal{C}}{\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Delta_{\nu}^{0}\to{\color{red}\frac{1}{\sqrt{3}}}$
 \end_inset
 
 
@@ -18344,7 +18358,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Xi}^{0}\Theta_{\mu\nu}$
+\begin_inset Formula $\frac{\mathcal{C}}{f_{\phi}}\overline{\Xi}^{0}\Theta^{\mu\nu}$
 \end_inset
 
 
@@ -18356,7 +18370,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Xi}^{-}\Theta_{\mu\nu}$
+\begin_inset Formula $\frac{\mathcal{C}}{f_{\phi}}\overline{\Xi}^{-}\Theta^{\mu\nu}$
 \end_inset
 
 
@@ -18368,7 +18382,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{\Lambda}\Theta_{\mu\nu}$
+\begin_inset Formula $\frac{\mathcal{C}}{f_{\phi}}\overline{\Lambda}\Theta^{\mu\nu}$
 \end_inset
 
 
@@ -18382,7 +18396,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\eta^{8}\Xi_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Xi_{\nu}^{*0}\to{\color{red}\frac{1}{2}}$
 \end_inset
 
 
@@ -18394,7 +18408,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\eta^{8}\Xi_{\nu}^{*-}\to{\color{red}\frac{-\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\eta^{8}\Xi_{\nu}^{*-}\to{\color{red}\frac{-1}{2}}$
 \end_inset
 
 
@@ -18406,7 +18420,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{1}{2}}$
 \end_inset
 
 
@@ -18420,7 +18434,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{+}\Omega_{\nu}^{-}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{+}\Omega_{\nu}^{-}\to{\color{red}\frac{1}{\sqrt{2}}}$
 \end_inset
 
 
@@ -18432,7 +18446,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{0}\Omega_{\nu}^{-}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{2}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{0}\Omega_{\nu}^{-}\to{\color{red}\frac{-1}{\sqrt{2}}}$
 \end_inset
 
 
@@ -18444,7 +18458,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{0}\Sigma_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Sigma_{\nu}^{*0}\to{\color{red}\frac{1}{2}}$
 \end_inset
 
 
@@ -18458,7 +18472,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{0}\Xi_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Xi_{\nu}^{*0}\to{\color{red}\frac{1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18470,7 +18484,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{0}\Xi_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{0}\Xi_{\nu}^{*-}\to{\color{red}\frac{1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18482,7 +18496,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{-}\Sigma_{\nu}^{*+}\to{\color{red}-\frac{\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Sigma_{\nu}^{*+}\to{\color{red}-\frac{1}{2}}$
 \end_inset
 
 
@@ -18496,7 +18510,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18508,7 +18522,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{-}\Sigma_{\nu}^{*0}\to{\color{red}\frac{\mathcal{C}}{2\sqrt{3}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{-}\Sigma_{\nu}^{*0}\to{\color{red}\frac{1}{2\sqrt{3}}}$
 \end_inset
 
 
@@ -18520,7 +18534,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{1}{2}}$
 \end_inset
 
 
@@ -18534,7 +18548,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18546,7 +18560,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\pi^{-}\Xi_{\nu}^{*0}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\pi^{-}\Xi_{\nu}^{*0}\to{\color{red}\frac{-1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18558,7 +18572,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{0}\Xi_{\nu}^{*0}\to{\color{red}-\frac{\mathcal{C}}{2f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{0}\Xi_{\nu}^{*0}\to{\color{red}-\frac{1}{2}}$
 \end_inset
 
 
@@ -18572,7 +18586,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}K^{-}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}K^{-}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18584,7 +18598,7 @@ height "1pt"
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Sigma_{\nu}^{*-}\to{\color{red}\frac{\mathcal{C}}{\sqrt{6}f_{\phi}}}$
+\begin_inset Formula $\partial_{\mu}\overline{K^{0}}\Sigma_{\nu}^{*-}\to{\color{red}\frac{1}{\sqrt{6}}}$
 \end_inset
 
 
@@ -18620,8 +18634,1771 @@ T-M 十重态介子耦合项
 
 \begin_inset Formula 
 \[
-\overline{\Delta^{++}}_{\mu}\gamma^{\mu\nu\alpha}\gamma^{5}\Delta_{\nu}^{+}\partial_{\alpha}\pi^{+}+\overline{\Delta^{+}}_{\mu}\gamma^{\mu\nu\alpha}\gamma^{5}\Delta_{\nu}^{++}\partial_{\alpha}\pi^{-}\to{\color{red}\frac{-\mathcal{H}}{\sqrt{6}f_{\phi}}}
+\overline{\Delta_{\mu}^{++}}\gamma^{\mu\nu\alpha}\gamma^{5}\Delta_{\nu}^{+}\partial_{\alpha}\pi^{+}+\overline{\Delta_{\mu}^{+}}\gamma^{\mu\nu\alpha}\gamma^{5}\Delta_{\nu}^{++}\partial_{\alpha}\pi^{-}\to{\color{red}\frac{-\mathcal{H}}{\sqrt{6}f_{\phi}}}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="5">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Delta_{\mu}^{++}}\gamma^{\mu\nu\alpha}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Delta_{\mu}^{+}}\gamma^{\mu\nu\alpha}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Delta_{\mu}^{0}}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Delta_{\mu}^{-}}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Sigma_{\mu}^{*+}}\Theta_{\mu\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{0}\Delta_{\nu}^{++}\to{\color{red}\frac{-1}{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{0}\Delta_{\nu}^{+}\to{\color{red}\frac{-1}{6}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{0}\Delta_{\nu}^{0}\to{\color{red}\frac{1}{6}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{0}\Delta_{\nu}^{-}\to{\color{red}\frac{1}{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{0}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\eta^{8}\Delta_{\nu}^{++}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\eta^{8}\Delta_{\nu}^{+}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\eta^{8}\Delta_{\nu}^{0}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\eta^{8}\Delta_{\nu}^{-}\to{\color{red}\frac{-1}{2\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{+}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{+}\Delta_{\nu}^{+}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{+}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{0}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{-}\Delta_{\nu}^{0}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{+}\Xi_{\nu}^{*0}\to{\color{red}\frac{-\sqrt{2}}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{+}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{+}\Delta_{\nu}^{0}\to{\color{red}\frac{-\sqrt{2}}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{-}\Delta_{\nu}^{+}\to{\color{red}\frac{-\sqrt{2}}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{0}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\overline{K^{0}}\Delta_{\nu}^{+}\to{\color{red}\frac{-1}{3\sqrt{2}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{0}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-1}{3\sqrt{2}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-1}{3\sqrt{2}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{-}\Delta_{\nu}^{++}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{-}\Delta_{\nu}^{++}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{+}\Delta_{\nu}^{-}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="5">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Sigma_{\mu}^{*0}}\gamma^{\mu\nu\alpha}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Sigma_{\mu}^{*-}}\gamma^{\mu\nu\alpha}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Xi_{\mu}^{*0}}\gamma^{\mu\nu\alpha}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Xi_{\mu}^{*-}}\gamma^{\mu\nu\alpha}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\mathcal{H}}{f_{\phi}}\overline{\Omega_{\mu}^{-}}\gamma^{\mu\nu\alpha}\gamma^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{+}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{0}\Sigma_{\nu}^{*-}\to{\color{red}\frac{1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{0}\Xi_{\nu}^{*0}\to{\color{red}\frac{-1}{6}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{0}\Xi_{\nu}^{*-}\to{\color{red}\frac{1}{6}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\eta^{8}\Omega_{\nu}^{-}\to{\color{red}\frac{1}{\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{-}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{-}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\eta^{8}\Xi_{\nu}^{*0}\to{\color{red}\frac{1}{2\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\eta^{8}\Xi_{\nu}^{*-}\to{\color{red}\frac{1}{2\sqrt{3}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{-}\Xi_{\nu}^{*0}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{-}\Delta_{\nu}^{0}\to{\color{red}\frac{-1}{3\sqrt{2}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\overline{K^{0}}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{-}\Sigma_{\nu}^{*0}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\overline{K^{0}}\Xi_{\nu}^{*-}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{-}\Delta_{\nu}^{+}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{0}\Xi_{\nu}^{*-}\to{\color{red}\frac{-\sqrt{2}}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{+}\Xi_{\nu}^{*-}\to{\color{red}\frac{-1}{3\sqrt{2}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\pi^{-}\Xi_{\nu}^{*0}\to{\color{red}\frac{-1}{3\sqrt{2}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{0}\Xi_{\nu}^{*0}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\overline{K^{0}}\Delta_{\nu}^{-}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{-}\Sigma_{\nu}^{*+}\to{\color{red}\frac{-\sqrt{2}}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\overline{K^{0}}\Sigma_{\nu}^{*-}\to{\color{red}\frac{-\sqrt{2}}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}\overline{K^{0}}\Delta_{\nu}^{0}\to{\color{red}\frac{-1}{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{+}\Omega_{\nu}^{-}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\alpha}K^{0}\Omega_{\nu}^{-}\to{\color{red}\frac{-1}{\sqrt{6}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+张量耦合项
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{I}{2}b_{9}\tr\left[\overline{B}u_{\mu}\right]\sigma^{\mu\nu}\tr\left[u_{\nu}B\right]+\frac{I}{2}b_{10}\tr\left[\overline{B}\left[u_{\mu},u_{\nu}\right]\sigma^{\mu\nu}B\right]+\frac{I}{2}b_{11}\tr\left[\overline{B}\left\{ u_{\mu},u_{\nu}\right\} \sigma^{\mu\nu}B\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{f_{\phi}^{2}}\overline{p}\sigma^{\mu\nu}p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{f_{\phi}^{2}}\overline{n}\sigma^{\mu\nu}n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\eta^{8}\to{\color{red}-i\left(5b_{10}-3b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\eta^{8}\to{\color{red}-i\left(5b_{10}-3b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}k^{0}\partial_{\nu}\overline{k^{0}}\to{\color{red}-2i\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\partial_{\nu}K^{-}\to{\color{red}-2i\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\pi^{0}\to{\color{red}-3i\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\pi^{0}\to{\color{red}-3i\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\partial_{\nu}\pi^{-}\to{\color{red}2i\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\partial_{\nu}\pi^{-}\to{\color{red}-2i\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\pi^{0}\to{\color{red}-i\sqrt{3}\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\pi^{0}\to{\color{red}i\sqrt{3}\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\eta^{8}\to{\color{red}-i\sqrt{3}\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\eta^{8}\to{\color{red}i\sqrt{3}\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\partial_{\nu}K^{-}\to{\color{red}i\left(4b_{11}+b_{9}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}k^{0}\partial_{\nu}\overline{k^{0}}\to{\color{red}i\left(4b_{11}+b_{9}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="3">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{f_{\phi}^{2}}\overline{\Sigma^{+}}\sigma^{\mu\nu}\Sigma^{+}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{f_{\phi}^{2}}\overline{\Sigma^{0}}\sigma^{\mu\nu}\Sigma^{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{f_{\phi}^{2}}\overline{\Sigma^{-}}\sigma^{\mu\nu}\Sigma^{-}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}k^{0}\partial_{\nu}\overline{k^{0}}\to{\color{red}2i\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\pi^{0}\to{\color{red}-i\left(6b_{10}-b_{9}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\partial_{\nu}K^{-}\to{\color{red}2i\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\partial_{\nu}K^{-}\to{\color{red}2i\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\partial_{\nu}K^{-}\to{\color{red}2ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}k^{0}\partial_{\nu}\overline{k^{0}}\to{\color{red}2i\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\partial_{\nu}\pi^{-}\to{\color{red}i\left(4b_{11}+b_{9}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}k^{0}\partial_{\nu}\overline{k^{0}}\to{\color{red}2ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\pi^{0}\to{\color{red}-6ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\pi^{0}\to{\color{red}-6ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\eta^{8}\to{\color{red}-2ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\eta^{8}\to{\color{red}-2ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\eta^{8}\to{\color{red}-2ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\eta^{8}\to{\color{red}2i\sqrt{3}b_{11}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\pi^{0}\to{\color{red}-2i\sqrt{3}b_{11}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\eta^{8}\to{\color{red}2i\sqrt{3}b_{11}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\eta^{8}\to{\color{red}-2i\sqrt{3}b_{11}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\partial_{\nu}\pi^{-}\to{\color{red}i\left(b_{9}-4b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="3">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top" width="0pt">
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{f_{\phi}^{2}}\overline{\Xi^{0}}\sigma^{\mu\nu}\Xi^{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{f_{\phi}^{2}}\overline{\Xi^{-}}\sigma^{\mu\nu}\Xi^{-}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{f_{\phi}^{2}}\overline{\Lambda}\sigma^{\mu\nu}\Lambda$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\pi^{0}\to{\color{red}-3i\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\pi^{0}\to{\color{red}-3i\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\eta^{8}\to{\color{red}-i\left(6b_{10}-b_{9}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\partial_{\nu}\pi^{-}\to{\color{red}-2i\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{+}\partial_{\nu}\pi^{-}\to{\color{red}2i\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\pi^{0}\to{\color{red}-2ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\partial_{\nu}K^{-}\to{\color{red}-2i\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}k^{0}\partial_{\nu}\overline{k^{0}}\to{\color{red}-2i\left(b_{10}+b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\partial_{\nu}K^{-}\to{\color{red}-2ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\eta^{8}\to{\color{red}-i\left(5b_{10}+3b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\eta^{8}\to{\color{red}-i\left(5b_{10}+3b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}k^{0}\partial_{\nu}\overline{k^{0}}\to{\color{red}-2ib_{10}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\pi^{0}\to{\color{red}i\sqrt{3}\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\eta^{8}\partial_{\nu}\pi^{0}\to{\color{red}-i\sqrt{3}\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\eta^{8}\to{\color{red}i\sqrt{3}\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}\pi^{0}\partial_{\nu}\eta^{8}\to{\color{red}-i\sqrt{3}\left(b_{10}-b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}k^{0}\partial_{\nu}\overline{k^{0}}\to{\color{red}i\left(b_{9}-4b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{\mu}K^{+}\partial_{\nu}K^{-}\to{\color{red}i\left(b_{9}-4b_{11}\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
