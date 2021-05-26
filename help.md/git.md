@@ -2132,7 +2132,7 @@ refs/remotes/myfork/mybranch
 
 `<rev>^`, e.g. `HEAD^`, `v1.5.1^0`
 
-`<rev>^`等价于`<rev>^1`，`^<n>`意思是当前`ref`的第`n`个父节点，指的是同一个level上的，也就是水平方向的。
+`<rev>^`等价于`<rev>^1`，`^<n>`意思是当前`ref`的第`n`个父节点，指的是同一个`level`上的，也就是水平方向的。
 
 As a special rule,` <rev>^0` 指向自身，可以用`tag`（tag object）指向提交（commit object）
 
