@@ -6,11 +6,21 @@
 \origin unavailable
 \textclass ctex-book
 \begin_preamble
+\usepackage[T1]{fontenc} % 字体的编码，不是 input 的编码utf-8
+%%%+++++++++++++++++++++++++++++++
+\usepackage{geometry} % 整体页面设置
+\geometry{a4paper} %页面大小是A4纸
+\geometry{top=2cm} %设置版心顶部距离
+\geometry{top=2cm} %设置版心顶部距离
+%\geometry{textheight=22cm}  %设置版心长度
+%\geometry{centering} % 水平、竖直均居中
+\geometry{textwidth=17cm} 
+%++++++++++++++++++++++++++++++++++++++++++++++++
 % 如果没有这一句命令，XeTeX会出错，原因参见
 % http://bbs.ctex.org/viewthread.php?tid=60547
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
 %%%%%%%%%%%%%%%%%+++++++++++
-\usepackage{eso-pic} 
+\usepackage{eso-pic}
 % This package makes it easy to add some picture commands to every page at ab-solute positions
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
 %\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
@@ -22,7 +32,7 @@
 \usepackage{mathrsfs} % 提供了mathscr 命令
 % Required for specifying colors by name 
 \usepackage{enumerate} 
-
+\usepackage{tikz-feynman} 
 \usepackage{hepunits} % hep units
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
@@ -255,7 +265,691 @@ Thomas Young
 \begin_inset Formula $Z$
 \end_inset
 
+。
+\end_layout
 
+\begin_layout Chapter
+狄拉克和旋量
+\end_layout
+
+\begin_layout Chapter
+重正化和规范不变性
+\end_layout
+
+\begin_layout Section
+截断我们的无知
+\end_layout
+
+\begin_layout Standard
+场论积分的发散，如介子–介子散射振幅的
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+阶修正为
+\begin_inset Formula 
+\[
+\mathcal{M}=\frac{1}{2}\left(-i\lambda\right)^{2}i^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{2}}\frac{1}{k^{2}-m^{2}+i\varepsilon}\frac{1}{\left(K-k\right)^{2}-m^{2}+i\varepsilon}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $k$
+\end_inset
+
+很大的时候，被积函数趋于
+\begin_inset Formula $1/k^{4}$
+\end_inset
+
+，积分趋于
+\begin_inset Formula $\int\dif^{4}k/k^{4}$
+\end_inset
+
+对数发散。对常规积分
+\begin_inset Formula $\int^{\infty}\dif r\,r^{n}$
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $n=0$
+\end_inset
+
+，线性发散，
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $n=1$
+\end_inset
+
+，平方发散，
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $n=-1$
+\end_inset
+
+对数发散。等等
+\end_layout
+
+\begin_layout Standard
+这个发散在
+\begin_inset Formula $k$
+\end_inset
+
+趋于无穷大时出现，也称为紫外发散。为处理这种表面无穷，需要引入“正规化”和“重正化”。
+\end_layout
+
+\begin_layout Standard
+我们认为整个量子理论大厦都只是另一个理论的一个近似。随着能量变高，其他粒子会参与进来。量子理论只适用于某个能量尺度
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的范围。如果时空是离散化的，能量尺度
+\begin_inset Formula $\Lambda$
+\end_inset
+
+基本就是空间格子长度的倒数。介子–介子散射振幅可以化简成
+\begin_inset Formula 
+\[
+\mathcal{M}=-i\lambda+iC\lambda^{2}\left[\log\left(\frac{\Lambda^{2}}{s}\right)+\log\left(\frac{\Lambda^{2}}{t}\right)+\log\left(\frac{\Lambda^{2}}{u}\right)\right]+\mathcal{O}\left(\lambda^{3}\right).
+\]
+
+\end_inset
+
+实际上，耦合常数
+\begin_inset Formula $\lambda$
+\end_inset
+
+是截断能标
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的函数：
+\begin_inset Formula 
+\[
+-i\lambda_{P}=-i\lambda+iC\lambda^{2}\left[\log\left(\frac{\Lambda^{2}}{s_{0}}\right)+\log\left(\frac{\Lambda^{2}}{t_{0}}\right)+\log\left(\frac{\Lambda^{2}}{u_{0}}\right)\right]+\mathcal{O}\left(\lambda^{3}\right).
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\begin{align*}
+\mathcal{M} & =-i\lambda+iC\lambda^{2}L+\mathcal{O}\left(\lambda^{3}\right).\\
+-i\lambda_{P} & =-i\lambda+iC\lambda^{2}L_{0}+\mathcal{O}\left(\lambda^{3}\right).
+\end{align*}
+
+\end_inset
+
+精确到第二阶，把
+\begin_inset Formula $\lambda$
+\end_inset
+
+用
+\begin_inset Formula $\lambda_{P}$
+\end_inset
+
+表示，代入到
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+的表达式中得到：
+\begin_inset Formula 
+\begin{align*}
+\mathcal{M} & =-i\lambda+iC\lambda^{2}L+\mathcal{O}\left(\lambda^{3}\right)=-i\lambda_{p}-iC\lambda_{P}^{2}L_{0}+iC\lambda_{P}^{2}L+\mathcal{O}\left(\lambda_{P}^{3}\right)\\
+ & =-i\lambda_{p}+iC\lambda_{P}^{2}\left[\log\left(\frac{s_{0}}{s}\right)+\log\left(\frac{t_{0}}{t}\right)+\log\left(\frac{u_{0}}{u}\right)\right]+\mathcal{O}\left(\lambda_{P}^{3}\right)
+\end{align*}
+
+\end_inset
+
+即我们用某个物理点
+\begin_inset Formula $\left(s_{0},t_{0},u_{0}\right)$
+\end_inset
+
+的
+\begin_inset Formula $\lambda_{P}$
+\end_inset
+
+来给出散射振幅的表达式。答案总应表达为可测量物理量，而不是拉氏量中的某些未知系数。
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+中的两个非物理量
+\begin_inset Formula $\lambda$
+\end_inset
+
+和
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的非物理部分互相抵消了。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+使用路径积分的语言描述，相当于：
+\begin_inset Formula 
+\[
+\int D\varphi\,\varphi\left(x_{1}\right)\varphi\left(x_{2}\right)\varphi\left(x_{3}\right)\varphi\left(x_{4}\right)e^{i\int\dif^{d}x\left\{ \frac{1}{2}\left[\left(\partial\varphi\right)^{2}-m^{2}\varphi^{2}\right]-\frac{1}{4!}\varphi^{4}\right\} }
+\]
+
+\end_inset
+
+重正化大致对应于将
+\begin_inset Formula $\int D\varphi$
+\end_inset
+
+的积分范围限定在一类特定的位形空间常量
+\begin_inset Formula $\varphi\left(x\right)$
+\end_inset
+
+上：这些
+\begin_inset Formula $\varphi\left(x\right)$
+\end_inset
+
+的傅立叶变换
+\begin_inset Formula $\varphi\left(x\right)$
+\end_inset
+
+在
+\begin_inset Formula $k\gtrsim\Lambda$
+\end_inset
+
+时为零。相当于要求费曼图中内线的涨落不能太剧烈。
+\end_layout
+
+\begin_layout Section
+可重正对不可重正
+\end_layout
+
+\begin_layout Standard
+有两种量子场论。如果用物理测出的耦合常数
+\begin_inset Formula $\lambda_{P}$
+\end_inset
+
+表达，介子–介子散射振幅就 不依赖截断
+\begin_inset Formula $\Lambda$
+\end_inset
+
+了(至少精确到
+\begin_inset Formula $\lambda_{P}^{2}$
+\end_inset
+
+阶是如此)，这一类称为可重正的。而另一种则无法做到。称为“不可重正理论”。不可重正理论被视为某种有待发展理论的低能近似。
+\end_layout
+
+\begin_layout Standard
+通过量纲分析可以知道，拉氏量密度量纲为
+\begin_inset Formula $4$
+\end_inset
+
+，标量场量纲为
+\begin_inset Formula $\left[\varphi\right]=1$
+\end_inset
+
+，矢量场
+\begin_inset Formula $\left[A_{\mu}\right]=1$
+\end_inset
+
+。所以耦合常数
+\begin_inset Formula $\left[\lambda\right]=0$
+\end_inset
+
+，
+\begin_inset Formula $-\frac{\lambda^{4}}{4!}\varphi^{4}$
+\end_inset
+
+。费米子量纲为
+\begin_inset Formula $\left[\psi\right]=\frac{3}{2}$
+\end_inset
+
+。汤川耦合项
+\begin_inset Formula $f\varphi\bar{\psi}\psi$
+\end_inset
+
+中
+\begin_inset Formula $f$
+\end_inset
+
+无量纲。费米弱相互作用理论
+\begin_inset Formula $\mathcal{L}=G\bar{\psi}\psi\bar{\psi}\psi$
+\end_inset
+
+中
+\begin_inset Formula $G$
+\end_inset
+
+的量纲为
+\begin_inset Formula $-2$
+\end_inset
+
+。电磁耦合项
+\begin_inset Formula $eA_{\mu}\bar{\psi}\gamma^{\mu}\psi$
+\end_inset
+
+中
+\begin_inset Formula $e$
+\end_inset
+
+无量纲。自然单位制下的库仑定律
+\begin_inset Formula $V\left(r\right)=\alpha/r$
+\end_inset
+
+，精细结构常数
+\begin_inset Formula $\alpha=e^{2}/4\pi$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+考虑能量远小于
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的中微子–中微子散射，散射振幅应该为
+\begin_inset Formula 
+\[
+\mathcal{M}\sim G+G^{2}\Lambda^{2}+\cdots.
+\]
+
+\end_inset
+
+如果取
+\begin_inset Formula $\Lambda\sim\infty$
+\end_inset
+
+，截面发散，每个更高阶都伴随一个
+\begin_inset Formula $\Lambda^{2}$
+\end_inset
+
+。现在我们知道费米弱相互作用理论是弱电理论在低能下浮现出来的有效理论。我们认为截断
+\begin_inset Formula $\Lambda$
+\end_inset
+
+真实存在。在能量尺度
+\begin_inset Formula $\Lambda\sim\left(1/G\right)^{1/2}$
+\end_inset
+
+处一定发生了某些特别的事情。微扰级数的第二项开始和第一项相提并论，所以肯定会失效。当能量
+\begin_inset Formula $E$
+\end_inset
+
+达到
+\begin_inset Formula $\sim\left(1/G\right)^{1/2}$
+\end_inset
+
+尺度时，振幅达到单位阶，这时一定有某些新物理主导散射过程，若非如此，散射截面就会违反量子力学中的幺正限制。考虑质量为
+\begin_inset Formula $M$
+\end_inset
+
+的矢量玻色子通过无量纲耦合常数
+\begin_inset Formula $g$
+\end_inset
+
+与一个费米子场耦合：
+\begin_inset Formula 
+\[
+\mathcal{L}=\bar{\psi}\left(i\gamma^{\mu}\partial_{\mu}-m\right)\psi-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+M^{2}A_{\mu}A^{\mu}+gA_{\mu}\bar{\psi}\gamma^{\mu}\psi.
+\]
+
+\end_inset
+
+计算费米子–费米子散射，费曼图给出振幅
+\begin_inset Formula 
+\[
+\left(-ig\right)^{2}\left(\bar{u}\gamma^{\mu}u\right)\frac{i}{k^{2}-M^{2}+i\varepsilon}\left(\bar{u}\gamma^{\mu}u\right)
+\]
+
+\end_inset
+
+当动量转移
+\begin_inset Formula $k$
+\end_inset
+
+远比
+\begin_inset Formula $M$
+\end_inset
+
+小时，此式变成
+\begin_inset Formula 
+\[
+\left(-ig\right)^{2}\left(\bar{u}\gamma^{\mu}u\right)\frac{i}{M^{2}}\left(\bar{u}\gamma^{\mu}u\right)
+\]
+
+\end_inset
+
+相当于费米子通过一个
+\begin_inset Formula $G\left(\bar{\psi}\gamma^{\mu}\psi\right)\left(\bar{\psi}\gamma_{\mu}\psi\right)$
+\end_inset
+
+的费米理论相互作用，式中
+\begin_inset Formula $G=g^{2}/M^{2}$
+\end_inset
+
+。所以能量标度
+\begin_inset Formula $\left(1/G\right)^{1/2}=M/g$
+\end_inset
+
+足够产生矢量玻色子。
+\end_layout
+
+\begin_layout Standard
+引力理论不可重正。比较牛顿定律
+\begin_inset Formula 
+\[
+V\left(r\right)=\frac{G_{N}M_{1}M_{2}}{r}
+\]
+
+\end_inset
+
+和库仑定律
+\begin_inset Formula 
+\[
+V\left(r\right)=\frac{\alpha}{r}
+\]
+
+\end_inset
+
+就可以看出牛顿引力常数
+\begin_inset Formula $G_{N}$
+\end_inset
+
+质量量纲为
+\begin_inset Formula $-2$
+\end_inset
+
+。如果计算能量为
+\begin_inset Formula $E$
+\end_inset
+
+的引力子–引力子散射，会得到
+\begin_inset Formula $\sim1+G_{N}E^{2}+\left(G_{N}E^{2}\right)^{2}+\cdots$
+\end_inset
+
+。所以新物理会出现于普朗克能标
+\begin_inset Formula $\left(1/G_{n}\right)^{1/2}\equiv M\sim10^{19}m_{\text{proton}}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Section
+抵消项与物理微扰论
+\end_layout
+
+\begin_layout Standard
+上一章提到，耦合常数量纲（按质量记次）为负的理论不可重正，那么耦合常数无量纲的理论，如电动力学或者
+\begin_inset Formula $\varphi^{4}$
+\end_inset
+
+理论又如何呢？事实上，可以证明这两个理论都可重整。但是想证明一个理论可重整其实比证明不可重整难多了，证明非阿贝尔规范理论的可重正性让许多卓越物理学家都费了大力气
+，最终靠着 
+\noun on
+'t Hooft
+\noun default
+, 
+\noun on
+Veltman
+\noun default
+, 
+\noun on
+B.
+ Lee
+\noun default
+, 
+\noun on
+Zinn-Justin
+\noun default
+ 和其他许多人的努力才成功。
+\end_layout
+
+\begin_layout Standard
+再考虑简单的
+\begin_inset Formula $\varphi^{4}$
+\end_inset
+
+理论。耦合常数
+\begin_inset Formula $\lambda_{P}$
+\end_inset
+
+是
+\begin_inset Formula $\left(s_{0},t_{0},u_{0}\right)$
+\end_inset
+
+的函数。为了理论上分析方便，令
+\begin_inset Formula $s_{0}=u_{0}=t_{0}=\mu^{2}$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+-i\lambda_{P}=-i\lambda+3iC\lambda^{2}\log\left(\frac{\Lambda^{2}}{\mu^{2}}\right)+\mathcal{O}\left(\lambda^{3}\right).
+\]
+
+\end_inset
+
+量纲分析只能说明，精确到
+\begin_inset Formula $\lambda$
+\end_inset
+
+任意阶，介子散射振幅都必然是一些形如
+\begin_inset Formula $\log\left(\Lambda/\mu\right)^{p}$
+\end_inset
+
+的项之和，其中
+\begin_inset Formula $p$
+\end_inset
+
+表示某个幂次。
+\end_layout
+
+\begin_layout Standard
+除了对顶点，也就是介子–介子散射振幅的修正之外，考虑精确到
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+阶的
+\begin_inset Formula $\varphi$
+\end_inset
+
+传播子倒数
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[baseline]{
+\backslash
+draw (0,0)--(2,0);
+\backslash
+draw (1,0) to [controls=+(45:1.5) and +(135:1.5)] (1,0);}
+\end_layout
+
+\end_inset
+
+。费曼图的结果为：
+\begin_inset Formula 
+\[
+-i\lambda\int^{\Lambda}\left[\frac{\dif^{4}q}{\left(2\pi\right)^{4}}\right]\left[\frac{i}{q^{2}-m^{2}+i\varepsilon}\right]
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $q$
+\end_inset
+
+为圈动量。这个积分平方依赖于截断
+\begin_inset Formula $\Lambda$
+\end_inset
+
+而不依赖于外动量
+\begin_inset Formula $k^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+费曼图
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[baseline]{
+\backslash
+draw (0,0)--(2,0);
+\backslash
+draw (0.5,0) to [out=90,in=90,looseness=1.5] (1.5,0);
+\backslash
+draw (0.5,0) to [out=-90,in=-90,looseness=1.5] (1.5,0);}
+\end_layout
+
+\end_inset
+
+的结果为二重积分：
+\begin_inset Formula 
+\[
+I\left(k,m,\Lambda;\lambda\right)=\left(-i\lambda\right)^{2}\int^{\Lambda}\int^{\Lambda}\frac{\dif^{4}p}{\left(2\pi\right)^{4}}\frac{\dif^{4}q}{\left(2\pi\right)^{4}}\frac{i}{p^{2}-m^{2}+i\varepsilon}\frac{i}{q^{2}-m^{2}+i\varepsilon}\frac{i}{\left(p+q+k\right)^{2}-m^{2}+i\varepsilon}
+\]
+
+\end_inset
+
+数一下
+\begin_inset Formula $p$
+\end_inset
+
+和
+\begin_inset Formula $q$
+\end_inset
+
+的幂次，会发现
+\begin_inset Formula $I$
+\end_inset
+
+平方依赖于截断
+\begin_inset Formula $\Lambda$
+\end_inset
+
+。由于
+\begin_inset Formula $I$
+\end_inset
+
+洛伦兹不变，它是
+\begin_inset Formula $k^{2}$
+\end_inset
+
+的函数，所以可以展开为级数
+\begin_inset Formula $D+Ek^{2}+Fk^{4}+\cdots$
+\end_inset
+
+。
+\begin_inset Formula $D$
+\end_inset
+
+就是外动量取零的
+\begin_inset Formula $I$
+\end_inset
+
+，因此平方依赖于截断
+\begin_inset Formula $\Lambda$
+\end_inset
+
+。将
+\begin_inset Formula $I$
+\end_inset
+
+对
+\begin_inset Formula $k$
+\end_inset
+
+求导数再令
+\begin_inset Formula $k=0$
+\end_inset
+
+，可以知道
+\begin_inset Formula $E$
+\end_inset
+
+对数依赖于
+\begin_inset Formula $\Lambda$
+\end_inset
+
+，而
+\begin_inset Formula $F$
+\end_inset
+
+收敛。更高阶的也收敛。因此，精确到
+\begin_inset Formula $\mathcal{O}\left(k^{2}\right)$
+\end_inset
+
+的传播子倒数为
+\begin_inset Formula $k^{2}-m^{2}+a+bk^{2}$
+\end_inset
+
+，其中
+\begin_inset Formula $a,b$
+\end_inset
+
+分别平方和对数依赖于截断，现在传播子变成：
+\begin_inset Formula 
+\[
+\frac{1}{k^{2}-m^{2}}\to\frac{1}{\left(1+b\right)k^{2}-\left(m^{2}-a\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $k^{2}$
+\end_inset
+
+的极点现在变到
+\begin_inset Formula $m_{P}^{2}=m^{2}+\delta m^{2}=\left(m^{2}-a\right)\left(1+b\right)^{-1}$
+\end_inset
+
+，我们认为这个极点才是物理质量。这个修改称为质量重正化。物理上说，量子涨落会让质量变动也很合理。传播子极点留数现在是
+\begin_inset Formula $1/\left(1+b\right)$
+\end_inset
+
+。我们在裸的拉氏量中，默认将
+\begin_inset Formula $\varphi$
+\end_inset
+
+归一化而令
+\begin_inset Formula $\mathcal{L}=\frac{1}{2}\left(\partial\varphi\right)^{2}+\cdots$
+\end_inset
+
+，对应在最低阶近似传播子倒数
+\begin_inset Formula $k^{2}-m^{2}$
+\end_inset
+
+中
+\begin_inset Formula $k^{2}$
+\end_inset
+
+的系数为
+\begin_inset Formula $1$
+\end_inset
+
+。在包含高阶修正的情况下，有效
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+中的系数不一定保持为
+\begin_inset Formula $1$
+\end_inset
+
+，这很合理。对系数的修改被称为场强重正化（历史上称为波函数重正化）。
 \end_layout
 
 \begin_layout Standard

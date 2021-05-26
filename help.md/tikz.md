@@ -352,7 +352,7 @@ page 124, `TikZ` 遵循以下基本设计原则：
 \usetikzlibrary {scopes}
 ```
 
-命令 `\path` 用于创建一个路径 (path),此命令可以带有图形选项 (graphic options),这些选项只对本路径有效。使用简写形式的 scope 可以在路径内部插入一个 `scope`:
+命令 `\path` 用于创建一个路径 (`path`),此命令可以带有图形选项 (graphic options),这些选项只对本路径有效。使用简写形式的 scope 可以在路径内部插入一个 `scope`:
 
 ```latex
 \tikz \draw (0,0) -- (1,1)
@@ -362,6 +362,15 @@ page 124, `TikZ` 遵循以下基本设计原则：
 
 上面例子中,选项 `rounded corners` 的作用范围受到花括号的限制,并且颜色选项 red 没有起到作用,这是因为 `\draw` 的默认颜色是 `draw=black`,颜色 `black` 把 `red` 覆盖了。
 还要注意开启 scope 的符号组合`{[...]`要放在坐标点之后、`--`之前。
+
+除了`\tikzpicture`环境，可以使用简洁的`\tikz{path1;path2}`命令，例如：
+
+```latex
+\tikz[baseline]{
+  \draw (0,0)--(2,0);\draw (0.5,0) to [out=90,in=90,looseness=1.5] (1.5,0);
+\draw (0.5,0) to [out=-90,in=-90,looseness=1.5] (1.5,0);
+}
+```
 
 ## 坐标计算
 
@@ -389,7 +398,7 @@ page 148
 + `PGF-xy` 坐标系统, 单位按照`cm` :  `(2,1)`
 + `PDF-xyz` 坐标系统:`(1,1,1)`
 + 也可以使用利用之前定义的形状作为锚点,如:`(first node.south)`
-+ 连续相对坐标:`++(1cm,0pt)`,`(1,0) ++(1,0) ++(0,1)`给出`(1,0), (2,0),(2,1)`
++ 连续相对坐标:`++(1cm,0pt)`,`(1,0), ++(1,0), ++(0,1)`给出`(1,0), (2,0),(2,1)`
 + 同源相对坐标:`+(1,0) +(1,0) +(0,1)` 给出 `(1,0), (2,0), (1,1)`.
 
 对图像进行全局伸缩，可以指定`xyz`单位矢量的长度，也可以通过画布变换
@@ -579,6 +588,7 @@ Decoration markings
 
 164 The To Path Operation
 838 To Path Library
+page 841 75.4 Loops
 
 可以使用 `To`来绘制直线，也可以用来绘制曲线。
 
@@ -596,6 +606,9 @@ Decoration markings
 ...
 ```
 
+在给定出射和入射角度之后，`/tikz/looseness=<number>`选项中的`<number>`调控`control points`与初始点以及与终点的距离。
+还可以用 `/tikz/min distance=<distance>`, `/tikz/out min distance=<distance>` 控制最小距离，避免计算无解。
+
 使用 `loop`选项来绘制圈图曲线，例如
 
 ```latex
@@ -606,8 +619,12 @@ Decoration markings
 \end{tikzpicture}
 ```
 
-`/tikz/looseness=<number>` 设置控制点与初始点和终点的距离，
-还可以用 `/tikz/min distance=<distance>`, `/tikz/out min distance=<distance>` 控制最小距离，避免计算无解。
+`loop`选项只接受一个参数，即初始点，终点位置和初始点相同，然后把`looseness`设置为`8`，`min distance`设置为`5mm`.
+如果想精确控制圈图的形状，可以手动添加控制点，例如：
+
+```latex
+\draw (a3) to [controls=+(45:1.5) and +(135:1.5)] (a3); % 使用(角度:距离)的方式指定控制点的坐标.
+```
 
 ### arc 弧线
 
