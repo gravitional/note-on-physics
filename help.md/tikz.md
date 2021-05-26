@@ -178,8 +178,8 @@ p42, scope,
 
 ### 路径变形
 
-路径变形选项。
-图像的最后位置是由`TikZ`, `TeX`, `PDF`共同决定的。tikz 提供了一些选项可以在自己的坐标系统内变换图像的位置. 并且运行在路径中途修改变换方式。例如:
+page 43. 路径变形选项。
+图像的最后位置是由`TikZ`, `TeX`, `PDF`共同决定的。`tikz` 提供了一些选项可以在自己的坐标系统内变换图像的位置. 并且运行在路径中途修改变换方式。例如:
 
 ```latex
 \begin{tikzpicture}[even odd rule,rounded corners=2pt,x=10pt,y=10pt]
@@ -365,9 +365,9 @@ page 124, `TikZ` 遵循以下基本设计原则：
 
 ## 坐标计算
 
-148
+page 148
 
-## 指定坐标点
+### 指定坐标点
 
 136 Specifying Coordinates
 
@@ -392,7 +392,12 @@ page 124, `TikZ` 遵循以下基本设计原则：
 + 连续相对坐标:`++(1cm,0pt)`,`(1,0) ++(1,0) ++(0,1)`给出`(1,0), (2,0),(2,1)`
 + 同源相对坐标:`+(1,0) +(1,0) +(0,1)` 给出 `(1,0), (2,0), (1,1)`.
 
-## 指定路径
+对图像进行全局伸缩，可以指定`xyz`单位矢量的长度，也可以通过画布变换
+
+page 137 Coordinate system xyz
+page 43 Transformations
+
+### 指定路径
 
 路径是一些直线和曲线的组合。
 部分使用`metapost`的语法,例如,一条三角形路径
@@ -422,8 +427,7 @@ p168 The Let Operation
 `\path[clip]`:
 `\draw[clip]` or `\path[draw,clip]`: `\clip`
 
-所有这些命令只能在`{tikzpicture}`环境中使用。
-`TikZ` 允许您使用不同的颜色进行填充和描边。
+所有这些命令只能在`{tikzpicture}`环境中使用。 `TikZ` 允许您使用不同的颜色进行填充和描边。
 
 ### node 指定
 
