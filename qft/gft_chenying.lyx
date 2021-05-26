@@ -994,7 +994,57 @@ S矩阵元和格林函数
 \end_layout
 
 \begin_layout Standard
-电磁场强张量：
+由电动力学：
+\begin_inset Formula 
+\begin{align*}
+ & \nabla\times\vec{E}=-\partial^{t}B=-\partial^{t}\nabla\times\vec{A}=\nabla\times\left(-\partial^{t}\vec{A}\right)\\
+\Rightarrow & \nabla\times\left(\vec{E}+\partial^{t}\vec{A}\right)=0\\
+\Rightarrow & \vec{E}=\nabla\varphi-\partial^{t}\vec{A}
+\end{align*}
+
+\end_inset
+
+电磁场强张量的定义为：
+\begin_inset Formula 
+\begin{align*}
+F^{\mu\nu} & =\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu}\\
+F^{0i} & =\partial^{0}A^{i}-\partial^{i}A^{0}=\partial^{t}A^{i}-\nabla A^{0}=\partial^{t}\vec{A}-\nabla\varphi=-\vec{E}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $A^{\mu}=\left(\varphi,\vec{A}\right)$
+\end_inset
+
+。另一方面，对于磁场：
+\begin_inset Formula 
+\[
+B^{k}=\varepsilon^{ijk}\partial^{i}A^{j}=\partial^{i}A^{j}-\partial^{j}A^{i},\quad\left\{ i,j,k\right\} \text{各不相等},
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+F^{ij}=\partial^{i}A^{j}-\partial^{j}A^{i}\Rightarrow\varepsilon^{ijk}B^{k}
+\]
+
+\end_inset
+
+总结：
+\begin_inset Formula 
+\[
+\begin{cases}
+F^{i0}=\vec{E}\\
+F^{ij}=\varepsilon^{ijk}B^{k}
+\end{cases}
+\]
+
+\end_inset
+
+即电磁场强张量：
 \begin_inset Formula 
 \[
 F^{\mu\nu}=\left[\begin{array}{cccc}
