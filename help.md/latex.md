@@ -613,9 +613,18 @@ And this is the best squash, \verb+literally!+
 
 ### float 包
 
+[float – Improved interface for floating objects](https://www.ctan.org/pkg/float)
+
 把浮动体放到确定的位置:
 改进了用于定义浮动对象(如图形和表格)的接口.引入了`boxed float`, `ruled float` and the `plaintop float`. 您可以定义自己的`floats`并改善旧`floats`的行为.
-该软件包还提供了`H` float修饰符选项,用来替换过时的`here`包.您可以使用`\floatplacement{figure}{H}`将其设置为默认.
+该软件包还提供了`H` float修饰符选项,用来替换过时的`here`包.您可以使用`\floatplacement{figure}{H}`将其设置为默认. 例如：
+
+```latex
+\begin{figure}[H]
+\centering
+\includegraphics{a.jpg}
+\end{figure}
+```
 
 ### 设置子页面宽度resizebox
 

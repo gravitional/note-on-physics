@@ -20,9 +20,10 @@
 % http://bbs.ctex.org/viewthread.php?tid=60547
 % \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
 %%%%%%%%%%%%%%%%%+++++++++++
-\usepackage{eso-pic} 
+\usepackage{eso-pic}
 % 添加图片命令或者背景到每一页的绝对位置，
 % 添加一个或者多个用户命令到 latex 的 shipout rou­tine, 可以用来在固定位置放置输出
+\usepackage{float}%使用[H]选项将浮动题放到确定的位置
 \usepackage{hyperref} %处理交叉引用，在生成的文档中插入超链接
 %\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 \usepackage{graphicx} %插入图片，基于graphics，给 \includegraphics 命令提供了key-value 形式的接口，比 graphics 更好用

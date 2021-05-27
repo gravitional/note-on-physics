@@ -22,6 +22,7 @@
 %%%%%%%%%%%%%%%%%+++++++++++
 \usepackage{eso-pic}
 % This package makes it easy to add some picture commands to every page at ab-solute positions
+\usepackage{float}%使用[H]选项将浮动题放到确定的位置
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
 %\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
 % xcolor package starts from the basic facilities of the 
@@ -53,10 +54,11 @@
 \DeclareMathOperator{\tr}{Tr}
 %\DeclareMathOperator{\re}{Re}
 %\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\res}{Res}
-\DeclareMathOperator{\disc}{Disc}
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
-\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\DeclareMathOperator{\res}{Res} %留数
+\DeclareMathOperator{\disc}{Disc} %函数间断
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}%普通微分
+\newcommand*{\Dif}{\mathop{}\!\mathrm{D}}%泛函变分
+\newcommand{\cola}[1]{{\color{blue}{#1}}} %颜色
 %%%+++++++++++++++++++++++++++++++
 \usepackage{listings}
 % 在LaTex中添加代码高亮
@@ -826,7 +828,11 @@ I\left(k,m,\Lambda;\lambda\right)=\left(-i\lambda\right)^{2}\int^{\Lambda}\int^{
 
 \end_inset
 
-数一下
+其中
+\begin_inset Formula $k$
+\end_inset
+
+为外动量。数一下
 \begin_inset Formula $p$
 \end_inset
 
@@ -904,9 +910,9 @@ I\left(k,m,\Lambda;\lambda\right)=\left(-i\lambda\right)^{2}\int^{\Lambda}\int^{
 
 分别平方和对数依赖于截断，现在传播子变成：
 \begin_inset Formula 
-\[
-\frac{1}{k^{2}-m^{2}}\to\frac{1}{\left(1+b\right)k^{2}-\left(m^{2}-a\right)}
-\]
+\begin{equation}
+\frac{1}{k^{2}-m^{2}}\to\frac{1}{\left(1+b\right)k^{2}-\left(m^{2}-a\right)}\label{eq:3.3.3}
+\end{equation}
 
 \end_inset
 
@@ -1397,11 +1403,503 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-end of file
+考虑费米弱相互作用理论：
+\begin_inset Formula 
+\[
+\mathcal{L}=\bar{\psi}\left(i\gamma^{\mu}\partial_{\mu}-m_{P}\right)\psi+G\left(\bar{\psi}\psi\right).
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & L=F_{I}-V+1,\\
+ & 4V=F_{E}+2F_{I},
+\end{align*}
+
+\end_inset
+
+求解得到：
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+tea = Solve[ {L == Subscript[F, I] - V + 1, 4 V == Subscript[F, E] + 2 Subscript
+[F, I] }, {Subscript[F, I], L} ] // Expand; tea // Print; 4 L - Subscript[F,
+ I] /.
+ tea[[1]] // Simplify
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+D=4L-F_{I}=4-\frac{3}{2}F_{E}+2V\label{eq:3.3.12}
+\end{equation}
+
+\end_inset
+
+和可重正理论的发散度对比，现在
+\begin_inset Formula $D$
+\end_inset
+
+依赖于
+\begin_inset Formula $V$
+\end_inset
+
+。因此，比方说我们要算费米子–费米子散射
+\begin_inset Formula $\left(F_{E}=4\right)$
+\end_inset
+
+，随着微扰级数越来越高，发散也越来越严重。对任意一个
+\begin_inset Formula $F_{E}$
+\end_inset
+
+，随着
+\begin_inset Formula $V$
+\end_inset
+
+变的足够大，我们都会遇到发散图，因此我们必须添加无穷多抵消项
+\begin_inset Formula $\left(\bar{\psi}\psi\right)^{3}$
+\end_inset
+
+，
+\begin_inset Formula $\left(\bar{\psi}\psi\right)^{4}$
+\end_inset
+
+，
+\begin_inset Formula $\left(\bar{\psi}\psi\right)^{5}$
+\end_inset
+
+，
+\begin_inset Formula $\cdots$
+\end_inset
+
+，每一项都带有一个需要实验确定的耦合参数，这样的理论很难有什么预测能力。一度大家认为不能重正场论已经毫无希望。但基于有效场论路线的现代观点，这些理论又得到了接纳
+。
 \end_layout
 
 \begin_layout Standard
-end of file
+显然表观发散度依赖于时空维度
+\begin_inset Formula $d$
+\end_inset
+
+，毕竟每个圈带有一个
+\begin_inset Formula $\int\dif^{d}k$
+\end_inset
+
+。
+\begin_inset Formula $\left(1+1\right)$
+\end_inset
+
+维时空中的费米相互作用
+\begin_inset Formula $G\left(\bar{\psi}\psi\right)^{2}$
+\end_inset
+
+，
+\begin_inset Formula $D=2L-F_{I}$
+\end_inset
+
+，所以在
+\begin_inset Formula $2$
+\end_inset
+
+维时空下：
+\begin_inset Formula 
+\[
+D=2-\frac{1}{2}F_{E}
+\]
+
+\end_inset
+
+和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.3.12"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+不同，此式不再出现
+\begin_inset Formula $V$
+\end_inset
+
+。仅有的表观发散图满足
+\begin_inset Formula $F_{E}=2$
+\end_inset
+
+ 或 
+\begin_inset Formula $4$
+\end_inset
+
+，引入恰当的抵消项即可，费米相互作用在
+\begin_inset Formula $\left(1+1\right)$
+\end_inset
+
+维时空可重正。
+\end_layout
+
+\begin_layout Subsection
+魏斯科普夫现象
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+Weisskopf 最早发现：玻色场和费米场的质量修正发散程度不同。回忆汤川耦合的表观发散度：
+\noun default
+
+\begin_inset Formula 
+\[
+\mathcal{L}=\bar{\psi}\left(i\gamma^{\mu}\partial_{\mu}-m_{P}\right)\psi+\frac{1}{2}\left[\left(\partial\varphi\right)^{2}-\mu_{P}^{2}\varphi^{2}\right]-\frac{\lambda_{P}}{4!}\varphi^{4}+f_{P}\varphi\bar{\psi}\psi.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D=4L-2B_{I}-F_{I}=4-B_{E}-\frac{3}{2}F_{E}
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $B_{E}=2,F_{E}=0$
+\end_inset
+
+的情况，有
+\begin_inset Formula $D=2$
+\end_inset
+
+,因此玻色场的质量修正平方发散：
+\begin_inset Formula 
+\[
+\frac{1}{k^{2}-m^{2}}\to\frac{1}{\left(1+b\right)k^{2}-\left(m^{2}-a\right)}
+\]
+
+\end_inset
+
+对于
+\begin_inset Formula $F_{E}=2,B_{E}=0$
+\end_inset
+
+的情况，有
+\begin_inset Formula $D=1$
+\end_inset
+
+，看起来费米子质量线性发散，但实际上在四维场论中不可能得到一个对截断的线性依赖。要说明这一点，查看练习 II.5.1 中的积分：
+\begin_inset Formula 
+\begin{equation}
+\left(if\right)^{2}i^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{k^{2}-\mu^{2}}\frac{\slashed{p}+\slashed{k}+m}{\left(p+k\right)^{2}-m^{2}}\equiv A\left(p^{2}\right)\slashed{p}+B\left(p^{2}\right)\label{eq:3.3.14}
+\end{equation}
+
+\end_inset
+
+方便起见，定义了两个未知函数
+\begin_inset Formula $A\left(p^{2}\right)$
+\end_inset
+
+和
+\begin_inset Formula $B\left(p^{2}\right)$
+\end_inset
+
+，这里使用裸微扰论还是物理微扰论无关紧要。当
+\begin_inset Formula $k$
+\end_inset
+
+很大时，积分趋于
+\begin_inset Formula $\int\dif^{4}k\,\slashed{k}/k^{4}$
+\end_inset
+
+，似乎线性发散。但是由于
+\begin_inset Formula $k\to-k$
+\end_inset
+
+反射对称，领头阶积分为零，这个积分不过是对数发散而已。表观发散度常常高估发散的严重程度。从
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.3.14"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+出发还可以证明
+\begin_inset Formula $B\left(p^{2}\right)$
+\end_inset
+
+正比于
+\begin_inset Formula $m$
+\end_inset
+
+。由II.5 章的费曼规则可以说明，同样的结论对 QED 也成立。
+\end_layout
+
+\begin_layout Standard
+对一个玻色子来说，量子涨落给出
+\begin_inset Formula $\delta\mu\propto\Lambda^{2}/\mu$
+\end_inset
+
+，而电子这样的费米子，质量修正为
+\begin_inset Formula $\delta m\propto\log\left(\Lambda/m\right)$
+\end_inset
+
+，相比之下温和多了。在二十世纪早期，物理学家把电子看成半径为
+\begin_inset Formula $a$
+\end_inset
+
+的带电球，这样一个球的静电能为
+\begin_inset Formula $e^{2}/a$
+\end_inset
+
+阶，物理学家把它看成电子的质量。如果将
+\begin_inset Formula $1/a$
+\end_inset
+
+看成
+\begin_inset Formula $\Lambda$
+\end_inset
+
+，那么可以说经典物理中电子质量正比于
+\begin_inset Formula $\Lambda$
+\end_inset
+
+从而线性发散。所以 
+\noun on
+Weisskopf 现象可以描述为：
+\color blue
+玻色子的表现比经典电荷要坏，费米子的表现好过经典电荷。
+\color inherit
+这种差异可以用量子统计视角理解。玻色子的“坏”与它们的成群特性有关，而费米子会将真空涨落出现的虚费米子推开，从而在自身周围的真空电荷分布中形成一个空腔。因此，考
+虑量子统计，费米子自能的奇异性会变弱，而玻色子刚好相反。
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\hbar$
+\end_inset
+
+的幂次计数圈数
+\end_layout
+
+\begin_layout Standard
+一个有用的观察：如果我们恢复作用量的普朗克单位
+\begin_inset Formula $\hbar$
+\end_inset
+
+。路径积分中的被积函数会变成
+\begin_inset Formula $e^{iS/\hbar}$
+\end_inset
+
+。因此着相当于
+\begin_inset Formula $\mathcal{L}\to\mathcal{L}/\hbar$
+\end_inset
+
+。明确起见我们考虑
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}\left[\left(\partial\varphi\right)^{2}-m^{2}\varphi^{2}\right]-\frac{\lambda}{4!}\varphi^{4}.
+\]
+
+\end_inset
+
+耦合常数
+\begin_inset Formula $\lambda\to\lambda/\hbar$
+\end_inset
+
+，因此每个顶点现在与一个
+\begin_inset Formula $1/\hbar$
+\end_inset
+
+因子关联。回忆一下，传播子本质上就是算符
+\begin_inset Formula $\left(\partial^{2}+m^{2}\right)$
+\end_inset
+
+的逆，所以动量空间中
+\begin_inset Formula $1/\left(k^{2}-m^{2}\right)\to\hbar/\left(k^{2}-m^{2}\right)$
+\end_inset
+
+。所以内线数目减去顶点数目就得到了
+\begin_inset Formula $\hbar$
+\end_inset
+
+的幂次：
+\begin_inset Formula 
+\[
+P=B_{I}-V=L-1
+\]
+
+\end_inset
+
+这里使用了
+\begin_inset Formula $L=B_{I}-V+1$
+\end_inset
+
+。可以验证，不仅对于
+\begin_inset Formula $\varphi^{4}$
+\end_inset
+
+，这对于一般理论也正确。这说明，按照圈数来组织费曼图相当于按照普朗克常数展开（有时候称之为半经典展开），树图给出第一项。
+\end_layout
+
+\begin_layout Section
+规范不变：光子永不静止
+\end_layout
+
+\begin_layout Subsection
+中心恒等式爆炸
+\end_layout
+
+\begin_layout Standard
+回忆I.7章，一般场论路径积分由中心恒等式给出
+\begin_inset Formula 
+\begin{equation}
+\int\Dif\varphi\exp\left[-\frac{1}{2}\varphi\cdot K\cdot\varphi-V\left(\varphi\right)+J\cdot\varphi\right]=\exp\left[-V\left(\frac{\delta}{\delta J}\right)\right]\exp\left[\frac{1}{2}J\cdot K^{-1}\cdot J\right]\label{eq:3.4.1}
+\end{equation}
+
+\end_inset
+
+这个公式可以从高斯积分开始，一步步推导得到：
+\begin_inset Formula 
+\begin{align*}
+ & \int_{-\infty}^{\infty}\dif x\,e^{-x^{2}}=\sqrt{\pi},\text{ from }\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\dif x\dif y\,e^{-\left(x^{2}+y^{2}\right)}=\pi,\\
+ & \int_{-\infty}^{\infty}\dif x\,e^{-ax^{2}+bx}=\sqrt{\frac{\pi}{a}}e^{\frac{b^{2}}{4a}},\\
+ & \left(\Pi_{i}^{n}\int\dif x_{i}\right)e^{-x\cdot K\cdot x+J\cdot x}=\sqrt{\frac{\pi}{a}}e^{\frac{1}{4}J\cdot K^{-1}\cdot J},\\
+ & \left(\Pi_{i}^{n}\int\dif x_{i}\right)e^{-x\cdot K\cdot x-V\left(x\right)+J\cdot x}=\sqrt{\frac{\pi}{a}}\exp\left[-V\left(\frac{\delta}{\delta J}\right)\right]e^{\frac{1}{4}J\cdot K^{-1}\cdot J},\\
+ & \left(\Pi_{i}^{n}\int\dif x_{i}\right)e^{-\frac{1}{2}x\cdot K\cdot x-V\left(x\right)+J\cdot x}=\sqrt{\frac{\pi}{a}}\exp\left[-V\left(\frac{\delta}{\delta J}\right)\right]e^{\frac{1}{2}J\cdot K^{-1}\cdot J},
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $V\left(\frac{\delta}{\delta J}\right)$
+\end_inset
+
+的含义是将
+\begin_inset Formula $V\left(\varphi\right)$
+\end_inset
+
+中的
+\begin_inset Formula $\varphi$
+\end_inset
+
+替换成
+\begin_inset Formula $\frac{\delta}{\delta J}$
+\end_inset
+
+，然后作用在后面的函数上。无论什么场论，我们可以统一把场封装进列矢量中，将这个矢量记作
+\begin_inset Formula $\varphi$
+\end_inset
+
+。然后我们把
+\begin_inset Formula $\varphi$
+\end_inset
+
+的二次项单独拿出来，记作
+\begin_inset Formula $\frac{1}{2}\varphi\cdot K\cdot\varphi$
+\end_inset
+
+，剩下的就是
+\begin_inset Formula $V\left(\varphi\right)$
+\end_inset
+
+。这里省略了其他坐标，包括场的时空坐标，洛伦兹指标等等。我们经常使用
+\begin_inset Formula $V=0$
+\end_inset
+
+时的
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.4.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\int\Dif\varphi\exp\left[-\frac{1}{2}\varphi\cdot K\cdot\varphi+J\cdot\varphi\right]=\exp\left[\frac{1}{2}J\cdot K^{-1}\cdot J\right]
+\]
+
+\end_inset
+
+但是如果
+\begin_inset Formula $K$
+\end_inset
+
+没有逆呢？这可不是只在某些病态理论中才有的深奥现象，物理学最基本的作用量之一，麦克斯韦作用量：
+\begin_inset Formula 
+\[
+S\left(A\right)=\int\dif^{4}x\mathcal{L}=\int\dif^{4}x\left[\frac{1}{2}A_{\mu}\left(\partial^{2}g^{\mu\nu}-\partial^{\mu}\partial^{\nu}\right)A_{\nu}+A_{\mu}J^{\mu}\right]
+\]
+
+\end_inset
+
+上面使用了分部积分，扔掉了散度项：
+\begin_inset Formula 
+\begin{align*}
+\left(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\right)\left(\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu}\right) & =2\partial_{\mu}A_{\nu}.\partial^{\mu}A^{\nu}-2\partial_{\nu}A_{\mu}.\partial^{\mu}A^{\nu}\\
+ & =-2A_{\mu}\partial^{2}g^{\mu\nu}A_{\nu}+2A_{\mu}\partial^{\mu}\partial^{\nu}A_{\nu}
+\end{align*}
+
+\end_inset
+
+中就会出现这个问题。这里的矩阵
+\begin_inset Formula $K$
+\end_inset
+
+正比于微分算符
+\begin_inset Formula $\left(\partial^{2}g^{\mu\nu}-\partial^{\mu}\partial^{\nu}\right)\equiv Q^{\mu\nu}$
+\end_inset
+
+。如果矩阵某些本征值为零，那么这个矩阵不可逆。我们发现，
+\begin_inset Formula $Q^{\mu\nu}\partial_{\nu}\Lambda\left(x\right)=0$
+\end_inset
+
+，所以
+\begin_inset Formula $Q^{\mu\nu}$
+\end_inset
+
+不可逆。这现象并不神秘。我们在经典物理中就学过，电势差才有意义，绝对电势没有意义。专业点说，解麦克斯韦方程相当于求
+\begin_inset Formula $Q$
+\end_inset
+
+的逆。把麦克斯韦方程组
+\begin_inset Formula $\partial_{\mu}F^{\mu\nu}=J^{\nu}$
+\end_inset
+
+记为
+\begin_inset Formula $Q_{\mu\nu}A^{\nu}=J_{\mu}$
+\end_inset
+
+，所以解就是
+\begin_inset Formula $A^{\nu}=\left(Q^{-1}\right)^{\nu\mu}J_{\mu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+为了解决这个问题，我们需要给
+\begin_inset Formula $A^{\mu}$
+\end_inset
+
+加上一个额外的约束，这称之为“固定一个规范”。
+\end_layout
+
+\begin_layout Subsubsection
+限定泛函积分
+\end_layout
+
+\begin_layout Standard
+EOF
 \end_layout
 
 \begin_layout Bibliography
