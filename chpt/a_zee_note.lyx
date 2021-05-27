@@ -32,7 +32,8 @@
 \usepackage{mathrsfs} % 提供了mathscr 命令
 % Required for specifying colors by name 
 \usepackage{enumerate} 
-\usepackage{tikz-feynman} 
+\usepackage{tikz,tikz-feynman}% 费曼图及其他作图
+\usetikzlibrary{shapes.misc,animations}
 \usepackage{hepunits} % hep units
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
@@ -950,6 +951,449 @@ I\left(k,m,\Lambda;\lambda\right)=\left(-i\lambda\right)^{2}\int^{\Lambda}\int^{
 \end_inset
 
 ，这很合理。对系数的修改被称为场强重正化（历史上称为波函数重正化）。
+\end_layout
+
+\begin_layout Standard
+在
+\begin_inset Formula $\varphi^{4}$
+\end_inset
+
+理论中，场强重正化和耦合常数重正化都是对数发散，而质量重正化则是平方发散。
+\end_layout
+
+\begin_layout Subsection
+裸微扰论对物理微扰论
+\end_layout
+
+\begin_layout Standard
+前面直接写出的拉氏量都是裸的拉氏量，在此基础上进行的是裸微扰论计算。也就是，
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}\left[\left(\partial\varphi_{0}\right)^{2}-m_{0}^{2}\varphi^{2}\right]-\frac{\lambda_{0}}{4!}\varphi_{0}^{4}
+\]
+
+\end_inset
+
+裸的量都加上下标
+\begin_inset Formula $0$
+\end_inset
+
+表示。如果要从第零阶开始都用为物理质量
+\begin_inset Formula $m_{P}$
+\end_inset
+
+和物理耦合
+\begin_inset Formula $\lambda_{P}$
+\end_inset
+
+来计算，就是重正化物理微扰论，或者物理微扰论。物理的拉氏量为
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}\left[\left(\partial\varphi\right)^{2}-m_{P}^{2}\varphi^{2}\right]-\frac{\lambda_{P}}{4!}\varphi_{0}^{4}+A\left(\partial\varphi\right)^{2}+B\varphi^{2}+c\varphi^{4}
+\]
+
+\end_inset
+
+这里省略了
+\begin_inset Formula $\varphi$
+\end_inset
+
+的下标
+\begin_inset Formula $P$
+\end_inset
+
+。后面三项和前面三项是一一对应的，它们将抵消发散，系数
+\begin_inset Formula $A,B,C$
+\end_inset
+
+是在微扰论每一阶迭代确定的。费曼规则和以前基本相同，抵消项费曼规则为：
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[baseline]{
+\backslash
+draw (0,0)--(2,0);
+\backslash
+draw[red] (1,0) circle [radius=5.5pt];
+\backslash
+draw[red] (1,0) +(4pt,4pt) -- +(-4pt,-4pt) +(-4pt,4pt) -- +(4pt,-4pt)}
+\end_layout
+
+\end_inset
+
+：
+\begin_inset Formula $+2i\left(Ak^{2}+B\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[baseline,scale=.6]{
+\backslash
+draw (1,0) +(1cm,1cm) -- +(-1cm,-1cm) +(-1cm,1cm) -- +(1cm,-1cm);
+\backslash
+draw[red] (1,0) circle [radius=5.5pt];
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[red] (1,0) +(4pt,4pt) -- +(-4pt,-4pt) +(-4pt,4pt) -- +(4pt,-4pt)}
+\end_layout
+
+\end_inset
+
+：
+\begin_inset Formula $4!\,iC$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+并且计算中耦合用
+\begin_inset Formula $\lambda_{P}$
+\end_inset
+
+，传播子用
+\begin_inset Formula $i/\left(k^{2}-m_{P}^{2}+i\varepsilon\right)$
+\end_inset
+
+。假设在
+\begin_inset Formula $\lambda_{P}^{N}$
+\end_inset
+
+阶精度上我们确定了
+\begin_inset Formula $A,B,C$
+\end_inset
+
+，记为
+\begin_inset Formula $A_{N},B_{N},C_{N}$
+\end_inset
+
+。画出所有在
+\begin_inset Formula $\lambda_{P}^{N+1}$
+\end_inset
+
+阶出现的费曼图，要求在
+\begin_inset Formula $\lambda_{P}^{N+1}$
+\end_inset
+
+阶的精度上，
+\end_layout
+
+\begin_layout Enumerate
+传播子极点在
+\begin_inset Formula $m_{P}$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Enumerate
+且传播子的留数为
+\begin_inset Formula $1$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Enumerate
+对某特定
+\begin_inset Formula $s_{0},t_{0},u_{0}$
+\end_inset
+
+的介子–介子散射振幅为
+\begin_inset Formula $-i\lambda_{P}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+这里刚好有三个条件用来确定三个未知量
+\begin_inset Formula $A_{N+1},B_{N+1},C_{N+1}$
+\end_inset
+
+。当然，算出来的
+\begin_inset Formula $A,B,C$
+\end_inset
+
+会依赖于截断。
+\end_layout
+
+\begin_layout Subsection
+标量粒子的发散度
+\end_layout
+
+\begin_layout Standard
+考虑一个有
+\begin_inset Formula $B_{E}$
+\end_inset
+
+条
+\begin_inset Formula $\varphi$
+\end_inset
+
+外线的图。如果一个图按照
+\begin_inset Formula $\Lambda^{D}$
+\end_inset
+
+发散（对数发散
+\begin_inset Formula $\log\Lambda$
+\end_inset
+
+算
+\begin_inset Formula $D=0$
+\end_inset
+
+），我们就说这个图的表观发散度为
+\begin_inset Formula $D$
+\end_inset
+
+。有定理
+\begin_inset Formula 
+\[
+D=4-B_{E}.
+\]
+
+\end_inset
+
+例如对于传播子，
+\begin_inset Formula $B_{E}=2,D=2$
+\end_inset
+
+，传播子的确是平方发散。对于介子–介子散射振幅，
+\begin_inset Formula $B_{E}=4,D=0$
+\end_inset
+
+，它的确对数发散。如果是一个六条外腿的图，
+\begin_inset Formula $B_{E}=6,D=-2$
+\end_inset
+
+。这个定理表明图收敛，或者不依赖截断。这个定理的证明就是幂次计数。我们再定义
+\begin_inset Formula $B_{I}$
+\end_inset
+
+为内线数目，
+\begin_inset Formula $V$
+\end_inset
+
+为定点数，
+\begin_inset Formula $L$
+\end_inset
+
+为圈数，也就是
+\begin_inset Formula $\int\dif^{4}k/\left(2\pi\right)^{4}$
+\end_inset
+
+的数量。由于每个顶点有一个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数，一共有
+\begin_inset Formula $V$
+\end_inset
+
+个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数，但是其中一个与整个图的总体动量守恒相关。因此，独立的圈数为：
+\begin_inset Formula 
+\[
+L=B_{I}-V+1.
+\]
+
+\end_inset
+
+每个顶点有四条线进来，每条外线从一个顶点出来，每条内线连接两个顶点，因此：
+\begin_inset Formula 
+\begin{align*}
+ & 4V=B_{E}+2B_{I}\\
+\Rightarrow & B_{I}=2V-\frac{1}{2}B_{E}\\
+\Rightarrow & L=V-\frac{1}{2}B_{E}+1
+\end{align*}
+
+\end_inset
+
+每一个圈有一个
+\begin_inset Formula $\int\dif^{4}k/\left(2\pi\right)^{4}$
+\end_inset
+
+，每一条内线有
+\begin_inset Formula $1/\left(k^{2}-m^{2}+i\varepsilon\right)$
+\end_inset
+
+让动量幂次降低
+\begin_inset Formula $2$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\[
+D=4L-2B_{I}=4\left(V-\frac{1}{2}B_{E}+1\right)-2\left(2V-\frac{1}{2}B_{E}\right)=4-B_{E}.
+\]
+
+\end_inset
+
+如你所见，这就是把前面的幂次级数形式化而已。
+\end_layout
+
+\begin_layout Standard
+表观发散度衡量了所有内动量作统一标度变换
+\begin_inset Formula $k\to ak$
+\end_inset
+
+，
+\begin_inset Formula $a$
+\end_inset
+
+取于无穷时费曼图的发散。在更严格的处理中，我们需要考虑某些子图的动量取于无穷，而其他动量固定的情况。
+\end_layout
+
+\begin_layout Subsection
+费米子的表达发散度
+\end_layout
+
+\begin_layout Standard
+再考虑汤川理论（省略抵消项）：
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=\bar{\psi}\left(i\gamma^{\mu}\partial_{\mu}-m_{P}\right)\psi+\frac{1}{2}\left[\left(\partial\varphi\right)^{2}-\mu_{P}^{2}\varphi^{2}\right]-\frac{\lambda_{P}}{4!}\varphi^{4}+f_{P}\varphi\bar{\psi}\psi.\label{eq:3.3.9}
+\end{equation}
+
+\end_inset
+
+类似地：
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+tea = Solve[ {L == Subscript[B, I] + Subscript[F, I] - Subscript[V, 
+\backslash
+[Lambda]] - Subscript[V, f] + 1, 4 Subscript[V, 
+\backslash
+[Lambda]] + Subscript[V, f] == Subscript[B, E] + 2 Subscript[B, I], 4 Subscript[
+V, 
+\backslash
+[Lambda]] + 3 Subscript[V, f] == Subscript[B, E] + 2 Subscript[B, I] + Subscript
+[F, E] + 2 Subscript[F, I] }, {Subscript[B, I], Subscript[F, I], L} ] //
+ Expand; tea // Print; 4 L - 2 Subscript[B, I] - Subscript[F, I] /.
+ tea[[1]] // Simplify
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & L=B_{I}+F_{I}-V_{\lambda}-V_{f}+1.\\
+ & 4V_{\lambda}+V_{f}=B_{E}+2B_{I}\\
+ & 4V_{\lambda}+3V_{f}=B_{E}+B_{I}+F_{E}+2F_{I}
+\end{align*}
+
+\end_inset
+
+得到：
+\begin_inset Formula 
+\begin{align*}
+ & B_{I}=2V_{\lambda}+\frac{V_{f}}{2}-\frac{B_{E}}{2}\\
+ & F_{I}=-\frac{F_{E}}{2}+V_{f}\\
+ & L=V_{\lambda}+\frac{V_{f}}{2}+1-\frac{B_{E}+F_{E}}{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+D=4L-2B_{I}-F_{I}=4-B_{E}-\frac{3}{2}F_{E}\label{eq:3.3.11}
+\end{equation}
+
+\end_inset
+
+现在，
+\begin_inset Formula $D\ge0$
+\end_inset
+
+的图，也就是发散振幅的种类，只能是
+\begin_inset Formula $B_{E},F_{E}=\left(0,2\right),\left(2,0\right),\left(1,2\right),\left(4,0\right)$
+\end_inset
+
+。可以看出这正好对应于
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.3.9"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+拉格朗日量中的六项，因此需要六个抵消项。
+\end_layout
+
+\begin_layout Standard
+表观发散度计次的过程还说明所有满足质量量纲
+\begin_inset Formula $\le4$
+\end_inset
+
+的项都会出现。如果我们忘了写
+\begin_inset Formula $\lambda_{P}\varphi^{4}$
+\end_inset
+
+项，那么这个理论会要求我们计入这一项：它会作为抵消项引入，对应
+\begin_inset Formula $B_{E},F_{E}=\left(4,0\right)$
+\end_inset
+
+项。这两个幂次计数公式有一个共同特点，就是它们的值只依赖于外线数目而与顶点数无关。从而，对给定数量的外线，无论考虑到微扰论哪一阶，表观发散度都不变。回忆起
+\begin_inset Formula $\left[\varphi\right]=1$
+\end_inset
+
+，费米场
+\begin_inset Formula $\left[\psi\right]=\frac{3}{2}$
+\end_inset
+
+。所以
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.3.11"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的系数是
+\begin_inset Formula $1$
+\end_inset
+
+和
+\begin_inset Formula $3/2$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+不可重正场论
 \end_layout
 
 \begin_layout Standard

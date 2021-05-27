@@ -1,27 +1,26 @@
 \documentclass[tikz,border=10pt]{standalone}
 \usepackage{tikz}
-\usetikzlibrary{positioning}
+\usetikzlibrary{positioning,animations}
 \usepackage{tikz-feynman}
 \begin{document}
 
-\begin{tikzpicture}[baseline]
-    \begin{feynman}
-        %% fig a
-        \vertex[dot] (a1) at (0,0);
-        \vertex[above right =1.3 and 1.3  of a1] (a2); % 右上
-        \node [above right =1.5 and 1.5  of a1,anchor=center] {$b, \nu$};
-        \vertex[above right =-1.3 and 1.3  of a1] (a3); %左上
-        \node [above right =-1.5 and 1.5  of a1,anchor=center] {$c, \lambda$};
-        \vertex[above right =1.3 and -1.3  of a1] (a4); % 右下
-        \node [above right =1.5 and -1.5  of a1,anchor=center] {$a, \mu$};
-        \vertex[above right =-1.3 and -1.3  of a1] (a5); %左下
-        \node [above right =-1.5 and -1.5  of a1,anchor=center] {$d, \rho$};
-        % 对各个顶点连线
-        \diagram*{
-            { [edge=photon]	(a2) --  (a5),(a3) --  (a4),
-                },
-        };
-    \end{feynman}
+\begin{tikzpicture}[
+		animate/orbit/.style 2 args = {
+				myself:shift = {
+						along = {
+								(0,0) circle [radius=#1]
+							} sloped in #2s/10,
+						repeats }} ]
+	\node :color = {0s = "orange",
+	2s = "red",
+	4s = "orange",
+	repeats}
+	{Sun};
+	\begin{scope}[animate={orbit={2.5cm}{365}}]
+		\node {Earth};
+		\node [animate={orbit={1cm}{28}}] {Moon};
+	\end{scope}
+	\useasboundingbox (-3.8,-3.8) (3.8,3.8);
 \end{tikzpicture}
 
 \end{document}

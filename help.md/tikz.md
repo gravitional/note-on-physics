@@ -378,9 +378,8 @@ page 148
 
 ### 指定坐标点
 
-136 Specifying Coordinates
-
-148 坐标计算
+page 136, Specifying Coordinates
+page 148,TikZ Library calc, 可以计算坐标值。
 
 坐标总是放在圆括号内，一般的语法是 `([<options>]<coordinate specification>)`。有两种指定坐标的方法：
 
@@ -440,9 +439,7 @@ p168 The Let Operation
 
 ### node 指定
 
-p224
-
-基本语法：
+p224 基本语法：
 
 ```latex
 \path ... node <foreach statements>  [<options>] (<name>) at (<coordinate>) : <animation attribute>
@@ -467,6 +464,10 @@ p224
 ```
 
 如果在`<options>`内部显式设置了此选项（或通过`every circle`样式间接设置），则`<coordinate>`将用作圆的中心而不是当前点。 在一个封闭范围内给某个值设置`at`无效。
+
+page 785,72 Shape Library：可以指定`node`的形状，有预定义的各种形状。
+page 563, Part V Libraries： 从这里开始是各种库，有预定义的各种命令。
+
 
 ### node位置的相对指定
 
