@@ -1894,7 +1894,7 @@ S\left(A\right)=\int\dif^{4}x\mathcal{L}=\int\dif^{4}x\left[\frac{1}{2}A_{\mu}\l
 加上一个额外的约束，这称之为“固定一个规范”。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 限定泛函积分
 \end_layout
 
@@ -1918,7 +1918,451 @@ S\left(A\right)=\int\dif^{4}x\mathcal{L}=\int\dif^{4}x\left[\frac{1}{2}A_{\mu}\l
 \end{array}\right)$
 \end_inset
 
-，是一个不可逆矩阵。
+，是一个不可逆矩阵。相当于积分是
+\begin_inset Formula $\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\dif a\dif b\,e^{-a^{2}}$
+\end_inset
+
+，对
+\begin_inset Formula $b$
+\end_inset
+
+的积分不存在。为定义这个积分，我们插入一个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数
+\begin_inset Formula $\delta\left(d-\xi\right)$
+\end_inset
+
+。现在积分有定义，且积分结果不依赖于任意参数
+\begin_inset Formula $\xi$
+\end_inset
+
+。更一般地说，可以插入一个
+\begin_inset Formula $\delta\left[f\left(b\right)\right]$
+\end_inset
+
+，这里
+\begin_inset Formula $f$
+\end_inset
+
+是我们选的某个函数。在这里，我们可以把变量
+\begin_inset Formula $b$
+\end_inset
+
+，还有对
+\begin_inset Formula $b$
+\end_inset
+
+的积分，看成一种“冗余”。类似地，规范不变性也是无质量自旋
+\begin_inset Formula $1$
+\end_inset
+
+粒子描述中的一种冗余。
+\end_layout
+
+\begin_layout Standard
+无质量自旋
+\begin_inset Formula $1$
+\end_inset
+
+的场和带质量自旋
+\begin_inset Formula $1$
+\end_inset
+
+的场本质上不同。光子只有两个极化自由度（电磁波只有两个偏振方向），这是规范不变性的物理来源。规范不变性反映了我们的描述方式有冗余：使用一个洛伦兹矢量描述两个物理
+自由度。为了限定泛函积分，我们使用 Faddeev–Popov 方法。
+\end_layout
+
+\begin_layout Standard
+假设我们需要求解积分
+\color blue
+
+\begin_inset Formula $I\equiv\int\Dif Ae^{iS\left(A\right)}$
+\end_inset
+
+
+\color inherit
+，这个积分可以是普通积分也可以是路径积分。假设变换
+\begin_inset Formula $A\to gA$
+\end_inset
+
+不改变被积函数和测度，即
+\begin_inset Formula $S\left(A\right)=S\left(gA\right)$
+\end_inset
+
+且
+\begin_inset Formula $\Dif A=\Dif gA$
+\end_inset
+
+，
+\begin_inset Formula $g$
+\end_inset
+
+是某种对称变换。这样的变换
+\begin_inset Formula $g$
+\end_inset
+
+构成一个群。我们希望把积分写成
+\color blue
+
+\begin_inset Formula $I=\int\left(\Dif g\right)J$
+\end_inset
+
+
+\color inherit
+，其中
+\begin_inset Formula $J$
+\end_inset
+
+与
+\begin_inset Formula $g$
+\end_inset
+
+无关。也就是说我们打算把对
+\begin_inset Formula $g$
+\end_inset
+
+的积分作为冗余因子提取出来。注意，
+\begin_inset Formula $\Dif g$
+\end_inset
+
+是变换群的不变测度而
+\begin_inset Formula $\int\Dif g$
+\end_inset
+
+就是这个群的体积。在路径积分中，
+\begin_inset Formula $A$
+\end_inset
+
+和
+\begin_inset Formula $g$
+\end_inset
+
+都是时空坐标
+\begin_inset Formula $x$
+\end_inset
+
+的函数。强调一下，没有什么神秘之处。例如积分
+\begin_inset Formula $I=\int\dif x\dif ye^{iS\left(x,y\right)}$
+\end_inset
+
+，其中
+\begin_inset Formula $S\left(x,y\right)$
+\end_inset
+
+是某个
+\begin_inset Formula $x^{2}+y^{2}$
+\end_inset
+
+的函数，若变换到极坐标，给出
+\begin_inset Formula $I=\left(\int\dif\theta\right)J=\left(2\pi\right)J$
+\end_inset
+
+，其中
+\begin_inset Formula $J=\int\dif r\,re^{iS\left(r\right)}$
+\end_inset
+
+ 是一个只对径向坐标
+\begin_inset Formula $r$
+\end_inset
+
+的积分。因子
+\begin_inset Formula $2\pi$
+\end_inset
+
+正是
+\begin_inset Formula $2$
+\end_inset
+
+维旋转群的体积。
+\end_layout
+
+\begin_layout Standard
+Faddeev–Popov 方法描述如下：
+\begin_inset Formula 
+\[
+1=\Delta\left(A,f\right)\int\Dif g\delta\left[f\left(gA\right)\right]
+\]
+
+\end_inset
+
+这里定义了
+\begin_inset Formula $\Delta\left(A,f\right)$
+\end_inset
+
+，它称作 Faddeev–Popov 行列式。
+\begin_inset Formula $\Delta\left(A,f\right)$
+\end_inset
+
+是规范不变的：
+\begin_inset Formula $\Delta\left(A,f\right)=\Delta\left(gA,f\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta\left(gA,f\right)\int\Dif gg^{\prime}\delta\left[f\left(gg^{\prime}A\right)\right]=\Delta\left(A,f\right)\int\Dif g^{\prime\prime}\delta\left[f\left(g^{\prime\prime}A\right)\right]
+\]
+
+\end_inset
+
+上面使用了群的重排定理。我们把
+\begin_inset Formula $1$
+\end_inset
+
+插入到要算的积分
+\begin_inset Formula $I$
+\end_inset
+
+中：
+\begin_inset Formula 
+\begin{align*}
+I & =\int\Dif Ae^{iS\left(A\right)}\\
+ & =\int\Dif Ae^{iS\left(A\right)}\Delta\left(A\right)\int\Dif g\delta\left[f\left(gA\right)\right]\\
+ & =\int\Dif g\int\Dif Ae^{iS\left(A\right)}\Delta\left(A\right)\delta\left[f\left(gA\right)\right]
+\end{align*}
+
+\end_inset
+
+作为物理学家而不是数学家，我们认为可以随意交换积分次序。然后我们把
+\begin_inset Formula $A$
+\end_inset
+
+变成
+\begin_inset Formula $g^{-1}A$
+\end_inset
+
+，考虑到
+\begin_inset Formula $D\left(A\right)$
+\end_inset
+
+，
+\begin_inset Formula $S\left(A\right)$
+\end_inset
+
+，
+\begin_inset Formula $\Delta\left(A\right)$
+\end_inset
+
+在变换
+\begin_inset Formula $A\to g^{-1}A$
+\end_inset
+
+下均保持不变，得到：
+\begin_inset Formula 
+\[
+I=\int\Dif Ae^{iS\left(A\right)}=\left(\int\Dif g\right)\int\Dif Ae^{iS\left(A\right)}\Delta\left(A\right)\delta\left[f\left(A\right)\right]
+\]
+
+\end_inset
+
+现在已经把群积分因子
+\begin_inset Formula $\left(\int\Dif g\right)$
+\end_inset
+
+提取出来了。
+\end_layout
+
+\begin_layout Standard
+紧致群的体积有限，不过在规范理论中，时空中每一点都有各自的群，因此
+\begin_inset Formula $\left(\int\Dif g\right)$
+\end_inset
+
+是一个无穷因子（因此I.10中那些具有全局对称性的理论不存在规范固定问题）。好消息是路径积分
+\begin_inset Formula $Z$
+\end_inset
+
+中的全局因子无关紧要，我们可以直接扔掉
+\begin_inset Formula $\left(\int\Dif g\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+固定电磁规范
+\end_layout
+
+\begin_layout Standard
+对于QED，保持作用量不变的变换是
+\begin_inset Formula $A_{\mu}\to A_{\mu}-\partial_{\mu}\Lambda$
+\end_inset
+
+，
+\begin_inset Formula $g$
+\end_inset
+
+在这里可以用
+\begin_inset Formula $\Lambda$
+\end_inset
+
+标记，
+\begin_inset Formula $gA=A_{\mu}-\partial_{\mu}\Lambda$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+I=\int\Dif Ae^{iS\left(A\right)}=\left(\int\Dif g\right)\int\Dif Ae^{iS\left(A\right)}\Delta\left(A\right)\delta\left[f\left(A\right)\right]
+\]
+
+\end_inset
+
+积分
+\begin_inset Formula $I$
+\end_inset
+
+不依赖于
+\begin_inset Formula $f$
+\end_inset
+
+的选择，我们选择
+\begin_inset Formula $f\left(A\right)=\partial_{\mu}A^{\mu}-\sigma$
+\end_inset
+
+，其中
+\begin_inset Formula $\sigma$
+\end_inset
+
+是个
+\begin_inset Formula $x$
+\end_inset
+
+的函数。特别地，
+\begin_inset Formula $I$
+\end_inset
+
+与
+\begin_inset Formula $\sigma$
+\end_inset
+
+无关，我们可以将选取一个
+\begin_inset Formula $\sigma$
+\end_inset
+
+的泛函，乘上
+\begin_inset Formula $I$
+\end_inset
+
+再对
+\begin_inset Formula $\sigma$
+\end_inset
+
+积分。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\Delta\left(A\right)\right]^{-1}\equiv\int\Dif g\delta\left[f\left(gA\right)\right]=\int\Dif\Lambda\delta\left(\partial\cdot A-\partial^{2}\Lambda-\sigma\right)
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula $I$
+\end_inset
+
+中含有
+\begin_inset Formula $\Delta\left(A\right)\delta\left[f\left(A\right)\right]$
+\end_inset
+
+，所以可以认为
+\begin_inset Formula $f\left(A\right)=\partial_{\mu}A^{\mu}-\sigma=0$
+\end_inset
+
+。所以上式给出
+\begin_inset Formula $\left[\Delta\left(A\right)\right]^{-1}=\int\Dif\Lambda\delta\left(\partial^{2}\Lambda\right)$
+\end_inset
+
+。这个结果和
+\begin_inset Formula $A$
+\end_inset
+
+无关，可以扔掉。积分化简为：
+\begin_inset Formula 
+\[
+I=\int\Dif Ae^{iS\left(A\right)}=\int\Dif Ae^{iS\left(A\right)}\delta\left(\partial\cdot A-\sigma\right)
+\]
+
+\end_inset
+
+为了摆脱
+\begin_inset Formula $\delta$
+\end_inset
+
+，考虑到积分
+\begin_inset Formula $I$
+\end_inset
+
+的值与
+\begin_inset Formula $\delta$
+\end_inset
+
+无关，我们再对
+\begin_inset Formula $\sigma$
+\end_inset
+
+作泛函积分：
+\begin_inset Formula 
+\begin{align*}
+Z & =\int\Dif\sigma e^{-\frac{i}{2\xi}\int\dif^{4}x\,\sigma\left(x\right)^{2}}\int\Dif Ae^{iS\left(A\right)}\delta\left(\partial\cdot A-\sigma\right)\\
+ & =\int\Dif Ae^{iS\left(A\right)-\frac{i}{2\xi}\int\dif^{4}x\,\left(\partial\cdot A\right)^{2}}
+\end{align*}
+
+\end_inset
+
+最终的结果相当于作用量变成：
+\begin_inset Formula 
+\begin{align*}
+S & =S\left(A\right)-\frac{1}{2\xi}\int\dif^{4}x\,\left(\partial\cdot A\right)^{2}\\
+ & =\int\dif^{4}x\left\{ \frac{1}{2}A_{\mu}\left[\partial^{2}g^{\mu\nu}-\left(1-\frac{1}{\xi}\right)\partial^{\mu}\partial^{\nu}\right]A_{\nu}+A_{\mu}J^{\mu}\right\} 
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $Q^{\mu\nu}$
+\end_inset
+
+替换成
+\begin_inset Formula $Q_{\text{eff}}^{\mu\nu}=\partial^{2}g^{\mu\nu}-\left(1-\frac{1}{\xi}\right)\partial^{\mu}\partial^{\nu}$
+\end_inset
+
+，作代换
+\begin_inset Formula $\partial\to\pm ik$
+\end_inset
+
+，动量空间中即为：
+\begin_inset Formula 
+\[
+Q_{\text{eff}}^{\mu\nu}=-k^{2}g^{\mu\nu}+\left(1-\frac{1}{\xi}\right)k^{\mu}k^{\nu}
+\]
+
+\end_inset
+
+它是可逆的，
+\begin_inset Formula 
+\[
+Q_{\text{eff}}^{\mu\nu}\left[-g_{\nu\lambda}+\left(1-\xi\right)\frac{k_{\nu}k_{\lambda}}{k^{2}}\right]\frac{1}{k^{2}}=\delta_{\lambda}^{\mu}
+\]
+
+\end_inset
+
+因此，可将光子传播子选为
+\begin_inset Formula 
+\[
+\frac{\left(-i\right)}{k^{2}}\left[g_{\nu\lambda}-\left(1-\xi\right)\frac{k_{\nu}k_{\lambda}}{k^{2}}\right]
+\]
+
+\end_inset
+
+与 II.7 章中的结果一致。在那里我们通过具体的例子说明了QED振幅不依赖于规范的选择。
+\end_layout
+
+\begin_layout Subsection
+光子永不静止
 \end_layout
 
 \begin_layout Standard
