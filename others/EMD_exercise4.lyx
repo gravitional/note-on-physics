@@ -1,0 +1,756 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usepackage[T1]{fontenc} % 字体的编码，不是 input 的编码utf-8
+\usetheme{Madrid} % 设置主题
+\usecolortheme{default} % 颜色方案
+\setbeamertemplate{background}{\includegraphics[height=\paperheight]{b.jpg}} %设置背景图片
+%\usefonttheme[onlymath]{serif} %设置数学字体为斜体
+\setbeamercovered{transparent}
+%%++++++++++++++++++++++++++++++++
+\usepackage{fontspec}
+\usepackage[slantfont, boldfont]{xeCJK}% 没有这个会无法实现中文断行
+\usepackage{esint} %使用Computer Modern字体时,esint软件包增加额外的积分符号，例如\oiint.
+\usepackage{amsmath,amsfonts} % 数学字体
+\usepackage{amsbsy} %产生粗体数学符号, 通过宏\boldsymbol 使用
+\usepackage{amssymb} %定义ams 字体包msam和msbm中所有数学符号的名称
+\usepackage{mathrsfs} % 提供了mathscr 命令
+\usepackage{hepunits} % hep units
+\usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
+\usepackage{slashed} % also for slash notation: take your pick!
+\usepackage{bm,bbm} %\bm 让参数变成粗体, \bbm Computer Modern fonts 的黑板体
+\usepackage{tikz} % 画图库
+\usetikzlibrary{calc} %计算功能
+%%++++++++++++++++++++++++++++++++++++
+\usepackage{simplewick} 
+% a simple means of drawing Wick contractions above and below expressions. 
+\usepackage{makeidx} 
+% Standard package for creating indexes
+\usepackage{multirow}
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+% % 设置英文字体
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Roman}
+% 设置中文字体
+\setCJKmainfont[Mapping=tex-text]{Noto Serif CJK SC}
+\setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
+\setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
+%设置数学字体
+\usepackage{unicode-math}
+\setmathfont{STIX Math}
+%开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
+% DejaVu Math TeX Gyre,  Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
+% TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
+%%++++++++++++++++++++++++++++++++++++++++
+% \usepackage{mathspec} %这个包也能改字体，但是跟 fontspec 好像冲突
+% \setmathsfont(Digits,Latin,Greek){Latin Modern Math}
+% \setmathrm{Latin Modern Roman}
+%%++++++++++++++++++++++++++++++++++++++++
+\usepackage{eso-pic} %用来在每个页面的固定位置加上图片
+\usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
+%\definecolor{ocre}{RGB}{243,102,25} ％xcolor 基于 color, 提供与驱动程序无关的轻松访问 off color tints, shades, tones, 和任意颜色的混合 ，可以通过名称指定颜色
+%%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2}
+\usepackage{enumerate} %向enumerate环境添加了一个可选参数，该参数确定counter的样式。
+%\usepackage{enumitem}
+%提供基本列表环境的布局控制: enumerate, itemize and description。 它同时取代了 enumerate和 mdwlist
+%%++++++++++++++++++++ 
+\usepackage{listings}
+% 在LaTex中添加代码高亮
+\usepackage{framed}
+% 在对象周围添加方框，阴影等等，允许跨页
+% 定义阴影的颜色
+\definecolor{shadecolor}{rgb}{0.9412,1,1}
+%定义代码高亮的各种颜色
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{〈style name〉}{〈key=value list〉}
+%stores the key=value list
+\lstdefinestyle{codestyle1}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+%%++++++++++++++++++++++++++++++++++++++
+\DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
+\DeclareMathOperator{\diag}{diag} %对角矩阵
+\DeclareMathOperator{\res}{Res} %复变函数的留数
+\DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
+\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+%%%+++++++++++++++++++++++++++++++
+\end_preamble
+\options UTF8,dvipsnames,svgnames,x11names,aspectratio=141
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 2
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+电动力学习题
+\end_layout
+
+\begin_layout Author
+yangmy@ihep.ac.cn
+\end_layout
+
+\begin_layout Section
+第四章
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents[currentsection]
+\end_layout
+
+\begin_layout Plain Layout
+
+1,2,3,4,6,8
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Summary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \nabla\times\sbf{E}=-\frac{\partial\sbf{B}}{\partial t}\\
+ & \nabla\times\sbf{H}=\sbf{J}_{f}+\frac{\partial\sbf{D}}{\partial t}\\
+ & \nabla\cdot\sbf{E}=\rho_{f}/\varepsilon_{0},\\
+ & \nabla\cdot\sbf{B}=0,
+\end{align*}
+
+\end_inset
+
+考虑真空中的方程组，
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{\mu_{0}}\nabla\times\left(\nabla\times\sbf{E}\right) & =-\varepsilon_{0}\partial_{t}^{2}\sbf{E}\\
+\Rightarrow\nabla\left(\nabla\cdot\sbf{E}\right)-\nabla^{2}\sbf{E} & =-\mu_{0}\varepsilon_{0}\partial_{t}^{2}\sbf{E}\\
+\nabla^{2}\sbf{E} & =\mu_{0}\varepsilon_{0}\partial_{t}^{2}\sbf{E}\\
+\nabla^{2}\sbf{E} & =\frac{1}{c^{2}}\partial_{t}^{2}\sbf{E}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $c$
+\end_inset
+
+具有速度的量纲。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Summary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla^{2}\sbf{E}=\frac{1}{c^{2}}\partial_{t}^{2}\sbf{E},\quad\nabla^{2}\sbf{B}=\frac{1}{c^{2}}\partial_{t}^{2}\sbf{B},\label{eq:1}
+\end{equation}
+
+\end_inset
+
+考虑单色波，分离变量法：
+\begin_inset Formula 
+\[
+\sbf{E}\left(t,\sbf{x}\right)=\sbf{E}\left(\sbf{x}\right)e^{-i\omega t},\quad\sbf{B}\left(t,\sbf{x}\right)=\sbf{B}\left(\sbf{x}\right)e^{-i\omega t}.
+\]
+
+\end_inset
+
+在
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中作替换
+\color blue
+ 
+\begin_inset Formula $\partial_{t}=-i\omega$
+\end_inset
+
+
+\color inherit
+：
+\begin_inset Formula 
+\[
+\nabla^{2}\sbf{E}+\frac{\omega^{2}}{c^{2}}\sbf{E}=0\quad\text{或者}\quad\nabla^{2}\sbf{E}+k^{2}\sbf{E}=0.\qquad{\color{blue}\text{亥姆霍兹方程}}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\omega=ck$
+\end_inset
+
+。物理意义是在
+\begin_inset Formula $2\pi$
+\end_inset
+
+的相位变化中，单色波移动的
+\begin_inset Formula $\text{路程}=\text{速度}\times\text{时间}$
+\end_inset
+
+。方程的解满足条件:
+\begin_inset Formula 
+\[
+\nabla\cdot\sbf{E}\left(\sbf{x}\right)=0,\quad{\color{blue}\text{横波条件}}
+\]
+
+\end_inset
+
+由
+\begin_inset Formula $\nabla\times\sbf{E}=-\frac{\partial\sbf{B}}{\partial t}$
+\end_inset
+
+，得到
+\begin_inset Formula $\sbf{B}$
+\end_inset
+
+的表达式,
+\color blue
+
+\begin_inset Formula 
+\[
+i\omega\sbf{B}=\nabla\times\sbf{E}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Summary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+微分方程：
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\begin{align*}
+ & \nabla\cdot\sbf{E}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{E}\left(\sbf{x}\right)=i\omega\mu\sbf{H}\left(\sbf{x}\right)\\
+ & \nabla\cdot\sbf{H}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{H}\left(\sbf{x}\right)=-i\omega\varepsilon\sbf{E}\left(\sbf{x}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nabla^{2}\sbf{E}+k^{2}\sbf{E}=0,\quad\nabla\cdot\sbf{E}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+独立的边界条件：
+\begin_inset Formula 
+\[
+\sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\times\left(\sbf{H}_{2}-\sbf{H}_{1}\right)=\sbf{\alpha}_{\text{free}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Summary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+对于平面波，解的形式为：
+\begin_inset Formula 
+\[
+\sbf{E}\left(t,\sbf{x}\right)=\sbf{E}_{0}e^{-i\left(\omega t-\sbf{k}\cdot\sbf{x}\right)}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\sbf{k}$
+\end_inset
+
+是常矢量，不依赖于
+\begin_inset Formula $\sbf{x}$
+\end_inset
+
+，表示波的传播方向，垂直于波的等相位面。
+\begin_inset Formula 
+\begin{align*}
+\nabla\times\sbf{E} & =i\sbf{k}\times\sbf{E}\\
+\nabla\cdot\sbf{E} & =i\sbf{k}\cdot\sbf{E}
+\end{align*}
+
+\end_inset
+
+也就是对于平面波，具有算符替换规则
+\color blue
+
+\begin_inset Formula $\nabla\to i\sbf{k}$
+\end_inset
+
+
+\color inherit
+。
+\begin_inset Formula 
+\begin{align*}
+ & \nabla\cdot\sbf{E}=0\Rightarrow i\sbf{k}\cdot\sbf{E}=0\\
+ & \sbf{B}=\frac{1}{i\omega}\sbf{k}\times\sbf{E}=\frac{1}{\omega}\sbf{k}\times\sbf{E}=\frac{1}{c}\sbf{e}_{k}\times\sbf{E}.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\sbf{e}_{k}$
+\end_inset
+
+是波矢方向的单位矢量。单色波的能量密度和能流密度：
+\begin_inset Formula 
+\begin{align*}
+w & =\frac{1}{2}\left(\varepsilon E^{2}+\frac{1}{\mu}B^{2}\right)=\varepsilon E^{2}=\frac{1}{\mu}B^{2}\\
+\sbf{S} & =\sbf{E}\times\sbf{H}=\frac{E^{2}}{v\mu}\sbf{e}_{k}=\sqrt{\frac{\varepsilon}{\mu}}E^{2}\sbf{e}_{k}=vw\sbf{e}_{k}.
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $v=1/\sqrt{\varepsilon\mu}$
+\end_inset
+
+ 是电磁波在介质中的速度。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Summary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+在一个周期内求平均的公式：
+\begin_inset Formula 
+\begin{align*}
+\overline{w} & =\frac{1}{T}\int_{0}^{T}w\dif t=\frac{1}{2}\Re\left(\sbf{E}^{*}\cdot\varepsilon\sbf{E}\right)=\frac{1}{2}\varepsilon\sbf{E}_{0}^{2}\\
+\overline{\sbf{S}} & =\frac{1}{T}\int_{0}^{T}\sbf{S}\dif t=\frac{1}{2}\Re\left(\sbf{E}^{*}\times\sbf{H}\right)=\sqrt{\frac{\varepsilon}{\mu}}\sbf{E}_{0}^{2}\sbf{e}_{k}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Summary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+对于导体的情形，考虑
+\begin_inset Formula $\sbf{J}_{f}=\sigma\sbf{E}$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\nabla\times\sbf{H}\left(\sbf{x}\right)=-i\omega\varepsilon\sbf{E}\left(\sbf{x}\right)+\sigma\sbf{E}\left(\sbf{x}\right)=-i\omega\left(\varepsilon+i\frac{\sigma}{\omega}\right)\sbf{E}\left(\sbf{x}\right)
+\]
+
+\end_inset
+
+相当于
+\begin_inset Formula $\varepsilon\to\varepsilon+i\frac{\sigma}{\omega}$
+\end_inset
+
+，即导体的复数电容率。考虑到
+\begin_inset Formula $k=\frac{\omega}{v}=\omega\sqrt{\mu\varepsilon}$
+\end_inset
+
+，所以波矢
+\begin_inset Formula $\sbf{k}$
+\end_inset
+
+现在是复数矢量：
+\begin_inset Formula 
+\begin{align*}
+\sbf{k} & =\sbf{\beta}+i\sbf{\alpha}\\
+\sbf{E} & =\sbf{E}_{0}e^{-i\left(\omega t-\left(\sbf{\beta}+i\sbf{\alpha}\right)\cdot\sbf{x}\right)}\\
+ & =\sbf{E}_{0}\,e^{-\sbf{\alpha}\cdot\sbf{x}}\,e^{-i\left(\omega t-\sbf{\beta}\cdot\sbf{x}\right)}\quad\text{衰减项}+\text{平面波项}\\
+\nabla & \to i\left(\sbf{\beta}+i\sbf{\alpha}\right)
+\end{align*}
+
+\end_inset
+
+良导体条件，导电性好，电磁波频率低，极化响应弱：
+\begin_inset Formula 
+\[
+\frac{\sigma}{\omega\varepsilon}>>1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Summary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+对于良导体
+\begin_inset Formula $\frac{\sigma}{\omega\varepsilon}>>1$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\alpha\approx\beta\approx\sqrt{\frac{1}{2}k\frac{\sigma}{\varepsilon}}=\sqrt{\frac{\omega\mu\sigma}{2}}
+\]
+
+\end_inset
+
+穿透深度
+\begin_inset Formula 
+\[
+\delta=\frac{1}{\alpha}\approx\sqrt{\frac{2}{k}\frac{\varepsilon}{\sigma}}=\sqrt{\frac{2}{\omega\mu\sigma}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Summary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\begin{align*}
+\varepsilon_{0} & \approx8.85\times10^{-12}\frac{\mathrm{F}}{\mathrm{m}}\approx9\times10^{-12}\frac{\mathrm{s}^{4}\mathrm{A}^{2}}{\mathrm{m}^{3}\mathrm{kg}},\quad\text{from}\quad U=\frac{Q}{C}\quad\&\quad\varphi=\frac{Q}{4\pi\varepsilon_{0}r}\\
+\mu_{0} & =4\pi\times10^{-7}\frac{\mathrm{N}}{\mathrm{A}^{2}}=4\pi\times10^{-7}\frac{\mathrm{m}\,\mathrm{kg}}{\mathrm{s^{2}\mathrm{A}^{2}}},\quad\text{from}\quad\dif\sbf{F}=\frac{\mu_{0}}{4\pi}\frac{I_{1}I_{2}\dif l_{1}\times\left(\dif l_{2}\times\sbf{r}\right)}{r^{3}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+c^{2}\mu_{0}\varepsilon_{0} & =1,\\
+36\pi c^{2} & =10^{19}\\
+c & =\sqrt{\frac{10^{19}}{36\pi}}\approx2.97\times10^{8}\mathrm{m}/\mathrm{s}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+3.1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+考虑两列振幅相同，偏振方向相同，频率分别为
+\begin_inset Formula $\omega+\dif\omega$
+\end_inset
+
+ 和
+\begin_inset Formula $\omega-\dif\omega$
+\end_inset
+
+的线偏振平面波，它们都沿
+\begin_inset Formula $z$
+\end_inset
+
+方向传播。
+\end_layout
+
+\begin_layout Enumerate
+求合成波，证明波的振幅不是常数，而是一个波；
+\end_layout
+
+\begin_layout Enumerate
+求合成波的相位传播速度和振幅传播速度。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\end_body
+\end_document
