@@ -787,6 +787,44 @@ status open
 求合成波的相位传播速度和振幅传播速度。
 \end_layout
 
+\begin_layout Standard
+我们假设两列波的速度相同。
+\begin_inset Formula $\omega=vk$
+\end_inset
+
+，所以两列波的速度分别为
+\begin_inset Formula $k+\dif k$
+\end_inset
+
+，
+\begin_inset Formula $k-\dif k$
+\end_inset
+
+，
+\begin_inset Formula $\dif k=\dif\omega/v$
+\end_inset
+
+。假设场的偏振沿着
+\begin_inset Formula $x$
+\end_inset
+
+方向，振幅为
+\begin_inset Formula $\sbf{E}_{0}$
+\end_inset
+
+，初相位一致。两列波的合成为：
+\begin_inset Formula 
+\begin{align*}
+\sbf{E} & =\sbf{e}_{x}\sbf{E}_{0}e^{-i\left[\left(\omega+\dif\omega\right)t-\left(k+\dif k\right)z\right]}+\sbf{e}_{x}\sbf{E}_{0}e^{-i\left[\left(\omega-\dif\omega\right)t-\left(k-\dif k\right)z\right]}\\
+ & ={\color{blue}\sbf{e}_{x}\sbf{E}_{0}\left[e^{-i\left(\dif\omega*t-\dif k*z\right)}+e^{i\left(\dif\omega*t-\dif k*z\right)}\right]}{\color{red}e^{-i\left(\omega*t-k*z\right)}}\\
+ & ={\color{blue}2\sbf{e}_{x}\sbf{E}_{0}\cos\left(\dif\omega*t-\dif k*z\right)}{\color{red}e^{-i\left(\omega*t-k*z\right)}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -796,6 +834,165 @@ status open
 \end_layout
 
 \begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+3.1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sbf{E}={\color{blue}2\sbf{e}_{x}\sbf{E}_{0}\cos\left(\dif\omega*t-\dif k*z\right)}{\color{red}e^{-i\left(\omega*t-k*z\right)}}
+\]
+
+\end_inset
+
+前面可以看成一个振幅，后面是平面波类型的传播因子。振幅中含有时间和空间坐标，所以也是一个波。把这两种波的波前分别叫做
+\color blue
+等振幅面
+\color inherit
+和
+\color red
+等相位面
+\color inherit
+。
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+等振幅面
+\color inherit
+：
+\begin_inset Formula $\cos\left(\dif\omega*t-\dif k*z\right)=\text{常数}$
+\end_inset
+
+，对应的波速
+\begin_inset Formula $v_{A}=\frac{\dif\omega}{\dif k}$
+\end_inset
+
+，称为
+\color blue
+群速度
+\color inherit
+，也就是波包的移动速度。
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+等相位面
+\color inherit
+：
+\begin_inset Formula $e^{-i\left(\omega*t-k*z\right)}=\text{常数}$
+\end_inset
+
+，对应的波速
+\begin_inset Formula $v_{p}=\frac{\dif z}{\dif t}=\frac{\omega}{k}$
+\end_inset
+
+，称为
+\color red
+相速度
+\color inherit
+，相位不是可观测量。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+3.2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+一平面电磁波以
+\begin_inset Formula $\theta=45\text{\textdegree}$
+\end_inset
+
+从真空入射到
+\begin_inset Formula $\varepsilon_{r}=2$
+\end_inset
+
+的介质，电场强度垂直于入射面。求反射系数和折射系数。
+\end_layout
+
+\begin_layout Frame
+解：设介质是非铁磁性且线性均匀的，即
+\begin_inset Formula $\mu_{r}=1$
+\end_inset
+
+，折射率
+\begin_inset Formula $n_{2}=\sqrt{\mu_{r}\varepsilon_{r}}\approx\sqrt{2}$
+\end_inset
+
+，入射角为
+\begin_inset Formula $\theta=45\text{\textdegree}$
+\end_inset
+
+，由折射定律
+\begin_inset Formula $n_{1}\sin\theta_{1}=n_{2}\sin\theta_{2}$
+\end_inset
+
+，得：
+\begin_inset Formula 
+\[
+\sin\theta_{2}=\frac{1}{2}\Rightarrow\theta_{2}=30\text{\textdegree},\quad\cos\theta_{2}=\frac{\sqrt{3}}{2}
+\]
+
+\end_inset
+
+边值关系：
+\begin_inset Formula 
+\[
+e_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad e_{n}\times\left(\sbf{H}_{2}-\sbf{H}_{1}\right)=\sbf{\alpha}_{f}
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $\sbf{E}$
+\end_inset
+
+垂直于入射面时有：
+\begin_inset Formula 
+\[
+E_{0}+E_{1}=E_{2},\quad H_{0}\cos\theta-H_{1}\cos\theta=H_{2}\cos\theta_{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sbf{B} & =\frac{1}{i\omega}\nabla\times\sbf{E}\Rightarrow\sbf{B}=\frac{1}{i\omega}i\sbf{k}\times\sbf{E}=\frac{\sbf{e}_{v}}{v}\times\sbf{E}\\
+H & =\sqrt{\frac{\varepsilon}{\mu}}E
+\end{align*}
+
+\end_inset
+
 
 \end_layout
 
