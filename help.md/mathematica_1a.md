@@ -28,3 +28,9 @@ TransformedField["Polar" -> "Cartesian",  r^2 Cos[\[Theta]], {r, \[Theta]} -> {x
 CoordinateTransform[ "Polar" -> "Cartesian", {r, \[Theta]}]
 CoordinateTransform[{"Cartesian" -> "Polar", 2}, {1, -1}]
 ```
+
+## 图像处理
+
+### 图像平滑
+
+guide/ImageRestoration
