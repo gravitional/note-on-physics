@@ -1899,7 +1899,7 @@ status open
 \begin_inset Formula $k_{x}=k\sin\theta$
 \end_inset
 
-，透射波矢量为
+。导电介质的波矢量为复数，即透射波矢量为：
 \begin_inset Formula 
 \[
 \sbf k_{2}=\sbf\beta+i\sbf\alpha,\quad k_{2x}=\beta_{x}+i\alpha_{x},\quad k_{2z}=\beta_{z}+i\alpha_{z},
@@ -1907,49 +1907,33 @@ status open
 
 \end_inset
 
-而
-\begin_inset Formula $k_{2x}=k_{x}$
-\end_inset
-
-，因此
+由导体的亥姆霍兹方程可以得到：
 \begin_inset Formula 
 \[
-\beta_{x}=k\sin\theta=\sin\theta\frac{\omega}{c},\quad\alpha_{x}=0.
+k^{2}={\color{blue}\omega^{2}\mu\varepsilon}+i{\color{red}\omega\mu\sigma}=\beta^{2}-\alpha^{2}-2i\sbf\alpha\cdot\sbf\beta
 \]
 
 \end_inset
 
-所以
-\begin_inset Formula $k_{2}$
+由界面电磁波相位连续
+\begin_inset Formula $k_{2x}=k_{x}$
 \end_inset
 
+得到：
+\begin_inset Formula 
+\[
+\beta_{x}=k\sin\theta=\frac{\omega}{c}\sin\theta,\quad\alpha_{x}=0.
+\]
 
+\end_inset
+
+最后得到两个未知量的方程组：
 \end_layout
 
 \begin_layout Frame
 \begin_inset Formula 
 \[
-\beta_{x}^{2}+\beta_{z}^{2}-\alpha_{z}^{2}=\omega^{2}\mu\varepsilon,\quad\alpha_{z}\beta_{z}=\omega\mu\sigma.
-\]
-
-\end_inset
-
-将
-\begin_inset Formula $\beta_{x}$
-\end_inset
-
-的
-\begin_inset Formula 
-\[
-\beta_{z}=\frac{1}{2}A+\frac{1}{2}\left[A^{2}+B^{2}\right]^{1/2},\quad\alpha_{z}^{2}=\frac{-1}{2}A+\frac{1}{2}\left[A^{2}+B^{2}\right]^{1/2}
-\]
-
-\end_inset
-
-其中
-\begin_inset Formula 
-\[
-A=\omega^{2}\left(\mu\varepsilon-\sin^{2}\theta/c^{2}\right),\quad B=\omega\mu\sigma
+\left(\frac{\omega}{c}\sin\theta\right)^{2}+\beta_{z}^{2}-\alpha_{z}^{2}=\omega^{2}\mu\varepsilon,\quad\alpha_{z}\beta_{z}=\omega\mu\sigma.
 \]
 
 \end_inset
@@ -1971,6 +1955,26 @@ status open
 \begin_layout Plain Layout
 4.7
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+求解得到：
+\begin_inset Formula 
+\[
+\beta_{z}^{2}=\frac{1}{2}A+\frac{1}{2}\left[A^{2}+B^{2}\right]^{1/2},\quad\alpha_{z}^{2}=\frac{-1}{2}A+\frac{1}{2}\left[A^{2}+B^{2}\right]^{1/2}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+A=\omega^{2}\left(\mu\varepsilon-\frac{\sin^{2}\theta}{c^{2}}\right),\quad B=\omega\mu\sigma
+\]
 
 \end_inset
 
