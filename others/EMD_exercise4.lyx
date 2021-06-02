@@ -20,7 +20,7 @@
 \usepackage{amsbsy} %产生粗体数学符号, 通过宏\boldsymbol 使用
 \usepackage{amssymb} %定义ams 字体包msam和msbm中所有数学符号的名称
 \usepackage{mathrsfs} % 提供了mathscr 命令
-\usepackage{hepunits} % hep units
+\usepackage{siunitx} %国际单位制的包
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
 \usepackage{bm,bbm} %\bm 让参数变成粗体, \bbm Computer Modern fonts 的黑板体
@@ -1373,11 +1373,11 @@ status open
 
 \begin_layout Frame
 有一个可见平面光波由水入射到空气，入射角为
-\begin_inset Formula $60\text{°}$
+\begin_inset Formula $\ang{60}$
 \end_inset
 
 。证明这时将会发生全反射，并求折射波沿表面传播的相速度和透入空气的深度。设该波在空气中的波长为
-\begin_inset Formula $\lambda_{0}=4.28\times10^{-5}\,\text{cm}$
+\begin_inset Formula $\lambda_{0}=\SI{4.28e-5}{\cm}$
 \end_inset
 
 ，水的折射率为
@@ -1403,7 +1403,7 @@ status open
 ，光从光密介质进入光疏介质，可能发生全反射，条件是
 \begin_inset Formula 
 \[
-n_{1}\sin\theta=n_{2}\Rightarrow\theta=\arcsin\frac{1}{1.33}=0.850909\,\text{rad}=48\text{°}45^{\prime}12^{\prime\prime}
+n_{1}\sin\theta=n_{2}\Rightarrow\theta=\arcsin\frac{1}{1.33}=\SI{0.851}{\radian}=\ang{48;45;12}
 \]
 
 \end_inset
@@ -1505,7 +1505,7 @@ status open
 \begin_inset Formula 
 \begin{align*}
 \delta & =\frac{1}{\alpha}=\frac{1}{k\sqrt{\sin\left(\theta\right)^{2}-n_{21}^{2}}}=\frac{n_{2}}{k_{2}n_{1}\sqrt{\sin\left(\theta\right)^{2}-n_{21}^{2}}}\\
- & =\frac{n_{2}\lambda_{0}}{2\pi n_{1}\sqrt{\sin\left(\theta\right)^{2}-n_{21}^{2}}}=1.749\times10^{-5}\,\text{cm}
+ & =\frac{n_{2}\lambda_{0}}{2\pi n_{1}\sqrt{\sin\left(\theta\right)^{2}-n_{21}^{2}}}=\SI{1.749e-5}{\cm}
 \end{align*}
 
 \end_inset

@@ -34,3 +34,6 @@ CoordinateTransform[{"Cartesian" -> "Polar", 2}, {1, -1}]
 ### 图像平滑
 
 guide/ImageRestoration
+
+图像邻域处理
+guide/ImageFilteringAndNeighborhoodProcessing

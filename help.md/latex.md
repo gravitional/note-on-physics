@@ -2541,6 +2541,21 @@ URL链接
 
 [LaTeX技巧159:如何在文中使用链接](https://www.latexstudio.net/archives/7741.html)
 
+### 国际单位制
+
+`latex`中使用单位，现在最好使用[siunitx](https://www.ctan.org/pkg/siunitx)，它是`LaTeX 3 `项目中的包。
+`hepunits`会调用`physics`和`SIunits`，这两个包会与`siunitx`冲突，所以不要调用这些宏包。
+
+`siunitx`的说明文档中有具体的用法例子：
+3.3Units 章节列举了常用的命令，3.6Unit abbreviations 中有大量单位的缩写，但是注意很多单位的定义只在`\unit{}`环境内才生效。
+另外`siunitx`有第二版和第三版，使用`texdoc siunitx`查看本地对应版本的文档，两个版本的命令名称不同，根据具体情况使用。
+例如笔者本地安装的是第二版，对应的命令为
+
+```latex
+\SI[mode=text]{1.23}{J.mol^{-1}.K^{-1}}
+\ang{1;2;3} % 角度：1度2分3秒
+```
+
 ## 画费曼图
 
 画费曼图有许多包:
