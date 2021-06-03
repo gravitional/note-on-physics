@@ -2554,6 +2554,9 @@ URL链接
 ```latex
 \SI[mode=text]{1.23}{J.mol^{-1}.K^{-1}}
 \ang{1;2;3} % 角度：1度2分3秒
+\si{\henry\tothe{5}}  %一般的指数可以用 \tothe 输入
+\si{\raiseto{4.5}\radian} % 或者用 \raiseto
+\si{\kilogram\of{metal}} %一般的限定符可以使用 \of 
 ```
 
 ## 画费曼图

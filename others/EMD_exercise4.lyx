@@ -439,82 +439,6 @@ i\omega\sbf{B}=\nabla\times\sbf{E}
 status open
 
 \begin_layout Plain Layout
-电磁波的界面条件
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-微分方程：
-\end_layout
-
-\begin_layout Frame
-\begin_inset Formula 
-\begin{align*}
- & \nabla\cdot\sbf{E}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{E}\left(\sbf{x}\right)=i\omega\mu\sbf{H}\left(\sbf{x}\right)\\
- & \nabla\cdot\sbf{H}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{H}\left(\sbf{x}\right)=-i\omega\varepsilon\sbf{E}\left(\sbf{x}\right)
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\nabla^{2}\sbf{E}+k^{2}\sbf{E}=0,\quad\nabla\cdot\sbf{E}=0.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-独立的界面条件：
-\begin_inset Formula 
-\[
-\sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\times\left(\sbf{H}_{2}-\sbf{H}_{1}\right)=\sbf{\alpha}_{\text{free}}
-\]
-
-\end_inset
-
-若不存在自由电荷
-\begin_inset Formula $\rho_{f}$
-\end_inset
-
-，
-\begin_inset Formula $\nabla\cdot\sbf{J}_{f}=0$
-\end_inset
-
-，但
-\begin_inset Formula $\sbf{J}_{f}$
-\end_inset
-
-本身不必为零。例如导体处在电磁场中，会被激发出表面电流。对于不导电的介质，一般有
-\begin_inset Formula $\sbf{\alpha}_{\text{free}}=0$
-\end_inset
-
-，在研究介质面上的折射反射时，取
-\begin_inset Formula $\alpha_{f}=0$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
 平面波
 \end_layout
 
@@ -635,7 +559,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-导体内的波
+介质内部和界面
 \end_layout
 
 \end_inset
@@ -644,156 +568,37 @@ status open
 \end_layout
 
 \begin_layout Frame
-对于导体的情形，考虑
-\begin_inset Formula $\sbf{J}_{f}=\sigma\sbf{E}$
-\end_inset
-
-：
-\begin_inset Formula 
-\[
-\nabla\times\sbf{H}\left(\sbf{x}\right)=\frac{\partial\sbf{D}}{t}+\sbf{J}_{f}=-i\omega\varepsilon\sbf{E}\left(\sbf{x}\right)+\sigma\sbf{E}\left(\sbf{x}\right)=-i\omega\left(\varepsilon+i\frac{\sigma}{\omega}\right)\sbf{E}\left(\sbf{x}\right)
-\]
-
-\end_inset
-
-相当于
-\begin_inset Formula $\varepsilon\to\varepsilon+i\frac{\sigma}{\omega}$
-\end_inset
-
-，即导体的复数电容率。考虑到
-\begin_inset Formula $k^{2}=\frac{\omega^{2}}{v^{2}}=\omega^{2}\mu\left(\varepsilon+i\frac{\sigma}{\omega}\right)$
-\end_inset
-
-，所以波矢
-\begin_inset Formula $\sbf{k}$
-\end_inset
-
-现在是复数矢量：
-\begin_inset Formula 
-\begin{align*}
-\sbf{k} & =\sbf{\beta}+i\sbf{\alpha}\\
-\sbf{E} & =\sbf{E}_{0}e^{-i\left(\omega t-\left(\sbf{\beta}+i\sbf{\alpha}\right)\cdot\sbf{z}\right)}\\
- & ={\color{blue}\sbf{E}_{0}\,e^{-\sbf{\alpha}\cdot\sbf{z}}}\,e^{-i\left(\omega t-\sbf{\beta}\cdot\sbf{z}\right)}\quad\alpha>0,\text{保证为衰减项}\times\text{平面波项}\\
-\nabla & \to i\left(\sbf{\beta}+i\sbf{\alpha}\right)
-\end{align*}
-
-\end_inset
-
-良导体条件，导体的特征衰减时间远远小于电磁波的变化周期：
-\begin_inset Formula 
-\[
-\frac{\sigma}{\varepsilon}\rho+\partial_{t}\rho=0\Rightarrow\rho=\rho_{0}e^{-\frac{\sigma}{\varepsilon}t},\quad\frac{\sigma}{\omega\varepsilon}>>1.
-\]
-
-\end_inset
-
-即良导体的物理条件：导电性好，极化响应弱，电磁波频率低。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-趋肤效应
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-对于良导体
-\begin_inset Formula $\frac{\sigma}{\omega\varepsilon}>>1$
-\end_inset
-
-，当电磁波从真空垂直入射导体，设导体中的波矢为
-\begin_inset Formula $\sbf{k}=\left(\beta+i\alpha\right)\sbf{e}_{n}$
-\end_inset
-
-，
-\begin_inset Formula 
-\[
-k^{2}={\color{blue}\omega^{2}\mu\varepsilon}+i{\color{red}\omega\mu\sigma},\quad\frac{\text{虚部}}{\text{实部}}=\frac{\omega\mu\sigma}{\omega^{2}\mu\varepsilon}=\frac{\sigma}{\omega\varepsilon}\gg1
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\sbf{k}^{2}=\beta^{2}-\alpha^{2}-2i\sbf\alpha\cdot\sbf\beta,\quad\text{i.e. }\frac{2}{\alpha\beta}\gg\frac{1}{\alpha^{2}}-\frac{1}{\beta^{2}}\Rightarrow\alpha\approx\beta
-\]
-
-\end_inset
-
-
-\size footnotesize
-一个具体的例子：铜的电导率
-\begin_inset Formula $\sigma=58.5\times10^{6}*\text{S}*\text{m}^{-1}=58.5\times10^{6}*\text{Kg}^{-1}*\text{m}^{-3}*\text{A}^{2}*\text{s}^{3}$
-\end_inset
-
-，可见光波长
-\begin_inset Formula $400\text{nm}\sim760\text{nm}$
-\end_inset
-
-，对应频率
-\begin_inset Formula $3.9\times10^{14}\sim7.5\times10^{14}$
+在真空和理想绝缘介质内部，没有能量损耗，电磁波可以无衰减传播。假设介质各向同性，线性均匀且
+\begin_inset Formula $\rho_{f}=0,\sbf J_{f}=0$
 \end_inset
 
 ：
 \begin_inset Formula 
 \begin{align*}
- & {\color{red}\omega\mu\sigma}\approx2\pi\times6\times10^{14}*1*58.5\times10^{6}=2.205\times10^{25}\,\text{m}^{-2},\\
- & {\color{blue}\omega^{2}\mu\varepsilon}\approx\omega^{2}\mu_{0}\varepsilon_{0}=\left(2\pi\times6\times10^{14}\right)^{2}*36\pi*10^{-19}=1.607\times10^{14}\,\text{m}^{-2}\\
- & \alpha\approx\beta\approx4695.74\,\text{nm}
+ & \nabla\cdot\sbf{E}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{E}\left(\sbf{x}\right)=i\omega\mu\sbf{H}\left(\sbf{x}\right)\\
+ & \nabla\cdot\sbf{H}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{H}\left(\sbf{x}\right)=-i\omega\varepsilon\sbf{E}\left(\sbf{x}\right)
 \end{align*}
 
 \end_inset
 
 
-\size default
-
 \begin_inset Formula 
 \[
-\alpha\approx\beta\approx\sqrt{\frac{\omega\mu\sigma}{2}}
+\Rightarrow\nabla^{2}\sbf{E}+k^{2}\sbf{E}=0,\quad\nabla\cdot\sbf{E}=0.
 \]
 
 \end_inset
 
-穿透深度
+界面条件：
 \begin_inset Formula 
-\[
-\delta=\frac{1}{\alpha}\approx\sqrt{\frac{2}{\omega\mu\sigma}}\approx0.0003\,\text{nm}
-\]
+\begin{align*}
+ & \sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\times\left(\sbf{H}_{2}-\sbf{H}_{1}\right)=0\\
+ & \sbf{e}_{n}\cdot\left(\varepsilon_{2}\sbf E_{2}-\varepsilon_{1}\sbf E_{1}\right)=0,\quad\sbf{e}_{n}\cdot\left(\mu_{2}\sbf H_{2}-\mu_{1}\sbf H_{1}\right)=0
+\end{align*}
 
 \end_inset
 
-导体的电导率
-\begin_inset Formula $\sigma$
-\end_inset
 
-和波的频率
-\begin_inset Formula $\omega$
-\end_inset
-
-越高，
-\begin_inset Formula $\delta$
-\end_inset
-
-越小，此现象称为导体的
-\color blue
-高频趋肤效应
-\color inherit
-。
 \end_layout
 
 \begin_layout Standard
@@ -817,15 +622,11 @@ status open
 \end_layout
 
 \begin_layout Frame
-经典电磁理论假定反射波、折射波与入射波的频率相同。
-\end_layout
-
-\begin_layout Frame
-利用电磁波的相位沿着界面连续：
+经典电磁理论假定反射波、折射波与入射波的频率相同。利用电磁波的相位沿着界面连续：
 \begin_inset Formula $kx=k^{\prime}x=k^{\prime\prime}x$
 \end_inset
 
-，可以导出
+，导出：
 \begin_inset Formula 
 \[
 \theta^{\prime}=\theta,\quad\frac{\sin\theta}{\sin\theta^{\prime\prime}}=\frac{\sqrt{\mu_{2}\varepsilon_{2}}}{\sqrt{\mu_{1}\varepsilon_{1}}^{\prime\prime}}=\frac{v_{1}}{v_{2}}=\frac{n_{2}}{n_{1}}
@@ -837,15 +638,15 @@ status open
 \begin_inset Formula $\sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\times\left(\sbf{H}_{2}-\sbf{H}_{1}\right)=0$
 \end_inset
 
-，可以导出
+，对于非铁磁性的一般介质，取
+\begin_inset Formula $\mu=\mu_{0}$
+\end_inset
+
+，导出
 \color blue
 菲涅尔公式
 \color inherit
-：
-\end_layout
-
-\begin_layout Frame
-当
+。当
 \begin_inset Formula $\sbf{E}$
 \end_inset
 
@@ -882,10 +683,72 @@ status open
 布儒斯特角
 \color inherit
 ，
-\begin_inset Formula $\tan\theta_{B}=v_{1}/v_{2}=\frac{\sqrt{\mu_{2}\varepsilon_{2}}}{\sqrt{\mu_{1}\varepsilon_{1}}}$
+\begin_inset Formula $\tan\theta_{B}=v_{1}/v_{2}=\sqrt{\varepsilon_{2}}/\sqrt{\varepsilon_{1}}$
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+验证边界条件
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+使用切向分量的边界条件解出电磁场之后，可以检验法向的边界条件是否成立。若电场垂直入射面，显然成立。若电场平行入射面，边界条件为
+\begin_inset Formula $\varepsilon_{1}\left(E+E^{\prime}\right)\sin\theta=\varepsilon_{2}E^{\prime\prime}\sin\theta^{\prime\prime}$
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\varepsilon_{1}E\sin\theta\left[1+\frac{\tan\left(\theta-\theta^{\prime\prime}\right)}{\tan\left(\theta+\theta^{\prime\prime}\right)}\right]=\varepsilon_{2}E\frac{2\cos\theta\sin\theta^{\prime\prime}}{\sin\left(\theta+\theta^{\prime\prime}\right)\cos\left(\theta-\theta^{\prime\prime}\right)}\sin\theta^{\prime\prime}
+\]
+
+\end_inset
+
+考虑到
+\begin_inset Formula $\sqrt{\varepsilon_{1}}\sin\theta=\sqrt{\varepsilon_{2}}\sin\theta^{\prime\prime}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sin\theta\left[1+\frac{\tan\left(\theta-\theta^{\prime\prime}\right)}{\tan\left(\theta+\theta^{\prime\prime}\right)}\right] & =\frac{\sin^{2}\theta}{\sin^{2}\theta^{\prime\prime}}\frac{2\cos\theta\sin\theta^{\prime\prime}}{\sin\left(\theta+\theta^{\prime\prime}\right)\cos\left(\theta-\theta^{\prime\prime}\right)}\sin\theta^{\prime\prime}\\
+\left[1+\frac{\tan\left(\theta-\theta^{\prime\prime}\right)}{\tan\left(\theta+\theta^{\prime\prime}\right)}\right] & =\frac{2\sin\theta\cos\theta}{\sin\left(\theta+\theta^{\prime\prime}\right)\cos\left(\theta-\theta^{\prime\prime}\right)}\\
+\frac{2\sin\left(2\theta\right)}{\sin\left(2\theta\right)+\sin\left(2\theta^{\prime\prime}\right)} & =\frac{2\sin\left(2\theta\right)}{\sin\left(2\theta\right)+\sin\left(2\theta^{\prime\prime}\right)}
+\end{align*}
+
+\end_inset
+
+其中使用了：
+\begin_inset Formula 
+\begin{align*}
+\sin\alpha\cos\beta & =\frac{1}{2}\left[\sin\left(\alpha+\beta\right)+\sin\left(\alpha-\beta\right)\right]\\
+\tan\left(\alpha+\beta\right) & =\frac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -966,6 +829,157 @@ R=\frac{\overline{S_{1}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\abs
 
 \begin_layout Frame
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+导体内部
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+良导体内部的电荷特征衰减时间远远小于电磁波的变化周期：
+\begin_inset Formula 
+\[
+\frac{\sigma}{\varepsilon}\rho+\partial_{t}\rho=0\Rightarrow\rho=\rho_{0}e^{-\frac{\sigma}{\varepsilon}t},\quad\frac{\sigma}{\omega\varepsilon}>>1.
+\]
+
+\end_inset
+
+即良导体条件为：导电性好，极化响应弱，电磁波频率低。一般的金属均可看作良导体，
+\begin_inset Formula $\frac{\sigma}{\varepsilon}$
+\end_inset
+
+约为
+\begin_inset Formula $\SI{e17}{\hertz}$
+\end_inset
+
+。良导体内部没有净余自由电荷，电荷只能分布于导体的表面上。
+\end_layout
+
+\begin_layout Frame
+导体内电磁波的传播过程是交变电磁场与自由电子运动互相制约的过程。导体内存在自由电子，在电场作用下会形成传导电流，进而产生焦耳热，不断损耗电磁波的能量，因此导体内
+部电磁波持续衰减。导体内部满足
+\begin_inset Formula $\rho=0,\sbf J=\sigma\sbf E$
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+ & \nabla\cdot\sbf{E}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{E}\left(\sbf{x}\right)=i\omega\mu\sbf{H}\left(\sbf{x}\right)\\
+ & \nabla\cdot\sbf{H}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{H}\left(\sbf{x}\right)=-i\omega\varepsilon\sbf{E}\left(\sbf{x}\right)+\sigma\sbf E=-i\omega\left(\varepsilon+i\frac{\sigma}{\omega}\right)\sbf{E}\left(\sbf{x}\right)
+\end{align*}
+
+\end_inset
+
+
+\size default
+对比绝缘介质，相当于
+\begin_inset Formula $\varepsilon\to\varepsilon+i\frac{\sigma}{\omega}$
+\end_inset
+
+，即导体拥有复数电容率。考虑到
+\begin_inset Formula $k^{2}=\frac{\omega^{2}}{v^{2}}=\omega^{2}\mu\left(\varepsilon+i\frac{\sigma}{\omega}\right)$
+\end_inset
+
+，所以波矢
+\begin_inset Formula $\sbf{k}$
+\end_inset
+
+现在是复数矢量：
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+\sbf{k} & =\sbf{\beta}+i\sbf{\alpha}\\
+\sbf{E} & =\sbf{E}_{0}e^{-i\left(\omega t-\left(\sbf{\beta}+i\sbf{\alpha}\right)\cdot\sbf{z}\right)}\\
+ & ={\color{blue}\sbf{E}_{0}\,e^{-\sbf{\alpha}\cdot\sbf{z}}}\,e^{-i\left(\omega t-\sbf{\beta}\cdot\sbf{z}\right)}\quad\alpha>0,\text{保证为衰减项}\times\text{平面波项}\\
+\nabla & \to i\left(\sbf{\beta}+i\sbf{\alpha}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+导体界面
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\size small
+对于各向同性线性均匀导体，导体内部自由电荷体密度
+\begin_inset Formula $\rho_{f}=0$
+\end_inset
+
+，自由电荷分布于导体表面的薄层中。
+\end_layout
+
+\begin_layout Frame
+
+\size small
+界面条件：
+\begin_inset Formula 
+\begin{align*}
+ & \sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\times\left(\sbf{H}_{2}-\sbf{H}_{1}\right)=\sbf{\alpha}_{f}\\
+ & \sbf{e}_{n}\cdot\left(\varepsilon_{2}\sbf E_{2}-\varepsilon_{1}\sbf E_{1}\right)=\sigma_{f},\quad\sbf{e}_{n}\cdot\left(\mu_{2}\sbf H_{2}-\mu_{1}\sbf H_{1}\right)=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\size small
+独立的界面条件可以取成：
+\begin_inset Formula 
+\[
+\sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\cdot\left(\mu_{2}\sbf H_{2}-\mu_{1}\sbf H_{1}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\size small
 \color blue
 良导体表面的反射
 \color inherit
@@ -1026,6 +1040,134 @@ R=\abs*{\frac{E_{2}}{E_{0}}}^{2}\approx1-2\sqrt{\frac{2\omega\varepsilon_{0}}{\s
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+趋肤效应
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\size small
+对于良导体
+\begin_inset Formula $\frac{\sigma}{\omega\varepsilon}>>1$
+\end_inset
+
+，当电磁波从真空垂直入射导体，设导体中的波矢为
+\begin_inset Formula $\sbf{k}=\left(\beta+i\alpha\right)\sbf{e}_{n}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+k^{2}={\color{blue}\omega^{2}\mu\varepsilon}+i{\color{red}\omega\mu\sigma},\quad\frac{\text{虚部}}{\text{实部}}=\frac{\omega\mu\sigma}{\omega^{2}\mu\varepsilon}=\frac{\sigma}{\omega\varepsilon}\gg1
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf{k}^{2}=\beta^{2}-\alpha^{2}-2i\sbf\alpha\cdot\sbf\beta,\quad\text{i.e. }\frac{2}{\alpha\beta}\gg\frac{1}{\alpha^{2}}-\frac{1}{\beta^{2}}\Rightarrow\alpha\approx\beta
+\]
+
+\end_inset
+
+一个具体的例子：铜的电导率
+\begin_inset Formula $\sigma=\SI{58.5e6}{\siemens\per\meter}=\SI{58.5e6}{\per\kilogram\meter\tothe{-3}\square\ampere\cubic\second}$
+\end_inset
+
+，可见光波长
+\begin_inset Formula $400\text{nm}\sim760\text{nm}$
+\end_inset
+
+，对应频率
+\begin_inset Formula $3.9\times10^{14}\sim7.5\times10^{14}$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{align*}
+ & {\color{red}\omega\mu\sigma}\approx2\pi\times6\times10^{14}*1*58.5\times10^{6}=2.205\times10^{25}\,\text{m}^{-2},\\
+ & {\color{blue}\omega^{2}\mu\varepsilon}\approx\omega^{2}\mu_{0}\varepsilon_{0}=\left(2\pi\times6\times10^{14}\right)^{2}*36\pi*10^{-19}=1.607\times10^{14}\,\text{m}^{-2}\\
+ & \alpha\approx\beta\approx4695.74\,\text{nm}
+\end{align*}
+
+\end_inset
+
+由此可得：
+\begin_inset Formula 
+\[
+\alpha\approx\beta\approx\sqrt{\frac{\omega\mu\sigma}{2}},\quad\text{穿透深度\,}\,\delta=\frac{1}{\alpha}\approx\sqrt{\frac{2}{\omega\mu\sigma}}\approx\SI{0.0003}{\nano\meter}
+\]
+
+\end_inset
+
+导体的电导率
+\begin_inset Formula $\sigma$
+\end_inset
+
+和波的频率
+\begin_inset Formula $\omega$
+\end_inset
+
+越高，
+\begin_inset Formula $\delta$
+\end_inset
+
+越小，此现象称为导体的
+\color blue
+高频趋肤效应
+\color inherit
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+谐振腔
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+理想导体为边界时，电磁场满足
+\begin_inset Formula 
+\[
+\nabla\cdot\sbf E=0,\quad\sbf e_{n}\times\sbf E=0
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2047,6 +2189,10 @@ status open
 \end_inset
 
 这段管内可能存在的波模。
+\end_layout
+
+\begin_layout Frame
+理想导体内不存在电磁波，
 \end_layout
 
 \begin_layout Standard
