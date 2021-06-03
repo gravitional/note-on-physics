@@ -526,7 +526,7 @@ w & =\frac{1}{2}\left(\varepsilon E^{2}+\frac{1}{\mu}B^{2}\right)=\varepsilon E^
 status open
 
 \begin_layout Plain Layout
-平均公式
+平均值公式
 \end_layout
 
 \end_inset
@@ -1100,8 +1100,8 @@ R=\abs*{\frac{E_{2}}{E_{0}}}^{2}\approx1-2\sqrt{\frac{2\omega\varepsilon_{0}}{\s
 ，电磁波和电流仅存在于其表面的薄层中，内部场强为零。此时可将金属视为理想导体，界面关系变成：
 \begin_inset Formula 
 \begin{align*}
- & \sbf{e}_{n}\times\sbf{E}=0,\quad\sbf{e}_{n}\times\sbf{H}=\sbf{\alpha}_{f}\quad{\color{blue}\text{电场线垂直于导体表面}}\\
- & \varepsilon_{2}\sbf{e}_{n}\cdot\sbf{E}=\sigma_{f},\quad\sbf{e}_{n}\cdot\sbf{H}=0\quad{\color{blue}\text{磁感应线平行于导体表面}}
+ & \sbf e_{n}\times\sbf E=0,\quad\sbf e_{n}\times\sbf H=\sbf\alpha_{f}\quad{\color{blue}\text{电场线垂直于导体表面}}\\
+ & \sbf e_{n}\cdot\sbf D=\sigma_{f},\quad\sbf e_{n}\cdot\sbf B=0\quad{\color{blue}\text{磁感应线平行于导体表面}}
 \end{align*}
 
 \end_inset
@@ -1163,12 +1163,12 @@ status open
 \begin_inset Formula $l_{1},l_{2},l_{3}$
 \end_inset
 
-，以金属为边界的矩阵谐振腔，电场为：
+，以金属为边界的矩阵谐振腔，电场形式为：
 \begin_inset Formula 
 \begin{align*}
- & E_{x}=A_{1}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad\sin k_{z}z\quad e^{-i\omega t},\\
- & E_{y}=A_{2}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad\sin k_{z}z\quad e^{-i\omega t},\\
- & E_{z}=A_{3}\,\sin k_{x}x\quad\sin k_{y}y\quad{\color{blue}\cos k_{z}z}\quad e^{-i\omega t}.
+ & E_{x}=A_{x}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad\sin k_{z}z\quad e^{-i\omega t},\\
+ & E_{y}=A_{y}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad\sin k_{z}z\quad e^{-i\omega t},\\
+ & E_{z}=A_{z}\,\sin k_{x}x\quad\sin k_{y}y\quad{\color{blue}\cos k_{z}z}\quad e^{-i\omega t}.
 \end{align*}
 
 \end_inset
@@ -1252,7 +1252,7 @@ k_{x}=\frac{m\pi}{l_{1}},\quad k_{y}=\frac{n\pi}{l_{2}},\quad k_{z}=\frac{p\pi}{
 对应
 \begin_inset Formula 
 \[
-k_{x}A_{1}+k_{y}A_{2}+k_{z}A_{3}=0
+k_{x}A_{x}+k_{y}A_{y}+k_{z}A_{z}=0
 \]
 
 \end_inset
@@ -1324,9 +1324,9 @@ status open
 方向传播的电磁波为
 \begin_inset Formula 
 \begin{align*}
- & E_{x}=A_{1}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}\\
- & E_{y}=A_{2}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad e^{-i\left(\omega t-k_{z}z\right)}\\
- & E_{z}=A_{3}\,\sin k_{x}x\quad\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}
+ & E_{x}=A_{x}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{y}=A_{y}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{z}=A_{z}\,\sin k_{x}x\quad\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}
 \end{align*}
 
 \end_inset
@@ -1366,7 +1366,7 @@ k_{x}=\frac{m\pi}{a},\quad k_{y}=\frac{n\pi}{b},\quad\left(m,n=0,1,2,\cdots\righ
 对应
 \begin_inset Formula 
 \[
-k_{x}A_{1}+k_{y}A_{2}-ik_{z}A_{3}=0
+k_{x}A_{x}+k_{y}A_{y}-ik_{z}A_{z}=0
 \]
 
 \end_inset
@@ -2507,9 +2507,9 @@ status open
 方向上波长量子化的条件。类比课本上的推导，容易写出解：
 \begin_inset Formula 
 \begin{align*}
- & E_{x}=A_{1}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad\sin k_{z}z\\
- & E_{y}=A_{2}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad\sin k_{z}z\\
- & E_{z}=A_{3}\,\sin k_{x}x\quad\sin k_{y}y\quad{\color{blue}\cos k_{z}z}
+ & E_{x}=A_{x}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad\sin k_{z}z\\
+ & E_{y}=A_{y}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad\sin k_{z}z\\
+ & E_{z}=A_{z}\,\sin k_{x}x\quad\sin k_{y}y\quad{\color{blue}\cos k_{z}z}
 \end{align*}
 
 \end_inset
@@ -2537,7 +2537,7 @@ k_{x}=\frac{m\pi}{a},\quad k_{y}=\frac{n\pi}{b},\quad\left(m,n=0,1,2,\cdots\righ
 对应
 \begin_inset Formula 
 \[
-k_{x}A_{1}+k_{y}A_{2}+k_{z}A_{3}=0
+k_{x}A_{x}+k_{y}A_{y}+k_{z}A_{z}=0
 \]
 
 \end_inset
@@ -2828,9 +2828,9 @@ status open
 的依赖），对应解的形式为：
 \begin_inset Formula 
 \begin{align*}
- & E_{x}=A_{1}\,\,\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}\\
- & E_{y}=A_{2}\,\,{\color{blue}\cos k_{y}y}\quad e^{-i\left(\omega t-k_{z}z\right)}\\
- & E_{z}=A_{3}\,\,\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}
+ & E_{x}=A_{x}\,\,\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{y}=A_{y}\,\,{\color{blue}\cos k_{y}y}\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{z}=A_{z}\,\,\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}
 \end{align*}
 
 \end_inset
@@ -2858,7 +2858,7 @@ k_{y}=\frac{m\pi}{b},\quad\left(m=0,1,2,\cdots\right),\quad k_{z}=\sqrt{\left(\o
 对应
 \begin_inset Formula 
 \[
--k_{y}A_{2}+ik_{z}A_{3}=0,
+-k_{y}A_{y}+ik_{z}A_{z}=0,
 \]
 
 \end_inset
@@ -2900,6 +2900,154 @@ status open
 
 \begin_layout Frame
 证明整个谐振腔内的电场能量和磁场能量对时间的平均值总相等。
+\end_layout
+
+\begin_layout Frame
+
+\color blue
+解：
+\color inherit
+边长分别为
+\begin_inset Formula $l_{1},l_{2},l_{3}$
+\end_inset
+
+，以金属为边界的矩阵谐振腔，电场形式为：
+\begin_inset Formula 
+\begin{align*}
+ & E_{x}=A_{x}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad\sin k_{z}z\quad e^{-i\omega t},\\
+ & E_{y}=A_{y}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad\sin k_{z}z\quad e^{-i\omega t},\\
+ & E_{z}=A_{z}\,\sin k_{x}x\quad\sin k_{y}y\quad{\color{blue}\cos k_{z}z}\quad e^{-i\omega t}.
+\end{align*}
+
+\end_inset
+
+且满足
+\begin_inset Formula 
+\[
+k_{x}^{2}+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu\varepsilon,\quad k_{x}A_{x}+k_{y}A_{y}+k_{z}A_{z}=0
+\]
+
+\end_inset
+
+电场能量密度的时间平均值是
+\begin_inset Formula 
+\[
+\frac{1}{4}\varepsilon_{0}E_{0}^{2}=\frac{1}{4}\varepsilon_{0}^{2}\left(A_{x}^{2}+A_{y}^{2}+A_{z}^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+4.15
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+使用
+\begin_inset Formula $i\omega\sbf B=\nabla\times\sbf E$
+\end_inset
+
+，得到谐振腔内的磁场：
+\begin_inset Formula 
+\begin{align*}
+ & B_{x}=\frac{b_{x}}{i\omega}\,{\color{blue}\sin k_{x}x}\quad\cos k_{y}y\quad\cos k_{z}z\quad e^{-i\omega t},\\
+ & B_{y}=\frac{b_{y}}{i\omega}\,\cos k_{x}x\quad{\color{blue}\sin k_{y}y}\quad\cos k_{z}z\quad e^{-i\omega t},\\
+ & B_{z}=\frac{b_{z}}{i\omega}\,\cos k_{x}x\quad\cos k_{y}y\quad{\color{blue}\sin k_{z}z}\quad e^{-i\omega t}.
+\end{align*}
+
+\end_inset
+
+各振幅为
+\begin_inset Formula 
+\[
+b_{x}=k_{y}A_{z}-k_{z}A_{y},\quad b_{y}=k_{z}A_{x}-k_{x}A_{z},\quad b_{z}=k_{y}A_{x}-k_{x}A_{y}
+\]
+
+\end_inset
+
+磁场能量密度的平均值：
+\begin_inset Formula 
+\begin{align*}
+\frac{B_{0}^{2}}{4\mu_{0}} & =\frac{1}{4}\varepsilon_{0}c^{2}\left(b_{x}^{2}+b_{y}^{2}+b_{z}^{2}\right)\\
+ & =\frac{1}{4}\varepsilon_{0}^{2}\left(A_{x}^{2}+A_{y}^{2}+A_{z}^{2}\right)
+\end{align*}
+
+\end_inset
+
+所以电场与磁场能量密度的时间平均值相等。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+4.15
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\begin{align*}
+i\omega\sbf B & =\nabla\times\sbf E\\
+\sbf B & =\frac{ik}{i\omega}\times\sbf E\\
+\abs*{\sbf B} & =\frac{1}{c}\abs{\sbf E}=\sqrt{\mu_{0}\varepsilon_{0}}\abs{\sbf E}\\
+\frac{\abs*{\sbf B}^{2}}{\mu_{0}} & =\varepsilon_{0}\abs{\sbf E}^{2}
+\end{align*}
+
+\end_inset
+
+线性均匀介质中的电磁波，
+\begin_inset Formula 
+\begin{align*}
+w & =\frac{1}{2}\left(\varepsilon E^{2}+\frac{1}{\mu}B^{2}\right)=\varepsilon E^{2}=\frac{1}{\mu}B^{2}\\
+\sbf{S} & =\sbf{E}\times\sbf{H}=\frac{E^{2}}{v\mu}\sbf{e}_{k}=\sqrt{\frac{\varepsilon}{\mu}}E^{2}\sbf{e}_{k}=vw\sbf{e}_{k}.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\overline{w}=\frac{1}{T}\int_{0}^{T}w\dif t=\frac{1}{2}\Re\left(\sbf{E}^{*}\cdot\varepsilon\sbf{E}\right)=\frac{1}{2}\varepsilon\sbf{E}_{0}^{2}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $v=1/\sqrt{\varepsilon\mu}$
+\end_inset
+
+ 是电磁波在介质中的速度。
 \end_layout
 
 \end_body
