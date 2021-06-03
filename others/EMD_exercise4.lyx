@@ -930,130 +930,6 @@ status open
 status open
 
 \begin_layout Plain Layout
-导体界面
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-
-\size small
-对于各向同性线性均匀导体，导体内部自由电荷体密度
-\begin_inset Formula $\rho_{f}=0$
-\end_inset
-
-，自由电荷分布于导体表面的薄层中。
-\end_layout
-
-\begin_layout Frame
-
-\size small
-界面条件：
-\begin_inset Formula 
-\begin{align*}
- & \sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\times\left(\sbf{H}_{2}-\sbf{H}_{1}\right)=\sbf{\alpha}_{f}\\
- & \sbf{e}_{n}\cdot\left(\varepsilon_{2}\sbf E_{2}-\varepsilon_{1}\sbf E_{1}\right)=\sigma_{f},\quad\sbf{e}_{n}\cdot\left(\mu_{2}\sbf H_{2}-\mu_{1}\sbf H_{1}\right)=0
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-
-\size small
-独立的界面条件可以取成：
-\begin_inset Formula 
-\[
-\sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\cdot\left(\mu_{2}\sbf H_{2}-\mu_{1}\sbf H_{1}\right)=0
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-
-\size small
-\color blue
-良导体表面的反射
-\color inherit
-：当电磁波垂直入射到良导体时，由边值关系可计算出反射波振幅
-\begin_inset Formula $E^{\prime}$
-\end_inset
-
-。反射系数为
-\begin_inset Formula 
-\[
-R=\abs*{\frac{E_{2}}{E_{0}}}^{2}\approx1-2\sqrt{\frac{2\omega\varepsilon_{0}}{\sigma}}.
-\]
-
-\end_inset
-
-导体电导率
-\begin_inset Formula $\sigma$
-\end_inset
-
-越高，
-\begin_inset Formula $R$
-\end_inset
-
-越接近
-\begin_inset Formula $1$
-\end_inset
-
-。对于微波和无线电波，大多数金属反射系数
-\begin_inset Formula $R\to1$
-\end_inset
-
-，电磁波和电流仅存在于其表面的薄层中，内部场强为零。此时可将金属视为理想导体，界面关系变成：
-\begin_inset Formula 
-\[
-\sbf{e}_{n}\times\sbf{E}_{n}=0,\text{电场垂直于导体表面}\quad\sbf{e}_{n}\times\sbf{H}_{n}=\sbf{\alpha}_{f}.
-\]
-
-\end_inset
-
-
-\begin_inset Formula $\sbf{E}$
-\end_inset
-
-和
-\begin_inset Formula $\sbf{H}$
-\end_inset
-
-是导体表面的场强。求出
-\begin_inset Formula $\sbf{E}$
-\end_inset
-
-和
-\begin_inset Formula $\sbf{H}$
-\end_inset
-
-之后，由第二式可求出导体表面的电流密度
-\begin_inset Formula $\sbf{\alpha}_{f}$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
 趋肤效应
 \end_layout
 
@@ -1150,6 +1026,121 @@ k^{2}={\color{blue}\omega^{2}\mu\varepsilon}+i{\color{red}\omega\mu\sigma},\quad
 status open
 
 \begin_layout Plain Layout
+导体界面
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\size small
+对于各向同性线性均匀导体，导体内部自由电荷体密度
+\begin_inset Formula $\rho_{f}=0$
+\end_inset
+
+，自由电荷分布于导体表面的薄层中。界面条件：
+\begin_inset Formula 
+\begin{align*}
+ & \sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\times\left(\sbf{H}_{2}-\sbf{H}_{1}\right)=\sbf{\alpha}_{f}\\
+ & \sbf{e}_{n}\cdot\left(\varepsilon_{2}\sbf E_{2}-\varepsilon_{1}\sbf E_{1}\right)=\sigma_{f},\quad\sbf{e}_{n}\cdot\left(\mu_{2}\sbf H_{2}-\mu_{1}\sbf H_{1}\right)=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\size small
+独立的界面条件可以取成：
+\begin_inset Formula $\sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\cdot\left(\mu_{2}\sbf H_{2}-\mu_{1}\sbf H_{1}\right)=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Frame
+
+\size small
+\color blue
+良导体表面的反射
+\color inherit
+：当电磁波垂直入射到良导体时，由边值关系可计算出反射波振幅
+\begin_inset Formula $E^{\prime}$
+\end_inset
+
+。反射系数为
+\begin_inset Formula 
+\[
+R=\abs*{\frac{E_{2}}{E_{0}}}^{2}\approx1-2\sqrt{\frac{2\omega\varepsilon_{0}}{\sigma}}.
+\]
+
+\end_inset
+
+导体电导率
+\begin_inset Formula $\sigma$
+\end_inset
+
+越高，
+\begin_inset Formula $R$
+\end_inset
+
+越接近
+\begin_inset Formula $1$
+\end_inset
+
+。对于微波和无线电波，大多数金属反射系数
+\begin_inset Formula $R\to1$
+\end_inset
+
+，电磁波和电流仅存在于其表面的薄层中，内部场强为零。此时可将金属视为理想导体，界面关系变成：
+\begin_inset Formula 
+\begin{align*}
+ & \sbf{e}_{n}\times\sbf{E}=0,\quad\sbf{e}_{n}\times\sbf{H}=\sbf{\alpha}_{f}\quad{\color{blue}\text{电场线垂直于导体表面}}\\
+ & \varepsilon_{2}\sbf{e}_{n}\cdot\sbf{E}=\sigma_{f},\quad\sbf{e}_{n}\cdot\sbf{H}=0\quad{\color{blue}\text{磁感应线平行于导体表面}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\sbf{E}$
+\end_inset
+
+和
+\begin_inset Formula $\sbf{H}$
+\end_inset
+
+是导体表面的场强。求出
+\begin_inset Formula $\sbf{E}$
+\end_inset
+
+和
+\begin_inset Formula $\sbf{H}$
+\end_inset
+
+之后，由第二式可求出导体表面的电流密度
+\begin_inset Formula $\sbf{\alpha}_{f}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 谐振腔
 \end_layout
 
@@ -1159,10 +1150,259 @@ status open
 \end_layout
 
 \begin_layout Frame
-理想导体为边界时，电磁场满足
+以理想导体为边界时，电场满足的条件
+\begin_inset Formula 
+\begin{align*}
+ & \text{\text{连续区域}:}\,\,\nabla\cdot\sbf E=0,\quad\text{边界上:}\,\,\sbf{e}_{n}\times\sbf{E}=0,\quad\frac{\partial E}{\partial n}=0\\
+ & \text{磁场:}\,\,\sbf B=\mu\sbf H=\frac{1}{i\omega}\nabla\times\sbf E
+\end{align*}
+
+\end_inset
+
+边长分别为
+\begin_inset Formula $l_{1},l_{2},l_{3}$
+\end_inset
+
+，以金属为边界的矩阵谐振腔，电场为：
+\begin_inset Formula 
+\begin{align*}
+ & E_{x}=A_{1}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad\sin k_{z}z\quad e^{-i\omega t},\\
+ & E_{y}=A_{2}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad\sin k_{z}z\quad e^{-i\omega t},\\
+ & E_{z}=A_{3}\,\sin k_{x}x\quad\sin k_{y}y\quad{\color{blue}\cos k_{z}z}\quad e^{-i\omega t}.
+\end{align*}
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
-\nabla\cdot\sbf E=0,\quad\sbf e_{n}\times\sbf E=0
+k_{x}^{2}+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu\varepsilon
+\]
+
+\end_inset
+
+例如：
+\begin_inset Formula $y-z$
+\end_inset
+
+平面的
+\begin_inset Formula $E_{\parallel}=0$
+\end_inset
+
+迫使
+\begin_inset Formula $E_{y},E_{z}$
+\end_inset
+
+为
+\begin_inset Formula $\sin k_{x}x$
+\end_inset
+
+，
+\begin_inset Formula $y-z$
+\end_inset
+
+平面的
+\begin_inset Formula $\frac{\partial E}{\partial n}=0$
+\end_inset
+
+迫使
+\begin_inset Formula $E_{x}$
+\end_inset
+
+为
+\begin_inset Formula $\cos k_{x}x$
+\end_inset
+
+，其余类似。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+谐振腔
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+封闭区间给出了波矢量子化条件
+\begin_inset Formula 
+\[
+k_{x}=\frac{m\pi}{l_{1}},\quad k_{y}=\frac{n\pi}{l_{2}},\quad k_{z}=\frac{p\pi}{l_{3}}\quad\left(m,n,p=0,1,2,\cdots\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\nabla\cdot\sbf E=0$
+\end_inset
+
+对应
+\begin_inset Formula 
+\[
+k_{x}A_{1}+k_{y}A_{2}+k_{z}A_{3}=0
+\]
+
+\end_inset
+
+振幅的三个分量中只有两个是独立的，对每一组
+\begin_inset Formula $m,n,p$
+\end_inset
+
+，有两种独立波模。本征频率为
+\begin_inset Formula 
+\[
+\omega_{mnp}=vk=\frac{\pi}{\sqrt{\mu\varepsilon}}\sqrt{\left(\frac{m}{l_{1}}\right)^{2}+\left(\frac{n}{l_{2}}\right)^{2}+\left(\frac{p}{l_{3}}\right)^{2}}
+\]
+
+\end_inset
+
+若
+\begin_inset Formula $l_{1}>l_{2}>l_{3}$
+\end_inset
+
+，截止频率的波模为
+\begin_inset Formula $\left(1,1,0\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+矩形波导
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+若矩形金属波导管边长为
+\begin_inset Formula $a$
+\end_inset
+
+和
+\begin_inset Formula $b$
+\end_inset
+
+，管壁分别位于
+\begin_inset Formula $x-z$
+\end_inset
+
+和
+\begin_inset Formula $y-z$
+\end_inset
+
+平面，则沿
+\begin_inset Formula $z$
+\end_inset
+
+方向传播的电磁波为
+\begin_inset Formula 
+\begin{align*}
+ & E_{x}=A_{1}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{y}=A_{2}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{z}=A_{3}\,\sin k_{x}x\quad\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+k_{x}^{2}+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu_{0}\varepsilon_{0}
+\]
+
+\end_inset
+
+相比于谐振腔，缺少了
+\begin_inset Formula $x-y$
+\end_inset
+
+平面边界条件带来的
+\begin_inset Formula $\sin k_{z}z$
+\end_inset
+
+与
+\begin_inset Formula $\cos k_{z}z$
+\end_inset
+
+，即缺少了第三列的驻波（变成了行波）。两个封闭区间给出两个量子化条件：
+\begin_inset Formula 
+\[
+k_{x}=\frac{m\pi}{a},\quad k_{y}=\frac{n\pi}{b},\quad\left(m,n=0,1,2,\cdots\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\nabla\cdot\sbf E=0$
+\end_inset
+
+对应
+\begin_inset Formula 
+\[
+k_{x}A_{1}+k_{y}A_{2}-ik_{z}A_{3}=0
+\]
+
+\end_inset
+
+对每一组
+\begin_inset Formula $m,n$
+\end_inset
+
+，有两种独立的波模。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+矩形波导
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+其中传导的电磁波频率为：
+\begin_inset Formula 
+\[
+\omega_{mn}=ck=c\pi\sqrt{\left(\frac{m}{a}\right)^{2}+\left(\frac{n}{b}\right)^{2}+k_{z}^{2}}
 \]
 
 \end_inset
@@ -1170,6 +1410,66 @@ status open
 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+波导内只能传播横电波（TE波）或横磁波（TM波），不能传播TEM波；
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $k_{z}=\sqrt{\left(\omega/c\right)^{2}-\left(k_{x}^{2}+k_{y}^{2}\right)}$
+\end_inset
+
+为实数时是行波，为虚数时是衰减波，故截至频率为
+\begin_inset Formula 
+\[
+\omega_{mn}^{\text{min}}=c\pi\sqrt{\left(\frac{m}{a}\right)^{2}+\left(\frac{n}{b}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\omega=ck$
+\end_inset
+
+，
+\begin_inset Formula $\lambda_{0}$
+\end_inset
+
+是频率为
+\begin_inset Formula $\omega$
+\end_inset
+
+的波在真空中的波长，而
+\begin_inset Formula $k_{z}<k$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\[
+\lambda=\frac{2\pi}{k_{z}}>\lambda_{0},\quad v_{p}=\frac{\omega}{k_{z}}>c,\quad v_{g}=\frac{\dif\omega}{\dif k_{z}}<c
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\lambda$
+\end_inset
+
+是波导中行波的波长，
+\begin_inset Formula $v_{p}$
+\end_inset
+
+是相速度，
+\begin_inset Formula $v_{g}$
+\end_inset
+
+是群速度。
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2192,7 +2492,61 @@ status open
 \end_layout
 
 \begin_layout Frame
-理想导体内不存在电磁波，
+
+\color blue
+解：
+\color inherit
+相比于波导管，增加了
+\begin_inset Formula $x-y$
+\end_inset
+
+平面的边界条件；相比于谐振腔，缺少
+\begin_inset Formula $z$
+\end_inset
+
+方向上波长量子化的条件。类比课本上的推导，容易写出解：
+\begin_inset Formula 
+\begin{align*}
+ & E_{x}=A_{1}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad\sin k_{z}z\\
+ & E_{y}=A_{2}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad\sin k_{z}z\\
+ & E_{z}=A_{3}\,\sin k_{x}x\quad\sin k_{y}y\quad{\color{blue}\cos k_{z}z}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+k_{x}^{2}+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu_{0}\varepsilon_{0}
+\]
+
+\end_inset
+
+两个封闭区间给出两个量子化条件：
+\begin_inset Formula 
+\[
+k_{x}=\frac{m\pi}{a},\quad k_{y}=\frac{n\pi}{b},\quad\left(m,n=0,1,2,\cdots\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\nabla\cdot\sbf E=0$
+\end_inset
+
+对应
+\begin_inset Formula 
+\[
+k_{x}A_{1}+k_{y}A_{2}+k_{z}A_{3}=0
+\]
+
+\end_inset
+
+对每一组
+\begin_inset Formula $m,n$
+\end_inset
+
+，有两种独立的波模。
 \end_layout
 
 \begin_layout Standard
@@ -2241,6 +2595,116 @@ status open
 \end_inset
 
 这两个分量表示。
+\end_layout
+
+\begin_layout Frame
+
+\color blue
+证明：
+\color inherit
+
+\begin_inset Formula $\sbf E$
+\end_inset
+
+和
+\begin_inset Formula $\sbf H$
+\end_inset
+
+对
+\begin_inset Formula $z$
+\end_inset
+
+的依赖已经归到行波部分
+\begin_inset Formula $e^{-i\left(\omega t-k_{z}z\right)}$
+\end_inset
+
+，剩下的部分只依赖于
+\begin_inset Formula $x,y$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{align*}
+-i\omega\varepsilon_{0}\left[\begin{array}{c}
+E_{x}\\
+E_{y}\\
+{\color{blue}E_{z}}
+\end{array}\right] & =\nabla\times\sbf H=\left[\begin{array}{ccc}
+i & j & k\\
+\partial_{x} & \partial_{y} & \partial_{z}\\
+e^{-ik_{z}z}H_{x}\left(x,y\right) & e^{-ik_{z}z}H_{y}\left(x,y\right) & e^{-ik_{z}z}H_{z}\left(x,y\right)
+\end{array}\right]\\
+ & =\left[\begin{array}{c}
+{\color{blue}\partial_{y}H_{z}}-ik_{z}H_{y}\\
+-{\color{blue}\partial_{x}H_{z}}+ik_{z}H_{x}\\
+\partial_{x}H_{y}-\partial_{y}H_{x}
+\end{array}\right]
+\end{align*}
+
+\end_inset
+
+类似地，
+\begin_inset Formula 
+\[
+i\omega\mu_{0}\left[\begin{array}{c}
+H_{x}\\
+H_{y}\\
+{\color{blue}H_{z}}
+\end{array}\right]=\nabla\times\sbf E=\left[\begin{array}{c}
+{\color{blue}\partial_{y}E_{z}}-ik_{z}E_{y}\\
+-{\color{blue}\partial_{x}E_{z}}+ik_{z}E_{x}\\
+\partial_{x}E_{y}-\partial_{y}E_{x}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+4.10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+以其中一个为例，
+\begin_inset Formula 
+\begin{align*}
+-i\omega\varepsilon_{0}E_{x} & ={\color{blue}\partial_{y}H_{z}}-ik_{z}H_{y}\\
+\Rightarrow-i\omega^{2}\mu_{0}\varepsilon_{0}E_{x} & =\omega\mu_{0}{\color{blue}\partial_{y}H_{z}}-k_{z}\left(-{\color{blue}\partial_{x}E_{z}}+ik_{z}E_{x}\right)\\
+\Rightarrow-i\left(k^{2}-k_{z}^{2}\right)E_{x} & =\omega\mu_{0}{\color{blue}\partial_{y}H_{z}}+k_{z}{\color{blue}\partial_{x}E_{z}}
+\end{align*}
+
+\end_inset
+
+最后的结果为：
+\begin_inset Formula 
+\begin{align*}
+ & E_{x}=\frac{i}{k^{2}-k_{z}^{2}}\left(\omega\mu_{0}\partial_{y}H_{z}+k_{z}\partial_{x}E_{z}\right)\\
+ & E_{y}=\frac{i}{k^{2}-k_{z}^{2}}\left(-\omega\mu_{0}\partial_{x}H_{z}+k_{z}\partial_{y}E_{z}\right)\\
+ & H_{x}=\frac{i}{k^{2}-k_{z}^{2}}\left(-\omega\varepsilon_{0}\partial_{y}E_{z}+k_{z}\partial_{x}H_{z}\right)\\
+ & H_{y}=\frac{i}{k^{2}-k_{z}^{2}}\left(\omega\varepsilon_{0}\partial_{x}E_{z}+k_{z}\partial_{y}H_{z}\right)
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2337,6 +2801,81 @@ status open
 \end_inset
 
 方向是均匀的，求可能传播的波模和每种波模的截止频率。
+\end_layout
+
+\begin_layout Frame
+
+\size small
+\color blue
+解：
+\color inherit
+相比于谐振腔，现在只有
+\begin_inset Formula $y$
+\end_inset
+
+方向上的约束，即
+\begin_inset Formula $x-z$
+\end_inset
+
+平面的两块平板之间的约束。假设波在
+\begin_inset Formula $x$
+\end_inset
+
+方向上均匀（不考虑对
+\begin_inset Formula $x$
+\end_inset
+
+的依赖），对应解的形式为：
+\begin_inset Formula 
+\begin{align*}
+ & E_{x}=A_{1}\,\,\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{y}=A_{2}\,\,{\color{blue}\cos k_{y}y}\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{z}=A_{3}\,\,\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu_{0}\varepsilon_{0}
+\]
+
+\end_inset
+
+封闭区间给出一个量子化条件：
+\begin_inset Formula 
+\[
+k_{y}=\frac{m\pi}{b},\quad\left(m=0,1,2,\cdots\right),\quad k_{z}=\sqrt{\left(\omega/c\right)^{2}-\left(m\pi/b\right)^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\nabla\cdot\sbf E=0$
+\end_inset
+
+对应
+\begin_inset Formula 
+\[
+-k_{y}A_{2}+ik_{z}A_{3}=0,
+\]
+
+\end_inset
+
+由于我们不考虑电波在
+\begin_inset Formula $x$
+\end_inset
+
+方向上的依赖，所以
+\begin_inset Formula $A_{1}$
+\end_inset
+
+不确定。对每一组
+\begin_inset Formula $m,n$
+\end_inset
+
+，仍然有两种独立的波模。
 \end_layout
 
 \begin_layout Standard
