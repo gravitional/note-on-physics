@@ -2469,7 +2469,7 @@ k^{2}={\color{blue}\omega^{2}\mu\varepsilon}+i{\color{red}\omega\mu\sigma}=\beta
 \begin_layout Frame
 \begin_inset Formula 
 \[
-\left(\frac{\omega}{c}\sin\theta\right)^{2}+\beta_{z}^{2}-\alpha_{z}^{2}=\omega^{2}\mu\varepsilon,\quad\alpha_{z}\beta_{z}=\omega\mu\sigma.
+\left(\frac{\omega}{c}\sin\theta\right)^{2}+\beta_{z}^{2}-\alpha_{z}^{2}=\omega^{2}\mu\varepsilon,\quad\alpha_{z}\beta_{z}=\omega\mu\sigma/2.
 \]
 
 \end_inset
@@ -2498,30 +2498,42 @@ status open
 \end_layout
 
 \begin_layout Frame
-求解得到：
+
+\size small
+消元得到
+\begin_inset Formula $\left(\beta_{z}^{2}\right)^{2}+\omega^{2}\left(\frac{\sin^{2}\theta}{c^{2}}-\mu\varepsilon\right)\beta_{z}^{2}-\left(\omega\mu\sigma\right)^{2}/4=0$
+\end_inset
+
+，解得：
 \begin_inset Formula 
 \[
-\beta_{z}^{2}=\frac{1}{2}A+\frac{1}{2}\left[A^{2}+B^{2}\right]^{1/2},\quad\alpha_{z}^{2}=\frac{-1}{2}A+\frac{1}{2}\left[A^{2}+B^{2}\right]^{1/2}
+\beta_{z}^{2}=\frac{1}{2}\left(-A+\sqrt{A^{2}+B^{2}}\right),\quad\alpha_{z}^{2}=\frac{1}{2}\left(A+\sqrt{A^{2}+B^{2}}\right)
 \]
 
 \end_inset
 
 其中
+\begin_inset Formula $A=\omega^{2}\left(\frac{\sin^{2}\theta}{c^{2}}-\mu\varepsilon\right),\quad B^{2}=\left(\omega\mu\sigma\right)^{2}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Frame
+
+\size small
+电磁波在导电介质中的相速度和透入深度分别为
 \begin_inset Formula 
 \[
-A=\omega^{2}\left(\mu\varepsilon-\frac{\sin^{2}\theta}{c^{2}}\right),\quad B=\omega\mu\sigma
+v_{P}=\frac{\omega}{\beta}=\frac{\omega}{\sqrt{\beta_{x}^{2}+\beta_{z}^{2}}},\quad\delta=\frac{1}{\alpha}=\frac{1}{\alpha_{z}}
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Frame
-波在导电介质中的相速度和透入深度分别为
 \begin_inset Formula 
 \[
-v_{P}=\frac{\omega}{\beta}=\frac{\omega}{\sqrt{\beta_{x}^{2}+\beta_{z}^{2}}},\quad\delta=\frac{1}{\alpha}=\frac{1}{\alpha_{z}}
+\beta^{2}=k^{2}\left[\frac{\left(n^{2}+\sin^{2}\theta\right)}{2n^{2}}+\frac{1}{2}\sqrt{\left(1+\frac{\sin^{4}\theta}{n^{4}}-\frac{2\sin^{2}\theta}{n^{2}}+\frac{\sigma^{2}}{\omega^{2}\varepsilon^{2}}\right)}\right]
 \]
 
 \end_inset
@@ -3200,7 +3212,7 @@ status open
 且满足
 \begin_inset Formula 
 \[
-k_{x}^{2}+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu\varepsilon,\quad k_{x}A_{x}+k_{y}A_{y}+k_{z}A_{z}=0
+k_{x}^{2}+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu_{0}\varepsilon_{0},\quad k_{x}A_{x}+k_{y}A_{y}+k_{z}A_{z}=0
 \]
 
 \end_inset
@@ -3208,7 +3220,7 @@ k_{x}^{2}+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu\varepsilon,\quad k_{x}A_{x}+k_{y}A_{
 电场能量密度的时间平均值是
 \begin_inset Formula 
 \[
-\frac{1}{4}\varepsilon_{0}E_{0}^{2}=\frac{1}{4}\varepsilon_{0}^{2}\left(A_{x}^{2}+A_{y}^{2}+A_{z}^{2}\right)
+\frac{1}{4}\varepsilon_{0}E_{0}^{2}=\frac{1}{4}\varepsilon_{0}\left(A_{x}^{2}+A_{y}^{2}+A_{z}^{2}\right)
 \]
 
 \end_inset
@@ -3254,7 +3266,7 @@ status open
 各振幅为
 \begin_inset Formula 
 \[
-b_{x}=k_{y}A_{z}-k_{z}A_{y},\quad b_{y}=k_{z}A_{x}-k_{x}A_{z},\quad b_{z}=k_{y}A_{x}-k_{x}A_{y}
+b_{x}=k_{y}A_{z}-k_{z}A_{y},\quad b_{y}=-k_{x}A_{z}+k_{z}A_{x},\quad b_{z}=k_{y}A_{x}-k_{x}A_{y}
 \]
 
 \end_inset
@@ -3262,9 +3274,17 @@ b_{x}=k_{y}A_{z}-k_{z}A_{y},\quad b_{y}=k_{z}A_{x}-k_{x}A_{z},\quad b_{z}=k_{y}A
 磁场能量密度的平均值：
 \begin_inset Formula 
 \begin{align*}
-\frac{B_{0}^{2}}{4\mu_{0}} & =\frac{1}{4}\varepsilon_{0}c^{2}\left(b_{x}^{2}+b_{y}^{2}+b_{z}^{2}\right)\\
- & =\frac{1}{4}\varepsilon_{0}^{2}\left(A_{x}^{2}+A_{y}^{2}+A_{z}^{2}\right)
+\frac{B_{0}^{2}}{4\mu_{0}} & =\frac{1}{4}\frac{1}{\omega^{2}\mu_{0}}\left(b_{x}^{2}+b_{y}^{2}+b_{z}^{2}\right)\\
+ & =\frac{1}{4}\varepsilon_{0}\left(A_{x}^{2}+A_{y}^{2}+A_{z}^{2}\right)
 \end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+b_{x}^{2}+b_{y}^{2}+b_{z}^{2}=\left(\sbf k\times\sbf A\right)^{2}=k^{2}A^{2}-\left(\sbf k\cdot\sbf A\right)^{2}=\omega^{2}\mu_{0}\varepsilon_{0}A^{2}
+\]
 
 \end_inset
 
