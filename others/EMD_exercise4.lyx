@@ -21,6 +21,7 @@
 \usepackage{amssymb} %定义ams 字体包msam和msbm中所有数学符号的名称
 \usepackage{mathrsfs} % 提供了mathscr 命令
 \usepackage{siunitx} %国际单位制的包
+\DeclareSIPrePower\quartic{4}%单位的四次方
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
 \usepackage{bm,bbm} %\bm 让参数变成粗体, \bbm Computer Modern fonts 的黑板体
@@ -251,17 +252,16 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+麦克斯韦方程组：
 \begin_inset Formula 
 \begin{align*}
- & \nabla\times\sbf{E}=-\frac{\partial\sbf{B}}{\partial t}\\
- & \nabla\times\sbf{H}=\sbf{J}_{f}+\frac{\partial\sbf{D}}{\partial t}\\
- & \nabla\cdot\sbf{E}=\rho_{f}/\varepsilon_{0},\\
- & \nabla\cdot\sbf{B}=0,
+ & \nabla\times\sbf{E}=-\frac{\partial\sbf{B}}{\partial t},\quad\nabla\times\sbf{H}=\sbf{J}_{f}+\frac{\partial\sbf{D}}{\partial t}\\
+ & \nabla\cdot\sbf{E}=\rho_{f}/\varepsilon_{0},\quad\nabla\cdot\sbf{B}=0,
 \end{align*}
 
 \end_inset
 
-考虑真空中的方程组，
+考虑真空或者均匀介质中的情形：
 \begin_inset Formula 
 \begin{align*}
 \frac{1}{\mu_{0}}\nabla\times\left(\nabla\times\sbf{E}\right) & =-\varepsilon_{0}\partial_{t}^{2}\sbf{E}\\
@@ -276,7 +276,11 @@ status open
 \begin_inset Formula $c$
 \end_inset
 
-具有速度的量纲。
+具有速度的量纲。和机械波具有相同的形式，方程的物理含义类似
+\begin_inset Formula $\sbf F=m\sbf a$
+\end_inset
+
+。
 \end_layout
 
 \end_deeper
@@ -303,18 +307,27 @@ status open
 \begin_layout Frame
 \begin_inset Formula 
 \begin{align*}
-\varepsilon_{0} & \approx8.85\times10^{-12}\frac{\mathrm{F}}{\mathrm{m}}\left(\frac{\text{法拉}}{\text{米}}\right)\approx9\times10^{-12}\,\frac{\text{s}^{4}\text{A}^{2}}{\text{Kg}*\text{m}^{3}},\quad\text{from}\quad\left[U=\frac{Q}{C}\right]=\left[\varphi=\frac{Q}{4\pi\varepsilon_{0}r}\right]\\
-\mu_{0} & =4\pi\times10^{-7}\frac{\mathrm{N}}{\mathrm{A}^{2}}=4\pi\times10^{-7}\,\frac{\text{Kg}*\text{m}}{\text{s}^{2}*\text{A}^{2}},\quad\text{from}\quad\dif\sbf{F}=\frac{\mu_{0}}{4\pi}\frac{I_{1}I_{2}\dif l_{1}\times\left(\dif l_{2}\times\sbf{r}\right)}{r^{3}}
+\varepsilon_{0} & \approx\SI{8.85e-12}{\farad\per\meter}\left(\text{法拉}/\text{米}\right)\approx\SI{9e-12}{\quartic\second\square\ampere\per\kilogram\per\cubic\meter},\\
+\mu_{0} & =4\pi\times10^{-7}\si{\N\per\square\ampere}=4\pi\times10^{-7}\si{\kilogram\meter\second\tothe{-2}\ampere\tothe{-2}}
 \end{align*}
+
+\end_inset
+
+单位可分别从下列方程得到：
+\begin_inset Formula 
+\[
+\left[U=\frac{Q}{C}\right]=\left[\varphi=\frac{Q}{4\pi\varepsilon_{0}r}\right],\quad\dif\sbf{F}=\frac{\mu_{0}}{4\pi}\frac{I_{1}I_{2}\dif l_{1}\times\left(\dif l_{2}\times\sbf{r}\right)}{r^{3}}
+\]
 
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
+\nabla^{2}\sbf{E} & =\mu_{0}\varepsilon_{0}\partial_{t}^{2}\sbf{E}=\frac{1}{c^{2}}\partial_{t}^{2}\sbf{E}\\
 c^{2}\mu_{0}\varepsilon_{0} & =1,\\
-c^{2}*36\pi\times10^{-19} & =1\\
-c & \approx\sqrt{\frac{27.7777\cdots}{\pi}}\times10^{8}\approx2.97\times10^{8}\mathrm{m}/\mathrm{s}
+c^{2}\times36\pi\times10^{-19} & =1\\
+c & \approx\sqrt{\frac{27.7777\cdots}{\pi}}\times10^{8}\approx\SI{2.97e8}{\meter\per\second}
 \end{align*}
 
 \end_inset
@@ -572,7 +585,7 @@ status open
 \begin_inset Formula $\rho_{f}=0,\sbf J_{f}=0$
 \end_inset
 
-：
+，既不存在自由电荷和传导电流：
 \begin_inset Formula 
 \begin{align*}
  & \nabla\cdot\sbf{E}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{E}\left(\sbf{x}\right)=i\omega\mu\sbf{H}\left(\sbf{x}\right)\\
@@ -593,7 +606,7 @@ status open
 \begin_inset Formula 
 \begin{align*}
  & \sbf{e}_{n}\times\left(\sbf{E}_{2}-\sbf{E}_{1}\right)=0,\quad\sbf{e}_{n}\times\left(\sbf{H}_{2}-\sbf{H}_{1}\right)=0\\
- & \sbf{e}_{n}\cdot\left(\varepsilon_{2}\sbf E_{2}-\varepsilon_{1}\sbf E_{1}\right)=0,\quad\sbf{e}_{n}\cdot\left(\mu_{2}\sbf H_{2}-\mu_{1}\sbf H_{1}\right)=0
+ & \sbf{e}_{n}\cdot\left(\sbf D_{2}-\sbf D_{1}\right)=0,\quad\sbf{e}_{n}\cdot\left(\sbf B_{2}-\sbf B_{1}\right)=0
 \end{align*}
 
 \end_inset
@@ -1419,7 +1432,7 @@ status open
 \begin_inset Formula $k_{z}=\sqrt{\left(\omega/c\right)^{2}-\left(k_{x}^{2}+k_{y}^{2}\right)}$
 \end_inset
 
-为实数时是行波，为虚数时是衰减波，故截至频率为
+为实数时是行波，为虚数时是衰减波，故截止频率为
 \begin_inset Formula 
 \[
 \omega_{mn}^{\text{min}}=c\pi\sqrt{\left(\frac{m}{a}\right)^{2}+\left(\frac{n}{b}\right)^{2}}
@@ -1483,6 +1496,36 @@ status open
 
 \begin_layout Plain Layout
 4.1
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+tea[z_, k_] := {2 E0*Cos[dk*z - d
+\backslash
+[Omega]*t] Cos[k*z - 
+\backslash
+[Omega]*t], 2 E0*Cos[dk*z - d
+\backslash
+[Omega]*t], -2 E0* Cos[dk*z - d
+\backslash
+[Omega]*t]} /.
+ {E0 -> 1, t -> 1, dk -> 1, 
+\backslash
+[Omega] -> 1000, d
+\backslash
+[Omega] -> 1}; teb = GraphicsRow[{ Plot[Evaluate@tea[z, 10], {z, 0, 2 
+\backslash
+[Pi]}], Plot[Evaluate@tea[z, 20], {z, 0, 2 
+\backslash
+[Pi]}], Plot[Evaluate@tea[z, 30], {z, 0, 2 
+\backslash
+[Pi]}] }, ImageSize -> {480, 150} ]; Export["/home/tom/note/others/baoLuoMian.pdf
+", teb]
 \end_layout
 
 \end_inset
@@ -1555,6 +1598,30 @@ status open
 \end_inset
 
 
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(0,-2.5)$) {
+\backslash
+includegraphics[scale=1]{baoLuoMian}};
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -1580,6 +1647,33 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(0,+2)$) {
+\backslash
+includegraphics[scale=1]{baoLuoMian}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \sbf{E}={\color{blue}2\sbf{e}_{x}\sbf{E}_{0}\cos\left(\dif\omega*t-\dif k*z\right)}{\color{red}e^{-i\left(\omega*t-k*z\right)}}
@@ -1598,7 +1692,7 @@ status open
 。
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \color blue
 等振幅面
@@ -1618,7 +1712,7 @@ status open
 ，也就是波包的移动速度。
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \color red
 等相位面
@@ -2735,6 +2829,96 @@ status open
 满足的方程及边界条件。
 \end_layout
 
+\begin_layout Frame
+
+\color blue
+解：
+\color inherit
+由麦克斯韦方程组，波导管内单色波的场方程为：
+\begin_inset Formula 
+\begin{align*}
+ & \nabla\cdot\sbf{E}\left(\sbf{x}\right)=0,\quad\nabla\times\sbf{E}\left(\sbf{x}\right)=i\omega\mu\sbf{H}\left(\sbf{x}\right)\\
+ & \nabla\cdot\sbf{H}\left(\sbf{x}\right)=0,\quad{\color{blue}\nabla\times\sbf{H}\left(\sbf{x}\right)=-i\omega\varepsilon\sbf{E}\left(\sbf{x}\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Rightarrow\nabla^{2}\sbf{H}+k^{2}\sbf{H}=0,\quad\nabla\cdot\sbf{H}=0.
+\]
+
+\end_inset
+
+理想导体表面的边值关系为：
+\begin_inset Formula 
+\[
+\left.\sbf e_{n}\times\sbf H\right|_{S}=\sbf\alpha_{f},\quad{\color{blue}\left.\sbf e_{n}\times\sbf E\right|_{S}=0}
+\]
+
+\end_inset
+
+总结为：
+\begin_inset Formula 
+\[
+\nabla\cdot\sbf{H}\left(\sbf{x}\right)=0,\quad\sbf e_{n}\times\left(\nabla\times\sbf H\right)_{s}=0
+\]
+
+\end_inset
+
+以
+\begin_inset Formula $\sbf e_{n}=\sbf e_{x}$
+\end_inset
+
+为例，上式化简成
+\begin_inset Formula $\nabla H_{x}=\partial_{x}\sbf H$
+\end_inset
+
+，则
+\begin_inset Formula $\partial_{y}H_{x}=\partial_{x}H_{y}=0$
+\end_inset
+
+，这里考虑了
+\begin_inset Formula $H_{x}$
+\end_inset
+
+在
+\begin_inset Formula $y-z$
+\end_inset
+
+界面恒为
+\begin_inset Formula $0$
+\end_inset
+
+。假设波导管的边界分别为
+\begin_inset Formula $x=0,a$
+\end_inset
+
+，
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $y=0,b$
+\end_inset
+
+，则有：
+\begin_inset Formula 
+\begin{align*}
+ & x=0,a\quad H_{x}=0,\quad\partial_{x}H_{y}=\partial_{x}H_{z}=0\\
+ & y=0,b\quad H_{y}=0,\quad\partial_{y}H_{x}=\partial_{y}H_{z}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2755,7 +2939,8 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 试论证矩形波导管内不存在
 \begin_inset Formula $\text{TM}_{m0}$
 \end_inset
@@ -2767,6 +2952,97 @@ status open
 波。
 \end_layout
 
+\begin_layout Standard
+
+\color blue
+解：
+\color inherit
+从矩阵波导管内电场的表达式出发，利用
+\begin_inset Formula $i\omega\mu_{0}\sbf H=\nabla\times\sbf E$
+\end_inset
+
+ 得到：
+\begin_inset Formula 
+\begin{align*}
+ & i\omega\mu_{0}H_{x}=\left(\phantom{-}{\color{blue}k_{y}}A_{z}-ik_{z}{\color{cyan}A_{y}}\right)\sin k_{x}x\quad\cos k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & i\omega\mu_{0}H_{y}=\left(-k_{x}A_{z}+ik_{z}A_{x}\right)\cos k_{x}x\quad{\color{blue}\sin k_{y}y}\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & i\omega\mu_{0}H_{z}=\left(\phantom{-}k_{x}{\color{cyan}A_{y}}-i{\color{blue}k_{y}}A_{x}\right)\cos k_{x}x\quad\cos k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+k_{x}=\frac{m\pi}{a},\quad k_{y}=\frac{n\pi}{b},\quad A_{x}k_{x}+A_{y}k_{y}-iA_{z}k_{z}=0
+\]
+
+\end_inset
+
+假设存在横磁波
+\begin_inset Formula $\left(m,0\right)$
+\end_inset
+
+，
+\begin_inset Formula $n=0\Rightarrow$
+\end_inset
+
+
+\begin_inset Formula ${\color{blue}k_{y}=0}\Rightarrow$
+\end_inset
+
+
+\begin_inset Formula $H_{y}=0$
+\end_inset
+
+，
+\begin_inset Formula $z$
+\end_inset
+
+方向的横磁波有
+\begin_inset Formula $H_{z}=0$
+\end_inset
+
+，则
+\color cyan
+
+\begin_inset Formula $A_{y}=0$
+\end_inset
+
+。
+\color inherit
+既不存在
+\begin_inset Formula $\text{TM}_{\text{m0}}$
+\end_inset
+
+波。同理可证不存在
+\begin_inset Formula $\text{TM}_{\text{0n}}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+这和之前的结论一致：波导内电场
+\begin_inset Formula $\sbf E$
+\end_inset
+
+和磁场
+\begin_inset Formula $\sbf H$
+\end_inset
+
+不能同时为横波，存在
+\begin_inset Formula $\text{TE}_{\text{m0}}$
+\end_inset
+
+，就不存在
+\begin_inset Formula $\text{TM}_{\text{m0}}$
+\end_inset
+
+。
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
