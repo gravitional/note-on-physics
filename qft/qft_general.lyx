@@ -23,7 +23,7 @@
 % Required for specifying colors by name 
 \usepackage{enumerate} 
 
-\usepackage{hepunits} % hep units
+\usepackage{siunitx} % hep units
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
 \usepackage{bm,bbm} 
@@ -158,6 +158,47 @@
 
 \begin_layout Author
 Thomas Young
+\end_layout
+
+\begin_layout Section
+单位制
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & h=\SI{6.62607015e-34}{\joule\second}\\
+ & \hbar=\SI{1.05457e-34}{\joule\second},\quad c=\SI{2.9979e8}{\meter\per\second},\quad\si{\elementarycharge}=\SI{1.602e-19}{\coulomb}
+\end{align*}
+
+\end_inset
+
+高能物理中使用自然单位制：
+\begin_inset Formula 
+\begin{align*}
+ & \hbar=c=1\\
+ & \left[E\right]=\left[M\right]=\left[L\right]^{-1}=\left[S\right]^{-1}
+\end{align*}
+
+\end_inset
+
+相当于进行了一个标度变换：
+\begin_inset Formula 
+\[
+\left(\frac{6.62607015\times10^{-34}}{2\pi*1.602176634}\times10^{19}\,\si{\MeV\second}\right)\left(2.99792458\times10^{17}\,\si{\nm\per\second}\right)=\SI{197.32698}{\MeV\nm}
+\]
+
+\end_inset
+
+所以自然单位制度与国际单位制的转换为：
+\begin_inset Formula 
+\[
+\hbar c=1=\SI{197.32698}{\MeV\nm}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

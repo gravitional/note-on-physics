@@ -3447,7 +3447,7 @@ noprefix "false"
 式写成
 \begin_inset Formula 
 \[
-\bar{u}\left\{ \gamma^{\mu}[F_{1}(q^{2})+F_{2}(q^{2})]-\frac{1}{2m}(p^{\prime}+p)^{\mu}F_{2}(q^{2})\right\} u
+\langle p^{\prime},s^{\prime}|J^{\mu}\left(0\right)|p,s\rangle=\bar{u}\left\{ \gamma^{\mu}[F_{1}(q^{2})+F_{2}(q^{2})]-\frac{1}{2m}(p^{\prime}+p)^{\mu}F_{2}(q^{2})\right\} u
 \]
 
 \end_inset
@@ -3669,7 +3669,7 @@ noprefix "false"
 ，合在一起，有
 \begin_inset Formula 
 \[
-N^{\mu}\rightarrow2m(p^{\prime}+p)^{\mu}(\alpha+\beta)(1-\alpha-\beta).
+N^{\mu}\rightarrow2m(p^{\prime}+p)^{\mu}\left(\alpha+\beta\right)\left(1-\alpha-\beta\right).
 \]
 
 \end_inset
@@ -3680,27 +3680,37 @@ N^{\mu}\rightarrow2m(p^{\prime}+p)^{\mu}(\alpha+\beta)(1-\alpha-\beta).
 \begin_layout Standard
 现在我们可以用(D.
  11)式计算积分
-\begin_inset Formula $\int[\dif^{4}l/(2\pi)^{4}](1/\mathcal{D})$
+\begin_inset Formula $\int\left[\dif^{4}l/\left(2\pi\right)^{4}\right]\left(1/\mathcal{D}\right)$
 \end_inset
 
-了。最终得到
+了。
 \begin_inset Formula 
 \[
-\Gamma^{\mu}=-ie^{2}\int\frac{\dif^{4}k}{(2\pi)^{4}}N^{\mu}2\int\dif\alpha\dif\beta\frac{1}{[l^{2}-(\alpha+\beta)^{2}m^{2}]^{3}+O(q^{2})},
+\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left(k^{2}-m^{2}+i\varepsilon\right)^{3}}=\frac{-i}{32\pi^{2}m^{2}}
 \]
 
 \end_inset
 
-
+最终得到
 \begin_inset Formula 
 \begin{align*}
-\Gamma^{\mu} & =-2ie^{2}\int\dif\alpha\dif\beta\left(\frac{-i}{32\pi^{2}}\right)\frac{1}{(\alpha+\beta)^{2}m^{2}}N^{\mu}\\
+\Gamma^{\mu} & =-2ie^{2}\int\frac{\dif^{4}k}{(2\pi)^{4}}\int\dif\alpha\dif\beta\frac{N^{\mu}}{[l^{2}-(\alpha+\beta)^{2}m^{2}]^{3}+O(q^{2})},\\
+ & =-2ie^{2}\int\dif\alpha\dif\beta\left(\frac{-i}{32\pi^{2}}\right)\frac{1}{(\alpha+\beta)^{2}m^{2}}N^{\mu}\\
+ & =-2ie^{2}\int\dif\alpha\dif\beta\left(\frac{-i}{32\pi^{2}}\right)\frac{2m(p^{\prime}+p)^{\mu}\left(\alpha+\beta\right)\left(1-\alpha-\beta\right)}{(\alpha+\beta)^{2}m^{2}}\\
  & =-\frac{e^{2}}{8\pi^{2}}\frac{1}{2m}(p^{\prime}+p)^{\mu}
 \end{align*}
 
 \end_inset
 
- 然后，音乐起： 
+对比
+\begin_inset Formula 
+\[
+\langle p^{\prime},s^{\prime}|J^{\mu}\left(0\right)|p,s\rangle=\bar{u}\left\{ \gamma^{\mu}[F_{1}(q^{2})+F_{2}(q^{2})]-\frac{1}{2m}(p^{\prime}+p)^{\mu}F_{2}(q^{2})\right\} u
+\]
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 F_{2}(0)=\frac{e^{2}}{8\pi^{2}}=\frac{\alpha}{2\pi}\label{eq:6.16}
@@ -3712,7 +3722,7 @@ F_{2}(0)=\frac{e^{2}}{8\pi^{2}}=\frac{\alpha}{2\pi}\label{eq:6.16}
 \end_layout
 
 \begin_layout Standard
-在本章，我介绍了整整两个20-世纪物理学的伟大成就。虽然得承认，第一个成就本质上并不是一个场论的成果。
+这是20-世纪物理学的两个伟大成就。虽然得承认，第一个成就本质上不是场论的成果。
 \end_layout
 
 \begin_layout Section
