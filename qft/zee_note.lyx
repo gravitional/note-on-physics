@@ -50,6 +50,7 @@
 \usepackage{enumerate} 
 \usepackage{tikz,tikz-feynman}% 费曼图及其他作图
 \usetikzlibrary{shapes.misc,animations}
+\usetikzlibrary{shapes.geometric}% tikz node 形状的库
 \usepackage{siunitx} % SI units
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
@@ -3727,6 +3728,442 @@ F_{2}(0)=\frac{e^{2}}{8\pi^{2}}=\frac{\alpha}{2\pi}\label{eq:6.16}
 
 \begin_layout Section
 真空极化与电荷重正化
+\end_layout
+
+\begin_layout Subsection
+光子涨落成正负电子对
+\end_layout
+
+\begin_layout Standard
+量子力学早期一个成就是理解了量子涨落如何影响光子传播。一个光子可以变成正负电子对，然后在不确定原理容许的短暂之间之后，互相湮灭回光子。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}[scale=0.5]
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 1 of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 3 of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 4 of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		(a1) --[charged boson] (a2)--[fermion,out=70,in=110,looseness=1] (a3)--[charge
+d boson](a4);
+\end_layout
+
+\begin_layout Plain Layout
+		(a2)--[fermion,out=-70,in=-110,looseness=1] (a3)
+\end_layout
+
+\begin_layout Plain Layout
+		};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+真空中涨落出的正负电子之间，还可以交换一个光子进行相互作用，这个光子又可以变成正反电子对等等。也就是泡泡内可以发生更高阶的相互作用，完整过程是这种泡泡图的级数之
+和。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}[scale=1]
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 1 of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm ,minimum
+ height=.5cm,anchor=center] (a3) at (1.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 3 of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		(a1) --[charged boson] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+		(a3) --[charged boson] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+		};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+node at (3.3,0) {$+$};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}[xshift=3.6cm]
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (b1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 1 of b1] (b2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm ,minimum
+ height=.5cm,anchor=center] (b3) at (1.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 3 of b1] (b4);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm,minimum
+ height=.5cm,anchor=center] (b5) at (3.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 5 of b1] (b6);
+\end_layout
+
+\begin_layout Plain Layout
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		(b1) --[charged boson] (b2);
+\end_layout
+
+\begin_layout Plain Layout
+		(b3) --[charged boson] (b4);
+\end_layout
+
+\begin_layout Plain Layout
+		(b5) --[charged boson] (b6);
+\end_layout
+
+\begin_layout Plain Layout
+		};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+将图中的阴影部分记作
+\begin_inset Formula $i\Pi_{\mu\nu}\left(q\right)$
+\end_inset
+
+，也就是所谓的真空极化张量。取最低阶近似，相当于考虑泡泡内为空白的情形。
+\end_layout
+
+\begin_layout Standard
+为方便起见，可以做变换
+\begin_inset Formula $A\to\left(1/e\right)A$
+\end_inset
+
+，并重写拉氏量
+\begin_inset Formula $\mathcal{L}=\bar{\psi}\left[i\gamma^{\mu}\left(\partial_{\mu}-ieA_{\mu}\right)-m\right]\psi-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$
+\end_inset
+
+（这里的约定是
+\begin_inset Formula $e>0$
+\end_inset
+
+，和 Peskin 相反），这个操作总是允许的，
+\begin_inset Formula 
+\[
+\mathcal{L}=\bar{\psi}\left[i\gamma^{\mu}\left(\partial_{\mu}-iA_{\mu}\right)-m\right]\psi-\frac{1}{4e^{2}}F_{\mu\nu}F^{\mu\nu}
+\]
+
+\end_inset
+
+现在规范变换是
+\begin_inset Formula $\psi\to e^{i\alpha}\psi$
+\end_inset
+
+，
+\begin_inset Formula $A_{\mu}\to A_{\mu}+\partial_{\mu}\alpha$
+\end_inset
+
+。光子传播子粗略来说就是由
+\begin_inset Formula $\frac{1}{4e^{2}}F_{\mu\nu}F^{\mu\nu}$
+\end_inset
+
+取逆得到，现在它正比于
+\begin_inset Formula $e^{2}$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{equation}
+iD_{\mu\nu}\left(q\right)=\frac{-ie^{2}}{q^{2}}\left[g_{\mu\nu}-\left(1-\xi\right)\frac{q_{\mu}q_{\nu}}{q^{2}}\right]\label{eq:3.7.2}
+\end{equation}
+
+\end_inset
+
+每交换一次光子，振幅中增加一个
+\begin_inset Formula $e^{2}$
+\end_inset
+
+。这个变换只是为了更方便地阐述，不影响物理。例如2.6章中的电子–电子散射，我们可以认为
+\begin_inset Formula $e^{2}$
+\end_inset
+
+因子是与光子传播子关联而不是来自于相互作用顶点。在这种观点下，
+\begin_inset Formula $e^{2}$
+\end_inset
+
+衡量了光子在时空中传播的难易度。
+\begin_inset Formula $e^{2}$
+\end_inset
+
+越小，光子传播需要的代价越大，则更难传播，电磁效应越小。
+\end_layout
+
+\begin_layout Standard
+根据2.7章中给出的规范不变性图解证明，我们有
+\begin_inset Formula $q^{\mu}\Pi_{\mu\nu}\left(q\right)=0$
+\end_inset
+
+，联合洛伦兹不变性有：
+\begin_inset Formula 
+\begin{align}
+\Pi_{\mu\nu}\left(q\right) & =\left(q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)\Pi\left(q^{2}\right)\label{eq:3.7.3}\\
+q^{\mu}\Pi_{\mu\nu}\left(q\right) & =\left(q^{2}q_{\nu}-q_{\nu}q^{2}\right)\Pi\left(q^{2}\right)=0\nonumber 
+\end{align}
+
+\end_inset
+
+物理光子传播子（上文的泡泡图），或者说重整的光子传播子由如下几何级数给出：
+\begin_inset Formula 
+\begin{align}
+iD_{\mu\nu}^{P}\left(q\right) & =iD_{\mu\nu}\left(q\right)+iD_{\mu\lambda}\left(q\right)i\Pi^{\lambda\rho}\left(q\right)iD_{\rho\nu}\left(q\right)\nonumber \\
+ & +iD_{\mu\lambda}\left(q\right)\quad i\Pi^{\lambda\rho}\left(q\right)iD_{\rho\sigma}\left(q\right)\quad i\Pi^{\sigma\kappa}\left(q\right)iD_{\kappa\nu}\left(q\right)\nonumber \\
+ & =\frac{-ie^{2}}{q^{2}}g_{\mu\nu}\frac{1}{1+e^{2}\Pi\left(q^{2}\right)}+q_{\mu}q_{\nu}\label{eq:3.7.4}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D_{\mu\lambda}\left(q\right)=\frac{-ie^{2}}{q^{2}}\left[g_{\mu\lambda}-\left(1-\xi\right)\frac{q_{\mu}q_{\lambda}}{q^{2}}\right],\quad\Pi_{\mu\nu}\left(q\right)=\left(q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)\Pi\left(q^{2}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+i\left(q^{\lambda}q^{\rho}-g^{\lambda\rho}q^{2}\right)\Pi\left(q^{2}\right).\frac{-ie^{2}}{q^{2}}\left[g_{\rho\sigma}-\left(1-\xi\right)\frac{q_{\rho}q_{\sigma}}{q^{2}}\right]=\frac{-ie^{2}}{q^{2}}\Pi\left(q^{2}\right)\left[-g_{\sigma}^{\lambda}q^{2}+\left(2-\xi\right)q^{\lambda}q_{\sigma}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \frac{-ie^{2}}{q^{2}}\left[g_{\mu\lambda}-\left(1-\xi\right)\frac{q_{\mu}q_{\lambda}}{q^{2}}\right].\frac{-ie^{2}}{q^{2}}\Pi\left(q^{2}\right)\left[-g_{\sigma}^{\lambda}q^{2}+\left(2-\xi\right)q^{\lambda}q_{\sigma}\right]\\
+= & \left(\frac{-ie^{2}}{q^{2}}\right)^{2}\Pi\left(q^{2}\right)\left[-g_{\mu\sigma}q^{2}+\left(2-\xi\right)q_{\mu}q_{\sigma}+\left(1-\xi\right)q_{\mu}q_{\sigma}-\left(1-\xi\right)\left(2-\xi\right)q_{\mu}q_{\sigma}\right]
+\end{align*}
+
+\end_inset
+
+由
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，
+\begin_inset Formula $iD_{\mu\lambda}\left(q\right)$
+\end_inset
+
+中的
+\begin_inset Formula $\left(1-\xi\right)\left(q_{\mu}q_{\lambda}/q^{2}\right)$
+\end_inset
+
+部分遇到
+\begin_inset Formula $\Pi^{\lambda\rho}\left(q\right)$
+\end_inset
+
+等于
+\begin_inset Formula $0$
+\end_inset
+
+，因此规范参数
+\begin_inset Formula $\xi$
+\end_inset
+
+最后不会出现在物理的振幅中。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $iD_{\mu\nu}^{P}\left(q\right)$
+\end_inset
+
+的极点的留数就是物理，或者说重正化电荷的平方：
+\begin_inset Formula 
+\[
+e_{R}^{2}=e^{2}\frac{1}{1+e^{2}\Pi\left(0\right)}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

@@ -1,24 +1,38 @@
 \documentclass[tikz,border=10pt]{standalone}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}% tikz node 形状的库
+\usetikzlibrary{patterns}
 \usepackage{tikz-feynman}
 \begin{document}
 
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=1]
 	\begin{feynman}
 		%% fig a
 		\vertex (a1) at (0,0);
-		\vertex[above right = 0 and 2 of a1] (a2);
-		\vertex[above right = 2 and 4 of a1] (a3);
-			\vertex[above right = -2 and 4 of a1] (a4);
-		\vertex[above right = 1 and 3 of a1] (a3m);
-		\vertex[above right = -1 and 3 of a1] (a4m);
+		\vertex[above right = 0 and 1 of a1] (a2);
+		\node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm ,minimum height=.5cm,anchor=center] (a3) at (1.5,0);
+		\vertex[above right = 0 and 3 of a1] (a4);
 		% 对各个顶点连线
 		\diagram*{
-		(a4) --[fermion,momentum=\(p\)] (a4m)--[fermion,momentum=\(p+k\)] (a2)
-		--[fermion,momentum=\(p^{\prime}+k\)] (a3m)--[fermion,momentum=\(p^{\prime}\)] (a3);
-		(a1)--[charged boson,momentum=\(q\)](a2);
-		(a3m) -- [charged boson,out=90,in=90,looseness=1.5,relative,momentum=\(k\)](a4m);
+		(a1) --[charged boson] (a2);
+		(a3) --[charged boson] (a4);
+		};
+	\end{feynman}
+	\node at (3.3,0) {$+$};
+	\begin{feynman}[xshift=3.6cm]
+		%% fig a
+		\vertex (b1) at (0,0);
+		\vertex[above right = 0 and 1 of b1] (b2);
+		\node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm ,minimum height=.5cm,anchor=center] (b3) at (1.5,0);
+		\vertex[above right = 0 and 3 of b1] (b4);
+		\node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm,minimum height=.5cm,anchor=center] (b5) at (3.5,0);
+		\vertex[above right = 0 and 5 of b1] (b6);
+		% 对各个顶点连线
+		\diagram*{
+		(b1) --[charged boson] (b2);
+		(b3) --[charged boson] (b4);
+		(b5) --[charged boson] (b6);
 		};
 	\end{feynman}
 \end{tikzpicture}

@@ -402,8 +402,8 @@ page 148,TikZ Library calc, 可以计算坐标值。
 
 对图像进行全局伸缩，可以指定`xyz`单位矢量的长度，也可以通过画布变换
 
-page 137 Coordinate system xyz
-page 43 Transformations
+page 137: Coordinate system xyz
+page 43: Transformations
 
 ### 指定路径
 
@@ -468,7 +468,6 @@ p224 基本语法：
 page 785,72 Shape Library：可以指定`node`的形状，有预定义的各种形状。
 page 563, Part V Libraries： 从这里开始是各种库，有预定义的各种命令。
 
-
 ### node位置的相对指定
 
 240
@@ -523,7 +522,7 @@ Shorthand for setting a dashed dash pattern.
 
 ### 指定 node 节点的形状
 
-224 Nodes and Their Shapes
+p224, Nodes and Their Shapes
 
 比如
 
@@ -533,6 +532,12 @@ Shorthand for setting a dashed dash pattern.
 \draw (0,-2) node[minimum size=2cm,draw,circle] {circle};
 \end{tikzpicture}
 ```
+
+p785: 72 Shape Library, 形状库
+
+p229: 17.2.3 Common Options: Separations, Margins, Padding and Border Rotation: 给出了node 一些几何参数的选项
+
+p730: 63 Pattern Library : node 可以使用 pattern 填充，某种图形模式。
 
 ### 添加任意装饰
 
