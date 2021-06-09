@@ -3225,67 +3225,79 @@ status open
 
 \begin_layout Plain Layout
 
+
 \backslash
 begin{tikzpicture}[scale=0.5]
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 2 of a1] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 2 and 4 of a1] (a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 			
 \backslash
 vertex[above right = -2 and 4 of a1] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 1 and 3 of a1] (a3m);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 3 of a1] (a4m);
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a4) --[fermion,momentum=
 \backslash
 (p
@@ -3298,6 +3310,7 @@ diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		--[fermion,momentum=
 \backslash
 (p^{
@@ -3314,6 +3327,7 @@ prime}
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a1)--[charged boson,momentum=
 \backslash
 (q
@@ -3322,6 +3336,7 @@ prime}
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a3m) -- [charged boson,out=90,in=90,looseness=1.5,relative,momentum=
 \backslash
 (k
@@ -3330,16 +3345,19 @@ prime}
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 
 \backslash
 end{tikzpicture}
@@ -3751,74 +3769,88 @@ status collapsed
 
 \begin_layout Plain Layout
 
+
 \backslash
 begin{tikzpicture}[scale=0.5]
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 1 of a1] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 3 of a1] (a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 4 of a1] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a1) --[charged boson] (a2)--[fermion,out=70,in=110,looseness=1] (a3)--[charge
 d boson](a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a2)--[fermion,out=-70,in=-110,looseness=1] (a3)
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 
 \backslash
 end{tikzpicture}
@@ -3840,33 +3872,39 @@ status collapsed
 
 \begin_layout Plain Layout
 
+
 \backslash
 begin{tikzpicture}[scale=1]
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 1 of a1] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm ,minimum
@@ -3874,68 +3912,81 @@ node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm ,minimum
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 3 of a1] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a1) --[charged boson] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a3) --[charged boson] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 node at (3.3,0) {$+$};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}[xshift=3.6cm]
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (b1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 1 of b1] (b2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm ,minimum
@@ -3943,12 +3994,14 @@ node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm ,minimum
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 3 of b1] (b4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm,minimum
@@ -3956,44 +4009,53 @@ node[draw,pattern=north east lines,shape=ellipse,minimum width=1cm,minimum
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 5 of b1] (b6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(b1) --[charged boson] (b2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(b3) --[charged boson] (b4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(b5) --[charged boson] (b6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 
 \backslash
 end{tikzpicture}
@@ -4027,9 +4089,9 @@ end{tikzpicture}
 
 ，和 Peskin 相反），这个操作总是允许的，
 \begin_inset Formula 
-\[
-\mathcal{L}=\bar{\psi}\left[i\gamma^{\mu}\left(\partial_{\mu}-iA_{\mu}\right)-m\right]\psi-\frac{1}{4e^{2}}F_{\mu\nu}F^{\mu\nu}
-\]
+\begin{equation}
+\mathcal{L}=\bar{\psi}\left[i\gamma^{\mu}\left(\partial_{\mu}-iA_{\mu}\right)-m\right]\psi-\frac{1}{4e^{2}}F_{\mu\nu}F^{\mu\nu}\label{eq:3.7.1}
+\end{equation}
 
 \end_inset
 
@@ -4563,14 +4625,181 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+如果
+\begin_inset Formula $m^{2}\gg\alpha\left(1-\alpha\right)q^{2}$
+\end_inset
+
+，
 \begin_inset Formula 
 \[
-e_{R}^{2}=e^{2}\frac{1}{1+\frac{e^{2}}{12\pi^{2}}\log\frac{M^{2}}{m^{2}}}\simeq e^{2}\left(1-\frac{e^{2}}{12\pi^{2}}\log\frac{M^{2}}{m^{2}}\right)
+\Pi\left(q^{2}\right)\approx\frac{1}{2\pi^{2}}\int_{0}^{1}\dif\alpha\,\alpha\left(1-\alpha\right)\log\frac{M^{2}}{m^{2}}=\frac{1}{2\pi^{2}}\log\frac{M^{2}}{m^{2}}\left.\left(\frac{1}{2}\alpha^{2}-\frac{1}{3}\alpha^{3}\right)\right|_{0}^{1}=\frac{1}{12\pi^{2}}\log\frac{M^{2}}{m^{2}}
 \]
 
 \end_inset
 
 
+\begin_inset Formula 
+\[
+e_{R}^{2}=e^{2}\frac{1}{1+e^{2}\Pi\left(0\right)}=e_{R}^{2}=e^{2}\frac{1}{1+\frac{e^{2}}{12\pi^{2}}\log\frac{M^{2}}{m^{2}}}\simeq e^{2}\left(1-\frac{e^{2}}{12\pi^{2}}\log\frac{M^{2}}{m^{2}}\right)
+\]
+
+\end_inset
+
+量子涨落的效果是缩减了电荷量，后续关于重整化群flow的章节会解释这个效应的物理起源。
+\end_layout
+
+\begin_layout Standard
+你也许会说，物理电荷的是通过测量两个电子相互散射的强度给出的。精确到
+\begin_inset Formula $e^{4}$
+\end_inset
+
+阶的话，除了我们算过的光子传播子修正，还有顶角修正和电子外腿修正。许多文献会说明，后两种贡献是相互抵消的。使用拉氏量
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{L}=\bar{\psi}\left[i\gamma^{\mu}\left(\partial_{\mu}-iA_{\mu}\right)-m\right]\psi-\frac{1}{4e^{2}}F_{\mu\nu}F^{\mu\nu}$
+\end_inset
+
+的好处在于这个事实不言自明：电荷是光子传播的强度。
+\end_layout
+
+\begin_layout Standard
+再啰嗦一下，我们来设想使用
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:3.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中的物理微扰论。拉格朗日量中的各项用物理场，即重正化场表示（和前面一样，我们省略掉场的下标
+\begin_inset Formula $P$
+\end_inset
+
+）。
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L} & =\bar{\psi}\left[i\gamma^{\mu}\left(\partial_{\mu}-iA_{\mu}\right)-m_{P}\right]\psi-\frac{1}{4e_{P}^{2}}F_{\mu\nu}F^{\mu\nu}\\
+ & +A\bar{\psi}i\gamma^{\mu}\left(\partial_{\mu}-iA_{\mu}\right)\psi+B\bar{\psi}\psi-CF_{\mu\nu}F^{\mu\nu}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $A,B,C$
+\end_inset
+
+的值可以递归确定。要点在于，规范不变性保证
+\begin_inset Formula $\bar{\psi}i\gamma^{\mu}\partial_{\mu}\psi$
+\end_inset
+
+和
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}A_{\mu}\psi$
+\end_inset
+
+总是以组合
+\begin_inset Formula $\bar{\psi}i\gamma^{\mu}\left(\partial_{\mu}-iA_{\mu}\right)\psi$
+\end_inset
+
+的形式出现：
+\begin_inset Formula $A_{\mu}$
+\end_inset
+
+和
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\psi$
+\end_inset
+
+的耦合强度不可能变，能够变动的是光子在时空中传播的难易度。
+\end_layout
+
+\begin_layout Standard
+这个说法有着深远的物理含义。我们从实验上知道，电子和质子的电荷大小在很高精度上等量反号。如果两者电荷不精确相等，在宏观物体上就会存在残余静电力。假设我们发现一条
+原理能够表明电子和质子的裸电荷精确相等（在各种大一统理论中，这是基于群论的推论），我们如何确定量子涨落不会让两者电荷大小略有差异呢？毕竟，质子参与强相互作用，而
+电子不参与，因此对两质子间的长程电磁相互有额外贡献。此处的讨论表明相等关系依然成立：
+\series bold
+电荷重整化是对光子进行的。
+\series default
+说到底，这都要感谢规范不变性。
+\end_layout
+
+\begin_layout Subsection
+修正库伦势
+\end_layout
+
+\begin_layout Standard
+我们重点关注了电荷重正化，它完全由
+\begin_inset Formula $\Pi\left(0\right)$
+\end_inset
+
+ 决定，但是
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.13"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+给出了完整的
+\begin_inset Formula $\Pi\left(q^{2}\right)$
+\end_inset
+
+ 函数，
+\begin_inset Formula 
+\begin{align*}
+\Pi_{\mu\nu}\left(q\right) & =-\frac{1}{2\pi^{2}}\left(q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)\int_{0}^{1}\dif\alpha\,\alpha\left(1-\alpha\right)\\
+ & \phantom{=}\left\{ \log\left[m^{2}-\alpha\left(1-\alpha\right)q^{2}\right]-\sum_{a}c_{a}\log\left[m_{a}^{2}-\alpha\left(1-\alpha\right)q^{2}\right]\right\} 
+\end{align*}
+
+\end_inset
+
+这告诉我们如何修正光子传播子对
+\begin_inset Formula $q$
+\end_inset
+
+的依赖。根据1.5章的讨论，库仑势只是光子传播子的傅里叶变换而已，（参见练习 III.5.3）。库仑相互作用在
+\begin_inset Formula $1/r$
+\end_inset
+
+律的基础上发生了阶为
+\begin_inset Formula $\left(2m\right)^{-1}$
+\end_inset
+
+的距离修正，也即
+\begin_inset Formula $\Pi\left(q^{2}\right)$
+\end_inset
+
+中
+\begin_inset Formula $q$
+\end_inset
+
+的特征能标的倒数。在实验中这个修正作为原子光谱兰姆位移的一部分被确认，这是量子电动力学的又一个伟大成就。
+\end_layout
+
+\begin_layout Subsection
+练习
+\end_layout
+
+\begin_layout Standard
+3.7.2 研究由傅里叶积分
+\begin_inset Formula 
+\[
+\int\dif^{3}q\left\{ \frac{1}{\vec{q}^{2}}\left[1+e^{2}\Pi_{\mu\nu}\left(\vec{q}^{2}\right)\right]\right\} e^{i\vec{q}\cdot\vec{x}}
+\]
+
+\end_inset
+
+确定的修正库仑定律。
 \end_layout
 
 \begin_layout Section
