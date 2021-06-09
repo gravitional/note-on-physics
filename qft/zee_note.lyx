@@ -4434,6 +4434,142 @@ N^{\mu\nu}=-4\left(\frac{1}{2}g_{\mu\nu}l^{2}+\alpha\left(1-\alpha\right)\left(2
 
 \end_inset
 
+利用
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:d.12"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:d.13"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+积掉
+\begin_inset Formula $l$
+\end_inset
+
+，再明确写出正规子的贡献，
+\begin_inset Formula 
+\begin{equation}
+\Pi_{\mu\nu}\left(q\right)=\frac{-1}{4\pi^{2}}\int_{0}^{1}\dif\alpha\left[F_{\mu\nu}\left(m\right)-\sum_{a}c_{a}F_{\mu\nu}\left(m_{a}\right)\right]\label{eq:3.7.11}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\begin{align}
+F_{\mu\nu}\left(m\right) & =\frac{1}{2}g_{\mu\nu}\left\{ \Lambda^{2}-2\left[m^{2}-\alpha\left(1-\alpha\right)q^{2}\right]\log\frac{\Lambda^{2}}{m^{2}-\alpha\left(1-\alpha\right)q^{2}}+m^{2}-\alpha\left(1-\alpha\right)q^{2}\right\} \nonumber \\
+ & -\left[\alpha\left(1-\alpha\right)\left(2q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)-m^{2}g_{\mu\nu}\right]\left[\log\frac{\Lambda^{2}}{m^{2}-\alpha\left(1-\alpha\right)q^{2}}-1\right]\label{eq:3.7.12}
+\end{align}
+
+\end_inset
+
+在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:D"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中，我们引入
+\begin_inset Formula $\Lambda$
+\end_inset
+
+是为了让发散积分有意义。既然现在的积分是收敛的，我们其实并不需要
+\begin_inset Formula $\Lambda$
+\end_inset
+
+。从
+\begin_inset Formula $\sum_{a}c_{a}=1,\quad\sum_{a}c_{a}m_{a}^{2}=m^{2}$
+\end_inset
+
+来看，
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.11"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式中含
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的项会消失，还有一些项也会消失，最终得到
+\begin_inset Formula 
+\begin{align}
+\Pi_{\mu\nu}\left(q\right) & =-\frac{1}{2\pi^{2}}\left(q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)\int_{0}^{1}\dif\alpha\,\alpha\left(1-\alpha\right)\nonumber \\
+ & \phantom{=}\left\{ \log\left[m^{2}-\alpha\left(1-\alpha\right)q^{2}\right]-\sum_{a}c_{a}\log\left[m_{a}^{2}-\alpha\left(1-\alpha\right)q^{2}\right]\right\} \label{eq:3.7.13}
+\end{align}
+
+\end_inset
+
+真空极化张量的确满足形式
+\begin_inset Formula $\Pi_{\mu\nu}\left(q\right)=\left(q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)\Pi\left(q^{2}\right)$
+\end_inset
+
+。我们的正规化方案确实保持了规范不变性。
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $q^{2}\ll m_{a}^{2}$
+\end_inset
+
+情形（这时我们感兴趣的动力学区域，远低于我们的无知能标），只需要在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.13"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中定义
+\begin_inset Formula $\log M^{2}\equiv\sum_{a}c_{a}\log m_{a}^{2}$
+\end_inset
+
+就得到，
+\begin_inset Formula 
+\begin{align*}
+\Pi\left(q^{2}\right) & =\frac{1}{2\pi^{2}}\int_{0}^{1}\dif\alpha\,\alpha\left(1-\alpha\right)\log\frac{M^{2}}{m^{2}-\alpha\left(1-\alpha\right)q^{2}}\\
+ & =\frac{1}{18}\left(\frac{12m^{2}}{q^{2}}-\frac{6\sqrt{4m^{2}-q^{2}}\left(2m^{2}+q^{2}\right)\tan^{-1}\left(\frac{q}{\sqrt{4m^{2}-q^{2}}}\right)}{q^{3}}-6\log\left(\frac{m}{M}\right)+5\right),\quad2m>q.
+\end{align*}
+
+\end_inset
+
+说明我们之前的推测是正确的，结果中只需要一个正规子，尽管在过程中需要两个。当然，这不是很要紧。另一种常用的正规化手段是维数正规化。
+\end_layout
+
+\begin_layout Subsection
+电荷
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+e_{R}^{2}=e^{2}\frac{1}{1+\frac{e^{2}}{12\pi^{2}}\log\frac{M^{2}}{m^{2}}}\simeq e^{2}\left(1-\frac{e^{2}}{12\pi^{2}}\log\frac{M^{2}}{m^{2}}\right)
+\]
+
+\end_inset
+
 
 \end_layout
 
@@ -4443,6 +4579,94 @@ N^{\mu\nu}=-4\left(\frac{1}{2}g_{\mu\nu}l^{2}+\alpha\left(1-\alpha\right)\left(2
 
 \begin_layout Subsection
 光子永不静止
+\end_layout
+
+\begin_layout Section
+附录D
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:D"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{-\infty}^{+\infty}\dif^{d}kF\left(k^{2}\right)=\frac{2\pi^{d/2}}{\Gamma\left(d/2\right)}\int_{0}^{\infty}\dif k\,k^{d-1}F\left(k^{2}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left(k^{2}-m^{2}+i\varepsilon\right)^{n}}=i\left(-\right)^{n}\int\frac{\dif_{E}^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left(k_{E}^{2}+m^{2}\right)^{n}}=\frac{i\left(-\right)^{n}}{16\pi^{2}}\int_{0}^{\infty}\dif k^{2}\,k^{2}F\left(k^{2}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left(k^{2}-m^{2}+i\varepsilon\right)^{3}}=\frac{-i}{32\pi^{2}m^{2}}\label{eq:d.11}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\int^{\Lambda}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left(k^{2}-m^{2}+i\varepsilon\right)^{2}}=\frac{i}{16\pi^{2}}\left[\log\left(\frac{\Lambda^{2}}{m^{2}}\right)-1+\cdots\right]\label{eq:d.12}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\int^{\Lambda}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{k^{2}}{\left(k^{2}-m^{2}+i\varepsilon\right)^{2}}=\frac{-i}{16\pi^{2}}\left[\Lambda^{2}-2m^{2}\log\left(\frac{\Lambda^{2}}{m^{2}}\right)+m^{2}+\cdots\right]\label{eq:d.13}
+\end{equation}
+
+\end_inset
+
+计算过程：
+\begin_inset Formula 
+\begin{align*}
+ & \int^{\Lambda}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{k^{2}}{\left(k^{2}-m^{2}+i\varepsilon\right)^{2}}=\int^{\Lambda}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left(k^{2}-m^{2}+i\varepsilon\right)^{1}}+{\color{blue}\frac{m^{2}}{\left(k^{2}-m^{2}+i\varepsilon\right)^{2}}}\\
+= & \frac{i}{16\pi^{2}}\left[-\Lambda^{2}+m^{2}\log\left(\frac{\Lambda^{2}}{m^{2}}\right)+{\color{blue}m^{2}\log\left(\frac{\Lambda^{2}}{m^{2}}\right)-m^{2}}+\cdots\right]\\
+= & \frac{i}{16\pi^{2}}\left[-\Lambda^{2}+2m^{2}\log\left(\frac{\Lambda^{2}}{m^{2}}\right)-m^{2}+\cdots\right]\\
+= & \frac{-i}{16\pi^{2}}\left[\Lambda^{2}-2m^{2}\log\left(\frac{\Lambda^{2}}{m^{2}}\right)+m^{2}+\cdots\right]
+\end{align*}
+
+\end_inset
+
+其中使用了
+\begin_inset Formula $\left(x\log x-x\right)^{\prime}=\log x+1-1=\log x$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+\int^{\Lambda}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{\left(k^{2}-m^{2}+i\varepsilon\right)^{1}} & =\int^{\Lambda}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\left[\left(\int_{0}^{m^{2}}\frac{1}{\left(k^{2}-t+i\varepsilon\right)^{2}}\dif t\right)+\frac{1}{k^{2}}\right]\\
+ & =\int_{0}^{m^{2}}\dif m^{2}\frac{i}{16\pi^{2}}\left[-\Lambda^{2}+\log\left(\frac{\Lambda^{2}}{m^{2}}\right)-1+\cdots\right]\\
+ & =\frac{i}{16\pi^{2}}\left[-\Lambda^{2}+m^{2}\log\Lambda^{2}-m^{2}-\left(m^{2}\log m^{2}-m^{2}\right)\right]\\
+ & =\frac{i}{16\pi^{2}}\left[-\Lambda^{2}+m^{2}\log\left(\frac{\Lambda^{2}}{m^{2}}\right)\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int_{-\Lambda}^{+\Lambda}\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{k^{2}}=\frac{1}{\left(2\pi\right)^{4}}\int_{0}^{\Lambda^{2}}\dif k^{2}\,k^{2}\frac{1}{k^{2}}=\frac{-i}{16\pi^{2}}\Lambda^{2}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
