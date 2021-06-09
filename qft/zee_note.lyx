@@ -700,6 +700,13 @@ V\left(r\right)=\frac{\alpha}{r}
 
 \begin_layout Section
 抵消项与物理微扰论
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:3.3"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4088,7 +4095,7 @@ q^{\mu}\Pi_{\mu\nu}\left(q\right) & =\left(q^{2}q_{\nu}-q_{\nu}q^{2}\right)\Pi\l
 \begin{align}
 iD_{\mu\nu}^{P}\left(q\right) & =iD_{\mu\nu}\left(q\right)+iD_{\mu\lambda}\left(q\right)i\Pi^{\lambda\rho}\left(q\right)iD_{\rho\nu}\left(q\right)\nonumber \\
  & +iD_{\mu\lambda}\left(q\right)\quad i\Pi^{\lambda\rho}\left(q\right)iD_{\rho\sigma}\left(q\right)\quad i\Pi^{\sigma\kappa}\left(q\right)iD_{\kappa\nu}\left(q\right)\nonumber \\
- & =\frac{-ie^{2}}{q^{2}}g_{\mu\nu}\frac{1}{1+e^{2}\Pi\left(q^{2}\right)}+q_{\mu}q_{\nu}\label{eq:3.7.4}
+ & =\frac{-ie^{2}}{q^{2}}g_{\mu\nu}\frac{1}{1+e^{2}\Pi\left(q^{2}\right)}+q_{\mu}q_{\nu}\,\text{项}\label{eq:3.7.4}
 \end{align}
 
 \end_inset
@@ -4104,7 +4111,7 @@ D_{\mu\lambda}\left(q\right)=\frac{-ie^{2}}{q^{2}}\left[g_{\mu\lambda}-\left(1-\
 
 \begin_inset Formula 
 \[
-i\left(q^{\lambda}q^{\rho}-g^{\lambda\rho}q^{2}\right)\Pi\left(q^{2}\right).\frac{-ie^{2}}{q^{2}}\left[g_{\rho\sigma}-\left(1-\xi\right)\frac{q_{\rho}q_{\sigma}}{q^{2}}\right]=\frac{-ie^{2}}{q^{2}}\Pi\left(q^{2}\right)\left[-g_{\sigma}^{\lambda}q^{2}+\left(2-\xi\right)q^{\lambda}q_{\sigma}\right]
+i\Pi^{\lambda\rho}\left(q\right)iD_{\rho\nu}\left(q\right)=i\Pi\left(q^{2}\right)\frac{-ie^{2}}{q^{2}}\left[q^{\lambda}q_{\nu}-g_{\nu}^{\lambda}q^{2}\right]
 \]
 
 \end_inset
@@ -4112,8 +4119,8 @@ i\left(q^{\lambda}q^{\rho}-g^{\lambda\rho}q^{2}\right)\Pi\left(q^{2}\right).\fra
 
 \begin_inset Formula 
 \begin{align*}
- & \frac{-ie^{2}}{q^{2}}\left[g_{\mu\lambda}-\left(1-\xi\right)\frac{q_{\mu}q_{\lambda}}{q^{2}}\right].\frac{-ie^{2}}{q^{2}}\Pi\left(q^{2}\right)\left[-g_{\sigma}^{\lambda}q^{2}+\left(2-\xi\right)q^{\lambda}q_{\sigma}\right]\\
-= & \left(\frac{-ie^{2}}{q^{2}}\right)^{2}\Pi\left(q^{2}\right)\left[-g_{\mu\sigma}q^{2}+\left(2-\xi\right)q_{\mu}q_{\sigma}+\left(1-\xi\right)q_{\mu}q_{\sigma}-\left(1-\xi\right)\left(2-\xi\right)q_{\mu}q_{\sigma}\right]
+iD_{\mu\nu}\left(q\right) & =\frac{-ie^{2}}{q^{2}}g_{\mu\nu}\\
+iD_{\mu\lambda}\left(q\right)i\Pi^{\lambda\rho}\left(q\right)iD_{\rho\nu}\left(q\right) & =\frac{-ie^{2}}{q^{2}}\left\{ \left[\Pi\left(q^{2}\right)\frac{e^{2}}{q^{2}}\right]q_{\mu}q_{\nu}-g_{\mu\nu}\left[e^{2}\Pi\left(q^{2}\right)\right]\right\} 
 \end{align*}
 
 \end_inset
@@ -4148,7 +4155,15 @@ noprefix "false"
 \begin_inset Formula $\xi$
 \end_inset
 
-最后不会出现在物理的振幅中。
+只存在
+\begin_inset Formula $q_{\mu}q_{\nu}$
+\end_inset
+
+项中，
+\begin_inset Formula $q_{\mu}q_{\nu}$
+\end_inset
+
+项最后不会出现在物理的振幅中。
 \end_layout
 
 \begin_layout Standard
@@ -4159,6 +4174,262 @@ noprefix "false"
 \begin_inset Formula 
 \[
 e_{R}^{2}=e^{2}\frac{1}{1+e^{2}\Pi\left(0\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+保持规范不变性
+\end_layout
+
+\begin_layout Standard
+为了确定
+\begin_inset Formula $e_{R}$
+\end_inset
+
+用
+\begin_inset Formula $e$
+\end_inset
+
+表出的具体形式，计算到最低阶：
+\begin_inset Formula 
+\begin{equation}
+i\Pi^{\mu\nu}\left(q\right)=\left(-\right)\int\frac{\dif^{4}p}{\left(2\pi\right)^{4}}\tr\left(i\gamma^{\nu}\frac{i}{\slashed{p}+\slashed{q}-m}i\gamma^{\mu}\frac{i}{\slashed{p}-m}\right)\label{eq:3.7.6}
+\end{equation}
+
+\end_inset
+
+当
+\begin_inset Formula $p\to\infty$
+\end_inset
+
+时，被积函数趋于
+\begin_inset Formula $1/p^{2}$
+\end_inset
+
+，而次领头阶趋于
+\begin_inset Formula $m^{2}/p^{4}$
+\end_inset
+
+，积分分别为平方发散和对数发散。需要进行正规化，现在比较微妙的是：要确保正规化保持规范不变性。
+\end_layout
+
+\begin_layout Standard
+这里以泡利–维拉斯正规化为例，我们把
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+替换为
+\begin_inset Formula 
+\begin{equation}
+i\Pi^{\mu\nu}\left(q\right)=\left(-\right)\int\frac{\dif^{4}p}{\left(2\pi\right)^{4}}\tr\left(i\gamma^{\nu}\frac{i}{\slashed{p}+\slashed{q}-m}i\gamma^{\mu}\frac{i}{\slashed{p}-m}\right)-\sum_{a}c_{a}\tr\left(i\gamma^{\nu}\frac{i}{\slashed{p}+\slashed{q}-m_{a}}i\gamma^{\mu}\frac{i}{\slashed{p}-m_{a}}\right)\label{eq:3.7.8}
+\end{equation}
+
+\end_inset
+
+现在被积函数趋于
+\begin_inset Formula $\left(1-\sum_{a}c_{a}\right)\left(1/p^{2}\right)$
+\end_inset
+
+，次领头阶趋于
+\begin_inset Formula $\left(m^{2}-\sum_{a}c_{a}m_{a}^{2}\right)\left(1/p^{4}\right)$
+\end_inset
+
+，如果我们选取恰当的
+\begin_inset Formula $c_{a}$
+\end_inset
+
+和
+\begin_inset Formula $m_{a}$
+\end_inset
+
+满足：
+\begin_inset Formula 
+\[
+\sum_{a}c_{a}=1,\quad\sum_{a}c_{a}m_{a}^{2}=m^{2}
+\]
+
+\end_inset
+
+就可以让积分不发散。看起来我们至少要引入两个质量正规子，来表明我们对
+\begin_inset Formula $m_{a}$
+\end_inset
+
+以上物理尚不清楚。这样就有效截断了
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.8"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中动量
+\begin_inset Formula $p$
+\end_inset
+
+超过
+\begin_inset Formula $m_{a}$
+\end_inset
+
+的部分。这里的讨论和1.9章附录中的讨论是平行的。
+\end_layout
+
+\begin_layout Standard
+我们期望规范不变量形如
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式，
+\begin_inset Formula $\Pi_{\mu\nu}\left(q\right)=\left(q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)\Pi\left(q^{2}\right)$
+\end_inset
+
+。这说明实际上需要的正规子数量比期望的少。设想一下我们把
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+按照
+\begin_inset Formula $q$
+\end_inset
+
+的幂次展开。
+\begin_inset Formula 
+\begin{align*}
+i\Pi^{\mu\nu}\left(q\right) & =\left(-\right)\int\frac{\dif^{4}p}{\left(2\pi\right)^{4}}\tr\left(i\gamma^{\nu}\frac{i}{\slashed{p}+\slashed{q}-m}i\gamma^{\mu}\frac{i}{\slashed{p}-m}\right)\\
+ & =\left(q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)\left[\Pi\left(0\right)+\cdots\right]
+\end{align*}
+
+\end_inset
+
+所以我们只需要关心费曼积分中
+\begin_inset Formula $\mathcal{O}\left(q^{2}\right)$
+\end_inset
+
+项，以及更高阶项。如果我们把
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的被积函数展开，可以看到在
+\begin_inset Formula $p$
+\end_inset
+
+很大时
+\begin_inset Formula $\mathcal{O}\left(q^{2}\right)$
+\end_inset
+
+项趋于
+\begin_inset Formula $1/p^{4}$
+\end_inset
+
+，给出一个对数发散，所以看起来我们只需要一个正规子（类比
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:3.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）。这里的论证并不严密，因为我们没证明
+\begin_inset Formula $\Pi\left(q^{2}\right)$
+\end_inset
+
+可以展开成
+\begin_inset Formula $q^{2}$
+\end_inset
+
+的幂级数，不过暂且忽略这个。
+\end_layout
+
+\begin_layout Standard
+只要积分收敛，2.7章中给出的规范不变性证明就仍然成立。这个过程大致是：在计算
+\begin_inset Formula $q^{\mu}\Pi_{\mu\nu}\left(q\right)$
+\end_inset
+
+时，使用恒等式
+\begin_inset Formula $A^{-1}-B^{-1}=B^{-1}\left(B-A\right)A^{-1}=A^{-1}-B^{-1}$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\frac{1}{\slashed{p}+\slashed{q}-m}\slashed{q}\frac{1}{\slashed{p}-m}=\frac{1}{\slashed{p}-m}-\frac{1}{\slashed{p}+\slashed{q}-m}
+\]
+
+\end_inset
+
+来把被积函数分成两部分，作变量平移
+\begin_inset Formula $p\to p+q$
+\end_inset
+
+之后，两部分相消。练习2.7.2告诉我们，只要积分足够收敛，这种平移就是合法的，做正规化之后正是这样。精确计算会表明
+\begin_inset Formula $\Pi_{\mu\nu}\left(q\right)$
+\end_inset
+
+的确是
+\begin_inset Formula $\left(q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)\Pi\left(q^{2}\right)$
+\end_inset
+
+的形式。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i\Pi_{\mu\nu}\left(q\right)=-\int\frac{\dif^{4}p}{\left(2\pi\right)^{4}}\frac{N_{\mu\nu}}{D}
+\]
+
+\end_inset
+
+式中
+\begin_inset Formula $N_{\mu\nu}=\tr\left[\gamma^{\nu}\left(\slashed{p}+\slashed{q}+m\right)\gamma_{\mu}\left(\slashed{p}+m\right)\right]$
+\end_inset
+
+，而
+\begin_inset Formula 
+\[
+\frac{1}{D}=\int_{0}^{1}\dif\alpha\frac{1}{\mathcal{D}}=\int_{0}^{1}\dif\alpha\frac{1}{\left[l^{2}+\alpha\left(1-\alpha\right)q^{2}-m^{2}+i\varepsilon\right]^{2}},\quad l=p+\alpha q
+\]
+
+\end_inset
+
+代入
+\begin_inset Formula $p=l-\alpha q$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\[
+N^{\mu\nu}=-4\left(\frac{1}{2}g_{\mu\nu}l^{2}+\alpha\left(1-\alpha\right)\left(2q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)-m^{2}g_{\mu\nu}\right)
 \]
 
 \end_inset
