@@ -148,9 +148,7 @@ remove-item -Path ($tepath+'*.aux',$tepath+'*.lof',$tepath+'*.log',$tepath+'*.lo
 
 ### latex 编译模式
 
-[如何加速 LaTeX 编译][]
-
-[如何加速 LaTeX 编译]: https://zhuanlan.zhihu.com/p/55043560
+[如何加速 LaTeX 编译](https://zhuanlan.zhihu.com/p/55043560)
 
 不同的编译模式也有细微的影响. 
 经过测试,使用批处理模式(`batchmode`)速度要优于默认的模式(不加参数)和其他一些模式(比如 `nonstopmode` 和 `scrollmode`),这是因为批处理模式在编译和执行阶段是静默的,不输出任何信息,因此要快上一些. 
@@ -454,9 +452,7 @@ The \shipname{Monitor} met the \shipname{Merrimac}.
 
 ### \RequirePackage \usepackage 区别
 
-[What's the difference between \RequirePackage and \usepackage?][]
-
-[What's the difference between \RequirePackage and \usepackage?]: https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
+[What's the difference between \RequirePackage and \usepackage?](https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage)
 
 惯例是在包或者文档类中使用`\RequirePackage`,在文档中使用`\usepackage`
 
@@ -977,6 +973,10 @@ int main(){
 \definecolor{notes}{rgb}{.75, .3, .3}% 橙色
 \definecolor{shadecolor}{rgb}{0.96,0.96,0.93} % 土黄色
 ```
+
+### 标注 callout
+
+可以使用[callouts](https://www.ctan.org/pkg/callouts)包
 
 ## 方程
 
@@ -2289,9 +2289,7 @@ ref-3: [查找任意符号的LaTeX指令](https://www.zhihu.com/question/2694117
 
 ### 微分符号
 
-[在LaTeX中使用微分算子的正确姿势][]
-
-[在LaTeX中使用微分算子的正确姿势 ]: https://www.latexstudio.net/archives/10115.html
+[在LaTeX中使用微分算子的正确姿势](https://www.latexstudio.net/archives/10115.html)
 
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 
@@ -2378,11 +2376,18 @@ $\int \mathop{}\mathrm{d} x $\\
 \]
 ```
 
+### 可延展箭头
+
+[amsmath](https://www.ctan.org/pkg/amsmath)
+
+`amsmath`包中提供了可延展/伸缩的箭头 macro, 详见 page15: 4.9    Extensible arrows.
+
+`\xleftarrow` and `\xrightarrow` 产生可以自动适应上下文字长度的箭头.这些命令接受一个可选参数作为下标，一个必须参数作为上标，可以为空.
+类似有`\xLeftarrow`, `xRightarrow`.
+
 ### 下划线,中划线
 
-[LaTeX文字的加粗、斜体、下划线、删除线等][]
-
-[LaTeX文字的加粗、斜体、下划线、删除线等]: https://www.jianshu.com/p/a1838fa53882
+[LaTeX文字的加粗、斜体、下划线、删除线等](https://www.jianshu.com/p/a1838fa53882)
 
 + 加粗 `\textbf{文字}`
 + 斜体 `\emph{文字}`

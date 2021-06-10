@@ -719,6 +719,33 @@ seagull/.pic={
 
 这里给`my circle`使用了参数。
 
+## 颜色
+
+### 透明度
+
+page 353: 23 Transparency
+
+常用透明度选项：
+
+```latex
+/tikz/draw opacity=<value>
+/tikz/fill opacity=<value>
+```
+
+`<value>`除了数字取值$[0,1]$之外，还可以下列预设：
+
+```latex
+/tikz/transparent
+/tikz/ultra nearly transparent
+/tikz/very nearly transparent
+/tikz/nearly transparent
+/tikz/semitransparent
+/tikz/nearly opaque
+/tikz/very nearly opaque
+/tikz/ultra nearly opaque
+/tikz/opaque
+```
+
 ## key 管理
 
 ### key 简述

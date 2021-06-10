@@ -5262,6 +5262,207 @@ noprefix "false"
 亲爱的读者，现在你已经算出一个惊人的结果，量子涨落改变了光子的传播方式！
 \end_layout
 
+\begin_layout Standard
+对于一个类空光子来说，
+\begin_inset Formula $q^{2}$
+\end_inset
+
+为负，当动量相比于无知能标
+\begin_inset Formula $\Lambda$
+\end_inset
+
+很小时，
+\begin_inset Formula $\Lambda^{2}\gg m^{2}-\alpha\left(1-\alpha\right)q^{2}$
+\end_inset
+
+，
+\begin_inset Formula $\Pi$
+\end_inset
+
+是正实数。而对于类时光子来说，如果
+\begin_inset Formula $q^{2}>0$
+\end_inset
+
+且
+\begin_inset Formula $q^{2}$
+\end_inset
+
+的绝对值足够大，
+\begin_inset Formula $m^{2}-\alpha\left(1-\alpha\right)q^{2}<0$
+\end_inset
+
+，对数的自变量可能为负，则
+\begin_inset Formula $\Pi$
+\end_inset
+
+变成复数。函数
+\begin_inset Formula $\log z$
+\end_inset
+
+可以在去掉负实轴为割线的
+\begin_inset Formula $z$
+\end_inset
+
+平面上定义，例如取辐角
+\begin_inset Formula $-\pi<\theta<\pi$
+\end_inset
+
+。对于正实数
+\begin_inset Formula $w$
+\end_inset
+
+，
+\begin_inset Formula $\log\left(-w\pm i\varepsilon\right)=\log w\pm i\pi$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+现在我们在复平面上定义一个函数：
+\begin_inset Formula 
+\[
+\Pi\left(z\right)\equiv\frac{1}{2\pi^{2}}\int_{0}^{1}\dif\alpha\,\alpha\left(1-\alpha\right)\log\frac{\Lambda^{2}}{m^{2}-\alpha\left(1-\alpha\right)z-i\varepsilon}
+\]
+
+\end_inset
+
+被积式沿着正式轴方向自
+\begin_inset Formula $z=m^{2}/\left[\alpha\left(1-\alpha\right)\right]$
+\end_inset
+
+起至无穷远有一条割线。因为
+\begin_inset Formula $\alpha\left(1-\alpha\right)$
+\end_inset
+
+在
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+的积分限内的最大值是
+\begin_inset Formula $1/4$
+\end_inset
+
+ ，分母等于零的起点是
+\begin_inset Formula $z_{c}=4m^{2}$
+\end_inset
+
+，除去从实轴从
+\begin_inset Formula $z_{c}\sim+\infty$
+\end_inset
+
+部分的复平面，
+\begin_inset Formula $\Pi\left(z\right)$
+\end_inset
+
+是解析函数。对
+\begin_inset Formula $\alpha$
+\end_inset
+
+的积分把这些被积式的cuts抹成（smears）整个一条。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+draw (-.5,0) -- (2,0);	
+\backslash
+draw (0,-.5) -- (0,1.5);
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+filldraw[fill=green!20,draw=green!50!black] (1,1) -- +(8mm,0mm)
+\end_layout
+
+\begin_layout Plain Layout
+	arc [start angle=0, end angle=55, radius=6mm] -- cycle;
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+node at (1.4,1.15) {$z$};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+node[fill=yellow!80!black,semitransparent,anchor=west,minimum width=1cm]
+ at (1cm,0) {};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+node at (1cm,-3mm) {$4m^2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对
+\begin_inset Formula $q^{2}$
+\end_inset
+
+足够大的类时光子来说，数学家可能会卡在走割线哪边的问题上，不过物理学家根据1.3章的费曼处方会知道，应该总是从上方接近割线。
+\begin_inset Formula 
+\[
+\log\frac{\Lambda^{2}}{m^{2}-\alpha\left(1-\alpha\right)q^{2}}\xRightarrow{q^{2}\to q^{2}+i\varepsilon}\log\frac{\Lambda^{2}}{m^{2}-\alpha\left(1-\alpha\right)q^{2}-i\varepsilon}
+\]
+
+\end_inset
+
+也就是说，我们把物理值取成
+\begin_inset Formula $\Pi\left(q^{2}+i\varepsilon\right)$
+\end_inset
+
+，这里的
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+是正无穷小。也就是因果律说明了应该取割线哪一边。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Pi$
+\end_inset
+
+的虚部从
+\begin_inset Formula $\sqrt{q^{2}}>2m$
+\end_inset
+
+开始，这提示了振幅成为复数的物理含义。上一章开头说过，一个自个传播的光子总能变成一对虚正负电子对，经过不确定原理容许的短暂时间后互相湮灭恢复成光子。当
+\begin_inset Formula $\sqrt{q^{2}>2m}$
+\end_inset
+
+时，出现的就不是迅速涨落消失的虚电子对了，这对粒子有足够的能量称为实电子对。（参考练习 1.7.4和3.1.2）
+\end_layout
+
+\begin_layout Standard
+物理上说，
+\end_layout
+
 \begin_layout Subsection
 光子永不静止
 \end_layout
