@@ -4610,10 +4610,10 @@ noprefix "false"
 
 就得到，
 \begin_inset Formula 
-\begin{align*}
-\Pi\left(q^{2}\right) & =\frac{1}{2\pi^{2}}\int_{0}^{1}\dif\alpha\,\alpha\left(1-\alpha\right)\log\frac{M^{2}}{m^{2}-\alpha\left(1-\alpha\right)q^{2}}\\
- & =\frac{1}{18}\left(\frac{12m^{2}}{q^{2}}-\frac{6\sqrt{4m^{2}-q^{2}}\left(2m^{2}+q^{2}\right)\tan^{-1}\left(\frac{q}{\sqrt{4m^{2}-q^{2}}}\right)}{q^{3}}-6\log\left(\frac{m}{M}\right)+5\right),\quad2m>q.
-\end{align*}
+\begin{align}
+\Pi\left(q^{2}\right) & =\frac{1}{2\pi^{2}}\int_{0}^{1}\dif\alpha\,\alpha\left(1-\alpha\right)\log\frac{M^{2}}{m^{2}-\alpha\left(1-\alpha\right)q^{2}}\label{eq:3.7.14}\\
+ & =\frac{1}{18}\left(\frac{12m^{2}}{q^{2}}-\frac{6\sqrt{4m^{2}-q^{2}}\left(2m^{2}+q^{2}\right)\tan^{-1}\left(\frac{q}{\sqrt{4m^{2}-q^{2}}}\right)}{q^{3}}-6\log\left(\frac{m}{M}\right)+5\right),\quad2m>q.\nonumber 
+\end{align}
 
 \end_inset
 
@@ -4653,7 +4653,19 @@ e_{R}^{2}=e^{2}\frac{1}{1+e^{2}\Pi\left(0\right)}=e_{R}^{2}=e^{2}\frac{1}{1+\fra
 \begin_inset Formula $e^{4}$
 \end_inset
 
-阶的话，除了我们算过的光子传播子修正，还有顶角修正和电子外腿修正。许多文献会说明，后两种贡献是相互抵消的。使用拉氏量
+阶的话，除了我们算过的光子传播子修正，还有顶角修正图
+\begin_inset Formula $b$
+\end_inset
+
+和电子外腿修正图
+\begin_inset Formula $c,d$
+\end_inset
+
+。许多文献会说明，
+\begin_inset Formula $b,c,d$
+\end_inset
+
+的贡献是相互抵消的。使用拉氏量
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:3.7.1"
@@ -4671,7 +4683,425 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-再啰嗦一下，我们来设想使用
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -2 and 0 of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 4 of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -2 and 4 of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and .7 of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and 3.3 of a1] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and 1.3 of a1] (a7);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and 2.7 of a1] (a8);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+node[above right = -2.2 and 1.8 of a1] {
+\backslash
+(a
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		(a2) --[fermion] (a5)--[fermion](a1);(a4) --[fermion] (a6)--[fermion](a3);
+\end_layout
+
+\begin_layout Plain Layout
+		(a5)--[photon](a7);(a8)--[photon](a6);
+\end_layout
+
+\begin_layout Plain Layout
+		(a7)--[half right,fermion,looseness=1](a8);(a8)--[half right,fermion,looseness
+=1](a7);
+\end_layout
+
+\begin_layout Plain Layout
+		};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}[xshift=4.7cm]
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -2 and 0 of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 3 of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -2 and 3 of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and 1 of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and 2 of a1] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -0.5 and 0.5 of a1] (a7);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1.5 and 0.5 of a1] (a8);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+node[above right = -2.2 and 1.3 of a1] {
+\backslash
+(b
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		(a2) --[fermion] (a5)--[fermion](a1);(a4) --[fermion] (a6)--[fermion](a3);
+\end_layout
+
+\begin_layout Plain Layout
+		(a5)--[photon](a6);(a7)--[photon](a8);
+\end_layout
+
+\begin_layout Plain Layout
+		};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}[xshift=.5cm,yshift=-2.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -2 and 0 of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 3 of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -2 and 3 of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and 1 of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and 2 of a1] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1.2 and 0.8 of a1] (a7);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1.8 and 0.2 of a1] (a8);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+node[above right = -2.2 and 1.3 of a1] {
+\backslash
+(c
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		(a2) --[fermion] (a5)--[fermion](a1);(a4) --[fermion] (a6)--[fermion](a3);
+\end_layout
+
+\begin_layout Plain Layout
+		(a5)--[photon](a6);
+\end_layout
+
+\begin_layout Plain Layout
+		(a7)--[half right,photon,looseness=1.5](a8);
+\end_layout
+
+\begin_layout Plain Layout
+		};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}[xshift=4.7cm,yshift=-2.5cm]
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -2 and 0 of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 3 of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -2 and 3 of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and 1 of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -1 and 2 of a1] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -.2 and 0.2 of a1] (a7);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = -.8 and 0.8 of a1] (a8);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+node[above right = -2.2 and 1.3 of a1] {
+\backslash
+(d
+\backslash
+)};
+\end_layout
+
+\begin_layout Plain Layout
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		(a2) --[fermion] (a5)--[fermion](a1);(a4) --[fermion] (a6)--[fermion](a3);
+\end_layout
+
+\begin_layout Plain Layout
+		(a5)--[photon](a6);
+\end_layout
+
+\begin_layout Plain Layout
+		(a7)--[half right,photon,looseness=1.5](a8);
+\end_layout
+
+\begin_layout Plain Layout
+		};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+再罗嗦一下，设想我们使用
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:3.3"
@@ -4804,6 +5234,32 @@ noprefix "false"
 
 \begin_layout Section
 虚化与概率守恒
+\end_layout
+
+\begin_layout Subsection
+费曼振幅变成虚数
+\end_layout
+
+\begin_layout Standard
+赞叹真空极化公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.14"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+吧！
+\begin_inset Formula 
+\[
+\Pi\left(q^{2}\right)=\frac{1}{2\pi^{2}}\int_{0}^{1}\dif\alpha\,\alpha\left(1-\alpha\right)\log\frac{\Lambda^{2}}{m^{2}-\alpha\left(1-\alpha\right)q^{2}-i\varepsilon}
+\]
+
+\end_inset
+
+亲爱的读者，现在你已经算出一个惊人的结果，量子涨落改变了光子的传播方式！
 \end_layout
 
 \begin_layout Subsection
