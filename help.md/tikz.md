@@ -189,12 +189,28 @@ page 43. 路径变形选项。
 
 这类选项有：
 
-+ `xshift`,`yshift`:用来平移
-+ `shift`: 平移到指定的点，如`shift={(1,0)}, shift={+(1,0)},`，必须加上`{}`，以避免`TeX`把坐标解析成两个选项。
-+ `rotate`: 旋转特定角度。以及`rotate around`:绕指定的点旋转。
-+ `scale`: 放大或者缩小指定的倍数。以及`xscale`, `yscale`。`xscale=-1`表示翻转。
-+ `xslant`, `yslant`：倾斜
+`x=<value>`, `y=<value>`, `z=<value>`. 例如：
+
+```latex
+\draw[x=2cm,color=red] (0,0.1) -- +(1,0);
+\draw[x={(2cm,0.5cm)},color=red] (0,0) -- (1,0); %含有逗号的坐标需要放在括号里
+```
+
++ `xshift=<dimension>`,`yshift=<dimension>`:用来平移
++ `shift={<coordinate>}`: 平移到指定的点，如`shift={(1,0)}, shift={+(1,0)},`
+必须加上`{}`，以避免`TeX`把坐标解析成两个选项。例如:
+
+```latex
+\draw[shift={(1,1)},blue] (0,0) -- (1,1) -- (1,0);
+\draw[shift={(30:1cm)},red] (0,0) -- (1,1) -- (1,0);
+```
+
++ `rotate=<degree>`: 旋转特定角度。以及`rotate around`:绕指定的点旋转。
++ `scale=<factor>`: 放大或者缩小指定的倍数。以及`xscale`, `yscale`。`xscale=-1`表示翻转。
++ `xslant=<factor>`, `yslant=<factor>`：倾斜
 + `cm`: 指定任意的变换矩阵。
+
+详细可以参考 page 373: 25 Transformations
 
 ### 循环
 

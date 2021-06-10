@@ -5237,7 +5237,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
-费曼振幅变成虚数
+费曼振幅虚化之时
 \end_layout
 
 \begin_layout Standard
@@ -5364,7 +5364,7 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -5460,7 +5460,213 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Standard
-物理上说，
+物理上，下面这种论证更有说服力。想象一个质量为
+\begin_inset Formula $M$
+\end_inset
+
+的规范玻色子和电子耦合，如同光子。这样真空极化图提供了矢量玻色子传播子的单圈修正。对于
+\begin_inset Formula $M>2m$
+\end_inset
+
+的情况，矢量玻色子不再稳定，能够衰变成正负电子对。与此同时，
+\begin_inset Formula $\Pi$
+\end_inset
+
+多了个虚部。你可能会猜测
+\begin_inset Formula $\Im\Pi$
+\end_inset
+
+和衰变率是不是有啥关系，你这个物理直觉不赖啊。
+\end_layout
+
+\begin_layout Standard
+在上一章结尾，我们讨论对库伦势修正的时候，考虑了类空虚光子在两个电荷之间交换，例如电子–电子散射，或者电子–质子散射（2.6章）。利用交叉对称性（2.8章）可以把电
+子–电子散射映射为电子–正电子散射。所以真空极化图作为电子–正电子散射的修正而出现，同一个函数
+\begin_inset Formula $\Pi$
+\end_inset
+
+可以概括这两种不同的情况。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 0 and 2 of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 4 and 0 of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 4 and 2 of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = .7 and 1 of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 3.3 and 1 of a1] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 1.3 and 1 of a1] (a7);
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+vertex[above right = 2.7 and 1 of a1] (a8);
+\end_layout
+
+\begin_layout Plain Layout
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+		(a1) --[fermion,edge label = 
+\backslash
+(e^-
+\backslash
+)] (a5)--[fermion,edge label = 
+\backslash
+(e^+
+\backslash
+)](a2);
+\end_layout
+
+\begin_layout Plain Layout
+		(a3) --[fermion,edge label' = 
+\backslash
+(e^+
+\backslash
+)] (a6)--[fermion,edge label' = 
+\backslash
+(e^-
+\backslash
+)](a4);
+\end_layout
+
+\begin_layout Plain Layout
+		(a5)--[photon](a7);(a8)--[photon](a6);
+\end_layout
+
+\begin_layout Plain Layout
+		(a7)--[half right,fermion,looseness=1](a8);(a8)--[half right,fermion,looseness
+=1](a7);
+\end_layout
+
+\begin_layout Plain Layout
+		};
+\end_layout
+
+\begin_layout Plain Layout
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+顺便一提，标题中应该用“复”而不是“虚”，这里是为了戏剧性考虑。
+\end_layout
+
+\begin_layout Subsection
+色散关系与高频行为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "70col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+基本粒子物理最杰出的发现之一就是复平面的存在。
+\end_layout
+
+\begin_layout Plain Layout
+\align right
+
+\family typewriter
+——朱利安.施温格
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+量子场论中要计算
 \end_layout
 
 \begin_layout Subsection

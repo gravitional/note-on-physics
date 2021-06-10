@@ -568,6 +568,12 @@ And this is the best squash, \verb+literally!+
 
 这些命令不应在`.sty`和`.cls`文件本身中使用,因为它们可能与`package`和`class`文件时加载时发生的`catcode`更改冲突.
 
+### 引用名言
+
+[quotation，quote环境](https://blog.csdn.net/ProgramChangesWorld/article/details/51762789)
+
+使用`quote`,`quotation`环境。
+
 ## 浮动体 图形
 
 [liam.page](https://liam.page/2014/09/08/latex-introduction/)
@@ -697,11 +703,7 @@ Synopses:
 [LaTeX 对齐问题](https://blog.csdn.net/lvchaoshun/article/details/50518271)
 [latex23 doc](http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#index-_005ccentering)
 
-对齐的语法是
-
-`{\centering ... }`
-
-or
+对齐的语法是 `{\centering 文字}`或者
 
 ```latex
 \begin{group}
@@ -720,13 +722,11 @@ or
 \end{figure}
 ```
 
-`\centering `的作用范围到`\end{figure}`为止.
-
-与`center`环境不同,`\centering`命令不会在文本上方和下方添加垂直空间.  
+`\centering `的作用范围到`\end{figure}`为止. 与`center`环境不同,`\centering`命令不会在文本上方和下方添加垂直空间.  
 这就是上面示例中的优势——没有多余的空间. 
 
 ***
-一行文本对齐
+单行文本对齐
 
 + `\leftline{左对齐}`
 + `\centerline{居中}`
@@ -829,7 +829,7 @@ split
 左对齐、居中对齐、右对齐的环境分别为`flushleft`、`center`和`flushright`. 
 也可以使用命令`\raggedright`、`\centering`和`\raggedleft`使以后的文本按指定方式对齐.
 
-加载amsmath宏包后,使用选项`fleqn`(就是声明加载宏包时使用`\usepackage[fleqn]{amsmath}`)
+加载`amsmath`宏包后,使用选项`fleqn`(就是声明加载宏包时使用`\usepackage[fleqn]{amsmath}`)
 可以使本该居中对齐的行间公式改为左对齐.
 
 ### parbox
@@ -845,8 +845,7 @@ split
 \parbox[position] [height] [inner-pos] {width} {contents}
 ```
 
-产生一个宽度为`width`的文本框.
-使用此命令可以使一小段文本框变成单个段落.该命令是`fragile`的(请参阅`\protect`).
+产生一个宽度为`width`的文本框. 使用此命令可以使一小段文本框变成单个段落.该命令是`fragile`的(请参阅`\protect`).
 
 ```latex
 \begin{picture}(0,0)
@@ -1628,7 +1627,9 @@ $(\lambda)=(\lambda_1,\lambda_2,\cdots \lambda_m)$
 
 ### 公式编号
 
-数学公式的环境中,除了 `split` 环境,每个方程环境都有带`*`和不带`*`号的版本,不带星号的版本将会自动编号,在一行结束之前,使用`\notag`可以抑制编号.为了避免弄乱编号,`\notag`应该只在`display`类型的环境内使用.可以使用`\tag{<lable>}`使用自定义编号,tag 可以引用 a different tagged display,通过使用`\tag{\ref{<label>}<modifier>}`,其中`<modifier>`是可选的.如果你使用了`hyperref`,可以使用`\ref*`,避免创建包含内置链接的reference.
+数学公式的环境中,除了 `split` 环境,每个方程环境都有带`*`和不带`*`号的版本, 不带星号的版本将会自动编号,在一行结束之前,使用`\notag`可以抑制编号.
+为了避免弄乱编号,`\notag`应该只在`display`类型的环境内使用. 可以使用`\tag{<lable>}`使用自定义编号,tag 可以引用 a different tagged display,
+通过使用`\tag{\ref{<label>}<modifier>}`,其中`<modifier>`是可选的.如果你使用了`hyperref`,可以使用`\ref*`,避免创建包含内置链接的reference.
 
 还有一个`\tag*`命令,可以原义输出文本,不加括号.`\tag` and `\tag*`也可以在`amsmath`包的无编号环境中使用.
 
