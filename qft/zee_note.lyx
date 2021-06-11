@@ -5666,11 +5666,511 @@ status open
 \end_layout
 
 \begin_layout Standard
-量子场论中要计算
+考虑到量子场论中计算的振幅是对传播子乘积的积分，大概能理解振幅是外动量的解析函数。例如3.1章中的散射振幅
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+明显是
+\begin_inset Formula $s,t,u$
+\end_inset
+
+ 的解析函数，带有一些 割线。从1950年代到1960年代，产出了大量研究量子场论解析性的文献。
+\end_layout
+
+\begin_layout Standard
+我们先考虑简单的情况。
+\begin_inset Formula 
+\[
+f\left(z\right)=\int_{0}^{1}\dif\alpha\frac{1}{z-\alpha}=\log\frac{z-1}{z}
+\]
+
+\end_inset
+
+被积函数在
+\begin_inset Formula $z=\alpha$
+\end_inset
+
+处有极点，这些极点在对
+\begin_inset Formula $\alpha$
+\end_inset
+
+积分后就抹平成一条从
+\begin_inset Formula $0$
+\end_inset
+
+到
+\begin_inset Formula $1$
+\end_inset
+
+的割线。以物理学家的严谨程度，我们可以把一条割线看成一大堆极点，把单个极点看成无穷短的割线。
+\end_layout
+
+\begin_layout Standard
+我们要处理的基本上都是实解析函数，它们满足
+\begin_inset Formula $f^{*}\left(z\right)=f\left(z^{*}\right)$
+\end_inset
+
+，例如
+\begin_inset Formula $\log z$
+\end_inset
+
+。此外，我们主要关注在实轴上有割线的函数，比如
+\begin_inset Formula $\Pi\left(z\right)$
+\end_inset
+
+。对这类解析函数而言，函数在割线两侧的不连续度（discontinuity）为
+\begin_inset Formula $\disc f\left(x\right)\equiv f\left(x+i\varepsilon\right)-f\left(x-i\varepsilon\right)=f\left(x+i\varepsilon\right)-f\left(x+i\varepsilon\right)^{*}=2i\Im f\left(x+i\varepsilon\right)$
+\end_inset
+
+。对图3.8.3所示围绕割线的积分环路
+\begin_inset Formula $C$
+\end_inset
+
+应用柯西定理，得到：
+\begin_inset Formula 
+\[
+f\left(z\right)=\oint_{C}\frac{\dif z^{\prime}}{2\pi i}\frac{f\left(z^{\prime}\right)}{z^{\prime}-z}
+\]
+
+\end_inset
+
+假设
+\begin_inset Formula $z\to\infty$
+\end_inset
+
+的时候，
+\begin_inset Formula $f\left(z\right)$
+\end_inset
+
+比
+\begin_inset Formula $1/z$
+\end_inset
+
+更快地衰减到
+\begin_inset Formula $0$
+\end_inset
+
+，我们就能扔掉无穷远处大圆的贡献得到，
+\begin_inset Formula 
+\[
+f\left(z\right)=\frac{1}{\pi}\int\dif\sigma\frac{\rho\left(\sigma\right)}{\sigma-z}
+\]
+
+\end_inset
+
+其中我们定义了
+\begin_inset Formula $\rho\left(\sigma\right)=\Im f\left(\sigma+i\varepsilon\right)$
+\end_inset
+
+，
+\begin_inset Formula $\sigma$
+\end_inset
+
+是实数，积分区间沿着割线。我们可以用恒等式（1.2.14）来验证此式：
+\begin_inset Formula 
+\[
+\Im f\left(x+i\varepsilon\right)=\frac{1}{\pi}\int\dif\sigma\,\rho\left(\sigma\right)\Im\frac{1}{\sigma-x-i\varepsilon}=\frac{1}{\pi}\int\dif\sigma\,\rho\left(\sigma\right)\pi\delta\left(\sigma-x\right)=\rho\left(x\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\text{1.2.14：} & \frac{1}{x+i\varepsilon}=\frac{x}{x^{2}+\varepsilon^{2}}+\frac{-i\varepsilon}{x^{2}+\varepsilon}=\mathcal{P}\frac{1}{x}-i\pi\delta\left(x\right)\\
+\text{积分主值：} & \int\dif x\mathcal{P}\frac{1}{x}f\left(x\right)=\lim_{\varepsilon\to0}\int\dif x\frac{x}{x^{2}+\varepsilon^{2}}f\left(x\right)
+\end{align*}
+
+\end_inset
+
+这个关系式说明，知道了
+\begin_inset Formula $f$
+\end_inset
+
+在割线上值的虚部，就能够给出整个
+\begin_inset Formula $f$
+\end_inset
+
+，自然也包括割线上和割线外的实部了。
+\begin_inset Formula 
+\[
+f\left(z\right)=\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\frac{\Im f\left(\sigma+i\varepsilon\right)}{\sigma-z}
+\]
+
+\end_inset
+
+这类关系统称色散关系，至少可以追溯到 Kramers 与 可了Kronig 的光学工作，而且在各种物理学领域有相当多的应用，例如 7.4 章。
+\end_layout
+
+\begin_layout Standard
+这里我们默认了关于
+\begin_inset Formula $\sigma$
+\end_inset
+
+的积分收敛。若不收敛，我们形式上可以把
+\begin_inset Formula $f\left(z\right)$
+\end_inset
+
+中
+\begin_inset Formula $f\left(0\right)=\frac{1}{\pi}\int\dif\sigma\frac{\Im f\left(\sigma+i\varepsilon\right)}{\sigma}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f\left(z\right) & =f\left(0\right)+\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\left[\frac{\Im f\left(\sigma+i\varepsilon\right)}{\sigma-z}-\frac{\Im f\left(\sigma+i\varepsilon\right)}{\sigma}\right]\\
+ & =f\left(0\right)+\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\,\Im f\left(\sigma+i\varepsilon\right)\frac{z}{\left(\sigma-z\right)\sigma}\\
+ & =f\left(0\right)+\frac{z}{\pi}\int_{\text{cut}}\dif\sigma\frac{\Im f\left(\sigma+i\varepsilon\right)/\sigma}{\left(\sigma-z\right)}
+\end{align*}
+
+\end_inset
+
+关于
+\begin_inset Formula $\sigma$
+\end_inset
+
+的积分现在多了一个
+\begin_inset Formula $1/\sigma$
+\end_inset
+
+因子，因此收敛性变好了。在这种情况下，要重建
+\begin_inset Formula $f\left(z\right)$
+\end_inset
+
+，不只需要
+\begin_inset Formula $f$
+\end_inset
+
+在割线上的虚部，还需要一个未知常数
+\begin_inset Formula $f\left(0\right)$
+\end_inset
+
+。显然我们可以不断重复这个过程直到积分收敛。
+\end_layout
+
+\begin_layout Standard
+可以看到，这与引入抵消项的重正化程序有所关联。对色散世界观连说，费曼积分发散就对应于关于
+\begin_inset Formula $\sigma$
+\end_inset
+
+的积分不收敛。真正的物理学家并不会因为发散积分而气恼，我们只需要承认对
+\begin_inset Formula $\sigma$
+\end_inset
+
+较高的区域还不了解。
+\end_layout
+
+\begin_layout Standard
+由于 dispersion 地位很高，因此有个笑话：粒子物理学家要么 group 要么 disperse，取决于你更喜欢群论还是复分析。
 \end_layout
 
 \begin_layout Subsection
-光子永不静止
+费曼积分的虚部
+\end_layout
+
+\begin_layout Standard
+我们回到上一章真空极化的计算，
+\begin_inset Formula 
+\[
+\Pi_{\mu\nu}\left(q\right)=-\frac{1}{2\pi^{2}}\left(q_{\mu}q_{\nu}-g_{\mu\nu}q^{2}\right)\int_{0}^{1}\dif\alpha\,\alpha\left(1-\alpha\right)\left\{ \log\left[m^{2}-\alpha\left(1-\alpha\right)q^{2}\right]-\sum_{a}c_{a}\log\left[m_{a}^{2}-\alpha\left(1-\alpha\right)q^{2}\right]\right\} 
+\]
+
+\end_inset
+
+我们看到由光子和电子自旋给出的分子
+\begin_inset Formula $N_{\mu\nu}$
+\end_inset
+
+对费曼图的解析结构并无影响，分母
+\begin_inset Formula $D$
+\end_inset
+
+才会产生影响。因此，要在概念上理解量子场论中的解析性，我们可以扔掉自旋，对标量场，引入2.6章附录介绍的相互作用项
+\begin_inset Formula $\mathcal{L}=g\left(\eta^{\dagger}\xi^{\dagger}+\text{h.c.}\right)$
+\end_inset
+
+，来研究真空极化的类似情形。
+\begin_inset Formula $\varphi$
+\end_inset
+
+传播子【类比
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.7.4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式】的修正由类似3.7.1的费曼图给出：
+\begin_inset Formula 
+\begin{align}
+iD^{p}\left(q\right) & =\frac{i}{q^{2}-M^{2}+i\varepsilon}+\frac{i}{q^{2}-M^{2}+i\varepsilon}i\Pi\left(q^{2}\right)\frac{i}{q^{2}-M^{2}+i\varepsilon}+\cdots\nonumber \\
+ & =\frac{i}{q^{2}-M^{2}+\Pi\left(q^{2}\right)+i\varepsilon}\label{eq:3.8.5}
+\end{align}
+
+\end_inset
+
+精确到
+\begin_inset Formula $g^{2}$
+\end_inset
+
+阶有
+\begin_inset Formula 
+\begin{equation}
+i\Pi\left(q^{2}\right)=i^{4}g^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{k^{2}-\mu^{2}+i\varepsilon}\frac{1}{\left(q-k\right)^{2}-m^{2}+i\varepsilon}\label{eq:3.8.6}
+\end{equation}
+
+\end_inset
+
+这里需要正规化积分，暂时省略。最后结果是
+\begin_inset Formula 
+\begin{equation}
+\Pi\left(z\right)=\frac{g^{2}}{16\pi^{2}}\int_{0}^{1}\dif\alpha\log\frac{\Lambda^{2}}{\alpha m^{2}+\left(1-\alpha\right)\mu^{2}-\alpha\left(1-\alpha\right)z}\label{eq:3.8.7}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ 表示某个截断。我们使用同一个希腊字母
+\begin_inset Formula $\Pi$
+\end_inset
+
+，但是和量子电动力学不同，这里允许圈上的两个粒子质量不同。
+\end_layout
+
+\begin_layout Standard
+类似之前，对于负实数
+\begin_inset Formula $z$
+\end_inset
+
+，
+\begin_inset Formula $\log$
+\end_inset
+
+的自变量是正实数，
+\begin_inset Formula $\Pi$
+\end_inset
+
+是实数。对于足够大的正实数
+\begin_inset Formula $z$
+\end_inset
+
+，
+\begin_inset Formula $\log$
+\end_inset
+
+的自变量在
+\begin_inset Formula $\alpha$
+\end_inset
+
+的某些值时就是负数了，
+\begin_inset Formula $\Pi\left(z\right)$
+\end_inset
+
+成为复数。实际上
+\begin_inset Formula 
+\begin{align*}
+\Im\Pi\left(\sigma+i\varepsilon\right) & =\frac{g^{2}}{16\pi^{2}}\int_{0}^{1}\dif\alpha\left(-\pi\right)\theta\left[\alpha\left(1-\alpha\right)\sigma-\sigma m^{2}-\left(1-\alpha\right)\mu^{2}\right]\\
+ & =\frac{g^{2}}{16\pi^{2}}\int_{\alpha^{-}}^{\alpha^{+}}\dif\alpha\\
+ & =\frac{g^{2}}{16\pi\sigma}\sqrt{\left(\sigma-\left(m+\mu\right)^{2}\right)\left(\sigma-\left(m-\mu\right)^{2}\right)}
+\end{align*}
+
+\end_inset
+
+令阶跃函数的自变量等于
+\begin_inset Formula $0$
+\end_inset
+
+，就给出了一个二次方程，它的根就是
+\begin_inset Formula $\alpha_{\pm}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+衰变和裂变
+\end_layout
+
+\begin_layout Standard
+对比2.6章粒子衰变率的表达式：
+\begin_inset Formula 
+\[
+\Gamma=\frac{|\mathcal{M}|^{2}}{16\pi M^{3}}\sqrt{\left[M^{2}-(m+\mu)^{2}\right]\left[M^{2}-(m-\mu)^{2}\right]}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\Pi\left(z\right)$
+\end_inset
+
+的虚部对应于衰变。为验证这个猜想，我们先回到初等量子力学。举例来说，一个氢原子的较高能级严格上并非哈密顿的本征值：一个在较高能级上的电子会在有限时间内释放一个光
+子并跳跃到较低能级，而本征态应该是稳定的。在唯象的角度看，可以认为这个能级有负能量
+\begin_inset Formula $E-i\frac{1}{2}\Gamma$
+\end_inset
+
+。随时间流逝停留在这个态的概率是
+\begin_inset Formula 
+\[
+\abs{\psi\left(t\right)}^{2}\propto\abs*{\exp\left[-i\left(E-i\frac{1}{2}\Gamma\right)t\right]}^{2}=e^{-\Gamma t}
+\]
+
+\end_inset
+
+。（注意，在初等量子力学中，电磁场的库伦部分和辐射部分是分开处理的：薛定谔方程只包括前者不包括后者。量子场论的目标之一就是修复这一人为的分离。）
+\end_layout
+
+\begin_layout Standard
+现在我们回到了
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.5"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式和场论框架
+\begin_inset Formula 
+\[
+iD^{p}\left(q\right)=\frac{i}{q^{2}-M^{2}+\Pi\left(q^{2}\right)+i\varepsilon}
+\]
+
+\end_inset
+
+注意到
+\begin_inset Formula $\Pi\left(q^{2}\right)$
+\end_inset
+
+相当于把
+\begin_inset Formula $M^{2}$
+\end_inset
+
+平移到
+\begin_inset Formula $M^{2}-\Pi\left(q^{2}\right)$
+\end_inset
+
+。回忆
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.3.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，由发散估计得到的传播子形式：
+\begin_inset Formula 
+\[
+\frac{1}{k^{2}-m^{2}}\to\frac{1}{\left(1+b\right)k^{2}-\left(m^{2}-a\right)},
+\]
+
+\end_inset
+
+我们的抵消项能抵消
+\begin_inset Formula $\Pi\left(q^{2}\right)$
+\end_inset
+
+中两个依赖截断的部分。但是我们没有东西去抵消
+\begin_inset Formula $\Pi\left(q^{2}\right)$
+\end_inset
+
+的虚部，所以这部分最好与截断无关–事实正是如此！截断只在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.7"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的实部出现。
+\begin_inset Formula 
+\begin{align*}
+\Pi\left(z\right) & =\frac{g^{2}}{16\pi^{2}}\int_{0}^{1}\dif\alpha\log\frac{\Lambda^{2}}{\alpha m^{2}+\left(1-\alpha\right)\mu^{2}-\alpha\left(1-\alpha\right)z}\\
+\Im\Pi\left(\sigma+i\varepsilon\right) & =\frac{g^{2}}{16\pi\sigma}\sqrt{\left(\sigma-\left(m+\mu\right)^{2}\right)\left(\sigma-\left(m-\mu\right)^{2}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+总结一下，
+\begin_inset Formula $\Pi$
+\end_inset
+
+虚化的效应是将
+\begin_inset Formula $\varphi$
+\end_inset
+
+介子的质量从
+\begin_inset Formula $M$
+\end_inset
+
+迁移到无关截断的
+\begin_inset Formula 
+\[
+\sqrt{M^{2}-i\Im\Pi\left(M^{2}\right)}\approx M-i\Im\frac{\Pi\left(M^{2}\right)}{2M},\quad E\to E-i\frac{1}{2}\Gamma.
+\]
+
+\end_inset
+
+注意，精确到
+\begin_inset Formula $g^{2}$
+\end_inset
+
+阶的话，用未平移质量平方
+\begin_inset Formula $M^{2}$
+\end_inset
+
+计算
+\begin_inset Formula $\Pi$
+\end_inset
+
+即可，因为质量平移本身也是
+\begin_inset Formula $g^{2}$
+\end_inset
+
+阶的。因此
+\begin_inset Formula $\Gamma=\Im\Pi\left(M^{2}\right)/\left(2M\right)$
+\end_inset
+
+和我们猜测的相同，给出了衰变率。我们有
+\begin_inset Formula 
+\[
+\Gamma=\frac{g^{2}}{16\pi M^{3}}\sqrt{\left[M^{2}-(m+\mu)^{2}\right]\left[M^{2}-(m-\mu)^{2}\right]}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $g$
+\end_inset
+
+具有质量量纲，所以量纲正确，这正是（2.6.7），所有的因子都精确相等。
+\end_layout
+
+\begin_layout Standard
+注意，无论是由基本量子力学还是这里给出的处理，其理念都是把衰变作为微扰处理。要是宽度增加到一定程度，再谈论和
+\begin_inset Formula $\varphi$
+\end_inset
+
+粒子与某个场关联就没什么意义了。
+\end_layout
+
+\begin_layout Subsection
+直取虚部
 \end_layout
 
 \begin_layout Section
