@@ -68,8 +68,9 @@
 %% \usepackage{axodraw2} 
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
-%\DeclareMathOperator{\re}{Re}
-%\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\sgn}{Sgn}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\res}{Res} %留数
 \DeclareMathOperator{\disc}{Disc} %函数间断
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}%普通微分
@@ -4688,69 +4689,81 @@ status collapsed
 
 \begin_layout Plain Layout
 
+
 \backslash
 begin{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -2 and 0 of a1] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 4 of a1] (a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -2 and 4 of a1] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and .7 of a1] (a5);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 3.3 of a1] (a6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 1.3 of a1] (a7);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 2.7 of a1] (a8);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 node[above right = -2.2 and 1.8 of a1] {
@@ -4761,97 +4774,115 @@ node[above right = -2.2 and 1.8 of a1] {
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a2) --[fermion] (a5)--[fermion](a1);(a4) --[fermion] (a6)--[fermion](a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a5)--[photon](a7);(a8)--[photon](a6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a7)--[half right,fermion,looseness=1](a8);(a8)--[half right,fermion,looseness
 =1](a7);
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}[xshift=4.7cm]
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -2 and 0 of a1] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 3 of a1] (a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -2 and 3 of a1] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 1 of a1] (a5);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 2 of a1] (a6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -0.5 and 0.5 of a1] (a7);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1.5 and 0.5 of a1] (a8);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 node[above right = -2.2 and 1.3 of a1] {
@@ -4862,92 +4893,109 @@ node[above right = -2.2 and 1.3 of a1] {
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a2) --[fermion] (a5)--[fermion](a1);(a4) --[fermion] (a6)--[fermion](a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a5)--[photon](a6);(a7)--[photon](a8);
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}[xshift=.5cm,yshift=-2.5cm]
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -2 and 0 of a1] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 3 of a1] (a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -2 and 3 of a1] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 1 of a1] (a5);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 2 of a1] (a6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1.2 and 0.8 of a1] (a7);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1.8 and 0.2 of a1] (a8);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 node[above right = -2.2 and 1.3 of a1] {
@@ -4958,96 +5006,114 @@ node[above right = -2.2 and 1.3 of a1] {
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a2) --[fermion] (a5)--[fermion](a1);(a4) --[fermion] (a6)--[fermion](a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a5)--[photon](a6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a7)--[half right,photon,looseness=1.5](a8);
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}[xshift=4.7cm,yshift=-2.5cm]
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -2 and 0 of a1] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 3 of a1] (a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -2 and 3 of a1] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 1 of a1] (a5);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -1 and 2 of a1] (a6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -.2 and 0.2 of a1] (a7);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = -.8 and 0.8 of a1] (a8);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 node[above right = -2.2 and 1.3 of a1] {
@@ -5058,38 +5124,46 @@ node[above right = -2.2 and 1.3 of a1] {
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a2) --[fermion] (a5)--[fermion](a1);(a4) --[fermion] (a6)--[fermion](a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a5)--[photon](a6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a7)--[half right,photon,looseness=1.5](a8);
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 
 \backslash
 end{tikzpicture}
@@ -5368,11 +5442,13 @@ status collapsed
 
 \begin_layout Plain Layout
 
+
 \backslash
 begin{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 draw (-.5,0) -- (2,0);	
@@ -5381,22 +5457,26 @@ draw (0,-.5) -- (0,1.5);
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 filldraw[fill=green!20,draw=green!50!black] (1,1) -- +(8mm,0mm)
 \end_layout
 
 \begin_layout Plain Layout
+
 	arc [start angle=0, end angle=55, radius=6mm] -- cycle;
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 node at (1.4,1.15) {$z$};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 node[fill=yellow!80!black,semitransparent,anchor=west,minimum width=1cm]
@@ -5404,12 +5484,14 @@ node[fill=yellow!80!black,semitransparent,anchor=west,minimum width=1cm]
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 node at (1cm,-3mm) {$4m^2$};
 \end_layout
 
 \begin_layout Plain Layout
+
 
 \backslash
 end{tikzpicture}
@@ -5473,7 +5555,7 @@ end{tikzpicture}
 \end_inset
 
 多了个虚部。你可能会猜测
-\begin_inset Formula $\Im\Pi$
+\begin_inset Formula $\im\Pi$
 \end_inset
 
 和衰变率是不是有啥关系，你这个物理直觉不赖啊。
@@ -5494,79 +5576,93 @@ status collapsed
 
 \begin_layout Plain Layout
 
+
 \backslash
 begin{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 begin{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 		%% fig a
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex (a1) at (0,0);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 0 and 2 of a1] (a2);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 4 and 0 of a1] (a3);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 4 and 2 of a1] (a4);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = .7 and 1 of a1] (a5);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 3.3 and 1 of a1] (a6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 1.3 and 1 of a1] (a7);
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 vertex[above right = 2.7 and 1 of a1] (a8);
 \end_layout
 
 \begin_layout Plain Layout
+
 		% 对各个顶点连线
 \end_layout
 
 \begin_layout Plain Layout
+
 		
 \backslash
 diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a1) --[fermion,edge label = 
 \backslash
 (e^-
@@ -5579,6 +5675,7 @@ diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a3) --[fermion,edge label' = 
 \backslash
 (e^+
@@ -5591,25 +5688,30 @@ diagram*{
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a5)--[photon](a7);(a8)--[photon](a6);
 \end_layout
 
 \begin_layout Plain Layout
+
 		(a7)--[half right,fermion,looseness=1](a8);(a8)--[half right,fermion,looseness
 =1](a7);
 \end_layout
 
 \begin_layout Plain Layout
+
 		};
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \backslash
 end{feynman}
 \end_layout
 
 \begin_layout Plain Layout
+
 
 \backslash
 end{tikzpicture}
@@ -5719,7 +5821,7 @@ f\left(z\right)=\int_{0}^{1}\dif\alpha\frac{1}{z-\alpha}=\log\frac{z-1}{z}
 \end_inset
 
 。对这类解析函数而言，函数在割线两侧的不连续度（discontinuity）为
-\begin_inset Formula $\disc f\left(x\right)\equiv f\left(x+i\varepsilon\right)-f\left(x-i\varepsilon\right)=f\left(x+i\varepsilon\right)-f\left(x+i\varepsilon\right)^{*}=2i\Im f\left(x+i\varepsilon\right)$
+\begin_inset Formula $\disc f\left(x\right)\equiv f\left(x+i\varepsilon\right)-f\left(x-i\varepsilon\right)=f\left(x+i\varepsilon\right)-f\left(x+i\varepsilon\right)^{*}=2i\im f\left(x+i\varepsilon\right)$
 \end_inset
 
 。对图3.8.3所示围绕割线的积分环路
@@ -5759,7 +5861,7 @@ f\left(z\right)=\frac{1}{\pi}\int\dif\sigma\frac{\rho\left(\sigma\right)}{\sigma
 \end_inset
 
 其中我们定义了
-\begin_inset Formula $\rho\left(\sigma\right)=\Im f\left(\sigma+i\varepsilon\right)$
+\begin_inset Formula $\rho\left(\sigma\right)=\im f\left(\sigma+i\varepsilon\right)$
 \end_inset
 
 ，
@@ -5769,7 +5871,7 @@ f\left(z\right)=\frac{1}{\pi}\int\dif\sigma\frac{\rho\left(\sigma\right)}{\sigma
 是实数，积分区间沿着割线。我们可以用恒等式（1.2.14）来验证此式：
 \begin_inset Formula 
 \[
-\Im f\left(x+i\varepsilon\right)=\frac{1}{\pi}\int\dif\sigma\,\rho\left(\sigma\right)\Im\frac{1}{\sigma-x-i\varepsilon}=\frac{1}{\pi}\int\dif\sigma\,\rho\left(\sigma\right)\pi\delta\left(\sigma-x\right)=\rho\left(x\right)
+\im f\left(x+i\varepsilon\right)=\frac{1}{\pi}\int\dif\sigma\,\rho\left(\sigma\right)\im\frac{1}{\sigma-x-i\varepsilon}=\frac{1}{\pi}\int\dif\sigma\,\rho\left(\sigma\right)\pi\delta\left(\sigma-x\right)=\rho\left(x\right)
 \]
 
 \end_inset
@@ -5794,7 +5896,7 @@ f\left(z\right)=\frac{1}{\pi}\int\dif\sigma\frac{\rho\left(\sigma\right)}{\sigma
 ，自然也包括割线上和割线外的实部了。
 \begin_inset Formula 
 \[
-f\left(z\right)=\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\frac{\Im f\left(\sigma+i\varepsilon\right)}{\sigma-z}
+f\left(z\right)=\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\frac{\im f\left(\sigma+i\varepsilon\right)}{\sigma-z}
 \]
 
 \end_inset
@@ -5812,15 +5914,15 @@ f\left(z\right)=\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\frac{\Im f\left(\sigma+
 \end_inset
 
 中
-\begin_inset Formula $f\left(0\right)=\frac{1}{\pi}\int\dif\sigma\frac{\Im f\left(\sigma+i\varepsilon\right)}{\sigma}$
+\begin_inset Formula $f\left(0\right)=\frac{1}{\pi}\int\dif\sigma\frac{\im f\left(\sigma+i\varepsilon\right)}{\sigma}$
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
-f\left(z\right) & =f\left(0\right)+\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\left[\frac{\Im f\left(\sigma+i\varepsilon\right)}{\sigma-z}-\frac{\Im f\left(\sigma+i\varepsilon\right)}{\sigma}\right]\\
- & =f\left(0\right)+\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\,\Im f\left(\sigma+i\varepsilon\right)\frac{z}{\left(\sigma-z\right)\sigma}\\
- & =f\left(0\right)+\frac{z}{\pi}\int_{\text{cut}}\dif\sigma\frac{\Im f\left(\sigma+i\varepsilon\right)/\sigma}{\left(\sigma-z\right)}
+f\left(z\right) & =f\left(0\right)+\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\left[\frac{\im f\left(\sigma+i\varepsilon\right)}{\sigma-z}-\frac{\im f\left(\sigma+i\varepsilon\right)}{\sigma}\right]\\
+ & =f\left(0\right)+\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\,\im f\left(\sigma+i\varepsilon\right)\frac{z}{\left(\sigma-z\right)\sigma}\\
+ & =f\left(0\right)+\frac{z}{\pi}\int_{\text{cut}}\dif\sigma\frac{\im f\left(\sigma+i\varepsilon\right)/\sigma}{\left(\sigma-z\right)}
 \end{align*}
 
 \end_inset
@@ -5975,7 +6077,7 @@ i\Pi\left(q^{2}\right)=i^{4}g^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\fra
 成为复数。实际上
 \begin_inset Formula 
 \begin{align*}
-\Im\Pi\left(\sigma+i\varepsilon\right) & =\frac{g^{2}}{16\pi^{2}}\int_{0}^{1}\dif\alpha\left(-\pi\right)\theta\left[\alpha\left(1-\alpha\right)\sigma-\sigma m^{2}-\left(1-\alpha\right)\mu^{2}\right]\\
+\im\Pi\left(\sigma+i\varepsilon\right) & =\frac{g^{2}}{16\pi^{2}}\int_{0}^{1}\dif\alpha\left(-\pi\right)\theta\left[\alpha\left(1-\alpha\right)\sigma-\sigma m^{2}-\left(1-\alpha\right)\mu^{2}\right]\\
  & =\frac{g^{2}}{16\pi^{2}}\int_{\alpha^{-}}^{\alpha^{+}}\dif\alpha\\
  & =\frac{g^{2}}{16\pi\sigma}\sqrt{\left(\sigma-\left(m+\mu\right)^{2}\right)\left(\sigma-\left(m-\mu\right)^{2}\right)}
 \end{align*}
@@ -6097,7 +6199,7 @@ noprefix "false"
 \begin_inset Formula 
 \begin{align*}
 \Pi\left(z\right) & =\frac{g^{2}}{16\pi^{2}}\int_{0}^{1}\dif\alpha\log\frac{\Lambda^{2}}{\alpha m^{2}+\left(1-\alpha\right)\mu^{2}-\alpha\left(1-\alpha\right)z}\\
-\Im\Pi\left(\sigma+i\varepsilon\right) & =\frac{g^{2}}{16\pi\sigma}\sqrt{\left(\sigma-\left(m+\mu\right)^{2}\right)\left(\sigma-\left(m-\mu\right)^{2}\right)}
+\im\Pi\left(\sigma+i\varepsilon\right) & =\frac{g^{2}}{16\pi\sigma}\sqrt{\left(\sigma-\left(m+\mu\right)^{2}\right)\left(\sigma-\left(m-\mu\right)^{2}\right)}
 \end{align*}
 
 \end_inset
@@ -6121,7 +6223,7 @@ noprefix "false"
 迁移到无关截断的
 \begin_inset Formula 
 \[
-\sqrt{M^{2}-i\Im\Pi\left(M^{2}\right)}\approx M-i\Im\frac{\Pi\left(M^{2}\right)}{2M},\quad E\to E-i\frac{1}{2}\Gamma.
+\sqrt{M^{2}-i\im\Pi\left(M^{2}\right)}\approx M-i\im\frac{\Pi\left(M^{2}\right)}{2M},\quad E\to E-i\frac{1}{2}\Gamma.
 \]
 
 \end_inset
@@ -6143,7 +6245,7 @@ noprefix "false"
 \end_inset
 
 阶的。因此
-\begin_inset Formula $\Gamma=\Im\Pi\left(M^{2}\right)/\left(2M\right)$
+\begin_inset Formula $\Gamma=\im\Pi\left(M^{2}\right)/\left(2M\right)$
 \end_inset
 
 和我们猜测的相同，给出了衰变率。我们有
@@ -6171,6 +6273,481 @@ noprefix "false"
 
 \begin_layout Subsection
 直取虚部
+\end_layout
+
+\begin_layout Standard
+其实，应该能直接在
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式的费曼积分中取虚部，
+\begin_inset Formula 
+\[
+i\Pi\left(q^{2}\right)=i^{4}g^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{k^{2}-\mu^{2}+i\varepsilon}\frac{1}{\left(q-k\right)^{2}-m^{2}+i\varepsilon}
+\]
+
+\end_inset
+
+而没必要先计算一个对费曼参数
+\begin_inset Formula $\alpha$
+\end_inset
+
+的积分。可以利用一个技巧。我们先修改
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式的符号，把两条内线携带的的动量分别标记，再用
+\begin_inset Formula $\delta$
+\end_inset
+
+函数恢复动量守恒，从而
+\begin_inset Formula 
+\begin{equation}
+i\Pi\left(q^{2}\right)=\left(ig\right)^{2}i^{2}\int\frac{\dif^{4}k_{\eta}}{\left(2\pi\right)^{4}}\frac{\dif^{4}k_{\xi}}{\left(2\pi\right)^{4}}\left(2\pi\right)^{4}\delta^{4}\left(k_{\eta}+k_{\xi}-q\right)\left\{ \frac{1}{k_{\eta}^{2}-m_{\eta}^{2}+i\varepsilon}\frac{1}{k_{\xi}^{2}-m_{\xi}^{2}+i\varepsilon}\right\} \label{eq:3.8.10}
+\end{equation}
+
+\end_inset
+
+把传播子写成
+\begin_inset Formula 
+\[
+\frac{1}{k^{2}-m^{2}+i\varepsilon}=\mathcal{P}\left[\frac{1}{k^{2}-m^{2}+i\varepsilon}\right]-i\pi\delta\left(k^{2}-m^{2}\right)
+\]
+
+\end_inset
+
+并注意到
+\begin_inset Formula $i\Pi\left(q^{2}\right)$
+\end_inset
+
+有个全局的
+\begin_inset Formula $i$
+\end_inset
+
+，取大括号内的实部就得到：
+\begin_inset Formula 
+\begin{equation}
+\im\Pi\left(q\right)=-g^{2}\int\dif\Phi\left(\mathcal{P}_{\eta}\mathcal{P}_{\xi}-\Delta_{\eta}\Delta_{\xi}\right)\label{eq:3.8.11}
+\end{equation}
+
+\end_inset
+
+出于紧凑考虑，引入了记号；
+\begin_inset Formula 
+\[
+\dif\Phi=\frac{\dif^{4}k_{\eta}}{\left(2\pi\right)^{4}}\frac{\dif^{4}k_{\xi}}{\left(2\pi\right)^{4}}\left(2\pi\right)^{4}\delta^{4}\left(k_{\eta}+k_{\xi}-q\right),\quad\mathcal{P}_{\eta}=\frac{1}{k_{\eta}^{2}-m_{\eta}^{2}},\quad\Delta_{\eta}=\pi\delta\left(k_{\eta}^{2}-m_{\eta}^{2}\right)
+\]
+
+\end_inset
+
+其他类似。
+\end_layout
+
+\begin_layout Standard
+两个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数的乘积是合理的，它们限制
+\begin_inset Formula $\eta$
+\end_inset
+
+和
+\begin_inset Formula $\xi$
+\end_inset
+
+两个粒子在壳。不过这俩主值的乘积是啥？它和我们知道的任何物理的东西都够不上。我们使用一个技巧去掉这俩主值。回忆一开始，我们把费曼图作为散射过程的时空示意图。在
+ 3.8.4b 中，一个
+\begin_inset Formula $\varphi$
+\end_inset
+
+激发在某个时空点变成一个
+\begin_inset Formula $\eta$
+\end_inset
+
+和
+\begin_inset Formula $\xi$
+\end_inset
+
+，振幅为
+\begin_inset Formula $ig$
+\end_inset
+
+。由平移不变性我们可以设这一时空点为原点。
+\begin_inset Formula $\eta$
+\end_inset
+
+和
+\begin_inset Formula $\xi$
+\end_inset
+
+传播到某点
+\begin_inset Formula $x$
+\end_inset
+
+，振幅分别是
+\begin_inset Formula $iD_{\eta}\left(x\right)$
+\end_inset
+
+和
+\begin_inset Formula $iD_{\xi}\left(x\right)$
+\end_inset
+
+，随后它们又合并为
+\begin_inset Formula $\varphi$
+\end_inset
+
+，振幅为
+\begin_inset Formula $ig$
+\end_inset
+
+（而不是
+\begin_inset Formula $-ig$
+\end_inset
+
+）。时空振幅乘积的傅立叶变换给出
+\begin_inset Formula 
+\[
+i\Pi\left(q\right)=\left(ig\right)^{2}i^{2}\int\dif xe^{-iqx}D_{\eta}\left(x\right)D_{\xi}\left(x\right)
+\]
+
+\end_inset
+
+你只要按1.3.22的形式代入
+\begin_inset Formula $D_{\eta}\left(x\right)$
+\end_inset
+
+和
+\begin_inset Formula $D_{\xi}\left(x\right)$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+D\left(x-y\right)=\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{e^{ik\left(x-y\right)}}{k^{2}-m^{2}+i\varepsilon}
+\]
+
+\end_inset
+
+就能发现上式其实和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.10"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+相同，
+\begin_inset Formula 
+\[
+i\Pi\left(q^{2}\right)=\left(ig\right)^{2}i^{2}\int\frac{\dif^{4}k_{\eta}}{\left(2\pi\right)^{4}}\frac{\dif^{4}k_{\xi}}{\left(2\pi\right)^{4}}\left(2\pi\right)^{4}\delta^{4}\left(k_{\eta}+k_{\xi}-q\right)\left\{ \frac{1}{k_{\eta}^{2}-m_{\eta}^{2}+i\varepsilon}\frac{1}{k_{\xi}^{2}-m_{\xi}^{2}+i\varepsilon}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+顺便一提，尽管很多“费曼图专家”基本上只讨论动量空间，但是费曼1949年的论文标题叫《量子电动力学的时空方法》，而且有时候讨论一个给定费曼图的时空根源很有用，比
+如说现在。接下来我们回到练习1.3.3，回忆超前传播子
+\begin_inset Formula $D_{\text{adv}}\left(x\right)$
+\end_inset
+
+和延迟传播子
+\begin_inset Formula $D_{\text{ret}}\left(x\right)$
+\end_inset
+
+分别在
+\begin_inset Formula $x^{0}<0$
+\end_inset
+
+和
+\begin_inset Formula $x^{0}>0$
+\end_inset
+
+时为
+\begin_inset Formula $0$
+\end_inset
+
+。因此对任意
+\begin_inset Formula $x$
+\end_inset
+
+，乘积
+\begin_inset Formula $D_{\text{adv}}\left(k\right)D_{\text{ret}}\left(k\right)$
+\end_inset
+
+都为
+\begin_inset Formula $0$
+\end_inset
+
+。超前和延迟传播子相比费曼传播子的关键区别在于：在
+\begin_inset Formula $k^{0}$
+\end_inset
+
+复平面上，极点处于不同的半平面。因此
+\begin_inset Formula 
+\begin{align*}
+0 & =-ig^{2}\int\dif xe^{-iqx}D_{\eta,\text{adv}}\left(x\right)D_{\xi,\text{ret}}\left(x\right)\\
+ & =\int\frac{\dif^{4}k_{\eta}}{\left(2\pi\right)^{4}}\frac{\dif^{4}k_{\xi}}{\left(2\pi\right)^{4}}\left(2\pi\right)^{4}\delta^{4}\left(k_{\eta}+k_{\xi}-q\right)\left\{ \frac{1}{k_{\eta}^{2}-m_{\eta}^{2}-i\sigma_{\eta}\varepsilon}\frac{1}{k_{\xi}^{2}-m_{\xi}^{2}+i\sigma_{\xi}\varepsilon}\right\} 
+\end{align*}
+
+\end_inset
+
+这里我们用了简写
+\begin_inset Formula $\sigma_{\eta}=\sgn\left(k_{\eta}^{0}\right)$
+\end_inset
+
+和
+\begin_inset Formula $\sigma_{\xi}=\sgn\left(k_{\xi}^{0}\right)$
+\end_inset
+
+，
+\begin_inset Formula $\sgn\left(\text{正数}\right)=1$
+\end_inset
+
+，
+\begin_inset Formula $\sgn\left(\text{负数}\right)=-1$
+\end_inset
+
+。取
+\begin_inset Formula $0$
+\end_inset
+
+的虚部，有【对比
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.11"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+】
+\begin_inset Formula 
+\begin{equation}
+0=-g^{2}\int\dif\Phi\left(\mathcal{P}_{\eta}\mathcal{P}_{\xi}-\sigma_{\eta}\sigma_{\xi}\Delta_{\eta}\Delta_{\xi}\right)\label{eq:3.8.14}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $\im\Pi\left(q\right)=-g^{2}\int\dif\Phi\left(\mathcal{P}_{\eta}\mathcal{P}_{\xi}-\Delta_{\eta}\Delta_{\xi}\right)$
+\end_inset
+
+减去
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.14"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+就消掉了
+\begin_inset Formula $\mathcal{P}_{\eta}\mathcal{P}_{\xi}$
+\end_inset
+
+项，最终得到：
+\begin_inset Formula 
+\begin{align}
+\im\Pi\left(q\right) & =+g^{2}\int\dif\Phi\left(1+\sigma_{\eta}\sigma_{\xi}\right)\left(\Delta_{\eta}\Delta_{\xi}\right)\label{eq:3.8.15}\\
+ & =g^{2}\pi^{2}\int\frac{\dif^{4}k_{\eta}}{\left(2\pi\right)^{4}}\frac{\dif^{4}k_{\xi}}{\left(2\pi\right)^{4}}\left(2\pi\right)^{4}\delta^{4}\left(k_{\eta}+k_{\xi}-q\right){\color{blue}\theta\left(k_{\eta}^{0}\right)\delta\left(k_{\eta}^{2}-m_{\eta}^{2}\right)}{\color{red}\theta\left(k_{\xi}^{0}\right)\delta\left(k_{\xi}^{2}-m_{\xi}^{2}\right)}\left(1+\sigma_{\eta}\sigma_{\xi}\right)\nonumber 
+\end{align}
+
+\end_inset
+
+只有式中三个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数同时满足，
+\begin_inset Formula $\Pi\left(q\right)$
+\end_inset
+
+才会出现虚部。
+\end_layout
+
+\begin_layout Standard
+因此
+\begin_inset Formula $\Pi\left(q\right)$
+\end_inset
+
+是
+\begin_inset Formula $q^{2}$
+\end_inset
+
+的函数，为了弄清这三个条件的含义，不失一般性，我们可以选择满足
+\begin_inset Formula $q=\left(Q,\vec{0}\right)$
+\end_inset
+
+且
+\begin_inset Formula $Q>0$
+\end_inset
+
+ 的参考系。因为
+\begin_inset Formula $k_{\eta}^{0}+k_{\xi}^{0}=Q>0$
+\end_inset
+
+，又因为
+\begin_inset Formula $\left(1+\sigma_{n}\sigma_{\xi}\right)$
+\end_inset
+
+只在
+\begin_inset Formula $k_{\eta}^{0}$
+\end_inset
+
+和
+\begin_inset Formula $k_{\xi}^{0}$
+\end_inset
+
+同号的时候不为零，所以要让
+\begin_inset Formula $\im\Pi\left(q\right)$
+\end_inset
+
+不为零，
+\begin_inset Formula $k_{\eta}^{0}$
+\end_inset
+
+和
+\begin_inset Formula $k_{\xi}^{0}$
+\end_inset
+
+必须均为正数。但这一点已经被包括在两个阶跃函数中。此外，我们需要从能量守恒条件
+\begin_inset Formula $Q=\sqrt{\vec{k}^{2}+m_{\eta}^{2}}+\sqrt{\vec{k}^{2}+m_{\xi}^{2}}$
+\end_inset
+
+中解出三维矢量
+\begin_inset Formula $\vec{k}$
+\end_inset
+
+。这只在
+\begin_inset Formula $Q>m_{\eta}+m_{\xi}$
+\end_inset
+
+时才可行，使用恒等式
+\begin_inset Formula 
+\[
+\theta\left(k^{0}\right)\delta\left(k^{2}-\mu^{2}\right)=\theta\left(k^{0}\right)\frac{\delta\left(k^{0}-\omega_{k}\right)}{2\omega_{k}}
+\]
+
+\end_inset
+
+我们得到
+\begin_inset Formula 
+\[
+\im\Pi\left(q\right)=\frac{1}{2}g^{2}\int\frac{\dif^{3}k_{\eta}}{\left(2\pi\right)^{3}2\omega_{\eta}}\frac{\dif^{3}k_{\xi}}{\left(2\pi\right)^{3}2\omega_{\xi}}\left(2\pi\right)^{4}\delta^{4}\left(k_{\eta}+k_{\xi}-q\right)
+\]
+
+\end_inset
+
+我们看到（也出现在更一般的情形中）
+\begin_inset Formula $\im\Pi\left(q\right)$
+\end_inset
+
+成了对
+\begin_inset Formula $\delta$
+\end_inset
+
+函数的有限积分。不需要抵消项。
+\end_layout
+
+\begin_layout Standard
+有些读者可能觉得引入超前和推迟传播子的技巧有点狡猾。在附录1，我准备了一种更暴力直接的方法。
+\end_layout
+
+\begin_layout Subsection
+幺正性和 Cutkosky 规则
+\end_layout
+
+\begin_layout Standard
+我们刚刚用简单的粒子演示了 Cutkosky cutting rule。这个规则表明，要计算一个费曼振幅的虚部，首先“切割”一个图，如图 3.8.4a
+ 的虚线所示。对每条被切割的内线来说，用
+\begin_inset Formula $\delta\left(k^{2}-m^{2}\right)$
+\end_inset
+
+替换传播子
+\begin_inset Formula $1/\left(k^{2}-m^{2}+i\varepsilon\right)$
+\end_inset
+
+；也就是说，令穿过割线传播的虚激发在壳。对我们的例子来说，就能直接从
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.10"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+跳到
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.15"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+了。这证实了我们的直觉：虚粒子“实化”的时候，费曼振幅会虚化。
+\end_layout
+
+\begin_layout Standard
+不要把 Cutkosky 割线和复平面上的柯西割线给搞混。总的来说，cutting rule 来自于幺正性。量子力学的一条基本假设说，时间演化算符
+\begin_inset Formula $e^{-iHT}$
+\end_inset
+
+是幺正的，因此保持概率不变。回顾1.8章，可以把
+\begin_inset Formula $S$
+\end_inset
+
+矩阵中
+\begin_inset Formula $S_{fi}=\bra fe^{-iHT}\ket i$
+\end_inset
+
+中平庸的部分单列出来：
+\begin_inset Formula $S=1+iT$
+\end_inset
+
+。幺正性
+\begin_inset Formula $S^{\dagger}S=I$
+\end_inset
+
+就给出了
+\begin_inset Formula $2\im T=i\left(T^{\dagger}-T\right)=T^{\dagger}T$
+\end_inset
+
+。把此式夹在初末态之间并插入中间态完备集（
+\begin_inset Formula $1=\sum_{n}\ket n\bra n$
+\end_inset
+
+），就有
+\begin_inset Formula 
+\[
+2\im T_{fi}=\sum_{n}T_{fn}^{\dagger}T_{ni}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
