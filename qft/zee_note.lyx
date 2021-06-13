@@ -6644,17 +6644,17 @@ noprefix "false"
 
 时才可行，使用恒等式
 \begin_inset Formula 
-\[
-\theta\left(k^{0}\right)\delta\left(k^{2}-\mu^{2}\right)=\theta\left(k^{0}\right)\frac{\delta\left(k^{0}-\omega_{k}\right)}{2\omega_{k}}
-\]
+\begin{equation}
+\theta\left(k^{0}\right)\delta\left(k^{2}-\mu^{2}\right)=\theta\left(k^{0}\right)\frac{\delta\left(k^{0}-\omega_{k}\right)}{2\omega_{k}}\label{eq:3.8.16}
+\end{equation}
 
 \end_inset
 
 我们得到
 \begin_inset Formula 
-\[
-\im\Pi\left(q\right)=\frac{1}{2}g^{2}\int\frac{\dif^{3}k_{\eta}}{\left(2\pi\right)^{3}2\omega_{\eta}}\frac{\dif^{3}k_{\xi}}{\left(2\pi\right)^{3}2\omega_{\xi}}\left(2\pi\right)^{4}\delta^{4}\left(k_{\eta}+k_{\xi}-q\right)
-\]
+\begin{equation}
+\im\Pi\left(q\right)=\frac{1}{2}g^{2}\int\frac{\dif^{3}k_{\eta}}{\left(2\pi\right)^{3}2\omega_{\eta}}\frac{\dif^{3}k_{\xi}}{\left(2\pi\right)^{3}2\omega_{\xi}}\left(2\pi\right)^{4}\delta^{4}\left(k_{\eta}+k_{\xi}-q\right)\label{eq:3.8.17}
+\end{equation}
 
 \end_inset
 
@@ -6662,7 +6662,7 @@ noprefix "false"
 \begin_inset Formula $\im\Pi\left(q\right)$
 \end_inset
 
-成了对
+是对
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -6741,13 +6741,931 @@ noprefix "false"
 
 ），就有
 \begin_inset Formula 
+\begin{equation}
+2\im T_{fi}=\sum_{n}T_{fn}^{\dagger}T_{ni}\label{eq:3.8.18}
+\end{equation}
+
+\end_inset
+
+有些读者可能看出来了，这就是初等量子力学中光学定理的推广。
+\end_layout
+
+\begin_layout Standard
+方便起见我们令
+\begin_inset Formula $\mathcal{F}=-i\mathcal{M}$
+\end_inset
+
+。我们只是从
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+去掉一个
+\begin_inset Formula $-i$
+\end_inset
+
+因子：在上面的例子中，
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+对应
+\begin_inset Formula $i\Pi$
+\end_inset
+
+，
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+对应
+\begin_inset Formula $\Pi$
+\end_inset
+
+。则
+\begin_inset Formula $T$
+\end_inset
+
+和
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+的关系式就变成了
+\begin_inset Formula 
 \[
-2\im T_{fi}=\sum_{n}T_{fn}^{\dagger}T_{ni}
+T_{fi}=\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(P_{fi}\right)\left(\Pi_{fi}\frac{1}{\rho}\right)\mathcal{F}\left(f\leftarrow i\right)
+\]
+
+\end_inset
+
+为了公式紧凑我们引入了一些记号。
+\begin_inset Formula $\Pi_{fi}\frac{1}{\rho}$
+\end_inset
+
+表示各个归一化因子的乘积，分别对应初末态粒子。
+\begin_inset Formula 
+\[
+\bra0\varphi\left(t,\vec{x}\right)\ket k=\frac{1}{\sqrt{\left(2\pi\right)^{D}2\omega_{k}}}e^{-i\left(\omega t-\vec{k}\cdot\vec{x}\right)}=\frac{1}{\rho\left(k\right)}e^{-ikx}
+\]
+
+\end_inset
+
+而
+\begin_inset Formula $P_{fi}$
+\end_inset
+
+是
+\begin_inset Formula $f$
+\end_inset
+
+态动量之和减去
+\begin_inset Formula $i$
+\end_inset
+
+态动量之和。使用这些记号，光学定理左侧变成
+\begin_inset Formula 
+\[
+2\im T_{fi}=2\left(2\pi\right)^{4}\delta^{\left(4\right)}\left(P_{fi}\right)\left(\Pi_{fi}\frac{1}{\rho}\right)\im\mathcal{F}\left(f\leftarrow i\right)
+\]
+
+\end_inset
+
+右侧则是
+\begin_inset Formula 
+\[
+\sum_{n}T_{fn}^{\dagger}T_{ni}=\sum_{n}(2\pi)^{4}\delta^{(4)}\left(P_{fn}\right)\delta^{(4)}\left(P_{ni}\right)\left(\Pi_{fn}\frac{1}{\rho}\right)\left(\Pi_{ni}\frac{1}{\rho}\right)\left(\mathcal{F}\left(n\leftarrow f\right)\right)^{*}\mathcal{F}\left(n\leftarrow i\right)
+\]
+
+\end_inset
+
+两个
+\begin_inset Formula $\delta$
+\end_inset
+
+函数的乘积
+\begin_inset Formula $\delta^{(4)}\left(P_{fn}\right)\delta^{(4)}\left(P_{ni}\right)=\delta^{\left(4\right)}\left(P_{fi}\right)\delta^{\left(4\right)}\left(P_{ni}\right)$
+\end_inset
+
+，因此可以消掉
+\begin_inset Formula $\delta^{\left(4\right)}\left(P_{fi}\right)$
+\end_inset
+
+。此外
+\begin_inset Formula 
+\[
+\left(\Pi_{fn}\frac{1}{\rho}\right)\left(\Pi_{ni}\frac{1}{\rho}\right)=\Pi_{n}\frac{1}{\rho^{2}}
+\]
+
+\end_inset
+
+这样我们很高兴看到更眼熟的
+\begin_inset Formula $\rho^{2}$
+\end_inset
+
+因子（对于玻色子也就是
+\begin_inset Formula $\left(2\pi\right)^{3}2\omega$
+\end_inset
+
+）。因此，推广的光学定理最终告诉我们
+\begin_inset Formula 
+\begin{equation}
+2\im\mathcal{F}\left(f\leftarrow i\right)=\sum_{n}\left(2\pi\right)^{4}\delta^{4}\left(P_{ni}\right)\left(\Pi_{n}\frac{1}{\rho^{2}}\right)\left(\mathcal{F}\left(n\leftarrow f\right)\right)^{*}\mathcal{F}\left(n\leftarrow i\right)\label{eq:3.8.19}
+\end{equation}
+
+\end_inset
+
+也就是说，费曼振幅
+\begin_inset Formula $\im\mathcal{F}\left(f\leftarrow i\right)$
+\end_inset
+
+的虚部由
+\begin_inset Formula $\left(\mathcal{F}\left(n\leftarrow f\right)\right)^{*}\mathcal{F}\left(n\leftarrow i\right)$
+\end_inset
+
+对所有中间态
+\begin_inset Formula $\ket n$
+\end_inset
+
+求和给出。中间态的粒子当然是物理在壳的。我们要对所有量子数和运动学允许的可能状态
+\begin_inset Formula $\ket n$
+\end_inset
+
+求和。
+\end_layout
+
+\begin_layout Standard
+根据 cutting rule，给定一个费曼图，要求出虚部，我们只需要用集中不同方式切割这个图，这对应不同的可能中间态
+\begin_inset Formula $\ket n$
+\end_inset
+
+。处于态
+\begin_inset Formula $\ket n$
+\end_inset
+
+的粒子显然是实的，而非虚的。
+\end_layout
+
+\begin_layout Standard
+注意，幺正性以及由此带来的光学定理对跃迁振幅而言并非线性。这一点在实际计算中有许多用处。假设我们对某个耦合
+\begin_inset Formula $g$
+\end_inset
+
+进行微扰，并且知道了精确到
+\begin_inset Formula $g^{N}$
+\end_inset
+
+阶的
+\begin_inset Formula $\mathcal{F}\left(n\leftarrow i\right)$
+\end_inset
+
+和
+\begin_inset Formula $\mathcal{F}\left(n\leftarrow f\right)$
+\end_inset
+
+。那么光学定理给出了精确到
+\begin_inset Formula $g^{N+1}$
+\end_inset
+
+阶的
+\begin_inset Formula $\im\mathcal{F}\left(f\leftarrow i\right)$
+\end_inset
+
+，然后我们就可以用色散关系给出精确到
+\begin_inset Formula $g^{N+1}$
+\end_inset
+
+阶的
+\begin_inset Formula $\mathcal{F}\left(f\leftarrow i\right)$
+\end_inset
+
+了。
+\begin_inset Formula 
+\[
+\text{色散关系：}f\left(z\right)=\frac{1}{\pi}\int_{\text{cut}}\dif\sigma\frac{\im f\left(\sigma+i\varepsilon\right)}{\sigma-z}.
+\]
+
+\end_inset
+
+在本章讨论的真空极化函数上应用 cutting rule 规则非常容易：对于
+\begin_inset Formula $\Pi$
+\end_inset
+
+的费曼图，只有一种切割方式。初态和末态
+\begin_inset Formula $\ket i$
+\end_inset
+
+和
+\begin_inset Formula $\ket f$
+\end_inset
+
+都是单个
+\begin_inset Formula $\varphi$
+\end_inset
+
+介子，而中间态
+\begin_inset Formula $\ket n$
+\end_inset
+
+为一个
+\begin_inset Formula $\eta$
+\end_inset
+
+介子和一个
+\begin_inset Formula $\xi$
+\end_inset
+
+介子。
+\end_layout
+
+\begin_layout Standard
+回顾2.6章附录，
+\begin_inset Formula $\sum_{n}$
+\end_inset
+
+对应于
+\begin_inset Formula $\int\frac{\dif^{3}k_{\eta}}{\left(2\pi\right)^{3}}\frac{\dif^{3}k_{\xi}}{\left(2\pi\right)^{3}}$
+\end_inset
+
+，因此光学定理
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.19"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+说明
+\begin_inset Formula 
+\[
+\im\Pi\left(q\right)=\frac{1}{2}g^{2}\int\frac{\dif^{3}k_{\eta}}{\left(2\pi\right)^{3}2\omega_{\eta}}\frac{\dif^{3}k_{\xi}}{\left(2\pi\right)^{3}2\omega_{\xi}}\left(2\pi\right)^{4}\delta^{4}\left(k_{\eta}+k_{\xi}-q\right)
+\]
+
+\end_inset
+
+正是
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式。现在我们可以再次膜拜了，因为我们这次甚至得到了正确的因子
+\begin_inset Formula $2$
+\end_inset
+
+！
+\end_layout
+
+\begin_layout Standard
+作为本章的总结，我们还有一句话：“Vive Cauchy!”（柯西牛啤）
+\end_layout
+
+\begin_layout Subsection
+暴力计算虚部
+\end_layout
+
+\begin_layout Standard
+在这里用一种更直接的方法给出
+\begin_inset Formula 
+\begin{equation}
+i\Pi\left(q^{2}\right)=i^{4}g^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\frac{1}{k^{2}-\mu^{2}+i\varepsilon}\frac{1}{\left(q-k\right)^{2}-m^{2}+i\varepsilon}\label{eq:3.8.21}
+\end{equation}
+
+\end_inset
+
+的虚部。既然
+\begin_inset Formula $\Pi$
+\end_inset
+
+只是
+\begin_inset Formula $q^{2}$
+\end_inset
+
+的函数，我们不妨设
+\begin_inset Formula $q=\left(M,\vec{0}\right)$
+\end_inset
+
+。现在我们在
+\begin_inset Formula $M^{2}$
+\end_inset
+
+复平面上，
+\begin_inset Formula $\Pi$
+\end_inset
+
+在坐标轴上有一条从
+\begin_inset Formula $M^{2}=\left(m+\mu\right)^{2}$
+\end_inset
+
+起始的割线。现在我们来暴力验证这一点。
+\end_layout
+
+\begin_layout Standard
+将讨论限于
+\begin_inset Formula $M>0$
+\end_inset
+
+的情况。因式分解之后，我们发现被积式的分母是四个因子的乘积：
+\begin_inset Formula 
+\[
+k^{0}-\left(\varepsilon_{k}-i\varepsilon\right),\quad k^{0}+\left(\varepsilon_{k}-i\varepsilon\right),\quad k^{0}-\left(M+E_{k}-i\varepsilon\right),\quad k^{0}-\left(M-E_{k}-i\varepsilon\right).
+\]
+
+\end_inset
+
+因此在
+\begin_inset Formula $k^{0}$
+\end_inset
+
+复平面上被积式有
+\begin_inset Formula $4$
+\end_inset
+
+个极点。当然了，
+\begin_inset Formula $\varepsilon_{k}=\sqrt{\vec{k}^{2}+\mu^{2}}$
+\end_inset
+
+，
+\begin_inset Formula $E_{k}=\sqrt{\vec{k}^{2}+m^{2}}$
+\end_inset
+
+。现在我们对
+\begin_inset Formula $k^{0}$
+\end_inset
+
+积分，选择在下半平面闭合的回路并环绕选中的极点。选择在
+\begin_inset Formula $\varepsilon_{k}-i\varepsilon$
+\end_inset
+
+的极点，我们得到
+\begin_inset Formula 
+\[
+\Pi_{1}=-g^{2}\int\frac{\dif^{3}k}{\left(2\pi\right)^{3}}\frac{1}{2\varepsilon_{k}\left(\varepsilon_{k}-M-E_{k}\right)\left(\varepsilon_{k}-M+E_{k}\right)}
+\]
+
+\end_inset
+
+选择在
+\begin_inset Formula $M+E_{k}-i\varepsilon$
+\end_inset
+
+的极点，我们得到
+\begin_inset Formula 
+\[
+\Pi_{2}=-g^{2}\int\frac{\dif^{3}k}{\left(2\pi\right)^{3}}\frac{1}{2E_{k}\left(M+E_{k}-\varepsilon_{k}\right)\left(M+E_{k}+\varepsilon_{k}\right)}
+\]
+
+\end_inset
+
+现在我们把
+\begin_inset Formula $\Pi=\Pi_{1}+\Pi_{2}$
+\end_inset
+
+视为
+\begin_inset Formula $M$
+\end_inset
+
+的函数：
+\begin_inset Formula 
+\[
+\Pi=-g^{2}\int\frac{\dif^{3}k}{\left(2\pi\right)^{3}}\frac{1}{\left(M+E_{k}-\varepsilon_{k}\right)}\left[\frac{1}{2\varepsilon_{k}\left(M-\varepsilon_{k}-E_{k}\right)}+\frac{1}{2E_{k}\left(M+E_{k}+\varepsilon_{k}-i\varepsilon\right)}\right]
+\]
+
+\end_inset
+
+不要被外观误导，此式在
+\begin_inset Formula $M\approx\varepsilon_{k}-E_{k}$
+\end_inset
+
+处并没有极点。如果此处有极点，就会有自
+\begin_inset Formula $\mu-m$
+\end_inset
+
+起的割线，所以不能有。对于
+\begin_inset Formula $M>0$
+\end_inset
+
+ 的情况只需要关心
+\begin_inset Formula $M\approx\varepsilon_{k}+E_{k}=\sqrt{\vec{k}^{2}+\mu^{2}}+\sqrt{\vec{k}^{2}+m^{2}}$
+\end_inset
+
+处的极点。当我们对
+\begin_inset Formula $\vec{k}$
+\end_inset
+
+积分时，这个极点就会抹成一条自
+\begin_inset Formula $m+\mu$
+\end_inset
+
+起的割线。So far so good。
+\end_layout
+
+\begin_layout Standard
+为计算穿越割线的不连续性，我们再次使用
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.16"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\theta\left(k^{0}\right)\delta\left(k^{2}-\mu^{2}\right)=\theta\left(k^{0}\right)\frac{\delta\left(k^{0}-\omega_{k}\right)}{2\omega_{k}}$
+\end_inset
+
+恢复
+\begin_inset Formula $i\varepsilon$
+\end_inset
+
+，并扔掉我们不关心的项，相当于
+\begin_inset Formula 
+\begin{align*}
+\Pi & =-g^{2}\int\frac{\dif^{3}k}{\left(2\pi\right)^{3}}\frac{1}{\left(M+E_{k}-\varepsilon_{k}\right)}\left[\frac{1}{2\varepsilon_{k}\left(M-\varepsilon_{k}-E_{k}\right)}+\frac{1}{2E_{k}\left(M+E_{k}+\varepsilon_{k}-i\varepsilon\right)}\right]\\
+ & \Rightarrow-g^{2}\int\frac{\dif^{3}k}{\left(2\pi\right)^{3}}\frac{1}{2\varepsilon_{k}\left(\varepsilon_{k}-M-E_{k}+i\varepsilon\right)\left(\varepsilon_{k}+E_{k}-M-i\varepsilon\right)}\\
+ & \Rightarrow-2\pi g^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\theta\left(k^{0}\right)\delta\left(k^{2}-\mu^{2}\right)\frac{1}{\left(M-\varepsilon_{k}+E_{k}-i\varepsilon\right)\left(M-\left(\varepsilon_{k}+E_{k}\right)+i\varepsilon\right)}
+\end{align*}
+
+\end_inset
+
+对因子
+\begin_inset Formula $\frac{1}{\left(M-\left(\varepsilon_{k}+E_{k}\right)+i\varepsilon\right)}$
+\end_inset
+
+应用
+\begin_inset Formula $\frac{1}{x\pm i\varepsilon}=\mathcal{P}\frac{1}{x}\mp i\pi\delta\left(x\right)$
+\end_inset
+
+就确定了
+\begin_inset Formula $\Pi$
+\end_inset
+
+跨越上述割线的不连续度。根据费曼处方
+\begin_inset Formula $q^{2}\to q^{2}+i\varepsilon$
+\end_inset
+
+，我们总是从上方接近割线，
+\begin_inset Formula 
+\begin{align*}
+\im\Pi & =2\pi^{2}g^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\theta\left(k^{0}\right)\delta\left(k^{2}-\mu^{2}\right)\frac{\delta\left(M-\left(\varepsilon_{k}+E_{k}\right)\right)}{\left(M-\varepsilon_{k}+E_{k}-i\varepsilon\right)}\\
+ & =2\pi^{2}g^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\theta\left(k^{0}\right)\delta\left(k^{2}-\mu^{2}\right)\frac{\delta\left(M-\left(\varepsilon_{k}+E_{k}\right)\right)}{2E_{k}}
+\end{align*}
+
+\end_inset
+
+把
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.16"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\theta\left(k^{0}\right)\delta\left(k^{2}-\mu^{2}\right)=\theta\left(k^{0}\right)\frac{\delta\left(k^{0}-\omega_{k}\right)}{2\omega_{k}}$
+\end_inset
+
+写成
+\begin_inset Formula 
+\[
+\theta\left(q^{0}-k^{0}\right)\theta\left(\left(q-k\right)^{2}-m^{2}\right)=\theta\left(q^{0}-k^{0}\right)\frac{\theta\left(q^{0}-k^{0}-E_{k}\right)}{2E_{k}}
+\]
+
+\end_inset
+
+再次使用，我们得到
+\begin_inset Formula 
+\[
+\im\Pi=2\pi^{2}g^{2}\int\frac{\dif^{4}k}{\left(2\pi\right)^{4}}\theta\left(k^{0}\right)\delta\left(k^{2}-\mu^{2}\right)\quad\theta\left(q^{0}-k^{0}\right)\delta\left(\left(q-k\right)^{2}-m^{2}\right)
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+神奇的是，和 Cutkosky 描述的相同，要得到虚部，我们只需要把
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3.8.21"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+的传播子替换成
+\begin_inset Formula $\delta$
+\end_inset
+
+ 函数即可。
+\end_layout
+
+\begin_layout Subsection
+两点振幅的一个色散表示
+\end_layout
+
+\begin_layout Standard
+我想让你色散纲领多熟悉一下，这些研究一度很活跃，而且现在正在复兴（见第N部分）。我们来考虑两点振幅
+\begin_inset Formula $i\mathcal{D}(x)\equiv\bra0T\left(\mathcal{O}(x)\mathcal{O}(0)\right)\ket0$
+\end_inset
+
+, 其中
+\begin_inset Formula $\mathcal{O}(x)$
+\end_inset
+
+是某个正则形式的算符。当
+\begin_inset Formula $\mathcal{O}(x)$
+\end_inset
+
+等于场
+\begin_inset Formula $\varphi(x)$
+\end_inset
+
+的情况下，
+\begin_inset Formula $\mathcal{D}(x)$
+\end_inset
+
+就是传播子。在I.8章中，我们能算出一个自由场论的
+\begin_inset Formula $\mathcal{D}(x)$
+\end_inset
+
+，因为在那我们能够解出场运动方程并用产生湮灭算子展开
+\begin_inset Formula $\varphi(x)$
+\end_inset
+
+。但是我们对于一个完整的相互作用场论能做到什么呢？我们没法指望解出算符场运动方程。
+\end_layout
+
+\begin_layout Standard
+1950到1960年代的色散纲领，目标就是基于一般条件，比如说解析性，来尽可能说出有关
+\begin_inset Formula $\mathcal{D}(x)$
+\end_inset
+
+的信息。
+\end_layout
+
+\begin_layout Standard
+好，我们首先写出
+\begin_inset Formula 
+\[
+i\mathcal{D}\left(x\right)=\theta\left(x^{0}\right)\bra0e^{iPx}\mathcal{O}\left(0\right)e^{-iPx}\mathcal{O}\left(0\right)\ket0+\theta\left(-x^{0}\right)\bra0\mathcal{O}\left(0\right)e^{iPx}\mathcal{O}\left(0\right)e^{-iPx}\ket0,
+\]
+
+\end_inset
+
+这里我们应用了时空平移
+\begin_inset Formula $\mathcal{O}(x)=e^{iP\cdot x}\mathcal{O}(0)e^{-iP\cdot x}$
+\end_inset
+
+。顺便一说，你要是不太相信这个关系式，微分一下，得到
+\begin_inset Formula $\partial_{\mu}\mathcal{O}\left(x\right)=i\left[\mathcal{P}_{\mu},\mathcal{O}\left(x\right)\right]$
+\end_inset
+
+，这个你应该能认出来，就是通常的海森堡方程的相对论版本。现在插入
+\begin_inset Formula $1=\sum_{n}\ket n\bra n$
+\end_inset
+
+，式中
+\begin_inset Formula $\ket n$
+\end_inset
+
+是一组中间态完备集。可得
+\begin_inset Formula 
+\[
+\bra0e^{iPx}\mathcal{O}\left(0\right)e^{-iPx}\mathcal{O}\left(0\right)\ket0=\bra0\mathcal{O}\left(0\right)e^{-iPx}\mathcal{O}\left(0\right)\ket0=\sum_{n}\bra0\mathcal{O}\left(0\right)\ket n\bra ne^{-iPx}\mathcal{O}\left(0\right)\ket0=\sum_{n}e^{-iP_{n}x}\abs*{\mathcal{O}_{0n}}^{2}.
+\]
+
+\end_inset
+
+ 上式中用到了
+\begin_inset Formula $P^{\mu}\ket0=0,P^{\mu}\ket n=P_{n}^{\mu}\ket n$
+\end_inset
+
+，并定义了
+\begin_inset Formula $\mathcal{O}_{0n}\equiv\bra0\mathcal{O}\left(0\right)\ket n$
+\end_inset
+
+。接下来，我们要用到阶跃函数的积分表达式
+\begin_inset Formula 
+\begin{align*}
+\theta\left(t\right) & =-i\int\frac{\dif\omega}{2\pi}\frac{e^{i\omega t}}{\omega-i\varepsilon}\\
+\theta\left(-t\right) & =i\int\frac{\dif\omega}{2\pi}\frac{e^{i\omega t}}{\omega+i\varepsilon}
+\end{align*}
+
+\end_inset
+
+还是那句话，不确定你就微分一下，得到
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif t}\theta\left(t\right)=-i\frac{\dif}{\dif t}\int\frac{\dif\omega}{2\pi}\frac{e^{i\omega t}}{\omega-i\varepsilon}=\int\frac{\dif\omega}{2\pi}e^{i\omega t}
+\]
+
+\end_inset
+
+所以它就是
+\begin_inset Formula $\delta$
+\end_inset
+
+函数
+\begin_inset Formula $\delta(t)=\frac{\dif}{\dif t}\theta(t)$
+\end_inset
+
+的积分表达式。
+\end_layout
+
+\begin_layout Standard
+把这些放在一起就有
+\begin_inset Formula 
+\begin{align*}
+i\mathcal{D}\left(q\right) & =\int\dif^{4}xe^{iq\cdot x}i\mathcal{D}\left(x\right)=\int\dif^{4}xe^{iq\cdot x}\theta\left(x^{0}\right)\sum_{n}e^{-iP_{n}x}\abs*{\mathcal{O}_{0n}}^{2}+\theta\left(-x^{0}\right)\sum_{n}e^{-iP_{n}x}\abs*{\mathcal{O}_{0n}}^{2}\\
+ & =-i\left(2\pi\right)^{3}\sum_{n}\abs*{\mathcal{O}_{0n}}^{2}\left\{ \frac{\delta^{(3)}(\vec{q}-\vec{P}_{n})}{P_{n}^{0}-q^{0}-i\varepsilon}+\frac{\delta^{(3)}(\vec{q}+\vec{P}_{n})}{P_{n}^{0}+q^{0}-i\varepsilon}\right\} 
+\end{align*}
+
+\end_inset
+
+对
+\begin_inset Formula $\dif^{3}x$
+\end_inset
+
+的积分给出了三维
+\begin_inset Formula $\delta$
+\end_inset
+
+函数，而对
+\begin_inset Formula $\dif x^{0}=\dif t$
+\end_inset
+
+的积分提取出阶跃函数积分表示的分母。
+\end_layout
+
+\begin_layout Standard
+现在我们用
+\begin_inset Formula $\im1/(P_{n}^{0}-q^{0}-i\varepsilon)=\pi\delta(q^{0}-P_{n}^{0})$
+\end_inset
+
+来取虚部，由此得到 
+\begin_inset Formula 
+\[
+\im\left(i\int\dif^{4}xe^{iqx}\bra0T\left(\mathcal{O}\left(x\right)\mathcal{O}\left(0\right)\right)\ket0\right)=\pi(2\pi)^{3}\sum_{n}\abs*{\mathcal{O}_{0n}}^{2}(\delta^{(4)}(q-P_{n})+\delta^{(4)}(q+P_{n}))
+\]
+
+\end_inset
+
+现在式中出现的是看着更舒服的四维
+\begin_inset Formula $\delta$
+\end_inset
+
+函数了。注意，若
+\begin_inset Formula $q^{0}>0$
+\end_inset
+
+，因为物理态的能量必为正，所以含
+\begin_inset Formula $\delta^{(4)}(q+P_{n})$
+\end_inset
+
+的项都没了。
+\end_layout
+
+\begin_layout Standard
+现在成果如何？尽管我们完全无法计算
+\begin_inset Formula $\mathcal{D}(q)$
+\end_inset
+
+，我们还是设法用一些原则上可测的物理量将其虚部表出，这的物理量是指
+\begin_inset Formula $\mathcal{O}(0)$
+\end_inset
+
+在真空态和态
+\begin_inset Formula $|n\rangle$
+\end_inset
+
+之间的矩阵元绝对值平方
+\begin_inset Formula $|\mathcal{O}_{0n}|^{2}$
+\end_inset
+
+。举例来说，如果
+\begin_inset Formula $\mathcal{O}(x)$
+\end_inset
+
+是
+\begin_inset Formula $\varphi^{4}$
+\end_inset
+
+理论中的介子场
+\begin_inset Formula $\varphi(x)$
+\end_inset
+
+，那么态
+\begin_inset Formula $|n\rangle$
+\end_inset
+
+会包含单介子态、三介子态、如此等等。色散时代有一个普遍愿望：只要我们关注几个态我们就能给出一个很好的
+\begin_inset Formula $\mathcal{D}(q)$
+\end_inset
+
+近似。注意，这个结果并不依赖于对某些耦合常数的微扰。
+\end_layout
+
+\begin_layout Standard
+单介子态
+\begin_inset Formula $\ket{\vec{k}}$
+\end_inset
+
+的贡献有非常简单的形式，和你期望的一样，考虑我们对单粒子态归一化（和
+\backslash
+ref{chap:I.8}章一样），洛伦兹不变性给出
+\begin_inset Formula 
+\[
+\langle\vec{k}|\mathcal{O}(0)|0\rangle=Z^{\frac{1}{2}}\sqrt{(2\pi)^{3}2\omega_{k}}
+\]
+
+\end_inset
+
+，式中
+\begin_inset Formula $\omega_{k}=\sqrt{\overrightarrow{k^{2}}+m^{2}}$
+\end_inset
+
+，而
+\begin_inset Formula $Z^{\frac{1}{2}}$
+\end_inset
+
+是一未知常数，代表
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+能从真空中产生单个介子的“强度”。将此结果带入{
+\backslash
+eqref{equ:III.8.25}}式，并注意到现在对单介子态的求和由
+\begin_inset Formula $\int\dif^{3}k|k\rangle\langle k|$
+\end_inset
+
+给出[归一化为
+\begin_inset Formula 
+\[
+\bra{\overrightarrow{k'}}\ket{\vec{k}}=\delta^{3}(\overrightarrow{k'}-\vec{k})
+\]
+
+\end_inset
+
+。我们得到单介子对
+\begin_inset Formula $i\mathcal{D}(q)$
+\end_inset
+
+的贡献
+\begin_inset Formula 
+\begin{align*}
+ & -i(2\pi)^{3}\int\dif^{3}k\frac{Z}{(2\pi)^{3}2\omega_{k}}\left\{ \frac{\delta^{(3)}(\vec{q}-\vec{k})}{\omega_{k}-q^{0}-i\varepsilon}+(q\rightarrow-q)\right\} \\
+ & =-i\frac{Z}{2\omega_{q}}\left\{ \frac{1}{\omega_{q}-q^{0}-i\varepsilon}+(q\rightarrow-q)\right\} =\frac{iZ}{q^{2}-m^{2}+i\varepsilon}
+\end{align*}
+
+\end_inset
+
+这个结果很让人满意：虽然我们不能算出
+\begin_inset Formula $i\mathcal{D}(q)$
+\end_inset
+
+，但是我们知道它有一个极点，位置由介子质量决定，而留数取决于如何归一化
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+我们还可以轻松算出单粒子态对
+\begin_inset Formula $-\im\mathcal{D}(q)$
+\end_inset
+
+的贡献，以作验证。 代入{
+\backslash
+eqref{equ:III.8.26}}式，我们发现，对于
+\begin_inset Formula $q^{0}>0$
+\end_inset
+
+情形， 有
+\begin_inset Formula 
+\[
+\pi Z\int(\dif^{3}k/2\omega_{k})\delta^{4}(q-k)=(\pi Z/2\omega_{q})\delta(q^{0}-\omega_{q})=\pi Z\delta(q^{2}-m^{2})
+\]
+
+\end_inset
+
+， 这里我们在最后一步用了式。
+\end_layout
+
+\begin_layout Standard
+基于我们对真空极化函数的了解，我们会期望
+\begin_inset Formula $\mathcal{D}(q)$
+\end_inset
+
+（由洛伦兹不变性，这是个$q^2$的函数） 自$q^2 = (3 m)^2$起有一条割线。要验证这点，只要看一下{
+\backslash
+eqref{equ:III.8.26}}式，让
+\begin_inset Formula $\vec{q}=0$
+\end_inset
+
+即可。 三介子态的贡献起自
+\begin_inset Formula 
+\[
+\sqrt{q^{2}}=q^{0}=P_{''3''}^{0}=\sqrt{\overrightarrow{k_{1}^{2}}+m^{2}}+\sqrt{\overrightarrow{k_{2}^{2}}+m^{2}}+\sqrt{\overrightarrow{k_{3}^{2}}+m^{2}}\geq3m
+\]
+
+\end_inset
+
+处。 对各态的求和现在是一个对
+\begin_inset Formula $\overrightarrow{k_{1}}$
+\end_inset
+
+,
+\begin_inset Formula $\overrightarrow{k_{2}}$
+\end_inset
+
+ ,
+\begin_inset Formula $\overrightarrow{k_{3}}$
+\end_inset
+
+的积分， 还要服从约束条件
+\begin_inset Formula $\overrightarrow{k_{1}}+\overrightarrow{k_{2}}+\overrightarrow{k_{3}}=0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+知道了
+\begin_inset Formula $\mathcal{D}(q)$
+\end_inset
+
+的虚部，就能给出一个类似{
+\backslash
+eqref{equ:III.8.3}}式的色散关系。
+\end_layout
+
+\begin_layout Standard
+最终，如果你盯着看{
+\backslash
+eqref{equ:III.8.26}}式足够长时间（参见练习III.8.3），你就会发现关系式 
+\backslash
+begin{equation}
+\begin_inset Formula 
+\[
+\im\left(i\int\dif^{4}xe^{iqx}\langle0|T(\mathcal{O}(x)\mathcal{O}(0))|0\rangle\right)=\frac{1}{2}\int\dif^{4}xe^{iqx}\langle0|[\mathcal{O}(x)\mathcal{O}(0)]|0\rangle
+\]
+
+\end_inset
+
+此处的讨论也和
+\backslash
+ref{chap:I.8}章关于场重定义的讨论有关。 如果我们的朋友用
+\begin_inset Formula $\eta=Z^{\frac{1}{2}}\varphi+\alpha\varphi^{3}$
+\end_inset
+
+而不是
+\begin_inset Formula $\varphi$
+\end_inset
+
+， 那么此处讨论说明他的传播子
+\begin_inset Formula $\int\dif^{4}xe^{iqx}\langle0|T(\eta(x)\eta(0))|0\rangle$
+\end_inset
+
+$ 也同样在
+\begin_inset Formula $q^{2}-m^{2}$
+\end_inset
+
+处有极点。重点在于，物理要求极点固定在同一位置。
+\end_layout
+
+\begin_layout Standard
+这里我们取
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+为洛伦兹标量。在应用中（见
+\backslash
+ref{chap:VII.3}章）， 常常是电磁流
+\begin_inset Formula $J^{\mu}(x)$
+\end_inset
+
+（视作算符）扮演
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+的角色。同样的讨论依然成立，就是额外需要跟住一些洛仑兹指标而已。 其实，我们能看出来，那里真空极化函数
+\begin_inset Formula $\Pi_{\mu\nu}$
+\end_inset
+
+就对应着这里讨论中的
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+。 
 \end_layout
 
 \begin_layout Section
