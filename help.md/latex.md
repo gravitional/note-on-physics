@@ -555,8 +555,8 @@ And this is the best squash, \verb+literally!+
 
 但是,有时在用户文档中必须访问程序包内部的宏. 因此,
 
-+ `\makeatletter` 将`@`的`catcode`从`12`更改为`11`, 也就是改成普通字母
-+ `\makeatother `将`@`的`catcode`从`11`更改为`12`.
++ `\makeatletter` 将`@`的`catcode`从`12`更改为`11`, 也就是改成普通字母, 可以用作命令，
++ `\makeatother `将`@`的`catcode`从`11`更改为`12`, 不能用作命令.
 
 实际上,如果需要修改名称中包含`@`符号的程序包内部宏,则需要用以下命令将修改内容括起来:
 
