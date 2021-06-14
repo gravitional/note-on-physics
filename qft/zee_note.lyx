@@ -787,7 +787,7 @@ Zinn-Justin
 
 传播子倒数
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -828,7 +828,7 @@ draw (1,0) to [controls=+(45:1.5) and +(135:1.5)] (1,0);}
 \begin_layout Standard
 费曼图
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1042,7 +1042,7 @@ I\left(k,m,\Lambda;\lambda\right)=\left(-i\lambda\right)^{2}\int^{\Lambda}\int^{
 
 \begin_layout Enumerate
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1068,7 +1068,7 @@ draw[red] (1,0) +(4pt,4pt) -- +(-4pt,-4pt) +(-4pt,4pt) -- +(4pt,-4pt)}
 
 \begin_layout Enumerate
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -3222,7 +3222,7 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -5747,7 +5747,7 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -6368,8 +6368,316 @@ i\Pi\left(q^{2}\right)=\left(ig\right)^{2}i^{2}\int\frac{\dif^{4}k_{\eta}}{\left
 \begin_inset Formula $\xi$
 \end_inset
 
-两个粒子在壳。不过这俩主值的乘积是啥？它和我们知道的任何物理的东西都够不上。我们使用一个技巧去掉这俩主值。回忆一开始，我们把费曼图作为散射过程的时空示意图。在
- 3.8.4b 中，一个
+两个粒子在壳。不过这俩主值的乘积是啥？它和我们知道的任何物理的东西都够不上。我们使用一个技巧去掉这俩主值。回忆一开始，我们把费曼图作为散射过程的时空示意图。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at (2,.2) {$(a)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above right = 4 and 4 of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above right = 4 and 0 of a1] (a3);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above right = 0 and 4 of a1] (a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above right = 1.5 and 1.5 of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above right = 2.4 and 2.4 of a1] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at (1.2,2.3) {$k_
+\backslash
+eta$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at (2.75,1.6) {$k_
+\backslash
+xi$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a3)--[scalar](a4);
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a1) --[fermion,edge label = 
+\backslash
+(q
+\backslash
+)] (a5)--[fermion,half left,looseness=1.5] (a6)--[fermion](a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a5)--[fermion,half right,looseness=1.5](a6);
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{feynman}[xshift=5cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+		%% fig a
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex (a1) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at (2,.2) {$(b)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above right = 4 and 4 of a1] (a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above right = 1.5 and 1.5 of a1] (a5);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at (1.5,1.25) {$o$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+vertex[above right = 2.4 and 2.4 of a1] (a6);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at (2.6,2.4) {$x$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at (1.2,2.3) {$
+\backslash
+eta$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at (2.75,1.6) {$
+\backslash
+xi$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		% 对各个顶点连线
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+diagram*{
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a1) --[fermion,edge label = 
+\backslash
+(
+\backslash
+varphi
+\backslash
+)] (a5)--[fermion,half left,looseness=1.5] (a6)--[fermion](a2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		(a5)--[fermion,half right,looseness=1.5](a6);
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{feynman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+3.8.4
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:3.8.4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:3.8.4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+b 中，一个
 \begin_inset Formula $\varphi$
 \end_inset
 
@@ -6678,8 +6986,17 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-我们刚刚用简单的粒子演示了 Cutkosky cutting rule。这个规则表明，要计算一个费曼振幅的虚部，首先“切割”一个图，如图 3.8.4a
- 的虚线所示。对每条被切割的内线来说，用
+我们刚刚用简单的粒子演示了 Cutkosky cutting rule。这个规则表明，要计算一个费曼振幅的虚部，首先“切割”一个图，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:3.8.4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+a 的虚线所示。对每条被切割的内线来说，用
 \begin_inset Formula $\delta\left(k^{2}-m^{2}\right)$
 \end_inset
 
@@ -7321,11 +7638,19 @@ i\mathcal{D}\left(x\right)=\theta\left(x^{0}\right)\bra0e^{iPx}\mathcal{O}\left(
 \end_inset
 
 这里我们应用了时空平移
-\begin_inset Formula $\mathcal{O}(x)=e^{iP\cdot x}\mathcal{O}(0)e^{-iP\cdot x}$
+\begin_inset Formula $\mathcal{O}\left(x\right)=e^{iP\cdot x}\mathcal{O}\left(0\right)e^{-iP\cdot x}$
 \end_inset
 
-。顺便一说，你要是不太相信这个关系式，微分一下，得到
-\begin_inset Formula $\partial_{\mu}\mathcal{O}\left(x\right)=i\left[\mathcal{P}_{\mu},\mathcal{O}\left(x\right)\right]$
+。顺便一说，你要是不太相信这个关系式，微分一下，
+\begin_inset Formula 
+\[
+\partial_{\mu}\mathcal{O}\left(x\right)=i\left[P_{\mu},e^{iP\cdot x}\mathcal{O}\left(0\right)e^{-iP\cdot x}\right]
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula $\partial_{\mu}\mathcal{O}\left(x\right)=i\left[P_{\mu},\mathcal{O}\left(x\right)\right]$
 \end_inset
 
 ，这个你应该能认出来，就是通常的海森堡方程的相对论版本。现在插入
@@ -7634,7 +7959,7 @@ i\mathcal{D}\left(q\right)=-i\left(2\pi\right)^{3}\sum_{n}\abs*{\mathcal{O}_{0n}
 i\mathcal{D}\left(q\right) & \approx-i\left(2\pi\right)^{3}\int\dif^{3}k\frac{Z}{\left(2\pi\right)^{3}2\omega_{k}}\left\{ \frac{\delta^{(3)}\left(\vec{q}-\vec{k}\right)}{\omega_{k}-q^{0}-i\varepsilon}+\left(q\rightarrow-q\right)\right\} \\
  & =-i\frac{Z}{2\omega_{q}}\left\{ \frac{-1}{q^{0}-\left(\omega_{q}-i\varepsilon\right)}+\frac{1}{q^{0}-\left(-\omega_{q}+i\varepsilon\right)}\right\} \\
  & \xRightarrow{\varepsilon\to0}\frac{iZ}{q_{0}^{2}-\left(\omega_{q}-i\varepsilon\right)^{2}}=\frac{iZ}{q^{2}-m^{2}+2\omega_{q}i\varepsilon-\varepsilon^{2}}\\
- & =\frac{iZ}{q^{2}-m^{2}+i\varepsilon}
+i\mathcal{D}\left(q\right) & \approx\frac{iZ}{q^{2}-m^{2}+i\varepsilon}
 \end{align*}
 
 \end_inset
@@ -7680,12 +8005,20 @@ noprefix "false"
 情形， 有
 \begin_inset Formula 
 \[
-2\im\mathcal{D}\left(q\right)=2\pi Z\int\frac{\dif^{3}k}{2\omega_{k}}\delta^{4}\left(q-k\right)=\frac{2\pi Z}{2\omega_{q}}\delta\left(q^{0}-\omega_{q}\right)=2\pi Z\delta(q^{2}-m^{2})
+2\im\mathcal{D}\left(q\right)=2\pi Z\int\frac{\dif^{3}k}{2\omega_{k}}\delta^{4}\left(q-k\right)=\frac{2\pi Z}{2\omega_{q}}\delta\left(q^{0}-\omega_{q}\right)=2\pi Z\delta\left(q^{2}-m^{2}\right)
 \]
 
 \end_inset
 
- 这里我们在最后一步用了1.8.14,16式。
+ 这里我们在最后一步用了1.8.14,16式。总结：
+\begin_inset Formula 
+\[
+i\mathcal{D}\left(q\right)\approx\frac{iZ}{q^{2}-m^{2}+i\varepsilon},\quad2\im\mathcal{D}\left(q\right)\approx2\pi Z\delta\left(q^{2}-m^{2}\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7760,7 +8093,7 @@ noprefix "false"
 式的色散关系。
 \begin_inset Formula 
 \[
-f\left(z\right)=\frac{1}{\pi}\int\dif\sigma\frac{\rho\left(\sigma\right)}{\sigma-z}.
+f\left(z\right)=\frac{1}{\pi}\int_{\text{割线}}\dif\sigma\frac{\im f\left(\sigma+i\varepsilon\right)}{\sigma-z}.
 \]
 
 \end_inset
