@@ -2140,7 +2140,7 @@ As a special rule,` <rev>^0` 指向自身，可以用`tag`（tag object）指向
 `<rev>~<n>`, e.g. `master~3`
 
 A suffix `~<n>` to a revision parameter 之的是第`n`个首位父节点，
-I.e.  `<rev>~3` is equivalent to `<rev>^^^` which is equivalent to `<rev>^1^1^1`. 
+I.e.  `<rev>~3`等价于`<rev>^^^`, 等价于 `<rev>^1^1^1`. 
 
 参见下面的图示
 
@@ -2173,7 +2173,7 @@ without requiring `rev` to be a tag, and without dereferencing rev;  because a t
 
 `:/<text>`, e.g. `:/fix nasty bug`
 
-引用一个commit，它的 commit message matches the specified regular expression. 正则表达式可以匹配commit message的任意部分。
+引用一个commit，它的提交信息匹配特性的正则表达式. 正则表达式可以匹配commit message的任意部分。
 
 匹配某些字符开头，用`:/^foo`，序列`/!`有特殊含义，`:/!-foo` 反相匹配，`:/!!foo`匹配`!foo`本身，
 
