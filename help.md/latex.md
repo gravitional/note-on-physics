@@ -628,7 +628,7 @@ And this is the best squash, \verb+literally!+
 \end{figure}
 ```
 
-### 设置子页面宽度resizebox
+### 子页面宽度resizebox
 
 [一行代码解决LaTex表格过宽或过窄问题](https://blog.csdn.net/Rained_99/article/details/79389189#commentBox)
 
@@ -638,7 +638,7 @@ And this is the best squash, \verb+literally!+
 \begin{table}[htbp]
 \center
 \caption{ Example}
-\resizebox{\textwidth}{12mm}{ %12可随机设置,调整到适合自己的大小为止
+\resizebox{\textwidth}{12mm}{ %12mm 是高度, 调整到适合自己的大小为止
 \begin{tabular}{lll}
 \...
 \end{tabular}
@@ -660,6 +660,10 @@ And this is the best squash, \verb+literally!+
 \end{table}
 ```
 
+如果想在`LyX`中使用，参考[extended features ofLYX/LATEX](https://johnrhudson.me.uk/computing/Tips_tricks_and_extended_features_of_LyX_LaTeX.pdf)
+在`Document->Settings->Modules`中添加`GraphicBoxes`模块，然后就可以在菜单栏使用`Insert->Custom Insets->Resizebox`.
+第一个参数是宽度，第二个是高度，为了避免`LyX`把`\textwidth`中的`\`解析成`\textbackslash`，可以按下`Ctrl+L`，在源码环境中输入.
+
 ### resizebox
 
 22.3.4 \resizebox
@@ -673,8 +677,7 @@ Synopses:
 \resizebox*{horizontal length}{vertical length}{material}
 ```
 
-给定一个大小(例如`3`厘米),请转换`material`使其达到该大小. 
- 如果水平长度或垂直长度是一个感叹号`!` 就进行等比缩放. 
+给定一个大小(例如`3`厘米),请转换`material`使其达到该大小.  如果水平长度或垂直长度是一个感叹号`!` 就进行等比缩放. 
 
 此示例使图形的宽度为半英寸,并按相同的比例垂直缩放图形,以防止图形变形. 
 
