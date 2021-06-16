@@ -651,3 +651,99 @@ return x // void 函数不需要写 return
 随机函数：`rand()`, `srand()`.
 
 函数的嵌套调用和递归调用。
+
+### 参数传递
+
+函数被调用时才分配形参的存储单元
+实参可以是常量，变量或表达式
+实参类型必须与形参相符
+值传递是传递参数值，即单向传递
+引用传递可以实现双向传递
+常数引用作参数可以保障实参数据的安全
+
+### 引用
+
+引用(&)是标识符的别名。
+定义引用时，必须同时对它进行初始化，指向一个已存在的对象。例如
+
+```c++
+int i,j;
+int &ri = i; //定义 int 引用 ri，初始化为变量i的引用
+j=10
+ri=j; // 相当于 i=j
+```
+
+一旦引用被初始化后，就不能改为指向其他对象。 引用可以作为形参。
+
+### 含有可变参数的函数
+
+类模板: `initializer_list`
+
+initializer_list<string> ls; //initializer_list 的元素类型是 string
+initializer_list<int> ls; //initializer_list 的元素类型是 int
+
+`initializer_list` 比较特殊的是，其对象中的元素永远是常量值，无法改变`initializer_list`对象中元素的值。
+含有`initializer_list`形参的函数也可以同时拥有形参。
+
+### 内联函数
+
+编译器实现的，不走调用子函数开销。内联函数声明关键字`inline`.
+
+编译时用函数体进行替换，节省了参数传递，控制转移等开销。
+
+内联函数不能有循环语句和 switch 语句。
+必须出现在第一次调用之前，不能使用异常接口声明。
+
+`inline`只是建议，编译器不一定理会。
+
+### constexpr 函数
+
+`constexpr` 修饰的函数，在其所有参数都是`constexpr`时，一定返回`constexpr`.例如
+
+```cpp
+constexpr int get_size(){return 20;}
+constexpr int foo = get_size(); \\正确: foo 是一个常量表达式
+```
+
+编译期间可计算函数。
+
+### 函数的默认参数
+
+```cpp
+int add(int x=5,int y=6){
+   return x+y;
+}
+int main(){
+   add(10,20); //10+20
+   add(10); // 10+6
+   add(); //5+6
+}
+
+带有默认值的形参必须在形参列表的最右，即默认参数的右边不能有无默认值的参数；
+调用时实参与形参的结合次序是从左到右。
+
+```cpp
+int add(int x,int y=6, int z=6); 
+```
+
+如果函数声明在前，则在声明中给定默认值；
+如果函数定义在前，则在定义中给定默认值；
+
+### 函数的重载
+
+在编译的时候实现，利用静态的多态性实现。允许功能相似的函数在相同的作用域内以相同函数名声明，从而形成重载。
+方便使用与记忆。
+
+```cpp
+int add (int x, int y);
+float add(float add, float y);
+```
+
+```cpp
+int add (int x, int y);
+int add (int x, int y, int z);
+```
+
+### c++系统函数
+
+使用系统函数要包含相应的头文件。如`cmath`.

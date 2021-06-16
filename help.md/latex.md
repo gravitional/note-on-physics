@@ -664,6 +664,13 @@ And this is the best squash, \verb+literally!+
 在`Document->Settings->Modules`中添加`GraphicBoxes`模块，然后就可以在菜单栏使用`Insert->Custom Insets->Resizebox`.
 第一个参数是宽度，第二个是高度，为了避免`LyX`把`\textwidth`中的`\`解析成`\textbackslash`，可以按下`Ctrl+L`，在源码环境中输入.
 
+***
+同类型还有`\rotatebox`, `\rotatebox[旋转原点]{旋转角度}{框内容}`.
+
+其中原点指定为`c`、`l`、`r`、`b`、`t`或者使用它们的组合，逆时针的旋转角度按度数表示。
+从`LYX 2.2`开始， 一旦你安装了`GraphicBoxes`模块，选择`Insert.CustomInsets.Rotatebox`，
+在你想要旋转框出现的地方选择`Insert.Origin`来添加一个`Origin`选项。 在`Origin`盒子中输入`=c`，在`Angle`盒子中输入`30`，在`Angle`盒子后面输入文字。
+
 ### resizebox
 
 22.3.4 \resizebox
