@@ -794,14 +794,13 @@ commit-id 为要删除的 `commit` 的前一次`commit`号
 
 选项：
 
-+ `-D`: Shortcut for `--delete --force`.
-+ `-d, --delete` ;Delete a branch. The branch must be fully merged in its upstream branch, or in `HEAD` if no upstream was set with `--track` or `--set-upstream-to`.
-+ `-f, --force`: Reset `<branchname>` to `<startpoint>`, even if `<branchname>` exists already.
-Without `-f`, git branch refuses to change an existing branch.
-In combination with `-d` (or `--delete`), allow deleting the branch irrespective of its merged status.
-In combination with `-m` (or `--move`), allow renaming the branch even if the new branch           name already exists, the same applies for `-c` (or `--copy`).
++ `-D`: 与 `--delete --force`相同.
++ `-d, --delete` ;删除分支. 该分支必须完全被合并到上游，如果没有使用 `--track` 或 `--set-upstream-to` 设置上游，or in `HEAD`。
++ `-f, --force`: 将 `<branchname>` 重置为 `<startpoint>`，即使 `<branchname>` 已经存在。 如果没有 `-f`，`git branch` 将拒绝更改现有分支。
+结合`-d`（或`--delete`），允许删除分支，而不管其合并状态如何。
+结合`-m`（或`--move`），即使新分支名称已经存在，也允许重命名分支，同样适用于`-c`(或`--copy`).
 + `-m` `-M`：对分支进行重命名, 并且把`reflog`出现的分支名字一并更改. 如果新分支已经存在, 使用`-M`强迫重命名
-+ `-r`,` --remotes` List or delete (if used with `-d`) the remote-tracking branches.
++ `-r`,` --remotes`列出或删除(与 `-d` 一起使用)远程跟踪分支。
 
 ### add
 

@@ -501,13 +501,13 @@ LaTeX为特殊目的预留了以下字符.  例如,百分号％用于注释.  �
 
 ### 原文 verbatim
 
-#### verb 宏
+#### verb macro
 
 概要:
 
 ```latex
 \verb char文字文本char
-\verb * char文字文本char
+\verb* char文字文本char
 ```
 
 使用打字机(`\tt`)字体对输入的文字文本进行原样排版,包括特殊字符和空格.
@@ -523,7 +523,7 @@ And this is the best squash, \verb+literally!+
 包围文字文本的单字符定界符`char`必须相同.
 `\verb`或`\verb*`与`char`之间,`char`与文字文本之间,或文本与第二个`char`之间不能有空格
 (上面的空格是为了区分不同部分).分隔符不能出现在后续文本中,文本中不能包含换行符.
-`*`形式的不同之处仅在于,空格以可见的空格字符打印.
+`\verb*`形式的不同之处仅在于，将空格以可见字符打印出来.
 
 #### verbatim 环境
 
@@ -536,11 +536,13 @@ And this is the best squash, \verb+literally!+
 ```
 
 创建一个段落,对内容原样输出.例如,在文字文本中,反斜杠`\`字符不会启动命令,它会产生一个打印的`\`,
-并按字面意义使用回车符和空格.输出以类似等距打字机的字体(`\tt`)出现.文字文本的唯一限制是它不能包含字符串`\end {verbatim}`.
-您不能在宏的参数(例如`\section`的参数)中使用逐字记录环境.(但是cprotect软件包可以帮助您解决此问题.)
+并按字面意义使用回车符和空格.输出以类似等距打字机的字体(`\tt`)出现.文字文本的唯一限制是它不能包含字符串`\end{verbatim}`.
+您不能在宏的参数(例如`\section`的参数)中使用逐字记录环境.(但是`cprotect`软件包可以帮助您解决此问题.)
 
-`verbatim`的一种常见用法是排版计算机代码.有一些软件包可以改善`verbatim`.例如,一种改进是允许逐字包含外部文件或这些文件的一部分,比如`listings`, and `minted`.
-一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`.另一个是`verbatimbox`. 有关所有相关软件包的列表,请参见CTAN.
+`verbatim`的一种常见用法是排版计算机代码.有一些软件包可以改善`verbatim`.
+例如,一种改进是允许逐字包含外部文件或这些文件的一部分,比如`listings`, and `minted`.
+一个为`verbatim`环境提供更多选项的软件包是`fancyvrb`.
+另一个是`verbatimbox`. 有关所有相关软件包的列表,请参见CTAN.
 
 ### \makeatletter, \makeatother
 

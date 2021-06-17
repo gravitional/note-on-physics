@@ -553,9 +553,9 @@ git checkout [<tree-ish>] [--] <pathspec>…​
 git branch [--track | --no-track] [-f] <branchname> [<start-point>]
 ```
 
-The command’s above form creates a new branch head named `<branchname>` which points to the current HEAD, or `<start-point>` if given.
-As a special case, for `<start-point>`, you may use "`A...B`" as a shortcut for the merge base of A and B if there is exactly one merge base.
-You can leave out at most one of A and B, in which case it defaults to `HEAD`.
+命令的上述形式创建了名为 `<branchname>` 的新分支头，它指向当前的`HEAD`，或者如果给定了 `<start-point>`。
+
+`<start-point>`有一个特殊形式: 如果`A`和`B`恰好有一个合并基，您可以使用`A...B`作为指定这个合并基的快捷方式。最多可以省略`A`和`B`中的一个，它默认为`HEAD`。
 
 也可以用checkout 的特殊语法
 
