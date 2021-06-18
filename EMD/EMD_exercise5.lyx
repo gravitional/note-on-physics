@@ -224,7 +224,7 @@ tableofcontents[currentsection]
 
 \begin_layout Plain Layout
 
-1,2,3,4,6,8
+2,3,6,7,10,11,12,13
 \end_layout
 
 \begin_layout Plain Layout
@@ -232,6 +232,405 @@ tableofcontents[currentsection]
 }
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+达朗贝尔方程
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+证：用
+\begin_inset Formula $c$
+\end_inset
+
+表示真空中的光速，场方程为
+\begin_inset Formula 
+\begin{align*}
+ & {\color{brown}\nabla\cdot\sbf E=\rho/\varepsilon_{0}}\quad\nabla\times\sbf E=-\partial_{t}\sbf B\\
+ & \nabla\cdot\sbf B=0,\quad{\color{blue}\nabla\times\sbf B=\mu_{0}\sbf J+\frac{1}{c^{2}}\partial_{t}\sbf E}
+\end{align*}
+
+\end_inset
+
+引入标势、矢势，以及洛伦兹规范：
+\begin_inset Formula 
+\begin{align*}
+ & \sbf E=-\nabla\varphi-\partial_{t}\sbf A,\quad\sbf B=\nabla\times\sbf A\\
+ & \frac{1}{c}\partial_{t}\frac{1}{c}\varphi+\nabla\cdot\sbf A=0
+\end{align*}
+
+\end_inset
+
+代入得到：
+\begin_inset Formula 
+\begin{align*}
+ & \nabla\times\nabla\times\sbf A=\mu_{0}\sbf J-\frac{1}{c^{2}}\left(\partial_{t}\nabla\varphi+\partial_{t}^{2}\sbf A\right){\color{blue}\Rightarrow-\nabla^{2}\sbf A=-\frac{1}{c^{2}}\partial_{t}^{2}\sbf A+\mu_{0}\sbf J}\\
+ & \nabla\cdot\left(-\nabla\varphi-\partial_{t}\sbf A\right)=\rho/\varepsilon_{0}{\color{brown}\Rightarrow-\nabla^{2}\varphi+\frac{1}{c^{2}}\partial_{t}^{2}\varphi=\rho/\varepsilon_{0}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+达朗贝尔方程
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+所以
+\begin_inset Formula $\sbf A$
+\end_inset
+
+和
+\begin_inset Formula $\varphi$
+\end_inset
+
+满足达朗贝尔方程：
+\begin_inset Formula 
+\[
+\frac{1}{c^{2}}\partial_{t}^{2}\sbf A-\nabla^{2}\sbf A=\mu_{0}\sbf J,\quad\frac{1}{c^{2}}\partial_{t}^{2}\varphi-\nabla^{2}\varphi=\frac{\rho}{\varepsilon_{0}}.
+\]
+
+\end_inset
+
+达朗贝尔方程的特解为推迟势：
+\begin_inset Formula 
+\[
+\sbf A\left(t,\sbf x\right)=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left(t-\frac{r}{c},\sbf x^{\prime}\right)}{r}\dif V^{\prime},\quad\varphi\left(t,\sbf x\right)=\frac{1}{4\pi\varepsilon_{0}}\int_{V}\frac{\rho\left(t-\frac{r}{c},\sbf x^{\prime}\right)}{r}\dif V^{\prime}
+\]
+
+\end_inset
+
+电流产生矢势波动，电荷产生标势波动。辐射源在
+\begin_inset Formula $t-\frac{r}{c}$
+\end_inset
+
+时刻发出扰动，在
+\begin_inset Formula $t$
+\end_inset
+
+时刻达到观察点。
+\end_layout
+
+\begin_layout Frame
+此特解满足洛伦兹规范
+\begin_inset Formula 
+\[
+\frac{1}{c}\partial_{t}\frac{1}{c}\varphi+\nabla\cdot\sbf A=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+单色波
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\begin{align*}
+ & \sbf J\left(t^{\prime},\sbf x^{\prime}\right)=\sbf J\left(\sbf x^{\prime}\right)e^{-i\omega t^{\prime}},\quad\rho\left(t^{\prime},\sbf x^{\prime}\right)=\rho\left(\sbf x^{\prime}\right)e^{-i\omega t^{\prime}}.\\
+ & \partial_{t^{\prime}}\rho+\nabla^{\prime}\cdot\sbf J=0\Rightarrow{\color{blue}\nabla^{\prime}\cdot\sbf J-i\omega\rho=0}
+\end{align*}
+
+\end_inset
+
+电流分布
+\begin_inset Formula $\sbf J$
+\end_inset
+
+给定，电荷分布
+\begin_inset Formula $\rho$
+\end_inset
+
+也就给定。矢势就可以完全确定电磁场。
+\begin_inset Formula 
+\[
+{\color{blue}\frac{1}{c}\partial_{t}\frac{1}{c}\varphi+\nabla\cdot\sbf A=0}\Rightarrow\frac{i\omega}{c^{2}}\varphi=\nabla\cdot\sbf A
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf A\left(t,\sbf x\right)=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left(\sbf x^{\prime}\right)e^{-i\omega\left(t-\frac{r}{c}\right)}}{r}\dif V^{\prime},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+e^{-i\omega\left(t-\frac{r}{c}\right)}=e^{-i\left(\omega t-kr\right)},\quad\omega=ck
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf B=\nabla\times\sbf A,\quad\nabla\times\sbf B=\frac{-i\omega}{c^{2}}\sbf E
+\]
+
+\end_inset
+
+只要知道了电流分布函数
+\begin_inset Formula $\sbf J\left(\sbf x^{\prime}\right)$
+\end_inset
+
+，就可以计算电磁辐射，包括天线辐射。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+ddd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\left(\frac{1}{c}\partial_{t},\sbf\nabla\right),\quad\left(\varphi/c,\sbf A\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{c^{2}}\partial_{t}^{2}\sbf A-\nabla^{2}\sbf A=\mu_{0}\sbf J,\quad\frac{1}{c^{2}}\partial_{t}^{2}\varphi-\nabla^{2}\varphi=\frac{\rho}{\varepsilon_{0}}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf A\left(t,\sbf x\right)=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left(t-\frac{r}{c},\sbf x^{\prime}\right)}{r}\dif V^{\prime},\quad\varphi\left(t,\sbf x\right)=\frac{1}{4\pi\varepsilon_{0}}\int_{V}\frac{\rho\left(t-\frac{r}{c},\sbf x^{\prime}\right)}{r}\dif V^{\prime}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{t}\rho+\nabla\cdot\sbf J=0
+\]
+
+\end_inset
+
+电流产生矢势波动，电荷产生标势波动。洛伦兹规范
+\begin_inset Formula 
+\[
+\frac{1}{c}\partial_{t}\frac{\varphi}{c}+\nabla\cdot\sbf A=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+辐射的多级展开
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+设场点距离远远大于源点距离：
+\begin_inset Formula 
+\[
+r=\sqrt{R^{2}+x^{\prime2}-2\sbf R\cdot\sbf x^{\prime}}=R\sqrt{1-2\sbf e_{r}\cdot\frac{\sbf x^{\prime}}{R}+\left(\frac{x^{\prime}}{R}\right)^{2}}\approx R-\sbf e_{R}\cdot\sbf x^{\prime}
+\]
+
+\end_inset
+
+对矢势进行多级展开：
+\begin_inset Formula 
+\begin{align*}
+\sbf A\left(\sbf x\right) & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left(\sbf x^{\prime}\right)e^{ikr}}{r}\dif V^{\prime}=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left(\sbf x^{\prime}\right)e^{ik\left(R-\sbf e_{R}\cdot\sbf x^{\prime}\right)}}{r}\dif V^{\prime}\\
+ & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\int_{V}\sbf J\left(\sbf x^{\prime}\right)\sum_{n=0}^{\infty}\frac{1}{n!}\left(-ik\sbf e_{R}\cdot\sbf x^{\prime}\right)^{n}\dif V^{\prime}\\
+ & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\int_{V}\sbf J\left(\sbf x^{\prime}\right)\left(1-i\sbf k_{R}\cdot\sbf x^{\prime}\right)\dif V^{\prime},\quad\sbf k_{R}=k\sbf e_{R}
+\end{align*}
+
+\end_inset
+
+第一项为电偶极辐射，第二项包括磁偶极和电四级辐射，剩下的为高级矩的辐射。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+从
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+在辐射区近似下：
+\begin_inset Formula 
+\begin{align*}
+\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\dot{\sbf p}\\
+\sbf B & =i\sbf k_{R}\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\dot{\sbf p}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{\ddot{\sbf p}}{\omega}\times\sbf k_{R}\\
+\sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}c}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf p}}{\omega}\times\sbf k_{R}\right)\times\sbf e_{R},\quad\abs{\sbf E}=c\abs{\sbf B}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sbf A & =\nabla\times\left(\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\sbf m\right)=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\sbf m\\
+\sbf B & =i\sbf k_{R}\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega^{2}}\times\sbf k_{R}\right)\times\sbf k_{R}\\
+\sbf E & =c\sbf B\times\sbf e_{R}=-\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega}\times\sbf k_{R}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+sdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\mathscr{D}_{ij}=\int_{V}\left(3x_{i}^{\prime}x_{j}^{\prime}-\delta_{ij}r^{\prime2}\right)\rho\left(\sbf x^{\prime}\right)\dif V^{\prime}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+e^{\sbf x\cdot\nabla}=1+\sbf x\cdot\nabla+\frac{1}{2!}\left(\sbf x\cdot\nabla_{x}\right)\left(\sbf y\cdot\nabla_{y}\right)+\cdots
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sbf A & =-\frac{1}{2}\frac{1}{3}\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\nabla\cdot\dot{\overline{\mathscr{D}}}=\frac{1}{2}\frac{1}{3}\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\sbf k_{R}\cdot\frac{\ddot{\overline{\mathscr{D}}}}{\omega}\\
+\sbf B & =i\sbf k_{R}\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega^{2}}\times\sbf k_{R}\right)\times\sbf k_{R}\\
+\sbf E & =c\sbf B\times\sbf e_{R}=-\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega}\times\sbf k_{R}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
@@ -336,7 +735,7 @@ tea[z_, k_] := {2 E0*Cos[dk*z - d
 \begin_inset Formula 
 \begin{align*}
  & \nabla\cdot\sbf E=0,\quad\nabla\times\sbf E=-\partial_{t}\sbf B\\
- & \nabla\cdot\sbf E=0,\quad\nabla\times\sbf B=\mu\varepsilon\partial_{t}\sbf E
+ & \nabla\cdot\sbf B=0,\quad\nabla\times\sbf B=\mu\varepsilon\partial_{t}\sbf E
 \end{align*}
 
 \end_inset
@@ -876,6 +1275,23 @@ status open
 
 \end_inset
 
+辐射场和平均辐射能流密度为
+\begin_inset Formula 
+\begin{align*}
+\sbf B & =\frac{\mu_{0}e^{ikR}}{4\pi c^{2}R}\left(\sbf{\ddot{m}}\times\sbf e_{R}\right)\times\sbf e_{R}=\frac{\mu_{0}\omega^{2}M_{0}R_{0}^{3}}{3c^{2}R}\left(\sbf e_{\theta}\cos\theta+i\sbf e_{\phi}\right)e^{-i\left(\omega t-kR-\phi\right)}\\
+\sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}\omega^{4}M_{0}R_{0}^{3}}{3cR}\left(i\sbf e_{\theta}-\sbf e_{\phi}\cos\theta\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\overline{S}=\frac{c}{2\mu_{0}}\left(\sbf B^{*}.\sbf B\right)\sbf e_{R}=\frac{\mu_{0}\omega^{4}M_{0}^{2}R_{0}^{6}}{18c^{3}R^{2}}\left[1+\cos\left(\theta\right)^{2}\right]\sbf e_{R}
+\]
+
+\end_inset
+
 
 \end_layout
 
@@ -913,6 +1329,47 @@ status open
 \end_inset
 
 。求远处的辐射电磁场和辐射能流。
+\end_layout
+
+\begin_layout Frame
+解：设粒子运动平面为
+\begin_inset Formula $xy$
+\end_inset
+
+平面。
+\begin_inset Formula 
+\[
+\sbf p=ea\sbf e_{r}=ea\left(\sbf e_{x}\cos\omega t+\sbf e_{y}\sin\omega t\right)
+\]
+
+\end_inset
+
+写成复数形式：
+\begin_inset Formula 
+\begin{align*}
+ & \sbf p=ea\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}\\
+ & \dot{\sbf p}=-i\omega\sbf p,\quad\ddot{p}=-\omega^{2}\sbf p
+\end{align*}
+
+\end_inset
+
+将
+\begin_inset Formula $\sbf e_{x}$
+\end_inset
+
+和
+\begin_inset Formula $\sbf e_{y}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf B=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\sbf{\ddot{p}}\times\sbf e_{R}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
