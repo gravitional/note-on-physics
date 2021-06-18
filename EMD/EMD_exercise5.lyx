@@ -701,51 +701,35 @@ status open
 \end_layout
 
 \begin_layout Frame
-解：不会发生辐射。因为电荷球对称分布意味着电荷密度
+解：电荷球对称分布，所以电荷密度
 \begin_inset Formula $\rho=\rho\left(r^{\prime}\right)$
 \end_inset
 
-，只是
-\begin_inset Formula $r^{\prime}$
-\end_inset
-
-的函数而与坐标
-\begin_inset Formula $\theta^{\prime},\phi^{\prime}$
-\end_inset
-
-无关。设在平衡状态下，球内任一点源的位矢为
-\begin_inset Formula $\sbf r_{0}^{\prime}$
-\end_inset
-
-，当电荷沿径向振动时其位矢和速度分别为
+。设在平衡状态下，球内任某点源的位置矢量为
 \begin_inset Formula 
 \[
-\sbf r^{\prime}=\sbf r_{0}^{\prime}e^{-i\omega t^{\prime}},\quad\sbf v^{\prime}=-i\omega\sbf r^{\prime},
+\sbf r^{\prime}=\sbf r_{0}^{\prime}e^{-i\omega t^{\prime}}
 \]
 
 \end_inset
 
-于是球内任意一点上的电流密度
+其速度为
 \begin_inset Formula 
 \[
-\sbf J\left(t^{\prime},\sbf x^{\prime}\right)=\rho\left(r^{\prime}\right)\sbf v^{\prime}=-i\omega\rho\left(r^{\prime}\right)\sbf r^{\prime}
+\sbf v^{\prime}=-i\omega\sbf r^{\prime},
 \]
 
 \end_inset
 
-显然，在任意一条球径上，两个对称点上电荷密度
-\begin_inset Formula $\rho\left(r^{\prime}\right)$
+于是球内的电流密度为，
+\begin_inset Formula 
+\[
+\sbf J\left(t^{\prime},\sbf x^{\prime}\right)=\rho\left(r^{\prime}\right)\sbf v^{\prime}=-i\omega\sbf r_{0}^{\prime}\rho\left(r^{\prime}\right)e^{-i\omega t^{\prime}}
+\]
+
 \end_inset
 
-相等，而位矢
-\begin_inset Formula $\sbf r^{\prime}$
-\end_inset
-
-则等值反向，因而
-\begin_inset Formula $\sbf J\left(t^{\prime},\sbf x^{\prime}\right)$
-\end_inset
-
-等值反向而互相抵消，故推迟势必定为零：
+推迟势为：
 \begin_inset Formula 
 \[
 \sbf A\left(t,\sbf x\right)=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left(t-r/c,\sbf x^{\prime}\right)}{r}\dif V^{\prime}=0
@@ -753,7 +737,19 @@ status open
 
 \end_inset
 
+球体中两对称点的
+\begin_inset Formula $\rho\left(r^{\prime}\right)$
+\end_inset
 
+相等，而
+\begin_inset Formula $\sbf r^{\prime}$
+\end_inset
+
+等值反向，所以
+\begin_inset Formula $\sbf J\left(t^{\prime},\sbf x^{\prime}\right)$
+\end_inset
+
+在球上的积分为零，即不会发生辐射。
 \end_layout
 
 \begin_layout Standard
@@ -829,6 +825,53 @@ status open
 \sbf e_{\theta}\\
 \sbf e_{\phi}
 \end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+5.10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\sbf m=\sbf e_{x}m_{0}\cos\omega t+\sbf e_{y}m_{0}\sin\omega t
+\]
+
+\end_inset
+
+并写成复数形式：
+\begin_inset Formula 
+\[
+\sbf m=m_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}=\frac{4\pi R_{0}^{3}M_{0}}{3}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf m=m_{0}e^{-i\left(\omega t-\phi\right)}\left(\sin\theta\sbf e_{R}+\cos\theta\sbf e_{\theta}+i\sbf e_{\phi}\right),\quad\sbf{\ddot{m}}=-\omega^{2}\sbf m
 \]
 
 \end_inset
