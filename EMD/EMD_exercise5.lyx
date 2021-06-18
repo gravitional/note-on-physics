@@ -443,7 +443,7 @@ e^{-i\omega\left(t-\frac{r}{c}\right)}=e^{-i\left(\omega t-kr\right)},\quad\omeg
 status open
 
 \begin_layout Plain Layout
-ddd
+协变形式
 \end_layout
 
 \end_inset
@@ -452,9 +452,19 @@ ddd
 \end_layout
 
 \begin_layout Frame
+如果引入相对论协变记号：
+\begin_inset Formula 
+\begin{align*}
+ & \partial^{\mu}=\left(\frac{1}{c}\partial_{t},\sbf\nabla\right),\quad A^{\mu}=\left(\varphi/c,\sbf A\right),\quad J^{\mu}=\left(\rho c,\sbf J\right)\\
+ & \partial^{2}=\partial_{\mu}\partial^{\mu}=\partial_{t}^{2}-\nabla^{2}
+\end{align*}
+
+\end_inset
+
+即达朗贝尔方程的协变形式：
 \begin_inset Formula 
 \[
-\left(\frac{1}{c}\partial_{t},\sbf\nabla\right),\quad\left(\varphi/c,\sbf A\right)
+\partial^{2}A^{\mu}=\mu_{0}J^{\mu}
 \]
 
 \end_inset
@@ -462,7 +472,7 @@ ddd
 
 \begin_inset Formula 
 \[
-\frac{1}{c^{2}}\partial_{t}^{2}\sbf A-\nabla^{2}\sbf A=\mu_{0}\sbf J,\quad\frac{1}{c^{2}}\partial_{t}^{2}\varphi-\nabla^{2}\varphi=\frac{\rho}{\varepsilon_{0}}.
+-\omega^{2}A^{\mu}\left(k\right)+k^{2}A^{\mu}\left(k\right)=\mu_{0}J^{\mu}\left(k\right)
 \]
 
 \end_inset
@@ -470,7 +480,7 @@ ddd
 
 \begin_inset Formula 
 \[
-\sbf A\left(t,\sbf x\right)=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left(t-\frac{r}{c},\sbf x^{\prime}\right)}{r}\dif V^{\prime},\quad\varphi\left(t,\sbf x\right)=\frac{1}{4\pi\varepsilon_{0}}\int_{V}\frac{\rho\left(t-\frac{r}{c},\sbf x^{\prime}\right)}{r}\dif V^{\prime}
+\mu_{0}\int\frac{\dif^{4}k}{\left(2\pi\right)^{3}}\frac{-J^{\mu}\left(k\right)}{k^{2}}e^{-i\left(\omega t-kx\right)}
 \]
 
 \end_inset
@@ -478,15 +488,57 @@ ddd
 
 \begin_inset Formula 
 \[
-\partial_{t}\rho+\nabla\cdot\sbf J=0
+A^{\mu}\left(x\right)=\frac{\mu_{0}}{4\pi}\int_{V}J^{\mu}\left(\gamma\left(1-\beta\right)\left(t-\frac{r}{c}\right),\sbf x^{\prime}\right)\frac{\dif V^{\prime}}{r-\frac{\beta\cdot\sbf r}{\rho}}
 \]
 
 \end_inset
 
-电流产生矢势波动，电荷产生标势波动。洛伦兹规范
+
 \begin_inset Formula 
 \[
-\frac{1}{c}\partial_{t}\frac{\varphi}{c}+\nabla\cdot\sbf A=0
+A^{\mu}\left(x\right)=\frac{\mu_{0}}{4\pi}\int_{V}J^{\mu}\left(t-\frac{r}{c},\sbf x^{\prime}\right)\gamma\dif V^{\prime}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{电荷守恒：}\partial_{\mu}J^{\mu}=0,\quad\text{洛伦兹规范：}\partial_{\mu}A^{\mu}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+ct^{\prime}\\
+x^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma\beta\\
+-\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+ct\\
+x
+\end{array}\right),\quad\left(\begin{array}{c}
+ct\\
+x
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & \gamma\beta\\
+\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+ct^{\prime}\\
+x^{\prime}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma=\frac{1}{\sqrt{1-\beta^{2}}}=\frac{1}{\sqrt{1-\left(v/c\right)^{2}}}\ge1
 \]
 
 \end_inset
@@ -619,7 +671,7 @@ e^{\sbf x\cdot\nabla}=1+\sbf x\cdot\nabla+\frac{1}{2!}\left(\sbf x\cdot\nabla_{x
 
 \begin_inset Formula 
 \begin{align*}
-\sbf A & =-\frac{1}{2}\frac{1}{3}\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\nabla\cdot\dot{\overline{\mathscr{D}}}=\frac{1}{2}\frac{1}{3}\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\sbf k_{R}\cdot\frac{\ddot{\overline{\mathscr{D}}}}{\omega}\\
+\sbf A & =-\frac{1}{2}\frac{1}{3}\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\nabla\cdot\dot{\mathscr{D}}=\frac{1}{2}\frac{1}{3}\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\sbf k_{R}\cdot\frac{\ddot{\mathscr{D}}}{\omega}\\
 \sbf B & =i\sbf k_{R}\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega^{2}}\times\sbf k_{R}\right)\times\sbf k_{R}\\
 \sbf E & =c\sbf B\times\sbf e_{R}=-\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega}\times\sbf k_{R}\right)
 \end{align*}
