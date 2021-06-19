@@ -443,69 +443,8 @@ e^{-i\omega\left(t-\frac{r}{c}\right)}=e^{-i\left(\omega t-kr\right)},\quad\omeg
 status open
 
 \begin_layout Plain Layout
-协变形式
+洛伦兹变换
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-如果引入相对论协变记号：
-\begin_inset Formula 
-\begin{align*}
- & \partial^{\mu}=\left(\frac{1}{c}\partial_{t},\sbf\nabla\right),\quad A^{\mu}=\left(\varphi/c,\sbf A\right),\quad J^{\mu}=\left(\rho c,\sbf J\right)\\
- & \partial^{2}=\partial_{\mu}\partial^{\mu}=\partial_{t}^{2}-\nabla^{2}
-\end{align*}
-
-\end_inset
-
-即达朗贝尔方程的协变形式：
-\begin_inset Formula 
-\[
-\partial^{2}A^{\mu}=\mu_{0}J^{\mu}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
--\omega^{2}A^{\mu}\left(k\right)+k^{2}A^{\mu}\left(k\right)=\mu_{0}J^{\mu}\left(k\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\mu_{0}\int\frac{\dif^{4}k}{\left(2\pi\right)^{3}}\frac{-J^{\mu}\left(k\right)}{k^{2}}e^{-i\left(\omega t-kx\right)}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-A^{\mu}\left(x\right)=\frac{\mu_{0}}{4\pi}\int_{V}J^{\mu}\left(\gamma\left(1-\beta\right)\left(t-\frac{r}{c}\right),\sbf x^{\prime}\right)\frac{\dif V^{\prime}}{r-\frac{\beta\cdot\sbf r}{\rho}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-A^{\mu}\left(x\right)=\frac{\mu_{0}}{4\pi}\int_{V}J^{\mu}\left(t-\frac{r}{c},\sbf x^{\prime}\right)\gamma\dif V^{\prime}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\text{电荷守恒：}\partial_{\mu}J^{\mu}=0,\quad\text{洛伦兹规范：}\partial_{\mu}A^{\mu}=0
-\]
 
 \end_inset
 
@@ -539,6 +478,75 @@ x^{\prime}
 \begin_inset Formula 
 \[
 \gamma=\frac{1}{\sqrt{1-\beta^{2}}}=\frac{1}{\sqrt{1-\left(v/c\right)^{2}}}\ge1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+协变形式
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+如果引入相对论协变记号：
+\begin_inset Formula 
+\begin{align*}
+ & \partial^{\mu}=\left(\frac{1}{c}\partial_{t},\sbf\nabla\right),\quad A^{\mu}=\left(\varphi/c,\sbf A\right),\quad J^{\mu}=\left(\rho c,\sbf J\right)\\
+ & \partial^{2}=\partial_{\mu}\partial^{\mu}=\partial_{t}^{2}-\nabla^{2}
+\end{align*}
+
+\end_inset
+
+即达朗贝尔方程的协变形式：
+\begin_inset Formula 
+\[
+\partial^{2}A^{\mu}=\mu_{0}J^{\mu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{电荷守恒：}\partial_{\mu}J^{\mu}=0,\quad\text{洛伦兹规范：}\partial_{\mu}A^{\mu}=0
+\]
+
+\end_inset
+
+单个带电粒子的李纳–维谢尔势：
+\begin_inset Formula 
+\[
+A^{\mu}=\frac{q}{4\pi\varepsilon_{0}c}\frac{v^{\mu}}{v.r},\quad v^{\mu}=\gamma\left(c,\vec{v}\right),\quad r^{\mu}=\left(r,\vec{r}\right),r^{\mu}\text{为类光矢量}
+\]
+
+\end_inset
+
+使用
+\begin_inset Formula $J^{\mu}=\rho v^{\mu}$
+\end_inset
+
+，得到有限区域的四维势：
+\begin_inset Formula 
+\[
+A^{\mu}\left(x\right)=\frac{1}{4\pi\varepsilon_{0}c}\int_{V}\frac{J^{\mu}\left(t-\frac{r}{c},x^{\prime}\right)}{J.r}\rho\dif V^{\prime},\quad\vec{r}=\vec{x}-\vec{x}^{\prime}
 \]
 
 \end_inset
@@ -600,7 +608,7 @@ r=\sqrt{R^{2}+x^{\prime2}-2\sbf R\cdot\sbf x^{\prime}}=R\sqrt{1-2\sbf e_{r}\cdot
 status open
 
 \begin_layout Plain Layout
-从
+电偶极辐射
 \end_layout
 
 \end_inset
@@ -609,21 +617,49 @@ status open
 \end_layout
 
 \begin_layout Frame
-在辐射区近似下：
+点源辐射区近似：
+\begin_inset Formula $x^{\prime}\ll r$
+\end_inset
+
+，且
+\begin_inset Formula $\sbf k_{R}\cdot\sbf x^{\prime}\ll1$
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{align*}
-\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\dot{\sbf p}\\
-\sbf B & =i\sbf k_{R}\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\dot{\sbf p}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{\ddot{\sbf p}}{\omega}\times\sbf k_{R}\\
+\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}{\color{blue}\dot{\sbf p}}\\
+\sbf B & =\nabla\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\dot{\sbf p}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{\ddot{\sbf p}}{\omega}\times\sbf k_{R}\\
 \sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}c}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf p}}{\omega}\times\sbf k_{R}\right)\times\sbf e_{R},\quad\abs{\sbf E}=c\abs{\sbf B}
 \end{align*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+磁偶极辐射
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{align*}
-\sbf A & =\nabla\times\left(\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\sbf m\right)=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\sbf m\\
-\sbf B & =i\sbf k_{R}\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega^{2}}\times\sbf k_{R}\right)\times\sbf k_{R}\\
+\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}{\color{blue}\nabla\times\sbf m}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\sbf m\\
+\sbf B & =\nabla\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega^{2}}\times\sbf k_{R}\right)\times\sbf k_{R}\\
 \sbf E & =c\sbf B\times\sbf e_{R}=-\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega}\times\sbf k_{R}\right)
 \end{align*}
 
@@ -644,7 +680,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-sdf
+电四极辐射
 \end_layout
 
 \end_inset
@@ -653,29 +689,27 @@ sdf
 \end_layout
 
 \begin_layout Frame
+电四极矩的无迹化定义，以及多极矩展开：
 \begin_inset Formula 
-\[
-\mathscr{D}_{ij}=\int_{V}\left(3x_{i}^{\prime}x_{j}^{\prime}-\delta_{ij}r^{\prime2}\right)\rho\left(\sbf x^{\prime}\right)\dif V^{\prime}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-e^{\sbf x\cdot\nabla}=1+\sbf x\cdot\nabla+\frac{1}{2!}\left(\sbf x\cdot\nabla_{x}\right)\left(\sbf y\cdot\nabla_{y}\right)+\cdots
-\]
+\begin{align*}
+\mathscr{D}_{ij} & =\int_{V}\left(3x_{i}^{\prime}x_{j}^{\prime}-\delta_{ij}r^{\prime2}\right)\rho\left(\sbf x^{\prime}\right)\dif V^{\prime},\\
+e^{\sbf x\cdot\nabla} & =1+\sbf x\cdot\nabla+\frac{1}{2!}\left(\sbf x\cdot\nabla_{x}\right)\left(\sbf y\cdot\nabla_{y}\right)+\cdots
+\end{align*}
 
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
-\sbf A & =-\frac{1}{2}\frac{1}{3}\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\nabla\cdot\dot{\mathscr{D}}=\frac{1}{2}\frac{1}{3}\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\sbf k_{R}\cdot\frac{\ddot{\mathscr{D}}}{\omega}\\
-\sbf B & =i\sbf k_{R}\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega^{2}}\times\sbf k_{R}\right)\times\sbf k_{R}\\
-\sbf E & =c\sbf B\times\sbf e_{R}=-\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega}\times\sbf k_{R}\right)
+\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}{\color{blue}\frac{-1}{6}\nabla\cdot\dot{\mathscr{D}}}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{1}{6c}\ddot{\sbf D}\\
+\sbf B & =\nabla\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{1}{6c}i\sbf k_{R}\times\ddot{\sbf D}\\
+\sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{1}{6}\left(i\sbf k_{R}\times\ddot{\sbf D}\right)\times\sbf e_{R}
 \end{align*}
 
+\end_inset
+
+其中
+\begin_inset Formula $\sbf D=\sbf e_{R}\cdot\mathscr{D}$
 \end_inset
 
 
@@ -1414,10 +1448,35 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+5.11
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
 \begin_inset Formula 
-\[
-\sbf B=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\sbf{\ddot{p}}\times\sbf e_{R}
-\]
+\begin{align*}
+\sbf B & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{\sbf{\ddot{p}}}{c}\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{ea\omega^{2}}{c}\left(-i\sbf e_{\theta}+\cos\theta\sbf e_{\phi}\right)e^{-i\left(\omega t-kR-\phi\right)}\\
+\sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}ea\omega^{2}\left(\cos\theta\sbf e_{\theta}+i\sbf e_{\phi}\right)e^{-i\left(\omega t-kR-\phi\right)}\\
+\overline{\sbf S} & =\frac{1}{2}\left(c\sbf B^{*}\cdot\frac{1}{\mu_{0}}\sbf B\right)\sbf e_{R}=\frac{\mu_{0}\omega^{4}e^{2}a^{2}}{32\pi^{2}cR^{2}}\left(1+\cos^{2}\theta\right)\sbf e_{R}
+\end{align*}
 
 \end_inset
 
@@ -1521,6 +1580,100 @@ status open
 \end_layout
 
 \begin_layout Frame
+解：
+\begin_inset Formula 
+\[
+\sbf A\left(t,\sbf x\right)=e^{-i\omega t}\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left(\sbf x^{\prime}\right)e^{ikr}}{r}\dif V^{\prime}
+\]
+
+\end_inset
+
+当波长
+\begin_inset Formula $\lambda=2\pi/k\gg R_{0}$
+\end_inset
+
+，也就是
+\begin_inset Formula $kr\ll1$
+\end_inset
+
+，
+\begin_inset Formula $e^{ikr}\approx1$
+\end_inset
+
+，把小球附近的场当作似稳场，按照静电场边值问题的方法求解：
+\begin_inset Formula 
+\[
+\varphi_{1}=\frac{-3\varepsilon_{0}}{\varepsilon+2\varepsilon_{0}}E_{0}R\cos\theta,\quad\varphi_{2}=-E_{0}R\cos\theta+\frac{\varepsilon-\varepsilon_{0}}{\varepsilon+2\varepsilon_{0}}\frac{E_{0}R_{0}^{3}}{R^{2}}\cos\theta.
+\]
+
+\end_inset
+
+介质球内极化强度：
+\begin_inset Formula 
+\[
+\sbf D_{1}=\varepsilon\sbf E_{1}=\varepsilon_{0}\sbf E_{1}+\sbf P\Rightarrow\sbf P=\left(\varepsilon-\varepsilon_{0}\right)\sbf E_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+5.13
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf P_{0}=-\left(\varepsilon-\varepsilon_{0}\right)\nabla\varphi_{1}=\frac{3\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}{\varepsilon+2\varepsilon_{0}}E_{0}\sbf e_{z}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf p_{0}=\frac{4\pi R_{0}^{3}}{3}\sbf P_{0}=\frac{4\pi R_{0}^{3}\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}{\varepsilon+2\varepsilon_{0}}E_{0}\sbf e_{z}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf p=p_{0}e^{-i\omega t},\quad\ddot{\sbf p}=-\omega^{2}\sbf p
+\]
+
+\end_inset
+
+所以辐射场和平均辐射能流密度为：
+\begin_inset Formula $\left(R,\theta,\phi\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sbf B & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{\sbf{\ddot{p}}}{c}\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{-i\left(\omega t-kR\right)}}{R}\frac{-\omega^{2}}{c}p_{0}\sin\theta\sbf e_{\phi}\\
+\sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{-i\left(\omega t-kR\right)}}{R}\left(-\omega^{2}\right)p_{0}\sin\theta\sbf e_{\theta}\\
+\overline{\sbf S} & =\frac{1}{2}\left(c\sbf B^{*}\cdot\frac{1}{\mu_{0}}\sbf B\right)\sbf e_{R}=\frac{\omega^{4}p_{0}^{2}}{32\pi^{2}cR^{2}}\sin^{2}\sbf e_{R}
+\end{align*}
+
+\end_inset
+
 
 \end_layout
 
