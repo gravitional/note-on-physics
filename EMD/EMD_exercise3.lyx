@@ -226,6 +226,166 @@ tableofcontents[currentsection]
 status open
 
 \begin_layout Plain Layout
+Review
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+麦克斯韦方程组：
+\begin_inset Formula 
+\begin{align*}
+\nabla\cdot\sbf{D} & =\rho_{f}, & \nabla\times\sbf{E} & =-\frac{\partial\sbf{B}}{\partial t},\quad\text{法拉第电磁感应定律}\\
+\nabla\cdot\sbf{B} & =0, & \nabla\times\sbf{H} & =\sbf{J}_{f}+\frac{\partial\sbf{D}}{\partial t},\quad\text{安培环路定律}
+\end{align*}
+
+\end_inset
+
+电流连续性方程：
+\begin_inset Formula 
+\[
+\nabla\cdot\sbf{J}_{f}+\partial_{t}\rho_{f}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Review
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\varphi\left(r,\theta\right) & =\sum_{n=0}^{\infty}a_{n}r^{n}P_{n}\left(\cos\theta\right)+\frac{b_{n}}{r^{n+1}}P_{n}\left(\cos\theta\right)\\
+ & =a_{0}+\frac{b_{0}}{r}+a_{1}r\cos\theta+\frac{b_{1}}{r^{2}}\cos\theta+a_{2}r^{2}\frac{3\cos^{2}\theta-1}{2}+\cdots\\
+ & =\text{常数}+\text{点电荷}+\text{匀强电场}+\text{电偶极子}+\text{电四极矩}+\cdots
+\end{align*}
+
+\end_inset
+
+常数势，给定导体带电总量
+\begin_inset Formula $Q$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\oint_{S}\left.-\frac{\partial\varphi}{\partial r}\right|_{R}\dif S=\frac{Q}{\varepsilon_{0}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & {\color{blue}\int_{0}^{2\pi}\int_{0}^{\pi}R^{2}\sin\theta\dif\varphi\dif\theta}\sum_{n=0}^{\infty}\left[na_{n}R^{n-1}P_{n}\left(\cos\theta\right)+\frac{-\left(n+1\right)b_{n}}{R^{n+2}}P_{n}\left(\cos\theta\right)\right]=-\frac{q}{\varepsilon_{0}}\\
+ & \stackrel{x=\cos\theta}{\implies}\quad2\pi\int_{-1}^{+1}\dif x\sum_{n=0}^{\infty}\left[na_{n}R^{n-1}P_{n}\left(x\right)+\frac{-\left(n+1\right)b_{n}}{R^{n+2}}P_{n}\left(x\right)\right]=-\frac{q}{\varepsilon_{0}R^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Review
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2\pi\int_{-1}^{+1}\dif x\sum_{n=0}^{\infty}\left[na_{n}R^{n-1}P_{n}\left(x\right)+\frac{-\left(n+1\right)b_{n}}{R^{n+2}}P_{n}\left(x\right)\right]=-\frac{q}{\varepsilon_{0}R^{2}}
+\]
+
+\end_inset
+
+由勒让德函数的正交性：
+\begin_inset Formula 
+\[
+\int_{-1}^{+1}\dif xP_{k}\left(x\right){\color{blue}P_{l}\left(x\right)}=\delta\left(k-l\right)\frac{2}{2l+1}
+\]
+
+\end_inset
+
+只有
+\begin_inset Formula $b_{0}$
+\end_inset
+
+项有贡献：
+\begin_inset Formula 
+\[
+2\pi\int_{-1}^{+1}\dif x\frac{-b_{0}}{R^{2}}=4\pi\frac{-b_{0}}{R^{2}}=-\frac{q}{\varepsilon_{0}R^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+b_{0}=\frac{q}{4\pi\varepsilon_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 3.1
 \end_layout
 
@@ -236,6 +396,8 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 试用
 \begin_inset Formula $\sbf{A}$
 \end_inset
@@ -329,6 +491,8 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 某空间区域内有轴对称磁场，在柱坐标原点附近已知
 \begin_inset Formula $B_{z}\approx B_{0}-C\left(z^{2}-r^{2}/2\right)$
 \end_inset
@@ -655,6 +819,8 @@ Quan.pdf", tec]
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 两个半径为
 \begin_inset Formula $a$
 \end_inset
@@ -671,10 +837,14 @@ Quan.pdf", tec]
 \end_layout
 
 \begin_layout Enumerate
+
+\color blue
 求轴线上的磁感应强度。
 \end_layout
 
 \begin_layout Enumerate
+
+\color blue
 若要在中心区域产生非常均匀的磁场，
 \begin_inset Formula $L$
 \end_inset
@@ -1095,6 +1265,8 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 假设存在磁单极子，其磁荷为
 \begin_inset Formula $Q_{m}$
 \end_inset
@@ -1476,6 +1648,8 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 将一磁导率为
 \begin_inset Formula $\mu$
 \end_inset
@@ -1505,9 +1679,7 @@ status open
 解：
 \color black
 以球心为原点，建立球坐标系。
-\end_layout
-
-\begin_layout Standard
+\color inherit
 因球内外均无传导电流，可以引入磁标势
 \begin_inset Formula $\varphi$
 \end_inset
@@ -1711,6 +1883,8 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 有一个内外半径分别为
 \begin_inset Formula $R_{1}$
 \end_inset
@@ -1985,6 +2159,8 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 设理想铁磁体的磁化规律为
 \begin_inset Formula $\sbf{B}=\mu\sbf{H}+\mu_{0}\sbf{M_{0}}$
 \end_inset
@@ -2204,6 +2380,8 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 有一个均匀带电的薄导体壳，半径为
 \begin_inset Formula $R_{0}$
 \end_inset
@@ -2449,6 +2627,8 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 电荷按体均匀分布的刚性小球，总电荷量为
 \begin_inset Formula $q$
 \end_inset
@@ -2465,10 +2645,14 @@ status open
 \end_layout
 
 \begin_layout Enumerate
+
+\color blue
 它的磁矩；
 \end_layout
 
 \begin_layout Enumerate
+
+\color blue
 它的磁矩与自转角动量之比。设小球质量
 \begin_inset Formula $m_{0}$
 \end_inset
@@ -2477,6 +2661,10 @@ status open
 \end_layout
 
 \begin_layout Standard
+
+\color blue
+解：
+\color inherit
 小球的电荷密度与质量密度分别为：
 \end_layout
 
@@ -2617,6 +2805,8 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\color blue
 有一理想迈斯纳态的超导球，其半径为
 \begin_inset Formula $a$
 \end_inset
@@ -2900,158 +3090,5 @@ m^{2/3}\left(a^{2}+b^{2}-2ab\cos\theta\right)=m^{\prime2/3}\left(a^{2}+d^{2}-2ad
 
 \end_layout
 
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Review
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-麦克斯韦方程组：
-\begin_inset Formula 
-\begin{align*}
-\nabla\cdot\sbf{D} & =\rho_{f}, & \nabla\times\sbf{E} & =-\frac{\partial\sbf{B}}{\partial t},\quad\text{法拉第电磁感应定律}\\
-\nabla\cdot\sbf{B} & =0, & \nabla\times\sbf{H} & =\sbf{J}_{f}+\frac{\partial\sbf{D}}{\partial t},\quad\text{安培环路定律}
-\end{align*}
-
-\end_inset
-
-电流连续性方程：
-\begin_inset Formula 
-\[
-\nabla\cdot\sbf{J}_{f}+\partial_{t}\rho_{f}=0
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Review
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\varphi\left(r,\theta\right) & =\sum_{n=0}^{\infty}a_{n}r^{n}P_{n}\left(\cos\theta\right)+\frac{b_{n}}{r^{n+1}}P_{n}\left(\cos\theta\right)\\
- & =a_{0}+\frac{b_{0}}{r}+a_{1}r\cos\theta+\frac{b_{1}}{r^{2}}\cos\theta+a_{2}r^{2}\frac{3\cos^{2}\theta-1}{2}+\cdots\\
- & =\text{常数}+\text{点电荷}+\text{匀强电场}+\text{电偶极子}+\text{电四极矩}+\cdots
-\end{align*}
-
-\end_inset
-
-常数势，给定导体带电总量
-\begin_inset Formula $Q$
-\end_inset
-
-：
-\begin_inset Formula 
-\[
-\oint_{S}\left.-\frac{\partial\varphi}{\partial r}\right|_{R}\dif S=\frac{Q}{\varepsilon_{0}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & {\color{blue}\int_{0}^{2\pi}\int_{0}^{\pi}R^{2}\sin\theta\dif\varphi\dif\theta}\sum_{n=0}^{\infty}\left[na_{n}R^{n-1}P_{n}\left(\cos\theta\right)+\frac{-\left(n+1\right)b_{n}}{R^{n+2}}P_{n}\left(\cos\theta\right)\right]=-\frac{q}{\varepsilon_{0}}\\
- & \stackrel{x=\cos\theta}{\implies}\quad2\pi\int_{-1}^{+1}\dif x\sum_{n=0}^{\infty}\left[na_{n}R^{n-1}P_{n}\left(x\right)+\frac{-\left(n+1\right)b_{n}}{R^{n+2}}P_{n}\left(x\right)\right]=-\frac{q}{\varepsilon_{0}R^{2}}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Review
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset Formula 
-\[
-2\pi\int_{-1}^{+1}\dif x\sum_{n=0}^{\infty}\left[na_{n}R^{n-1}P_{n}\left(x\right)+\frac{-\left(n+1\right)b_{n}}{R^{n+2}}P_{n}\left(x\right)\right]=-\frac{q}{\varepsilon_{0}R^{2}}
-\]
-
-\end_inset
-
-由勒让德函数的正交性：
-\begin_inset Formula 
-\[
-\int_{-1}^{+1}\dif xP_{k}\left(x\right){\color{blue}P_{l}\left(x\right)}=\delta\left(k-l\right)\frac{2}{2l+1}
-\]
-
-\end_inset
-
-只有
-\begin_inset Formula $b_{0}$
-\end_inset
-
-项有贡献：
-\begin_inset Formula 
-\[
-2\pi\int_{-1}^{+1}\dif x\frac{-b_{0}}{R^{2}}=4\pi\frac{-b_{0}}{R^{2}}=-\frac{q}{\varepsilon_{0}R^{2}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-b_{0}=\frac{q}{4\pi\varepsilon_{0}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \end_body
 \end_document
