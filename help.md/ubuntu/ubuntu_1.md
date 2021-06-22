@@ -79,18 +79,33 @@ pip install --user powerline-status
 + `type` 命令是 `shell` 内部命令,它会显示命令的类别
 + `which`这个命令只对可执行程序有效,不包括内部命令和命令别名,别名是真正的可执行程序的替代物
 + `bash` 有一个内建的帮助工具,可供每一个 `shell` 内部命令使用.输入`help`,接着是 `shell` 内部命令名.例如: `help cd`
-+ 许多可执行程序支持一个` --help` 选项,这个选项是显示命令所支持的语法和选项说明.例如:
++ ` --help` : 许多可执行程序支持这个选项, 显示命令所支持的语法和选项说明.
 + `less ` 浏览文件内容
 + `basename file suffix` 用来去掉文件后缀名
 + `/bin/kill -L` : 查看linux `kill` 的数字对应的短语
-`echo`输出的时候,可以考虑改变颜色增加辨认度,
 + `ldd`查看依赖信息
 + `sha256sum`: 计算并检查 `SHA256` message digest (消息摘要)
 + `xdg-open`: 可以设置别名为`open`, 使用默认的程序打开文件或者`url`.
 
+***
+`echo`输出的时候,可以考虑改变颜色增加辨认度
+
 ```bash
 echo  -e "\033[1;47m\033[1;32m Testing output... "
 ```
+
+***
+
+`ls --color=always | less -R`: 这个命令可以保持颜色控制字符的传递。
+
+`less -R` or `--RAW-CONTROL-CHARS`:
+
+和`-r`一样，但只把ANSI "color"转义序列以 "raw" 形式输出。 大多数情况下幕外观保持正确。
+ANSI "颜色"转义序列是以下形式的序列：`ESC [ ... m`. 其中`...`是`0`个或更多的颜色规范字符. 为了保持屏幕外观，`ANSI`颜色转义序列被认为不会移动光标。 
+你可以设置`m`之外的结束字符，方法是将环境变量`LESSANSIENDCHARS`设为结束颜色转义序列的字符列表。
+也可以设置环境变量`LESSANSIMIDCHARS`,使标准字符之外的字符出现在`ESC`和`m`之间
+
+或者可以使用`git diff --word-diff --no-index file1 file2 `. `--word-diff`指定按单词模式显示差异，`--no-index`表明不是与`cached`作比较，而是比较工作区中的文件。
 
 ***
 简单命令

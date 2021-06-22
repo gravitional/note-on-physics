@@ -37,3 +37,10 @@ guide/ImageRestoration
 
 图像邻域处理
 guide/ImageFilteringAndNeighborhoodProcessing
+
+## 颜色
+
+### ColorData
+
+mathematica 有一些默认的颜色集合，可以通过 ColorData 调用，可以用整数指定索引，例如`ColorData[63]`。
+在`LineLegend`这样的函数中，如果在颜色参数的位置给一个整数，会自动调用`ColorData[..]`.
