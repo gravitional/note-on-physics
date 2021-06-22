@@ -651,8 +651,16 @@ status open
 
 ：
 \begin_inset Formula 
+\[
+\sbf p=\int_{V}\sbf J\left(\sbf x^{\prime}\right)\dif V^{\prime}=\oint_{\ell}I\dif\sbf l
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
 \begin{align*}
-\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}{\color{blue}\dot{\sbf p}},\quad\sbf p=\int_{V}\sbf J\left(\sbf x^{\prime}\right)\dif V^{\prime}=\int_{L}I\dif\sbf l\\
+\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}{\color{blue}\dot{\sbf p}},\\
 \sbf B & =\nabla\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\dot{\sbf p}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{\ddot{\sbf p}}{\omega}\times\sbf k_{R}\\
 \sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}c}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf p}}{\omega}\times\sbf k_{R}\right)\times\sbf e_{R},\quad\abs{\sbf E}=c\abs{\sbf B}
 \end{align*}
@@ -681,9 +689,17 @@ status open
 
 
 \begin_inset Formula 
+\[
+\sbf m=\frac{1}{2}\int_{V}\sbf x^{\prime}\times\sbf J\left(\sbf x^{\prime}\right)\dif V^{\prime}=\frac{1}{2}\oint_{\ell}\sbf x^{\prime}\times I\dif\sbf l
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
 \begin{align*}
-\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}{\color{blue}\nabla\times\sbf m}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\sbf m\\
-\sbf B & =\nabla\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega^{2}}\times\sbf k_{R}\right)\times\sbf k_{R}\\
+\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left({\color{blue}-\sbf m\times\nabla}\right)=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\sbf m\\
+\sbf B & =\nabla\times\sbf A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\left(i\sbf k_{R}\times\sbf m\right)\\
 \sbf E & =c\sbf B\times\sbf e_{R}=-\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\left(\frac{\ddot{\sbf m}}{\omega}\times\sbf k_{R}\right)
 \end{align*}
 
@@ -716,7 +732,7 @@ status open
 电四极矩的无迹化定义，以及多极矩展开：
 \begin_inset Formula 
 \begin{align*}
-\mathscr{D}_{ij} & =\int_{V}\left(3x_{i}^{\prime}x_{j}^{\prime}-\delta_{ij}r^{\prime2}\right)\rho\left(\sbf x^{\prime}\right)\dif V^{\prime},\\
+\mathscr{D}_{ij} & =\int_{V}\left(3x_{i}^{\prime}x_{j}^{\prime}-\delta_{ij}r^{\prime2}\right)\rho\left(\sbf x^{\prime}\right)\dif V^{\prime},\quad\text{此处人为引入}3\\
 e^{\sbf x\cdot\nabla} & =1+\sbf x\cdot\nabla+\frac{1}{2!}\left(\sbf x\cdot\nabla_{x}\right)\left(\sbf y\cdot\nabla_{y}\right)+\cdots
 \end{align*}
 
@@ -725,7 +741,7 @@ e^{\sbf x\cdot\nabla} & =1+\sbf x\cdot\nabla+\frac{1}{2!}\left(\sbf x\cdot\nabla
 
 \begin_inset Formula 
 \begin{align*}
-\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}{\color{blue}\frac{-1}{6}\nabla\cdot\dot{\mathscr{D}}}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{1}{6c}\ddot{\sbf D}\\
+\sbf A & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}{\color{blue}\frac{-1}{2}\nabla\cdot\frac{\dot{\mathscr{D}}}{3}}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{1}{6c}\ddot{\sbf D}\\
 \sbf B & =\nabla\times A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{1}{6c}i\sbf k_{R}\times\ddot{\sbf D}\\
 \sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{1}{6}\left(i\sbf k_{R}\times\ddot{\sbf D}\right)\times\sbf e_{R}
 \end{align*}
@@ -734,6 +750,48 @@ e^{\sbf x\cdot\nabla} & =1+\sbf x\cdot\nabla+\frac{1}{2!}\left(\sbf x\cdot\nabla
 
 其中
 \begin_inset Formula $\sbf D=\sbf e_{R}\cdot\mathscr{D}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+多级辐射
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+总结：
+\size largest
+
+\begin_inset Formula 
+\[
+\sbf A=\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\cdots
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dot{\sbf p},\quad-\sbf m\times\nabla,\quad\frac{-1}{6}\nabla\cdot\dot{\mathscr{D}}
+\]
+
 \end_inset
 
 
@@ -1525,7 +1583,7 @@ status open
 并写成复数形式，
 \begin_inset Formula 
 \begin{align*}
-\sbf m & =\frac{4\pi R_{0}^{3}M_{0}}{3}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}=m_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}\\
+\sbf m & ={\color{blue}\frac{4\pi R_{0}^{3}M_{0}}{3}}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}={\color{blue}m_{0}}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}\\
 \sbf m & =m_{0}e^{-i\left(\omega t-\phi\right)}\left(\sin\theta\sbf e_{R}+\cos\theta\sbf e_{\theta}+i\sbf e_{\phi}\right),\quad\sbf{\ddot{m}}=-\omega^{2}\sbf m
 \end{align*}
 
@@ -1534,8 +1592,8 @@ status open
 其中使用了，
 \begin_inset Formula 
 \begin{align*}
-\sbf e_{x} & =\sin\theta\cos\phi\sbf e_{R}+\cos\theta\cos\phi\sbf e_{\theta}-\sin\phi\sbf e_{\phi},\quad\left(R,\theta,\phi\right)\rightarrow\\
-\sbf e_{x} & =\sin\theta\sin\phi\sbf e_{R}+\cos\theta\sin\phi\sbf e_{\theta}+\cos\phi\sbf e_{\phi},
+\sbf e_{x} & =\sin\theta\cos\phi\sbf e_{R}+\cos\theta\cos\phi\sbf e_{\theta}-\sin\phi\sbf e_{\phi},\\
+\sbf e_{y} & =\sin\theta\sin\phi\sbf e_{R}+\cos\theta\sin\phi\sbf e_{\theta}+\cos\phi\sbf e_{\phi},\quad\underset{\rightarrow}{\left(R,\theta,\phi\right)}
 \end{align*}
 
 \end_inset
@@ -1543,9 +1601,9 @@ status open
 辐射场和平均辐射能流密度为
 \begin_inset Formula 
 \begin{align*}
-\sbf B & =\frac{\mu_{0}e^{ikR}}{4\pi c^{2}R}\left(\sbf{\ddot{m}}\times\sbf e_{R}\right)\times\sbf e_{R}=\frac{\mu_{0}\omega^{2}M_{0}R_{0}^{3}}{3c^{2}R}\left(\sbf e_{\theta}\cos\theta+i\sbf e_{\phi}\right)e^{-i\left(\omega t-kR-\phi\right)}\\
-\sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}\omega^{4}M_{0}R_{0}^{3}}{3cR}\left(i\sbf e_{\theta}-\sbf e_{\phi}\cos\theta\right)\\
-\overline{S} & =\frac{c}{2\mu_{0}}\left(\sbf B^{*}.\sbf B\right)\sbf e_{R}=\frac{\mu_{0}\omega^{4}M_{0}^{2}R_{0}^{6}}{18c^{3}R^{2}}\left[1+\cos^{2}\theta\right]\sbf e_{R}
+\sbf B & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\left(-\sbf{m}\times i\sbf k_{R}\right)=\frac{\mu_{0}}{4\pi}\frac{e^{-i\left(\omega t-kR-\phi\right)}}{R}\frac{{\color{blue}m_{0}}\omega^{2}}{c^{2}}\left(\sbf e_{\theta}\cos\theta+i\sbf e_{\phi}\right)\\
+\sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{-i\left(\omega t-kR-\phi\right)}}{R}\frac{{\color{blue}m_{0}}\omega^{2}}{c}\left(-\sbf e_{\phi}\cos\theta+i\sbf e_{\theta}\right)\\
+\overline{S} & =\frac{c}{2\mu_{0}}\left(\sbf B^{*}.\sbf B\right)\sbf e_{R}=\frac{\mu_{0}}{32\pi^{2}}\frac{1}{R^{2}}\frac{{\color{blue}m_{0}^{2}}\omega^{4}}{c^{3}}\left[1+\cos^{2}\theta\right]\sbf e_{R}
 \end{align*}
 
 \end_inset
@@ -1621,7 +1679,7 @@ status open
 \begin_inset Formula 
 \begin{align*}
 \sbf e_{x} & =\sin\theta\cos\phi\sbf e_{R}+\cos\theta\cos\phi\sbf e_{\theta}-\sin\phi\sbf e_{\phi},\\
-\sbf e_{x} & =\sin\theta\sin\phi\sbf e_{R}+\cos\theta\sin\phi\sbf e_{\theta}+\cos\phi\sbf e_{\phi},\quad\left(R,\theta,\phi\right)\rightarrow
+\sbf e_{y} & =\sin\theta\sin\phi\sbf e_{R}+\cos\theta\sin\phi\sbf e_{\theta}+\cos\phi\sbf e_{\phi},\quad\underset{\rightarrow}{\left(R,\theta,\phi\right)}
 \end{align*}
 
 \end_inset
@@ -1652,7 +1710,7 @@ status open
 \begin_layout Frame
 \begin_inset Formula 
 \[
-\sbf p=qae^{-i\left(\omega t-\phi\right)}\left(\sin\theta\sbf e_{R}+\cos\theta\sbf e_{\theta}+i\sbf e_{\phi}\right)\quad\left(R,\theta,\phi\right)\rightarrow
+\sbf p=qae^{-i\left(\omega t-\phi\right)}\left(\sin\theta\sbf e_{R}+\cos\theta\sbf e_{\theta}+i\sbf e_{\phi}\right)\quad\underset{\rightarrow}{\left(R,\theta,\phi\right)}
 \]
 
 \end_inset
@@ -1776,8 +1834,8 @@ r_{1}\approx R-\frac{a}{2}\cos\theta,\quad r_{2}\approx R+\frac{a}{2}\cos\theta,
 
 \begin_inset Formula 
 \begin{align*}
-\sbf B_{p} & =\frac{\mu_{0}}{4\pi}\frac{e^{ikr_{1}}}{r_{1}c}\ddot{\sbf p}\times\sbf e_{r_{1}}\approx\frac{\mu_{0}}{4\pi}\frac{e^{ik\left(R-\frac{1}{2}a\cos\theta\right)}}{Rc}\ddot{\sbf p}\times\sbf e_{R}\\
-\sbf B_{p^{\prime}} & =\frac{\mu_{0}}{4\pi}\frac{e^{ikr_{2}}}{r_{2}c}\ddot{\sbf p^{\prime}}\times\sbf e_{r_{2}}\approx\frac{\mu_{0}}{4\pi}\frac{e^{ik\left(R+\frac{1}{2}a\cos\theta\right)}}{Rc}\ddot{\sbf p^{\prime}}\times\sbf e_{R}
+\sbf B_{p} & =\frac{\mu_{0}}{4\pi}\frac{e^{ikr_{1}}}{r_{1}}i\sbf k_{r_{1}}\times\dot{\sbf p}\approx\frac{\mu_{0}}{4\pi}\frac{e^{ik\left(R-\frac{1}{2}a\cos\theta\right)}}{Rc}\ddot{\sbf p}\times\sbf e_{R}\\
+\sbf B_{p^{\prime}} & =\frac{\mu_{0}}{4\pi}\frac{e^{ikr_{2}}}{r_{2}}i\sbf k_{r_{2}}\times\dot{\sbf p^{\prime}}\approx\frac{\mu_{0}}{4\pi}\frac{e^{ik\left(R+\frac{1}{2}a\cos\theta\right)}}{Rc}\ddot{\sbf p^{\prime}}\times\sbf e_{R}
 \end{align*}
 
 \end_inset
@@ -1842,7 +1900,7 @@ e^{\pm\frac{ika}{2}\cos\theta}\approx1\pm\frac{ika}{2}\cos\theta,\quad ka\ll1
 其中使用了：
 \begin_inset Formula 
 \[
-\sbf e_{x}=\sin\theta\cos\phi\sbf e_{R}+\cos\theta\cos\phi\sbf e_{\theta}-\sin\phi\sbf e_{\phi},\quad\left(R,\theta,\phi\right)\rightarrow
+\sbf e_{x}=\sin\theta\cos\phi\sbf e_{R}+\cos\theta\cos\phi\sbf e_{\theta}-\sin\phi\sbf e_{\phi},\quad\underset{\rightarrow}{\left(R,\theta,\phi\right)}
 \]
 
 \end_inset
@@ -1970,7 +2028,7 @@ status open
 \begin_inset Formula $e^{ikr}\approx1$
 \end_inset
 
-，把小球附近的场当作似稳场，按照静电场边值问题的方法求解：
+，把小球附近的场当作似稳场，按照静电场边值问题的方法求解，课本P51，(3.21)
 \begin_inset Formula 
 \[
 \varphi_{1}=\frac{-3\varepsilon_{0}}{\varepsilon+2\varepsilon_{0}}E_{0}R\cos\theta,\quad\varphi_{2}=-E_{0}R\cos\theta+\frac{\varepsilon-\varepsilon_{0}}{\varepsilon+2\varepsilon_{0}}\frac{E_{0}R_{0}^{3}}{R^{2}}\cos\theta.
@@ -1978,11 +2036,12 @@ status open
 
 \end_inset
 
-介质球内极化强度：
+介质球内的极化强度：
 \begin_inset Formula 
-\[
-\sbf D_{1}=\varepsilon\sbf E_{1}=\varepsilon_{0}\sbf E_{1}+\sbf P\Rightarrow\sbf P=\left(\varepsilon-\varepsilon_{0}\right)\sbf E_{1}
-\]
+\begin{align*}
+\sbf D_{1} & =\varepsilon\sbf E_{1}=\varepsilon_{0}\sbf E_{1}+\sbf P\Rightarrow\sbf P=\left(\varepsilon-\varepsilon_{0}\right)\sbf E_{1}\\
+\sbf P_{0} & =-\left(\varepsilon-\varepsilon_{0}\right)\nabla\varphi_{1}=\frac{3\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}{\varepsilon+2\varepsilon_{0}}E_{0}\sbf e_{z}
+\end{align*}
 
 \end_inset
 
@@ -2014,33 +2073,29 @@ status open
 
 \end_inset
 
-
+介质球的总电偶极矩，
 \begin_inset Formula 
 \[
-\sbf p_{0}=\frac{4\pi R_{0}^{3}}{3}\sbf P_{0}=\frac{4\pi R_{0}^{3}\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}{\varepsilon+2\varepsilon_{0}}E_{0}\sbf e_{z}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\sbf p=p_{0}e^{-i\omega t},\quad\ddot{\sbf p}=-\omega^{2}\sbf p
+\sbf p=\frac{4\pi R_{0}^{3}}{3}\sbf P_{0}e^{-i\omega t}={\color{blue}\frac{4\pi R_{0}^{3}\varepsilon_{0}\left(\varepsilon-\varepsilon_{0}\right)}{\varepsilon+2\varepsilon_{0}}E_{0}}\sbf e_{z}e^{-i\omega t}={\color{blue}p_{0}}\sbf e_{z}e^{-i\omega t}.
 \]
 
 \end_inset
 
 所以辐射场和平均辐射能流密度为：
-\begin_inset Formula $\left(R,\theta,\phi\right)$
+\begin_inset Formula 
+\begin{align*}
+\sbf B & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\dot{\sbf p}=\frac{\mu_{0}}{4\pi}\frac{e^{-i\left(\omega t-kR\right)}}{R}\frac{-\omega^{2}}{c}p_{0}\sin\theta\sbf e_{\phi}\\
+\sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{-i\left(\omega t-kR\right)}}{R}\left(-\omega^{2}\right)p_{0}\sin\theta\sbf e_{\theta}\\
+\overline{\sbf S} & =\frac{1}{2}\left(c\sbf B^{*}\cdot\frac{1}{\mu_{0}}\sbf B\right)\sbf e_{R}=\frac{\omega^{4}p_{0}^{2}}{32\pi^{2}cR^{2}}\sin^{2}\theta\sbf e_{R}
+\end{align*}
+
 \end_inset
 
 
 \begin_inset Formula 
-\begin{align*}
-\sbf B & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}\frac{\sbf{\ddot{p}}}{c}\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{-i\left(\omega t-kR\right)}}{R}\frac{-\omega^{2}}{c}p_{0}\sin\theta\sbf e_{\phi}\\
-\sbf E & =c\sbf B\times\sbf e_{R}=\frac{\mu_{0}}{4\pi}\frac{e^{-i\left(\omega t-kR\right)}}{R}\left(-\omega^{2}\right)p_{0}\sin\theta\sbf e_{\theta}\\
-\overline{\sbf S} & =\frac{1}{2}\left(c\sbf B^{*}\cdot\frac{1}{\mu_{0}}\sbf B\right)\sbf e_{R}=\frac{\omega^{4}p_{0}^{2}}{32\pi^{2}cR^{2}}\sin^{2}\sbf e_{R}
-\end{align*}
+\[
+\sbf e_{z}=\cos\theta\sbf e_{R}-\sin\theta\sbf e_{\theta},\quad\underset{\rightarrow}{\left(R,\theta,\phi\right)}
+\]
 
 \end_inset
 
