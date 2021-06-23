@@ -518,21 +518,43 @@ vi /etc/profile //编辑profile文件
 在PATH=/......中加入`:/xxx/xxx`
 ```
 
-## && || () {} 用法
+## 运算符与括号用法
 
 [shell 中 && || () {} 用法](https://www.jianshu.com/p/617c1ee1e46e)
 [shell中$(( )) 与 $( ) 还有${ }的区别](https://www.cnblogs.com/xunbu7/p/6187017.html)
 [小括号和大括号用法](http://c.biancheng.net/view/954.html)
+[How To Do Calculation in Bash](https://www.shell-tips.com/bash/math-arithmetic-calculation/)
+[Shell 中的中括号用法总结](https://www.runoob.com/w3cnote/shell-summary-brackets.html)
+[linux shell 中判断文件,目录是否存在](https://blog.csdn.net/yifeng4321/article/details/70232436)
+
+### shell 算术逻辑运算符
+
++ `id++, id–`: 运算后，变量自增自减运算符
++ `++id, –id`:运算前，变量自增自减运算符
++ `-, +`:  加减一元运算符
++ `!, ~`:  逻辑和按位取反
++ `**`: 指数
++ `*, /, %`: 乘除余数
++ `+, -`:  加减
++ `«, » `: 左右移位
++ `<=, >=, <, >`:  比较运算
++ `==, !=`:  等于，不等于
++ `&`:  按位 AND
++ `^`:  按位 XOR
++ `|`:  按位 OR
++ `&&`:  逻辑 AND
++ `||`:  逻辑 OR
++ `expr1 ? expr2 : expr3`:  条件运算
++ `=, *=, /=, %=, +=, -=, «=, »=, &=, ^=, |=`: 赋值
 
 使用`pstree`可以查看进程树. 知道了`父Shell` 和`子Shell`，我们接着解释小括号和大括号的区别。如果用于一串命令的执行，那么小括号和大括号主要区别在于：
 
-+ `()` 执行一串命令时，需要重新开启一个`子Shell` 来执行。`{}` 执行一串命令时，在`当前Shell` 中执行。
-+ `()` 和 `{}` 都是把一串命令放进括号里面，并且命令之间用`;`隔开。
-+ `()` 最后一条命令可以不用分号,`{}` 最后一条命令要用分号。
-+ `{}` 的第一条命令和左括号之间必须有一个空格, `()` 里的各命令不必和括号有空格。
-+ `()` 和 `{}` 中括号里面的某条命令的重定向只影响该命令，但括号外的重定向则会影响到括号里的所有命令。
-
 `{}`是`shell`的保留字.
+
++ `()` 在子Shell执行代码块, `{}`在`当前Shell`执行代码块。
++ `()` 和 `{}` 都用`;`隔开命令. `{}`与命令之间需要用空格分隔, 而`()`开头结尾不需要空格.
++ `{}` 最末条命令要用分号结束, `()` 的最末命令不需要分号.
++ `()` 和 `{}` 内部某个命令的重定向只影响该命令，但括号外部的重定向则会影响到括号内的所有命令。
 
 ### 括号总结
 
@@ -561,7 +583,7 @@ vi /etc/profile //编辑profile文件
 `${ }` 用来作变量替换,把括号里的变量代入值.
 
 ***
-`$(( ))`整数运算
+`$(( ))`整数算术
 
 在 bash 中,`$(( ))` 的整数运算符号大致有这些:
 
@@ -569,56 +591,39 @@ vi /etc/profile //编辑profile文件
 + `%` :余数运算
 + `& | ^ !`:分别为 "`AND`,`OR`,`XOR`,`NOT`" 运算.
 
-### &&运算符
+### 逻辑运算符
 
-`&&` 运算符:
 ***
-格式
-`command1  && command2`
-
-`&&`左边的命令(命令`1`)返回真(即返回`0`,成功被执行)后,`&&`右边的命令(命令`2`)才能够被执行；
-换句话说,`如果这个命令执行成功`&&`那么执行这个命令`.
-
-语法格式如下:
+&&运算符语法格式如下:
 
 ```bash
 command1 && command2 && command3 ...
 ```
 
-命令之间使用 `&&` 连接,实现逻辑与的功能.
-只有在 `&&` 左边的命令返回真(命令返回值 `$? == 0`),`&&` 右边的命令才会被执行.
-只要有一个命令返回假(命令返回值 $? == 1),后面的命令就不会被执行.
+`command1  && command2`: `command1`返回真，才执行`command2`，如果`command1`为假，不执行`command2`.
 
-示例1中,`cp`命令首先从`root`的家目录复制文件文件`anaconda-ks.cfg`到 `/data`目录下；
+示例1中,`cp`命令首先从`root`的家目录复制文件文件`anaconda-ks.cfg`到 `/data`目录下;
 执行成功后,使用 `rm` 命令删除源文件；如果删除成功则输出提示信息"`SUCCESS`".
 
 `cp anaconda-ks.cfg /data/ && rm -f anaconda-ks.cfg && echo "SUCCESS"`
 
-### || 运算符
-
-格式
+***
+`||`运算符:
 
 ```bash
 command1 || command2
 ```
 
-`||`则与`&&`相反.如果`||`左边的命令(command1)未执行成功,那么就执行`||`右边的命令(command2)；
-或者换句话说,`如果这个命令执行失败了`||`那么就执行这个命令.
+`||`则与`&&`相反.如果`command1`未执行成功,那么就执行`command2`；如果`command1`执行成功, 就不执行`command2`
+这和C语言中的逻辑或语法功能相同,即实现短路逻辑或操作.只要有一个命令返回真(命令返回值 `$? == 0`),后面的命令就不会被执行.
 
-命令之间使用 `||` 连接,实现逻辑或的功能.
-
-只有在 `||` 左边的命令返回`假`(命令返回值 `$? == 1`),`||` 右边的命令才会被执行.
-这和 `c` 语言中的逻辑或语法功能相同,即实现短路逻辑或操作.
-
-只要有一个命令返回真(命令返回值 `$? == 0`),后面的命令就不会被执行.
-
-如果 dir目录不存在,将输出提示信息 fail .
+例如: 若`dir`目录不存在,将输出提示信息`fail` .
 
 ```bash
 ls dir &>/dev/null || echo "fail"
 ```
 
-如果 dir 目录存在,将输出 success 提示信息；否则输出 fail 提示信息.
+如果 `dir` 目录存在,将输出 `success` 提示信息；否则输出 `fail` 提示信息.
 
 ```bash
 ls dir &>/dev/null && echo "fail" || echo "fail"
@@ -628,35 +633,34 @@ ls dir &>/dev/null && echo "fail" || echo "fail"
 `&>` 的意思是重定向标准输出和错误到 同一个地方,如
 
 ```bash
-[me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt
+ls -l /bin/usr &> ls-output.txt
 ```
 
 利用`/dev/null`处理不需要的输出,这个文件是系统设备,叫做位存储桶,它可以 接受输入,并且对输入不做任何处理.
 
 ***
-下面是一个shell脚本中常用的`||`组合示例
+下面是一个`shell`脚本中常用的`||`组合示例
 
 ```bash
 echo $BASH | grep -q 'bash' || { exec bash "$0" "$@" || exit 1; }
 ```
 
 系统调用`exec`是以新的进程去代替原来的进程,但进程的`PID`保持不变.
+因此,可以这样认为,`exec`系统调用并没有创建新的进程,只是替换了原来进程上下文的内容. 原进程的代码段,数据段,堆栈段被新的进程所代替.
 
-因此,可以这样认为,`exec`系统调用并没有创建新的进程,只是替换了原来进程上下文的内容.
-原进程的代码段,数据段,堆栈段被新的进程所代替.
+### (){}代码段
 
-### () 运算符
-
-如果希望把几个命令合在一起执行, `shell` 提供了两种方法.既可以在`当前shell`也可以在`子shell`中执行一组命令.
+如果希望把几个命令合在一起执行, `shell` 提供了两种方法. 既可以在`当前shell`，也可以在`子shell`中执行.
 
 格式:
 
 ```bash
-(command1;command2;command3....)        多个命令之间用`;`分隔
+(命令1;命令2;命令3....)        # 命令用;分隔, 或者每个命令放到单独的一行。在子shell中执行，不影响当前shell的变量
+{ command1;command2;command3… } #在当前shell执行，会影响当前shell的变量
 ```
 
-一条命令需要独占一个物理行,如果需要将多条命令放在同一行,命令之间使用命令分隔符`(;)`分隔.执行的效果等同于多个独立的命令单独执行的效果.
-`()` 表示在`子shell `中将多个命令作为一个整体执行.需要注意的是,使用 `()` 括起来的命令执行完毕后,不会切换当前的工作目录.而`{}`的`cd`会改变当前`shell`的目录
+`()` 表示在`子shell `中将多个命令作为一个整体执行. 例如 `(cd ~/Downloads)` 执行完毕后, 当前shell的目录不会切换到`~/Downloads`.
+而`{ cd ~/Downloads }`会切换到`~/Downloads`, 注意`{}`中，命令开头和结尾必须用空格隔开。
 
 命令组合常和命令执行控制结合起来使用.比如如果目录`dir`不存在,则执行命令组合.
 
@@ -665,27 +669,7 @@ ls dir &>/dev/null || (cd /home/; ls -lh; echo "success")
 ls dir &>/dev/null || { cd /home/; ls -lh; echo "success" }
 ```
 
-### {} 运算符
-
-如果使用`{}`来代替`()`,那么相应的命令将在当前`shell`中作为一个整体被执行,
-
-它的一般形式为:
-
-```bash
-{空格command1;command2;command3…空格}
-```
-
-注意:在使用`{}`时,`{}`与命令之间必须使用一个`空格`
-
-使用`{}`则在子`shell`中执行了打印操作
-
-```bash
-A=1; echo $A; { A=2 }; echo $A
-A=1; echo $A; (A=2); echo $A
-```
-
-另外,`{}`可以用来做花括号展开,开头称为报头,结尾称为附言,中间包含由逗号分开的字符串列表或整数列表,不能包含空白.
-还可以使用范围.可以嵌套
+另外,`{}`可以用来做花括号展开,例如：
 
 ```bash
 echo Front-{A,B,C}-Back
@@ -693,6 +677,8 @@ echo Number_{1..5}
 echo {Z..A}
 echo aa{A{1,2},B{3,4}}bb
 ```
+
+开头称为报头,结尾称为附言,中间包含由逗号分开的字符串或整数列表,不能包含空白. 还可以使用范围, 可以嵌套.
 
 ### $(( )) 与 $( ) ${ }
 
@@ -734,28 +720,21 @@ bash 的组数替换方法可参考如下方法:
 + `${#A[0]}` 可得到 `1` (即第一个组数(`a`)的长度),`${#A[3]}` 可得到 `3` (第四个组数(def)的长度)
 + `A[3]=xyz` 则是将第四个组数重新定义为 `xyz` …
 
-### (())算术比较
+### (()) 算术展开
 
-好了,最后为大家介绍 `$(( ))` 的用途吧:它是用来作整数运算的.
-在 bash 中,`$(( ))` 的整数运算符号大致有这些:
-括号`(())`和`==`等操作符周围都不需要空格,但是为了统一,也可以加上
+`$(( 算术表达式 ))`称为算术展开，`((...))`称为复合命令，它返回最后一个表达式的值，它只能计算整数算术。括号`(())`和`==`等操作符周围都不需要空格。
 
-+ `+ - * /` :分别为 "加,减,乘,除".
++ `+ - * /` :分别为加,减,乘,除.
 + `%` :余数运算
-+ `& | ^ !`:分别为 "`AND`,`OR`,`XOR`,`NOT`" 运算.
-
-`XOR` `exclusive OR`:一样为`0`,不一样为`1`,相当于不考虑进位的加法.
-
-按位操作运算符
-
 + `<<`: 左移
 + `>>`: 右移
 + `&`: 按位与
 + `|`: 按位或
 + `~`: 按位非
 + `^`: 按位异或
++ `& | ^ !`:分别为 `AND`,`OR`,`XOR`,`NOT` 的位运算.
 
-例:
+其中`XOR`表示`exclusive OR`:一样为`0`,不一样为`1`,相当于不考虑进位的加法. 例:
 
 ```bash
 $ a=5; b=7; c=2
@@ -767,7 +746,7 @@ $ echo $(( (a*b)%c))
 1
 ```
 
-在 `$(( ))` 中的变量名称,可于其前面加 `$` 符号来替换,也可以不用,如:`$(( $a + $b * $c))` 也可得到 `19` 的结果
+`$(( ))` 中可以做变量替换， `$变量名称`将替换成变量的值, 可以省略`$`, 如:`$(( $a + $b * $c))` 也可得到 `19` 的结果.
 此外,`$(( ))` 还可作不同进位(如二进制,八进位,十六进制)作运算,只是,输出结果皆为十进制:
 
 ```bash
@@ -790,7 +769,7 @@ $ echo "obase=8;$(( 8#666 & (8#777 ^ 8#$(umask)) ))" | bc
 + `a=5; ((a–))` 则为 `a=4`
 + `a=5; b=7; ((a < b))` 会得到   `0` (`true`) 的返回值.
 
-常见的用于 `(( ))` 的测试符号有如下这些:
+用于 `(( ))` 的比较运算符:
 
 + `<`:小于
 + `>`:大于
@@ -799,7 +778,51 @@ $ echo "obase=8;$(( 8#666 & (8#777 ^ 8#$(umask)) ))" | bc
 + `==`:等于
 + `!=`:不等于
 
-### []文件系统属性测试
+### [[ ]]字符串比较
+
+在进行字符串比较时,最好使用双中括号 `[[ ]]`. 因为单中括号可能会导致一些错误,因此最好避开它们.
+
+检查两个字符串是否相同:
+
+```bash
+[[ $str1 == $str2 ]]
+```
+
+当 `str1` 等于 `str2` 时,返回真.也就是说, `str1` 和 `str2` 包含的文本是一样的.
+其中的双等于号也可以写成单等于号,也就是说,上面的字符串比较等效于 `[[ $str1 = $str2 ]]`.
+注意 `=` 前后有一个`空格`,如果忘记加空格, 就变成了赋值语句,而非比较关系了.
+字符串比较,`[[`,`]]`,`==`周围必须都有空格,中括号比较时,变量必须写成如`$a`的形式.
+
+字符串的其他比较情况:
+
++ `[[ $str1 != $str2 ]]`   如果 `str1` 与 `str2` 不相同,则返回真
++ `[[ -z $str1 ]]`   如果 `str1` 是`null`字符串,则返回真
++ `[[ -n $str1 ]]`   如果 `str1` 是非`null`字符串,则返回真
+
+使用逻辑运算符 `&&` 和 `||` 可以轻松地将多个条件组合起来, 比如:
+
+```bash
+str1="Not empty"
+str2=""
+if [[ -n $str1 ]] && [[ -z $str2 ]];
+then
+  echo str1 is nonempty and str2 is empty string.
+fi
+```
+
+`test` 命令也可以从来执行条件检测,用 `test` 可以避免使用过多的括号,`[]` 中的测试条件同样可以通过 `test` 来完成.
+
+```bash
+if [ $var -eq 0 ]; then echo "True"; fi
+```
+
+等价于:
+
+```bash
+if test $var -eq 0; then echo "True"; fi
+```
+
+### [] 文件系统测试
 
 Shell 里面的中括号(包括单中括号与双中括号)可用于一些条件的测试:
 
@@ -882,56 +905,45 @@ test "hello" != hello xx
 其实不光是空格，包含在 `$IFS `中的其它字符，还有变量为空时，都会造成语法错误。
 所以使用双引号包裹变量是一种保护机制，可以提高脚本的健壮性。
 
-[Shell 中的中括号用法总结][]
-[linux shell 中判断文件,目录是否存在][]
 
-[Shell 中的中括号用法总结]: https://www.runoob.com/w3cnote/shell-summary-brackets.html
 
-[linux shell 中判断文件,目录是否存在]: https://blog.csdn.net/yifeng4321/article/details/70232436
+declare: declare [-aAfFgilnrtux] [-p] [name[=value] ...]
+    Set variable values and attributes.
+    
+    Declare variables and give them attributes.  If no NAMEs are given,
+    display the attributes and values of all variables.
+    
+    Options:
+      -f	restrict action or display to function names and definitions
+      -F	restrict display to function names only (plus line number and
+    		source file when debugging)
+      -g	create global variables when used in a shell function; otherwise
+    		ignored
+      -p	display the attributes and value of each NAME
+    
+    Options which set attributes:
+      -a	to make NAMEs indexed arrays (if supported)
+      -A	to make NAMEs associative arrays (if supported)
+      -i	to make NAMEs have the `integer' attribute
+      -l	to convert the value of each NAME to lower case on assignment
+      -n	make NAME a reference to the variable named by its value
+      -r	to make NAMEs readonly
+      -t	to make NAMEs have the `trace' attribute
+      -u	to convert the value of each NAME to upper case on assignment
+      -x	to make NAMEs export
+    
+    Using `+' instead of `-' turns off the given attribute.
+    
+    Variables with the integer attribute have arithmetic evaluation (see
+    the `let' command) performed when the variable is assigned a value.
+    
+    When used in a function, `declare' makes NAMEs local, as with the `local'
+    command.  The `-g' option suppresses this behavior.
+    
+    Exit Status:
+    Returns success unless an invalid option is supplied or a variable
+    assignment error occurs.
 
-### [[ ]]字符串比较
-
-在进行字符串比较时,最好使用双中括号 `[[ ]]`. 因为单中括号可能会导致一些错误,因此最好避开它们.
-
-检查两个字符串是否相同:
-
-```bash
-[[ $str1 == $str2 ]]
-```
-
-当 `str1` 等于 `str2` 时,返回真.也就是说, `str1` 和 `str2` 包含的文本是一样的.
-其中的双等于号也可以写成单等于号,也就是说,上面的字符串比较等效于 `[[ $str1 = $str2 ]]`.
-注意 `=` 前后有一个`空格`,如果忘记加空格, 就变成了赋值语句,而非比较关系了.
-字符串比较,`[[`,`]]`,`==`周围必须都有空格,中括号比较时,变量必须写成如`$a`的形式.
-
-字符串的其他比较情况:
-
-+ `[[ $str1 != $str2 ]]`   如果 `str1` 与 `str2` 不相同,则返回真
-+ `[[ -z $str1 ]]`   如果 `str1` 是`null`字符串,则返回真
-+ `[[ -n $str1 ]]`   如果 `str1` 是非`null`字符串,则返回真
-
-使用逻辑运算符 `&&` 和 `||` 可以轻松地将多个条件组合起来, 比如:
-
-```bash
-str1="Not empty"
-str2=""
-if [[ -n $str1 ]] && [[ -z $str2 ]];
-then
-  echo str1 is nonempty and str2 is empty string.
-fi
-```
-
-`test` 命令也可以从来执行条件检测,用 `test` 可以避免使用过多的括号,`[]` 中的测试条件同样可以通过 `test` 来完成.
-
-```bash
-if [ $var -eq 0 ]; then echo "True"; fi
-```
-
-等价于:
-
-```bash
-if test $var -eq 0; then echo "True"; fi
-```
 
 ## 字符串和数字
 
