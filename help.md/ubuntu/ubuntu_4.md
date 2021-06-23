@@ -2,9 +2,7 @@
 
 ## shell 变量
 
-[Shell变量:Shell变量的定义,赋值和删除][]
-
-[Shell变量:Shell变量的定义,赋值和删除]: http://c.biancheng.net/view/743.html
+[Shell变量:Shell变量的定义,赋值和删除](http://c.biancheng.net/view/743.html)
 
 脚本语言在定义变量时通常不需要指明类型,直接赋值就可以,`Shell` 变量也遵循这个规则.
 
@@ -395,9 +393,7 @@ EOF 也可以使用其他符号:
 
 ### shell中的数组作为参数传递
 
-[shell中的数组作为参数传递][]
-
-[shell中的数组作为参数传递]: https://blog.csdn.net/brouse8079/article/details/6417836
+[shell中的数组作为参数传递](https://blog.csdn.net/brouse8079/article/details/6417836)
 
 `./test.sh  "${atest[@]}"` 简而言之,需要把数组参数用引号括起来.
 
@@ -452,9 +448,7 @@ a0
 
 ## 环境变量 path
 
-[ubuntu 修改环境变量(PATH)][]
-
-[ubuntu 修改环境变量(PATH)]: https://www.cnblogs.com/crave/p/11818594.html
+[ubuntu 修改环境变量(PATH)](https://www.cnblogs.com/crave/p/11818594.html)
 
 在Linux中,在执行命令时,系统会按照`PATH`的设置,去每个`PATH`定义的路径下搜索执行文件,先搜索到的文件先执行.
 
@@ -680,24 +674,15 @@ echo aa{A{1,2},B{3,4}}bb
 
 开头称为报头,结尾称为附言,中间包含由逗号分开的字符串或整数列表,不能包含空白. 还可以使用范围, 可以嵌套.
 
-### $(( )) 与 $( ) ${ }
+### $( ) 命令替换
 
-***
-`$( )` 与 `backtick`
+`$( )` 与 两个反引号(backtick)，均可以用来做命令替换，但一般不建议用反引号，也就是ESC下面那个按键.
 
-在 `bash` 中,`$( )` 与`backtick` (反引号) 都是用来做命令替换用(`command substitution`)的.
+`$( )` 的优点: 反引号容易与单引号搞混,尤其对于初学者来说; 在多层次的复合替换中,`backtick` 须要额外的跳脱处理,而 `$( )` 则比较直观.
+`$( )` 的不足: 反引号基本上可用在全部的 `unix shell` 中使用,若写成 `shell script` ,其移植性比较高.
 
-用 `$( )` 的理由:
+### ${} 花括号展开
 
-1.`backtick` 很容易与`' '` ( 单引号)搞混乱,尤其对初学者来说.
-2. 在多层次的复合替换中,`backtick` 须要额外的跳脱处理,而 `$( )` 则比较直观.
-
-`$( )` 的不足:
-
-1. `backtick` 基本上可用在全部的 `unix shell` 中使用,若写成 `shell script` ,其移植性比较高.
-而 `$( )` 并不见的每一种 `shell` 都能使用,我只能跟你说,若你用 `bash2` 的话,肯定没问题…   ^_^
-
-***
 `${ }` 用来作变量替换,把括号里的变量代入值.
 
 以上的理解在于, 你一定要分清楚 `unset` 与 `null` 及 `non-null` 这三种赋值状态.
@@ -778,6 +763,118 @@ $ echo "obase=8;$(( 8#666 & (8#777 ^ 8#$(umask)) ))" | bc
 + `==`:等于
 + `!=`:不等于
 
+### []文件系统测试
+
+`test`和`[`基本是同一个shell内置命令. `test`  检查文件系统，或者比较两个值的关系(数字或者字符串)
+
++ 算术比较.比如一个变量是否为`0`, `[ $var -eq 0 ]`.
++ 文件属性测试. 比如一个文件是否存在,`[ -e $var ]`, 是否是目录,`[ -d $var ]`.
++ 字符串比较. 比如两个字符串是否相同, `[[ $var1 = $var2 ]]`.
+
+语法:
+
+```bash
+test 表达式
+test
+[ 表达式 ]
+[ ]
+[ OPTION
+```
+
+需要注意的是 `[` 与 `]` 与操作数之间一定要有一个空格,否则会报错.比如下面这样就会报错: `[$var -eq 0 ]`  或 `[ $var -ne 0]`. 
+
+`Shell` 还提供了与`-a` 、或`-o`、非`!`三个逻辑操作符用于将测试条件连接起来，其优先级为： `!` 最高， `-a` 次之， `-o` 最低.  例如：
+
+`[ $var1 -ne 0 -a $var2 -gt 2 ]`  # 使用逻辑与 `-a`
+`[ $var1 -ne 0 -o $var2 -gt 2 ]`  # 使用逻辑或 `-o`
+
+***
+man page:
+
+如果省略了`EXPRESSION`，则默认为`false`。 否则，`EXPRESSION为`真或假，并设置返回状态。 
+
++ `( EXPRESSION )`:EXPRESSION为真
++ `! EXPRESSION`: EXPRESSION 为假
++ `EXPRESSION1 -a EXPRESSION2`: EXPRESSION1和EXPRESSION2都是真。
++ `EXPRESSION1 -o EXPRESSION2`: EXPRESSION1或EXPRESSION2为真。
+  
++ `-n STRING`: STRING的长度为非零. STRING相当于`-n STRING`
++ `-z STRING`: 表示STRING的长度为零
++ `string1 = string2`: 字符串是相等的
++ `string1 != string2`: 字符串不相等
+  
++ `INTEGER1 -eq INTEGER2`: `INTEGER1`等于`INTEGER2`
++ `INTEGER1 -ge INTEGER2`: 大于或等于
++ `INTEGER1 -gt INTEGER2`: 大于
++ `INTEGER1 -le INTEGER2`: 小于或等于
++ `INTEGER1 -lt INTEGER2`:小于
++ `INTEGER1 -ne INTEGER2`:不等于
++ `FILE1 -ef FILE2`: `FILE1`和`FILE2`有相同的设备号和节点号
++ `FILE1 -nt FILE2`: FILE1比FILE2要新（修改日期）。
++ `FILE1 -ot FILE2`: FILE1比FILE2老
+
++ `-b FILE`: FILE存在并且是块类型
++ `-c FILE`: FILE存在，并且是字符类型
++ `-d FILE`: FILE存在并且是一个目录
++ `-e FILE`: FILE存在.
++ `-f FILE`: FILE存在并且是一个普通文件
++ `-g FILE`:FILE存在并且是`set-group-ID`。
++ `-G FILE`: FILE存在并且被有效的组ID所拥有
++ `-h FILE`: FILE存在并且是一个符号链接（与-L相同）。
++ `-k FILE`:FILE存在，并且其`sticky bit `被设置。
++ `-L FILE`:FILE存在并且是一个符号链接（与-h相同）。
++ `-O FILE`: FILE存在并且被有效的用户`ID`所拥有
++ `-p FILE`:FILE存在，并且是一个命名的管道
++ `-r FILE`:FILE存在并且被授予读取权限
++ `-s FILE`:FILE存在并且大小大于`0`
++ `-S FILE`:FILE存在并且是一个套接字
++ `-t FD`: 文件描述符FD在一个终端上被打开。
++ `-u FILE`:FILE存在并且其`set-user-ID`位被设置
++ `-w FILE`:FILE存在并且被授予写权限
++ `-x FILE`:FILE存在，并且被授予执行（或搜索）权限
+
+除了`-h`和`-L`之外，所有与`FILE`相关的测试都会对符号链接`dereference`。 
+注意，对于`shells`来说，小括号需要被转义(`\(  \)`)。 `INTEGER`也可以是`-l STRING`，它被评估为`STRING`的长度。
+
+注意：二元的`-a`和`-o`本身有歧义。 使用`test EXPR1 && test EXPR2`或`test EXPR1 || test EXPR2`代替。
+注意: `[` 具有 `--help` 和 `--version` 选项，但 `test` 不具有。`test` 对这些选项的处理与对其他非空字符串的处理相同。
+注意：你的shell可能有自己的`test`或`[`的版本，它通常取代这里描述的版本。 关于它所支持的选项的细节，请参考你的shell的文档。
+
+***
+如果 `filename` 存在,则为真
+
+```bash
+if [ -e filename ]; then echo "true";fi
+```
+
+如果存在某文件,则删除
+
+```bash
+if [ -f trials ]; then rm ${result_path}trials; fi
+```
+
+如果没有文件夹,则创建
+
+```bash
+if [ ! -d $result_name ];then mkdir -p $result_name;fi
+```
+
+***
+`bash`在变量替换方面比较粗犷，有时需要用双引号把变量裹住, 例如：
+
+```bash
+abc="hello xx"; if test "hello" != "$abc"; then  echo "Your word is not 'hello'."; fi
+```
+
+变量 `abc` 的值为`hello xx`，在字符串中间有个空格。如果不用引号保护起来，`bash`解释上面的命令时，会将`test` 命令解释成：
+
+```bash
+test "hello" != hello xx
+```
+
+这不是一个合法的 `test` 命令，所以脚本执行时就会报错. 其实不光是空格，包含在 `$IFS `(internal field separator)中的其它字符，以及空变量，都会造成语法错误。
+所以使用双引号包裹变量是一种保护机制，可以提高脚本的健壮性。但是在`zsh`中可以不用引号包裹，`zsh`和`bash`的分词机制不同.
+
 ### [[ ]]字符串比较
 
 在进行字符串比较时,最好使用双中括号 `[[ ]]`. 因为单中括号可能会导致一些错误,因此最好避开它们.
@@ -822,128 +919,44 @@ if [ $var -eq 0 ]; then echo "True"; fi
 if test $var -eq 0; then echo "True"; fi
 ```
 
-### [] 文件系统测试
-
-Shell 里面的中括号(包括单中括号与双中括号)可用于一些条件的测试:
-
-+ 算术比较, 比如一个变量是否为`0`, `[ $var -eq 0 ]`.
-+ 文件属性测试,比如一个文件是否存在,`[ -e $var ]`, 是否是目录,`[ -d $var ]`.
-+ 字符串比较, 比如两个字符串是否相同, `[[ $var1 = $var2 ]]`.
-
-`[]` 常常可以使用 `test` 命令来代替,后面有介绍.
-
-***
-对变量或值进行算术条件判断:
-
-+ `[ $var -eq 0 ]`  # 当 `$var` 等于 `0` 时,返回真
-+ `[ $var -ne 0 ]`  # 当 `$var` 不等于 `0` 时,返回真
-
-需要注意的是 `[` 与 `]` 与操作数之间一定要有一个空格,否则会报错.比如下面这样就会报错:
-
-`[$var -eq 0 ]`  或 `[ $var -ne 0]`
-
-其他比较操作符:
-
-+ `-gt` 大于
-+ `-lt` 小于
-+ `-ge` 大于或等于
-+ `-le` 小于或等于
-
-可以通过 `-a` (and) 或 `-o` (or) 结合多个条件进行测试:
-
-`[ $var1 -ne 0 -a $var2 -gt 2 ]`  # 使用逻辑与 `-a`
-`[ $var1 -ne 0 -o $var2 -gt 2 ]`  # 使用逻辑或 `-o`
-
-***
-使用不同的条件标志测试不同的文件系统属性.
-
-+ `[ -f $file_var ]` 变量 `$file_var` 是一个正常的文件路径或文件名 (`file`),则返回真
-+ `[ -x $var ]` 变量 `$var` 包含的文件可执行 (`execute`),则返回真
-+ `[ -d $var ]` 变量 `$var` 包含的文件是目录 (`directory`),则返回真
-+ `[ -e $var ]` 变量 `$var` 包含的文件存在 (`exist`),则返回真
-+ `[ -c $var ]` 变量 `$var` 包含的文件是一个字符设备文件的路径 (`character`),则返回真
-+ `[ -b $var ]` 变量 `$var` 包含的文件是一个块设备文件的路径 (`block`),则返回真
-+ `[ -w $var ]` 变量 `$var` 包含的文件可写(`write`),则返回真
-+ `[ -r $var ]` 变量 `$var` 包含的文件可读 (`read`),则返回真
-+ `[ -L $var ]` 变量 `$var` 包含是一个符号链接 (`link`),则返回真
-
-Shell 还提供了与`-a` 、或`-o`、非`!`三个逻辑操作符用于将测试条件连接起来，其优先级为： `!` 最高， `-a` 次之， `-o` 最低
-
-例如
-`-e filename` 如果 `filename` 存在,则为真
-
-如果存在某文件,则删除
+### declare
 
 ```bash
-if [ -f trials ]; then rm ${result_path}trials; fi
-```
-
-如果没有文件夹,则创建
-
-```bash
-if [ ! -d $result_name ];then
-      mkdir -p $result_name
-fi
-```
-
-用双引号把变量包起来, 例如：
-
-```bash
-abc="hello xx"
-if test "hello" != "$abc"; then
-    echo "Your word is not 'hello'."
-fi
-```
-
-变量 `abc` 的值为 "hello xx"，在字符串中间有个空格。如果不用引号保护起来，Bash 进行命令解释的时候，上面的 `test` 命令变成：
-
-```bash
-test "hello" != hello xx
-```
-
-这不是一个合法的 `test` 命令，所以脚本执行时就会报错.
-其实不光是空格，包含在 `$IFS `中的其它字符，还有变量为空时，都会造成语法错误。
-所以使用双引号包裹变量是一种保护机制，可以提高脚本的健壮性。
-
-
-
 declare: declare [-aAfFgilnrtux] [-p] [name[=value] ...]
-    Set variable values and attributes.
-    
-    Declare variables and give them attributes.  If no NAMEs are given,
-    display the attributes and values of all variables.
-    
-    Options:
-      -f	restrict action or display to function names and definitions
-      -F	restrict display to function names only (plus line number and
-    		source file when debugging)
-      -g	create global variables when used in a shell function; otherwise
-    		ignored
-      -p	display the attributes and value of each NAME
-    
-    Options which set attributes:
-      -a	to make NAMEs indexed arrays (if supported)
-      -A	to make NAMEs associative arrays (if supported)
-      -i	to make NAMEs have the `integer' attribute
-      -l	to convert the value of each NAME to lower case on assignment
-      -n	make NAME a reference to the variable named by its value
-      -r	to make NAMEs readonly
-      -t	to make NAMEs have the `trace' attribute
-      -u	to convert the value of each NAME to upper case on assignment
-      -x	to make NAMEs export
-    
-    Using `+' instead of `-' turns off the given attribute.
-    
-    Variables with the integer attribute have arithmetic evaluation (see
-    the `let' command) performed when the variable is assigned a value.
-    
-    When used in a function, `declare' makes NAMEs local, as with the `local'
-    command.  The `-g' option suppresses this behavior.
-    
-    Exit Status:
-    Returns success unless an invalid option is supplied or a variable
-    assignment error occurs.
+```
 
+`declare`用来设置变量的值和属性。声明变量并赋予其属性。 如果没有给出`NAME`,  显示所有变量的属性和值。
+
+选项：
+
++ `-f`:  只将动作或显示作用在函数类的名称和定义上
++ `-F`: 限制只显示函数名（调试时加上行号和源文件)
++ `-g`: 用于`shell`函数时，创建局变量；否则忽略此选项
++ `-p`:  显示每个`NAME`的属性和值
+
+设置属性的选项:
+
++ `-a`: 使`NAME`成为索引数组（如果支持）。
++ `-A`: 使`NAME`成为关联数组（如果支持）。
++ `-i`: 使`NAME`具有 "整数 "属性
++ `-l`: 在赋值时将每个`NAME`的值转换为小写。
++ `-n`: 以值命名的变量,把`NAME`当成它的引用
++ `-r`: 使`NAME`成为只读变量
++ `-t`: 使`NAME`具有 `trace`属性
++ `-u`: 在赋值时将每个`NAME`的值转换为大写字母
++ `-x`: 使`NAME`输出。
+
+因为命令行选项用`-`开头，跟通常相反，使用`+`关闭指定的属性。
+带有整数属性的变量，在赋值的时候会先进行算术计算（见`let`命令）.
+当在一个函数中使用时，`declare`使`NAME`成为局部的，就像`local`命令那样。`-g`选项抑制这种行为。
+
+***
+
+```bash
+local: local [option] name[=value] ...
+```
+
+`local`定义局部变量. 它的选项和`declare`相同。local变量只在定义的函数内可用，它只对此函数和子函数可见.
 
 ## 字符串和数字
 

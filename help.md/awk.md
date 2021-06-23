@@ -1,8 +1,6 @@
 # awk
 
-[w3c AWk][]
-
-[w3c AWk]: https://www.w3cschool.cn/awk/hs671k8f.html
+[w3c AWk](https://www.w3cschool.cn/awk/hs671k8f.html)
 
 部分 AWK 的典型应用场景
 
@@ -1933,9 +1931,7 @@ Percentags =        +34543.661000$
 
 ## awk 计算精度
 
-[gawk/manual/gawk.html#Setting-precision][]
-
-[gawk/manual/gawk.html#Setting-precision]: https://www.gnu.org/software/gawk/manual/gawk.html#Setting-precision
+[gawk/manual/gawk.html#Setting-precision](https://www.gnu.org/software/gawk/manual/gawk.html#Setting-precision)
 
 `gawk`使用`MPFR`库来控制精度和近似。在命令行选项中使用`-M`来启用`MPFR `:来支持任意精度的计算。
 

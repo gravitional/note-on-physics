@@ -2,8 +2,7 @@
 
 ## flash rooms
 
-[使用fastboot命令刷机流程详解][]
-[使用fastboot命令刷机流程详解]: https://blog.csdn.net/s13383754499/article/details/82755012
+[使用fastboot命令刷机流程详解](https://blog.csdn.net/s13383754499/article/details/82755012)
 
 ### Fastboot是什么
 
@@ -163,9 +162,7 @@ A comma separated list of the following values 1 or all, adb, sockets, packets, 
 
 ### 网络 adb
 
-[ADB网络调试和常见命令][]
-
-[ADB网络调试和常见命令]:https://www.jianshu.com/p/2d256f338634
+[ADB网络调试和常见命令](https://www.jianshu.com/p/2d256f338634)
 
 安卓的adb调试模式有两种：1、使用usb线；2、使用网络。
 
@@ -289,8 +286,8 @@ adb reboot
 
 ### sideload
 
-[使用adb sideload线刷ROM的方法][]
-[使用adb sideload线刷ROM的方法]: https://www.cnblogs.com/godfeer/p/12029476.html
+[使用adb sideload线刷ROM的方法](https://www.cnblogs.com/godfeer/p/12029476.html)
+[使用adb sideload线刷ROM的方法]: 
 
 本教程详细介绍 手机刷三方ROM 之前需要安装的 `TWRP` 这个神器工具
 楼主的手机是小米，所以此教程以小米手机为例。其他手机原理类似

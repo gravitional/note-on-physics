@@ -74,12 +74,8 @@ usb 线接口
 
 让视频的声音更棒，Premiere和Audition可以这样协同工作！
 
-[让视频的声音更棒][]
-[一招把渣音质变成广播级][]
-
-[一招把渣音质变成广播级]: https://doyoudo.com/video/159
-
-[让视频的声音更棒]: https://doyoudo.com/video/166
+[让视频的声音更棒](https://doyoudo.com/video/166)
+[一招把渣音质变成广播级](https://doyoudo.com/video/159)
 
 ### 降低噪声--在稳定音量前
 
@@ -157,9 +153,7 @@ sidechain compression
 
 ## 游戏视频音频后期
 
-[游戏视频的音频后期处理][]
-
-[游戏视频的音频后期处理]: https://doyoudo.com/video/203
+[游戏视频的音频后期处理](https://doyoudo.com/video/203)
 
 这个是先录制游戏视频，再录制解说的工作流程
 

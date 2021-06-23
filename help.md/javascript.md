@@ -1,12 +1,7 @@
 # javascript
 
-[JavaScript 教程][]
-
-[JavaScript教程-liaoxuefeng][]
-
-[JavaScript 教程]: https://www.w3school.com.cn/js/index.asp
-
-[JavaScript教程-liaoxuefeng]: https://www.liaoxuefeng.com/wiki/1022910821149312
+[JavaScript 教程](https://www.w3school.com.cn/js/index.asp)
+[JavaScript教程-liaoxuefeng](https://www.liaoxuefeng.com/wiki/1022910821149312)
 
 ## intro
 

@@ -1,8 +1,6 @@
 # awk2 
 
-[awk命令][]
-
-[awk命令]: https://man.linuxde.net/awk
+[awk命令](https://man.linuxde.net/awk)
 
 `awk`是一种编程语言，用于在`linux/unix`下对文本和数据进行处理。数据可以来自标准输入(stdin)、一个或多个文件，或其它命令的输出。
 它支持用户自定义函数和动态正则表达式等先进功能，是`linux/unix`下的一个强大编程工具。
@@ -996,7 +994,7 @@ $ awk -v val=$x '{print $1, $2, $3, $4+val, $5+ENVIRON["y"]}' OFS="\t" score.txt
 
 ### 几个花活
 
-[AWK 简明教程][]
+[AWK 简明教程](https://coolshell.cn/articles/9070.html)
 
 ```bash
 #从file文件中找出长度大于80的行
@@ -1006,5 +1004,3 @@ netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr
 #打印99乘法表
 seq 9 | sed 'H;g' | awk -v RS='' '{for(i=1;i<=NF;i++)printf("%dx%d=%d%s", i, NR, i*NR, i==NR?"\n":"\t")}'
 ```
-
-[AWK 简明教程]: https://coolshell.cn/articles/9070.html

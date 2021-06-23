@@ -1,8 +1,6 @@
 # bash.md
 
-[runoob-linux-tutorial][]
-
-[runoob-linux-tutorial]: https://www.runoob.com/linux/linux-tutorial.html
+[runoob-linux-tutorial](https://www.runoob.com/linux/linux-tutorial.html)
 
 ## 查看帮助
 
@@ -51,9 +49,7 @@
 #从压缩档案 archive.zip 中释放 *.cpp 文件到 c:\soft 文件夹。
 ```
 
-[linux命令行括号帮助含义][]
-
-[linux命令行括号帮助含义]: https://blog.csdn.net/yandaonan/article/details/56489513
+[linux命令行括号帮助含义](https://blog.csdn.net/yandaonan/article/details/56489513)
 
 ## alias
 
@@ -195,9 +191,7 @@
 + `gzip -l *` 详细显示例1中每个压缩的文件的信息，并不解压。
 + `gzip usr.tar` 压缩`tar`备份文件`usr.tar`，此时压缩文件的扩展名为`.tar.gz`。
 
-[Linux/Ubuntu下解压命令][]
-
-[Linux/Ubuntu下解压命令]: https://blog.csdn.net/u013063153/article/details/53894711
+[Linux/Ubuntu下解压命令](https://blog.csdn.net/u013063153/article/details/53894711)
 
 ## Linux 文件与目录管理
 

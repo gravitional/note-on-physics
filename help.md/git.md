@@ -1,9 +1,6 @@
 # learn.git.md
 
-reference: [廖雪峰git教程][] and [git-scm-book][]
-
-[廖雪峰git教程]: https://www.liaoxuefeng.com/wiki/896043488029600
-[git-scm-book]: https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-Git-%E5%88%AB%E5%90%8D
+reference: [廖雪峰git教程](https://www.liaoxuefeng.com/wiki/896043488029600) and [git-scm-book](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-Git-%E5%88%AB%E5%90%8D)
 
 ## SSH配置
 
@@ -105,9 +102,7 @@ Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
 
 ### 修改注释
 
-[作者：筱湮][]
-
-[作者：筱湮]: https://www.jianshu.com/p/098d85a58bf1
+[作者：筱湮](https://www.jianshu.com/p/098d85a58bf1)
 
 ### 修改最后一次注释
 
@@ -382,9 +377,7 @@ Match the regular expression limiting patterns without regard to letter case.
 
 ### 查看本地+远程所有分支的全部提交以及关系
 
-[git查看本地+远程所有分支的全部提交以及关系][]
-
-[git查看本地+远程所有分支的全部提交以及关系]: https://blog.csdn.net/wq6ylg08/article/details/89052225
+[git查看本地+远程所有分支的全部提交以及关系](https://blog.csdn.net/wq6ylg08/article/details/89052225)
 
 当我们深入学习Git后，我们不仅在本地仓库有超多的分支，
 还在远程仓库有超多的分支，如果我们只使用`git log`和`gitk`命令，我们会发现这两个命令只能显示当前所处分支的全部提交记录，并不能查看本地+远程所有分支的全部提交记录。
@@ -438,9 +431,8 @@ git reset --hard branch2
 
 把 `HEAD` 和 `branch`移动到`branch2`指向的提交。
 
-[Git Reset 三种模式][]
-[git reset --hard xxx、git reset --soft 及git revert 的区别][]
-[Git Reset 三种模式][]
+[Git Reset 三种模式](https://www.jianshu.com/p/c2ec5f06cf1a)
+[git reset --hard xxx、git reset --soft 及git revert 的区别](https://www.jianshu.com/p/8be0cc35e672)
 
 ### git revert
 
@@ -637,9 +629,7 @@ reset是用来修改提交历史的，想象这种情况，如果你在`2`天前
 
 这个时候你有两个选择，要么使用`git revert`（推荐），要么使用git reset。
 
-[git的reset和checkout的区别][]
-
-[git的reset和checkout的区别]: https://segmentfault.com/a/1190000006185954
+[git的reset和checkout的区别](https://segmentfault.com/a/1190000006185954)
 
 ### 借用其他分支的文件
 
@@ -709,9 +699,7 @@ git checkout master
 git checkout feature f.txt
 ```
 
-[Git合并指定文件到另一个分支][]
-
-[Git合并指定文件到另一个分支]: https://www.cnblogs.com/yanglang/p/11436304.html
+[Git合并指定文件到另一个分支](https://www.cnblogs.com/yanglang/p/11436304.html)
 
 ## 远程分支
 
@@ -1523,9 +1511,7 @@ Use git stash when you want to record the current state of the working directory
 
 在`Git`中整合来自不同分支的修改主要有两种方法：`merge`以及`rebase`
 
-reference: [scm tutorial][]
-
-[scm tutorial]: https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA#rrbdiag_g
+reference: [scm tutorial](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA#rrbdiag_g)
 
 ### 变基的风险
 
@@ -1583,9 +1569,7 @@ git rebase --onto master[被施加重放的分支] server[父节点/修改起始
 忽略某些文件时，需要编写`.gitignore`；
 `.gitignore`文件本身要放到版本库里，并且可以对`.gitignore`做版本管理！
 
-[git设置忽略文件和目录][]
-
-[git设置忽略文件和目录]: https://www.cnblogs.com/wtil/p/11676092.html
+[git设置忽略文件和目录](https://www.cnblogs.com/wtil/p/11676092.html)
 
 1. 创建.gitignore
 2. 修改文件，添加忽略正则
@@ -1653,9 +1637,7 @@ __pycache__
 
 ### index
 
-[whats-the-deal-with-the-git-index][]
-
-[whats-the-deal-with-the-git-index]: https://gitguys.com/topics/whats-the-deal-with-the-git-index/
+[whats-the-deal-with-the-git-index](https://gitguys.com/topics/whats-the-deal-with-the-git-index/)
 
 The git “index” is where you place files you want committed to the git repository.
 
@@ -1910,7 +1892,7 @@ HEAD:README, :README, master:./README
 应该是`Reference Specification`的缩写，字面意思就是具体的引用。
 它其实是一种格式，`git`通过这种格式的判断来获取不同引用下的数据。
 
-你可以具体参考：[Reference Specification][]
+你可以具体参考：[Reference Specification](http://git-scm.com/book/zh/ch9-5.html)
 
 `Refspec` 的格式是一个可选的 `+` 号，接着是 `<src>:<dst>` 的格式，这里 `<src>` 是远端上的引用格式，`<dst>` 是将要记录在本地的引用格式。
 
@@ -1928,11 +1910,7 @@ $ git log refs/remotes/origin/master
 如果你想让 Git 每次只拉取远程的 `master` 分支，而不是远程的所有分支，你可以把 `fetch` 这一行修改成这样：
 `fetch = +refs/heads/master:refs/remotes/origin/master`
 
-[git中的refspec是什么意思?][]
-
-[git中的refspec是什么意思?]: http://www.imooc.com/wenda/detail/503063
-
-[Reference Specification]: http://git-scm.com/book/zh/ch9-5.html
+[git中的refspec是什么意思?](http://www.imooc.com/wenda/detail/503063)
 
 ### 路径指定
 
@@ -1997,9 +1975,7 @@ Note that when matching against a tree object, attributes are still obtained fro
 
 ### 包文件
 
-[Git 内部原理 - 包文件][]
-
-[Git 内部原理 - 包文件]: https://git-scm.com/book/en/v2/Git-Internals-Packfiles
+[Git 内部原理 - 包文件](https://git-scm.com/book/en/v2/Git-Internals-Packfiles)
 
 Git 使用`zlib`压缩文件的内容。
 
