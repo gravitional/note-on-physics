@@ -29,30 +29,20 @@
 sudo pacman-mirrors -i -c China -m rank
 ```
 
-在弹出的框中选一个最快的源，一个就好，选多了会降低速度.
-6.9更新，不建议使用`archlinuxcn`的源，因为并不一定兼容,而且已经有人遇到了问题. 如果真的需要用（比如想安装`mysql`简单点），执行：
+在弹出的框中选一个最快的源，一个就好，选多了会降低速度. 
+若要安装`archlinuxcn`的源,参考[ArchlinuxCN 镜像使用帮助](https://mirrors.tuna.tsinghua.edu.cn/help/archlinuxcn/)
 
-```bash
-sudo nano /etc/pacman.conf
-```
-
-在末尾输入：
+打开配置文件：`sudo vim /etc/pacman.conf`，在末尾输入：
 
 ```bash
 [archlinuxcn]
-Server = http://mirrors.163.com/archlinux-cn/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 ```
 
-保存退出（`Ctrl+X,y`）接着更新系统
+保存退出, 接着更新缓存, 导入 `PGP`Keys:
 
 ```bash
-sudo pacman -Syyu
-```
-
-系统更新完毕, 如果上一步添加了`archlinuxcn` 的源：
-
-```bash
-sudo pacman -S archlinuxcn-keyring
+sudo pacman -Syy && sudo pacman -S archlinuxcn-keyring
 ```
 
 ### 安装软件
@@ -575,6 +565,31 @@ GRUB_CMDLINE_LINUX_DEFAULT="module_blacklist=nvidiafb"
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+### vscode 登陆报错
+
+[Troubleshooting keychain issues](https://code.visualstudio.com/docs/editor/settings-sync#_troubleshooting-keychain-issues)
+[Sync requests to re-login every 2 minutes](https://github.com/microsoft/vscode/issues/92972)
+[install gnome keyring and qtkeychain](https://rtfm.co.ua/en/linux-the-nextcloud-client-qtkeychain-and-the-the-name-org-freedesktop-secrets-was-not-provided-by-any-service-files-error/)
+
+`KDE` 环境下, `vs-code`登陆账户无法保存，下次启动仍然提示登陆. 问题出在`keychain`. 解决方法是安装 gnome keyring and qtkeychain
+
+```bash
+yay -S qtkeychain gnome-keyring
+# 验证现在存在
+ls -l /usr/share/dbus-1/services/ | grep secret
+cat /usr/share/dbus-1/services/org.freedesktop.secrets.service
+```
+
+### vscode 更新报错
+
+[Arch Linux Chinese Community Repository](https://github.com/archlinuxcn/repo)
+
+vscode 的二进制包`visual-studio-code-bin`位于`archlinucn`仓库, 可能是由于 PGP keys 更新，执行
+
+```bash
+sudo pacman -Syy && sudo pacman -S archlinuxcn-keyring
+```
+
 ## archwiki 帮助
 
 [Help:Reading](https://wiki.archlinux.org/index.php/Help:Reading_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
@@ -631,6 +646,21 @@ $ makepkg -sri
 
 使用过其它发行版的用户，可以参考 Pacman Rosetta 中的对比.
 [Pacman Rosetta](https://wiki.archlinux.org/index.php/Pacman_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)/Rosetta_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+
+### pacman-mirrors
+
+使用下面的命令选择较快的镜像.
+
+```bash
+sudo pacman-mirrors -i -c China -m rank
+```
+
+***
+`pacman-mirrors`:产生Manjaro Linux 的镜像列表
+
++ `-i,--interactive [-default]`: 互动模式. `-default`强迫载入默认的镜像文件，忽略任何自定义pool.
++ `-c`: 指定国家
++ `-m,--method METHOD`: 默认的方法是`rank`，但可以选择`random`. `rank`: 按访问延迟排列镜像。`random`:随机排列镜像。
 
 ### 安装指定的包
 

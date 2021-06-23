@@ -920,9 +920,7 @@ mount --bind foo foo
 
 ### xelatex 脚本
 
-[shell 参数换行 & shell 输出换行的方法][]
-
-[shell 参数换行 & shell 输出换行的方法]: https://blog.csdn.net/donaldsy/article/details/99938408
+[shell 参数换行 & shell 输出换行的方法](https://blog.csdn.net/donaldsy/article/details/99938408)
 
 首先测试一下括号的用法:
 
@@ -999,17 +997,10 @@ echo -E "hello\n wrold" #输出 hello\n world, 默认情况
 ### texlive安装与卸载
 
 ***
-[Linux环境下LaTex的安装与卸载][]
-[Ubuntu Texlive 2019 安装与环境配置][]
-[TexLive 2019 安装指南][]
-
+[Linux环境下LaTex的安装与卸载](https://blog.csdn.net/l2563898960/article/details/86774599)
+[Ubuntu Texlive 2019 安装与环境配置](https://blog.csdn.net/williamyi96/java/article/details/90732304)
+[TexLive 2019 安装指南](https://zhuanlan.zhihu.com/p/64530166)
 [TeX Live - Quick install](https://tug.org/texlive/quickinstall.html)
-
-[Linux环境下LaTex的安装与卸载]: https://blog.csdn.net/l2563898960/article/details/86774599
-
-[Ubuntu Texlive 2019 安装与环境配置]: https://blog.csdn.net/williamyi96/java/article/details/90732304
-
-[TexLive 2019 安装指南]: https://zhuanlan.zhihu.com/p/64530166
 
 ***
 准备工作:下载,清除
@@ -1176,11 +1167,8 @@ ubuntu 仓库的texlive
 `tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet`
 
 [texlive home page](https://tug.org/texlive/) 
-
 [texlive installation and updates](https://tug.org/texlive/pkginstall.html) texlive 安装和更新
-
 [archive of tlnet ](https://www.texlive.info/tlnet-archive/) ：各个年份的 tex 更新，可以选择用来更新的 repository 的版本
-
 [texlive.info](https://texlive.info/) 查看各种关于 texlive 的信息
 
 告诉`tlmgr`使用附近的CTAN镜像进行将来的更新； 如果您从DVD映像安装了TeX Live,并且想要持续更新,则很有用.
