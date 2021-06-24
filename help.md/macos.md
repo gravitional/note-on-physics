@@ -95,6 +95,17 @@ Yuanti SC Regular
 Yuppy SC Regular
 ```
 
+### 命令行字体
+
+[Sarasa Mono SC](https://github.com/laishulu/Sarasa-Mono-SC-Nerd)
+
+MacOS 用户可以直接通过cask安装：
+
+```bash
+brew tap laishulu/cask-fonts
+brew install font-sarasa-nerd
+```
+
 ### XeLaTeX 使用系统字体
 
 [修复 MacTeX 2015 无法按字体文件名调](https://liam.page/2015/07/11/mactex-2015-system-font/)
@@ -897,4 +908,25 @@ Resizing to full size (fit to fill)
 ```bash
 $ sudo umount /Volumes/UNTITLED
 $ sudo mount -t ntfs -o rw,auto,nobrowse /dev/disk3s1 ~/ntfs-volume
+```
+
+## 维护
+
+### brew miss bottles 报错
+
+[HOMEBREW_BOTTLE_DOMAIN需要指定到/bottles这一级路径](https://github.com/tuna/issues/issues/1224#issuecomment-818728498)
+
+`brew Release 3.0.7`更新之后，去除了对`/bottles`这级路径的拼接, 目前需要自己修改`HOMEBREW_BOTTLE_DOMAIN`的地址:
+
+   HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles/bottles
+   
+等待后续完成迁移即可.
+
+也可以先切换成`ustc`的源:
+
+[Bottles 源使用帮助](http://mirrors.ustc.edu.cn/help/homebrew-bottles.html)
+
+```bash
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.zshrc
+source ~/.zshrc
 ```
