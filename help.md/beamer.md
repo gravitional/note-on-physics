@@ -122,7 +122,7 @@
 
 `bibtex` 标准 style `plain`,`unsrt`,`alpha`,`abbrv`
 
-用find 查找到的本机的安装的支持`nat`的`bst`:
+用 `find` 查找到的本机的安装的支持`nat`的`bst`:
 
 + /bst/shipunov/rusnat.bst
 + /bst/bib-fr/abbrvnat-fr.bst
