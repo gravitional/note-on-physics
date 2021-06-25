@@ -532,14 +532,21 @@ unzip -j '*.zip'  '*.otf'
 + `u` : 把文件更新到归档
 + `x` : 提取文件，使用全路径(也就是保持文件结构)
 
-`<Switches>`
+可以使用的开关. 开关的后面的参数不需要空格隔开.
 
 + `--` : Stop switches parsing
 + `-o{Directory}` : 设置输出目录
 + `-p{Password}` : 设置密码
 + `-r[-|0]` : 递归子目录
 + `-y` : 所有 queries 回答 yes
-+ `-t{Type}`设置归档的 type
++ `-t{Type}`:设置归档的 type
++ `-ai[r[-|0]]@{listfile} | !{wildcard}`: 包括额外的压缩文件，以及通配符. 支持使用多次.
+
+`7z`解压多个`.zip`文件，由于`!`在bash中是特殊符号，需要转义或者用`'`包裹起来.
+
+```bash
+7z x -an -'air!*.zip'
+```
 
 ### 查看和安装字体
 
