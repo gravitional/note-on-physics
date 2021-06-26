@@ -1045,8 +1045,282 @@ P_{l}\left(\cos\Theta\right)=\sum_{m=-\ell}^{+\ell}\frac{\left(\ell-m\right)!}{\
 开耳芬函数
 \end_layout
 
+\begin_layout Section
+数论
+\end_layout
+
 \begin_layout Standard
-gf
+同余式的运算规则：
+\begin_inset Formula 
+\begin{align*}
+ & a+b\bmod n=a\bmod n+b\bmod n\\
+ & \left(a\bmod n\right)\left(b\bmod n\right)\bmod n=ab\bmod n
+\end{align*}
+
+\end_inset
+
+如果
+\begin_inset Formula $x,y$
+\end_inset
+
+互质，则
+\begin_inset Formula 
+\[
+a\bmod x\bmod y=a\bmod y\bmod x
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & a_{1}=k_{1}b_{1}+m_{1}\Rightarrow a_{1}=m_{1}\bmod b_{1}\\
+ & a_{2}=k_{2}b_{2}+m_{2}\Rightarrow a_{2}=m_{2}\bmod b_{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{a_{1}a_{2}}{b_{1}b_{2}}=\frac{\left(k_{1}b_{1}+m_{1}\right)\left(k_{2}b_{2}+m_{2}\right)}{b_{1}b_{2}}=k_{1}k_{2}+\frac{k_{1}m_{2}}{b_{2}}+\frac{k_{2}m_{1}}{b_{1}}+\frac{m_{1}m_{2}}{b_{1}b_{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(a_{1}a_{2}\right) & =m_{1}m_{2}\bmod\left(b_{1}b_{2}\right)+\left(k_{1}b_{1}m_{2}+k_{2}b_{2}m_{1}\right)\bmod\left(b_{1}b_{2}\right)\\
+ & =m_{1}m_{2}\bmod\left(b_{1}b_{2}\right)+m_{2}*\left(k_{1}\bmod b_{2}\right)\bmod b_{2}+m_{1}\left(k_{2}\bmod b_{1}\right)\bmod b_{1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+欧拉定理
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset Formula $\varphi\left(b\right)$
+\end_inset
+
+为欧拉函数，它是满足下列条件的数字的数目：小于
+\begin_inset Formula $b$
+\end_inset
+
+且与
+\begin_inset Formula $b$
+\end_inset
+
+互质。对于互质的数
+\begin_inset Formula $a,b$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\varphi\left(a*b\right)=\varphi\left(a\right)\varphi\left(b\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $a,b$
+\end_inset
+
+互质，则有：
+\begin_inset Formula 
+\[
+a^{\varphi\left(b\right)}=1\bmod b
+\]
+
+\end_inset
+
+如果
+\begin_inset Formula $b$
+\end_inset
+
+为质数，则
+\begin_inset Formula 
+\begin{align*}
+ & \varphi\left(b\right)=b-1\\
+ & a^{b-1}=\left(b+a-b\right)^{b-1}
+\end{align*}
+
+\end_inset
+
+在正整数域上：
+\begin_inset Formula $a^{b-1}\ge b$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\left(b+a-b\right)^{b-1}=\sum_{k=0}^{b-1}C_{b-1}^{k}b^{k}\left(a-b\right)^{b-1-k}=1+\sum_{k=1}^{b-1}C_{b-1}^{k}b^{k}\left(a-b\right)^{b-1-k}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a^{\varphi\left(b\right)}=1\bmod b
+\]
+
+\end_inset
+
+所以余数为
+\begin_inset Formula $1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $b$
+\end_inset
+
+为合数，设
+\begin_inset Formula $b=xy$
+\end_inset
+
+，其中
+\begin_inset Formula $x,y$
+\end_inset
+
+为各质因子的幂，则：
+\begin_inset Formula 
+\[
+a^{\varphi\left(xy\right)}=a^{\varphi\left(b\right)\varphi\left(c\right)}=1\bmod b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+RSA非对称加密算符
+\end_layout
+
+\begin_layout Standard
+寻找一组数字
+\begin_inset Formula $n,d,e$
+\end_inset
+
+，满足
+\begin_inset Formula 
+\[
+d*e=1\bmod\varphi\left(n\right)\quad\text{i.e.}\quad de=k\varphi\left(n\right)+1
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $1<e<\varphi\left(n\right)$
+\end_inset
+
+且与
+\begin_inset Formula $\varphi\left(n\right)$
+\end_inset
+
+互质。则有
+\begin_inset Formula 
+\[
+\text{公钥：}n,e,\quad\text{私钥：}n,d
+\]
+
+\end_inset
+
+加密过程为：
+\begin_inset Formula 
+\begin{align*}
+ & \tilde{x}=x^{e}\bmod n\\
+ & x=\tilde{x}^{d}\bmod n
+\end{align*}
+
+\end_inset
+
+等价于证明：
+\begin_inset Formula 
+\begin{align*}
+x^{e} & =tn+\tilde{x}\\
+x & =\left(x^{e}-tn\right)^{d}\bmod n\\
+x & =x^{ed}\bmod n
+\end{align*}
+
+\end_inset
+
+或者
+\begin_inset Formula 
+\[
+\tilde{x}=x^{ed}\bmod n
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\[
+x^{k\varphi\left(n\right)+1}\equiv m\bmod n
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $k$
+\end_inset
+
+为一个正整数。也就是
+\begin_inset Formula $m$
+\end_inset
+
+和
+\begin_inset Formula $m^{de}$
+\end_inset
+
+同余
+\begin_inset Formula $n$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+暴力破解需要计算：
+\begin_inset Formula 
+\[
+\varphi\left(n\right)=\varphi\left(p\right)*\varphi\left(q\right)=\left(p-1\right)\left(q-1\right).
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $p,q$
+\end_inset
+
+是
+\begin_inset Formula $n$
+\end_inset
+
+的两个质因子。也就是对一个大数进行质因子分解。
+\end_layout
+
+\begin_layout Section
+图像
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status collapsed
 
