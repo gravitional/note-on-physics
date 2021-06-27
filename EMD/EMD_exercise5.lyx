@@ -533,8 +533,8 @@ status open
 如果引入相对论协变记号：
 \begin_inset Formula 
 \begin{align*}
- & \partial^{\mu}=\left(\frac{1}{c}\partial_{t},\sbf\nabla\right),\quad A^{\mu}=\left(\varphi/c,\sbf A\right),\quad J^{\mu}=\left(\rho c,\sbf J\right)\\
- & \partial^{2}=\partial_{\mu}\partial^{\mu}=\partial_{t}^{2}-\nabla^{2}
+ & \partial_{\mu}=\left(\frac{1}{c}\frac{\partial}{\partial t},\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right),\quad A^{\mu}=\left(\varphi/c,\sbf A\right),\quad J^{\mu}=\left(\rho c,\sbf J\right)\\
+ & \partial^{2}=\partial_{\mu}\partial^{\mu}=\partial_{t}^{2}-\nabla^{2},\quad\partial_{\mu}J^{\mu}=c\partial_{t}\rho+\nabla\cdot\sbf J=0.
 \end{align*}
 
 \end_inset
@@ -550,7 +550,7 @@ status open
 
 \begin_inset Formula 
 \[
-\text{电荷守恒：}\partial_{\mu}J^{\mu}=0,\quad\text{洛伦兹规范：}\partial_{\mu}A^{\mu}=0
+\text{电荷守恒：}\partial_{\mu}J^{\mu}=0,\quad\text{洛伦兹规范：}\partial_{\mu}A^{\mu}=\frac{1}{c^{2}}\partial_{t}\varphi+\nabla\cdot\sbf A=0.
 \]
 
 \end_inset
@@ -570,7 +570,7 @@ A^{\mu}=\frac{q}{4\pi\varepsilon_{0}c}\frac{v^{\mu}}{v.r},\quad v^{\mu}=\gamma\l
 ，得到有限区域的四维势：
 \begin_inset Formula 
 \[
-A^{\mu}\left(x\right)=\frac{1}{4\pi\varepsilon_{0}c}\int_{V}\frac{J^{\mu}\left(t-\frac{r}{c},x^{\prime}\right)}{J.r}\rho\dif V^{\prime},\quad\vec{r}=\vec{x}-\vec{x}^{\prime}
+A^{\mu}\left(x\right)=\frac{1}{4\pi\varepsilon_{0}c}\int_{V}\frac{J^{\mu}\left(t-\frac{r}{c},x^{\prime}\right)}{J_{\nu}r^{\nu}}\rho\dif V^{\prime},\quad\vec{r}=\vec{x}-\vec{x}^{\prime}
 \]
 
 \end_inset

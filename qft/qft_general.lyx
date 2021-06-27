@@ -6,24 +6,48 @@
 \origin unavailable
 \textclass ctex-book
 \begin_preamble
-% 如果没有这一句命令，XeTeX会出错，原因参见
-% http://bbs.ctex.org/viewthread.php?tid=60547
-% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
-%%%%%%%%%%%%%%%%%+++++++++++
-\usepackage{eso-pic} 
+\usepackage[T1]{fontenc} % 字体的编码，不是 input 的编码utf-8
+%%%+++++++++++++++++++++++++++++++
+\usepackage{geometry} % 整体页面设置
+\geometry{a4paper} %页面大小是A4纸
+\geometry{top=2cm} %设置版心顶部距离
+\geometry{top=2cm} %设置版心顶部距离
+%\geometry{textheight=22cm}  %设置版心长度
+%\geometry{centering} % 水平、竖直均居中
+\geometry{textwidth=17cm} 
+%++++++++++++++++++++++++++++++++++++++++++++++++
+\usepackage{eso-pic}
 % This package makes it easy to add some picture commands to every page at ab-solute positions
+\usepackage{float}%使用[H]选项将浮动题放到确定的位置
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
 %\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
 % xcolor package starts from the basic facilities of the 
 % color package, and provides easy driver-independent access
 %to several kinds of color tints, shades, tones, 
 %and mixes of arbitrary colors
-\usepackage{amsmath,amssymb,amsfonts} % 数学字体
+\usepackage{fontspec}
+\usepackage{esint} %使用Computer Modern字体时,esint软件包增加额外的积分符号，例如\oiint.
+\usepackage{amsmath,amsfonts} % 数学字体
+\usepackage{amsbsy} %产生粗体数学符号, 通过宏\boldsymbol 使用
+\usepackage{amssymb} %定义ams 字体包msam和msbm中所有数学符号的名称
 \usepackage{mathrsfs} % 提供了mathscr 命令
-% Required for specifying colors by name 
+%++++++++++++++++++++++++++++++++++++++++
+% 设置英文字体
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Roman}
+%设置数学字体
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+%开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
+% DejaVu Math TeX Gyre, Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
+% TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
+%++++++++++++++++++++++++++++++++++++++++
 \usepackage{enumerate} 
-
-\usepackage{siunitx} % hep units
+\usepackage{tikz,tikz-feynman}% 费曼图及其他作图
+\usetikzlibrary{shapes.misc,animations}
+\usetikzlibrary{shapes.geometric}% tikz node 形状的库
+\usepackage{siunitx} % 国际单位制
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
 \usepackage{bm,bbm} 
@@ -37,16 +61,20 @@
 \usepackage{mathtools}% 定义配对的数学符号
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
+%% \usepackage{axodraw2} 
 \usepackage{ytableau}
 % Many-featured Young tableaux and Young diagrams
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
-%\DeclareMathOperator{\re}{Re}
-%\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\res}{Res}
-\DeclareMathOperator{\disc}{Disc}
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
-\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\DeclareMathOperator{\sgn}{Sgn}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\res}{Res} %留数
+\DeclareMathOperator{\disc}{Disc} %函数间断
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}%普通微分
+\newcommand*{\Dif}{\mathop{}\!\mathrm{D}}%泛函变分
+\newcommand{\cola}[1]{{\color{blue}{#1}}} %颜色
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
 %%%+++++++++++++++++++++++++++++++
 \usepackage{listings}
 % 在LaTex中添加代码高亮
@@ -194,6 +222,106 @@ Thomas Young
 \begin_inset Formula 
 \[
 \hbar c=1=\SI{197.32698}{\MeV\nm}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+协变矢量逆变矢量
+\end_layout
+
+\begin_layout Standard
+假设
+\begin_inset Formula $x_{\mu}$
+\end_inset
+
+的变换为：
+\begin_inset Formula 
+\[
+x_{\mu}^{\prime}=\Lambda_{\mu}^{\phantom{\mu}\nu}x_{\nu}
+\]
+
+\end_inset
+
+那么逆变换的矩阵为
+\begin_inset Formula 
+\[
+x_{\mu}=\Lambda_{\mu}^{-1,\nu}x_{\nu}^{\prime}
+\]
+
+\end_inset
+
+洛伦兹矩阵的逆矩阵相当于里面的速度
+\begin_inset Formula $v$
+\end_inset
+
+变成
+\begin_inset Formula $-v$
+\end_inset
+
+，也就是空间部分反号。按照通常的符号约定，空间部分反号相当于改变指标的上下位置。上指标的四矢量变换为：
+\begin_inset Formula 
+\[
+x^{\prime\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\Lambda_{\phantom{\mu}\nu}^{\mu}$
+\end_inset
+
+就相当于
+\begin_inset Formula $\Lambda_{\mu}^{\phantom{\mu}\nu}$
+\end_inset
+
+的逆矩阵。所以将指标在上的矢量称为逆变矢量，因为它们是按照逆矩阵变换的。当然，正逆是相对的，我们习惯上这么约定。
+\end_layout
+
+\begin_layout Standard
+当坐标的变换为
+\begin_inset Formula $x^{\prime\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}$
+\end_inset
+
+时，根据求导的链式规则：
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial x^{\mu}}f\left(x^{\prime}\right) & =\Lambda_{\phantom{\mu}\nu}^{\mu}\frac{\partial}{\partial x^{\prime\mu}}f\left(x^{\prime}\right)\\
+\frac{\partial}{\partial x^{\prime\mu}}f\left(x^{\prime}\right) & =\Lambda_{-1,\nu}^{\mu}\frac{\partial}{\partial x^{\mu}}f\left(x^{\prime}\right)
+\end{align*}
+
+\end_inset
+
+对比一下：
+\begin_inset Formula 
+\begin{align*}
+x^{\prime\mu} & =\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}\\
+\frac{\partial}{\partial x^{\prime\mu}} & =\Lambda_{-1,\nu}^{\mu}\frac{\partial}{\partial x^{\mu}}
+\end{align*}
+
+\end_inset
+
+也就是对逆变矢量的偏导数，是按照协变的洛伦兹矩阵变换的。按照我们的约定，协变矢量的指标在下，所以我们定义：
+\color blue
+
+\begin_inset Formula 
+\[
+\partial_{\mu}=\frac{\partial}{\partial x^{\mu}}=\left(\partial_{t},\nabla\right)
+\]
+
+\end_inset
+
+注意，与通常的协变矢量相比，
+\begin_inset Formula $\partial_{\mu}$
+\end_inset
+
+的空间部分是没有负号的。所以
+\begin_inset Formula 
+\[
+\partial_{\mu}J^{\mu}=\partial_{t}J^{0}+\nabla\cdot\sbf J=0.
 \]
 
 \end_inset
@@ -783,7 +911,7 @@ f_{abc}=\frac{1}{4i}\tr\left(\left[\lambda_{a},\lambda_{b}\right]\lambda_{c}\rig
 盖尔曼矩阵的反对易关系是
 \begin_inset Formula 
 \[
-\left\{ \lambda_{a},\lambda_{b}\right\} =\frac{4}{3}\delta_{ab}\boldsymbol{1}+2d_{abc}\lambda_{c}
+\left\{ \lambda_{a},\lambda_{b}\right\} =\frac{4}{3}\delta_{ab}\sbf{1}+2d_{abc}\lambda_{c}
 \]
 
 \end_inset
@@ -1934,7 +2062,7 @@ boost，
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 洛伦兹生成元
 \end_layout
 
@@ -2104,6 +2232,403 @@ S^{ij}=\frac{1}{2}\varepsilon^{ijk}\sigma^{k}
 \end_inset
 
 也成立。
+\end_layout
+
+\begin_layout Section
+洛伦兹速度合成
+\end_layout
+
+\begin_layout Standard
+从坐标变换公式出发，
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+ct^{\prime}\\
+x^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma\beta\\
+-\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+ct\\
+x
+\end{array}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\gamma=1/\sqrt{1-\beta^{2}},\quad\sbf\beta=\sbf v/c
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\gamma$
+\end_inset
+
+跟
+\begin_inset Formula $x,y,z$
+\end_inset
+
+方向的洛伦兹 boost 速度
+\begin_inset Formula $\sbf v$
+\end_inset
+
+都有关系。假设坐标变换速度
+\begin_inset Formula $\sbf v$
+\end_inset
+
+沿着
+\begin_inset Formula $x$
+\end_inset
+
+方向，设运动粒子的速度
+\begin_inset Formula $\sbf u$
+\end_inset
+
+为
+\begin_inset Formula 
+\[
+\sbf u=\frac{\dif\sbf x}{\dif t}
+\]
+
+\end_inset
+
+我们引入自然单位制度，令
+\begin_inset Formula $c=1$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\sbf\beta=\frac{\sbf u}{c}=1.
+\]
+
+\end_inset
+
+沿三个方向的洛伦兹变换并不是对易的，所以只能先讨论沿着
+\begin_inset Formula $x$
+\end_inset
+
+方向的变换。坐标系的相对速度为
+\begin_inset Formula $v$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+t^{\prime}\\
+x^{\prime}\\
+y^{\prime}\\
+z^{\prime}
+\end{array}\right)=\gamma\left(\begin{array}{cccc}
+1 & -v & 0 & 0\\
+-v & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}\right)\left(\begin{array}{c}
+t\\
+x\\
+y\\
+z
+\end{array}\right),\quad\gamma^{2}\left(1-v^{2}\right)=1
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+t^{\prime} & =\gamma\left(t-vx\right)\\
+x^{\prime} & =\gamma\left(x-vt\right)\\
+y^{\prime} & =y,\quad z^{\prime}=z
+\end{align*}
+
+\end_inset
+
+对空间和时间分别求微分，得到速度的变换为：
+\begin_inset Formula 
+\[
+\frac{\dif x^{\prime}}{\dif t^{\prime}}=\frac{u-v}{1-vu_{x}}\frac{\dif t}{\dif t}\Rightarrow u_{x}^{\prime}=\frac{u-v}{1-vu_{x}}
+\]
+
+\end_inset
+
+类似可以得到
+\begin_inset Formula $y,z$
+\end_inset
+
+方向上速度的变化。总结为：
+\begin_inset Formula 
+\begin{align*}
+u_{x}^{\prime} & =\frac{u_{x}-v}{1-vu_{x}}=\gamma_{uv}\left(u_{x}-v\right)\\
+u_{y}^{\prime} & =\frac{\sqrt{1-v^{2}}}{1-vu_{x}}u_{y}=\frac{\gamma_{uv}}{\gamma_{v}}u_{y}\\
+u_{z}^{\prime} & =\frac{\sqrt{1-v^{2}}}{1-vu_{x}}u_{z}=\frac{\gamma_{uv}}{\gamma_{v}}u_{z}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\gamma_{uv}=\frac{1}{1-uv},\quad\gamma_{v}=\frac{1}{\sqrt{1-v^{2}}}
+\]
+
+\end_inset
+
+我们可以引入协变形式的四速度：
+\begin_inset Formula 
+\[
+u^{\mu}=\gamma_{u}\left(c,u\right)=\gamma_{u}\left(1,u\right),\quad u_{\mu}u^{\mu}=\gamma_{u}^{2}\left(1-u^{2}\right)=1,\quad\gamma_{u}=\frac{1}{\sqrt{1-u^{2}}}
+\]
+
+\end_inset
+
+如果认为速度为四矢量，使用洛伦兹变换矩阵推导速度的关系，也能得到和上面类似的结果。但是同样的，只能限制在速度
+\begin_inset Formula $u,v$
+\end_inset
+
+在同一个方向上。
+\begin_inset Formula 
+\[
+\gamma_{u}^{\prime}\left(\begin{array}{c}
+1\\
+u^{\prime}
+\end{array}\right)=\gamma_{v}\left(\begin{array}{cc}
+1 & -v\\
+-v & 1
+\end{array}\right)\gamma_{u}\left(\begin{array}{c}
+1\\
+u
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\gamma_{u}^{\prime} & =\gamma_{u}\gamma_{v}\left(1-uv\right)\\
+\gamma_{u}^{\prime}u^{\prime} & =\gamma_{u}\gamma_{v}\left(u-v\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+u^{\prime}=\frac{u-v}{1-uv}
+\]
+
+\end_inset
+
+如果
+\begin_inset Formula $u,v$
+\end_inset
+
+不在同一个方向，无法简单写出洛伦兹变换的矩阵形式。洛伦兹矩阵一般的形式为：
+\begin_inset Formula 
+\[
+\Lambda=\exp\left(-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\omega_{\mu\nu},S^{\mu\nu}$
+\end_inset
+
+分别为变换的参数，以及生成元的矩阵表示。
+\end_layout
+
+\begin_layout Subsection
+加速度合成
+\end_layout
+
+\begin_layout Standard
+上一节得到：
+\begin_inset Formula 
+\begin{align*}
+t^{\prime} & =\gamma\left(t-vx\right),\quad\frac{\dif t^{\prime}}{\dif t}=\gamma_{v}/\gamma_{uv}\\
+u_{x}^{\prime} & =\frac{u_{x}-v}{1-vu_{x}}=\gamma_{uv}\left(u_{x}-v\right)\\
+u_{y}^{\prime} & =\frac{\sqrt{1-v^{2}}}{1-vu_{x}}u_{y}=\frac{\gamma_{uv}}{\gamma_{v}}u_{y}\\
+u_{z}^{\prime} & =\frac{\sqrt{1-v^{2}}}{1-vu_{x}}u_{z}=\frac{\gamma_{uv}}{\gamma_{v}}u_{z}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif t}\frac{1}{1-vu_{x}}=\frac{va_{x}}{\left(1-vu_{x}\right)^{2}},\quad\text{i.e.}\quad\frac{\dif}{\dif t}\gamma_{uv}=\gamma_{uv}^{2}va_{x}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\dif u_{x}^{\prime}}{\dif t^{\prime}} & =\frac{\frac{\dif}{\dif t}\gamma_{uv}\left(u_{x}-v\right)}{{\color{blue}\gamma_{v}/\gamma_{uv}}}={\color{blue}\frac{\gamma_{uv}}{\gamma_{v}}}\left[\gamma_{uv}^{2}va_{x}\left(u_{x}-v\right)+\gamma_{uv}a_{x}\right]\\
+ & =\frac{\gamma_{uv}^{2}}{\gamma_{v}}a_{x}\left[\gamma_{uv}\left(u_{x}v-v^{2}\right)+1\right]=\frac{\gamma_{uv}^{2}}{\gamma_{v}}a_{x}\left[\frac{u_{x}v-v^{2}+1-vu_{x}}{1-vu_{x}}\right]\\
+ & =\frac{\gamma_{uv}^{2}}{\gamma_{v}}a_{x}\frac{1-v^{2}}{1-vu_{x}}=\frac{\gamma_{uv}^{3}}{\gamma_{v}^{3}}a_{x}
+\end{align*}
+
+\end_inset
+
+类似地，
+\begin_inset Formula 
+\[
+\frac{\dif u_{y}^{\prime}}{\dif t^{\prime}}={\color{blue}\frac{\gamma_{uv}}{\gamma_{v}}}\frac{\dif}{\dif t}\left(\gamma_{uv}u_{y}\right)={\color{blue}\frac{\gamma_{uv}}{\gamma_{v}}}\left[\gamma_{uv}^{2}va_{x}u_{y}+\gamma_{uv}a_{y}\right]=\frac{\gamma_{uv}^{2}}{\gamma_{v}}\left[\gamma_{uv}a_{x}u_{y}v+a_{y}\right]
+\]
+
+\end_inset
+
+总结就是：
+\begin_inset Formula 
+\begin{align*}
+a_{x}^{\prime} & =\frac{\gamma_{uv}^{3}}{\gamma_{v}^{3}}a_{x}\\
+a_{y}^{\prime} & =\frac{\gamma_{uv}^{2}}{\gamma_{v}}\left[\gamma_{uv}a_{x}u_{y}v+a_{y}\right]\\
+a_{z}^{\prime} & =\frac{\gamma_{uv}^{2}}{\gamma_{v}}\left[{\color{brown}\gamma_{uv}a_{x}u_{z}v+a_{z}}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+a_{x}^{\prime,2}+a_{y}^{\prime,2}+a_{z}^{\prime,2} & =\frac{\gamma_{uv}^{6}}{\gamma_{v}^{6}}\left[a_{x}^{2}+{\color{blue}\gamma_{v}^{4}a_{x}^{2}u_{y}^{2}v^{2}+\frac{\gamma_{v}^{4}}{\gamma_{uv}^{2}}a_{y}^{2}}+{\color{brown}\gamma_{v}^{4}a_{x}^{2}u_{z}^{2}v^{2}+\frac{\gamma_{v}^{4}}{\gamma_{uv}^{2}}a_{z}^{2}}\right]\\
+a_{x}^{\prime,2}+a_{y}^{\prime,2}+a_{z}^{\prime,2} & =\frac{\gamma_{uv}^{6}}{\gamma_{v}^{6}}a_{x}^{2}+\frac{\gamma_{uv}^{4}}{\gamma_{v}^{2}}\left[a_{x}^{2}\left(u^{2}-u_{x}^{2}\right)v^{2}+\left(a^{2}-a_{x}^{2}\right)\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+相对论力学方程
+\end_layout
+
+\begin_layout Standard
+动量变化率
+\begin_inset Formula 
+\[
+\frac{\dif p^{\mu}}{\dif\tau}
+\]
+
+\end_inset
+
+假设有一个四维力矢量
+\begin_inset Formula 
+\[
+\frac{\dif p^{\mu}}{\dif\tau}=K^{\mu}
+\]
+
+\end_inset
+
+根据能动量四矢量和速度四矢量的定义，可以知道：
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+E/c\\
+\sbf p
+\end{array}\right)=m\gamma\left(\begin{array}{c}
+c\\
+\sbf v
+\end{array}\right),\quad\frac{\sbf p}{E}=\frac{\sbf v}{c^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+K^{0} & =\frac{\dif}{\dif\tau}\sqrt{p^{2}c^{2}+m^{2}c^{4}},\quad m\text{是粒子的固有质量}.\\
+ & =\frac{c^{2}\sbf p}{E}\cdot\frac{\dif\sbf p}{\dif\tau}=\frac{c^{2}}{E}\frac{\dif p^{2}}{\dif\tau}\\
+ & =\sbf v\cdot\frac{\dif\sbf p}{\dif\tau}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+K^{\mu}=\left(\begin{array}{c}
+\sbf K\cdot\frac{\sbf v}{c}\\
+\sbf K
+\end{array}\right)=\left(\begin{array}{c}
+\gamma\sbf F\cdot\frac{\sbf v}{c}\\
+\gamma\sbf F
+\end{array}\right)=\gamma\left(\begin{array}{c}
+\sbf F\cdot\sbf v\\
+\sbf F
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+K^{\mu}K_{\mu}=K^{2}v^{2}\cos^{2}\theta-K^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+电磁场的对偶张量
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}=\left[\begin{array}{cccc}
+0 & -\sbf E_{1} & -\sbf E_{2} & -\sbf E_{3}\\
+\sbf E_{1} & 0 & \sbf B_{3} & -\sbf B_{2}\\
+\sbf E_{2} & -\sbf B_{3} & 0 & \sbf B_{1}\\
+\sbf E_{3} & \sbf B_{2} & -\sbf B_{1} & 0
+\end{array}\right]
+\]
+
+\end_inset
+
+定义电磁场张量的对偶张量为：
+\begin_inset Formula 
+\[
+\tilde{F}^{\mu\nu}=\frac{1}{2}\varepsilon^{\mu\nu\rho\sigma}F_{\rho\sigma},\quad\varepsilon^{0123}=-\varepsilon_{0123}=1
+\]
+
+\end_inset
+
+根据
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+全反对称张量的性质有：
+\begin_inset Formula 
+\begin{align*}
+\tilde{F}^{\mu\nu} & =\frac{1}{2}\varepsilon^{\mu\nu\rho\sigma}\left(\partial_{\rho}A_{\sigma}-\partial_{\sigma}A_{\rho}\right)=\varepsilon^{\mu\nu\rho\sigma}\partial_{\rho}A_{\sigma}\\
+\partial_{\mu}\tilde{F}^{\mu\nu} & =\partial_{\mu}\varepsilon^{\mu\nu\rho\sigma}\partial_{\rho}A_{\sigma}=\varepsilon^{\mu\nu\rho\sigma}\partial_{\mu}\partial_{\rho}A_{\sigma}=0
+\end{align*}
+
+\end_inset
+
+这个恒等式对应麦克斯韦方程中的，
+\begin_inset Formula 
+\begin{align*}
+ & \nabla\cdot\sbf B=0\Rightarrow\nabla\cdot\left(\nabla\times\sbf A\right)=0\\
+ & \nabla\times\sbf E+\partial_{t}\sbf B=0\Rightarrow\nabla\times\left(-\nabla\varphi-\partial_{t}\sbf A+\partial_{t}\sbf A\right)=0
+\end{align*}
+
+\end_inset
+
+即用来引入矢势和标势定义的两个辅助方程。
 \end_layout
 
 \begin_layout Section
@@ -2759,7 +3284,7 @@ U(t,t_{0}) & =T\left\{ \exp\left[-i\int_{t_{0}}^{t}\dif t^{\prime}H_{I}(t^{\prim
 态，逐渐接近自由的态）。散射矩阵元为
 \begin_inset Formula 
 \[
-\bra{\boldsymbol{p_{1}p_{2}}\cdots}_{\text{out}}\ket{\boldsymbol{k_{A}k_{B}}}_{\text{in}}=\lim_{T\to\infty}\bra{\boldsymbol{p_{1}p_{2}}\cdots}_{\text{out}}\exp\left(-iH*2T\right)\ket{\boldsymbol{k_{A}k_{B}}}_{\text{in}}
+\bra{\sbf{p_{1}p_{2}}\cdots}_{\text{out}}\ket{\sbf{k_{A}k_{B}}}_{\text{in}}=\lim_{T\to\infty}\bra{\sbf{p_{1}p_{2}}\cdots}_{\text{out}}\exp\left(-iH*2T\right)\ket{\sbf{k_{A}k_{B}}}_{\text{in}}
 \]
 
 \end_inset
@@ -2776,7 +3301,7 @@ U(t,t_{0}) & =T\left\{ \exp\left[-i\int_{t_{0}}^{t}\dif t^{\prime}H_{I}(t^{\prim
 –矩阵：
 \begin_inset Formula 
 \[
-\bra{\boldsymbol{p_{1}p_{2}}\cdots}_{\text{out}}\ket{\boldsymbol{k_{A}k_{B}}}_{\text{in}}=\bra{\boldsymbol{p_{1}p_{2}}\cdots}S\ket{\boldsymbol{k_{A}k_{B}}}
+\bra{\sbf{p_{1}p_{2}}\cdots}_{\text{out}}\ket{\sbf{k_{A}k_{B}}}_{\text{in}}=\bra{\sbf{p_{1}p_{2}}\cdots}S\ket{\sbf{k_{A}k_{B}}}
 \]
 
 \end_inset
@@ -2879,7 +3404,7 @@ LSZ (Lehmann–Symanzik–Zimmermann) reduction formula
 \end_inset
 
 一方面作为傅立叶变换因子，把坐标空间的量变换到动量空间，另一方面，它们会给出动量守恒函数
-\begin_inset Formula $2\pi\delta\left(\sum\boldsymbol{p_{i}-p_{f}}\right)$
+\begin_inset Formula $2\pi\delta\left(\sum\sbf{p_{i}-p_{f}}\right)$
 \end_inset
 
 。
@@ -2986,10 +3511,10 @@ peskin
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
- & \bra{\boldsymbol{p_{1}\cdots p_{n}}}i\mathcal{T}\ket{\boldsymbol{p_{A}p_{B}}}\\
- & \Rightarrow\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\bra{\boldsymbol{p_{1}\cdots p_{n}}}_{0}\hat{T}\left\{ \exp\left(\int_{-T}^{T}\left(-i\right)H_{\text{int }}\left(t\right)\right)\right\} \ket{\boldsymbol{p_{A}p_{B}}}_{0}\right)_{\text{连通，截腿}}\\
- & =\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\bra{\boldsymbol{p_{1}\cdots p_{n}}}_{0}\hat{T}\left\{ \exp\left(\int_{-T}^{T}iL_{\text{int}}\left(t\right)\right)\right\} \ket{\boldsymbol{p_{A}p_{B}}}_{0}\right)_{\text{连通，截腿}}\\
- & =\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\bra{\boldsymbol{p_{1}\cdots p_{n}}}_{0}\hat{T}\left\{ \exp\left(\int\dif^{4}x\,i\mathcal{L}_{\text{int}}\left(x\right)\right)\right\} \ket{\boldsymbol{p_{A}p_{B}}}_{0}\right)_{\text{连通，截腿}}\\
+ & \bra{\sbf{p_{1}\cdots p_{n}}}i\mathcal{T}\ket{\sbf{p_{A}p_{B}}}\\
+ & \Rightarrow\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\bra{\sbf{p_{1}\cdots p_{n}}}_{0}\hat{T}\left\{ \exp\left(\int_{-T}^{T}\left(-i\right)H_{\text{int }}\left(t\right)\right)\right\} \ket{\sbf{p_{A}p_{B}}}_{0}\right)_{\text{连通，截腿}}\\
+ & =\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\bra{\sbf{p_{1}\cdots p_{n}}}_{0}\hat{T}\left\{ \exp\left(\int_{-T}^{T}iL_{\text{int}}\left(t\right)\right)\right\} \ket{\sbf{p_{A}p_{B}}}_{0}\right)_{\text{连通，截腿}}\\
+ & =\lim_{T\to\infty\left(1-i\varepsilon\right)}\left(\bra{\sbf{p_{1}\cdots p_{n}}}_{0}\hat{T}\left\{ \exp\left(\int\dif^{4}x\,i\mathcal{L}_{\text{int}}\left(x\right)\right)\right\} \ket{\sbf{p_{A}p_{B}}}_{0}\right)_{\text{连通，截腿}}\\
 \end{align*}
 
 \end_inset
@@ -3294,7 +3819,7 @@ f(a)=\sum_{n=0}^{\infty}f^{(n)}(0)\frac{a^{n}}{n!}=\exp(a*\partial_{x=0})\cdot f
 \begin_inset Formula 
 \begin{align*}
 e^{iHt}a_{p}e^{-iHt}=a_{p}e^{-iE_{p}t} &  & e^{iHt}a_{p}^{+}e^{-iHt}=a_{p}^{+}e^{+iE_{p}t}\\
-e^{-i\boldsymbol{Px}}a_{p}e^{i\boldsymbol{Px}}=a_{p}e^{+i\boldsymbol{p.x}} &  & e^{-i\boldsymbol{Px}}a_{p}^{\dagger}e^{i\boldsymbol{Px}}=a_{p}^{\dagger}e^{-i\boldsymbol{p.x}}\\
+e^{-i\sbf{Px}}a_{p}e^{i\sbf{Px}}=a_{p}e^{+i\sbf{p.x}} &  & e^{-i\sbf{Px}}a_{p}^{\dagger}e^{i\sbf{Px}}=a_{p}^{\dagger}e^{-i\sbf{p.x}}\\
 e^{+iPx}\phi\left(0\right)e^{-iPx}=\phi\left(x\right) &  & e^{+iPx}\phi\left(0\right)^{\dagger}e^{-iPx}=\phi\left(x\right)^{\dagger}
 \end{align*}
 

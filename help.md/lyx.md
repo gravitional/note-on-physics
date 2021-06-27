@@ -256,14 +256,33 @@ linux 下 lyx `pdf` 无法预览,可能是由于`Imagemagick`的安全策略引�
 + `-userdir directory`:设置用户目录。如果要与其他`lyxrc`设置一起使用LyX,则需要此选项。
 + `-geometry WxH+X+Y`: 设置主窗口的几何形状。
 + `-dbg feature[,feature...]`:  其中`feature`是名称或数字。使用`lyx -dbg`查看可用的调试功能列表。
-+ ` -x [--execute] command`:  其中command是一个lyx命令
-+ ` -e [--export] fmt`:其中`fmt`是选择的导出格式(`latex`, `pdflatex`, `luatex`, `xetex`, `xhtml`, `text`, `lyx`, `ps`, `pdf`, ...).注意`-e`和`-x`switch 的顺序很重要.
-+ `-E [--export-to] fmt filename`:其中,`fmt`是选择的导出格式(请参阅`--export`),而`filename`是目标文件名。
-+ 请注意,任何其他外部文件名所需的文件(例如图像文件)也将导出到包含文件名的文件夹中(保留相对原始LyX文档中嵌入的路径(如果有)。
-+ `-i [--import] fmt file.xxx`:其中,fmt是选择的导入格式,而file.xxx是要导入的文件。
++ `-i [--import] fmt file.xxx`:其中,`fmt`是选择的导入格式,而file.xxx是要导入的文件。
 + `-f [--force-overwrite] what`:     其中`what`是"all", "main" or "none"之一。指定`all`以允许在批量导出期间覆盖所有文件,指定`main`以允许仅覆盖主文件,或`none`以覆盖任何文件。其他内容被当成`all`，更之后的命令行输入留待进一步解析。
 + `--ignore-error-message which`: 允许您忽略特定的`LaTeX`错误消息。请勿用于最终文件！当前支持的值: `"missing_glyphs"`,Fontspec `"missing glyphs"` error.
 + `-n [--no-remote]`: 即使在另一个`LyX`实例已在运行的情况下,也可以在新实例中打开作为参数传递的文档。
 + `-r [--remote]`: 通过使用lyxpipe,要求一个已经运行的`LyX`实例打开作为参数传递的文档,然后退出。如果是`lyxpipe`未设置或无法正常运行,则创建了新实例,并且正常继续执行。
 + `-v [--verbose]`:在终端上打印所有产生的外部命令。
 + `-batch`:使`LyX`在不打开`GUI`窗口的情况下运行给定命令。因此,类似于`lyx -batch -x "buffer-print printer default dvips" myfile.lyx`的命令会导致`LyX`将`myfile.lyx`打印到默认打印机(必须已配置),使用`dvips`和默认打印设置。
+
+***
+
++ ` -x [--execute] command`:  其中`command`是一个`lyx`命令
++ `-E [--export-to] fmt filename`:其中,`fmt`是选择的导出格式(请参阅`--export`),而`filename`是目标文件名。
++ 请注意,任何其他外部文件名所需的文件(例如图像文件)也将导出到包含文件名的文件夹中(保留相对原始`LyX`文档中嵌入的路径(如果有)。
+
++ ` -e [--export] fmt`:其中`fmt`是选择的导出格式(`latex`, `pdflatex`, `luatex`, `xetex`, `xhtml`, `text`, `lyx`, `ps`, `pdf`, ...).
+在`Tools->Preferences->File Handling->File Formats->Short Name`可以查看应该传递那个参数，短名称一般与`File->Export menu`菜单中的格式名称不同.
+要导出到文件的默认输出格式，使用`default`. `-e`和`-x`开关的顺序很重要.
+
+例如，要将`.lyx`文件导出成`.pdf`文件，
+
+`default`: 使用文件制定的默认引擎
+`pdf`:使用`ps2pdf`引擎转换成`pdf`
+`pdf4`:使用`xetex`引擎，
+`pdf2`:使用`pdflatex`引擎.
+
+```bash
+lyx --export pdf4 *.lyx #将目录中的lyx文件导出成pdf，使用xetex 引擎.
+```
+
+
