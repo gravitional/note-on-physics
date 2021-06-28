@@ -2661,7 +2661,17 @@ E/c\\
 构成一个四矢量：
 \begin_inset Formula 
 \[
-K^{\mu}=qF^{\mu\nu}U_{\nu}
+K^{\mu}=qF^{\mu\nu}U_{\nu}=q\left[\begin{array}{cccc}
+0 & -\sbf E_{1} & -\sbf E_{2} & -\sbf E_{3}\\
+\sbf E_{1} & 0 & -\sbf B_{3} & \sbf B_{2}\\
+\sbf E_{2} & \sbf B_{3} & 0 & -\sbf B_{1}\\
+\sbf E_{3} & -\sbf B_{2} & \sbf B_{1} & 0
+\end{array}\right]\gamma\left[\begin{array}{c}
+c\\
+v_{x}\\
+v_{y}\\
+v_{z}
+\end{array}\right]
 \]
 
 \end_inset
@@ -2678,9 +2688,9 @@ K^{\mu}=qF^{\mu\nu}U_{\nu}
 \[
 F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}=\left[\begin{array}{cccc}
 0 & -\sbf E_{1} & -\sbf E_{2} & -\sbf E_{3}\\
-\sbf E_{1} & 0 & \sbf B_{3} & -\sbf B_{2}\\
-\sbf E_{2} & -\sbf B_{3} & 0 & \sbf B_{1}\\
-\sbf E_{3} & \sbf B_{2} & -\sbf B_{1} & 0
+\sbf E_{1} & 0 & -\sbf B_{3} & \sbf B_{2}\\
+\sbf E_{2} & \sbf B_{3} & 0 & -\sbf B_{1}\\
+\sbf E_{3} & -\sbf B_{2} & \sbf B_{1} & 0
 \end{array}\right]
 \]
 
