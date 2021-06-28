@@ -6,26 +6,53 @@
 \origin unavailable
 \textclass ctex-book
 \begin_preamble
-% 如果没有这一句命令，XeTeX会出错，原因参见
-% http://bbs.ctex.org/viewthread.php?tid=60547
-% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
-%%%%%%%%%%%%%%%%%+++++++++++
-\usepackage{eso-pic} 
+\usepackage[T1]{fontenc} % 字体的编码，不是 input 的编码utf-8
+%%%+++++++++++++++++++++++++++++++
+\usepackage{geometry} % 整体页面设置
+\geometry{a4paper} %页面大小是A4纸
+\geometry{top=2cm} %设置版心顶部距离
+\geometry{top=2cm} %设置版心顶部距离
+%\geometry{textheight=22cm}  %设置版心长度
+%\geometry{centering} % 水平、竖直均居中
+\geometry{textwidth=17cm} 
+%++++++++++++++++++++++++++++++++++++++++++++++++
+\usepackage{eso-pic}
 % This package makes it easy to add some picture commands to every page at ab-solute positions
+\usepackage{float}%使用[H]选项将浮动题放到确定的位置
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
-\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
-
-\usepackage{amsmath,amssymb,amsfonts} % 数学字体
+%\definecolor{ocre}{RGB}{243,102,25} %定义一个颜色
+% xcolor package starts from the basic facilities of the 
+% color package, and provides easy driver-independent access
+%to several kinds of color tints, shades, tones, 
+%and mixes of arbitrary colors
+\usepackage{fontspec}
+\usepackage{esint} %使用Computer Modern字体时,esint软件包增加额外的积分符号，例如\oiint.
+\usepackage{amsmath,amsfonts} % 数学字体
+\usepackage{amsbsy} %产生粗体数学符号, 通过宏\boldsymbol 使用
+\usepackage{amssymb} %定义ams 字体包msam和msbm中所有数学符号的名称
 \usepackage{mathrsfs} % 提供了mathscr 命令
-% Required for specifying colors by name 
+%++++++++++++++++++++++++++++++++++++++++
+% 设置英文字体
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Roman}
+%设置数学字体
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+%开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
+% DejaVu Math TeX Gyre, Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
+% TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
+%++++++++++++++++++++++++++++++++++++++++
 \usepackage{enumerate} 
-
-\usepackage{hepunits} % hep units
+\usepackage{tikz,tikz-feynman}% 费曼图及其他作图
+\usetikzlibrary{shapes.misc,animations}
+\usetikzlibrary{shapes.geometric}% tikz node 形状的库
+\usepackage{siunitx} % 国际单位制
 \usepackage{braket} % Dirac bra-ket notation% useful for Feynman slash notation
 \usepackage{slashed} % also for slash notation: take your pick!
 \usepackage{bm,bbm} 
 %\bm which makes its argument bold
-%Blackboard variants of Computer Modern fonts. \mathbbm{}
+%Blackboard variants of Computer Modern fonts.
 \usepackage{simplewick} 
 % a simple means of drawing Wick contractions above and below expressions. 
 \usepackage{makeidx} 
@@ -35,14 +62,50 @@
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
+\usepackage{ytableau}
+% Many-featured Young tableaux and Young diagrams
 %%++++++++++++++++++++ 
 \DeclareMathOperator{\tr}{Tr}
-%\DeclareMathOperator{\re}{Re}
-%\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\res}{Res}
-\DeclareMathOperator{\disc}{Disc} % discontinuity
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
-\newcommand{\cola}[1]{{\color{blue}{#1}}}
+\DeclareMathOperator{\sgn}{Sgn}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\res}{Res} %留数
+\DeclareMathOperator{\disc}{Disc} %函数间断
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}%普通微分
+\newcommand*{\Dif}{\mathop{}\!\mathrm{D}}%泛函变分
+\newcommand{\cola}[1]{{\color{blue}{#1}}} %颜色
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+%%%+++++++++++++++++++++++++++++++
+\usepackage{listings}
+% 在LaTex中添加代码高亮
+\usepackage{framed}
+% 在对象周围添加方框，阴影等等，允许跨页
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+%定义各种颜色
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\lstdefinestyle{〈style name〉}{〈key=value list〉}
+%stores the key=value list
+\lstdefinestyle{codestyle1}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names
 \use_default_options true
@@ -166,7 +229,7 @@ g_{\mu\nu}=g^{\mu\nu}=\left(\begin{array}{cccc}
 
 \begin_inset Formula 
 \[
-x^{\mu}=\left(x^{0},\vec{x}\right),x_{\mu}=g_{\mu\nu}x^{\nu}=\left(x^{0},-\vec{x}\right)
+x^{\mu}=\left(x^{0},\sbf{x}\right),x_{\mu}=g_{\mu\nu}x^{\nu}=\left(x^{0},-\sbf{x}\right)
 \]
 
 \end_inset
@@ -174,7 +237,7 @@ x^{\mu}=\left(x^{0},\vec{x}\right),x_{\mu}=g_{\mu\nu}x^{\nu}=\left(x^{0},-\vec{x
 
 \begin_inset Formula 
 \[
-\partial_{\mu}\equiv\frac{\partial}{\partial x^{\mu}}=\left(\frac{\partial}{\partial x^{0}},\nabla\right),\qquad p\cdot x=g_{\mu\nu}x^{\mu}x^{\nu}=p^{0}x^{0}-\vec{p}\cdot\vec{x}
+\partial_{\mu}\equiv\frac{\partial}{\partial x^{\mu}}=\left(\frac{\partial}{\partial x^{0}},\nabla\right),\qquad p\cdot x=g_{\mu\nu}x^{\mu}x^{\nu}=p^{0}x^{0}-\sbf{p}\cdot\sbf{x}
 \]
 
 \end_inset
@@ -577,11 +640,7 @@ z=e^{i\pi}
 \end_layout
 
 \begin_layout Subsection
-Dirac 
-\begin_inset Formula $\delta$
-\end_inset
-
-函数
+delta 函数
 \end_layout
 
 \begin_layout Standard
@@ -666,7 +725,7 @@ f(x)=\int\frac{\dif^{4}k}{(2\pi)^{4}}e^{-ik\cdot x}\tilde{f}(k),\qquad\tilde{f}(
 
 \begin_layout Standard
 定域性：
-\begin_inset Formula $H_{\text{int}}(t)=\int\dif^{3}x\mathcal{H}_{\text{int}}\left(\vec{x},t\right)$
+\begin_inset Formula $H_{\text{int}}(t)=\int\dif^{3}x\mathcal{H}_{\text{int}}\left(\sbf{x},t\right)$
 \end_inset
 
 
@@ -994,12 +1053,20 @@ S矩阵元和格林函数
 \end_layout
 
 \begin_layout Standard
+偏导数的符号–指标约定和普通的四矢量是相反的，即
+\begin_inset Formula 
+\[
+\partial_{\mu}=\left(\frac{\partial}{\partial t},\nabla\right),\quad\partial^{\mu}=\left(\frac{\partial}{\partial t},-\nabla\right),\quad A^{\mu}=\left(\varphi/c,\sbf A\right)
+\]
+
+\end_inset
+
 由电动力学：
 \begin_inset Formula 
 \begin{align*}
- & \nabla\times\vec{E}=-\partial^{t}B=-\partial^{t}\nabla\times\vec{A}=\nabla\times\left(-\partial^{t}\vec{A}\right)\\
-\Rightarrow & \nabla\times\left(\vec{E}+\partial^{t}\vec{A}\right)=0\\
-\Rightarrow & \vec{E}=\nabla\varphi-\partial^{t}\vec{A}
+ & \nabla\times\sbf E=-\partial_{t}\sbf B=-\partial_{t}\nabla\times\sbf A=\nabla\times\left(-\partial_{t}\sbf A\right)\\
+\Rightarrow & \nabla\times\left(\sbf E+\partial_{t}\sbf A\right)=0\\
+\Rightarrow & \sbf E=-\nabla\varphi-\partial_{t}\sbf A
 \end{align*}
 
 \end_inset
@@ -1008,28 +1075,22 @@ S矩阵元和格林函数
 \begin_inset Formula 
 \begin{align*}
 F^{\mu\nu} & =\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu}\\
-F^{0i} & =\partial^{0}A^{i}-\partial^{i}A^{0}=\partial^{t}A^{i}-\nabla A^{0}=\partial^{t}\vec{A}-\nabla\varphi=-\vec{E}
+F^{0i} & =\partial^{0}A^{i}-\partial^{i}A^{0}=\partial^{0}A^{i}+\nabla A^{0}=\partial^{0}\sbf A+\nabla\varphi=-\sbf E
 \end{align*}
 
 \end_inset
 
 其中
-\begin_inset Formula $A^{\mu}=\left(\varphi,\vec{A}\right)$
+\begin_inset Formula $A^{\mu}=\left(\varphi/c,\sbf A\right)$
 \end_inset
 
 。另一方面，对于磁场：
 \begin_inset Formula 
-\[
-B^{k}=\varepsilon^{ijk}\partial^{i}A^{j}=\partial^{i}A^{j}-\partial^{j}A^{i},\quad\left\{ i,j,k\right\} \text{各不相等},
-\]
-
-\end_inset
-
-所以
-\begin_inset Formula 
-\[
-F^{ij}=\partial^{i}A^{j}-\partial^{j}A^{i}\Rightarrow\varepsilon^{ijk}B^{k}
-\]
+\begin{align*}
+ & \sbf B=\nabla\times\sbf A,\quad\varepsilon^{0123}=1,\quad\varepsilon^{123}=1.\\
+ & B^{i}=\varepsilon^{ijk}\partial_{j}\left(-A_{k}\right)=-\left(\partial_{j}A_{k}-\partial_{k}A_{j}\right),\\
+ & B^{i}\Rightarrow-F_{jk}=-F^{jk},\quad F^{ijk}=-\varepsilon^{ijk}B^{k}
+\end{align*}
 
 \end_inset
 
@@ -1037,27 +1098,36 @@ F^{ij}=\partial^{i}A^{j}-\partial^{j}A^{i}\Rightarrow\varepsilon^{ijk}B^{k}
 \begin_inset Formula 
 \[
 \begin{cases}
-F^{i0}=\vec{E}\\
-F^{ij}=\varepsilon^{ijk}B^{k}
+F^{i0}=E^{i}=\sbf E\\
+F^{ij}=-\varepsilon^{ijk}B^{k}
 \end{cases}
 \]
 
 \end_inset
 
-即电磁场强张量：
+写成电磁场强张量：
 \begin_inset Formula 
 \[
 F^{\mu\nu}=\left[\begin{array}{cccc}
 0 & -E^{1} & -E^{2} & -E^{3}\\
-E^{1} & 0 & B^{3} & -B^{2}\\
-E^{2} & -B^{3} & 0 & B^{1}\\
-E^{3} & B^{2} & -B^{1} & 0
+E^{1} & 0 & -B^{3} & B^{2}\\
+E^{2} & B^{3} & 0 & -B^{1}\\
+E^{3} & -B^{2} & B^{1} & 0
+\end{array}\right],\quad F^{ab}=\left[\begin{array}{cccc}
+0 & -B^{3} & B^{2} & \frac{i}{c}E^{1}\\
+B^{3} & 0 & -B^{1} & \frac{i}{c}E^{2}\\
+-B^{2} & B^{1} & 0 & \frac{i}{c}E^{3}\\
+-\frac{i}{c}E^{1} & -\frac{i}{c}E^{2} & -\frac{i}{c}E^{3} & 0
 \end{array}\right]
 \]
 
 \end_inset
 
+右边是电动力学中使用的
+\begin_inset Formula $\left(1,2,3,4\right)$
+\end_inset
 
+ old–fashioned 格式，还可能差个转置。
 \end_layout
 
 \begin_layout Standard
@@ -1245,15 +1315,7 @@ Hamiltonian:
 的正则动量为零，不是正则变量)
 \begin_inset Formula 
 \[
-\Pi^{i}=\frac{\partial\mathcal{L}}{\partial\left(\partial^{0}A^{i}\right)}=F^{0i}=-E^{i}=E_{i}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\vec{\Pi}=F^{0i}=-E^{i}=-\vec{E}
+\Pi^{i}=\frac{\partial\mathcal{L}}{\partial\left(\partial^{0}A^{i}\right)}=F^{0i}=-\sbf E=E_{i}
 \]
 
 \end_inset
@@ -1265,7 +1327,7 @@ Hamiltonian:
 
 \begin_inset Formula 
 \[
-\mathcal{H}_{\text{int}}=-\vec{J}\cdot\vec{A}-\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{E}+\frac{1}{2\mu^{2}}\left(J^{0}\right)^{2}
+\mathcal{H}_{\text{int}}=-\sbf{J}\cdot\sbf{A}-\frac{1}{\mu^{2}}J^{0}\nabla\cdot\sbf{E}+\frac{1}{2\mu^{2}}\left(J^{0}\right)^{2}
 \]
 
 \end_inset
@@ -1273,7 +1335,7 @@ Hamiltonian:
 在相互作用表象中，场服从自由场的运动方程，
 \begin_inset Formula 
 \[
-\partial_{\mu}F_{I}^{\mu\nu}+\mu^{2}A_{I}^{\nu}=0\Rightarrow A_{I}^{0}=-\frac{1}{\mu^{2}}\nabla\cdot\vec{E}_{I}
+\partial_{\mu}F_{I}^{\mu\nu}+\mu^{2}A_{I}^{\nu}=0\Rightarrow A_{I}^{0}=-\frac{1}{\mu^{2}}\nabla\cdot\sbf{E}_{I}
 \]
 
 \end_inset
@@ -1293,7 +1355,7 @@ Hamiltonian:
 变换到了相互作用表象中)
 \begin_inset Formula 
 \[
-\mathcal{H}_{I}=-\vec{J}_{I}\vec{A}_{I}+J_{I}^{0}A_{I}^{0}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}=J_{I}^{\mu}A_{I,\mu}+\cola{\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}}
+\mathcal{H}_{I}=-\sbf{J}_{I}\sbf{A}_{I}+J_{I}^{0}A_{I}^{0}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}=J_{I}^{\mu}A_{I,\mu}+\cola{\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}}
 \]
 
 \end_inset
@@ -1320,7 +1382,7 @@ Hamiltonian:
  & =-\frac{1}{4}F_{\mu0}F^{\mu0}-\frac{1}{4}F_{\mu i}F^{\mu i}\\
  & =-\frac{1}{4}F_{i0}F^{i0}-\frac{1}{4}F_{0i}F^{0i}-\frac{1}{4}F_{ij}F^{ij}\\
  & =-\frac{1}{2}F_{i0}F^{i0}-\frac{1}{4}F_{ij}F^{ij}\\
- & \mathbb{=}\frac{1}{2}\vec{\Pi}^{2}-\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}
+ & \mathbb{=}\frac{1}{2}\sbf{\Pi}^{2}-\frac{1}{2}\left(\nabla\times\sbf{A}\right)^{2}
 \end{align*}
 
 \end_inset
@@ -1328,7 +1390,7 @@ Hamiltonian:
 这样，
 \begin_inset Formula 
 \[
-\mathcal{L}_{\gamma}=\frac{1}{4}F^{\mu\nu}F_{\mu\nu}+\frac{1}{2}\mu^{2}A^{\mu}A_{\mu}=\frac{1}{2}\vec{\Pi}^{2}-\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}-\frac{1}{2}\mu^{2}\vec{A}^{2}+\frac{1}{2}\mu^{2}A_{0}^{2}
+\mathcal{L}_{\gamma}=\frac{1}{4}F^{\mu\nu}F_{\mu\nu}+\frac{1}{2}\mu^{2}A^{\mu}A_{\mu}=\frac{1}{2}\sbf{\Pi}^{2}-\frac{1}{2}\left(\nabla\times\sbf{A}\right)^{2}-\frac{1}{2}\mu^{2}\sbf{A}^{2}+\frac{1}{2}\mu^{2}A_{0}^{2}
 \]
 
 \end_inset
@@ -1336,7 +1398,7 @@ Hamiltonian:
 通过勒让德变换，
 \begin_inset Formula 
 \[
-\vec{\Pi}=F^{0i}=-E^{i}=-\vec{E},+\partial^{i}A^{0}=-\nabla A_{0},\partial^{i}=-\nabla
+\sbf{\Pi}=F^{0i}=-E^{i}=-\sbf{E},+\partial^{i}A^{0}=-\nabla A_{0},\partial^{i}=-\nabla
 \]
 
 \end_inset
@@ -1344,8 +1406,8 @@ Hamiltonian:
 
 \begin_inset Formula 
 \begin{align*}
-\mathcal{H} & =\vec{\Pi}\cdot\dot{\vec{A}}-\mathcal{L},\quad\vec{\Pi}\cdot\dot{\vec{A}}=\vec{\Pi}\cdot\left(F^{0i}+\partial^{i}A^{0}\right)\\
- & =\vec{\Pi}\cdot\left(F^{0i}-\nabla A_{0}\right)=\vec{\Pi}^{2}-\vec{\Pi}\cdot\nabla A_{0}
+\mathcal{H} & =\sbf{\Pi}\cdot\dot{\sbf{A}}-\mathcal{L},\quad\sbf{\Pi}\cdot\dot{\sbf{A}}=\sbf{\Pi}\cdot\left(F^{0i}+\partial^{i}A^{0}\right)\\
+ & =\sbf{\Pi}\cdot\left(F^{0i}-\nabla A_{0}\right)=\sbf{\Pi}^{2}-\sbf{\Pi}\cdot\nabla A_{0}
 \end{align*}
 
 \end_inset
@@ -1353,7 +1415,7 @@ Hamiltonian:
 有
 \begin_inset Formula 
 \begin{equation}
-\mathcal{H}=\frac{1}{2}\vec{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}+\frac{1}{2}\mu^{2}\vec{A}^{2}-\frac{1}{2}\mu^{2}A_{0}^{2}-\vec{\Pi}\cdot\nabla A_{0}\label{eq:hamiltonian1}
+\mathcal{H}=\frac{1}{2}\sbf{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\sbf{A}\right)^{2}+\frac{1}{2}\mu^{2}\sbf{A}^{2}-\frac{1}{2}\mu^{2}A_{0}^{2}-\sbf{\Pi}\cdot\nabla A_{0}\label{eq:hamiltonian1}
 \end{equation}
 
 \end_inset
@@ -1361,7 +1423,7 @@ Hamiltonian:
 根据场方程
 \begin_inset Formula 
 \[
-\vec{\Pi}=F^{0i}=-E^{i}=-\vec{E},\partial_{i}=\nabla
+\sbf{\Pi}=F^{0i}=-E^{i}=-\sbf{E},\partial_{i}=\nabla
 \]
 
 \end_inset
@@ -1370,8 +1432,8 @@ Hamiltonian:
 \begin_inset Formula 
 \begin{align*}
 \partial_{\mu}F^{\mu0}+\mu^{2}A^{0} & =\partial_{i}F^{i0}+\mu^{2}A^{0}=0\Rightarrow\cola{A_{0}}=-\frac{1}{\mu^{2}}\partial_{i}F^{i0}\\
- & =-\frac{1}{\mu^{2}}\nabla\cdot\left(-\vec{\Pi}\right)=-\frac{1}{\mu^{2}}\nabla\cdot\vec{E}\\
- & =\frac{1}{\mu^{2}}\nabla\cdot\vec{\Pi}
+ & =-\frac{1}{\mu^{2}}\nabla\cdot\left(-\sbf{\Pi}\right)=-\frac{1}{\mu^{2}}\nabla\cdot\sbf{E}\\
+ & =\frac{1}{\mu^{2}}\nabla\cdot\sbf{\Pi}
 \end{align*}
 
 \end_inset
@@ -1379,7 +1441,7 @@ Hamiltonian:
 代入得到
 \begin_inset Formula 
 \begin{align*}
-\vec{\Pi}\cdot\nabla A_{0} & =\frac{1}{\mu^{2}}\vec{\Pi}\cdot\nabla\left(\nabla\cdot\vec{\Pi}\right)=-\frac{1}{\mu^{2}}\left(\nabla\cdot\vec{\Pi}\right)^{2}+\text{表面项}\\
+\sbf{\Pi}\cdot\nabla A_{0} & =\frac{1}{\mu^{2}}\sbf{\Pi}\cdot\nabla\left(\nabla\cdot\sbf{\Pi}\right)=-\frac{1}{\mu^{2}}\left(\nabla\cdot\sbf{\Pi}\right)^{2}+\text{表面项}\\
  & =-\mu^{2}A_{0}^{2}
 \end{align*}
 
@@ -1398,7 +1460,7 @@ noprefix "false"
 得到，
 \begin_inset Formula 
 \[
--\frac{1}{2}\mu^{2}A_{0}^{2}-\vec{\Pi}\cdot\nabla A_{0}=+\frac{1}{2}\mu^{2}A_{0}^{2}
+-\frac{1}{2}\mu^{2}A_{0}^{2}-\sbf{\Pi}\cdot\nabla A_{0}=+\frac{1}{2}\mu^{2}A_{0}^{2}
 \]
 
 \end_inset
@@ -1406,7 +1468,7 @@ noprefix "false"
 所以有
 \begin_inset Formula 
 \[
-\mathcal{H}_{\gamma}=\frac{1}{2}\vec{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}+\frac{1}{2}\mu^{2}\vec{A}^{2}+\frac{1}{2}\mu^{2}A_{0}^{2}\ge0
+\mathcal{H}_{\gamma}=\frac{1}{2}\sbf{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\sbf{A}\right)^{2}+\frac{1}{2}\mu^{2}\sbf{A}^{2}+\frac{1}{2}\mu^{2}A_{0}^{2}\ge0
 \]
 
 \end_inset
@@ -1462,13 +1524,13 @@ noprefix "false"
 的经典运动方程为
 \begin_inset Formula 
 \[
-\partial_{\mu}F^{\mu\nu}+\mu^{2}A^{\nu}=J^{\nu}\Rightarrow A^{0}=\frac{1}{\mu^{2}}\left(J^{0}+\nabla\cdot\vec{\Pi}\right)
+\partial_{\mu}F^{\mu\nu}+\mu^{2}A^{\nu}=J^{\nu}\Rightarrow A^{0}=\frac{1}{\mu^{2}}\left(J^{0}+\nabla\cdot\sbf{\Pi}\right)
 \]
 
 \end_inset
 
 这时，
-\begin_inset Formula $\mathcal{H_{\gamma}=}\frac{1}{2}\vec{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}+\frac{1}{2}\mu^{2}\vec{A}^{2}-\frac{1}{2}\mu^{2}A_{0}^{2}-\vec{\Pi}\cdot\nabla A_{0}$
+\begin_inset Formula $\mathcal{H_{\gamma}=}\frac{1}{2}\sbf{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\sbf{A}\right)^{2}+\frac{1}{2}\mu^{2}\sbf{A}^{2}-\frac{1}{2}\mu^{2}A_{0}^{2}-\sbf{\Pi}\cdot\nabla A_{0}$
 \end_inset
 
 如同
@@ -1484,9 +1546,9 @@ noprefix "false"
 ，
 \begin_inset Formula 
 \begin{align*}
-\mathcal{H}_{\psi} & =i\psi^{\dagger}\partial_{0}\psi-\left[\bar{\psi}\left(i\gamma\cdot\partial-m\right)\psi+\vec{J}.\vec{A}-J^{0}A^{0}\right]\\
- & =i\bar{\psi}\gamma^{0}\partial_{0}\psi-\bar{\psi}\left(i\gamma\cdot\partial-m\right)\psi-\vec{J}.\vec{A}+J^{0}A^{0}\\
- & =\bar{\psi}\left(i\vec{\gamma}\cdot\nabla+m\right)\psi-\vec{J}.\vec{A}+J^{0}A^{0}
+\mathcal{H}_{\psi} & =i\psi^{\dagger}\partial_{0}\psi-\left[\bar{\psi}\left(i\gamma\cdot\partial-m\right)\psi+\sbf{J}.\sbf{A}-J^{0}A^{0}\right]\\
+ & =i\bar{\psi}\gamma^{0}\partial_{0}\psi-\bar{\psi}\left(i\gamma\cdot\partial-m\right)\psi-\sbf{J}.\sbf{A}+J^{0}A^{0}\\
+ & =\bar{\psi}\left(i\sbf{\gamma}\cdot\nabla+m\right)\psi-\sbf{J}.\sbf{A}+J^{0}A^{0}
 \end{align*}
 
 \end_inset
@@ -1506,7 +1568,7 @@ noprefix "false"
 
 \begin_inset Formula 
 \[
-\mathcal{H}_{0}^{\prime}=\frac{1}{2}\vec{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\vec{A}\right)^{2}+\frac{1}{2}\mu^{2}\vec{A}^{2}+\bar{\psi}\left(i\vec{\gamma}\cdot\nabla+m\right)\psi
+\mathcal{H}_{0}^{\prime}=\frac{1}{2}\sbf{\Pi}^{2}+\frac{1}{2}\left(\nabla\times\sbf{A}\right)^{2}+\frac{1}{2}\mu^{2}\sbf{A}^{2}+\bar{\psi}\left(i\sbf{\gamma}\cdot\nabla+m\right)\psi
 \]
 
 \end_inset
@@ -1514,7 +1576,7 @@ noprefix "false"
 
 \begin_inset Formula 
 \begin{equation}
-\mathcal{H}_{\text{int}}^{\prime}=-\vec{J}\cdot\vec{A}+J^{0}A^{0}-\frac{1}{2}\mu^{2}A_{0}^{2}-\vec{\Pi}\cdot\nabla A^{0}\label{eq:hint}
+\mathcal{H}_{\text{int}}^{\prime}=-\sbf{J}\cdot\sbf{A}+J^{0}A^{0}-\frac{1}{2}\mu^{2}A_{0}^{2}-\sbf{\Pi}\cdot\nabla A^{0}\label{eq:hint}
 \end{equation}
 
 \end_inset
@@ -1524,7 +1586,7 @@ noprefix "false"
 \end_inset
 
 满足的经典方程
-\begin_inset Formula $A^{0}=\frac{1}{\mu^{2}}\left(J^{0}+\nabla\cdot\vec{\Pi}\right)$
+\begin_inset Formula $A^{0}=\frac{1}{\mu^{2}}\left(J^{0}+\nabla\cdot\sbf{\Pi}\right)$
 \end_inset
 
 ，
@@ -1534,10 +1596,10 @@ noprefix "false"
 可以重新整理成
 \begin_inset Formula 
 \begin{align*}
-\mathcal{H}_{\text{int}}^{\prime} & =-\vec{J}.\vec{A}+\frac{1}{\mu^{2}}J^{0}\left(J^{0}+\nabla\cdot\vec{\Pi}\right)-\frac{1}{2\mu^{2}}\left(J^{0}+\nabla\cdot\vec{\Pi}\right)^{2}-\frac{1}{\mu^{2}}\vec{\Pi}\cdot\nabla\left(J^{0}+\nabla\cdot\vec{\Pi}\right)\\
- & =-\vec{J}.\vec{A}+\frac{1}{\mu^{2}}\left(J^{0}\right)^{2}+\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{\Pi}-\frac{1}{2\mu^{2}}\left(J^{0}\right)^{2}-\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{\Pi}-\frac{1}{2\mu^{2}}\left(\nabla\cdot\vec{\Pi}\right)^{2}\\
- & +\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{\Pi}+\frac{1}{\mu^{2}}\left(\nabla\cdot\vec{\Pi}\right)^{2}\text{(其中用了分部积分)}\\
- & =-\vec{J}.\vec{A}+\frac{1}{2\mu^{2}}\left(J^{0}\right)^{2}+\frac{1}{2\mu^{2}}\left(\nabla\cdot\vec{\Pi}\right)^{2}+\frac{1}{\mu^{2}}J^{0}\nabla\cdot\vec{\Pi}
+\mathcal{H}_{\text{int}}^{\prime} & =-\sbf{J}.\sbf{A}+\frac{1}{\mu^{2}}J^{0}\left(J^{0}+\nabla\cdot\sbf{\Pi}\right)-\frac{1}{2\mu^{2}}\left(J^{0}+\nabla\cdot\sbf{\Pi}\right)^{2}-\frac{1}{\mu^{2}}\sbf{\Pi}\cdot\nabla\left(J^{0}+\nabla\cdot\sbf{\Pi}\right)\\
+ & =-\sbf{J}.\sbf{A}+\frac{1}{\mu^{2}}\left(J^{0}\right)^{2}+\frac{1}{\mu^{2}}J^{0}\nabla\cdot\sbf{\Pi}-\frac{1}{2\mu^{2}}\left(J^{0}\right)^{2}-\frac{1}{\mu^{2}}J^{0}\nabla\cdot\sbf{\Pi}-\frac{1}{2\mu^{2}}\left(\nabla\cdot\sbf{\Pi}\right)^{2}\\
+ & +\frac{1}{\mu^{2}}J^{0}\nabla\cdot\sbf{\Pi}+\frac{1}{\mu^{2}}\left(\nabla\cdot\sbf{\Pi}\right)^{2}\text{(其中用了分部积分)}\\
+ & =-\sbf{J}.\sbf{A}+\frac{1}{2\mu^{2}}\left(J^{0}\right)^{2}+\frac{1}{2\mu^{2}}\left(\nabla\cdot\sbf{\Pi}\right)^{2}+\frac{1}{\mu^{2}}J^{0}\nabla\cdot\sbf{\Pi}
 \end{align*}
 
 \end_inset
@@ -1578,7 +1640,7 @@ noprefix "false"
 即，
 \begin_inset Formula 
 \[
-\mathcal{H}_{\text{int}}^{\prime}=-\vec{J_{I}}.\vec{A_{I}}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}+\frac{1}{2\mu^{2}}\left(\nabla\cdot\vec{\Pi}_{I}\right)^{2}+\frac{1}{\mu^{2}}J_{I}^{0}\nabla\cdot\vec{\Pi}_{I}
+\mathcal{H}_{\text{int}}^{\prime}=-\sbf{J_{I}}.\sbf{A_{I}}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}+\frac{1}{2\mu^{2}}\left(\nabla\cdot\sbf{\Pi}_{I}\right)^{2}+\frac{1}{\mu^{2}}J_{I}^{0}\nabla\cdot\sbf{\Pi}_{I}
 \]
 
 \end_inset
@@ -1586,7 +1648,7 @@ noprefix "false"
 注意到，相互作用表象中的场算符满足自由场的运动方程，
 \begin_inset Formula 
 \[
-A_{I}^{0}=-\frac{1}{\mu^{2}}\nabla\cdot\vec{E}_{I}=\frac{1}{\mu^{2}}\nabla\cdot\vec{\Pi}_{I}
+A_{I}^{0}=-\frac{1}{\mu^{2}}\nabla\cdot\sbf{E}_{I}=\frac{1}{\mu^{2}}\nabla\cdot\sbf{\Pi}_{I}
 \]
 
 \end_inset
@@ -1594,7 +1656,7 @@ A_{I}^{0}=-\frac{1}{\mu^{2}}\nabla\cdot\vec{E}_{I}=\frac{1}{\mu^{2}}\nabla\cdot\
 代入上面公式得到
 \begin_inset Formula 
 \begin{align*}
-\mathcal{H}_{\text{int}}^{\prime} & =-\vec{J_{I}}.\vec{A_{I}}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}+\frac{1}{2}\mu^{2}(A_{I}^{0})^{2}+J_{I}^{0}A_{I}^{0}\\
+\mathcal{H}_{\text{int}}^{\prime} & =-\sbf{J_{I}}.\sbf{A_{I}}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}+\frac{1}{2}\mu^{2}(A_{I}^{0})^{2}+J_{I}^{0}A_{I}^{0}\\
  & =J_{I}\cdot A_{I}+\frac{1}{2\mu^{2}}\left(J_{I}^{0}\right)^{2}+\frac{1}{2}\mu^{2}(A_{I}^{0})^{2}
 \end{align*}
 
@@ -2135,7 +2197,7 @@ D_{\mu}=\partial_{\mu}-igA_{\mu}\left(x\right)=\partial_{\mu}-igA_{\mu}^{a}\left
 U\left(y,x\right)\to V\left(y\right)U\left(y,x\right)V^{\dagger}\left(x\right)\\
 U\left(x+n\varepsilon,x\right)=I+i\varepsilon gn^{\mu}A_{\mu}\left(x\right)+O\left(\varepsilon^{2}\right)
 \end{array}\right\}  & \to\\
-I+ig\varepsilon n^{\mu}A_{\mu}\left(x\right)\to & I+ig\varepsilon n^{\mu}\left(V\left(x\right)A_{\mu}\left(x\right)V^{\dagger}\left(x\right)+\frac{i}{g}V\left(x\right)\partial_{\mu}V^{\dagger}\left(x\right)\right)
+I+ig\varepsilon n^{\mu}A_{\mu}\left(x\right) & \to I+ig\varepsilon n^{\mu}\left(V\left(x\right)A_{\mu}\left(x\right)V^{\dagger}\left(x\right)+\frac{i}{g}V\left(x\right)\partial_{\mu}V^{\dagger}\left(x\right)\right)
 \end{align*}
 
 \end_inset
@@ -2347,9 +2409,9 @@ A_{\mu}\left(x\right)\to V\left(x\right)A_{\mu}\left(x\right)V^{\dagger}\left(x\
 
 \begin_inset Formula 
 \begin{align}
-F_{\mu\nu}\left(x\right)\to\left(1+i\varepsilon^{a}\left(x\right)t^{a}\right)F_{\mu\nu}\left(x\right)\left(1-i\varepsilon^{a}\left(x\right)t^{a}\right)\\
-=F_{\mu\nu}\left(x\right)-i\varepsilon^{a}(x)\left[F_{\mu\nu}(x),t^{a}\right]\\
-\Rightarrow\delta F_{\mu\nu}(x)=i\varepsilon^{a}(x)\left[t^{a},F_{\mu\nu}(x)\right]
+F_{\mu\nu}\left(x\right) & \to\left(1+i\varepsilon^{a}\left(x\right)t^{a}\right)F_{\mu\nu}\left(x\right)\left(1-i\varepsilon^{a}\left(x\right)t^{a}\right)\\
+ & =F_{\mu\nu}\left(x\right)-i\varepsilon^{a}(x)\left[F_{\mu\nu}(x),t^{a}\right]\\
+ & \Rightarrow\delta F_{\mu\nu}(x)=i\varepsilon^{a}(x)\left[t^{a},F_{\mu\nu}(x)\right]
 \end{align}
 
 \end_inset
@@ -2357,10 +2419,9 @@ F_{\mu\nu}\left(x\right)\to\left(1+i\varepsilon^{a}\left(x\right)t^{a}\right)F_{
 
 \begin_inset Formula 
 \begin{align}
-A(x)\to\left(1+i\varepsilon^{a}(x)t^{a}\right)A_{\mu}(x)\left(1-i\varepsilon^{a}(x)t^{a}\right)\\
-+\frac{i}{g}\left(1+i\varepsilon^{a}(x)t^{a}\right)\partial_{\mu}\left(1-i\varepsilon^{a}(x)t^{a}\right)\\
-=A_{\mu}(x)+i\varepsilon^{a}\left[t^{a},A_{\mu}\left(x\right)\right]+\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}-\frac{1}{g}\varepsilon^{a}(x)t^{a}\left(\partial_{\mu}1\right)\\
-=A_{\mu}(x)+\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}-\left[iA_{\mu}\left(x\right),\varepsilon^{a}t^{a}\right]
+A(x) & \to\left(1+i\varepsilon^{a}(x)t^{a}\right)A_{\mu}(x)\left(1-i\varepsilon^{a}(x)t^{a}\right)+\frac{i}{g}\left(1+i\varepsilon^{a}(x)t^{a}\right)\partial_{\mu}\left(1-i\varepsilon^{a}(x)t^{a}\right)\\
+ & =A_{\mu}(x)+i\varepsilon^{a}\left[t^{a},A_{\mu}\left(x\right)\right]+\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}-\frac{1}{g}\varepsilon^{a}(x)t^{a}\left(\partial_{\mu}1\right)\\
+ & =A_{\mu}(x)+\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}-\left[iA_{\mu}\left(x\right),\varepsilon^{a}t^{a}\right]
 \end{align}
 
 \end_inset
@@ -2376,8 +2437,8 @@ A(x)\to\left(1+i\varepsilon^{a}(x)t^{a}\right)A_{\mu}(x)\left(1-i\varepsilon^{a}
 ，所以，
 \begin_inset Formula 
 \begin{align*}
-\delta A_{\mu}(x)=\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}-\left[iA_{\mu}\left(x\right),\varepsilon^{a}t^{a}\right]\\
-=\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}+f^{bac}A_{\mu}^{b}\left(x\right)\varepsilon^{a}t^{c}
+\delta A_{\mu}(x) & =\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}-\left[iA_{\mu}\left(x\right),\varepsilon^{a}t^{a}\right]\\
+ & =\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)t^{a}+f^{bac}A_{\mu}^{b}\left(x\right)\varepsilon^{a}t^{c}
 \end{align*}
 
 \end_inset
@@ -2398,8 +2459,8 @@ A(x)\to\left(1+i\varepsilon^{a}(x)t^{a}\right)A_{\mu}(x)\left(1-i\varepsilon^{a}
 若写成分量形式，得到：
 \begin_inset Formula 
 \begin{align*}
-\delta A_{\mu}^{a}=\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)-f^{abc}\varepsilon^{b}A_{\mu}^{c}\left(x\right)\\
-D_{\mu}=\partial_{\mu}-igA_{\mu}=\partial_{\mu}-igA_{\mu}^{a}t^{a}
+\delta A_{\mu}^{a} & =\frac{1}{g}\partial_{\mu}\varepsilon^{a}(x)-f^{abc}\varepsilon^{b}A_{\mu}^{c}\left(x\right)\\
+D_{\mu} & =\partial_{\mu}-igA_{\mu}=\partial_{\mu}-igA_{\mu}^{a}t^{a}
 \end{align*}
 
 \end_inset
@@ -2408,11 +2469,7 @@ D_{\mu}=\partial_{\mu}-igA_{\mu}=\partial_{\mu}-igA_{\mu}^{a}t^{a}
 \end_layout
 
 \begin_layout Standard
-end of file
-\end_layout
-
-\begin_layout Standard
-end of file
+EOF
 \end_layout
 
 \begin_layout Bibliography

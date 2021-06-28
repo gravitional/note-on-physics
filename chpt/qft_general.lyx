@@ -2535,10 +2535,18 @@ a_{x}^{\prime,2}+a_{y}^{\prime,2}+a_{z}^{\prime,2} & =\frac{\gamma_{uv}^{6}}{\ga
 \left(\begin{array}{c}
 E/c\\
 \sbf p
-\end{array}\right)=m\gamma\left(\begin{array}{c}
-c\\
-\sbf v
+\end{array}\right)=\left(\begin{array}{c}
+m\gamma c\\
+m\gamma\sbf v
 \end{array}\right),\quad\frac{\sbf p}{E}=\frac{\sbf v}{c^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+E^{2}=\left(\gamma mc^{2}\right)^{2}=p^{2}c^{2}+m^{2}c^{4}
 \]
 
 \end_inset
@@ -2546,16 +2554,40 @@ c\\
 可以知道：
 \begin_inset Formula 
 \begin{align*}
-K^{0} & =\frac{\dif}{\dif\tau}\sqrt{p^{2}c^{2}+m^{2}c^{4}},\quad m\text{是粒子的固有质量}.\\
- & =\frac{c^{2}\sbf p}{E}\cdot\frac{\dif\sbf p}{\dif\tau}=\sbf v\cdot\frac{\dif\sbf p}{\dif\tau}=\sbf v\cdot\sbf K
+K^{0} & =\frac{\dif}{\dif\tau}\sqrt{p^{2}c^{2}+m^{2}c^{4}}/c,\quad m\text{是粒子的固有质量}.\\
+ & =\frac{c^{2}\sbf p}{cE}\cdot\frac{\dif\sbf p}{\dif\tau}=\sbf v\cdot\frac{\dif\sbf p}{\dif\tau}=\sbf v\cdot\sbf K/c
 \end{align*}
 
 \end_inset
 
+所以相对论协变的力学方程为：
+\color blue
 
 \begin_inset Formula 
 \[
-\sbf K=\frac{\dif\sbf p}{\dif\tau},\quad\sbf k\cdot\sbf v=\frac{\dif E}{\dif\tau}
+\sbf K=\frac{\dif\sbf p}{\dif\tau},\quad\sbf K\cdot\sbf v/c=\frac{\dif E/c}{\dif\tau}
+\]
+
+\end_inset
+
+
+\color inherit
+如果用参考系时间表示，
+\begin_inset Formula $\dif t=\gamma\dif\tau$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\frac{\sbf K}{\gamma}=\frac{\dif\sbf p}{\dif t},\quad\frac{\sbf K\cdot\sbf v/c}{\gamma}=\frac{\dif\sbf E/c}{\dif t},
+\]
+
+\end_inset
+
+可以定义力为：
+\begin_inset Formula 
+\[
+\sbf K=\gamma\sbf F
 \]
 
 \end_inset
@@ -2563,15 +2595,15 @@ K^{0} & =\frac{\dif}{\dif\tau}\sqrt{p^{2}c^{2}+m^{2}c^{4}},\quad m\text{是粒�
 
 \begin_inset Formula 
 \[
-K^{\mu}=\left(\begin{array}{c}
-\sbf K\cdot\frac{\sbf v}{c}\\
-\sbf K
-\end{array}\right)=\left(\begin{array}{c}
-\gamma\sbf F\cdot\frac{\sbf v}{c}\\
-\gamma\sbf F
-\end{array}\right)=\gamma\left(\begin{array}{c}
-\sbf F\cdot\sbf v\\
+\frac{\dif}{\dif t}\left(\begin{array}{c}
+\sbf F\cdot\frac{\sbf v}{c}\\
 \sbf F
+\end{array}\right)=\frac{\dif}{\dif t}\left(\begin{array}{c}
+E/c\\
+\sbf p
+\end{array}\right)=\frac{\dif}{\dif t}\left(\begin{array}{c}
+\sqrt{p^{2}c^{2}+m^{2}c^{4}}/c\\
+\gamma mv
 \end{array}\right)
 \]
 
@@ -2579,7 +2611,57 @@ K^{\mu}=\left(\begin{array}{c}
 
 
 \begin_inset Formula 
+\begin{align*}
+\sbf F\cdot\sbf v & =\frac{\dif}{\dif t}\sqrt{p^{2}c^{2}+m^{2}c^{4}}\\
+\sbf F & =\frac{\dif}{\dif t}\gamma m\sbf v
+\end{align*}
+
+\end_inset
+
+也就是力以及功率分别对应相对论中的能量和动量。一般来说，只有低速运动情形
+\begin_inset Formula $\sbf F$
+\end_inset
+
+才等于经典力学。这里的
+\begin_inset Formula $\sbf F$
+\end_inset
+
+不是一个四矢量的分量，差一个
+\begin_inset Formula $\gamma$
+\end_inset
+
+因子，它的变换关系应由四维力
+\begin_inset Formula $K_{\mu}$
+\end_inset
+
+的变换导出。
+\end_layout
+
+\begin_layout Subsection
+洛伦兹力
+\end_layout
+
+\begin_layout Standard
+电磁场对带电粒子作用力的洛伦兹公式为：
+\begin_inset Formula 
 \[
+\sbf F=q\left(\sbf E+\sbf v\times\sbf B\right)
+\]
+
+\end_inset
+
+使用电磁场张量
+\begin_inset Formula $F^{\mu\nu}$
+\end_inset
+
+和四速度
+\begin_inset Formula $U^{\mu}$
+\end_inset
+
+构成一个四矢量：
+\begin_inset Formula 
+\[
+K^{\mu}=qF^{\mu\nu}U_{\nu}
 \]
 
 \end_inset
