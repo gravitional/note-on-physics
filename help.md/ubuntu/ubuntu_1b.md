@@ -326,8 +326,8 @@ $ systemctl list-dependencies --all nginx.service
 
 #### 概述
 
-每一个 `Unit` 都有一个配置文件,告诉 `Systemd` 怎么启动这个 `Unit` .
-`Systemd` 默认从目录`/etc/systemd/system/`读取配置文件.但是,里面存放的大部分文件都是符号链接,指向目录`/usr/lib/systemd/system/`,真正的配置文件存放在那个目录.
+每一个 `Unit` 都有一个配置文件,告诉 `Systemd` 怎么启动这个 `Unit` . `Systemd` 默认从目录`/etc/systemd/system/`读取配置文件.
+但是,里面存放的大部分文件都是符号链接,指向目录`/usr/lib/systemd/system/`,真正的配置文件存放在那个目录, 也可能是`/lib/systemd/system/`.
 `systemctl enable`命令用于在上面两个目录之间,建立符号链接关系.
 
 ```bash

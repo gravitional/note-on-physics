@@ -186,6 +186,38 @@ export PATH=/usr/local/opt/coreutils/libexec/gnubin:~/bin:$PATH
 
 `# chsh -s /bin/sh`
 
+### 重启x-org
+
+[xorg 重新启动X窗口服务器](https://www.kaifa99.com/ubuntu/article_156280)
+
+在`systemd`系统上(`Ubuntu 15.04`和更新版本)
+
+```bash
+sudo systemctl restart display-manager
+```
+
+注：这将强制退出所有图形程序，将丢失未保存的工作，强制被注销。非图形程序不会受到影响。
+
+对于其他`Ubuntu`版本，首先使用以下命令找到`Ubuntu`的显示管理器：
+
+```bash
+cat /etc/X11/default-display-manager
+```
+
+根据显示管理器的不同，可以使用以下命令之一：
+
+```bash
+sudo restart lightdm # 使用LightDM 
+sudo restart gdm # Gnome (带GDM )
+sudo restart kdm # KDE (带KDM )
+sudo restart mdm # 对于MDM (例如对于Mint Cinnamon )
+```
+
+[Display manager](https://wiki.archlinux.org/title/Display_manager)
+
+显示管理器，或称登录管理器，display manager, or login manager, 通常是一个图形用户界面，在 boot 过程结束时显示，以取代默认的shell. 
+显示管理器有多种实现方式，就像有各种类型的 window managers 和 desktop environments 一样。通常每一种都有一定程度的定制和主题性可供选择。
+
 ### 录制屏幕
 
 如果是`Gnome3`系用户,可以按`ctrl + shift + alt + r`,屏幕右下角有红点出现,则开始录屏,
@@ -897,26 +929,32 @@ sudo mkfs.exfat -i 0x07 -n udisk /dev/sdc1
 文档尾巴, `tail -n, --lines=[+]NUM`, 从第`num`行开始. 
 文档开头, `head -n, --lines=[-]NUM`, 减去最后`num`行.
 
-### 查看使用的桌面环境
+### 查看使用的桌面环境 x11 wayland
 
 [如何找出你所使用的桌面环境 ](https://linux.cn/article-12124-1.html)
 
 ***
 检查你使用的是哪个桌面环境
 
-你可以在 Linux 中使用 `echo` 命令在终端中显示 `XDG_CURRENT_DESKTOP` 变量的值.
+你可以在`Linux`中使用 `echo` 命令在终端中显示 `XDG_CURRENT_DESKTOP` 变量的值.
 
 ```bash
 echo $XDG_CURRENT_DESKTOP
 echo $XDG_SESSION_TYPE
 ```
 
+或者使用`loginctl`得到`<SESSION_ID>`，然后使用下列命令查看会话的类型:
+
+```bash
+loginctl show-session <SESSION_ID> -p Type
+```
+
 ***
 如何获取桌面环境版本
 
 与获取桌面环境的名称不同.获取其版本号的方法并不直接,因为它没有标准的命令或环境变量可以提供此信息.
-在 Linux 中获取桌面环境信息的一种方法是使用 `Screenfetch` 之类的工具.
-此命令行工具以 ascii 格式显示 Linux 发行版的 logo 以及一些基本的系统信息.桌面环境版本就是其中之一.
+在 `Linux` 中获取桌面环境信息的一种方法是使用 `screenfetch`,`neofetch`之类的工具.
+此命令行工具以 `ascii` 格式显示 `Linux` 发行版的 logo 以及一些基本的系统信息.桌面环境版本就是其中之一.
 安装:`sudo apt install screenfetch`.
 
 对于其他 Linux 发行版,请使用系统的软件包管理器来安装此程序.
@@ -929,7 +967,7 @@ ref: [3 Ways to Check Linux Kernel Version in Command Line](https://itsfoss.com/
 ***
 uname
 
-`inxi -S`: 命令行 系统信息脚本 for console and IRC
+`inxi -S`: 命令行系统信息脚本 for 终端和 IRC(InternetRelayChat)
 `uname` -打印系统信息
 `uname -r`命令的输出为:`5.4.0-48-generic`
 
@@ -964,7 +1002,7 @@ uname
 让我们看看其他一些命令来查找您的Linux内核版本.
 
 ***
-使用 /proc/version file
+使用`/proc/version file`
 
 在Linux中,您还可以在文件`/proc/version`中找到内核信息. 只需查看此文件的内容即可:
 
@@ -977,7 +1015,7 @@ uname
 您可以在此处看到内核版本`5.4.0-48-generic`.
 
 ***
-使用dmesg
+使用`dmesg`
 
 [Linux dmesg命令](https://www.runoob.com/linux/linux-comm-dmesg.html)
 
