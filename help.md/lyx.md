@@ -284,5 +284,3 @@ linux 下 lyx `pdf` 无法预览,可能是由于`Imagemagick`的安全策略引�
 ```bash
 lyx --export pdf4 *.lyx #将目录中的lyx文件导出成pdf，使用xetex 引擎.
 ```
-
-
