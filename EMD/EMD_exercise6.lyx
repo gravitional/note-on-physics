@@ -224,7 +224,25 @@ tableofcontents[currentsection]
 
 \begin_layout Plain Layout
 
-1,2,3,4,6,8
+4,5,7,8,10,
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+12,15,16,19,
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+20,22,23,26
 \end_layout
 
 \begin_layout Plain Layout
@@ -242,7 +260,618 @@ tableofcontents[currentsection]
 status open
 
 \begin_layout Plain Layout
-6
+相对性原理
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+爱因斯坦于1905年创立了狭义相对论，它的两个基本假设是：
+\end_layout
+
+\begin_layout Enumerate
+相对性原理——物理定律在所有惯性系中具有相同的形式；
+\end_layout
+
+\begin_layout Enumerate
+光速不变原理——真空中的光速在任意惯性系的任何方向都等于常量
+\begin_inset Formula $c$
+\end_inset
+
+，与光源的运动无关。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+间隔不变原理：在不同的惯性系中，两事件的时空间隔不变：
+\begin_inset Formula 
+\[
+s^{2}=s^{\prime,2}
+\]
+
+\end_inset
+
+即，
+\begin_inset Formula 
+\begin{align*}
+ & c^{2}\left(t_{2}-t_{1}\right)^{2}-\left(x_{2}-x_{1}\right)^{2}-\left(y_{2}-y_{1}\right)^{2}-\left(z_{2}-z_{1}\right)^{2}\\
+= & c^{2}\left(t_{2}^{\prime}-t_{1}^{\prime}\right)^{2}-\left(x_{2}^{\prime}-x_{1}^{\prime}\right)^{2}-\left(y_{2}^{\prime}-y_{1}^{\prime}\right)^{2}-\left(z_{2}^{\prime}-z_{1}^{\prime}\right)^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+洛伦兹变换
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+设惯性系
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+以速度
+\begin_inset Formula $v$
+\end_inset
+
+沿着惯性系
+\begin_inset Formula $\Sigma$
+\end_inset
+
+的
+\begin_inset Formula $x$
+\end_inset
+
+轴正方向运动，
+\begin_inset Formula $t=t^{\prime}=0$
+\end_inset
+
+时刻两原点重合，相应的坐标变换为：
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+ct^{\prime}\\
+x^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma\beta\\
+-\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+ct\\
+x
+\end{array}\right),\quad\left(\begin{array}{c}
+y^{\prime}\\
+z^{\prime}
+\end{array}\right)=\left(\begin{array}{c}
+y\\
+z
+\end{array}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\gamma^{2}\left(1-\beta^{2}\right)=1,\quad\beta=v/c
+\]
+
+\end_inset
+
+一般情况下，
+\begin_inset Formula $\gamma$
+\end_inset
+
+依赖于速度
+\begin_inset Formula $\sbf v$
+\end_inset
+
+的模。当
+\begin_inset Formula $v\ll c$
+\end_inset
+
+，过渡到伽利略变换。
+\end_layout
+
+\begin_layout Standard
+洛伦兹变换的逆矩阵，只需要将参数
+\begin_inset Formula $v$
+\end_inset
+
+替换成
+\begin_inset Formula $-v$
+\end_inset
+
+，即
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+ct\\
+x
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & +\gamma\beta\\
++\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+ct^{\prime}\\
+x^{\prime}
+\end{array}\right)
+\]
+
+\end_inset
+
+洛伦兹变换的特点：
+\end_layout
+
+\begin_layout Enumerate
+自然界相互作用的传播速度不能大于
+\begin_inset Formula $c=\SI{2.99792458e8}{m/s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+类时间隔：
+\begin_inset Formula $s^{2}>0$
+\end_inset
+
+，类光间隔：
+\begin_inset Formula $s^{2}=0$
+\end_inset
+
+，类空间隔：
+\begin_inset Formula $s^{2}>0$
+\end_inset
+
+，在洛伦兹变换下保号。因果性是绝对的。
+\end_layout
+
+\begin_layout Enumerate
+钟慢尺缩，同时的相对性。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+速度变换公式
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+我们引入自然单位制度，令
+\begin_inset Formula $c=1$
+\end_inset
+
+。
+\begin_inset Formula $\beta=v/c\rightarrow v$
+\end_inset
+
+，
+\begin_inset Formula $\gamma=1/\sqrt{1-v^{2}}$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+t^{\prime}\\
+x^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right)\left(\begin{array}{c}
+t\\
+x
+\end{array}\right),\quad\left(\begin{array}{c}
+y^{\prime}\\
+z^{\prime}
+\end{array}\right)=\left(\begin{array}{c}
+y\\
+z
+\end{array}\right)
+\]
+
+\end_inset
+
+从坐标变换可以导出速度变换。设粒子的运动速度
+\begin_inset Formula $\sbf u$
+\end_inset
+
+也沿着
+\begin_inset Formula $x$
+\end_inset
+
+方向，由
+\begin_inset Formula $\sbf u=\dif\sbf x/\dif t$
+\end_inset
+
+得：
+\begin_inset Formula 
+\begin{align*}
+u_{x}^{\prime} & =\frac{u_{x}-v}{1-vu_{x}}=\gamma_{uv}\left(u_{x}-v\right)\\
+u_{y}^{\prime} & =\frac{\sqrt{1-v^{2}}}{1-vu_{x}}u_{y}=\frac{\gamma_{uv}}{\gamma_{v}}u_{y}\\
+u_{z}^{\prime} & =\frac{\sqrt{1-v^{2}}}{1-vu_{x}}u_{z}=\frac{\gamma_{uv}}{\gamma_{v}}u_{z}
+\end{align*}
+
+\end_inset
+
+其中：
+\begin_inset Formula 
+\[
+\gamma_{uv}=\frac{1}{1-uv},\quad\gamma_{v}=\frac{1}{\sqrt{1-v^{2}}}
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $v\ll c$
+\end_inset
+
+时，过渡到经典的速度叠加公式。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+四维形式
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+根据相对性原理，四维时空的内积为
+\begin_inset Formula $x\cdot y=g_{\mu\nu}x^{\mu}y^{\nu}=x^{0}y^{0}-x^{1}y^{1}-x^{2}y^{2}-x^{3}y^{3}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+若引入 
+\noun on
+Minkowski
+\noun default
+ 度规
+\begin_inset Formula 
+\[
+g^{\mu\nu}=g_{\mu\nu}=\left(\begin{array}{cccc}
+1\\
+ & -1\\
+ &  & -1\\
+ &  &  & -1
+\end{array}\right),\quad\left\{ \mu,\nu\right\} =\left\{ =0,1,2,3\right\} .
+\]
+
+\end_inset
+
+四维矢量的指标有上下之分。指标改变位置时，
+\begin_inset Formula $0$
+\end_inset
+
+分量不变，
+\begin_inset Formula $1,2,3$
+\end_inset
+
+分量出负号，即
+\begin_inset Formula $x^{\mu}=g^{\mu\nu}x_{\nu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+爱因斯坦求和约定：上下位置的相同指标要求和，简称收缩。收缩的指标只能一上一下。方程两边净余的相同指标，上下位置一致。例如
+\begin_inset Formula $\partial_{\mu}F^{\mu\nu}=\mu_{0}J^{\nu}$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+t^{\prime}\\
+x^{\prime}
+\end{array}\right)=\underset{{\color{brown}\Lambda_{\mu}^{\phantom{\mu}\nu}}}{{\color{brown}\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right)}}\left(\begin{array}{c}
+t\\
+x
+\end{array}\right),\quad\left(\begin{array}{c}
+t\\
+x
+\end{array}\right)={\color{blue}\underset{{\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}}{\left(\begin{array}{cc}
+\gamma & \gamma v\\
+\gamma v & \gamma
+\end{array}\right)}}\left(\begin{array}{c}
+t^{\prime}\\
+x^{\prime}
+\end{array}\right)
+\]
+
+\end_inset
+
+按收缩约定，可将旧坐标
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+到新坐标
+\begin_inset Formula $x^{\prime\mu}$
+\end_inset
+
+的变换关系写成
+\begin_inset Formula $x^{\mu}={\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}x^{\prime,\nu}$
+\end_inset
+
+。由于这里的
+\begin_inset Formula ${\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}$
+\end_inset
+
+是前述变换的逆矩阵，将
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+称为逆变矢量。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+协变逆变
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\color{brown}\Lambda_{\mu}^{\phantom{\mu}\nu}}={\color{brown}\left(\begin{array}{cc}
+\gamma & -\gamma v\\
+-\gamma v & \gamma
+\end{array}\right)},\quad{\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}={\color{blue}\left(\begin{array}{cc}
+\gamma & \gamma v\\
+\gamma v & \gamma
+\end{array}\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula ${\color{brown}\Lambda_{\mu}^{\phantom{\mu}\nu}}$
+\end_inset
+
+与
+\begin_inset Formula ${\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}$
+\end_inset
+
+的差别仅在于空间部分的负号。定义：
+\end_layout
+
+\begin_layout Itemize
+指标在上的矢量叫做逆变矢量：
+\begin_inset Formula $x^{\mu}=\left(x^{0},\sbf x\right)$
+\end_inset
+
+。按逆矩阵变换，
+\begin_inset Formula $x^{\mu}={\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}x^{\prime,\nu}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+由链式法则，与
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+刚好相反，
+\begin_inset Formula $\partial_{\mu}={\color{brown}\Lambda_{\mu}^{\phantom{\mu}\nu}}\partial_{\nu}^{\prime}$
+\end_inset
+
+，其中
+\begin_inset Formula $\partial_{\mu}=\left(\frac{\partial}{\partial t},\nabla\right)$
+\end_inset
+
+称为协变矢量。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{\mu}=\left(x^{0},-\sbf x\right)$
+\end_inset
+
+为协变矢量，
+\begin_inset Formula $x_{\mu}={\color{brown}\Lambda_{\mu}^{\phantom{\mu}\nu}}x_{\nu}^{\prime}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Itemize
+偏导数
+\begin_inset Formula $\partial^{\mu}=\left(\frac{\partial}{\partial t},-\nabla\right)$
+\end_inset
+
+为逆变矢量，
+\begin_inset Formula $\partial^{\mu}={\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}\partial^{\prime,\nu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+总结：
+\end_layout
+
+\begin_layout Enumerate
+通常的四矢量，
+\begin_inset Formula $A^{\mu}=\left(A^{0},-\sbf A\right)$
+\end_inset
+
+，
+\begin_inset Formula $A_{\mu}=\left(A^{0},\sbf A\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+偏导数四矢量例外，
+\begin_inset Formula $\partial^{\mu}=\left(A^{0},-\sbf A\right)$
+\end_inset
+
+，
+\begin_inset Formula $\partial_{\mu}=\left(A^{0},\sbf A\right)$
+\end_inset
+
+。
+\begin_inset Formula $\partial^{\mu}$
+\end_inset
+
+与
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+的量纲不同。
+\end_layout
+
+\begin_layout Standard
+例如：
+\begin_inset Formula 
+\begin{align*}
+ & x^{\mu}y_{\mu}=x^{0}y^{0}-\sbf x\cdot\sbf y,\quad p^{2}=\left(p^{0}\right)^{2}-\sbf p^{2}\\
+ & \partial_{\mu}x^{\mu}=\frac{\partial}{\partial t}t+\nabla\cdot\sbf x=4,\quad\partial_{\mu}J^{\mu}=\frac{\partial}{\partial t}J^{0}+\nabla\cdot\sbf J
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+物理量的分类
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\begin{align*}
+\text{标量：}\quad & s^{\prime}=s\\
+\text{四维矢量：}\quad & V^{\prime,\mu}=L_{\phantom{\mu}\nu}^{\mu}V^{\nu}\\
+\text{四\text{维张量}：}\quad & T^{\prime,\mu\nu}=L_{\phantom{\mu}\alpha}^{\mu}L_{\phantom{\mu}\beta}^{\mu}T^{\alpha\beta}
+\end{align*}
+
+\end_inset
+
+由于洛伦兹变换保持四维时空的度规不变：
+\begin_inset Formula 
+\begin{align*}
+{\color{red}g^{\mu\nu}} & =L_{\phantom{\mu}\alpha}^{\mu}L_{\phantom{\mu}\beta}^{\nu}\;{\color{red}g^{\alpha\beta}}\\
+A^{\mu}B_{\mu}={\color{blue}A_{\mu}}\;{\color{brown}B_{\nu}}\;{\color{red}g^{\mu\nu}} & ={\color{blue}L_{\phantom{\mu}\alpha}^{\mu}A_{\mu}}\;{\color{brown}L_{\phantom{\mu}\beta}^{\nu}B_{\nu}}\;{\color{red}g^{\alpha\beta}}
+\end{align*}
+
+\end_inset
+
+所以两个四维矢量的内积是洛伦兹变换下的不变量。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+电动力学的协变形式
 \end_layout
 
 \end_inset
@@ -284,25 +913,6 @@ tea[z_, k_] := {2 E0*Cos[dk*z - d
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left(\begin{array}{cccc}
-\frac{\partial_{t}}{c} & \partial_{x} & \partial_{y} & \partial_{z}\end{array}\right).\left(\begin{array}{cccc}
-1\\
- & -1\\
- &  & -1\\
- &  &  & -1
-\end{array}\right).\left(\begin{array}{c}
-\frac{\varphi}{c}\\
-A_{x}\\
-A_{y}\\
-A_{z}
-\end{array}\right)=0
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
 \partial_{\mu}A^{\mu}=0
 \]
 
@@ -313,9 +923,9 @@ A_{z}
 \[
 F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}=\left(\begin{array}{cccc}
 0 & -E_{1} & -E_{2} & -E_{3}\\
-E_{1} & 0 & B_{3} & -B_{2}\\
-E_{2} & -B_{3} & 0 & B_{1}\\
-E_{3} & B_{2} & -B_{1} & 0
+E_{1} & 0 & -B_{3} & B_{2}\\
+E_{2} & B_{3} & 0 & -B_{1}\\
+E_{3} & -B_{2} & B_{1} & 0
 \end{array}\right)
 \]
 

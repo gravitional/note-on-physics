@@ -2239,7 +2239,11 @@ S^{ij}=\frac{1}{2}\varepsilon^{ijk}\sigma^{k}
 \end_layout
 
 \begin_layout Standard
-从坐标变换公式出发，
+从
+\begin_inset Formula $x$
+\end_inset
+
+方向的坐标变换公式出发，
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
@@ -2259,12 +2263,12 @@ x
 其中
 \begin_inset Formula 
 \[
-\gamma=1/\sqrt{1-\beta^{2}},\quad\sbf\beta=\sbf v/c
+\gamma=1/\sqrt{1-\beta^{2}},\quad\beta=v/c
 \]
 
 \end_inset
 
-
+一般情况中
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -2276,22 +2280,18 @@ x
 \begin_inset Formula $\sbf v$
 \end_inset
 
-都有关系。假设坐标变换速度
-\begin_inset Formula $\sbf v$
+都有关系。设粒子的运动速度
+\begin_inset Formula $u$
 \end_inset
 
 沿着
 \begin_inset Formula $x$
 \end_inset
 
-方向，设运动粒子的速度
-\begin_inset Formula $\sbf u$
-\end_inset
-
-为
+方向，
 \begin_inset Formula 
 \[
-\sbf u=\frac{\dif\sbf x}{\dif t}
+u=\frac{\dif x}{\dif t}
 \]
 
 \end_inset
@@ -2303,7 +2303,7 @@ x
 。
 \begin_inset Formula 
 \[
-\sbf\beta=\frac{\sbf u}{c}=1.
+\beta=\frac{u}{c}=1.
 \]
 
 \end_inset
@@ -2660,23 +2660,61 @@ E/c\\
 
 构成一个四矢量：
 \begin_inset Formula 
-\[
-K^{\mu}=qF^{\mu\nu}U_{\nu}=q\left[\begin{array}{cccc}
-0 & -\sbf E_{1} & -\sbf E_{2} & -\sbf E_{3}\\
-\sbf E_{1} & 0 & -\sbf B_{3} & \sbf B_{2}\\
-\sbf E_{2} & \sbf B_{3} & 0 & -\sbf B_{1}\\
-\sbf E_{3} & -\sbf B_{2} & \sbf B_{1} & 0
+\begin{align*}
+K^{\mu} & =qF^{\mu\nu}U_{\nu}=q\left[\begin{array}{cccc}
+0 & -E_{1} & -E_{2} & -E_{3}\\
+E_{1} & 0 & -B_{3} & B_{2}\\
+E_{2} & B_{3} & 0 & -B_{1}\\
+E_{3} & -B_{2} & B_{1} & 0
 \end{array}\right]\gamma\left[\begin{array}{c}
-c\\
-v_{x}\\
-v_{y}\\
-v_{z}
-\end{array}\right]
+1\\
+-v_{1}\\
+-v_{2}\\
+-v_{3}
+\end{array}\right]\\
+k^{0} & =q\gamma\left({\color{blue}v_{1}E_{1}+v_{2}E_{2}+v_{3}E_{3}}\right)\\
+\sbf K & =q\gamma\left(\sbf E+{\color{brown}v_{2}B_{3}-v_{3}B_{2}-\left(v_{1}B_{3}-v_{3}B_{1}\right)+v_{1}B_{2}-v_{2}B_{1}}\right)\\
+ & =q\gamma\left(\sbf E\cdot\sbf v+\sbf v\times\sbf B\right)
+\end{align*}
+
+\end_inset
+
+按照前述，
+\begin_inset Formula 
+\begin{align*}
+\sbf K & =\gamma\sbf F\\
+\sbf F & =q\left(\sbf E\cdot\sbf v+\sbf v\times\sbf B\right)
+\end{align*}
+
+\end_inset
+
+所以洛伦兹力公式满足相对论协变性的要求。
+\begin_inset Formula 
+\[
+\frac{\dif\sbf p}{\dif t}=q\left(\sbf E+\sbf\times\sbf B\right)
 \]
 
 \end_inset
 
+适用于任意惯性系，能描述高速粒子的运动。
+\end_layout
 
+\begin_layout Standard
+相对论协变的力密度公式为
+\begin_inset Formula 
+\begin{align*}
+ & f_{\mu}=F_{\mu\nu}J_{\nu},\quad J^{\mu}=\left(\rho c,\sbf J\right)\\
+ & \sbf f=\rho\sbf E+\sbf J\times\sbf B.\\
+ & f^{0}=\frac{1}{c}\sbf J\cdot\sbf E
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\sbf J\cdot\sbf E$
+\end_inset
+
+就是电磁场对电荷系统做功的功率密度。
 \end_layout
 
 \begin_layout Section
@@ -2687,11 +2725,19 @@ v_{z}
 \begin_inset Formula 
 \[
 F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}=\left[\begin{array}{cccc}
-0 & -\sbf E_{1} & -\sbf E_{2} & -\sbf E_{3}\\
-\sbf E_{1} & 0 & -\sbf B_{3} & \sbf B_{2}\\
-\sbf E_{2} & \sbf B_{3} & 0 & -\sbf B_{1}\\
-\sbf E_{3} & -\sbf B_{2} & \sbf B_{1} & 0
+0 & -E_{1} & -E_{2} & -E_{3}\\
+E_{1} & 0 & -B_{3} & B_{2}\\
+E_{2} & B_{3} & 0 & -B_{1}\\
+E_{3} & -B_{2} & B_{1} & 0
 \end{array}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F^{i0}=\sbf E,\quad F^{ij}=-\varepsilon^{ijk}B^{k}
 \]
 
 \end_inset
