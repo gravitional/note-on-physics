@@ -2150,9 +2150,57 @@ Latex下 字体大小命令 比较
 
 ### 特殊符号
 
+[Symbol \sslash with XeLaTeX](https://tex.stackexchange.com/questions/341827/symbol-sslash-with-xelatex-and-unicode-math)
+
 + $\ell$ 用于和大小的$l$和数字$1$相区分
 + $\Re$
 + $\nabla$ 微分算子
++ `\sslash`:下标中表示平行分量的双斜线`//`.
+
+***
+`latinmodern-math.otf`中没有`\sslash`字形，但总是可以从其他数学字体中借用缺少的字形。例如下面的例子：
+
+```latex
+\documentclass[a4paper,11pt]{article}
+\usepackage{fontspec}
+\usepackage{unicode-math} %不用这个也能工作
+\setmainfont[Ligatures=TeX]{CMU Serif} %需要用它来获得小型粗体大写
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+\setmathfont{latinmodern-math.otf}
+\setmathfont[range=\sslash]{Asana Math} %借用其他字体中的字形.
+%\setmathfont[range=\sslash]{STIX Two Math}  %也可以使用这个字体中的\sslash
+\begin{document}
+$a \sslash b$
+\end{document}
+```
+
+另一方面，这个符号将与简单的斜线有很大的不同，所以用标准的斜线来重新定义它可能会更好。不过，你必须在`unicode-math`完成工作后再进行重新定义。
+
+```latex
+\documentclass[a4paper,11pt]{article}
+\usepackage{fontspec}
+\usepackage{unicode-math} %不用这个也能工作
+\setmainfont[Ligatures=TeX]{CMU Serif} %需要用它来获得小型粗体大写
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+%\setmathfont{latinmodern-math.otf}%现在不需要
+\AtBeginDocument{%
+  \renewcommand\sslash{\mathbin{/\mkern-5.5mu/}}%
+}
+\begin{document}
+$a \sslash b$
+\end{document}
+```
+
+***
+[mathbin](https://www.tutorialspoint.com/tex_commands/mathbin.htm)
+[mkern](https://www.tutorialspoint.com/tex_commands/mkern.htm)
+[AtBeginDocument]([mkern](https://tex.stackexchange.com/questions/177397/why-does-it-matter-when-atbegindocument-is-run))
+
++ ` \AtBeginDocument`宏：将它的内容附加到`\@begindocumenthook`后面，后者紧随`\begin{document}`展开.
++ `\mathbin`:给出正确的间距，让某个对象称为二元运算符.例如`a\mathbin{\text{op}} b`
++ `\mkern`: 给出水平间距.例如，`a\mkern18mu b`
 
 ### 数学字体
 

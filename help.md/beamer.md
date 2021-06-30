@@ -189,7 +189,7 @@
 \XeTeXlinebreakskip = 0pt plus 1pt
 %设置数学字体
 \usepackage{unicode-math}
-\setmathfont{STIX Math}
+\setmathfont{latinmodern-math.otf}
 %开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
 \title{测试}
 \author{东}

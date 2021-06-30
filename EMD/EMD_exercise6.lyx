@@ -44,8 +44,8 @@
 \setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
 \setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
 %设置数学字体
-\usepackage{unicode-math}
-\setmathfont{STIX Math}
+\usepackage{unicode-math}%在其他字体包如amsmath之后调用
+\setmathfont{latinmodern-math.otf}
 %开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
 % DejaVu Math TeX Gyre,  Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
 % TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
@@ -102,6 +102,7 @@
 \DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
 \newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 %%%+++++++++++++++++++++++++++++++
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,aspectratio=141
@@ -304,8 +305,8 @@ s^{2}=s^{\prime,2}
 即，
 \begin_inset Formula 
 \begin{align*}
- & c^{2}\left(t_{2}-t_{1}\right)^{2}-\left(x_{2}-x_{1}\right)^{2}-\left(y_{2}-y_{1}\right)^{2}-\left(z_{2}-z_{1}\right)^{2}\\
-= & c^{2}\left(t_{2}^{\prime}-t_{1}^{\prime}\right)^{2}-\left(x_{2}^{\prime}-x_{1}^{\prime}\right)^{2}-\left(y_{2}^{\prime}-y_{1}^{\prime}\right)^{2}-\left(z_{2}^{\prime}-z_{1}^{\prime}\right)^{2}
+ & \left(ct_{2}-ct_{1}\right)^{2}-\left(x_{2}-x_{1}\right)^{2}-\left(y_{2}-y_{1}\right)^{2}-\left(z_{2}-z_{1}\right)^{2}\\
+= & \left(ct_{2}^{\prime}-ct_{1}^{\prime}\right)^{2}-\left(x_{2}^{\prime}-x_{1}^{\prime}\right)^{2}-\left(y_{2}^{\prime}-y_{1}^{\prime}\right)^{2}-\left(z_{2}^{\prime}-z_{1}^{\prime}\right)^{2}
 \end{align*}
 
 \end_inset
@@ -459,6 +460,14 @@ x^{\prime}
 钟慢尺缩，同时的相对性。
 \end_layout
 
+\begin_layout Enumerate
+类似于三维转动，不同方向上的洛伦兹变换不对易，
+\begin_inset Formula $\Lambda_{x}\Lambda_{y}\neq\Lambda_{y}\Lambda_{x}$
+\end_inset
+
+。
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -562,7 +571,7 @@ status open
 
 \begin_deeper
 \begin_layout Standard
-根据相对性原理，四维时空的内积为
+根据相对性原理，定义四维时空的内积为
 \begin_inset Formula $x\cdot y=g_{\mu\nu}x^{\mu}y^{\nu}=x^{0}y^{0}-x^{1}y^{1}-x^{2}y^{2}-x^{3}y^{3}$
 \end_inset
 
@@ -570,11 +579,11 @@ status open
 \end_layout
 
 \begin_layout Standard
-若引入 
+其中引入了 
 \noun on
 Minkowski
 \noun default
- 度规
+ 度规，
 \begin_inset Formula 
 \[
 g^{\mu\nu}=g_{\mu\nu}=\left(\begin{array}{cccc}
@@ -587,7 +596,11 @@ g^{\mu\nu}=g_{\mu\nu}=\left(\begin{array}{cccc}
 
 \end_inset
 
-四维矢量的指标有上下之分。指标改变位置时，
+四维矢量的指标有上下之分，
+\begin_inset Formula $x^{\mu}=g^{\mu\nu}x_{\nu}$
+\end_inset
+
+。即指标改变位置时，
 \begin_inset Formula $0$
 \end_inset
 
@@ -595,15 +608,15 @@ g^{\mu\nu}=g_{\mu\nu}=\left(\begin{array}{cccc}
 \begin_inset Formula $1,2,3$
 \end_inset
 
-分量出负号，即
-\begin_inset Formula $x^{\mu}=g^{\mu\nu}x_{\nu}$
-\end_inset
-
-。
+分量出负号，。
 \end_layout
 
 \begin_layout Standard
-爱因斯坦求和约定：上下位置的相同指标要求和，简称收缩。收缩的指标只能一上一下。方程两边净余的相同指标，上下位置一致。例如
+爱因斯坦求和约定：上下位置的相同指标要求和，简称收缩。收缩的指标只能一上一下。
+\end_layout
+
+\begin_layout Standard
+而方程中净余的相同指标，上下位置要一致。例如
 \begin_inset Formula $\partial_{\mu}F^{\mu\nu}=\mu_{0}J^{\nu}$
 \end_inset
 
@@ -611,29 +624,29 @@ g^{\mu\nu}=g_{\mu\nu}=\left(\begin{array}{cccc}
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
-t^{\prime}\\
+ct^{\prime}\\
 x^{\prime}
 \end{array}\right)=\underset{{\color{brown}\Lambda_{\mu}^{\phantom{\mu}\nu}}}{{\color{brown}\left(\begin{array}{cc}
 \gamma & -\gamma v\\
 -\gamma v & \gamma
 \end{array}\right)}}\left(\begin{array}{c}
-t\\
+ct\\
 x
 \end{array}\right),\quad\left(\begin{array}{c}
-t\\
+ct\\
 x
 \end{array}\right)={\color{blue}\underset{{\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}}{\left(\begin{array}{cc}
 \gamma & \gamma v\\
 \gamma v & \gamma
 \end{array}\right)}}\left(\begin{array}{c}
-t^{\prime}\\
+ct^{\prime}\\
 x^{\prime}
 \end{array}\right)
 \]
 
 \end_inset
 
-按收缩约定，可将旧坐标
+按照约定，可将旧坐标
 \begin_inset Formula $x^{\mu}$
 \end_inset
 
@@ -645,11 +658,19 @@ x^{\prime}
 \begin_inset Formula $x^{\mu}={\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}x^{\prime,\nu}$
 \end_inset
 
-。由于这里的
+。
+\end_layout
+
+\begin_layout Standard
+由于这里的
 \begin_inset Formula ${\color{blue}\Lambda_{\phantom{\mu}\nu}^{\mu}}$
 \end_inset
 
-是前述变换的逆矩阵，将
+是
+\begin_inset Formula ${\color{brown}\Lambda_{\mu}^{\phantom{\mu}\nu}}$
+\end_inset
+
+的逆矩阵，将
 \begin_inset Formula $x^{\mu}$
 \end_inset
 
@@ -725,7 +746,7 @@ status open
 \end_inset
 
 ，其中
-\begin_inset Formula $\partial_{\mu}=\left(\frac{\partial}{\partial t},\nabla\right)$
+\begin_inset Formula $\partial_{\mu}=\left(\frac{\partial}{c\partial t},\nabla\right)$
 \end_inset
 
 称为协变矢量。
@@ -744,7 +765,7 @@ status open
 
 \begin_layout Itemize
 偏导数
-\begin_inset Formula $\partial^{\mu}=\left(\frac{\partial}{\partial t},-\nabla\right)$
+\begin_inset Formula $\partial^{\mu}=\left(\frac{\partial}{c\partial t},-\nabla\right)$
 \end_inset
 
 为逆变矢量，
@@ -758,28 +779,28 @@ status open
 总结：
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 通常的四矢量，
-\begin_inset Formula $A^{\mu}=\left(A^{0},-\sbf A\right)$
+\begin_inset Formula $x^{\mu}=\left(x^{0},-\sbf x\right)$
 \end_inset
 
 ，
-\begin_inset Formula $A_{\mu}=\left(A^{0},\sbf A\right)$
+\begin_inset Formula $x_{\mu}=\left(x^{0},\sbf x\right)$
 \end_inset
 
 。
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 偏导数四矢量例外，
-\begin_inset Formula $\partial^{\mu}=\left(A^{0},-\sbf A\right)$
+\begin_inset Formula $\partial^{\mu}=\left(\frac{\partial}{c\partial t},-\nabla\right)$
 \end_inset
 
 ，
-\begin_inset Formula $\partial_{\mu}=\left(A^{0},\sbf A\right)$
+\begin_inset Formula $\partial_{\mu}=\left(\frac{\partial}{c\partial t},\nabla\right)$
 \end_inset
 
-。
+。由于
 \begin_inset Formula $\partial^{\mu}$
 \end_inset
 
@@ -787,15 +808,15 @@ status open
 \begin_inset Formula $x^{\mu}$
 \end_inset
 
-的量纲不同。
+的量纲相反，这很合理。
 \end_layout
 
 \begin_layout Standard
 例如：
 \begin_inset Formula 
 \begin{align*}
- & x^{\mu}y_{\mu}=x^{0}y^{0}-\sbf x\cdot\sbf y,\quad p^{2}=\left(p^{0}\right)^{2}-\sbf p^{2}\\
- & \partial_{\mu}x^{\mu}=\frac{\partial}{\partial t}t+\nabla\cdot\sbf x=4,\quad\partial_{\mu}J^{\mu}=\frac{\partial}{\partial t}J^{0}+\nabla\cdot\sbf J
+ & x^{\mu}y_{\mu}=x^{0}y^{0}-\sbf x\cdot\sbf y,\quad p^{2}=\left(E/c\right)^{2}-\sbf p^{2}\\
+ & \partial_{\mu}x^{\mu}=\frac{\partial}{\partial t}t+\nabla\cdot\sbf x=4,\quad\partial_{\mu}J^{\mu}=\frac{\partial}{\partial t}\rho+\nabla\cdot\sbf J
 \end{align*}
 
 \end_inset
@@ -827,15 +848,23 @@ status open
 \begin_deeper
 \begin_layout Standard
 设
-\begin_inset Formula $L$
+\begin_inset Formula $\Lambda$
 \end_inset
 
-为洛伦兹变换的矩阵：
+为洛伦兹变换的矩阵，从
+\begin_inset Formula $\Sigma$
+\end_inset
+
+参考系变换到
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+参考系。各阶张量的变换形式为：
 \begin_inset Formula 
 \begin{align*}
 \text{标量：}\quad & s^{\prime}=s\\
-\text{四维矢量：}\quad & V^{\prime,\mu}=L_{\phantom{\mu}\nu}^{\mu}V^{\nu}\\
-\text{四\text{维张量}：}\quad & T^{\prime,\mu\nu}=L_{\phantom{\mu}\alpha}^{\mu}L_{\phantom{\mu}\beta}^{\mu}T^{\alpha\beta}
+\text{四维矢量：}\quad & V^{\prime,\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}V^{\nu}\\
+\text{四\text{维张量}：}\quad & T^{\prime,\mu\nu}=\Lambda_{\phantom{\mu}\alpha}^{\mu}\Lambda_{\phantom{\mu}\beta}^{\nu}T^{\alpha\beta}
 \end{align*}
 
 \end_inset
@@ -843,13 +872,87 @@ status open
 由于洛伦兹变换保持四维时空的度规不变：
 \begin_inset Formula 
 \begin{align*}
-{\color{red}g^{\mu\nu}} & =L_{\phantom{\mu}\alpha}^{\mu}L_{\phantom{\mu}\beta}^{\nu}\;{\color{red}g^{\alpha\beta}}\\
-A^{\mu}B_{\mu}={\color{blue}A_{\mu}}\;{\color{brown}B_{\nu}}\;{\color{red}g^{\mu\nu}} & ={\color{blue}L_{\phantom{\mu}\alpha}^{\mu}A_{\mu}}\;{\color{brown}L_{\phantom{\mu}\beta}^{\nu}B_{\nu}}\;{\color{red}g^{\alpha\beta}}
+{\color{red}g^{\mu\nu}} & =\Lambda_{\phantom{\mu}\alpha}^{\mu}\Lambda_{\phantom{\mu}\beta}^{\nu}\;{\color{red}g^{\alpha\beta}}\\
+A^{\mu}B_{\mu}={\color{blue}A_{\mu}}\;{\color{brown}B_{\nu}}\;{\color{red}g^{\mu\nu}} & ={\color{blue}A_{\mu}}{\color{brown}B_{\nu}}\;{\color{blue}\Lambda_{\phantom{\mu}\alpha}^{\mu}}{\color{brown}\Lambda_{\phantom{\mu}\beta}^{\nu}}\;{\color{red}g^{\alpha\beta}}
 \end{align*}
 
 \end_inset
 
-所以两个四维矢量的内积是洛伦兹变换下的不变量。
+所以两四维矢量的内积
+\begin_inset Formula $A^{\mu}B_{\mu}$
+\end_inset
+
+是洛伦兹变换下的不变量。
+\end_layout
+
+\begin_layout Standard
+类似地，可以使用更高阶的张量构造矢量或者标量，只需对指标进行收缩即可。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+波动场的变换
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+若不依赖于时空坐标，即常矢量的变换形式为：
+\begin_inset Formula 
+\begin{align*}
+\text{标量：}\quad & s^{\prime}=s\\
+\text{四维矢量：}\quad & V^{\prime,\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}V^{\nu}\\
+\text{四\text{维张量}：}\quad & T^{\prime,\mu\nu}=\Lambda_{\phantom{\mu}\alpha}^{\mu}\Lambda_{\phantom{\mu}\beta}^{\nu}T^{\alpha\beta}
+\end{align*}
+
+\end_inset
+
+物理学中使用的场一般还依赖于时空坐标，除了场的分量的变换，还要考虑坐标的变换。
+\end_layout
+
+\begin_layout Standard
+四维坐标本身是矢量：
+\begin_inset Formula $x^{\prime,\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\nu}$
+\end_inset
+
+，设
+\begin_inset Formula $L$
+\end_inset
+
+是
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的逆矩阵，
+\begin_inset Formula $x^{\mu}={\color{blue}L_{\phantom{\mu}\nu}^{\mu}x^{\prime,\nu}}$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+\text{标量：}\quad & s\left(x^{\rho}\right)\rightarrow s\left({\color{blue}L_{\phantom{\mu}\sigma}^{\rho}x^{\prime\sigma}}\right)\\
+\text{四维矢量：}\quad & V^{\mu}\left(x^{\rho}\right)\rightarrow\Lambda_{\phantom{\mu}\nu}^{\mu}V^{\nu}\left({\color{blue}L_{\phantom{\mu}\sigma}^{\rho}x^{\prime\sigma}}\right)\\
+\text{四\text{维张量}：}\quad & T^{\mu\nu}\left(x^{\rho}\right)\to\Lambda_{\phantom{\mu}\alpha}^{\mu}\Lambda_{\phantom{\mu}\beta}^{\nu}T^{\alpha\beta}\left({\color{blue}L_{\phantom{\mu}\sigma}^{\rho}x^{\prime\sigma}}\right)
+\end{align*}
+
+\end_inset
+
+这样就将场的时空依赖转换到新坐标系下。注意场分量和坐标的变换矩阵不同，它们互逆。
 \end_layout
 
 \end_deeper
@@ -905,24 +1008,21 @@ tea[z_, k_] := {2 E0*Cos[dk*z - d
 
 \begin_deeper
 \begin_layout Standard
+电动力学物理量及算符的四维形式如下，考虑量纲可以较容易地导出它们的形式。
 \begin_inset Formula 
 \begin{align*}
-\text{四维偏导：}\quad & \partial_{\mu}=\left(\frac{\partial}{\partial t},\nabla\right)\\
+\text{四维偏导：}\quad & \partial_{\mu}=\left(\frac{\partial}{c\partial t},\nabla\right)\\
 \text{四维电流密度：}\quad & U^{\mu}=\gamma\left(c,v\right),\quad J^{\mu}=q\gamma\left(c,\sbf v\right)=\left(\rho c,\sbf J\right),\\
 \text{四维势：}\quad & A^{\mu}=\left(\varphi/c,\sbf A\right)
 \end{align*}
 
 \end_inset
 
-
-\begin_inset Formula 
-\[
-\sbf B=\nabla\times\sbf A,\quad\sbf E=-\nabla\varphi-\frac{\partial}{\partial t}\sbf A
-\]
-
+代入四矢势的定义
+\begin_inset Formula $\sbf B=\nabla\times\sbf A,\quad\sbf E=-\nabla\varphi-\frac{\partial}{\partial t}\sbf A$
 \end_inset
 
-
+，得：
 \begin_inset Formula 
 \[
 F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}=\left(\begin{array}{cccc}
@@ -936,9 +1036,13 @@ E_{3}/c & -B_{2} & B_{1} & 0
 \end_inset
 
 
+\begin_inset Formula $F_{\mu\nu}$
+\end_inset
+
+是反对称张量，对角线上元素为零。其他元素为，
 \begin_inset Formula 
 \begin{align*}
-F^{i0} & =\sbf E,\quad i=1,2,3\\
+F^{i0} & =\sbf E,\quad i,j=1,2,3\\
 F^{ij} & =-\varepsilon^{ijk}B^{k}
 \end{align*}
 
@@ -970,15 +1074,16 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+电动力学方程的四维形式非常简洁。代入它们的定义，
 \begin_inset Formula 
 \begin{align*}
  & F^{\mu\nu}=-F^{\nu\mu},\quad F^{i0}=\sbf E,\quad F^{ij}=-\varepsilon^{ijk}B^{k},\quad\left\{ i,j,k\right\} =1,2,3\\
- & A^{\mu}=\left(\varphi/c,\sbf A\right),\quad J^{\mu}=\left(\rho c,\sbf J\right)
+ & A^{\mu}=\left(\varphi/c,\sbf A\right),\quad J^{\mu}=\left(\rho c,\sbf J\right),\quad T^{\mu\nu}=T^{\nu\mu}
 \end{align*}
 
 \end_inset
 
-
+得：
 \end_layout
 
 \begin_layout Itemize
@@ -986,15 +1091,11 @@ status open
 \begin_inset Formula $\partial_{\mu}J^{\mu}=0$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-洛伦兹规范：
+，洛伦兹规范：
 \begin_inset Formula $\partial_{\mu}A^{\mu}=0$
 \end_inset
 
-.
+。
 \end_layout
 
 \begin_layout Itemize
@@ -1002,23 +1103,23 @@ status open
 \begin_inset Formula $\partial_{\nu}\partial^{\nu}A^{\mu}=-\mu_{0}J^{\mu}$
 \end_inset
 
-.
+。
 \end_layout
 
 \begin_layout Itemize
 麦克斯韦方程：
-\begin_inset Formula $\partial_{\mu}F^{\mu\nu}=-\partial_{\mu}F^{\nu\mu}=-\mu_{0}J^{\nu}$
+\begin_inset Formula $\partial_{\mu}F^{\mu\nu}=-\mu_{0}J^{\nu}$
 \end_inset
 
-，
-\begin_inset space ~
-\end_inset
+。
+\end_layout
 
-
+\begin_layout Itemize
+麦克斯韦方程：
 \begin_inset Formula $\partial_{\mu}F_{\nu\alpha}+\partial_{\nu}F_{\alpha\mu}+\partial_{\alpha}F_{\mu\nu}=0$
 \end_inset
 
-
+。
 \end_layout
 
 \begin_layout Itemize
@@ -1026,7 +1127,7 @@ status open
 \begin_inset Formula $T^{\mu\nu}=\frac{1}{\mu_{0}}\left(F^{\mu\alpha}F_{\alpha}^{\phantom{\alpha}\nu}+\frac{1}{4}g^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right)$
 \end_inset
 
-
+。
 \end_layout
 
 \begin_layout Itemize
@@ -1034,15 +1135,15 @@ status open
 \begin_inset Formula $f^{\mu}=\frac{1}{\gamma}F^{\mu\nu}J_{\nu}=\left(\frac{1}{c}\sbf E\cdot\sbf J,q\sbf E+q\sbf v\times\sbf B\right)$
 \end_inset
 
-
+。
 \end_layout
 
 \begin_layout Itemize
 能量动量守恒：
-\begin_inset Formula $f^{\nu}=\partial_{\mu}T^{\mu\nu}=\partial_{\mu}T^{\nu\mu}$
+\begin_inset Formula $f^{\nu}=\partial_{\mu}T^{\mu\nu}$
 \end_inset
 
-
+。
 \end_layout
 
 \end_deeper
@@ -1058,7 +1159,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-能量动量张量
+能动量张量
 \end_layout
 
 \end_inset
@@ -1184,7 +1285,7 @@ S_{3}/c & -\left(B_{1}B_{3}+E_{1}E_{3}/c^{2}\right) & -\left(B_{2}B_{3}+E_{2}E_{
 
 \end_inset
 
-
+能动量张量为无迹张量（求和时考虑度规），
 \size default
 
 \begin_inset Formula 
@@ -1219,7 +1320,7 @@ w & =\frac{1}{2}\left(\sbf E\cdot\sbf D+\sbf H\cdot\sbf B\right)=\frac{1}{2}\lef
 status open
 
 \begin_layout Plain Layout
-势的变换
+电磁场的变换
 \end_layout
 
 \end_inset
@@ -1244,7 +1345,7 @@ status open
 \begin_inset Formula $x$
 \end_inset
 
-轴的正方向运动，
+轴的正方向运动，四维势的变换为，
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
@@ -1267,20 +1368,41 @@ A^{3,}
 
 \end_inset
 
+电磁场张量的变换为
+\begin_inset Formula $F_{\mu\nu}^{\prime}=\Lambda_{\mu}^{\phantom{\mu}\rho}\Lambda_{\nu}^{\phantom{\mu}\sigma}F_{\rho\sigma}$
+\end_inset
 
+。由此导出电磁场分量的变换，
+\begin_inset Formula 
+\begin{align*}
+ & \sbf E_{\ssl}^{\prime}=\sbf E_{\ssl},\quad\sbf B_{\ssl}^{\prime}=\sbf B_{\ssl},\quad\text{与运动方向平行的分量}\\
+ & \sbf E_{\perp}^{\prime}=\gamma\left(\sbf E+\sbf v\times\sbf B\right)_{\perp},\quad\sbf B_{\perp}^{\prime}=\gamma\left(\sbf B-\frac{\sbf v}{c^{2}}\times\sbf E\right)_{\perp}.
+\end{align*}
+
+\end_inset
+
+垂直运动方向的变换形式上可以写成：
 \begin_inset Formula 
 \[
-F_{\mu\nu}^{\prime}=\Lambda_{\mu}^{\phantom{\mu}\rho}\Lambda_{\nu}^{\phantom{\mu}\sigma}F_{\rho\sigma}
+\left(\begin{array}{c}
+\sbf E^{\prime}/c\\
+\sbf B^{\prime}
+\end{array}\right)_{\perp}=\left[\left(\begin{array}{cc}
+\gamma & -\gamma\sbf\beta\times\\
+-\gamma\sbf\beta\times & \gamma
+\end{array}\right)\left(\begin{array}{c}
+\sbf E/c\\
+\sbf B
+\end{array}\right)\right]_{\perp}
 \]
 
 \end_inset
 
-
+若电磁场依赖于坐标，还要考虑坐标的变换：
 \begin_inset Formula 
-\begin{align*}
- & \sbf E_{\parallel}^{\prime}=\sbf E_{\parallel},\quad\sbf B_{\parallel}^{\prime}=\sbf B_{\parallel},\quad\text{与运动方向平行的分量}\\
- & \sbf E_{\perp}^{\prime}=\gamma\left(\sbf E+\sbf v\times\sbf B\right)_{\perp},\quad\sbf B_{\perp}^{\prime}=\gamma\left(\sbf B-\frac{\sbf v}{c^{2}}\times\sbf E\right)_{\perp},
-\end{align*}
+\[
+x^{\rho}\rightarrow L_{\phantom{\mu}\sigma}^{\rho}x^{\prime\sigma},\quad L.\Lambda=1.
+\]
 
 \end_inset
 
@@ -1324,7 +1446,7 @@ status open
 \begin_inset Formula $x$
 \end_inset
 
-轴的正方向运动，电磁波的相位是洛伦兹标量，
+轴的正方向运动。电磁波的相位是洛伦兹标量，
 \begin_inset Formula 
 \[
 \phi=k^{\mu}x_{\mu},\quad k^{\mu}=\left(w/c,\sbf k\right),\quad k_{x}=k\cos\theta
@@ -1413,7 +1535,7 @@ status open
 \begin_inset Formula $v$
 \end_inset
 
-运动的列车上的观察者，在经过某一高大建筑物时，看见其避雷针上跳起一脉冲电火花，电光迅速传播，先后照亮了铁路沿线上的两铁塔。求列车上观察者看到的两铁塔被电光照亮的
+运动的列车上的观察者，在经过某一高达建筑物时，看见其避雷针上跳起一脉冲电火花，电光迅速传播，先后照亮了铁路沿线上的两铁塔。求列车上观察者看到的两铁塔被电光照亮的
 时刻差。设建筑物及两铁塔都在一直线上，与列车前进方向一致。铁塔到建筑物的地面距离已知都是
 \begin_inset Formula $\ell_{0}$
 \end_inset
@@ -1553,7 +1675,11 @@ status open
 
 \end_inset
 
-当液体沿着S–R连线方向运动时，在液体静止的参考系
+
+\color blue
+水平方向：
+\color inherit
+液体沿着S–R连线方向运动，在液体静止的参考系
 \begin_inset Formula $\Sigma^{\prime}$
 \end_inset
 
@@ -1568,9 +1694,31 @@ status open
 系中光速及讯号传播时间用逆变换求出：
 \begin_inset Formula 
 \begin{align*}
-u_{x} & =\frac{u_{x}^{\prime}+v}{1+vu_{x}^{\prime}/c^{2}}=\frac{\left(c+nv\right)}{n+v/c}\approx\frac{c}{n}+v-\frac{v^{2}}{nc}\\
-\Delta t & =\frac{\ell_{0}}{u_{x}}=\frac{\ell_{0}\left(nc+v\right)}{c\left(c+nv\right)}\approx\frac{\ell_{0}}{v}\left[1+\frac{1}{n}\frac{v}{c}-\left(\frac{v}{c}\right)^{2}\right]
+u_{x} & =\frac{u_{x}^{\prime}+v}{1+vu_{x}^{\prime}/c^{2}}=c\frac{1+n\beta}{n+\beta}\approx\frac{c}{n}\left[1+\beta\frac{n^{2}-1}{n}\right]+O\left(\beta^{2}\right)\\
+\Delta t & =\frac{\ell_{0}}{u_{x}}=\frac{\ell_{0}\left(nc+v\right)}{c\left(c+nv\right)}\approx\frac{l_{0}}{c/n}\left[1-\beta\frac{n^{2}-1}{n}\right]+O\left(\beta^{2}\right)
 \end{align*}
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Series[c (1 + n*
+\backslash
+[Beta])/(n + 
+\backslash
+[Beta]), {
+\backslash
+[Beta], 0, 2}] // Simplify Series[(Subscript[l, 0]/c)/((1 + n*
+\backslash
+[Beta])/( n + 
+\backslash
+[Beta])), {
+\backslash
+[Beta], 0, 2}] // Simplify
+\end_layout
 
 \end_inset
 
@@ -1694,8 +1842,27 @@ u_{x}^{\prime}=\sqrt{\left(\frac{c}{n}\right)^{2}-v^{2}}
 。只需要考虑钟慢效应：
 \begin_inset Formula 
 \[
-\Delta t=\Delta t^{\prime}/\gamma=\frac{n\ell_{0}\sqrt{1-\left(v/c\right)^{2}}}{\sqrt{c^{2}-\left(nv\right)^{2}}}
+\Delta t=\Delta t^{\prime}/\gamma=\frac{\ell_{0}}{c/n}\frac{\sqrt{1-\beta^{2}}}{\sqrt{1-\left(n\beta\right)^{2}}}\approx\frac{\ell_{0}}{c/n}\left[1+\frac{\beta^{2}\left(n^{2}-1\right)}{2}\right]+O\left(\beta^{3}\right)
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Series[n*Subscript[l, 0]/c*Sqrt[1 - 
+\backslash
+[Beta]^2]/Sqrt[ 1 - (n*
+\backslash
+[Beta])^2], {
+\backslash
+[Beta], 0, 2}] // Simplify
+\end_layout
 
 \end_inset
 
@@ -1778,6 +1945,41 @@ status open
 \[
 \tan\theta^{\prime}=\frac{\Delta y^{\prime}}{\Delta x^{\prime}}=\gamma\tan\theta
 \]
+
+\end_inset
+
+当
+\begin_inset Formula $\beta\ll1$
+\end_inset
+
+时有，
+\begin_inset Formula 
+\[
+\theta^{\prime}=\theta+\frac{1}{4}\beta^{2}\sin2\theta+\frac{1}{16}\beta^{4}\sin2\theta\left(\cos2\theta+2\right)+O\left(\beta^{6}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Assuming[0 < 
+\backslash
+[Theta] < 
+\backslash
+[Pi]/2, Series[ArcTan[1 /Sqrt[1 - 
+\backslash
+[Beta]^2] Tan[
+\backslash
+[Theta]]], {
+\backslash
+[Beta], 0, 5}] // Simplify // TrigReduce ]
+\end_layout
 
 \end_inset
 
@@ -1892,7 +2094,7 @@ x=\frac{\gamma-1}{\gamma\beta}ct>0
 \begin_inset Formula 
 \begin{align*}
  & x^{\prime}=\frac{1-\gamma}{\gamma\beta}ct,\quad t^{\prime}=t\\
- & x^{\prime}=-x\quad t^{\prime}=t=\frac{\gamma\beta x}{\gamma-1}
+ & x^{\prime}=-x,\quad t^{\prime}=t=\frac{\gamma\beta x}{\gamma-1}
 \end{align*}
 
 \end_inset
@@ -2138,9 +2340,9 @@ w\cos\theta & =\omega_{0}2\gamma^{2}\beta+w_{0}\gamma^{2}\left(1+\beta^{2}\right
 \begin_inset Formula 
 \begin{align*}
 \omega & =\gamma^{2}\omega_{0}\left(1+\beta^{2}+2\beta\cos\theta_{0}\right)\\
-\cos\theta & =\frac{2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}}{1+\beta^{2}+2\beta\cos\theta_{0}}\approx\cos\theta_{0}+2\beta\sin^{2}\theta_{0}+O\left(\beta^{2}\right)\\
-\tan\theta & =\frac{\sin\theta_{0}}{\gamma^{2}\left[2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}\right]}\approx\tan\theta_{0}-2\beta\tan\theta_{0}\sec\theta_{0}+O\left(\beta^{2}\right)\\
-\theta & =\theta_{0}-2\beta\sin\left(\theta_{0}\right)+\beta^{2}\sin\left(2\theta_{0}\right)+O\left(\beta^{3}\right)
+\cos\theta & =\frac{2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}}{1+\beta^{2}+2\beta\cos\theta_{0}}\\
+\tan\theta & =\frac{\sin\theta_{0}}{\gamma^{2}\left[2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}\right]}\\
+\theta & =\theta_{0}-2\beta\sin\theta_{0}+\beta^{2}\sin2\theta_{0}+O\left(\beta^{3}\right)
 \end{align*}
 
 \end_inset
@@ -2256,7 +2458,8 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 
 \color blue
 电偶极子
@@ -2286,7 +2489,7 @@ status open
 。
 \end_layout
 
-\begin_layout Frame
+\begin_layout Standard
 解：在
 \begin_inset Formula $\sbf p_{0}$
 \end_inset
@@ -2304,6 +2507,155 @@ status open
 \end_inset
 
 ：
+\begin_inset Formula 
+\begin{align*}
+\varphi^{\prime} & =\frac{\sbf p_{0}\cdot\sbf R^{\prime}}{4\pi\varepsilon_{0}R^{\prime3}},\quad\sbf A^{\prime}=0,\\
+\sbf E^{\prime} & =\frac{1}{4\pi\varepsilon_{0}}\left[\frac{3\left(\sbf p_{0}\cdot\sbf R^{\prime}\right)\sbf R^{\prime}}{R^{\prime5}}-\frac{\sbf p_{0}}{R^{\prime3}}\right],\quad\sbf B^{\prime}=0.
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $R^{\prime}$
+\end_inset
+
+和
+\begin_inset Formula $\sbf R^{\prime}$
+\end_inset
+
+分别是
+\begin_inset Formula $\sbf p_{0}$
+\end_inset
+
+到场点的距离与矢径：
+\begin_inset Formula 
+\[
+R^{\prime}=\sqrt{x^{\prime2}+y^{\prime2}+z^{\prime2}},\quad\sbf R^{\prime}=x^{\prime}\sbf e_{x}+y^{\prime}\sbf e_{y}+z^{\prime}\sbf e_{z}.
+\]
+
+\end_inset
+
+设
+\begin_inset Formula $\sbf p_{0}$
+\end_inset
+
+沿
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系的
+\begin_inset Formula $x$
+\end_inset
+
+轴运动，由四维势变换
+\begin_inset Formula $A_{\mu}=a_{\nu\mu}A_{\nu}^{\prime}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\varphi/c\\
+A_{\ssl}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & +\gamma\beta\\
++\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+\varphi^{\prime}/c\\
+A_{\ssl}^{\prime}
+\end{array}\right)
+\]
+
+\end_inset
+
+得
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系中的电磁势为
+\begin_inset Formula 
+\[
+A_{\ssl}=\gamma\beta\varphi^{\prime}/c,\quad\varphi=\gamma\varphi^{\prime},\quad A_{\perp}=0.
+\]
+
+\end_inset
+
+下标
+\begin_inset Formula $\ssl$
+\end_inset
+
+表示与运动方向平行的分量，
+\begin_inset Formula $\perp$
+\end_inset
+
+表示垂直分量。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+由
+\begin_inset Formula $F_{\mu\nu}^{\prime}=\Lambda_{\mu}^{\phantom{\mu}\rho}\Lambda_{\nu}^{\phantom{\mu}\sigma}F_{\rho\sigma}$
+\end_inset
+
+的变换关系可得电磁场的变换关系，这里使用逆变换。与运动方向平行的分量，其变换为：
+\begin_inset Formula 
+\[
+\sbf E_{\ssl}^{\prime}=\sbf E_{\ssl},\quad\sbf B_{\ssl}^{\prime}=\sbf B_{\ssl},
+\]
+
+\end_inset
+
+垂直分量的变换为：
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\sbf E/c\\
+\sbf B
+\end{array}\right)_{\perp}=\left[\left(\begin{array}{cc}
+\gamma & +\gamma\sbf\beta\times\\
++\gamma\sbf\beta\times & \gamma
+\end{array}\right)\left(\begin{array}{c}
+\sbf E^{\prime}/c\\
+\sbf B^{\prime}
+\end{array}\right)\right]_{\perp}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系观察到的电磁场为，
+\begin_inset Formula 
+\begin{align*}
+ & \sbf E_{\ssl}=\sbf E_{\ssl}^{\prime},\quad\sbf B_{\ssl}=0\\
+ & \sbf E_{\perp}=\gamma\sbf E_{\perp}^{\prime},\quad\sbf B_{\perp}=\gamma\left(\frac{\sbf v}{c^{2}}\times\sbf E_{\perp}^{\prime}\right)
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

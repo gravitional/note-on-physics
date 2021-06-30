@@ -43,8 +43,8 @@
 \setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
 \setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
 %设置数学字体
-\usepackage{unicode-math}
-\setmathfont{STIX Math}
+\usepackage{unicode-math}%在其他字体包如amsmath之后调用
+\setmathfont{latinmodern-math.otf}
 %开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
 % DejaVu Math TeX Gyre,  Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
 % TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
@@ -101,6 +101,7 @@
 \DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
 \newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 %%%+++++++++++++++++++++++++++++++
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,aspectratio=141

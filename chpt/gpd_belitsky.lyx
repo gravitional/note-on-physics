@@ -38,7 +38,7 @@
 \setmonofont{Latin Modern Roman}
 %设置数学字体
 \usepackage{unicode-math}
-\setmathfont{Latin Modern Math}
+\setmathfont{latinmodern-math.otf}
 %开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
 % DejaVu Math TeX Gyre, Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
 % TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
@@ -74,6 +74,7 @@
 \newcommand*{\Dif}{\mathop{}\!\mathrm{D}}%泛函变分
 \newcommand{\cola}[1]{{\color{blue}{#1}}} %颜色
 \newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 %%%+++++++++++++++++++++++++++++++
 \usepackage{listings}
 % 在LaTex中添加代码高亮
@@ -5720,7 +5721,7 @@ p=\gamma mv
 \end_inset
 
 是归一化的，
-\begin_inset Formula $\vec{s}_{\parallel}=\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert},\vec{s}_{\perp}=\vec{s}-\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}$
+\begin_inset Formula $\vec{s}_{\ssl}=\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert},\vec{s}_{\perp}=\vec{s}-\frac{\vec{s}\cdot\vec{p}}{\lvert\vec{p}\rvert}\frac{\vec{p}}{\lvert\vec{p}\rvert}$
 \end_inset
 
 ，矢量

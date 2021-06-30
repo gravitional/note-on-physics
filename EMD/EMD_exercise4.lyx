@@ -44,8 +44,8 @@
 \setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
 \setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
 %设置数学字体
-\usepackage{unicode-math}
-\setmathfont{STIX Math}
+\usepackage{unicode-math}%在其他字体包如amsmath之后调用
+\setmathfont{latinmodern-math.otf}
 %开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
 % DejaVu Math TeX Gyre,  Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
 % TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
@@ -102,6 +102,7 @@
 \DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
 \newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 %%%+++++++++++++++++++++++++++++++
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,aspectratio=141
@@ -678,7 +679,7 @@ status open
 平行于入射面偏振时：
 \begin_inset Formula 
 \[
-\frac{E_{\parallel}^{\prime}}{E_{\parallel}}=\frac{\tan\left(\theta-\theta^{\prime\prime}\right)}{\tan\left(\theta+\theta^{\prime\prime}\right)},\quad\frac{E_{\parallel}^{\prime\prime}}{E_{\parallel}}=\frac{2\cos\theta\sin\theta^{\prime\prime}}{\sin\left(\theta+\theta^{\prime\prime}\right)\cos\left(\theta-\theta^{\prime\prime}\right)},
+\frac{E_{\ssl}^{\prime}}{E_{\ssl}}=\frac{\tan\left(\theta-\theta^{\prime\prime}\right)}{\tan\left(\theta+\theta^{\prime\prime}\right)},\quad\frac{E_{\ssl}^{\prime\prime}}{E_{\ssl}}=\frac{2\cos\theta\sin\theta^{\prime\prime}}{\sin\left(\theta+\theta^{\prime\prime}\right)\cos\left(\theta-\theta^{\prime\prime}\right)},
 \]
 
 \end_inset
@@ -688,7 +689,7 @@ status open
 \end_inset
 
 时，反射波的平行分量
-\begin_inset Formula $E_{\parallel}^{\prime}=0$
+\begin_inset Formula $E_{\ssl}^{\prime}=0$
 \end_inset
 
 ，只剩下垂直偏振分量，此时的入射角称为
@@ -1199,7 +1200,7 @@ k_{x}^{2}+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu\varepsilon
 \end_inset
 
 平面的
-\begin_inset Formula $E_{\parallel}=0$
+\begin_inset Formula $E_{\ssl}=0$
 \end_inset
 
 迫使
