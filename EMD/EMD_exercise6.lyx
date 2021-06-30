@@ -2128,22 +2128,112 @@ status open
 得：
 \begin_inset Formula 
 \begin{align*}
-\omega/c & =\gamma^{2}\left(1+\beta^{2}\right)\omega_{0}/c+2\gamma^{2}\beta w_{0}/c\cos\theta_{0}\\
-w/c\cos\theta & =2\gamma^{2}\beta\omega_{0}/c+\gamma^{2}\left(1+\beta^{2}\right)w_{0}/c\cos\theta_{0}
+\omega & =\omega_{0}\gamma^{2}\left(1+\beta^{2}\right)+w_{0}2\gamma^{2}\beta\cos\theta_{0}\\
+w\cos\theta & =\omega_{0}2\gamma^{2}\beta+w_{0}\gamma^{2}\left(1+\beta^{2}\right)\cos\theta_{0}
 \end{align*}
 
 \end_inset
 
-
+解得：
 \begin_inset Formula 
 \begin{align*}
-\omega & =\omega_{0}\gamma^{2}\left(1+\beta^{2}+2\beta\cos\theta_{0}\right)\\
-\cos\theta & =\frac{2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}}{1+\beta^{2}+2\beta\cos\theta_{0}}
+\omega & =\gamma^{2}\omega_{0}\left(1+\beta^{2}+2\beta\cos\theta_{0}\right)\\
+\cos\theta & =\frac{2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}}{1+\beta^{2}+2\beta\cos\theta_{0}}\approx\cos\theta_{0}+2\beta\sin^{2}\theta_{0}+O\left(\beta^{2}\right)\\
+\tan\theta & =\frac{\sin\theta_{0}}{\gamma^{2}\left[2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}\right]}\approx\tan\theta_{0}-2\beta\tan\theta_{0}\sec\theta_{0}+O\left(\beta^{2}\right)\\
+\theta & =\theta_{0}-2\beta\sin\left(\theta_{0}\right)+\beta^{2}\sin\left(2\theta_{0}\right)+O\left(\beta^{3}\right)
 \end{align*}
 
 \end_inset
 
 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Series[(2 
+\backslash
+[Beta] + (1 + 
+\backslash
+[Beta]^2) Cos[Subscript[
+\backslash
+[Theta], 0]])/( 1 + 
+\backslash
+[Beta]^2 + 2 
+\backslash
+[Beta]*Cos[Subscript[
+\backslash
+[Theta], 0]]), {
+\backslash
+[Beta], 0, 2}] // Simplify
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Series[((1 - 
+\backslash
+[Beta]^2) Sin[Subscript[
+\backslash
+[Theta], 0]])/(2 
+\backslash
+[Beta] + (1 + 
+\backslash
+[Beta]^2) Cos[Subscript[
+\backslash
+[Theta], 0]]), {
+\backslash
+[Beta], 0, 2}] // Simplify
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Assuming[
+\backslash
+[Pi]/2 > Subscript[
+\backslash
+[Theta], 0] > 0, Simplify[Series[ ArcTan[((1 - 
+\backslash
+[Beta]^2) Sin[Subscript[
+\backslash
+[Theta], 0]])/(2 
+\backslash
+[Beta] + (1 + 
+\backslash
+[Beta]^2) Cos[Subscript[
+\backslash
+[Theta], 0]])], {
+\backslash
+[Beta], 0, 2}]]]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+垂直入射对应
+\begin_inset Formula $\theta_{0}=0$
+\end_inset
+
+，代入得到
+\begin_inset Formula $\theta=0$
+\end_inset
+
+，
+\begin_inset Formula $\omega=\omega_{0}\frac{\left(1+\beta\right)^{2}}{1-\beta^{2}}=\omega_{0}\frac{c+v}{c-v}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
@@ -2167,6 +2257,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 电偶极子
 \begin_inset Formula $\sbf p_{0}$
 \end_inset
@@ -2194,6 +2286,26 @@ status open
 。
 \end_layout
 
+\begin_layout Frame
+解：在
+\begin_inset Formula $\sbf p_{0}$
+\end_inset
+
+静止的参考系
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+中，仅观察到它的标势
+\begin_inset Formula $\varphi^{\prime}$
+\end_inset
+
+，或电场
+\begin_inset Formula $\sbf E^{\prime}$
+\end_inset
+
+：
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2215,6 +2327,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 有一沿
 \begin_inset Formula $z$
 \end_inset
@@ -2271,6 +2385,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 有一无限长均匀带电直线，在其静止参考系中线电荷密度为
 \begin_inset Formula $\lambda$
 \end_inset
@@ -2292,14 +2408,20 @@ status open
 
 \begin_deeper
 \begin_layout Enumerate
+
+\color blue
 在带电静止系中确定力，然后用四维力变换公式。
 \end_layout
 
 \begin_layout Enumerate
+
+\color blue
 直接计算线电荷和线电流作用在运动电荷上的电磁力。
 \end_layout
 
 \begin_layout Enumerate
+
+\color blue
 答案：
 \begin_inset Formula $\sbf F=\frac{\lambda q}{2\pi\varepsilon_{0}d\gamma}$
 \end_inset
@@ -2330,6 +2452,8 @@ status open
 
 \begin_deeper
 \begin_layout Enumerate
+
+\color blue
 设
 \begin_inset Formula $E$
 \end_inset
@@ -2383,6 +2507,8 @@ status open
 \end_layout
 
 \begin_layout Enumerate
+
+\color blue
 某光源发出的光束在两个惯性系中与
 \begin_inset Formula $x$
 \end_inset
@@ -2428,6 +2554,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 考虑一个质量为
 \begin_inset Formula $m_{1}$
 \end_inset
@@ -2444,6 +2572,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 求动量中心相对于实验室系的速度
 \begin_inset Formula $\beta_{c}$
 \end_inset
@@ -2452,10 +2582,14 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 求动量中心参考系中每个粒子的动量、能量及总能量；
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 已知电子静止质量
 \begin_inset Formula $m_{e}c^{2}=\SI{0.511}{\MeV}$
 \end_inset
@@ -2492,6 +2626,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 利用洛伦兹变换，试确定粒子在互相垂直的均匀电场
 \begin_inset Formula $E\sbf e_{x}$
 \end_inset
@@ -2528,6 +2664,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 已知
 \begin_inset Formula $t=0$
 \end_inset
@@ -2592,6 +2730,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 动量为
 \begin_inset Formula $\hbar\sbf k$
 \end_inset
