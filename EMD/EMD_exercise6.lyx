@@ -481,27 +481,14 @@ status open
 \end_layout
 
 \begin_layout Frame
-我们引入自然单位制度，令
-\begin_inset Formula $c=1$
-\end_inset
-
-。
-\begin_inset Formula $\beta=v/c\rightarrow v$
-\end_inset
-
-，
-\begin_inset Formula $\gamma=1/\sqrt{1-v^{2}}$
-\end_inset
-
-。
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
 t^{\prime}\\
 x^{\prime}
 \end{array}\right)=\left(\begin{array}{cc}
-\gamma & -\gamma v\\
--\gamma v & \gamma
+\gamma & -\gamma\beta_{v}\\
+-\gamma\beta_{v} & \gamma
 \end{array}\right)\left(\begin{array}{c}
 t\\
 x
@@ -531,9 +518,9 @@ z
 得：
 \begin_inset Formula 
 \begin{align*}
-u_{x}^{\prime} & =\frac{u_{x}-v}{1-vu_{x}}=\gamma_{uv}\left(u_{x}-v\right)\\
-u_{y}^{\prime} & =\frac{\sqrt{1-v^{2}}}{1-vu_{x}}u_{y}=\frac{\gamma_{uv}}{\gamma_{v}}u_{y}\\
-u_{z}^{\prime} & =\frac{\sqrt{1-v^{2}}}{1-vu_{x}}u_{z}=\frac{\gamma_{uv}}{\gamma_{v}}u_{z}
+u_{x}^{\prime} & =\frac{u_{x}-v}{1-vu_{x}/c^{2}}=\gamma_{uv}\left(u_{x}-v\right)\\
+u_{y}^{\prime} & =\frac{\sqrt{1-v^{2}/c^{2}}}{1-vu_{x}/c^{2}}u_{y}=\frac{\gamma_{uv}}{\gamma_{v}}u_{y}\\
+u_{z}^{\prime} & =\frac{\sqrt{1-v^{2}/c^{2}}}{1-vu_{x}/c^{2}}u_{z}=\frac{\gamma_{uv}}{\gamma_{v}}u_{z}
 \end{align*}
 
 \end_inset
@@ -541,7 +528,7 @@ u_{z}^{\prime} & =\frac{\sqrt{1-v^{2}}}{1-vu_{x}}u_{z}=\frac{\gamma_{uv}}{\gamma
 其中：
 \begin_inset Formula 
 \[
-\gamma_{uv}=\frac{1}{1-uv},\quad\gamma_{v}=\frac{1}{\sqrt{1-v^{2}}}
+\gamma_{uv}=\frac{1}{1-\beta_{u}\beta_{v}},\quad\gamma_{v}=\frac{1}{\sqrt{1-\beta_{v}^{2}}}
 \]
 
 \end_inset
@@ -1432,27 +1419,22 @@ status open
 \end_inset
 
 。
-\end_layout
-
-\begin_layout Frame
-解：
-\begin_inset Formula 
-\[
-\left(\begin{array}{c}
-\Delta ct^{\prime}\\
-\Delta x^{\prime}
-\end{array}\right)=\left(\begin{array}{cc}
-\gamma & -\gamma\beta\\
--\gamma\beta & \gamma
-\end{array}\right)\left(\begin{array}{c}
-\Delta ct\\
-\Delta x
-\end{array}\right)
-\]
-
+\begin_inset space \space{}
 \end_inset
 
 
+\begin_inset Formula $\text{塔}-----\text{高达}-----\text{塔}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Frame
+解：洛伦兹变换是线性的，变换矩阵依赖于速度
+\begin_inset Formula $v$
+\end_inset
+
+，但不依赖于坐标：
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
@@ -1462,7 +1444,28 @@ c\Delta t^{\prime}\\
 \gamma & -\gamma\beta\\
 -\gamma\beta & \gamma
 \end{array}\right)\left(\begin{array}{c}
-\ell_{0}\\
+c\Delta t\\
+\Delta x
+\end{array}\right)
+\]
+
+\end_inset
+
+由光速不变，光同时到达两边的铁塔，两铁塔之间的距离是
+\begin_inset Formula $2\ell_{0}$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+c\Delta t^{\prime}\\
+\Delta x^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma\beta\\
+-\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+0\\
 2\ell_{0}
 \end{array}\right)
 \]
@@ -1472,12 +1475,12 @@ c\Delta t^{\prime}\\
 
 \begin_inset Formula 
 \[
-c\Delta t^{\prime}=\gamma2\ell_{0}\left(1-\beta\right)\Rightarrow\Delta t^{\prime}=\gamma\frac{\ell_{0}\left(1-2\beta\right)}{c}
+c\Delta t^{\prime}=\gamma2\ell_{0}\left(1-\beta\right)\Rightarrow\Delta t^{\prime}=\gamma\frac{-2\beta\ell_{0}}{c}=\frac{-\gamma2v\ell_{0}}{c^{2}}
 \]
 
 \end_inset
 
-
+说明光先到达后面的塔。在不同的参考系中，“同时”是相对的。
 \end_layout
 
 \begin_layout Standard
@@ -1501,6 +1504,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 有一光源S与接受器R相对静止，距离为
 \begin_inset Formula $\ell_{0}$
 \end_inset
@@ -1514,10 +1519,14 @@ status open
 
 \begin_deeper
 \begin_layout Enumerate
+
+\color blue
 液体介质相对于S–R装置静止。
 \end_layout
 
 \begin_layout Enumerate
+
+\color blue
 液体沿着S–R连线方向以速度
 \begin_inset Formula $v$
 \end_inset
@@ -1526,6 +1535,8 @@ status open
 \end_layout
 
 \begin_layout Enumerate
+
+\color blue
 液体垂直于S–R连线方向以速度
 \begin_inset Formula $v$
 \end_inset
@@ -1533,7 +1544,164 @@ status open
 流动。
 \end_layout
 
+\begin_layout Standard
+解：液体静止时，
+\begin_inset Formula 
+\[
+\Delta t=\frac{\ell_{0}}{u_{x}}=\frac{\ell_{0}}{c/n}.
+\]
+
+\end_inset
+
+当液体沿着S–R连线方向运动时，在液体静止的参考系
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+中光速
+\begin_inset Formula $u_{x}^{\prime}=c/n$
+\end_inset
+
+，
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系中光速及讯号传播时间用逆变换求出：
+\begin_inset Formula 
+\begin{align*}
+u_{x} & =\frac{u_{x}^{\prime}+v}{1+vu_{x}^{\prime}/c^{2}}=\frac{\left(c+nv\right)}{n+v/c}\approx\frac{c}{n}+v-\frac{v^{2}}{nc}\\
+\Delta t & =\frac{\ell_{0}}{u_{x}}=\frac{\ell_{0}\left(nc+v\right)}{c\left(c+nv\right)}\approx\frac{\ell_{0}}{v}\left[1+\frac{1}{n}\frac{v}{c}-\left(\frac{v}{c}\right)^{2}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\color blue
+讨论垂直方向：
+\color inherit
+如果在旧坐标系
+\begin_inset Formula $u_{x}=0$
+\end_inset
+
+，作
+\begin_inset Formula $v_{x}$
+\end_inset
+
+ boost 之后的速度，
+\begin_inset Formula 
+\[
+u_{x}^{\prime}=\frac{u_{x}-v_{x}}{1-v_{x}u_{x}/c}=-v_{x}
+\]
+
+\end_inset
+
+我们假设实验室系中，光在
+\begin_inset Formula $y$
+\end_inset
+
+轴方向速度为零。由于液体介质沿
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系的
+\begin_inset Formula $y$
+\end_inset
+
+轴正方向流动，我们作
+\begin_inset Formula $v_{y}$
+\end_inset
+
+ boost 来到液体静止系
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+，光在
+\begin_inset Formula $y$
+\end_inset
+
+方向上的速度为
+\begin_inset Formula $-v$
+\end_inset
+
+，总光速为
+\begin_inset Formula $u^{\prime}=c/n$
+\end_inset
+
+，所以光在
+\begin_inset Formula $x$
+\end_inset
+
+方向速度为，
+\begin_inset Formula 
+\[
+u_{x}^{\prime}=\sqrt{\left(\frac{c}{n}\right)^{2}-v^{2}}
+\]
+
+\end_inset
+
+因此传播需要的时间为
+\begin_inset Formula 
+\[
+\Delta t^{\prime}=\frac{\ell_{0}}{u_{x}^{\prime}}=\frac{n\ell_{0}}{\sqrt{c^{2}-\left(nv\right)^{2}}}
+\]
+
+\end_inset
+
+再沿
+\begin_inset Formula $y$
+\end_inset
+
+方向作
+\begin_inset Formula $-v$
+\end_inset
+
+ boost 回到实验室系。
+\begin_inset Formula $y$
+\end_inset
+
+方向boost不影响
+\begin_inset Formula $x$
+\end_inset
+
+方向的运动，
+\begin_inset Formula $\Delta x=\Delta x^{\prime}$
+\end_inset
+
+。只需要考虑钟慢效应：
+\begin_inset Formula 
+\[
+\Delta t=\Delta t^{\prime}/\gamma=\frac{n\ell_{0}\sqrt{1-\left(v/c\right)^{2}}}{\sqrt{c^{2}-\left(nv\right)^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -1555,6 +1723,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 一把直尺相对于
 \begin_inset Formula $\Sigma$
 \end_inset
@@ -1586,6 +1756,34 @@ status open
 有何变化？
 \end_layout
 
+\begin_layout Frame
+解：在直尺静止系中，
+\begin_inset Formula 
+\[
+\tan\theta=\frac{\Delta y}{\Delta x}
+\]
+
+\end_inset
+
+在运动的观察者看来，尺子的长度分量为
+\begin_inset Formula 
+\[
+\Delta x^{\prime}=\Delta x/\gamma,\quad\Delta y^{\prime}=\Delta y
+\]
+
+\end_inset
+
+因此有
+\begin_inset Formula 
+\[
+\tan\theta^{\prime}=\frac{\Delta y^{\prime}}{\Delta x^{\prime}}=\gamma\tan\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -1607,6 +1805,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 两个惯性系
 \begin_inset Formula $\Sigma$
 \end_inset
@@ -1650,6 +1850,56 @@ status open
 系中何处的时钟相遇时，指示的时刻相同？读数是多少？
 \end_layout
 
+\begin_layout Frame
+解：沿
+\begin_inset Formula $x$
+\end_inset
+
+方向的坐标变换为，
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+ct^{\prime}\\
+x^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma\beta\\
+-\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+ct\\
+x
+\end{array}\right)
+\]
+
+\end_inset
+
+两坐标系时间相等即，
+\begin_inset Formula 
+\[
+ct^{\prime}=\gamma\left(ct-\beta x\right)=ct
+\]
+
+\end_inset
+
+化简得到，
+\begin_inset Formula 
+\[
+x=\frac{\gamma-1}{\gamma\beta}ct>0
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula 
+\begin{align*}
+ & x^{\prime}=\frac{1-\gamma}{\gamma\beta}ct,\quad t^{\prime}=t\\
+ & x^{\prime}=-x\quad t^{\prime}=t=\frac{\gamma\beta x}{\gamma-1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -1671,6 +1921,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
 一平面镜以速度
 \begin_inset Formula $v$
 \end_inset
@@ -1692,6 +1944,206 @@ status open
 \end_inset
 
 。垂直入射情况如何？
+\end_layout
+
+\begin_layout Frame
+解：设镜子沿着
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系的
+\begin_inset Formula $x$
+\end_inset
+
+轴正方向以速度
+\begin_inset Formula $v$
+\end_inset
+
+运动。镜面垂直于运动方向。
+\begin_inset Formula $+v$
+\end_inset
+
+ boost 到镜子的静止系中，入射波频率为
+\begin_inset Formula $\omega^{\prime}$
+\end_inset
+
+，入射角为
+\begin_inset Formula $\theta_{i}^{\prime}$
+\end_inset
+
+。由反射定律，
+\begin_inset Formula $\theta_{r}^{\prime}=\theta_{i}^{\prime}$
+\end_inset
+
+，所以入射波矢
+\begin_inset Formula $\sbf k_{i}^{\prime}$
+\end_inset
+
+和反射波矢
+\begin_inset Formula $\sbf k_{r}^{\prime}$
+\end_inset
+
+的
+\begin_inset Formula $x$
+\end_inset
+
+分量分别为
+\begin_inset Formula 
+\[
+k_{ix}^{\prime}=-\frac{\omega^{\prime}}{c}\cos\theta_{i}^{\prime},\quad k_{rx}^{\prime}=\frac{\omega^{\prime}}{c}\cos\theta_{i}^{\prime},
+\]
+
+\end_inset
+
+在
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系中，观察到入射频率为
+\begin_inset Formula $\omega_{0}$
+\end_inset
+
+，入射角为
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+，反射波频率为
+\begin_inset Formula $\omega$
+\end_inset
+
+，反射角为
+\begin_inset Formula $\theta$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\left(\begin{array}{c}
+\omega/c\\
+k_{rx}
+\end{array}\right) & =\left(\begin{array}{cc}
+\gamma & +\gamma\beta\\
++\gamma\beta & \gamma
+\end{array}\right){\color{blue}\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)}\left(\begin{array}{cc}
+\gamma & -\gamma\beta\\
+-\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+\omega_{0}/c\\
+-k_{0x}
+\end{array}\right)\\
+\left(\begin{array}{c}
+\omega/c\\
+k_{rx}
+\end{array}\right) & =\left(\begin{array}{cc}
+\gamma^{2}\left(1+\beta^{2}\right) & -2\gamma^{2}\beta\\
+2\gamma^{2}\beta & -\gamma^{2}\left(1+\beta^{2}\right)
+\end{array}\right)\left(\begin{array}{c}
+\omega_{0}/c\\
+-k_{0x}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+( { {
+\backslash
+[Gamma], 
+\backslash
+[Gamma]*
+\backslash
+[Beta]}, {
+\backslash
+[Gamma]*
+\backslash
+[Beta], 
+\backslash
+[Gamma]} } ) .
+ ( { {1, 0}, {0, -1} } ) .
+ ( { {
+\backslash
+[Gamma], -
+\backslash
+[Gamma]*
+\backslash
+[Beta]}, {-
+\backslash
+[Gamma]*
+\backslash
+[Beta], 
+\backslash
+[Gamma]} } ) // TableForm
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\omega/c & =\gamma^{2}\left(1+\beta^{2}\right)\omega_{0}/c+2\gamma^{2}\beta k_{0x}\\
+k_{rx} & =2\gamma^{2}\beta\omega_{0}/c+\gamma^{2}\left(1+\beta^{2}\right)k_{0x}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+由
+\begin_inset Formula $k_{rx}=w/c\cos\theta$
+\end_inset
+
+，
+\begin_inset Formula $k_{0x}=w_{0}/c\cos\theta_{0}$
+\end_inset
+
+得：
+\begin_inset Formula 
+\begin{align*}
+\omega/c & =\gamma^{2}\left(1+\beta^{2}\right)\omega_{0}/c+2\gamma^{2}\beta w_{0}/c\cos\theta_{0}\\
+w/c\cos\theta & =2\gamma^{2}\beta\omega_{0}/c+\gamma^{2}\left(1+\beta^{2}\right)w_{0}/c\cos\theta_{0}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\omega & =\omega_{0}\gamma^{2}\left(1+\beta^{2}+2\beta\cos\theta_{0}\right)\\
+\cos\theta & =\frac{2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}}{1+\beta^{2}+2\beta\cos\theta_{0}}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
