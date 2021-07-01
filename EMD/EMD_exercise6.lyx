@@ -3593,7 +3593,7 @@ x=x^{\prime}/\gamma
 
 \begin_inset Formula 
 \[
-\phi=\arctan\frac{y}{x},\quad\theta=\arccos\frac{z}{\sqrt{x^{2}+y^{2}}}
+\phi=\arctan\frac{y}{x},\quad\theta=\arccos\frac{z}{\sqrt{x^{2}+y^{2}+z^{2}}}
 \]
 
 \end_inset
@@ -3601,7 +3601,15 @@ x=x^{\prime}/\gamma
 
 \begin_inset Formula 
 \[
-\phi=\arctan\left(\gamma\tan\phi^{\prime}\right),\quad\cos\theta=\frac{\cos\theta^{\prime}}{\sqrt{\sin\theta^{\prime,2}\cos^{2}\phi^{\prime}/\gamma^{2}+\sin\theta^{\prime,2}\sin^{2}\phi^{\prime}+\cos\theta^{\prime,2}}}
+\phi=\arctan\left(\gamma\tan\phi^{\prime}\right),\quad\cos\theta=\frac{\gamma}{\sqrt{\gamma^{2}+\tan^{2}\theta^{\prime,2}+\beta^{2}\gamma^{2}\sin^{2}\theta^{\prime,2}\sin\phi^{\prime,2}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma^{2}\left(1-\beta^{2}\right)=1\Rightarrow\frac{\gamma^{2}-1}{\gamma^{2}}=\beta^{2},\quad\tan^{2}\theta^{\prime,2}=\frac{1-\cos\theta^{\prime,2}}{\cos\theta^{\prime,2}}
 \]
 
 \end_inset
@@ -3621,6 +3629,14 @@ x=x^{\prime}/\gamma
 \begin_inset Formula 
 \[
 \frac{2\sqrt{2-2\beta^{2}}}{\left(\beta^{2}\left(\text{x\ensuremath{\prime}}^{2}-1\right)\cos(2\phi\prime)+\beta^{2}\left(\text{x\ensuremath{\prime}}^{2}-1\right)+2\right)^{3/2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{x-\beta}{1-\beta x}\prime=\frac{1}{\gamma^{2}\left(1-\beta x\right)^{2}}
 \]
 
 \end_inset
@@ -3807,6 +3823,456 @@ status open
 ）内的运动规律，设粒子初速度为零。
 \end_layout
 
+\begin_layout Frame
+解：
+\begin_inset Formula $cB<E$
+\end_inset
+
+，即粒子的初速度
+\begin_inset Formula $u=c^{2}B/E<c$
+\end_inset
+
+，沿
+\begin_inset Formula $z$
+\end_inset
+
+轴作速度为
+\begin_inset Formula $u$
+\end_inset
+
+的boost，
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\sbf E_{\perp}^{\prime}/c\\
+\sbf B_{\perp}^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma_{u} & \gamma_{u}\sbf\beta\times\\
+-\gamma\sbf\beta\times & \gamma_{u}
+\end{array}\right)\left(\begin{array}{c}
+\sbf E_{\perp}/c\\
+\sbf B_{\perp}
+\end{array}\right)
+\]
+
+\end_inset
+
+现处于粒子的静止系中，
+\begin_inset Formula 
+\begin{align*}
+ & \sbf B_{\perp}^{\prime}=-\gamma\frac{1}{E}EB\sbf e_{y}+\gamma B\sbf e_{y}=0\\
+ & \sbf E_{\perp}^{\prime}=\gamma_{u}E\sbf e_{x}-\gamma_{u}uB\sbf e_{x}=\gamma_{u}\left(E-uB\right)\sbf e_{x}=E/\gamma_{u}\sbf e_{x}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\gamma_{u}=1/\sqrt{1-u^{2}/c^{2}}$
+\end_inset
+
+，
+\begin_inset Formula $B=Eu/c^{2}$
+\end_inset
+
+。在
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+系中，粒子只在
+\begin_inset Formula $x^{\prime}$
+\end_inset
+
+方向受电场力，
+\begin_inset Formula $y^{\prime},z^{\prime}$
+\end_inset
+
+方向保持静止。
+\begin_inset Formula 
+\[
+\frac{\dif p_{x}}{\dif t^{\prime}}=qE_{x}^{\prime}\Rightarrow\frac{\dif}{\dif t^{\prime}}\frac{mv}{\sqrt{1-\alpha^{2}/c^{2}}}=q\frac{E}{\gamma_{u}},
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\alpha=v^{\prime}\left(t\right)$
+\end_inset
+
+是
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+系中粒子的速度，
+\begin_inset Formula $m$
+\end_inset
+
+是粒子的静止质量。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.22
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif t^{\prime}}\frac{v}{\sqrt{c^{2}-\alpha^{2}}}=\frac{q}{mc}\frac{E}{\gamma_{u}}
+\]
+
+\end_inset
+
+两边同时微分得，
+\begin_inset Formula 
+\[
+\frac{\sqrt{c^{2}-\alpha^{2}}}{\left(c^{2}-\alpha^{2}\right)^{2}}\dif\alpha=\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}\dif t^{\prime}
+\]
+
+\end_inset
+
+做变量代换
+\begin_inset Formula 
+\begin{align*}
+ & h=\sqrt{c^{2}-\alpha^{2}},\quad\alpha=\sqrt{c^{2}-h^{2}}\\
+ & \dif h=\frac{-\alpha}{h}\dif\alpha,\quad\dif\alpha=\frac{-h\dif h}{\sqrt{c^{2}-h^{2}}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $t=0$
+\end_inset
+
+时，
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+，对两边积分得，
+\begin_inset Formula 
+\[
+\int_{c}^{\sqrt{c^{2}-\alpha_{0}^{2}}}\frac{-h^{-2}}{\sqrt{c^{2}-h^{2}}}\dif h=\int_{0}^{t_{0}}\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}\dif t^{\prime}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.22
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+积分得到：
+\begin_inset Formula 
+\[
+\left.\frac{\sqrt{c^{2}-h^{2}}}{c^{2}h}\right|_{c}^{\sqrt{c^{2}-\alpha_{0}^{2}}}=\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}t_{0}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\alpha_{0}}{\sqrt{c^{2}-\alpha_{0}^{2}}}=\frac{q}{mc}\frac{E}{\gamma_{u}}t_{0}\equiv at_{0},\quad a=\frac{q}{mc}\frac{E}{\gamma_{u}}
+\]
+
+\end_inset
+
+这里的
+\begin_inset Formula $\alpha_{0}\left(t_{0}\right)$
+\end_inset
+
+即
+\begin_inset Formula $v\left(t\right)$
+\end_inset
+
+。为得到
+\begin_inset Formula $x\left(t\right)$
+\end_inset
+
+，对
+\begin_inset Formula $v\left(t\right)$
+\end_inset
+
+进行积分，初始坐标为
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+x\left(t\right)=\int_{0}^{t}\sqrt{\frac{a^{2}c^{2}w^{2}}{1+a^{2}w^{2}}}\dif w=\frac{c}{a}\left(\sqrt{1+a^{2}t^{2}}-1\right)
+\]
+
+\end_inset
+
+整理记号，得到
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+系中
+\begin_inset Formula $x^{\prime}$
+\end_inset
+
+的表达式：
+\begin_inset Formula 
+\[
+x^{\prime}\left(t\right)=\frac{mc^{2}}{q}\frac{\gamma_{u}}{E}\left[\sqrt{1+\left(\frac{q}{mc}\frac{E}{\gamma_{u}}t^{\prime}\right)^{2}}-1\right],\quad y^{\prime}=0,\quad z^{\prime}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.23
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+x^{\prime}\left(t\right)=\frac{mc^{2}}{q}\frac{\gamma_{u}}{E}\left[\sqrt{1+\left(\frac{q}{mc}\frac{E}{\gamma_{u}}t^{\prime}\right)^{2}}-1\right],\quad y^{\prime}=0,\quad z^{\prime}=0.
+\]
+
+\end_inset
+
+设
+\begin_inset Formula $t=0$
+\end_inset
+
+时刻，粒子位于
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系原点。进行
+\begin_inset Formula $z$
+\end_inset
+
+轴的逆boost，
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+ct\\
+z
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & +\gamma\beta\\
++\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+ct^{\prime}\\
+z^{\prime}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x=\frac{mc^{2}}{qE}\gamma_{u}\left[\sqrt{1+\left(\frac{q}{mc}\frac{E}{\gamma_{u}^{2}}t\right)^{2}}-1\right],\quad y=0,\quad z=ut
+\]
+
+\end_inset
+
+即
+\begin_inset Formula $x-z$
+\end_inset
+
+平面的抛射线，这是因为
+\begin_inset Formula $\sbf E\perp\sbf B$
+\end_inset
+
+且
+\begin_inset Formula $E>cB$
+\end_inset
+
+，粒子受到的电力大于磁力。
+\begin_inset Formula 
+\[
+x\stackrel{\beta\to0,t\to0}{\approx}\xi ct^{2}\left[\frac{1}{2}-\frac{3}{4}\beta^{2}+\frac{3}{16}\beta^{4}\right]+O\left(t^{4},\beta^{6}\right),\quad\xi=\frac{qE}{mc}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Series[ 
+\backslash
+[Gamma]* c/
+\backslash
+[Xi] (Sqrt[1 + (
+\backslash
+[Xi]/
+\backslash
+[Gamma]^2*t)^2] - 1) /.
+ {
+\backslash
+[Gamma] -> 1/Sqrt[1 - 
+\backslash
+[Beta]^2]}, {
+\backslash
+[Beta], 0, 4}, {t, 0, 3} ] // Together
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.23
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(0,3)$) {相对论轨迹对比经典理论中的抛物线轨迹：};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(0,-1)$) {
+\backslash
+includegraphics[scale=.8]{exer6_trajectory}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+c = 1; a = 1; u = 0.5; 
+\backslash
+[Gamma]u = 1/Sqrt[1 - u^2]; tea = ParametricPlot[ { {u*t, c/a (Sqrt[1 +
+ (a/
+\backslash
+[Gamma]u*t)^2] - 1)}, {u*t, 1/2 a c t^2} }, {t, 0, 1}, AxesLabel -> {"z",
+ "x"}, PlotLabels -> {"Relativistic", "Classic"}, ImageSize -> {400, 320}
+ ] Export["C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+qingz
+\backslash
+
+\backslash
+note
+\backslash
+
+\backslash
+EMD
+\backslash
+
+\backslash
+exer6_trajectory.pdf", tea]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -3893,7 +4359,8 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 
 \color blue
 动量为
@@ -3939,5 +4406,86 @@ status open
 为电子的静止质量。
 \end_layout
 
+\begin_layout Standard
+解：
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+\sqrt{p^{\prime,2}+m^{2}c^{4}}/c\\
+p^{\prime}\cos\alpha\\
+p^{\prime}\sin\alpha
+\end{array}\right]+\left[\begin{array}{c}
+\hbar k^{\prime}\\
+\hbar k^{\prime}\cos\theta\\
+-\hbar k^{\prime}\sin\theta
+\end{array}\right]=\left[\begin{array}{c}
+mc\\
+0\\
+0
+\end{array}\right]+\left[\begin{array}{c}
+\hbar k\\
+\hbar k\\
+0
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sqrt{p^{\prime,2}+m^{2}c^{4}}+\hbar ck^{\prime} & =mc^{2}+\hbar ck\\
+p^{\prime,2} & =\left(k^{\prime}\sin\theta\right)^{2}+\left(k-k^{\prime}\cos\theta\right)^{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+k^{\prime}=\frac{k}{1+\frac{\hbar k}{mc}\left(1-\cos\theta\right)},\quad\omega^{\prime}=\frac{\omega}{1+\frac{\hbar\omega}{mc^{2}}\left(1-\cos\theta\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Solve[{ (p
+\backslash
+[Prime]^2 + m^2) == (m + k - k
+\backslash
+[Prime])^2, p
+\backslash
+[Prime]^2 == ( k
+\backslash
+[Prime])^2 (1 - C
+\backslash
+[Theta]^2) + ( k - k
+\backslash
+[Prime]*C
+\backslash
+[Theta])^2, 0 <= C
+\backslash
+[Theta] <= 1, m > 0, p
+\backslash
+[Prime] > 0 }, {k
+\backslash
+[Prime], p
+\backslash
+[Prime]}, Reals ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
