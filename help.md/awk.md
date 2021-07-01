@@ -31,9 +31,7 @@ AWK 执行的流程非常简单：读( Read )、执行（ Execute )与重复( Re
 + 主体块（Body Block）`/pattern/ {awk-commands}`
 + 结束块（END Block）`END {awk-commands}`
 
-开始块和结束块需要大写，它们是可选的。
-
-默认情况下，对于输入的每一行，`AWK` 都会很执行命令。但是，我们可以将其限定在指定的模式中。 注意，在主体块部分没有关键字存在。
+开始块和结束块需要大写，它们是可选的。默认情况下，对于输入的每一行，`AWK` 都会很执行命令。但是，我们可以将其限定在指定的模式中。 注意，在主体块部分没有关键字存在。
 
 ### 例子
 
@@ -58,7 +56,7 @@ awk 'BEGIN{printf "Sr No\tName\tSub\tMarks\n"} {print}' marks.txt
 ## awk 基本示例
 
 ***
-默认情况下，如果某行与模式串匹配，AWK 会将整行输出：
+默认情况下，如果某行与模式串匹配，`AWK` 会将整行输出：
 
 ```bash
 awk '/a/ {print $0}' marks.txt

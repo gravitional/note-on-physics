@@ -2414,6 +2414,8 @@ FileNameJoin[{$InstallationDirectory, "Executables", "WolframKernel"}]
 
 [https://mathematica.stackexchange.com/questions/240037/slicevectorplot3d-example-code-gives-empty-plot#](https://mathematica.stackexchange.com/questions/240037/slicevectorplot3d-example-code-gives-empty-plot#)
 
+`mathematica`3D 渲染选项.
+
 测试下面的方法：
 
 ```mathematica

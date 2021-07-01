@@ -14,7 +14,7 @@
 \setbeamercovered{transparent}
 %%++++++++++++++++++++++++++++++++
 \usepackage{fontspec}
-\usepackage[slantfont, boldfont]{xeCJK}% 没有这个会无法实现中文断行
+\usepackage[slantfont,boldfont]{xeCJK}% 没有这个会无法实现中文断行
 \usepackage{esint} %使用Computer Modern字体时,esint软件包增加额外的积分符号，例如\oiint.
 \usepackage{amsmath,amsfonts} % 数学字体
 \usepackage{amsbsy} %产生粗体数学符号, 通过宏\boldsymbol 使用
@@ -27,32 +27,12 @@
 \usepackage{bm,bbm} %\bm 让参数变成粗体, \bbm Computer Modern fonts 的黑板体
 \usepackage{tikz} % 画图库
 \usetikzlibrary{calc} %计算功能
-%%++++++++++++++++++++++++++++++++++++
-\usepackage{simplewick} 
+%\usepackage{simplewick} 
 % a simple means of drawing Wick contractions above and below expressions. 
 \usepackage{makeidx} 
 % Standard package for creating indexes
 \usepackage{multirow}
-\usepackage{mathtools}% 定义配对的数学符号
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}
-% % 设置英文字体
-\setmainfont{Latin Modern Roman}
-\setsansfont{Latin Modern Sans}
-\setmonofont{Latin Modern Roman}
-% 设置中文字体
-\setCJKmainfont[Mapping=tex-text]{Noto Serif CJK SC}
-\setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
-\setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
-%设置数学字体
-\usepackage{unicode-math}%在其他字体包如amsmath之后调用
-\setmathfont{latinmodern-math.otf}
-%开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
-% DejaVu Math TeX Gyre,  Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
-% TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
-%%++++++++++++++++++++++++++++++++++++++++
-% \usepackage{mathspec} %这个包也能改字体，但是跟 fontspec 好像冲突
-% \setmathsfont(Digits,Latin,Greek){Latin Modern Math}
-% \setmathrm{Latin Modern Roman}
+%Create tabular cells spanning multiple rows
 %%++++++++++++++++++++++++++++++++++++++++
 \usepackage{eso-pic} %用来在每个页面的固定位置加上图片
 \usepackage{hyperref,graphicx,xcolor} %超链接，图形包，图片
@@ -95,15 +75,38 @@
     tabsize=2
 }
 %%++++++++++++++++++++++++++++++++++++++
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\diag}{diag} %对角矩阵
 \DeclareMathOperator{\res}{Res} %复变函数的留数
 \DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
+\DeclareMathOperator{\sign}{Sign}
 \DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
 \newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
 \newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
-%%%+++++++++++++++++++++++++++++++
+%%++++++++++++++++++++++++++++++++++++
+% % 设置英文字体
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Roman}
+% 设置中文字体
+\setCJKmainfont[Mapping=tex-text]{Noto Serif CJK SC}
+\setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
+\setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
+%设置数学字体
+\usepackage{unicode-math}%在其他字体包如amsmath之后调用
+\setmathfont{latinmodern-math.otf}
+%开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
+% DejaVu Math TeX Gyre,  Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
+% TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
+%%++++++++++++++++++++++++++++++++++++++++
+% \usepackage{mathspec} %这个包也能改字体，但是跟 fontspec 好像冲突
+% \setmathsfont(Digits,Latin,Greek){Latin Modern Math}
+% \setmathrm{Latin Modern Roman}
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,aspectratio=141
 \use_default_options true
@@ -1385,15 +1388,15 @@ A^{3,}
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
-\sbf E^{\prime}/c\\
-\sbf B^{\prime}
-\end{array}\right)_{\perp}=\left[\left(\begin{array}{cc}
-\gamma & -\gamma\sbf\beta\times\\
+\sbf E_{\perp}^{\prime}/c\\
+\sbf B_{\perp}^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & \gamma\sbf\beta\times\\
 -\gamma\sbf\beta\times & \gamma
 \end{array}\right)\left(\begin{array}{c}
-\sbf E/c\\
-\sbf B
-\end{array}\right)\right]_{\perp}
+\sbf E_{\perp}/c\\
+\sbf B_{\perp}
+\end{array}\right)
 \]
 
 \end_inset
@@ -2629,20 +2632,24 @@ status open
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
-\sbf E/c\\
-\sbf B
-\end{array}\right)_{\perp}=\left[\left(\begin{array}{cc}
-\gamma & +\gamma\sbf\beta\times\\
+\sbf E_{\perp}/c\\
+\sbf B_{\perp}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma\sbf\beta\times\\
 +\gamma\sbf\beta\times & \gamma
 \end{array}\right)\left(\begin{array}{c}
-\sbf E^{\prime}/c\\
-\sbf B^{\prime}
-\end{array}\right)\right]_{\perp}
+\sbf E_{\perp}^{\prime}/c\\
+\sbf B_{\perp}^{\prime}
+\end{array}\right)
 \]
 
 \end_inset
 
+代入
+\begin_inset Formula $\sbf B=0$
+\end_inset
 
+，
 \begin_inset Formula $\Sigma$
 \end_inset
 
@@ -2656,6 +2663,79 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+此外还需考虑场点的变换。设
+\begin_inset Formula $t=0$
+\end_inset
+
+两坐标系原点重合，在
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系中，源点和场点的
+\begin_inset Formula $\Delta t=0$
+\end_inset
+
+，代入坐标变换：
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+c\Delta t^{\prime}\\
+\Delta x^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma\beta\\
+-\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+c\Delta t\\
+\Delta x
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+R^{\prime}=\sqrt{\gamma^{2}x^{2}+y^{2}+z^{2}},\quad\sbf R^{\prime}=\gamma x\sbf e_{x}+y\sbf e_{y}+z\sbf e_{z}.
+\]
+
+\end_inset
+
+单位矢量
+\begin_inset Formula $\sbf e_{x}$
+\end_inset
+
+，
+\begin_inset Formula $\sbf e_{y}$
+\end_inset
+
+，
+\begin_inset Formula $\sbf e_{z}$
+\end_inset
+
+在洛伦兹boost下不变。
 \end_layout
 
 \begin_layout Standard
@@ -2686,7 +2766,7 @@ status open
 \end_inset
 
 轴方向螺旋进动的静磁场
-\begin_inset Formula $\sbf B=\sbf B_{0}\left(\cos k_{m}z\sbf e_{x}+\sin k_{m}z\sbf e_{y}\right)$
+\begin_inset Formula $\sbf B=B_{0}\left(\cos k_{m}z\sbf e_{x}+\sin k_{m}z\sbf e_{y}\right)$
 \end_inset
 
 ，其中
@@ -2714,8 +2794,209 @@ status open
 \end_inset
 
 的圆偏振电磁波。
+\begin_inset Formula $\left(x,y,z\right)$
+\end_inset
+
+
 \end_layout
 
+\begin_layout Frame
+解：在
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系中
+\begin_inset Formula $\sbf B_{\ssl}=\sbf B_{z}=0$
+\end_inset
+
+，且
+\begin_inset Formula $\sbf E=0$
+\end_inset
+
+，所以在运动参考系
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+中观察到的电磁场为
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\sbf E_{\perp}^{\prime}/c\\
+\sbf B_{\perp}^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & +\gamma\sbf\beta\times\\
+-\gamma\sbf\beta\times & \gamma
+\end{array}\right)\left(\begin{array}{c}
+\sbf E_{\perp}/c\\
+\sbf B_{\perp}
+\end{array}\right),\quad E_{\ssl}^{\prime}=0,\quad B_{\ssl}^{\prime}=0.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sbf E_{\perp}^{\prime} & =\gamma\sbf v\times\sbf B_{\perp}=\gamma\beta cB_{0}\left(\cos k_{m}z\sbf e_{y}-\sin k_{m}z\sbf e_{x}\right),\\
+\sbf B_{\perp}^{\prime} & =\gamma\sbf B_{\perp}=\gamma B_{0}\left(\cos k_{m}z\sbf e_{x}+\sin k_{m}z\sbf e_{y}\right).
+\end{align*}
+
+\end_inset
+
+利用指数映射
+\begin_inset Formula $\cos x\to\re\left[e^{ix}\right],\sin x\to\re\left[-ie^{ix}\right]$
+\end_inset
+
+，可以将
+\begin_inset Formula $\sbf E$
+\end_inset
+
+，
+\begin_inset Formula $\sbf B$
+\end_inset
+
+写成复数的形式，
+\begin_inset Formula 
+\[
+\sbf E^{\prime}=\gamma\beta cB_{0}\left(i\sbf e_{x}+\sbf e_{y}\right)e^{ik_{m}^{\prime}z^{\prime}},\quad\sbf B_{\perp}^{\prime}=\frac{-\sbf e_{z}}{\beta c}\times\sbf E_{\perp}^{\prime}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.15
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+k = 10; amp = 1; tea = Show[ Join[Table[ z2 = z1 + 0.4; ParametricPlot3D[{-(z
+ - z1) Sin[k*z2]/(z2 - z1), (z - z1)* Cos[k*z2]/(z2 - z1), z}, {z, z1, z2},
+ PlotStyle -> Green ], {z1, {0, 0.5, 1, 1.5, 2.5, 3.5, 4.5}} ], { ParametricPlot3D[am
+p*{-Sin[k*z], Cos[k*z], z}, {z, 0, 5}, PlotStyle -> {Blue, Opacity[.2]} ],
+ ParametricPlot3D[{0, 0, z}, {z, 0, 5}, PlotStyle -> {Red, Opacity[.8]}]
+ } ], PlotRange -> Full, Axes -> False, Boxed -> False, ImageSize -> {100,
+ 200} ] Export["/home/tom/note/EMD/exer6_cichang.pdf", tea]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+在
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系中磁场不随时间变化，
+\begin_inset Formula $k^{\mu}=\left(0,k_{m}\right)$
+\end_inset
+
+，
+\begin_inset Formula $k^{\mu}k_{\mu}=-k_{m}^{2}<0$
+\end_inset
+
+。物理的光子总满足
+\begin_inset Formula $k^{\mu}k_{\mu}=0$
+\end_inset
+
+，说明问题中的电磁场不代表真实的光子。代入波矢的变换关系，
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\omega^{\prime}/c\\
+k_{m}^{\prime}
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma\beta\\
+-\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+\omega/c\\
+k_{m}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+k^{\prime\mu}=\left(-\gamma\beta k_{m},\gamma k_{m}\right)
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $\beta\approx1$
+\end_inset
+
+时，
+\begin_inset Formula $k^{\prime\mu}\approx\left(-\gamma k_{m},\gamma k_{m}\right)$
+\end_inset
+
+，
+\begin_inset Formula $\omega^{\prime}=-c\gamma k_{m}$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+e^{ik^{\prime\mu}x_{\mu}^{\prime}}\to e^{-i\gamma k_{m}\left(ct+z\right)}.
+\]
+
+\end_inset
+
+它相当于一列频率为
+\begin_inset Formula $\omega^{\prime}=c\gamma k_{m}$
+\end_inset
+
+，沿着负
+\begin_inset Formula $z$
+\end_inset
+
+轴方向传播的圆偏振波。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(5,-1)$) {
+\backslash
+includegraphics[scale=.5]{exer6_cichang}};
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
