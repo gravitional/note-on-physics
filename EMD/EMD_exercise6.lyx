@@ -1086,7 +1086,7 @@ status open
 
 \end_inset
 
-得：
+
 \end_layout
 
 \begin_layout Itemize
@@ -1144,6 +1144,26 @@ status open
 \begin_layout Itemize
 能量动量守恒：
 \begin_inset Formula $f^{\nu}=\partial_{\mu}T^{\mu\nu}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+可以构造两个不变量：
+\begin_inset Formula $\frac{1}{2}F_{\mu\nu}F^{\mu\nu}=B^{2}-E^{2}/c^{2}$
+\end_inset
+
+，
+\begin_inset Formula $\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}/8=\sbf B\cdot\sbf E$
+\end_inset
+
+。真空中的平面电磁波在任意惯性系中都满足
+\begin_inset Formula $\abs*{\sbf E}=\abs*{\sbf B}c$
+\end_inset
+
+，
+\begin_inset Formula $\sbf B\perp\sbf E$
 \end_inset
 
 。
@@ -2011,11 +2031,22 @@ status open
 \end_inset
 
 
+\bar under
+
+\begin_inset CommandInset href
+LatexCommand href
+name "直尺夹角"
+target "https://wx2.sinaimg.cn/mw1024/c4587b00gy1gs31hup5gqg20f707zdng.gif"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Frame
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Assuming[0 < 
@@ -2029,6 +2060,42 @@ Assuming[0 <
 [Theta]]], {
 \backslash
 [Beta], 0, 5}] // Simplify // TrigReduce ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+teh[x_, 
+\backslash
+[Theta]_, 
+\backslash
+[Beta]_] := {Tan[
+\backslash
+[Theta]] x, 
+\backslash
+[Gamma]* Tan[
+\backslash
+[Theta]] x} /.
+ {
+\backslash
+[Gamma] -> Sqrt[1 - 
+\backslash
+[Beta]^2]^-1}; tea = Table[ Plot[Evaluate[teh[x, 
+\backslash
+[Pi]/6, 
+\backslash
+[Beta]]], {x, 0, 1}, PlotRange -> {{0, 1}, {0, 1}}, PlotLegends -> {"Static",
+ "Boost"}], {
+\backslash
+[Beta], 0.01, 1, .02}]; Export["/home/tom/test/exer6_rule.gif", tea, AnimationRepet
+itions -> Infinity]
 \end_layout
 
 \end_inset
@@ -2302,7 +2369,7 @@ k_{rx}
 
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 ( { {
@@ -2399,7 +2466,7 @@ w\cos\theta & =\omega_{0}2\gamma^{2}\beta+w_{0}\gamma^{2}\left(1+\beta^{2}\right
 
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Series[(2 
@@ -2422,8 +2489,11 @@ Series[(2
 \end_inset
 
 
+\end_layout
+
+\begin_layout Frame
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Series[((1 - 
@@ -2444,8 +2514,11 @@ Series[((1 -
 \end_inset
 
 
+\end_layout
+
+\begin_layout Frame
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Assuming[
@@ -2486,6 +2559,125 @@ Assuming[
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Frame
+
+\bar under
+\begin_inset CommandInset href
+LatexCommand href
+name "随着 beta 的变化"
+target "https://wx3.sinaimg.cn/mw690/c4587b00gy1gs322o8roqg20eo07j423.gif"
+literal "false"
+
+\end_inset
+
+
+\bar default
+，
+\bar under
+
+\begin_inset CommandInset href
+LatexCommand href
+name "随着入射角的变化"
+target "https://wx3.sinaimg.cn/mw690/c4587b00gy1gs322rnf6mg20eo07j44b.gif"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+tep[x_, 
+\backslash
+[Theta]_, 
+\backslash
+[Beta]_] := {Tan[-
+\backslash
+[Theta]] x, Sin[
+\backslash
+[Theta]]/(
+\backslash
+[Gamma]^2 (2 
+\backslash
+[Beta] + (1 + 
+\backslash
+[Beta]^2) 
+\backslash
+ Cos[
+\backslash
+[Theta]])) x} /.
+ {
+\backslash
+[Gamma] -> Sqrt[1 - 
+\backslash
+[Beta]^2]^-1}; tea = Table[Plot[Evaluate[tep[x, 
+\backslash
+[Pi]/3, 
+\backslash
+[Beta]]], {x, 0, 1}, PlotRange -> {{0, 1}, {-1, 1}}, PlotLegends -> {"in",
+ "out"}], {
+\backslash
+[Beta], 0.01, 1, 1/30}]; Export["/home/tom/test/exer6_fanshe.gif", tea, AnimationR
+epetitions -> Infinity]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+tep[x_, 
+\backslash
+[Theta]_, 
+\backslash
+[Beta]_] := {Tan[-
+\backslash
+[Theta]] x, Sin[
+\backslash
+[Theta]]/(
+\backslash
+[Gamma]^2 (2 
+\backslash
+[Beta] + (1 + 
+\backslash
+[Beta]^2) 
+\backslash
+ Cos[
+\backslash
+[Theta]])) x} /.
+ {
+\backslash
+[Gamma] -> Sqrt[1 - 
+\backslash
+[Beta]^2]^-1}; tea = Table[Plot[Evaluate[tep[x, 
+\backslash
+[Theta], .2]], {x, 0, 1}, PlotRange -> {{0, 1}, {-1, 1}}, PlotLegends ->
+ {"in", "out"}], {
+\backslash
+[Theta], 
+\backslash
+[Pi]/2.1, 0.01 
+\backslash
+[Pi], -0.01*
+\backslash
+[Pi]}]; Export["/home/tom/test/exer6_fanshe2.gif", tea, AnimationRepetitions
+ -> Infinity]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3678,7 +3870,7 @@ status open
 所以
 \begin_inset Formula 
 \[
-\dif\Omega^{\prime}=\frac{1}{\gamma^{2}\left(1-\beta\cos\theta\right)^{2}}\dif\Omega
+\dif\Omega^{\prime}=\frac{1}{\gamma^{2}\left(1-\beta\cos\theta\right)^{2}}\dif\Omega,\quad\dif\Omega=\frac{1}{\gamma^{2}\left(1+\beta\cos\theta\right)^{2}}\dif\Omega^{\prime}
 \]
 
 \end_inset
@@ -3691,45 +3883,20 @@ status open
 status open
 
 \begin_layout Plain Layout
-
+tea = Det[D[{
 \backslash
-text{Simplify}
+[Phi], (x - 
 \backslash
-left[
+[Beta])/(1 - 
 \backslash
-left| 
+[Beta] x)}, {{
 \backslash
-frac{
+[Phi], x}}]] // Simplify; tea /.
+ {
 \backslash
-partial }{
+[Gamma] -> 1/Sqrt[1 - 
 \backslash
-partial 
-\backslash
-{
-\backslash
-phi ,x
-\backslash
-}}
-\backslash
-left
-\backslash
-{
-\backslash
-phi ,
-\backslash
-frac{x-
-\backslash
-beta }{1-
-\backslash
-beta x}
-\backslash
-right
-\backslash
-}
-\backslash
-right| 
-\backslash
-right]
+[Beta]^2]} // Simplify
 \end_layout
 
 \end_inset
@@ -3760,11 +3927,7 @@ status open
 
 \begin_deeper
 \begin_layout Standard
-如果考虑的不是光束的变换，而是静止系立体角
-\begin_inset Formula $\dif\Omega=\dif\cos\theta\dif\phi$
-\end_inset
-
-的变换：
+如果考虑的分布不是光束，而是静止系统，例如电荷密度：
 \begin_inset Formula $x$
 \end_inset
 
@@ -3876,8 +4039,8 @@ status open
 \backslash
 tikz[remember picture, overlay] 
 \backslash
-node[anchor=center] at ($(current page.center)+(0,+3.5)$) {两种变换立体角的比较:左边为光束，右边为静止系
-立体角};
+node[anchor=center] at ($(current page.center)+(0,+3.5)$) {两种情况下，体系分布的变换:左边为光束分布，右
+边为静止分布};
 \end_layout
 
 \end_inset
@@ -3895,7 +4058,7 @@ status open
 \backslash
 tikz[remember picture, overlay] 
 \backslash
-node[anchor=center] at ($(current page.center)+(-3,+0)$) {
+node[anchor=center] at ($(current page.center)+(-3.2,+0)$) {
 \backslash
 includegraphics[scale=.7]{exer6_angle1}};
 \end_layout
@@ -3915,9 +4078,9 @@ status open
 \backslash
 tikz[remember picture, overlay] 
 \backslash
-node[anchor=center] at ($(current page.center)+(+3,0)$) {
+node[anchor=center] at ($(current page.center)+(+3.2,0)$) {
 \backslash
-includegraphics[scale=.5]{exer6_angle2}};
+includegraphics[scale=.7]{exer6_angle2}};
 \end_layout
 
 \end_inset
@@ -3936,14 +4099,14 @@ teh[
 \backslash
 [Beta]_] := {1, 1/(
 \backslash
-[Gamma]^2 (1 - 
+[Gamma]^2 (1 + 
 \backslash
 [Beta]*Cos[
 \backslash
 [Theta]])^2)} /.
  {
 \backslash
-[Gamma] -> 1/ Sqrt[1 - 
+[Gamma] -> 1/Sqrt[1 - 
 \backslash
 [Beta]^2]}; tea = PolarPlot[Evaluate[teh[
 \backslash
@@ -3951,8 +4114,8 @@ teh[
 \backslash
 [Theta], 0, 2 
 \backslash
-[Pi]}, PlotLabels -> {"Classic", "Relavistic"}] Export["/home/tom/note/EMD/exer6
-_angle1.pdf", tea]
+[Pi]}, PlotLabels -> {"Static", "Boost"}]; Export["/home/tom/note/EMD/exer6_angl
+e1.pdf", tea]
 \end_layout
 
 \end_inset
@@ -3971,27 +4134,25 @@ teh[
 \backslash
 [Beta]_] := {1, 
 \backslash
-[Gamma]/(1 + 
+[Gamma]^-1 (1 - 
 \backslash
-[Beta]^2 
+[Beta]^2 Cos[
 \backslash
-[Gamma]^2 
+ 
 \backslash
- Cos[
-\backslash
-[Theta]]^2)^(3/2)} /.
+[Theta]]^2)^(-3/2)} /.
  {
 \backslash
-[Gamma] -> 1/Sqrt[1 - 
+[Gamma] -> Sqrt[1 - 
 \backslash
-[Beta]^2]}; tea = PolarPlot[Evaluate[teh[
+[Beta]^2]^-1}; tea = PolarPlot[Evaluate[teh[
 \backslash
 [Theta], .8]], {
 \backslash
 [Theta], 0, 2 
 \backslash
-[Pi]}, PlotLabels -> {"Classic", "Relavistic"}] Export["/home/tom/note/EMD/exer6
-_angle2.pdf", tea]
+[Pi]}, PlotLabels -> {"Static", "Boost"}]; Export["/home/tom/note/EMD/exer6_angl
+e2.pdf", tea]
 \end_layout
 
 \end_inset
@@ -4176,13 +4337,13 @@ status open
 方向保持静止。
 \begin_inset Formula 
 \[
-\frac{\dif p_{x}}{\dif t^{\prime}}=qE_{x}^{\prime}\Rightarrow\frac{\dif}{\dif t^{\prime}}\frac{mv}{\sqrt{1-\alpha^{2}/c^{2}}}=q\frac{E}{\gamma_{u}},
+\frac{\dif p_{x}}{\dif t^{\prime}}=qE_{x}^{\prime}\Rightarrow\frac{\dif}{\dif t^{\prime}}\frac{mv^{\prime}}{\sqrt{1-v^{\prime2}/c^{2}}}=q\frac{E}{\gamma_{u}},
 \]
 
 \end_inset
 
 
-\begin_inset Formula $\alpha=v^{\prime}\left(t\right)$
+\begin_inset Formula $v^{\prime}\left(t\right)$
 \end_inset
 
 是
@@ -4219,7 +4380,7 @@ status open
 \begin_layout Frame
 \begin_inset Formula 
 \[
-\frac{\dif}{\dif t^{\prime}}\frac{v}{\sqrt{c^{2}-\alpha^{2}}}=\frac{q}{mc}\frac{E}{\gamma_{u}}
+\dif\frac{v^{\prime}}{\sqrt{c^{2}-v^{\prime2}}}=\frac{q}{mc}\frac{E}{\gamma_{u}}\dif t^{\prime}
 \]
 
 \end_inset
@@ -4227,17 +4388,32 @@ status open
 两边同时微分得，
 \begin_inset Formula 
 \[
-\frac{\sqrt{c^{2}-\alpha^{2}}}{\left(c^{2}-\alpha^{2}\right)^{2}}\dif\alpha=\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}\dif t^{\prime}
+\frac{\sqrt{c^{2}-v^{\prime2}}}{\left(c^{2}-v^{\prime2}\right)^{2}}\dif v^{\prime}=\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}\dif t^{\prime}
 \]
 
 \end_inset
 
 做变量代换
+\begin_inset Formula $v^{\prime}=c\cos\theta$
+\end_inset
+
+，
+\begin_inset Formula $\theta=\arccos\frac{v^{\prime}}{c}$
+\end_inset
+
+，
+\begin_inset Formula $\dif v^{\prime}=-c\sin\theta\dif\theta$
+\end_inset
+
+，
+\begin_inset Formula $\dif\theta=\frac{-\dif v^{\prime}}{\sqrt{c^{2}-v^{\prime2}}}$
+\end_inset
+
+得：
 \begin_inset Formula 
-\begin{align*}
- & h=\sqrt{c^{2}-\alpha^{2}},\quad\alpha=\sqrt{c^{2}-h^{2}}\\
- & \dif h=\frac{-\alpha}{h}\dif\alpha,\quad\dif\alpha=\frac{-h\dif h}{\sqrt{c^{2}-h^{2}}}
-\end{align*}
+\[
+-c^{-2}\sin\left[\theta\right]^{-2}\dif\theta=\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}\dif t^{\prime}
+\]
 
 \end_inset
 
@@ -4246,13 +4422,17 @@ status open
 \end_inset
 
 时，
-\begin_inset Formula $\alpha=0$
+\begin_inset Formula $v^{\prime}=0$
 \end_inset
 
-，对两边积分得，
+，
+\begin_inset Formula $\theta=\pi/2$
+\end_inset
+
+。对两边积分得，
 \begin_inset Formula 
 \[
-\int_{c}^{\sqrt{c^{2}-\alpha_{0}^{2}}}\frac{-h^{-2}}{\sqrt{c^{2}-h^{2}}}\dif h=\int_{0}^{t_{0}}\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}\dif t^{\prime}
+-\int_{\pi/2}^{\arccos v^{\prime}/c}\sin\left[\theta\right]^{-2}\dif\theta=\int_{0}^{t^{\prime}}\frac{q}{mc}\frac{E}{\gamma_{u}}\dif t
 \]
 
 \end_inset
@@ -4281,59 +4461,62 @@ status open
 \end_layout
 
 \begin_layout Frame
+使用公式
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif\theta}\cot\theta=-\left(1+\cot\left[\theta\right]^{2}\right)=-\sin\left[\theta\right]^{-2}
+\]
+
+\end_inset
+
 积分得到：
-\begin_inset Formula 
-\[
-\left.\frac{\sqrt{c^{2}-h^{2}}}{c^{2}h}\right|_{c}^{\sqrt{c^{2}-\alpha_{0}^{2}}}=\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}t_{0}
-\]
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-Integrate[c Sin[
+\backslash
+[Theta]]^-2, {
+\backslash
+[Theta], 
+\backslash
+[Pi]/2, a}, Assumptions -> 0 < a < 
+\backslash
+[Pi]/2] /.
+ a -> ArcCos[v/c]
+\end_layout
 
 \end_inset
 
 
 \begin_inset Formula 
 \[
-\frac{\alpha_{0}}{\sqrt{c^{2}-\alpha_{0}^{2}}}=\frac{q}{mc}\frac{E}{\gamma_{u}}t_{0}\equiv at_{0},\quad a=\frac{q}{mc}\frac{E}{\gamma_{u}}
+\frac{v^{\prime}}{\sqrt{c^{2}-v^{\prime2}}}=\frac{q}{mc}\frac{E}{\gamma_{u}}t^{\prime},\quad\text{令}\;a=\frac{q}{mc}\frac{E}{\gamma_{u}}
 \]
 
 \end_inset
 
-这里的
-\begin_inset Formula $\alpha_{0}\left(t_{0}\right)$
-\end_inset
-
-即
-\begin_inset Formula $v\left(t\right)$
-\end_inset
-
-。为得到
-\begin_inset Formula $x\left(t\right)$
+为了得到
+\begin_inset Formula $x^{\prime}\left(t^{\prime}\right)$
 \end_inset
 
 ，对
-\begin_inset Formula $v\left(t\right)$
+\begin_inset Formula $v^{\prime}\left(t^{\prime}\right)$
 \end_inset
 
 进行积分，初始坐标为
-\begin_inset Formula $x=0$
+\begin_inset Formula $x^{\prime}=0$
 \end_inset
 
 .
 \begin_inset Formula 
 \[
-x\left(t\right)=\int_{0}^{t}\sqrt{\frac{a^{2}c^{2}w^{2}}{1+a^{2}w^{2}}}\dif w=\frac{c}{a}\left(\sqrt{1+a^{2}t^{2}}-1\right)
+x^{\prime}\left(t^{\prime}\right)=\int_{0}^{t^{\prime}}\frac{act}{\sqrt{1+a^{2}t^{2}}}\dif t=\frac{c}{a}\left(\sqrt{1+a^{2}t^{\prime2}}-1\right)
 \]
 
 \end_inset
 
-整理记号，得到
-\begin_inset Formula $\Sigma^{\prime}$
-\end_inset
-
-系中
-\begin_inset Formula $x^{\prime}$
-\end_inset
-
-的表达式：
+即
 \begin_inset Formula 
 \[
 x^{\prime}\left(t\right)=\frac{mc^{2}}{q}\frac{\gamma_{u}}{E}\left[\sqrt{1+\left(\frac{q}{mc}\frac{E}{\gamma_{u}}t^{\prime}\right)^{2}}-1\right],\quad y^{\prime}=0,\quad z^{\prime}=0.
@@ -4356,7 +4539,7 @@ x^{\prime}\left(t\right)=\frac{mc^{2}}{q}\frac{\gamma_{u}}{E}\left[\sqrt{1+\left
 status open
 
 \begin_layout Plain Layout
-6.23
+6.22
 \end_layout
 
 \end_inset
@@ -4385,6 +4568,14 @@ x^{\prime}\left(t\right)=\frac{mc^{2}}{q}\frac{\gamma_{u}}{E}\left[\sqrt{1+\left
 \end_inset
 
 轴的逆boost，
+\begin_inset Formula $z$
+\end_inset
+
+轴boost 不影响
+\begin_inset Formula $x,y$
+\end_inset
+
+：
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
@@ -4404,12 +4595,12 @@ z^{\prime}
 
 \begin_inset Formula 
 \[
-x=\frac{mc^{2}}{qE}\gamma_{u}\left[\sqrt{1+\left(\frac{q}{mc}\frac{E}{\gamma_{u}^{2}}t\right)^{2}}-1\right],\quad y=0,\quad z=ut
+x\left(t\right)=\frac{mc^{2}}{qE}\gamma_{u}\left[\sqrt{1+\left(\frac{q}{mc}\frac{E}{\gamma_{u}^{2}}t\right)^{2}}-1\right],\quad y=0,\quad z=ut
 \]
 
 \end_inset
 
-即
+即轨迹是
 \begin_inset Formula $x-z$
 \end_inset
 
@@ -4424,7 +4615,7 @@ x=\frac{mc^{2}}{qE}\gamma_{u}\left[\sqrt{1+\left(\frac{q}{mc}\frac{E}{\gamma_{u}
 ，粒子受到的电力大于磁力。
 \begin_inset Formula 
 \[
-x\stackrel{\beta\to0,t\to0}{\approx}\xi ct^{2}\left[\frac{1}{2}-\frac{3}{4}\beta^{2}+\frac{3}{16}\beta^{4}\right]+O\left(t^{4},\beta^{6}\right),\quad\xi=\frac{qE}{mc}
+x\left(t\right)\stackrel{\beta\to0,t\to0}{\approx}\alpha t^{2}\left[\frac{1}{2}-\frac{3}{4}\beta^{2}+\frac{3}{16}\beta^{4}\right]+O\left(t^{4},\beta^{6}\right),\quad\alpha=\frac{qE}{m}
 \]
 
 \end_inset
@@ -4434,7 +4625,7 @@ x\stackrel{\beta\to0,t\to0}{\approx}\xi ct^{2}\left[\frac{1}{2}-\frac{3}{4}\beta
 
 \begin_layout Frame
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Series[ 
@@ -4472,7 +4663,7 @@ Series[
 status open
 
 \begin_layout Plain Layout
-6.23
+6.22
 \end_layout
 
 \end_inset
@@ -4491,7 +4682,8 @@ status open
 \backslash
 tikz[remember picture, overlay] 
 \backslash
-node[anchor=center] at ($(current page.center)+(0,3)$) {相对论轨迹对比经典理论中的抛物线轨迹：};
+node[anchor=center] at ($(current page.center)+(0,3)$) {相对论轨迹 v.s.
+ 经典理论轨迹：};
 \end_layout
 
 \end_inset
@@ -4520,8 +4712,22 @@ includegraphics[scale=.8]{exer6_trajectory}};
 \end_layout
 
 \begin_layout Standard
+
+\bar under
+\begin_inset CommandInset href
+LatexCommand href
+name "运动轨迹"
+target "https://wx3.sinaimg.cn/mw1024/c4587b00ly1gs32bwinbpg20hk0b678x.gif"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 c = 1; a = 1; u = 0.5; 
@@ -4552,6 +4758,27 @@ EMD
 
 \backslash
 exer6_trajectory.pdf", tea]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+c = 1; a = 1; u = 0.5; 
+\backslash
+[Gamma]u = Sqrt[1 - u^2]^-1; tea = Table[ ParametricPlot[{{u*t, c/a (Sqrt[1
+ + (a/
+\backslash
+[Gamma]u*t)^2] - 1)}, {u*t, 1/2 a c t^2}}, {t, 0, t0}, PlotRange -> {{0,
+ 0.5}, {0, 0.52}}, AxesLabel -> {"z", "x"}, PlotLegends -> {"Relativistic",
+ "Classic"}, ImageSize -> {400, 320}], {t0, 0.01, 1, 1/30}]; Export["/home/tom/te
+st/exer6_paoshe.gif", tea, AnimationRepetitions -> Infinity]
 \end_layout
 
 \end_inset
@@ -4624,6 +4851,18 @@ status open
 \end_inset
 
 各自所受的力。如何解释两力不是等值反向？
+\end_layout
+
+\begin_layout Frame
+解：
+\begin_inset Formula 
+\[
+\sbf F_{21}=q_{1}\sbf E_{2}=-\frac{q_{1}q_{2}}{4\pi\varepsilon_{0}y_{0}^{2}}\sbf e_{y}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4795,6 +5034,10 @@ aaa
 \end_layout
 
 \begin_layout Frame
+dsfds
+\end_layout
+
+\begin_layout Frame
 \begin_inset Note Note
 status open
 
@@ -4811,20 +5054,25 @@ teh[
 \backslash
 [Theta]]/
 \backslash
-[Gamma] , Sin[
+[Gamma], Sin[
 \backslash
 [Theta]]}} /.
  {
 \backslash
 [Gamma] -> 1/Sqrt[1 - 
 \backslash
-[Beta]^2]}; ParametricPlot[Evaluate[teh[
+[Beta]^2]}; tea = Table[ParametricPlot[ Evaluate[teh[
 \backslash
-[Theta], .9]], {
+[Theta], 
+\backslash
+[Beta]]], {
 \backslash
 [Theta], 0, 2 
 \backslash
-[Pi]}, PlotLabels -> {"Classic", "Relavistic"}]
+[Pi]}, PlotLegends -> {"Classic", "Relavistic"}], {
+\backslash
+[Beta], .01, 1, 1/30}]; Export["/home/tom/test/exer6_gamma.gif", tea, AnimationRep
+etitions -> Infinity]
 \end_layout
 
 \end_inset
@@ -4847,7 +5095,7 @@ teh[
 \backslash
 [Theta]]}, 
 \backslash
-[Gamma] t {( u*Cos[
+[Gamma] t {(u*Cos[
 \backslash
 [Theta]] - 
 \backslash
@@ -4855,27 +5103,27 @@ teh[
 \backslash
 [Beta]*Cos[
 \backslash
-[Theta]]), ( u*Sin[
+[Theta]]), (u*Sin[
 \backslash
-[Theta]] Sqrt[ 1 - 
+[Theta]] 
 \backslash
-[Beta]^2])/(1 - u*
+[Gamma]^-1)/(1 - u*
 \backslash
 [Beta]*Cos[
 \backslash
 [Theta]])}} /.
  {
 \backslash
-[Gamma] -> 1/Sqrt[1 - 
+[Gamma] -> Sqrt[1 - 
 \backslash
-[Beta]^2]}; Animate[ ParametricPlot[ Evaluate[teh[
+[Beta]^2]^-1}; Animate[ ParametricPlot[ Evaluate[teh[
 \backslash
 [Theta], .3, .6, t]], {
 \backslash
 [Theta], 0, 
 \backslash
-[Pi]}, PlotRange -> {{-5, 5}, {-3, 3}}, PlotLegends -> {"Static", "boost"}]
- , {t, 0, 5} ]
+[Pi]}, PlotRange -> {{-5, 5}, {-3, 3}}, PlotLegends -> {"Static", "boost"}],
+ {t, 0, 5}]
 \end_layout
 
 \end_inset
@@ -4904,21 +5152,21 @@ teq[
 \backslash
 [Gamma] u t Cos[
 \backslash
-[Theta]] , u t Sin[
+[Theta]], u t Sin[
 \backslash
 [Theta]]}} /.
  {
 \backslash
-[Gamma] -> 1/Sqrt[1 - 
+[Gamma] -> Sqrt[1 - 
 \backslash
-[Beta]^2]}; Animate[ ParametricPlot[ Evaluate[teq[
+[Beta]^2]^-1}; Animate[ ParametricPlot[ Evaluate[teq[
 \backslash
 [Theta], .3, .6, t]], {
 \backslash
 [Theta], 0, 
 \backslash
 [Pi]}, PlotRange -> {{-5, 5}, {-3, 3}}, PlotLegends -> {"Static", "boost"}],
- {t, 0, 5} ]
+ {t, 0, 5}]
 \end_layout
 
 \end_inset
