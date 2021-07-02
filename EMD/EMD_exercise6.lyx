@@ -1752,7 +1752,7 @@ u_{x} & =\frac{u_{x}^{\prime}+v}{1+vu_{x}^{\prime}/c^{2}}=c\frac{1+n\beta}{n+\be
 
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Series[c (1 + n*
@@ -3043,6 +3043,68 @@ includegraphics[scale=.7]{exer6_cichang}};
 
 \end_layout
 
+\begin_layout Standard
+
+\bar under
+\begin_inset CommandInset href
+LatexCommand href
+name "旋进的磁场"
+target "https://wx3.sinaimg.cn/mw1024/c4587b00gy1gs2p8dqc3yg20ci0ciwmu.gif"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+origin = 0; k = 8; 
+\backslash
+[CapitalDelta]z = 0.4; 
+\backslash
+[Phi] = 
+\backslash
+[Pi]/2; viewd = 8; tea = Table[ Show[Join[ Table[(*磁场线部分*) ParametricPlot3D[{-(z
+ - z1) Sin[ k*(z1 + 
+\backslash
+[CapitalDelta]z)]/
+\backslash
+[CapitalDelta]z, (z - z1)* Cos[k*(z1 + 
+\backslash
+[CapitalDelta]z)]/
+\backslash
+[CapitalDelta]z, z1 + 
+\backslash
+[CapitalDelta]z}, {z, z1, z1 + 
+\backslash
+[CapitalDelta]z}, PlotStyle -> Green], {z1, 0 + origin, 4.5 + origin, 1}
+ ], {ParametricPlot3D[{-Sin[k*z], Cos[k*z], z}, {z, 0 + origin, 5 + origin},
+ PlotStyle -> {Blue, Opacity[.2]}], ParametricPlot3D[{0, 0, z}, {z, 0 + origin,
+ 5 + origin}, PlotStyle -> {Red, Opacity[.8]}]}(*螺旋线*) ], PlotRange -> Full,
+ Axes -> False, Boxed -> False, ImageSize -> Medium, ViewVector -> viewd
+ {Cos[-
+\backslash
+[Phi]], Sin[-
+\backslash
+[Phi]], 1.5} ] , {
+\backslash
+[Phi], 0, 2 
+\backslash
+[Pi], 
+\backslash
+[Pi]/24} ]; Export["/home/tom/test/exer6_luoxuan.gif", tea, AnimationRepetitions
+ -> Infinity]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -3557,10 +3619,47 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系内立体角为
+\begin_inset Formula $\dif\Omega=\dif\cos\theta\dif\phi$
+\end_inset
+
+的光束，boost 到另一惯性系
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+时，立体角的变换：注意这里和通常的坐标系不同，
+\begin_inset Formula $\sbf p$
+\end_inset
+
+与
+\begin_inset Formula $x$
+\end_inset
+
+轴方向夹角为
+\begin_inset Formula $\theta$
+\end_inset
+
+，而不是与
+\begin_inset Formula $z$
+\end_inset
+
+轴的夹角。
+\begin_inset Formula $x$
+\end_inset
+
+方向进行boost，
+\begin_inset Formula $y,z$
+\end_inset
+
+方向不变。
 \begin_inset Formula 
 \[
-\dif\Omega^{\prime}=\frac{\dif\Omega}{\gamma^{2}\left(1-\beta\cos\theta\right)^{2}}
+\phi^{\prime}=\arctan\frac{z^{\prime}}{y^{\prime}}=\arctan\frac{z}{y}=\phi,\quad\cos\theta^{\prime}=\frac{\cos\theta-\beta}{1-\beta\cos\theta}.
 \]
 
 \end_inset
@@ -3568,75 +3667,18 @@ status open
 
 \begin_inset Formula 
 \[
-\left(\begin{array}{c}
-ct^{\prime}\\
-x^{\prime}
-\end{array}\right)=\left(\begin{array}{cc}
-\gamma & -\gamma\beta\\
--\gamma\beta & \gamma
-\end{array}\right)\left(\begin{array}{c}
-ct\\
-x
-\end{array}\right)
+-\left|\frac{\dif\cos\theta^{\prime}\dif\phi^{\prime}}{\dif\cos\theta\dif\phi}\right|=-\left|\begin{array}{cc}
+\frac{\partial\phi^{\prime}}{\partial\phi} & \frac{\partial\phi^{\prime}}{\partial\cos\theta}\\
+\frac{\partial\cos\theta^{\prime}}{\partial\phi} & \frac{\partial\cos\theta^{\prime}}{\partial\cos\theta}
+\end{array}\right|=\frac{1-\beta^{2}}{\left(1-\beta\cos\theta\right)^{2}}
 \]
 
 \end_inset
 
-
+所以
 \begin_inset Formula 
 \[
-x=x^{\prime}/\gamma
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\phi=\arctan\frac{y}{x},\quad\theta=\arccos\frac{z}{\sqrt{x^{2}+y^{2}+z^{2}}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\phi=\arctan\left(\gamma\tan\phi^{\prime}\right),\quad\cos\theta=\frac{\gamma}{\sqrt{\gamma^{2}+\tan^{2}\theta^{\prime,2}+\beta^{2}\gamma^{2}\sin^{2}\theta^{\prime,2}\sin\phi^{\prime,2}}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\gamma^{2}\left(1-\beta^{2}\right)=1\Rightarrow\frac{\gamma^{2}-1}{\gamma^{2}}=\beta^{2},\quad\tan^{2}\theta^{\prime,2}=\frac{1-\cos\theta^{\prime,2}}{\cos\theta^{\prime,2}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
--\dif\cos\theta\dif\phi=-\left|\begin{array}{cc}
-\partial\phi/\partial\phi^{\prime} & \partial\phi/\partial\cos\theta^{\prime}\\
-\partial\cos\theta/\partial\phi^{\prime} & \partial\cos\theta/\partial\cos\theta^{\prime}
-\end{array}\right|
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\frac{2\sqrt{2-2\beta^{2}}}{\left(\beta^{2}\left(\text{x\ensuremath{\prime}}^{2}-1\right)\cos(2\phi\prime)+\beta^{2}\left(\text{x\ensuremath{\prime}}^{2}-1\right)+2\right)^{3/2}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\frac{x-\beta}{1-\beta x}\prime=\frac{1}{\gamma^{2}\left(1-\beta x\right)^{2}}
+\dif\Omega^{\prime}=\frac{1}{\gamma^{2}\left(1-\beta\cos\theta\right)^{2}}\dif\Omega
 \]
 
 \end_inset
@@ -3644,68 +3686,50 @@ x=x^{\prime}/\gamma
 
 \end_layout
 
-\begin_layout Frame
+\begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 \backslash
-[Gamma] = 1/Sqrt[1 - 
+text{Simplify}
 \backslash
-[Beta]^2]; Det[ { { Simplify[ D[ArcTan[
+left[
 \backslash
-[Gamma]*Tan[
+left| 
 \backslash
-[Phi]
+frac{
 \backslash
-[Prime]]], {
+partial }{
 \backslash
-[Phi]
+partial 
 \backslash
-[Prime], 1}]], 0 }, { Simplify[ D[x
+{
 \backslash
-[Prime]/Sqrt[ x
+phi ,x
 \backslash
-[Prime]^2 + (1 - x
+}}
 \backslash
-[Prime]^2) Cos[
+left
 \backslash
-[Phi]
+{
 \backslash
-[Prime]]^2/
+phi ,
 \backslash
-[Gamma]^2 + (1 - x
+frac{x-
 \backslash
-[Prime]^2) Sin[
+beta }{1-
 \backslash
-[Phi]
+beta x}
 \backslash
-[Prime]]^2], {
+right
 \backslash
-[Phi]
+}
 \backslash
-[Prime], 1}]], Simplify[ D[x
+right| 
 \backslash
-[Prime]/Sqrt[ x
-\backslash
-[Prime]^2 + (1 - x
-\backslash
-[Prime]^2) Cos[
-\backslash
-[Phi]
-\backslash
-[Prime]]^2/
-\backslash
-[Gamma]^2 + (1 - x
-\backslash
-[Prime]^2) Sin[
-\backslash
-[Phi]
-\backslash
-[Prime]]^2], {x
-\backslash
-[Prime], 1}]] } } ] // Simplify
+right]
 \end_layout
 
 \end_inset
@@ -3713,6 +3737,269 @@ status collapsed
 
 \end_layout
 
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.19
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+如果考虑的不是光束的变换，而是静止系立体角
+\begin_inset Formula $\dif\Omega=\dif\cos\theta\dif\phi$
+\end_inset
+
+的变换：
+\begin_inset Formula $x$
+\end_inset
+
+方向发生运动收缩，
+\begin_inset Formula $x^{\prime}=\gamma x$
+\end_inset
+
+，
+\begin_inset Formula $y,z$
+\end_inset
+
+方向不变。
+\begin_inset Formula 
+\[
+\phi^{\prime}=\phi,\quad\cos\theta^{\prime}=\frac{x^{\prime}}{\sqrt{x^{\prime,2}+y^{\prime,2}+z^{\prime,2}}}=\frac{\gamma\cos\theta}{\sqrt{1+\gamma^{2}\beta^{2}\cos^{2}\theta}},\quad\gamma^{2}-1=\gamma^{2}\beta^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sin\theta^{\prime}=\frac{\sin\theta}{\gamma\sqrt{1-\beta^{2}\sin^{2}\theta}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+-\left|\begin{array}{cc}
+\frac{\partial\phi^{\prime}}{\partial\phi} & \frac{\partial\phi^{\prime}}{\partial\cos\theta}\\
+\frac{\partial\cos\theta^{\prime}}{\partial\phi} & \frac{\partial\cos\theta^{\prime}}{\partial\cos\theta}
+\end{array}\right|=\frac{\gamma}{\left(\left(\gamma^{2}-1\right)\cos^{2}\theta+1\right)^{3/2}}=\frac{\gamma}{\left(1+\beta^{2}\gamma^{2}\cos^{2}\theta\right)^{3/2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dif\Omega^{\prime}=\frac{\gamma}{\left(1+\beta^{2}\gamma^{2}\cos^{2}\theta\right)^{3/2}}\dif\Omega,\quad\dif\Omega=\frac{1}{\gamma\left(1-\beta^{2}\cos^{2}\theta\right)^{3/2}}\dif\Omega^{\prime}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Det[D[{
+\backslash
+[Phi], (
+\backslash
+[Gamma] x)/Sqrt[ 1 + (
+\backslash
+[Gamma]^2 - 1) x^2]}, {{
+\backslash
+[Phi], x}}]] // Simplify; 
+\backslash
+[Gamma]/(1 + x^2 (-1 + 
+\backslash
+[Gamma]^2))^( 3/2) /.
+ {
+\backslash
+[Gamma] -> 1/Sqrt[1 - 
+\backslash
+[Beta]^2]} // Simplify
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.19
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(0,+3.5)$) {两种变换立体角的比较:左边为光束，右边为静止系
+立体角};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(-3,+0)$) {
+\backslash
+includegraphics[scale=.7]{exer6_angle1}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(+3,0)$) {
+\backslash
+includegraphics[scale=.5]{exer6_angle2}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+teh[
+\backslash
+[Theta]_, 
+\backslash
+[Beta]_] := {1, 1/(
+\backslash
+[Gamma]^2 (1 - 
+\backslash
+[Beta]*Cos[
+\backslash
+[Theta]])^2)} /.
+ {
+\backslash
+[Gamma] -> 1/ Sqrt[1 - 
+\backslash
+[Beta]^2]}; tea = PolarPlot[Evaluate[teh[
+\backslash
+[Theta], .5]], {
+\backslash
+[Theta], 0, 2 
+\backslash
+[Pi]}, PlotLabels -> {"Classic", "Relavistic"}] Export["/home/tom/note/EMD/exer6
+_angle1.pdf", tea]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+teh[
+\backslash
+[Theta]_, 
+\backslash
+[Beta]_] := {1, 
+\backslash
+[Gamma]/(1 + 
+\backslash
+[Beta]^2 
+\backslash
+[Gamma]^2 
+\backslash
+ Cos[
+\backslash
+[Theta]]^2)^(3/2)} /.
+ {
+\backslash
+[Gamma] -> 1/Sqrt[1 - 
+\backslash
+[Beta]^2]}; tea = PolarPlot[Evaluate[teh[
+\backslash
+[Theta], .8]], {
+\backslash
+[Theta], 0, 2 
+\backslash
+[Pi]}, PlotLabels -> {"Classic", "Relavistic"}] Export["/home/tom/note/EMD/exer6
+_angle2.pdf", tea]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -4487,5 +4774,157 @@ Solve[{ (p
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+aaa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+teh[
+\backslash
+[Theta]_, 
+\backslash
+[Beta]_] := {{Cos[
+\backslash
+[Theta]], Sin[
+\backslash
+[Theta]]}, {Cos[
+\backslash
+[Theta]]/
+\backslash
+[Gamma] , Sin[
+\backslash
+[Theta]]}} /.
+ {
+\backslash
+[Gamma] -> 1/Sqrt[1 - 
+\backslash
+[Beta]^2]}; ParametricPlot[Evaluate[teh[
+\backslash
+[Theta], .9]], {
+\backslash
+[Theta], 0, 2 
+\backslash
+[Pi]}, PlotLabels -> {"Classic", "Relavistic"}]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+teh[
+\backslash
+[Theta]_, 
+\backslash
+[Beta]_, u_, t_] := {u t {Cos[
+\backslash
+[Theta]], Sin[
+\backslash
+[Theta]]}, 
+\backslash
+[Gamma] t {( u*Cos[
+\backslash
+[Theta]] - 
+\backslash
+[Beta])/(1 - u*
+\backslash
+[Beta]*Cos[
+\backslash
+[Theta]]), ( u*Sin[
+\backslash
+[Theta]] Sqrt[ 1 - 
+\backslash
+[Beta]^2])/(1 - u*
+\backslash
+[Beta]*Cos[
+\backslash
+[Theta]])}} /.
+ {
+\backslash
+[Gamma] -> 1/Sqrt[1 - 
+\backslash
+[Beta]^2]}; Animate[ ParametricPlot[ Evaluate[teh[
+\backslash
+[Theta], .3, .6, t]], {
+\backslash
+[Theta], 0, 
+\backslash
+[Pi]}, PlotRange -> {{-5, 5}, {-3, 3}}, PlotLegends -> {"Static", "boost"}]
+ , {t, 0, 5} ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+teq[
+\backslash
+[Theta]_, 
+\backslash
+[Beta]_, u_, t_] := {u* t {Cos[
+\backslash
+[Theta]], Sin[
+\backslash
+[Theta]]}, {-
+\backslash
+[Gamma]*
+\backslash
+[Beta]* t + 
+\backslash
+[Gamma] u t Cos[
+\backslash
+[Theta]] , u t Sin[
+\backslash
+[Theta]]}} /.
+ {
+\backslash
+[Gamma] -> 1/Sqrt[1 - 
+\backslash
+[Beta]^2]}; Animate[ ParametricPlot[ Evaluate[teq[
+\backslash
+[Theta], .3, .6, t]], {
+\backslash
+[Theta], 0, 
+\backslash
+[Pi]}, PlotRange -> {{-5, 5}, {-3, 3}}, PlotLegends -> {"Static", "boost"}],
+ {t, 0, 5} ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
