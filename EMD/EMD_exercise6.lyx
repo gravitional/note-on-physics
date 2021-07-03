@@ -4424,7 +4424,8 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 
 \color blue
 利用洛伦兹变换，试确定粒子在互相垂直的均匀电场
@@ -4440,6 +4441,379 @@ status open
 \end_inset
 
 ）内的运动规律，设粒子初速度为零。
+\end_layout
+
+\begin_layout Standard
+解：
+\begin_inset Formula 
+\begin{align*}
+\frac{\dif\sbf p}{\dif t} & =q\sbf E+q\sbf v\times\sbf B,\quad\frac{\dif E}{\dif t}=qEv_{x}\\
+\frac{\dif}{\dif t}c\left[\begin{array}{c}
+\gamma\beta_{x}\\
+\gamma\beta_{y}\\
+\gamma\beta_{z}
+\end{array}\right] & =\frac{q}{m}\left[\begin{array}{c}
+E-Bv_{z}\\
+0\\
+v_{x}B
+\end{array}\right]=c\xi\left[\begin{array}{c}
+1-\alpha\beta_{z}\\
+0\\
+\alpha\beta_{x}
+\end{array}\right]\\
+\frac{\dif}{\dif t}\gamma & =\xi\beta_{x},\quad\gamma=1/\sqrt{1-v^{2}/c^{2}}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\alpha=\frac{Bc}{E}$
+\end_inset
+
+，
+\begin_inset Formula $\xi=\frac{qE}{mc}$
+\end_inset
+
+，即：
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\dif}{\dif t}\gamma\beta_{x}=\xi\left(1-\alpha\beta_{z}\right),\quad\frac{\dif}{\dif t}\gamma\beta_{z}=\xi\alpha\beta_{x}\\
+ & \frac{\dif}{\dif t}\gamma\beta_{y}=0,\quad\frac{\dif}{\dif t}\gamma=\xi\beta_{x},
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.22
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\dif}{\dif t}\gamma\beta_{x}=\xi\left(1-\alpha\beta_{z}\right),\quad\frac{\dif}{\dif t}\gamma\beta_{z}=\xi\alpha\beta_{x}\\
+ & \frac{\dif}{\dif t}\gamma\beta_{y}=0,\quad\frac{\dif}{\dif t}\gamma=\xi\beta_{x},
+\end{align*}
+
+\end_inset
+
+如果
+\begin_inset Formula $\beta_{y}\neq0$
+\end_inset
+
+，则
+\begin_inset Formula $\gamma\beta_{y}=1/C$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \beta_{y}/\sqrt{1-\beta^{2}}=1/C\\
+ & \beta_{y}^{2}=\left(1-\beta^{2}\right)/C^{2}\\
+ & \beta_{x}^{2}+\left(1+C^{2}\right)\beta_{y}^{2}+\beta_{z}^{2}=1\Rightarrow C=0
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula $\beta_{y}=0$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif t}\gamma\beta_{x}=\xi\left(1-\alpha\beta_{z}\right),\quad\frac{\dif}{\dif t}\gamma\beta_{z}=\alpha\xi\beta_{x},\quad\frac{\dif}{\dif t}\gamma=\xi\beta_{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.22
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+即：
+\begin_inset Formula 
+\begin{align*}
+ & \left(\gamma\beta_{x}\right)^{\prime}=\xi\left(1-\alpha\beta_{z}\right),\quad\left(\gamma\beta_{z}\right)^{\prime}=\alpha\xi\beta_{x},\\
+ & \gamma^{\prime}=\xi\beta_{x},\quad\gamma^{2}\left(1-\beta_{x}^{2}-\beta_{z}^{2}\right)=1,\quad\alpha=\frac{Bc}{E}\text{，}\xi=\frac{qE}{mc}
+\end{align*}
+
+\end_inset
+
+稍微整理一下：
+\begin_inset Formula 
+\begin{align*}
+ & \alpha\xi\beta_{z}=\xi-\left(\gamma\beta_{x}\right)^{\prime},\quad\alpha\xi\beta_{x}=\left(\gamma\beta_{z}\right)^{\prime}\\
+ & \gamma^{\prime}=\xi\beta_{x}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left\{ \gamma\left[\xi-\left(\gamma\beta_{x}\right)^{\prime}\right]\right\} ^{\prime}=\alpha\xi\left(\gamma\beta_{z}\right)^{\prime},\quad\left[\gamma\left(\gamma\beta_{z}\right)^{\prime}\right]^{\prime}=\alpha\xi\left(\gamma\beta_{x}\right)^{\prime},\\
+ & \left\{ \gamma\left[\xi-\left(\gamma\beta_{x}\right)^{\prime}\right]\right\} ^{\prime}=\alpha\xi\alpha\xi\beta_{x},\quad\left[\gamma\left(\gamma\beta_{z}\right)^{\prime}\right]^{\prime}=\alpha\xi^{2}\left(1-\alpha\beta_{z}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DSolve[{ (
+\backslash
+[Alpha] 
+\backslash
+[Xi])^2 
+\backslash
+[Gamma]'[t] - 
+\backslash
+[Gamma]'[ t] (
+\backslash
+[Xi]^2 - 4 
+\backslash
+[Gamma][t]*Derivative[2][
+\backslash
+[Gamma]][t]) + (
+\backslash
+[Gamma]'[ t])^3 + 
+\backslash
+[Gamma][t]^2*Derivative[3][
+\backslash
+[Gamma]][t] == 0 }, 
+\backslash
+[Gamma][t], t, Assumptions -> {
+\backslash
+[Alpha] > 0, 
+\backslash
+[Xi] > 0, t >= 0} ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.22
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+回转频率为
+\begin_inset Formula 
+\[
+\omega=\frac{\alpha\xi}{\gamma}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma^{2}\left(1-\beta_{x}^{2}+\beta_{y}^{2}\right)=1\Rightarrow\beta^{2}=1-\frac{\omega^{2}}{\alpha^{2}\xi^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & x=r\left(\theta-\sin\theta\right)\\
+ & y=r\left(1-\cos\theta\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & x^{\prime}=r\dot{\theta}\left(1-\cos\theta\right)\\
+ & y^{\prime}=r\dot{\theta}\sin\theta
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\alpha\xi\beta_{z} & =\xi-\left(\gamma\beta_{x}\right)^{\prime}\\
+\alpha\xi\beta_{x} & =\left(\gamma\beta_{z}\right)^{\prime}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & x^{\prime\prime}=r\left[\ddot{\theta}\left(1-\cos\theta\right)+\dot{\theta}^{2}\sin\theta\right]=\frac{y^{\prime}}{\dot{\theta}}\\
+ & y^{\prime\prime}=r\left[\ddot{\theta}\sin\theta+\dot{\theta}^{2}\cos\theta\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+sdfds
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma\left(\gamma\beta_{x}\right)^{\prime}=\gamma\xi-\xi\alpha\gamma\beta_{z},\quad\gamma{\color{blue}\left(\gamma\beta_{z}\right)^{\prime}}=\xi\alpha\gamma\beta_{x},\quad\gamma^{\prime}=\xi\beta_{x}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \gamma^{\prime}\left(\gamma\beta_{x}\right)^{\prime}+\gamma\left(\gamma\beta_{x}\right)^{\prime\prime}=\gamma^{\prime}\xi-\xi\alpha{\color{blue}\left(\gamma\beta_{z}\right)^{\prime}}=\gamma^{\prime}\xi-\left(\xi\alpha\right)^{2}\beta_{x},\\
+ & \gamma^{\prime}\left(\gamma\beta_{z}\right)^{\prime}+\gamma\left(\gamma\beta_{z}\right)^{\prime\prime}=\xi\alpha{\color{brown}\left(\gamma\beta_{x}\right)^{\prime}}=\xi^{2}\alpha-\left(\xi\alpha\right)^{2}\beta_{z}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left(\xi^{2}\beta_{x}^{3}+\gamma\xi\beta_{x}\beta_{x}^{\prime}\right)+\gamma\left(\xi\beta_{x}^{\prime}+\beta_{x}^{\prime\prime}+2\xi\beta_{x}\beta_{x}^{\prime}\right)=\xi^{2}\beta_{x}-\left(\xi\alpha\right)^{2}\beta_{x},\\
+ & \gamma^{\prime}\left(\gamma\beta_{z}\right)^{\prime}+\gamma\left(\gamma\beta_{z}\right)^{\prime\prime}=\xi^{2}\alpha-\left(\xi\alpha\right)^{2}\beta_{z}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.22*
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\color blue
+利用洛伦兹变换，试确定粒子在互相垂直的均匀电场
+\begin_inset Formula $E\sbf e_{x}$
+\end_inset
+
+和磁场
+\begin_inset Formula $B\sbf e_{y}$
+\end_inset
+
+（
+\begin_inset Formula $E>cB$
+\end_inset
+
+）内的运动规律，设粒子初速度为
+\begin_inset Formula $u=c^{2}B/E$
+\end_inset
+
+，沿
+\begin_inset Formula $z$
+\end_inset
+
+轴正方向。
 \end_layout
 
 \begin_layout Frame
@@ -4540,7 +4914,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-6.22
+6.22*
 \end_layout
 
 \end_inset
@@ -4623,7 +4997,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-6.22
+6.22*
 \end_layout
 
 \end_inset
@@ -4710,7 +5084,7 @@ x^{\prime}\left(t\right)=\frac{mc^{2}}{q}\frac{\gamma_{u}}{E}\left[\sqrt{1+\left
 status open
 
 \begin_layout Plain Layout
-6.22
+6.22*
 \end_layout
 
 \end_inset
@@ -4834,7 +5208,7 @@ Series[
 status open
 
 \begin_layout Plain Layout
-6.22
+6.22*
 \end_layout
 
 \end_inset
