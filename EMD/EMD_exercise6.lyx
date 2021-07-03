@@ -4181,7 +4181,8 @@ status open
 
 \end_layout
 
-\begin_layout Frame
+\begin_deeper
+\begin_layout Standard
 
 \color blue
 考虑一个质量为
@@ -4199,7 +4200,7 @@ status open
 的静止粒子的体系。通常在高能物理中，选择动量中心参考系有许多方便之处，在该参考系中，总动量为零。
 \end_layout
 
-\begin_layout Frame
+\begin_layout Enumerate
 
 \color blue
 求动量中心相对于实验室系的速度
@@ -4209,13 +4210,13 @@ status open
 ；
 \end_layout
 
-\begin_layout Frame
+\begin_layout Enumerate
 
 \color blue
 求动量中心参考系中每个粒子的动量、能量及总能量；
 \end_layout
 
-\begin_layout Frame
+\begin_layout Enumerate
 
 \color blue
 已知电子静止质量
@@ -4231,6 +4232,176 @@ status open
 \end_inset
 
 ）。估计一下若用单束电子入射于静止靶，要用多大能量才能达到与对撞机相同的相对运动能量？
+\end_layout
+
+\begin_layout Standard
+解：粒子的四动量满足
+\begin_inset Formula $E^{2}-p^{2}c^{2}=m^{2}c^{4}$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+E=\gamma mc^{2},\quad\sbf p=\gamma m\sbf v,\quad\sbf v=c^{2}\sbf p/E
+\]
+
+\end_inset
+
+将两个粒子的四动量相加，
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+E_{1}/c\\
+p_{1}
+\end{array}\right]+\left[\begin{array}{c}
+m_{2}c\\
+0
+\end{array}\right]=\left[\begin{array}{c}
+E_{1}/c+m_{2}c\\
+p_{1}
+\end{array}\right]
+\]
+
+\end_inset
+
+所以系统整体的速度是，
+\begin_inset Formula 
+\[
+\beta c=c^{2}\frac{p_{1}}{E_{1}+m_{2}c^{2}}=\frac{c\sqrt{E_{1}^{2}-m_{1}^{2}c^{4}}}{E_{1}+m_{2}c^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.20
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+设总动量的方向沿着
+\begin_inset Formula $\sbf e_{x}$
+\end_inset
+
+轴。boost 到动量中心系后，粒子
+\begin_inset Formula $2$
+\end_inset
+
+速度为
+\begin_inset Formula $-\beta c$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\beta=v/c=\frac{\sqrt{E_{1}^{2}-m_{1}^{2}c^{4}}}{E_{1}+m_{2}c^{2}},
+\]
+
+\end_inset
+
+所以对应的动量为：
+\begin_inset Formula 
+\begin{align*}
+\sbf p_{2}^{\prime} & =-\gamma m_{2}\sbf v=-m_{2}\frac{1}{\sqrt{1-\beta^{2}}}\beta c=\frac{m_{2}\sqrt{\left(E_{1}^{2}-c^{4}m_{1}^{2}\right)}}{\sqrt{m_{1}^{2}c^{2}+m_{2}^{2}c^{2}+2E_{1}m_{2}}}\\
+ & =\frac{-m_{2}\sqrt{\left(E_{1}^{2}-c^{4}m_{1}^{2}\right)}}{mc}\sbf e_{x},\quad\text{令}\;mc=\sqrt{m_{1}^{2}c^{2}+m_{2}^{2}c^{2}+2E_{1}m_{2}}\\
+\sbf p_{1}^{\prime} & =-\sbf p_{2}.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & E_{1}^{\prime}=\sqrt{p_{1}^{\prime}c^{2}+m_{1}^{2}c^{4}}=\frac{m_{1}^{2}c^{2}+E_{1}m_{2}}{m}\\
+ & E_{2}^{\prime}=\sqrt{p_{2}^{\prime}c^{2}+m_{2}^{2}c^{4}}=\frac{m_{2}^{2}c^{2}+E_{1}m_{2}}{m}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.20
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+相比于电子的静止质量
+\begin_inset Formula $\SI{0.511}{\MeV}$
+\end_inset
+
+，对撞束流的能量很高，因此可以忽略静止质量。根据前面求解的关系，打靶系能量
+\begin_inset Formula $E_{1}$
+\end_inset
+
+与质心系能量
+\begin_inset Formula $E_{1}^{\prime2}$
+\end_inset
+
+的关系为：
+\begin_inset Formula 
+\begin{align*}
+E_{1}^{\prime2} & =\frac{\left(m_{1}^{2}c^{2}+E_{1}m_{2}\right)c^{2}}{m_{1}^{2}c^{2}+m_{2}^{2}c^{2}+2E_{1}m_{2}}\approx\frac{E_{1}m_{2}c^{2}}{2}\\
+E_{1} & \approx\frac{2E_{1}^{\prime2}}{m_{2}c^{2}}
+\end{align*}
+
+\end_inset
+
+代入
+\begin_inset Formula $m_{2}c^{2}=\SI{0.511}{\MeV}$
+\end_inset
+
+，以及
+\begin_inset Formula $E_{1}^{\prime}=\SI{2.2}{\GeV}$
+\end_inset
+
+，得：
+\begin_inset Formula 
+\[
+E_{1}\approx\SI{18943.2}{\GeV}
+\]
+
+\end_inset
+
+即需要约
+\begin_inset Formula $\SI{1.9e4}{\GeV}$
+\end_inset
+
+才能达到与对撞机相同的相对运动能量。
 \end_layout
 
 \begin_layout Standard
@@ -4818,7 +4989,11 @@ status open
 \begin_inset Formula $q_{1}$
 \end_inset
 
-位于原点，
+位于
+\begin_inset Formula $\left(0,0,0\right)$
+\end_inset
+
+，
 \begin_inset Formula $q_{2}$
 \end_inset
 
@@ -4854,10 +5029,155 @@ status open
 \end_layout
 
 \begin_layout Frame
-解：
+解：在
+\begin_inset Formula $t=0$
+\end_inset
+
+时刻，静止电荷
+\begin_inset Formula $q_{2}$
+\end_inset
+
+对
+\begin_inset Formula $q_{1}$
+\end_inset
+
+的作用力为：
 \begin_inset Formula 
 \[
-\sbf F_{21}=q_{1}\sbf E_{2}=-\frac{q_{1}q_{2}}{4\pi\varepsilon_{0}y_{0}^{2}}\sbf e_{y}
+\sbf F_{2\to1}=q_{1}\sbf E_{2}={\color{blue}-\frac{q_{1}q_{2}}{4\pi\varepsilon_{0}y_{0}^{2}}\sbf e_{y}}
+\]
+
+\end_inset
+
+作
+\begin_inset Formula $x$
+\end_inset
+
+轴boost，运动电荷
+\begin_inset Formula $q_{1}$
+\end_inset
+
+在自身静止系
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+中，在
+\begin_inset Formula $q_{2}$
+\end_inset
+
+处产生的电磁场为：
+\begin_inset Formula 
+\[
+\sbf E_{1}^{\prime}=\frac{q_{1}}{4\pi\varepsilon_{0}y_{0}^{\prime2}}\sbf e_{y},\quad\sbf B_{1}^{\prime}=0
+\]
+
+\end_inset
+
+再作
+\begin_inset Formula $x$
+\end_inset
+
+轴逆boost，注意到
+\begin_inset Formula $y_{0}^{\prime}=y_{0}$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{align*}
+ & E_{1y}=\gamma E_{1y}^{\prime}=\gamma\frac{q_{1}}{4\pi\varepsilon_{0}y_{0}^{2}},\quad E_{1x}=B_{1x}=0,\quad B_{y}=0,\\
+ & B_{1z}=\gamma\frac{v}{c^{2}}E_{1y}^{\prime}=\gamma\frac{v}{c^{2}}\frac{q_{1}}{4\pi\varepsilon_{0}y_{0}^{2}},\quad E_{1z}=0.
+\end{align*}
+
+\end_inset
+
+由于
+\begin_inset Formula $q_{2}$
+\end_inset
+
+静止，只受到电场的作用力：
+\begin_inset Formula 
+\[
+\sbf F_{1\to2}=q_{2}E_{1y}\sbf e_{y}={\color{blue}\gamma\frac{q_{1}q_{2}}{4\pi\varepsilon_{0}y_{0}^{2}}\sbf e_{y}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.23
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\begin{align*}
+ & \sbf F_{2\to1}={\color{blue}-\frac{q_{1}q_{2}}{4\pi\varepsilon_{0}y_{0}^{2}}\sbf e_{y}}\\
+ & \sbf F_{1\to2}={\color{blue}\gamma\frac{q_{1}q_{2}}{4\pi\varepsilon_{0}y_{0}^{2}}\sbf e_{y}}
+\end{align*}
+
+\end_inset
+
+牛顿第三定律仅在
+\begin_inset Formula $v\ll c$
+\end_inset
+
+条件下才成立，在高速运动情形，
+\begin_inset Formula $\gamma\neq1$
+\end_inset
+
+，因此
+\begin_inset Formula $\sbf F_{12}\neq-\sbf F_{21}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Frame
+也可从另一角度：对粒子
+\begin_inset Formula $2$
+\end_inset
+
+使用相对论力学方程，
+\begin_inset Formula 
+\[
+\sbf F=m\frac{\dif}{\dif t}\gamma\sbf v,\quad\sbf F\cdot\sbf v=mc^{2}\frac{\dif}{\dif t}\gamma
+\]
+
+\end_inset
+
+
+\begin_inset Formula $t=0$
+\end_inset
+
+时，
+\begin_inset Formula $v_{y}=0$
+\end_inset
+
+，
+\begin_inset Formula $\sbf F\cdot\sbf v=0$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\frac{\dif}{\dif t}\gamma=0,\quad F_{y}=\gamma m\frac{\dif}{\dif t}v_{y}
 \]
 
 \end_inset
@@ -4933,7 +5253,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-解：
+解：列出四动量的守恒方程，
 \begin_inset Formula 
 \[
 \left[\begin{array}{c}
@@ -4958,6 +5278,32 @@ mc\\
 \end_inset
 
 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.26
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+得到方程组：
 \begin_inset Formula 
 \begin{align*}
 \sqrt{p^{\prime,2}+m^{2}c^{4}}+\hbar ck^{\prime} & =mc^{2}+\hbar ck\\
@@ -4966,7 +5312,7 @@ p^{\prime,2} & =\left(k^{\prime}\sin\theta\right)^{2}+\left(k-k^{\prime}\cos\the
 
 \end_inset
 
-
+求解方程得到：
 \begin_inset Formula 
 \[
 k^{\prime}=\frac{k}{1+\frac{\hbar k}{mc}\left(1-\cos\theta\right)},\quad\omega^{\prime}=\frac{\omega}{1+\frac{\hbar\omega}{mc^{2}}\left(1-\cos\theta\right)}
@@ -4974,12 +5320,28 @@ k^{\prime}=\frac{k}{1+\frac{\hbar k}{mc}\left(1-\cos\theta\right)},\quad\omega^{
 
 \end_inset
 
+所以有
+\begin_inset Formula 
+\[
+\omega-\omega^{\prime}=\frac{2\hbar}{mc^{2}}\omega\omega^{\prime}\sin^{2}\frac{\theta}{2}
+\]
 
+\end_inset
+
+散射光波长变化为
+\begin_inset Formula 
+\[
+\lambda^{\prime}=\lambda+\frac{4\pi\hbar}{mc}\sin^{2}\frac{\theta}{2}
+\]
+
+\end_inset
+
+1922–1923年，Arthur Holly Compton 对此进行了正确的解释，并获得 1927 年诺贝尔物理学奖。
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Solve[{ (p
@@ -5020,24 +5382,7 @@ Solve[{ (p
 
 \end_layout
 
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-aaa
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-dsfds
-\end_layout
-
-\begin_layout Frame
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -5080,7 +5425,7 @@ etitions -> Infinity]
 
 \end_layout
 
-\begin_layout Frame
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -5131,7 +5476,7 @@ teh[
 
 \end_layout
 
-\begin_layout Frame
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
