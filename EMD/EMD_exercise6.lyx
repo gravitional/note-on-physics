@@ -4657,40 +4657,44 @@ status open
 \begin_inset Formula $\beta_{x}$
 \end_inset
 
-，再将
-\begin_inset Formula $\gamma$
-\end_inset
-
-代入右边，即可解出
+，继而解出
 \begin_inset Formula $\beta_{z}$
 \end_inset
 
 。
+\begin_inset Formula $\gamma$
+\end_inset
+
+的一般形式为：
 \begin_inset Formula 
 \begin{align*}
-t+c_{3} & =\frac{\left(\alpha^{2}-1\right)\xi\sqrt{-\left(\gamma^{2}\left(\alpha^{2}-1\right)\xi^{2}\right)+2\gamma c_{1}+c_{2}}}{\left(\alpha^{2}-1\right)^{2}\xi^{3}}\\
- & +\frac{\sqrt{1-\alpha^{2}}c_{1}\tanh^{-1}\left(\frac{-\gamma\left(\alpha^{2}-1\right)\xi^{2}+c_{1}}{\sqrt{1-\alpha^{2}}\xi\sqrt{-\left(\gamma^{2}\left(\alpha^{2}-1\right)\xi^{2}\right)+2\gamma c_{1}+c_{2}}}\right)}{\left(\alpha^{2}-1\right)^{2}\xi^{3}}
+t+c_{3}= & \pm\frac{\left(\alpha^{2}-1\right)\xi\sqrt{\gamma^{2}\left(1-\alpha^{2}\right)\xi^{2}+2\gamma c_{1}+c_{2}}}{\left(1-\alpha^{2}\right)^{2}\xi^{3}}\\
+ & \pm\frac{\sqrt{1-\alpha^{2}}c_{1}\tanh^{-1}\left(\frac{\gamma\left(1-\alpha^{2}\right)\xi^{2}+c_{1}}{\sqrt{1-\alpha^{2}}\xi\sqrt{\gamma^{2}\left(1-\alpha^{2}\right)\xi^{2}+2\gamma c_{1}+c_{2}}}\right)}{\left(1-\alpha^{2}\right)^{2}\xi^{3}}
 \end{align*}
 
 \end_inset
 
+例如取
+\begin_inset Formula $c_{1}=c_{3}=0$
+\end_inset
 
+，
+\begin_inset Formula $c_{2}=\xi^{2}\left(\alpha^{2}-1\right)$
+\end_inset
+
+得：
 \begin_inset Formula 
 \[
-\frac{xy^{3/2}\tanh^{-1}\left(\frac{\sqrt{y}\left(\gamma\xi^{2}+xy\right)}{\xi\sqrt{\gamma y\left(\gamma\xi^{2}+2xy\right)}}\right)-\xi\sqrt{\gamma y\left(\gamma\xi^{2}+2xy\right)}}{\xi^{3}y}
+t=\frac{\sqrt{\gamma^{2}-1}}{\xi\sqrt{\left(1-\alpha^{2}\right)}},\quad\beta_{x}=\frac{\left(1-\alpha^{2}\right)\xi t}{\sqrt{1+\left(1-\alpha^{2}\right)\xi^{2}t^{2}}},\quad\beta_{z}=\alpha
 \]
 
 \end_inset
 
-
-\begin_inset Formula $y=1-\alpha^{2}$
+其中
+\begin_inset Formula $\alpha<1$
 \end_inset
 
-，
-\begin_inset Formula $x$
-\end_inset
-
-是任意常数。
+，。
 \begin_inset Note Note
 status open
 
@@ -4722,6 +4726,214 @@ DSolve[{ (
 [Alpha] > 0, 
 \backslash
 [Xi] > 0, t >= 0} ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.22
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+也可以直接进行
+\bar under
+
+\begin_inset CommandInset href
+LatexCommand href
+name "数值模拟"
+target "https://weibo.com/3294132992/Kngrq5gfm"
+literal "false"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+通过数值实验可以知道，
+\begin_inset Formula $\xi=\frac{qE}{mc}$
+\end_inset
+
+影响粒子运动速度的快慢，但对粒子的轨迹模式影响较小。
+\end_layout
+
+\begin_layout Standard
+而
+\begin_inset Formula $\alpha=\frac{Bc}{E}$
+\end_inset
+
+决定了粒子运动轨迹的模式：
+\end_layout
+
+\begin_layout Standard
+当
+\begin_inset Formula $\alpha>1$
+\end_inset
+
+时，粒子作类似摆线的运动；
+\end_layout
+
+\begin_layout Standard
+当
+\begin_inset Formula $\alpha<1$
+\end_inset
+
+时，粒子最终趋近于匀速直线运动。
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 4cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz[remember picture, overlay] 
+\backslash
+node[anchor=center] at ($(current page.center)+(0,-2)$) {
+\backslash
+includegraphics[scale=.6]{exer6_baixian}};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+[Xi] = 1.2; 
+\backslash
+[Alpha] = 1.5; t0 = 13;
+\end_layout
+
+\begin_layout Plain Layout
+tea = NDSolve[{ D[
+\backslash
+[Gamma][t]*
+\backslash
+[Beta]x[t], t] == 
+\backslash
+[Xi] (1 - 
+\backslash
+[Alpha]*
+\backslash
+[Beta]z[t]), D[
+\backslash
+[Gamma][t]*
+\backslash
+[Beta]z[t], t] == 
+\backslash
+[Alpha]*
+\backslash
+[Xi]*
+\backslash
+[Beta]x[t], 
+\backslash
+[Gamma]'[t] == 
+\backslash
+[Xi]*
+\backslash
+[Beta]x[t], 
+\backslash
+[Beta]x[0] == 0, 
+\backslash
+[Beta]z[0] == 0, 
+\backslash
+[Gamma][0] == 1 }, {
+\backslash
+[Beta]x[t], 
+\backslash
+[Beta]z[t], 
+\backslash
+[Gamma][t]}, {t, 0, t0} ]; tef = Animate[ ParametricPlot[ Evaluate[{
+\backslash
+[Beta]x[t], 
+\backslash
+[Beta]z[t]} /.
+ First[tea]], {t, 0, tu}, PlotRange -> {{-1, 1}, {0, 1}}, AxesLabel -> {"VX",
+ "VZ"}, PlotLabel -> "
+\backslash
+[Xi]=1.2; 
+\backslash
+[Alpha]=1.5; 
+\backslash
+[CapitalDelta]t=10;", PlotStyle -> {Orange, Thick} ], {tu, .01, t0} ]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+[Xi] = 1.2; 
+\backslash
+[Alpha] = 1.5; t0 = 35; tea = NDSolve[{ D[
+\backslash
+[Gamma][t]*x'[t], t] == 
+\backslash
+[Xi] (1 - 
+\backslash
+[Alpha]*z'[t]), D[
+\backslash
+[Gamma][t]*z'[t], t] == 
+\backslash
+[Alpha]*
+\backslash
+[Xi]*x'[t], 
+\backslash
+[Gamma]'[t] == 
+\backslash
+[Xi]*x'[t], x'[0] == 0, z'[0] == 0, 
+\backslash
+[Gamma][0] == 1, x[0] == 0, z[0] == 0 }, {x[t], z[t], 
+\backslash
+[Gamma][t]}, {t, 0, t0} ]; Animate[ ParametricPlot[ Evaluate[{x[t], z[t]}
+ /.
+ First[tea]], {t, 0, tu}, PlotRange -> {{-.5, 3}, {0, 25}}, PlotStyle ->
+ {Orange, Thick}, AxesLabel -> {"X", "Z"}, AspectRatio -> 3/1 ], {tu, 0.01,
+ t0} ]
 \end_layout
 
 \end_inset
