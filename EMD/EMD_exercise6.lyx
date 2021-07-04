@@ -4665,54 +4665,10 @@ status open
 
 \begin_deeper
 \begin_layout Standard
-回转频率为
-\begin_inset Formula 
-\[
-\omega=\frac{\alpha\xi}{\gamma}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\gamma^{2}\left(1-\beta_{x}^{2}+\beta_{y}^{2}\right)=1\Rightarrow\beta^{2}=1-\frac{\omega^{2}}{\alpha^{2}\xi^{2}}
-\]
-
-\end_inset
-
-
 \begin_inset Formula 
 \begin{align*}
- & x=r\left(\theta-\sin\theta\right)\\
- & y=r\left(1-\cos\theta\right)
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & x^{\prime}=r\dot{\theta}\left(1-\cos\theta\right)\\
- & y^{\prime}=r\dot{\theta}\sin\theta
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\alpha\xi\beta_{z} & =\xi-\left(\gamma\beta_{x}\right)^{\prime}\\
-\alpha\xi\beta_{x} & =\left(\gamma\beta_{z}\right)^{\prime}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & x^{\prime\prime}=r\left[\ddot{\theta}\left(1-\cos\theta\right)+\dot{\theta}^{2}\sin\theta\right]=\frac{y^{\prime}}{\dot{\theta}}\\
- & y^{\prime\prime}=r\left[\ddot{\theta}\sin\theta+\dot{\theta}^{2}\cos\theta\right]
+t+c_{3} & =\frac{\left(\alpha^{2}-1\right)\xi\sqrt{-\left(\gamma^{2}\left(\alpha^{2}-1\right)\xi^{2}\right)+2\gamma c_{1}+c_{2}}}{\left(\alpha^{2}-1\right)^{2}\xi^{3}}\\
+ & +\frac{\sqrt{1-\alpha^{2}}c_{1}\tanh^{-1}\left(\frac{-\gamma\left(\alpha^{2}-1\right)\xi^{2}+c_{1}}{\sqrt{1-\alpha^{2}}\xi\sqrt{-\left(\gamma^{2}\left(\alpha^{2}-1\right)\xi^{2}\right)+2\gamma c_{1}+c_{2}}}\right)}{\left(\alpha^{2}-1\right)^{2}\xi^{3}}
 \end{align*}
 
 \end_inset
@@ -4721,55 +4677,6 @@ status open
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-sdfds
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\gamma\left(\gamma\beta_{x}\right)^{\prime}=\gamma\xi-\xi\alpha\gamma\beta_{z},\quad\gamma{\color{blue}\left(\gamma\beta_{z}\right)^{\prime}}=\xi\alpha\gamma\beta_{x},\quad\gamma^{\prime}=\xi\beta_{x}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & \gamma^{\prime}\left(\gamma\beta_{x}\right)^{\prime}+\gamma\left(\gamma\beta_{x}\right)^{\prime\prime}=\gamma^{\prime}\xi-\xi\alpha{\color{blue}\left(\gamma\beta_{z}\right)^{\prime}}=\gamma^{\prime}\xi-\left(\xi\alpha\right)^{2}\beta_{x},\\
- & \gamma^{\prime}\left(\gamma\beta_{z}\right)^{\prime}+\gamma\left(\gamma\beta_{z}\right)^{\prime\prime}=\xi\alpha{\color{brown}\left(\gamma\beta_{x}\right)^{\prime}}=\xi^{2}\alpha-\left(\xi\alpha\right)^{2}\beta_{z}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & \left(\xi^{2}\beta_{x}^{3}+\gamma\xi\beta_{x}\beta_{x}^{\prime}\right)+\gamma\left(\xi\beta_{x}^{\prime}+\beta_{x}^{\prime\prime}+2\xi\beta_{x}\beta_{x}^{\prime}\right)=\xi^{2}\beta_{x}-\left(\xi\alpha\right)^{2}\beta_{x},\\
- & \gamma^{\prime}\left(\gamma\beta_{z}\right)^{\prime}+\gamma\left(\gamma\beta_{z}\right)^{\prime\prime}=\xi^{2}\alpha-\left(\xi\alpha\right)^{2}\beta_{z}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
