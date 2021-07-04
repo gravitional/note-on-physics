@@ -4581,7 +4581,7 @@ status open
 \begin_inset Formula 
 \begin{align*}
  & \left(\gamma\beta_{x}\right)^{\prime}=\xi\left(1-\alpha\beta_{z}\right),\quad\left(\gamma\beta_{z}\right)^{\prime}=\alpha\xi\beta_{x},\\
- & \gamma^{\prime}=\xi\beta_{x},\quad\gamma^{2}\left(1-\beta_{x}^{2}-\beta_{z}^{2}\right)=1,\quad\alpha=\frac{Bc}{E}\text{，}\xi=\frac{qE}{mc}
+ & {\color{blue}\gamma^{\prime}=\xi\beta_{x}},\quad\gamma^{2}\left(1-\beta_{x}^{2}-\beta_{z}^{2}\right)=1,\quad\alpha=\frac{Bc}{E}\text{，}\xi=\frac{qE}{mc}
 \end{align*}
 
 \end_inset
@@ -4604,10 +4604,93 @@ status open
 
 \end_inset
 
+进一步化简为：
+\begin_inset Formula 
+\[
+\left\{ \gamma\left[\xi-\left(\gamma\frac{\gamma^{\prime}}{\xi}\right)^{\prime}\right]\right\} ^{\prime}=\alpha^{2}\xi\gamma^{\prime},\quad\left[\gamma\left(\gamma\beta_{z}\right)^{\prime}\right]^{\prime}=\alpha\xi^{2}\left(1-\alpha\beta_{z}\right)
+\]
+
+\end_inset
+
 
 \end_layout
 
+\end_deeper
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+6.22
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ \gamma\left[\xi-\left(\gamma\frac{\gamma^{\prime}}{\xi}\right)^{\prime}\right]\right\} ^{\prime}=\alpha^{2}\xi\gamma^{\prime},\quad\left[\gamma\left(\gamma\beta_{z}\right)^{\prime}\right]^{\prime}=\alpha\xi^{2}\left(1-\alpha\beta_{z}\right)
+\]
+
+\end_inset
+
+求解左边关于
+\begin_inset Formula $\gamma$
+\end_inset
+
+的常微分方程，可得到
+\begin_inset Formula $\gamma$
+\end_inset
+
+，
+\begin_inset Formula $\beta_{x}$
+\end_inset
+
+，再将
+\begin_inset Formula $\gamma$
+\end_inset
+
+代入右边，即可解出
+\begin_inset Formula $\beta_{z}$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+t+c_{3} & =\frac{\left(\alpha^{2}-1\right)\xi\sqrt{-\left(\gamma^{2}\left(\alpha^{2}-1\right)\xi^{2}\right)+2\gamma c_{1}+c_{2}}}{\left(\alpha^{2}-1\right)^{2}\xi^{3}}\\
+ & +\frac{\sqrt{1-\alpha^{2}}c_{1}\tanh^{-1}\left(\frac{-\gamma\left(\alpha^{2}-1\right)\xi^{2}+c_{1}}{\sqrt{1-\alpha^{2}}\xi\sqrt{-\left(\gamma^{2}\left(\alpha^{2}-1\right)\xi^{2}\right)+2\gamma c_{1}+c_{2}}}\right)}{\left(\alpha^{2}-1\right)^{2}\xi^{3}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{xy^{3/2}\tanh^{-1}\left(\frac{\sqrt{y}\left(\gamma\xi^{2}+xy\right)}{\xi\sqrt{\gamma y\left(\gamma\xi^{2}+2xy\right)}}\right)-\xi\sqrt{\gamma y\left(\gamma\xi^{2}+2xy\right)}}{\xi^{3}y}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $y=1-\alpha^{2}$
+\end_inset
+
+，
+\begin_inset Formula $x$
+\end_inset
+
+是任意常数。
 \begin_inset Note Note
 status open
 
@@ -4640,40 +4723,6 @@ DSolve[{ (
 \backslash
 [Xi] > 0, t >= 0} ]
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-6.22
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-t+c_{3} & =\frac{\left(\alpha^{2}-1\right)\xi\sqrt{-\left(\gamma^{2}\left(\alpha^{2}-1\right)\xi^{2}\right)+2\gamma c_{1}+c_{2}}}{\left(\alpha^{2}-1\right)^{2}\xi^{3}}\\
- & +\frac{\sqrt{1-\alpha^{2}}c_{1}\tanh^{-1}\left(\frac{-\gamma\left(\alpha^{2}-1\right)\xi^{2}+c_{1}}{\sqrt{1-\alpha^{2}}\xi\sqrt{-\left(\gamma^{2}\left(\alpha^{2}-1\right)\xi^{2}\right)+2\gamma c_{1}+c_{2}}}\right)}{\left(\alpha^{2}-1\right)^{2}\xi^{3}}
-\end{align*}
 
 \end_inset
 
