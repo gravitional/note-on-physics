@@ -240,6 +240,519 @@ A^{2}B^{2}=\left(A\cdot B\right)^{2}+\left(A\times B\right)^{2}
 \end_layout
 
 \begin_layout Section
+SO(3)群
+\end_layout
+
+\begin_layout Standard
+SU
+\begin_inset Formula $(2)$
+\end_inset
+
+群任何一个元素可以写成
+\begin_inset Formula 
+\[
+u=\exp\left(-i\omega\vec{n}\cdot\frac{\vec{\sigma}}{2}\right)=\cos\left(\frac{\omega}{2}\right)-i\left(\vec{n}\cdot\vec{\sigma}\right)\sin\left(\frac{\omega}{2}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\vec{\sigma}=\left(\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right),\left(\begin{array}{cc}
+0 & -i\\
+i & 0
+\end{array}\right),\left(\begin{array}{cc}
+1 & 0\\
+0 & -1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \left[\frac{\sigma^{i}}{2},\frac{\sigma^{j}}{2}\right]=i\varepsilon^{ijk}\frac{\sigma^{k}}{2}\\
+ & \left\{ \sigma^{i},\sigma^{j}\right\} =2\delta^{ij}\\
+ & \sigma^{i}\sigma^{j}=\frac{1}{2}\left\{ \sigma^{i},\sigma^{j}\right\} +\frac{1}{2}\left[\sigma^{i},\sigma^{j}\right]=\delta^{ij}+i\varepsilon^{ijk}\sigma^{k}
+\end{align*}
+
+\end_inset
+
+SU
+\begin_inset Formula $(2)$
+\end_inset
+
+群是SO
+\begin_inset Formula $\left(3\right)$
+\end_inset
+
+群的
+\begin_inset Formula $2:1$
+\end_inset
+
+覆盖。
+\end_layout
+
+\begin_layout Standard
+SO
+\begin_inset Formula $\left(3\right)$
+\end_inset
+
+群的一般元素写成：
+\begin_inset Formula 
+\[
+R=e^{-iL^{j}\theta^{j}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $L^{j}$
+\end_inset
+
+是厄米矩阵，称为生成元。SO
+\begin_inset Formula $\left(3\right)$
+\end_inset
+
+群的生成元满足：
+\begin_inset Formula 
+\begin{align*}
+ & \left(L_{a}\right)_{bc}=-i\varepsilon_{abc}\\
+ & \left[L_{i},L_{j}\right]=i\varepsilon^{ijk}L_{k}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+L_{x}=\left[\begin{array}{ccc}
+0 & 0 & 0\\
+0 & 0 & -i\\
+0 & i & 0
+\end{array}\right],\quad L_{y}=\left[\begin{array}{ccc}
+0 & 0 & i\\
+0 & 0 & 0\\
+-i & 0 & 0
+\end{array}\right],\quad L_{z}=\left[\begin{array}{ccc}
+0 & -i & 0\\
+i & 0 & 0\\
+0 & 0 & 0
+\end{array}\right]
+\]
+
+\end_inset
+
+绕任意方向转动
+\begin_inset Formula $\omega$
+\end_inset
+
+角的变换： 
+\begin_inset Formula 
+\[
+\exp\left[-i\omega\hat{n}\cdot\vec{T}\right]=\exp\left[-i\vec{\omega}\cdot\vec{T}\right]=\exp\left[-i\omega_{a}T_{a}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\omega$
+\end_inset
+
+在不同坐标下的表示：
+\begin_inset Formula 
+\begin{align*}
+\omega_{1} & =\omega n_{1}=\omega\sin\theta\cos\phi\\
+\omega_{2} & =\omega n_{2}=\omega\sin\theta\sin\phi\\
+\omega_{3} & =\omega n_{3}=\omega\cos\theta
+\end{align*}
+
+\end_inset
+
+例如求
+\begin_inset Formula $\left(1,1,1\right)$
+\end_inset
+
+方向的转动矩阵
+\begin_inset Formula 
+\[
+\exp\left[-i\frac{1}{\sqrt{3}}\omega\cdot\left(T_{1}+T_{2}+T_{3}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+L1 = ( { {0, 0, 0}, {0, 0, -I}, {0, I, 0} } ); L2 = ( { {0, 0, I}, {0, 0,
+ 0}, {-I, 0, 0} } ); L3 = ( { {0, -I, 0}, {I, 0, 0}, {0, 0, 0} } ); (teb
+ = MatrixExp[-I *
+\backslash
+[Theta]*1/Sqrt[3]*(L1 + L2 + L3)] // Simplify) // TableForm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+洛伦兹变换
+\end_layout
+
+\begin_layout Standard
+沿
+\begin_inset Formula $x$
+\end_inset
+
+轴方向的特殊洛伦兹变换写成
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+ct\\
+x
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & +\gamma\beta\\
++\gamma\beta & \gamma
+\end{array}\right)\left(\begin{array}{c}
+ct^{\prime}\\
+x^{\prime}
+\end{array}\right)
+\]
+
+\end_inset
+
+将洛伦兹变换写成矩阵形式，
+\begin_inset Formula 
+\[
+x^{\mu}=\Lambda_{\phantom{\mu}\nu}^{\mu}x^{\prime,\nu}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+现在有两个坐标系
+\begin_inset Formula $\Sigma$
+\end_inset
+
+和
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+，
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+相对于
+\begin_inset Formula $\Sigma$
+\end_inset
+
+以速度
+\begin_inset Formula $v$
+\end_inset
+
+沿着
+\begin_inset Formula $x$
+\end_inset
+
+轴正向运动。在两个坐标系中观察同一个矢量，两坐标系通过特殊洛伦兹变换联系：
+\begin_inset Formula 
+\[
+x=\Lambda x^{\prime}
+\]
+
+\end_inset
+
+现有一空间转动，记为
+\begin_inset Formula $R$
+\end_inset
+
+。对两个坐标系中的矢量同时施加转动变换
+\begin_inset Formula $R$
+\end_inset
+
+，得
+\begin_inset Formula 
+\[
+Rx=R\Lambda x^{\prime}
+\]
+
+\end_inset
+
+上式又可以写成
+\begin_inset Formula 
+\[
+Rx=R\Lambda R^{-1}Rx^{\prime}
+\]
+
+\end_inset
+
+可以认为
+\begin_inset Formula $R\Lambda R^{-1}$
+\end_inset
+
+是联系
+\begin_inset Formula $Rx$
+\end_inset
+
+与
+\begin_inset Formula $Rx^{\prime}$
+\end_inset
+
+的洛伦兹变换。
+\end_layout
+
+\begin_layout Standard
+对矢量的转动可以表示为欧拉角形式：
+\begin_inset Formula $\mathcal{U}\left(0,\theta,\phi\right)$
+\end_inset
+
+。欧拉角
+\begin_inset Formula $\mathcal{U}\left(\alpha,\beta,\phi\right)$
+\end_inset
+
+的含义是：先绕
+\begin_inset Formula $z$
+\end_inset
+
+轴转动
+\begin_inset Formula $\alpha$
+\end_inset
+
+角度，再绕目前的
+\begin_inset Formula $y^{\prime}$
+\end_inset
+
+轴转动
+\begin_inset Formula $\beta$
+\end_inset
+
+角度，最后绕目前的
+\begin_inset Formula $z^{\prime\prime}$
+\end_inset
+
+轴转动
+\begin_inset Formula $\phi$
+\end_inset
+
+角度。约定为绕坐标轴逆时针为正方向。欧拉转动矩阵为：
+\begin_inset Formula 
+\[
+\mathcal{U}=\left(\begin{array}{ccc}
+c_{\alpha}c_{\beta}c_{\phi}-s_{\alpha}s_{\phi} & -c_{\alpha}c_{\beta}s_{\phi}-c_{\phi}s_{\alpha} & c_{\alpha}s_{\beta}\\
+c_{\beta}c_{\phi}s_{\alpha}+c_{\alpha}s_{\phi} & c_{\alpha}c_{\phi}-c_{\beta}s_{\alpha}s_{\phi} & s_{\alpha}s_{\beta}\\
+-c_{\phi}s_{\beta} & s_{\beta}s_{\phi} & c_{\beta}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{U}\left(\alpha,\beta,\phi\right)$
+\end_inset
+
+对应的逆矩阵是
+\begin_inset Formula $\left(-\phi,-\beta,-\alpha\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+将
+\begin_inset Formula $x$
+\end_inset
+
+轴方向的矢量转到
+\begin_inset Formula $\left(\beta_{x},\beta_{y},\beta_{z}\right)$
+\end_inset
+
+方向的欧拉角是：
+\begin_inset Formula 
+\[
+\left(\arctan\frac{\beta_{y}}{\beta_{x}},-\frac{\pi}{2}+\arccos\frac{\beta_{z}}{\beta},0\right)
+\]
+
+\end_inset
+
+注意绕
+\begin_inset Formula $y$
+\end_inset
+
+轴旋转的正方向朝下。所以一般洛伦兹变换的形式为：
+\begin_inset Formula 
+\[
+\mathcal{U}\left(\arctan\frac{\beta_{y}}{\beta_{x}},-\frac{\pi}{2}+\arccos\frac{\beta_{z}}{\beta},0\right)\;\Lambda\left(v\right)\;\mathcal{U}\left(0,\frac{\pi}{2}-\arccos\frac{\beta_{z}}{\beta},-\arctan\frac{\beta_{y}}{\beta_{x}}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\beta_{x}^{2}\left(\gamma\left(\beta^{2}-\beta_{z}^{2}\right)+\beta_{z}^{2}\right)+\beta^{2}\beta_{y}^{2}}{\beta^{2}\left(\beta_{x}^{2}+\beta_{y}^{2}\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{U}\Lambda\mathcal{U}^{-1}=\left(\begin{array}{cccc}
+\gamma & \gamma\beta_{x} & \gamma\beta_{y} & \gamma\beta_{z}\\
+\gamma\beta_{x} & \frac{\gamma\beta_{x}^{2}+\beta_{y}^{2}+\beta_{z}^{2}}{\beta^{2}} & \frac{\beta_{x}\beta_{y}(\gamma-1)}{\beta^{2}} & \frac{\beta_{x}\beta_{z}(\gamma-1)}{\beta^{2}}\\
+\gamma\beta_{y} & \frac{\beta_{x}\beta_{y}(\gamma-1)}{\beta^{2}} & \frac{\beta_{x}^{2}+\gamma\beta_{y}^{2}+\beta_{z}^{2}}{\beta^{2}} & \frac{\beta_{y}\beta_{z}(\gamma-1)}{\beta^{2}}\\
+\gamma\beta_{z} & \frac{\beta_{x}\beta_{z}(\gamma-1)}{\beta^{2}} & \frac{\beta_{y}\beta_{z}(\gamma-1)}{\beta^{2}} & \frac{\beta_{x}^{2}+\beta_{y}^{2}+\gamma\beta_{z}^{2}}{\beta^{2}}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+rt[
+\backslash
+[Alpha]
+\backslash
+[Beta]
+\backslash
+[Gamma]_] := PadLeft[EulerMatrix[
+\backslash
+[Alpha]
+\backslash
+[Beta]
+\backslash
+[Gamma]], {4, 4}, 0] + SparseArray[{{1, 1} -> 1}, {4, 4}]; Simplify[( rt[{ArcTan
+[Subscript[
+\backslash
+[Beta], y]/Subscript[
+\backslash
+[Beta], x]], -(
+\backslash
+[Pi]/2) + ArcCos[Subscript[
+\backslash
+[Beta], z]/
+\backslash
+[Beta]], 0}] .
+ ( { {
+\backslash
+[Gamma], +
+\backslash
+[Gamma]*
+\backslash
+[Beta], 0, 0}, {+
+\backslash
+[Gamma]*
+\backslash
+[Beta], 
+\backslash
+[Gamma], 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1} } ) .
+ rt[{0, 
+\backslash
+[Pi]/2 - ArcCos[Subscript[
+\backslash
+[Beta], z]/
+\backslash
+[Beta]], -ArcTan[ Subscript[
+\backslash
+[Beta], y]/Subscript[
+\backslash
+[Beta], x]]}] ) /.
+ 
+\backslash
+[Beta]^2 -> (Subscript[
+\backslash
+[Beta], x]^2 + Subscript[
+\backslash
+[Beta], y]^2 + 
+\backslash
+!
+\backslash
+(
+\backslash
+*SubsuperscriptBox[
+\backslash
+(
+\backslash
+[Beta]
+\backslash
+), 
+\backslash
+(z
+\backslash
+), 
+\backslash
+(2
+\backslash
+)]
+\backslash
+)), Assumptions -> {Subscript[
+\backslash
+[Beta], x] > 0, Subscript[
+\backslash
+[Beta], y] > 0, Subscript[
+\backslash
+[Beta], z] > 0, 
+\backslash
+[Beta] > 0, 
+\backslash
+[Gamma] > 1} ] /.
+ 
+\backslash
+[Beta]^2 -> (Subscript[
+\backslash
+[Beta], x]^2 + Subscript[
+\backslash
+[Beta], y]^2 + 
+\backslash
+!
+\backslash
+(
+\backslash
+*SubsuperscriptBox[
+\backslash
+(
+\backslash
+[Beta]
+\backslash
+), 
+\backslash
+(z
+\backslash
+), 
+\backslash
+(2
+\backslash
+)]
+\backslash
+)) // Simplify // TableForm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 解析函数
 \end_layout
 
