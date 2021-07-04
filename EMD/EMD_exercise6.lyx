@@ -453,7 +453,7 @@ x^{\prime}
 \end_inset
 
 ，类空间隔：
-\begin_inset Formula $s^{2}>0$
+\begin_inset Formula $s^{2}<0$
 \end_inset
 
 ，在洛伦兹变换下保号。因果性是绝对的。
@@ -620,7 +620,7 @@ g^{\mu\nu}=g_{\mu\nu}=\left(\begin{array}{cccc}
 
 \begin_layout Standard
 而方程中净余的相同指标，上下位置要一致。例如
-\begin_inset Formula $\partial_{\mu}F^{\mu\nu}=\mu_{0}J^{\nu}$
+\begin_inset Formula $\partial_{\mu}F^{\mu\nu}=-\mu_{0}J^{\nu}$
 \end_inset
 
 。
@@ -1015,7 +1015,7 @@ tea[z_, k_] := {2 E0*Cos[dk*z - d
 \begin_inset Formula 
 \begin{align*}
 \text{四维偏导：}\quad & \partial_{\mu}=\left(\frac{\partial}{c\partial t},\nabla\right)\\
-\text{四维电流密度：}\quad & U^{\mu}=\gamma\left(c,v\right),\quad J^{\mu}=q\gamma\left(c,\sbf v\right)=\left(\rho c,\sbf J\right),\\
+\text{四维电流密度：}\quad & U^{\mu}=\gamma\left(c,\sbf v\right),\quad J^{\mu}=qU^{\mu}=\left(\rho c,\sbf J\right),\\
 \text{四维势：}\quad & A^{\mu}=\left(\varphi/c,\sbf A\right)
 \end{align*}
 
@@ -1403,7 +1403,7 @@ A^{3,}
 \begin_inset Formula 
 \begin{align*}
  & \sbf E_{\ssl}^{\prime}=\sbf E_{\ssl},\quad\sbf B_{\ssl}^{\prime}=\sbf B_{\ssl},\quad\text{与运动方向平行的分量}\\
- & \sbf E_{\perp}^{\prime}=\gamma\left(\sbf E+\sbf v\times\sbf B\right)_{\perp},\quad\sbf B_{\perp}^{\prime}=\gamma\left(\sbf B-\frac{\sbf v}{c^{2}}\times\sbf E\right)_{\perp}.
+ & \sbf E_{\perp}^{\prime}=\gamma\left(\sbf E_{\perp}+\sbf v\times\sbf B_{\perp}\right),\quad\sbf B_{\perp}^{\prime}=\gamma\left(\sbf B_{\perp}-\frac{\sbf v}{c^{2}}\times\sbf E_{\perp}\right).
 \end{align*}
 
 \end_inset
@@ -3418,7 +3418,7 @@ status open
 中四维力的形式，
 \begin_inset Formula 
 \[
-k^{\prime,\mu}=\gamma_{v^{\prime}}\left(\sbf F^{\prime}\cdot\sbf v^{\prime}/c,\sbf F^{\prime}\right)=\left(0,\frac{\lambda q}{2\pi\varepsilon_{0}d}\right).
+K^{\prime,\mu}=\gamma_{v^{\prime}}\left(\sbf F^{\prime}\cdot\sbf v^{\prime}/c,\sbf F^{\prime}\right)=\left(0,\frac{\lambda q}{2\pi\varepsilon_{0}d}\right).
 \]
 
 \end_inset
@@ -3459,7 +3459,7 @@ status open
 ，对应的四维力是
 \begin_inset Formula 
 \[
-k^{\mu}=\gamma_{v}\left(\sbf F\cdot\sbf v/c,\sbf F\right)
+K^{\mu}=\gamma_{v}\left(\sbf F\cdot\sbf v/c,\sbf F\right)
 \]
 
 \end_inset
@@ -4581,21 +4581,12 @@ status open
 \begin_inset Formula 
 \begin{align*}
  & \left(\gamma\beta_{x}\right)^{\prime}=\xi\left(1-\alpha\beta_{z}\right),\quad\left(\gamma\beta_{z}\right)^{\prime}=\alpha\xi\beta_{x},\\
- & {\color{blue}\gamma^{\prime}=\xi\beta_{x}},\quad\gamma^{2}\left(1-\beta_{x}^{2}-\beta_{z}^{2}\right)=1,\quad\alpha=\frac{Bc}{E}\text{，}\xi=\frac{qE}{mc}
+ & {\color{blue}\gamma^{\prime}=\xi\beta_{x}},\quad\alpha=\frac{Bc}{E}\text{，}\xi=\frac{qE}{mc}
 \end{align*}
 
 \end_inset
 
-稍微整理一下：
-\begin_inset Formula 
-\begin{align*}
- & \alpha\xi\beta_{z}=\xi-\left(\gamma\beta_{x}\right)^{\prime},\quad\alpha\xi\beta_{x}=\left(\gamma\beta_{z}\right)^{\prime}\\
- & \gamma^{\prime}=\xi\beta_{x}
-\end{align*}
-
-\end_inset
-
-
+尽量消去方程两边的变量：
 \begin_inset Formula 
 \begin{align*}
  & \left\{ \gamma\left[\xi-\left(\gamma\beta_{x}\right)^{\prime}\right]\right\} ^{\prime}=\alpha\xi\left(\gamma\beta_{z}\right)^{\prime},\quad\left[\gamma\left(\gamma\beta_{z}\right)^{\prime}\right]^{\prime}=\alpha\xi\left(\gamma\beta_{x}\right)^{\prime},\\
@@ -4612,7 +4603,23 @@ status open
 
 \end_inset
 
+求解左边关于
+\begin_inset Formula $\gamma$
+\end_inset
 
+的常微分方程，可得到
+\begin_inset Formula $\gamma$
+\end_inset
+
+，
+\begin_inset Formula $\beta_{x}$
+\end_inset
+
+，继而解出
+\begin_inset Formula $\beta_{z}$
+\end_inset
+
+。
 \end_layout
 
 \end_deeper
@@ -4645,23 +4652,7 @@ status open
 
 \end_inset
 
-求解左边关于
-\begin_inset Formula $\gamma$
-\end_inset
 
-的常微分方程，可得到
-\begin_inset Formula $\gamma$
-\end_inset
-
-，
-\begin_inset Formula $\beta_{x}$
-\end_inset
-
-，继而解出
-\begin_inset Formula $\beta_{z}$
-\end_inset
-
-。
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -4674,7 +4665,7 @@ t+c_{3}= & \pm\frac{\left(\alpha^{2}-1\right)\xi\sqrt{\gamma^{2}\left(1-\alpha^{
 
 \end_inset
 
-例如取
+尝试取
 \begin_inset Formula $c_{1}=c_{3}=0$
 \end_inset
 
@@ -4694,7 +4685,7 @@ t=\frac{\sqrt{\gamma^{2}-1}}{\xi\sqrt{\left(1-\alpha^{2}\right)}},\quad\beta_{x}
 \begin_inset Formula $\alpha<1$
 \end_inset
 
-，。
+。
 \begin_inset Note Note
 status open
 
@@ -5882,7 +5873,7 @@ k^{\prime}=\frac{k}{1+\frac{\hbar k}{mc}\left(1-\cos\theta\right)},\quad\omega^{
 
 \end_inset
 
-1922–1923年，Arthur Holly Compton 对此进行了正确的解释，并获得 1927 年诺贝尔物理学奖。
+1922–1923年，Arthur Holly Compton 研究此现象，并给出了正确的解释，后获得 1927 年诺贝尔物理学奖。
 \end_layout
 
 \begin_layout Standard
