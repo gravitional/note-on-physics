@@ -1016,7 +1016,8 @@ tea[z_, k_] := {2 E0*Cos[dk*z - d
 \begin{align*}
 \text{四维偏导：}\quad & \partial_{\mu}=\left(\frac{\partial}{c\partial t},\nabla\right)\\
 \text{四维电流密度：}\quad & U^{\mu}=\gamma\left(c,\sbf v\right),\quad J^{\mu}=qU^{\mu}=\left(\rho c,\sbf J\right),\\
-\text{四维势：}\quad & A^{\mu}=\left(\varphi/c,\sbf A\right)
+\text{四维势：}\quad & A^{\mu}=\left(\varphi/c,\sbf A\right)\\
+\text{电磁场强张量：}\quad & F^{\mu\nu}=\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu}
 \end{align*}
 
 \end_inset
@@ -1026,20 +1027,29 @@ tea[z_, k_] := {2 E0*Cos[dk*z - d
 \end_inset
 
 ，得：
+\size small
+
 \begin_inset Formula 
 \[
-F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}=\left(\begin{array}{cccc}
+F^{\mu\nu}=\left(\begin{array}{cccc}
 0 & -E_{1}/c & -E_{2}/c & -E_{3}/c\\
 E_{1}/c & 0 & -B_{3} & B_{2}\\
 E_{2}/c & B_{3} & 0 & -B_{1}\\
 E_{3}/c & -B_{2} & B_{1} & 0
+\end{array}\right),\quad F_{\mu\nu}=\left(\begin{array}{cccc}
+0 & E_{1}/c & E_{2}/c & E_{3}/c\\
+-E_{1}/c & 0 & -B_{3} & B_{2}\\
+-E_{2}/c & B_{3} & 0 & -B_{1}\\
+-E_{3}/c & -B_{2} & B_{1} & 0
 \end{array}\right)
 \]
 
 \end_inset
 
 
-\begin_inset Formula $F_{\mu\nu}$
+\size default
+
+\begin_inset Formula $F^{\mu\nu}$
 \end_inset
 
 是反对称张量，对角线上元素为零。其他元素为，

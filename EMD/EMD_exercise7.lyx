@@ -595,6 +595,427 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
+推迟势
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+非相对论的推迟势为：
+\begin_inset Formula 
+\[
+\varphi\left[t,\sbf x\right]/c=\frac{\mu_{0}}{4\pi}\int_{V}\frac{c\rho\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r}\dif V^{\prime},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r}\dif V^{\prime}
+\]
+
+\end_inset
+
+如果是单粒子情形：
+\begin_inset Formula 
+\[
+\frac{\varphi\left[t,\sbf x\right]}{c}=\frac{\mu_{0}}{4\pi}\frac{qc}{r},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{q\sbf v\left[t-\frac{r}{c}\right]}{r}
+\]
+
+\end_inset
+
+我们先在粒子的静止系
+\begin_inset Formula $\tilde{\Sigma}$
+\end_inset
+
+内观察：源点
+\begin_inset Formula $\left(c\tilde{t^{\prime}},\tilde{\sbf x^{\prime}}\right)$
+\end_inset
+
+的波动，经过
+\begin_inset Formula $\tilde{r}/c$
+\end_inset
+
+时间之后，才能传播到场点
+\begin_inset Formula $\left(c\tilde{t},\tilde{\sbf x}\right)$
+\end_inset
+
+，其中
+\begin_inset Formula $\tilde{r}=\abs*{\tilde{\sbf x}-\tilde{\sbf x^{\prime}}}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+由于光速不变，两个坐标系满足类似的关系：
+\begin_inset Formula $\tilde{r}=c\Delta\tilde{t}$
+\end_inset
+
+，
+\begin_inset Formula $r=c\Delta t$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+设粒子速度为
+\begin_inset Formula $\sbf v$
+\end_inset
+
+，使用前面推导的一般方向洛伦兹变换：
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+c\Delta\tilde{t}\\
+\cdots
+\end{array}\right)=\left(\begin{array}{cc}
+\gamma & -\gamma\sbf\beta\\
+\cdots & \cdots
+\end{array}\right)\left(\begin{array}{c}
+c\Delta t\\
+\sbf r
+\end{array}\right)
+\]
+
+\end_inset
+
+静止系和实验室系间，辐射距离的变换关系是，
+\begin_inset Formula 
+\[
+\tilde{r}={\color{blue}\gamma\left(r-\sbf r\cdot\sbf\beta\right)},\quad\sbf\beta=\sbf v/c
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+任意运动带电粒子的势
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+r^{\mu}=\left(x-x^{\prime}\right)^{\mu}=\left(\begin{array}{c}
+c\Delta t=r\\
+\sbf r
+\end{array}\right),\quad r^{\mu}r_{\mu}=\sbf r^{2}-\sbf r^{2}=0
+\]
+
+\end_inset
+
+是一个类空的四矢量，结合粒子四速度的表达式
+\begin_inset Formula $U^{\mu}=\gamma\left(c,-\sbf v\right)$
+\end_inset
+
+，可以把辐射距离
+\begin_inset Formula $\tilde{r}$
+\end_inset
+
+写成一个洛伦兹标量：
+\begin_inset Formula 
+\[
+\tilde{r}=\frac{U^{\mu}r_{\mu}}{c}=\gamma\left(r-\sbf r\cdot\sbf\beta\right)
+\]
+
+\end_inset
+
+我们可以把单粒子的辐射势改成相对论形式：
+\begin_inset Formula 
+\[
+A^{\mu}\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{qU^{\mu}\left[t-\frac{r}{c}\right]}{U^{\mu}r_{\mu}/c}
+\]
+
+\end_inset
+
+对应的分量的形式为：
+\begin_inset Formula 
+\[
+\frac{\varphi\left[t,\sbf x\right]}{c}=\frac{\mu_{0}}{4\pi}\frac{\cancel{\gamma}qc}{\cancel{\gamma}\left(r-\sbf r\cdot\sbf\beta\right)},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{\cancel{\gamma}q\sbf v\left[t-\frac{r}{c}\right]}{\cancel{\gamma}\left(r-\sbf r\cdot\sbf\beta\right)}
+\]
+
+\end_inset
+
+即
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Li
+\backslash
+'enard--Wiechert
+\end_layout
+
+\end_inset
+
+ 势.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+连续体系的势
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+类似地，对于连续体系，
+\begin_inset Formula 
+\[
+J^{\mu}=\rho_{0}U^{\mu}=\rho_{0}\gamma\left(c,\sbf v\right),\quad J^{\mu}r_{\mu}=\rho cr-\sbf J\cdot\sbf r
+\]
+
+\end_inset
+
+则
+\begin_inset Formula 
+\[
+\tilde{r}=\frac{U^{\mu}r_{\mu}}{c}=\frac{J^{\mu}r_{\mu}}{\rho_{0}c}=J^{\mu}r_{\mu}\frac{\gamma\left[x^{\prime}\right]}{\rho c}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\gamma\left[x^{\prime}\right]$
+\end_inset
+
+是
+\begin_inset Formula $x^{\prime}$
+\end_inset
+
+处电流的相对论因子,
+\begin_inset Formula 
+\begin{align*}
+A^{\mu}\left[t,\sbf x\right] & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{J^{\mu}\left[t-\frac{r}{c}\right]}{J^{\mu}r_{\mu}}\frac{\rho c}{\gamma\left[x^{\prime}\right]}{\color{blue}\gamma\left[x^{\prime}\right]\dif V^{\prime}},\\
+ & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{\rho cJ^{\mu}\left[t-\frac{r}{c}\right]}{J^{\mu}r_{\mu}}\dif V^{\prime}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula ${\color{blue}\gamma\left[x^{\prime}\right]\dif V^{\prime}}$
+\end_inset
+
+是洛伦兹不变的积分测度，
+\begin_inset Formula 
+\begin{align*}
+\frac{\varphi\left[t,\sbf x\right]}{c} & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{c\rho\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r-\sbf J\cdot\sbf r/\left(\rho c\right)}\dif V^{\prime},\\
+\sbf A\left[t,\sbf x\right] & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r-\sbf J\cdot\sbf r/\left(\rho c\right)}\dif V^{\prime}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+dsfsd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Li
+\backslash
+'enard--Wiechert
+\end_layout
+
+\end_inset
+
+ 势
+\begin_inset Formula $A^{\mu}\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{qU^{\mu}}{U^{\mu}r_{\mu}/c}$
+\end_inset
+
+中右边各量都取时刻
+\begin_inset Formula $t^{\prime}=t-\frac{r}{c}$
+\end_inset
+
+时的值。
+\begin_inset Formula 
+\[
+t^{\prime}=t-\frac{r}{c}=t-\frac{\sqrt{\left[\sbf x-\sbf x_{q}\left(t^{\prime}\right)\right]^{2}}}{c},\quad A^{\mu}\begin{cases}
+t^{\prime}\begin{cases}
+t\\
+x
+\end{cases}\\
+x
+\end{cases}
+\]
+
+\end_inset
+
+设粒子的运动轨迹
+\begin_inset Formula $\sbf x_{q}\left(t^{\prime}\right)$
+\end_inset
+
+已知，锁定时空点
+\begin_inset Formula $\left(ct,x\right)$
+\end_inset
+
+，则
+\begin_inset Formula $t^{\prime}$
+\end_inset
+
+也完全确定。说明
+\begin_inset Formula $\left(ct,x\right)$
+\end_inset
+
+是
+\begin_inset Formula $x,t$
+\end_inset
+
+的隐函数。使用隐函数的求导公式，得
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\partial t^{\prime}}{\partial t}=\frac{cr\gamma}{U^{\mu}r_{\mu}},\quad\text{or}\quad\frac{\partial t^{\prime}}{\partial t}=\frac{\gamma}{u^{\mu}e_{r\mu}},\quad u^{\mu}=U^{\mu}/c,\quad e_{r,\mu}=r^{\mu}/r\\
+ & \nabla t^{\prime}=\frac{-\gamma\sbf e_{r}}{U^{\mu}e_{r\mu}}
+\end{align*}
+
+\end_inset
+
+当
+\begin_inset Formula $v\ll c$
+\end_inset
+
+时，简化为
+\begin_inset Formula 
+\[
+\frac{\partial t^{\prime}}{\partial t}=1,\quad\nabla t^{\prime}=-\frac{\sbf e_{r}}{c}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+sfs
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\varphi\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{qc^{2}}{r-\sbf r\cdot\sbf\beta},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{q\sbf v\left[t-\frac{r}{c}\right]}{r-\sbf r\cdot\sbf\beta}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sbf B & =\nabla\times\sbf A=\left.\nabla\times\sbf A\right|_{t^{\prime}=\text{常数}}+\nabla t^{\prime}\times\partial_{t^{\prime}}\sbf A\\
+ & =\left.\frac{\mu_{0}q}{4\pi}\left(\frac{\sbf v\times\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\dot{\sbf v}\times\sbf e_{r}}{cr}}\right)\right|_{t^{\prime}}\\
+\sbf E & =-\partial_{t}\sbf A-\nabla\varphi\\
+ & =\left.\frac{\mu_{0}q}{4\pi}\left(\frac{c^{2}\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\sbf e_{r}\times\left(\sbf e_{r}\times\dot{\sbf v}\right)}{r}}\right)\right|_{t^{\prime}}
+\end{align*}
+
+\end_inset
+
+电场和磁场都分成两项。第一项是库仑场，与
+\begin_inset Formula $r$
+\end_inset
+
+的二次方成反比。第二项是辐射场，与
+\begin_inset Formula $r$
+\end_inset
+
+的一次方成反比。辐射场满足
+\begin_inset Formula 
+\[
+\sbf B=\frac{\mu_{0}q}{4\pi}\frac{\dot{\sbf v}\times\sbf e_{r}}{cr}=\frac{1}{c}\sbf e_{r}\times\sbf E
+\]
+
+\end_inset
+
+令
+\begin_inset Formula $\sbf p=q\sbf x_{q}$
+\end_inset
+
+为带电粒子的电偶极矩，则
+\begin_inset Formula $\ddot{\sbf p}=q\dot{v}$
+\end_inset
+
+。与第五章电偶极辐射公式一致。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 7.3
 \end_layout
 

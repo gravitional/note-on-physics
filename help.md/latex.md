@@ -1818,10 +1818,12 @@ Synopsis:
 
 此示例给出了1908年奥运会马拉松比赛的前两名. 作为顶级列表,标签将显示为` 1.`和` 2.`.
 
+```latex
 \begin{enumerate}
  \item Johnny Hayes (USA)
  \item Charles Hefferon (RSA)
 \end{enumerate}
+```
 
 用`\ item`命令开始列表项(请参阅`\ item`). 
 如果您给`\item`提供可选参数,通过在其后加上方括号,例如`\item[Interstitial label]`,
@@ -1841,8 +1843,7 @@ Synopsis:
 The enumerate environment uses the counters `\enumi` through `\enumiv` (see `Counters`).
 
 对于其他主要的LaTeX标签列表环境,请参阅`description`和`itemize`. 
-有关列表`layout parameters`(包括默认值)的信息,以及有关自定义列表布局的信息,请参见`list`. 
-软件包`enumitem`可用于自定义列表.
+有关列表`layout parameters`(包括默认值)的信息,以及有关自定义列表布局的信息,请参见`list`.  软件包`enumitem`可用于自定义列表.
 
 要更改标签的格式,对命令`\labelenumi`使用`\renewcommand`(请参阅`\newcommand`和`\renewcommand`). 
 例如,下面使第一级列表以大写字母标记,并以`boldface`显示,并且没有尾随句点.
@@ -1856,6 +1857,8 @@ The enumerate environment uses the counters `\enumi` through `\enumiv` (see `Cou
 ```
 
 For a list of counter-labeling commands see `\alph \Alph \arabic \roman \Roman \fnsymbol`.
+
+### enumitem
 
 ### itemize
 
