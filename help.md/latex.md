@@ -2616,9 +2616,10 @@ URL链接
 `hepunits`会调用`physics`和`SIunits`，这两个包会与`siunitx`冲突，所以不要调用这些宏包。
 
 `siunitx`的说明文档中有具体的用法例子：
-3.3Units 章节列举了常用的命令，3.6Unit abbreviations 中有大量单位的缩写，但是注意很多单位的定义只在`\unit{}`环境内才生效。
+`3.3Units` 章节列举了常用的命令，`3.6Unit abbreviations` 中有大量单位的缩写，但是注意很多单位的定义只在`\unit{}`环境内才生效。
 另外`siunitx`有第二版和第三版，使用`texdoc siunitx`查看本地对应版本的文档，两个版本的命令名称不同，根据具体情况使用。
-例如笔者本地安装的是第二版，对应的命令为
+
+例如我本地安装的是第二版，对应的命令为
 
 ```latex
 \SI[mode=text]{1.23}{J.mol^{-1}.K^{-1}}
@@ -2626,6 +2627,16 @@ URL链接
 \si{\henry\tothe{5}}  %一般的指数可以用 \tothe 输入
 \si{\raiseto{4.5}\radian} % 或者用 \raiseto
 \si{\kilogram\of{metal}} %一般的限定符可以使用 \of 
+```
+
+相应的第三版命令是
+
+```latex
+\qty[mode=text]{1.23}{J.mol^{-1}.K^{-1}}
+\ang{1;2;3}
+\unit{\henry\tothe{5}} 
+\unit{\raiseto{4.5}\radian}
+\unit{\kilogram\of{metal}}
 ```
 
 ## 画费曼图

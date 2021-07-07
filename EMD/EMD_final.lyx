@@ -64,19 +64,10 @@
 \usepackage{makeidx} 
 % Standard package for creating indexes
 \usepackage{multirow}
-\usepackage{mathtools}% 定义配对的数学符号
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 \usepackage{tikz-feynman}  % 画费曼图用
 \usepackage{tikz}
 %%++++++++++++++++++++ 
-\DeclareMathOperator{\tr}{Tr}
-%\DeclareMathOperator{\re}{Re}
-%\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\res}{Res}
-\DeclareMathOperator{\disc}{Disc}
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
-\newcommand{\cola}[1]{{\color{blue}{#1}}}
 \theoremstyle{definition} %定理的样式
 \newtheorem{exercise}{}%定理环境的名字，第二个参数是前缀文字
 %%%+++++++++++++++++++++++++++++++
@@ -124,6 +115,20 @@
 %设置数学字体
 \usepackage{unicode-math}%在其他字体包如amsmath之后调用
 \setmathfont{latinmodern-math.otf}
+%+++++++++++++++
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\diag}{diag} %对角矩阵
+\DeclareMathOperator{\res}{Res} %复变函数的留数
+\DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
+\DeclareMathOperator{\sign}{Sign}
+\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,hyperref
 \use_default_options true
@@ -324,22 +329,30 @@ x
 \end_inset
 
 变换到光锥之外？简要说明原因。
+\series bold
+（10分）
 \end_layout
 
 \begin_layout Standard
 \begin_inset Graphics
 	filename final_guangzhui.pdf
-	scale 50
+	height 4cm
 
 \end_inset
 
 
-\end_layout
+\begin_inset space \hspace{}
+\length 3cm
+\end_inset
 
-\begin_layout Standard
 
-\series bold
-（10分）
+\begin_inset Graphics
+	filename final_bodao.pdf
+	scale 60
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -375,6 +388,34 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
+如上图所示的矩形波导管，波导管壁面为
+\begin_inset Formula $x=0$
+\end_inset
+
+和
+\begin_inset Formula $a$
+\end_inset
+
+，
+\begin_inset Formula $y=0$
+\end_inset
+
+和
+\begin_inset Formula $b$
+\end_inset
+
+；
+\begin_inset Formula $z$
+\end_inset
+
+轴沿传播方向。
+\end_layout
+
+\begin_layout Enumerate
+写出波导内的电磁波解，以及波矢满足的约束。
+\end_layout
+
+\begin_layout Enumerate
 频率为
 \begin_inset Formula $\qty{30e9}{\Hz}$
 \end_inset
@@ -388,12 +429,90 @@ begin{exercise}
 \end_inset
 
 的矩形波导管中能以什么波模传播？
+\series bold
+（10分）
 \end_layout
 
 \begin_layout Standard
 
-\series bold
-（10分）
+\color blue
+解：
+\color inherit
+则沿
+\begin_inset Formula $z$
+\end_inset
+
+方向传播的电磁波为
+\begin_inset Formula 
+\begin{align*}
+ & E_{x}=A_{x}\,{\color{blue}\cos k_{x}x}\quad\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{y}=A_{y}\,\sin k_{x}x\quad{\color{blue}\cos k_{y}y}\quad e^{-i\left(\omega t-k_{z}z\right)}\\
+ & E_{z}=A_{z}\,\sin k_{x}x\quad\sin k_{y}y\quad e^{-i\left(\omega t-k_{z}z\right)}
+\end{align*}
+
+\end_inset
+
+波矢量满足
+\begin_inset Formula $k_{x}^{2}+k_{y}^{2}+k_{z}^{2}=\omega^{2}\mu_{0}\varepsilon_{0}$
+\end_inset
+
+。两个封闭区间给出两个量子化条件：
+\begin_inset Formula 
+\[
+k_{x}=\frac{m\pi}{a},\quad k_{y}=\frac{n\pi}{b},\quad\left(m,n=0,1,2,\cdots\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\nabla\cdot\sbf E=0$
+\end_inset
+
+对应
+\begin_inset Formula 
+\[
+k_{x}A_{x}+k_{y}A_{y}-ik_{z}A_{z}=0
+\]
+
+\end_inset
+
+对每一组
+\begin_inset Formula $m,n$
+\end_inset
+
+，有两种独立的波。
+\end_layout
+
+\begin_layout Standard
+频率为
+\begin_inset Formula $\nu=\qty{30e9}{\Hz}$
+\end_inset
+
+的微波，波长为
+\begin_inset Formula 
+\[
+\lambda=c/\nu\approx\qty{1}{\cm}
+\]
+
+\end_inset
+
+波导内的电磁波形式为：
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \omega_{c,mn}=\pi c\sqrt{\left(\frac{m}{a}\right)^{2}+\left(\frac{n}{b}\right)^{2}}\\
+ & \lambda_{c,mn}=\frac{2\pi c}{\omega_{c,mn}}=\frac{2ab}{\sqrt{m^{2}b^{2}+n^{2}a^{2}}}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
