@@ -1136,7 +1136,7 @@ ubuntu 仓库的texlive
 
 `tlmgr [option]... action [option]... [operand]...`
 
-安装好 texlive 后
+安装好 `texlive` 后
 
 如果使用`tlmgr option` 报错
 `cannot setup TLPDB in /home/USER/texmf at /usr/bin/tlmgr line 5308.`
@@ -1217,7 +1217,7 @@ curl -fsSL https://www.preining.info/rsa.asc | tlmgr key add -
 默认情况下,这还会安装给定pkg所依赖的所有软件包. 选项：
 
 + `--dry-run` : 实际没有安装任何东西. 而是将要执行的动作写入终端.
-+ `--file`: 不从安装库中获取软件包,不如使用命令行上给出的软件包文件. 这些文件必须是标准的TeX Live软件包文件（包含tlpobj文件）.
++ `--file`: 不从安装库中获取软件包, 使用命令行上给出的软件包文件. 这些文件必须是标准的`TeX Live`软件包文件（包含`tlpobj`文件）.
 + `--force`:如果存在对`tlmgr`本身（或基本基础结构的其他部分）的更新,
 则除非给出此选项,否则`tlmgr`将退出紧急状态并且不会执行安装. 不建议.
 + `--no-depends`:不要安装依赖项. （默认情况下,安装软件包可确保满足该软件包的所有依赖关系.）
@@ -1261,6 +1261,25 @@ tlmgr conf auxtrees remove /quick/test/tree
 
 警告：此处是用于更改配置值的一般工具,但是强烈建议不要以这种方式修改设置. 
 同样,不对键或值进行错误检查,因此可能发生任何破损.
+
+### 手动安装宏包
+
+如果无法使用`tlmgr`自动安装宏包，例如`ubuntu`自带的`texlive`，默认的版本比远程仓库中的低，无法自动升级。
+可以直接从网上下载想要安装的宏包，大部分宏包已经打包成标准格式，例如`siunitx.tds.zip`, [siunitx](https://www.ctan.org/pkg/siunitx).
+直接解压到`texlive`的安装目录即可.
+
+如何定位安装目录呢？可以参考[Installing TeX fonts](http://www.tug.org/fonts/fontinstall.html)，虽然这个文章主要是介绍安装字体的。
+使用类似下面的命令找出`texlive`的安装目录。
+
+```bash
+kpsewhich --var-value TEXMF
+tlmgr conf # 这个会输出texlive大部分配置的信息
+```
+
+我电脑上`texlive`安装在`/usr/share/texmf `，这是共享目录，如果安装在这里，所有账户都能使用。
+此外在家目录下，即`/home/tom/texmf`还有一个用户目录树，建议把宏包解压到这里，不会影响`ubuntu`自带的发行版。
+如果你的`home`没有这个文件夹，可以运行`tlmgr init-usertree`产生一个。
+由于路径中`/home/tom/texmf`在前面，把宏包装在这里，就会被优先使用。
 
 ### jabref
 
