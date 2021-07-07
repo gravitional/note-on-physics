@@ -851,7 +851,7 @@ A^{\mu}\left[t,\sbf x\right] & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{J^{\mu}\left[t
 status open
 
 \begin_layout Plain Layout
-dsfsd
+微分关系
 \end_layout
 
 \end_inset
@@ -917,8 +917,8 @@ x
 的隐函数。使用隐函数的求导公式，得
 \begin_inset Formula 
 \begin{align*}
- & \frac{\partial t^{\prime}}{\partial t}=\frac{cr\gamma}{U^{\mu}r_{\mu}},\quad\text{or}\quad\frac{\partial t^{\prime}}{\partial t}=\frac{\gamma}{u^{\mu}e_{r\mu}},\quad u^{\mu}=U^{\mu}/c,\quad e_{r,\mu}=r^{\mu}/r\\
- & \nabla t^{\prime}=\frac{-\gamma\sbf e_{r}}{U^{\mu}e_{r\mu}}
+ & \frac{\partial t^{\prime}}{\partial t}=\frac{cr\gamma}{U^{\mu}r_{\mu}},\quad\text{or}\quad\frac{\partial t^{\prime}}{\partial t}=\frac{1}{1-\sbf e_{r}\cdot\sbf\beta},\\
+ & \nabla t^{\prime}=\frac{-\gamma\sbf e_{r}}{U^{\mu}e_{r\mu}}\quad\text{or}\quad\nabla t^{\prime}=\frac{-\sbf e_{r}}{c\left(1-\sbf e_{r}\cdot\sbf\beta\right)}.
 \end{align*}
 
 \end_inset
@@ -950,7 +950,7 @@ x
 status open
 
 \begin_layout Plain Layout
-sfs
+偶极辐射
 \end_layout
 
 \end_inset
@@ -966,13 +966,28 @@ sfs
 
 \end_inset
 
+其中
+\begin_inset Formula $\sbf r=\sbf x-\sbf x_{q}$
+\end_inset
+
+，
+\begin_inset Formula $r=\sqrt{\left(\sbf x-\sbf x_{q}\left[t^{\prime}\right]\right)^{2}}$
+\end_inset
+
+。使用求导公式，
+\begin_inset Formula 
+\[
+\partial_{t^{\prime}}r=-\sbf e_{r}\cdot\sbf v_{q},\quad\left.\nabla r\right|_{t^{\prime}}=\sbf e_{r},\quad\left.\nabla\left(\sbf r\cdot\sbf\beta\right)\right|_{t^{\prime}}=\sbf\beta\cdot\sbf e_{r}
+\]
+
+\end_inset
+
 
 \begin_inset Formula 
 \begin{align*}
 \sbf B & =\nabla\times\sbf A=\left.\nabla\times\sbf A\right|_{t^{\prime}=\text{常数}}+\nabla t^{\prime}\times\partial_{t^{\prime}}\sbf A\\
  & =\left.\frac{\mu_{0}q}{4\pi}\left(\frac{\sbf v\times\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\dot{\sbf v}\times\sbf e_{r}}{cr}}\right)\right|_{t^{\prime}}\\
-\sbf E & =-\partial_{t}\sbf A-\nabla\varphi\\
- & =\left.\frac{\mu_{0}q}{4\pi}\left(\frac{c^{2}\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\sbf e_{r}\times\left(\sbf e_{r}\times\dot{\sbf v}\right)}{r}}\right)\right|_{t^{\prime}}
+\sbf E & =-\partial_{t}\sbf A-\nabla\varphi=\left.\frac{\mu_{0}q}{4\pi}\left(\frac{c^{2}\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\sbf e_{r}\times\left(\sbf e_{r}\times\dot{\sbf v}\right)}{r}}\right)\right|_{t^{\prime}}
 \end{align*}
 
 \end_inset
@@ -1004,6 +1019,82 @@ sfs
 。与第五章电偶极辐射公式一致。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+任意运动带电粒子的辐射
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\sbf E & =\frac{\mu_{0}q}{4\pi}\frac{1}{rc}\frac{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}{\left(1-\sbf e_{r}\cdot\sbf\beta\right)^{3}}\\
+ & =\frac{\mu_{0}q}{4\pi}\frac{1}{rc}\frac{\dot{\sbf\beta}\cdot\left(\sbf e_{r}\sbf e_{r}-I\right)+\sbf e_{r}\cdot\left(\dot{\sbf\beta}\sbf\beta-\sbf\beta\dot{\sbf\beta}\right)}{\left(1-\sbf e_{r}\cdot\sbf\beta\right)^{3}}\\
+\sbf B & =\frac{1}{c}\sbf e_{r}\times\sbf E\\
+ & =\frac{\mu_{0}q}{4\pi}\frac{1}{rc^{2}}\frac{\left(\dot{\sbf\beta}\times\sbf\beta\right)\cdot\left(\sbf e_{r}\sbf e_{r}-I\right)+\dot{\sbf\beta}\times\sbf e_{r}}{\left(1-\sbf e_{r}\cdot\sbf\beta\right)^{3}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+当带电粒子被加速时，就有电磁辐射。
+\end_layout
+
+\begin_layout Enumerate
+辐射场是横向的，
+\begin_inset Formula $\sbf E$
+\end_inset
+
+和
+\begin_inset Formula $\sbf B$
+\end_inset
+
+都和
+\begin_inset Formula $\sbf e_{r}$
+\end_inset
+
+垂直，并且
+\begin_inset Formula $\sbf E$
+\end_inset
+
+和
+\begin_inset Formula $\sbf B$
+\end_inset
+
+互相垂直。
+\end_layout
+
+\begin_layout Enumerate
+辐射场与
+\begin_inset Formula $r$
+\end_inset
+
+成反比，能流与
+\begin_inset Formula $r^{2}$
+\end_inset
+
+成反比，总辐射能量可以传播到任意远处。
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
