@@ -1040,6 +1040,50 @@ begin{exercise}
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+space = .3; pad = 0.3; end = 1.1; fsize = 10; (*生成叉子*) cross[p_, l_, 
+\backslash
+[Theta]_] := {Line[{p - l*{Cos[
+\backslash
+[Theta]], Sin[
+\backslash
+[Theta]]}, p + l*{Cos[
+\backslash
+[Theta]], Sin[
+\backslash
+[Theta]]}}], Line[{p - l*{Cos[
+\backslash
+[Theta] + 
+\backslash
+[Pi]/2], Sin[
+\backslash
+[Theta] + 
+\backslash
+[Pi]/2]}, p + l*{Cos[
+\backslash
+[Theta] + 
+\backslash
+[Pi]/2], Sin[
+\backslash
+[Theta] + 
+\backslash
+[Pi]/2]}}]}; b = Table[ cross[{x, y}, .02, 
+\backslash
+[Pi]/4], {x, 0.1, end, space}, {y, pad, end, space}] // Catenate // Catenate;(*生成
+多个叉子*) elec = Table[Arrow[{{0, x}, {1.1, x}}], {x, space/2, end, space}];
+ Graphics[{ Thickness[.006], b, Arrowheads[.04], elec, Text[Style["O", fsize],
+ {-.1, -.1}], Text[Style["E", fsize], {1.2, .6}], Text[Style["B", fsize], {.6,
+ .9}] }, PlotRange -> {{-pad, x + pad}, {-pad, y + pad}}, PlotRangePadding
+ -> None, Axes -> True, AxesOrigin -> {0, 0, 0}, Ticks -> None, AxesLabel
+ -> {"x", "z"}, AxesStyle -> Directive[Arrowheads[.04], Black, fsize] ]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
