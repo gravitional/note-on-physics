@@ -605,7 +605,7 @@ status open
 
 \begin_deeper
 \begin_layout Standard
-非相对论的推迟势为：
+非相对论的推迟势，或者说低速参考系中的四维势：
 \begin_inset Formula 
 \[
 \varphi\left[t,\sbf x\right]/c=\frac{\mu_{0}}{4\pi}\int_{V}\frac{c\rho\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r}\dif V^{\prime},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r}\dif V^{\prime}
@@ -613,7 +613,7 @@ status open
 
 \end_inset
 
-如果是单粒子情形：
+单粒子情形相当于：
 \begin_inset Formula 
 \[
 \frac{\varphi\left[t,\sbf x\right]}{c}=\frac{\mu_{0}}{4\pi}\frac{qc}{r},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{q\sbf v\left[t-\frac{r}{c}\right]}{r}
@@ -681,7 +681,7 @@ c\Delta t\\
 静止系和实验室系间，辐射距离的变换关系是，
 \begin_inset Formula 
 \[
-\tilde{r}={\color{blue}\gamma\left(r-\sbf r\cdot\sbf\beta\right)},\quad\sbf\beta=\sbf v/c
+\tilde{r}={\color{blue}\gamma rs},\quad s=1-\sbf e_{r}\cdot\sbf\beta,\quad\sbf\beta=\sbf v/c
 \]
 
 \end_inset
@@ -711,6 +711,7 @@ status open
 \end_layout
 
 \begin_layout Frame
+考虑到
 \begin_inset Formula 
 \[
 r^{\mu}=\left(x-x^{\prime}\right)^{\mu}=\left(\begin{array}{c}
@@ -721,26 +722,30 @@ c\Delta t=r\\
 
 \end_inset
 
+即
+\begin_inset Formula $r^{\mu}$
+\end_inset
+
 是一个类空的四矢量，结合粒子四速度的表达式
 \begin_inset Formula $U^{\mu}=\gamma\left(c,-\sbf v\right)$
 \end_inset
 
-，可以把辐射距离
+，可知
 \begin_inset Formula $\tilde{r}$
 \end_inset
 
-写成一个洛伦兹标量：
+是一个洛伦兹标量：
 \begin_inset Formula 
 \[
-\tilde{r}=\frac{U^{\mu}r_{\mu}}{c}=\gamma\left(r-\sbf r\cdot\sbf\beta\right)
+\tilde{r}=\frac{U^{\mu}r_{\mu}}{c}=\gamma rs,\quad s=1-\sbf e_{r}\cdot\sbf\beta.
 \]
 
 \end_inset
 
-我们可以把单粒子的辐射势改成相对论形式：
+和低速形式比较，我们猜测粒子辐射势的相对论形式：
 \begin_inset Formula 
 \[
-A^{\mu}\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{qU^{\mu}\left[t-\frac{r}{c}\right]}{U^{\mu}r_{\mu}/c}
+\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{q\sbf v\left[t-\frac{r}{c}\right]}{r}\Rightarrow A^{\mu}\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{qU^{\mu}\left[t-\frac{r}{c}\right]}{\gamma rs}
 \]
 
 \end_inset
@@ -748,12 +753,16 @@ A^{\mu}\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{qU^{\mu}\left[t-\frac{r}{
 对应的分量的形式为：
 \begin_inset Formula 
 \[
-\frac{\varphi\left[t,\sbf x\right]}{c}=\frac{\mu_{0}}{4\pi}\frac{\cancel{\gamma}qc}{\cancel{\gamma}\left(r-\sbf r\cdot\sbf\beta\right)},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{\cancel{\gamma}q\sbf v\left[t-\frac{r}{c}\right]}{\cancel{\gamma}\left(r-\sbf r\cdot\sbf\beta\right)}
+\frac{\varphi\left[t,\sbf x\right]}{c}=\frac{\mu_{0}}{4\pi}\frac{\cancel{\gamma}qc}{\cancel{\gamma}rs},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{\cancel{\gamma}q\sbf v\left[t-\frac{r}{c}\right]}{\cancel{\gamma}rs}
 \]
 
 \end_inset
 
-即
+约掉
+\begin_inset Formula $\gamma$
+\end_inset
+
+，就得到了
 \begin_inset ERT
 status open
 
@@ -766,7 +775,198 @@ Li
 
 \end_inset
 
- 势.
+ 势。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+连续—离散变换
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+另一方面，也可以直接从连续体系的表达式，
+\begin_inset Formula 
+\[
+\varphi\left[t,\sbf x\right]/c=\frac{\mu_{0}}{4\pi}\int_{V}\frac{c\rho\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r}\dif V^{\prime},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r}\dif V^{\prime}
+\]
+
+\end_inset
+
+作单粒子替换
+\begin_inset Formula $\rho\to\delta\left(\sbf x^{\prime}-\sbf x_{q}\right)$
+\end_inset
+
+，
+\begin_inset Formula $\sbf J\to q\sbf v\left(t^{\prime}\right)$
+\end_inset
+
+得到
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Li
+\backslash
+'enard--Wiechert
+\end_layout
+
+\end_inset
+
+ 势。但不能naive地直接替换，需要考虑洛伦兹协变的要求。类似前面有，
+\begin_inset Formula 
+\[
+\tilde{r}={\color{blue}\gamma rs},\quad s=1-\sbf e_{r}\cdot\sbf\beta,\quad\sbf\beta=\sbf v/c.
+\]
+
+\end_inset
+
+注意若研究对象是电磁波，必然存在这个关系。在
+\begin_inset Formula $\tilde{\Sigma}$
+\end_inset
+
+参考系，
+\begin_inset Formula $\tilde{s}=1$
+\end_inset
+
+，
+\begin_inset Formula $\tilde{\gamma}=1$
+\end_inset
+
+。所以上式其实是
+\begin_inset Formula $\tilde{\gamma}\tilde{s}\tilde{r}=\gamma sr$
+\end_inset
+
+。所以
+\begin_inset Formula $\delta\left(r\right)$
+\end_inset
+
+函数并不是洛伦兹不变的，
+\begin_inset Formula 
+\[
+\delta\left(\tilde{r}\right)=\delta\left(\abs*{\tilde{\sbf x}-\tilde{\sbf x^{\prime}}}\right)=\delta\left(\gamma sr\right)=\frac{\delta\left(r\right)}{\gamma s}
+\]
+
+\end_inset
+
+上面使用了
+\begin_inset Formula $\delta$
+\end_inset
+
+函数的性质，
+\begin_inset Formula 
+\[
+\delta\left[f\left(x\right)\right]=\sum_{x_{0}}\frac{\delta\left(x-x_{0}\right)}{\abs{f^{\prime}\left(x_{0}\right)}},\quad\text{对所有零点}\,f\left(x_{0}\right)=0\,\text{求和}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+连续—离散变换
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+因此过渡到离散体系时，必须考虑到
+\begin_inset Formula $\delta\left(r\right)$
+\end_inset
+
+函数的性质。连续情形，体积元
+\begin_inset Formula $\dif V$
+\end_inset
+
+在洛伦兹变换下尺缩，电荷被压缩，电荷密度
+\begin_inset Formula $\rho\to\gamma\rho$
+\end_inset
+
+，总电荷
+\begin_inset Formula $Q=\int\rho\dif V$
+\end_inset
+
+不变的。离散情形
+\begin_inset Formula $\frac{q\delta\left(r\right)}{\gamma s}$
+\end_inset
+
+相当于总电荷，所以对应的电荷密度为
+\begin_inset Formula 
+\[
+\rho\to\frac{\delta\left(r\right)}{s}
+\]
+
+\end_inset
+
+因此，从连续体系过渡到离散体系时，作替换
+\begin_inset Formula $\rho\to\delta\left(r\right)/s$
+\end_inset
+
+。
+\begin_inset Formula 
+\[
+\frac{\mu_{0}}{4\pi}\int_{V}\frac{c\rho}{r}\dif V^{\prime}\Rightarrow\frac{\mu_{0}}{4\pi}\int_{V}\frac{cq\delta\left(\sbf r+\sbf x_{q}^{\prime}-\sbf x\right)}{sr}\dif V^{\prime}
+\]
+
+\end_inset
+
+对
+\begin_inset Formula $\delta$
+\end_inset
+
+函数积分得到，
+\begin_inset Formula 
+\[
+\varphi\left[t,\sbf x\right]/c=\frac{\mu_{0}}{4\pi}\frac{cq}{sr},\quad\sbf r=\sbf x-\sbf x_{q},\quad s=1-\sbf e_{r}\cdot\sbf\beta.
+\]
+
+\end_inset
+
+和前面的结果相同。当然，写成下面的形式更容易看出来
+\begin_inset Formula $\varphi$
+\end_inset
+
+是四矢量的零分量，
+\begin_inset Formula 
+\[
+\varphi/c=\frac{\mu_{0}}{4\pi}\frac{q\cancel{\gamma}c}{\cancel{\gamma}sr}\int_{V}\delta\left(\sbf r+\sbf x_{q}^{\prime}-\sbf x\right)\dif V^{\prime},\quad\text{后面的积分}=1
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -829,14 +1029,17 @@ A^{\mu}\left[t,\sbf x\right] & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{J^{\mu}\left[t
 
 是洛伦兹不变的积分测度，
 \begin_inset Formula 
-\begin{align*}
-\frac{\varphi\left[t,\sbf x\right]}{c} & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{c\rho\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r-\sbf J\cdot\sbf r/\left(\rho c\right)}\dif V^{\prime},\\
-\sbf A\left[t,\sbf x\right] & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{r-\sbf J\cdot\sbf r/\left(\rho c\right)}\dif V^{\prime}.
-\end{align*}
+\[
+\frac{\varphi\left[t,\sbf x\right]}{c}=\frac{\mu_{0}}{4\pi}\int_{V}\frac{c\rho\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{rs}\dif V^{\prime},\quad\sbf A\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left[t-\frac{r}{c},\sbf x^{\prime}\right]}{rs}\dif V^{\prime}.
+\]
 
 \end_inset
 
+这里
+\begin_inset Formula $s=1-\sbf J\cdot\sbf e_{r}/\left(\rho c\right)$
+\end_inset
 
+。
 \end_layout
 
 \begin_layout Standard
@@ -873,7 +1076,7 @@ Li
 \end_inset
 
  势
-\begin_inset Formula $A^{\mu}\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{qU^{\mu}}{U^{\mu}r_{\mu}/c}$
+\begin_inset Formula $A^{\mu}\left[t,\sbf x\right]=\frac{\mu_{0}}{4\pi}\frac{qU^{\mu}}{\gamma rs}$
 \end_inset
 
 中右边各量都取时刻
@@ -881,6 +1084,8 @@ Li
 \end_inset
 
 时的值。
+\size small
+
 \begin_inset Formula 
 \[
 t^{\prime}=t-\frac{r}{c}=t-\frac{\sqrt{\left[\sbf x-\sbf x_{q}\left(t^{\prime}\right)\right]^{2}}}{c},\quad A^{\mu}\begin{cases}
@@ -894,6 +1099,8 @@ x
 
 \end_inset
 
+
+\size default
 设粒子的运动轨迹
 \begin_inset Formula $\sbf x_{q}\left(t^{\prime}\right)$
 \end_inset
@@ -915,14 +1122,18 @@ x
 \end_inset
 
 的隐函数。使用隐函数的求导公式，得
+\size small
+
 \begin_inset Formula 
 \begin{align*}
- & \frac{\partial t^{\prime}}{\partial t}=\frac{cr\gamma}{U^{\mu}r_{\mu}},\quad\text{or}\quad\frac{\partial t^{\prime}}{\partial t}=\frac{1}{1-\sbf e_{r}\cdot\sbf\beta},\\
- & \nabla t^{\prime}=\frac{-\gamma\sbf e_{r}}{U^{\mu}e_{r\mu}}\quad\text{or}\quad\nabla t^{\prime}=\frac{-\sbf e_{r}}{c\left(1-\sbf e_{r}\cdot\sbf\beta\right)}.
+ & \frac{\partial t^{\prime}}{\partial t}=\frac{cr\gamma}{U^{\mu}r_{\mu}},\quad\text{or}\quad\frac{\partial t^{\prime}}{\partial t}=\frac{1}{s},\quad s=1-\sbf e_{r}\cdot\sbf\beta,\quad s<1\\
+ & \nabla t^{\prime}=\frac{-\gamma\sbf e_{r}}{U^{\mu}e_{r\mu}}\quad\text{or}\quad\nabla t^{\prime}=\frac{-\sbf e_{r}}{cs}.
 \end{align*}
 
 \end_inset
 
+
+\size default
 当
 \begin_inset Formula $v\ll c$
 \end_inset
@@ -935,7 +1146,11 @@ x
 
 \end_inset
 
+注意，得到上述结果虽然没有使用任何坐标变换，但其实已经使用了相对论。因为我们默认了电磁波的速度与辐射时粒子的速度无关。若观察者和粒子通过光信号联系，由
+\begin_inset Formula $\frac{\partial t^{\prime}}{\partial t}=1/s$
+\end_inset
 
+，观察者将认为运动的粒子时间变化的慢。
 \end_layout
 
 \begin_layout Standard
