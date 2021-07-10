@@ -1153,6 +1153,118 @@ x
 ，观察者将认为运动的粒子时间变化的慢。
 \end_layout
 
+\begin_layout Frame
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(*输入各种导数的计算规则*)
+\end_layout
+
+\begin_layout Plain Layout
+Derivative[1, 0][t
+\backslash
+[Prime]][t, x] ^:= 1/s[t
+\backslash
+[Prime], x]; Derivative[0, 1][t
+\backslash
+[Prime]][t, x] ^:= r[t
+\backslash
+[Prime], x]/( c*s[t
+\backslash
+[Prime], x]*rn[t
+\backslash
+[Prime], x]); Derivative[1][xq][t
+\backslash
+[Prime]] ^:= v[t
+\backslash
+[Prime]]; Derivative[1][v][t
+\backslash
+[Prime]] ^:= a[t
+\backslash
+[Prime]]; (*矢量r对t
+\backslash
+[Prime],x 的导数*)
+\end_layout
+
+\begin_layout Plain Layout
+Derivative[1, 0][r][t
+\backslash
+[Prime], x] ^:= -v[t
+\backslash
+[Prime]]; Derivative[0, 1][r][t
+\backslash
+[Prime], x] ^:= 1; (*矢量r的模长rn对t
+\backslash
+[Prime],x 的导数*)
+\end_layout
+
+\begin_layout Plain Layout
+Derivative[1, 0][rn][t
+\backslash
+[Prime], x] ^:= (-v[t
+\backslash
+[Prime]]* r[t
+\backslash
+[Prime], x])/rn[t
+\backslash
+[Prime], x]; Derivative[0, 1][rn][t
+\backslash
+[Prime], x] ^:= r[t
+\backslash
+[Prime], x]/ rn[t
+\backslash
+[Prime], x]; Derivative[1, 0][s][t
+\backslash
+[Prime], x] ^:= (-v[t
+\backslash
+[Prime]]*r[t
+\backslash
+[Prime], x])/ rn[t
+\backslash
+[Prime], x] - (a[t
+\backslash
+[Prime]]*r[t
+\backslash
+[Prime], x] - v[t
+\backslash
+[Prime]]^2)/ c;(*r的模长*) Derivative[0, 1][s][t
+\backslash
+[Prime], x] ^:= r[t
+\backslash
+[Prime], x]/rn[t
+\backslash
+[Prime], x] - v[t
+\backslash
+[Prime]];(*r的模长*) A := ( q*v[t
+\backslash
+[Prime][t, x]])/( 4 
+\backslash
+[Pi] *
+\backslash
+[CurlyEpsilon]0*c^2 s[t
+\backslash
+[Prime][t, x], x]); 
+\backslash
+[CurlyPhi] := q/(4 
+\backslash
+[Pi] *
+\backslash
+[CurlyEpsilon]0 s[t
+\backslash
+[Prime][t, x], x]); (D[A, t] /.
+ t
+\backslash
+[Prime][t, x] -> t
+\backslash
+[Prime])
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
