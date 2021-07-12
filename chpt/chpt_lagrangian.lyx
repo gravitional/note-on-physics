@@ -2123,7 +2123,7 @@ v_{\mu}^{a}=x^{a}\left(-e\mathcal{A}_{\mu}\right),a=0,1,\cdots8.
 \begin_inset Formula $\mathcal{F}_{\mu\nu}=\partial_{\mu}\mathcal{A}_{\nu}-\partial_{\nu}\mathcal{A}_{\mu}$
 \end_inset
 
-是电磁场强张量，这里的质量参数就是
+是电磁场强张量，这里的质量参数没有打错，就是
 \begin_inset Formula $M_{N}$
 \end_inset
 
@@ -2897,7 +2897,7 @@ D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-L_{\mu}D_{\nu}-D_{\mu}U_{\nu}-U_{\mu}D_{\nu}+L_{\m
 \end_layout
 
 \begin_layout Section
-费曼规则
+强作用项
 \end_layout
 
 \begin_layout Standard
@@ -2909,13 +2909,21 @@ D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-L_{\mu}D_{\nu}-D_{\mu}U_{\nu}-U_{\mu}D_{\nu}+L_{\m
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\tr\left[\overline{B}\left(i\gamma\cdot\partial-M_{B}\right)B\right]$
-\end_inset
-
-：
 \begin_inset Formula 
 \[
-\overline{p}\left(i\gamma\cdot\partial-M_{p}\right)p
+\tr\left[\overline{B}\left(i\gamma\cdot\partial-M_{B}\right)B\right]
+\]
+
+\end_inset
+
+产生类似
+\begin_inset Formula $\overline{p}\left(i\gamma\cdot\partial-M_{p}\right)p$
+\end_inset
+
+的项，也就是费米子的标准动能项。对应传播子
+\begin_inset Formula 
+\[
+\frac{i}{\gamma\cdot p-M_{N}+i\varepsilon}
 \]
 
 \end_inset
@@ -2928,10 +2936,23 @@ D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-L_{\mu}D_{\nu}-D_{\mu}U_{\nu}-U_{\mu}D_{\nu}+L_{\m
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\tr\left[\overline{B}\left(i\gamma^{\mu}\left[\Gamma_{\mu},B\right]\right)\right]$
+\begin_inset Formula 
+\[
+\tr\left(\overline{B}i\gamma^{\mu}\left[\Gamma_{\mu},B\right]\right)
+\]
+
 \end_inset
 
-：
+例如：
+\begin_inset Formula 
+\begin{align*}
+ & \bar{p}\gamma^{\mu}p\left(\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\right)\to\frac{1}{f_{\phi}^{2}}{\color{red}\frac{i}{4}}\\
+ & \bar{p}\gamma^{\mu}p\left(2\pi^{+}\partial_{\mu}\pi^{-}\right)\to\frac{1}{f_{\phi}^{2}}{\color{red}\frac{i}{4}}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3130,12 +3151,7 @@ D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-L_{\mu}D_{\nu}-D_{\mu}U_{\nu}-U_{\mu}D_{\nu}+L_{\m
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
-
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -3422,12 +3438,7 @@ height "1pt"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
-
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -3718,14 +3729,46 @@ height "1pt"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $T_{\mu}^{ijk}\left(i\gamma^{\mu\nu\alpha}\partial_{\alpha}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}^{ijk}$
+\begin_inset Formula 
+\[
+T_{\mu}^{ijk}\left(i\gamma^{\mu\nu\alpha}\partial_{\alpha}-M_{T}\gamma^{\mu\nu}\right)T_{\nu}^{ijk}
+\]
+
 \end_inset
 
-：
+例如：
 \begin_inset Formula 
 \[
 \overline{\Delta_{\mu}^{++}}\left(i\gamma^{\mu\nu\alpha}\partial_{\alpha}-M_{T}\gamma^{\mu\nu}\right)\Delta_{\nu}^{++}
 \]
+
+\end_inset
+
+自旋
+\begin_inset Formula $3/2$
+\end_inset
+
+粒子的标准动能项。类似于
+\begin_inset Formula $\Theta_{\alpha\beta}$
+\end_inset
+
+，一般的十重态传播子依赖于 off–shell parameter 
+\begin_inset Formula $Z$
+\end_inset
+
+。而物理不应该依赖于
+\begin_inset Formula $Z$
+\end_inset
+
+，所以选取一种简单的形式，我们选取了
+\begin_inset Formula $Z=\frac{1}{2}$
+\end_inset
+
+，传播子可以写成，
+\begin_inset Formula 
+\begin{align*}
+P_{\beta\rho} & =\langle\hat{T}\,T_{\beta}\left(x\right)\bar{T}_{\rho}\left(x\right)\rangle=g_{\beta\rho}-\frac{1}{3}\gamma_{\beta}\gamma_{\rho}-\frac{\gamma_{\beta}p_{\rho}-\gamma_{\rho}p_{\beta}}{3M_{T}}-\frac{2p_{\beta}p_{\rho}}{3M_{T}^{2}}
+\end{align*}
 
 \end_inset
 
@@ -3737,15 +3780,35 @@ height "1pt"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\frac{f_{\phi}^{2}}{4}*\tr\left[\partial_{\mu}U\left(\partial_{\mu}U^{\dagger}\right)\right]$
+\begin_inset Formula 
+\[
+\frac{f_{\phi}^{2}}{4}*\tr\left[\partial_{\mu}U\left(\partial_{\mu}U^{\dagger}\right)\right]
+\]
+
 \end_inset
 
-：
+介子的动能项为：
 \begin_inset Formula 
 \begin{align*}
  & \partial_{\mu}\pi^{0}.\partial^{\mu}\pi^{0}\to\frac{1}{2},\quad\partial_{\mu}\eta^{8}.\partial^{\mu}\eta^{8}\to\frac{1}{2},\\
  & \partial_{\mu}\pi^{+}.\partial^{\mu}\pi^{-}\to1,\quad\partial_{\mu}K^{+}.\partial^{\mu}K^{-}\to1,\quad\partial_{\mu}\overline{K}^{0}.\partial^{\mu}K^{0}\to1
 \end{align*}
+
+\end_inset
+
+即实粒子系数为
+\begin_inset Formula $1/2$
+\end_inset
+
+，复场系数为
+\begin_inset Formula $1$
+\end_inset
+
+。传播子
+\begin_inset Formula 
+\[
+\frac{i}{p^{2}-m^{2}+i\varepsilon}
+\]
 
 \end_inset
 
@@ -3757,13 +3820,19 @@ B-B-M 轴矢项 DF
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $D\tr\left[\overline{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F\tr\left[\overline{B}\gamma^{\mu}\gamma^{5}\left[u_{\mu},B\right]\right]$
+强相互作用的
+\begin_inset Formula $D,F$
 \end_inset
 
-：
-\end_layout
+轴矢耦合项，
+\begin_inset Formula 
+\[
+D\tr\left[\overline{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F\tr\left[\overline{B}\gamma^{\mu}\gamma^{5}\left[u_{\mu},B\right]\right]
+\]
 
-\begin_layout Standard
+\end_inset
+
+例如：
 \begin_inset Formula 
 \[
 \overline{p}\gamma^{\mu}\gamma^{5}\Sigma^{0}\partial_{\mu}K^{+}+\overline{\Sigma^{0}}\gamma^{\mu}\gamma^{5}p\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{2f_{\phi}}}
@@ -3771,7 +3840,7 @@ B-B-M 轴矢项 DF
 
 \end_inset
 
-
+一般两个顶点的正负号会抵消。
 \end_layout
 
 \begin_layout Standard
@@ -3970,12 +4039,7 @@ B-B-M 轴矢项 DF
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
-
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -4326,12 +4390,7 @@ height "1pt"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
-
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -4686,6 +4745,7 @@ B-M-T 耦合项 C
 \end_layout
 
 \begin_layout Standard
+八重态–十重态–介子耦合项，
 \begin_inset Formula 
 \[
 \mathcal{C}\tr\left\{ \left(\varepsilon\cdot\overline{T}_{\mu}.u_{\nu}\right)^{\left(1,4\right)}\cdot\left(\Theta^{\mu\nu}\cdot B\right)+\left[\overline{B}\cdot u_{\mu}\cdot\Theta^{\mu\nu}\cdot T_{\nu}\cdot\left(-\varepsilon\right)\right]^{\left(1,4\right)}\right\} ,
@@ -4705,7 +4765,7 @@ B-M-T 耦合项 C
 \begin_inset Formula $\Theta^{\mu\nu}=i\sigma^{\mu\nu}$
 \end_inset
 
-。
+。例如：
 \begin_inset Formula 
 \[
 \overline{p}\Theta^{\mu\nu}\Delta_{\nu}^{++}\partial_{\mu}\pi^{-}+\overline{\Delta_{\mu}^{++}}\Theta^{\mu\nu}p\partial_{\nu}\pi^{+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}
