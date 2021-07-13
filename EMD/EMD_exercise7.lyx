@@ -1503,7 +1503,11 @@ status open
 \begin_inset Formula $r^{2}$
 \end_inset
 
-成反比，总辐射能量可以传播到任意远处。
+成反比，总辐射能量可以传播到任意远处。远场近似：
+\begin_inset Formula $r\simeq R-\sbf e_{r}\cdot\sbf x_{q}$
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -1562,7 +1566,94 @@ status open
 它的自场。比较两者的不同。
 \end_layout
 
+\begin_layout Standard
+解：粒子的速度是
+\begin_inset Formula $\sbf v=-i\omega z_{0}e^{-i\omega t}\sbf e_{z}$
+\end_inset
+
+，
+\begin_inset Formula $\omega z_{0}\sim v\ll c$
+\end_inset
+
+，即粒子的运动速度远低于光速。
+\begin_inset Formula $\dot{\sbf v}=-z_{0}\omega^{2}e^{-i\omega t}\sbf e_{z}$
+\end_inset
+
+。代入低速情形的磁场公式，
+\begin_inset Formula 
+\[
+\sbf B\left(t,\sbf x\right)=\frac{\mu_{0}qc}{4\pi}\left(\frac{\sbf\beta\times\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\dot{\sbf\beta}\times\sbf e_{r}}{rc}}\right)@\,t^{\prime}
+\]
+
+\end_inset
+
+第一项是静场，第二项是辐射场。作远场近似：
+\begin_inset Formula $r\simeq R-\sbf e_{r}\cdot\sbf x_{q}$
+\end_inset
+
+，先求辐射场，
+\begin_inset Formula 
+\begin{align*}
+ & \sbf B=\frac{\mu_{0}qc}{4\pi}\frac{-z_{0}\omega^{2}}{Rc^{2}}e^{-i\omega\left(t-R/c\right)}\sin\theta\sbf e_{\phi}\\
+ & \sbf E=c\sbf B\times\sbf e_{R}=\frac{\mu_{0}q}{4\pi}\frac{-z_{0}\omega^{2}}{R}\sin\theta e^{-i\omega\left(t-R/c\right)}\sbf e_{\theta}\\
+ & \sbf S=\frac{1}{2\mu_{0}c}\abs*{E}^{2}=\frac{\mu_{0}q^{2}}{32\pi^{2}}\frac{z_{0}^{2}\omega^{4}}{R^{2}c}\sin^{2}\theta
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+7.3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+自场是指带电粒子周围的场，同样作远场近似：
+\begin_inset Formula $r\simeq R-\sbf e_{r}\cdot\sbf x_{q}$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+ & \sbf B\left(t,\sbf x\right)=\frac{\mu_{0}qc}{4\pi}\left(\frac{\sbf\beta\times\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\dot{\sbf\beta}\times\sbf e_{r}}{rc}}\right)\\
+ & \sbf E\left(t,\sbf x\right)=\frac{\mu_{0}qc}{4\pi}\left(\frac{c\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\sbf e_{r}\times\left(\sbf e_{r}\times\dot{\sbf\beta}\right)}{r}}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf E=\frac{1}{4\pi\varepsilon_{0}}\frac{q\sbf e_{R}}{R^{2}},\quad\sbf B=\frac{\mu_{0}}{4\pi}\frac{q\sbf v\times\sbf e_{R}}{R^{2}},
+\]
+
+\end_inset
+
+即低速运动粒子的自场，近似于静止点电荷，稳恒电流激发的磁场。自场
+\begin_inset Formula $\sim1/R^{2}$
+\end_inset
+
+，主要存在于粒子附近，可以略去推迟效应。
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
