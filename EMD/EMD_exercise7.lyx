@@ -1712,6 +1712,43 @@ status open
 处电磁场的偏振。
 \end_layout
 
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\sbf x_{q}=R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dot{\sbf v}=\ddot{\sbf x_{q}}=-\omega^{2}R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}}
+\]
+
+\end_inset
+
+由于粒子速度
+\begin_inset Formula $v=\omega R_{0}\ll c$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \sbf E=\frac{\mu_{0}}{4\pi}\frac{qR_{0}\omega^{2}}{R}\left(\cos\theta\sbf e_{\theta}+i\sbf e_{\phi}\right)e^{-i\left(\omega t-kR-\phi\right)}\\
+ & \sbf B=\sbf e_{R}\times\sbf E/c=\frac{\mu_{0}}{4\pi}\frac{qR_{0}\omega^{2}}{Rc}\left(-i\sbf e_{\theta}+\cos\theta\sbf e_{\phi}\right)e^{-i\left(\omega t-kR-\phi\right)}\\
+ & \bar{\sbf S}=\frac{\mu_{0}^{2}}{32\pi^{2}}\frac{q^{2}R_{0}^{2}\omega^{4}}{R^{2}c}\left(1+\cos^{2}\theta\right)\sbf e_{R}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $1+\cos^{2}\theta$
+\end_inset
+
+体现了辐射能量的角分布。
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -1783,7 +1820,276 @@ status open
 电子单位时间内的辐射能量。
 \end_layout
 
+\begin_layout Standard
+解：
+\begin_inset Formula 
+\[
+\sbf F=q\sbf v\times\sbf B=e\dot{\sbf r}\times B\sbf e_{z}=eB\left(\dot{y}\sbf e_{x}-\dot{x}\sbf e_{y}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf F_{s}=\frac{e^{2}}{6\pi\varepsilon_{0}c^{3}}\left(\dddot{x}\sbf e_{x}+\dddot{y}\sbf e_{y}+\dddot{z}\sbf e_{z}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \ddot{x}=\omega_{0}\dot{y}+\frac{\gamma}{\omega_{0}^{2}}\dddot{x},\\
+ & \ddot{y}=-\omega_{0}\dot{x}+\frac{\gamma}{\omega_{0}^{2}}\dddot{y},\\
+ & \ddot{z}=\frac{\gamma}{\omega_{0}^{2}}\dddot{z},
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+7.6
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+令
+\begin_inset Formula $u=x+iy$
+\end_inset
+
+，则关于
+\begin_inset Formula $x,y$
+\end_inset
+
+的方程合并成一个复数方程，
+\begin_inset Formula 
+\[
+\ddot{u}+i\omega_{0}\dot{u}=\frac{\gamma}{\omega_{0}^{2}}\dddot{u}
+\]
+
+\end_inset
+
+一般地，电子辐射波长远大于电子经典半径
+\begin_inset Formula $\frac{e^{2}}{4\pi\varepsilon_{0}mc^{2}}$
+\end_inset
+
+，
+\begin_inset Formula $\lambda\gg r_{e}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\frac{\gamma}{\omega_{0}}=\frac{e^{2}\omega_{0}}{6\pi\varepsilon_{0}mc^{3}}\sim\frac{r_{e}}{\lambda},\quad\frac{\gamma}{\omega_{0}}\ll1
+\]
+
+\end_inset
+
+使用
+\begin_inset Formula $\dddot{u}=\ddot{u}^{\prime}$
+\end_inset
+
+进行一次迭代，
+\begin_inset Formula 
+\[
+\ddot{u}+i\omega_{0}\dot{u}=\frac{-i\gamma}{\omega_{0}}\ddot{u}+\left(\frac{\gamma}{\omega_{0}^{2}}\right)^{2}\ddddot{u}
+\]
+
+\end_inset
+
+忽略高阶项，并按
+\begin_inset Formula $\gamma/\omega_{0}$
+\end_inset
+
+作展开，
+\begin_inset Formula 
+\[
+\ddot{u}+\frac{i\omega_{0}}{1+i\gamma/\omega_{0}}\dot{u}=0\Rightarrow\ddot{u}+\left(i\omega_{0}+\gamma\right)\dot{u}=0
+\]
+
+\end_inset
+
+待定系数法得到方程的通解为
+\begin_inset Formula 
+\[
+u=u_{0}e^{-\gamma t}e^{-i\omega_{0}t}+C
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+7.6
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+u=u_{0}e^{-\gamma t}e^{-i\omega_{0}t}+C
+\]
+
+\end_inset
+
+带入初始条件：
+\begin_inset Formula $t=0$
+\end_inset
+
+时，
+\begin_inset Formula $x=R_{0}$
+\end_inset
+
+，
+\begin_inset Formula $y=z=0$
+\end_inset
+
+，
+\begin_inset Formula $\dot{x}=\dot{z}=0$
+\end_inset
+
+，
+\begin_inset Formula $\dot{y}=v_{0}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+x\approx\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right)+\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\cos\omega_{0}t,\quad y\approx\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\sin\omega_{0}t
+\]
+
+\end_inset
+
+由
+\begin_inset Formula $t=0$
+\end_inset
+
+时刻
+\begin_inset Formula $z=\dot{z}=0$
+\end_inset
+
+，得到
+\begin_inset Formula $z$
+\end_inset
+
+的解为
+\begin_inset Formula $z=0$
+\end_inset
+
+。即电子的运动轨迹是
+\begin_inset Formula $xy$
+\end_inset
+
+平面上的螺线。
+\end_layout
+
+\begin_layout Frame
+从
+\begin_inset Formula 
+\[
+\dot{\sbf v}^{2}=\ddot{x}^{2}+\ddot{y}^{2}+\ddot{z}^{2}\approx v_{0}^{2}\omega_{0}^{2}e^{-2\gamma t}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\bar{\sbf S} & =\frac{e^{2}\dot{\sbf v}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}=\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}\\
+\bar{p} & =\oint_{S}\bar{S}r^{2}\dif\Omega=\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{6\pi\varepsilon_{0}c^{3}}e^{-2\gamma t}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+7.6
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula $\alpha$
+\end_inset
+
+是辐射方向
+\begin_inset Formula $\sbf e_{r}$
+\end_inset
+
+与加速度方向
+\begin_inset Formula $\dot{\sbf v}$
+\end_inset
+
+的夹角。电子的能量为
+\begin_inset Formula 
+\[
+W\approx\frac{1}{2}mv^{2}=\frac{1}{2}mv_{0}^{2}\omega_{0}^{2}e^{-2\gamma t}
+\]
+
+\end_inset
+
+它在单位时间内损失的能量
+\begin_inset Formula 
+\[
+\frac{-\dif W}{\dif t}=\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{6\pi\varepsilon_{0}c^{3}}e^{-2\gamma t}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
