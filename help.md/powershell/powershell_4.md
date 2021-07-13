@@ -2,10 +2,8 @@
 
 For myself and for you
 
-[收集和分享 Windows PowerShell 相关教程,技术和最新动态][]
+[收集和分享 Windows PowerShell 相关教程,技术和最新动态](https://www.pstips.net/)
 版权归原作者所有
-
-[收集和分享 Windows PowerShell 相关教程,技术和最新动态]: https://www.pstips.net/
 
 ## 命令发现和脚本块
 
@@ -222,8 +220,7 @@ PS E:> & $command
 
 ### Powershell 语句块
 
-脚本块是一种特殊的命令模式。
-一个脚本块可以包含许多的 `Powershell`命令和语句。
+脚本块是一种特殊的命令模式。一个脚本块可以包含许多的 `Powershell`命令和语句。
 它通常使用大括号定义。最小最短的脚本块，可能就是一对大括号，中间什么也没有。
 可以使用之前的调用操作符“`&`”执行脚本块：
 
@@ -234,10 +231,10 @@ PS E:> & {"当前时间:" + (get-date) }
 
 #### 将命令行作为整体执行
 
-可能你已经意识到，在`Powershell`中,调用操作符不但可以执行一条单独的命令，还可以执行”命令行”.
+可能你已经意识到，在`Powershell`中,调用操作符不但可以执行一条单独的命令，还可以执行`命令行`.
 最方便的方式就是讲你的命令行放在一个语句块中，作为整体。
 在之前的文章中说过，调用操作符只能执行一条命令，
-但是借助语句块的这把利器，可以让调用操作符执行，多条Powershell命令，例如：
+但是借助语句块的这把利器，可以让调用操作符执行，多条`Powershell`命令，例如：
 
 ```powershell
 PS E:> & {$files=ls;Write-Host "文件数：" $files.Count }
@@ -246,7 +243,7 @@ PS E:> & {$files=ls;Write-Host "文件数：" $files.Count }
 
 #### 执行表达式
 
-另外还有一条`Powershell`命令集，Invoke-Expression，
+另外还有一条`Powershell` cmdlet，`Invoke-Expression`，
 这条命令的逻辑就是将一条字符串传递给调用操作符。例如：
 
 ```powershell
@@ -258,7 +255,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id ProcessName
 ...
 ```
 
-这里有一点需要注意，在传递给`invoke-expressio`n的字符串使用了单引号，单引号可以防止变量被替换。
+这里有一点需要注意，在传递给`invoke-expression`的字符串使用了单引号，单引号可以防止变量被替换。
 如果上面的命令使用了双引号，会先去解释`$_.name`，但是当前作用域中，`$_.Name` 为`null`，所以结果不是期望的。
 
 #### 管道中的foreach-object语句块
@@ -267,7 +264,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id ProcessName
  例如：
 
 ```powershell
- Get-Process | ForEach-Object { $_.name }
+Get-Process | ForEach-Object { $_.name }
 ```
 
 #### 条件和循环中的语句块

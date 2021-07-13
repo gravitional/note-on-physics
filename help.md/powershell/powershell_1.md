@@ -401,7 +401,7 @@ PS C:\test> ls variable:value*
 #### 验证变量是否存在
 
 验证一个变量是否存在，仍然可以像验证文件系统那样，
-使用`cmdlet Test-Path`。为什么？因为变量存在变量驱动器中。
+使用cmdlet `Test-Path`。为什么？因为变量存在变量驱动器中。
 
 ```powershell
 PS C:\test> Test-Path variable:value1
@@ -470,8 +470,7 @@ PS C:\test> ls Variable:name | fl *
 
 ### 自动化变量
 
-`Powershell` 自动化变量 是那些一旦打开`Powershell`就会自动加载的变量。
-这些变量一般存放的内容包括
+`Powershell` 自动化变量 是那些一旦打开`Powershell`就会自动加载的变量。这些变量一般存放的内容包括
 
 + 用户信息：例如用户的根目录`$home`
 + 配置信息:例如`powershell`控制台的大小，颜色，背景等。
@@ -489,9 +488,7 @@ PS> Get-Process -Id $pid
 `powershell`中的某些自动化变量只能读，不能写。例如:`$Pid`。
 可以通过`Get-Help about_Automatic_variables`查看`Automatic_variables`的帮助。
 
-[detail on automatic][]
-
-[detail on automatic]: https://www.pstips.net/powershell-automatic-variables.html
+[detail on automatic](https://www.pstips.net/powershell-automatic-variables.html)
 
 ### 环境变量
 

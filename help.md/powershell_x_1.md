@@ -3,9 +3,7 @@
 ## 通用语法和参考文档
 
 [PowerShell 术语表](https://docs.microsoft.com/zh-cn/powershell/scripting/learn/glossary?view=powershell-7.1)
-
 [命令行语法关键字](https://docs.microsoft.com/zh-cn/windows-server/administration/windows-commands/command-line-syntax-key)
-
 [Windows 10 and Windows Server 2016 PowerShell Module Reference](https://docs.microsoft.com/en-us/powershell/module/?view=win10-ps)
 
 命令行语法关键字
@@ -278,7 +276,7 @@ Undefined
 Get-Command -Verb Get
 ```
 
-相应的,如果我想获取所有名词是`Help`的命令,可以使用下面的命令.
+相应的,如果我想获取所有名词是`Help`的命令,可以使用下面的命令. 也可以用来查找二进制程序，如`unzip.exe`
 
 ```powershell
 Get-Command -Noun Help
@@ -364,8 +362,7 @@ Write-Output "test output" | Get-Member
 ### 硬盘驱动器
 
 `Get-PSDrive` 查看所有虚拟驱动器
-
-`get-psprovider` 查看所有的 provider
+`get-psprovider` 查看所有的 `provider`
 
 可以使用 
 

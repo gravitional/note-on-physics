@@ -472,21 +472,17 @@ Get-Item .\.vimrc | Select-Object *
 
 ### 过滤文件
 
-用`Get-ChildItem`显示当前当前文件的时候，会显示所有文件。
-有时候我们可能仅仅需要搜索或者过滤部分文件。
+用`Get-ChildItem`显示当前当前文件的时候，会显示所有文件。有时候我们可能仅仅需要搜索或者过滤部分文件。
 
-首先，如果是比较简单的需求，可以使用`?*`通配符来搞定，
-问号用于匹配任意单个字符，星号用于匹配任意多个字符。
+首先，如果是比较简单的需求，可以使用`?*`通配符来搞定，问号用于匹配任意单个字符，星号用于匹配任意多个字符。
 比方说，我想要列出所有`.md`格式的文件，就可以使用下面的命令。
 
 ```powershell
 Get-ChildItem *.md
 ```
 
-有时候可能需要使用正则表达式来查找文件，
-好像`Get-ChildItem`没有正则表达式查询的命令行，
-不过我们可以使用`Where-Object`命令来自定义查询。
-如果了解`C#`语言的`LINQ`的话，应该可以猜到，这个命令对应于`LINQ`的`where`语句。
+有时候可能需要使用正则表达式来查找文件，好像`Get-ChildItem`没有正则表达式查询的命令行，
+不过我们可以使用`Where-Object`命令来自定义查询。如果了解`C#`语言的`LINQ`的话，应该可以猜到，这个命令对应于`LINQ`的`where`语句。
 
 下面同样是查找所有`.md`格式的文件，不过这次使用了`Where-Object`和正则表达式，
 其中`Where-Object`里面的`$_`是形式变量，代表每次迭代的文件。
@@ -496,8 +492,7 @@ Get-ChildItem *.md
 Get-ChildItem | Where-Object {$_ -match '\w*.md$'}
 ```
 
-如果仅仅为了搜索文件名的话，这种方式好像一点优势都没有。
-实际上`Where-Object`的功能非常强大。
+如果仅仅为了搜索文件名的话，这种方式好像一点优势都没有。实际上`Where-Object`的功能非常强大。
 比方说，我现在想查找大于`5kb`的所有`.md`格式文件，那么就可以这么写。
 这里又用到了`Powershell`的一个方便的特性，文件大小单位，`KB GB MB TB`等单位都支持。
 当然其实并不仅仅可以查询文件大小属性，基本上所有文件信息都可以用来查询。
@@ -524,10 +519,8 @@ Get-ChildItem -Recurse *.exe
 这个命令的别名是`iwr`、`curl`和`wget`。我们就使用它来下载网上的`hosts`文件。
 
 剩余就没有什么难度了，无非就是读写文件、追加文件、复制和粘贴这种基本操作。
-最后写完这个功能发现有一百多行，就不往这里复制粘贴了
-。如果有兴趣的话，可以直接看[我的Github上面的脚本][]。
-
-[我的Github上面的脚本]: https://github.com/techstay/powershell-study/blob/master/scripts/update-hosts.ps1
+最后写完这个功能发现有一百多行，就不往这里复制粘贴了。
+如果有兴趣的话，可以直接看[我的Github上面的脚本](https://github.com/techstay/powershell-study/blob/master/scripts/update-hosts.ps1)。
 
 ## 进程管理
 
