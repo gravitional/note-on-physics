@@ -159,6 +159,7 @@ oh-my-posh发展到第三版
 具体选项设置，如回溯历史时让光标默认移动到尾部，可参考:
 [PSReadLine](https://docs.microsoft.com/en-us/powershell/module/psreadline/?view=powershell-7.1)
 [Set-PSReadLineOption](https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.1)
+[Get-PSReadLineKeyHandler](https://docs.microsoft.com/en-us/powershell/module/psreadline/get-psreadlinekeyhandler?view=powershell-7.1)
 
 下面的命令查看所有绑定和未绑定的按键映射.
 
@@ -196,34 +197,35 @@ Set-PSReadlineKeyHandler -Key Tab -Function Complete # 设置 Tab 键补全
 #Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function MenuComplete # 设置 Ctrl+d 为菜单补全和 Intellisense
 Set-PSReadLineKeyHandler -Key "Ctrl+w" -Function BackwardKillWord # 设置 Ctrl+w 删除word
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo # 设置 Ctrl+z 为撤销
+Set-PSReadLineKeyHandler -Key "Ctrl+u" -Function BackwardKillLine # 删除到行首
+Set-PSReadLineKeyHandler -Key "Ctrl+k" -Function DeleteToEnd # 删除到行末
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward # 设置向上键为后向搜索历史记录
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward # 设置向下键为前向搜索历史纪录
 
 Set-Alias edit vim #默认编辑器
 Set-Alias gh Get-Help # 查看命令帮助
 Set-Alias ll Get-ChildItem  
+Set-Alias open Start-Process #打开的别名
 
-function gcam  {
-param (
-        [string]$message
-    )
+# 常用函数
+function gcam  {  param ( [string]$message )
 git commit -a -m  $message
 }
-function ga  { git add }
-function gaa  { git add --all }
-function gpw  { git push }
-function glw  { git pull }
-function gbr  { git branch --remote }
-function gba  { git branch -a }
-function gcl  { git clone --recurse-submodules }
-function gst  { git status }
-function gd  { git diff }
-function gdca  { git diff --cached }
-function gdcw  { git diff --cached --word-diff }
-function gds  { git diff --staged }
-function gdw  { git diff --word-diff }
-function gf  { git fetch }
-function gk { gitk --all --branches }
+function ga  { git add $args }
+function gaa  { git add --all $args }
+function gpw  { git push $args }
+function glw  { git pull $args }
+function gbr  { git branch --remote $args }
+function gba  { git branch -a $args }
+function gcl  { git clone --recurse-submodules $args }
+function gst  { git status $args }
+function gd  { git diff $args }
+function gdca  { git diff --cached $args }
+function gdcw  { git diff --cached --word-diff $args }
+function gds  { git diff --staged $args }
+function gdw  { git diff --word-diff $args }
+function gfw { git fetch $args }
+function gkw { gitk --all --branches $args }
 ```
 
 ### windows api
