@@ -74,22 +74,8 @@
     showtabs=false,                  
     tabsize=2
 }
-%%++++++++++++++++++++++++++++++++++++++
-\usepackage{mathtools}% 定义配对的数学符号
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}
-\DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
-\DeclareMathOperator{\re}{Re}
-\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\diag}{diag} %对角矩阵
-\DeclareMathOperator{\res}{Res} %复变函数的留数
-\DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
-\DeclareMathOperator{\sign}{Sign}
-\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
-\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
-\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 %%++++++++++++++++++++++++++++++++++++
-% % 设置英文字体
+% 设置英文字体
 \setmainfont{Latin Modern Roman}
 \setsansfont{Latin Modern Sans}
 \setmonofont{Latin Modern Roman}
@@ -107,6 +93,20 @@
 % \usepackage{mathspec} %这个包也能改字体，但是跟 fontspec 好像冲突
 % \setmathsfont(Digits,Latin,Greek){Latin Modern Math}
 % \setmathrm{Latin Modern Roman}
+%%++++++++++++++++++++++++++++++++++++++
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\diag}{diag} %对角矩阵
+\DeclareMathOperator{\res}{Res} %复变函数的留数
+\DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
+\DeclareMathOperator{\sign}{Sign}
+\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,aspectratio=141
 \use_default_options true
@@ -595,7 +595,7 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
-推迟势
+辐射距离
 \end_layout
 
 \end_inset
@@ -702,7 +702,7 @@ c\Delta t\\
 status open
 
 \begin_layout Plain Layout
-任意运动带电粒子的势
+运动粒子的势
 \end_layout
 
 \end_inset
@@ -1438,7 +1438,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-任意运动带电粒子的辐射
+一般粒子的辐射
 \end_layout
 
 \end_inset
@@ -1448,17 +1448,16 @@ status open
 
 \begin_deeper
 \begin_layout Standard
-在粒子高速运动的情形下，计算到
+对于作任意运动的粒子，计算其辐射至
 \begin_inset Formula $1/r$
 \end_inset
 
 的领头阶：
 \begin_inset Formula 
 \begin{align*}
-\sbf E & =\frac{\mu_{0}q}{4\pi}\frac{c}{r}\frac{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}{\left(1-\sbf e_{r}\cdot\sbf\beta\right)^{3}}\\
- & =\frac{\mu_{0}q}{4\pi}\frac{c}{r}\frac{\dot{\sbf\beta}\cdot\left(\sbf e_{r}\sbf e_{r}-I\right)+\sbf e_{r}\cdot\left(\dot{\sbf\beta}\sbf\beta-\sbf\beta\dot{\sbf\beta}\right)}{\left(1-\sbf e_{r}\cdot\sbf\beta\right)^{3}}\\
-\sbf B & =\frac{1}{c}\sbf e_{r}\times\sbf E\\
- & =\frac{\mu_{0}q}{4\pi}\frac{1}{r}\frac{\left(\dot{\sbf\beta}\times\sbf\beta\right)\cdot\left(\sbf e_{r}\sbf e_{r}-I\right)+\dot{\sbf\beta}\times\sbf e_{r}}{\left(1-\sbf e_{r}\cdot\sbf\beta\right)^{3}}
+\sbf E & =\frac{\mu_{0}q}{4\pi}\frac{c}{r}\frac{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}{s^{3}}\\
+ & =\frac{\mu_{0}q}{4\pi}\frac{c}{r}\frac{\dot{\sbf\beta}\cdot\left(\sbf e_{r}\sbf e_{r}-I\right)+\sbf e_{r}\cdot\left(\dot{\sbf\beta}\sbf\beta-\sbf\beta\dot{\sbf\beta}\right)}{s^{3}}\\
+\sbf B & =\frac{1}{c}\sbf e_{r}\times\sbf E=\frac{\mu_{0}q}{4\pi}\frac{1}{r}\frac{\left(\dot{\sbf\beta}\times\sbf\beta\right)\cdot\left(\sbf e_{r}\sbf e_{r}-I\right)+\dot{\sbf\beta}\times\sbf e_{r}}{s^{3}}
 \end{align*}
 
 \end_inset
@@ -1503,7 +1502,14 @@ status open
 \begin_inset Formula $r^{2}$
 \end_inset
 
-成反比，总辐射能量可以传播到任意远处。远场近似：
+成反比，总辐射能量可以传播到任意远处。
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $s\left(t^{\prime},\sbf x\right)=1-\sbf e_{r}\cdot\sbf\beta\left(t^{\prime}\right)$
+\end_inset
+
+，远场近似：
 \begin_inset Formula $r\simeq R-\sbf e_{r}\cdot\sbf x_{q}$
 \end_inset
 
@@ -1511,6 +1517,243 @@ status open
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+能流密度和辐射功率
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+辐射场的瞬时能流密度为：
+\begin_inset Formula 
+\[
+\sbf S=\sbf E\times\sbf B=\frac{1}{\mu_{0}c}E^{2}\sbf e_{r}=\frac{\mu_{0}q^{2}}{16\pi^{2}r^{2}}\frac{\abs*{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}^{2}}{{\color{blue}s^{6}}}
+\]
+
+\end_inset
+
+以粒子辐射时刻
+\begin_inset Formula $t^{\prime}$
+\end_inset
+
+表示的瞬时辐射功率满足，
+\begin_inset Formula 
+\[
+P\left(t^{\prime}\right)\dif t^{\prime}=\oint\sbf S\cdot\sbf e_{r}\,\dif t\,r^{2}\dif\Omega
+\]
+
+\end_inset
+
+也就是
+\begin_inset Formula $\dif t$
+\end_inset
+
+具有角分布，考虑到
+\begin_inset Formula $\dif t=s\dif t^{\prime}$
+\end_inset
+
+，则
+\begin_inset Formula 
+\[
+P\left(t^{\prime}\right)=\oint\sbf S\cdot\sbf e_{r}\,\frac{\dif t}{\dif t^{\prime}}\,r^{2}\dif\Omega=\frac{\mu_{0}q^{2}}{16\pi^{2}}\oint\frac{\abs*{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}^{2}}{{\color{blue}s^{5}}}\dif\Omega
+\]
+
+\end_inset
+
+辐射功率的角分布就是
+\begin_inset Formula 
+\[
+\frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{\mu_{0}q^{2}}{16\pi^{2}}\frac{\abs*{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}^{2}}{{\color{blue}s^{5}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+高速粒子的辐射
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+设辐射方向
+\begin_inset Formula $\sbf e_{r}$
+\end_inset
+
+与速度
+\begin_inset Formula $\sbf v$
+\end_inset
+
+的夹角为
+\begin_inset Formula $\theta$
+\end_inset
+
+。当
+\begin_inset Formula $\dot{\sbf v}\ssl\sbf v$
+\end_inset
+
+，即粒子作直线加速时，
+\begin_inset Formula 
+\begin{align*}
+ & \sbf E=\frac{\mu_{0}qc}{4\pi r}\frac{\sbf e_{r}\times\left(\sbf e_{r}\times\dot{\sbf\beta}\right)}{s^{3}}=\frac{\mu_{0}qc}{4\pi r}\frac{\dot{\beta}\left(\cos\theta\sbf e_{r}-\sbf e_{\beta}\right)}{s^{3}},\quad\sbf B=\sbf e_{r}\times\sbf E/c\\
+ & \frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{\mu_{0}q^{2}}{16\pi^{2}}c\dot{\beta}^{2}\frac{\sin^{2}\theta}{s^{5}},\quad s=1-\beta\cos\theta\\
+ & P\left(t^{\prime}\right)=\frac{\mu_{0}q^{2}}{6\pi}c\dot{\beta}^{2}\gamma^{6}={\color{blue}\frac{\mu_{0}q^{2}}{6\pi}\frac{F^{2}}{m_{0}^{2}c}}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\sbf F=\dif p/\dif t=\gamma^{3}m_{0}\dot{\sbf v}$
+\end_inset
+
+是粒子受到的作用力，
+\begin_inset Formula $\gamma=1/\sqrt{1-\beta^{2}}$
+\end_inset
+
+。当
+\begin_inset Formula $\dot{\sbf v}\perp\sbf v$
+\end_inset
+
+，即粒子作圆周轨道运动时，令某瞬时
+\begin_inset Formula $\sbf v$
+\end_inset
+
+沿
+\begin_inset Formula $z$
+\end_inset
+
+方向，
+\begin_inset Formula $\dot{\sbf v}$
+\end_inset
+
+沿
+\begin_inset Formula $x$
+\end_inset
+
+方向，则
+\begin_inset Formula 
+\begin{align*}
+ & \frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{\mu_{0}q^{2}}{16\pi^{2}}c\dot{\beta}^{2}\frac{s^{2}-\left(1-\beta^{2}\right)\sin^{2}\theta\cos^{2}\phi}{s^{5}},\quad s=1-\beta\cos\theta\\
+ & P\left(t^{\prime}\right)=\frac{\mu_{0}q^{2}}{6\pi}c\dot{\beta}^{2}\gamma^{4}={\color{blue}\frac{\mu_{0}q^{2}}{6\pi}\frac{\gamma^{2}F^{2}}{m_{0}^{2}c}}
+\end{align*}
+
+\end_inset
+
+即直线加速器中粒子的辐射与其能量无关，回旋加速器粒子能量越高，辐射损耗越大。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+辐射频谱
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+切伦科夫辐射
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+v>c/n
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+辐射阻尼
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\sbf F_{s}=\frac{\mu_{0}q^{2}}{6\pi}\ddot{\sbf\beta}=\frac{q^{2}}{6\pi\varepsilon_{0}c^{2}}\ddot{\sbf\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -1568,7 +1811,7 @@ status open
 
 \begin_layout Standard
 解：粒子的速度是
-\begin_inset Formula $\sbf v=-i\omega z_{0}e^{-i\omega t}\sbf e_{z}$
+\begin_inset Formula $\sbf v=-i\omega z_{0}e^{-i\omega t^{\prime}}\sbf e_{z}$
 \end_inset
 
 ，
@@ -1576,13 +1819,13 @@ status open
 \end_inset
 
 ，即粒子的运动速度远低于光速。
-\begin_inset Formula $\dot{\sbf v}=-z_{0}\omega^{2}e^{-i\omega t}\sbf e_{z}$
+\begin_inset Formula $\dot{\sbf v}=-z_{0}\omega^{2}e^{-i\omega t^{\prime}}\sbf e_{z}$
 \end_inset
 
 。代入低速情形的磁场公式，
 \begin_inset Formula 
 \[
-\sbf B\left(t,\sbf x\right)=\frac{\mu_{0}qc}{4\pi}\left(\frac{\sbf\beta\times\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\dot{\sbf\beta}\times\sbf e_{r}}{rc}}\right)@\,t^{\prime}
+\sbf B\left(t,\sbf x\right)=\frac{\mu_{0}qc}{4\pi}\left(\frac{\sbf\beta\times\sbf e_{r}}{r^{2}}+{\color{blue}\frac{\dot{\sbf\beta}\times\sbf e_{r}}{rc}}\right)@\,t^{\prime}=t-r/c
 \]
 
 \end_inset
@@ -1713,6 +1956,11 @@ status open
 \end_layout
 
 \begin_layout Frame
+解：将粒子在
+\begin_inset Formula $xy$
+\end_inset
+
+平面上的圆周运动复数化，
 \begin_inset Formula 
 \[
 \sbf x_{q}=R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}}
@@ -1720,19 +1968,19 @@ status open
 
 \end_inset
 
-
+对应的速度以及加速度为，
 \begin_inset Formula 
 \[
-\dot{\sbf v}=\ddot{\sbf x_{q}}=-\omega^{2}R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}}
+\sbf v=-i\omega R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}},\quad\dot{\sbf v}=-\omega^{2}R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}}
 \]
 
 \end_inset
 
 由于粒子速度
-\begin_inset Formula $v=\omega R_{0}\ll c$
+\begin_inset Formula $v\sim\omega R_{0}\ll c$
 \end_inset
 
-
+，可以作非相对论近似，
 \begin_inset Formula 
 \begin{align*}
  & \sbf E=\frac{\mu_{0}}{4\pi}\frac{qR_{0}\omega^{2}}{R}\left(\cos\theta\sbf e_{\theta}+i\sbf e_{\phi}\right)e^{-i\left(\omega t-kR-\phi\right)}\\
