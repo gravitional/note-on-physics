@@ -2116,7 +2116,11 @@ status open
 \end_layout
 
 \begin_layout Standard
-解：粒子的速度是
+
+\color blue
+解：
+\color inherit
+粒子的速度是
 \begin_inset Formula $\sbf v=-i\omega z_{0}e^{-i\omega t^{\prime}}\sbf e_{z}$
 \end_inset
 
@@ -2262,19 +2266,19 @@ status open
 \end_layout
 
 \begin_layout Frame
-解：将粒子在
+
+\color blue
+解：
+\color inherit
+将粒子在
 \begin_inset Formula $xy$
 \end_inset
 
 平面上的圆周运动复数化，
-\begin_inset Formula 
-\[
-\sbf x_{q}=R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}}
-\]
-
+\begin_inset Formula $\sbf x_{q}=R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}}$
 \end_inset
 
-对应的速度以及加速度为，
+。对应的速度以及加速度为，
 \begin_inset Formula 
 \[
 \sbf v=-i\omega R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}},\quad\dot{\sbf v}=-\omega^{2}R_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t^{\prime}}
@@ -2303,6 +2307,211 @@ status open
 体现了辐射能量的角分布。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+7.4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+电场的表达式为
+\begin_inset Formula 
+\[
+\sbf E=\frac{\mu_{0}}{4\pi}\frac{qR_{0}\omega^{2}}{R}\left(\cos\theta\sbf e_{\theta}+i\sbf e_{\phi}\right)e^{-i\left(\omega t-kR-\phi\right)}
+\]
+
+\end_inset
+
+要研究电磁波的偏振，我们选取某一固定时刻
+\begin_inset Formula $t$
+\end_inset
+
+，本题中，我们还选取固定的
+\begin_inset Formula $\theta,\phi$
+\end_inset
+
+，只考虑
+\begin_inset Formula $R$
+\end_inset
+
+改变时，电场方向如何变化。把
+\begin_inset Formula $i\sbf e_{\phi}$
+\end_inset
+
+中的
+\begin_inset Formula $i$
+\end_inset
+
+写到相位上。
+\begin_inset Formula 
+\[
+\sbf E=\frac{\mu_{0}}{4\pi}\frac{qR_{0}\omega^{2}}{R}e^{-i\left(\omega t-\phi\right)}e^{ikR}\left[e^{ikR}\sbf e_{\theta}\cos\theta+e^{i\left(kR+\pi/2\right)}\sbf e_{\phi}\right]
+\]
+
+\end_inset
+
+电场对应表达式的实部，即电场的两个分量是，
+\begin_inset Formula 
+\[
+\sbf e_{\theta}\cos\left(kR\right)\cos\theta,\quad\sbf e_{\phi}\cos\left(kR+\pi/2\right)
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $\theta=0$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\sbf e_{\theta}\cos\left(kR\right),\quad\sbf e_{\phi}\cos\left(kR+\pi/2\right)
+\]
+
+\end_inset
+
+两个方向的分量振幅相等，所以是圆偏振波。再考虑
+\begin_inset Formula $kR$
+\end_inset
+
+从
+\begin_inset Formula $0\to0^{+}$
+\end_inset
+
+，电场从
+\begin_inset Formula $\sbf e_{\theta}\to\sbf e_{\theta}-\sbf e_{\phi}\,0^{+}$
+\end_inset
+
+，所以如果迎着辐射的方向
+\begin_inset Formula $\sbf e_{r}$
+\end_inset
+
+看，将会是左旋的圆偏振波。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+7.4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sbf e_{\theta}\cos\left(kR\right)\cos\theta,\quad\sbf e_{\phi}\cos\left(kR+\pi/2\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+当
+\begin_inset Formula $\theta=\pi$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+-\sbf e_{\theta}\cos\left(kR\right),\quad\sbf e_{\phi}\cos\left(kR+\pi/2\right)
+\]
+
+\end_inset
+
+类似的，
+\begin_inset Formula $kR$
+\end_inset
+
+从
+\begin_inset Formula $0\to0^{+}$
+\end_inset
+
+，电场从
+\begin_inset Formula $-\sbf e_{\theta}\to-\sbf e_{\theta}-\sbf e_{\phi}\,0^{+}$
+\end_inset
+
+，所以是右旋的圆偏振波。
+\end_layout
+
+\begin_layout Itemize
+当
+\begin_inset Formula $\theta=\pi/4$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\frac{\sqrt{2}}{2}\sbf e_{\theta}\cos\left(kR\right),\quad\sbf e_{\phi}\cos\left(kR+\pi/2\right)
+\]
+
+\end_inset
+
+两个方向振幅不相等，类似分析可以知道，是左旋的椭圆偏振波。
+\end_layout
+
+\begin_layout Itemize
+当
+\begin_inset Formula $\theta=3\pi/4$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+-\frac{\sqrt{2}}{2}\sbf e_{\theta}\cos\left(kR\right),\quad\sbf e_{\phi}\cos\left(kR+\pi/2\right)
+\]
+
+\end_inset
+
+右旋的椭圆偏振波。
+\end_layout
+
+\begin_layout Itemize
+当
+\begin_inset Formula $\theta=\pi/2$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+0\sbf e_{\theta},\quad\sbf e_{\phi}\cos\left(kR+\pi/2\right)
+\]
+
+\end_inset
+
+是线偏振波。
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2375,7 +2584,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-解：
+解：电子受到的洛伦兹力，
 \begin_inset Formula 
 \[
 \sbf F=q\sbf v\times\sbf B=e\dot{\sbf r}\times B\sbf e_{z}=eB\left(\dot{y}\sbf e_{x}-\dot{x}\sbf e_{y}\right)
@@ -2383,7 +2592,7 @@ status open
 
 \end_inset
 
-
+低速运动粒子受到的 阻尼力，
 \begin_inset Formula 
 \[
 \sbf F_{s}=\frac{e^{2}}{6\pi\varepsilon_{0}c^{3}}\left(\dddot{x}\sbf e_{x}+\dddot{y}\sbf e_{y}+\dddot{z}\sbf e_{z}\right)
@@ -2391,12 +2600,15 @@ status open
 
 \end_inset
 
+代入
+\begin_inset Formula $\sbf F=\dif\sbf p/\dif t$
+\end_inset
 
+，得到粒子的运动方程，
 \begin_inset Formula 
 \begin{align*}
- & \ddot{x}=\omega_{0}\dot{y}+\frac{\gamma}{\omega_{0}^{2}}\dddot{x},\\
- & \ddot{y}=-\omega_{0}\dot{x}+\frac{\gamma}{\omega_{0}^{2}}\dddot{y},\\
- & \ddot{z}=\frac{\gamma}{\omega_{0}^{2}}\dddot{z},
+ & \ddot{x}=\omega_{0}\dot{y}+\frac{\gamma}{\omega_{0}^{2}}\dddot{x},\quad\ddot{y}=-\omega_{0}\dot{x}+\frac{\gamma}{\omega_{0}^{2}}\dddot{y},\\
+ & \ddot{z}=\frac{\gamma}{\omega_{0}^{2}}\dddot{z},\quad\omega_{0}=\frac{eB}{m},\quad\gamma=\frac{e^{2}\omega_{0}^{2}}{6\pi\varepsilon_{0}mc^{3}}
 \end{align*}
 
 \end_inset
@@ -2442,7 +2654,15 @@ status open
 
 \end_inset
 
-一般地，电子辐射波长远大于电子经典半径
+其中
+\begin_inset Formula 
+\[
+\frac{\gamma}{\omega_{0}}=\frac{e^{2}\omega_{0}}{6\pi\varepsilon_{0}mc^{3}}\sim\frac{r_{e}}{\lambda},
+\]
+
+\end_inset
+
+一般辐射的波长远大于电子经典半径
 \begin_inset Formula $\frac{e^{2}}{4\pi\varepsilon_{0}mc^{2}}$
 \end_inset
 
@@ -2450,15 +2670,11 @@ status open
 \begin_inset Formula $\lambda\gg r_{e}$
 \end_inset
 
-，
-\begin_inset Formula 
-\[
-\frac{\gamma}{\omega_{0}}=\frac{e^{2}\omega_{0}}{6\pi\varepsilon_{0}mc^{3}}\sim\frac{r_{e}}{\lambda},\quad\frac{\gamma}{\omega_{0}}\ll1
-\]
-
+，所以
+\begin_inset Formula $\frac{\gamma}{\omega_{0}}\ll1$
 \end_inset
 
-使用
+。使用
 \begin_inset Formula $\dddot{u}=\ddot{u}^{\prime}$
 \end_inset
 
@@ -2470,11 +2686,11 @@ status open
 
 \end_inset
 
-忽略高阶项，并按
+忽略高阶项，再展开到
 \begin_inset Formula $\gamma/\omega_{0}$
 \end_inset
 
-作展开，
+的一次项，
 \begin_inset Formula 
 \[
 \ddot{u}+\frac{i\omega_{0}}{1+i\gamma/\omega_{0}}\dot{u}=0\Rightarrow\ddot{u}+\left(i\omega_{0}+\gamma\right)\dot{u}=0
@@ -2482,7 +2698,7 @@ status open
 
 \end_inset
 
-待定系数法得到方程的通解为
+用待定系数法得到方程的通解为，
 \begin_inset Formula 
 \[
 u=u_{0}e^{-\gamma t}e^{-i\omega_{0}t}+C
@@ -2514,14 +2730,7 @@ status open
 \end_layout
 
 \begin_layout Frame
-\begin_inset Formula 
-\[
-u=u_{0}e^{-\gamma t}e^{-i\omega_{0}t}+C
-\]
-
-\end_inset
-
-带入初始条件：
+代入初始条件：
 \begin_inset Formula $t=0$
 \end_inset
 
@@ -2541,7 +2750,7 @@ u=u_{0}e^{-\gamma t}e^{-i\omega_{0}t}+C
 \begin_inset Formula $\dot{y}=v_{0}$
 \end_inset
 
-，
+，得到，
 \begin_inset Formula 
 \[
 x\approx\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right)+\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\cos\omega_{0}t,\quad y\approx\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\sin\omega_{0}t
@@ -2549,7 +2758,7 @@ x\approx\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right)+\frac{v_{0}}{\omega_{0}}e^{-
 
 \end_inset
 
-由
+代入
 \begin_inset Formula $t=0$
 \end_inset
 
@@ -2558,10 +2767,6 @@ x\approx\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right)+\frac{v_{0}}{\omega_{0}}e^{-
 \end_inset
 
 ，得到
-\begin_inset Formula $z$
-\end_inset
-
-的解为
 \begin_inset Formula $z=0$
 \end_inset
 
@@ -2573,7 +2778,7 @@ x\approx\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right)+\frac{v_{0}}{\omega_{0}}e^{-
 \end_layout
 
 \begin_layout Frame
-从
+电子单位时间内的辐射能量：
 \begin_inset Formula 
 \[
 \dot{\sbf v}^{2}=\ddot{x}^{2}+\ddot{y}^{2}+\ddot{z}^{2}\approx v_{0}^{2}\omega_{0}^{2}e^{-2\gamma t}
@@ -2581,16 +2786,29 @@ x\approx\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right)+\frac{v_{0}}{\omega_{0}}e^{-
 
 \end_inset
 
-
+非相对论近似下，代入偶极辐射公式，得到平均辐射能流与辐射功率，
 \begin_inset Formula 
 \begin{align*}
 \bar{\sbf S} & =\frac{e^{2}\dot{\sbf v}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}=\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}\\
-\bar{p} & =\oint_{S}\bar{S}r^{2}\dif\Omega=\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{6\pi\varepsilon_{0}c^{3}}e^{-2\gamma t}
+\bar{p} & =\oint_{S}\bar{S}r^{2}\dif\Omega=2\pi\int_{0}^{\pi}\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}}\sin^{2}\alpha\dif\cos\alpha\\
+ & =\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{6\pi\varepsilon_{0}c^{3}}e^{-2\gamma t}
 \end{align*}
 
 \end_inset
 
+其中
+\begin_inset Formula $\alpha$
+\end_inset
 
+是辐射方向
+\begin_inset Formula $\sbf e_{r}$
+\end_inset
+
+与加速度方向
+\begin_inset Formula $\dot{\sbf v}$
+\end_inset
+
+的夹角。
 \end_layout
 
 \begin_layout Standard
@@ -2614,18 +2832,7 @@ status open
 \end_layout
 
 \begin_layout Frame
-\begin_inset Formula $\alpha$
-\end_inset
-
-是辐射方向
-\begin_inset Formula $\sbf e_{r}$
-\end_inset
-
-与加速度方向
-\begin_inset Formula $\dot{\sbf v}$
-\end_inset
-
-的夹角。电子的能量为
+低速情况下，电子的能量为
 \begin_inset Formula 
 \[
 W\approx\frac{1}{2}mv^{2}=\frac{1}{2}mv_{0}^{2}\omega_{0}^{2}e^{-2\gamma t}
