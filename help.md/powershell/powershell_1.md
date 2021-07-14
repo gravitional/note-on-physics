@@ -1704,8 +1704,7 @@ PS C:Powershell> ls | foreach{$_.extension} | Sort-Object |Get-Unique
 
 ### 分析和比较管道结果
 
-使用`Measure-Object`和`Compare-Object`可以统计和对比管道结果。
-`Measure-Object`允许指定待统计对象的属性。`Compare-Object`可以对比对象前后的快照。
+使用`Measure-Object`和`Compare-Object`可以统计和对比管道结果。`Measure-Object`允许指定待统计对象的属性。`Compare-Object`可以对比对象前后的快照。
 
 #### 统计和计算
 

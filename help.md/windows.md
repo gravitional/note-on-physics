@@ -160,12 +160,23 @@ oh-my-posh发展到第三版
 [PSReadLine](https://docs.microsoft.com/en-us/powershell/module/psreadline/?view=powershell-7.1)
 [Set-PSReadLineOption](https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.1)
 
+下面的命令查看所有绑定和未绑定的按键映射.
+
+```powershell
+Get-PSReadLineKeyHandler -Bound -Unbound #查看所有绑定和未绑定的 key mapping
+Get-PSReadLineKeyHandler #只查看绑定的 key mapping
+Get-PSReadLineKeyHandler -Chord Enter, Shift+Enter # 查看特定按键的 key mapping
+```
+
 ***
 [为 Windows PowerShell 设置 User Alias （命令别名）](https://zhuanlan.zhihu.com/p/74881435)
 [给 PowerShell 带来 zsh 的体验](https://zhuanlan.zhihu.com/p/137251716)
 [第 9 章 - 函数](https://docs.microsoft.com/zh-cn/powershell/scripting/learn/ps101/09-functions?view=powershell-7.1#parameter-validation)
 
-```powerline
+***
+下面给出一个 `powershell`配置的例子。`vim $PROFILE`即可打开这个配置文件
+
+```powershell
 Import-Module posh-git # 引入 posh-git
 Import-Module oh-my-posh # 引入 oh-my-posh
 
@@ -183,6 +194,7 @@ Set-PSReadLineOption @PSReadLineOptions
 
 Set-PSReadlineKeyHandler -Key Tab -Function Complete # 设置 Tab 键补全
 #Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function MenuComplete # 设置 Ctrl+d 为菜单补全和 Intellisense
+Set-PSReadLineKeyHandler -Key "Ctrl+w" -Function BackwardKillWord # 设置 Ctrl+w 删除word
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo # 设置 Ctrl+z 为撤销
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward # 设置向上键为后向搜索历史记录
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward # 设置向下键为前向搜索历史纪录
