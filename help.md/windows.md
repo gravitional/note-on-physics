@@ -199,6 +199,7 @@ Set-PSReadLineKeyHandler -Key "Ctrl+w" -Function BackwardKillWord # 设置 Ctrl+
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo # 设置 Ctrl+z 为撤销
 Set-PSReadLineKeyHandler -Key "Ctrl+u" -Function BackwardKillLine # 删除到行首
 Set-PSReadLineKeyHandler -Key "Ctrl+k" -Function DeleteToEnd # 删除到行末
+Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function DeleteCharOrExit # 删除字符或者退出
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward # 设置向上键为后向搜索历史记录
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward # 设置向下键为前向搜索历史纪录
 
