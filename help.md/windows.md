@@ -147,43 +147,47 @@ windows 管理工具: `%windir%\system32\control.exe\ /name Microsoft.Administra
 在`文件管理取`地址栏输入`shell:AppsFolder`,大小写无所谓.
 或者在`Powershell`中输入`explorer shell:appsfolder`,就可以打开UWP 应用的文件夹,可以创建桌面快捷方式。
 
-### 在 windows terminal 中添加其他程序
+### powershell 配置 pwsh
 
-[Adding profiles for third-party tools](https://github.com/microsoft/terminal/blob/main/doc/user-docs/ThirdPartyToolProfiles.md)
+oh-my-posh发展到第三版
 
-Git Bash
+[Oh my Posh 3](https://zhuanlan.zhihu.com/p/308481493)
+[A prompt theme engine for any shell.](https://ohmyposh.dev/docs/upgrading)
 
-假设`Git Bash`安装到了`C:\\Program Files\\Git`:
+***
+`PSReadLine`模块包含让你在`PowerShell`中定制命令行编辑环境的`cmdlet`。在PowerShell 7.1中包含了PSReadLine v2.1。
+具体选项设置，如回溯历史时让光标默认移动到尾部，可参考:
+[PSReadLine](https://docs.microsoft.com/en-us/powershell/module/psreadline/?view=powershell-7.1)
+[Set-PSReadLineOption](https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.1)
 
-```json
-{
-    "name": "Git Bash",
-    "commandline": "C:\\Program Files\\Git\\bin\\bash.exe -li",
-    "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
-    "startingDirectory": "%USERPROFILE%"
-}
-```
-
-### pwsh 别名配置
-
+***
 [为 Windows PowerShell 设置 User Alias （命令别名）](https://zhuanlan.zhihu.com/p/74881435)
 [给 PowerShell 带来 zsh 的体验](https://zhuanlan.zhihu.com/p/137251716)
 [第 9 章 - 函数](https://docs.microsoft.com/zh-cn/powershell/scripting/learn/ps101/09-functions?view=powershell-7.1#parameter-validation)
 
-```pwsh
+```powerline
 Import-Module posh-git # 引入 posh-git
 Import-Module oh-my-posh # 引入 oh-my-posh
 
-Set-Theme Agnoster # 设置主题为 Agnoster
+# Set-Theme Agnoster # 第二版设置主题为 Agnoster
+Set-PoshPrompt -Theme agnoster #第三版设置主体命令
 
-Set-PSReadLineOption -PredictionSource History # 设置预测文本来源为历史记录
+# PSReadLine 设置
+# 设置预测文本来源为历史记录，并将光标移动到末尾
+$PSReadLineOptions = @{
+    PredictionSource = "History"
+    HistoryNoDuplicates = $true
+    HistorySearchCursorMovesToEnd = $true
+}
+Set-PSReadLineOption @PSReadLineOptions
+
 Set-PSReadlineKeyHandler -Key Tab -Function Complete # 设置 Tab 键补全
-Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function MenuComplete # 设置 Ctrl+d 为菜单补全和 Intellisense
+#Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function MenuComplete # 设置 Ctrl+d 为菜单补全和 Intellisense
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo # 设置 Ctrl+z 为撤销
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward # 设置向上键为后向搜索历史记录
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward # 设置向下键为前向搜索历史纪录
 
-Set-Alias edit notepad
+Set-Alias edit vim #默认编辑器
 
 function gcam  {
 param (
@@ -428,7 +432,7 @@ wsl --set-default-version 2
 
 这会将安装的任何新分发版的版本设置为 `WSL 2`。
 
-### windows terminal
+## windows terminal
 
 可以设置的选项非常多,参考
 [Windows 终端中的全局设置](https://docs.microsoft.com/zh-cn/windows/terminal/customize-settings/global-settings)
@@ -447,7 +451,24 @@ wsl --set-default-version 2
 ]
 ```
 
-#### 创建自己的配色方案
+## 添加其他程序
+
+[Adding profiles for third-party tools](https://github.com/microsoft/terminal/blob/main/doc/user-docs/ThirdPartyToolProfiles.md)
+
+Git Bash
+
+假设`Git Bash`安装到了`C:\\Program Files\\Git`:
+
+```json
+{
+    "name": "Git Bash",
+    "commandline": "C:\\Program Files\\Git\\bin\\bash.exe -li",
+    "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+    "startingDirectory": "%USERPROFILE%"
+}
+```
+
+### 创建自己的配色方案
 
 关于配色方案可以参考: [Windows 终端中的配色方案](https://docs.microsoft.com/zh-cn/windows/terminal/customize-settings/color-schemes)
 可以在 `settings.json` 文件的 `schemes` 数组中定义配色方案。 它们是使用以下格式写入的：
@@ -520,7 +541,7 @@ Tango Light
 可以通过按住 `ctrl+shift `和滚动来调整背景的不透明度。 调整后，终端会话将保持新的不透明度。 
 如果要更改配置文件的 `acrylic` 不透明度，可参阅配置文件设置页面.
 
-#### 可执行文件设置
+### 可执行文件设置
 
 ***
 命令行
@@ -553,7 +574,7 @@ Tango Light
 在为已安装的 WSL 分发设置打开时的起始目录时,应使用以下格式: `"startingDirectory": "//wsl$/"`,并用分发的名称进行替换。 
 例如,`"startingDirectory": "//wsl$/Ubuntu-20.04"`。
 
-#### 下拉列表设置
+### 下拉列表设置
 
 ***
 名称
@@ -584,7 +605,7 @@ Tango Light
 默认值:  `false`
 这两个`value`都不带`"`
 
-#### 文本设置
+### 文本设置
 
 ***
 字体
@@ -637,7 +658,7 @@ Tango Light
 默认值:  `true`
 此功能仅在 Windows 终端预览中可用。
 
-#### 颜色设置
+### 颜色设置
 
 ***
 配色方案
@@ -649,7 +670,7 @@ Tango Light
 
 默认值: `"Campbell"`
 
-#### Acrylic 设置
+### Acrylic 设置
 
 ***
 启用 `acrylic`
@@ -669,7 +690,7 @@ Tango Light
 接受:  `0-1` 的浮点值的数字
 默认值:  `0.5`
 
-#### 背景图像设置
+### 背景图像设置
 
 ***
 设置背景图像
@@ -706,7 +727,7 @@ Tango Light
 接受:  `0-1` 的浮点值的数字
 默认值:  `1.0`
 
-#### 滚动设置
+### 滚动设置
 
 滚动条可见性
 这将设置滚动条的可见性。
@@ -732,7 +753,7 @@ Tango Light
 接受:  整数
 默认值:  `9001`
 
-#### 退出时配置文件的关闭方式
+### 退出时配置文件的关闭方式
 
 这将设置配置文件如何响应终止或启动失败。 
 当键入 `exit` 或进程正常退出时,`"graceful"` 将关闭配置文件。 `"always"` 将始终关闭配置文件,而 `"never"` 将永远不会关闭配置文件。 

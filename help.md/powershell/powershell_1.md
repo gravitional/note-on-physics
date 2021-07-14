@@ -7,14 +7,18 @@ For myself and for you
 
 ## introduction
 
-与大多数 `Shell`（它们接受和返回文本）不同，`Windows PowerShell` 是在 `.NET Framework` 公共语言运行时 (`CLR`) 和`.NET Framework` 的基础上生成的，它将接受和返回 `.NET Framework` 对像。 
-环境中的这一基本更改为 `Windows` 的管理和配置带来了全新的工具和方法。
+与大多数 `Shell`（它们接受和返回文本）不同，
+`Windows PowerShell` 是在 [.NET Framework 公共语言运行时 (CLR) ](https://docs.microsoft.com/zh-cn/dotnet/core/introduction)
+和`.NET Framework` 的基础上生成的，它将接受和返回 `.NET Framework` 对像。 环境中的这一基本更改为 `Windows` 的管理和配置带来了全新的工具和方法。
 
-`Windows PowerShell` 引入了 `cmdlet`（读作“command-let”）的概念，它是内置于 Shell 的简单的单一函数命令行工具。 可以分别使用每个 `cmdlet`，但只有组合使用这些简单的工具来执行复杂的任务时，你才会意识到它们的强大功能。 `Windows PowerShell` 包括一百多个基本核心 `cmdlet`，你可以编写自己的 `cmdlet` 并与其他用户共享。
+`Windows PowerShell` 引入了 `cmdlet`（读作“command-let”）的概念，它是内置于 Shell 的简单的单一函数命令行工具。 
+可以分别使用每个 `cmdlet`，但只有组合使用这些简单的工具来执行复杂的任务时，你才会意识到它们的强大功能。 
+`Windows PowerShell` 包括一百多个基本核心 `cmdlet`，你可以编写自己的 `cmdlet` 并与其他用户共享。
 
-与许多 Shell 类似，`Windows PowerShell` 允许你访问计算机上的文件系统。 此外，`Windows PowerShell` 提供程序使你能够像访问文件系统一样方便地访问其他数据存储（例如注册表和数字签名证书存储）。
+与许多 Shell 类似，`Windows PowerShell` 允许你访问计算机上的文件系统。 
+此外，`Windows PowerShell` 提供程序使你能够像访问文件系统一样方便地访问其他数据存储（例如注册表和数字签名证书存储）。
 
-[micro-doc](https://docs.microsoft.com/zh-cn/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-6)
+[microsoft-powershell](https://docs.microsoft.com/zh-cn/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-6)
 
 `PowerShell` 是一个脚本引擎 `dll`，嵌入到多个主机中。 启动的最常见主机是交互式命令行 `PowerShell.exe` 和交互式脚本环境 `PowerShell_ISE.exe`。
 
@@ -27,10 +31,12 @@ For myself and for you
 即把上一条命令的输出作为下一条命令的输入。
 
 例如通过`ls`获取当前目录的所有文件信息，
-然后通过`·`Sort -Descending`·`对文件信息按照`Name`降序排列，
+然后通过`Sort -Descending`对文件信息按照`Name`降序排列，
 最后将排序好的文件的`Name`和`Mode`格式化成`Table`输出。
 
-`ls | sort -Descending Name | Format-Table Name,Mode`
+```powershell
+Get-ChildItem | Sort-Object -Descending Name | Format-Table Name,Mode
+```
 
 #### 重定向
 
