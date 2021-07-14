@@ -200,6 +200,8 @@ Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward # 设置�
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward # 设置向下键为前向搜索历史纪录
 
 Set-Alias edit vim #默认编辑器
+Set-Alias gh Get-Help # 查看命令帮助
+Set-Alias ll Get-ChildItem  
 
 function gcam  {
 param (
