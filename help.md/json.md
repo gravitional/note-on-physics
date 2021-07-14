@@ -29,9 +29,7 @@
 
 ## JSON简介
 
-[在线][]
-
-[在线]: https://www.runoob.com/json/json-intro.html
+[在线](https://www.runoob.com/json/json-intro.html)
 
 ```javascript
 var JSONObject= {
@@ -438,7 +436,7 @@ var obj = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" 
 ```
 
 >解析前要确保你的数据是标准的 JSON 格式，否则会解析出错。
->你可以使用我们的[在线工具检测][] .
+>你可以使用我们的[在线工具检测](https://c.runoob.com/front-end/53) .
 
 解析完成后，我们就可以在网页上使用 `JSON` 数据了：
 
@@ -450,8 +448,6 @@ var obj = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" 
 document.getElementById("demo").innerHTML = obj.name + "：" + obj.site;
 </script>
 ```
-
-[在线工具检测]: https://c.runoob.com/front-end/53
 
 ### 从服务端接收JSON数据
 
@@ -469,9 +465,7 @@ xmlhttp.open("GET", "/try/ajax/json_demo.txt", true);
 xmlhttp.send();
 ```
 
-查看服务端数据：[json_demo.txt][]
-
-[json_demo.txt]: https://www.runoob.com/try/ajax/json_demo.txt
+查看服务端数据：[json_demo.txt](https://www.runoob.com/try/ajax/json_demo.txt)
 
 ### 从服务端接收数组的JSON数据
 
@@ -561,9 +555,7 @@ document.getElementById("demo").innerHTML = obj.name + " Alexa 排名：" + obj.
 在向服务器发送数据时一般是字符串。
 我们可以使用 `JSON.stringify()` 方法将 `JavaScript` 对象转换为字符串。
 
-也参见 [MDN web docs][]
-
-[MDN web docs]: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+也参见 [MDN web docs](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
 ### 语法
 
@@ -802,13 +794,9 @@ document.getElementById("url").innerHTML=obj.sites[0].url
 
 aha, a rather old table though.
 
-对于较老的浏览器，可使用 [JavaScript 库][]
+对于较老的浏览器，可使用 [JavaScript 库](https://github.com/douglascrockford/JSON-js)
 
-`JSON` 格式最初是 [originally specified by Douglas Crockford][]
-
-[JavaScript 库]: https://github.com/douglascrockford/JSON-js
-
-[originally specified by Douglas Crockford]: http://developer.yahoo.com/yui/theater/video.php?v=crockford-json
+`JSON` 格式最初是 [originally specified by Douglas Crockford](http://developer.yahoo.com/yui/theater/video.php?v=crockford-json)
 
 ## JSONP教程
 
@@ -824,9 +812,7 @@ aha, a rather old table though.
 
 #### 服务端 JSONP 格式数据
 
-如客户想访问 : [runoob.try][]
-
-[runoob.try]: https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=callbackFunction。
+如客户想访问 : [runoob.try](https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=callbackFunction)
 
 假设客户期望返回数据：`["customername1","customername2"]`。
 

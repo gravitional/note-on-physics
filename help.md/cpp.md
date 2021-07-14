@@ -219,9 +219,7 @@ myname50   _temp   j     a23b9      retVal
 | double       | mutable   | switch           | while    |
 | dynamic_cast | namespace | templat          |          |
 
-完整关键字介绍可查阅：[C++ 的关键字（保留字）完整介绍][]
-
-[C++ 的关键字（保留字）完整介绍]: https://www.runoob.com/w3cnote/cpp-keyword-intro.html
+完整关键字介绍可查阅：[C++ 的关键字（保留字）完整介绍](https://www.runoob.com/w3cnote/cpp-keyword-intro.html)
 
 ### 三字符组
 

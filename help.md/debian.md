@@ -263,12 +263,8 @@ That is, files that cannot be shared between implementations, such as pool files
 
 ## CMake
 
-[CMake is an open-source][]
-[Ubuntu16.04下安装Cmake][]
-
-[Ubuntu16.04下安装Cmake]: https://blog.csdn.net/l1216766050/article/details/77513045
-
-[CMake is an open-source]: https://cmake.org/
+[CMake is an open-source](https://cmake.org/)
+[Ubuntu16.04下安装Cmake](https://blog.csdn.net/l1216766050/article/details/77513045)
 
 CMake is an open-source, cross-platform family of tools designed to build, test and package software. 
 

@@ -447,9 +447,7 @@ Print /@ RandomVariate[
 
 ### 标准输入、标准输出
 
-[什么是标准输入、标准输出(stdin、stdout)][]
-
-[什么是标准输入、标准输出(stdin、stdout)]: https://blog.csdn.net/sinat_17700695/article/details/91491472
+[什么是标准输入、标准输出(stdin、stdout)](https://blog.csdn.net/sinat_17700695/article/details/91491472)
 
 ***
 要弄清什么是标准输入输出。首先需要弄懂什么是IO。

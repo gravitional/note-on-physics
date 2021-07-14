@@ -1,8 +1,6 @@
 # Fortran-2
 
-[Fortran语言的入门与心得][]
-
-[Fortran语言的入门与心得]: https://blog.csdn.net/xiaoxiaoxingzi/article/details/105315397
+[Fortran语言的入门与心得](https://blog.csdn.net/xiaoxiaoxingzi/article/details/105315397)
 
 ## 惯例
 

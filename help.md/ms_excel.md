@@ -35,9 +35,7 @@
 
 ## 给Excel工作表建立目录
 
-[给Excel工作表建立目录][]
-
-[给Excel工作表建立目录]: http://www.excelhome.net/lesson/article/excel/1533.html
+[给Excel工作表建立目录](http://www.excelhome.net/lesson/article/excel/1533.html)
 
 有时候我们会在一个工作簿中建立很多工作表，怎样才能简单明了的管理工作表呢，当然能建一个目录最好了，这里我们就学习一种给工作表创建目录的方法。
 

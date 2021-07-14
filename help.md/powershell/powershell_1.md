@@ -2,10 +2,8 @@
 
 For myself and for you
 
-[收集和分享 Windows PowerShell 相关教程,技术和最新动态][]
+[收集和分享 Windows PowerShell 相关教程,技术和最新动态](https://www.pstips.net/)
 版权归原作者所有
-
-[收集和分享 Windows PowerShell 相关教程,技术和最新动态]: https://www.pstips.net/
 
 ## introduction
 
@@ -16,9 +14,7 @@ For myself and for you
 
 与许多 Shell 类似，`Windows PowerShell` 允许你访问计算机上的文件系统。 此外，`Windows PowerShell` 提供程序使你能够像访问文件系统一样方便地访问其他数据存储（例如注册表和数字签名证书存储）。
 
-[micro-doc][micro-doc]
-
-[micro-doc]: https://docs.microsoft.com/zh-cn/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-6
+[micro-doc](https://docs.microsoft.com/zh-cn/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-6)
 
 `PowerShell` 是一个脚本引擎 `dll`，嵌入到多个主机中。 启动的最常见主机是交互式命令行 `PowerShell.exe` 和交互式脚本环境 `PowerShell_ISE.exe`。
 
@@ -116,9 +112,7 @@ PS C:\PS> &"ls"
 
 每个命令有一个动词和名词组成，命令的作用一目了然。
 
-[Powershell 命令集][]
-
-[Powershell 命令集]: https://www.pstips.net/powershell-cmdlets.html
+[Powershell 命令集](https://www.pstips.net/powershell-cmdlets.html)
 
 ### 别名
 

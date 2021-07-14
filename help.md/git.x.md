@@ -26,9 +26,7 @@ $ git log refs/remotes/origin/master
 
 ## git 用户端配置
 
-[初次运行 Git 前的配置 ][]
-
-[初次运行 Git 前的配置 ]: https://gitee.com/help/articles/4107
+[初次运行 Git 前的配置 ](https://gitee.com/help/articles/4107)
 
 在新的系统上, 我们一般都需要先配置下自己的 `Git` 工作环境.
 配置工作只需一次, 以后升级时还会沿用现在的配置. 当然, 如果需要, 你随时可以用相同的命令修改已有的配置.
@@ -324,10 +322,6 @@ git reset --hard branch2
 
 把 `HEAD` 和 `branch`移动到`branch2`指向的提交.
 
-[Git Reset 三种模式][]
-[git reset --hard xxx、git reset --soft 及git revert 的区别][]
-[Git Reset 三种模式][]
-
 ### git-restore
 
 SYNOPSIS
@@ -424,9 +418,7 @@ ssh -T git@gitee.com
 
 ### 设置多个远程
 
-[git 本地仓库同时推送到多个远程仓库][]
-
-[git 本地仓库同时推送到多个远程仓库]: https://blog.csdn.net/fox9916/article/details/79386169
+[git 本地仓库同时推送到多个远程仓库](https://blog.csdn.net/fox9916/article/details/79386169)
 
 先准备两个空的远程仓库, 如果远程仓库里有`readme`这样的文件, 先`pull`一下, 如果`pull`的时候失败, 提示：`fatal: refusing to merge unrelated histories`
 

@@ -2,9 +2,7 @@
 
 ## 刚学开车应该如何放离合
 
-[刚学开车应该如何放离合][]
-
-[刚学开车应该如何放离合]: https://www.zhihu.com/question/23216117
+[刚学开车应该如何放离合](https://www.zhihu.com/question/23216117)
 
 ### 1
 
