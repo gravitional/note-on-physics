@@ -95,7 +95,7 @@ Yuanti SC Regular
 Yuppy SC Regular
 ```
 
-### 命令行字体
+### 命令行安装字体
 
 [Sarasa Mono SC](https://github.com/laishulu/Sarasa-Mono-SC-Nerd)
 
@@ -105,6 +105,9 @@ MacOS 用户可以直接通过cask安装：
 brew tap laishulu/cask-fonts
 brew install font-sarasa-nerd
 ```
+
+如果是安装本地字体文件，参考[nstalling fonts from terminal](https://apple.stackexchange.com/questions/240381/installing-fonts-from-terminal-instead-of-font-book)，
+直接复制到对应的文件夹，`/Library/Fonts` (系统公用) or `~/Library/Fonts` (当前用户使用).
 
 ### XeLaTeX 使用系统字体
 
