@@ -147,7 +147,7 @@ windows 管理工具: `%windir%\system32\control.exe\ /name Microsoft.Administra
 在`文件管理取`地址栏输入`shell:AppsFolder`,大小写无所谓.
 或者在`Powershell`中输入`explorer shell:appsfolder`,就可以打开UWP 应用的文件夹,可以创建桌面快捷方式。
 
-### powershell 配置 pwsh
+### powershell 配置
 
 oh-my-posh发展到第三版
 
@@ -214,6 +214,7 @@ function  lss { Get-ChildItem | Format-Wide Name -Column 6 }
 function .. { Set-Location .. }
 function ... { Set-Location ../.. }
 function .... { Set-Location ../../.. }
+# pwsh 6.2增加了对`-`和`+`作为路径参数值的支持. pwsh 维护了可以用`-`和`+`访问的最后20个位置的历史
 # git 常用命令 
 function gcam  {  param ( [string]$message )
 git commit -a -m  $message
