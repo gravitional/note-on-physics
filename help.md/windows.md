@@ -185,7 +185,7 @@ Import-Module oh-my-posh # 引入 oh-my-posh
 Set-PoshPrompt -Theme agnoster #第三版设置主体命令
 
 # PSReadLine 设置
-# 设置预测文本来源为历史记录，并将光标移动到末尾
+# 设置预测文本来源为历史记录并将光标移动到末尾
 $PSReadLineOptions = @{
     PredictionSource = "History"
     HistoryNoDuplicates = $true
@@ -200,6 +200,7 @@ Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo # 设置 Ctrl+z 为撤销
 Set-PSReadLineKeyHandler -Key "Ctrl+u" -Function BackwardKillLine # 删除到行首
 Set-PSReadLineKeyHandler -Key "Ctrl+k" -Function DeleteToEnd # 删除到行末
 Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function DeleteCharOrExit # 删除字符或者退出
+#Set-PSReadLineKeyHandler -Key "Alt+." -Function YankLastArg # 复制上一次输入的末尾
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward # 设置向上键为后向搜索历史记录
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward # 设置向下键为前向搜索历史纪录
 
@@ -209,6 +210,11 @@ Set-Alias ll Get-ChildItem
 Set-Alias open Start-Process #打开的别名
 
 # 常用函数
+function  lss { Get-ChildItem | Format-Wide Name -Column 6 }
+function .. { Set-Location .. }
+function ... { Set-Location ../.. }
+function .... { Set-Location ../../.. }
+# git 常用命令 
 function gcam  {  param ( [string]$message )
 git commit -a -m  $message
 }

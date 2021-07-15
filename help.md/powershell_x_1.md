@@ -287,6 +287,7 @@ Get-Command -CommandType Alias | where {$_.DisplayName -like -join("*", "Get-Com
 ```
 
 + select -> Select-Object
++ where-> Where-Object
 + gcm -> Get-Command
 
 ### 命令行历史
@@ -634,20 +635,24 @@ FileName=config.xml
 
 ## 筛选对象
 
+### 查找字符串
+
+`Select-String `: 查找字符串和文件中的文本.
+
 ### 筛选管道中的对象
 
 通过管道可以过滤某些对象和对象的属性,这个功能很实用,因为很多时候我们并不是对所有的结果感兴趣,可能只会对某些结果感兴趣.
 
-`Where-Object`: 过滤一堆对象中的某几个
-`Select-Object`：过滤对象的属性
-`ForEach-Object`：自定义过滤效果
-`Get-Uinque`：排除重复对象
++ `Select-Object`：`select`,选取前几个对象如`-First 3`，或者对象的属性. 可以用它先查看对象都有什么属性, 
++ `Where-Object`:  `where`,根据对象的属性，从对象集合中挑选特定的几个。例如，选择在某个日期之后创建的文件, 具有特定ID的事件, 或者使用特定版本Windows的计算机。
++ `ForEach-Object`：`foreach`,对输入对象集合中的每个项目执行操作。输入对象可以通过管道进入`cmdlet`，也可以通过使用`InputObject`参数指定。
++ `Get-Uinque`：`gu`,从排序过的列表中返回不重复的对象.
 
-比如过滤正在运行的服务,可以通过每个服务的属性`Status`进行过滤.
+比如过滤正在运行的服务,可以通过每个服务的属性`Status`进行过滤. 
 首先我们看看服务的属性,可以通过`Format-List *`,也可以通过`Get-memeber`.
 
 ```powershell
-Get-service | Select-Object -First 1 | Format-List *
+Get-service | Select-Object -First 1 | Format-List * #Format-List 输出对象的属性，每行一个
 ```
 
 找出`Status`为`Running`的程序, 这里是 `where-object` 的脚本块用法
@@ -730,7 +735,7 @@ Get-ChildItem -Recurse *.exe
 
 如果添加`-Depth`参数的话,还可以指定递归深度.
 
-### 拷贝指定文件类型
+### 拷贝特定文件类型
 
 找出所有`jpg`和`png`
 
@@ -951,6 +956,8 @@ Invoke-Expression 'Get-Process | Where-Object { $_.Name -like "e*"}'
 
 来看看`Powershell`中支持的操作符.
 
+[about_Comparison_Operators](https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_comparison_operators?view=powershell-7.1)
+
 ### 数学运算符
 
 首先,基本的数学运算符都是支持的.
@@ -1004,7 +1011,7 @@ False
 
 ### 包含和替换运算符
 
-`-contains`查找序列中是否包含某个元素.
+`-contains`查找序列中是否包含某个元素. 
 
 ```powershell
  'hello','zhang3' -contains 'zhang3'
@@ -1064,19 +1071,22 @@ True
 首先是`>`和`>>`运算符,用于将标准输出流重定向到文件,前者会覆盖已有文件,
 后者则是追加到已有文件末尾.
 
-## 对象
+## 类与对象
+
+使用`Get-Member -Static`来查看对象的静态属性和对象的类型.  使用`[类型名称]`，如`[System.Enum]`来指定某个类对象，可以调用静态方法.
 
 ### 一切皆对象
 
-与大多数 `Shell`（它们接受和返回文本）不同,`Windows PowerShell` 是在 `.NET Framework` 公共语言运行时 (`CLR`) 和`.NET Framework` 的基础上生成的,它将接受和返回 `.NET Framework` 对象. 每一个`Powershell`命令都会返回一个对象.包括 `comlet` `变量`,`函数`,`字符串`等等,都是对象.
+与大多数 `Shell`（它们接受和返回文本）不同,`Windows PowerShell` 是在 `.NET Framework` 公共语言运行时 (`CLR`) 和`.NET Framework` 的基础上生成的,
+它将接受和返回 `.NET Framework` 对象. 每一个`Powershell`命令都会返回一个对象.包括 `comlet` `变量`,`函数`,`字符串`等等,都是对象.
 
 属性可以描述一个对象,对象的属性可以被`Powershell`自动转换成文本,并且输出到控制台. 因此可以通过这种方法查看任何对象,例如`$host`:
 
 ```powershell
 $ host
 out:
-Name             : ConsoleHost
-Version          : 2.0
+Name    : ConsoleHost
+Version : 2.0
 ```
 
 但将对象的属性转换成文本并不安全,最安全的方式是将对象保存在变量中. 如果想将对象输出为文本,可以在控制台输入变量名.
@@ -1088,10 +1098,9 @@ $FileList
 
 ### get-command
 
-可以先查看存在哪些已经定义过的`命令`,`函数` etc.
+可以先查看存在哪些已经定义过的`命令`,`函数` etc. 别名是`gcm`，也可以用来查看二进制程序的位置, 如`gcm unzip`.
 
-比如,`Powershell`已经提供了许多用户能够使用的预定义函数,
-这些函数可以通过`Function:PSDrive` **虚拟驱动器**查看.
+比如,`Powershell`已经提供了许多用户能够使用的预定义函数, 这些函数可以通过`Function:PSDrive` **虚拟驱动器**查看.
 
 ```powershell
 ls function:
@@ -1193,25 +1202,21 @@ $info.Definition
 [System.Security.AccessControl.FileSystemRights]
 ```
 
-### 查看对象的原型--类
+### 对象的原型--类
 
-上面查看的都是已经存在的**对象**,对象一般是由**类**生成的
+上面查看的都是已经存在的`objetc`, 对象一般是由`class`生成的
 
-***
-继承
+#### 继承
 
-面向对象程序设计中最重要的一个概念是继承.继承允许我们依据另一个类来定义一个类,这使得创建和维护一个应用程序变得更容易.
+面向对象程序设计中最重要的一个概念是继承. 继承允许我们依据另一个类来定义一个类,这使得创建和维护一个应用程序变得更容易.
 这样做,也达到了重用代码功能和提高执行效率的效果.
 
 当创建一个类时,您不需要重新编写新的数据成员和成员函数,只需指定新建的类继承了一个已有的类的成员即可.
-这个已有的类称为**基类**,新建的类称为**派生类**.
+这个已有的类称为`basetype`, 新建的类称为`派生类`. `继承`代表了`is a` 关系.例如,
 
-**继承**代表了 **is a** 关系.例如,
+    Mammal is a animal, dog is a mammal, so dog is a animal, etc.
 
-Mammal is a animal, dog is a mammal, so dog is a animal, etc.
-
-***
-类型的简称
+#### 类型的简称
 
 由类型下的某个具体对象（实例）,查看类型的名称:
 
@@ -1221,11 +1226,10 @@ Mammal is a animal, dog is a mammal, so dog is a animal, etc.
 ("aaa","sdafsa").gettype().name
 ```
 
-***
-类型的完整名称
+#### 类型的完整名称
 
-`Powershell` 将信息存储在**对象**中,每个对象都会有一个具体的**类型**, 任何`.NET`对象都可以通过`GetType()`方法返回它的类型,
-该类型中有一个`FullName`属性,可以查看类型的**完整名称**
+`Powershell` 将信息存储在`对象`中,每个对象都会有一个具体的`type`, 任何`.NET`对象都可以通过`GetType()`方法返回它的类型,
+该类型中有一个`FullName`属性,可以查看类型的`完整名称`.
 
 ```powershell
 $Host.Version.GetType().FullName
@@ -1240,31 +1244,27 @@ $Host.Version.Build
 
 `($Host.Version.GetType())`的类型为`System.RuntimeType`
 
-***
-类型的静态方法
+#### 类型的静态方法
 
-每一个类型都可以包含一些**静态方法**,可以通过方括号和类型名称得到**类型对象本身**,
-然后通过`Get-Memeber`命令查看该类型支持的所有静态方法.
+每一个类型都可以包含一些`静态方法`,可以通过方括号和类型名称得到`类型对象本身`, 然后通过`Get-Memeber`命令查看该类型支持的所有静态方法.
 
 ```powershell
-[System.DateTime] | Get-Member -static -memberType *Method
+[System.DateTime] | Get-Member -static -memberType Method
 ```
 
 注：
-`C++`中,若类的方法前加了`static`关键字,则该方法称为**静态方法**,反之为**实例方法**.
-静态方法为类所有,可以通过**对象**来使用,也可以通过**类**来使用.
-但一般提倡通过**类**来使用,因为静态方法只要定义了**类**,不必建立类的**实例**就可使用.
-静态方法只能调用**静态变量**.
+`C++`中,若类的方法前加了`static`关键字,则该方法称为`静态方法`,反之为`实例方法`.
+静态方法为类所有,可以通过`对象`来使用,也可以通过`类`来使用.
+但一般提倡通过`类`来使用,因为静态方法只要定义了`类`,不必建立类的`实例`就可使用.
+静态方法只能调用`静态变量`.
 
-***
-查看类的具体属性
+#### 查看类的具体属性
 
 ```powershell
 $Host.UI |  Get-Member WriteDebugLine
 ```
 
-***
-查看基类
+#### 查看基类
 
 ```powershell
 [Microsoft.PowerShell.ExecutionPolicy].BaseType
@@ -1272,9 +1272,7 @@ $Host.UI |  Get-Member WriteDebugLine
 
 ### 创建新对象
 
-通过 `New-Object` 创建某一类型的新对象
-
-查看`String`类的构造函数
+通过 `New-Object` 创建某一类型的新对象.  查看`String`类的构造函数
 
 ```powershell
 [String].GetConstructors() | foreach {$_.tostring()}
@@ -1290,8 +1288,7 @@ out:
 
 为什么可以用这个方法? 原因是`String`类中包含一个`Void .ctor(Char, Int32)`构造函数, `.ctor` 是`构造函数(constructor)`的缩写.
 
-***
-类型转换
+#### 类型转换
 
 通过类型转换可以替代 `New-Object`
 
@@ -1303,20 +1300,17 @@ Major  Minor  Build  Revision
 2012   12     20     4444
 ```
 
-***
-查看某个属性的所有可能取值
+#### 枚举某个属性
 
-脚本执行策略类为：`Microsoft.PowerShell.ExecutionPolicy`
-查看所有支持的执行策略：
+脚本执行策略类为：`Microsoft.PowerShell.ExecutionPolicy`, 查看所有支持的执行策略：
 
 ```powershell
-PS E:> [System.Enum]::GetNames([Microsoft.PowerShell.ExecutionPolicy])
+[System.Enum]::GetNames([Microsoft.PowerShell.ExecutionPolicy])
 ```
 
 使用`[System.Enum]`类的`GetNames()`方法,查看`[Microsoft.PowerShell.ExecutionPolicy]`类的值域
 
-***
-枚举类型
+#### 枚举类型
 
 `Enum 类`:
 

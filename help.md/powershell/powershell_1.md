@@ -110,7 +110,7 @@ PS C:\PS> &"ls"
 
 ```
 
-### 命令集 cmdlets
+#### 命令集 cmdlets
 
 `cmdlets`是`Powershell`的内部命令，`cmdlet`的类型名为`System.Management.Automation.CmdletInfo`，包含下列属性和方法：
 
@@ -138,6 +138,62 @@ PS C:\PS> &"ls"
 
 ```powershell
 PS C:\PS> Get-Alias -name ls
+```
+
+一些经常用到的别名为:
+
+```powershell
+?? -> Invoke-NullCoalescing
+#object相关
+? -> Where-Object       where -> Where-Object       % -> ForEach-Object         foreach -> ForEach-Object       
+group -> Group-Object       measure -> Measure-Object       select -> Select-Object     sls -> Select-String
+# 常用操作
+gcm -> Get-Command      gh -> Get-Help      gcs -> Get-PSCallStack      gerr -> Get-Error       gm -> Get-Member        
+# location 相关
+cd -> Set-Location      chdir -> Set-Location       sl -> Set-Location      Get-ThemesLocation      gl -> Get-Location      
+pwd -> Get-Location     pushd -> Push-Location      popd -> Pop-Location
+# 输出内容
+clc -> Clear-Content        gc -> Get-Content       type -> Get-Content     cls -> Clear-Host   oh -> Out-Host
+echo -> Write-Output        edit -> vim epcsv -> Export-Csv
+# 历史记录
+r -> Invoke-History     clhy -> Clear-History       ghy -> Get-History      ihy -> Invoke-History       h -> Get-History        history -> Get-History
+# 排版
+fc -> Format-Custom     fhx -> Format-Hex       fl -> Format-List    ft -> Format-Table  fw -> Format-Wide
+# 文件管理
+gci -> Get-ChildItem        dir -> Get-ChildItem         ll -> Get-ChildItem        
+cli -> Clear-Item       copy -> Copy-Item       cpi -> Copy-Item        gi -> Get-Item         del -> Remove-Item       rd -> Remove-Item     
+ri -> Remove-Item       rni -> Rename-Item      ren -> Rename-Item      si -> Set-Item      
+move -> Move-Item       mi -> Move-Item     erase -> Remove-Item        ii -> Invoke-Item   ni -> New-Item
+# 文件属性
+gp -> Get-ItemProperty      rnp -> Rename-ItemProperty      gpv -> Get-ItemPropertyValue        mp -> Move-ItemProperty
+rp -> Remove-ItemProperty       sp -> Set-ItemProperty      clp -> Clear-ItemProperty
+# 模块
+gmo -> Get-Module       ipmo -> Import-Module       nmo -> New-Module       rmo -> Remove-Module
+# 进程
+open -> Start-Process       saps -> Start-Process       spps -> Stop-Process        gps -> Get-Process
+# 任务管理
+gjb -> Get-Job      sajb -> Start-Job     wjb -> Wait-Job       rcjb -> Receive-Job       rjb -> Remove-Job     spjb -> Stop-Job
+# 别名
+gal -> Get-Alias        epal -> Export-Alias        ipal -> Import-Alias        nal -> New-Alias        sal -> Set-Alias
+# 驱动器
+ndr -> New-PSDrive      rdr -> Remove-PSDrive       gdr -> Get-PSDrive
+# 调用
+iex -> Invoke-Expression    irm -> Invoke-RestMethod        iwr -> Invoke-WebRequest        icm -> Invoke-Command
+# 会话
+nsn -> New-PSSession    etsn -> Enter-PSSession     exsn -> Exit-PSSession      gsn -> Get-PSSession    
+rcsn -> Receive-PSSession   rsn -> Remove-PSSession
+# 变量
+clv -> Clear-Variable       gv -> Get-Variable      nv -> New-Variable      rv -> Remove-Variable       set -> Set-Variable     sv -> Set-Variable
+# 剪贴板
+gcb -> Get-Clipboard        scb -> Set-Clipboard
+# 路径
+cvpa -> Convert-Path        rvpa -> Resolve-Path
+#
+dbp -> Disable-PSBreakpoint     ebp -> Enable-PSBreakpoint     gbp -> Get-PSBreakpoint      rbp -> Remove-PSBreakpoint      sbp -> Set-PSBreakpoint
+# 其他
+gtz -> Get-TimeZone        gu -> Get-Unique    ipcsv -> Import-Csv     md -> mkdir  
+# oh-my-posh
+Set-Prompt      Show-Colors     Show-ThemeColors        Show-ThemeSymbols       Write-ColorPreview
 ```
 
 #### 查看可用的别名
