@@ -637,7 +637,24 @@ FileName=config.xml
 
 ### 查找字符串
 
-`Select-String `: 查找字符串和文件中的文本.
+`Select-String `: 查找字符串和文件中的文本. 
+
+[Select-String](https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.utility/select-string?view=powershell-7.1&WT.mc_id=ps-gethelp)
+
+`-InputObject`:
+
+指定要搜索的文本。输入一个包含该文本的变量，或者输入命令或表达式。
+使用`InputObject`参数与通过管道向`Select-String`发送字符串是不同的。
+
+当你用管道向`Select-String cmdlet`发送一系列字符串时，它在每个字符串中搜索指定的文本，并返回包含搜索文本的每个字符串。
+当你使用`InputObject`参数来提交一个字符串的集合时，`Select-String`将该集合视为一个组合字符串。
+如果`Select-String`在任何一个字符串中搜索到指定文本，它会将这些字符串作为一个单元返回。
+
+可以用`-Path` 指定路径，例如
+
+```powersehll
+Select-String -Path .\*.txt -Pattern 'Get-'
+```
 
 ### 筛选管道中的对象
 
@@ -648,6 +665,12 @@ FileName=config.xml
 + `ForEach-Object`：`foreach`,对输入对象集合中的每个项目执行操作。输入对象可以通过管道进入`cmdlet`，也可以通过使用`InputObject`参数指定。
 + `Get-Uinque`：`gu`,从排序过的列表中返回不重复的对象.
 
+***
+`Select-Object -Index`:
+
+根据`index`从一个数组中选择对象。在一个逗号分隔的列表中输入索引。数组中的索引从`0`开始，其中`0`代表第一个值，`n-1`代表最后一个值。
+
+***
 比如过滤正在运行的服务,可以通过每个服务的属性`Status`进行过滤. 
 首先我们看看服务的属性,可以通过`Format-List *`,也可以通过`Get-memeber`.
 

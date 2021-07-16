@@ -1261,18 +1261,15 @@ Get-Content $env:windir\windowsupdate.log
 ${c:\windows\windowsupdate.log}
 ```
 
-通常，这个符号不是很实用，因为在括号中不允许适用任何变量。
-而大多数情况下绝对路径不会适用所有机器的操作系统。
+通常，这个符号不是很实用，因为在括号中不允许适用任何变量。而大多数情况下绝对路径不会适用所有机器的操作系统。
 
-`Get-Content` 逐行读取文本的内容，然后把文本的每一行传递给管道。
-因此，在你想读取一个长文件的前`10`行，应当适用`Select-Object`：
+`Get-Content` 逐行读取文本的内容，然后把文本的每一行传递给管道。因此，在你想读取一个长文件的前`10`行，应当适用`Select-Object`：
 
 ```powershell
 Get-Content $env:windir\windowsupdate.log | Select-Object -first 10
 ```
 
-使用`Select-String`可以过滤出文本文件中的信息。
-下面的命令行会从`windowsupdate.log`文件中过滤出包含”`added update`”短语的行。
+使用`Select-String`可以过滤出文本文件中的信息。下面的命令行会从`windowsupdate.log`文件中过滤出包含”`added update`”短语的行。
 
 ```powershell
 Get-Content $env:windir\windowsupdate.log | Select-String "Added update"

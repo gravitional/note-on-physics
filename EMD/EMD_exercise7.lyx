@@ -2584,7 +2584,11 @@ status open
 \end_layout
 
 \begin_layout Standard
-解：电子受到的洛伦兹力，
+
+\color blue
+解：
+\color inherit
+电子受到的洛伦兹力，
 \begin_inset Formula 
 \[
 \sbf F=q\sbf v\times\sbf B=e\dot{\sbf r}\times B\sbf e_{z}=eB\left(\dot{y}\sbf e_{x}-\dot{x}\sbf e_{y}\right)
@@ -2952,6 +2956,10 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
+解：
+\color inherit
 相对论性力学方程为，
 \begin_inset Formula 
 \begin{align*}
@@ -3172,16 +3180,8 @@ status open
 \begin{align*}
  & \frac{1}{\gamma^{2}m^{2}c^{2}}\abs*{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}^{2}\\
 = & {\color{blue}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}}+\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]\left(\sbf\beta\cdot\sbf F\right)^{2}-{\color{brown}\left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}}\\
-- & 2\left\{ \left(\sbf e_{r}\cdot\sbf F\right)\left(\sbf\beta\cdot\sbf F\right)\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)\right]+s\left(\sbf\beta\cdot\sbf F\right)^{2}\right\} 
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & \left(\sbf\beta\cdot\sbf F\right)^{2}\left(\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}-2s\right)+s^{2}\sbf F^{2}+\left(\beta^{2}-1\right)\left(\sbf e_{r}\cdot\sbf F\right)^{2}\\
-= & \left(\sbf\beta\cdot\sbf F\right)^{2}\left(\beta^{2}-1-s^{2}\right)+s^{2}\sbf F^{2}+\left(\beta^{2}-1\right)\left(\sbf e_{r}\cdot\sbf F\right)^{2}\\
+- & 2\left\{ \left(\sbf e_{r}\cdot\sbf F\right)\left(\sbf\beta\cdot\sbf F\right)\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)\right]+s\left(\sbf\beta\cdot\sbf F\right)^{2}\right\} \\
+= & \left(\beta^{2}-1\right)\left(\sbf e_{r}\cdot\sbf F\right)^{2}-2\left(\beta^{2}-1\right)\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\cdot\sbf F\right)+\sbf F^{2}s^{2}+\left(\sbf\beta\cdot\sbf F\right)^{2}\left(\beta^{2}-s^{2}-1\right)\\
 = & s^{2}\left[\sbf F^{2}-\left(\sbf\beta\cdot\sbf F\right)^{2}\right]-\frac{\left(\sbf e_{r}\cdot\sbf F-\sbf\beta\cdot\sbf F\right)^{2}}{\gamma^{2}}
 \end{align*}
 
@@ -3202,7 +3202,7 @@ A := (1 - 2 er
 \backslash
 [Beta]F^2 - 2 erF*
 \backslash
-[Beta]F) B := 
+[Beta]F); B := 
 \backslash
 [Beta]^2 F^2 - 
 \backslash
@@ -3214,7 +3214,7 @@ A := (1 - 2 er
 \backslash
 [Beta] + F^2 er
 \backslash
-[Beta]^2) (A + (
+[Beta]^2); (A + (
 \backslash
 [Beta]^2 - er
 \backslash
@@ -3302,11 +3302,7 @@ status open
 
 
 \size default
-代入
-\begin_inset Formula $\delta=s^{-1}=\left(1-\sbf\beta\cdot\sbf e_{r}\right)^{-1}$
-\end_inset
-
-，设粒子速度
+设粒子速度
 \begin_inset Formula $\sbf\beta$
 \end_inset
 
@@ -3330,7 +3326,11 @@ status open
 \begin_inset Formula $\phi$
 \end_inset
 
+。则
+\begin_inset Formula $s=1-\beta\cos\theta$
+\end_inset
 
+，
 \size small
 
 \begin_inset Formula 
@@ -3345,11 +3345,40 @@ status open
 
 \size default
 与之前的结果相同。总辐射功率是，
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+s[x_] := 1 - 
+\backslash
+[Beta]*x; Integrate[ (s[x]^2 - (1 - x^2) Cos[
+\backslash
+[Phi]]^2/
+\backslash
+[Gamma]^2)/ s[x]^5, {x, -1, 1}, {
+\backslash
+[Phi], 0, 2 
+\backslash
+[Pi]}, Assumptions -> {
+\backslash
+[Gamma] > 1, 0 < 
+\backslash
+[Beta] < 1} ] /.
+ {
+\backslash
+[Beta]^2 -> 1 - 
+\backslash
+[Gamma]^-2}
+\end_layout
+
+\end_inset
+
+
 \size small
 
 \begin_inset Formula 
 \[
-P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma^{4}=\frac{q^{2}}{6\pi\varepsilon_{0}c^{3}}\frac{\gamma^{2}F^{2}}{m_{0}^{2}}
+P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{8\pi\gamma^{4}}{3}=\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma^{4}=\frac{q^{2}}{6\pi\varepsilon_{0}c^{3}}\frac{\gamma^{2}F^{2}}{m_{0}^{2}}
 \]
 
 \end_inset
@@ -3358,5 +3387,46 @@ P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+sdfa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+s=1-\beta\cos\theta=1-\beta x
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \int\frac{s^{2}-\sin^{2}\theta\cos^{2}\phi/\gamma^{2}}{s^{5}}\dif\Omega\\
+= & \int_{0}^{2\pi}\dif\phi\int_{-1}^{1}\dif x\frac{\left(1-\beta x\right)^{2}-\left(1-x^{2}\right)\cos^{2}\phi/\gamma^{2}}{\left(1-\beta x\right)^{5}}\\
+= & \int_{-1}^{1}2\pi\left(1-\beta x\right)^{-3}-\frac{\pi}{\gamma^{2}}\frac{\left(1-x^{2}\right)}{\left(1-\beta x\right)^{5}}\dif x
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
