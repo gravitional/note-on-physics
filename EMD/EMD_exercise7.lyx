@@ -2883,7 +2883,19 @@ status open
 \begin_inset Formula $q$
 \end_inset
 
-的粒子的辐射场公式（1.17）用作用力表示为
+的粒子的辐射场公式
+\series bold
+
+\begin_inset Formula 
+\[
+\sbf E=\frac{\mu_{0}}{4\pi}\frac{qc}{R}\frac{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}{\left(1-\sbf\beta\cdot\sbf e_{r}\right)^{3}}
+\]
+
+\end_inset
+
+
+\series default
+用作用力表示为
 \begin_inset Formula 
 \[
 \sbf E=\frac{q}{4\pi\varepsilon_{0}mc^{2}R}\left\{ \frac{\delta^{3}}{\gamma}\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\right\} _{\text{ret}}
@@ -3387,46 +3399,5 @@ P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{16\pi^{2}\varepsilon_{0}c}\
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-sdfa
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Formula 
-\[
-s=1-\beta\cos\theta=1-\beta x
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & \int\frac{s^{2}-\sin^{2}\theta\cos^{2}\phi/\gamma^{2}}{s^{5}}\dif\Omega\\
-= & \int_{0}^{2\pi}\dif\phi\int_{-1}^{1}\dif x\frac{\left(1-\beta x\right)^{2}-\left(1-x^{2}\right)\cos^{2}\phi/\gamma^{2}}{\left(1-\beta x\right)^{5}}\\
-= & \int_{-1}^{1}2\pi\left(1-\beta x\right)^{-3}-\frac{\pi}{\gamma^{2}}\frac{\left(1-x^{2}\right)}{\left(1-\beta x\right)^{5}}\dif x
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
 \end_body
 \end_document

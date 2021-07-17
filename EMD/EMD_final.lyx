@@ -1304,7 +1304,7 @@ begin{exercise}
 。计算在真空电磁波的情形下，它们的取值。
 \series bold
 \color blue
-（5分）
+（5分）只有结果得2分
 \end_layout
 
 \begin_layout Standard
@@ -1434,10 +1434,228 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-高速带电粒子的辐射。
+高速带电粒子的辐射：
+\end_layout
+
+\begin_layout Enumerate
+根据相对论力学方程，证明高速带电粒子
+\begin_inset Formula $q$
+\end_inset
+
+的辐射场公式可以表示为：
+\series bold
+
+\begin_inset Formula 
+\[
+\sbf E=\frac{q\mu_{0}}{4\pi}\frac{1}{\gamma mR}\frac{1}{s^{3}}\left\{ \sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\right\} _{\text{ret}}
+\]
+
+\end_inset
+
+
+\series default
+其中
+\begin_inset Formula $s=1-\sbf e_{r}\cdot\sbf\beta$
+\end_inset
+
+，
+\begin_inset Formula $\sbf\beta=\sbf v/c$
+\end_inset
+
+，ret表示时刻
+\begin_inset Formula $t^{\prime}=t-r/c$
+\end_inset
+
+时的值。
 \series bold
 \color blue
-（15分）
+（5分）
+\end_layout
+
+\begin_layout Enumerate
+质量为
+\begin_inset Formula $m$
+\end_inset
+
+，电荷为
+\begin_inset Formula $q$
+\end_inset
+
+的粒子在回旋加速器中运动，其运动平面垂直于均匀磁场
+\begin_inset Formula $B$
+\end_inset
+
+，且粒子每运动一周获得的能量为
+\begin_inset Formula $qU$
+\end_inset
+
+。已知作圆周运动的粒子，辐射功率为
+\begin_inset Formula 
+\[
+P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma^{4},
+\]
+
+\end_inset
+
+求粒子的速度上限满足的方程。
+\series bold
+\color blue
+（10分）
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\color blue
+解：
+\color inherit
+相对论性力学方程为，
+\begin_inset Formula 
+\begin{align*}
+ & \gamma=\left(1-\sbf\beta\cdot\sbf\beta\right)^{-1/2},\quad\dot{\gamma}=\left(1-\beta^{2}\right)^{-3/2}\sbf\beta\cdot\dot{\sbf\beta}=\gamma^{3}\sbf\beta\cdot\dot{\sbf\beta}\\
+ & \sbf F=mc\frac{\dif}{\dif t^{\prime}}\gamma\sbf\beta=\gamma mc\left[\gamma^{2}\sbf\beta\left(\sbf\beta\cdot\dot{\sbf\beta}\right)+\dot{\sbf\beta}\right]=\left.\gamma mc\left(\sbf I+\gamma^{2}\sbf\beta\sbf\beta\right)\cdot\dot{\sbf\beta}\right|_{\text{ret}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf\beta\cdot\frac{\sbf F}{\gamma mc}=\sbf\beta\cdot\left[\gamma^{2}\sbf\beta\left(\sbf\beta\cdot\dot{\sbf\beta}\right)+\dot{\sbf\beta}\right]=\gamma^{2}\beta^{2}\sbf\beta\cdot\dot{\sbf\beta}+\sbf\beta\cdot\dot{\sbf\beta}=\gamma^{2}\sbf\beta\cdot\dot{\sbf\beta}
+\]
+
+\end_inset
+
+其中使用了
+\begin_inset Formula $\gamma^{2}-1=\gamma^{2}\beta^{2}$
+\end_inset
+
+。代入得到：
+\begin_inset Formula 
+\begin{align*}
+ & \left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}=\left(\sbf e_{r}-\sbf\beta\right)\times\left[\frac{\sbf F}{\gamma mc}-\sbf\beta\gamma^{2}\left(\sbf\beta\cdot\dot{\sbf\beta}\right)\right]\\
+= & \left(\sbf e_{r}-\sbf\beta\right)\times\left[\frac{\sbf F}{\gamma mc}-\sbf\beta\left(\sbf\beta\cdot\frac{\sbf F}{\gamma mc}\right)\right]\\
+= & \frac{1}{\gamma mc}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf e_{r}\times\sbf\beta\right)\left(\sbf\beta\cdot\sbf F\right)\right]
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\sbf E=\frac{q}{4\pi\varepsilon_{0}c^{2}R}\left\{ \frac{\delta^{3}}{\gamma m}\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\right\} _{\text{ret}}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\delta=s^{-1}=\left(1-\sbf\beta\cdot\sbf e_{r}\right)^{-1}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+洛伦兹力公式结合相对论动力学：
+\begin_inset Formula 
+\[
+qc\sbf\beta\times\sbf B=\gamma mc\left[\gamma^{2}\sbf\beta\left(\sbf\beta\cdot\dot{\sbf\beta}\right)+\dot{\sbf\beta}\right]
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $\sbf\beta\cdot\dot{\sbf\beta}=0$
+\end_inset
+
+时，
+\begin_inset Formula $qc\sbf\beta\times\sbf B=\gamma mc\dot{\sbf\beta}$
+\end_inset
+
+。设
+\begin_inset Formula $\left(\sbf\beta,\sbf B,\dot{\sbf\beta}\right)$
+\end_inset
+
+的方向成右手螺旋。
+\begin_inset Formula 
+\[
+qc\beta B=\gamma mc\dot{\beta}\Rightarrow\dot{\beta}=\frac{q\beta B}{\gamma m}
+\]
+
+\end_inset
+
+粒子的加速度为
+\begin_inset Formula $\dot{\beta}=\frac{\beta^{2}}{R},$
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+qc\beta B=\gamma mc\frac{\beta^{2}}{R}\Rightarrow\frac{qBR}{m}=\gamma\beta
+\]
+
+\end_inset
+
+令
+\begin_inset Formula $\alpha=\frac{qB}{m}$
+\end_inset
+
+，则辐射功率为
+\begin_inset Formula 
+\[
+\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma^{4}=\frac{q^{2}\gamma^{4}}{6\pi\varepsilon_{0}c}\frac{q^{2}\beta^{2}B^{2}}{\gamma^{2}m^{2}}=\frac{q^{2}\alpha^{2}}{6\pi\varepsilon_{0}c}\left(\gamma^{2}-1\right)
+\]
+
+\end_inset
+
+粒子速度稳定时，辐射功率等于加速器提供的功率，即
+\begin_inset Formula 
+\begin{align*}
+ & \frac{q^{2}\alpha^{2}}{6\pi\varepsilon_{0}c}\left(\gamma^{2}-1\right)=qU\frac{c\beta}{2\pi R}\\
+ & \frac{q\alpha^{2}}{3\varepsilon_{0}c^{2}}\left(\gamma^{2}-1\right)=U\frac{\beta}{R}=U\frac{qB}{\gamma m}
+\end{align*}
+
+\end_inset
+
+代入
+\begin_inset Formula $\frac{qBR}{m}=\gamma\beta$
+\end_inset
+
+，得到：
+\begin_inset Formula 
+\[
+\gamma\left(\gamma^{2}-1\right)=3\frac{U}{q}\frac{\varepsilon_{0}c^{2}}{\alpha}=\frac{3U}{q\alpha\mu_{0}}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\alpha=\frac{qB}{m}$
+\end_inset
+
+。由此式可确定
+\begin_inset Formula $\gamma,\beta$
+\end_inset
+
+，进一步可确定
+\begin_inset Formula $R$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+R=\frac{\gamma\beta}{\alpha}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

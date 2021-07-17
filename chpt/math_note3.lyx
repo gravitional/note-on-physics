@@ -2372,7 +2372,7 @@ x^{k\varphi\left(n\right)+1}\equiv m\bmod n
 \end_layout
 
 \begin_layout Section
-图像
+回旋加速器
 \end_layout
 
 \begin_layout Standard
@@ -2386,6 +2386,119 @@ f[x_, y_] := 11 x*Log10[x]*y (y - 1) + Exp[-((25 x - 25/E)^2 + (25 y - 25/2)^2)^
  -> {{0.5, 0.5, 0.5}, {0.55, 0.54}}, ViewPoint -> {1., 1.4, 0.95}, ViewVertical
  -> {0.83, -0.36, -0.42}, Axes -> None, ImageSize -> Large, PlotTheme -> "Classic"]
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+均匀磁场
+\begin_inset Formula $\sbf B$
+\end_inset
+
+中被加速的粒子，速度达到极限之后作匀速圆周运动。洛伦兹力公式结合相对论动力学：
+\begin_inset Formula 
+\[
+qc\sbf\beta\times\sbf B=\gamma mc\left[\gamma^{2}\sbf\beta\left(\sbf\beta\cdot\dot{\sbf\beta}\right)+\dot{\sbf\beta}\right]
+\]
+
+\end_inset
+
+当
+\begin_inset Formula $\sbf\beta\cdot\dot{\sbf\beta}=0$
+\end_inset
+
+时，
+\begin_inset Formula $qc\sbf\beta\times\sbf B=\gamma mc\dot{\sbf\beta}$
+\end_inset
+
+。设
+\begin_inset Formula $\left(\sbf\beta,\sbf B,\dot{\sbf\beta}\right)$
+\end_inset
+
+的方向成右手螺旋。
+\begin_inset Formula 
+\[
+qc\beta B=\gamma mc\dot{\beta}\Rightarrow\dot{\beta}=\frac{q\beta B}{\gamma m}
+\]
+
+\end_inset
+
+粒子的加速度为
+\begin_inset Formula $\dot{\beta}=\frac{\beta^{2}}{R},$
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+qc\beta B=\gamma mc\frac{\beta^{2}}{R}\Rightarrow\frac{qBR}{m}=\gamma\beta
+\]
+
+\end_inset
+
+令
+\begin_inset Formula $\alpha=\frac{qB}{m}$
+\end_inset
+
+，则
+\begin_inset Formula 
+\[
+\alpha^{2}R^{2}=\frac{\beta^{2}}{1-\beta^{2}},\quad\beta=\frac{R\alpha}{\sqrt{1+R^{2}\alpha^{2}}}
+\]
+
+\end_inset
+
+辐射功率为
+\begin_inset Formula 
+\[
+\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma^{4}=\frac{q^{2}\gamma^{4}}{6\pi\varepsilon_{0}c}\frac{q^{2}\beta^{2}B^{2}}{\gamma^{2}m^{2}}=\frac{q^{2}\alpha^{2}}{6\pi\varepsilon_{0}c}\left(\gamma^{2}-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+粒子速度稳定时，辐射功率等于加速器提供的功率，即
+\begin_inset Formula 
+\begin{align*}
+ & \frac{q^{2}\alpha^{2}}{6\pi\varepsilon_{0}c}\left(\gamma^{2}-1\right)=qU\frac{c\beta}{2\pi R}\\
+ & \frac{q\alpha^{2}}{3\varepsilon_{0}c^{2}}\left(\gamma^{2}-1\right)=U\frac{\beta}{R}=U\frac{qB}{\gamma m}
+\end{align*}
+
+\end_inset
+
+代入
+\begin_inset Formula $\frac{qBR}{m}=\gamma\beta$
+\end_inset
+
+，得到：
+\begin_inset Formula 
+\[
+\gamma\left(\gamma^{2}-1\right)=3\frac{U}{q}\frac{\varepsilon_{0}c^{2}}{\alpha}=\frac{3U}{q\alpha\mu_{0}}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\alpha=\frac{qB}{m}$
+\end_inset
+
+。由此式可确定
+\begin_inset Formula $\gamma,\beta$
+\end_inset
+
+，进一步可确定
+\begin_inset Formula $R$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+R=\frac{\gamma\beta}{\alpha}
+\]
 
 \end_inset
 
