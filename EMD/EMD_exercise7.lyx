@@ -2584,7 +2584,11 @@ status open
 \end_layout
 
 \begin_layout Standard
-解：电子受到的洛伦兹力，
+
+\color blue
+解：
+\color inherit
+电子受到的洛伦兹力，
 \begin_inset Formula 
 \[
 \sbf F=q\sbf v\times\sbf B=e\dot{\sbf r}\times B\sbf e_{z}=eB\left(\dot{y}\sbf e_{x}-\dot{x}\sbf e_{y}\right)
@@ -2879,7 +2883,19 @@ status open
 \begin_inset Formula $q$
 \end_inset
 
-的粒子的辐射场公式（1.17）用作用力表示为
+的粒子的辐射场公式
+\series bold
+
+\begin_inset Formula 
+\[
+\sbf E=\frac{\mu_{0}}{4\pi}\frac{qc}{R}\frac{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}{\left(1-\sbf\beta\cdot\sbf e_{r}\right)^{3}}
+\]
+
+\end_inset
+
+
+\series default
+用作用力表示为
 \begin_inset Formula 
 \[
 \sbf E=\frac{q}{4\pi\varepsilon_{0}mc^{2}R}\left\{ \frac{\delta^{3}}{\gamma}\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\right\} _{\text{ret}}
@@ -2952,24 +2968,24 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\color blue
+解：
+\color inherit
 相对论性力学方程为，
 \begin_inset Formula 
 \begin{align*}
  & \gamma=\left(1-\sbf\beta\cdot\sbf\beta\right)^{-1/2},\quad\dot{\gamma}=\left(1-\beta^{2}\right)^{-3/2}\sbf\beta\cdot\dot{\sbf\beta}=\gamma^{3}\sbf\beta\cdot\dot{\sbf\beta}\\
- & \sbf F=mc\frac{\dif}{\dif t^{\prime}}\gamma\sbf\beta=mc\gamma\left[\gamma^{2}\sbf\beta\sbf\beta\cdot\dot{\sbf\beta}+\dot{\sbf\beta}\right]=\left.\gamma mc\left(\sbf I+\gamma^{2}\sbf\beta\sbf\beta\right)\cdot\dot{\sbf\beta}\right|_{\text{ret}}
+ & \sbf F=mc\frac{\dif}{\dif t^{\prime}}\gamma\sbf\beta=\gamma mc\left[\gamma^{2}\sbf\beta\left(\sbf\beta\cdot\dot{\sbf\beta}\right)+\dot{\sbf\beta}\right]=\left.\gamma mc\left(\sbf I+\gamma^{2}\sbf\beta\sbf\beta\right)\cdot\dot{\sbf\beta}\right|_{\text{ret}}
 \end{align*}
 
 \end_inset
 
-代入得到：
+
 \begin_inset Formula 
-\begin{align*}
- & \frac{1}{\gamma m}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\\
-= & \left[\left(\sbf e_{r}-\sbf\beta\right)\times c\dot{\sbf\beta}+\left(c\gamma^{2}\sbf\beta\cdot\dot{\sbf\beta}\right)\left(\sbf e_{r}\times\sbf\beta\right)-c\sbf\beta\cdot\left(\gamma^{2}\sbf\beta\sbf\beta\cdot\dot{\sbf\beta}+\dot{\sbf\beta}\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\\
-= & \left[\left(\sbf e_{r}-\sbf\beta\right)\times c\dot{\sbf\beta}+\left(c\gamma^{2}\sbf\beta\cdot\dot{\sbf\beta}\right)\left(\sbf e_{r}\times\sbf\beta\right)-c\left(\gamma^{2}\beta^{2}\sbf\beta\cdot\dot{\sbf\beta}+\sbf\beta\cdot\dot{\sbf\beta}\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\\
-= & \left[\left(\sbf e_{r}-\sbf\beta\right)\times c\dot{\sbf\beta}+\left(c\gamma^{2}\sbf\beta\cdot\dot{\sbf\beta}\right)\left(\sbf e_{r}\times\sbf\beta\right)-\left(c\gamma^{2}\sbf\beta\cdot\dot{\sbf\beta}\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\\
-= & \left(\sbf e_{r}-\sbf\beta\right)\times c\dot{\sbf\beta}=\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf v}
-\end{align*}
+\[
+\sbf\beta\cdot\frac{\sbf F}{\gamma mc}=\sbf\beta\cdot\left[\gamma^{2}\sbf\beta\left(\sbf\beta\cdot\dot{\sbf\beta}\right)+\dot{\sbf\beta}\right]=\gamma^{2}\beta^{2}\sbf\beta\cdot\dot{\sbf\beta}+\sbf\beta\cdot\dot{\sbf\beta}=\gamma^{2}\sbf\beta\cdot\dot{\sbf\beta}
+\]
 
 \end_inset
 
@@ -2977,7 +2993,17 @@ status open
 \begin_inset Formula $\gamma^{2}-1=\gamma^{2}\beta^{2}$
 \end_inset
 
-。
+。代入得到：
+\begin_inset Formula 
+\begin{align*}
+ & \left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}=\left(\sbf e_{r}-\sbf\beta\right)\times\left[\frac{\sbf F}{\gamma mc}-\sbf\beta\gamma^{2}\left(\sbf\beta\cdot\dot{\sbf\beta}\right)\right]\\
+= & \left(\sbf e_{r}-\sbf\beta\right)\times\left[\frac{\sbf F}{\gamma mc}-\sbf\beta\left(\sbf\beta\cdot\frac{\sbf F}{\gamma mc}\right)\right]\\
+= & \frac{1}{\gamma mc}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf e_{r}\times\sbf\beta\right)\left(\sbf\beta\cdot\sbf F\right)\right]
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3004,7 +3030,7 @@ status open
 即由运动方程得到
 \begin_inset Formula 
 \begin{align*}
-c\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta} & =\frac{1}{\gamma m}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\\
+\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta} & =\frac{1}{\gamma mc}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\\
 \sbf E & =\frac{\mu_{0}q}{4\pi}\frac{c}{r}\frac{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}{s^{3}},\quad s=1-\sbf e_{r}\cdot\sbf\beta\left(t^{\prime}\right)
 \end{align*}
 
@@ -3067,6 +3093,7 @@ status open
  & \left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}\\
 = & \sbf F^{2}\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]-\left[\sbf F\times\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}\\
 = & \sbf F^{2}\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]-\left[\sbf e_{r}\left(\sbf\beta\cdot\sbf F\right)-\sbf\beta\left(\sbf e_{r}\cdot\sbf F\right)\right]^{2}\\
+= & \sbf F^{2}\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]-\left[\left(\sbf\beta\cdot\sbf F\right)^{2}+\sbf\beta^{2}\left(\sbf e_{r}\cdot\sbf F\right)^{2}-2\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\cdot\sbf F\right)\left(\sbf e_{r}\cdot\sbf\beta\right)\right]\\
 = & \sbf\beta^{2}\sbf F^{2}-\left(\sbf\beta\cdot\sbf F\right)^{2}-\left[\sbf\beta^{2}\left(\sbf e_{r}\cdot\sbf F\right)^{2}-2\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\cdot\sbf F\right)\left(\sbf e_{r}\cdot\sbf\beta\right)+\sbf F^{2}\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]
 \end{align*}
 
@@ -3102,7 +3129,7 @@ status open
 \begin{align*}
  & {\color{blue}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}}=\left[1-2\left(\sbf e_{r}\cdot\sbf\beta\right)+\sbf\beta^{2}\right]\sbf F^{2}-\left[\left(\sbf e_{r}\cdot\sbf F\right)^{2}+\left(\sbf\beta\cdot\sbf F\right)^{2}-2\left(\sbf e_{r}\cdot\sbf F\right)\left(\sbf\beta\cdot\sbf F\right)\right]\\
  & {\color{brown}\left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}}=\sbf\beta^{2}\sbf F^{2}-\left(\sbf\beta\cdot\sbf F\right)^{2}-\left[\sbf\beta^{2}\left(\sbf e_{r}\cdot\sbf F\right)^{2}-2\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\cdot\sbf F\right)\left(\sbf e_{r}\cdot\sbf\beta\right)+\sbf F^{2}\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]\\
- & \frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{\abs*{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}^{2}}{{\color{blue}s^{5}}},\;\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}=\frac{1}{\gamma mc}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]
+ & \frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{\abs*{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}^{2}}{{\color{blue}s^{5}}},\;\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}=\frac{1}{\gamma mc}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf e_{r}\times\sbf\beta\right)\left(\sbf\beta\cdot\sbf F\right)\right]
 \end{align*}
 
 \end_inset
@@ -3110,13 +3137,13 @@ status open
 
 \begin_inset Formula 
 \begin{align*}
- & \left\{ \sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]\right\} ^{2}\\
-= & \frac{1}{\gamma^{2}m^{2}c^{2}}\left\{ \sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\right\} ^{2}\\
-= & \frac{1}{\gamma^{2}m^{2}c^{2}}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}-\left\{ \sbf e_{r}\cdot\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\right\} ^{2}\\
-= & \frac{1}{\gamma^{2}m^{2}c^{2}}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}-{\color{brown}\left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}}\\
-= & \frac{1}{\gamma^{2}m^{2}c^{2}}\left\{ \left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}+\left[\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}-2\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]\left(\sbf\beta\cdot\sbf F\right)\right\} -\cdots\\
-= & \frac{1}{\gamma^{2}m^{2}c^{2}}\left\{ \left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}+\left[\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}-2\left[\left(\sbf e_{r}\times\sbf\beta\right)\times\left(\sbf e_{r}-\sbf\beta\right)\cdot\sbf F\right]\left(\sbf\beta\cdot\sbf F\right)\right\} -\cdots\\
-= & \frac{1}{\gamma^{2}m^{2}c^{2}}\left\{ {\color{blue}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}}+\left(\sbf\beta\cdot\sbf F\right)^{2}\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]-2\left[{\color{cyan}\left(\sbf e_{r}\times\sbf\beta\right)\times\left(\sbf e_{r}-\sbf\beta\right)}\cdot\sbf F\right]\left(\sbf\beta\cdot\sbf F\right)\right\} -\cdots
+ & \gamma^{2}m^{2}c^{2}\left\{ \sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]\right\} ^{2}\\
+= & \left\{ \sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf e_{r}\times\sbf\beta\right)\left(\sbf\beta\cdot\sbf F\right)\right]\right\} ^{2}\\
+= & \left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf e_{r}\times\sbf\beta\right)\left(\sbf\beta\cdot\sbf F\right)\right]^{2}-\left\{ \sbf e_{r}\cdot\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf e_{r}\times\sbf\beta\right)\left(\sbf\beta\cdot\sbf F\right)\right]\right\} ^{2}\\
+= & \left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf e_{r}\times\sbf\beta\right)\left(\sbf\beta\cdot\sbf F\right)\right]^{2}-{\color{brown}\left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}}\\
+= & \left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}+\left[\left(\sbf e_{r}\times\sbf\beta\right)\left(\sbf\beta\cdot\sbf F\right)\right]^{2}-2\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]\left(\sbf\beta\cdot\sbf F\right)-{\color{brown}\left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}}\\
+= & \left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}+\left[\left(\sbf e_{r}\times\sbf\beta\right)\left(\sbf\beta\cdot\sbf F\right)\right]^{2}-2\left[\left(\sbf e_{r}\times\sbf\beta\right)\times\left(\sbf e_{r}-\sbf\beta\right)\cdot\sbf F\right]\left(\sbf\beta\cdot\sbf F\right)-{\color{brown}\left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}}\\
+= & {\color{blue}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}}+\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]\left(\sbf\beta\cdot\sbf F\right)^{2}-2\left[{\color{cyan}\left(\sbf e_{r}\times\sbf\beta\right)\times\left(\sbf e_{r}-\sbf\beta\right)}\cdot\sbf F\right]\left(\sbf\beta\cdot\sbf F\right)-{\color{brown}\left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}}
 \end{align*}
 
 \end_inset
@@ -3149,9 +3176,10 @@ status open
 \size scriptsize
 
 \begin_inset Formula 
-\[
-{\color{cyan}\left(\sbf e_{r}\times\sbf\beta\right)\times\left(\sbf e_{r}-\sbf\beta\right)}=\sbf\beta\times\left(\sbf e_{r}\times\sbf\beta\right)-\sbf e_{r}\times\left(\sbf e_{r}\times\sbf\beta\right)=\sbf e_{r}-\sbf\beta\left(\sbf e_{r}\cdot\sbf\beta\right)-\sbf e_{r}\left(\sbf e_{r}\cdot\sbf\beta\right)+\sbf\beta=\left(\sbf e_{r}+\sbf\beta\right)\delta^{-1}
-\]
+\begin{align*}
+{\color{cyan}\left(\sbf e_{r}\times\sbf\beta\right)\times\left(\sbf e_{r}-\sbf\beta\right)} & =\sbf\beta\times\left(\sbf e_{r}\times\sbf\beta\right)-\sbf e_{r}\times\left(\sbf e_{r}\times\sbf\beta\right)=\sbf e_{r}\sbf\beta^{2}-\sbf\beta\left(\sbf e_{r}\cdot\sbf\beta\right)-\sbf e_{r}\left(\sbf e_{r}\cdot\sbf\beta\right)+\sbf\beta\\
+ & =\sbf e_{r}\sbf\beta^{2}+\sbf\beta-\left(\sbf e_{r}\cdot\sbf\beta\right)\left(\sbf e_{r}+\sbf\beta\right)
+\end{align*}
 
 \end_inset
 
@@ -3162,9 +3190,66 @@ status open
 
 \begin_inset Formula 
 \begin{align*}
- & \abs*{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}^{2}\\
-= & \frac{1}{\gamma^{2}m^{2}c^{2}}\left\{ {\color{blue}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}}+\left(\sbf\beta\cdot\sbf F\right)^{2}\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]-2\delta^{-1}\left[\left(\sbf e_{r}+\sbf\beta\right)\cdot\sbf F\right]\left(\sbf\beta\cdot\sbf F\right)\right\} -{\color{brown}\left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}}
+ & \frac{1}{\gamma^{2}m^{2}c^{2}}\abs*{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}^{2}\\
+= & {\color{blue}\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F\right]^{2}}+\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)^{2}\right]\left(\sbf\beta\cdot\sbf F\right)^{2}-{\color{brown}\left[\sbf F\cdot\left(\sbf e_{r}\times\sbf\beta\right)\right]^{2}}\\
+- & 2\left\{ \left(\sbf e_{r}\cdot\sbf F\right)\left(\sbf\beta\cdot\sbf F\right)\left[\sbf\beta^{2}-\left(\sbf e_{r}\cdot\sbf\beta\right)\right]+s\left(\sbf\beta\cdot\sbf F\right)^{2}\right\} \\
+= & \left(\beta^{2}-1\right)\left(\sbf e_{r}\cdot\sbf F\right)^{2}-2\left(\beta^{2}-1\right)\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\cdot\sbf F\right)+\sbf F^{2}s^{2}+\left(\sbf\beta\cdot\sbf F\right)^{2}\left(\beta^{2}-s^{2}-1\right)\\
+= & s^{2}\left[\sbf F^{2}-\left(\sbf\beta\cdot\sbf F\right)^{2}\right]-\frac{\left(\sbf e_{r}\cdot\sbf F-\sbf\beta\cdot\sbf F\right)^{2}}{\gamma^{2}}
 \end{align*}
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\size scriptsize
+A := (1 - 2 er
+\backslash
+[Beta] + 
+\backslash
+[Beta]^2) F^2 - (erF^2 + 
+\backslash
+[Beta]F^2 - 2 erF*
+\backslash
+[Beta]F); B := 
+\backslash
+[Beta]^2 F^2 - 
+\backslash
+[Beta]F^2 - (
+\backslash
+[Beta]^2 erF^2 - 2 
+\backslash
+[Beta]F*erF*er
+\backslash
+[Beta] + F^2 er
+\backslash
+[Beta]^2); (A + (
+\backslash
+[Beta]^2 - er
+\backslash
+[Beta]^2) 
+\backslash
+[Beta]F^2 - B - 2 (
+\backslash
+[Beta]F erF (
+\backslash
+[Beta]^2 - er
+\backslash
+[Beta]) + s 
+\backslash
+[Beta]F^2)) /.
+ {er
+\backslash
+[Beta] -> 1 - s} /.
+ {
+\backslash
+[Beta]^2 -> 1 - 
+\backslash
+[Gamma]d^2} // Simplify
+\end_layout
 
 \end_inset
 
@@ -3172,7 +3257,7 @@ status open
 \begin_inset Formula 
 \begin{align*}
 \frac{\dif P\left(t^{\prime}\right)}{\dif\Omega} & =\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\delta^{5}\abs*{\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\dot{\sbf\beta}\right]}^{2}\\
- & =\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{1}{\gamma^{2}m^{2}c^{2}}\left[\delta^{3}\left(\sbf F^{2}-\left(\sbf\beta\cdot\sbf F\right)^{2}\right)-\frac{\delta^{5}}{\gamma^{2}}\left(\sbf F\cdot\sbf e_{r}-\sbf F\cdot\sbf\beta\right)^{2}\right]
+ & =\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{1}{\gamma^{2}m^{2}c^{2}s^{5}}\left\{ s^{2}\left[\sbf F^{2}-\left(\sbf\beta\cdot\sbf F\right)^{2}\right]-\frac{\left(\sbf e_{r}\cdot\sbf F-\sbf\beta\cdot\sbf F\right)^{2}}{\gamma^{2}}\right\} 
 \end{align*}
 
 \end_inset
@@ -3202,18 +3287,24 @@ status open
 
 \begin_deeper
 \begin_layout Standard
+
+\size small
 \begin_inset Formula 
 \[
-\frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{1}{\gamma^{2}m^{2}c^{2}}\left[\delta^{3}\left(\sbf F^{2}-\left(\sbf\beta\cdot\sbf F\right)^{2}\right)-\frac{\delta^{5}}{\gamma^{2}}\left(\sbf F\cdot\sbf e_{r}-\sbf F\cdot\sbf\beta\right)^{2}\right]
+\frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{1}{\gamma^{2}m^{2}c^{2}s^{5}}\left\{ s^{2}\left[\sbf F^{2}-\left(\sbf\beta\cdot\sbf F\right)^{2}\right]-\frac{\left(\sbf e_{r}\cdot\sbf F-\sbf\beta\cdot\sbf F\right)^{2}}{\gamma^{2}}\right\} 
 \]
 
 \end_inset
 
-当
+
+\size default
+当速度和加速度方向垂直，即
 \begin_inset Formula $\sbf\beta\cdot\dot{\sbf\beta}=0$
 \end_inset
 
-，即速度和加速度方向垂直，
+，
+\size small
+
 \begin_inset Formula 
 \[
 \sbf F=mc\gamma\left[\gamma^{2}\sbf\beta\sbf\beta\cdot\dot{\sbf\beta}+\dot{\sbf\beta}\right]\Rightarrow\sbf F=mc\gamma\dot{\sbf\beta},\quad\sbf F\cdot\sbf\beta=0
@@ -3221,11 +3312,9 @@ status open
 
 \end_inset
 
-代入
-\begin_inset Formula $\delta=s^{-1}=\left(1-\sbf\beta\cdot\sbf e_{r}\right)^{-1}$
-\end_inset
 
-，设粒子速度
+\size default
+设粒子速度
 \begin_inset Formula $\sbf\beta$
 \end_inset
 
@@ -3249,20 +3338,59 @@ status open
 \begin_inset Formula $\phi$
 \end_inset
 
+。则
+\begin_inset Formula $s=1-\beta\cos\theta$
+\end_inset
+
+，
+\size small
 
 \begin_inset Formula 
 \begin{align*}
-\frac{\dif P\left(t^{\prime}\right)}{\dif\Omega} & =\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{1}{\gamma^{2}m^{2}c^{2}}\left[\delta^{3}\sbf F^{2}-\frac{\delta^{5}}{\gamma^{2}}\left(\sbf F\cdot\sbf e_{r}\right)^{2}\right]\\
- & =\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{1}{\gamma^{2}m^{2}c^{2}}\delta^{5}\left[s^{2}\gamma^{2}m^{2}c^{2}\dot{\sbf\beta}^{2}-\frac{1}{\gamma^{2}}\left(\gamma mc\dot{\sbf\beta}\cdot\sbf e_{r}\right)^{2}\right]\\
+\frac{\dif P\left(t^{\prime}\right)}{\dif\Omega} & =\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{1}{\gamma^{2}m^{2}c^{2}s^{5}}\left[s^{2}\sbf F^{2}-\frac{\left(\sbf F\cdot\sbf e_{r}\right)^{2}}{\gamma^{2}}\right]\\
+ & =\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{1}{\gamma^{2}m^{2}c^{2}s^{5}}\left[s^{2}\gamma^{2}m^{2}c^{2}\dot{\sbf\beta}^{2}-\frac{\left(\gamma mc\dot{\sbf\beta}\cdot\sbf e_{r}\right)^{2}}{\gamma^{2}}\right]\\
  & =\frac{q^{2}}{16\pi^{2}\varepsilon_{0}c}\dot{\sbf\beta}^{2}\frac{s^{2}-\sin^{2}\theta\cos^{2}\phi/\gamma^{2}}{s^{5}}
 \end{align*}
 
 \end_inset
 
-与之前的结果相同。
+
+\size default
+与之前的结果相同。总辐射功率是，
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+s[x_] := 1 - 
+\backslash
+[Beta]*x; Integrate[ (s[x]^2 - (1 - x^2) Cos[
+\backslash
+[Phi]]^2/
+\backslash
+[Gamma]^2)/ s[x]^5, {x, -1, 1}, {
+\backslash
+[Phi], 0, 2 
+\backslash
+[Pi]}, Assumptions -> {
+\backslash
+[Gamma] > 1, 0 < 
+\backslash
+[Beta] < 1} ] /.
+ {
+\backslash
+[Beta]^2 -> 1 - 
+\backslash
+[Gamma]^-2}
+\end_layout
+
+\end_inset
+
+
+\size small
+
 \begin_inset Formula 
 \[
-P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma^{4}=\frac{q^{2}}{6\pi\varepsilon_{0}c^{3}}\frac{\gamma^{2}F^{2}}{m_{0}^{2}}
+P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{16\pi^{2}\varepsilon_{0}c}\frac{8\pi\gamma^{4}}{3}=\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma^{4}=\frac{q^{2}}{6\pi\varepsilon_{0}c^{3}}\frac{\gamma^{2}F^{2}}{m_{0}^{2}}
 \]
 
 \end_inset
