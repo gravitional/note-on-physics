@@ -6,9 +6,8 @@
 \origin unavailable
 \textclass ctex-book
 \begin_preamble
-% 如果没有这一句命令，XeTeX会出错，原因参见
-% http://bbs.ctex.org/viewthread.php?tid=60547
-% \DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+\usepackage[T1]{fontenc} % 字体的编码，不是 input 的编码utf-8
+\usepackage{xeCJK}% 没有这个会无法实现中文断行
 %%%%%%%%%%%%%%%%%+++++++++++
 \usepackage{eso-pic} 
 % This package makes it easy to add some picture commands to every page at ab-solute positions
@@ -39,17 +38,6 @@
 \usepackage{multirow}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
-%%++++++++++++++++++++ 
-\usepackage{mathtools}% 定义配对的数学符号
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}
-\DeclareMathOperator{\tr}{Tr}
-%\DeclareMathOperator{\re}{Re}
-%\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\res}{Res}
-\DeclareMathOperator{\disc}{Disc}
-\DeclareMathOperator{\sign}{Sign}
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
-\newcommand{\cola}[1]{{\color{blue}{#1}}}
 %%%+++++++++++++++++++++++++++++++
 \usepackage{listings}
 % 在LaTex中添加代码高亮
@@ -82,6 +70,39 @@
     showtabs=false,                  
     tabsize=2
 }
+%%++++++++++++++++++++++++++++++++++++
+% 设置英文字体
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Roman}
+% 设置中文字体
+\setCJKmainfont[Mapping=tex-text]{Noto Serif CJK SC}
+\setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
+\setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
+%设置数学字体
+\usepackage{unicode-math}%在其他字体包如amsmath之后调用
+\setmathfont{latinmodern-math.otf}
+%开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
+% DejaVu Math TeX Gyre,  Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
+% TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
+%%++++++++++++++++++++++++++++++++++++++++
+% \usepackage{mathspec} %这个包也能改字体，但是跟 fontspec 好像冲突
+% \setmathsfont(Digits,Latin,Greek){Latin Modern Math}
+% \setmathrm{Latin Modern Roman}
+%%++++++++++++++++++++++++++++++++++++++
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\diag}{diag} %对角矩阵
+\DeclareMathOperator{\res}{Res} %复变函数的留数
+\DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
+\DeclareMathOperator{\sign}{Sign}
+\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,hyperref
 \use_default_options true
@@ -3086,239 +3107,6 @@ h\left(\tau\right)=\frac{1}{\pi\tau}.
 \end_layout
 
 \begin_layout Section
-散度旋度
-\end_layout
-
-\begin_layout Standard
-ref:
-\begin_inset CommandInset href
-LatexCommand href
-name "多元微积分"
-target "https://www.zhihu.com/search?q=%E6%95%A3%E5%BA%A6%E5%92%8C%E6%97%8B%E5%BA%A6&utm_content=search_suggestion&type=content"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-斯托克斯公式
-\end_layout
-
-\begin_layout Standard
-二维情形，格林公式:
-\begin_inset Formula 
-\[
-\oint_{\partial D^{+}}P\dif x+Q\dif y=\iint_{D}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\dif x\dif y
-\]
-
-\end_inset
-
-
-\begin_inset Formula $\partial D^{+}$
-\end_inset
-
-表示二维环路的方向，按照右手螺旋，法线方向向上。
-\end_layout
-
-\begin_layout Standard
-Stokes 斯托克斯公式：环路的积分等于旋度在曲面上的通量。
-\begin_inset Formula 
-\begin{align*}
- & \oint_{\partial\Sigma^{+}}P\dif x+Q\dif y+R\dif z\\
- & =\iint_{\Sigma}\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\dif x\dif z+\iint_{\Sigma}\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\dif z\dif x+\iint_{\Sigma}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\dif x\dif y
-\end{align*}
-
-\end_inset
-
-简写为
-\begin_inset Formula 
-\[
-\oint_{\partial\Sigma^{+}}\vec{v}\cdot\dif\vec{r}=\iint_{\Sigma}\nabla\times\vec{v}\cdot\dif\vec{S}
-\]
-
-\end_inset
-
-可以证明
-\begin_inset Formula 
-\[
-\iint_{\Sigma}\dif\vec{S}\times\nabla\varphi=\oint_{\partial\Sigma^{+}}\dif\vec{r}\,\varphi
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-高斯公式
-\end_layout
-
-\begin_layout Standard
-闭曲面的通量等于散度在体积上的积分。
-\begin_inset Formula 
-\[
-\oiint_{\partial\Omega^{+}}P\dif y\dif z+Q\dif z\dif x+R\dif x\dif y=\iiint_{\Omega}\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\dif V
-\]
-
-\end_inset
-
-简写为
-\begin_inset Formula 
-\[
-\oiint_{\partial\Omega^{+}}\vec{v}\cdot\dif\vec{S}=\iiint_{\Omega}\nabla\cdot\vec{v}\dif V
-\]
-
-\end_inset
-
-其中
-\begin_inset Formula $\partial\Omega^{+}$
-\end_inset
-
-的方向为
-\begin_inset Formula $\Omega$
-\end_inset
-
-向外。以及
-\begin_inset Formula 
-\[
-\iiint_{\Omega}\dif V\,\nabla\times\vec{f}=\oiint_{\partial\Omega^{+}}\dif\vec{S}\times\vec{f}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-已知一个电荷系统的偶极矩定义为
-\begin_inset Formula 
-\[
-\boldsymbol{p}\left(t\right)=\int_{V}\rho\left(t,\boldsymbol{x^{\prime}}\right)\boldsymbol{x^{\prime}}\dif\boldsymbol{V^{\prime}}
-\]
-
-\end_inset
-
-利用电荷守恒定律
-\begin_inset Formula $\nabla\cdot\boldsymbol{J}+\frac{\partial\rho}{\partial t}=0$
-\end_inset
-
-证明
-\begin_inset Formula $\boldsymbol{p}$
-\end_inset
-
-的变化率为
-\begin_inset Formula 
-\[
-\frac{\dif\boldsymbol{p}}{\dif t}=\int_{V}\boldsymbol{J}\left(t,\boldsymbol{x^{\prime}}\right)\dif\boldsymbol{V^{\prime}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-常用公式
-\end_layout
-
-\begin_layout Standard
-如果
-\begin_inset Formula $\boldsymbol{r}=\boldsymbol{x}-\boldsymbol{x^{\prime}}$
-\end_inset
-
-，
-\begin_inset Formula $r=\abs{\boldsymbol{r}}$
-\end_inset
-
-并且
-\begin_inset Formula 
-\[
-\boldsymbol{\nabla^{\prime}}=\boldsymbol{e_{x}}\frac{\partial}{\partial x^{\prime}}+\boldsymbol{e_{y}}\frac{\partial}{\partial y^{\prime}}+\boldsymbol{e_{z}}\frac{\partial}{\partial z^{\prime}},\quad\boldsymbol{\nabla}=\boldsymbol{e_{x}}\frac{\partial}{\partial x}+\boldsymbol{e_{y}}\frac{\partial}{\partial y}+\boldsymbol{e_{z}}\frac{\partial}{\partial z}
-\]
-
-\end_inset
-
-则有
-\begin_inset Formula 
-\begin{align*}
- & \nabla r=-\nabla^{\prime}r=\frac{\boldsymbol{r}}{r}\text{ 单位矢量}\\
- & \nabla\cdot\boldsymbol{r}=-\nabla^{\prime}\cdot\boldsymbol{r}=3\\
- & \nabla\times\boldsymbol{r}=-\nabla^{\prime}\times\boldsymbol{r}=0\\
- & \nabla\boldsymbol{r}=-\nabla^{\prime}\boldsymbol{r}=\boldsymbol{I}\text{ 单位张量}\\
- & \nabla\frac{1}{r}=-\nabla^{\prime}\frac{1}{r}=-\frac{\boldsymbol{r}}{r^{3}}\\
- & \nabla\cdot\frac{\boldsymbol{r}}{r^{3}}=-\nabla^{\prime}\cdot\frac{\boldsymbol{r}}{r^{3}}=\delta\left(r\right)\left(r\neq0\right)\\
- & \nabla\times\frac{\boldsymbol{r}}{r^{3}}=-\nabla^{\prime}\times\frac{\boldsymbol{r}}{r^{3}}=0
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-对于一个常矢量
-\begin_inset Formula $\boldsymbol{a}$
-\end_inset
-
-，即
-\begin_inset Formula $\nabla\cdot\boldsymbol{a}=0$
-\end_inset
-
-，
-\begin_inset Formula $\nabla\times\boldsymbol{a}=0$
-\end_inset
-
-。考虑到
-\begin_inset Formula $\nabla\boldsymbol{r}$
-\end_inset
-
-是单位张量，
-\begin_inset Formula $\nabla\times\boldsymbol{r}=0$
-\end_inset
-
-:
-\begin_inset Formula 
-\[
-\left(\boldsymbol{a}\cdot\nabla\right)\boldsymbol{r}=\boldsymbol{a}\cdot\boldsymbol{\nabla r}=\boldsymbol{a}\cdot\boldsymbol{I}=\boldsymbol{a}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\nabla\left(\boldsymbol{a}\cdot\boldsymbol{r}\right)=\left(\boldsymbol{a}\cdot\boldsymbol{\nabla}\right)\boldsymbol{r}=\boldsymbol{a}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\nabla\left(\boldsymbol{A\cdot B}\right) & =\boldsymbol{B}\times\left(\boldsymbol{\nabla}\times\boldsymbol{A}\right)+\left(\boldsymbol{B}\cdot\boldsymbol{\nabla}\right)\boldsymbol{A}+\boldsymbol{A}\times\left(\boldsymbol{\nabla}\times\boldsymbol{B}\right)+\left(\boldsymbol{A}\cdot\boldsymbol{\nabla}\right)\boldsymbol{B}\\
-\boldsymbol{A}\times\left(\boldsymbol{\nabla}\times\boldsymbol{A}\right) & =\frac{1}{2}\boldsymbol{\nabla}\left(\boldsymbol{A}\cdot\boldsymbol{A}\right)-\left(\boldsymbol{A}\cdot\boldsymbol{\nabla}\right)\boldsymbol{A}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\nabla\cdot\left(\boldsymbol{AB}\right)=\left(\nabla\cdot\boldsymbol{A}\right)\boldsymbol{B}+\boldsymbol{A}\cdot\nabla\boldsymbol{B}
-\]
-
-\end_inset
-
-其中
-\begin_inset Formula $\boldsymbol{AB}$
-\end_inset
-
-为并矢，或者说二阶张量。
-\end_layout
-
-\begin_layout Section
 发散积分变量平移
 \end_layout
 
@@ -3377,7 +3165,7 @@ PDF 模型
 在光锥坐标中,动量的各分量定义为:
 \begin_inset Formula 
 \[
-k^{\pm}=\frac{1}{\sqrt{2}}\left(k^{0}\pm k^{3}\right),\quad\boldsymbol{k}_{\perp}=\left(k_{1},k_{2}\right)
+k^{\pm}=\frac{1}{\sqrt{2}}\left(k^{0}\pm k^{3}\right),\quad\sbf{k}_{\perp}=\left(k_{1},k_{2}\right)
 \]
 
 \end_inset
@@ -3417,7 +3205,7 @@ salamu 使用的光锥坐标记号差个
 ，即
 \begin_inset Formula 
 \[
-k^{\pm}=\left(k^{0}\pm k^{3}\right),\quad\boldsymbol{k}_{\perp}=\left(k_{1},k_{2}\right)
+k^{\pm}=\left(k^{0}\pm k^{3}\right),\quad\sbf{k}_{\perp}=\left(k_{1},k_{2}\right)
 \]
 
 \end_inset
@@ -6690,11 +6478,11 @@ noprefix "false"
 \end_inset
 
 ，计算一个非相对论电子在非零静电场中的库伦散射。令
-\begin_inset Formula $A_{\mu}^{\text{cl}}=\left(\phi\left(\boldsymbol{x}\right),\boldsymbol{0}\right)$
+\begin_inset Formula $A_{\mu}^{\text{cl}}=\left(\phi\left(\sbf{x}\right),\sbf{0}\right)$
 \end_inset
 
 ，则
-\begin_inset Formula $\tilde{A}_{\mu}^{\text{cl}}\left(q\right)=\left(\left(2\pi\right)\delta\left(q^{0}\right)\tilde{\phi}\left(\boldsymbol{q}\right),\boldsymbol{0}\right)$
+\begin_inset Formula $\tilde{A}_{\mu}^{\text{cl}}\left(q\right)=\left(\left(2\pi\right)\delta\left(q^{0}\right)\tilde{\phi}\left(\sbf{q}\right),\sbf{0}\right)$
 \end_inset
 
 。代入到
@@ -6710,21 +6498,21 @@ noprefix "false"
 中，得到
 \begin_inset Formula 
 \[
-i\mathcal{M}\left(2\pi\right)\delta\left(p^{\prime0}-p^{0}\right)=-ie\bar{u}\left(p^{\prime}\right)\Gamma^{\mu}\left(p^{\prime},p\right)u\left(p\right)\cdot\tilde{\phi}\left(\boldsymbol{q}\right)
+i\mathcal{M}\left(2\pi\right)\delta\left(p^{\prime0}-p^{0}\right)=-ie\bar{u}\left(p^{\prime}\right)\Gamma^{\mu}\left(p^{\prime},p\right)u\left(p\right)\cdot\tilde{\phi}\left(\sbf{q}\right)
 \]
 
 \end_inset
 
 如果静电场在大片区域是平缓的，
-\begin_inset Formula $\tilde{\phi}\left(\boldsymbol{q}\right)$
+\begin_inset Formula $\tilde{\phi}\left(\sbf{q}\right)$
 \end_inset
 
 将集中于
-\begin_inset Formula $\boldsymbol{q}=0$
+\begin_inset Formula $\sbf{q}=0$
 \end_inset
 
 附近；我们可以在旋量矩阵元中取
-\begin_inset Formula $\boldsymbol{q}\to0$
+\begin_inset Formula $\sbf{q}\to0$
 \end_inset
 
 极限。只有形状因子
@@ -6742,7 +6530,7 @@ i\mathcal{M}\left(2\pi\right)\delta\left(p^{\prime0}-p^{0}\right)=-ie\bar{u}\lef
 电子在静电场上散射的振幅近似为
 \begin_inset Formula 
 \[
-i\mathcal{M}=-ieF_{1}\left(0\right)\tilde{\phi}\left(\boldsymbol{q}\right)\cdot2m\xi^{\prime\dagger}\xi
+i\mathcal{M}=-ieF_{1}\left(0\right)\tilde{\phi}\left(\sbf{q}\right)\cdot2m\xi^{\prime\dagger}\xi
 \]
 
 \end_inset
@@ -6750,7 +6538,7 @@ i\mathcal{M}=-ieF_{1}\left(0\right)\tilde{\phi}\left(\boldsymbol{q}\right)\cdot2
 这是下面势散射的波恩近似
 \begin_inset Formula 
 \[
-V\left(\boldsymbol{x}\right)=eF_{1}\left(0\right)\phi\left(\boldsymbol{x}\right)
+V\left(\sbf{x}\right)=eF_{1}\left(0\right)\phi\left(\sbf{x}\right)
 \]
 
 \end_inset
@@ -6780,19 +6568,19 @@ V\left(\boldsymbol{x}\right)=eF_{1}\left(0\right)\phi\left(\boldsymbol{x}\right)
 
 \begin_layout Standard
 重复类似的过程，研究电子在一个静矢势上的散射，可以推导出形状因子与电子磁矩的联系，注意空间指标升降引起的正负号。令
-\begin_inset Formula $A_{\mu}^{\text{cl}}\left(x\right)=\left(0,\boldsymbol{A}^{\text{cl}}\left(\boldsymbol{x}\right)\right)$
+\begin_inset Formula $A_{\mu}^{\text{cl}}\left(x\right)=\left(0,\sbf{A}^{\text{cl}}\left(\sbf{x}\right)\right)$
 \end_inset
 
 ，则在这个势场上散射的振幅为
 \begin_inset Formula 
 \[
-i\mathcal{M}=+ie\left[\bar{u}\left(p^{\prime}\right)\left(\gamma^{i}F_{1}+\frac{i\sigma^{i\nu}q_{\nu}}{2m}F_{2}\right)u\left(p\right)\right]\cdot\tilde{A}_{\text{cl}}^{i}\left(\boldsymbol{q}\right)
+i\mathcal{M}=+ie\left[\bar{u}\left(p^{\prime}\right)\left(\gamma^{i}F_{1}+\frac{i\sigma^{i\nu}q_{\nu}}{2m}F_{2}\right)u\left(p\right)\right]\cdot\tilde{A}_{\text{cl}}^{i}\left(\sbf{q}\right)
 \]
 
 \end_inset
 
 方括号中的表达式在
-\begin_inset Formula $\boldsymbol{q}=0$
+\begin_inset Formula $\sbf{q}=0$
 \end_inset
 
 的时候消失，所以必须小心的提取出正比于
@@ -6810,8 +6598,8 @@ u\left(p\right)=\left(\begin{array}{c}
 \sqrt{p\cdot\sigma}\xi\\
 \sqrt{p\cdot\bar{\sigma}}\xi
 \end{array}\right)\approx\sqrt{m}\left(\begin{array}{c}
-\left(1-\boldsymbol{p}\cdot\boldsymbol{\sigma}/2m\right)\xi\\
-\left(1+\boldsymbol{p}\cdot\boldsymbol{\sigma}/2m\right)\xi
+\left(1-\sbf{p}\cdot\sbf{\sigma}/2m\right)\xi\\
+\left(1+\sbf{p}\cdot\sbf{\sigma}/2m\right)\xi
 \end{array}\right)
 \]
 
@@ -6824,7 +6612,7 @@ u\left(p\right)=\left(\begin{array}{c}
 项：
 \begin_inset Formula 
 \[
-\bar{u}\left(p^{\prime}\right)\gamma^{i}u\left(p\right)=2m\xi^{\prime\dagger}\left(\frac{\boldsymbol{p}^{\prime}\cdot\boldsymbol{\sigma}}{2m}\sigma^{i}+\sigma^{i}\frac{\boldsymbol{p}\cdot\boldsymbol{\sigma}}{2m}\right)\xi
+\bar{u}\left(p^{\prime}\right)\gamma^{i}u\left(p\right)=2m\xi^{\prime\dagger}\left(\frac{\sbf{p}^{\prime}\cdot\sbf{\sigma}}{2m}\sigma^{i}+\sigma^{i}\frac{\sbf{p}\cdot\sbf{\sigma}}{2m}\right)\xi
 \]
 
 \end_inset
@@ -6834,15 +6622,15 @@ u\left(p\right)=\left(\begin{array}{c}
 \end_inset
 
 ，可以得到一个自旋无关的项，正比于
-\begin_inset Formula $\left(\boldsymbol{p}^{\prime}+\boldsymbol{p}\right)$
+\begin_inset Formula $\left(\sbf{p}^{\prime}+\sbf{p}\right)$
 \end_inset
 
 ，和一个自旋依赖的项，正比于
-\begin_inset Formula $\left(\boldsymbol{p}^{\prime}-\boldsymbol{p}\right)$
+\begin_inset Formula $\left(\sbf{p}^{\prime}-\sbf{p}\right)$
 \end_inset
 
 。前一项是非相对论量子力学中标准动能项中的算符
-\begin_inset Formula $\left[\boldsymbol{p}\cdot\boldsymbol{A}+\boldsymbol{A}\cdot\boldsymbol{p}\right]$
+\begin_inset Formula $\left[\sbf{p}\cdot\sbf{A}+\sbf{A}\cdot\sbf{p}\right]$
 \end_inset
 
 的贡献。后一项正是我们寻找的磁矩相互作用。只考虑后一项，有
@@ -6884,7 +6672,7 @@ u\left(p\right)=\left(\begin{array}{c}
 插入到
 \begin_inset Formula 
 \[
-i\mathcal{M}=+ie\left[\bar{u}\left(p^{\prime}\right)\left(\gamma^{i}F_{1}+\frac{i\sigma^{i\nu}q_{\nu}}{2m}F_{2}\right)u\left(p\right)\right]\cdot\tilde{A}_{\text{cl}}^{i}\left(\boldsymbol{q}\right)
+i\mathcal{M}=+ie\left[\bar{u}\left(p^{\prime}\right)\left(\gamma^{i}F_{1}+\frac{i\sigma^{i\nu}q_{\nu}}{2m}F_{2}\right)u\left(p\right)\right]\cdot\tilde{A}_{\text{cl}}^{i}\left(\sbf{q}\right)
 \]
 
 \end_inset
@@ -6892,7 +6680,7 @@ i\mathcal{M}=+ie\left[\bar{u}\left(p^{\prime}\right)\left(\gamma^{i}F_{1}+\frac{
 中得到
 \begin_inset Formula 
 \[
-i\mathcal{M}=-i\left(2m\right)\cdot e\xi^{\prime\dagger}\left(\frac{-1}{2m}\sigma^{k}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]\right)\xi\tilde{B}^{k}\left(\boldsymbol{q}\right)
+i\mathcal{M}=-i\left(2m\right)\cdot e\xi^{\prime\dagger}\left(\frac{-1}{2m}\sigma^{k}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]\right)\xi\tilde{B}^{k}\left(\sbf{q}\right)
 \]
 
 \end_inset
@@ -6900,7 +6688,7 @@ i\mathcal{M}=-i\left(2m\right)\cdot e\xi^{\prime\dagger}\left(\frac{-1}{2m}\sigm
 其中
 \begin_inset Formula 
 \[
-\tilde{B}^{k}\left(\boldsymbol{q}\right)=-i\epsilon^{ijk}q^{i}\tilde{A}_{\text{cl}}^{j}\left(\boldsymbol{q}\right),\quad\text{or }\tilde{\boldsymbol{B}}\left(\boldsymbol{q}\right)=-i\boldsymbol{q}\times\tilde{\boldsymbol{A}}\left(\boldsymbol{q}\right)
+\tilde{B}^{k}\left(\sbf{q}\right)=-i\epsilon^{ijk}q^{i}\tilde{A}_{\text{cl}}^{j}\left(\sbf{q}\right),\quad\text{or }\tilde{\sbf{B}}\left(\sbf{q}\right)=-i\sbf{q}\times\tilde{\sbf{A}}\left(\sbf{q}\right)
 \]
 
 \end_inset
@@ -6910,7 +6698,7 @@ i\mathcal{M}=-i\left(2m\right)\cdot e\xi^{\prime\dagger}\left(\frac{-1}{2m}\sigm
 \end_inset
 
 是磁场的傅立叶变换，也就是电磁学关系
-\begin_inset Formula $\boldsymbol{B}\left(\boldsymbol{x}\right)=\nabla\times\boldsymbol{A}\left(\boldsymbol{x}\right)$
+\begin_inset Formula $\sbf{B}\left(\sbf{x}\right)=\nabla\times\sbf{A}\left(\sbf{x}\right)$
 \end_inset
 
 。
@@ -6924,7 +6712,7 @@ i\mathcal{M}=-i\left(2m\right)\cdot e\xi^{\prime\dagger}\left(\frac{-1}{2m}\sigm
 理解成电子在势井中散射的波恩近似。势能项就是磁相互作用的形式，
 \begin_inset Formula 
 \[
-V\left(\boldsymbol{x}\right)=-\langle\boldsymbol{\mu}\rangle\cdot\boldsymbol{B}\left(x\right)
+V\left(\sbf{x}\right)=-\langle\sbf{\mu}\rangle\cdot\sbf{B}\left(x\right)
 \]
 
 \end_inset
@@ -6932,7 +6720,7 @@ V\left(\boldsymbol{x}\right)=-\langle\boldsymbol{\mu}\rangle\cdot\boldsymbol{B}\
 其中
 \begin_inset Formula 
 \[
-\langle\boldsymbol{\mu}\rangle=\frac{e}{m}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]\xi^{\prime\dagger}\frac{\boldsymbol{\sigma}}{2}\xi.
+\langle\sbf{\mu}\rangle=\frac{e}{m}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]\xi^{\prime\dagger}\frac{\sbf{\sigma}}{2}\xi.
 \]
 
 \end_inset
@@ -6940,13 +6728,13 @@ V\left(\boldsymbol{x}\right)=-\langle\boldsymbol{\mu}\rangle\cdot\boldsymbol{B}\
 可以把电子的磁矩写成标准形式
 \begin_inset Formula 
 \[
-\boldsymbol{\mu}=g\left(\frac{e}{2m}\right)\boldsymbol{S}
+\sbf{\mu}=g\left(\frac{e}{2m}\right)\sbf{S}
 \]
 
 \end_inset
 
 其中
-\begin_inset Formula $\boldsymbol{S}$
+\begin_inset Formula $\sbf{S}$
 \end_inset
 
 是电子自旋。
@@ -6992,7 +6780,7 @@ g=2\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]=2+2F_{2}\left(0\right).
 波恩近似：粒子被势场散射，归结为求解薛定谔方程
 \begin_inset Formula 
 \[
-\left(\nabla^{2}+k^{2}\right)\psi\left(\boldsymbol{r}\right)=\frac{2\mu}{\hbar^{2}}V\left(\boldsymbol{r}\right)\psi\left(\boldsymbol{r}\right)
+\left(\nabla^{2}+k^{2}\right)\psi\left(\sbf{r}\right)=\frac{2\mu}{\hbar^{2}}V\left(\sbf{r}\right)\psi\left(\sbf{r}\right)
 \]
 
 \end_inset
@@ -7002,13 +6790,13 @@ g=2\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]=2+2F_{2}\left(0\right).
 \end_inset
 
  是入射粒子的能量。
-\begin_inset Formula $\psi\left(\boldsymbol{r}\right)$
+\begin_inset Formula $\psi\left(\sbf{r}\right)$
 \end_inset
 
 满足下列边界条件：
 \begin_inset Formula 
 \[
-\psi\left(\boldsymbol{r}\right)\stackrel{r\to\infty}{\longrightarrow}\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}\right)+f\left(\theta,\varphi\right)\frac{\exp\left(ikr\right)}{r}
+\psi\left(\sbf{r}\right)\stackrel{r\to\infty}{\longrightarrow}\exp\left(i\sbf{k}\cdot\sbf{r}\right)+f\left(\theta,\varphi\right)\frac{\exp\left(ikr\right)}{r}
 \]
 
 \end_inset
@@ -7016,7 +6804,7 @@ g=2\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]=2+2F_{2}\left(0\right).
 方程的解为
 \begin_inset Formula 
 \[
-\psi\left(\boldsymbol{r}\right)=\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}\right)-\frac{\mu}{2\pi\hbar^{2}}\int\dif^{3}r^{\prime}\frac{\exp\left(ik\abs{\boldsymbol{r}-\boldsymbol{r}^{\prime}}\right)}{\abs{\boldsymbol{r}-\boldsymbol{r}^{\prime}}}V\left(\boldsymbol{r}^{\prime}\right)\psi\left(\boldsymbol{r}^{\prime}\right)
+\psi\left(\sbf{r}\right)=\exp\left(i\sbf{k}\cdot\sbf{r}\right)-\frac{\mu}{2\pi\hbar^{2}}\int\dif^{3}r^{\prime}\frac{\exp\left(ik\abs{\sbf{r}-\sbf{r}^{\prime}}\right)}{\abs{\sbf{r}-\sbf{r}^{\prime}}}V\left(\sbf{r}^{\prime}\right)\psi\left(\sbf{r}^{\prime}\right)
 \]
 
 \end_inset
@@ -7030,17 +6818,17 @@ g=2\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]=2+2F_{2}\left(0\right).
 \end_inset
 
 看成微扰，作为一级近似，把积分方程右边的
-\begin_inset Formula $V\left(\boldsymbol{r}^{\prime}\right)\psi\left(\boldsymbol{r}^{\prime}\right)$
+\begin_inset Formula $V\left(\sbf{r}^{\prime}\right)\psi\left(\sbf{r}^{\prime}\right)$
 \end_inset
 
 用其零级近似
-\begin_inset Formula $V\left(\boldsymbol{r}^{\prime}\right)\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}\right)$
+\begin_inset Formula $V\left(\sbf{r}^{\prime}\right)\exp\left(i\sbf{k}\cdot\sbf{r}\right)$
 \end_inset
 
 代替。此时
 \begin_inset Formula 
 \[
-\psi\left(\boldsymbol{r}\right)\approx\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}\right)-\frac{\mu}{2\pi\hbar^{2}}\int\dif^{3}r^{\prime}\frac{\exp\left(ik\abs{\boldsymbol{r}-\boldsymbol{r}^{\prime}}\right)}{\abs{\boldsymbol{r}-\boldsymbol{r}^{\prime}}}V\left(\boldsymbol{r}^{\prime}\right)\exp\left(i\boldsymbol{k}\cdot\boldsymbol{r}^{\prime}\right)
+\psi\left(\sbf{r}\right)\approx\exp\left(i\sbf{k}\cdot\sbf{r}\right)-\frac{\mu}{2\pi\hbar^{2}}\int\dif^{3}r^{\prime}\frac{\exp\left(ik\abs{\sbf{r}-\sbf{r}^{\prime}}\right)}{\abs{\sbf{r}-\sbf{r}^{\prime}}}V\left(\sbf{r}^{\prime}\right)\exp\left(i\sbf{k}\cdot\sbf{r}^{\prime}\right)
 \]
 
 \end_inset
@@ -7060,33 +6848,33 @@ g=2\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]=2+2F_{2}\left(0\right).
 时，
 \begin_inset Formula 
 \[
-\psi_{\text{sc}}\left(\boldsymbol{r}\right)\stackrel{r\to\infty}{\longrightarrow}\frac{-\mu\exp\left(ikr\right)}{2\pi\hbar^{2}r}\int\dif^{3}r^{\prime}\exp\left[-i\left(\boldsymbol{k}_{f}-\boldsymbol{k}\right)\cdot\boldsymbol{r}^{\prime}\right]V\left(\boldsymbol{r}^{\prime}\right)
+\psi_{\text{sc}}\left(\sbf{r}\right)\stackrel{r\to\infty}{\longrightarrow}\frac{-\mu\exp\left(ikr\right)}{2\pi\hbar^{2}r}\int\dif^{3}r^{\prime}\exp\left[-i\left(\sbf{k}_{f}-\sbf{k}\right)\cdot\sbf{r}^{\prime}\right]V\left(\sbf{r}^{\prime}\right)
 \]
 
 \end_inset
 
 其中
-\begin_inset Formula $\boldsymbol{k}_{f}=k_{f}\frac{\boldsymbol{r}}{r}$
+\begin_inset Formula $\sbf{k}_{f}=k_{f}\frac{\sbf{r}}{r}$
 \end_inset
 
 ，
-\begin_inset Formula $\hbar\boldsymbol{k}_{f}$
+\begin_inset Formula $\hbar\sbf{k}_{f}$
 \end_inset
 
 是出射粒子动量，对于弹性散射，
-\begin_inset Formula $\abs{\boldsymbol{k}_{f}}=k$
+\begin_inset Formula $\abs{\sbf{k}_{f}}=k$
 \end_inset
 
 。
 \begin_inset Formula 
 \[
-f\left(\theta,\varphi\right)=f\left(\boldsymbol{k},\boldsymbol{k}_{f}\right)=\frac{-\mu}{2\pi\hbar^{2}}\int\dif^{3}r^{\prime}\exp\left[i\boldsymbol{q}\cdot\boldsymbol{r}^{\prime}\right]V\left(\boldsymbol{r}^{\prime}\right)
+f\left(\theta,\varphi\right)=f\left(\sbf{k},\sbf{k}_{f}\right)=\frac{-\mu}{2\pi\hbar^{2}}\int\dif^{3}r^{\prime}\exp\left[i\sbf{q}\cdot\sbf{r}^{\prime}\right]V\left(\sbf{r}^{\prime}\right)
 \]
 
 \end_inset
 
 其中
-\begin_inset Formula $\boldsymbol{q}=\boldsymbol{k}_{f}-\boldsymbol{k}$
+\begin_inset Formula $\sbf{q}=\sbf{k}_{f}-\sbf{k}$
 \end_inset
 
 。
@@ -7106,15 +6894,15 @@ belitsky
 \end_inset
 
 再考虑
-\begin_inset Formula $\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}$
+\begin_inset Formula $\bra{p_{2}}\sbf{j}\left(\sbf{r}\right)\ket{p_{1}}$
 \end_inset
 
 的傅立叶变换，直接积分得到：
 \begin_inset Formula 
 \begin{align*}
- & \int\dif^{3}\boldsymbol{r}e^{-i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}=2\pi\delta\left(\boldsymbol{p_{2}}-\boldsymbol{p_{1}}+\boldsymbol{\Delta}\right)\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{0}\right)\ket{p_{1}}\\
- & =2\pi\delta\left(\boldsymbol{p_{2}}-\boldsymbol{p_{1}}+\boldsymbol{\Delta}\right)\bar{u}\left(p_{2}\right)\left\{ \boldsymbol{\gamma}F_{1}\left(\Delta^{2}\right)+\frac{i\boldsymbol{\sigma^{\nu k}}\boldsymbol{\Delta_{k}}}{2M_{N}}F_{2}\left(\Delta^{2}\right)\right\} u\left(p_{1}\right)\\
- & =2\pi\delta\left(\boldsymbol{p_{2}}-\boldsymbol{p_{1}}+\boldsymbol{\Delta}\right)\left[F_{1}\left(\Delta^{2}\right)+F_{2}\left(\Delta^{2}\right)\right]i\omega_{2}^{\dagger}\left(\boldsymbol{\Delta}\times\boldsymbol{\sigma}\right)\omega_{1}
+ & \int\dif^{3}\sbf{r}e^{-i\sbf{\Delta}\cdot\sbf{r}}\bra{p_{2}}\sbf{j}\left(\sbf{r}\right)\ket{p_{1}}=2\pi\delta\left(\sbf{p_{2}}-\sbf{p_{1}}+\sbf{\Delta}\right)\bra{p_{2}}\sbf{j}\left(\sbf{0}\right)\ket{p_{1}}\\
+ & =2\pi\delta\left(\sbf{p_{2}}-\sbf{p_{1}}+\sbf{\Delta}\right)\bar{u}\left(p_{2}\right)\left\{ \sbf{\gamma}F_{1}\left(\Delta^{2}\right)+\frac{i\sbf{\sigma^{\nu k}}\sbf{\Delta_{k}}}{2M_{N}}F_{2}\left(\Delta^{2}\right)\right\} u\left(p_{1}\right)\\
+ & =2\pi\delta\left(\sbf{p_{2}}-\sbf{p_{1}}+\sbf{\Delta}\right)\left[F_{1}\left(\Delta^{2}\right)+F_{2}\left(\Delta^{2}\right)\right]i\omega_{2}^{\dagger}\left(\sbf{\Delta}\times\sbf{\sigma}\right)\omega_{1}
 \end{align*}
 
 \end_inset
@@ -7122,14 +6910,14 @@ belitsky
 如果把指数展开到线性项,
 \begin_inset Formula 
 \begin{align*}
-\int\dif^{3}\boldsymbol{r}e^{-i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}} & \approx\bra{p_{2}}\int\dif^{3}\boldsymbol{r}\left(1-i\boldsymbol{\Delta}\cdot\boldsymbol{r}\right)\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}\\
- & \approx\bra{p_{2}}\int\dif^{3}\boldsymbol{r}\left(i\boldsymbol{\Delta}\cdot\boldsymbol{r}\right)\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}
+\int\dif^{3}\sbf{r}e^{-i\sbf{\Delta}\cdot\sbf{r}}\bra{p_{2}}\sbf{j}\left(\sbf{r}\right)\ket{p_{1}} & \approx\bra{p_{2}}\int\dif^{3}\sbf{r}\left(1-i\sbf{\Delta}\cdot\sbf{r}\right)\sbf{j}\left(\sbf{r}\right)\ket{p_{1}}\\
+ & \approx\bra{p_{2}}\int\dif^{3}\sbf{r}\left(i\sbf{\Delta}\cdot\sbf{r}\right)\sbf{j}\left(\sbf{r}\right)\ket{p_{1}}
 \end{align*}
 
 \end_inset
 
 后面会证明稳恒电场条件下
-\begin_inset Formula $\int_{V}\boldsymbol{j}\left(\boldsymbol{r}\right)\dif^{3}\boldsymbol{r}=0$
+\begin_inset Formula $\int_{V}\sbf{j}\left(\sbf{r}\right)\dif^{3}\sbf{r}=0$
 \end_inset
 
 。
@@ -7137,19 +6925,19 @@ belitsky
 
 \begin_layout Standard
 再来考虑
-\begin_inset Formula $\boldsymbol{\mu}=\int\dif^{3}\boldsymbol{r}\,\boldsymbol{r}\times\boldsymbol{j}$
+\begin_inset Formula $\sbf{\mu}=\int\dif^{3}\sbf{r}\,\sbf{r}\times\sbf{j}$
 \end_inset
 
 ，使用
-\begin_inset Formula $\boldsymbol{r}\times\boldsymbol{j}\times\boldsymbol{\Delta}=\boldsymbol{j}\left(\boldsymbol{r}\cdot\boldsymbol{\Delta}\right)-\boldsymbol{r}\left(\boldsymbol{j}\cdot\boldsymbol{\Delta}\right)$
+\begin_inset Formula $\sbf{r}\times\sbf{j}\times\sbf{\Delta}=\sbf{j}\left(\sbf{r}\cdot\sbf{\Delta}\right)-\sbf{r}\left(\sbf{j}\cdot\sbf{\Delta}\right)$
 \end_inset
 
 ，
 \begin_inset Formula 
 \begin{align*}
- & \Rightarrow-i\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\boldsymbol{r}\times\boldsymbol{j}\left(\boldsymbol{r}\right)\times\boldsymbol{\Delta}e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\ket{p_{1}}\\
- & =\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\left[\left(-i\boldsymbol{\Delta}\cdot\boldsymbol{r}\right)\boldsymbol{j}+\boldsymbol{r}\left(i\boldsymbol{\Delta}\cdot\boldsymbol{j}\right)\right]e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\ket{p_{1}}\\
- & =\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\left[-\boldsymbol{j}\boldsymbol{r}\cdot\nabla e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}+\boldsymbol{r}\left(\boldsymbol{j}\cdot\nabla e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\right)\right]\ket{p_{1}}
+ & \Rightarrow-i\int\dif^{3}\sbf{r}\bra{p_{2}}\sbf{r}\times\sbf{j}\left(\sbf{r}\right)\times\sbf{\Delta}e^{i\sbf{\Delta}\cdot\sbf{r}}\ket{p_{1}}\\
+ & =\int\dif^{3}\sbf{r}\bra{p_{2}}\left[\left(-i\sbf{\Delta}\cdot\sbf{r}\right)\sbf{j}+\sbf{r}\left(i\sbf{\Delta}\cdot\sbf{j}\right)\right]e^{i\sbf{\Delta}\cdot\sbf{r}}\ket{p_{1}}\\
+ & =\int\dif^{3}\sbf{r}\bra{p_{2}}\left[-\sbf{j}\sbf{r}\cdot\nabla e^{i\sbf{\Delta}\cdot\sbf{r}}+\sbf{r}\left(\sbf{j}\cdot\nabla e^{i\sbf{\Delta}\cdot\sbf{r}}\right)\right]\ket{p_{1}}
 \end{align*}
 
 \end_inset
@@ -7157,44 +6945,44 @@ belitsky
 使用分部积分，
 \begin_inset Formula 
 \begin{align*}
- & -\boldsymbol{j}\boldsymbol{r}\cdot\nabla e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}=\left[\boldsymbol{j}\left(\nabla\cdot\boldsymbol{r}\right)+\left(\nabla\boldsymbol{j}\right)\cdot\boldsymbol{r}\right]e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\\
- & \boldsymbol{r}\boldsymbol{j}\cdot\nabla e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}=\left[\boldsymbol{r}\left(\nabla\cdot\boldsymbol{j}\right)+\left(\nabla\boldsymbol{r}\right)\cdot\boldsymbol{j}\right]e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}
+ & -\sbf{j}\sbf{r}\cdot\nabla e^{i\sbf{\Delta}\cdot\sbf{r}}=\left[\sbf{j}\left(\nabla\cdot\sbf{r}\right)+\left(\nabla\sbf{j}\right)\cdot\sbf{r}\right]e^{i\sbf{\Delta}\cdot\sbf{r}}\\
+ & \sbf{r}\sbf{j}\cdot\nabla e^{i\sbf{\Delta}\cdot\sbf{r}}=\left[\sbf{r}\left(\nabla\cdot\sbf{j}\right)+\left(\nabla\sbf{r}\right)\cdot\sbf{j}\right]e^{i\sbf{\Delta}\cdot\sbf{r}}
 \end{align*}
 
 \end_inset
 
 使用稳恒电场条件
-\begin_inset Formula $\nabla\cdot\boldsymbol{j}=0$
+\begin_inset Formula $\nabla\cdot\sbf{j}=0$
 \end_inset
 
 ，以及
-\begin_inset Formula $\nabla\boldsymbol{r}=I$
+\begin_inset Formula $\nabla\sbf{r}=I$
 \end_inset
 
 ，
-\begin_inset Formula $\int_{V}\boldsymbol{j}\left(\boldsymbol{r}\right)\dif^{3}\boldsymbol{r}=0$
+\begin_inset Formula $\int_{V}\sbf{j}\left(\sbf{r}\right)\dif^{3}\sbf{r}=0$
 \end_inset
 
 ，可知第二项为零，只用考虑第一项，
 \begin_inset Formula 
 \begin{align*}
- & \Rightarrow-i\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\boldsymbol{r}\times\boldsymbol{j}\left(\boldsymbol{r}\right)\times\boldsymbol{\Delta}e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\ket{p_{1}}\\
- & =\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\boldsymbol{j}\left(-i\boldsymbol{\Delta}\cdot\boldsymbol{r}\right)e^{i\boldsymbol{\Delta}\cdot\boldsymbol{r}}\ket{p_{1}}\\
- & =\int\dif^{3}\boldsymbol{r}\bra{p_{2}}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p_{1}}
+ & \Rightarrow-i\int\dif^{3}\sbf{r}\bra{p_{2}}\sbf{r}\times\sbf{j}\left(\sbf{r}\right)\times\sbf{\Delta}e^{i\sbf{\Delta}\cdot\sbf{r}}\ket{p_{1}}\\
+ & =\int\dif^{3}\sbf{r}\bra{p_{2}}\sbf{j}\left(-i\sbf{\Delta}\cdot\sbf{r}\right)e^{i\sbf{\Delta}\cdot\sbf{r}}\ket{p_{1}}\\
+ & =\int\dif^{3}\sbf{r}\bra{p_{2}}\sbf{j}\left(\sbf{r}\right)\ket{p_{1}}
 \end{align*}
 
 \end_inset
 
 在
-\begin_inset Formula $\boldsymbol{\Delta}\to0$
+\begin_inset Formula $\sbf{\Delta}\to0$
 \end_inset
 
 的极限下，
 \begin_inset Formula 
 \begin{align*}
--i\bra{p}\boldsymbol{\mu}\ket{p}\times\boldsymbol{\Delta} & =\int\dif^{3}\boldsymbol{r}\bra{p}\boldsymbol{j}\left(\boldsymbol{r}\right)\ket{p}\\
--i\bra{p_{2}}\boldsymbol{\mu}\ket{p_{1}}\times\boldsymbol{\Delta} & =2\pi\delta\left(\boldsymbol{0}\right)\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]i\omega_{2}^{\dagger}\left(\boldsymbol{\Delta}\times\boldsymbol{\sigma}\right)\omega_{1}\\
-\bra{p}\boldsymbol{\mu}\ket{p} & =2\pi\delta\left(\boldsymbol{0}\right)\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]2\boldsymbol{s}
+-i\bra{p}\sbf{\mu}\ket{p}\times\sbf{\Delta} & =\int\dif^{3}\sbf{r}\bra{p}\sbf{j}\left(\sbf{r}\right)\ket{p}\\
+-i\bra{p_{2}}\sbf{\mu}\ket{p_{1}}\times\sbf{\Delta} & =2\pi\delta\left(\sbf{0}\right)\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]i\omega_{2}^{\dagger}\left(\sbf{\Delta}\times\sbf{\sigma}\right)\omega_{1}\\
+\bra{p}\sbf{\mu}\ket{p} & =2\pi\delta\left(\sbf{0}\right)\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]2\sbf{s}
 \end{align*}
 
 \end_inset
@@ -7202,7 +6990,7 @@ belitsky
 最后得到
 \begin_inset Formula 
 \[
-\frac{\bra{p}\boldsymbol{\mu}\ket{p}}{\bra{p}\ket{p}}=\frac{\boldsymbol{s}}{M_{N}}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]
+\frac{\bra{p}\sbf{\mu}\ket{p}}{\bra{p}\ket{p}}=\frac{\sbf{s}}{M_{N}}\left[F_{1}\left(0\right)+F_{2}\left(0\right)\right]
 \]
 
 \end_inset
@@ -7219,17 +7007,17 @@ belitsky
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\boldsymbol{j}\left(\boldsymbol{r}\right)$
+\begin_inset Formula $\sbf{j}\left(\sbf{r}\right)$
 \end_inset
 
 的空间积分为零。我们有电荷守恒条件
-\begin_inset Formula $\partial_{\mu}j^{\mu}=\partial_{t}j^{0}-\nabla\cdot\boldsymbol{j}=0$
+\begin_inset Formula $\partial_{\mu}j^{\mu}=\partial_{t}j^{0}-\nabla\cdot\sbf{j}=0$
 \end_inset
 
 ，使用矢量公式
 \begin_inset Formula 
 \[
-\nabla\cdot\left(\boldsymbol{AB}\right)=\left(\nabla\cdot\boldsymbol{A}\right)\boldsymbol{B}+\boldsymbol{A}\cdot\nabla\boldsymbol{B}
+\nabla\cdot\left(\sbf{AB}\right)=\left(\nabla\cdot\sbf{A}\right)\sbf{B}+\sbf{A}\cdot\nabla\sbf{B}
 \]
 
 \end_inset
@@ -7237,7 +7025,7 @@ belitsky
 得到
 \begin_inset Formula 
 \[
-\nabla\cdot\left(\boldsymbol{j}\boldsymbol{r}\right)=\left(\nabla\cdot\boldsymbol{j}\right)\boldsymbol{r}+\boldsymbol{j}\cdot\boldsymbol{\nabla}\boldsymbol{r}=\left(\nabla\cdot\boldsymbol{j}\right)\boldsymbol{r}+\boldsymbol{j}
+\nabla\cdot\left(\sbf{j}\sbf{r}\right)=\left(\nabla\cdot\sbf{j}\right)\sbf{r}+\sbf{j}\cdot\sbf{\nabla}\sbf{r}=\left(\nabla\cdot\sbf{j}\right)\sbf{r}+\sbf{j}
 \]
 
 \end_inset
@@ -7245,37 +7033,37 @@ belitsky
 
 \begin_inset Formula 
 \begin{align*}
-\partial_{t}\int_{V}\dif^{3}\boldsymbol{r}\,\left(\boldsymbol{r}j^{0}\right) & =\int_{V}\dif^{3}\boldsymbol{r}\,\left(\nabla\cdot\boldsymbol{j}\right)\boldsymbol{r}=\int_{V}\dif^{3}\boldsymbol{r}\,\left[\nabla\cdot\left(\boldsymbol{j}\boldsymbol{r}\right)-\boldsymbol{j}\right]\\
- & =\oint_{S}\dif\boldsymbol{S}\cdot\left(\boldsymbol{j}\boldsymbol{r}\right)-\int_{V}\dif^{3}\boldsymbol{r}\,\boldsymbol{j}
+\partial_{t}\int_{V}\dif^{3}\sbf{r}\,\left(\sbf{r}j^{0}\right) & =\int_{V}\dif^{3}\sbf{r}\,\left(\nabla\cdot\sbf{j}\right)\sbf{r}=\int_{V}\dif^{3}\sbf{r}\,\left[\nabla\cdot\left(\sbf{j}\sbf{r}\right)-\sbf{j}\right]\\
+ & =\oint_{S}\dif\sbf{S}\cdot\left(\sbf{j}\sbf{r}\right)-\int_{V}\dif^{3}\sbf{r}\,\sbf{j}
 \end{align*}
 
 \end_inset
 
 认为
-\begin_inset Formula $\boldsymbol{j}$
+\begin_inset Formula $\sbf{j}$
 \end_inset
 
 的收敛性足够好，第一项为零。则
 \begin_inset Formula 
 \[
-\int_{V}\boldsymbol{j}\left(\boldsymbol{r}\right)\dif^{3}\boldsymbol{r}=-\partial_{t}\int_{V}\dif^{3}\boldsymbol{r}\,\left(\boldsymbol{r}j^{0}\right)=\frac{\dif}{\dif t}\boldsymbol{p_{e}}
+\int_{V}\sbf{j}\left(\sbf{r}\right)\dif^{3}\sbf{r}=-\partial_{t}\int_{V}\dif^{3}\sbf{r}\,\left(\sbf{r}j^{0}\right)=\frac{\dif}{\dif t}\sbf{p_{e}}
 \]
 
 \end_inset
 
 电流的空间积分等于电偶极矩的变化率。我们假设是静电场，变化率为零，所以
-\begin_inset Formula $\int_{V}\boldsymbol{j}\left(\boldsymbol{r}\right)\dif^{3}\boldsymbol{r}=0$
+\begin_inset Formula $\int_{V}\sbf{j}\left(\sbf{r}\right)\dif^{3}\sbf{r}=0$
 \end_inset
 
 。以及steady electromagnetic current 的条件
-\begin_inset Formula $\boldsymbol{\nabla}_{r}\cdot\boldsymbol{j}\left(\boldsymbol{r}\right)=0$
+\begin_inset Formula $\sbf{\nabla}_{r}\cdot\sbf{j}\left(\sbf{r}\right)=0$
 \end_inset
 
 。上面还使用了附录中的公式
 \begin_inset Formula 
 \begin{align*}
- & \bar{u}\left(p_{2}\right)\gamma^{0}u\left(p_{1}\right)=2m\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\gamma^{k}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\boldsymbol{\Delta}\times\boldsymbol{\sigma}\right)\omega_{1}\\
- & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu0}\Delta_{\mu}}{2m}u\left(p_{1}\right)=-\frac{\boldsymbol{\Delta}^{2}}{2m}\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu k}\Delta_{\mu}}{2m}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\boldsymbol{\Delta}\times\boldsymbol{\sigma}\right)\omega_{1}
+ & \bar{u}\left(p_{2}\right)\gamma^{0}u\left(p_{1}\right)=2m\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\gamma^{k}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\sbf{\Delta}\times\sbf{\sigma}\right)\omega_{1}\\
+ & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu0}\Delta_{\mu}}{2m}u\left(p_{1}\right)=-\frac{\sbf{\Delta}^{2}}{2m}\omega_{2}^{\dagger}\omega_{1}, & \bar{u}\left(p_{2}\right)\frac{i\sigma^{\mu k}\Delta_{\mu}}{2m}u\left(p_{1}\right)=i\omega_{2}^{\dagger}\left(\sbf{\Delta}\times\sbf{\sigma}\right)\omega_{1}
 \end{align*}
 
 \end_inset

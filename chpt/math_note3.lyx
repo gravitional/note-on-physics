@@ -6,6 +6,8 @@
 \origin unavailable
 \textclass ctex-book
 \begin_preamble
+\usepackage[T1]{fontenc} % 字体的编码，不是 input 的编码utf-8
+\usepackage{xeCJK}% 没有这个会无法实现中文断行
 %%%+++++++++++++++++++++++++++++++
 \usepackage{geometry} % 整体页面设置
 \geometry{a4paper} %页面大小是A4纸
@@ -45,17 +47,6 @@
 \usepackage{multirow}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
-%%++++++++++++++++++++ 
-\usepackage{mathtools}% 定义配对的数学符号
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}
-\DeclareMathOperator{\tr}{Tr}
-%\DeclareMathOperator{\re}{Re}
-%\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\res}{Res}
-\DeclareMathOperator{\disc}{Disc}
-\DeclareMathOperator{\sign}{Sign}
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
-\newcommand{\cola}[1]{{\color{blue}{#1}}}
 %%%+++++++++++++++++++++++++++++++
 \usepackage{listings}
 % 在LaTex中添加代码高亮
@@ -88,6 +79,39 @@
     showtabs=false,                  
     tabsize=2
 }
+%%++++++++++++++++++++++++++++++++++++
+% 设置英文字体
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Roman}
+% 设置中文字体
+\setCJKmainfont[Mapping=tex-text]{Noto Serif CJK SC}
+\setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
+\setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
+%设置数学字体
+\usepackage{unicode-math}%在其他字体包如amsmath之后调用
+\setmathfont{latinmodern-math.otf}
+%开源数学字体见 http://www.gust.org.pl/projects/e-foundry/lm-math
+% DejaVu Math TeX Gyre,  Latin Modern Math, TeX Gyre Pagella Math, TeX Gyre Termes Math, TeX Gyre Schola Math
+% TeX Gyre Bonum Math, Noto Sans Math, TeX Gyre DejaVu Math, STIX Math
+%%++++++++++++++++++++++++++++++++++++++++
+% \usepackage{mathspec} %这个包也能改字体，但是跟 fontspec 好像冲突
+% \setmathsfont(Digits,Latin,Greek){Latin Modern Math}
+% \setmathrm{Latin Modern Roman}
+%%++++++++++++++++++++++++++++++++++++++
+\usepackage{mathtools}% 定义配对的数学符号
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\diag}{diag} %对角矩阵
+\DeclareMathOperator{\res}{Res} %复变函数的留数
+\DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
+\DeclareMathOperator{\sign}{Sign}
+\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,hyperref
 \use_default_options true
@@ -237,6 +261,524 @@ A^{2}B^{2}=\left(A\cdot B\right)^{2}+\left(A\times B\right)^{2}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+曲线的曲率
+\end_layout
+
+\begin_layout Standard
+ref:
+\begin_inset CommandInset href
+LatexCommand href
+name "曲线的曲率"
+target "https://baike.baidu.com/item/%E6%9B%B2%E7%8E%87/9985286"
+literal "false"
+
+\end_inset
+
+是曲线上某个点的切线转角
+\begin_inset Formula $\Delta\alpha$
+\end_inset
+
+对弧长
+\begin_inset Formula $\Delta s$
+\end_inset
+
+的转动率.
+\begin_inset Formula 
+\[
+K=\lim_{\Delta s\to0}\abs*{\frac{\Delta\alpha}{\Delta s}}
+\]
+
+\end_inset
+
+如果曲线的方程是
+\begin_inset Formula $y=f\left(x\right)$
+\end_inset
+
+，且
+\begin_inset Formula $y=f\left(x\right)$
+\end_inset
+
+具有二阶导数，在某一点
+\begin_inset Formula $\left(x,y\right)$
+\end_inset
+
+的斜率为
+\begin_inset Formula $y^{\prime}=\tan\alpha$
+\end_inset
+
+，所以
+\begin_inset Formula 
+\begin{align*}
+ & y^{\prime\prime}=\sec^{2}\alpha\frac{\dif\alpha}{\dif x}\\
+ & \frac{\dif\alpha}{\dif x}=\frac{y^{\prime\prime}}{\sec^{2}\alpha}=\frac{y^{\prime\prime}}{1+\tan^{2}\alpha}=\frac{y^{\prime\prime}}{1+y^{\prime2}}
+\end{align*}
+
+\end_inset
+
+而
+\begin_inset Formula $\dif s=\sqrt{1+y^{\prime2}}\dif x$
+\end_inset
+
+，所以曲线在电
+\begin_inset Formula $\left(x,y\right)$
+\end_inset
+
+的斜率为
+\begin_inset Formula 
+\[
+K=\frac{\abs{y^{\prime\prime}}}{\left(1+y^{\prime2}\right)^{3/2}}
+\]
+
+\end_inset
+
+如果曲线由参数方程给出，
+\begin_inset Formula 
+\[
+x=x\left(t\right),\quad y=y\left(t\right),
+\]
+
+\end_inset
+
+使用参数方程求导方法得到
+\begin_inset Formula 
+\[
+\frac{\dif y}{\dif x}=\frac{y^{\prime}}{x^{\prime}},\quad\frac{\dif^{2}y}{\dif x^{2}}=\frac{y^{\prime\prime}x^{\prime}-x^{\prime\prime}y^{\prime}}{x^{\prime2}}\frac{1}{x^{\prime}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+K=\frac{\abs{y^{\prime\prime}x^{\prime}-x^{\prime\prime}y^{\prime}}}{\left(1+y^{\prime2}/x^{\prime2}\right)^{3/2}x^{\prime3}}=\frac{\abs{y^{\prime\prime}x^{\prime}-x^{\prime\prime}y^{\prime}}}{\left(x^{\prime2}+y^{\prime2}\right)^{3/2}}
+\]
+
+\end_inset
+
+曲率
+\begin_inset Formula $K$
+\end_inset
+
+的倒数，称为曲率半径，记作
+\begin_inset Formula $\rho$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\rho=\frac{1}{K}=\frac{\left(1+y^{\prime2}\right)^{3/2}}{\abs{y^{\prime\prime}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+假设一个粒子作圆周运动，轨迹为
+\begin_inset Formula $x=x\left(t\right),y=y\left(t\right)$
+\end_inset
+
+，则某点的曲率半径为
+\begin_inset Formula 
+\[
+\rho=\frac{\abs{x^{\prime}y^{\prime\prime}-x^{\prime\prime}y^{\prime}}}{\left(x^{\prime2}+y^{\prime2}\right)^{3/2}}=\frac{\abs{v_{x}\dot{v}_{y}-\dot{v}_{x}v_{y}}}{v^{3/2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+极坐标系
+\end_layout
+
+\begin_layout Standard
+设粒子的轨迹为
+\begin_inset Formula $\sbf r\left(t\right)=r\left(t\right)\sbf e_{r}\left(t\right)$
+\end_inset
+
+，则
+\begin_inset Formula 
+\[
+\sbf v\left(t\right)=\sbf r^{\prime}=r^{\prime}\sbf e_{r}+r\left(\sbf e_{r}\right)^{\prime}=r^{\prime}\sbf e_{r}+r\sbf e_{\perp}\theta^{\prime}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\sbf e_{\perp}$
+\end_inset
+
+是垂直于
+\begin_inset Formula $\sbf e_{r}$
+\end_inset
+
+的单位矢量，
+\begin_inset Formula $\sbf e_{r},\sbf e_{\perp},\sbf e_{k}$
+\end_inset
+
+组成右手螺旋。
+\begin_inset Formula 
+\[
+\frac{\dif\sbf e_{r}}{\dif t}=\frac{\dif\sbf e_{r}}{\dif\theta}\frac{\dif\theta}{\dif t}=\sbf e_{\perp}\frac{\dif\theta}{\dif t}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\theta$
+\end_inset
+
+是粒子轨迹与
+\begin_inset Formula $x$
+\end_inset
+
+轴的夹角，而
+\begin_inset Formula 
+\begin{align*}
+\frac{\dif\theta}{\dif t} & =\frac{\dif\arctan y/x}{\dif t}=\frac{1}{1+\left(y/x\right)^{2}}\frac{y^{\prime}x-x^{\prime}y}{x^{2}}\\
+ & =\frac{y^{\prime}x-x^{\prime}y}{x^{2}+y^{2}}=\frac{\sbf e_{k}\cdot\sbf r\times\sbf v}{r^{2}}=\frac{\sbf v\cdot\sbf e_{\perp}}{r}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf v=v_{r}\sbf e_{r}+v_{\theta}\sbf e_{\perp},\quad v_{\theta}=\sbf v\cdot\sbf e_{\perp}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+自然坐标系
+\end_layout
+
+\begin_layout Standard
+取粒子的速度方向
+\begin_inset Formula $\sbf e_{v}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+\sbf e_{v}=\frac{\sbf v}{v},\quad\sbf v=v\sbf e_{v}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sbf v^{\prime}=v^{\prime}\sbf e_{v}+v\left(\sbf e_{v}\right)^{\prime}=v^{\prime}\sbf e_{v}+v\sbf e_{\perp}\theta^{\prime}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\sbf e_{\perp}$
+\end_inset
+
+是垂直于
+\begin_inset Formula $\sbf e_{v}$
+\end_inset
+
+的单位矢量，
+\begin_inset Formula $\sbf e_{r},\sbf e_{\perp},\sbf e_{k}$
+\end_inset
+
+组成右手螺旋。
+\begin_inset Formula 
+\[
+\frac{\dif\sbf e_{v}}{\dif t}=\frac{\dif\sbf e_{v}}{\dif\theta}\frac{\dif\theta}{\dif t}=\sbf e_{\perp}\frac{\dif\theta}{\dif t}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\theta$
+\end_inset
+
+是粒子速度与
+\begin_inset Formula $x$
+\end_inset
+
+轴的夹角，而
+\begin_inset Formula 
+\begin{align*}
+\frac{\dif\theta}{\dif t} & =\frac{\dif\arctan v_{y}/v_{x}}{\dif t}=\frac{1}{1+\left(v_{y}/v_{x}\right)^{2}}\frac{v_{y}^{\prime}v_{x}-v_{x}^{\prime}v_{y}}{v_{x}^{2}}=v\frac{v_{y}^{\prime}v_{x}-v_{x}^{\prime}v_{y}}{\left(v_{x}^{2}+v_{y}^{2}\right)^{3/2}}\\
+ & =\frac{v_{y}^{\prime}v_{x}-v_{x}^{\prime}v_{y}}{v_{x}^{2}+v_{y}^{2}}=\frac{\sbf e_{k}\cdot\sbf v\times\sbf v^{\prime}}{v^{2}}=\frac{\sbf v^{\prime}\cdot\sbf e_{\perp}}{v}
+\end{align*}
+
+\end_inset
+
+考虑到轨迹的曲率的定义，
+\begin_inset Formula 
+\[
+K=\frac{\abs{y^{\prime\prime}x^{\prime}-x^{\prime\prime}y^{\prime}}}{\left(1+y^{\prime2}/x^{\prime2}\right)^{3/2}x^{\prime3}}=\frac{\abs{y^{\prime\prime}x^{\prime}-x^{\prime\prime}y^{\prime}}}{\left(x^{\prime2}+y^{\prime2}\right)^{3/2}}
+\]
+
+\end_inset
+
+则有
+\begin_inset Formula 
+\[
+\frac{\dif\theta}{\dif t}=\frac{v}{\rho}
+\]
+
+\end_inset
+
+最终得到，
+\begin_inset Formula 
+\begin{align*}
+ & \sbf v^{\prime}=a\sbf e_{a}=v^{\prime}\sbf e_{v}+\sbf e_{\perp}\frac{v^{2}}{\rho},\quad a_{\perp}=\sbf v^{\prime}\cdot\sbf e_{\perp}=\frac{v^{2}}{\rho}\\
+ & a^{2}=v^{\prime2}+\left(\frac{v^{2}}{\rho}\right)^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+散度旋度
+\end_layout
+
+\begin_layout Standard
+ref:
+\begin_inset CommandInset href
+LatexCommand href
+name "多元微积分"
+target "https://www.zhihu.com/search?q=%E6%95%A3%E5%BA%A6%E5%92%8C%E6%97%8B%E5%BA%A6&utm_content=search_suggestion&type=content"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+斯托克斯公式
+\end_layout
+
+\begin_layout Standard
+二维情形，格林公式:
+\begin_inset Formula 
+\[
+\oint_{\partial D^{+}}P\dif x+Q\dif y=\iint_{D}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\dif x\dif y
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\partial D^{+}$
+\end_inset
+
+表示二维环路的方向，按照右手螺旋，法线方向向上。
+\end_layout
+
+\begin_layout Standard
+Stokes 斯托克斯公式：环路的积分等于旋度在曲面上的通量。
+\begin_inset Formula 
+\begin{align*}
+ & \oint_{\partial\Sigma^{+}}P\dif x+Q\dif y+R\dif z\\
+ & =\iint_{\Sigma}\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\dif x\dif z+\iint_{\Sigma}\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\dif z\dif x+\iint_{\Sigma}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\dif x\dif y
+\end{align*}
+
+\end_inset
+
+简写为
+\begin_inset Formula 
+\[
+\oint_{\partial\Sigma^{+}}\vec{v}\cdot\dif\vec{r}=\iint_{\Sigma}\nabla\times\vec{v}\cdot\dif\vec{S}
+\]
+
+\end_inset
+
+可以证明
+\begin_inset Formula 
+\[
+\iint_{\Sigma}\dif\vec{S}\times\nabla\varphi=\oint_{\partial\Sigma^{+}}\dif\vec{r}\,\varphi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+高斯公式
+\end_layout
+
+\begin_layout Standard
+闭曲面的通量等于散度在体积上的积分。
+\begin_inset Formula 
+\[
+\oiint_{\partial\Omega^{+}}P\dif y\dif z+Q\dif z\dif x+R\dif x\dif y=\iiint_{\Omega}\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\dif V
+\]
+
+\end_inset
+
+简写为
+\begin_inset Formula 
+\[
+\oiint_{\partial\Omega^{+}}\vec{v}\cdot\dif\vec{S}=\iiint_{\Omega}\nabla\cdot\vec{v}\dif V
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\partial\Omega^{+}$
+\end_inset
+
+的方向为
+\begin_inset Formula $\Omega$
+\end_inset
+
+向外。以及
+\begin_inset Formula 
+\[
+\iiint_{\Omega}\dif V\,\nabla\times\vec{f}=\oiint_{\partial\Omega^{+}}\dif\vec{S}\times\vec{f}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+已知一个电荷系统的偶极矩定义为
+\begin_inset Formula 
+\[
+\sbf{p}\left(t\right)=\int_{V}\rho\left(t,\sbf{x^{\prime}}\right)\sbf{x^{\prime}}\dif\sbf{V^{\prime}}
+\]
+
+\end_inset
+
+利用电荷守恒定律
+\begin_inset Formula $\nabla\cdot\sbf{J}+\frac{\partial\rho}{\partial t}=0$
+\end_inset
+
+证明
+\begin_inset Formula $\sbf{p}$
+\end_inset
+
+的变化率为
+\begin_inset Formula 
+\[
+\frac{\dif\sbf{p}}{\dif t}=\int_{V}\sbf{J}\left(t,\sbf{x^{\prime}}\right)\dif\sbf{V^{\prime}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+常用公式
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $\sbf{r}=\sbf{x}-\sbf{x^{\prime}}$
+\end_inset
+
+，
+\begin_inset Formula $r=\abs{\sbf{r}}$
+\end_inset
+
+并且
+\begin_inset Formula 
+\[
+\sbf{\nabla^{\prime}}=\sbf{e_{x}}\frac{\partial}{\partial x^{\prime}}+\sbf{e_{y}}\frac{\partial}{\partial y^{\prime}}+\sbf{e_{z}}\frac{\partial}{\partial z^{\prime}},\quad\sbf{\nabla}=\sbf{e_{x}}\frac{\partial}{\partial x}+\sbf{e_{y}}\frac{\partial}{\partial y}+\sbf{e_{z}}\frac{\partial}{\partial z}
+\]
+
+\end_inset
+
+则有
+\begin_inset Formula 
+\begin{align*}
+ & \nabla r=-\nabla^{\prime}r=\frac{\sbf{r}}{r}\text{ 单位矢量}\\
+ & \nabla\cdot\sbf{r}=-\nabla^{\prime}\cdot\sbf{r}=3\\
+ & \nabla\times\sbf{r}=-\nabla^{\prime}\times\sbf{r}=0\\
+ & \nabla\sbf{r}=-\nabla^{\prime}\sbf{r}=\sbf{I}\text{ 单位张量}\\
+ & \nabla\frac{1}{r}=-\nabla^{\prime}\frac{1}{r}=-\frac{\sbf{r}}{r^{3}}\\
+ & \nabla\cdot\frac{\sbf{r}}{r^{3}}=-\nabla^{\prime}\cdot\frac{\sbf{r}}{r^{3}}=\delta\left(r\right)\left(r\neq0\right)\\
+ & \nabla\times\frac{\sbf{r}}{r^{3}}=-\nabla^{\prime}\times\frac{\sbf{r}}{r^{3}}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于一个常矢量
+\begin_inset Formula $\sbf{a}$
+\end_inset
+
+，即
+\begin_inset Formula $\nabla\cdot\sbf{a}=0$
+\end_inset
+
+，
+\begin_inset Formula $\nabla\times\sbf{a}=0$
+\end_inset
+
+。考虑到
+\begin_inset Formula $\nabla\sbf{r}$
+\end_inset
+
+是单位张量，
+\begin_inset Formula $\nabla\times\sbf{r}=0$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\left(\sbf{a}\cdot\nabla\right)\sbf{r}=\sbf{a}\cdot\sbf{\nabla r}=\sbf{a}\cdot\sbf{I}=\sbf{a}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nabla\left(\sbf{a}\cdot\sbf{r}\right)=\left(\sbf{a}\cdot\sbf{\nabla}\right)\sbf{r}=\sbf{a}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\nabla\left(\sbf{A\cdot B}\right) & =\sbf{B}\times\left(\sbf{\nabla}\times\sbf{A}\right)+\left(\sbf{B}\cdot\sbf{\nabla}\right)\sbf{A}+\sbf{A}\times\left(\sbf{\nabla}\times\sbf{B}\right)+\left(\sbf{A}\cdot\sbf{\nabla}\right)\sbf{B}\\
+\sbf{A}\times\left(\sbf{\nabla}\times\sbf{A}\right) & =\frac{1}{2}\sbf{\nabla}\left(\sbf{A}\cdot\sbf{A}\right)-\left(\sbf{A}\cdot\sbf{\nabla}\right)\sbf{A}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nabla\cdot\left(\sbf{AB}\right)=\left(\nabla\cdot\sbf{A}\right)\sbf{B}+\sbf{A}\cdot\nabla\sbf{B}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\sbf{AB}$
+\end_inset
+
+为并矢，或者说二阶张量。
 \end_layout
 
 \begin_layout Section
