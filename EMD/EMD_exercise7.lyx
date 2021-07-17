@@ -2755,9 +2755,31 @@ status open
 \end_inset
 
 ，得到，
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+u[t_] := u0*E^(-
+\backslash
+[Gamma]*t) E^(-I*
+\backslash
+[Omega]0*t) + c; Solve[ {u[0] == R0, u'[0] == I*v0}, {u0, c} ] // Simplify
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
-x\approx\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right)+\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\cos\omega_{0}t,\quad y\approx\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\sin\omega_{0}t
+u_{0}=\frac{iv_{0}/\omega_{0}}{i+\gamma/\omega_{0}},\quad C=R_{0}-\frac{iv_{0}/\omega_{0}}{i+\gamma/\omega_{0}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x\approx\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\cos\omega_{0}t+\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right),\quad y\approx\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\sin\omega_{0}t
 \]
 
 \end_inset
@@ -2778,7 +2800,69 @@ x\approx\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right)+\frac{v_{0}}{\omega_{0}}e^{-
 \begin_inset Formula $xy$
 \end_inset
 
-平面上的螺线。
+
+\bar under
+
+\begin_inset CommandInset href
+LatexCommand href
+name "平面上的螺线"
+target "https://wx2.sinaimg.cn/large/c4587b00ly1gskhm6g4aug20g00bujw6.gif"
+literal "false"
+
+\end_inset
+
+
+\bar default
+。
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+x[t_] := v0/
+\backslash
+[Omega]0 E^(-
+\backslash
+[Gamma]*t) Cos[
+\backslash
+[Omega]0*t] + R0 - v0/
+\backslash
+[Omega]0; y[t_] := v0/
+\backslash
+[Omega]0 E^(-
+\backslash
+[Gamma]*t) Sin[
+\backslash
+[Omega]0*t]; xy[t_] := {x[t], y[t]} //.
+ {v0 -> 5, 
+\backslash
+[Omega]0 -> 5, R0 -> 1, 
+\backslash
+[Gamma] -> 1}; rg = 1; Animate[ ParametricPlot[xy[t], {t, 0, t0}, PlotRange
+ -> {{-rg, rg}, {-.5 rg, rg}}, PlotStyle -> {Thick, Orange}, ImageSize ->
+ Large], {t0, 0.01, 6} ] tea = Table[ ParametricPlot[xy[t], {t, 0, t0}, PlotRange
+ -> {{-rg, rg}, {-.5 rg, rg}}, PlotStyle -> {Thick, Orange}, ImageSize ->
+ Large], {t0, 0.01, 6, 6/30} ]; Export["C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+qingz
+\backslash
+
+\backslash
+test
+\backslash
+
+\backslash
+loxuanxian.gif", tea, AnimationRepetitions -> Infinity]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Frame
@@ -2790,12 +2874,10 @@ x\approx\left(R_{0}-\frac{v_{0}}{\omega_{0}}\right)+\frac{v_{0}}{\omega_{0}}e^{-
 
 \end_inset
 
-非相对论近似下，代入偶极辐射公式，得到平均辐射能流与辐射功率，
+非相对论近似下，代入偶极辐射公式，得到平均辐射能流，
 \begin_inset Formula 
 \begin{align*}
-\bar{\sbf S} & =\frac{e^{2}\dot{\sbf v}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}=\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}\\
-\bar{p} & =\oint_{S}\bar{S}r^{2}\dif\Omega=2\pi\int_{0}^{\pi}\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}}\sin^{2}\alpha\dif\cos\alpha\\
- & =\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{6\pi\varepsilon_{0}c^{3}}e^{-2\gamma t}
+\bar{\sbf S} & =\frac{e^{2}\dot{\sbf v}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}=\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}
 \end{align*}
 
 \end_inset
@@ -2836,6 +2918,15 @@ status open
 \end_layout
 
 \begin_layout Frame
+辐射功率为，
+\begin_inset Formula 
+\begin{align*}
+\bar{p} & =\oint_{S}\bar{S}r^{2}\dif\Omega=2\pi\int_{0}^{\pi}\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}}\sin^{2}\alpha\dif\cos\alpha\\
+ & =\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{6\pi\varepsilon_{0}c^{3}}e^{-2\gamma t}
+\end{align*}
+
+\end_inset
+
 低速情况下，电子的能量为
 \begin_inset Formula 
 \[
