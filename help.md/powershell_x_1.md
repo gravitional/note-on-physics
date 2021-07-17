@@ -1367,3 +1367,7 @@ System.EnvironmentVariableTarget
 System.Environment
 ...
 ```
+
+## 日常应用
+
+输出分页: `Get-Help Get-Help | Out-Host -Paging`

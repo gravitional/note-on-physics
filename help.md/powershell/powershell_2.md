@@ -606,8 +606,7 @@ Mode                LastWriteTime     Length Name
 -a---        2011/12/19     18:02      46411 a.csv
 ```
 
-事实上述存储在`$FileList`变量中的并不是单个的对象，而是一个对象数组，
-数组可以通过索引访问得到真实的对象。
+事实上述存储在`$FileList`变量中的并不是单个的对象，而是一个对象数组，数组可以通过索引访问得到真实的对象。
 
 ```powershell
 PS C:Powershell> $obj=(dir)[0]
