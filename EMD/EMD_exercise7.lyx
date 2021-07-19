@@ -246,7 +246,7 @@ tableofcontents[currentsection]
 status open
 
 \begin_layout Plain Layout
-洛伦兹变换
+倾斜洛伦兹变换
 \end_layout
 
 \end_inset
@@ -389,7 +389,7 @@ Rx=R\Lambda R^{-1}Rx^{\prime}
 status open
 
 \begin_layout Plain Layout
-洛伦兹变换
+倾斜洛伦兹变换
 \end_layout
 
 \end_inset
@@ -503,7 +503,7 @@ c_{\beta}c_{\phi}s_{\alpha}+c_{\alpha}s_{\phi} & c_{\alpha}c_{\phi}-c_{\beta}s_{
 status open
 
 \begin_layout Plain Layout
-洛伦兹变换
+倾斜洛伦兹变换
 \end_layout
 
 \end_inset
@@ -595,7 +595,7 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
-辐射距离
+洛伦兹协变距离
 \end_layout
 
 \end_inset
@@ -641,11 +641,7 @@ status open
 \begin_inset Formula $\tilde{r}=\abs*{\tilde{\sbf x}-\tilde{\sbf x^{\prime}}}$
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
-由于光速不变，两个坐标系满足类似的关系：
+。由于光速不变，两个坐标系满足类似的关系：
 \begin_inset Formula $\tilde{r}=c\Delta\tilde{t}$
 \end_inset
 
@@ -672,13 +668,13 @@ c\Delta\tilde{t}\\
 \cdots & \cdots
 \end{array}\right)\left(\begin{array}{c}
 c\Delta t\\
-\sbf r
+r\sbf e_{r}
 \end{array}\right)
 \]
 
 \end_inset
 
-静止系和实验室系间，辐射距离的变换关系是，
+得到静止系和实验室系间，辐射距离的变换关系是，
 \begin_inset Formula 
 \[
 \tilde{r}={\color{blue}\gamma rs},\quad s=1-\sbf e_{r}\cdot\sbf\beta,\quad\sbf\beta=\sbf v/c
@@ -702,7 +698,7 @@ c\Delta t\\
 status open
 
 \begin_layout Plain Layout
-运动粒子的势
+单粒子的辐射势
 \end_layout
 
 \end_inset
@@ -790,7 +786,7 @@ Li
 status open
 
 \begin_layout Plain Layout
-连续—离散变换
+连续分布—离散分布
 \end_layout
 
 \end_inset
@@ -893,7 +889,7 @@ Li
 status open
 
 \begin_layout Plain Layout
-连续—离散变换
+连续分布—离散分布
 \end_layout
 
 \end_inset
@@ -981,7 +977,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-连续体系的势
+连续体系的辐射势
 \end_layout
 
 \end_inset
@@ -990,6 +986,8 @@ status open
 \end_layout
 
 \begin_layout Frame
+
+\size small
 类似地，对于连续体系，
 \begin_inset Formula 
 \[
@@ -1054,7 +1052,7 @@ A^{\mu}\left[t,\sbf x\right] & =\frac{\mu_{0}}{4\pi}\int_{V}\frac{J^{\mu}\left[t
 status open
 
 \begin_layout Plain Layout
-微分关系
+推迟势的隐函数关系
 \end_layout
 
 \end_inset
@@ -1273,7 +1271,7 @@ Derivative[1, 0][rn][t
 status open
 
 \begin_layout Plain Layout
-函数结构
+推迟势的隐函数关系
 \end_layout
 
 \end_inset
@@ -1344,7 +1342,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-偶极辐射
+低速近似–偶极辐射
 \end_layout
 
 \end_inset
@@ -1438,7 +1436,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-一般粒子的辐射
+一般情形的辐射
 \end_layout
 
 \end_inset
@@ -1605,8 +1603,11 @@ status open
 
 \end_layout
 
-\begin_layout Frame
-设辐射方向
+\begin_deeper
+\begin_layout Standard
+
+\size small
+令辐射方向
 \begin_inset Formula $\sbf e_{r}$
 \end_inset
 
@@ -1618,7 +1619,21 @@ status open
 \begin_inset Formula $\theta$
 \end_inset
 
-。当
+，
+\begin_inset Formula $\gamma=1/\sqrt{1-\beta^{2}}$
+\end_inset
+
+，
+\begin_inset Formula $\sbf F$
+\end_inset
+
+是粒子受到的作用力：
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+当
 \begin_inset Formula $\dot{\sbf v}\ssl\sbf v$
 \end_inset
 
@@ -1626,21 +1641,31 @@ status open
 \begin_inset Formula 
 \begin{align*}
  & \sbf E=\frac{\mu_{0}qc}{4\pi r}\frac{\sbf e_{r}\times\left(\sbf e_{r}\times\dot{\sbf\beta}\right)}{s^{3}}=\frac{\mu_{0}qc}{4\pi r}\frac{\dot{\beta}\left(\cos\theta\sbf e_{r}-\sbf e_{\beta}\right)}{s^{3}},\quad\sbf B=\sbf e_{r}\times\sbf E/c\\
- & \frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{\mu_{0}q^{2}}{16\pi^{2}}c\dot{\beta}^{2}\frac{\sin^{2}\theta}{s^{5}},\quad s=1-\beta\cos\theta\\
- & P\left(t^{\prime}\right)=\frac{\mu_{0}q^{2}}{6\pi}c\dot{\beta}^{2}\gamma^{6}={\color{blue}\frac{\mu_{0}q^{2}}{6\pi}\frac{F^{2}}{m_{0}^{2}c}}
+ & \frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{\mu_{0}q^{2}}{16\pi^{2}}c\dot{\beta}^{2}\frac{\sin^{2}\theta}{s^{5}},\\
+ & P\left(t^{\prime}\right)=\frac{\mu_{0}q^{2}}{6\pi}c\dot{\beta}^{2}\gamma^{6}={\color{blue}\frac{q^{2}}{6\pi\varepsilon_{0}c}\left(\frac{F}{mc}\right)^{2}},\quad s=1-\beta\cos\theta
 \end{align*}
 
 \end_inset
 
 其中
-\begin_inset Formula $\sbf F=\dif p/\dif t=\gamma^{3}m_{0}\dot{\sbf v}$
+\begin_inset Formula $\sbf F=\dif p/\dif t=\gamma^{3}mc\dot{\sbf\beta}$
 \end_inset
 
-是粒子受到的作用力，
-\begin_inset Formula $\gamma=1/\sqrt{1-\beta^{2}}$
+，即直线加速器中粒子的辐射与其能量无关。
+\begin_inset Formula $F/mc$
 \end_inset
 
-。当
+具有
+\begin_inset Formula $t^{-1}$
+\end_inset
+
+的量纲。
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+当
 \begin_inset Formula $\dot{\sbf v}\perp\sbf v$
 \end_inset
 
@@ -1663,15 +1688,20 @@ status open
 方向，则
 \begin_inset Formula 
 \begin{align*}
- & \frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{\mu_{0}q^{2}}{16\pi^{2}}c\dot{\beta}^{2}\frac{s^{2}-\left(1-\beta^{2}\right)\sin^{2}\theta\cos^{2}\phi}{s^{5}},\quad s=1-\beta\cos\theta\\
- & P\left(t^{\prime}\right)=\frac{\mu_{0}q^{2}}{6\pi}c\dot{\beta}^{2}\gamma^{4}={\color{blue}\frac{\mu_{0}q^{2}}{6\pi}\frac{\gamma^{2}F^{2}}{m_{0}^{2}c}}
+ & \frac{\dif P\left(t^{\prime}\right)}{\dif\Omega}=\frac{\mu_{0}q^{2}}{16\pi^{2}}c\dot{\beta}^{2}\frac{s^{2}-\left(1-\beta^{2}\right)\sin^{2}\theta\cos^{2}\phi}{s^{5}},\\
+ & P\left(t^{\prime}\right)=\frac{\mu_{0}q^{2}}{6\pi}c\dot{\beta}^{2}\gamma^{4}={\color{blue}\frac{q^{2}}{6\pi\varepsilon_{0}c}\left(\frac{\gamma F}{mc}\right)^{2}}\quad s=1-\beta\cos\theta
 \end{align*}
 
 \end_inset
 
-即直线加速器中粒子的辐射与其能量无关，回旋加速器粒子能量越高，辐射损耗越大。
+其中
+\begin_inset Formula $\sbf F=\gamma mc\dot{\sbf\beta}$
+\end_inset
+
+，即回旋加速器粒子能量越高，辐射损耗越大。
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -1684,7 +1714,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-辐射频谱
+辐射的频谱分析
 \end_layout
 
 \end_inset
@@ -2004,7 +2034,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-辐射阻尼
+低速情况下的辐射阻尼近似
 \end_layout
 
 \end_inset
@@ -2359,7 +2389,7 @@ status open
 写到相位上。
 \begin_inset Formula 
 \[
-\sbf E=\frac{\mu_{0}}{4\pi}\frac{qR_{0}\omega^{2}}{R}e^{-i\left(\omega t-\phi\right)}e^{ikR}\left[e^{ikR}\sbf e_{\theta}\cos\theta+e^{i\left(kR+\pi/2\right)}\sbf e_{\phi}\right]
+\sbf E=\frac{\mu_{0}}{4\pi}\frac{qR_{0}\omega^{2}}{R}e^{-i\left(\omega t-\phi\right)}\left[e^{ikR}\sbf e_{\theta}\cos\theta+e^{i\left(kR+\pi/2\right)}\sbf e_{\phi}\right]
 \]
 
 \end_inset

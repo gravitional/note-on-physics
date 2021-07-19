@@ -5096,6 +5096,7 @@ status open
 \end_layout
 
 \begin_layout Frame
+稍作整理，
 \begin_inset Formula 
 \[
 \dif\frac{v^{\prime}}{\sqrt{c^{2}-v^{\prime2}}}=\frac{q}{mc}\frac{E}{\gamma_{u}}\dif t^{\prime}
@@ -5103,110 +5104,11 @@ status open
 
 \end_inset
 
-两边同时微分得，
-\begin_inset Formula 
-\[
-\frac{\sqrt{c^{2}-v^{\prime2}}}{\left(c^{2}-v^{\prime2}\right)^{2}}\dif v^{\prime}=\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}\dif t^{\prime}
-\]
-
-\end_inset
-
-做变量代换
-\begin_inset Formula $v^{\prime}=c\cos\theta$
+两边同时积分，代入初始条件，
+\begin_inset Formula $t^{\prime}=0,v_{0}^{\prime}=0$
 \end_inset
 
 ，
-\begin_inset Formula $\theta=\arccos\frac{v^{\prime}}{c}$
-\end_inset
-
-，
-\begin_inset Formula $\dif v^{\prime}=-c\sin\theta\dif\theta$
-\end_inset
-
-，
-\begin_inset Formula $\dif\theta=\frac{-\dif v^{\prime}}{\sqrt{c^{2}-v^{\prime2}}}$
-\end_inset
-
-得：
-\begin_inset Formula 
-\[
--c^{-2}\sin\left[\theta\right]^{-2}\dif\theta=\frac{q}{mc^{3}}\frac{E}{\gamma_{u}}\dif t^{\prime}
-\]
-
-\end_inset
-
-
-\begin_inset Formula $t=0$
-\end_inset
-
-时，
-\begin_inset Formula $v^{\prime}=0$
-\end_inset
-
-，
-\begin_inset Formula $\theta=\pi/2$
-\end_inset
-
-。对两边积分得，
-\begin_inset Formula 
-\[
--\int_{\pi/2}^{\arccos v^{\prime}/c}\sin\left[\theta\right]^{-2}\dif\theta=\int_{0}^{t^{\prime}}\frac{q}{mc}\frac{E}{\gamma_{u}}\dif t
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-6.22*
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-使用公式
-\begin_inset Formula 
-\[
-\frac{\dif}{\dif\theta}\cot\theta=-\left(1+\cot\left[\theta\right]^{2}\right)=-\sin\left[\theta\right]^{-2}
-\]
-
-\end_inset
-
-积分得到：
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--Integrate[c Sin[
-\backslash
-[Theta]]^-2, {
-\backslash
-[Theta], 
-\backslash
-[Pi]/2, a}, Assumptions -> 0 < a < 
-\backslash
-[Pi]/2] /.
- a -> ArcCos[v/c]
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula 
 \[
 \frac{v^{\prime}}{\sqrt{c^{2}-v^{\prime2}}}=\frac{q}{mc}\frac{E}{\gamma_{u}}t^{\prime},\quad\text{令}\;a=\frac{q}{mc}\frac{E}{\gamma_{u}}
