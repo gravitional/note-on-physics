@@ -108,6 +108,7 @@
 \DeclareMathOperator{\res}{Res} %复变函数的留数
 \DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
 \DeclareMathOperator{\sign}{Sign}
+\DeclareMathOperator{\arctanh}{Arctanh}
 \DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
 \newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
@@ -256,6 +257,22 @@ Thomas Young
 \begin_inset Formula 
 \[
 A^{2}B^{2}=\left(A\cdot B\right)^{2}+\left(A\times B\right)^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tanh x=\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}=\frac{e^{2x}-1}{e^{2x}+1}=\frac{1-e^{-2x}}{1+e^{-2x}},\quad\arctan y=\frac{1}{2}\ln\frac{1+y}{1-y}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int\frac{1}{1+x^{2}}\dif x=\arctan x,\quad\int\frac{1}{1-x^{2}}\dif x=i\arctan-ix=\arctanh x
 \]
 
 \end_inset

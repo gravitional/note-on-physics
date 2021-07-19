@@ -1798,7 +1798,7 @@ status open
 ，得：
 \begin_inset Formula 
 \[
-\sin\theta^{\prime\prime}=\frac{1}{2}\Rightarrow\theta^{\prime\prime}=30\text{°},\quad\cos\theta^{\prime\prime}=\frac{\sqrt{3}}{2}
+1*\frac{\sqrt{2}}{2}=\sqrt{2}\sin\theta^{\prime\prime}\Rightarrow\theta^{\prime\prime}=30\text{°},\quad\cos\theta^{\prime\prime}=\frac{\sqrt{3}}{2}
 \]
 
 \end_inset
@@ -1816,6 +1816,8 @@ e_{n}\times\left(\sbf{E}^{\prime\prime}-\sbf{E}\right)=0,\quad e_{n}\times\left(
 \end_inset
 
 垂直于入射面时有：
+\size small
+
 \begin_inset Formula 
 \[
 E+E^{\prime}=E^{\prime\prime},\quad H\cos\theta-H^{\prime}\cos\theta=H^{\prime\prime}\cos\theta^{\prime\prime}
@@ -1833,6 +1835,16 @@ H & =\sqrt{\frac{\varepsilon}{\mu}}E\quad\text{将方程全部转换成关于}E\
 \end_inset
 
 
+\size default
+其中带
+\begin_inset Formula $\prime$
+\end_inset
+
+的是表示反射的物理量，带
+\begin_inset Formula $\prime\prime$
+\end_inset
+
+的是表示折射的物理量。
 \end_layout
 
 \begin_layout Standard
@@ -1865,9 +1877,19 @@ status open
 \end_inset
 
 解得：
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Solve[ {E0 + E1 == E2, E0 - E1 == Sqrt[3] E2 }, {E1, E2} ] // Simplify
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
-E^{\prime}=\frac{1-\sqrt{3}}{1+\sqrt{3}}E\quad,E^{\prime\prime}=\frac{2}{1+\sqrt{3}}E
+E^{\prime}=\frac{1-\sqrt{3}}{1+\sqrt{3}}E,\quad E^{\prime\prime}=\frac{2}{1+\sqrt{3}}E
 \]
 
 \end_inset
@@ -1879,7 +1901,7 @@ E^{\prime}=\frac{1-\sqrt{3}}{1+\sqrt{3}}E\quad,E^{\prime\prime}=\frac{2}{1+\sqrt
 ，反射系数为：
 \begin_inset Formula 
 \[
-R=\frac{\overline{S_{1}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\abs*{\frac{E^{\prime\prime}}{E}}^{2}=\left(\frac{1-\sqrt{3}}{1+\sqrt{3}}\right)^{2}=\frac{2-\sqrt{3}}{2+\sqrt{3}}=\left(2-\sqrt{3}\right)^{2}=7-4\sqrt{3}=0.07180
+R=\frac{\overline{S_{1}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\abs*{\frac{E^{\prime}}{E}}^{2}=\left(\frac{1-\sqrt{3}}{1+\sqrt{3}}\right)^{2}=\frac{2-\sqrt{3}}{2+\sqrt{3}}=\left(2-\sqrt{3}\right)^{2}=7-4\sqrt{3}=0.07180
 \]
 
 \end_inset

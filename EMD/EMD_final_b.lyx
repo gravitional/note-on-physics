@@ -125,6 +125,7 @@
 \DeclareMathOperator{\res}{Res} %复变函数的留数
 \DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
 \DeclareMathOperator{\sign}{Sign}
+\DeclareMathOperator{\arctanh}{Arctanh}
 \DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
 \newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
@@ -253,14 +254,18 @@ begin{exercise}
 
 \begin_layout Standard
 一平面电磁波以
-\begin_inset Formula $\theta=45\text{°}$
+\begin_inset Formula $\theta=60\text{°}$
 \end_inset
 
 从真空入射到
-\begin_inset Formula $\varepsilon_{r}=2$
+\begin_inset Formula $\varepsilon_{r}=3$
 \end_inset
 
-的介质，电场强度垂直于入射面。求反射系数和折射系数。
+的介质，电场强度垂直于入射面。设介质非铁磁性且线性均匀，
+\begin_inset Formula $\mu_{r}=1$
+\end_inset
+
+。求反射系数和折射系数。
 \end_layout
 
 \begin_layout Standard
@@ -268,16 +273,12 @@ begin{exercise}
 \color blue
 解：
 \color inherit
-设介质非铁磁性且线性均匀，即
-\begin_inset Formula $\mu_{r}=1$
-\end_inset
-
-，则介质的折射率
-\begin_inset Formula $n^{\prime\prime}=\sqrt{\mu_{r}\varepsilon_{r}}\approx\sqrt{2}$
+介质的折射率
+\begin_inset Formula $n^{\prime\prime}=\sqrt{\mu_{r}\varepsilon_{r}}\approx\sqrt{3}$
 \end_inset
 
 ，入射角为
-\begin_inset Formula $\theta=45\text{°}$
+\begin_inset Formula $\theta=60\text{°}$
 \end_inset
 
 ，由折射定律
@@ -287,7 +288,7 @@ begin{exercise}
 ，得：
 \begin_inset Formula 
 \[
-\sin\theta^{\prime\prime}=\frac{1}{2}\Rightarrow\theta^{\prime\prime}=30\text{°},\quad\cos\theta^{\prime\prime}=\frac{\sqrt{3}}{2}
+\frac{\sqrt{3}}{2}=\sqrt{3}\sin\theta^{\prime\prime}\Rightarrow\theta^{\prime\prime}=30\text{°},\quad\cos\theta^{\prime\prime}=\frac{\sqrt{3}}{2}
 \]
 
 \end_inset
@@ -325,15 +326,33 @@ H & =\sqrt{\frac{\varepsilon}{\mu}}E\quad\text{将方程全部转换成关于}E\
 \begin_inset Formula 
 \begin{align*}
  & E+E^{\prime}=E^{\prime\prime},\quad E\cos\theta-E^{\prime}\cos\theta=\sqrt{\varepsilon_{r}}E^{\prime\prime}\cos\theta^{\prime\prime}\\
-\Rightarrow & E+E^{\prime}=E^{\prime\prime},\quad E\frac{\sqrt{2}}{2}-E^{\prime}\frac{\sqrt{2}}{2}=\sqrt{2}E^{\prime\prime}\frac{\sqrt{3}}{2}
+\Rightarrow & E+E^{\prime}=E^{\prime\prime},\quad E\frac{1}{2}-E^{\prime}\frac{1}{2}=\sqrt{3}E^{\prime\prime}\frac{\sqrt{3}}{2}
 \end{align*}
 
 \end_inset
 
-解得：
+其中带
+\begin_inset Formula $\prime$
+\end_inset
+
+的是表示反射的物理量，带
+\begin_inset Formula $\prime\prime$
+\end_inset
+
+的是表示折射的物理量。解得：
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Solve[ {E0 + E1 == E2, E0 - E1 == Sqrt[3] E2 }, {E1, E2} ] // Simplify
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
-E^{\prime}=\frac{1-\sqrt{3}}{1+\sqrt{3}}E\quad,E^{\prime\prime}=\frac{2}{1+\sqrt{3}}E
+E^{\prime}=\frac{-E}{2},\quad E^{\prime\prime}=\frac{E}{2}
 \]
 
 \end_inset
@@ -345,17 +364,16 @@ E^{\prime}=\frac{1-\sqrt{3}}{1+\sqrt{3}}E\quad,E^{\prime\prime}=\frac{2}{1+\sqrt
 ，反射系数为：
 \begin_inset Formula 
 \[
-R=\frac{\overline{S_{1}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\abs*{\frac{E^{\prime\prime}}{E}}^{2}=\left(\frac{1-\sqrt{3}}{1+\sqrt{3}}\right)^{2}=\frac{2-\sqrt{3}}{2+\sqrt{3}}=\left(2-\sqrt{3}\right)^{2}=7-4\sqrt{3}=0.07180
+R=\frac{\overline{S_{1}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\abs*{\frac{E^{\prime}}{E}}^{2}=\left(\frac{-1}{2}\right)^{2}=\frac{1}{4}=0.25
 \]
 
 \end_inset
 
 折射系数为：
 \begin_inset Formula 
-\begin{align*}
-T & =\frac{\overline{S_{2}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\sqrt{\frac{\varepsilon^{\prime\prime}\mu^{\prime}}{\varepsilon^{\prime}\mu^{\prime\prime}}}\frac{\cos\theta^{\prime\prime}}{\cos\theta}\abs*{\frac{E^{\prime\prime}}{E}}^{2}=\sqrt{2}\frac{\sqrt{3}/2}{\sqrt{2}/2}\left(\frac{2}{1+\sqrt{3}}\right)^{2}=\sqrt{3}\frac{4}{4+2\sqrt{3}}\\
- & =2\sqrt{3}\left(2-\sqrt{3}\right)=4\sqrt{3}-6=0.92820
-\end{align*}
+\[
+T=\frac{\overline{S_{2}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\sqrt{\frac{\varepsilon^{\prime\prime}\mu^{\prime}}{\varepsilon^{\prime}\mu^{\prime\prime}}}\frac{\cos\theta^{\prime\prime}}{\cos\theta}\abs*{\frac{E^{\prime\prime}}{E}}^{2}=\sqrt{3}\frac{\sqrt{3}/2}{1/2}\left(\frac{1}{2}\right)^{2}=\frac{3}{4}=0.75
+\]
 
 \end_inset
 
@@ -395,8 +413,6 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 平面电磁波入射到金属表面上，试证明：透入金属内部的电磁波能量全部变为焦耳热。
 \end_layout
 
@@ -529,8 +545,6 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 半径为
 \begin_inset Formula $R_{0}$
 \end_inset
@@ -551,25 +565,15 @@ begin{exercise}
 \begin_inset Formula $R_{0}\omega\ll c$
 \end_inset
 
-，求辐射场和能流。
-\end_layout
-
-\begin_layout Standard
-
-\color blue
-提示：
-\begin_inset Formula $\sbf M_{0}$
+，求球坐标下辐射场
+\begin_inset Formula $\sbf E,\sbf B$
 \end_inset
 
-以角速度
-\begin_inset Formula $\omega$
+和能流
+\begin_inset Formula $\sbf S$
 \end_inset
 
-转动，可分解为相位差为
-\begin_inset Formula $\pi/2$
-\end_inset
-
-的互相垂直的线振动（参阅第四章习题5）；直角坐标系与球坐标系基矢的变换关系为
+的表达式。已知直角坐标系与球坐标系基矢的变换关系为：
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
@@ -590,38 +594,10 @@ begin{exercise}
 \end_inset
 
 
-\color inherit
-
-\begin_inset Formula 
-\[
-\left(\begin{array}{c}
-\sbf e_{R}\\
-\sbf e_{\theta}\\
-\sbf e_{\phi}
-\end{array}\right)=\left(\begin{array}{ccc}
-\sin\theta\cos\phi & \sin\theta\sin\phi & \cos\theta\\
-\cos\theta\cos\phi & \cos\theta\sin\phi & -\sin\theta\\
--\sin\phi & \cos\phi & 0
-\end{array}\right)\left(\begin{array}{c}
-\sbf e_{x}\\
-\sbf e_{y}\\
-\sbf e_{z}
-\end{array}\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
- & \sbf g_{i}=\Lambda_{ij}\sbf f_{j},\quad\sbf f_{i}=\left(\Lambda^{-1}\right)_{ij}\sbf g_{j}\\
- & \tps\Lambda\Lambda=I\Rightarrow\Lambda^{-1}=\tps\Lambda
-\end{align*}
-
-\end_inset
-
-
 \size small
+\color blue
+解：
+\color inherit
 
 \begin_inset Formula 
 \[
@@ -920,8 +896,6 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 一平面镜以速度
 \begin_inset Formula $v$
 \end_inset
@@ -946,7 +920,11 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-解：设镜子沿着
+
+\color blue
+解：
+\color inherit
+设镜子沿着
 \begin_inset Formula $\Sigma$
 \end_inset
 
@@ -1136,8 +1114,6 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-
-\color blue
 设电子在均匀外磁场
 \begin_inset Formula $\sbf B_{0}$
 \end_inset
@@ -1173,15 +1149,15 @@ begin{exercise}
 ，设非相对论条件满足，求：
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
+考虑辐射阻尼力
+\begin_inset Formula $\sbf F_{s}=\frac{e^{2}}{6\pi\varepsilon_{0}c^{3}}\ddot{\sbf v}$
+\end_inset
 
-\color blue
-考虑辐射阻尼力的电子运动轨道；
+的电子运动轨道；
 \end_layout
 
-\begin_layout Standard
-
-\color blue
+\begin_layout Enumerate
 电子单位时间内的辐射能量。
 \end_layout
 
@@ -1436,7 +1412,7 @@ begin{exercise}
 。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 计算辐射功率，用
 \begin_inset Formula $m,q,\sbf B,\gamma$
 \end_inset
@@ -1444,9 +1420,9 @@ begin{exercise}
 表示，
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 若在
-\begin_inset Formula $t=0$
+\begin_inset Formula $t_{0}=0$
 \end_inset
 
 时刻，
@@ -1461,7 +1437,11 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-解：粒子受到磁力
+
+\color blue
+解：
+\color inherit
+粒子受到磁力
 \begin_inset Formula $F=qvB$
 \end_inset
 
@@ -1472,8 +1452,60 @@ begin{exercise}
 ，所以辐射功率为
 \begin_inset Formula 
 \[
-P=\frac{q^{2}}{6\pi\varepsilon_{0}}\frac{\gamma^{2}F^{2}}{m^{2}c^{3}}
+P=\frac{q^{2}}{6\pi\varepsilon_{0}}\frac{\gamma^{2}F^{2}}{m^{2}c^{3}}=\frac{q^{2}}{6\pi\varepsilon_{0}}\frac{\gamma^{2}q^{2}v^{2}B^{2}}{m^{2}c^{3}}=\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{2}c}\left(\gamma^{2}-1\right)
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+粒子能量的减少率等于其辐射功率，且
+\begin_inset Formula $E=\gamma mc^{2}$
+\end_inset
+
+，代入得到：
+\begin_inset Formula 
+\[
+\frac{\dif E}{\dif t}=-\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{2}c}\left(\gamma^{2}-1\right)=-\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{2}c}\left(\frac{E^{2}}{m^{2}c^{4}}-1\right)
+\]
+
+\end_inset
+
+即
+\begin_inset Formula 
+\begin{align*}
+\frac{\dif\gamma}{\gamma^{2}-1} & =-\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{3}c^{3}}\dif t\\
+\text{积分得：}\quad\arctanh\gamma=\frac{1}{2}\ln\frac{1+\gamma}{1-\gamma} & =\eta t+C,\quad\eta=\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{3}c^{3}}
+\end{align*}
+
+\end_inset
+
+代入初始条件
+\begin_inset Formula $t_{0}=0,E_{0}=\gamma_{0}mc^{2}$
+\end_inset
+
+，得到：
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Integrate[1/(
+\backslash
+[Gamma]^2 - 1), 
+\backslash
+[Gamma]]
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \gamma=\tanh\left(\eta t+C\right)=\tanh\left(\eta t+\frac{1}{2}\ln\frac{1+\gamma_{0}}{1-\gamma_{0}}\right)=\frac{1+\frac{\gamma_{0}-1}{\gamma_{0}+1}e^{-2\eta t}}{1-\frac{\gamma_{0}-1}{\gamma_{0}+1}e^{-2\eta t}}\\
+ & E\left(t\right)=\gamma mc^{2}=mc^{2}\tanh\left(\eta t+\frac{1}{2}\ln\frac{1+\gamma_{0}}{1-\gamma_{0}}\right),\quad\eta=\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{3}c^{3}}
+\end{align*}
 
 \end_inset
 
