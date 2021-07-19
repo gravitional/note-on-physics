@@ -389,8 +389,8 @@ Graphics3D[{ White, Opacity[.2], Cone[{{0, 0, 1}, {0, 0, 0}}, 1/2], White,
 ct^{\prime}\\
 x^{\prime}
 \end{array}\right)=\left(\begin{array}{cc}
-\, & \,\\
-\, & \,
+? & ?\\
+? & ?
 \end{array}\right)\left(\begin{array}{c}
 ct\\
 x
@@ -628,7 +628,7 @@ thin = 0.05; x = 2.5; y = 1; z = 3; pad = .2; Graphics3D[{ White, Opacity[.4],
 \end_layout
 
 \begin_layout Enumerate
-写出波导内电磁波的具体形式，以及波矢满足的约束条件。
+写出波导内电磁波的具体形式，波矢满足的约束条件，以及截止圆频率的表达式。
 \series bold
 \color blue
 （10分）
@@ -647,7 +647,7 @@ thin = 0.05; x = 2.5; y = 1; z = 3; pad = .2; Graphics3D[{ White, Opacity[.4],
 \begin_inset Formula $\qty{0.8}{\cm}\times\qty{0.9}{\cm}$
 \end_inset
 
-的矩形波导管中能以什么波模传播？
+的矩形波导管中能以什么波模传播？用TE波，TM波表示。
 \series bold
 \color blue
 （10分）
@@ -762,10 +762,18 @@ k_{x}A_{x}+k_{y}A_{y}-ik_{z}A_{z}=0
 \begin_inset Formula $\text{TE}_{10}$
 \end_inset
 
+波；波导中不存在
+\begin_inset Formula $\text{TE}_{0n}$
+\end_inset
+
+或
+\begin_inset Formula $\text{TE}_{m0}$
+\end_inset
+
 波；
 \series bold
 \color blue
-（5分）
+（4分）
 \end_layout
 
 \begin_layout Standard
@@ -793,10 +801,14 @@ k_{x}A_{x}+k_{y}A_{y}-ik_{z}A_{z}=0
 \begin_inset Formula $\text{TE}_{11}$
 \end_inset
 
+，
+\begin_inset Formula $\text{TM}_{11}$
+\end_inset
+
 波。
 \series bold
 \color blue
-（5分）
+（6分）
 \end_layout
 
 \begin_layout Standard
@@ -898,7 +910,7 @@ point = 0.4;
 \end_inset
 
 ，写出上半平面
-\begin_inset Formula $R\ll\lambda$
+\begin_inset Formula $R\gg a$
 \end_inset
 
 处的磁矢势
@@ -913,7 +925,7 @@ point = 0.4;
 \begin_inset Formula $\sbf S$
 \end_inset
 
-，辐射能流在哪个方向最强？
+，并求出辐射能流最强的方向。
 \series bold
 \color blue
 （20分）
@@ -1023,7 +1035,11 @@ begin{exercise}
 \begin_inset Formula $q$
 \end_inset
 
-。
+，质量为
+\begin_inset Formula $m$
+\end_inset
+
+，忽略辐射阻尼，
 \end_layout
 
 \begin_layout Enumerate
@@ -1038,7 +1054,7 @@ begin{exercise}
 方向上是否有运动？
 \series bold
 \color blue
-（10分）
+（5分）
 \end_layout
 
 \begin_layout Enumerate
@@ -1053,7 +1069,7 @@ begin{exercise}
 方向上的极限。
 \series bold
 \color blue
-（5分）
+（10分）
 \end_layout
 
 \begin_layout Standard
@@ -1276,7 +1292,7 @@ begin{exercise}
 约定均可。
 \series bold
 \color blue
-（5分）
+（2分）
 \end_layout
 
 \begin_layout Enumerate
@@ -1287,24 +1303,16 @@ begin{exercise}
 可以构造两个洛伦兹不变量：
 \begin_inset Formula 
 \begin{align*}
- & \frac{1}{2}F_{\mu\nu}F^{\mu\nu},\quad-\frac{1}{8}\varepsilon^{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad0123\text{约定}\\
- & \frac{1}{2}F_{\mu\nu}F_{\mu\nu},\quad\frac{i}{8}\varepsilon_{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad1234\text{约定}
+0123\text{约定：}\quad & \frac{1}{2}F_{\mu\nu}F^{\mu\nu},\quad-\frac{1}{8}\varepsilon^{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad\varepsilon^{0123}=1\\
+1234\text{约定：}\quad & \frac{1}{2}F_{\mu\nu}F_{\mu\nu},\quad\frac{i}{8}\varepsilon_{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad\varepsilon_{1234}=1
 \end{align*}
 
 \end_inset
 
-其中
-\begin_inset Formula $\varepsilon^{0123}=1$
-\end_inset
-
-，
-\begin_inset Formula $\varepsilon_{1234}=1$
-\end_inset
-
-。计算在真空电磁波的情形下，它们的取值。
+计算在真空电磁波的情形下，它们的取值。
 \series bold
 \color blue
-（5分）只有结果得2分
+（8分）只有结果得2分
 \end_layout
 
 \begin_layout Standard
@@ -1492,7 +1500,7 @@ begin{exercise}
 。已知作圆周运动的粒子，辐射功率为
 \begin_inset Formula 
 \[
-P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma^{4},
+P\left(t^{\prime}\right)=\frac{q^{2}\gamma^{4}}{6\pi\varepsilon_{0}c}\dot{\beta}\left(t^{\prime}\right)^{2},
 \]
 
 \end_inset
@@ -1549,13 +1557,13 @@ P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma
 所以
 \begin_inset Formula 
 \[
-\sbf E=\frac{q}{4\pi\varepsilon_{0}c^{2}R}\left\{ \frac{\delta^{3}}{\gamma m}\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\right\} _{\text{ret}}
+\sbf E=\frac{q}{4\pi\varepsilon_{0}cRs^{3}}\left\{ \frac{1}{\gamma mc}\sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\right\} _{\text{ret}}
 \]
 
 \end_inset
 
 其中
-\begin_inset Formula $\delta=s^{-1}=\left(1-\sbf\beta\cdot\sbf e_{r}\right)^{-1}$
+\begin_inset Formula $s=1-\sbf\beta\cdot\sbf e_{r}$
 \end_inset
 
 。
@@ -1591,13 +1599,13 @@ qc\beta B=\gamma mc\dot{\beta}\Rightarrow\dot{\beta}=\frac{q\beta B}{\gamma m}
 \end_inset
 
 粒子的加速度为
-\begin_inset Formula $\dot{\beta}=\frac{\beta^{2}}{R},$
+\begin_inset Formula $\dot{\beta}=\frac{\beta^{2}c}{R},$
 \end_inset
 
 所以
 \begin_inset Formula 
 \[
-qc\beta B=\gamma mc\frac{\beta^{2}}{R}\Rightarrow\frac{qBR}{m}=\gamma\beta
+qc\beta B=\gamma mc\frac{\beta^{2}c}{R}\Rightarrow\frac{qBR}{mc}=\gamma\beta
 \]
 
 \end_inset
@@ -1618,19 +1626,19 @@ qc\beta B=\gamma mc\frac{\beta^{2}}{R}\Rightarrow\frac{qBR}{m}=\gamma\beta
 \begin_inset Formula 
 \begin{align*}
  & \frac{q^{2}\alpha^{2}}{6\pi\varepsilon_{0}c}\left(\gamma^{2}-1\right)=qU\frac{c\beta}{2\pi R}\\
- & \frac{q\alpha^{2}}{3\varepsilon_{0}c^{2}}\left(\gamma^{2}-1\right)=U\frac{\beta}{R}=U\frac{qB}{\gamma m}
+ & \frac{q\alpha^{2}}{3\varepsilon_{0}c^{2}}\left(\gamma^{2}-1\right)=U\frac{\beta}{R}=U\frac{qB}{\gamma mc}
 \end{align*}
 
 \end_inset
 
 代入
-\begin_inset Formula $\frac{qBR}{m}=\gamma\beta$
+\begin_inset Formula $\frac{qBR}{mc}=\gamma\beta$
 \end_inset
 
 ，得到：
 \begin_inset Formula 
 \[
-\gamma\left(\gamma^{2}-1\right)=3\frac{U}{q}\frac{\varepsilon_{0}c^{2}}{\alpha}=\frac{3U}{q\alpha\mu_{0}}
+\gamma\left(\gamma^{2}-1\right)=3\frac{U}{q}\frac{\varepsilon_{0}c}{\alpha}=\frac{3U}{q\alpha\mu_{0}c}
 \]
 
 \end_inset
@@ -1650,7 +1658,7 @@ qc\beta B=\gamma mc\frac{\beta^{2}}{R}\Rightarrow\frac{qBR}{m}=\gamma\beta
 ，
 \begin_inset Formula 
 \[
-R=\frac{\gamma\beta}{\alpha}
+R=\frac{\gamma\beta c}{\alpha}
 \]
 
 \end_inset

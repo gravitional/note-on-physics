@@ -367,8 +367,8 @@ Graphics3D[{ White, Opacity[.2], Cone[{{0, 0, 1}, {0, 0, 0}}, 1/2], White,
 ct^{\prime}\\
 x^{\prime}
 \end{array}\right)=\left(\begin{array}{cc}
-\, & \,\\
-\, & \,
+? & ?\\
+? & ?
 \end{array}\right)\left(\begin{array}{c}
 ct\\
 x
@@ -547,7 +547,7 @@ thin = 0.05; x = 2.5; y = 1; z = 3; pad = .2; Graphics3D[{ White, Opacity[.4],
 \end_layout
 
 \begin_layout Enumerate
-写出波导内电磁波的具体形式，以及波矢满足的约束条件。
+写出波导内电磁波的具体形式，波矢满足的约束条件，以及截止圆频率的表达式。
 \series bold
 \color blue
 （10分）
@@ -566,8 +566,9 @@ thin = 0.05; x = 2.5; y = 1; z = 3; pad = .2; Graphics3D[{ White, Opacity[.4],
 \begin_inset Formula $\qty{0.8}{\cm}\times\qty{0.9}{\cm}$
 \end_inset
 
-的矩形波导管中能以什么波模传播？
+的矩形波导管中能以什么波模传播？用TE波，TM波表示
 \series bold
+。
 \color blue
 （10分）
 \end_layout
@@ -671,7 +672,7 @@ point = 0.4;
 \end_inset
 
 ，写出上半平面
-\begin_inset Formula $R\ll\lambda$
+\begin_inset Formula $R\gg a$
 \end_inset
 
 处的磁矢势
@@ -686,7 +687,7 @@ point = 0.4;
 \begin_inset Formula $\sbf S$
 \end_inset
 
-，辐射能流在哪个方向最强？
+，并求出辐射能流最强的方向。
 \series bold
 \color blue
 （20分）
@@ -749,7 +750,11 @@ begin{exercise}
 \begin_inset Formula $q$
 \end_inset
 
-。
+，质量为
+\begin_inset Formula $m$
+\end_inset
+
+，忽略辐射阻尼，
 \end_layout
 
 \begin_layout Enumerate
@@ -764,7 +769,7 @@ begin{exercise}
 方向上是否有运动？
 \series bold
 \color blue
-（10分）
+（5分）
 \end_layout
 
 \begin_layout Enumerate
@@ -779,7 +784,7 @@ begin{exercise}
 方向上的极限。
 \series bold
 \color blue
-（5分）
+（10分）
 \end_layout
 
 \begin_layout Standard
@@ -846,10 +851,10 @@ begin{exercise}
 \begin_inset Formula $1234$
 \end_inset
 
-约定均可。
+的指标约定均可。
 \series bold
 \color blue
-（5分）
+（2分）
 \end_layout
 
 \begin_layout Enumerate
@@ -860,24 +865,16 @@ begin{exercise}
 可以构造两个洛伦兹不变量：
 \begin_inset Formula 
 \begin{align*}
- & \frac{1}{2}F_{\mu\nu}F^{\mu\nu},\quad-\frac{1}{8}\varepsilon^{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad0123\text{约定}\\
- & \frac{1}{2}F_{\mu\nu}F_{\mu\nu},\quad\frac{i}{8}\varepsilon_{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad1234\text{约定}
+0123\text{约定下：}\quad & \frac{1}{2}F_{\mu\nu}F^{\mu\nu},\quad-\frac{1}{8}\varepsilon^{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad\varepsilon^{0123}=1\\
+1234\text{约定下：}\quad & \frac{1}{2}F_{\mu\nu}F_{\mu\nu},\quad\frac{i}{8}\varepsilon_{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad\varepsilon_{1234}=1
 \end{align*}
 
 \end_inset
 
-其中
-\begin_inset Formula $\varepsilon^{0123}=1$
-\end_inset
-
-，
-\begin_inset Formula $\varepsilon_{1234}=1$
-\end_inset
-
-。计算在真空电磁波的情形下，它们的取值。
+计算在真空电磁波的情形下，它们的取值。
 \series bold
 \color blue
-（5分）
+（8分）
 \end_layout
 
 \begin_layout Standard
@@ -971,7 +968,7 @@ begin{exercise}
 。已知作圆周运动的粒子，辐射功率为
 \begin_inset Formula 
 \[
-P\left(t^{\prime}\right)=\frac{q^{2}\dot{\beta}^{2}}{6\pi\varepsilon_{0}c}\gamma^{4},
+P\left(t^{\prime}\right)=\frac{q^{2}\gamma^{4}}{6\pi\varepsilon_{0}c}\dot{\beta}\left(t^{\prime}\right)^{2},
 \]
 
 \end_inset
