@@ -266,6 +266,9 @@ begin{exercise}
 \end_inset
 
 。求反射系数和折射系数。
+\series bold
+\color blue
+（10分）
 \end_layout
 
 \begin_layout Standard
@@ -344,7 +347,7 @@ H & =\sqrt{\frac{\varepsilon}{\mu}}E\quad\text{将方程全部转换成关于}E\
 status open
 
 \begin_layout Plain Layout
-Solve[ {E0 + E1 == E2, E0 - E1 == Sqrt[3] E2 }, {E1, E2} ] // Simplify
+Solve[ {E0 + E1 == E2, E0 - E1 == 3 E2 }, {E1, E2} ] // Simplify
 \end_layout
 
 \end_inset
@@ -362,6 +365,12 @@ E^{\prime}=\frac{-E}{2},\quad E^{\prime\prime}=\frac{E}{2}
 \end_inset
 
 ，反射系数为：
+\series bold
+\color blue
+（5分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
 R=\frac{\overline{S_{1}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\abs*{\frac{E^{\prime}}{E}}^{2}=\left(\frac{-1}{2}\right)^{2}=\frac{1}{4}=0.25
@@ -370,6 +379,12 @@ R=\frac{\overline{S_{1}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\abs
 \end_inset
 
 折射系数为：
+\series bold
+\color blue
+（5分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
 T=\frac{\overline{S_{2}}\cdot\sbf{e}_{n}}{\overline{S_{0}}\cdot\sbf{e}_{n}}=\sqrt{\frac{\varepsilon^{\prime\prime}\mu^{\prime}}{\varepsilon^{\prime}\mu^{\prime\prime}}}\frac{\cos\theta^{\prime\prime}}{\cos\theta}\abs*{\frac{E^{\prime\prime}}{E}}^{2}=\sqrt{3}\frac{\sqrt{3}/2}{1/2}\left(\frac{1}{2}\right)^{2}=\frac{3}{4}=0.75
@@ -413,7 +428,134 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-平面电磁波入射到金属表面上，试证明：透入金属内部的电磁波能量全部变为焦耳热。
+设有一个球对称的电荷分布，以角频率
+\begin_inset Formula $\omega$
+\end_inset
+
+沿径向作简谐运动，求辐射场。
+\series bold
+\color blue
+（5分）
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+解：
+\color inherit
+电荷球对称分布，所以电荷密度分布与
+\begin_inset Formula $\theta,\phi$
+\end_inset
+
+无关。
+\begin_inset Formula $\rho=\rho\left(r^{\prime}\right)$
+\end_inset
+
+。设在平衡状态下，球内任某点源的位置矢量为
+\begin_inset Formula 
+\[
+\sbf r^{\prime}=\sbf r_{0}^{\prime}e^{-i\omega t^{\prime}}
+\]
+
+\end_inset
+
+其速度为
+\begin_inset Formula 
+\[
+\sbf v^{\prime}=-i\omega\sbf r^{\prime},
+\]
+
+\end_inset
+
+于是球内的电流密度为，
+\series bold
+\color blue
+（3分）
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\sbf J\left(t^{\prime},\sbf x^{\prime}\right)=\rho\left(r^{\prime}\right)\sbf v^{\prime}=-i\omega\sbf r_{0}^{\prime}\rho\left(r^{\prime}\right)e^{-i\omega t^{\prime}}
+\]
+
+\end_inset
+
+推迟势为：
+\begin_inset Formula 
+\[
+\sbf A\left(t,\sbf x\right)=\frac{\mu_{0}}{4\pi}\int_{V}\frac{\sbf J\left(t-r/c,\sbf x^{\prime}\right)}{r}\dif V^{\prime}=0
+\]
+
+\end_inset
+
+球体中两对称点的
+\begin_inset Formula $\rho\left(r^{\prime}\right)$
+\end_inset
+
+相等，而
+\begin_inset Formula $\sbf r^{\prime}$
+\end_inset
+
+等值反向，所以
+\begin_inset Formula $\sbf J\left(t^{\prime},\sbf x^{\prime}\right)$
+\end_inset
+
+在球上的积分为零，即不会发生辐射。
+\series bold
+\color blue
+（2分）
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exercise}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exercise}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+平面电磁波入射到金属表面上，设良导体条件成立，
+\begin_inset Formula $\sigma\gg\omega\varepsilon$
+\end_inset
+
+，
+\begin_inset Formula $k^{2}\approx i\omega\mu\sigma$
+\end_inset
+
+，
+\begin_inset Formula $\sigma$
+\end_inset
+
+是金属的电导率。证明：透入金属内部的电磁波能量全部变为焦耳热。
+\series bold
+\color blue
+（10分）
 \end_layout
 
 \begin_layout Standard
@@ -465,18 +607,20 @@ begin{exercise}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 在金属表面
 \begin_inset Formula $z=0$
 \end_inset
 
 处，单位时间从单位面积流入的平均能量为：
+\series bold
+\color blue
+（5分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
-\left.\overline{\sbf S}\right|_{z=0}=\frac{1}{2}\sqrt{\frac{\sigma}{2\omega\mu}}E_{0}^{2}
+\left.\overline{\sbf S}\right|_{z=0}={\color{blue}\frac{1}{2}\sqrt{\frac{\sigma}{2\omega\mu}}E_{0}^{2}}.
 \]
 
 \end_inset
@@ -489,14 +633,24 @@ begin{exercise}
 
 \end_inset
 
-这些功全部对应焦耳热。沿着
+这些功全部对应焦耳热。它是
 \begin_inset Formula $z$
 \end_inset
 
-轴积分，单位面积导体柱的平均损耗功率为：
+的函数，将功率密度沿着
+\begin_inset Formula $z$
+\end_inset
+
+轴积分，得到单位面积导体柱的平均损耗功率为：
+\series bold
+\color blue
+（5分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
-\int_{0}^{\infty}\overline{p}\dif z=\frac{\sigma}{2}E_{0}^{2}\int_{0}^{\infty}e^{-2\alpha z}\dif z=\frac{1}{2}\frac{\sigma}{2\alpha}E_{0}^{2}=\frac{1}{2}\sqrt{\frac{\sigma}{2\omega\mu}}E_{0}^{2},\quad\alpha=\sqrt{\frac{\omega\mu\sigma}{2}}.
+\int_{0}^{\infty}\overline{p}\dif z=\frac{\sigma}{2}E_{0}^{2}\int_{0}^{\infty}e^{-2\alpha z}\dif z=\frac{1}{2}\frac{\sigma}{2\alpha}E_{0}^{2}={\color{blue}\frac{1}{2}\sqrt{\frac{\sigma}{2\omega\mu}}E_{0}^{2}},\quad\alpha=\sqrt{\frac{\omega\mu\sigma}{2}}.
 \]
 
 \end_inset
@@ -557,11 +711,15 @@ begin{exercise}
 \begin_inset Formula $\omega$
 \end_inset
 
-绕通过球心而垂直于
-\begin_inset Formula $\sbf M_{0}$
+绕
+\begin_inset Formula $z$
 \end_inset
 
-的轴旋转，设
+轴旋转，
+\begin_inset Formula $\sbf M_{0}\perp\sbf e_{z}$
+\end_inset
+
+。设
 \begin_inset Formula $R_{0}\omega\ll c$
 \end_inset
 
@@ -574,6 +732,12 @@ begin{exercise}
 \end_inset
 
 的表达式。已知直角坐标系与球坐标系基矢的变换关系为：
+\series bold
+\color blue
+（20分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
@@ -594,11 +758,10 @@ begin{exercise}
 \end_inset
 
 
-\size small
 \color blue
 解：
 \color inherit
-
+磁体的总磁矩随时间变化的表达式可以写成，
 \begin_inset Formula 
 \[
 \sbf m=\sbf e_{x}m_{0}\cos\omega t+\sbf e_{y}m_{0}\sin\omega t
@@ -606,10 +769,10 @@ begin{exercise}
 
 \end_inset
 
-并写成复数形式，
+将它写成复数形式，
 \begin_inset Formula 
 \begin{align*}
-\sbf m & ={\color{blue}\frac{4\pi R_{0}^{3}M_{0}}{3}}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}={\color{blue}m_{0}}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}\\
+\sbf m & =\frac{4\pi R_{0}^{3}M_{0}}{3}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t}=m_{0}\left(\sbf e_{x}+i\sbf e_{y}\right)e^{-i\omega t},\quad m_{0}={\color{blue}\frac{4\pi R_{0}^{3}M_{0}}{3}}\\
 \sbf m & =m_{0}e^{-i\left(\omega t-\phi\right)}\left(\sin\theta\sbf e_{R}+\cos\theta\sbf e_{\theta}+i\sbf e_{\phi}\right),\quad\sbf{\ddot{m}}=-\omega^{2}\sbf m
 \end{align*}
 
@@ -619,12 +782,18 @@ begin{exercise}
 \begin_inset Formula 
 \begin{align*}
 \sbf e_{x} & =\sin\theta\cos\phi\sbf e_{R}+\cos\theta\cos\phi\sbf e_{\theta}-\sin\phi\sbf e_{\phi},\\
-\sbf e_{y} & =\sin\theta\sin\phi\sbf e_{R}+\cos\theta\sin\phi\sbf e_{\theta}+\cos\phi\sbf e_{\phi},\quad\underset{\rightarrow}{\left(R,\theta,\phi\right)}
+\sbf e_{y} & =\sin\theta\sin\phi\sbf e_{R}+\cos\theta\sin\phi\sbf e_{\theta}+\cos\phi\sbf e_{\phi},
 \end{align*}
 
 \end_inset
 
 辐射场和平均辐射能流密度为
+\series bold
+\color blue
+（5分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \begin{align*}
 \sbf B & =\frac{\mu_{0}}{4\pi}\frac{e^{ikR}}{R}i\sbf k_{R}\times\left(-\sbf{m}\times i\sbf k_{R}\right)=\frac{\mu_{0}}{4\pi}\frac{e^{-i\left(\omega t-kR-\phi\right)}}{R}\frac{{\color{blue}m_{0}}\omega^{2}}{c^{2}}\left(\sbf e_{\theta}\cos\theta+i\sbf e_{\phi}\right)\\
@@ -635,6 +804,9 @@ begin{exercise}
 \end_inset
 
 
+\series bold
+\color blue
+（15分）
 \end_layout
 
 \begin_layout Standard
@@ -670,197 +842,139 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-设真空中矢势可用复数傅里叶展开为
-\begin_inset Formula 
-\[
-\sbf A\left(t,\sbf x\right)=\sum_{k}\left[\sbf a_{k}e^{i\sbf k\cdot\sbf x}+\sbf a_{k}^{*}e^{i\sbf k\cdot\sbf x}\right],
-\]
-
+在参考系
+\begin_inset Formula $\Sigma$
 \end_inset
 
-其中
-\begin_inset Formula $\sbf a_{k}^{*}$
-\end_inset
-
-是
-\begin_inset Formula $\sbf a_{k}$
-\end_inset
-
-的复共轭。
-\end_layout
-
-\begin_layout Enumerate
-求
-\begin_inset Formula $\sbf a_{k}$
-\end_inset
-
-满足的方程。
-\end_layout
-
-\begin_layout Enumerate
-当选取规范
-\begin_inset Formula $\nabla\cdot\sbf A=0$
+内有
+\begin_inset Formula $\sbf E=E\sbf e_{y}$
 \end_inset
 
 ，
-\begin_inset Formula $\varphi=0$
+\begin_inset Formula $\sbf B=B\sbf e_{z}$
 \end_inset
 
-时，证明
-\begin_inset Formula $\sbf k\cdot\sbf a_{k}=0$
+，设
+\begin_inset Formula $\Sigma^{\prime}$
 \end_inset
 
-；
-\end_layout
-
-\begin_layout Enumerate
-把
-\begin_inset Formula $\sbf E$
+系沿着
+\begin_inset Formula $\Sigma$
 \end_inset
 
-和
-\begin_inset Formula $\sbf B$
-\end_inset
-
-用
-\begin_inset Formula $\sbf a_{k}$
-\end_inset
-
-和
-\begin_inset Formula $\sbf a_{k}^{*}$
-\end_inset
-
-表示。
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{exercise}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{exercise}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-电荷为
-\begin_inset Formula $q$
-\end_inset
-
-，静止质量为
-\begin_inset Formula $m$
-\end_inset
-
-的粒子在均匀电场
-\begin_inset Formula $E\sbf e_{x}$
-\end_inset
-
-内运动，初速度为零，初始位置在原点。求粒子在时刻
-\begin_inset Formula $t$
-\end_inset
-
-的位置
+系
 \begin_inset Formula $x$
 \end_inset
 
-，动量
-\begin_inset Formula $p$
+轴正向以速度
+\begin_inset Formula $v$
 \end_inset
 
-和动量
-\begin_inset Formula $E$
+运动。若要使
+\begin_inset Formula $\Sigma^{\prime}$
 \end_inset
 
-，并给出非相对论近似的结果。
+系中只有电场或磁场，则
+\begin_inset Formula $v$
+\end_inset
+
+应当为多少？
+\series bold
+\color blue
+（10分）
 \end_layout
 
 \begin_layout Standard
-解：由相对论性力学方程
-\begin_inset Formula $\dif\sbf p/\dif t=\sbf F$
-\end_inset
 
-，
-\begin_inset Formula 
-\[
-\dif p_{x}=\dif\frac{mvc}{\sqrt{c^{2}-v^{2}}}=qE\dif t,\quad p_{y}=0,\quad p_{z}=0
-\]
-
-\end_inset
-
-代入初始条件
-\begin_inset Formula $t=0,v_{0}=0$
-\end_inset
-
-，得：
+\color blue
+解：
+\color inherit
+电磁场的变换关系为，
 \begin_inset Formula 
 \begin{align*}
- & p_{x}=\frac{vc}{\sqrt{c^{2}-v^{2}}}=m\alpha t,\quad\alpha=\frac{qE}{m}\\
- & v=\frac{\alpha t}{\sqrt{1+\alpha^{2}t^{2}/c^{2}}}
+ & \sbf E_{\ssl}^{\prime}=\sbf E_{\ssl},\quad\sbf B_{\ssl}^{\prime}=\sbf B_{\ssl},\quad\text{与运动方向平行的分量}\\
+ & \sbf E_{\perp}^{\prime}=\gamma\left(\sbf E_{\perp}+\sbf v\times\sbf B_{\perp}\right),\quad\sbf B_{\perp}^{\prime}=\gamma\left(\sbf B_{\perp}-\frac{\sbf v}{c^{2}}\times\sbf E_{\perp}\right).
 \end{align*}
 
 \end_inset
 
-其中
-\begin_inset Formula $\alpha=\frac{qE}{m}$
+则在
+\begin_inset Formula $\Sigma^{\prime}$
 \end_inset
 
-，对应的，
-\begin_inset Formula 
-\[
-\gamma=\frac{\alpha t}{v}=\sqrt{1+\frac{\alpha^{2}t^{2}}{c^{2}}},\quad E=\gamma mc^{2}=\sqrt{1+\frac{\alpha^{2}t^{2}}{c^{2}}}mc^{2}
-\]
-
-\end_inset
-
-再对速度作积分，代入初始条件，
-\begin_inset Formula $t=0,x=0$
-\end_inset
-
-得到，
-\begin_inset Formula 
-\[
-x=\frac{c^{2}}{\alpha}\left[\sqrt{1+\frac{\alpha^{2}t^{2}}{c^{2}}}-1\right]
-\]
-
-\end_inset
-
-在非相对论近似下，
-\begin_inset Formula $\alpha t\ll c$
-\end_inset
-
-，则有
+系中，
 \begin_inset Formula 
 \begin{align*}
- & v=\frac{\alpha t}{\sqrt{1+\alpha^{2}t^{2}/c^{2}}}\approx\alpha t,\quad x\approx\frac{1}{2}\alpha t^{2}\\
- & p_{x}=\alpha t,\quad E=mc^{2}+\frac{1}{2}m\left(\alpha t\right)^{2}
+ & E_{x}^{\prime}=B_{x}^{\prime}=0,\\
+ & E_{y}^{\prime}=\gamma\left(E_{y}-vB_{z}\right)=\gamma\left(E-vB\right)\\
+ & B_{z}^{\prime}=\gamma\left(B_{z}-\frac{v}{c^{2}}E_{y}\right)=\gamma\left(B-\frac{v}{c^{2}}E\right)
 \end{align*}
 
 \end_inset
 
+若要在
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
 
+系中只观察到电场
+\begin_inset Formula $\sbf E^{\prime}$
+\end_inset
+
+，则需要
+\begin_inset Formula 
+\[
+B-\frac{v}{c^{2}}E=0\Rightarrow v=\frac{c^{2}B}{E},\quad\text{即}\;\sbf v=\frac{c^{2}}{E^{2}}\sbf E\times\sbf B
+\]
+
+\end_inset
+
+由于
+\begin_inset Formula $v<c$
+\end_inset
+
+，故
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系中的电磁场需满足
+\begin_inset Formula $E>cB$
+\end_inset
+
+。
+\series bold
+\color blue
+（5分）
+\end_layout
+
+\begin_layout Standard
+若要在
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+系中只观察到磁场
+\begin_inset Formula $\sbf B^{\prime}$
+\end_inset
+
+，则需要
+\begin_inset Formula 
+\[
+E-vB=0\Rightarrow v=\frac{E}{B},\quad\text{即}\;\sbf v=\frac{1}{B^{2}}\sbf E\times\sbf B
+\]
+
+\end_inset
+
+类似地
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系中的电磁场需满足
+\begin_inset Formula $E<cB$
+\end_inset
+
+。
+\series bold
+\color blue
+（5分）
 \end_layout
 
 \begin_layout Standard
@@ -896,11 +1010,19 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-一平面镜以速度
+一平面镜沿着
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系的
+\begin_inset Formula $x$
+\end_inset
+
+轴正方向以速度
 \begin_inset Formula $v$
 \end_inset
 
-自左向右运动。一束频率为
+运动，镜面垂直于运动方向。一束频率为
 \begin_inset Formula $\omega_{0}$
 \end_inset
 
@@ -916,7 +1038,14 @@ begin{exercise}
 \begin_inset Formula $\theta$
 \end_inset
 
-。垂直入射情况如何？
+
+\begin_inset space ~
+\end_inset
+
+。若垂直入射，情况如何？
+\series bold
+\color blue
+（10分）
 \end_layout
 
 \begin_layout Standard
@@ -924,36 +1053,32 @@ begin{exercise}
 \color blue
 解：
 \color inherit
-设镜子沿着
+ 在
 \begin_inset Formula $\Sigma$
 \end_inset
 
-系的
-\begin_inset Formula $x$
+系中，入射波为
+\begin_inset Formula $\omega_{0},\theta_{0}$
 \end_inset
 
-轴正方向以速度
-\begin_inset Formula $v$
+，反射波为
+\begin_inset Formula $\omega,\theta$
 \end_inset
 
-运动。镜面垂直于运动方向。
-\begin_inset Formula $+v$
+。boost 到镜子的静止系中，设入射波为
+\begin_inset Formula $\omega_{0}^{\prime},\theta_{0}^{\prime}$
 \end_inset
 
- boost 到镜子的静止系中，入射波频率为
-\begin_inset Formula $\omega^{\prime}$
-\end_inset
-
-，入射角为
-\begin_inset Formula $\theta_{i}^{\prime}$
+，反射波为
+\begin_inset Formula $\omega^{\prime},\theta^{\prime}$
 \end_inset
 
 。由反射定律，
-\begin_inset Formula $\theta_{r}^{\prime}=\theta_{i}^{\prime}$
+\begin_inset Formula $\theta^{\prime}=\theta_{0}^{\prime}$
 \end_inset
 
 ，所以入射波矢
-\begin_inset Formula $\sbf k_{i}^{\prime}$
+\begin_inset Formula $\sbf k_{0}^{\prime}$
 \end_inset
 
 和反射波矢
@@ -967,32 +1092,16 @@ begin{exercise}
 分量分别为
 \begin_inset Formula 
 \[
-k_{ix}^{\prime}=-\frac{\omega^{\prime}}{c}\cos\theta_{i}^{\prime},\quad k_{rx}^{\prime}=\frac{\omega^{\prime}}{c}\cos\theta_{i}^{\prime},
+k_{0x}^{\prime}=-\frac{\omega_{0}^{\prime}}{c}\cos\theta_{0}^{\prime},\quad k_{rx}^{\prime}=\frac{\omega^{\prime}}{c}\cos\theta_{0}^{\prime},
 \]
 
 \end_inset
 
-在
-\begin_inset Formula $\Sigma$
+静止系中的反射可以用
+\begin_inset Formula $\diag\left(1,-1\right)$
 \end_inset
 
-系中，观察到入射频率为
-\begin_inset Formula $\omega_{0}$
-\end_inset
-
-，入射角为
-\begin_inset Formula $\theta_{0}$
-\end_inset
-
-，反射波频率为
-\begin_inset Formula $\omega$
-\end_inset
-
-，反射角为
-\begin_inset Formula $\theta$
-\end_inset
-
-，
+描述。建立方程为：
 \begin_inset Formula 
 \begin{align*}
 \left(\begin{array}{c}
@@ -1011,14 +1120,14 @@ k_{rx}
 \omega_{0}/c\\
 -k_{0x}
 \end{array}\right)\\
-\left(\begin{array}{c}
+\Rightarrow\left(\begin{array}{c}
 \omega/c\\
 k_{rx}
 \end{array}\right) & =\left(\begin{array}{cc}
 \gamma^{2}\left(1+\beta^{2}\right) & -2\gamma^{2}\beta\\
 2\gamma^{2}\beta & -\gamma^{2}\left(1+\beta^{2}\right)
 \end{array}\right)\left(\begin{array}{c}
-\omega_{0}/c\\
+f/c\\
 -k_{0x}
 \end{array}\right)
 \end{align*}
@@ -1034,38 +1143,45 @@ k_{rx} & =2\gamma^{2}\beta\omega_{0}/c+\gamma^{2}\left(1+\beta^{2}\right)k_{0x}
 
 \end_inset
 
-由
+代入
 \begin_inset Formula $k_{rx}=w/c\cos\theta$
 \end_inset
 
 ，
-\begin_inset Formula $k_{0x}=w_{0}/c\cos\theta_{0}$
+\begin_inset Formula $k_{0x}=\omega_{0}/c\cos\theta_{0}$
 \end_inset
 
 得：
+\series bold
+\color blue
+（5分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \begin{align*}
-\omega & =\omega_{0}\gamma^{2}\left(1+\beta^{2}\right)+w_{0}2\gamma^{2}\beta\cos\theta_{0}\\
-w\cos\theta & =\omega_{0}2\gamma^{2}\beta+w_{0}\gamma^{2}\left(1+\beta^{2}\right)\cos\theta_{0}
+\omega & =\omega_{0}\gamma^{2}\left(1+\beta^{2}\right)+2\omega_{0}\gamma^{2}\beta\cos\theta_{0}\\
+w\cos\theta & =2\omega_{0}\gamma^{2}\beta+\omega_{0}\gamma^{2}\left(1+\beta^{2}\right)\cos\theta_{0}
 \end{align*}
 
 \end_inset
 
-解得：
+即：
+\series bold
+\color blue
+（5分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \begin{align*}
 \omega & =\gamma^{2}\omega_{0}\left(1+\beta^{2}+2\beta\cos\theta_{0}\right)\\
 \cos\theta & =\frac{2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}}{1+\beta^{2}+2\beta\cos\theta_{0}}\\
-\tan\theta & =\frac{\sin\theta_{0}}{\gamma^{2}\left[2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}\right]}\\
-\theta & =\theta_{0}-2\beta\sin\theta_{0}+\beta^{2}\sin2\theta_{0}+O\left(\beta^{3}\right)
+\Rightarrow\tan\theta & =\frac{\sin\theta_{0}}{\gamma^{2}\left[2\beta+\left(1+\beta^{2}\right)\cos\theta_{0}\right]}
 \end{align*}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 垂直入射对应
 \begin_inset Formula $\theta_{0}=0$
 \end_inset
@@ -1075,10 +1191,14 @@ w\cos\theta & =\omega_{0}2\gamma^{2}\beta+w_{0}\gamma^{2}\left(1+\beta^{2}\right
 \end_inset
 
 ，
-\begin_inset Formula $\omega=\omega_{0}\frac{\left(1+\beta\right)^{2}}{1-\beta^{2}}=\omega_{0}\frac{c+v}{c-v}$
+\begin_inset Formula 
+\[
+\omega=\omega_{0}\frac{\left(1+\beta\right)^{2}}{1-\beta^{2}}=\omega_{0}\frac{1+\beta}{1-\beta}.
+\]
+
 \end_inset
 
-。
+
 \end_layout
 
 \begin_layout Standard
@@ -1114,7 +1234,15 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-设电子在均匀外磁场
+设电子质量为
+\begin_inset Formula $m$
+\end_inset
+
+，电荷为
+\begin_inset Formula $e$
+\end_inset
+
+，在均匀外磁场
 \begin_inset Formula $\sbf B_{0}$
 \end_inset
 
@@ -1122,11 +1250,11 @@ begin{exercise}
 \begin_inset Formula $\sbf B$
 \end_inset
 
-的方向为
+沿
 \begin_inset Formula $z$
 \end_inset
 
-轴方向，已知
+轴正方向，已知
 \begin_inset Formula $t=0$
 \end_inset
 
@@ -1146,7 +1274,10 @@ begin{exercise}
 \begin_inset Formula $\dot{y}=v_{0}$
 \end_inset
 
-，设非相对论条件满足，求：
+，设非相对论条件满足：
+\series bold
+\color blue
+（20分）
 \end_layout
 
 \begin_layout Enumerate
@@ -1154,11 +1285,11 @@ begin{exercise}
 \begin_inset Formula $\sbf F_{s}=\frac{e^{2}}{6\pi\varepsilon_{0}c^{3}}\ddot{\sbf v}$
 \end_inset
 
-的电子运动轨道；
+，近似求解电子的运动轨道，设辐射波长远大于电子经典半径。
 \end_layout
 
 \begin_layout Enumerate
-电子单位时间内的辐射能量。
+求电子单位时间内辐射的能量。
 \end_layout
 
 \begin_layout Standard
@@ -1169,12 +1300,12 @@ begin{exercise}
 电子受到的洛伦兹力，
 \begin_inset Formula 
 \[
-\sbf F=q\sbf v\times\sbf B=e\dot{\sbf r}\times B\sbf e_{z}=eB\left(\dot{y}\sbf e_{x}-\dot{x}\sbf e_{y}\right)
+\sbf F=e\sbf v\times\sbf B=e\dot{\sbf r}\times B\sbf e_{z}=eB\left(\dot{y}\sbf e_{x}-\dot{x}\sbf e_{y}\right)
 \]
 
 \end_inset
 
-低速运动粒子受到的 阻尼力，
+低速运动粒子受到的阻尼力，
 \begin_inset Formula 
 \[
 \sbf F_{s}=\frac{e^{2}}{6\pi\varepsilon_{0}c^{3}}\left(\dddot{x}\sbf e_{x}+\dddot{y}\sbf e_{y}+\dddot{z}\sbf e_{z}\right)
@@ -1219,7 +1350,7 @@ begin{exercise}
 
 \end_inset
 
-一般辐射的波长远大于电子经典半径
+一般辐射的波长远大于粒子经典半径
 \begin_inset Formula $\frac{e^{2}}{4\pi\varepsilon_{0}mc^{2}}$
 \end_inset
 
@@ -1256,6 +1387,12 @@ begin{exercise}
 \end_inset
 
 用待定系数法得到方程的通解为，
+\series bold
+\color blue
+（8分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
 u=u_{0}e^{-\gamma t}e^{-i\omega_{0}t}+C
@@ -1330,10 +1467,13 @@ x\approx\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\cos\omega_{0}t+\left(R_{0}-\frac{v
 \end_inset
 
 平面上的螺线。
+\series bold
+\color blue
+（4分）
 \end_layout
 
 \begin_layout Standard
-电子单位时间内的辐射能量：
+电子单位时间内辐射的能量：
 \begin_inset Formula 
 \[
 \dot{\sbf v}^{2}=\ddot{x}^{2}+\ddot{y}^{2}+\ddot{z}^{2}\approx v_{0}^{2}\omega_{0}^{2}e^{-2\gamma t}
@@ -1344,7 +1484,7 @@ x\approx\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\cos\omega_{0}t+\left(R_{0}-\frac{v
 非相对论近似下，代入偶极辐射公式，得到平均辐射能流，
 \begin_inset Formula 
 \begin{align*}
-\bar{\sbf S} & =\frac{e^{2}\dot{\sbf v}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}=\frac{e^{2}v_{0}^{2}\omega_{0}^{2}}{16\pi^{2}\varepsilon_{0}c^{3}r^{2}}\sin^{2}\alpha\sbf e_{r}
+\bar{\sbf S} & =N\frac{\dot{\sbf v}^{2}}{r^{2}}\sin^{2}\alpha\sbf e_{r}=N\frac{v_{0}^{2}\omega_{0}^{2}}{r^{2}}\sin^{2}\alpha\sbf e_{r},\quad N=\frac{e^{2}}{16\pi^{2}\varepsilon_{0}c^{3}}
 \end{align*}
 
 \end_inset
@@ -1361,7 +1501,21 @@ x\approx\frac{v_{0}}{\omega_{0}}e^{-\gamma t}\cos\omega_{0}t+\left(R_{0}-\frac{v
 \begin_inset Formula $\dot{\sbf v}$
 \end_inset
 
-的夹角。
+的夹角。所以辐射功率为，
+\series bold
+\color blue
+（8分）
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\bar{p}=\oint_{S}\bar{S}r^{2}\dif\Omega=2\pi\int_{0}^{\pi}Nv_{0}^{2}\omega_{0}^{2}\sin^{2}\alpha\dif\left(-\cos\alpha\right)=\frac{8\pi}{3}Nv_{0}^{2}\omega_{0}^{2}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1397,7 +1551,7 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-一个质量为
+质量为
 \begin_inset Formula $m$
 \end_inset
 
@@ -1405,11 +1559,14 @@ begin{exercise}
 \begin_inset Formula $q$
 \end_inset
 
-的粒子在一个平面上运动，改平面垂直于均匀静磁场
+的粒子在平面上运动，该平面垂直于均匀静磁场
 \begin_inset Formula $\sbf B$
 \end_inset
 
 。
+\series bold
+\color blue
+（15分）
 \end_layout
 
 \begin_layout Enumerate
@@ -1418,22 +1575,26 @@ begin{exercise}
 \end_inset
 
 表示，
+\begin_inset Formula $\gamma=1/\sqrt{1-v^{2}/c^{2}}$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Enumerate
-若在
+若在时刻
 \begin_inset Formula $t_{0}=0$
 \end_inset
 
-时刻，
+，
 \begin_inset Formula $E_{0}=\gamma_{0}mc^{2}$
 \end_inset
 
-，求任意
+，求在时刻
 \begin_inset Formula $t$
 \end_inset
 
-时刻粒子的能量。
+，粒子的能量。
 \end_layout
 
 \begin_layout Standard
@@ -1450,6 +1611,12 @@ begin{exercise}
 \end_inset
 
 ，所以辐射功率为
+\series bold
+\color blue
+（5分）
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
 P=\frac{q^{2}}{6\pi\varepsilon_{0}}\frac{\gamma^{2}F^{2}}{m^{2}c^{3}}=\frac{q^{2}}{6\pi\varepsilon_{0}}\frac{\gamma^{2}q^{2}v^{2}B^{2}}{m^{2}c^{3}}=\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{2}c}\left(\gamma^{2}-1\right)
@@ -1457,10 +1624,6 @@ P=\frac{q^{2}}{6\pi\varepsilon_{0}}\frac{\gamma^{2}F^{2}}{m^{2}c^{3}}=\frac{q^{2
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 粒子能量的减少率等于其辐射功率，且
 \begin_inset Formula $E=\gamma mc^{2}$
 \end_inset
@@ -1475,10 +1638,17 @@ P=\frac{q^{2}}{6\pi\varepsilon_{0}}\frac{\gamma^{2}F^{2}}{m^{2}c^{3}}=\frac{q^{2
 
 即
 \begin_inset Formula 
-\begin{align*}
-\frac{\dif\gamma}{\gamma^{2}-1} & =-\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{3}c^{3}}\dif t\\
-\text{积分得：}\quad\arctanh\gamma=\frac{1}{2}\ln\frac{1+\gamma}{1-\gamma} & =\eta t+C,\quad\eta=\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{3}c^{3}}
-\end{align*}
+\[
+\frac{\dif\gamma}{\gamma^{2}-1}=-\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{3}c^{3}}\dif t
+\]
+
+\end_inset
+
+积分得到：
+\begin_inset Formula 
+\[
+\arctanh\gamma=\frac{1}{2}\ln\frac{1+\gamma}{1-\gamma}=\eta t+C,\quad\eta=\frac{q^{4}B^{2}}{6\pi\varepsilon_{0}m^{3}c^{3}}
+\]
 
 \end_inset
 
@@ -1500,6 +1670,12 @@ Integrate[1/(
 
 \end_inset
 
+
+\series bold
+\color blue
+（10分）
+\series default
+\color inherit
 
 \begin_inset Formula 
 \begin{align*}

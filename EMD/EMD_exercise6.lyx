@@ -2280,7 +2280,11 @@ status open
 \end_layout
 
 \begin_layout Frame
-解：设镜子沿着
+
+\color blue
+解：
+\color inherit
+设镜子沿着
 \begin_inset Formula $\Sigma$
 \end_inset
 
@@ -2292,24 +2296,36 @@ status open
 \begin_inset Formula $v$
 \end_inset
 
-运动。镜面垂直于运动方向。
-\begin_inset Formula $+v$
+运动。镜面垂直于运动方向，在
+\begin_inset Formula $\Sigma$
 \end_inset
 
- boost 到镜子的静止系中，入射波频率为
-\begin_inset Formula $\omega^{\prime}$
+系中，观察到入射波为
+\begin_inset Formula $\omega_{0},\theta_{0}$
 \end_inset
 
-，入射角为
-\begin_inset Formula $\theta_{i}^{\prime}$
+，反射波为
+\begin_inset Formula $\omega,\theta$
 \end_inset
 
-。由反射定律，
-\begin_inset Formula $\theta_{r}^{\prime}=\theta_{i}^{\prime}$
+。 boost 到镜子的静止系中，观察到入射波为
+\begin_inset Formula $\omega_{0}^{\prime},\theta_{0}^{\prime}$
+\end_inset
+
+。反射波为
+\begin_inset Formula $\omega^{\prime},\theta_{r}^{\prime}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Frame
+由反射定律，
+\begin_inset Formula $\theta_{r}^{\prime}=\theta_{0}^{\prime}$
 \end_inset
 
 ，所以入射波矢
-\begin_inset Formula $\sbf k_{i}^{\prime}$
+\begin_inset Formula $\sbf k_{0}^{\prime}$
 \end_inset
 
 和反射波矢
@@ -2321,34 +2337,18 @@ status open
 \end_inset
 
 分量分别为
-\begin_inset Formula 
-\[
-k_{ix}^{\prime}=-\frac{\omega^{\prime}}{c}\cos\theta_{i}^{\prime},\quad k_{rx}^{\prime}=\frac{\omega^{\prime}}{c}\cos\theta_{i}^{\prime},
-\]
-
-\end_inset
-
-在
-\begin_inset Formula $\Sigma$
-\end_inset
-
-系中，观察到入射频率为
-\begin_inset Formula $\omega_{0}$
-\end_inset
-
-，入射角为
-\begin_inset Formula $\theta_{0}$
-\end_inset
-
-，反射波频率为
-\begin_inset Formula $\omega$
-\end_inset
-
-，反射角为
-\begin_inset Formula $\theta$
+\begin_inset Formula $k_{0x}^{\prime}=-\frac{\omega_{0}^{\prime}}{c}\cos\theta_{0}^{\prime}$
 \end_inset
 
 ，
+\begin_inset Formula $k_{rx}^{\prime}=\frac{\omega^{\prime}}{c}\cos\theta_{0}^{\prime}$
+\end_inset
+
+。静止系中的反射可以用
+\begin_inset Formula $\diag\left(1,-1\right)$
+\end_inset
+
+描述。建立方程为：
 \begin_inset Formula 
 \begin{align*}
 \left(\begin{array}{c}
@@ -2367,7 +2367,7 @@ k_{rx}
 \omega_{0}/c\\
 -k_{0x}
 \end{array}\right)\\
-\left(\begin{array}{c}
+\Rightarrow\left(\begin{array}{c}
 \omega/c\\
 k_{rx}
 \end{array}\right) & =\left(\begin{array}{cc}
@@ -2381,7 +2381,7 @@ k_{rx}
 
 \end_inset
 
-
+即：
 \begin_inset Note Note
 status open
 
@@ -2450,24 +2450,24 @@ status open
 \end_layout
 
 \begin_layout Frame
-由
-\begin_inset Formula $k_{rx}=w/c\cos\theta$
+代入
+\begin_inset Formula $k_{rx}=\omega/c\cos\theta$
 \end_inset
 
 ，
-\begin_inset Formula $k_{0x}=w_{0}/c\cos\theta_{0}$
+\begin_inset Formula $k_{0x}=\omega_{0}/c\cos\theta_{0}$
 \end_inset
 
 得：
 \begin_inset Formula 
 \begin{align*}
-\omega & =\omega_{0}\gamma^{2}\left(1+\beta^{2}\right)+w_{0}2\gamma^{2}\beta\cos\theta_{0}\\
-w\cos\theta & =\omega_{0}2\gamma^{2}\beta+w_{0}\gamma^{2}\left(1+\beta^{2}\right)\cos\theta_{0}
+\omega & =\omega_{0}\gamma^{2}\left(1+\beta^{2}\right)+2\omega_{0}\gamma^{2}\beta\cos\theta_{0}\\
+\omega\cos\theta & =2\omega_{0}\gamma^{2}\beta+\omega_{0}\gamma^{2}\left(1+\beta^{2}\right)\cos\theta_{0}
 \end{align*}
 
 \end_inset
 
-解得：
+即：
 \begin_inset Formula 
 \begin{align*}
 \omega & =\gamma^{2}\omega_{0}\left(1+\beta^{2}+2\beta\cos\theta_{0}\right)\\
@@ -2569,7 +2569,7 @@ Assuming[
 \end_inset
 
 ，
-\begin_inset Formula $\omega=\omega_{0}\frac{\left(1+\beta\right)^{2}}{1-\beta^{2}}=\omega_{0}\frac{c+v}{c-v}$
+\begin_inset Formula $\omega=\omega_{0}\frac{\left(1+\beta\right)^{2}}{1-\beta^{2}}=\omega_{0}\frac{1+\beta}{1-\beta}$
 \end_inset
 
 。

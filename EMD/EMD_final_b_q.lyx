@@ -109,7 +109,6 @@
 \setmonofont{Latin Modern Roman}
 % 设置中文字体
 \setCJKmainfont[Mapping=tex-text]{Noto Sans CJK SC}
-%\setCJKmainfont[Mapping=tex-text]{PingFang SC}
 %\setCJKmainfont[Mapping=tex-text]{Noto Serif CJK SC}
 \setCJKsansfont[Scale=0.7,Mapping=tex-text]{Noto Sans CJK SC}
 \setCJKmonofont[Scale=0.7]{Noto Sans Mono CJK SC}
@@ -126,11 +125,13 @@
 \DeclareMathOperator{\res}{Res} %复变函数的留数
 \DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
 \DeclareMathOperator{\sign}{Sign}
+\DeclareMathOperator{\arctanh}{Arctanh}
 \DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}} % 手动定义一个垂直的微分符号
 \newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\tps}[1]{{#1^\mathsf{T}}} %矩阵转置
 \newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
-\linespread{1.5} %调整行距
+\linespread{2.0}
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,hyperref
 \use_default_options true
@@ -247,27 +248,19 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-在单色波的情形，各阶电多级矩作简谐振荡
-\begin_inset Formula $e^{-i\omega t}$
+一平面电磁波以
+\begin_inset Formula $\theta=60\text{°}$
 \end_inset
 
-。写出在辐射的多级展开中，磁偶极子
-\begin_inset Formula $\sbf m$
+从真空入射到
+\begin_inset Formula $\varepsilon_{r}=3$
 \end_inset
 
-，无迹化电四极矩
-\begin_inset Formula $\mathscr{D}$
+的介质，电场强度垂直于入射面。设介质非铁磁性且线性均匀，
+\begin_inset Formula $\mu_{r}=1$
 \end_inset
 
-对应的辐射势
-\begin_inset Formula $\sbf A$
-\end_inset
-
-，并将结果用
-\begin_inset Formula $\ddot{\sbf m},\ddot{\mathscr{D}}$
-\end_inset
-
-表示。
+。求反射系数和折射系数。
 \series bold
 \color blue
 （10分）
@@ -306,15 +299,25 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+设有一个球对称的电荷分布，以角频率
+\begin_inset Formula $\omega$
+\end_inset
+
+沿径向作简谐运动，求辐射场。
+\series bold
+\color blue
+（5分）
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-Graphics3D[{ White, Opacity[.2], Cone[{{0, 0, 1}, {0, 0, 0}}, 1/2], White,
- Opacity[.2], Cone[{{0, 0, -1}, {0, 0, 0}}, 1/2], Opacity[1], Black, PointSize[0.0
-5], Point[{-.2, .2, .7}], Text["P", {-.15, .15, .85}] }, Boxed -> False, Axes
- -> True, Ticks -> None, AxesLabel -> {"x", "y", "ct"}, AxesOrigin -> {0,
- 0, 0}, ImageSize -> Small ]
+
+
+\backslash
+end{exercise}
 \end_layout
 
 \end_inset
@@ -323,57 +326,127 @@ Graphics3D[{ White, Opacity[.2], Cone[{{0, 0, 1}, {0, 0, 0}}, 1/2], White,
 \end_layout
 
 \begin_layout Standard
-坐标系
-\begin_inset Formula $\Sigma^{\prime}$
-\end_inset
+\begin_inset ERT
+status open
 
-相对于坐标系
-\begin_inset Formula $\Sigma$
-\end_inset
+\begin_layout Plain Layout
 
-以速度
-\begin_inset Formula $v$
-\end_inset
 
-沿
-\begin_inset Formula $x$
-\end_inset
-
-轴正向运动，
-\begin_inset Formula $t=0$
-\end_inset
-
-时刻两坐标系原点重合。
+\backslash
+begin{exercise}
 \end_layout
 
-\begin_layout Enumerate
-写出从
-\begin_inset Formula $\Sigma$
 \end_inset
 
-系到
-\begin_inset Formula $\Sigma^{\prime}$
+
+\end_layout
+
+\begin_layout Standard
+平面电磁波入射到金属表面上，设良导体条件成立，
+\begin_inset Formula $\sigma\gg\omega\varepsilon$
 \end_inset
 
-系的坐标变换矩阵。
+，
+\begin_inset Formula $k^{2}\approx i\omega\mu\sigma$
+\end_inset
+
+，
+\begin_inset Formula $\sigma$
+\end_inset
+
+是金属的电导率。证明：透入金属内部的电磁波能量全部变为焦耳热。
 \series bold
 \color blue
-（3分）
+（10分）
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exercise}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exercise}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+半径为
+\begin_inset Formula $R_{0}$
+\end_inset
+
+的均匀永磁体小球，磁化强度为
+\begin_inset Formula $\sbf M_{0}$
+\end_inset
+
+，球以恒定角速度
+\begin_inset Formula $\omega$
+\end_inset
+
+绕
+\begin_inset Formula $z$
+\end_inset
+
+轴旋转，
+\begin_inset Formula $\sbf M_{0}\perp\sbf e_{z}$
+\end_inset
+
+。设
+\begin_inset Formula $R_{0}\omega\ll c$
+\end_inset
+
+，求球坐标下辐射场
+\begin_inset Formula $\sbf E,\sbf B$
+\end_inset
+
+和能流
+\begin_inset Formula $\sbf S$
+\end_inset
+
+的表达式。已知直角坐标系与球坐标系基矢的变换关系为：
+\series bold
+\color blue
+（20分）
 \series default
 \color inherit
 
 \begin_inset Formula 
 \[
 \left(\begin{array}{c}
-ct^{\prime}\\
-x^{\prime}
-\end{array}\right)=\left(\begin{array}{cc}
-? & ?\\
-? & ?
+\sbf e_{x}\\
+\sbf e_{y}\\
+\sbf e_{z}
+\end{array}\right)=\left(\begin{array}{ccc}
+\sin\theta\cos\phi & \cos\theta\cos\phi & -\sin\phi\\
+\sin\theta\sin\phi & \cos\theta\sin\phi & \cos\phi\\
+\cos\theta & -\sin\theta & 0
 \end{array}\right)\left(\begin{array}{c}
-ct\\
-x
-\end{array}\right),\quad y^{\prime}=?,\quad z^{\prime}=?
+\sbf e_{R}\\
+\sbf e_{\theta}\\
+\sbf e_{\phi}
+\end{array}\right)
 \]
 
 \end_inset
@@ -381,93 +454,79 @@ x
 
 \end_layout
 
-\begin_layout Enumerate
-若
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exercise}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exercise}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在参考系
 \begin_inset Formula $\Sigma$
 \end_inset
 
-系中的粒子速度是
-\begin_inset Formula $\left(u_{x},u_{y},u_{z}\right)$
+内有
+\begin_inset Formula $\sbf E=E\sbf e_{y}$
 \end_inset
 
-，写出在
+，
+\begin_inset Formula $\sbf B=B\sbf e_{z}$
+\end_inset
+
+，设
 \begin_inset Formula $\Sigma^{\prime}$
 \end_inset
 
-系中粒子速度的表达式。
+系沿着
+\begin_inset Formula $\Sigma$
+\end_inset
+
+系
+\begin_inset Formula $x$
+\end_inset
+
+轴正向以速度
+\begin_inset Formula $v$
+\end_inset
+
+运动。若要使
+\begin_inset Formula $\Sigma^{\prime}$
+\end_inset
+
+系中只有电场或磁场，则
+\begin_inset Formula $v$
+\end_inset
+
+应当为多少？
 \series bold
 \color blue
-（4分）
-\end_layout
-
-\begin_layout Enumerate
-如图
-\begin_inset Formula $2$
-\end_inset
-
-所示，一事件
-\begin_inset Formula $P$
-\end_inset
-
-位于上半光锥内，通过洛伦兹变换，能否将
-\begin_inset Formula $P$
-\end_inset
-
-变换到下半光锥？能否将
-\begin_inset Formula $P$
-\end_inset
-
-变换到光锥之外？简要说明原因。
-\series bold
-\color blue
-（3分）
-\end_layout
-
-\begin_layout Standard
-图
-\begin_inset Formula $2$
-\end_inset
-
-：
-\begin_inset Graphics
-	filename final_guangzhui.pdf
-	height 4cm
-
-\end_inset
-
-
-\begin_inset space \hspace{}
-\length 1cm
-\end_inset
-
-图
-\begin_inset Formula $3$
-\end_inset
-
-：
-\begin_inset Graphics
-	filename final_bodao.pdf
-	scale 60
-
-\end_inset
-
-
-\begin_inset space \hspace{}
-\length 1cm
-\end_inset
-
-图
-\begin_inset Formula $4$
-\end_inset
-
-：
-\begin_inset Graphics
-	filename final_dianouji.pdf
-	scale 40
-
-\end_inset
-
-
+（10分）
 \end_layout
 
 \begin_layout Standard
@@ -503,73 +562,40 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-如图
-\begin_inset Formula $3$
+一平面镜沿着
+\begin_inset Formula $\Sigma$
 \end_inset
 
-所示的矩形波导管，波导管壁面为
-\begin_inset Formula $x=0$
+系的
+\begin_inset Formula $x$
 \end_inset
 
-和
-\begin_inset Formula $a$
+轴正方向以速度
+\begin_inset Formula $v$
 \end_inset
 
-，
-\begin_inset Formula $y=0$
+运动，镜面垂直于运动方向。一束频率为
+\begin_inset Formula $\omega_{0}$
 \end_inset
 
-和
-\begin_inset Formula $b$
+，与水平成
+\begin_inset Formula $\theta_{0}$
 \end_inset
 
-，
-\begin_inset Formula $z$
+夹角的平面光波自右向左入射到镜面上，求反射光波的频率
+\begin_inset Formula $\omega$
 \end_inset
 
-轴沿电磁波的传播方向。
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-thin = 0.05; x = 2.5; y = 1; z = 3; pad = .2; Graphics3D[{ White, Opacity[.4],
- Cuboid[{0, 0, 0}, {x, thin, -z}], Cuboid[{0, y - thin, 0}, {x, y, -z}],
- Cuboid[{x - thin, 0, 0}, {x, y, -z}], Cuboid[{0, 0, 0}, {thin, y, -z}]
- }, Boxed -> False, PlotRange -> {{-pad, x + pad}, {-pad, y + pad}, {pad,
- -z + pad}}, PlotRangePadding -> None, Axes -> True, AxesOrigin -> {0, 0,
- 0}, Ticks -> None, AxesLabel -> {"x", "y", "z"}, AxesStyle -> Directive[Black,
- 9], ViewVertical -> {0.086, 0.981, 0.169}, ViewPoint -> {1.674, 0.841, 2.817}
- ]
-\end_layout
-
+及反射角
+\begin_inset Formula $\theta$
 \end_inset
 
 
-\end_layout
+\begin_inset space ~
+\end_inset
 
-\begin_layout Enumerate
-写出波导内电磁波的具体形式，波矢满足的约束条件，以及截止圆频率的表达式。
+。若垂直入射，情况如何？
 \series bold
-\color blue
-（10分）
-\end_layout
-
-\begin_layout Enumerate
-频率
-\begin_inset Formula $\nu=\qty{30e9}{\Hz}$
-\end_inset
-
-的微波，在
-\begin_inset Formula $\qty{0.7}{\cm}\times\qty{0.4}{\cm}$
-\end_inset
-
-的矩形波导管中能以什么波模传播？在
-\begin_inset Formula $\qty{0.8}{\cm}\times\qty{0.9}{\cm}$
-\end_inset
-
-的矩形波导管中能以什么波模传播？用TE波，TM波表示
-\series bold
-。
 \color blue
 （10分）
 \end_layout
@@ -604,203 +630,65 @@ begin{exercise}
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-point = 0.4; 
-\backslash
-[Theta] = 
-\backslash
-[Pi]/4; field = 1.5*{Cos[
-\backslash
-[Theta]], Sin[
-\backslash
-[Theta]]}; pad = 0.2; x = 1; y = 1; Graphics[{ PointSize[.04], Point[{0, point}],
- PointSize[.03], Point[field], Line[{{0, point}, field}], Line[{{0, 0}, field}],
- Circle[{0, 0}, .15, {
-\backslash
-[Theta], 
-\backslash
-[Pi]/2}], Text[Style["
-\backslash
-[Theta]", 14], .25*{Cos[
-\backslash
-[Pi]/4 + 
-\backslash
-[Theta]/2], Sin[
-\backslash
-[Pi]/4 + 
-\backslash
-[Theta]/2]}], Text[Style["R", 14], .8*{Cos[
-\backslash
-[Theta] - .2], Sin[
-\backslash
-[Theta] - .2]}], Text[Style["a", 14], {-.1, point}], Text[Style["O", 14],
- {-.1, -.1}] }, PlotRange -> {{-pad, x + pad}, {-pad, y + pad}}, PlotRangePadding
- -> None, Axes -> True, AxesOrigin -> {0, 0, 0}, Ticks -> None, AxesLabel
- -> {"x", "z"}, AxesStyle -> Directive[Arrowheads[.04], Black, 14] ]
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-如图
-\begin_inset Formula $4$
+设电子质量为
+\begin_inset Formula $m$
 \end_inset
 
-，有一电荷
-\begin_inset Formula $q$
+，电荷为
+\begin_inset Formula $e$
 \end_inset
 
-在
+，在均匀外磁场
+\begin_inset Formula $\sbf B_{0}$
+\end_inset
+
+中运动，取磁场
+\begin_inset Formula $\sbf B$
+\end_inset
+
+沿
 \begin_inset Formula $z$
 \end_inset
 
-轴上作简谐运动
-\begin_inset Formula $q\left(x\right)=ae^{-i\omega t}$
+轴正方向，已知
+\begin_inset Formula $t=0$
 \end_inset
 
-，而
-\begin_inset Formula $z=0$
+时，
+\begin_inset Formula $x=R_{0}$
 \end_inset
 
-平面是理想导体平面。设
-\begin_inset Formula $a\ll\lambda$
+，
+\begin_inset Formula $y=z=0$
 \end_inset
 
-，写出上半平面
-\begin_inset Formula $R\gg a$
+，
+\begin_inset Formula $\dot{x}=\dot{z}=0$
 \end_inset
 
-处的磁矢势
-\begin_inset Formula $\sbf A$
+，
+\begin_inset Formula $\dot{y}=v_{0}$
 \end_inset
 
-，电磁场
-\begin_inset Formula $\sbf E,\sbf B$
-\end_inset
-
-，平均辐射能流
-\begin_inset Formula $\sbf S$
-\end_inset
-
-，并求出辐射能流最强的方向。
+，设非相对论条件满足：
 \series bold
 \color blue
 （20分）
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{exercise}
-\end_layout
-
+\begin_layout Enumerate
+考虑辐射阻尼力
+\begin_inset Formula $\sbf F_{s}=\frac{e^{2}}{6\pi\varepsilon_{0}c^{3}}\ddot{\sbf v}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{exercise}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-如图
-\begin_inset Formula $5$
-\end_inset
-
-，空间中存在互相垂直的均匀电场
-\begin_inset Formula $E\sbf e_{x}$
-\end_inset
-
-和磁场
-\begin_inset Formula $B\sbf e_{y}$
-\end_inset
-
-，且满足
-\begin_inset Formula $E>cB$
-\end_inset
-
-。一带电粒子静止在
-\begin_inset Formula $\Sigma$
-\end_inset
-
-系原点，电荷为
-\begin_inset Formula $q$
-\end_inset
-
-，质量为
-\begin_inset Formula $m$
-\end_inset
-
-，忽略辐射阻尼，
+，近似求解电子的运动轨道，设辐射波长远大于电子经典半径。
 \end_layout
 
 \begin_layout Enumerate
-列出
-\begin_inset Formula $\Sigma$
-\end_inset
-
-系中，相对论协变的运动方程，粒子在
-\begin_inset Formula $y$
-\end_inset
-
-方向上是否有运动？
-\series bold
-\color blue
-（5分）
-\end_layout
-
-\begin_layout Enumerate
-粒子的速度能否达到光速 
-\begin_inset Formula $c$
-\end_inset
-
- ？求出粒子的速度在
-\begin_inset Formula $z$
-\end_inset
-
-方向上的极限。
-\series bold
-\color blue
-（10分）
-\end_layout
-
-\begin_layout Standard
-图
-\begin_inset Formula $5$
-\end_inset
-
-：
-\begin_inset Graphics
-	filename final_lizi.pdf
-	scale 40
-
-\end_inset
-
-
+求电子单位时间内辐射的能量。
 \end_layout
 
 \begin_layout Standard
@@ -836,120 +724,6 @@ begin{exercise}
 \end_layout
 
 \begin_layout Standard
-电磁场不变量：
-\end_layout
-
-\begin_layout Enumerate
-写出电磁场强张量
-\begin_inset Formula $F^{\mu\nu}$
-\end_inset
-
-的分量表示，使用
-\begin_inset Formula $0123$
-\end_inset
-
-或
-\begin_inset Formula $1234$
-\end_inset
-
-的指标约定均可。
-\series bold
-\color blue
-（2分）
-\end_layout
-
-\begin_layout Enumerate
-已知使用
-\begin_inset Formula $F_{\mu\nu}$
-\end_inset
-
-可以构造两个洛伦兹不变量：
-\begin_inset Formula 
-\begin{align*}
-0123\text{约定下：}\quad & \frac{1}{2}F_{\mu\nu}F^{\mu\nu},\quad-\frac{1}{8}\varepsilon^{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad\varepsilon^{0123}=1\\
-1234\text{约定下：}\quad & \frac{1}{2}F_{\mu\nu}F_{\mu\nu},\quad\frac{i}{8}\varepsilon_{\mu\nu\alpha\beta}F_{\mu\nu}F_{\alpha\beta},\quad\varepsilon_{1234}=1
-\end{align*}
-
-\end_inset
-
-计算在真空电磁波的情形下，它们的取值。
-\series bold
-\color blue
-（8分）
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{exercise}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{exercise}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-高速带电粒子的辐射：
-\end_layout
-
-\begin_layout Enumerate
-根据相对论力学方程，证明高速带电粒子
-\begin_inset Formula $q$
-\end_inset
-
-的辐射场公式可以表示为：
-\series bold
-
-\begin_inset Formula 
-\[
-\sbf E=\frac{q\mu_{0}}{4\pi}\frac{1}{\gamma mR}\frac{1}{s^{3}}\left\{ \sbf e_{r}\times\left[\left(\sbf e_{r}-\sbf\beta\right)\times\sbf F-\left(\sbf\beta\cdot\sbf F\right)\left(\sbf e_{r}\times\sbf\beta\right)\right]\right\} _{\text{ret}}
-\]
-
-\end_inset
-
-
-\series default
-其中
-\begin_inset Formula $s=1-\sbf e_{r}\cdot\sbf\beta$
-\end_inset
-
-，
-\begin_inset Formula $\sbf\beta=\sbf v/c$
-\end_inset
-
-，ret表示时刻
-\begin_inset Formula $t^{\prime}=t-r/c$
-\end_inset
-
-时的值。
-\series bold
-\color blue
-（5分）
-\end_layout
-
-\begin_layout Enumerate
 质量为
 \begin_inset Formula $m$
 \end_inset
@@ -958,26 +732,42 @@ begin{exercise}
 \begin_inset Formula $q$
 \end_inset
 
-的粒子在回旋加速器中运动，其运动平面垂直于均匀磁场
-\begin_inset Formula $B$
+的粒子在平面上运动，该平面垂直于均匀静磁场
+\begin_inset Formula $\sbf B$
 \end_inset
 
-，且粒子每运动一周获得的能量为
-\begin_inset Formula $qU$
-\end_inset
-
-。已知作圆周运动的粒子，辐射功率为
-\begin_inset Formula 
-\[
-P\left(t^{\prime}\right)=\frac{q^{2}\gamma^{4}}{6\pi\varepsilon_{0}c}\dot{\beta}\left(t^{\prime}\right)^{2},
-\]
-
-\end_inset
-
-求粒子速度的上限满足的方程。
+。
 \series bold
 \color blue
-（10分）
+（15分）
+\end_layout
+
+\begin_layout Enumerate
+计算辐射功率，用
+\begin_inset Formula $m,q,\sbf B,\gamma$
+\end_inset
+
+表示，
+\begin_inset Formula $\gamma=1/\sqrt{1-v^{2}/c^{2}}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+若在时刻
+\begin_inset Formula $t_{0}=0$
+\end_inset
+
+，
+\begin_inset Formula $E_{0}=\gamma_{0}mc^{2}$
+\end_inset
+
+，求在时刻
+\begin_inset Formula $t$
+\end_inset
+
+，粒子的能量。
 \end_layout
 
 \begin_layout Standard
