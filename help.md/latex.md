@@ -2097,7 +2097,7 @@ http://tug.ctan.org/tex-archive/info/latex2e-help-texinfo/latex2e.html#Accents
 
 对于字体不起作用的字符,会自动使用前面设置的正文罗马字体.
 
-### 字号
+### 常用字号
 
 [latex设置表格字体大小](https://blog.csdn.net/zzmgood/article/details/36419493)
 
@@ -2159,6 +2159,7 @@ Latex下 字体大小命令 比较
 + $\Re$
 + $\nabla$ 微分算子
 + `\sslash`:下标中表示平行分量的双斜线`//`.
++ $\circ$ : 可以用来当作角度的符号。虽然国际单位更建议使用`siunitx`包处理.
 
 ***
 `latinmodern-math.otf`中没有`\sslash`字形，但总是可以从其他数学字体中借用缺少的字形。例如下面的例子：
@@ -2321,7 +2322,7 @@ ref-3: [查找任意符号的LaTeX指令](https://www.zhihu.com/question/2694117
 应特别注意诸如`m/s`之类的单位；
 最好不要`手工`制作它们,而要使用`siunitx`之类的程序包,它可以处理所有的细节,同时又非常灵活.
 
-#### 求迹 Trace etc
+#### 求迹 Trace
 
 ```latex
 \usepackage{amsmath}
@@ -2740,3 +2741,74 @@ URL链接
 \pagestyle{fancy} %页脚的样式
 \fancyfoot[C]{\kaishu 第\thepage 页共\pageref{LastPage}页}
 ```
+
+### 行距
+
+[LaTeX系列笔记(5)-行距](https://zhuanlan.zhihu.com/p/138408387)
+
+首先，行距就是相邻两行文字之间的距离。行距的调节一般使用倍数，比如两倍行距。
+而`单倍行距`又根据字体、字号、软件的不同而改变（不同软件中有不同的定义，没有一个通用的值）。
+
+在 LaTeX 里面也有这些概念，在你定义字号的时候，`单倍行距`也随之确定。更改时，我们更改的是`单倍行距`的倍数。
+比如在 LaTeX 中 `10` 号字（无论字体），对应的单倍行距是 `12` 磅。修改行距倍数的方法有两个：
+
+***
+在导言区使用 `\linespread` 命令。这个是 `LaTeX2e` 提供的。（推荐）
+
+```latex
+\linespread{2.0}
+```
+
+使用了这个命令以后，从此之后的行距都变成`2.0`倍了。
+
+如果只想对一小部分做更改，可以用大括号把这一段括起来，如
+
+```latex
+{
+\linespread{2.0} \selectfont
+% 两倍行距的文字
+}
+% 一倍行距的文字, 
+% 这样就不会对括号外的部分进行改变，字体、字号类命令也可以这么用。
+```
+
+出现在正文的 `\linespread`，需使用 `\selectfont` 刷新行距信息后才生效。因为 `\document` 包含 `\normalsize` 包含 `\@setfontsize` 包含 `\selectfont`，
+相当于 `\begin{document}` 处总是会执行一个 `\selectfont`，所以在导言区使用的 `\linespread` 看起来自动生效了。---慕子
+
+***
+使用 `setspace` 宏包。
+
+```latex
+\usepackage{setspace}
+\begin{document}
+\begin{spacing}{2.0}
+% 这里是两倍行距
+\end{spacing}
+% 这里是默认行距
+\end{document}
+```
+
+被 `spacing` 环境框住的地方行距就会改变。`spacing` 还有一些奇怪的功能：
+如果想让`行距 = 2倍字体高度`，并且你的字号正好是 `10/11/12 pt` 之一的话，就可以使用 `\doublespace` 命令（这个命令容易使人误以为是两倍行距）。
+
+上面两个办法的效果差不多，`\linespread` 背后的实现更复杂一些，本质上是把`行距倍数`传递给 `\baselinestretch`，所以实际上你也可以调用
+
+```latex
+\renewcommand{\baselinestretch}{2.0}  % 不要和 \linespread 混合使用
+```
+
+如果想直接改行距的大小，也是可以做到的，但是也不推荐。因为只要你换一下字号，行距的大小也会随之改变，效果不持久。改法是
+
+```latex
+\setlength{\baselineskip}{20pt}    % 改变行距。不推荐，因为字号一改就得重新定义。
+```
+
+这里的 `20 pt` 表示 `20 磅`。 `pt` 是 `LaTeX` 里的长度单位。
+
+如果想直接改`单位行距`的大小，也是可以做到的，因为同样理由，也不推荐。
+
+```latex
+\setlength{\normalbaselineskip}{20pt}    % 改变“单倍行距”。不推荐，因为字号一改就得重新定义。
+```
+
+如果你想把行距搞得和 `Word` 很像，需要改变每个字号下的`单倍行距`大小。参考[LaTeX 设置的行距与 Word 的行距如何对应？](https://www.zhihu.com/question/62327906/answer/197899935)
