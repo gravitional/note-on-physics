@@ -62,19 +62,6 @@
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
-%%++++++++++++++++++++ 
-\DeclareMathOperator{\tr}{Tr}%矩阵求迹的符号
-\DeclareMathOperator{\sgn}{Sgn}%符号函数
-\DeclareMathOperator{\re}{Re} %实部
-\DeclareMathOperator{\im}{Im} %虚部
-\DeclareMathOperator{\res}{Res} %留数
-\DeclareMathOperator{\disc}{Disc} %函数间断
-\DeclareMathOperator{\diag}{diag} %对角矩阵
-\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}}%普通微分
-\newcommand*{\Dif}{\mathop{}\!\mathrm{D}}%泛函变分
-\newcommand{\cola}[1]{{\color{blue}{#1}}} %颜色
-\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
 %%%+++++++++++++++++++++++++++++++
 \usepackage{listings}
 % 在LaTex中添加代码高亮
@@ -106,6 +93,20 @@
     showtabs=false,                  
     tabsize=2
 }
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\diag}{diag} %对角矩阵
+\DeclareMathOperator{\res}{Res} %复变函数的留数
+\DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
+\DeclareMathOperator{\sign}{Sign} %符号函数
+\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}%普通微分
+\newcommand*{\Dif}{\mathop{}\!\mathrm{D}}%泛函变分
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\tps}[1]{{#1^\mathsf{T}}} %矩阵转置
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,hyperref
 \use_default_options true
@@ -426,19 +427,11 @@ literal "false"
 
 \end_inset
 
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "RS"
-literal "false"
-
+，
+\begin_inset Newline newline
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-以及
 \begin_inset CommandInset href
 LatexCommand href
 name "http://cds.cern.ch/record/368086/files/9810103.pdf"
@@ -447,10 +440,11 @@ literal "true"
 
 \end_inset
 
-
+。
 \end_layout
 
 \begin_layout Standard
+狄拉克拉氏量为：
 \begin_inset Formula 
 \[
 \mathcal{L}=\bar{\psi}\left(i\gamma.\partial-m\right)\psi=\frac{1}{2}\bar{\psi}\left(i\gamma.\overleftrightarrow{\partial}-m\right)\psi
@@ -2943,7 +2937,19 @@ D_{\mu}D_{\nu}-D_{\mu}L_{\nu}-L_{\mu}D_{\nu}-D_{\mu}U_{\nu}-U_{\mu}D_{\nu}+L_{\m
 
 \end_inset
 
-例如：
+产生强相互作用顶点，不涉及光子。
+\begin_inset Formula $\bar{p}\gamma^{\mu}p$
+\end_inset
+
+是厄米的二次型，
+\begin_inset Formula $C$
+\end_inset
+
+宇称为
+\begin_inset Formula $-1$
+\end_inset
+
+。例如：
 \begin_inset Formula 
 \begin{align*}
  & \bar{p}\gamma^{\mu}p\left(\pi^{+}\partial_{\mu}\pi^{-}-\pi^{-}\partial_{\mu}\pi^{+}\right)\to\frac{1}{f_{\phi}^{2}}{\color{red}\frac{i}{4}}\\
@@ -3752,7 +3758,7 @@ T_{\mu}^{ijk}\left(i\gamma^{\mu\nu\alpha}\partial_{\alpha}-M_{T}\gamma^{\mu\nu}\
 \begin_inset Formula $\Theta_{\alpha\beta}$
 \end_inset
 
-，一般的十重态传播子依赖于 off–shell parameter 
+，一般的十重态传播子依赖于离壳参数
 \begin_inset Formula $Z$
 \end_inset
 
@@ -3796,15 +3802,15 @@ P_{\beta\rho} & =\langle\hat{T}\,T_{\beta}\left(x\right)\bar{T}_{\rho}\left(x\ri
 
 \end_inset
 
-即实粒子系数为
+实场动能项的系数为
 \begin_inset Formula $1/2$
 \end_inset
 
-，复场系数为
+，复场的系数为
 \begin_inset Formula $1$
 \end_inset
 
-。传播子
+。传播子都为
 \begin_inset Formula 
 \[
 \frac{i}{p^{2}-m^{2}+i\varepsilon}
@@ -3820,11 +3826,11 @@ B-B-M 轴矢项 DF
 \end_layout
 
 \begin_layout Standard
-强相互作用的
+强相互作用的轴矢耦合项，耦合系数为
 \begin_inset Formula $D,F$
 \end_inset
 
-轴矢耦合项，
+
 \begin_inset Formula 
 \[
 D\tr\left[\overline{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F\tr\left[\overline{B}\gamma^{\mu}\gamma^{5}\left[u_{\mu},B\right]\right]
@@ -3832,7 +3838,27 @@ D\tr\left[\overline{B}\gamma^{\mu}\gamma^{5}\left\{ u_{\mu},B\right\} \right]+F\
 
 \end_inset
 
-例如：
+
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\gamma^{5}\psi$
+\end_inset
+
+这种二次型的
+\begin_inset Formula $C$
+\end_inset
+
+宇称是
+\begin_inset Formula $+1$
+\end_inset
+
+，
+\begin_inset Formula $P$
+\end_inset
+
+宇称是
+\begin_inset Formula $-1$
+\end_inset
+
+。例如：
 \begin_inset Formula 
 \[
 \overline{p}\gamma^{\mu}\gamma^{5}\Sigma^{0}\partial_{\mu}K^{+}+\overline{\Sigma^{0}}\gamma^{\mu}\gamma^{5}p\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{2f_{\phi}}}
@@ -4748,12 +4774,15 @@ B-M-T 耦合项 C
 八重态–十重态–介子耦合项，
 \begin_inset Formula 
 \[
-\mathcal{C}\tr\left\{ \left(\varepsilon\cdot\overline{T}_{\mu}.u_{\nu}\right)^{\left(1,4\right)}\cdot\left(\Theta^{\mu\nu}\cdot B\right)+\left[\overline{B}\cdot u_{\mu}\cdot\Theta^{\mu\nu}\cdot T_{\nu}\cdot\left(-\varepsilon\right)\right]^{\left(1,4\right)}\right\} ,
+\mathcal{C}\tr\left\{ \left(\varepsilon\cdot\overline{T}_{\mu}.u_{\nu}\right)^{\left(1,4\right)}\cdot\left(\Theta^{\mu\nu}\cdot B\right)+\left[\overline{B}\cdot u_{\mu}\cdot\Theta^{\mu\nu}\cdot T_{\nu}\cdot\left(-\varepsilon\right)\right]^{\left(1,4\right)}\right\} .
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Formula $\Theta^{\mu\nu}=g^{\mu\nu}-\left(z+1/2\right)\gamma^{\mu}\gamma^{\nu}$
 \end_inset
 
@@ -4765,15 +4794,67 @@ B-M-T 耦合项 C
 \begin_inset Formula $\Theta^{\mu\nu}=i\sigma^{\mu\nu}$
 \end_inset
 
-。例如：
+。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\bar{\psi}\sigma^{\mu\nu}\psi$
+\end_inset
+
+是厄米的二次型，
+\begin_inset Formula $C$
+\end_inset
+
+宇称为
+\begin_inset Formula $-1$
+\end_inset
+
+，
+\begin_inset Formula $P$
+\end_inset
+
+宇称为
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+；光子场
+\begin_inset Formula $A^{\mu}$
+\end_inset
+
+的
+\begin_inset Formula $C$
+\end_inset
+
+宇称为
+\begin_inset Formula $-1$
+\end_inset
+
+，
+\begin_inset Formula $\Delta_{\nu}^{++}$
+\end_inset
+
+类似光子场。例如：
 \begin_inset Formula 
-\[
-\overline{p}\Theta^{\mu\nu}\Delta_{\nu}^{++}\partial_{\mu}\pi^{-}+\overline{\Delta_{\mu}^{++}}\Theta^{\mu\nu}p\partial_{\nu}\pi^{+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}
-\]
+\begin{align*}
+ & \overline{p}\Theta^{\mu\nu}\Delta_{\nu}^{++}\partial_{\mu}\pi^{-}+\overline{\Delta_{\mu}^{++}}\Theta^{\mu\nu}p\partial_{\nu}\pi^{+}\to{\color{red}\frac{\mathcal{C}}{\sqrt{2}f_{\phi}}}\\
+\text{i.e.}\quad & \overline{p}\Theta^{\mu\nu}\Delta_{\nu}^{++}\partial_{\mu}\pi^{-}-\overline{\Delta_{\nu}^{++}}\Theta^{\mu\nu}p\partial_{\mu}\pi^{+}
+\end{align*}
 
 \end_inset
 
 
+\begin_inset Formula $\overline{p}\Theta^{\mu\nu}\Delta_{\nu}^{++}$
+\end_inset
+
+是反厄米的，整体
+\begin_inset Formula $C$
+\end_inset
+
+宇称为
+\begin_inset Formula $+1$
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
@@ -5559,13 +5640,50 @@ T-M 十重态介子耦合项
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $T_{\nu}^{ijl}u_{\alpha}^{kl}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}$
+拉氏量密度为：
+\begin_inset Formula 
+\[
+T_{\nu}^{ijl}u_{\alpha}^{kl}\overline{T}_{\mu}^{ijk}\gamma^{\mu\nu\alpha}\gamma^{5}
+\]
+
 \end_inset
 
 
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\gamma^{5}\psi$
+\end_inset
+
+是厄米的二次型，
+\begin_inset Formula $C$
+\end_inset
+
+宇称为
+\begin_inset Formula $+1$
+\end_inset
+
+；光子场
+\begin_inset Formula $A^{\mu}$
+\end_inset
+
+的
+\begin_inset Formula $C$
+\end_inset
+
+宇称为
+\begin_inset Formula $-1$
+\end_inset
+
+。
 \begin_inset Formula 
 \[
 \overline{\Delta_{\mu}^{++}}\gamma^{\mu\nu\alpha}\gamma^{5}\Delta_{\nu}^{+}\partial_{\alpha}\pi^{+}+\overline{\Delta_{\mu}^{+}}\gamma^{\mu\nu\alpha}\gamma^{5}\Delta_{\nu}^{++}\partial_{\alpha}\pi^{-}\to{\color{red}\frac{-\mathcal{H}}{\sqrt{6}f_{\phi}}}
+\]
+
+\end_inset
+
+类似于
+\begin_inset Formula 
+\[
+\overline{p}\gamma^{\mu}\gamma^{5}\Sigma^{0}\partial_{\mu}K^{+}+\overline{\Sigma^{0}}\gamma^{\mu}\gamma^{5}p\partial_{\mu}K^{-}\to{\color{red}\frac{D-F}{2f_{\phi}}}
 \]
 
 \end_inset

@@ -279,7 +279,7 @@ do {
 
 ### while循环
 
-while循环是先判断循环条件，满足条件时执行循环。
+`while`循环是先判断循环条件，满足条件时执行循环。
 $i = 0
 while ($i -lt 3) {
     Write-Output $i

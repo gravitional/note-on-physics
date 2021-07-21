@@ -56,18 +56,6 @@
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %%\usepackage[colorlinks,linkcolor=blue]{hyperref} 
 %% \usepackage{axodraw2} 
-%%++++++++++++++++++++ 
-\DeclareMathOperator{\tr}{Tr}%矩阵求迹的符号
-\DeclareMathOperator{\sgn}{Sgn}%符号函数
-\DeclareMathOperator{\re}{Re} %实部
-\DeclareMathOperator{\im}{Im} %虚部
-\DeclareMathOperator{\res}{Res} %留数
-\DeclareMathOperator{\disc}{Disc} %函数间断
-\DeclareMathOperator{\diag}{diag} %对角矩阵
-\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
-\newcommand*{\dif}{\mathop{}\!\mathrm{d}}%普通微分
-\newcommand*{\Dif}{\mathop{}\!\mathrm{D}}%泛函变分
-\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
 %%%+++++++++++++++++++++++++++++++
 \usepackage{listings}
 % 在LaTex中添加代码高亮
@@ -100,6 +88,20 @@
     showtabs=false,                  
     tabsize=2
 }
+%%++++++++++++++++++++ 
+\DeclareMathOperator{\tr}{Tr} %矩阵求迹的符号
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\diag}{diag} %对角矩阵
+\DeclareMathOperator{\res}{Res} %复变函数的留数
+\DeclareMathOperator{\disc}{Disc} %定义复变函数不连续符号
+\DeclareMathOperator{\sign}{Sign} %符号函数
+\DeclareMathOperator{\fmp}{P} %定义费曼传播子的符号
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}%普通微分
+\newcommand*{\Dif}{\mathop{}\!\mathrm{D}}%泛函变分
+\newcommand*{\sbf}{\symbfit} %粗体数学符号或矢量符号
+\newcommand*{\tps}[1]{#1^\mathsf{T}} %矩阵转置
+\newcommand*{\ssl}{\mathbin{/\mkern-5.5mu/}}%定义双斜线符号.
 \end_preamble
 \options UTF8,dvipsnames,svgnames,x11names,hyperref
 \use_default_options true
@@ -3194,7 +3196,7 @@ U(\Lambda)\psi(x)U^{-1}(\Lambda)=\Lambda_{\frac{1}{2}}^{-1}\psi(\Lambda x)
 
 \series bold
 另外，重要的是
-\begin_inset Formula $\psi(x)$
+\begin_inset Formula $\psi\left(x\right)$
 \end_inset
 
 内外的
@@ -3206,7 +3208,7 @@ U(\Lambda)\psi(x)U^{-1}(\Lambda)=\Lambda_{\frac{1}{2}}^{-1}\psi(\Lambda x)
 。上面的式子等价于
 \begin_inset Formula 
 \[
-U(\Lambda)\psi(x)U^{-1}(\Lambda)=\Lambda_{\frac{1}{2}}\psi(\Lambda^{-1}x)
+U\left(\Lambda\right)\psi\left(x\right)U^{-1}\left(\Lambda\right)=\Lambda_{\frac{1}{2}}\psi\left(\Lambda^{-1}x\right)
 \]
 
 \end_inset
@@ -3214,8 +3216,8 @@ U(\Lambda)\psi(x)U^{-1}(\Lambda)=\Lambda_{\frac{1}{2}}\psi(\Lambda^{-1}x)
 根据我们在上一节得到的Dirac 方程的解，可以查看旋量在CPT变换下的形式。首先在动量空间, Dirac 方程的形式为，
 \begin_inset Formula 
 \begin{align*}
- & \left(\slashed{p}-m\right)u(p)=0\\
- & \left(\slashed{p}+m\right)v(p)=0
+ & \left(\slashed{p}-m\right)u\left(p\right)=0\\
+ & \left(\slashed{p}+m\right)v\left(p\right)=0
 \end{align*}
 
 \end_inset
@@ -3346,6 +3348,52 @@ i\gamma^{2}\gamma^{\mu}i\gamma^{2} & =\gamma^{\mu*}\\
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+zee：
+\series default
+对于狄拉克方程
+\begin_inset Formula $\left(i\gamma\cdot\partial-m\right)\psi\left(x\right)=0$
+\end_inset
+
+左边乘上
+\begin_inset Formula $\gamma^{0}$
+\end_inset
+
+：
+\begin_inset Formula 
+\begin{align*}
+ & \gamma^{0}\left(i\gamma\cdot\partial-m\right)\psi\left(x\right)=0\\
+\Rightarrow & \left(i\gamma\cdot\partial^{\prime}-m\right)\gamma^{0}\psi\left(x\right)=0
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\partial_{\mu}^{\prime}=\partial/\partial x^{\prime\mu}=\left(\partial_{t},-\nabla x\right)$
+\end_inset
+
+，因此
+\begin_inset Formula 
+\[
+\psi^{\prime}\left(x^{\prime}\right)=\eta\gamma^{0}\psi\left(x\right)
+\]
+
+\end_inset
+
+在空间反射的世界中满足狄拉克方程，
+\begin_inset Formula $\eta$
+\end_inset
+
+是一个任意相位。注意坐标也要作相应变化。
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+peskin：
+\series default
+
 \begin_inset Formula 
 \begin{align*}
 \psi\left(x\right) & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}a^{s}\left(p\right)u^{s}\left(p\right)\exp\left(-ip\cdot x\right)+b^{s\dagger}\left(p\right)v^{s}\left(p\right)\exp\left(+ip\cdot x\right)
@@ -3554,7 +3602,7 @@ P\bar{\psi}\left(x\right)i\sigma^{\mu\nu}\psi\left(x\right)P & =\bar{\psi}i\sigm
 \end_layout
 
 \begin_layout Standard
-注意，对于正反费米子，宇称变换有一个相对负号。这很重要。对于一个 femion-antifermion state 
+注意，对于正反费米子，宇称变换有一个相对负号。这很重要。对于一个费米子–反费米子组成的状态
 \begin_inset Formula $a_{\vec{p}}^{s\dagger}b_{\vec{q}}^{r\dagger}\ket{0}$
 \end_inset
 
@@ -3570,7 +3618,7 @@ P\bar{\psi}\left(x\right)i\sigma^{\mu\nu}\psi\left(x\right)P & =\bar{\psi}i\sigm
 \begin_inset Formula $\vec{x}\to-\vec{x}$
 \end_inset
 
-下，没有负号，那么总的态函数将是 odd parity，也就是会有个负号。如果空间波函数是反对称的，那么总的态函数是 even parity。所以
+下，没有负号，那么总的态函数将是奇宇称的，也就是会有个负号。如果空间波函数是反对称的，那么总的态函数是偶宇称的。所以
 \begin_inset Formula $J=0$
 \end_inset
 
@@ -3582,7 +3630,546 @@ P\bar{\psi}\left(x\right)i\sigma^{\mu\nu}\psi\left(x\right)P & =\bar{\psi}i\sigm
 \end_layout
 
 \begin_layout Section
+电荷共轭
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+zee：
+\series default
+对于狄拉克方程
+\begin_inset Formula $\left(i\gamma\cdot\partial-m\right)\psi\left(x\right)=0$
+\end_inset
+
+取复共轭：
+\begin_inset Formula 
+\begin{align*}
+ & \left[i\gamma^{\mu}\left(\partial_{\mu}-ieA_{\mu}\right)-m\right]\psi\left(x\right)=0\\
+\Rightarrow & \left[-i\gamma^{\mu*}\left(\partial_{\mu}+ieA_{\mu}\right)-m\right]\psi^{*}\left(x\right)=0
+\end{align*}
+
+\end_inset
+
+对
+\begin_inset Formula $\gamma$
+\end_inset
+
+矩阵的定义取共轭，我们看到
+\begin_inset Formula $-\gamma^{*\mu}$
+\end_inset
+
+也满足 Clifford 代数，
+\begin_inset Formula 
+\[
+\left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2g^{\mu\nu}I\Rightarrow\left\{ -\gamma^{*\mu},-\gamma^{*\nu}\right\} =2g^{\mu\nu}I
+\]
+
+\end_inset
+
+所以
+\begin_inset Formula $-\gamma^{*\mu}$
+\end_inset
+
+是在另一组
+\begin_inset Formula $\psi$
+\end_inset
+
+基下的表象。因此，存在一个矩阵
+\begin_inset Formula $C\gamma^{0}$
+\end_inset
+
+，使得
+\begin_inset Formula 
+\[
+-\gamma^{\mu*}=\left(C\gamma^{0}\right)^{-1}\gamma^{\mu}\left(C\gamma^{0}\right)
+\]
+
+\end_inset
+
+这里预先把
+\begin_inset Formula $\gamma^{0}$
+\end_inset
+
+显式的写出来了。插入后就得到，
+\begin_inset Formula 
+\[
+\left[i\gamma^{\mu}\left(\partial_{\mu}+ieA_{\mu}\right)-m\right]\psi_{c}=0
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\psi_{c}=C\gamma^{0}\psi^{*}\left(x\right)$
+\end_inset
+
+。因此，如果
+\begin_inset Formula $\psi$
+\end_inset
+
+是电子场，
+\begin_inset Formula $\psi_{c}$
+\end_inset
+
+是与电子电荷相反，但质量相同的场，即正电子。
+\begin_inset Formula 
+\[
+C\gamma^{0}\gamma^{*\mu}\gamma^{0}C^{-1}=-\gamma^{\mu},
+\]
+
+\end_inset
+
+如果
+\begin_inset Formula $\gamma^{0}$
+\end_inset
+
+是实的，相当于
+\begin_inset Formula 
+\[
+\tps{\left(\gamma^{\mu}\right)}=-C^{-1}\gamma^{\mu}C
+\]
+
+\end_inset
+
+在狄拉克基和外尔基中，
+\begin_inset Formula $C=\eta\gamma^{2}\gamma^{0}$
+\end_inset
+
+。所以
+\begin_inset Formula 
+\[
+\psi_{c}=\gamma^{2}\psi^{*}
+\]
+
+\end_inset
+
+左手场的电荷共轭是右手的。
+\begin_inset Formula $\psi_{c}$
+\end_inset
+
+也按旋量变换。
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+peskin：
+\series default
+电荷共轭习惯上定义成正反费米子之间的变换，自旋方向不变。
+\begin_inset Formula 
+\[
+Ca_{\vec{p}}^{s}C=b_{\vec{p}}^{s},\quad Cb_{\vec{p}}^{s}C=a_{\vec{p}}^{s}
+\]
+
+\end_inset
+
+我们找出
+\begin_inset Formula $u^{s}(p)$
+\end_inset
+
+和
+\begin_inset Formula $v^{s}(p)$
+\end_inset
+
+的关系：
+\begin_inset Formula 
+\begin{align*}
+\left(v^{s}\left(p\right)\right)^{\ast} & =\sqrt{m}\left(\begin{array}{c}
+\sqrt{p\cdot\sigma/m}\left(-i\sigma^{2}\xi^{*}\right)\\
+-\sqrt{p\cdot\bar{\sigma}/m}\left(-i\sigma^{2}\xi^{*}\right)
+\end{array}\right)^{\ast}=\sqrt{m}\left(\begin{array}{c}
+-i\sigma^{2}\sqrt{p\cdot\bar{\sigma}^{\ast}/m}\xi^{s*}\\
+i\sigma^{2}\sqrt{p\cdot\sigma^{\ast}/m}\xi^{s*}
+\end{array}\right)^{\ast}\\
+ & =\left(\begin{array}{cc}
+0 & -i\sigma^{2}\\
+i\sigma^{2} & 0
+\end{array}\right)\sqrt{m}\left(\begin{array}{c}
+\sqrt{p\cdot\sigma/m}\xi^{s}\\
+\sqrt{p\cdot\bar{\sigma}/m}\xi^{s}
+\end{array}\right)=-i\gamma^{2}u^{s}\left(p\right)
+\end{align*}
+
+\end_inset
+
+也就是说，
+\begin_inset Formula 
+\[
+u^{s}\left(p\right)=-i\gamma^{2}v^{s}\left(p\right)^{\ast},\quad v^{s}\left(p\right)=-i\gamma^{2}u^{s}\left(p\right)^{\ast}
+\]
+
+\end_inset
+
+所以，
+\begin_inset Formula 
+\begin{align*}
+C\psi\left(x\right)C & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}\left(-i\gamma^{2}b^{s}\left(p\right)v^{s}\left(p\right)\right)^{\ast}e^{-ipx}-i\gamma^{2}a^{s\dagger}\left(p\right)\left(u^{s}\left(p\right)\right)^{\ast}\exp\left(+ip.x\right)\\
+C\psi\left(x\right)C & =-i\gamma^{2}\psi^{\ast}\left(x\right)=-i\gamma^{2}\left(\psi^{\dagger}\right)^{T}=-i\left(\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}
+\end{align*}
+
+\end_inset
+
+其中使用了
+\begin_inset Formula $\gamma^{2T}=\gamma^{2}$
+\end_inset
+
+。注意
+\begin_inset Formula $C$
+\end_inset
+
+是线性幺正算符，即使它把
+\begin_inset Formula $\psi\left(x\right)\to\psi^{\ast}\left(x\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+同样的，查看
+\begin_inset Formula $\bar{\psi}\left(x\right)$
+\end_inset
+
+的变化：
+\begin_inset Formula 
+\[
+C\bar{\psi}\left(x\right)C=C\psi\left(x\right)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=\left(-i\gamma^{0}\gamma^{2}\psi\right)^{T}
+\]
+
+\end_inset
+
+可以看到，电荷共轭相当于正反费米子交换了位置。
+\end_layout
+
+\begin_layout Standard
+对于一个费米子链
+\begin_inset Formula $\bar{\psi}O\psi=\bar{\psi}_{1k}O_{kl}\psi_{l}$
+\end_inset
+
+，电荷共轭相当于(这里为了看清楚，需要把指标写出来)
+\begin_inset Formula 
+\begin{align*}
+\bar{\psi}O\psi & \stackrel{C}{\mapsto}\left(-i\gamma^{0}\gamma^{2}\psi\right)^{T}O\left(-i\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}={\color{red}\left(-1\right)\gamma_{kb}^{0}\gamma_{bc}^{2}\psi_{c1}O_{kl}\bar{\psi}_{1d}\gamma_{de}^{0}\gamma_{el}^{2}}\\
+ & =\left(--1\right)\bar{\psi}_{1d}\gamma_{de}^{0}\gamma_{el}^{2}O_{kl}\gamma_{kb}^{0}\gamma_{bc}^{2}\psi_{c1}=\bar{\psi}\gamma^{0}\gamma^{2}O^{T}\gamma^{0}\gamma^{2}\psi\\
+ & =-\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+如果
+\begin_inset Formula $O=\mathbbm{1}$
+\end_inset
+
+，则
+\begin_inset Formula $\bar{\psi}\mathbbm{1}\psi\stackrel{C}{\mapsto}-\bar{\psi}\gamma^{2}\gamma^{2}\psi=\bar{\psi}\psi$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Enumerate
+如果是
+\begin_inset Formula $O=\gamma^{\mu}$
+\end_inset
+
+ ，则
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\psi\stackrel{C}{\mapsto}-\bar{\psi}\gamma^{2}\gamma^{0}\gamma^{\mu\dagger*}\gamma^{0}\gamma^{2}\psi=-\bar{\psi}\gamma^{2}\gamma^{\mu*}\gamma^{2}\psi=-\bar{\psi}\gamma^{\mu}\psi$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Standard
+注意这里的指标，关键是
+\begin_inset Formula ${\color{red}\gamma_{kb}^{0}\cdots O_{kl}\cdots\gamma_{el}^{2}}$
+\end_inset
+
+这样的收缩关系，跟等号左边表示的矩阵乘法是一致的。
+\end_layout
+
+\begin_layout Standard
+这个负号跟费米子反对易有关。
+\begin_inset Formula $O$
+\end_inset
+
+是一串伽马矩阵的乘积。对应的旋量的变换是
+\begin_inset Formula 
+\[
+\bar{u}(p)O(p)u(p)\to-\bar{u}(p)\gamma^{2}\gamma^{0}O^{T}(p)\gamma^{0}\gamma^{2}u(p)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+双线性型的变化形式如下，
+\begin_inset Formula 
+\begin{align*}
+C\bar{\psi}(x)\psi(x)C & =+\bar{\psi}\psi(x)\\
+C\bar{\psi}(x)\gamma^{\mu}\psi(x)C & =-\bar{\psi}\gamma^{\mu}\psi(x)\\
+C\bar{\psi}(x)i\gamma^{5}\psi(x)C & =+\bar{\psi}i\gamma^{5}\psi(x)\\
+C\bar{\psi}(x)\gamma^{\mu}\gamma^{5}\psi(x)C & =+\bar{\psi}\gamma^{\mu}\gamma^{5}\psi(x)\\
+C\bar{\psi}(x)i\sigma^{\mu\nu}\psi(x)C & =-\bar{\psi}i\sigma^{\mu\nu}\psi(x)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 时间反演
+\end_layout
+
+\begin_layout Subsection
+zee 
+\end_layout
+
+\begin_layout Standard
+在量子力学中，时间伴随
+\begin_inset Formula $i$
+\end_inset
+
+，反转时间必须同时反转
+\begin_inset Formula $i$
+\end_inset
+
+。所以令时间反转算符
+\begin_inset Formula $T=UK$
+\end_inset
+
+，
+\begin_inset Formula $K$
+\end_inset
+
+的作用是取右边所有元素的复共轭，
+\begin_inset Formula $U$
+\end_inset
+
+对虚数没有作用，为普通幺正算子。对于平面波
+\begin_inset Formula 
+\[
+\Psi^{\prime}\left(t^{\prime}\right)=T\Psi\left(t\right)=UK\Psi\left(t\right)=U\Psi^{*}\left(t\right)=Ue^{+i\left(Et-\sbf k\cdot\sbf x\right)}=e^{+i\left(Et-\sbf k\cdot\sbf x\right)}
+\]
+
+\end_inset
+
+注意时间变量也要相应改变
+\begin_inset Formula $t\to t^{\prime}$
+\end_inset
+
+。对于标量场，
+\begin_inset Formula $U$
+\end_inset
+
+是任意相位因子，我们选取了
+\begin_inset Formula $U=1$
+\end_inset
+
+。所以
+\begin_inset Formula 
+\[
+\Psi^{\prime}\left(t\right)=T\Psi\left(T^{-1}t\right)=e^{+i\left(-Et-\sbf k\cdot\sbf x\right)}=e^{-i\left(Et+\sbf k\cdot\sbf x\right)}
+\]
+
+\end_inset
+
+变成了反方向传播的平面波。重要的是
+\begin_inset Formula $\Psi^{\prime}\left(t\right)\propto e^{-iEt}$
+\end_inset
+
+具有正的能量。
+\end_layout
+
+\begin_layout Standard
+如果作用于自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+的粒子，自旋方向将翻转。所以需要使用到
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+，令
+\begin_inset Formula $U=\eta\sigma^{2}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+T\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)=i\eta\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+T^{2}=\eta\sigma^{2}K\eta\sigma^{2}K=\eta\sigma^{2}\eta^{*}\sigma^{2*}KK=-1
+\]
+
+\end_inset
+
+这叫做克拉默简并：处在电场中，具有奇数各电子的系统，无论能级多么复杂，都是二重简并的。来源就是时间反演不变性。
+\end_layout
+
+\begin_layout Standard
+复共轭算符要对右边的所有量作用，
+\begin_inset Formula $\overrightarrow{K}ABC=A^{*}B^{*}C^{*}$
+\end_inset
+
+。考虑到还有左矢，可以定义
+\begin_inset Formula $CBA\overleftarrow{K}=C^{*}B^{*}A^{*}$
+\end_inset
+
+，这样
+\begin_inset Formula 
+\[
+\left(\bra AH\ket B\right)^{*}=\bra A\overleftarrow{K}H\overrightarrow{K}\ket B
+\]
+
+\end_inset
+
+力学量，如哈密顿
+\begin_inset Formula $H$
+\end_inset
+
+一般都是厄米的。
+\begin_inset Formula 
+\[
+\overleftarrow{K}\overleftarrow{K}=\overrightarrow{K}\overrightarrow{K}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于狄拉克方程，
+\begin_inset Formula 
+\begin{align*}
+ & i\left(\gamma^{0}\partial_{t}+\sbf\gamma\cdot\nabla\psi\right)=m\psi\\
+\text{左乘}\gamma^{0}\text{得到}\quad & i\partial_{t}\psi\left(t\right)=H\psi\left(t\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $H=-i\gamma^{0}\sbf\gamma\cdot\nabla+\gamma^{0}m$
+\end_inset
+
+。我们想得到
+\begin_inset Formula 
+\begin{align*}
+ & i\frac{\partial}{\partial t^{\prime}}\psi^{\prime}\left(t^{\prime}\right)=H\psi^{\prime}\left(t^{\prime}\right)\\
+ & i\frac{\partial}{\partial t^{\prime}}T\psi\left(t\right)=HT\psi\left(t\right)\\
+ & i\frac{\partial}{\partial t^{\prime}}U\overrightarrow{K}\psi\left(t\right)=HU\overrightarrow{K}\psi\left(t\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\psi^{\prime}\left(t^{\prime}\right)=T\psi\left(t\right)$
+\end_inset
+
+，
+\begin_inset Formula $T$
+\end_inset
+
+待定。如果有
+\begin_inset Formula $T^{-1}HT=H$
+\end_inset
+
+，即
+\begin_inset Formula $\overrightarrow{K}U^{-1}HU\overrightarrow{K}=H$
+\end_inset
+
+，即
+\begin_inset Formula 
+\begin{align*}
+ & U^{-1}HU=\overrightarrow{K}H\\
+ & U^{-1}\gamma^{0}U=\gamma^{0*},\quad U^{-1}\gamma^{i}U=-\gamma^{i*}
+\end{align*}
+
+\end_inset
+
+也就是
+\begin_inset Formula $\gamma^{1},\gamma^{3}$
+\end_inset
+
+反号，
+\begin_inset Formula $\gamma^{0},\gamma^{2}$
+\end_inset
+
+保持不变，可以取
+\begin_inset Formula 
+\[
+U=\eta\gamma^{1}\gamma^{3}
+\]
+
+\end_inset
+
+即
+\begin_inset Formula 
+\[
+\psi^{\prime}\left(t^{\prime}\right)=\eta\gamma^{1}\gamma^{3}K\psi\left(t\right)
+\]
+
+\end_inset
+
+狄拉克和外尔基中的
+\begin_inset Formula $\gamma^{i}$
+\end_inset
+
+相同，无论哪种情形，
+\begin_inset Formula 
+\[
+U=\eta\left(\sigma^{1}\otimes i\tau_{2}\right)\left(\sigma^{3}\otimes i\tau_{2}\right)=\eta i\sigma^{2}\otimes1.
+\]
+
+\end_inset
+
+与非相对论情况相同，
+\begin_inset Formula $T^{2}\psi=-\psi$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+宇称算符出现
+\begin_inset Formula $\gamma^{0}$
+\end_inset
+
+，电荷共轭出现
+\begin_inset Formula $\gamma^{2}$
+\end_inset
+
+，时间反演出现
+\begin_inset Formula $\gamma^{1}\gamma^{3}$
+\end_inset
+
+。所以如果我们将狄拉克粒子变成反粒子，并反转时空，将出现
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+pesin
 \end_layout
 
 \begin_layout Standard
@@ -4127,416 +4714,6 @@ T\bar{\psi}\left(x\right)i\sigma^{\mu\nu}\psi\left(x\right)T & =\bar{\psi}i\sigm
 分量不变，其他分量多一个负号。
 \end_layout
 
-\begin_layout Subsection
-时间反演zee 
-\end_layout
-
-\begin_layout Standard
-在量子力学中，时间伴随
-\begin_inset Formula $i$
-\end_inset
-
-，反转时间必须同时反转
-\begin_inset Formula $i$
-\end_inset
-
-。所以令时间反转算符
-\begin_inset Formula $T=UK$
-\end_inset
-
-，
-\begin_inset Formula $K$
-\end_inset
-
-的作用是取右边所有元素的复共轭，
-\begin_inset Formula $U$
-\end_inset
-
-对虚数没有作用，为普通幺正算子。对于平面波
-\begin_inset Formula 
-\[
-\Psi^{\prime}\left(t^{\prime}\right)=T\Psi\left(t\right)=UK\Psi\left(t\right)=U\Psi^{*}\left(t\right)=Ue^{+i\left(Et-\sbf k\cdot\sbf x\right)}=e^{+i\left(Et-\sbf k\cdot\sbf x\right)}
-\]
-
-\end_inset
-
-对于标量场，
-\begin_inset Formula $U$
-\end_inset
-
-是任意相位因子，我们选取了
-\begin_inset Formula $U=1$
-\end_inset
-
-。所以
-\begin_inset Formula 
-\[
-\Psi^{\prime}\left(t\right)=T\Psi\left(T^{-1}t\right)=e^{+i\left(-Et-\sbf k\cdot\sbf x\right)}=e^{-i\left(Et+\sbf k\cdot\sbf x\right)}
-\]
-
-\end_inset
-
-变成了反方向传播的平面波。重要的是
-\begin_inset Formula $\Psi^{\prime}\left(t\right)\propto e^{-iEt}$
-\end_inset
-
-具有正的能量。
-\end_layout
-
-\begin_layout Standard
-如果作用于自旋
-\begin_inset Formula $1/2$
-\end_inset
-
-的粒子，自旋方向将翻转。所以需要使用到
-\begin_inset Formula $\sigma^{2}$
-\end_inset
-
-，令
-\begin_inset Formula $U=\eta\sigma^{2}$
-\end_inset
-
-:
-\begin_inset Formula 
-\[
-T\left(\begin{array}{c}
-1\\
-0
-\end{array}\right)=i\eta\left(\begin{array}{c}
-0\\
-1
-\end{array}\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-T^{2}=\eta\sigma^{2}K\eta\sigma^{2}K=\eta\sigma^{2}\eta^{*}\sigma^{2*}KK=-1
-\]
-
-\end_inset
-
-这叫做克拉默简并：处在电场中，具有奇数各电子的系统，无论能级多么复杂，都是二重简并的。来源就是时间反演不变性。
-\end_layout
-
-\begin_layout Standard
-复共轭算符要对右边的所有量作用，
-\begin_inset Formula $\overrightarrow{K}ABC=A^{*}B^{*}C^{*}$
-\end_inset
-
-。考虑到还有左矢，可以定义
-\begin_inset Formula $CBA\overleftarrow{K}=C^{*}B^{*}A^{*}$
-\end_inset
-
-，这样
-\begin_inset Formula 
-\[
-\left(\bra AH\ket B\right)^{*}=\bra A\overleftarrow{K}H\overrightarrow{K}\ket B
-\]
-
-\end_inset
-
-力学量，如哈密顿
-\begin_inset Formula $H$
-\end_inset
-
-一般都是厄米的。
-\begin_inset Formula 
-\[
-\overleftarrow{K}\overleftarrow{K}=\overrightarrow{K}\overrightarrow{K}=1
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-对于狄拉克方程，
-\begin_inset Formula 
-\begin{align*}
- & i\left(\gamma^{0}\partial_{t}+\sbf\gamma\cdot\nabla\psi\right)=m\psi\\
-\text{左乘}\gamma^{0}\text{得到}\quad & i\partial_{t}\psi\left(t\right)=H\psi\left(t\right)
-\end{align*}
-
-\end_inset
-
-其中
-\begin_inset Formula $H=-i\gamma^{0}\sbf\gamma\cdot\nabla+\gamma^{0}m$
-\end_inset
-
-。我们想得到
-\begin_inset Formula 
-\begin{align*}
- & i\frac{\partial}{\partial t^{\prime}}\psi^{\prime}\left(t^{\prime}\right)=H\psi^{\prime}\left(t^{\prime}\right)\\
- & i\frac{\partial}{\partial t^{\prime}}T\psi\left(t\right)=HT\psi\left(t\right)\\
- & i\frac{\partial}{\partial t^{\prime}}U\overrightarrow{K}\psi\left(t\right)=HU\overrightarrow{K}\psi\left(t\right)
-\end{align*}
-
-\end_inset
-
-其中
-\begin_inset Formula $\psi^{\prime}\left(t^{\prime}\right)=T\psi\left(t\right)$
-\end_inset
-
-，
-\begin_inset Formula $T$
-\end_inset
-
-待定。如果有
-\begin_inset Formula $T^{-1}HT=H$
-\end_inset
-
-，即
-\begin_inset Formula $\overrightarrow{K}U^{-1}HU\overrightarrow{K}=H$
-\end_inset
-
-，即
-\begin_inset Formula 
-\begin{align*}
- & U^{-1}HU=\overrightarrow{K}H\\
- & U^{-1}\gamma^{0}U=\gamma^{0*},\quad U^{-1}\gamma^{i}U=-\gamma^{i*}
-\end{align*}
-
-\end_inset
-
-也就是
-\begin_inset Formula $\gamma^{1},\gamma^{3}$
-\end_inset
-
-反号，
-\begin_inset Formula $\gamma^{0},\gamma^{2}$
-\end_inset
-
-保持不变，可以取
-\begin_inset Formula 
-\[
-U=\eta\gamma^{1}\gamma^{3}
-\]
-
-\end_inset
-
-即
-\begin_inset Formula 
-\[
-\psi^{\prime}\left(t^{\prime}\right)=\eta\gamma^{1}\gamma^{3}K\psi\left(t\right)
-\]
-
-\end_inset
-
-狄拉克和外尔基中的
-\begin_inset Formula $\gamma^{i}$
-\end_inset
-
-相同，无论哪种情形，
-\begin_inset Formula 
-\[
-U=\eta\left(\sigma^{1}\otimes i\tau_{2}\right)\left(\sigma^{3}\otimes i\tau_{2}\right)=\eta i\sigma^{2}\otimes1.
-\]
-
-\end_inset
-
-与非相对论情况相同，
-\begin_inset Formula $T^{2}\psi=-\psi$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-宇称算符出现
-\begin_inset Formula $\gamma^{0}$
-\end_inset
-
-，电荷共轭出现
-\begin_inset Formula $\gamma^{2}$
-\end_inset
-
-，时间反演出现
-\begin_inset Formula $\gamma^{1}\gamma^{3}$
-\end_inset
-
-。所以如果我们将狄拉克粒子变成反粒子，并反转时空，将出现
-\begin_inset Formula $\gamma^{5}$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Section
-电荷共轭
-\end_layout
-
-\begin_layout Standard
-电荷共轭习惯上定义成正反费米子之间的变换，自旋方向不变。
-\begin_inset Formula 
-\[
-Ca_{\vec{p}}^{s}C=b_{\vec{p}}^{s},\quad Cb_{\vec{p}}^{s}C=a_{\vec{p}}^{s}
-\]
-
-\end_inset
-
-我们找出
-\begin_inset Formula $u^{s}(p)$
-\end_inset
-
-和
-\begin_inset Formula $v^{s}(p)$
-\end_inset
-
-的关系：
-\begin_inset Formula 
-\begin{align*}
-\left(v^{s}\left(p\right)\right)^{\ast} & =\sqrt{m}\left(\begin{array}{c}
-\sqrt{p\cdot\sigma/m}\left(-i\sigma^{2}\xi^{*}\right)\\
--\sqrt{p\cdot\bar{\sigma}/m}\left(-i\sigma^{2}\xi^{*}\right)
-\end{array}\right)^{\ast}=\sqrt{m}\left(\begin{array}{c}
--i\sigma^{2}\sqrt{p\cdot\bar{\sigma}^{\ast}/m}\xi^{s*}\\
-i\sigma^{2}\sqrt{p\cdot\sigma^{\ast}/m}\xi^{s*}
-\end{array}\right)^{\ast}\\
- & =\left(\begin{array}{cc}
-0 & -i\sigma^{2}\\
-i\sigma^{2} & 0
-\end{array}\right)\sqrt{m}\left(\begin{array}{c}
-\sqrt{p\cdot\sigma/m}\xi^{s}\\
-\sqrt{p\cdot\bar{\sigma}/m}\xi^{s}
-\end{array}\right)=-i\gamma^{2}u^{s}\left(p\right)
-\end{align*}
-
-\end_inset
-
-也就是说，
-\begin_inset Formula 
-\[
-u^{s}\left(p\right)=-i\gamma^{2}v^{s}\left(p\right)^{\ast},\quad v^{s}\left(p\right)=-i\gamma^{2}u^{s}\left(p\right)^{\ast}
-\]
-
-\end_inset
-
-所以，
-\begin_inset Formula 
-\begin{align*}
-C\psi\left(x\right)C & =\int\frac{\dif^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{\vec{p}}}}\sum_{s}\left(-i\gamma^{2}b^{s}\left(p\right)v^{s}\left(p\right)\right)^{\ast}e^{-ipx}-i\gamma^{2}a^{s\dagger}\left(p\right)\left(u^{s}\left(p\right)\right)^{\ast}\exp\left(+ip.x\right)\\
-C\psi\left(x\right)C & =-i\gamma^{2}\psi^{\ast}\left(x\right)=-i\gamma^{2}\left(\psi^{\dagger}\right)^{T}=-i\left(\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}
-\end{align*}
-
-\end_inset
-
-其中使用了
-\begin_inset Formula $\gamma^{2T}=\gamma^{2}$
-\end_inset
-
-。注意
-\begin_inset Formula $C$
-\end_inset
-
-是线性幺正算符，即使它把
-\begin_inset Formula $\psi\left(x\right)\to\psi^{\ast}\left(x\right)$
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-同样的，查看
-\begin_inset Formula $\bar{\psi}\left(x\right)$
-\end_inset
-
-的变化：
-\begin_inset Formula 
-\[
-C\bar{\psi}\left(x\right)C=C\psi\left(x\right)^{\dagger}C\gamma^{0}=(-i\gamma^{2}\psi)^{T}\gamma^{0}=\left(-i\gamma^{0}\gamma^{2}\psi\right)^{T}
-\]
-
-\end_inset
-
-可以看到，电荷共轭相当于正反费米子交换了位置。
-\end_layout
-
-\begin_layout Standard
-对于一个费米子链
-\begin_inset Formula $\bar{\psi}O\psi=\bar{\psi}_{1k}O_{kl}\psi_{l}$
-\end_inset
-
-，电荷共轭相当于(这里为了看清楚，需要把指标写出来)
-\begin_inset Formula 
-\begin{align*}
-\bar{\psi}O\psi & \stackrel{C}{\mapsto}\left(-i\gamma^{0}\gamma^{2}\psi\right)^{T}O\left(-i\bar{\psi}\gamma^{0}\gamma^{2}\right)^{T}={\color{red}\left(-1\right)\gamma_{kb}^{0}\gamma_{bc}^{2}\psi_{c1}O_{kl}\bar{\psi}_{1d}\gamma_{de}^{0}\gamma_{el}^{2}}\\
- & =\left(--1\right)\bar{\psi}_{1d}\gamma_{de}^{0}\gamma_{el}^{2}O_{kl}\gamma_{kb}^{0}\gamma_{bc}^{2}\psi_{c1}=\bar{\psi}\gamma^{0}\gamma^{2}O^{T}\gamma^{0}\gamma^{2}\psi\\
- & =-\bar{\psi}\gamma^{2}\gamma^{0}O^{T}\gamma^{0}\gamma^{2}\psi
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-如果
-\begin_inset Formula $O=\mathbbm{1}$
-\end_inset
-
-，则
-\begin_inset Formula $\bar{\psi}\mathbbm{1}\psi\stackrel{C}{\mapsto}-\bar{\psi}\gamma^{2}\gamma^{2}\psi=\bar{\psi}\psi$
-\end_inset
-
-，
-\end_layout
-
-\begin_layout Enumerate
-如果是
-\begin_inset Formula $O=\gamma^{\mu}$
-\end_inset
-
- ，则
-\begin_inset Formula $\bar{\psi}\gamma^{\mu}\psi\stackrel{C}{\mapsto}-\bar{\psi}\gamma^{2}\gamma^{0}\gamma^{\mu\dagger*}\gamma^{0}\gamma^{2}\psi=-\bar{\psi}\gamma^{2}\gamma^{\mu*}\gamma^{2}\psi=-\bar{\psi}\gamma^{\mu}\psi$
-\end_inset
-
-，
-\end_layout
-
-\begin_layout Standard
-注意这里的指标，关键是
-\begin_inset Formula ${\color{red}\gamma_{kb}^{0}\cdots O_{kl}\cdots\gamma_{el}^{2}}$
-\end_inset
-
-这样的收缩关系，跟等号左边表示的矩阵乘法是一致的。
-\end_layout
-
-\begin_layout Standard
-这个负号跟费米子反对易有关。
-\begin_inset Formula $O$
-\end_inset
-
-是一串伽马矩阵的乘积。对应的旋量的变换是
-\begin_inset Formula 
-\[
-\bar{u}(p)O(p)u(p)\to-\bar{u}(p)\gamma^{2}\gamma^{0}O^{T}(p)\gamma^{0}\gamma^{2}u(p)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-双线性型的变化形式如下，
-\begin_inset Formula 
-\begin{align*}
-C\bar{\psi}(x)\psi(x)C & =+\bar{\psi}\psi(x)\\
-C\bar{\psi}(x)\gamma^{\mu}\psi(x)C & =-\bar{\psi}\gamma^{\mu}\psi(x)\\
-C\bar{\psi}(x)i\gamma^{5}\psi(x)C & =+\bar{\psi}i\gamma^{5}\psi(x)\\
-C\bar{\psi}(x)\gamma^{\mu}\gamma^{5}\psi(x)C & =+\bar{\psi}\gamma^{\mu}\gamma^{5}\psi(x)\\
-C\bar{\psi}(x)i\sigma^{\mu\nu}\psi(x)C & =-\bar{\psi}i\sigma^{\mu\nu}\psi(x)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 马约拉纳中微子
 \end_layout
@@ -4918,7 +5095,7 @@ C\bar{\psi}(x)C & =\psi^{T}\left(i\gamma^{2}\gamma^{0}\right)=\left(\left(-i\gam
 \end_layout
 
 \begin_layout Section
-标量场和矢量场
+标量场和矢量场的CPT变换
 \end_layout
 
 \begin_layout Standard
@@ -5064,6 +5241,26 @@ CPT表格
 \end_layout
 
 \begin_layout Standard
+zee：宇称算符出现
+\begin_inset Formula $\gamma^{0}$
+\end_inset
+
+，电荷共轭出现
+\begin_inset Formula $\gamma^{2}$
+\end_inset
+
+，时间反演出现
+\begin_inset Formula $\gamma^{1}\gamma^{3}$
+\end_inset
+
+。如果我们将狄拉克粒子变成反粒子，并翻转时空，将会出现
+\begin_inset Formula $\gamma^{5}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
 下面的表格，给出了
 \begin_inset Formula $CPT$
 \end_inset
@@ -5135,7 +5332,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $i\bar{\psi}\gamma^{5}\psi$
+\begin_inset Formula $\bar{\psi}i\gamma^{5}\psi$
 \end_inset
 
 
@@ -5270,7 +5467,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $g\left(\mu\right)$
+\begin_inset Formula $g^{\mu\mu}$
 \end_inset
 
 
@@ -5282,7 +5479,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $-g\left(\mu\right)$
+\begin_inset Formula $-g^{\mu\mu}$
 \end_inset
 
 
@@ -5294,7 +5491,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $g\left(\mu\right)g\left(\nu\right)$
+\begin_inset Formula $g^{\mu\nu}$
 \end_inset
 
 
@@ -5306,7 +5503,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $g\left(\mu\right)$
+\begin_inset Formula $g^{\mu\mu}$
 \end_inset
 
 
@@ -5392,7 +5589,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $g\left(\mu\right)$
+\begin_inset Formula $g^{\mu\mu}$
 \end_inset
 
 
@@ -5404,7 +5601,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $g\left(\mu\right)$
+\begin_inset Formula $g^{\mu\mu}$
 \end_inset
 
 
@@ -5416,7 +5613,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $-g\left(\mu\right)g\left(\nu\right)$
+\begin_inset Formula $-g^{\mu\nu}$
 \end_inset
 
 
@@ -5428,7 +5625,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $-g\left(\mu\right)$
+\begin_inset Formula $-g^{\mu\mu}$
 \end_inset
 
 
@@ -5734,8 +5931,8 @@ status open
 
 变换下的变换性质。其中
 \begin_inset Formula $\begin{cases}
-g\left(\mu\right)=1, & \text{for }\mu=0\\
-g\left(\mu\right)=-1, & \text{for }\mu=1,2,3
+g^{\mu\mu}=1, & \text{for }\mu=0\\
+g^{\mu\mu}=-1, & \text{for }\mu=1,2,3
 \end{cases}$
 \end_inset
 
@@ -5744,10 +5941,6 @@ g\left(\mu\right)=-1, & \text{for }\mu=1,2,3
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
