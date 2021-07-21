@@ -1013,7 +1013,15 @@ u_{\mu} & =\frac{i}{2}\left(\xi\partial_{\mu}\xi^{\dagger}-\xi^{\dagger}\partial
 \begin_inset Formula $Q_{c}$
 \end_inset
 
-是无迹厄米电荷矩阵。fch 论文中
+是无迹厄米电荷矩阵，
+\begin_inset Formula $e$
+\end_inset
+
+表示电子电荷，
+\begin_inset Formula $e>0$
+\end_inset
+
+。fch 论文中
 \begin_inset Formula $u_{\mu}$
 \end_inset
 
@@ -1370,6 +1378,10 @@ then,
 \begin_inset Formula $v_{\mu}^{0}=e\mathcal{A}_{\mu}$
 \end_inset
 
+，
+\begin_inset Formula $e>0$
+\end_inset
+
 。则结果为
 \color cyan
 
@@ -1437,15 +1449,7 @@ B=\sum_{a=1}^{8}\frac{B_{a}\lambda_{a}}{\sqrt{2}}=\left(\begin{array}{ccc}
 \begin_inset Formula $l_{\mu}=r_{\mu}=+eQ\mathcal{A}_{\mu}$
 \end_inset
 
-，对于
-\begin_inset Formula $l_{\mu}=r_{\mu}=-eQ\mathcal{A}_{\mu}$
-\end_inset
-
-，令
-\begin_inset Formula $e\to-e$
-\end_inset
-
-即可。强子流的矢量和轴矢量展开分别为，
+，强子流的矢量和轴矢量展开分别为，
 \begin_inset Formula 
 \begin{align*}
 \Gamma_{\mu} & =-ieQ\mathcal{A}_{\mu}+\frac{1}{4f^{2}}\phi\left(\partial_{\mu}-ieQ\mathcal{A}_{\mu}\right)\phi\\
@@ -1462,7 +1466,15 @@ u_{\mu} & =-\frac{1}{f}\partial_{\mu}\phi+\frac{i}{f}e\mathcal{A}_{\mu}\left[Q,\
 
 \end_inset
 
+如果想得到
+\begin_inset Formula $l_{\mu}=r_{\mu}=-eQ\mathcal{A}_{\mu}$
+\end_inset
 
+的结果，令
+\begin_inset Formula $e\to-e$
+\end_inset
+
+即可。
 \end_layout
 
 \begin_layout Subsection
@@ -2561,11 +2573,48 @@ x^{\dagger}Ay\Rightarrow x_{i}^{*}A_{ij}y_{j}
 指标。
 \end_layout
 
-\begin_layout Subsection
-强子电磁流
+\begin_layout Section
+物质场电磁流
 \end_layout
 
 \begin_layout Standard
+对于正负电子的简单情形，
+\begin_inset Formula 
+\[
+\mathcal{L}=\bar{\psi}\left(i\gamma.D-m\right)\psi=\bar{\psi}\left(i\gamma^{\mu}\partial_{\mu}+Qe\gamma^{\mu}\mathcal{A}_{\mu}-m\right)\psi+Qe\bar{\psi}\gamma^{\mu}\psi\mathcal{A}_{\mu}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $D_{\mu}=\partial_{\mu}-ieQ\mathcal{A}_{\mu}$
+\end_inset
+
+，
+\begin_inset Formula $e>0$
+\end_inset
+
+，
+\begin_inset Formula $Qe$
+\end_inset
+
+是电子的电荷。也就是电磁相互作用的一般形式为，
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{em}}=Qe\bar{\psi}\gamma^{\mu}\psi\mathcal{A}_{\mu},\quad e>0,\quad Q\,\text{是粒子的电荷}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\text{SU}\left(3\right)$
+\end_inset
+
+ 物质流的八重态部分与外场
+\begin_inset Formula $v_{\mu}^{a}$
+\end_inset
+
+耦合，
 \begin_inset Formula 
 \begin{align*}
 J_{a}^{\mu} & ={\color{blue}\frac{1}{2}\tr\left[\overline{B}\gamma^{\mu}\left(u\lambda^{a}u^{\dagger}+u^{\dagger}\lambda^{a}u,B\right)\right]}\\
@@ -2580,11 +2629,11 @@ J_{a}^{\mu} & ={\color{blue}\frac{1}{2}\tr\left[\overline{B}\gamma^{\mu}\left(u\
 \begin_inset Formula $\text{SU}\left(3\right)$
 \end_inset
 
-单态流耦合到外场
+物质流的单态部分与外场
 \begin_inset Formula $v_{\mu}^{0}$
 \end_inset
 
-，得到
+耦合，
 \begin_inset Formula 
 \[
 J_{0}^{\mu}=\langle\lambda^{0}\rangle\tr\left[\overline{B}\gamma^{\mu}B\right]+\langle\lambda^{0}\rangle\overline{T}_{\nu}\gamma^{\nu\alpha\mu}T_{\alpha}.
@@ -2608,19 +2657,23 @@ Q_{u}\\
 \begin_inset Formula $\sim\xi\lambda^{0}$
 \end_inset
 
-。那么
+。那么迹只影响
 \begin_inset Formula $J_{a}^{\mu}$
 \end_inset
 
-只有蓝色部分的会受到影响，其他项贡献为零，多出来正好就是
+中的蓝色部分，迹对
+\begin_inset Formula $J_{a}^{\mu}$
+\end_inset
+
+中其他项无影响——因为常数矩阵与其他矩阵反对易为零。而蓝色部分多出来正好就是
 \begin_inset Formula $J_{0}^{\mu}$
 \end_inset
 
-。所以可以直接把各个表达式中的
+。因此可以把各个表达式中的
 \begin_inset Formula $\lambda^{a}$
 \end_inset
 
-替换成电荷矩阵
+直接替换成电荷矩阵
 \begin_inset Formula $Q$
 \end_inset
 
@@ -2707,7 +2760,7 @@ Q_{u}\\
 \begin_inset Formula $\mp$
 \end_inset
 
-分别对应入射和出射光子。零一种方法是通过分部积分，将
+分别对应入射和出射光子。另一种方法是通过分部积分，将
 \begin_inset Formula $\partial_{\mu}$
 \end_inset
 
@@ -6589,6 +6642,50 @@ height "1pt"
 \end_inset
 
 
+\begin_inset Formula $\bar{\psi}\sigma^{\mu\nu}\psi$
+\end_inset
+
+是厄米的二次型，
+\begin_inset Formula $C$
+\end_inset
+
+宇称为
+\begin_inset Formula $-1$
+\end_inset
+
+，
+\begin_inset Formula $P$
+\end_inset
+
+宇称为
+\begin_inset Formula $g^{\mu\nu}$
+\end_inset
+
+。例如：
+\begin_inset Formula 
+\begin{align*}
+ & {\color{red}i}\overline{p}\sigma^{\mu\nu}p\partial_{\mu}\pi^{+}\partial_{\nu}\pi^{-}-{\color{red}i}\overline{p}\sigma^{\mu\nu}p\partial_{\mu}\pi^{-}\partial_{\nu}\pi^{+}\to\frac{1}{f_{\phi}^{2}}{\color{red}\left(b_{10}+b_{11}\right)}\\
+\Rightarrow & \overline{p}\sigma^{\mu\nu}p\partial_{\mu}\pi^{+}\partial_{\nu}\pi^{-}\to{\color{red}2i\left(b_{10}+b_{11}\right)}
+\end{align*}
+
+\end_inset
+
+系数中的
+\begin_inset Formula $i$
+\end_inset
+
+保证了厄米性和
+\begin_inset Formula $C$
+\end_inset
+
+宇称守恒不矛盾。
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6813,12 +6910,7 @@ height "1pt"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
-
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -7134,12 +7226,7 @@ height "1pt"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
-
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -7455,7 +7542,27 @@ height "1pt"
 \end_layout
 
 \begin_layout Section
-守恒流
+物质场电磁流
+\end_layout
+
+\begin_layout Standard
+电磁流是相互作用拉氏量中线性耦合到
+\begin_inset Formula $\mathcal{A}_{\mu}$
+\end_inset
+
+的项，也就是物质场组成的守恒流。这里我们直接使用，由夸克电荷矩阵
+\begin_inset Formula $\diag\left(u,d,s\right)$
+\end_inset
+
+参数化的电磁流表示。展开矩阵之后，电磁耦合的一般形式为，
+\begin_inset Formula 
+\[
+\mathcal{L}_{\text{em}}=Qe\bar{\psi}\gamma^{\mu}\psi\mathcal{A}_{\mu},\quad e>0,\quad Q\,\text{是粒子的电荷}.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
