@@ -86,6 +86,8 @@ pip install --user powerline-status
 + `ldd`查看依赖信息
 + `sha256sum`: 计算并检查 `SHA256` message digest (消息摘要)
 + `xdg-open`: 可以设置别名为`open`, 使用默认的程序打开文件或者`url`.
++ `lsusb`: 用于显示系统中的`USB`总线和连接到它们的设备信息的工具。
++ `lspci`: 用于显示系统中的`PCI`总线和连接到它们的设备的信息的工具。Peripheral Component Interconnect, 外围组件互连标准。`pcie`--express:高速串行总线.
 
 ***
 `echo`输出的时候,可以考虑改变颜色增加辨认度
@@ -108,21 +110,20 @@ ANSI "颜色"转义序列是以下形式的序列：`ESC [ ... m`. 其中`...`�
 或者可以使用`git diff --word-diff --no-index file1 file2 `. `--word-diff`指定按单词模式显示差异，`--no-index`表明不是与`cached`作比较，而是比较工作区中的文件。
 
 ***
-简单命令
 
-+ `date` 日期
-+ `cal` 日历
-+ `df` 磁盘剩余空间
-+ `free` 空闲内存
-+ ` file`  确定文件类型
-+ `which` locate a command
-+ `type` type is a shell builtin
-+ `cd -` 更改工作目录到先前的工作目录
-+ `cd ~user_name` 切换到用户家目录
-+ `cp -u *.html destination` 更新文件到destination
-+ `ln file link` 创建硬链接
-+ `ln -s item link` 创建符号链接, `item`可以是一个文件或目录,`gnome`中,按住`ctrl+shift`拖动会创建链接.
-+ `df -h`,让你以 `MB` 或 `G` 为单位查看磁盘的空间.
++ `date` :日期
++ `cal`: 日历
++ `df` :磁盘剩余空间
++ `free`: 空闲内存
++ ` file`  :确定文件类型
++ `which`: 确定命令的位置, `where`: `zsh`内置命令, `which`:内置命令，也有二进制, `whereis`: 二进制程序.
++ `type`: 用来查看命令的类型
++ `cd -` :更改工作目录到先前的工作目录
++ `cd ~user_name` :切换到用户家目录
++ `cp -u *.html destination` :更新文件到destination
++ `ln file link` :创建硬链接
++ `ln -s item link` :创建符号链接, `item`可以是一个文件或目录,`gnome`中,按住`ctrl+shift`拖动会创建链接.
++ `df -hT`: `h`让你以 `MB` 或 `G` 为单位查看磁盘的空间, `T`打印设备类型
 
 ***
 查看系统版本信息
@@ -240,9 +241,7 @@ sudo restart mdm # 对于MDM (例如对于Mint Cinnamon )
 
 ### 别名(alias)
 
-[Linux shell 脚本中使用 alias 定义的别名][]
-
-[Linux shell 脚本中使用 alias 定义的别名]: https://www.cnblogs.com/chenjo/p/11145021.html
+[Linux shell 脚本中使用 alias 定义的别名](https://www.cnblogs.com/chenjo/p/11145021.html)
 
 可以把多个命令放在同一行上,命令之间 用`;`分开
 
@@ -658,9 +657,7 @@ sudo fc-cache -fv
 
 ### apt 与 apt-get
 
-[Linux中apt与apt-get命令的区别与解释][]
-
-[Linux中apt与apt-get命令的区别与解释]: https://www.sysgeek.cn/apt-vs-apt-get/
+[Linux中apt与apt-get命令的区别与解释](https://www.sysgeek.cn/apt-vs-apt-get/)
 
 如果你已阅读过我们的 `apt-get` 命令指南,可能已经遇到过许多类似的命令,如`apt-cache`,`apt-config` 等.如你所见,这些命令都比较低级又包含众多功能,普通的 Linux 用户也许永远都不会使用到.换种说法来说,就是最常用的 Linux 包管理命令都被分散在了 `apt-get`,`apt-cache` 和 `apt-config` 这三条命令当中.
 
@@ -793,9 +790,7 @@ pandoc -f markdown --latex-engine=xelatex -o output.pdf input.md
 
 ### ubunut 安装 typora
 
-[typora for linux][]
-
-[typora for linux]: https://www.typora.io/#linux
+[typora for linux](https://www.typora.io/#linux)
 
 ```bash
 # or run:
@@ -1104,11 +1099,9 @@ sudo apt install ubuntu-restricted-extras
 [What are Ubuntu Repositories](https://itsfoss.com/ubuntu-repositories/)
 [一条命令在 Ubuntu 中安装所有基本的媒体编解码器 ](https://linux.cn/article-11906-1.html)
 
-### source
+### source 命令
 
-[Ubuntu如何使用source命令执行文件][]
-
-[Ubuntu如何使用source命令执行文件]: http://www.xitongzhijia.net/xtjc/20150714/52870.html
+[Ubuntu如何使用source命令执行文件](http://www.xitongzhijia.net/xtjc/20150714/52870.html)
 
 `Ubuntu source` 命令的作用就是将设置在文件中的配置信息马上生效,而不需要经过重启.
 
@@ -1581,7 +1574,7 @@ inode的特殊作用
 `/usr/bin/env`在修改后的环境中运行`bash`之类的程序。 它使您的`bash`脚本具有可移植性。 
 `#!/usr/bin/env bash`的优点是，它将使用运行用户的`$PATH`变量中最先出现的`bash`可执行文件。
 
-### 查看日志
+### 日志文件
 
 [linux系统日志在哪？](https://www.php.cn/linux-435716.html)
 [linux日志介绍](https://zhuanlan.zhihu.com/p/26428150)
@@ -1592,7 +1585,7 @@ sudo tail -f /var/log/messages
 sudo tail -f /var/log/kern.log
 ```
 
-linux日志大多是以明文存储，一般存储在`/var/log`目录中，linux系统中主要有三个日志子系统：连接时间日志，进程统计日志，错误日志。
+`linux`日志大多是以明文存储，一般存储在`/var/log`目录中，linux系统中主要有三个日志子系统：连接时间日志，进程统计日志，错误日志。
 
 + `assess-log` 记录和`HTTP/web`的传输
 + `secure` 记录登录系统存取资料的消息
@@ -1639,6 +1632,18 @@ linux日志大多是以明文存储，一般存储在`/var/log`目录中，linux
 如果省略日期部分，则假定为当前日期。 也可以使用字符串`yesterday`，`"today"`，`"tomorrow"`.`now`是指当前时间。
 是指当日，当日或当日后一天的00:00:00。最后，可以用`-`或`+`为前缀指定相对时间. 有关完整的时间和日期规范，请参见`systemd.time(7).`。
 `--output=short-full`将完全按照此格式打印时间戳。
+
+`x, --catalog`:
+用信息目录中的解释文本来增加日志行。这将为输出中的日志信息添加解释性的帮助文本，如果这是可用的。
+这些简短的帮助文本将解释错误或日志事件的背景，可能的解决方案，以及指向支持论坛、开发人员文档和任何其他相关手册的指针。
+请注意，帮助文本不是对所有的信息都可用，而只是对选定的 的帮助文本。关于消息目录的更多信息，请参考消息目录开发者文档[5]。
+
+注意：当把 `journalctl` 输出附加到错误报告时，请不要使用 `-x`。
+
+`-e, --pager-end`:
+
+立即跳到默认的分页工具的日志末尾。这意味着`-n1000`，以保证`pager`不会缓冲无限制大小的日志。
+可以用一个明确的`-n数值`来覆盖，而`-nall`将禁用这个上限。注意，这个选项只支持`less(1)`pager。
 
 参考实例
 

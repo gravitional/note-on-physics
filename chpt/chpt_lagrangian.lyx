@@ -210,7 +210,7 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-下面使用了依赖于某四速度
+在非相对论近似中，使用依赖于某四速度
 \begin_inset Formula $v$
 \end_inset
 
@@ -218,7 +218,7 @@ literal "true"
 \begin_inset Formula $v$
 \end_inset
 
-写在场的右下角。最低阶的包含 octet and decuplet 的拉氏量为
+写在场的右下角。最低阶的包含 octet 和 decuplet 的拉氏量为
 \begin_inset Formula 
 \begin{align}
 L_{v}^{0} & =i\tr\bar{B}_{v}\left(v\cdot\mathcal{D}\right)B_{v}+2D\tr\bar{B}_{v}S_{v}^{\mu}\left\{ A_{\mu},B_{v}\right\} +2F\tr\bar{B}_{v}S_{v}^{\mu}\left[A_{\mu},B_{v}\right]\nonumber \\
@@ -240,6 +240,7 @@ S_{v}^{\mu}\equiv\frac{i}{2}\gamma_{5}\sigma^{\mu\nu}v_{\nu}=-\frac{1}{2}\gamma_
 \end_layout
 
 \begin_layout Standard
+类似地，可以讨论二次型的分类。
 \begin_inset Formula $\bar{\mathcal{N}}_{v}\Gamma\mathcal{N}_{v}$
 \end_inset
 
@@ -414,7 +415,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-自旋半整数粒子
+自旋半整数粒子–Schwinger
 \end_layout
 
 \begin_layout Standard
@@ -461,55 +462,92 @@ literal "true"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-用
+按照施温格的方法，要描述一个自旋半整数的粒子，可以使用
 \begin_inset Formula $\Psi_{\mu1\cdots\mu k}$
 \end_inset
 
-来描述一个自旋半整数的粒子。它混合了 Dirac 旋量和 
+，它是 Dirac 旋量和 
 \begin_inset Formula $k$
 \end_inset
 
-阶全对称张量的性质（这里省略了狄拉克指标）。描述
+阶全对称张量的混合（这里只给出了矢量指标，省略了旋量指标）。自旋
 \begin_inset Formula $k+\frac{1}{2}$
 \end_inset
 
-自旋粒子的方程式：
+粒子的运动方程为：
 \begin_inset Formula 
 \[
-\left(i\gamma^{\tau}\partial_{\tau}-m\right)\Psi_{\mu1\cdots\mu k}=0,\qquad\gamma_{\alpha}\Psi_{\alpha\mu2\cdots\mu k}=0
+\left(i\gamma^{\tau}\partial_{\tau}-m\right)\Psi_{\mu1\cdots\mu k}=0,\qquad\gamma^{\alpha}\Psi_{\alpha\mu2\cdots\mu k}=0
 \]
 
 \end_inset
 
-即每一个分量都满足 Dirac 方程。同时四个分量不是独立的，要满足
-\begin_inset Formula $\gamma_{\alpha}\Psi_{\alpha\mu2\cdots\mu k}=0$
+即矢量指标中的每一个分量都满足 Dirac 方程，同时四个分量不是独立的，要满足
+\begin_inset Formula $\gamma^{\alpha}\Psi_{\alpha\mu2\cdots\mu k}=0$
 \end_inset
 
  ，它投影掉了那些自旋
 \begin_inset Formula $\frac{1}{2}$
 \end_inset
 
-的分量。因为
-\begin_inset Formula $\gamma.p\psi=m\psi$
+的分量。用群论的说法，例如对于自旋
+\begin_inset Formula $3/2$
 \end_inset
 
-，可以理解为
+的场，
 \begin_inset Formula 
 \[
-\gamma^{\mu}.\left(p_{\mu}\psi\right)=m\psi
+\frac{1}{2}\otimes1=4\oplus2,\quad\text{i.e.}\quad2*3=4+2.
 \]
 
 \end_inset
 
-结果不是零。
-\end_layout
+如果
+\begin_inset Formula $\gamma^{\mu}\Psi_{\mu}\neq0$
+\end_inset
 
-\begin_layout Standard
-整数情形的 supplementary conditions 也可以看成这些方程的结果：
+，写成
+\begin_inset Formula 
+\[
+\gamma^{\mu}\Psi_{\mu}=x^{\mu}\Psi_{\mu},\quad x^{\mu}\text{是四个数}
+\]
+
+\end_inset
+
+则有
+\begin_inset Formula 
+\begin{align*}
+ & \gamma^{\nu}\gamma^{\mu}\Psi_{\mu}=\gamma^{\nu}x^{\mu}\Psi_{\mu}\\
+ & \slashed{p}\gamma^{\mu}\Psi_{\mu}=\gamma^{\nu}p_{\nu}x^{\mu}\Psi_{\mu}
+\end{align*}
+
+\end_inset
+
+如果可以找到
+\begin_inset Formula $p_{\nu}$
+\end_inset
+
+满足
+\begin_inset Formula $p_{\nu}x^{\mu}=mg_{\nu}^{\mu}$
+\end_inset
+
+，则
+\begin_inset Formula 
+\[
+\slashed{p}\left(\gamma^{\mu}\Psi_{\mu}\right)=m\left(\gamma^{\mu}\Psi_{\mu}\right)
+\]
+
+\end_inset
+
+也就能找到一个满足狄拉克方程的线性组合。所以
+\begin_inset Formula $\gamma^{\mu}\Psi_{\mu}=0$
+\end_inset
+
+这个条件排除了自旋
+\begin_inset Formula $1/2$
+\end_inset
+
+的分量。顺便一提，整数自旋的 supplementary conditions 也可以看成这些方程的结果：
 \begin_inset Formula 
 \[
 \partial_{\alpha}\Psi_{\alpha\mu_{2}\cdots\mu k}=0,\qquad\Psi_{\alpha\alpha\mu_{3}\cdots\mu k}=0
@@ -521,7 +559,11 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-要证明这些波函数确实描述
+要证明被上面的方程约束的
+\begin_inset Formula $\Psi_{\mu1\cdots\mu k}$
+\end_inset
+
+，的确能描述
 \begin_inset Formula $k+\frac{1}{2}$
 \end_inset
 
@@ -549,19 +591,19 @@ literal "true"
 \begin_inset Formula $\Psi$
 \end_inset
 
-都满足 Dirac 方程，小分量消失，大分量共有（计算
+都满足 Dirac 方程，小分量消失，大分量数目为（计算
 \begin_inset Formula $4^{k}$
 \end_inset
 
 阶全对称张量不可约表示的维数）
 \begin_inset Formula 
 \[
-2\frac{(k+3)!}{k!3!}
+2\frac{(k+3)!}{k!3!}.
 \]
 
 \end_inset
 
-个。
+其中
 \begin_inset Formula $2$
 \end_inset
 
@@ -596,16 +638,103 @@ literal "true"
 个关系。所以最后剩下的独立分量个数为
 \begin_inset Formula 
 \[
-2\frac{(k+3)!}{k!3!}-2\frac{(k+2)!}{\left(k-1\right)!3!}-2\frac{(k+1)!}{\left(k-1\right)!2!}=2\left(k+1\right)
+2\frac{(k+3)!}{k!3!}-2\frac{(k+2)!}{\left(k-1\right)!3!}-2\frac{(k+1)!}{\left(k-1\right)!2!}=2k+2,
 \]
 
 \end_inset
 
-个，和期望中的一样。
+和期望的一样。
+\end_layout
+
+\begin_layout Subsection
+自旋3/2
 \end_layout
 
 \begin_layout Standard
-一个可能的拉氏量为
+例如，对于自旋
+\begin_inset Formula $3/2$
+\end_inset
+
+的场，
+\begin_inset Formula $\Psi_{\mu}$
+\end_inset
+
+的形式为，
+\begin_inset Formula 
+\[
+\Psi_{\mu}=\left(\begin{array}{c}
+\Psi^{0}\\
+\Psi^{1}\\
+\Psi^{2}\\
+\Psi^{3}
+\end{array}\right),\quad\left(i\gamma^{\tau}\partial_{\tau}-m\right)\Psi^{\mu}=0
+\]
+
+\end_inset
+
+对应的两个方程分别是，
+\begin_inset Formula 
+\[
+\left(\gamma.p-m\right)\Psi_{\mu}=\left(\gamma^{0}E-\sbf\gamma\cdot\sbf p-m\right)\Psi_{\mu}=0,\quad\gamma^{0}\Psi^{0}=\sbf\gamma\cdot\sbf\Psi
+\]
+
+\end_inset
+
+第一个方程的1，3分量分别是，
+\begin_inset Formula 
+\[
+E\sbf\gamma\cdot\sbf\Psi=\left(\sbf\gamma\cdot\sbf p+m\right)\Psi_{0},\quad\gamma^{0}E\,\sbf\Psi=\left(\sbf\gamma\cdot\sbf p+m\right)\sbf\Psi
+\]
+
+\end_inset
+
+在3分量的方程左边点乘
+\begin_inset Formula $\sbf\gamma$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ & \sbf\gamma\cdot\gamma^{0}E\,\sbf\Psi=\left(\sbf\gamma\cdot\sbf p+m\right)\left(\sbf\gamma\cdot\sbf\Psi\right)\\
+ & -\gamma^{0}E\,\sbf\gamma\cdot\sbf\Psi=\left(\sbf\gamma\cdot\sbf p+m\right)\left(\sbf\gamma\cdot\sbf\Psi\right)\\
+ & -E\,\sbf\gamma\cdot\sbf\Psi=\gamma^{0}\left(\sbf p+m\sbf\gamma\right)\cdot\sbf\Psi
+\end{align*}
+
+\end_inset
+
+其中，
+\begin_inset Formula $\sbf\gamma\cdot\sbf p\sbf\gamma\cdot\sbf\Psi=\sbf p\cdot\sbf\Psi$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\[
+\gamma^{0}\left(\sbf\gamma\cdot\sbf p+m\right)\Psi_{0}+\left(\sbf p+m\sbf\gamma\right)\cdot\sbf\Psi=0
+\]
+
+\end_inset
+
+再代入
+\begin_inset Formula $\gamma^{0}\Psi^{0}=\sbf\gamma\cdot\sbf\Psi$
+\end_inset
+
+，得到：
+\begin_inset Formula 
+\[
+\gamma^{0}\left(\sbf\gamma\cdot\sbf p\right)\Psi_{0}+\sbf p\cdot\sbf\Psi=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于自旋
+\begin_inset Formula $3/2$
+\end_inset
+
+的粒子，一个可能的拉氏量为
 \begin_inset Formula 
 \begin{align}
 \mathcal{L} & =\bar{\Psi}_{\mu}\left(i\gamma^{\tau}\partial_{\tau}-\kappa\right)\Psi_{\mu}-\frac{1}{3}\bar{\Psi}_{\mu}\left(\gamma_{\mu}\partial_{\nu}+\gamma_{\nu}\partial_{\mu}\right)\Psi_{\nu}\label{eq:3}\\
@@ -622,10 +751,6 @@ literal "true"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 但是
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -662,23 +787,20 @@ J_{\nu} & =\bar{\Psi}_{\mu}\gamma_{\nu}\Psi_{\mu}-\frac{1}{3}\left(\bar{\Psi}_{\
 \end_layout
 
 \begin_layout Standard
-自旋
-\begin_inset Formula $\frac{3}{2}$
+ChPT 中使用的自旋
+\begin_inset Formula $3/2$
 \end_inset
 
 粒子的自由拉氏量为：
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\mathcal{L} & =\bar{T}_{\mu}\left(i\gamma^{\mu\nu\rho}\partial_{\rho}-m\gamma^{\mu\nu}\right)T_{\nu}\\
- & \left(i\gamma^{\mu\nu\rho}\partial_{\rho}-m\gamma^{\mu\nu}\right)T_{\nu}=0
+ & \mathcal{L}=\bar{T}_{\mu}\left(i\gamma^{\mu\nu\rho}\partial_{\rho}-m\gamma^{\mu\nu}\right)T_{\nu}\\
+\Rightarrow & \left(i\gamma^{\mu\nu\rho}\partial_{\rho}-m\gamma^{\mu\nu}\right)T_{\nu}=0
 \end{align*}
 
 \end_inset
 
-
+其中，
 \begin_inset Formula 
 \[
 \gamma^{\mu\nu}=\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=-i\sigma^{\mu\nu},\qquad\gamma^{\mu\nu\rho}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\rho}\right\} =-\frac{i}{2}\left\{ \sigma^{\mu\nu},\gamma^{\rho}\right\} 
@@ -686,12 +808,12 @@ J_{\nu} & =\bar{\Psi}_{\mu}\gamma_{\nu}\Psi_{\mu}-\frac{1}{3}\left(\bar{\Psi}_{\
 
 \end_inset
 
-
+运动方程化简：
 \begin_inset Formula 
 \begin{align*}
-\left(i\gamma^{\mu\nu\rho}\partial_{\rho}-m\gamma^{\mu\nu}\right)T_{\nu} & =0\\
-\left(i\left(-\frac{i}{2}\right)\left\{ \sigma^{\mu\nu},\gamma^{\rho}\right\} \partial_{\rho}-m\left(-i\sigma^{\mu\nu}\right)\right)T_{\nu} & =0\\
-\left(\frac{1}{2}\left\{ \sigma^{\mu\nu},\gamma^{\rho}\right\} \partial_{\rho}+im\sigma^{\mu\nu}\right)T_{\nu} & =0
+ & \left(i\gamma^{\mu\nu\rho}\partial_{\rho}-m\gamma^{\mu\nu}\right)T_{\nu}=0\\
+\Rightarrow & \left(i\left(-\frac{i}{2}\right)\left\{ \sigma^{\mu\nu},\gamma^{\rho}\right\} \partial_{\rho}-m\left(-i\sigma^{\mu\nu}\right)\right)T_{\nu}=0\\
+\Rightarrow & \left(\frac{1}{2}\left\{ \sigma^{\mu\nu},\gamma^{\rho}\right\} \partial_{\rho}+im\sigma^{\mu\nu}\right)T_{\nu}=0
 \end{align*}
 
 \end_inset
@@ -853,7 +975,7 @@ p^{\nu}u_{\nu}=0\\
 \end_layout
 
 \begin_layout Standard
-总结：如果把
+相当于：如果把
 \begin_inset Formula $u^{\mu}$
 \end_inset
 
@@ -865,14 +987,11 @@ p^{\nu}u_{\nu}=0\\
 \begin_inset Formula $u_{\nu}$
 \end_inset
 
-只有三个极化矢量，类似有质量光子，Proca 拉氏量。此外四个分量还满足
+只有三个极化矢量，类似有质量光子的情况（Proca 拉氏量）。此外四个分量由
 \begin_inset Formula $\gamma^{\nu}u_{\nu}=0$
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
+联系起来。
 \begin_inset Formula 
 \begin{align*}
 \gamma^{\mu\nu} & =\frac{1}{2}\left[\gamma^{\mu},\gamma^{\nu}\right]=-i\sigma^{\mu\nu},\quad\gamma^{\mu\nu\alpha}=\frac{1}{2}\left\{ \gamma^{\mu\nu},\gamma^{\alpha}\right\} =-i\left\{ \sigma^{\mu\nu},\gamma^{\alpha}\right\} \\
@@ -881,7 +1000,7 @@ p^{\nu}u_{\nu}=0\\
 
 \end_inset
 
-一些化简：
+二次型化简：
 \begin_inset Formula 
 \begin{align*}
 \gamma^{\alpha}\gamma^{\nu}\gamma^{\mu} & =\left(-\gamma^{\nu}\gamma^{\alpha}+2g^{\alpha\nu}\right)\gamma^{\mu}=\gamma^{\nu}\left(\gamma^{\mu}\gamma^{\alpha}+2g^{\mu\alpha}\right)+2g^{\alpha\nu}\gamma^{\mu}=\gamma^{\nu}\gamma^{\mu}\gamma^{\alpha}+2g^{\mu\alpha}\gamma^{\nu}+2g^{\alpha\nu}\gamma^{\mu}.\\
@@ -901,10 +1020,10 @@ p^{\nu}u_{\nu}=0\\
 
 \end_inset
 
-
+所以，
 \begin_inset Formula 
 \[
-\gamma^{\mu\nu\alpha}u_{\alpha}=\left(2\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}-4g^{\mu\nu}\gamma^{\alpha}-2g^{\mu\alpha}\gamma^{\nu}-2g^{\alpha\nu}\gamma^{\mu}\right)u_{\alpha}=-2\left(\gamma^{\nu}u_{\mu}+\gamma^{\mu}u_{\nu}\right)
+\gamma^{\mu\nu\alpha}u_{\alpha}=\left(2\gamma^{\mu}\gamma^{\nu}\gamma^{\alpha}-4g^{\mu\nu}\gamma^{\alpha}-2g^{\mu\alpha}\gamma^{\nu}-2g^{\alpha\nu}\gamma^{\mu}\right)u_{\alpha}=-2\left(\gamma^{\nu}u^{\mu}+\gamma^{\mu}u^{\nu}\right)
 \]
 
 \end_inset
@@ -916,6 +1035,14 @@ p^{\nu}u_{\nu}=0\\
  & =\overline{u}_{\alpha}\left(4g^{\mu\alpha}\gamma^{\nu}+4g^{\alpha\nu}\gamma^{\mu}-2g^{\mu\alpha}\gamma^{\nu}-2g^{\alpha\nu}\gamma^{\mu}\right)\\
  & =2\left(\overline{u}_{\mu}\gamma^{\nu}+\overline{u}_{\nu}\gamma^{\mu}\right)
 \end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\[
+\overline{u}_{\alpha}\gamma^{\alpha\mu\nu}u_{\nu}=\overline{u}_{\alpha}\left[-2\left(\gamma^{\alpha}u^{\mu}+\gamma^{\mu}u^{\alpha}\right)\right]=-2\overline{u}_{\alpha}\gamma^{\mu}u^{\alpha}
+\]
 
 \end_inset
 
@@ -973,7 +1100,7 @@ p^{\nu}u_{\nu} & =0
 \begin_inset Formula $A^{\mu\nu}$
 \end_inset
 
- and 
+ 和
 \begin_inset Formula $B^{\mu}p^{\nu}+C^{\mu}\gamma^{\nu}$
 \end_inset
 
@@ -7570,6 +7697,7 @@ height "1pt"
 \end_layout
 
 \begin_layout Standard
+守恒流的八重态分量为，
 \begin_inset Formula 
 \[
 \frac{1}{2}\tr\left[\overline{B}\gamma^{\mu}.\left[u.\lambda^{a}.u^{\dagger}+u^{\dagger}.\lambda^{a}.u,B\right]\right]
@@ -7577,13 +7705,25 @@ height "1pt"
 
 \end_inset
 
+代入
+\begin_inset Formula $\diag\left(u,d,s\right)$
+\end_inset
 
+矩阵展开后的项类似：
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
 \overline{p}\gamma^{\mu}p\pi^{+}\pi^{-}\to\frac{d}{2f_{\phi}^{2}}
+\]
+
+\end_inset
+
+也就是电磁相互作用拉氏量为，
+\begin_inset Formula 
+\[
+Q_{d}\,e\,\mathcal{A}_{\mu}\,\frac{\pi^{+}\pi^{-}}{2f_{\phi}^{2}}\overline{p}\gamma^{\mu}p
 \]
 
 \end_inset
@@ -8404,15 +8544,43 @@ DF 轴矢项
 
 \end_inset
 
-
+展开后的项类似于：
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{n}\gamma^{\mu}\gamma^{5}p\pi^{-}-\overline{p}\gamma^{\mu}\gamma^{5}n\pi^{+}\to\frac{i\left(D+F\right)\left(u-d\right)}{\sqrt{2}f_{\phi}}
+e\,\mathcal{A}_{\mu}\left(\overline{n}\gamma^{\mu}\gamma^{5}p\pi^{-}-\overline{p}\gamma^{\mu}\gamma^{5}n\pi^{+}\right)\to\frac{i\left(D+F\right)\left(u-d\right)}{\sqrt{2}f_{\phi}}
 \]
 
+\end_inset
+
+厄米二次型
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\gamma^{5}\psi$
+\end_inset
+
+的
+\begin_inset Formula $C$
+\end_inset
+
+宇称为
+\begin_inset Formula $+1$
+\end_inset
+
+，
+\begin_inset Formula $\mathcal{A}_{\mu}$
+\end_inset
+
+的
+\begin_inset Formula $C$
+\end_inset
+
+宇称为
+\begin_inset Formula $-1$
+\end_inset
+
+。
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -9129,6 +9297,14 @@ DF 轴矢项
 +\frac{1}{2}T_{\nu}\gamma^{\nu\alpha\mu}\left(u.\lambda^{a}.u^{\dagger}+u^{\dagger}.\lambda^{a}.u,T_{\alpha}\right)
 \]
 
+\end_inset
+
+使用运动方程之后，
+\begin_inset Formula $\overline{\Delta^{++}}\gamma^{\nu\alpha\mu}\Delta_{\alpha}^{++}$
+\end_inset
+
+相当于
+\begin_inset Formula $\bar{\psi}\gamma^{\mu}\psi$
 \end_inset
 
 
@@ -10868,7 +11044,7 @@ B-M-T 耦合项 C
 \end_layout
 
 \begin_layout Subsection
-meson
+介子
 \end_layout
 
 \begin_layout Standard
